@@ -53,8 +53,8 @@
                       <td class="promoText" align="left" width="232.5">
                         <p>We invite you to explore the opportunities available at NVIDIA. Click on the link to see what your future may hold.</p>
                         <ul>
-                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings_intern_soft&#38;a=secure">Software &#38; Graphics Positions</A></li>
-                        <li><A href="?&#38;t=tces&#38;c=nvidia_openings_intern_hard&#38;a=secure">Hardware &#38; Systems Engineering Positions</A></li></ul>
+                        <li><A href="/?&#38;t=tces&#38;c=nvidia_openings_intern_soft&#38;a=secure">Software &#38; Graphics Positions</A></li>
+                        <li><A href="/?&#38;t=tces&#38;c=nvidia_openings_intern_hard&#38;a=secure">Hardware &#38; Systems Engineering Positions</A></li></ul>
                        <p><strong>We love what we do because we do what we love. Join us.</strong></p>
                       </td>
                   </tr>
