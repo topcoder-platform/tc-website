@@ -74,10 +74,10 @@
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
                                 <td class="sidebarText"><A href="/tc?module=USDCContestDetails&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
-                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item name="contest_start_timestamp" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item name="contest_end_timestamp" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy" name="contest_start_timestamp" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy" name="contest_end_timestamp" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><rsc:item name="handle" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=right><rsc:item name="prize_payment" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=right>$<rsc:item format="#,###0" name="prize_payment" row="<%=resultRow%>"/></td>
                             </tr>
                             </rsc:iterator>
                         </table>
