@@ -189,6 +189,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected boolean hasErrors() {
+        log.debug(errors.size() + " errors found\n"+errors.keySet());
         return !errors.isEmpty();
     }
 
