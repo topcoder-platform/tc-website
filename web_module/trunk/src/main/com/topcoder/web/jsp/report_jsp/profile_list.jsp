@@ -233,9 +233,9 @@
                  var states = document.profileListForm.<%=Constants.REPORT_STATE_KEY%>.value;
                  markSelectedColumns();
                  markUnSelectedColumns();
-                 setRelocateIds();
                  document.profileListForm.<%=Constants.REPORT_STATE_KEY%>.value=addQuotes(states);
                  if (checkRelocate()) {
+                   setRelocateIds();
                    document.profileListForm.submit();
                  } else {
                    alert("You must choose at least one relocate answer.");
@@ -269,9 +269,11 @@
                 var ret="";
                 var list = document.profileListForm.relocateAnswers;
                 for (i=0; i<list.length; i++) {
-                  if(i==list.length-1)
-                    ret+=list[i].value;
-                  else ret+=list[i].value+",";
+                  if (list.options[i].selected==true) {
+                    if(i==list.length-1)
+                      ret+=list[i].value;
+                    else ret+=list[i].value+",";
+                  }
                 }
                 document.profileListForm.<%=Constants.REPORT_RELOCATE_KEY%>.value=ret;
               }
