@@ -27,8 +27,8 @@ public class View extends SurveyData {
         ResultSetContainer rsc = (ResultSetContainer)dataAccess.getData(req).get("answer_info");
         List ret = null;
         if (rsc==null) {
-            ret = new ArrayList();
         } else {
+            ret = new ArrayList(rsc.size());
             ResultSetContainer.ResultSetRow row = null;
             Answer a = null;
             for (Iterator it = rsc.iterator(); it.hasNext();) {
