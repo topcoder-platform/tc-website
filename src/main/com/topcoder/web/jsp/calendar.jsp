@@ -4,7 +4,7 @@
                 <tr> 
                     <td valign="top">
                         <table width="100%" border="0" cellspacing="1" cellpadding="1">
-                            <tr><td colspan="7" class="statTextBig" nowrap="nowrap" height="18">&#160;Match Dates: January</td></tr>
+                            <tr><td colspan="7" class="statTextBig" nowrap="nowrap" height="18">&#160;Match Dates: February</td></tr>
                             
                             <tr> 
                                 <td id="calendarDays" width="15%">S</td>
