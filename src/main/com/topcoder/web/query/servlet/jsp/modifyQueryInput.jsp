@@ -94,7 +94,7 @@
            </TR>
            <TR>
              <TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">
-               <A HREF="javascript: document.ModQueryInputForm.<%=Constants.STEP_PARAM%>.value=<%=Constants.REMOVE_STEP%>; void document.ModQueryInputForm.submit()" class="statText">
+               <A HREF="javascript: document.ModQueryInputForm.<%=Constants.STEP_PARAM%>.value=<%=Constants.NEW_STEP%>; void document.ModQueryInputForm.submit()" class="statText">
                  [add]
                </A>
              </TD>

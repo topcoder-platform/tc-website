@@ -1,7 +1,6 @@
 package com.topcoder.web.query.servlet.jsp.tag;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.query.common.Constants;
+import com.topcoder.web.query.common.InputBean;
 
 import javax.servlet.jsp.JspException;
 import java.util.List;
@@ -9,23 +8,23 @@ import java.util.List;
 
 public class InputSelect extends Select {
 
-    private ResultSetContainer list;
+    private List list;
 
     public InputSelect() {
         super();
     }
 
-    public void setList(ResultSetContainer list) {
+    public void setList(List list) {
         this.list = list;
     }
 
     String getOptionValue(Object o) {
-        return ((ResultSetContainer.ResultSetRow)o).getItem("input_id").toString();
+        return ""+((InputBean)o).getInputId();
     }
 
     String getOptionText(Object o) {
-        return ((ResultSetContainer.ResultSetRow)o).getItem("input_code").toString() + " - " +
-               ((ResultSetContainer.ResultSetRow)o).getItem("input_desc").toString();
+        return ((InputBean)o).getInputCode() + " - " +
+               ((InputBean)o).getInputDesc();
     }
 
     List getSelectOptions() throws JspException {
