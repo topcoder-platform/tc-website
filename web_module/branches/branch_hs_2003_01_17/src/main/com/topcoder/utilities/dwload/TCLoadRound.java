@@ -1487,7 +1487,6 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,rr.coder_id ");                             // 3
             query.append("       ,rr.point_total ");                          // 4
             query.append("       ,rr.room_seed ");                            // 5
-            query.append("       ,rp.paid ");                                 // 6
             query.append("       ,rr.old_rating ");                           // 7
             query.append("       ,rr.new_rating ");                           // 8
             query.append("       ,rr.room_placed ");                          // 9
@@ -1566,14 +1565,9 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,rr.overall_rank ");                        // 28
             query.append("       ,rr.division_placed ");                     // 29
             query.append("       ,rr.division_seed ");                       // 30
-            query.append("       ,pt.payment_type_id");                      // 31
-            query.append("       ,pt.payment_type_desc");                    // 32
             query.append("  FROM room_result rr ");
             query.append("  JOIN room r ON rr.round_id = r.round_id ");
             query.append("   AND rr.room_id = r.room_id ");
-            query.append("  LEFT OUTER JOIN round_payment rp ON rr.round_id = rp.round_id");
-            query.append("              AND rp.coder_id = rr.coder_id");
-            query.append("  LEFT OUTER JOIN payment_type_lu pt ON rp.payment_type_id = pt.payment_type_id");
             query.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
             query.append("   AND rr.round_id = ?");
             query.append("   AND rr.attended = 'Y'");
@@ -1585,14 +1579,13 @@ public class TCLoadRound extends TCLoad {
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            query = new StringBuffer(100);
+            query = new StringBuffer(1024);
             query.append("INSERT INTO room_result ");
             query.append("      (round_id ");                         // 1
             query.append("       ,room_id ");                         // 2
             query.append("       ,coder_id ");                        // 3
             query.append("       ,final_points ");                    // 4
             query.append("       ,room_seed ");                       // 5
-            query.append("       ,paid ");                            // 6
             query.append("       ,old_rating ");                      // 7
             query.append("       ,new_rating ");                      // 8
             query.append("       ,room_placed ");                     // 9
@@ -1617,11 +1610,9 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,overall_rank ");                    // 28
             query.append("       ,division_placed ");                 // 29
             query.append("       ,division_seed ");                   // 30
-            query.append("       ,payment_type_id ");                 // 31
-            query.append("       ,payment_type_desc) ");              // 32
             query.append("VALUES (?,?,?,?,?,?,?,?,?,?,");  // 10 values
             query.append("        ?,?,?,?,?,?,?,?,?,?,");  // 20 values
-            query.append("        ?,?,?,?,?,?,?,?,?,?,?,?)");  // 32 total values
+            query.append("        ?,?,?,?,?,?,?,?,?)");  // 29 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -1652,38 +1643,30 @@ public class TCLoadRound extends TCLoad {
                 psIns.setInt(3, rs.getInt(3));  // coder_id
                 psIns.setFloat(4, rs.getFloat(4));  // point_total
                 psIns.setInt(5, rs.getInt(5));  // room_seed
-                psIns.setFloat(6, rs.getFloat(6));  // paid
-                psIns.setInt(7, rs.getInt(7));  // old_rating
-                psIns.setInt(8, rs.getInt(8));  // new_rating
-                psIns.setInt(9, rs.getInt(9));  // room_placed
-                psIns.setString(10, rs.getString(10));  // attended
-                psIns.setString(11, rs.getString(11));  // advanced
-                psIns.setFloat(12, rs.getFloat(12));  // challenge_points
-                psIns.setFloat(13, rs.getFloat(13));  // system_test_points
-                psIns.setInt(14, rs.getInt(14));  // division_id
-                psIns.setInt(15, rs.getInt(15));  // problems_presented
-                psIns.setInt(16, rs.getInt(16));  // problems_correct
-                psIns.setInt(17, rs.getInt(17));  // problems_failed_by_system_test
-                psIns.setInt(18, rs.getInt(18));  // problems_failed_by_challenge
-                psIns.setInt(19, rs.getInt(19));  // problems_opened
-                psIns.setInt(20, rs.getInt(20));  // problems_left_open
-                psIns.setInt(21, rs.getInt(21));  // challenge_attempts_made
-                psIns.setInt(22, rs.getInt(22));  // challenges_made_successful
-                psIns.setInt(23, rs.getInt(23));  // challenges_made_failed
-                psIns.setInt(24, rs.getInt(24));  // challenge_attempts_received
-                psIns.setInt(25, rs.getInt(25));  // challenges_received_successful
-                psIns.setInt(26, rs.getInt(26));  // challenges_received_failed
-                psIns.setFloat(27, rs.getFloat(27));  // defense_points
-                psIns.setInt(28, rs.getInt(28));  // overall_rank
-                psIns.setInt(29, rs.getInt(29));  // division_placed
-                psIns.setInt(30, rs.getInt(30));  // division_seed
-                if (rs.getInt("payment_type_id") == 0) {  //it's null
-                    psIns.setNull(31, java.sql.Types.DECIMAL);
-                    psIns.setNull(32, java.sql.Types.VARCHAR);
-                } else {
-                    psIns.setInt(31, rs.getInt("payment_type_id"));
-                    psIns.setString(32, rs.getString("payment_type_desc"));
-                }
+                psIns.setInt(6, rs.getInt(6));  // old_rating
+                psIns.setInt(7, rs.getInt(7));  // new_rating
+                psIns.setInt(8, rs.getInt(8));  // room_placed
+                psIns.setString(9, rs.getString(9));  // attended
+                psIns.setString(10, rs.getString(10));  // advanced
+                psIns.setFloat(11, rs.getFloat(11));  // challenge_points
+                psIns.setFloat(12, rs.getFloat(12));  // system_test_points
+                psIns.setInt(13, rs.getInt(13));  // division_id
+                psIns.setInt(14, rs.getInt(14));  // problems_presented
+                psIns.setInt(15, rs.getInt(15));  // problems_correct
+                psIns.setInt(16, rs.getInt(16));  // problems_failed_by_system_test
+                psIns.setInt(17, rs.getInt(17));  // problems_failed_by_challenge
+                psIns.setInt(18, rs.getInt(18));  // problems_opened
+                psIns.setInt(19, rs.getInt(19));  // problems_left_open
+                psIns.setInt(20, rs.getInt(20));  // challenge_attempts_made
+                psIns.setInt(21, rs.getInt(21));  // challenges_made_successful
+                psIns.setInt(22, rs.getInt(22));  // challenges_made_failed
+                psIns.setInt(23, rs.getInt(23));  // challenge_attempts_received
+                psIns.setInt(24, rs.getInt(24));  // challenges_received_successful
+                psIns.setInt(25, rs.getInt(25));  // challenges_received_failed
+                psIns.setFloat(26, rs.getFloat(26));  // defense_points
+                psIns.setInt(27, rs.getInt(27));  // overall_rank
+                psIns.setInt(28, rs.getInt(28));  // division_placed
+                psIns.setInt(29, rs.getInt(29));  // division_seed
 
                 retVal = psIns.executeUpdate();
                 count += retVal;
