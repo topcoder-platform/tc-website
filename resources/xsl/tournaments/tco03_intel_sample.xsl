@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>Intel is a proud sponsor of TopCoder Coding Competitions</title>
+<title>Intel Developer Services</title>
 
 <xsl:call-template name="CSS"/>      
 
