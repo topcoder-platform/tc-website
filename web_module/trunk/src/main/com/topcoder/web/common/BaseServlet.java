@@ -5,6 +5,7 @@ import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.distCache.CacheClientPool;
 import com.topcoder.web.common.security.*;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
@@ -34,6 +35,7 @@ public abstract class BaseServlet extends HttpServlet {
     public static final String URL_KEY = "url";
     public static final String NEXT_PAGE_KEY = "nextpage";
     public static final String SESSION_INFO_KEY = "sessionInfo";
+    public static final String USER_SUBJECT_PREFIX = "user_subject:";
 
     private static Logger log = Logger.getLogger(BaseServlet.class);
 
@@ -274,8 +276,17 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected TCSubject getUser(long id) throws Exception {
-        PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-        TCSubject user = pmgr.getUserSubject(id);
+        TCSubject user = null;
+
+        try {
+            user = (TCSubject)(CacheClientPool.getPool().getClient().get(USER_SUBJECT_PREFIX+id));
+        } catch (Exception e) {
+            log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
+        }
+        if (user == null) {
+            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+            user = pmgr.getUserSubject(id);
+        }
         return user;
     }
 }
