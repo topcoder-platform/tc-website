@@ -7,6 +7,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.email.Email;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.ApplicationServer;
@@ -54,6 +55,9 @@ public class Activate extends Base {
                 char status = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 if (Arrays.binarySearch(UNACTIVE_STATI, status) > 0) {
                     doLegacyCrap((int)userId);
+                    Email email = (Email) createEJB(getInitialContext(), Email.class);
+                    email.setStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                            EmailActivate.ACTIVE_STATUS, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     user.setStatus(userId, ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
                     setNextPage(Constants.ACTIVATE);
                     setIsNextPageInContext(true);
