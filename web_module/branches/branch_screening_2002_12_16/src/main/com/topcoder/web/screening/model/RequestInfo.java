@@ -30,7 +30,7 @@ public class RequestInfo extends BaseModel {
         return user;
     }
 
-    boolean isLoggedIn() {
+    public boolean isLoggedIn() {
         if(user == null) return false;
 
         return (user.getId() != User.USER_ANONYMOUS_ID);
