@@ -77,7 +77,11 @@ if (o!=null) {
                         if (myTime>times[i]) myTime = times[i];
                       }
                     }
-                    text = convertToTimeString(myTime);
+                    if ((countDown==true&&myTime==0)||(countDown==false&&myTime==times[i])) {
+                        text = "Expired";
+                    } else {
+                        text = convertToTimeString(myTime);
+                    }
                 }
                 if (top.mainFrame) {
                     updateDivOrSpan(top.mainFrame.document, ids[i], text);
