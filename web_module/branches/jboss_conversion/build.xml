@@ -251,8 +251,6 @@
      <target name="package-EJB-FileConversionBean" depends="compile">
          <jar jarfile="${ejb_jars}/FileConversion.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/file/convert/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/fileconversion/**"/>
              <metainf dir="${java}/com/topcoder/web/ejb/fileconversion" includes="*.xml"/>
          </jar>
@@ -261,10 +259,7 @@
      <target name="package-EJB-QueryServicesBean" depends="compile">
          <jar jarfile="${ejb_jars}/QueryServices.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/query/*.class"/>
@@ -276,8 +271,6 @@
          <jar jarfile="${ejb_jars}/JobPostingServices.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/jobposting/*.class"/>
              <metainf dir="${java}/com/topcoder/web/ejb/jobposting" includes="*.xml"/>
          </jar>
@@ -285,9 +278,6 @@
 
      <target name="package-EJB-ResumeServicesBean" depends="compile">
          <jar jarfile="${ejb_jars}/ResumeServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/resume/bean/Resume.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
@@ -300,9 +290,6 @@
      <target name="package-EJB-ReportingBean" depends="compile">
          <jar jarfile="${ejb_jars}/Reporting.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/report/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/ejb/Reporting/*.class"/>
              <metainf dir="${java}/com/topcoder/ejb/Reporting" includes="*.xml"/>
          </jar>
@@ -314,10 +301,6 @@
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/Sort.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/stat/coder/Coder.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/docGen/xml/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/ejb/Search/*.class"/>
              <metainf dir="${java}/com/topcoder/ejb/Search" includes="*.xml"/>
          </jar>
@@ -327,10 +310,6 @@
          <jar jarfile="${ejb_jars}/PactsServices.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/messaging/QueueMessageSender.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*.class"/>
              <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
@@ -340,8 +319,6 @@
      <target name="package-EJB-JavaDocServicesBean" depends="compile">
          <jar jarfile="${ejb_jars}/JavaDocServices.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/ejb/JavaDocServices/*.class"/>
              <metainf dir="${java}/com/topcoder/ejb/JavaDocServices" includes="*.xml"/>
          </jar>
@@ -350,7 +327,6 @@
      <target name="package-EJB-AuthenticationServicesBean" depends="compile">
          <jar jarfile="${ejb_jars}/AuthenticationServices.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/*.class"/>
              <metainf dir="${java}/com/topcoder/ejb/AuthenticationServices" includes="*.xml"/>
          </jar>
@@ -358,7 +334,6 @@
 
      <target name="package-EJB-EmailServicesBean" depends="compile">
          <jar jarfile="${ejb_jars}/EmailServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/EmailServices/*.class"/>
              <metainf dir="${shared}/com/topcoder/shared/ejb/EmailServices" includes="*.xml"/>
          </jar>
@@ -370,9 +345,6 @@
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/error/TCException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/ejb/DataCache/*.class"/>
              <metainf dir="${java}/com/topcoder/ejb/DataCache" includes="*.xml"/>
          </jar>
@@ -383,9 +355,6 @@
              <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/TCContext.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/ejb/Util/*.class"/>
              <metainf dir="${java}/com/topcoder/ejb/Util" includes="*.xml"/>
          </jar>
@@ -395,8 +364,6 @@
          <jar jarfile="${ejb_jars}/Coder.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/coder/*.class"/>
              <metainf dir="${java}/com/topcoder/web/ejb/coder" includes="*.xml"/>
          </jar>
@@ -406,10 +373,6 @@
          <jar jarfile="${ejb_jars}/Demographic.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/TCContext.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/demographic/*.class"/>
              <metainf dir="${java}/com/topcoder/web/ejb/demographic" includes="*.xml"/>
          </jar>
@@ -419,9 +382,6 @@
          <jar jarfile="${ejb_jars}/User.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/*.class"/>
              <metainf dir="${java}/com/topcoder/web/ejb/user" includes="*.xml"/>
          </jar>
@@ -429,8 +389,6 @@
 
      <target name="package-EJB-SchoolBean" depends="compile">
          <jar jarfile="${ejb_jars}/School.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
@@ -442,7 +400,6 @@
 
      <target name="package-EJB-RatingBean" depends="compile">
          <jar jarfile="${ejb_jars}/Rating.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/rating/*.class"/>
@@ -452,10 +409,8 @@
 
      <target name="package-EJB-SurveyBean" depends="compile">
          <jar jarfile="${ejb_jars}/Survey.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/survey/*.class"/>
              <metainf dir="${java}/com/topcoder/web/ejb/survey" includes="*.xml"/>
          </jar>
@@ -463,10 +418,8 @@
 
      <target name="package-EJB-ProblemRatingBean" depends="compile">
          <jar jarfile="${ejb_jars}/ProblemRatingServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/problemrating/*.class"/>
              <metainf dir="${java}/com/topcoder/web/ejb/problemrating" includes="*.xml"/>
          </jar>
@@ -475,8 +428,6 @@
 
      <target name="package-EJB-EmailBean" depends="compile">
          <jar jarfile="${ejb_jars}/Email.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
@@ -488,8 +439,6 @@
 
      <target name="package-EJB-AddressBean" depends="compile">
          <jar jarfile="${ejb_jars}/Address.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
@@ -501,7 +450,6 @@
 
      <target name="package-EJB-RBoard" depends="compile">
          <jar jarfile="${ejb_jars}/RBoard.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/rboard/*.class"/>
@@ -511,8 +459,6 @@
 
      <target name="package-EJB-PhoneBean" depends="compile">
          <jar jarfile="${ejb_jars}/Phone.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
@@ -524,11 +470,8 @@
 
      <target name="package-EJB-ProductBean" depends="compile">
          <jar jarfile="${ejb_jars}/Product.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/product/*.class"/>
@@ -539,11 +482,8 @@
      <target name="package-EJB-UserEvent" depends="compile">
          <jar jarfile="${ejb_jars}/UserEvent.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/userevent/*.class"/>
              <metainf dir="${java}/com/topcoder/web/ejb/userevent" includes="*.xml"/>
          </jar>
@@ -551,8 +491,6 @@
 
      <target name="package-EJB-NoteBean" depends="compile">
          <jar jarfile="${ejb_jars}/Note.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
@@ -564,8 +502,6 @@
 
      <target name="package-EJB-SessionBean" depends="compile">
          <jar jarfile="${ejb_jars}/Session.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
@@ -577,11 +513,8 @@
 
      <target name="package-EJB-SessionProfileBean" depends="compile">
          <jar jarfile="${ejb_jars}/SessionProfile.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/sessionprofile/*.class"/>
@@ -591,8 +524,6 @@
 
      <target name="package-EJB-TermsOfUseBean" depends="compile">
          <jar jarfile="${ejb_jars}/TermsOfUse.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
@@ -604,8 +535,6 @@
 
      <target name="package-EJB-CompanyBean" depends="compile">
          <jar jarfile="${ejb_jars}/Company.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
@@ -617,8 +546,6 @@
 
      <target name="package-EJB-ScreeningCoderBean" depends="compile">
          <jar jarfile="${ejb_jars}/ScreeningCoder.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/corp/ejb/coder/*.class"/>
@@ -629,16 +556,9 @@
      <target name="package-EJB-UserServicesBean" depends="compile">
          <jar jarfile="${ejb_jars}/UserServices.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/error/TCException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/docGen/xml/RecordTag.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/docGen/xml/XMLDocument.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/TCContext.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared.util.ApplicationServer.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/password/PasswordRemoteHome.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/password/PasswordRemote.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/UserHome.class"/>
@@ -809,7 +729,6 @@
              </fileset>
              <classes dir="${classes}">
                  <include name="com/topcoder/web/query/**"/>
-                 <include name="com/topcoder/shared/**/*.class"/>
                  <include name="com/topcoder/common/**/*.class"/>
                  <include name="com/topcoder/web/common/**/*.class"/>
                  <include name="com/topcoder/security/**/*.class"/>
@@ -872,8 +791,6 @@
                  <include name="com/topcoder/web/corp/**"/>
                  <include name="com/topcoder/web/common/**"/>
                  <include name="com/topcoder/web/ejb/**"/>
-                 <include name="com/topcoder/shared/**"/>
-                 <include name="com/topcoder/shared/**/*.class"/>
                  <include name="com/topcoder/security/**/*.class"/>
                  <include name="com/topcoder/common/web/util/Data.class"/>
                  <include name="com/topcoder/common/web/render/*.class"/>
@@ -1032,9 +949,6 @@
          <jar jarfile="${ejb_jars}/ContestAdminServices.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/Group.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/ejb/ContestAdminServices/*.class"/>
              <metainf dir="${java}/com/topcoder/ejb/ContestAdminServices" includes="*.xml"/>
          </jar>
@@ -1043,9 +957,6 @@
                  <include name="**/*.jsp"/>
              </fileset>
              <classes dir="${classes}">
-                 <include name="com/topcoder/shared/util/"/>
-                 <include name="com/topcoder/shared/docGen/"/>
-                 <include name="com/topcoder/shared/dataAccess/"/>
                  <include name="com/topcoder/web/servlet/admin/"/>
                  <include name="com/topcoder/common/web/"/>
                  <include name="com/topcoder/web/common/"/>
@@ -1170,8 +1081,6 @@
                  <include name="public_right.jsp"/>
              </fileset>
              <classes dir="${classes}">
-                 <include name="com/topcoder/shared/util/"/>
-                 <include name="com/topcoder/shared/dataAccess/"/>
                  <include name="com/topcoder/web/common/"/>
                  <include name="com/topcoder/web/privatelabel/"/>
              </classes>
