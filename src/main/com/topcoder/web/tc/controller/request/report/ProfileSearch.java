@@ -39,7 +39,54 @@ public class ProfileSearch extends Base {
 
     private String buildQuery(TCRequest request){
         String skills = buildSkillsQuery(request);
-        return skills;
+        String demo = buildDemoQuery(request);
+        StringBuffer query = new StringBuffer(5000);
+        query.append(skills);
+        if(demo.length() > 0){
+            query.append(" AND coder_id IN (");
+            query.append(demo);
+            query.append(")");
+        }
+        return query.toString();
+    }
+    private String buildDemoQuery(TCRequest request){
+        Enumeration e = request.getParameterNames();
+        ArrayList demos = new ArrayList();
+        StringBuffer query = new StringBuffer(1000);
+        int cnt = 0;
+        while (e.hasMoreElements()) {
+            String param = (String) e.nextElement();
+            String[] values = request.getParameterValues(param);
+            if (param.startsWith("demo_") && values != null && values.length > 0) {
+                int demoId = Integer.parseInt(param.substring(5));
+                if(cnt > 0){
+                    query.append(" AND coder_id IN (");
+                }
+                query.append("SELECT coder_id FROM demographic_response WHERE demographic_question_id = ");
+                query.append(demoId);
+                query.append(" AND demographic_answer_id ");
+                int ans = Integer.parseInt(values[0]);
+                if(values.length == 1){
+                    query.append(" = ");
+                }else{
+                    query.append(" IN (");
+                }
+                query.append(ans);
+                for(int i = 1; i<values.length; i++){
+                    ans = Integer.parseInt(values[i]);
+                    query.append(", ");
+                    query.append(ans);
+                }
+                if(values.length > 1){
+                    query.append(")");
+                }
+                cnt++;
+            }
+        }
+        for(int i = 1; i<cnt; i++){
+            query.append(")");
+        }
+        return query.toString();
     }
     private String buildSkillsQuery(TCRequest request){
         Enumeration e = request.getParameterNames();
@@ -59,7 +106,7 @@ public class ProfileSearch extends Base {
                 int skill2 = Integer.parseInt(s2.substring(s2.indexOf("_")+1));
                 return skill1-skill2;
             }});
-        StringBuffer query = new StringBuffer(500);
+        StringBuffer query = new StringBuffer(1000);
         for(int i = 0; i<skills.size(); i++){
             String s = (String)skills.get(i);
             int idx=s.indexOf('_');
