@@ -211,7 +211,7 @@ public class PlacementInfoDetail extends Base {
             noteRequest.setContentHandle("has_notes");
             noteRequest.setProperty(Constants.USER_ID, String.valueOf(userId));
             ResultSetContainer hasNotesRSC = (ResultSetContainer)getDataAccess().getData(noteRequest).get("has_notes");
-            getRequest().setAttribute("has_notes", new Boolean(hasNotesRSC.getIntItem(0, "has_notes")>0));
+            getRequest().setAttribute("has_notes", new Boolean(hasNotesRSC.getStringItem(0, "has_notes").equals("1")));
 
             ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
 
