@@ -13,7 +13,7 @@ import java.util.Map;
 public class Questions extends Base {
     protected void businessProcessing() throws TCWebException {
         try{
-            processResults();
+            processQuestions();
             setNextPage(Constants.PROBLEM_RATING_QUESTIONS);
             setIsNextPageInContext(true);
         }catch(NavigationException e){
