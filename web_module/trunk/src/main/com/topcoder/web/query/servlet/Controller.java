@@ -68,6 +68,8 @@ public class Controller extends HttpServlet {
                 task = (Task) taskClass.newInstance();
                 task.setInitialContext(ctx);
 
+                task.servletPreAction(request, response);
+
                 Enumeration parameterNames = request.getParameterNames();
                 while (parameterNames.hasMoreElements()) {
                     String parameterName = parameterNames.nextElement().toString();
@@ -78,8 +80,6 @@ public class Controller extends HttpServlet {
                 }
 
                 task.setServletPath(request.getContextPath() + request.getServletPath());
-
-                task.servletPreAction(request, response);
 
                 task.process(stepName);
 
