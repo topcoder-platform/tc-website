@@ -19,7 +19,7 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.24.05<br>9:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=srm232_prob">SRM 232 - Problem Set & Analysis</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=srm232_prob">SRM 232 - Problem Set & Analysis</A></span>&#160;by <A href="/stat?c=member_profile&cr=10407399">timmac</A><br><br>
       This match seemed to have a lot less challenges than other matches, but the systests were brutal for many coders, especially on the division 1 650 and 900.
       </td>
    </tr>
@@ -79,7 +79,7 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.21.05<br>11:20 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=srm231_prob">SRM 231 - Problem Set & Analysis</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=srm231_prob">SRM 231 - Problem Set & Analysis</A></span>&#160;by <A href="/stat?c=member_profile&cr=159052">lbackstrom</A><br><br>
       SRM 231 gave division 2 coders a welcome reprieve from the difficulties of the last few matches.
       </td>
    </tr>
@@ -148,7 +148,7 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>02.09.05<br>4:54 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=complexity1">Computational Complexity: Section 1</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=complexity1">Computational Complexity: Section 1</A></span>&#160;by <A href="/stat?c=member_profile&cr=8357090">misof</A><br><br>
       "In this article I'll try to introduce you to the area of computation complexity."
    </tr>
    <tr><td class="newsLinksCell">
@@ -171,7 +171,7 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.09.05<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=srm230_prob">SRM 230 - Problem Set & Analysis</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=srm230_prob">SRM 230 - Problem Set & Analysis</A></span>&#160;by <A href="/stat?c=member_profile&cr=251317">brett1479</A><br><br>
       Last night's SRM was one of the most exciting in recent history.  <b>SnapDragon</b>, <b>tomek</b>, <b>JohnDethridge</b>, and <b>radeye</b> were neck and neck till the very end.
       </td>
    </tr>
