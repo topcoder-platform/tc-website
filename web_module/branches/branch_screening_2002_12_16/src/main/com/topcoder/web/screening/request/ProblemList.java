@@ -3,6 +3,8 @@ package com.topcoder.web.screening.request;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.shared.security.User;
+import com.topcoder.web.screening.model.ProblemInfo;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -19,13 +21,14 @@ public class ProblemList extends BaseProcessor {
      * @throws Exception
      */
     public void process() throws Exception {
+        User user = getAuthentication().getActiveUser();
         InitialContext context = new InitialContext();
         DataAccessInt dAccess = new DataAccess(
             (DataSource)context.lookup(Constants.DATA_SOURCE));
         
         Request dr = new Request();
         dr.setContentHandle("problemList");
-        dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
+        dr.setProperty("uid", String.valueOf(user.getId()));
         
         Map map = dAccess.getData(dr);
 
@@ -37,15 +40,20 @@ public class ProblemList extends BaseProcessor {
             ArrayList list = new ArrayList();
             if(result != null && result.size() > 0){
                 String round;
-                int start=0;
-                while(start < result.size()){
-                    round = result.getItem(start,"session_round_id").toString();
-                    int end = start; 
-                    while(end < result.size() && 
-                        round.equals(result.getItem(end,"session_round_id").toString()))
-                            end++;
-                    list.add(result.subList(start,end));
-                    start = end;
+                int item=0;
+                while(item < result.size()){
+                    ArrayList subList = new ArrayList(3);
+                    round = result.getItem(item,"session_round_id").toString();
+                    while(item < result.size() && 
+                        round.equals(result.getItem(item,"session_round_id").toString())){
+                            String problem = result.getItem(item,"problem_id").toString();
+                            subList.add(
+                                ProblemInfo.createProblemInfo(user,
+                                                              Long.parseLong(round),
+                                                              Long.parseLong(problem)));
+                            item++;
+                    }
+                    list.add(subList);
                 }
             }
             

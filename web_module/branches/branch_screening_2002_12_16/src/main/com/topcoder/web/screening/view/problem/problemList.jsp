@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page errorPage="/errorPage.jsp"
          import="com.topcoder.web.screening.common.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+                 com.topcoder.web.screening.model.ProblemInfo" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
@@ -60,27 +60,29 @@ function getProblemDetail(id) {
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Overall Accuracy %</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Sub. Acc. %</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Sub. %</B></TD>		       		       		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Category</B></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Algorithmic Category</B></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Business Category</B></TD>		       
 	        </TR>          
         <jsp:useBean id='problemList' type='java.util.List' scope='request' />
         <screen:nestedListIterator id="subSet" list="<%=problemList%>">
-            <% ResultSetContainer.ResultSetRow firstRow = (ResultSetContainer.ResultSetRow)subSet.get(0); %>
+            <% ProblemInfo firstProblem = (ProblemInfo)subSet.get(0); %>
             <TR>
-                <TD COLSPAN="7" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<B><screen:resultSetItem row="<%=firstRow%>" name="round_name" /></B></TD>
+                <TD COLSPAN="7" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<B><jsp:getProperty name='firstProblem' property='roundName' /></B></TD>
             </TR>
-            <screen:resultSetRowIterator id="row" list="<%= subSet %>">
+            <screen:problemInfoIterator id="problem" list="<%= subSet %>">
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="division_desc" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="difficulty_level" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<jsp:getProperty name='problem' property='roundId' />,<jsp:getProperty name='problem' property='problemId' />')" CLASS="bodyText"><jsp:getProperty name='problem' property='problemName' /></A></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name='problem' property='divisionDesc' /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name='problem' property='difficultyDesc' /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name='problem' property='overallAccuracy' />%</TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name='problem' property='submissionAccuracy' />%</TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name='problem' property='submission' />%</TD>		       		       		       		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name='problem' property='algorithmicCategoryList' /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name='problem' property='businessCategoryList' /></TD>		       
 	        </TR>
-            </screen:resultSetRowIterator>
+            </screen:problemInfoIterator>
             <TR>
-                <TD COLSPAN="7"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                <TD COLSPAN="8"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
             </TR>
         </screen:nestedListIterator>
         </TABLE>                 
