@@ -130,15 +130,15 @@
     <property name="typesafeenum.version" value="1.0"/>
     <property name="typesafeenum.jar.name" value="typesafe_enum.jar"/>
     <property name="typesafeenum.path" value="typesafe_enum/${typesafeenum.version}"/>
-    <property name="typesafeenum.jar" value="${jarsdir}/tcs/${typesafeenum.path}/${typesafeenum.jar.name}"/>
+    <property name="typesafeenum.jar" value="${jardir}/tcs/${typesafeenum.path}/${typesafeenum.jar.name}"/>
     <property name="workdays.version" value="1.0"/>
     <property name="workdays.jar.name" value="workdays.jar"/>
     <property name="workdays.path" value="workdays/${workdays.version}"/>
-    <property name="workdays.jar" value="${jarsdir}/tcs/${workdays.path}/${workdays.jar.name}"/>
+    <property name="workdays.jar" value="${jardir}/tcs/${workdays.path}/${workdays.jar.name}"/>
     <property name="projectphases.version" value="1.0"/>
     <property name="projectphases.jar.name" value="project_phases.jar"/>
     <property name="projectphases.path" value="project_phases/${projectphases.version}"/>
-    <property name="projectphases.jar" value="${jarsdir}/tcs/${projectphases.path}/${projectphases.jar.name}"/>
+    <property name="projectphases.jar" value="${jardir}/tcs/${projectphases.path}/${projectphases.jar.name}"/>
 
     <path id="buildlibs">
         <pathelement location="${build_classdir}"/>

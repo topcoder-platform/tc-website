@@ -36,6 +36,8 @@ import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
 import com.topcoder.util.log.LogFactory;
+import com.topcoder.apps.review.TCPhase;
+import com.topcoder.apps.review.TCWorkdays;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -1647,6 +1649,10 @@ public class ProjectTrackerBean implements SessionBean {
             Common.close(ps);
             ps = null;
 
+            if (dates == null) {
+                dates = calcDates(projectTypeId);
+            }
+
             for (int i = 0; i < phaseArr.length; i++) {
                 Date startDate;
                 Date endDate;
@@ -1929,6 +1935,30 @@ public class ProjectTrackerBean implements SessionBean {
             Common.close(conn, ps, rs);
         }
         return projectId;
+    }
+
+    private Date[] calcDates(long projectTypeId) {
+        // fix!
+        java.util.Date startDate = new java.util.Date();
+        com.topcoder.project.phases.Project project = new com.topcoder.project.phases.Project(startDate, new TCWorkdays());
+        TCPhase[] phases = new TCPhase[10];
+        for (int i=0; i < 10; i++) {
+            phases[i] = new TCPhase(project, startDate, i+1);
+            if (i > 0) {
+                phases [i].addDependency(phases[i-1]);
+            }
+        }
+
+        Date[] result = new Date [11];
+
+        for (int i=0; i < 10; i++) {
+            result[i].setTime(phases[i].getStartDate().getTime());
+
+        }
+        result[10].setTime(phases [10].calcEndDate().getTime());
+        return result;
+
+
     }
 
     /**
