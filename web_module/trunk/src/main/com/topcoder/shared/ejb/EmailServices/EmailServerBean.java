@@ -769,7 +769,7 @@ public class EmailServerBean extends BaseEJB {
         java.sql.PreparedStatement ps = null;
         StringBuffer sqlStmt = new StringBuffer(500);
 
-        log.debug("clearJobControlIds(" + controlId + ") requested");
+        //log.debug("clearJobControlIds(" + controlId + ") requested");
 
         try {
             conn = DBMS.getConnection("TC_EMAIL");
