@@ -23,7 +23,7 @@ public class Demog extends FullRegDemog {
 
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);
-        if (((FullRegInfo) info).getCoderType() == Constants.STUDENT) {
+       /* if (((FullRegInfo) info).getCoderType() == Constants.STUDENT) {
             if (!(info.getEmail().toLowerCase().endsWith("columbia.edu") ||
                     info.getEmail().toLowerCase().endsWith("nyu.edu") ||
                     info.getEmail().equals("gpaul@topcoder.com") ||
@@ -36,8 +36,8 @@ public class Demog extends FullRegDemog {
                         info.getEmail().equals("gpaul@topcoder.com") ||
                         info.getEmail().equals("mluce@topcoder.com")))
                     addError(Constants.EMAIL, "Please provide a valid email address ending in either doubleclick.net or abacus-direct.com");
-            }
-        //we're not bothering with an email confirmation field, so don't require it
+            } */
+        //we're not bothering with an email confirmation field, so don't require it 
         removeError(Constants.EMAIL_CONFIRM);
     }
 }
