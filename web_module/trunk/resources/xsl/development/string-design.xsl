@@ -63,7 +63,7 @@
 							<p><strong>Overview</strong><br />
 							The String Class Component is designed to extend the functionality of the String Class manipulation methods available in Java. While Java does provide some useful String Class manipulation methods, there are additional convenience methods that would aide the development process.
                             </p><p>
-                            Examples of additional String Class functionality include switching case from uppercase to lowercase, checking if the object is null, setting only the first character of the String Class to uppercase.
+                            Examples of additional String functionality include checking if the object is null and setting the first character of the string to uppercase.
 							</p>
 
 							<p><strong>Project Type</strong><br />

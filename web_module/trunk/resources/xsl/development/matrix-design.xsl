@@ -56,12 +56,12 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
-							<h1 class="devSubhead"><strong>Matrix: Design</strong></h1>
+							<h1 class="devSubhead"><strong>Math Matrix: Design</strong></h1>
                                     
 							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Math Matrix: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
-							The Math Math Matrix component is designed to give developers the ability to set up and evaluate complex matrices. The Math Matrix provides percentages to evaluate a score based on the total score. The component also handles weighted calculations by line item and groups of line items. This allows a developer to give a higher or lower weight to different parts of the Math Matrix.
+							The Math Matrix component is designed to give developers the ability to set up and evaluate complex matrices. The Math Matrix provides percentages to evaluate a score based on the total score. The component also handles weighted calculations by line item and groups of line items. This allows a developer to give a higher or lower weight to different parts of the Math Matrix.
                             </p><p>
                             An example usage for the complex Math Matrix is the TopCoder Software review scorecards used to evaluate component design and development projects. The scorecards have a series of questions that are grouped by subject area. Each subject area has a weight assigned to it. Each question is a percentage total weight for that group which is a percentage of the total weight for the scorecard.
 							</p>
