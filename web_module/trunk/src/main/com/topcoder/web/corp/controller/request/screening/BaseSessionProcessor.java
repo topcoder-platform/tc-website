@@ -9,7 +9,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.TestSessionInfo;
-import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
@@ -51,6 +50,7 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
         info.setEndDay(getRequest().getParameter(Constants.END_DAY));
         info.setEndYear(getRequest().getParameter(Constants.END_YEAR));
         info.setEndHour(getRequest().getParameter(Constants.END_HOUR));
+        log.debug("candidate email: " + getRequest().getParameter(Constants.CANDIDATE_EMAIL));
         info.setCandidateEmail(getRequest().getParameter(Constants.CANDIDATE_EMAIL));
         info.setRepEmail(getRequest().getParameter(Constants.REP_EMAIL));
     }

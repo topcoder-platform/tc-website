@@ -23,14 +23,13 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
     protected final static Logger log = Logger.getLogger(TestResults.class);
 
     private long usage;
-    public long getUsageType()
-    {
+
+    public long getUsageType() {
         return usage;
     }
-    
+
     protected void businessProcessing() throws TCWebException {
-        try
-        {
+        try {
             Long usageType;
             DataAccessInt dAccess = Util.getDataAccess(false);
             Request dr = new Request();
@@ -40,33 +39,26 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
 
             ResultSetContainer access = (ResultSetContainer) map.get("usage_type");
 
-            if(access.getRowCount() == 0)
-            {
+            if (access.getRowCount() == 0) {
                 usageType = new Long(Constants.USAGE_TYPE_TESTING);
-            }
-            else
-            {
+            } else {
                 usageType = new Long(access.getLongItem(0, "usage_type_id"));
             }
 
-            log.info("USAGE TYPE:" + usageType.longValue());
+            log.debug("USAGE TYPE:" + usageType.longValue());
             usage = usageType.longValue();
             
             //maybe set attribute here?
             getRequest().setAttribute(Constants.USAGE_TYPE, usageType);
-            
+
             screeningProcessing();
-        }
-        catch(TCWebException ex)
-        {
+        } catch (TCWebException ex) {
             throw ex;
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             throw new TCWebException(e);
         }
     }
-    
+
     abstract protected void screeningProcessing() throws TCWebException;
 
     /**
@@ -81,7 +73,7 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
      */
     protected String buildProcessorURL(String processorName, String referrer) {
         StringBuffer buf = new StringBuffer();
-        buf.append(((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath());
+        buf.append(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath());
         buf.append("?");
         buf.append(Constants.MODULE_KEY + "=" + processorName);
         if (referrer != null) {
