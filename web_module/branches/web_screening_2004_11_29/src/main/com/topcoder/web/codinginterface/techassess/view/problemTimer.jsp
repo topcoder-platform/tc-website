@@ -69,11 +69,10 @@ if (o!=null) {
                     if (startTimes[i]==0) {
                       myTime = 0;
                     } else {
-                      if (countDown==true)
+                      if (countDown==true) {
                         myTime = endTimes[i] - correctedLocalTime.getTime();
-//                        alert(endTimes[i]+"\n"+correctedLocalTime.getTime()+"\n"+myTime);
                         if (myTime < 0) myTime = 0;
-                      else {
+                      } else {
                         myTime = correctedLocalTime.getTime()-startTimes[i];
                         if (myTime>times[i]) myTime = times[i];
                       }
