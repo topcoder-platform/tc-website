@@ -94,7 +94,7 @@
 <B>When:</B> October 8th - November 23rd<BR/>
 <B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
 <B>Total Prize:</B> $150,000<BR/><BR/>		
-        <TABLE WIDTH="300" CELLSPACING="0" CELLPADDING="0" BORDER="0">
+        <TABLE WIDTH="90%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
 			<TR>
                 <TD WIDTH="150" CLASS="bodyText" VALIGN="top">
                 <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>
