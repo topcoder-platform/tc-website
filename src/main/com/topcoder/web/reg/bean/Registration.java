@@ -1745,7 +1745,7 @@ public class Registration
                 }
                 for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
                     userGroup = (GroupPrincipal) iterator.next();
-                    if (anonGroup.getName().equals("Users")) {
+                    if (userGroup.getName().equals("Users")) {
                         break;
                     }
                 }
