@@ -6,12 +6,15 @@ import com.topcoder.web.privatelabel.Constants;
 
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.servlet.request.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * @author dok
  * Date: Jan 22, 2004
  */
 public class Confirm extends FullRegConfirm {
+    protected static Logger log = Logger.getLogger(Confirm.class);
+    
     protected void setNextPage() {
 
         if (hasErrors()) {
@@ -35,6 +38,7 @@ public class Confirm extends FullRegConfirm {
         UploadedFile file = req.getUploadedFile(Constants.RESUME);
         
         if (file != null) {
+                log.info("FOUND RESUME");
                 ((ResumeRegInfo)info).setUploadedFile(file);
             }
         
