@@ -114,7 +114,7 @@ May 30, 2002</P>
   </tr>
   <tr>
     <td rowspan="3" class="bodyText">
-      <b>Division 1</b>
+      <b>Div-I</b>
     </td>
     <td align="center" class="bodyText">Level 1</td>
     <td align="center" class="bodyText">
@@ -186,7 +186,7 @@ May 30, 2002</P>
   </tr>
   <tr>
     <td rowspan="3" class="bodyText">
-      <b>Division 1</b>
+      <b>Div-II</b>
     </td>
     <td align="center" class="bodyText">Level 1</td>
     <td align="center" class="bodyText">
