@@ -113,7 +113,7 @@ if (!rsc.isEmpty()) {
                                 <TD CLASS="statText" VALIGN="top">
 
 <% if (vieweeHasImage) { %>
-                                    <IMG SRC="<bean:write name="resultRow" property='<%= "item[" + 22 /*"image path"*/ + "]" %>'/>" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
+                                    <IMG SRC="<bean:write name="resultRow" property='<%= "item[" + 22 /*"image path"*/ + "]" %>'/>" WIDTH="126" HEIGHT="140" ALIGN="left" class="memberPhoto" />
 
 <% } else if (nav.isIdentified()) { %>
                                     <A HREF="<%="https://"+request.getServerName()+"/Registration"%>"><IMG SRC="/i/m/nophoto_submit.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
