@@ -70,11 +70,13 @@ if (o!=null) {
                       time = 0;
                     } else {
                       if (countDown==true)
-                        time = endTimes[i] - correctedLocalTime.getTime();
-                        if (time < 0) time = 0;
+                        //time = endTimes[i] - correctedLocalTime.getTime();
+                        //if (time < 0) time = 0;
+                        time = 666;
                       else {
-                        time = correctedLocalTime.getTime()-startTimes[i];
-                        if (time>times[i]) time = times[i];
+                        time = 777;
+                        //time = correctedLocalTime.getTime()-startTimes[i];
+                        //if (time>times[i]) time = times[i];
                       }
                     }
                     text = convertToTimeString(time);
