@@ -71,7 +71,9 @@
 
                     <td class="statTextBig" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
-                <tr><td colspan="7" bgcolor="#666666" width="100%"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
+               <tr><td bgcolor="#666666" width="100%" height="3" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
             </table>
     </xsl:when>
 
@@ -126,7 +128,9 @@
 
                     <td class="statTextBig" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
-                <tr><td colspan="7" bgcolor="#666666" width="100%"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
+               <tr><td bgcolor="#666666" width="100%" height="3" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
             </table>
     </xsl:when>
 
