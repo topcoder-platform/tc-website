@@ -29,7 +29,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
             String code = user.getActivationCode(newUser.getId(), db);
 
             TCSEmailMessage mail = new TCSEmailMessage();
-            mail.setSubject("Google Code Jam 2003 Activation Email");
+            mail.setSubject("IMPORTANT - Google Code Jam 2003 Activation Email");
 
             buf.append("You're invited to take part in the Google Code Jam 2003, a programming competition that will be worthy of your time, your skills and your interest.\n\n");
             buf.append("GOOGLE CODE JAM 2003 ACTIVATION INFORMATION\n\n");
