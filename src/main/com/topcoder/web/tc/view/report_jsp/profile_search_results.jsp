@@ -80,7 +80,7 @@
     <rsc:iterator list="<%=results%>" id="resultRow">
         <tr>
             <tc:counter min="0" max="<%=results.getColumnCount()-1%>" id="i">
-                <td>
+                <td nowrap>
                     <%=resultRow.getStringItem(Integer.parseInt(i))%>&nbsp;
                 </td>
             </tc:counter>
