@@ -51,27 +51,28 @@
             <div align="center"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=room1"><img src="/i/promos/tco_promo_big.gif" alt="2003 TopCoder Open sponsored by Intel&#174;" width="530" height="164" border="0" /></A></div>
 
                         <table border="0" cellspacing="5" cellpadding="0" align="right" width="200">
-                            <tr valign="top"><td align="left"><img src="/i/tournament/tco03/reception/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /></td></tr>
-                            <tr valign="top"><td align="left" class="smallText">ZorbaTHut and Yarin enjoy the calm before the storm</td></tr>
+                            <tr valign="top"><td align="left"><img src="/i/tournament/tco03/room1/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /></td></tr>
+                            <tr valign="top"><td align="left" class="smallText">bstanescu enjoying the moment</td></tr>
                         </table>
             
-            <h2>Opening Night Reception</h2>
+            <h2>bstansescu outcodes number one seed to take Room 1</h2>
 
             <p>by Matt Murphy (veredox), <em>TopCoder Staff</em><br />
             Wednesday, December 3, 2003</p>
 
-            <p>Tonight, in a conference room filled with food, drink and plenty of tech related chatter, all eyes were on a few 16.  
-            Each one of these coders will be vying for the title of grand champion tomorrow as the final rounds of the 2003 TopCoder Open sponsored by Intel&#174;
-            commence.  With more than 1,000 competitors participating six rounds earlier, these contestants have already come a long way.  
-            With $130,000 at stake, tensions should have been high when the coders came face to face.  But they weren't.</p>
- 
-            <p>The environment was fairly relaxing at the welcome reception.  Representatives from NVIDIA and Revelation Software 
-            were on hand to mingle with the finalists and to assess the level of competition.  Introductions were made.  Tournament 
-            stories were told.  Brainteasers were solved, and reinvented and solved again - warming up for the problems they will 
-            face tomorrow morning. </p>
- 
-            <p>There are a lot of preparations to be made before the semi-finals begin.  After the reception, the competitors retired to 
-            their rooms to recover from jetlag.  Hopefully, butterflies won't keep them from their much-needed rest. </p>
+            <p>Opting for strategy over speed, bstanescu is the first coder to qualify for the TCO final round.  When approached after his victory was announced, he played it cool saying, "The guy who solves the first and the third problems usually beats the guy who solves the first and the second.  But it doesn't always work."  Well, it worked today.</p>
+
+            <p>This morning's contest started out identical to most others.  All four competitors opened the 250-point problem and began coding.  As more and more spectators began to trickle in, however, things quickly became more exciting.  venco submitted his solution for the first problem just 15 minutes after opening it, earning him a strong 199.08 points.  bstanescu answered with his submission only two minutes later, giving him a score of 191.79.  SnapDragon and dpecora followed closely, earning 184.28 and 169.50 points, respectively.</p>
+
+             <p>With three coders working on the 500-point problem and bstanescu pegging away at the 1000, it still looked like anyone could win.  Suddenly, SnapDragon submitted the level two problem in less than 13 minutes for 421.68 points and moved quickly to the 1000 pointer.  venco submitted next for 361.45 points.</p>
+
+            <p>Time was running out and bstanescu was writing feverishly on his scratch paper.  With 15 minutes left in the coding phase, dpecora submitted the level two problem and earned himself 169.50 points.  All eyes were on SnapDragon, venco and bstanescu as they fought to solve the final problem.  Finally, with only 10 points left to give, bstanescu submitted his 1000-point solution and claimed first place with an additional 424.23 points.  The remaining 6 minutes of the coding phase passed without any further submissions.</p>
+
+            <p>The challenge phase was considerably less exciting than the coding phase.  All of the coders flocked to view bstanescu's solution for the hardest problem but no challenges were made during the entire phase.  System tests proved that this was a wise choice made by all competitors as every single submitted solution for each problem passed the system tests with flying colors.  It was official - bstanescu was the winner!</p>
+
+            <p>The round's outcome was quite an upset.  SnapDragon, the second highest rated member and number one seed for the tournament, was the favorite pick-to-win for the match.  Additionally, many spectators were rooting for dpecora as he was the underdog of all 16 semi-finalists.</p>
+
+            <p>Stay tuned for the next round, as we wait to see if there are more upsets to come. </p>
                     </td>
                 </tr>
             </table>
