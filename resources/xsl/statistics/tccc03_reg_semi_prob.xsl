@@ -298,7 +298,7 @@
                                         </p>
 
                                         <p>
-                                            <img align="left" src="/contest/problem/SolidArea/cc3_2.gif"></img>Now, calculating the area of a parallelogram is fairly simple - multiply the average base with the height.  The problem here is that the trapezoid is in 3D
+                                            <img align="left" src="/contest/problem/SolidArea/cc3_2.gif"></img>Now, calculating the area of a trapezoid is fairly simple - multiply the average base length with the height.  The problem here is that the trapezoid is in 3D
                                             and calculating the height requires some elementary knowledge in linear algebra. Instead I went
                                             for a different approach: I divided the trapezoid into two triangles and calculated the area
                                             of those using Herons formula:
