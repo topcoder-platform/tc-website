@@ -52,8 +52,6 @@
     }
     // get the authToken as a way to get userID's below
       Authorization authToken = null;
-      com.topcoder.common.web.data.User user = null;
-      user = n.getUser();
       AuthorizationFactory authFactory = AuthorizationFactory.getInstance();
       if ( n.isIdentified() ) {
          authToken = authFactory.getAuthorization(n.getSessionInfo().getHandle(), "");

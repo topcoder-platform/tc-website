@@ -79,7 +79,7 @@
 
   Authorization authToken 
 
-    = (Authorization)session.getValue("jiveAuthorization");
+    = (Authorization)session.getAttribute("jiveAuthorization");
 
 %>
 

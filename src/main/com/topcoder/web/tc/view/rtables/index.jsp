@@ -18,7 +18,7 @@
   Navigation n = null;
   try {
     n = (Navigation) session.getAttribute("navigation");
-    if (n==null) n = new Navigation();
+    if (n==null) n = new Navigation(request, response);
     if ( n.isIdentified() ) {
       rtUser =n.getSessionInfo().getHandle();
     }
