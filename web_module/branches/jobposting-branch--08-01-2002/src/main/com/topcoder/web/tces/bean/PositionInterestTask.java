@@ -24,7 +24,7 @@ import java.util.*;
 
 public class PositionInterestTask extends BaseTask implements Task, Serializable {
 
-    private static Logger log = Logger.getLogger(PositionInterest.class);
+    private static Logger log = Logger.getLogger(PositionInterestTask.class);
 
     private int campaignID;
     private String companyName;
@@ -140,7 +140,7 @@ log.debug("Setting Companyname = "+companyName);
         ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
         setCompanyName( TCData.getTCString(cmpyNameRow, "company_name") );
 
-        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
+        rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
         if (rsc.getRowCount() == 0) {
             throw new Exception ("No company name!");
         }
@@ -184,7 +184,7 @@ log.debug("Setting Companyname = "+companyName);
 
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.JOB_ID_PARAM))
+        if (paramName.equalsIgnoreCase(TCESConstants.POSITION_ID_PARAM))
             setJobID(Integer.parseInt(value));
     }
 
