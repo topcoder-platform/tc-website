@@ -110,18 +110,14 @@ public final class TaskSearch {
     static MemberSearch getMemberSearch(Navigation nav)
             throws Exception {
         MemberSearch result = null;
-        try {
-            HashMap sessionObjects = nav.getSessionObjects();
-            if (!sessionObjects.containsKey("memberSearch")) {
-                log.debug("XXX search was not in cache");
-                result = new MemberSearch();
-                sessionObjects.put("memberSearch", result);
-            } else {
-                log.debug("XXX search was in cache");
-                result = (MemberSearch) sessionObjects.get("memberSearch");
-            }
-        } catch (Exception e) {
-            throw new Exception("TaskSearch:getMemberSearch:ERROR:\n" + e);
+        HashMap sessionObjects = nav.getSessionObjects();
+        if (!sessionObjects.containsKey("memberSearch")) {
+            log.debug("XXX search was not in cache");
+            result = new MemberSearch();
+            sessionObjects.put("memberSearch", result);
+        } else {
+            log.debug("XXX search was in cache");
+            result = (MemberSearch) sessionObjects.get("memberSearch");
         }
         return result;
     }
@@ -219,7 +215,7 @@ public final class TaskSearch {
             DataCache cache = Cache.get(ctx);
             listTag.addTag(RecordTag.getListXML("States", cache.getStates()));
 
-            Search s = (Search)BaseProcessor.createEJB(ctx, Search.class);
+            Search s = (Search) BaseProcessor.createEJB(ctx, Search.class);
             search = s.getCoders(search);
 
             search.setIsResult(true);
@@ -284,7 +280,7 @@ public final class TaskSearch {
             if ((scroll.getNext() && ((scroll.getRow() - 1 + scroll.getReturns()) < scroll.getSize())) ||
                     (!scroll.getNext() && ((scroll.getRow() - scroll.getReturns()) > 0))) {
 
-                Search s = (Search)BaseProcessor.createEJB(ctx, Search.class);
+                Search s = (Search) BaseProcessor.createEJB(ctx, Search.class);
                 search = s.scroll(search);
             }
             search.setIsResult(true);
@@ -328,7 +324,7 @@ public final class TaskSearch {
                 referrals = (ArrayList) sessionObjects.get("Referrals");
             } else {
                 ctx = TCContext.getInitial();
-                Search s = (Search)BaseProcessor.createEJB(ctx, Search.class);
+                Search s = (Search) BaseProcessor.createEJB(ctx, Search.class);
                 referrals = s.getReferrals(nav.getUser().getUserId());
                 if (referrals != null) {
 
@@ -345,9 +341,9 @@ public final class TaskSearch {
                         if (!rsc.isEmpty()) {
                             stat = new com.topcoder.common.web.data.stat.coder.Coder();
                             stat.setCoderId(referral.getCoderId());
-                            stat.setMemberSince(new java.sql.Date(((Date)rsc.getItem(0, "member_since").getResultData()).getTime()));
+                            stat.setMemberSince(new java.sql.Date(((Date) rsc.getItem(0, "member_since").getResultData()).getTime()));
                             stat.setHandle(rsc.getItem(0, "handle").toString());
-                            stat.setRating(((Integer)rsc.getItem(0, "rating").getResultData()).intValue());
+                            stat.setRating(((Integer) rsc.getItem(0, "rating").getResultData()).intValue());
                             stat.setTotalEarnings(new Float(rsc.getItem(0, "total_earnings").toString()).floatValue());
                             referrals.remove(i);
                             referrals.add(i, stat);
