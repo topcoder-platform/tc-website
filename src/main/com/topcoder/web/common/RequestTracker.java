@@ -40,7 +40,7 @@ public class RequestTracker {
         q.add(new UserRequest(u, request));
     }
 
-    private class RequestTrackerThread extends Thread {
+    private static class RequestTrackerThread extends Thread {
         public void run() {
             while (true) {
                 try {
@@ -53,7 +53,7 @@ public class RequestTracker {
         }
     }
 
-    private void loadRequests() {
+    private static void loadRequests() {
         ArrayList a = new ArrayList(q.size());
         synchronized (q) {
             log.debug("beginning move from queue to temp storage");
@@ -82,7 +82,7 @@ public class RequestTracker {
 
     }
 
-    private String makeUrl(TCRequest request) {
+    private static String makeUrl(TCRequest request) {
         StringBuffer buf = new StringBuffer(254);
         buf.append("http://");
         buf.append(request.getServerName());
