@@ -1,4 +1,4 @@
-<%@ page import="com.topcoder.web.stat.bean.CoderRatingStyleBean,
+<%@ page import="com.topcoder.web.tc.controller.legacy.stat.bean.CoderRatingStyleBean,
                  com.topcoder.web.tc.Constants,
                  com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@  page language="java"  %>

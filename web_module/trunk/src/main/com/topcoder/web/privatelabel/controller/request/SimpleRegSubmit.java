@@ -94,10 +94,10 @@ public class SimpleRegSubmit extends SimpleRegBase {
     }
 
     protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
-        User user = (User) createEJB(getInitialContext(), User.class, "main:");
+        User user = (User) createEJB(getInitialContext(), User.class);
         Address address = (Address) createEJB(getInitialContext(), Address.class);
         Email email = (Email) createEJB(getInitialContext(), Email.class, "main:");
-        UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class, "main:");
+        UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
         Rating rating = (Rating) createEJB(getInitialContext(), Rating.class);
 
@@ -127,10 +127,10 @@ public class SimpleRegSubmit extends SimpleRegBase {
         }
 
         //create user
-        user.createUser(newUser.getId(), regInfo.getHandle(), getNewUserStatus());
-        user.setFirstName(newUser.getId(), regInfo.getFirstName());
-        user.setMiddleName(newUser.getId(), regInfo.getMiddleName());
-        user.setLastName(newUser.getId(), regInfo.getLastName());
+        user.createUser(newUser.getId(), regInfo.getHandle(), getNewUserStatus(), db);
+        user.setFirstName(newUser.getId(), regInfo.getFirstName(), db);
+        user.setMiddleName(newUser.getId(), regInfo.getMiddleName(), db);
+        user.setLastName(newUser.getId(), regInfo.getLastName(), db);
 
 
         //create address
@@ -148,7 +148,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         address.setZip(addressId, regInfo.getZip());
 
         //associate address with user
-        userAddress.createUserAddress(newUser.getId(), addressId);
+        userAddress.createUserAddress(newUser.getId(), addressId, db);
 
         //create email
         long emailId = email.createEmail(newUser.getId());

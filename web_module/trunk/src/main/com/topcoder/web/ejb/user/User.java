@@ -6,32 +6,32 @@ import java.rmi.RemoteException;
 
 public interface User extends EJBObject {
 
-    public void createUser(long userId, String _handle, char _status)
+    void createUser(long userId, String _handle, char _status, String dataSource)
             throws EJBException, RemoteException;
 
 
-    public void setFirstName(long userId, String firstName)
+    void setFirstName(long userId, String firstName, String dataSource)
             throws EJBException, RemoteException;
 
-    public void setMiddleName(long userId, String middleName)
+    void setMiddleName(long userId, String middleName, String dataSource)
             throws EJBException, RemoteException;
 
-    public void setLastName(long userId, String lastName)
+    void setLastName(long userId, String lastName, String dataSource)
             throws EJBException, RemoteException;
 
-    public void setStatus(long userId, char status)
+    void setStatus(long userId, char status, String dataSource)
             throws EJBException, RemoteException;
 
-    public String getFirstName(long userId)
+    String getFirstName(long userId, String dataSource)
             throws EJBException, RemoteException;
 
-    public String getLastName(long userId) throws EJBException, RemoteException;
+    String getLastName(long userId, String dataSource) throws EJBException, RemoteException;
 
-    public String getMiddleName(long userId) throws EJBException, RemoteException;
+    String getMiddleName(long userId, String dataSource) throws EJBException, RemoteException;
 
-    public char getStatus(long userId)
+    char getStatus(long userId, String dataSource)
             throws EJBException, RemoteException;
 
-    public boolean userExists(long userId) throws RemoteException, EJBException;
+    boolean userExists(long userId, String dataSource) throws RemoteException, EJBException;
 }
 

@@ -8,6 +8,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.common.security.PrincipalMgrException;
@@ -120,11 +121,11 @@ public class UpdateCandidate extends BaseProcessor {
 
                     UserHome uHome = (UserHome)
                             PortableRemoteObject.narrow(
-                                    context.lookup("screening:" + UserHome.class.getName()), UserHome.class);
+                                    context.lookup(UserHome.class.getName()), UserHome.class);
                     User user = uHome.create();
 
-                    if (!user.userExists(userId)) {
-                        user.createUser(userId, info.getUserName(), 'A');
+                    if (!user.userExists(userId, DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME)) {
+                        user.createUser(userId, info.getUserName(), 'A', DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME);
 
                         CoderHome cHome = (CoderHome)
                                 PortableRemoteObject.narrow(

@@ -16,8 +16,10 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.admin.XSLConstants;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
@@ -98,14 +100,12 @@ public final class Challenge {
         ArrayList roomList = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = Integer.parseInt(request.getParameter("roundid"));
                 int filter = Integer.parseInt(request.getParameter("filter"));
                 roomList = contestEJB.getRoomList(roundId);
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: getRoomList error retrieving room list .");
                 e.printStackTrace();
@@ -127,7 +127,6 @@ public final class Challenge {
             document.addTag(contestTag);
             log.debug(document.getXML(2));
             String xsldocURLString = ROOM_MENU_PAGE;
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
@@ -152,10 +151,9 @@ public final class Challenge {
         int constraintId = 3;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
 
                 try {
                     constraintId = Integer.parseInt(request.getParameter("constraintid"));
@@ -204,7 +202,6 @@ public final class Challenge {
                 log.debug("Challenge: getCoderChallengeList: roundId set to " + roundId);
                 log.debug("Challenge: getCoderChallengeList: coderId set to " + coderId);
                 challengeList = contestEJB.getChallengeList(roundId, coderId, filter, constraintId);
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: getCoderChallengeList error retrieving challenge list .");
                 e.printStackTrace();
@@ -226,7 +223,6 @@ public final class Challenge {
             log.debug(document.getXML(2));
             log.debug("This is the code that is running");
             String xsldocURLString = CHALLENGE_MENU_PAGE;
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
@@ -253,10 +249,9 @@ public final class Challenge {
         int constraintId = 2;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
 
                 try {
                     constraintId = Integer.parseInt(request.getParameter("constraintid"));
@@ -305,7 +300,6 @@ public final class Challenge {
                 log.debug("Challenge: getProblemChallengeList: roundId set to " + roundId);
                 log.debug("Challenge: getProblemChallengeList: problemId set to " + problemId);
                 challengeList = contestEJB.getChallengeList(roundId, problemId, filter, constraintId);
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: getProblemChallengeList error retrieving challenge list .");
                 e.printStackTrace();
@@ -327,7 +321,6 @@ public final class Challenge {
             document.addTag(new ValueTag("CONSTRAINTID", constraintId));
             log.debug(document.getXML(2));
             String xsldocURLString = CHALLENGE_MENU_PAGE;
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
@@ -354,10 +347,9 @@ public final class Challenge {
         int constraintId = 1;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
 
                 try {
                     constraintId = Integer.parseInt(request.getParameter("constraintid"));
@@ -408,7 +400,6 @@ public final class Challenge {
                 log.debug("Challenge: getChallengeList: roundId set to " + roundId);
                 log.debug("Challenge: getChallengeList: roomId set to " + roomId);
                 challengeList = contestEJB.getChallengeList(roundId, roomId, filter, constraintId);
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: getChallengeList error retrieving challenge list .");
                 e.printStackTrace();
@@ -430,7 +421,6 @@ public final class Challenge {
             document.addTag(new ValueTag("CONSTRAINTID", constraintId));
             log.debug(document.getXML(2));
             String xsldocURLString = CHALLENGE_MENU_PAGE;
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
@@ -449,13 +439,11 @@ public final class Challenge {
         ContestAdminServices contestEJB = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int challengeId = Integer.parseInt(request.getParameter("remove"));
                 contestEJB.nullifyChallenge(challengeId);
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: removeChallenge error removing challenge .");
                 e.printStackTrace();
@@ -482,7 +470,7 @@ public final class Challenge {
         ContestAdminServices contestEJB = null;
 
         try {
-            Context ctx = TCContext.getInitial();
+            InitialContext ctx = TCContext.getInitial();
             ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
             try {
                 contestEJB = contestHome.create();
@@ -518,10 +506,9 @@ public final class Challenge {
         ArrayList problemList = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = 0;
                 try {
                     roundId = Integer.parseInt(request.getParameter("roundid"));
@@ -542,7 +529,6 @@ public final class Challenge {
                 log.debug("Challenge: getChallengeList: roundId set to " + roundId);
                 problemList = contestEJB.getProblemList(roundId);
                 log.debug("problemList.size(): " + problemList.size());
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Servlet Challenge: getProblemMenuScreen error retrieving probelm list .");
                 e.printStackTrace();
@@ -571,7 +557,6 @@ public final class Challenge {
                 document.addTag(contestTag);
                 log.debug(document.getXML(2));
                 String xsldocURLString = PROBLEM_MENU_PAGE;
-                nav.setScreen(xsldocURLString);
                 result = HTMLmaker.render(document, xsldocURLString);
             } catch (Exception ei) {
                 ei.printStackTrace();
@@ -597,10 +582,9 @@ public final class Challenge {
         int coderId = 0;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 try {
                     roundId = Integer.parseInt(request.getParameter("roundid"));
                 } catch (Exception ignore) {
@@ -635,7 +619,6 @@ public final class Challenge {
                 }
 
                 coderList = contestEJB.getCoderList(roundId);
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: getCoderMenuScreen error retrieving coder list .");
                 e.printStackTrace();
@@ -664,7 +647,6 @@ public final class Challenge {
                 document.addTag(contestTag);
                 log.debug(document.getXML(2));
                 String xsldocURLString = CODER_MENU_PAGE;
-                nav.setScreen(xsldocURLString);
                 result = HTMLmaker.render(document, xsldocURLString);
             } catch (Exception ei) {
                 ei.printStackTrace();
@@ -687,12 +669,10 @@ public final class Challenge {
         ArrayList roundList = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 roundList = contestEJB.getRoundList();
-                contestHome = null;
             } catch (Exception e) {
                 log.error("Challenge: getRoundMenuScreen error retrieving contest list .");
                 e.printStackTrace();
@@ -720,7 +700,6 @@ public final class Challenge {
                 document.addTag(contestTag);
                 log.debug(document.getXML(2));
                 String xsldocURLString = ROUND_MENU_PAGE;
-                nav.setScreen(xsldocURLString);
                 result = HTMLmaker.render(document, xsldocURLString);
             } catch (Exception ei) {
                 ei.printStackTrace();

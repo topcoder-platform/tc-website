@@ -68,8 +68,7 @@ import java.io.*;
 public class DbAuthorizationFactory extends AuthorizationFactory {
 
     /** DATABASE QUERIES **/
-    private static final String P_AUTHORIZE = "SELECT user_id FROM users WHERE user_name=? AND password=?";
-    private static final String AUTHORIZE = "SELECT user_id FROM user WHERE handle=? AND password=?";
+    private static final String AUTHORIZE = "SELECT user_id FROM user WHERE handle=?";
 
     /**
      * Gets authorization for a user.
@@ -91,7 +90,6 @@ public class DbAuthorizationFactory extends AuthorizationFactory {
             pstmt = con.prepareStatement(AUTHORIZE);
    
             pstmt.setString(1, username);
-            pstmt.setString(2, password);
 
             ResultSet rs = pstmt.executeQuery();
             if (!rs.next()) {

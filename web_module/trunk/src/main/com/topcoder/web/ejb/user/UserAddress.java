@@ -19,7 +19,7 @@ public interface UserAddress extends EJBObject {
      *
      * @see com.topcoder.web.ejb.user.UserAddressBean#createUserAddress
      */
-    void createUserAddress(long userId, long addressId)
+    void createUserAddress(long userId, long addressId, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -27,7 +27,7 @@ public interface UserAddress extends EJBObject {
      *
      * @see com.topcoder.web.ejb.user.UserAddressBean#removeUserAddress
      */
-    void removeUserAddress(long userId, long addressId)
+    void removeUserAddress(long userId, long addressId, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -35,6 +35,6 @@ public interface UserAddress extends EJBObject {
      *
      * @see com.topcoder.web.ejb.user.UserAddressBean#removeUserAddress
      */
-    ResultSetContainer getUserAddresses(long userId)
+    ResultSetContainer getUserAddresses(long userId, String dataSource)
             throws RemoteException, EJBException;
 }

@@ -999,7 +999,7 @@
 </xsl:template>
 
 <xsl:template name="reg_row">
-                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register</A></td></tr>
+                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/Registration</xsl:attribute>Register</A></td></tr>
 </xsl:template>
 
 <xsl:template name="new_mbr_row">

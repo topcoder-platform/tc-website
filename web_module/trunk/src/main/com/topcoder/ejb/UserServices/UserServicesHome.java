@@ -1,6 +1,6 @@
 package com.topcoder.ejb.UserServices;
 
-import com.topcoder.ejb.AuthenticationServices.User;
+import com.topcoder.common.web.data.User;
 
 import javax.ejb.*;
 import java.rmi.RemoteException;

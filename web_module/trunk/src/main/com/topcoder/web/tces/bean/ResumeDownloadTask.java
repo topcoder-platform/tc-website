@@ -8,7 +8,7 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.resume.bean.Resume;
+import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
 import com.topcoder.web.tces.common.TCESConstants;
 
 import javax.servlet.ServletOutputStream;

@@ -9,6 +9,7 @@ import com.topcoder.web.ejb.jobposting.JobPostingServices;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.common.web.data.*;
+import com.topcoder.common.web.util.Data;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -95,10 +96,11 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         HttpSession session = request.getSession(true);
 
         Navigation navigation = (Navigation) session.getAttribute("navigation");
-        if (navigation == null || !navigation.getLoggedIn()) {
+        if (navigation == null || !navigation.isIdentified()) {
             log.debug("User not logged in, can not add job hit.");
             throw new Exception("User not logged in, can not add job hit.");
         } else {
+            Data.loadUser(navigation);
             loadUserInfo(navigation.getUser());
         }
     }
@@ -177,7 +179,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         }
     }
 
-    private void loadUserInfo(com.topcoder.ejb.AuthenticationServices.User user) throws Exception {
+    private void loadUserInfo(com.topcoder.common.web.data.User user) throws Exception {
 
         Request dataRequest = new Request();
         dataRequest.setContentHandle("member_profile_info");

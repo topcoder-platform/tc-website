@@ -1,8 +1,8 @@
 package com.topcoder.ejb.UserServices;
 
-import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.TCException;
-import com.topcoder.ejb.AuthenticationServices.User;
+import com.topcoder.common.web.data.*;
+import com.topcoder.common.web.data.User;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
@@ -146,7 +146,7 @@ final class UserDbCoder {
             InitialContext ctx = new InitialContext();
             Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
             Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
-            UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup("main:"+UserAddressHome.EJB_REF_NAME)).create();
+            UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
 
             long addressId = addressEJB.createAddress();
             addressEJB.setAddress1(addressId, coder.getHomeAddress1());
@@ -157,7 +157,7 @@ final class UserDbCoder {
             addressEJB.setZip(addressId, coder.getHomeZip());
             addressEJB.setAddressTypeId(addressId, ADDRESS_TYPE_ID);
 
-            userAddressEJB.createUserAddress(coder.getCoderId(), addressId);
+            userAddressEJB.createUserAddress(coder.getCoderId(), addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
             long phoneId = phoneEJB.createPhone(coder.getCoderId());
             phoneEJB.setNumber(phoneId, coder.getHomePhone());
@@ -576,9 +576,9 @@ final class UserDbCoder {
                 InitialContext ctx = new InitialContext();
                 Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
                 Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
-                UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup("main:"+UserAddressHome.EJB_REF_NAME)).create();
+                UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
 
-                ResultSetContainer addresses = userAddressEJB.getUserAddresses(coder.getCoderId());
+                ResultSetContainer addresses = userAddressEJB.getUserAddresses(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
                 if (addresses.size()!=1) {
                     log.warn("Not sure what to do, user: " + coder.getCoderId() +

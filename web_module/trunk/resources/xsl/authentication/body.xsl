@@ -60,7 +60,7 @@
                         and we can send it to you via email.</p>
                         
                         <p><span class="statTextBig">New to TopCoder?</span><br/>
-                        <A class="statText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register now.</A> 
+                        <A class="statText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/Registration</xsl:attribute>Register now.</A>
                         After you complete the registration process, we will send your account activation code via email.</p>
                         
                         <xsl:choose>

@@ -6,7 +6,7 @@ import com.topcoder.common.web.data.Round;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.ejb.AuthenticationServices.Authentication;
+import com.topcoder.common.web.data.Authentication;
 import com.topcoder.ejb.ContestAdminServices.ContestAdminServices;
 import com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome;
 import com.topcoder.shared.docGen.xml.RecordTag;
@@ -14,8 +14,10 @@ import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
@@ -40,9 +42,6 @@ public final class SystemTestCaseReport {
         String result = null;
         RecordTag contestTag = new RecordTag("SYSTEMTESTCASEREPORT");
         HashMap sessionObjects = nav.getSessionObjects();
-        ArrayList roundList = null;
-        ArrayList STRList = null;
-        int problemId = -1;
 
         Authentication login = null;
         if (!sessionObjects.containsKey("login")) {
@@ -84,10 +83,9 @@ public final class SystemTestCaseReport {
         ArrayList systemTestCaseReportList = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = 0;
                 int problemId = 0;
                 int coderId = 0;
@@ -130,7 +128,6 @@ public final class SystemTestCaseReport {
                     sessionObjects.put("RoundId", new Integer(roundId));
                 }
                 systemTestCaseReportList = contestEJB.getSystemTestCaseReportList(roundId, problemId, coderId, filter);
-                contestHome = null;
             } catch (Exception e) {
                 e.printStackTrace();
                 log.debug("SystemTestResult: getSystemTestCaseReportList error retrieving systemtestcasereport  list .");
@@ -152,7 +149,6 @@ public final class SystemTestCaseReport {
             document.addTag(contestTag);
             log.debug(document.getXML(2));
             String xsldocURLString = SYSTEMTESTCASEREPORT_MENU_PAGE;
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
@@ -173,13 +169,11 @@ public final class SystemTestCaseReport {
         ArrayList coderList = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = 0;
                 int problemId = 0;
-                int coderId = 0;
                 try {
                     roundId = Integer.parseInt(request.getParameter("roundid"));
                 } catch (Exception e) {
@@ -202,7 +196,6 @@ public final class SystemTestCaseReport {
                     sessionObjects.put("RoundId", new Integer(roundId));
                 }
                 coderList = contestEJB.getCoderList(roundId, problemId);
-                contestHome = null;
             } catch (Exception e) {
                 log.debug("SystemTestResult: getCoder error retrieving coder list.");
                 log.debug("MSG: " + e);
@@ -227,7 +220,6 @@ public final class SystemTestCaseReport {
             document.addTag(contestTag);
             log.debug(document.getXML(2));
             String xsldocURLString = CODERLIST_MENU_PAGE;
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
@@ -248,10 +240,9 @@ public final class SystemTestCaseReport {
         ArrayList problemList = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = 0;
                 int filter = 0;
                 try {
@@ -277,7 +268,6 @@ public final class SystemTestCaseReport {
                 }
 
                 problemList = contestEJB.getProblemList(roundId);
-                contestHome = null;
             } catch (Exception e) {
                 log.debug("SystemTestResult: getProblemList error retrieving problem list.");
                 log.debug("MSG: " + e);
@@ -298,7 +288,6 @@ public final class SystemTestCaseReport {
             document.addTag(contestTag);
             log.debug(document.getXML(2));
             String xsldocURLString = PROBLEMLIST_MENU_PAGE;
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
@@ -316,16 +305,14 @@ public final class SystemTestCaseReport {
         ContestAdminServices contestEJB = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = Integer.parseInt(request.getParameter("roundid"));
                 int coderId = Integer.parseInt(request.getParameter("coderid"));
                 int problemId = Integer.parseInt(request.getParameter("problemid"));
                 int testCaseId = Integer.parseInt(request.getParameter("testcaseid"));
                 contestEJB.removeSystemTestResult(roundId, coderId, problemId, testCaseId);
-                contestHome = null;
             } catch (Exception e) {
                 log.debug("SystemTestResult: removeSystemTestResult error removing challenge .");
                 log.debug("MSG: " + e);
@@ -357,12 +344,10 @@ public final class SystemTestCaseReport {
         ArrayList roundList = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestEJB = contestHome.create();
+                contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 roundList = contestEJB.getRoundList();
-                contestHome = null;
             } catch (Exception e) {
                 log.debug("SystemTestResult: getRoundMenuScreen error retrieving contest list .");
                 log.debug("MSG: " + e);
@@ -384,7 +369,6 @@ public final class SystemTestCaseReport {
             document.addTag(contestTag);
             log.debug(document.getXML(2));
             String xsldocURLString = ROUND_MENU_PAGE;
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;

@@ -1,6 +1,5 @@
 package com.topcoder.common.web.data;
 
-import com.topcoder.ejb.AuthenticationServices.Group;
 import com.topcoder.shared.docGen.xml.*;
 
 import java.io.Serializable;

@@ -29,7 +29,7 @@
 
         <init-param>
             <param-name>login_servlet</param-name>
-            <param-value>/index</param-value>
+            <param-value>/tc</param-value>
             <description>the servlet path to use when we need to direct the user to login</description>
         </init-param>
 
@@ -97,6 +97,26 @@
             <param-value>/statistics/highestRating.jsp</param-value>
             <description></description>
         </init-param>
+        <init-param>
+            <param-name>login</param-name>
+            <param-value>/authentication/login.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>activate</param-name>
+            <param-value>/authentication/activate.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>recover_password</param-name>
+            <param-value>/authentication/recoverPassword.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>email_sent</param-name>
+            <param-value>/authentication/emailSent.jsp</param-value>
+            <description></description>
+        </init-param>
 
 
         <!-- processor mappings -->
@@ -154,6 +174,30 @@
             <description></description>
         </init-param>
 
+        <init-param>
+            <param-name>Login</param-name>
+            <param-value>authentication.Login</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>Logout</param-name>
+            <param-value>authentication.Logout</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>PasswordEmail</param-name>
+            <param-value>authentication.PasswordEmail</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>Activate</param-name>
+            <param-value>authentication.Activate</param-value>
+            <description></description>
+        </init-param>
+
 
         <!-- request parameters -->
         <init-param>
@@ -168,14 +212,154 @@
             <description></description>
         </init-param>
 
+        <init-param>
+            <param-name>first_name</param-name>
+            <param-value>fn</param-value>
+            <description></description>
+        </init-param>
 
+        <init-param>
+            <param-name>last_name</param-name>
+            <param-value>ln</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>email</param-name>
+            <param-value>email</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>activation_code</param-name>
+            <param-value>code</param-value>
+            <description></description>
+        </init-param>
 
     </servlet>
 
+    <servlet>
+        <servlet-name>legacyMain</servlet-name>
+        <display-name>legacyMain</display-name>
+        <description>The main controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.MainServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+      <servlet-name>stat</servlet-name>
+      <servlet-class>com.topcoder.web.tc.controller.legacy.stat.servlet.StatisticsHttpServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Registration</servlet-name>
+        <display-name>Registration</display-name>
+        <description>The registration controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.reg.servlet.Controller</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>jobposting</servlet-name>
+        <display-name>jobposting</display-name>
+        <description>The jobposting controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.jobposting.servlet.Controller</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Resume</servlet-name>
+        <display-name>Resume</display-name>
+        <description>The Resume controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.resume.servlet.Controller</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>graph</servlet-name>
+        <display-name>graph</display-name>
+        <description>The graph controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.GraphServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>javadocs</servlet-name>
+        <display-name>javadocs</display-name>
+        <description>The javadocs controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.JavaDocServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>report</servlet-name>
+        <display-name>report</display-name>
+        <description>The report controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.ReportServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PactsMemberServlet</servlet-name>
+        <display-name>PactsMemberServlet</display-name>
+        <description>The PactsMemberServlet controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.pacts.servlet.PactsMemberServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PactsInternalServlet</servlet-name>
+        <display-name>PactsInternalServlet</display-name>
+        <description>The PactsInternalServlet controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.pacts.servlet.PactsInternalServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>PactsInternalServlet</servlet-name>
+      <url-pattern>/PactsInternalServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>PactsMemberServlet</servlet-name>
+      <url-pattern>/PactsMemberServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>report</servlet-name>
+      <url-pattern>/report</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>javadocs</servlet-name>
+      <url-pattern>/javadocs</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>graph</servlet-name>
+      <url-pattern>/graph</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>Resume</servlet-name>
+      <url-pattern>/Resume</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>stat</servlet-name>
+      <url-pattern>/stat</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>legacyMain</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>tc</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/tc</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/Registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>jobposting</servlet-name>
+        <url-pattern>/jobposting</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -14,8 +14,10 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.admin.XSLConstants;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
@@ -60,12 +62,10 @@ public final class Compilation {
         ArrayList rounds = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestAdminServicesHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestAdminServicesEJB = contestAdminServicesHome.create();
+                contestAdminServicesEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 rounds = contestAdminServicesEJB.getRounds();
-                contestAdminServicesHome = null;
             } catch (Exception e) {
                 e.printStackTrace();
                 throw new NavigationException("DB ERROR", XSLConstants.NAVIGATION_ERROR_URL);
@@ -85,7 +85,6 @@ public final class Compilation {
             document.addTag(compilationTag);
             log.debug(document.getXML(2));
             String xsldocURLString = DIR + "get_rounds.xsl";
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
@@ -105,12 +104,10 @@ public final class Compilation {
         ArrayList coders = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestAdminServicesHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestAdminServicesEJB = contestAdminServicesHome.create();
+                contestAdminServicesEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 coders = contestAdminServicesEJB.getCodersByRound(Integer.parseInt(request.getParameter("RoundId")));
-                contestAdminServicesHome = null;
             } catch (Exception e) {
                 e.printStackTrace();
                 throw new NavigationException("DB ERROR", XSLConstants.NAVIGATION_ERROR_URL);
@@ -132,7 +129,6 @@ public final class Compilation {
             document.addTag(compilationTag);
             log.debug(document.getXML(2));
             String xsldocURLString = DIR + "get_coders.xsl";
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
@@ -153,12 +149,10 @@ public final class Compilation {
         ArrayList compilations = null;
 
         try {
-            Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestAdminServicesHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
+            InitialContext ctx = TCContext.getInitial();
             try {
-                contestAdminServicesEJB = contestAdminServicesHome.create();
+                contestAdminServicesEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 compilations = contestAdminServicesEJB.getCoderCompilations(Integer.parseInt(request.getParameter("RoundId")), Integer.parseInt(request.getParameter("CoderId")));
-                contestAdminServicesHome = null;
             } catch (Exception e) {
                 e.printStackTrace();
                 throw new NavigationException("DB ERROR", XSLConstants.NAVIGATION_ERROR_URL);
@@ -180,7 +174,6 @@ public final class Compilation {
             document.addTag(compilationTag);
             log.debug(document.getXML(2));
             String xsldocURLString = DIR + "get_compilations.xsl";
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;

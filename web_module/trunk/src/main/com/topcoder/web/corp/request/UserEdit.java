@@ -173,9 +173,9 @@ public class UserEdit extends BaseProcessor {
         // associate with company
         if (secTok.createNew) {
             // find company item for user
-            Contact contactTable = ((ContactHome) ic.lookup("corp:" + ContactHome.EJB_REF_NAME)).create();
+            Contact contactTable = ((ContactHome) ic.lookup(ContactHome.EJB_REF_NAME)).create();
             // link user with company
-            contactTable.createContact(secTok.primaryUserCompanyID, targetUserID);
+            contactTable.createContact(secTok.primaryUserCompanyID, targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         }
 
         if (targetUserID != getUser().getId()) {
@@ -222,9 +222,9 @@ public class UserEdit extends BaseProcessor {
      */
     protected void retrieveUserDataFromDB(InitialContext ic) throws Exception {
         // user first, last names
-        User userTable = ((UserHome) ic.lookup("corp:" + UserHome.EJB_REF_NAME)).create();
-        firstName = userTable.getFirstName(targetUserID);
-        lastName = userTable.getLastName(targetUserID);
+        User userTable = ((UserHome) ic.lookup(UserHome.EJB_REF_NAME)).create();
+        firstName = userTable.getFirstName(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+        lastName = userTable.getLastName(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
         // email for user
         Email emailTable = ((EmailHome) ic.lookup("corp:" + EmailHome.EJB_REF_NAME)).create();
@@ -622,10 +622,10 @@ public class UserEdit extends BaseProcessor {
                 (UserHome) ic.lookup("corp:" + UserHome.EJB_REF_NAME)
                 ).create();
         if (createNew) {
-            userTable.createUser(targetUserID, userName, 'A');
+            userTable.createUser(targetUserID, userName, 'A', DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         }
-        userTable.setFirstName(targetUserID, firstName);
-        userTable.setLastName(targetUserID, lastName);
+        userTable.setFirstName(targetUserID, firstName, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+        userTable.setLastName(targetUserID, lastName, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
         // phone
         Phone phoneTable = (
@@ -705,7 +705,7 @@ public class UserEdit extends BaseProcessor {
             try {
                 icEJB = (InitialContext) TCContext.getInitial();
                 contactTable = ((ContactHome) icEJB.lookup("corp:" + ContactHome.EJB_REF_NAME)).create();
-                loggedUserCompanyID = contactTable.getCompanyId(getAuthentication().getUser().getId());
+                loggedUserCompanyID = contactTable.getCompanyId(getAuthentication().getUser().getId(), DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
                 Company companyTable = ((CompanyHome) icEJB.lookup(CompanyHome.EJB_REF_NAME)).create();
                 primaryUserID = companyTable.getPrimaryContactId(loggedUserCompanyID);
 
@@ -722,7 +722,7 @@ public class UserEdit extends BaseProcessor {
                 if (isAccountAdmin)
                     primaryUserCompanyID = loggedUserCompanyID;
                 else
-                    primaryUserCompanyID = contactTable.getCompanyId(primaryUserID);
+                    primaryUserCompanyID = contactTable.getCompanyId(primaryUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
                 renewTargetUser();
             } catch (Exception ex) {
@@ -750,7 +750,7 @@ public class UserEdit extends BaseProcessor {
                         Util.closeIC(ic);
                     }
                 }
-                targetUserCompanyID = contactTable.getCompanyId(targetUserID);
+                targetUserCompanyID = contactTable.getCompanyId(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
             } else {
                 targetUserCompanyID = -1;
                 targetUser = null;

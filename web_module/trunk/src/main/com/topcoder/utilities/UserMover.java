@@ -3,6 +3,7 @@ package com.topcoder.utilities;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.ejb.user.UserHome;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.user.UserAddressHome;
@@ -85,11 +86,11 @@ public class UserMover {
             long userId = 0;
 
 
-            User userEJB = ((UserHome) ctx.lookup("main:" + UserHome.EJB_REF_NAME)).create();
+            User userEJB = ((UserHome) ctx.lookup(UserHome.EJB_REF_NAME)).create();
             Email emailEJB = ((EmailHome) ctx.lookup("main:" + EmailHome.EJB_REF_NAME)).create();
             Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
             Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
-            UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup("main:" + UserAddressHome.EJB_REF_NAME)).create();
+            UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
             Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
 
             log.info("created ejbs");
@@ -144,9 +145,9 @@ public class UserMover {
                     phone = rs.getString(9);
 
                     try {
-                        userEJB.createUser(userId, handle, status);
-                        userEJB.setFirstName(userId, firstName);
-                        userEJB.setLastName(userId, lastName);
+                        userEJB.createUser(userId, handle, status, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                        userEJB.setFirstName(userId, firstName, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                        userEJB.setLastName(userId, lastName, DBMS.JTS_OLTP_DATASOURCE_NAME);
                     } catch (Exception e) {
                         log.error("error moving over user " + handle + "(" + userId + ")");
                         e.printStackTrace();
@@ -178,7 +179,7 @@ public class UserMover {
                     }
 
                     try {
-                        userAddressEJB.createUserAddress(userId, addressId);
+                        userAddressEJB.createUserAddress(userId, addressId, DBMS.JTS_OLTP_DATASOURCE_NAME);
                     } catch (Exception e) {
                         log.error("error moving over user address for " + handle + "(" + userId + ")");
                         e.printStackTrace();

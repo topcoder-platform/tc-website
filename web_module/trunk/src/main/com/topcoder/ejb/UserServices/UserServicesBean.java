@@ -1,6 +1,6 @@
 package com.topcoder.ejb.UserServices;
 
-import com.topcoder.ejb.AuthenticationServices.User;
+import com.topcoder.common.web.data.User;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.ejb.*;

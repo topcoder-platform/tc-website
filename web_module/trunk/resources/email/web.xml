@@ -281,7 +281,7 @@
 
   <init-param>
     <param-name>statistics_ejb_package</param-name>
-    <param-value>com.topcoder.web.stat.ejb.Statistics</param-value>
+    <param-value>com.topcoder.web.tc.controller.legacy.stat.ejb.Statistics</param-value>
     <description>
       Package of statistics ejb
     </description>

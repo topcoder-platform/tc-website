@@ -57,7 +57,7 @@
 <!-- <DIV ALIGN="center"><A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/sun_network_logo.gif" ALT="" WIDTH="284" HEIGHT="80" BORDER="0"/></A></DIV> -->
 	<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
       <TR>
-        <TD><DIV ALIGN="center"><A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/sun_network_logo.gif" ALT="" WIDTH="284" HEIGHT="80" BORDER="0"/><!-- </A><A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You%20must%20log%20in%20to%20view%20this%20portion%20of%20the%20site.&amp;errorURL=/reg/index.jsp" TARGET="_blank"> --><IMG SRC="/i/tournament/sun_challenge_logo.gif" ALT="" WIDTH="174" HEIGHT="65" BORDER="0"/></A></DIV></TD>
+        <TD><DIV ALIGN="center"><A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/sun_network_logo.gif" ALT="" WIDTH="284" HEIGHT="80" BORDER="0"/><!-- </A><A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You%20must%20log%20in%20to%20view%20this%20portion%20of%20the%20site.&amp;errorURL=/Registration" TARGET="_blank"> --><IMG SRC="/i/tournament/sun_challenge_logo.gif" ALT="" WIDTH="174" HEIGHT="65" BORDER="0"/></A></DIV></TD>
       </TR>      
       
       <!-- <TR>
@@ -78,7 +78,7 @@ Challenge powered by TopCoder. This is <B>NOT</B> a rated event. </P>
 <B>Place:</B> Moscone Center, San Francisco, CA<BR/>
 </P>      
       </TD>  
-       <!--  <TD VALIGN="middle"><DIV ALIGN="center"><A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You must log in to view this portion of the site.&amp;errorURL=/reg/index.jsp" TARGET="_blank"><IMG SRC="/i/tournament/sun_challenge_logo.gif" ALT="" WIDTH="174" HEIGHT="65" BORDER="0"/></A></DIV></TD> -->         
+       <!--  <TD VALIGN="middle"><DIV ALIGN="center"><A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You must log in to view this portion of the site.&amp;errorURL=/Registration" TARGET="_blank"><IMG SRC="/i/tournament/sun_challenge_logo.gif" ALT="" WIDTH="174" HEIGHT="65" BORDER="0"/></A></DIV></TD> -->
       </TR>                    						
 </TABLE>
 	<BR/>
@@ -103,7 +103,7 @@ Challenge powered by TopCoder. This is <B>NOT</B> a rated event. </P>
 		<!-- <TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when>
 			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-		<A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You%20must%20log%20in%20to%20view%20this%20portion%20of%20the%20site.&amp;errorURL=/reg/index.jsp" CLASS="statTextBig"><FONT COLOR="#FFCC00">Sign-Up!</FONT></A></TD> -->
+		<A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You%20must%20log%20in%20to%20view%20this%20portion%20of%20the%20site.&amp;errorURL=/Registration" CLASS="statTextBig"><FONT COLOR="#FFCC00">Sign-Up!</FONT></A></TD> -->
 	  </TR>
     </TABLE>
     <BR/>
@@ -115,10 +115,10 @@ Challenge powered by TopCoder. This is <B>NOT</B> a rated event. </P>
 <B>TopCoder members</B><BR/>
 <xsl:choose>
   <xsl:when test="/TC/LoggedIn='true'">
-Please <A HREF="/reg/index.jsp" CLASS="statText"><FONT COLOR="#FFCC00">update</FONT></A> your member profile to sign-up.
+Please <A HREF="/Registration" CLASS="statText"><FONT COLOR="#FFCC00">update</FONT></A> your member profile to sign-up.
   </xsl:when>
   <xsl:otherwise>  
-Please <A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You%20must%20log%20in%20to%20view%20this%20portion%20of%20the%20site.&amp;errorURL=/reg/index.jsp" CLASS="statText"><FONT COLOR="#FFCC00">login</FONT></A> to update your member profile to sign-up.
+Please <A HREF="/tc?&amp;module=Login&amp;message=You%20must%20log%20in%20to%20view%20this%20portion%20of%20the%20site.&amp;nextpage=/Registration" CLASS="statText"><FONT COLOR="#FFCC00">login</FONT></A> to update your member profile to sign-up.
   </xsl:otherwise>
 </xsl:choose>
 </P>
@@ -126,7 +126,7 @@ Please <A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You%20must%20lo
 <xsl:if test="not(/TC/LoggedIn='true')">
 <P CLASS="statText">
 <B>New to TopCoder?</B><BR/>
-Click here to <A HREF="/reg/index.jsp" CLASS="statText"><FONT COLOR="#FFCC00">register</FONT></A> as a TopCoder member and sign-up. 
+Click here to <A HREF="/Registration" CLASS="statText"><FONT COLOR="#FFCC00">register</FONT></A> as a TopCoder member and sign-up.
 After you complete the registration process, we will send your account activation code via email.
 </P>        
 </xsl:if>

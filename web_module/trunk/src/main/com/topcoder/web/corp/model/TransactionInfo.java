@@ -114,11 +114,11 @@ public class TransactionInfo {
             }
 
 
-            Contact contactTable = ((ContactHome) icEJB.lookup("corp:"+ContactHome.EJB_REF_NAME)).create();
-            companyID = contactTable.getCompanyId(buyerID);
+            Contact contactTable = ((ContactHome) icEJB.lookup(ContactHome.EJB_REF_NAME)).create();
+            companyID = contactTable.getCompanyId(buyerID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
-            UserTermsOfUse userTerms = ((UserTermsOfUseHome) icEJB.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
-            agreed = userTerms.hasTermsOfUse(buyerID, termsId);
+            UserTermsOfUse userTerms = ((UserTermsOfUseHome) icEJB.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+            agreed = userTerms.hasTermsOfUse(buyerID, termsId, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
             setRolesPerProduct(productID);
             

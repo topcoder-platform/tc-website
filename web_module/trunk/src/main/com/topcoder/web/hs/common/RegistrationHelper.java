@@ -384,16 +384,16 @@ public class RegistrationHelper {
 
             UserHome uh = (UserHome) ctx.lookup("hs:" + UserHome.EJB_REF_NAME);
             User user = uh.create();
-            user.createUser(user_id, srb.getHandle(), NEW_USER_TYPE);
-            user.setFirstName(user_id, srb.getFirstName());
-            user.setLastName(user_id, srb.getLastName());
+            user.createUser(user_id, srb.getHandle(), NEW_USER_TYPE, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            user.setFirstName(user_id, srb.getFirstName(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            user.setLastName(user_id, srb.getLastName(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             UserSchoolHome ush = (UserSchoolHome)
-                    ctx.lookup("hs:" + UserSchoolHome.EJB_REF_NAME);
+                    ctx.lookup(UserSchoolHome.EJB_REF_NAME);
             UserSchool user_school = ush.create();
-            user_school.createUserSchool(user_id, srb.getSchoolId().longValue());
+            user_school.createUserSchool(user_id, srb.getSchoolId().longValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             user_school.setCurrentUserSchoolId(user_id,
-                    srb.getSchoolId().longValue());
+                    srb.getSchoolId().longValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             EmailHome eh = (EmailHome) ctx.lookup("hs:" + EmailHome.EJB_REF_NAME);
             Email email = eh.create();
@@ -409,9 +409,9 @@ public class RegistrationHelper {
             coder.setLanguageId(user_id, srb.getLanguageId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             UserTermsOfUseHome utouh = (UserTermsOfUseHome)
-                    ctx.lookup("hs:" + UserTermsOfUseHome.EJB_REF_NAME);
+                    ctx.lookup(UserTermsOfUseHome.EJB_REF_NAME);
             UserTermsOfUse user_terms_of_use = utouh.create();
-            user_terms_of_use.createUserTermsOfUse(user_id, TERMS_OF_USE_ID);
+            user_terms_of_use.createUserTermsOfUse(user_id, TERMS_OF_USE_ID, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             RatingHome rh = (RatingHome) ctx.lookup(RatingHome.EJB_REF_NAME);
             Rating rating = rh.create();
@@ -469,18 +469,18 @@ public class RegistrationHelper {
             UserHome uh = (UserHome) ctx.lookup("hs:" + UserHome.EJB_REF_NAME);
             User user = uh.create();
             long userId = srb.getUserId().longValue();
-            user.setFirstName(userId, srb.getFirstName());
-            user.setLastName(userId, srb.getLastName());
+            user.setFirstName(userId, srb.getFirstName(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            user.setLastName(userId, srb.getLastName(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             UserSchoolHome ush = (UserSchoolHome)
-                    ctx.lookup("hs:" + UserSchoolHome.EJB_REF_NAME);
+                    ctx.lookup(UserSchoolHome.EJB_REF_NAME);
             UserSchool user_school = ush.create();
             long schoolId = srb.getSchoolId().longValue();
-            if (user_school.exists(userId, schoolId)) {
-                user_school.setCurrentUserSchoolId(userId, schoolId);
+            if (user_school.exists(userId, schoolId, DBMS.HS_JTS_OLTP_DATASOURCE_NAME)) {
+                user_school.setCurrentUserSchoolId(userId, schoolId, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             } else {
-                user_school.createUserSchool(userId, schoolId);
-                user_school.setCurrentUserSchoolId(userId, schoolId);
+                user_school.createUserSchool(userId, schoolId, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+                user_school.setCurrentUserSchoolId(userId, schoolId, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             }
 
             EmailHome eh = (EmailHome) ctx.lookup("hs:" + EmailHome.EJB_REF_NAME);
@@ -744,16 +744,16 @@ public class RegistrationHelper {
 
             UserHome uh = (UserHome) ctx.lookup("hs:" + UserHome.EJB_REF_NAME);
             User user = uh.create();
-            user.createUser(user_id, crb.getHandle(), NEW_USER_TYPE);
-            user.setFirstName(user_id, crb.getFirstName());
-            user.setLastName(user_id, crb.getLastName());
+            user.createUser(user_id, crb.getHandle(), NEW_USER_TYPE, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            user.setFirstName(user_id, crb.getFirstName(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            user.setLastName(user_id, crb.getLastName(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             UserSchoolHome ush = (UserSchoolHome)
-                    ctx.lookup("hs:" + UserSchoolHome.EJB_REF_NAME);
+                    ctx.lookup(UserSchoolHome.EJB_REF_NAME);
             UserSchool user_school = ush.create();
-            user_school.createUserSchool(user_id, crb.getSchoolId().longValue());
+            user_school.createUserSchool(user_id, crb.getSchoolId().longValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             user_school.setCurrentUserSchoolId(user_id,
-                    crb.getSchoolId().longValue());
+                    crb.getSchoolId().longValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             EmailHome eh = (EmailHome) ctx.lookup("hs:" + EmailHome.EJB_REF_NAME);
             Email email = eh.create();
@@ -769,9 +769,9 @@ public class RegistrationHelper {
             coder.setLanguageId(user_id, crb.getLanguageId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             UserTermsOfUseHome utouh = (UserTermsOfUseHome)
-                    ctx.lookup("hs:" + UserTermsOfUseHome.EJB_REF_NAME);
+                    ctx.lookup(UserTermsOfUseHome.EJB_REF_NAME);
             UserTermsOfUse user_terms_of_use = utouh.create();
-            user_terms_of_use.createUserTermsOfUse(user_id, TERMS_OF_USE_ID);
+            user_terms_of_use.createUserTermsOfUse(user_id, TERMS_OF_USE_ID, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             RatingHome rh = (RatingHome) ctx.lookup(RatingHome.EJB_REF_NAME);
             Rating rating = rh.create();
@@ -833,18 +833,18 @@ public class RegistrationHelper {
             UserHome uh = (UserHome) ctx.lookup("hs:" + UserHome.EJB_REF_NAME);
             User user = uh.create();
             long userId = crb.getUserId().longValue();
-            user.setFirstName(userId, crb.getFirstName());
-            user.setLastName(userId, crb.getLastName());
+            user.setFirstName(userId, crb.getFirstName(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            user.setLastName(userId, crb.getLastName(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             UserSchoolHome ush = (UserSchoolHome)
-                    ctx.lookup("hs:" + UserSchoolHome.EJB_REF_NAME);
+                    ctx.lookup(UserSchoolHome.EJB_REF_NAME);
             UserSchool user_school = ush.create();
             long school_id = crb.getSchoolId().longValue();
-            if (user_school.exists(userId, school_id)) {
-                user_school.setCurrentUserSchoolId(userId, school_id);
+            if (user_school.exists(userId, school_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME)) {
+                user_school.setCurrentUserSchoolId(userId, school_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             } else {
-                user_school.createUserSchool(userId, school_id);
-                user_school.setCurrentUserSchoolId(userId, school_id);
+                user_school.createUserSchool(userId, school_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+                user_school.setCurrentUserSchoolId(userId, school_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
             }
 
             EmailHome eh = (EmailHome) ctx.lookup("hs:" + EmailHome.EJB_REF_NAME);

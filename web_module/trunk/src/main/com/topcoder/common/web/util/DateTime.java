@@ -4,8 +4,10 @@ import com.topcoder.ejb.Util.Util;
 import com.topcoder.ejb.Util.UtilHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.*;
@@ -28,11 +30,10 @@ public final class DateTime {
 
     public static final java.sql.Date getCurrentDate() throws Exception {
         java.sql.Date result = null;
-        Context ctx = null;
+        InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
-            UtilHome home = (UtilHome) ctx.lookup(ApplicationServer.UTIL);
-            Util util = home.create();
+            Util util = (Util)BaseProcessor.createEJB(ctx, Util.class);
             result = util.getCurrentDate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -79,11 +80,10 @@ public final class DateTime {
 
     public static final java.sql.Time getCurrentTime() throws Exception {
         java.sql.Time result = null;
-        Context ctx = null;
+        InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
-            UtilHome home = (UtilHome) ctx.lookup(ApplicationServer.UTIL);
-            Util util = home.create();
+            Util util = (Util)BaseProcessor.createEJB(ctx, Util.class);
             result = util.getCurrentTime();
         } catch (Exception e) {
             e.printStackTrace();
@@ -130,11 +130,10 @@ public final class DateTime {
 
     public static final java.sql.Timestamp getCurrentTimestamp() throws Exception {
         java.sql.Timestamp result = null;
-        Context ctx = null;
+        InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
-            UtilHome home = (UtilHome) ctx.lookup(ApplicationServer.UTIL);
-            Util util = home.create();
+            Util util = (Util)BaseProcessor.createEJB(ctx, Util.class);
             result = util.getCurrentTimestamp();
         } catch (Exception e) {
             throw new Exception("common.DateTime:getCurrentTimestamp: Error " + e);

@@ -17,7 +17,7 @@ public interface Contact extends EJBObject {
      *
      * @see com.topcoder.web.ejb.user.ContactBean#createContact
      */
-    void createContact(long companyId, long contactId)
+    void createContact(long companyId, long contactId, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -25,7 +25,7 @@ public interface Contact extends EJBObject {
      *
      * @see com.topcoder.web.ejb.user.ContactBean#setCompanyId
      */
-    void setCompanyId(long contactId, long companyId)
+    void setCompanyId(long contactId, long companyId, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -33,14 +33,14 @@ public interface Contact extends EJBObject {
      *
      * @see com.topcoder.web.ejb.user.ContactBean#getCompanyId
      */
-    long getCompanyId(long contactId) throws RemoteException, EJBException;
+    long getCompanyId(long contactId, String dataSource) throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.user.ContactBean#getTitle
      */
-    String getTitle(long contactId)
+    String getTitle(long contactId, String dataSource)
             throws RemoteException, EJBException;
 
     /**
@@ -48,6 +48,6 @@ public interface Contact extends EJBObject {
      *
      * @see com.topcoder.web.ejb.user.ContactBean#setTitle
      */
-    void setTitle(long contactId, String title)
+    void setTitle(long contactId, String title, String dataSource)
             throws RemoteException, EJBException;
 }
