@@ -104,7 +104,7 @@ rectangle such that all of the pixels of that color are within the rectangle (th
 areas of all these rectangles.</P>
 
 <P>In order to determine if a rectangle is valid, you need to check two things.  The first is that there are no empty ('.') pixels within any of the bounding rectangles. 
-The second is that there are no sets of colors where A is on top of B is on top of C is É on top of A.  Determining this is exactly analogous to finding loops in a graph. 
+The second is that there are no sets of colors where A is on top of B is on top of C is on top of A.  Determining this is exactly analogous to finding loops in a graph. 
 Directed edges in the graph are constructed from every color to every other color that it must be on top of (have at least one pixel within a particular color's bounding rectangle). 
 Once all of the edges are constructed, there are a number of ways to find loops.  The fastest to code is probably the a variant of the Floyd-Warshall algorithm 
 (see <A HREF="/stat?&amp;c=last_match" CLASS="bodyGeneric">John Dethridge's</A> solution for an example).  If a path is found from a pixel to itself, then there is a loop in the 
