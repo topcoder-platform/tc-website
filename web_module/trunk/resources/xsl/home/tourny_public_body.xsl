@@ -208,7 +208,7 @@ Wednesday, August 21, 2002<BR/><BR/>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <!-- <TD VALIGN="top" WIDTH="50%"><xsl:call-template name="last_srm"/></TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
-    <TD VALIGN="middle" CLASS="bodyText" WIDTH="100%"> &#160;   
+    <TD VALIGN="middle" CLASS="bodyText" WIDTH="100%">  
        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFF99">  
           <TR>
              <TD VALIGN="middle" HEIGHT="17" ALIGN="center" COLSPAN="5" CLASS="bodyText"><B>Best/Worst Rating Change</B></TD> 
