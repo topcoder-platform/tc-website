@@ -113,14 +113,16 @@
         </init-param>
         <init-param>
             <param-name>processor_path</param-name>
-            <param-value>com.topcoder.web.tc.controller.request.</param-value>
+            <param-value>com.topcoder.dde.request.</param-value>
             <description>the path to the processors for this app</description>
         </init-param>
+<!--
         <init-param>
             <param-name>error_page</param-name>
-            <param-value>/errorPage.jsp</param-value>
+            <param-value>/error.jsp</param-value>
             <description>where to forward for errors</description>
         </init-param>
+-->
         <!-- end  parameters required by BaseServlet -->
 
     </servlet>
