@@ -68,7 +68,7 @@
             <TD class="statText" ALIGN="left">
             <% } %>
             
-              <B>Coder Profile: <%=    MemberInfo.get(TCESConstants.MEM_INFO_HANDLE_KEY)%> </B>
+              <B>Coder Profile: <%= MemberInfo.get(TCESConstants.MEM_INFO_HANDLE_KEY)%> </B>
               <BR>
               <%= MemberInfo.get(TCESConstants.MEM_INFO_FULLNAME_KEY)%>
               <BR>
@@ -105,88 +105,101 @@
               <% } %>
               </P>
               
-              <TABLE ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BORDER="0">
+              <% if (MemberProfileTask.getIsRanked()) { %>
+              
+                  <TABLE ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BORDER="0">
+                    <TR>
+                        <TD class="statText" ALIGN="center" WIDTH="33%">
+                          <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
+                            Coder Demographic Info
+                          </A>
+                        </TD>
+                        <TD class="statText" ALIGN="center" WIDTH="33%">
+                          <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
+                            Coder Competition History
+                          </A>
+                        </TD>
+                        <TD class="statText" ALIGN="center" WIDTH="33%">
+                          <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
+                            Coder Problem Submissions
+                          </A>
+                        </TD>
+                    </TR>
+                  </TABLE>
+
+                  <P>
+                  Current Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_CURRENT_KEY)%><BR>
+                  Highest Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_HIGH_KEY)%><BR>
+                  Lowest Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_LOW_KEY)%><BR>
+                  Rating Percentile: <%=MemberInfo.get(TCESConstants.MEM_RATING_PCTILE_KEY)%><BR>
+                  Number of Ratings: <%=MemberInfo.get(TCESConstants.MEM_RATING_NUMEVENTS_KEY)%><BR>
+                  Most Recent Rated Event: <%=MemberInfo.get(TCESConstants.MEM_RATING_MOSTRECENT_KEY)%><BR>
+                  Average Points per Contest: <%=MemberInfo.get(TCESConstants.MEM_RATING_AVGPOINTS_KEY)%><BR>
+                  </P>    
+
+                  Statistics by Problem Level:<br>         
+                  <TABLE ID="dataByLevelTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
+                    <TR>
+                        <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES.length;i++) { %>
+                            <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;<b>
+                                <%= TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES[i] %>
+                            </b></TD>
+                            <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
+                        <% } %>
+                    </TR>                    
+                    <tces:mapIterator id="level" MapList="<%=MemberProfileTask.getStatsByLevel()%>">
+
+                    <TR> 
+                      <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS.length;i++) { %>
+                          <TD class="statText" HEIGHT="18" NOWRAP>
+                            <%= level.get(TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[i]) %>
+                          </TD>
+                          <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
+                        <% } %>
+                    </TR>
+
+                    </tces:mapIterator>
+
+                  </TABLE>
+                  <P><BR></P>
+
+                  Statistics by Language:<br>         
+                  <TABLE ID="dataByLangTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
+                    <TR>
+                        <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLANG_TITLES.length;i++) { %>
+                            <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;<b>
+                                <%= TCESConstants.MEM_RATING_STATSBYLANG_TITLES[i] %>
+                            </b></TD>
+                            <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
+                        <% } %>
+                    </TR>                    
+                    <tces:mapIterator id="language" MapList="<%=MemberProfileTask.getStatsByLang()%>">
+
+                    <TR> 
+                      <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLANG_KEYS.length;i++) { %>
+                          <TD class="statText" HEIGHT="18" NOWRAP>
+                            <%= language.get(TCESConstants.MEM_RATING_STATSBYLANG_KEYS[i]) %>
+                          </TD>
+                          <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
+                        <% } %>
+                    </TR>
+
+                    </tces:mapIterator>
+
+                  </TABLE>
+              
+            <% } 
+               else { %>
+            
+                <TABLE ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BORDER="0">
                 <TR>
-                    <TD class="statText" ALIGN="center" WIDTH="33%">
-                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
-                        Coder Demographic Info
-                      </A>
-                    </TD>
-                    <TD class="statText" ALIGN="center" WIDTH="33%">
-                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
-                        Coder Competition History
-                      </A>
-                    </TD>
-                    <TD class="statText" ALIGN="center" WIDTH="33%">
-                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
-                        Coder Problem Submissions
-                      </A>
+                    <TD class="statText" ALIGN="center" WIDTH="100%">
+                      <%= MemberInfo.get(TCESConstants.MEM_INFO_HANDLE_KEY)%> is not ranked in competition.
                     </TD>
                 </TR>
-              </TABLE>
-              
-              <P>
-              Current Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_CURRENT_KEY)%><BR>
-              Highest Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_HIGH_KEY)%><BR>
-              Lowest Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_LOW_KEY)%><BR>
-              Rating Percentile: <%=MemberInfo.get(TCESConstants.MEM_RATING_PCTILE_KEY)%><BR>
-              Number of Ratings: <%=MemberInfo.get(TCESConstants.MEM_RATING_NUMEVENTS_KEY)%><BR>
-              Most Recent Rated Event: <%=MemberInfo.get(TCESConstants.MEM_RATING_MOSTRECENT_KEY)%><BR>
-              Average Points per Contest: <%=MemberInfo.get(TCESConstants.MEM_RATING_AVGPOINTS_KEY)%><BR>
-              </P>    
-              
-              Statistics by Problem Level:<br>         
-              <TABLE ID="dataByLevelTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
-                <TR>
-                    <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES.length;i++) { %>
-                        <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;<b>
-                            <%= TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES[i] %>
-                        </b></TD>
-                        <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
-                    <% } %>
-                </TR>                    
-                <tces:mapIterator id="level" MapList="<%=MemberProfileTask.getStatsByLevel()%>">
-        
-                <TR> 
-                  <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS.length;i++) { %>
-                      <TD class="statText" HEIGHT="18" NOWRAP>
-                        <%= level.get(TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[i]) %>
-                      </TD>
-                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
-                    <% } %>
-                </TR>
-
-                </tces:mapIterator>
-
-              </TABLE>
-              <P><BR></P>
-              
-              Statistics by Language:<br>         
-              <TABLE ID="dataByLangTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
-                <TR>
-                    <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLANG_TITLES.length;i++) { %>
-                        <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;<b>
-                            <%= TCESConstants.MEM_RATING_STATSBYLANG_TITLES[i] %>
-                        </b></TD>
-                        <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
-                    <% } %>
-                </TR>                    
-                <tces:mapIterator id="language" MapList="<%=MemberProfileTask.getStatsByLang()%>">
-        
-                <TR> 
-                  <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLANG_KEYS.length;i++) { %>
-                      <TD class="statText" HEIGHT="18" NOWRAP>
-                        <%= language.get(TCESConstants.MEM_RATING_STATSBYLANG_KEYS[i]) %>
-                      </TD>
-                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
-                    <% } %>
-                </TR>
-
-                </tces:mapIterator>
-
-              </TABLE>
-              
-                            
+                </TABLE>
+            
+            <% } %>
               
               
     </TD>
