@@ -578,6 +578,8 @@ public final class TaskDevelopment {
         } catch (NavigationException ne) {
             log.error("TaskDevelopment:ERROR:\n" + ne);
             throw ne;
+        } catch (PermissionException pe) {
+            throw pe;
         } catch (Exception e) {
             e.printStackTrace();
             StringBuffer msg = new StringBuffer(150);
