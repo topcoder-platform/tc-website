@@ -40,7 +40,7 @@ public class MainServlet extends BaseServlet {
         buf.append("http://");
         buf.append(info.getServerName());
         buf.append("/?t=authentication&c=login&errorMsg=");
-        buf.append("In order to continue, you must provide your user name and password.&errorURL=http://");
+        buf.append("In order to continue, you must provide your user name and password.&errorURL=");
         buf.append(info.getRequestString());
 
         fetchRegularPage(request, response, buf.toString(), false);
