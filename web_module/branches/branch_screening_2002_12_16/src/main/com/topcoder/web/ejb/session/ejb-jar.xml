@@ -17,7 +17,7 @@
             </resource-ref>
         </session>
         <session>
-            <ejb-name>Session</ejb-name>
+            <ejb-name>SessionSegment</ejb-name>
             <home>com.topcoder.web.ejb.session.SessionSegmentHome</home>
             <remote>com.topcoder.web.ejb.session.SessionSegment</remote>
             <ejb-class>com.topcoder.web.ejb.session.SessionSegmentBean</ejb-class>
