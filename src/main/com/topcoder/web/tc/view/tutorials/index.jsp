@@ -37,6 +37,11 @@
             
 			<table width="100%" border="0" cellspacing="0" cellpadding="3">
 				<tr valign=top><td class="bodyText"><b>Author</b></td><td class="bodyText" nowrap=nowrap width="100%"><b>Title</b></td></tr>
+<%--
+				<tr valign=top><td class="bodyText">
+					<a class="bodyText" href="/stat?c=member_profile&amp;cr=7305703">Dumitru</a>
+					</td><td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=tutorials&d2=dynProg"><strong>Dynamic Programming:</strong> From novice to advanced</a></td></tr>
+--%>
 				<tr valign=top><td class="bodyText">
 					<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052">lbackstrom</a>
 					</td><td class="bodyText" nowrap=nowrap><a href="/index?t=features&c=feat_100404b"><strong>The Importance of Algorithms</strong></a></td></tr>
