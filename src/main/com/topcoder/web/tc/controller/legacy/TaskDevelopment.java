@@ -672,7 +672,7 @@ Calendar c = new GregorianCalendar();
         if(c.getTimeInMillis() < new GregorianCalendar(104, 7, 1).getTimeInMillis() || c.getTimeInMillis() > new GregorianCalendar(104, 9, 23).getTimeInMillis())
         {
             return true;
-        }
+        } 
         
         
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME); 
