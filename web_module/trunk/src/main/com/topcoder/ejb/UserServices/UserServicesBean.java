@@ -5,8 +5,7 @@ import javax.naming.*;
 import javax.ejb.*;
 import java.util.*;
 import java.rmi.RemoteException;
-import com.topcoder.common.web.data.*;
-import com.topcoder.common.*;
+import com.topcoder.ejb.AuthenticationServices.*;
 
 
 public class UserServicesBean implements EntityBean  {
@@ -26,7 +25,6 @@ public class UserServicesBean implements EntityBean  {
   ///////////////////////////////////////////////////////////////           
   public User getUser () throws RemoteException {
   ///////////////////////////////////////////////////////////////           
-    Log.msg(VERBOSE,"ejb.User.UserServicesBean:getUser() called ...");
     return this.user;
   }
  
@@ -34,7 +32,6 @@ public class UserServicesBean implements EntityBean  {
   ///////////////////////////////////////////////////////////////           
   public void setUser ( User user ) throws RemoteException  {
   ///////////////////////////////////////////////////////////////           
-    Log.msg(VERBOSE,"ejb.User.UserServicesBean:setUser(Coder) called ...\n");
     try{
       this.user = user;
     } catch (Exception ex) {
@@ -54,7 +51,6 @@ public class UserServicesBean implements EntityBean  {
   ///////////////////////////////////////////////////////////////           
   private void activate ( User user ) throws RemoteException  {
   ///////////////////////////////////////////////////////////////           
-    Log.msg(VERBOSE,"ejb.User.UserServicesBean:activate(User) called...\n");
     user.setStatus ( "A" );
     setUser ( user );
   }
@@ -84,7 +80,6 @@ public class UserServicesBean implements EntityBean  {
   ///////////////////////////////////////////////////////////////           
   public void ejbActivate () throws RemoteException  { 
   ///////////////////////////////////////////////////////////////           
-    Log.msg(VERBOSE,"ejb.User.UserServicesBean:ejbActivate() called...");
   }
 
 
@@ -95,7 +90,6 @@ public class UserServicesBean implements EntityBean  {
   ///////////////////////////////////////////////////////////////           
   public void ejbPassivate () throws RemoteException  {  
   ///////////////////////////////////////////////////////////////           
-    Log.msg(VERBOSE,"ejb.User.UserServicesBean:ejbPassivate() called... ");
   }
 
 
@@ -105,7 +99,6 @@ public class UserServicesBean implements EntityBean  {
   ///////////////////////////////////////////////////////////////           
   public void ejbRemove () throws RemoteException {
   ///////////////////////////////////////////////////////////////           
-    Log.msg(VERBOSE,"ejb.User.UserServicesBean:ejbRemove() called...");
     Integer pk = new Integer(0);
     try {
       pk = (Integer) ctx.getPrimaryKey();
@@ -123,7 +116,6 @@ public class UserServicesBean implements EntityBean  {
   ///////////////////////////////////////////////////////////////           
   public void ejbLoad () throws RemoteException {
   ///////////////////////////////////////////////////////////////           
-    Log.msg ( VERBOSE, "ejb.User.UserServicesBean:ejbLoad() called... " );
     try {
       Integer pk = (Integer) ctx.getPrimaryKey();
       User newUser = new User();
@@ -143,7 +135,6 @@ public class UserServicesBean implements EntityBean  {
   ///////////////////////////////////////////////////////////////           
   public void ejbStore () throws RemoteException {
   ///////////////////////////////////////////////////////////////           
-    Log.msg(VERBOSE,"ejb.User.UserServicesBean:ejbStore() called... ");
     try {
       UserDb.updateUser ( this.user );
     } catch (Exception ex) {
@@ -158,7 +149,6 @@ public class UserServicesBean implements EntityBean  {
   ///////////////////////////////////////////////////////////////           
   public void setEntityContext ( EntityContext ctx ) throws RemoteException {
   ///////////////////////////////////////////////////////////////           
-    Log.msg(VERBOSE,"ejb.User.UserServicesBean:setEntityContext() called...");
     this.ctx = ctx;
   }
 
@@ -170,7 +160,6 @@ public class UserServicesBean implements EntityBean  {
   ///////////////////////////////////////////////////////////////           
   public void unsetEntityContext ()  throws RemoteException {
   ///////////////////////////////////////////////////////////////           
-    Log.msg(VERBOSE,"ejb.User.UserServicesBean:unsetEntityContext() called...");
     this.ctx = null;
   }          
 
@@ -182,7 +171,6 @@ public class UserServicesBean implements EntityBean  {
   ///////////////////////////////////////////////////////////////           
   public void ejbPostCreate ( User user ) throws RemoteException  {  
   ///////////////////////////////////////////////////////////////           
-   Log.msg(VERBOSE,"ejb.User.UserServicesBean:ejbPostCreate() called...");
   }
 
          
@@ -190,7 +178,6 @@ public class UserServicesBean implements EntityBean  {
   public Integer ejbCreate ( User newUser ) throws CreateException, RemoteException  {
   ///////////////////////////////////////////////////////////////           
     Integer result = null;
-    Log.msg ( VERBOSE,"ejb.User.UserServicesBean:ejbCreate() called..." );
     try {
       UserDb.insertUser ( newUser );
       setUser ( newUser );
@@ -205,7 +192,6 @@ public class UserServicesBean implements EntityBean  {
   ///////////////////////////////////////////////////////////////           
   public Integer ejbFindByPrimaryKey ( Integer key ) throws FinderException, RemoteException  {
   ///////////////////////////////////////////////////////////////           
-    Log.msg(VERBOSE,"ejb.User.UserServicesBean:ejbFindByPrimaryKey() called...");
     try {
       UserDb.getExistingUserId ( key );
     } catch ( Exception ex )  {

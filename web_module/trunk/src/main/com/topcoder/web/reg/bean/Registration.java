@@ -1419,7 +1419,7 @@ public class Registration
         throws TaskException
     {
         Context context = null;
-        ArrayList users = null;
+        Map users = null;
         try
         {
             context = TCContext.getInitial();
@@ -1447,9 +1447,9 @@ public class Registration
         } 
         if (users !=  null)
         {
-            for (int i=0;i<users.size();i++)
+            for ( Iterator i=users.values().iterator(); i.hasNext(); )
             {
-                User user = (User)users.get(i);
+                User user = (User) i.next();
                 if (user.getHandle().equalsIgnoreCase(handle))
                 {
                     return user;
