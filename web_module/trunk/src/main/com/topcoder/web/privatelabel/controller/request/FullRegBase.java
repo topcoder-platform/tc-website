@@ -88,7 +88,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         }
         for(Iterator it = multiAnswerMap.keySet().iterator(); it.hasNext();) {
             String s = String.valueOf(((Long)it.next()).longValue());
-            log.info("ADDING MULTIANSWER " + s);
+            log.debug("ADDING MULTIANSWER " + s);
             setDefault(Constants.DEMOG_PREFIX + s, multiAnswerMap.get(new Long(s)));
         }
 
