@@ -82,7 +82,7 @@ public class TCLoadRequests extends TCLoad {
     /**
      * This method performs the load for the coder information tables
      */
-    public void  performLoad() throws Exception {
+    public void performLoad() throws Exception {
         try {
             fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
             log.info("It is now " + fStartTime.toString());
@@ -102,12 +102,11 @@ public class TCLoadRequests extends TCLoad {
 
 
             //creating this one ahead of time so that we can reuse it.
-            getUrlPs =  prepareStatement(GET_URL, TARGET_DB);
+            getUrlPs = prepareStatement(GET_URL, TARGET_DB);
             addSiteHitPs = prepareStatement(ADD_SITE_HIT, TARGET_DB);
             createUrlPs = prepareStatement(CREATE_URL, TARGET_DB);
 
             loadWebRequests();
-
 
 
             setLastUpdateTime(WEB_REQUEST_LOAD);
@@ -124,7 +123,7 @@ public class TCLoadRequests extends TCLoad {
     }
 
     private final static String LAST_UPDATE =
-                " select timestamp from update_log where log_id = " +
+            " select timestamp from update_log where log_id = " +
             " (select max(log_id) from update_log " +
             " where log_type_id = ?)";
 
@@ -158,7 +157,6 @@ public class TCLoadRequests extends TCLoad {
     }
 
 
-
     private void loadWebRequests() throws Exception {
         //log.debug("called loadWebRequests()");
         PreparedStatement psSel = null;
@@ -186,9 +184,10 @@ public class TCLoadRequests extends TCLoad {
                     urlId = getUrlId(url);
                 }
                 addSiteHitPs.clearParameters();
-                if (rs.getString("user_id")==null)
+                if (rs.getString("user_id") == null)
                     addSiteHitPs.setNull(1, Types.DECIMAL);
-                else addSiteHitPs.setLong(1, rs.getLong("user_id"));
+                else
+                    addSiteHitPs.setLong(1, rs.getLong("user_id"));
                 addSiteHitPs.setLong(2, urlId);
                 addSiteHitPs.setTimestamp(3, time);
                 addSiteHitPs.setLong(4, getSessionId(rs.getString("session_id")));
@@ -196,10 +195,10 @@ public class TCLoadRequests extends TCLoad {
 
                 retVal = addSiteHitPs.executeUpdate();
 
-                count+=retVal;
+                count += retVal;
                 if (retVal != 1) {
                     log.info("TCLoadRequests:site_hit Insert for " +
-                            "url_id  " + urlId + " user id " +  rs.getString("user_id") + " time " + time +
+                            "url_id  " + urlId + " user id " + rs.getString("user_id") + " time " + time +
                             " session " + rs.getString("session_id") + " modified " + retVal + " rows, not one.");
                 }
 
@@ -244,7 +243,7 @@ public class TCLoadRequests extends TCLoad {
             if (ret != 1)
                 log.info("TCLoadRequests: Insert for " +
                         "url " + url.getUrl() + " coderId " + url.getCoderId() + " roundId " + url.getRoundId() +
-                        " pageName " + url.getPageName()+ " modified "
+                        " pageName " + url.getPageName() + " modified "
                         + ret + " rows, not one.");
 
 
@@ -254,7 +253,6 @@ public class TCLoadRequests extends TCLoad {
                     sqle.getMessage());
         }
     }
-
 
 
     /**
@@ -308,12 +306,12 @@ public class TCLoadRequests extends TCLoad {
         Calendar cal = Calendar.getInstance();
         cal.setTime(time);
         String dateString = cal.get(Calendar.YEAR) + " " +
-                            (cal.get(Calendar.MONTH) + 1) + " " +
-                            cal.get(Calendar.DAY_OF_MONTH);
+                (cal.get(Calendar.MONTH) + 1) + " " +
+                cal.get(Calendar.DAY_OF_MONTH);
 
         if (calendarMap.containsKey(dateString)) {
             //log.debug("date " + time + " found");
-            ret = ((Long)calendarMap.get(dateString)).longValue();
+            ret = ((Long) calendarMap.get(dateString)).longValue();
         } else {
             //log.debug("date " + time + " not found");
             ret = lookupCalendarId(time, TARGET_DB);
@@ -326,7 +324,7 @@ public class TCLoadRequests extends TCLoad {
         //log.debug("called getSessionId() " + sessionId);
         long ret = 0;
         if (sessionMap.containsKey(sessionId)) {
-            ret = ((Long)sessionMap.get(sessionId)).longValue();
+            ret = ((Long) sessionMap.get(sessionId)).longValue();
         } else {
             //look it up and see if it's in the db
             InitialContext ctx = TCContext.getInitial();
@@ -347,7 +345,6 @@ public class TCLoadRequests extends TCLoad {
         }
         return ret;
     }
-
 
 
     private void setLastUpdateTime(int type) throws Exception {
@@ -395,7 +392,7 @@ public class TCLoadRequests extends TCLoad {
 
     private class URL {
         private String baseUrl;
-        private TreeMap paramMap=new TreeMap();
+        private TreeMap paramMap = new TreeMap();
 
         private URL(String url) {
             String trimedUrl = null;
@@ -406,7 +403,8 @@ public class TCLoadRequests extends TCLoad {
             }
             if (trimedUrl.indexOf('?') < 0)
                 this.baseUrl = trimedUrl;
-            else baseUrl = trimedUrl.substring(0, trimedUrl.indexOf('?'));
+            else
+                baseUrl = trimedUrl.substring(0, trimedUrl.indexOf('?'));
 
             //log.debug("url " + baseUrl);
 
@@ -430,7 +428,7 @@ public class TCLoadRequests extends TCLoad {
 
                         if (!s.substring(0, s.indexOf('=')).equals("WebLogicSession"))
                             paramMap.put(s.substring(0, s.indexOf('=')),
-                                    s.substring(s.indexOf('=')+1, s.length()));
+                                    s.substring(s.indexOf('=') + 1, s.length()));
                     } else {
                         paramMap.put(s, "");
                     }
@@ -485,38 +483,46 @@ public class TCLoadRequests extends TCLoad {
         public long getCoderId() {
             //log.debug("getCoderId called " + getUrl());
             long ret = -1;
-            if (hasCoderId()) {
-                boolean found = false;
-                String temp = null;
-                for (int i = 0; i < CODER_ID_KEYS.length & !found; i++) {
-                    //returning the first found, so if there are more
-                    //than one coder_id key in the query, then we'll be
-                    //returning the first one
-                    temp = (String)paramMap.get(CODER_ID_KEYS[i]);
-                    if (temp!=null) {
-                        ret = Long.parseLong(((String) paramMap.get(CODER_ID_KEYS[i])));
-                        found = true;
+            try {
+                if (hasCoderId()) {
+                    boolean found = false;
+                    String temp = null;
+                    for (int i = 0; i < CODER_ID_KEYS.length & !found; i++) {
+                        //returning the first found, so if there are more
+                        //than one coder_id key in the query, then we'll be
+                        //returning the first one
+                        temp = (String) paramMap.get(CODER_ID_KEYS[i]);
+                        if (temp != null) {
+                            ret = Long.parseLong(((String) paramMap.get(CODER_ID_KEYS[i])));
+                            found = true;
+                        }
                     }
                 }
+            } catch (Exception e) {
+                log.error("problem figuring out the coder_id for " + getUrl());
             }
             return ret;
         }
 
         public long getRoundId() {
             long ret = -1;
-            if (hasRoundId()) {
-                boolean found = false;
-                String temp = null;
-                for (int i = 0; i < ROUND_ID_KEYS.length & !found; i++) {
-                    //returning the first found, so if there are more
-                    //than one round_id key in the query, then we'll be
-                    //returning the first one
-                    temp = (String)paramMap.get(ROUND_ID_KEYS[i]);
-                    if (temp!=null) {
-                        ret = Long.parseLong(((String) paramMap.get(ROUND_ID_KEYS[i])));
-                        found = true;
+            try {
+                if (hasRoundId()) {
+                    boolean found = false;
+                    String temp = null;
+                    for (int i = 0; i < ROUND_ID_KEYS.length & !found; i++) {
+                        //returning the first found, so if there are more
+                        //than one round_id key in the query, then we'll be
+                        //returning the first one
+                        temp = (String) paramMap.get(ROUND_ID_KEYS[i]);
+                        if (temp != null) {
+                            ret = Long.parseLong(((String) paramMap.get(ROUND_ID_KEYS[i])));
+                            found = true;
+                        }
                     }
                 }
+            } catch (Exception e) {
+                log.error("problem figuring out the round_id for " + getUrl());
             }
             return ret;
         }
@@ -529,7 +535,7 @@ public class TCLoadRequests extends TCLoad {
                 //than one round_id key in the query, then we'll be
                 //returning the first one
                 ret = (String) paramMap.get(CONTENT_IDS[i]);
-                if (ret!=null)
+                if (ret != null)
                     found = true;
             }
             return ret;
@@ -538,7 +544,7 @@ public class TCLoadRequests extends TCLoad {
         public String getPageName() {
             String contentId = getContentId();
             if (pageNameMap.containsKey(contentId)) {
-                return (String)pageNameMap.get(contentId);
+                return (String) pageNameMap.get(contentId);
             } else {
                 return contentId;
             }
@@ -675,7 +681,6 @@ public class TCLoadRequests extends TCLoad {
         }
     }
 */
-
 
 
 }
