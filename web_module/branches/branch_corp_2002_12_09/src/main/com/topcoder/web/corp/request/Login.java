@@ -1,10 +1,10 @@
 package com.topcoder.web.corp.request;
 
 import com.topcoder.shared.security.AuthenticationException;
+import com.topcoder.shared.security.InvalidLogonException;
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
-import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.corp.stub.UserStub;
 
 /**
  * class to process a log in request.  it will take at least the following
@@ -42,7 +42,7 @@ import com.topcoder.web.corp.stub.UserStub;
 public class Login extends BaseProcessor {
     public static final String KEY_USER_HANDLE      = "handle";
     public static final String KEY_USER_PASS        = "passw";
-    public static final String KEY_STICKY_LOGIN     = "sticky-login";
+//    public static final String KEY_STICKY_LOGIN     = "sticky-login";
     public static final String KEY_DESTINATION_PAGE = "dest";
     
     // modes either full (form to be filled returned to user)
@@ -53,7 +53,10 @@ public class Login extends BaseProcessor {
     /**
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
-    void businessProcessing() throws Exception {
+    void businessProcessing() throws AuthenticationException {
+        if( authToken.isLoggedIn() ) {
+            throw new InvalidLogonException("Already logged in. Try logout at first");
+        }
         if( ! "POST".equals(request.getMethod()) ) {
             pageInContext = true;
             nextPage = SessionPersistor.getInstance(request).popLastPage();
@@ -66,15 +69,6 @@ public class Login extends BaseProcessor {
         }
         catch(Exception e) {}
 
-        boolean stickyLogin = false;
-        try {
-            stickyLogin = "ON".equalsIgnoreCase(request.getParameter(KEY_STICKY_LOGIN));
-        }
-        catch(Exception e) {}
-        setFormFieldDefault(KEY_STICKY_LOGIN, ""+stickyLogin);
-        
-        // here either user tries get logged in via mini login or
-        // he submitted filled form
         String handle = request.getParameter(KEY_USER_HANDLE);
         setFormFieldDefault(KEY_USER_HANDLE, handle == null ? "" : handle);
 
@@ -83,31 +77,23 @@ public class Login extends BaseProcessor {
         if( handle == null || handle.trim().length() == 0 ) {
             markFormFieldAsInvalid(KEY_USER_HANDLE);
         }
-
         log.debug("login attempt[login/passw]: "+handle+"/"+passw);
-        User possibleUser = new UserStub(handle, passw, 0, null);
-        BasicAuthentication authToken = getAuthenticityToken();
+        User possibleUser = new SimpleUser(handle, passw);
+        
         try {
             authToken.login(possibleUser);
+            log.debug("user "+possibleUser.getUserName()+" has logged in");
         }
         catch(AuthenticationException ae) {
             markFormFieldAsInvalid(KEY_USER_PASS);
-            pageInContext = !miniLogin;
-            nextPage = null; // will return to last page
-            return;
+            throw ae;
         }
         
-        possibleUser = authToken.getLoggedInUser();
-        log.debug("user "+possibleUser.getUserName()+" has logged in");
-        
-        // well, logged in. set/reset cookies as requested
-        setCookies(authToken.buildAutoLogonCookies(! stickyLogin ));
-
         // done. if there is destination page then go there
         String destination = request.getParameter(KEY_DESTINATION_PAGE);
 
         if( ! miniLogin ) {
-            SessionPersistor.getInstance(request).popLastPage(); // do not return to login form
+            SessionPersistor.getInstance(request).popLastPage();
         }
 
         // if destination is null then controller will fetch recently viewed page

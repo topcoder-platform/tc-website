@@ -1,6 +1,7 @@
 package com.topcoder.web.common.security;
 
 import com.topcoder.shared.security.Authentication;
+import com.topcoder.shared.security.User;
 
 /**
  * interface for classes that are doing web related authentication and would
@@ -13,20 +14,24 @@ import com.topcoder.shared.security.Authentication;
  */
 public interface WebAuthentication extends Authentication {
     
-//    /**
-//     * Is it realy required ??
-//     * 
-//     * Tests if user is looged in.
-//     *  
-//     * @param checkCookie when true any of two allowed authentification methods
-//     * is allowed: either direct (i.e. when used MUST enter login/password via
-//     * form) or indirect (when user is allowed to save his autjentity
-//     * information in cookies). If false, user supposed to be logged in if he
-//     * had entered login/password within current session. Authentification by
-//     * means of cookie will treated as illegal (but still remains valid for
-//     * tasks with weaker authentification requirements). 
-//     *  
-//     * @return boolean
-//     */
-//    boolean isLoggedIn(boolean checkCookie);
+    /**
+     * Because user can be connected while not logged in yet, this method will
+     * return user, who is currenly connected. Eg. user who provided logon name
+     * but omitted password supposed to be connected but he does not logged in.
+     * So returned user must be supposed as untrusted user because
+     * authentification process supposes that user must trust his identity by
+     * providing valid password.
+     * 
+     * @param checkCookie when true, then cookies will be checked.
+     * @return User currently connected user
+     */
+    public User getUser(boolean checkCookie);
+    
+    /**
+     * Get current user logged out. If parameter is true, then cookies will be
+     * reset too (so user becomes disconnected). 
+     * 
+     * @param clearCookies specifies, if connection cookies must be cleared too
+     */
+    public void logout(boolean clearCookies); 
 }

@@ -22,7 +22,7 @@ public class SessionPersistor implements Persistor {
     private final static Logger log = Logger.getLogger(SessionPersistor.class);
     private static final String KEY_PERSISTOR    = "persistor-object";
     private static final String KEY_PREVPAGE     = "last-accessed-page";
-    private static final String KEY_AUTH_TOKEN   = "auth-token";
+//    private static final String KEY_AUTH_TOKEN   = "auth-token";
     
 	private Hashtable items = null;
     private String appContextPath = null;

@@ -1,7 +1,6 @@
 package com.topcoder.web.corp.controller;
 
 import java.io.IOException;
-import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -16,7 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.AppContext;
 import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
 
 /**
  * Only two methods are supported GET & POST (identical behaviour in
@@ -43,6 +44,7 @@ public class MainServlet extends HttpServlet {
     
     private static final String KEY_MODULE      = "module";
     private static final String KEY_MAINPAGE    = "main";
+    private static final String KEY_ERRORPAGE   = "error";
 	private static final String KEY_CFG_CONTEXT = "config-context";
     private static final String KEY_EXCEPTION   = "caught-exception";
     public  static final String KEY_COOKIES_SET = "cookies-to-set";
@@ -79,23 +81,12 @@ public class MainServlet extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.debug("URI: "+request.getRequestURI()+"["+request.getQueryString()+"]" );
-//        System.err.println("---- java.class.path ----" +System.getProperty("java.class.path"));
-//        System.err.println("---real / path ---"+getServletContext().getRealPath("/"));
-//        Enumeration em =  System.getProperties().elements();
-//        while (em.hasMoreElements()) {
-//            System.err.println(em.nextElement());
-//        }
-        
-//        Cookie [] clist = request.getCookies();
-//        for(int j=0; j<clist.length; ++j) {
-//            log.debug("-- req cookie ---"+clist[j].getName()+":"+clist[j].getValue()+
-//            ":"+clist[j].getDomain()+":"+clist[j].getMaxAge()+":"+clist[j].getPath()
-//            );
-//        }
+
     	String processorName = request.getParameter(KEY_MODULE);
         if( processorName == null ) {
             log.warn("processing module not specified");
-            fetchErrorPage(request, response, null);
+            String dest = servletConfig.getInitParameter(PFX_PAGE+KEY_MAINPAGE);
+            fetchRegularPage(request, response, dest, true);
             return;
         }
 
@@ -106,7 +97,6 @@ public class MainServlet extends HttpServlet {
         try {
             processorModule = (RequestProcessor) Class.forName(processorClassName).newInstance();
             log.debug("processing module "+processorClassName+" instantiated");
-
         }
         catch(Exception e) {
             log.error("processing module instantiation exception ", e);
@@ -116,6 +106,10 @@ public class MainServlet extends HttpServlet {
 
         try {
             processorModule.setRequest(request);
+            SessionPersistor persistor = SessionPersistor.getInstance(request);
+            WebAuthentication authToken;
+            authToken = new BasicAuthentication(persistor, request, response); 
+            processorModule.setAuthToken(authToken);
             processorModule.process();
             boolean forward = processorModule.isNextPageInContext();
             String destination = processorModule.getNextPage();
@@ -124,7 +118,7 @@ public class MainServlet extends HttpServlet {
                 if( request.getQueryString() != null ) {
                     lastUserPage += "?"+request.getQueryString();
                 }
-                SessionPersistor.getInstance(request).pushLastPage(lastUserPage);
+                persistor.pushLastPage(lastUserPage);
             }
             fetchRegularPage(request, response, destination, forward);
         }
@@ -200,7 +194,7 @@ public class MainServlet extends HttpServlet {
     {
         // error page is regular page too with the only difference - it
         // has an error attribute set in request, so..
-        String errorPage = servletConfig.getInitParameter(PFX_PAGE+KEY_MAINPAGE);
+        String errorPage = servletConfig.getInitParameter(PFX_PAGE+KEY_ERRORPAGE);
         if( exc != null ) {
             req.setAttribute(KEY_EXCEPTION, exc);
         }

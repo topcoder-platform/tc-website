@@ -1,8 +1,5 @@
 package com.topcoder.web.corp.request;
 
-import com.topcoder.shared.security.User;
-import com.topcoder.web.common.security.BasicAuthentication;
-
 /**
  * class to process a log out request.  should simply be a call to an
  * authentication object logout().
@@ -18,14 +15,15 @@ public class Logout extends BaseProcessor {
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
     void businessProcessing() throws Exception {
-        BasicAuthentication authToken = getAuthenticityToken();
-        User currentUser = authToken.getLoggedInUser();
-        
-        authToken.logout(currentUser);
-        log.debug("user "+currentUser.getUserName()+" has logged out");
-
-        // done. do not forget reset cookies (set up 'cleared' ones)
-        setCookies(authToken.buildAutoLogonCookies(true));
+        authToken.logout(true);
+//        BasicAuthentication authToken = getAuthenticityToken();
+//        User currentUser = authToken.getLoggedInUser();
+//        
+//        authToken.logout(currentUser);
+//        log.debug("user "+currentUser.getUserName()+" has logged out");
+//
+//        // done. do not forget reset cookies (set up 'cleared' ones)
+//        setCookies(authToken.buildAutoLogonCookies(true));
         
         pageInContext = false;
         nextPage = null; // controller will fetch recently viewed page

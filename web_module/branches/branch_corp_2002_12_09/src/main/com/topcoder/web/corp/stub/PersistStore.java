@@ -13,6 +13,7 @@ import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.output.XMLOutputter;
 
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 
@@ -131,11 +132,12 @@ public class PersistStore {
      */
     private User userCr(Element u) {
         try {
-            return new UserStub(
+            return new SimpleUser(
                 u.getAttributeValue("handle"),
                 u.getAttributeValue("passw"),
-                u.getAttribute("id").getLongValue(),
-                u.getAttributeValue("group") );
+                u.getAttributeValue("group"),
+                u.getAttribute("id").getLongValue()
+            );
         }
         catch(Exception e) {
             return null;
@@ -148,8 +150,8 @@ public class PersistStore {
      * @return User
      */
     public User getUser(long id) {
-        if( id == UserStub.USER_ANONYMOUS_ID ) {
-            return UserStub.getAnonymous();
+        if( id == User.USER_ANONYMOUS_ID ) {
+            return SimpleUser.createAnonymous();
         }
         
         Element ulist = getUsersNode();

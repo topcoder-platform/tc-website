@@ -1,11 +1,8 @@
 package com.topcoder.web.corp.request;
 
-import java.util.Iterator;
-
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.web.common.AppContext;
-import com.topcoder.web.corp.stub.PersistStore;
 
 /**
  * 
@@ -37,7 +34,7 @@ public class TrySecurity extends BaseProcessor {
         PrincipalMgrRemote remotePrincipalMgr = AppContext.getInstance().getRemotePrincipalManager();
         log.debug("--- remote principal manager instantiated");
         UserPrincipal user = remotePrincipalMgr.getUser(132456);
-        log.debug("--- UserPrincipal instantiated");
+        log.debug("--- UserPrincipal instantiated"+user);
         throw new Exception("debug exception - successfully passed");
     }
 }

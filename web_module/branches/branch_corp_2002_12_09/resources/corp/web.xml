@@ -11,13 +11,13 @@
   <description>Main Controller of Topcoder Corporate</description>
   <servlet-class>com.topcoder.web.corp.controller.MainServlet</servlet-class>
 
-  <!---
-     |
-     | Reqests' processors descriptors
-     | Name must be <prefix><name> where prefix == 'processor-'
-     | and name it that will be specified in target url as 'module=<name>' parameter.
-     | Value is class name for RequestProcessor implementor
-     |
+  <!--
+  |
+  | Reqests' processors descriptors
+  | Name must be <prefix><name> where prefix == 'processor-'
+  | and name it that will be specified in target url as 'module=<name>' parameter.
+  | Value is class name for RequestProcessor implementor
+  |
   -->
   <init-param>
     <param-name>processor-static</param-name>
@@ -69,19 +69,21 @@
   <init-param>
     <param-name>config-context</param-name>
     <param-value>/WEB-INF/app-context.properties</param-value>
-    <description>configures some general things for application: jndi, etc</description>
+    <description>configures some general things for application: jndi, etc - to be removed</description>
   </init-param>
   
   <init-param>
-    <!--
-         this page will be accessed via forward only, so it must be specified
-         from application root, servlet context path is not allowed. First slash
-         is required
-    -->
     <param-name>page-main</param-name>
     <param-value>/index.jsp</param-value>
-    <description>All of the controller exceptions will return this to user</description>
+    <description>all unresolved requests will go here</description>
   </init-param>
+
+  <init-param>
+    <param-name>page-error</param-name>
+    <param-value>/error.jsp</param-value>
+    <description>all of the controller exceptions will return this to user</description>
+  </init-param>
+
 
 </servlet>
 

@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.RemoteException;
-import java.rmi.server.RMIClassLoader;
 import java.util.Hashtable;
 import java.util.Properties;
 
@@ -65,7 +64,6 @@ public class AppContext {
 				// populate from properties
 				me.appProperties = new Properties();
 				if( propertiesFileName != null ) {
-//                    log.debug("---- props file name ---- "+propertiesFileName);
 					me.appProperties.load(new FileInputStream(propertiesFileName));
 				}
 				me.doInit(propertiesFileName);
@@ -83,17 +81,8 @@ public class AppContext {
         // instantiate persistent store
         if( propertiesFileName != null ) {
             File dir = new File((new File(propertiesFileName)).getParent());
-//            if( dir == null ) {
-//                System.err.println("-- dir --"+dir);
-//            }
-//            else {
-//                System.err.println("-- dir path --"+dir.getAbsolutePath());
-//            }
-                
             persistStore = PersistStore.getInstance(dir);
         } 
-        
-        
         
 		Hashtable envir = new Hashtable();
         
@@ -110,13 +99,6 @@ public class AppContext {
 		jndiInitialContext = new InitialContext(envir);
 
         Object  l = jndiInitialContext.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-//        try {
-//        System.err.println(l.getClass().getClassLoader());
-//        System.err.println(Class.forName("com.topcoder.security.admin.PrincipalMgrRemoteHome").getClassLoader());
-//        System.err.println("------"+RMIClassLoader.getClassLoader("http://mframe:8083/")+"------");
-//        }
-//        catch(Exception e) {
-//        }
         principalMgrRemoteHome = (PrincipalMgrRemoteHome)l;
 	}
 

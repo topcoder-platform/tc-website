@@ -12,27 +12,33 @@ package com.topcoder.shared.security;
 public interface Authentication {
 	
     /**
+     * Gets provided user logged in.
      * 
-     * @param u
-     * @throws AuthenticationException
+     * @param user an user to be logged in
+     * @throws AuthenticationException supplied userbane/password combination is
+     * invalid.
+     * 
      */
-    void login(User u) throws AuthenticationException, Exception;
+    void login(User user) throws AuthenticationException;
     
     /**
-     * 
-     * @param u
+     * Gets current user logged out.
      */
-    void logout(User u);
+    void logout();
     
     /**
+     * Returns true if connected user is also logged in.
      * 
-     * @return boolean
+     * @return boolean true if user returned by getUser() method is logged in
+     * and false otherwise.
      */
     boolean isLoggedIn();
     
     /**
+     * Returns currently connected user. User maybe either logged in or not yet.
+     * If there is not user connected, then returned user will be anonymous one.
      * 
-     * @return User
+     * @return User currently connected User.
      */
-    User getLoggedInUser();
+    User getUser();
 }

@@ -1,16 +1,17 @@
 package com.topcoder.web.common.security;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.security.AuthenticationException;
 import com.topcoder.shared.security.InvalidLogonException;
 import com.topcoder.shared.security.Persistor;
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.corp.stub.PersistStore;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.AppContext;
 
 /**
  * This implementation will use the TCS security component to attempt a login.
@@ -22,265 +23,203 @@ import com.topcoder.web.corp.stub.PersistStore;
  * @version 1.02
  */
 public class BasicAuthentication implements WebAuthentication {
-    public static final int LM_STRICT         = 0;
-    public static final int LM_COOKIE         = 1;
-    public static final int LM_UNKNOWN        = 2;
-
-    
-    private static final String KEY_USER            = "current-user";
+    protected static final Logger log = Logger.getLogger(BasicAuthentication.class); 
+    private static final String KEY_LOGGEDIN_USER   = "logged-in-user";
     private static final String KEY_LOGON_COOKIE_ID = "a1";
-    private static final String KEY_LOGON_COOKIE_PW = "a2";
-    private static final String KEY_PERMISSIONS     = "permissions-set";
-    private static final String KEY_LOGON_METHOD    = "logon-method";
-    
-    private static final String LM_STRICT_S         = "form-based";
-    private static final String LM_COOKIE_S         = "cookie-based";
-    private static final String LM_UNKNOWN_S        = "unknown";
 
-//    private boolean loggedIn = false;
     private Persistor store = null;
-
+    private HttpServletRequest request = null; 
+    private HttpServletResponse response = null;
+    
     /**
      * disallowed
      */
     private BasicAuthentication() {
     }
-    
+
     /**
-     * 
-     * @return int
-     */
-    public int getLogonMethod() {
-        String m = (String)store.getObject(KEY_LOGON_METHOD);
-        if( LM_STRICT_S.equals(m) ) return LM_STRICT;
-        if( LM_COOKIE_S.equals(m) ) return LM_COOKIE;
-        return LM_UNKNOWN;
-    }
-    
-    /**
-     * 
-     * @param method
-     */
-    private void setLogonMethod(int method) {
-        String m;
-        switch(method) {
-            case LM_STRICT: m = LM_STRICT_S; break;
-            case LM_COOKIE: m = LM_COOKIE_S; break;
-            default: m = LM_UNKNOWN_S; break;
-        }
-        store.setObject(KEY_LOGON_METHOD, m);
-    }
-        
-    
-    /**
-     * Creates authentification token based on persitent storage and set of
-     * received cookies. Persistent storage may already contain logged in user,
-     * in which case cookies analysis is not performed.
-     * Otherwise cookies are analized and if they specify valid user
-     * credentials, then that user is loggen in automatically. Logon type in
-     * that case marked as weak (LM_COOKIE)
+     * Creates authentification token based on persitent storage and
+     * request/response pair
      * 
      * @param persistor
-     * @param cookies
-     * @throws NoSuchAlgorithmException
-     * @throws Exception
+     * @param req
+     * @param resp
      */
-    public BasicAuthentication(Persistor persistor, Cookie [] cookies)
-    throws NoSuchAlgorithmException, Exception
-    {
+    public BasicAuthentication(Persistor persistor, HttpServletRequest req, HttpServletResponse resp) {
         store = persistor;
-        User possibleUser = null;
-        possibleUser = getLoggedInUser();
-        if( possibleUser != null ) {
-            // there is user already logged in
-            return;
-        }
-        
-        // at time of creation user is not looged in yet
-        // we will try got he logged via cookies at first
-        // lets find user ID at first
-        long userID = -1;
-        for( int i=0; i<cookies.length; ++i ) {
-            if( KEY_LOGON_COOKIE_ID.equals(cookies[i].getName()) ) {
-                try {
-                    userID = Long.parseLong(cookies[i].getValue());
-                    break;
-                }
-                catch(Exception e) {
-                }
-            }
-        }
-        String scrambledPassword = null;
-        for( int i=0; i<cookies.length; ++i ) {
-            if( KEY_LOGON_COOKIE_PW.equals(cookies[i].getName()) ) {
-                scrambledPassword = cookies[i].getValue().trim();
-                break;
-            }
-        }
-        
-        if( userID != -1 && scrambledPassword != null ) {
-            // both username and password were specified via cookies
-            possibleUser = fetchUserFromDB(userID);
-            if( possibleUser != null ) { // user with given ID was found
-                if( ! passwordsMatched(possibleUser, scrambledPassword) ) { // invalid password
-                    possibleUser = null;
-                }
-                else {
-                    setLogonMethod(LM_COOKIE);
-                }
-            }
-        }
-        // here if possibleUser is null then either id/password combination
-        // in cookies is invalid or even cookies were not set yet
-        if( possibleUser == null ) {
-            // set up user as anonymous 
-            userID = User.USER_ANONYMOUS_ID;
-            possibleUser = fetchUserFromDB(userID);
-        }
-        else { // successfully looged in via cookies
-            store.setObject(KEY_USER, possibleUser);
-            setLogonMethod(LM_COOKIE);
-        }
-        // get permissions set for given user
-        store.setObject(KEY_PERMISSIONS, fetchPermissionsFromDB(userID));
+        request = req;
+        response = resp;
     }
-    
+
     /**
+     * Get current user logged out. This method does not change connection
+     * cookies.
      * 
-     * @param user
-     * @param scrambledPassword
-     * @return boolean
+     * @see com.topcoder.shared.security.Authentication#logout()
      */
-    private boolean passwordsMatched(User user, String scrambledPassword) throws NoSuchAlgorithmException {
-        MessageDigest md5 = MessageDigest.getInstance("MD5");
-        byte [] originalPasswordScrambled =  md5.digest(user.getPassword().getBytes());
-        String originalPassword = StringUtils.getHexRepresentation(originalPasswordScrambled);
-        return originalPassword.equalsIgnoreCase(scrambledPassword);
-    }
-    
-    /**
-     * will need to remove the logged in cookie, and the key/value pair in the pesistor
-     */
-    public void logout(User u) {
-        User who = getLoggedInUser();
-        if( who == null || ! who.equals(u) ) return; //different users
-        store.removeObject(KEY_USER);
-    }
-    
-//    /**
-//     * is it really required ??
-//     * @see com.topcoder.web.common.security.WebAuthentication#isLoggedIn(boolean)
-//     */
-//    public boolean isLoggedIn(boolean checkCookie) {
-//        return false;
-//    }
-
-    /**
-     * @see com.topcoder.shared.security.Authentication#getLoggedInUser()
-     */
-    public User getLoggedInUser() {
-        return isLoggedIn() ? (User)store.getObject(KEY_USER) : null;
+    public void logout() {
+        store.removeObject(KEY_LOGGEDIN_USER);
     }
 
     /**
-     * Performs logon process for given user. To be successfully logged in user
-     * must have username and password fields set. After successful login
-     * user currently looged in must be requested via getLogedInUser() method.
-     * It is supposed that this method is callen only from strict login
-     * procedures. Sets logon method as LM_STRICT. 
+     * Get user logged out and, optionally disconnected if parameter is true.
      * 
-     * @see com.topcoder.shared.security.Authentication#login(com.topcoder.shared.security.User)
+     * @see com.topcoder.web.common.security.WebAuthentication#logout(boolean)
      */
-    public void login(User u) throws AuthenticationException , Exception {
-        User desiredUser = fetchUserFromDB(u.getUserName());
-        if( desiredUser == null ) { // there is not user wit such handle in db 
-            throw new InvalidLogonException();
-        }
-        
-//        System.err.println(desiredUser+" fetched form db");
-        
-        if( ! u.getPassword().equals(desiredUser.getPassword()) ) {
-            throw new InvalidLogonException();
-        }
-        
-        // successfull
-        store.setObject(KEY_USER, desiredUser);
-        setLogonMethod(LM_STRICT);
+    public void logout(boolean clearCookies) {
+        logout();
+        embedAutoConnectCookies(-1, true);
     }
 
     /**
+     * @see com.topcoder.web.common.security.WebAuthentication#getUser(boolean)
+     */
+    public User getUser(boolean checkCookie) {
+        User u = getUser();
+        if( ! u.isAnonymous() ) {
+            return u;
+        }
+        // user is not logged in yet
+        if( ! checkCookie ) {
+            return u;
+        }
+            
+        long id = getIDFromCookies();
+        if( id == User.USER_ANONYMOUS_ID ) {
+            return u;
+        }
+        try {
+            return pullUserFromDB(id);
+        }
+        catch(Exception e) { // it is impossible to pull that user from db
+            return u; 
+        }
+    }
+
+    /**
+     * @see com.topcoder.shared.security.Authentication#getUser()
+     */
+    public User getUser() {
+        User u = (User)store.getObject(KEY_LOGGEDIN_USER);
+        return u == null ? SimpleUser.createAnonymous() : u;
+    }
+
+    /**
+     * Checks, if user is currenltly logged in
+     * 
      * @see com.topcoder.shared.security.Authentication#isLoggedIn()
      */
     public boolean isLoggedIn() {
-        User u = (User)store.getObject(KEY_USER);
-        return null != u && !u.isAnonymous();
+        return store.getObject(KEY_LOGGEDIN_USER) != null;
     }
 
     /**
+     * Get user logged in. Two fields required to be filled in are
+     * password and either userID or username.
      * 
-     * @param userID
-     * @return PermissionsSet
-     * @throws Exception
-     */    
-    private PermissionsSet fetchPermissionsFromDB(long userID) throws Exception {
-        PermissionsSet permSet = new PermissionsSet();
-        permSet.populateFromDB(userID);
-        return permSet;
-    }
-
-    /**
-     * Returns newly created 'right' cookies which allow to the user get
-     * automatically logged in (in case when clear set to false) or 'drop'
-     * cookies which will reset client's autologon cookies. Cookies returned is
-     * 'standalone' cookies (ie. they are not embedded into response yet,
-     * just because Authentification does know nothing about response), so to
-     * apply them caller must embed them into response.
-     * 
-     * @param clear if true then method returns expired cookies, otherwise valid
-     * ones. Sending of expired cookies to client will drop out uatologon
-     * cookies on client side.
-     * @return Cookie[] either valid or expired autologon cookies, depending on
-     * clear parameter.
-     * 
+     * @see com.topcoder.shared.security.Authentication#login(com.topcoder.shared.security.User)
      */
-    public Cookie [] buildAutoLogonCookies(boolean clear) throws NoSuchAlgorithmException {
-        User u = getLoggedInUser();
-        String id = u == null ? "" : ""+u.getId();
-        String passw = u == null ? "" : ""+u.getPassword();
-        
+    public void login(User user) throws AuthenticationException {
+        User desiredUser;
+        try {
+            if( user.getUserName() != null ) {
+                desiredUser = pullUserFromDB(user.getUserName());
+            }
+            else {
+                desiredUser = pullUserFromDB(user.getId());
+            }
+        }
+        catch(Exception e) {
+            throw new InvalidLogonException(e);
+        }
+        if( ! desiredUser.getPassword().equals(user.getPassword()) ) {
+            throw new InvalidLogonException();
+        }
+        store.setObject(KEY_LOGGEDIN_USER, desiredUser);
+        embedAutoConnectCookies(desiredUser.getId(), false);
+    }
+
+    /**
+     * Embeds array of cookies into response for given user ID. If clear
+     * parameter is true, then cookies embedded are marked as expired, so user
+     * side client software will not send them to us anymore.
+     * 
+     * @param userID ID of user to be auto connected. Ignored if clear parameter
+     * is true
+     * @param clear if true, then auto connect cookies are dropped out.
+     */
+    private void embedAutoConnectCookies(long userID, boolean clear) {
         Cookie [] ret = new Cookie [2];
-        ret[0] = new Cookie(KEY_LOGON_COOKIE_ID, clear? "" : id);
-        int expiresIn = clear? -10*24*60*60 : 10*24*60*60;  
-        ret[0].setMaxAge(expiresIn); 
-        if( clear ) {
-            ret[1] = new Cookie(KEY_LOGON_COOKIE_PW, "");
+        ret[0] = new Cookie(KEY_LOGON_COOKIE_ID, clear ? "" : ""+userID);
+        int expiresIn = clear ? -10*24*60*60 : 10*24*60*60;
+        ret[0].setMaxAge(expiresIn);
+
+        for( int i=0; i<ret.length; ++i ) {
+            response.addCookie(ret[i]);
         }
-        else {
-            MessageDigest md5 = MessageDigest.getInstance("MD5");
-            byte [] scrambledPassword =  md5.digest(passw.getBytes());
-            ret[1] = new Cookie(KEY_LOGON_COOKIE_PW,
-                                StringUtils.getHexRepresentation(scrambledPassword)
-                         );
-        }
-        ret[1].setMaxAge(expiresIn); // one month ago
-        return ret;
     }
     
     /**
-     * Implemented as the stub for the moment
-     * @param userID
-     * @return User
+     * Returns user Id from cookies or USER_ANONYMOUS_ID, if there was not auto
+     * connect cookies in request.
+     * 
+     * @return long
      */
-    private User fetchUserFromDB(long userID) throws Exception {
-        return PersistStore.getInstance(null).getUser(userID);
+    private long getIDFromCookies() {
+        long ret = User.USER_ANONYMOUS_ID;
+        
+        Cookie [] ca = request.getCookies();
+        for( int i=0; i<ca.length; ++i ) {
+            if( ca[i].getName().equals(KEY_LOGON_COOKIE_ID)) {
+                try {
+                    ret = Long.parseLong(ca[i].getValue());
+                }
+                catch(Exception e) {
+                }
+                break;
+            }
+        }
+        return ret;
     }
 
     /**
-     * Implemented as the stub for the moment
-     * @param userID
+     * Pulls out user matching given id from db
+     * 
+     * @param id
      * @return User
-     */
-    private User fetchUserFromDB(String userName) throws Exception {
-        return PersistStore.getInstance(null).getUser(userName);
+     * @throws Exception
+     */    
+    private static User pullUserFromDB(long id) throws Exception {
+        log.debug("pulling out user from db [id="+id+"]");
+        PrincipalMgrRemote mgr = 
+            AppContext.getInstance().getRemotePrincipalManager();
+        String uname = mgr.getUser(id).getName();
+        log.debug("[username="+uname+"]");
+        String pw = mgr.getPassword(id);
+        log.debug("[password="+pw+"]");
+        String grp = mgr.getGroup(id).getName();
+        log.debug("[group="+grp+"]");
+        return new SimpleUser(uname, pw, grp, id);
     }
+    
+    /**
+     * Pulls out user matching given username from db
+     * 
+     * @param uname
+     * @return User
+     * @throws Exception
+     */
+    private static User pullUserFromDB(String uname) throws Exception {
+        log.debug("pulling out user from db [uname="+uname+"]");
+        PrincipalMgrRemote mgr =
+            AppContext.getInstance().getRemotePrincipalManager();
+        long id = mgr.getUser(uname).getId();
+        log.debug("[id="+id+"]");
+        String pw = mgr.getPassword(id);
+        log.debug("[password="+pw+"]");
+        String grp = mgr.getGroup(id).getName();
+        log.debug("[group="+grp+"]");
+        return new SimpleUser(uname, pw, grp, id);
+    }
+    
 }

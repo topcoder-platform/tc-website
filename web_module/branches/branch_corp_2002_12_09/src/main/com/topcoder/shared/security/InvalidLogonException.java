@@ -9,5 +9,13 @@ package com.topcoder.shared.security;
  *
  */
 public class InvalidLogonException extends AuthenticationException {
-    // nothing inside - just tag
+    public InvalidLogonException(Throwable t) {
+        super(t);
+    }
+    
+    public InvalidLogonException() {}
+    
+    public InvalidLogonException(String msg) {
+        super(msg);
+    }
 }

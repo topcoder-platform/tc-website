@@ -4,6 +4,7 @@ import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.shared.security.*;
 import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.shared.util.DBMS;
 
 import com.topcoder.shared.dataAccess.*;
@@ -41,7 +42,7 @@ public class UserList extends BaseProcessor {
         log.debug("Attempting to set up user list");
         pageInContext = true;
         long userId;
-        BasicAuthentication authToken = getAuthenticityToken();
+        WebAuthentication authToken = getAuthenticityToken();
         if (!authToken.isLoggedIn()) {
 
 
@@ -55,7 +56,7 @@ public class UserList extends BaseProcessor {
         else { // else will not necessary when authentication is complete... 
 
             /* Find the current logged in users ID number.  */
-            User currentUser = authToken.getLoggedInUser();
+            User currentUser = authToken.getUser();
             userId = currentUser.getId();
             /* get the company associated with that logged in users ID number */
         }
