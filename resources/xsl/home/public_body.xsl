@@ -71,8 +71,8 @@
                 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 138</strong></a><br />
-                            Monday, March 10, 2003<br /><br />
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 139</strong></a><br />
+                            Wednesday, March 12, 2003<br /><br />
                         </td>
                     </tr>
 
@@ -139,24 +139,24 @@
                 <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
 
                 <tr>
-                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-                        By&#160;lbackstrom<br/><i>[TC]&#160;Member</i><br /></td>
+                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
+                        By&#160;brett1479<br/><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="arial, verdana"><strong>Single Round Match 138</strong></font></td>
+                        <font size="2" color="#000000" face="arial, verdana"><strong>Single Round Match 139</strong></font></td>
                 </tr>
 
                 <tr>
                     <td valign="top" class="bodyText" width="100%">
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm138_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm139_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
 
-                        <p>Div 1 had a rather rough set tonight, as only 1 person (SnapDragon) was able to solve all three
-                            problems successfully.  However, SnapDragon was rather slow on the hard problem, and despite
-                            being the only one to solve all three problems, he came in third.  It was lars, with the highest
-                            score on the hard, who took first place, pushing him up 184 rating points.  WishingBone was a
-                            close second, and moved up 93 points.  Div 2 had a rather easy set, and first timer TekGoNos won
-                            by a large margain.</p>
+                        <p>This round of the Collegiate Championship was clearly a notch more difficult than all previous rounds. bstanescu, 
+                        the only competitor to sucessfully complete the hard problem, received the highest score for the round. Along with 
+                        the the challenging hard, coders were faced with an incredibly tricky medium problem. The 550 caught many competitors 
+                        by surprise with its unusual style. The easy problem, a relatively simple dynamic programming exercise, would have 
+                        been a medium had it been a normal SRM. If this round is any indication of the future, competitors will need to be 
+                        in top form to score above 1000 in the upcoming rounds.</p>
                     </td>
                 </tr>
             </table>
