@@ -159,6 +159,9 @@ public class Constants {
     
     public static int SKILL_TYPE_LANGUAGES;
     public static String SKILL_PREFIX;
+    
+    public static String NOTE_PREFIX;
+    public static String NOTE_LANGUAGES;
 
 
     static {

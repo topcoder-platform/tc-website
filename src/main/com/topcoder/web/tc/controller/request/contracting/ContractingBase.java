@@ -160,6 +160,13 @@ abstract public class ContractingBase extends BaseProcessor {
             String s = (String)i.next();
             setDefault(Constants.SKILL_PREFIX + s, info.getSkill(s)); 
         }
+        
+        //load note defaults
+        i = info.getNoteNames();     
+        while(i.hasNext()) {
+            String s = (String)i.next();
+            setDefault(Constants.NOTE_PREFIX + s, info.getNote(s)); 
+        }
     };
     
     protected abstract void setNextPage();
@@ -208,9 +215,9 @@ abstract public class ContractingBase extends BaseProcessor {
         } else if(getRequestParameter("previouspage") != null && getRequestParameter("previouspage").equals("languages")) {
             //load skills
             log.debug("LOADING DATA FROM REQUEST");
-            info.clearSkills();
+            //info.clearSkills();
             
-            //get list of preferences 
+            //get list of preferences / notes
             Enumeration en = getRequest().getParameterNames();
             while(en.hasMoreElements()) {
                 String param = (String)en.nextElement();
@@ -223,9 +230,24 @@ abstract public class ContractingBase extends BaseProcessor {
                     if(!val.equals("") && Integer.parseInt(val) != 0) {
                         info.setSkill(skillId, val);
                         log.debug("SET SKILL " + skillId + " TO " + val);
+                    } else {
+                        info.removeSkill(skillId);
+                    }
+                } else if(param.startsWith(Constants.NOTE_PREFIX)) {
+                    //get id from end of string
+                    String noteId = param.substring(Constants.NOTE_PREFIX.length());
+                        
+                    String val = getRequestParameter(param);
+                    
+                    if(!val.equals("")) {
+                        info.setNote(noteId, val);
+                        log.debug("SET NOTE " + noteId + " TO " + val);
+                    } else {
+                        info.removeNote(noteId);
                     }
                 }
             }
+            
         } else {
             log.debug("NO DATA TO LOAD FROM REQUEST");
             log.debug("FIELD IS " + getRequestParameter("dataToLoad"));
