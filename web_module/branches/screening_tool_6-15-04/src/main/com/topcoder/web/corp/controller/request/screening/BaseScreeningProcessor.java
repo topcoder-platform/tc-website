@@ -32,7 +32,7 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
         try
         {
             Long usageType;
-            DataAccessInt dAccess = Util.getDataAccess(true);
+            DataAccessInt dAccess = Util.getDataAccess(false);
             Request dr = new Request();
             dr.setContentHandle("usage_type");
             dr.setProperty("uid", String.valueOf(getUser().getId()));
