@@ -26,6 +26,7 @@ public class FullRegDemog extends SimpleRegBase {
         InitialContext ctx = null;
         ResultSetContainer ret = null;
         try {
+            ctx = new InitialContext();
             ResumeServices resume = (ResumeServices) createEJB(ctx, ResumeServices.class);
             ret = resume.getFileTypes();
         } finally {
