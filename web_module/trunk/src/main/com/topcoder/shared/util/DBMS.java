@@ -1,6 +1,7 @@
 package com.topcoder.shared.util;
 
-import com.topcoder.web.common.BaseProcessor;
+//import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.sql.DataSource;
 import javax.naming.NamingException;
@@ -19,6 +20,7 @@ import java.sql.*;
 public class DBMS {
 
     private static final TCResourceBundle bundle = new TCResourceBundle("DBMS");
+     private static Logger log = Logger.getLogger(DBMS.class);
 
     public static final int INFORMIX = getIntProperty("INFORMIX", 1);
     public static int DB = getIntProperty("DB", INFORMIX);
@@ -118,13 +120,21 @@ public class DBMS {
         Connection conn = null;
         InitialContext ctx = null;
         try {
+            log.debug("begin");
             ctx = TCContext.getInitial();
             conn = getConnection(ctx, dataSourceName);
+            log.debug("end");
         } catch (NamingException e) {
             e.printStackTrace();
             throw new SQLException(e.getMessage());
         } finally {
-            BaseProcessor.close(ctx);
+            if (ctx!=null) {
+                try {
+                    ctx.close();
+                } catch (NamingException ne) {
+                    throw new SQLException(ne.getMessage());
+                }
+            }
         }
 
         return conn;
