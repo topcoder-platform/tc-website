@@ -54,30 +54,29 @@
             <td class="statTextBig">Command Name</td>
           </tr>
           <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
-          <query:resultSetRowIterator id="command" list="<%=CommandList.getCommandList()%>">
-            <tr>
-              <td class="statText" ALIGN="right">
-                <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_GROUP_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandList" property="Db"/>&<%=Constants.GROUP_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_group_id"/>" class="statText">
-                  [edit]
-                </A>
-                &#160;&#160;
-              </td>
-              <td class="statText">
-                <query:resultSetItem row="<%=command%>" name="command_group_name"/>
-              </td>
-              <td class="statText" ALIGN="right">
-                <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandList" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" class="statText">
-                  [edit]
-                </A>
-                &#160;&#160;
-              </td>
-              <td class="statText">
-                <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandList" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" class="statText">
-                  <query:resultSetItem row="<%=command%>" name="command_desc"/>
-                </A>
-              </td>
-            </tr>
-          </query:resultSetRowIterator>
+          <%--nasty formatting to keep the output smaller --%>
+          <query:resultSetRowIterator id="command" list="<%=CommandList.getCommandList()%>"><tr>
+<td class="statText" ALIGN="right">
+<A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_GROUP_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandList" property="Db"/>&<%=Constants.GROUP_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_group_id"/>" class="statText">
+[edit]
+</A>
+&#160;&#160;
+</td>
+<td class="statText">
+<query:resultSetItem row="<%=command%>" name="command_group_name"/>
+</td>
+<td class="statText" ALIGN="right">
+<A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandList" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" class="statText">
+[edit]
+</A>
+&#160;&#160;
+</td>
+<td class="statText">
+<A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandList" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" class="statText">
+<query:resultSetItem row="<%=command%>" name="command_desc"/>
+</A>
+</td>
+</tr></query:resultSetRowIterator>
         </table>
       </td>
       <td width="4" bgcolor="#000000"><img src="/i/clear.gif" width="4" height="1" border="0"></td>
