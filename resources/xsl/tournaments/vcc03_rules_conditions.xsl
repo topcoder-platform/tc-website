@@ -42,7 +42,14 @@ Top Ends -->
     <tr valign="top">
 
 <!-- Left Column Begins -->
-         <td><img src="/i/tournament/vcc03/vcc03_left.gif" width="140" height="140" border="0"/></td>         
+         <td>
+         <p><img src="/i/clear.gif" width="180" height="60" border="0"/><br />
+         <a href="/" ><img src="/i/tournament/vcc03/vcc03_left.gif" width="180" height="74" border="0"/></a><br />
+         <img src="/i/clear.gif" width="180" height="60" border="0"/><br />
+         <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
+         <img src="/i/clear.gif" width="180" height="40" border="0"/>
+         </p>
+         </td>         
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
@@ -50,13 +57,7 @@ Top Ends -->
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-        <td class="bodyText">
-            <xsl:call-template name="BodyTop">
-                <xsl:with-param name="image1"></xsl:with-param>
-                <xsl:with-param name="image">events</xsl:with-param>
-                <xsl:with-param name="title">2003 Verizon Coding Challenge</xsl:with-param>
-            </xsl:call-template>
-        
+        <td class="bodyText" width="100%">
 <!-- TCO Header -->
    <p><br /></p>
    <div align="center"><img src="/i/tournament/vcc03/vcc03.jpg" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
@@ -159,8 +160,7 @@ Top Ends -->
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-  <!-- Right Column Begins -->
-         <td><img src="/i/tournament/vcc03/vcc03_right.gif" width="140" height="400" border="0"/></td>         
+<!-- Right Column Begins -->
 <!-- Right Column Ends -->
 
 <!-- Gutter Begins -->
@@ -171,7 +171,7 @@ Top Ends -->
 </table>
 
 <!-- Footer Begins -->
-<xsl:call-template name="Foot"/>
+<xsl:call-template name="FootVCC"/>
 <!-- Footer Ends -->
 
 </body>
