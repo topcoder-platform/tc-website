@@ -70,6 +70,8 @@ abstract public class ContractingBase extends BaseProcessor {
                 
                 errorProcessor.contractingProcessing();
                 errorProcessor.setNextPage();
+                setNextPage(errorProcessor.getNextPage());
+                setIsNextPageInContext(true);
             } else {
             
                 contractingProcessing();  
