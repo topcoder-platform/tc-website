@@ -18,7 +18,7 @@ Please view the following links for review of the Apex Employment program.<BR/><
 <B>Website</B><BR/>
 <A HREF="/i/es/apex/public_home.jpg">Public Home Page</A><BR/>
 <A HREF="/i/es/apex/member_home.jpg">Member Home Page</A><BR/>
-<A HREF="/?t=jobs&amp;c=apex">Apex Main Page</A><BR/>
+<A HREF="/?t=tces&amp;c=apex">Apex Main Page</A><BR/>
 <!-- <A HREF="statsindex.gif">Statistics Index Paapex</A><BR/>
 <A HREF="overview.gif">Match Overview Paapex</A><BR/>
 <A HREF="results.gif">Match Results Paapex</A><BR/>
@@ -32,7 +32,7 @@ Please view the following links for review of the Apex Employment program.<BR/><
 <A HREF="/i/es/apex/leaderboard_sample.jpg">Leaderboard</A><BR/>
 <BR/><BR/>
 <B>Email</B><BR/>
-<A HREF="/?t=jobs&amp;c=apex_em">Employment Announcement</A><BR/>
+<A HREF="/?t=tces&amp;c=apex_em">Employment Announcement</A><BR/>
 <!-- <A HREF="mr.html">Match Results</A><BR/> -->
 <BR/><BR/>
 <!-- <B>PDF</B><BR/>
