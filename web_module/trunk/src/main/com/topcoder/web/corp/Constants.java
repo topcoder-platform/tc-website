@@ -55,6 +55,7 @@ public class Constants {
     public static String CORP_ADMIN_ROLE = null;
     public static String CORP_GROUP = null;
     public static String CORP_ANONYMOUS_GROUP = null;
+    public static String SOFTWARE_USER_GROUP = null;
     public static int CORP_SITE_TERMS_ID = -1;
     public static int GENERAL_PRODUCT_TERMS_ID = -1;
 
@@ -89,6 +90,7 @@ public class Constants {
         CORP_ADMIN_ROLE = store.getProperty("security-corp-admin-role", "Account Administrator");
         CORP_GROUP = store.getProperty("security-corp-group", "Corp User");
         CORP_ANONYMOUS_GROUP = store.getProperty("security-anonymous-group", "Anonymous");
+        SOFTWARE_USER_GROUP = store.getProperty("security-software-user-group", "Users");
         CORP_SITE_TERMS_ID = store.getIntProperty("corp-site-terms-id", 3);
         GENERAL_PRODUCT_TERMS_ID = store.getIntProperty("general-product-terms-id", 6);
     }
