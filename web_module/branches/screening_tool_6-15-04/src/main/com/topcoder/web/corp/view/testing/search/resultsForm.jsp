@@ -36,9 +36,9 @@
                   <td class="screeningCellOdd"><A href="mailto:<rsc:item row="<%=resultRow%>" name="email_address"/>"><rsc:item row="<%=resultRow%>" name="email_address"/></A></td>
                   <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="state"/></td>
                   <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="country_name"/></td>
-                  <td class="screeningCellOdd" align=center>Pro</td>
-                  <td class="screeningCellOdd" align=center>Architect</td>
-                  <td class="screeningCellOdd" align=center><A href="">Rain</A></td>
+                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="coder_type"/></td>
+                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="job"/></td>
+                  <td class="screeningCellOdd" align=center><A href=""><rsc:item row="<%=resultRow%>" name="problem_name"/></A></td>
                   <td class="screeningCellOdd" align=center>01/01/04</td>
                   <td class="screeningCellOdd" align=center>00:40.20</td>
                   <td class="screeningCellOdd" align=center>
