@@ -89,7 +89,14 @@
                             								<tr>
                             									<td><img src="/i/spacer.gif" height="13" width="13"/></td>
                             									<td class="bodyText" > <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino 
-                            									mobile-technology- based notebook! <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>View Specs</strong> </a>.
+                            									mobile-technology- based notebook! <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">
+                            									
+                            									
+                            									
+
+                            									
+                            									
+                            									<strong>View Specs</strong> </a>.
                             										<br/><br/><strong><a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">Register Now!</a> Use promotion code TCO2003. </strong></p></td>
                             								</tr>
                             								
@@ -110,7 +117,9 @@
                         
                         <tr>
                         	<td colspan="2">
-                    <p class="promoCallout"><a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Check out a sample</strong> </a> of what Intel Developer 
+                    <p class="promoCallout">
+                    
+                    <A href="Javascript:openWin('/?t=tournaments&#38;c=tco03_intel_sample','comp',510,600);"><strong>Check out a sample</strong></A> of what Intel Developer 
                     Services offers you.  Then join <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel Developer Services</strong> </a> today and get FREE technical resources designed to help you capitalize on today's technology trends, optimize solutions and fulfill your customers' growing demands. <br/>
                     <br/>Remember to use promotion code TCO2003 and compete in the TCO to be entered for a chance to win an Intel Centrino mobile-technology based notebook! </p>
                         
