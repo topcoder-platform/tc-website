@@ -59,6 +59,9 @@
             <FORM name="frmSend" method="POST" action="/">
               <INPUT TYPE="hidden" NAME="t" VALUE="development"/>
               <INPUT TYPE="hidden" NAME="c" VALUE="tcs_send"/>
+              <INPUT TYPE="hidden" NAME="comp">
+                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/comp"/></xsl:attribute>
+              </INPUT>
               <INPUT TYPE="hidden" NAME="Project">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/Project"/></xsl:attribute>
               </INPUT>
