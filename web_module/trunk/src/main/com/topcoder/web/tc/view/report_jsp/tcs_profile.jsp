@@ -17,11 +17,9 @@
 <%
   ResultSetContainer profiles = null;
   ResultSetContainer.ResultSetRow p = null;
-  ArrayList detailList = null;
   Boolean processed = (Boolean)request.getAttribute(Constants.PROCESSED_KEY);
   if (processed!=null && processed.booleanValue()) {
     profiles = (ResultSetContainer)request.getAttribute(Constants.REPORT_PROFILE_LIST_KEY);
-    detailList = (ArrayList)request.getAttribute(Constants.REPORT_PROFILE_DETAIL_KEY);
   } 
 %>
 
@@ -31,6 +29,7 @@
   </head>
   <body>
     <a href=<%=Constants.SERVLET_ADDR%>><< back to main menu<a><br/><br/>
+    TCS Profile Lookup<br/><br/>
     (Use % for a wildcard.)
     <form name="profileForm" method="get" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
       <input type="hidden" name="module" value="TCSProfileLookup"/>
@@ -61,7 +60,7 @@
     </script>
 
 <%
-  if (profiles != null && request.getParameter(Constants.TASK_NAME_KEY) != null ) {
+  if (profiles != null  ) {
     for (int k=0; k<profiles.size(); k++) {
       p = profiles.getRow(k);
 
