@@ -8,7 +8,7 @@ public class CounterTagInfo extends TagExtraInfo {
 
     public VariableInfo[] getVariableInfo(TagData data) {
         return new VariableInfo[]{
-            new VariableInfo(ProblemRatingInput.COUNTER, String.class.getName(), true, VariableInfo.NESTED)
+            new VariableInfo(data.getId(), String.class.getName(), true, VariableInfo.NESTED)
         };
     }
 

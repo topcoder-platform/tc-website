@@ -11,6 +11,9 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -20,6 +23,7 @@ import java.util.Iterator;
 import java.util.Enumeration;
 import java.util.ArrayList;
 import java.rmi.RemoteException;
+import java.util.Map;
 
 
 /**
@@ -38,42 +42,55 @@ public class Submit extends Base {
         InitialContext ctx = null;
         HttpServletRequest request = null;
         try {
+            Request r = new Request();
+            r.setContentHandle("Problem Rating Submit");
+            r.setProperty("pm", getRequest().getParameter(Constants.PROBLEM_ID));
+            r.setProperty("cr", String.valueOf(userID));
+            //response data has to be live, no cache
+            DataAccessInt dataAccess = getDataAccess();
+            Map qMap = dataAccess.getData(r);
+            ResultSetContainer ratings = (ResultSetContainer) qMap.get("problem rated");
+            
+            if(ratings.getRow(0).getIntItem("count")!=0){
+                throw new NavigationException("You may only rate a problem once.");
+            }
             ctx = new InitialContext();
             ProblemRatingServices prs = (ProblemRatingServices)createEJB(ctx, ProblemRatingServices.class);
             request = getRequest();
-            Enumeration en = request.getParameterNames();
-            ArrayList al = new ArrayList(10);
-            while(en.hasMoreElements()){
-                String next = en.nextElement().toString();
-                if(next.charAt(0) == 'q'){
-                    try{
-                        Integer question_id = new Integer(next.substring(1));
-                        Integer rating = new Integer(request.getParameter(next));
-                        al.add(question_id);
-                        al.add(rating);
-                    }catch(Exception e){
-                        //this parameter wasn't really a question, don't worry about it
-                    }
+
+            ResultSetContainer questionsRSC = (ResultSetContainer) qMap.get("problem rating questions");
+            Iterator it = questionsRSC.iterator();
+            ArrayList questions = new ArrayList(10);
+            ArrayList answers = new ArrayList(10);
+            int qid, rating = 0;
+            while(it.hasNext()){
+                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)it.next();
+                qid = row.getIntItem("question_id");
+                try{
+                    rating = Integer.parseInt(request.getParameter("q"+qid));
+                }catch(Exception e){
+                    addError("problemRating","Please answer all of the questions.");
+                    setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingQuestions");
+                    setIsNextPageInContext(true);
+                    return;
                 }
+                questions.add(new Integer(qid));
+                answers.add(new Integer(rating));
             }
-            int[] qs = new int[al.size()/2];
-            int[] rs = new int[al.size()/2];
-            for(int i = 0, ptr = 0; i<qs.length; i++){
-                qs[i] = Integer.parseInt(al.get(ptr++).toString());
-                rs[i] = Integer.parseInt(al.get(ptr++).toString());
+            int pid = 0;
+            try{
+                pid = Integer.parseInt(request.getParameter("pid"));
+            }catch(Exception e){
+                throw new NavigationException("Problem ID is invalid");
             }
-            if(prs.submitAnswers(qs,rs,userID,Integer.parseInt(request.getParameter("pid")))){
-                setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingResults&" + Constants.PROBLEM_ID + "=" + request.getParameter("pid"));
-                setIsNextPageInContext(true);
-            }else{
-                addError("problemRating","Please answer all of the questions.");
-                setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingQuestions");
-                setIsNextPageInContext(true);
+            for(int i = 0; i<questions.size(); i++){
+                qid = ((Integer)questions.get(i)).intValue();
+                rating = ((Integer)answers.get(i)).intValue();
+                prs.createProblemRating(qid, userID, pid);
+                prs.setProblemRating(qid,userID,pid,rating);
             }
-        }catch(RemoteException e){
-            if(e.detail instanceof NavigationException)
-                throw (NavigationException)e.detail;
-            e.printStackTrace();
+            setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingResults&" + Constants.PROBLEM_ID + "=" + request.getParameter("pid"));
+            setIsNextPageInContext(true);
         }catch(Exception e){
             e.printStackTrace();
         }

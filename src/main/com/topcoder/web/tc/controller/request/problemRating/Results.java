@@ -3,7 +3,6 @@ package com.topcoder.web.tc.controller.request.problemRating;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.web.tc.model.ProblemRatingResult;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;

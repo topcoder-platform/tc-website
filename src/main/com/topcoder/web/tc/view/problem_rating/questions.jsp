@@ -29,10 +29,10 @@
             <td class="statText">
                 <jsp:getProperty name="quest" property="question"/>
             </td>
-            <tc:counter min="1" max="10" inc="1">
+            <tc:counter min="1" max="10" inc="1" id="rating">
             <td>
-                <% boolean checked = counter.equals(request.getParameter("q"+quest.getID())); %>
-                <input type="radio" name="q<jsp:getProperty name="quest" property="ID"/>" value="<%= counter %>" <%=checked?"CHECKED":""%>>
+                <% boolean checked = rating.equals(request.getParameter("q"+quest.getID())); %>
+                <input type="radio" name="q<jsp:getProperty name="quest" property="ID"/>" value="<%= rating %>" <%=checked?"CHECKED":""%>>
             </td>
             </tc:counter>
         </tr>
