@@ -92,7 +92,7 @@ next Single Round Match date.
   <TR>
 		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=cryptic"><IMG SRC="/i/es/cryptic/cryptic_logo.gif" WIDTH="120" HEIGHT="63" ALT="" BORDER="0" VSPACE="10"/></A></TD>
 		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-		<TD WIDTH="100%" VALIGN="middle" CLASS="bodyText">Want to be a part of creating the world's first super powered MMP experience?  Cryptic Studios is an independent developer of massively multiplayer online games for the PC and next generation consoles.  We're looking for a Gameplay Programmer and an entry level Level Designer.            
+		<TD WIDTH="100%" VALIGN="middle" CLASS="bodyText">Want to be a part of creating the world's first super powered MMP experience?  Cryptic Studios is an independent developer of massively multiplayer online games for the PC and next generation consoles.  We're looking for an Associate Game Designer, Gameplay Programmer and an entry level Level Designer.            
           <A HREF="/?&amp;t=tces&amp;c=cryptic" CLASS="bodyText">Click here</A> for more information.<BR/><BR/></TD>
 	</TR>
 	<TR>
