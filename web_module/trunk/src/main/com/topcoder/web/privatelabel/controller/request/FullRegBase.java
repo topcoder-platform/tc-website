@@ -69,10 +69,9 @@ abstract class FullRegBase extends SimpleRegBase {
     }
 
     protected List getQuestions() throws Exception {
-        DataAccessInt dataAccess = getDataAccess(true);
         Request r = new Request();
         r.setContentHandle("demographic_question_list");
-        Map qMap = dataAccess.getData(r);
+        Map qMap = getDataAccess(true).getData(r);
         ResultSetContainer questions = (ResultSetContainer)qMap.get("demographic_question_list");
         ResultSetContainer.ResultSetRow row = null;
 
