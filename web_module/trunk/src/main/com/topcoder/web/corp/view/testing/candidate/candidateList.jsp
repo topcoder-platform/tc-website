@@ -49,12 +49,14 @@
             </table>
             <% }%>
 
-            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
-                 <tr>
+            <table cellspacing="0" cellpadding="0" width="100%" >
+                <tr>
                     <td colspan=6 align=right class="bodyText">
                         Viewing Candidate <%=request.getAttribute(DataAccessConstants.START_RANK)%> to <%=request.getAttribute(DataAccessConstants.END_RANK)%> of <%= request.getAttribute(DataAccessConstants.NUMBER_RECORDS)%><br/>
                     </td>
                  </tr>
+            </table>
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                  <tr>
                    <td align="left" class="screeningHeader">
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=1">
