@@ -71,9 +71,9 @@
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
 
             <tr style="background: #eee;">
-                 <td align="right">Personal
+                 <td align="right" width="49%">Personal
                  </td>
-                <td align="left">
+                <td align="left"width="49%">
                     <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.FULL_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                 </td>
             </tr>
