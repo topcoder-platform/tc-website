@@ -262,7 +262,7 @@ Friday, November 22, 2002<BR/><BR/>
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><BR/>
-<B>As expected, SnapDragon struts his stuff</B><BR/>
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiroom1</xsl:attribute><B>As expected, SnapDragon struts his stuff</B></A><BR/>
 by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
 <P>
 In front of a sparse crowd, the morning competitors dealt with some minor system issues and tough 
@@ -309,7 +309,7 @@ respectively.  <B>kyky</B> worked on his solution for 7 more minutes before subm
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_prob1</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob1</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>	  
 
@@ -317,7 +317,7 @@ respectively.  <B>kyky</B> worked on his solution for 7 more minutes before subm
 As expected, this problem set was more difficult than the standard single round match
 problem set.  The Level 1 problem was not very hard, but the Level 2 and Level 3
 problems made up for this.  The Level 2 problem in particular may have been the most
-difficult, requiring an interesting dynamic programming solution...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_prob1</xsl:attribute>Get the analysis</A>
+difficult, requiring an interesting dynamic programming solution...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob1</xsl:attribute>Get the analysis</A>
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     

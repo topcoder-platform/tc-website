@@ -95,7 +95,7 @@ By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF
           <P><BR/></P>
           </TD>
             </TR>                  
-            <TR>
+            <!-- <TR>
               <TD VALIGN="middle" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Championship Problems</TD>
             </TR>
             <TR>
@@ -109,7 +109,7 @@ Level Two (500) - <A HREF="/i/invit02/Roadmap.pdf" CLASS="bodyText">Roadmap</A><
 Level Three (1000) - <A HREF="/i/invit02/Omaha.pdf" CLASS="bodyText">Omaha</A><BR/>
 
           </TD>
-            </TR>
+            </TR> -->
             <TR>
               <TD VALIGN="middle"><A NAME="log"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
             </TR>             
