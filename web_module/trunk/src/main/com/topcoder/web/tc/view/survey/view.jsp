@@ -88,6 +88,7 @@
                      <p><br/></p>
                      <% i++;%>
                   </tc:questionIterator>
+                  <% if (!questionInfo.isEmpty()) { %>
                      <table class="bodyText" align="center">
                         <tr><td><a href="?<%=Constants.MODULE_KEY%>=SurveyResults&<%=Constants.SURVEY_ID%>=<%=surveyInfo.getId()%>"><img src="/i/results.gif" width="60" height="18" border="0"/></a>
                                      <img src="/i/clear.gif" width="10" height="18" border="0"/>
@@ -95,6 +96,7 @@
                                </td>
                         </tr>
                      </table>
+                   <% } %>
                   </form>
                </p>
          </td>
