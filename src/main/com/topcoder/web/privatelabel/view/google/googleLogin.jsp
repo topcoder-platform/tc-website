@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.common.BaseServlet" %>
+                 com.topcoder.web.common.BaseServlet,
+                 com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
@@ -127,7 +128,7 @@ function openWin(url, name, w, h) {
 
                         </form>
                         <br/>
-                        If you are not currently a TopCoder member or do not want to use your TopCoder account, please click <a href="<%=sessionInfo.getServletPath()%>?&module=GoogleReg&cid=1865&eid=1">here</a>.
+                        If you are not currently a TopCoder member or do not want to use your TopCoder account, please click <a href="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>?&module=GoogleReg&cid=1865&eid=1">here</a>.
                         </font>
                         </p>
 
