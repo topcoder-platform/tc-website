@@ -10,10 +10,9 @@ import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.utilities.graph.HistoryPlot;
 import org.faceless.graph.*;
-import org.faceless.graph.formatter.DateFormatter;
 import org.faceless.graph.formatter.NullFormatter;
-import org.faceless.graph.math.DataCurve;
 import org.faceless.graph.output.PNGOutput;
 
 import javax.servlet.ServletConfig;
@@ -26,10 +25,11 @@ import javax.servlet.http.HttpUtils;
 import java.awt.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.FileInputStream;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Date;
 
 /**
  *  A servlet to generate graph images
@@ -41,12 +41,10 @@ import java.util.Map;
 public final class GraphServlet extends HttpServlet {
 
     private static final Color GREEN = new Color(0x99, 0xff, 0x33);
-    private static final Color DARK_BLUE = new Color(0x00, 0x19, 0x35);
     private static final Color YELLOW = new Color(0xff, 0xcc, 0x00);
     private static final Color RED = new Color(0xff, 0x00, 0x00);
     private static final Color GOLD = new Color(0xff, 0xff, 0x00);
     private static final Color BLUE = new Color(0x66, 0xcc, 0xcc);
-    private static final Color LIGHT_GREEN = new Color(0xcc, 0xff, 0x99);
     private static final Color GRAY = new Color(0xcc, 0xcc, 0xcc);
     private static final Color MAROON = new Color(0x88, 0x00, 0x22);
     private static final String[] rating_segments = {"0-99", "100-199", "200-299", "300-399",
@@ -235,8 +233,8 @@ public final class GraphServlet extends HttpServlet {
             while (it.hasNext() && i < 10) {
                 i++;
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
-                g.set((String) ((TCStringResult) rsr.getItem("school_name")).getResultData(),
-                        ((Long) ((TCLongResult) rsr.getItem("number_of_students")).getResultData()).doubleValue());
+                g.set((String) (rsr.getItem("school_name")).getResultData(),
+                        ((Long) (rsr.getItem("number_of_students")).getResultData()).doubleValue());
             }
             g.optionZRotation(90);
             g.optionTitle("Top 10 Schools - Membership");
@@ -283,11 +281,10 @@ public final class GraphServlet extends HttpServlet {
 
             g = new PieGraph();
             it = rsc.iterator();
-            int i = 0;
             while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
-                g.set((String) ((TCStringResult) rsr.getItem("answer")).getResultData(),
-                        ((Long) ((TCLongResult) rsr.getItem("count")).getResultData()).doubleValue());
+                g.set((String) (rsr.getItem("answer")).getResultData(),
+                        ((Long) (rsr.getItem("count")).getResultData()).doubleValue());
             }
             g.optionTitle("Professionals");
             g.optionSubTitle("Primary Interest");
@@ -341,8 +338,8 @@ public final class GraphServlet extends HttpServlet {
             while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
 
-                answers[i] = (String) ((TCStringResult) rsr.getItem("answer")).getResultData();
-                counts[i] = ((Long) ((TCLongResult) rsr.getItem("count")).getResultData()).doubleValue();
+                answers[i] = (String) (rsr.getItem("answer")).getResultData();
+                counts[i] = ((Long) (rsr.getItem("count")).getResultData()).doubleValue();
                 i++;
             }
 
@@ -410,11 +407,10 @@ public final class GraphServlet extends HttpServlet {
 
             g = new PieGraph();
             it = rsc.iterator();
-            int i = 0;
             while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
-                g.set((String) ((TCStringResult) rsr.getItem("answer")).getResultData(),
-                        ((Long) ((TCLongResult) rsr.getItem("count")).getResultData()).doubleValue());
+                g.set((String) (rsr.getItem("answer")).getResultData(),
+                        ((Long) (rsr.getItem("count")).getResultData()).doubleValue());
             }
             g.optionTitle("Students");
             g.optionSubTitle("Primary Interest");
@@ -467,8 +463,8 @@ public final class GraphServlet extends HttpServlet {
             int i = 0;
             while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
-                answers[i] = (String) ((TCStringResult) rsr.getItem("answer")).getResultData();
-                counts[i] = ((Long) ((TCLongResult) rsr.getItem("count")).getResultData()).doubleValue();
+                answers[i] = (String) (rsr.getItem("answer")).getResultData();
+                counts[i] = ((Long) (rsr.getItem("count")).getResultData()).doubleValue();
                 i++;
             }
 
@@ -544,8 +540,8 @@ public final class GraphServlet extends HttpServlet {
             int i = 0;
             while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
-                answers[i] = (String) ((TCStringResult) rsr.getItem("answer")).getResultData();
-                counts[i] = ((Long) ((TCLongResult) rsr.getItem("count")).getResultData()).doubleValue();
+                answers[i] = (String) (rsr.getItem("answer")).getResultData();
+                counts[i] = ((Long) (rsr.getItem("count")).getResultData()).doubleValue();
                 i++;
             }
 
@@ -619,8 +615,8 @@ public final class GraphServlet extends HttpServlet {
             int i = 0;
             while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
-                answers[i] = (String) ((TCStringResult) rsr.getItem("referral_type")).getResultData();
-                counts[i] = ((Long) ((TCLongResult) rsr.getItem("count")).getResultData()).doubleValue();
+                answers[i] = (String) (rsr.getItem("referral_type")).getResultData();
+                counts[i] = ((Long) (rsr.getItem("count")).getResultData()).doubleValue();
                 i++;
             }
 
@@ -695,8 +691,8 @@ public final class GraphServlet extends HttpServlet {
             int i = 0;
             while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
-                answers[i] = (String) ((TCStringResult) rsr.getItem("referral_type")).getResultData();
-                counts[i] = ((Long) ((TCLongResult) rsr.getItem("count")).getResultData()).doubleValue();
+                answers[i] = (String) (rsr.getItem("referral_type")).getResultData();
+                counts[i] = ((Long) (rsr.getItem("count")).getResultData()).doubleValue();
                 i++;
             }
 
@@ -751,6 +747,7 @@ public final class GraphServlet extends HttpServlet {
      * @author Greg paul
      ****************************************************************************************
      */
+/*
     private static byte[] getRatingsHistory(RequestInt dataRequest)
             throws NavigationException {
         log.debug("taskGraph:getRatingsHistory called...");
@@ -809,6 +806,76 @@ public final class GraphServlet extends HttpServlet {
                     TCServlet.NAVIGATION_ERROR_PAGE);
         }
     }
+*/
+
+
+
+
+
+    private static byte[] getRatingsHistory(RequestInt dataRequest)
+            throws NavigationException {
+        log.debug("taskGraph:getRatingsHistory called...");
+
+        Map resultMap = null;
+        DataAccessInt dai = null;
+        ResultSetContainer rsc = null;
+        ResultSetContainer.ResultSetRow rsr = null;
+
+        try {
+
+
+            dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
+            resultMap = dai.getData(dataRequest);
+            rsc = (ResultSetContainer) resultMap.get("Rating_History_Graph");
+
+
+            if (rsc != null) {
+                Date[] dates = new Date[rsc.size()];
+                int[] ratings = new int[rsc.size()];
+                int i = 0;
+                for (Iterator it = rsc.iterator(); it.hasNext(); i++) {
+                    rsr = (ResultSetContainer.ResultSetRow) it.next();
+                    dates[i] = (Date) rsr.getItem("date").getResultData();
+                    ratings[i] = rsr.getIntItem("rating");
+                }
+                String fileName = rsc.getItem(0, "coder_id").toString() + "_rhplot.png";
+                HistoryPlot h = new HistoryPlot();
+                h.plot(ratings, dates, rsc.getItem(0, "handle").toString(), fileName);
+                FileInputStream fis = new FileInputStream(fileName);
+                while (fis.available() > 0) {
+                    int size = 10240;
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream(size);
+                    byte[] buf = new byte[size];
+                    int offset = 0;
+                    while (fis.available() >= 0) {
+                        int j;
+                        j = fis.read(buf, offset, size - offset);
+                        if (j == -1)
+                            break;
+                        if (j <= 0)
+                            throw new IOException("read returned " + j);
+                        offset += j;
+                        if (offset < size)
+                            continue;
+
+                        baos.write(buf);
+                        offset = 0;
+                    }
+
+                    if (offset > 0)
+                        baos.write(buf, 0, offset);
+
+                    return baos.toByteArray();
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new NavigationException("GraphServlet:getRatingDistGraph:ERROR:",
+                    TCServlet.NAVIGATION_ERROR_PAGE);
+        }
+        return null;
+    }
 
 
     private static byte[] getRatingsDistribution(RequestInt dataRequest)
@@ -818,7 +885,6 @@ public final class GraphServlet extends HttpServlet {
 
         BarGraph g = null;
         ByteArrayOutputStream baos = null;
-        DataCurve coderRatingCurve = null;
         Iterator it = null;
         Map resultMap = null;
         DataAccessInt dai = null;
@@ -848,7 +914,7 @@ public final class GraphServlet extends HttpServlet {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 for (int i = 0; i < rsc.getColumnCount(); i++) {
                     g.set(rating_segments[i],
-                            ((java.math.BigInteger) ((TCBigIntegerResult) rsr.getItem(i)).getResultData()).doubleValue());
+                            ((java.math.BigInteger) (rsr.getItem(i)).getResultData()).doubleValue());
                     if (i < 9)
                         g.setColor(rating_segments[i], GRAY);
                     else if (i >= 9 && i < 12)
@@ -882,7 +948,6 @@ public final class GraphServlet extends HttpServlet {
 
         BarGraph g = null;
         ByteArrayOutputStream baos = null;
-        DataCurve coderRatingCurve = null;
         Iterator it = null;
         Map resultMap = null;
         DataAccessInt dai = null;
@@ -912,7 +977,7 @@ public final class GraphServlet extends HttpServlet {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 for (int i = 0; i < rsc.getColumnCount(); i++) {
                     g.set(rating_segments[i],
-                            ((java.math.BigInteger) ((TCBigIntegerResult) rsr.getItem(i)).getResultData()).doubleValue());
+                            ((java.math.BigInteger) (rsr.getItem(i)).getResultData()).doubleValue());
                     if (i < 9)
                         g.setColor(rating_segments[i], GRAY);
                     else if (i >= 9 && i < 12)
@@ -945,7 +1010,6 @@ public final class GraphServlet extends HttpServlet {
 
         BarGraph g = null;
         ByteArrayOutputStream baos = null;
-        DataCurve coderRatingCurve = null;
         Iterator it = null;
         Map resultMap = null;
         DataAccessInt dai = null;
@@ -984,7 +1048,7 @@ public final class GraphServlet extends HttpServlet {
                 for (int i = 0; i < columns; i++) {
                     String columnName = df.format(start + pointsPerBucket * i) + " - " + df.format(start + pointsPerBucket * (i + 1));
                     g.set(columnName,
-                            ((java.math.BigInteger) ((TCBigIntegerResult) rsr.getItem(i)).getResultData()).doubleValue());
+                            ((java.math.BigInteger) (rsr.getItem(i)).getResultData()).doubleValue());
                     g.setColor(columnName, MAROON);
                 }
             }
