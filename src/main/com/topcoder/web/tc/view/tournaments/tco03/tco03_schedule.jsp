@@ -219,13 +219,13 @@
                 </tr>
 
                 <tr valign="top">
-                    <td class="bodyText" bgcolor="#FFCC33"><strong>Championship Round</strong></td>
-                    <td class="bodyText" bgcolor="#FFCC33">
+                    <td class="bodyText" bgcolor="#CCFF66"><strong>Championship Round</strong></td>
+                    <td class="bodyText" bgcolor="#CCFF66">
                         <strong>Friday, December 5th<br />
                         Compete: 3:00 PM<br /></strong>
                     </td>
-                    <td class="bodyText" bgcolor="#FFCC33" align="center"><strong>4</strong></td>
-                    <td class="bodyText" bgcolor="#FFCC33" align="center"><strong>1</strong></td>
+                    <td class="bodyText" bgcolor="#CCFF66" align="center"><strong>4</strong></td>
+                    <td class="bodyText" bgcolor="#CCFF66" align="center"><strong>1</strong></td>
                 </tr>
 
                 <tr valign="top">
