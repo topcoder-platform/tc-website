@@ -15,7 +15,6 @@ import java.util.Hashtable;
 import javax.naming.InitialContext;
 import javax.naming.Context;
 import javax.naming.NamingException;
-import javax.rmi.PortableRemoteObject;
 import java.rmi.RemoteException;
 import javax.ejb.CreateException;
 
@@ -29,7 +28,6 @@ import javax.ejb.CreateException;
 public class TCSAuthorization implements Authorization {
 
     private static Logger log = Logger.getLogger(TCSAuthorization.class);
-
     private TCSubject user;
 
     /**
@@ -49,6 +47,7 @@ public class TCSAuthorization implements Authorization {
     public boolean hasPermission(Resource r)
         throws AuthorizationException
     {
+        log.debug("callling hasPermission. Resource r = " + r.getName());
         Context ctx = null;
 
         try {
@@ -85,6 +84,9 @@ public class TCSAuthorization implements Authorization {
         }
         catch (RemoteException e) {
             throw new AuthorizationException(e);
+        }
+        finally {
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getPermissions");}}
         }
     }
 }
