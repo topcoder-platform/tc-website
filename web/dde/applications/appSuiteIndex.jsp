@@ -54,7 +54,7 @@
 
 <!-- Middle Column begins -->
         <td width="99%" align=center valign=top>
-			<div class="appSuiteBody">
+			<div class="appSuiteIndexBody">
 			<img src="/images/appSuitePromo.gif" border=0/><br/>
 			<p>
 			Imagine being able to meet all your web business needs in one place. Imagine a toolbox with every tool you could need to build that web business. TopCoder Software Application Suites were built from the ground up with this approach in mind.
