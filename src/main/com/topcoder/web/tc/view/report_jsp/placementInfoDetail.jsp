@@ -101,7 +101,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                                 <td valign=top><%=((ContractingResponse)tech).getVal()%></td>
                             </tr>
                         </tc:listIterator>
-                        <tr><td align=center colspan=2><table border=1><tr><td><%=StringUtils.htmlEncode((String)request.getAttribute("techNote"))%></td></tr></table></td></tr>
+                        <tr><td align=center colspan=2><table border=1 cellspacing=5><tr><td><%=StringUtils.htmlEncode((String)request.getAttribute("techNote"))%></td></tr></table></td></tr>
 
             			<tr><td>&#160;</td></tr>
 
