@@ -12,7 +12,7 @@ import com.topcoder.shared.util.*;
  * 
  * The command line is as follows: <p>
  *
- * java QueryLoader &lt;query ID&gt; &lt;query name&gt; &lt;ranking&gt; 
+ * java QueryLoader &lt;data source&gt; &lt;query ID&gt; &lt;query name&gt; &lt;ranking&gt; 
  * &lt;rank_column_index&gt; &lt;query text&gt; <p>
  *
  * If the query should have a ranklist associated with it, ranking
@@ -33,6 +33,9 @@ import com.topcoder.shared.util.*;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.4  2002/07/31 18:46:33  gpaul
+ *           slight change to javadocs
+ *
  *           Revision 1.1  2002/07/12 17:15:46  gpaul
  */
 
