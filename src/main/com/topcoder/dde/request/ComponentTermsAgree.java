@@ -33,7 +33,7 @@ public class ComponentTermsAgree extends BaseProcessor {
             PrincipalMgrRemote principalMgr = principalMgrHome.create();
 
             //reload the subject object so that their new role is available
-            getRequest().setAttribute("TCSUBJECT", principalMgr.getUserSubject(getUser().getId()));
+            getRequest().getSession().setAttribute("TCSUBJECT", principalMgr.getUserSubject(getUser().getId()));
 
             setNextPage("/catalog/index.jsp");
             setIsNextPageInContext(false);
