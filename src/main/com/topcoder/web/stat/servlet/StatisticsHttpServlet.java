@@ -7,6 +7,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.stat.bean.CoderRatingStyleBean;
 import com.topcoder.web.stat.bean.QuickStatListBean;
 import com.topcoder.web.stat.common.StatXMLParser;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import org.w3c.dom.Document;
 
 import javax.servlet.ServletContext;
@@ -154,7 +156,8 @@ public class StatisticsHttpServlet extends HttpServlet {
                             request.getServerName() + "/stat?" + replace(sQueryString));
                 }
                 request.setAttribute("REQUEST_BEAN", dataRequest);
-                DataAccessInt dai = new DWCachedDataAccess();
+                DataAccessInt dai = new CachedDataAccess((javax.sql.DataSource)
+                    TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
                 Map dataMap = dai.getData(dataRequest);
                 request.setAttribute("QUERY_RESPONSE", dataMap);
                 Map mpage = (Map) sctx.getAttribute("PAGECTRL");
