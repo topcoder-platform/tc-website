@@ -6,9 +6,34 @@ import com.topcoder.web.codinginterface.techassess.Constants;
  * User: dok
  * Date: Dec 22, 2004
  */
-public class ViewProblemSetInner extends IndexInner {
+public class ViewProblemSetInner extends Base {
 
     protected void businessProcessing() throws Exception {
-        indexProcessing(Constants.PAGE_VIEW_PROBLEM_SET_INNER, Constants.RP_VIEW_PROBLEM_SET);
+        if (getUser().isAnonymous()) {
+            setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
+                    new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
+            setIsNextPageInContext(false);
+        } else {
+            setNextPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET, null, null));
+            setIsNextPageInContext(false);
+
+            if (hasParameter(Constants.MESSAGE_ID)) {
+                log.debug("has message id");
+                String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
+                loadSessionErrorsIntoRequest(messageId);
+                loadSessionDefaultsIntoRequest(messageId);
+                log.debug("defaults: " + defaults);
+                if (hasDefault(Constants.PROBLEM_SETS) && hasDefault(Constants.LANGUAGES) && hasDefault(Constants.PROBLEM_TYPE_ID)) {
+                    log.debug("has defaults");
+                    getRequest().setAttribute(Constants.PROBLEM_SETS, getDefault(Constants.PROBLEM_SETS));
+                    getRequest().setAttribute(Constants.LANGUAGES, getDefault(Constants.LANGUAGES));
+                    getRequest().setAttribute(Constants.PROBLEM_TYPE_ID, getDefault(Constants.PROBLEM_TYPE_ID));
+                    setNextPage(Constants.PAGE_VIEW_PROBLEM_SET_INNER);
+                    setIsNextPageInContext(true);
+                }
+            }
+        }
+
+
     }
 }

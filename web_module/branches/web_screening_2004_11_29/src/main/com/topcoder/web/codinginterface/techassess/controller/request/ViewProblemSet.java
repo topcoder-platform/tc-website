@@ -56,6 +56,7 @@ public class ViewProblemSet extends Base {
 
             setDefault(Constants.PROBLEM_SETS, sets);
             setDefault(Constants.LANGUAGES, getLanguages(response.getAllowedLanguages()));
+            setDefault(Constants.PROBLEM_TYPE_ID, new Integer(problemType));
 
             closeProcessingPage();
 
