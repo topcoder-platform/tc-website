@@ -28,14 +28,14 @@
             <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
 
 <!-- Application projects begins -->
-<!--
+
             <A href="/?t=development&amp;c=app_projects"><img src="/i/development/head_app_projects.gif" alt="Application Projects" width="180" height="20" border="0" /></A>
             <table width="180" border="0" cellspacing="1" cellpadding="2" bgcolor="#838383">
                 <tr valign="top">
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;">$2,205</span> in payments.</td>
+                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;">$2,475</span> in payments.</td>
                             </tr>
                         </table>
                     </td>
@@ -50,11 +50,11 @@
 
                             <tr>
                                 <td class="devProjectWinner">Winning Designer:</td>
-                                <td class="devProjectWinnerMoney">$1,050.00</td>
+                                <td class="devProjectWinnerMoney">$1,260.00</td>
                             </tr>
                             <tr>
                                 <td class="devProjectSecond">Second Place:</td>
-                                <td class="devProjectSecondMoney">$300.00</td>
+                                <td class="devProjectSecondMoney">$360.00</td>
                             </tr>
                         </table>
                     </td>
@@ -71,7 +71,7 @@
 
             <img src="/i/clear.gif" width="1" height="5" alt="" border="0" /><br />
 
-  
+
             <table width="100%" border="0" cellspacing="0" cellpadding="5">
                 <tr valign="top">
                     <td width="100%" class="smallText">
@@ -80,12 +80,12 @@
                     </td>
                 </tr>
             </table>
-            -->
-<!-- Application projects ends -->            
+
+<!-- Application projects ends -->
 
             <img src="/i/clear.gif" width="1" height="5" alt="" border="0" /><br />
 
-  
+
 <!-- Component Design Projects begins -->
             <A href="/?t=development&amp;c=comp_projects#comp_des"><img src="/i/development/head_comp_des_projects.gif" alt="Component Design Projects" width="180" height="20" border="0" /></A>
             <table width="180" border="0" cellspacing="1" cellpadding="2" bgcolor="#838383">
@@ -93,7 +93,7 @@
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project[phase_id=$design-phase ]/price) * 1.75, $priceFormat)"/></span> 
+                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project[phase_id=$design-phase ]/price) * 1.75, $priceFormat)"/></span>
                                     in payments. </td>
                             </tr>
                         </table>
@@ -173,7 +173,7 @@
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project[phase_id=$dev-phase ]/price) * 1.75, $priceFormat)"/></span> 
+                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project[phase_id=$dev-phase ]/price) * 1.75, $priceFormat)"/></span>
                                     in payments. </td>
                             </tr>
                         </table>
@@ -206,7 +206,7 @@
                         <xsl:attribute name="href">
                             <xsl:value-of select="concat('/index/?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;compvers=', ./comp_vers_id, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
                         </xsl:attribute><xsl:value-of select="./component_name"/>
-                        
+
                         <xsl:if test="number(./version) &gt;  number('1')">
                             v <xsl:value-of select="./version"/>
                         </xsl:if>
@@ -255,6 +255,6 @@
 <!-- Read Me's ends -->
 
            <p><br/></p>
-           
+
     </xsl:template>
 </xsl:stylesheet>
