@@ -52,12 +52,8 @@
             </xsl:call-template>
 
             <img src="/i/clear.gif" alt="" width="240" height="10" border="0" />
-            <table width="100%" border="0">
-               <tr>
-                  <td width="100%" align="center"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_finals"><img src="/i/tournament/tco03/winners_page_ad.gif" alt="" width="530" height="148" border="0" align="center"/></a></td>
-               </tr>
-            </table>
             
+<!-- Featured Winner Begins -->
 <!--
             <div align="center">
             
@@ -121,9 +117,12 @@
                 
                 <tr valign="top"><td class="bodyText" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
             </table>
+-->
+   <!-- Featured Winner Ends -->
     
             <br/>
 
+    <!-- Design Winners Begins -->
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999"><font size="3">Design Winners</font></td>
@@ -139,15 +138,35 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="center">Board&#160;Score</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="right">Total&#160;&#160;<br/>Earnings*</td>
                 </tr>
-                
-                <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7351856" class="statText">.NET Simple Cache</a></td>
-                    <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304976"><strong>giginim</strong></a></td>
-                    <td class="formHandleOdd" align="center">75.3</td>
-                    <td class="formHandleOdd" align="right">$455.00&#160;&#160;</td>
-                </tr>
+
+                <xsl:variable name="design-phase" select="'112'" />
+                <xsl:variable name="dev-phase" select="'113'" />
+                <xsl:variable name="priceFormat" select="'$###,###,###.##'" />
+                <xsl:for-each select="/TC/DEVELOPMENT/projects/project">  
+                   <xsl:if test="./phase_id=$design-phase" >
+                       <tr valign="middle">
+                          <td class="formHandleOdd">
+                              <a class="statText">
+                                  <xsl:attribute name="href">
+                                      <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/> 
+                                  </xsl:attribute>
+                              </a>
+                          </td>
+                          <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
+                         <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
+                         <td class="formHandleOdd">
+                            <a class="coderTextBlue">
+                                <xsl:attribute name="href">
+                                      <xsl:value-of select="concat('/stat?c=member_profile&amp;cr=', ./coder_id)"/>
+                                </xsl:attribute>
+                                <strong><xsl:value-of select="./user_id"/></strong>
+                            </a>
+                         </td>
+                         <td class="formHandleOdd" align="center"><xsl:value-of select="./score"/></td>
+                         <td class="formHandleOdd" align="center"><xsl:value-of select="format-number(./money, $priceFormat)"/></td>
+                     </tr>
+                   </xsl:if>
+                </xsl:for-each>
                 <tr valign="middle">
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7324513" class="statText">CSS Style Object</a></td>
                     <td class="formHandleOdd" align="center">1</td>
@@ -205,7 +224,8 @@
 
 
             </table>
--->
+<!-- Development Winners Ends -->
+
         <p><br/></p>
 
         </td>
