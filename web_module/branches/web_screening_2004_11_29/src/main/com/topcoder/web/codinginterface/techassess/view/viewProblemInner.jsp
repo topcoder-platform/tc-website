@@ -8,9 +8,9 @@
 </head>
 <body>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<tc-webtag:useBean id="prob" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.problem.Problem" scope="page" property="problem"/>
-<tc-webtag:useBean id="language" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.language.Language" scope="page" property="language"/>
-<tc-webtag:useBean id="languages" name="<%=Constants.LANGUAGES%>" type="java.util.List" scope="page" />
+<tc-webtag:useBean id="prob" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.problem.Problem" toScope="page" property="problem"/>
+<tc-webtag:useBean id="language" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.language.Language" toScope="page" property="language"/>
+<tc-webtag:useBean id="languages" name="<%=Constants.LANGUAGES%>" type="java.util.List" toScope="page" />
 
 
 <table class=bodyCenter cellspacing=0 cellpadding=0>
@@ -58,7 +58,7 @@
             <br/><br/>
             <p class=pL><span class=bodySmallTitle>Input Area</span></p>
             <textarea class=codingArea name="code" rows="20" cols="40" wrap="off">
-              <tc-webtag:problemStatement problem="<%=prob%>" language="<%=language.getName()%>"/>
+
             </textarea>
 
             <br /><br />

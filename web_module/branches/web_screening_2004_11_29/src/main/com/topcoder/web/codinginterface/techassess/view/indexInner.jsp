@@ -9,7 +9,7 @@
 </head>
 <body>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<tc-webtag:useBean id="problemSets" name="<%=Constants.PROBLEM_SETS%>" type="java.util.List" scope="page" />
+<tc-webtag:useBean id="problemSets" name="<%=Constants.PROBLEM_SETS%>" type="java.util.List" toScope="page" />
 
 <table class=bodyCenter cellspacing=0 cellpadding=0>
    <tr>
