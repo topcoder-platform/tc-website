@@ -264,7 +264,7 @@
                      <% } %>
                      </TD>
                    </rsc:iterator>
-                   <r   sc:iterator list="<%=div2Overall%>" id="resultRow">
+                   <rsc:iterator list="<%=div2Overall%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10">
                      <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
                          <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
@@ -273,7 +273,7 @@
                    </rsc:iterator>
                  </TR>
                  <TR>
-                   <td BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Average Correct Time</TD>
+                   <td VALIGN="middle" WIDTH="10">Average Correct Time</TD>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="avg_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></TD>
                    </rsc:iterator>
