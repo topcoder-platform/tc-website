@@ -24,6 +24,8 @@ import java.util.*;
 
 public abstract class BaseTask implements Task {
 
+    private static Logger log = Logger.getLogger(BaseTask.class);
+
     private InitialContext ctx;
     private String nextPage;
 
@@ -43,6 +45,7 @@ public abstract class BaseTask implements Task {
     }
 
     public void setNextPage(String nextPage) {
+log.debug("next page -> "+nextPage);
         this.nextPage=nextPage;
     }
 

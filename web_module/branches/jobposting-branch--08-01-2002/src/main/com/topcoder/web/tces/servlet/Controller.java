@@ -62,7 +62,9 @@ public class Controller extends HttpServlet {
                 task.processStep(taskStepName);
                 task.servletAction(this, request, response);
 
-                getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) ).forward(request, response);
+                RequestDispatcher disp = getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) );
+if (disp==null) log.debug("disp NULL!");
+                disp.forward(request, response);
 
             }
             else if (command != null && command.trim().length() > 0) {
