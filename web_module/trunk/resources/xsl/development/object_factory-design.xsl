@@ -59,7 +59,7 @@
 <!-- Title -->
 						<h1 class="devSubhead"><strong>Object Factory: Design</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Object Factory: Design&amp;comp=4228093" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Object Factory: Design&amp;comp=4228093&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
@@ -81,7 +81,7 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=4228093">documentation</a> for this project is available on the TopCoder Software web site.</p>
+						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=4228093&amp;date=2&#47;5">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br />
@@ -122,11 +122,11 @@
 						<p><strong>Time Line</strong><br/>
 						All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
-							<p>Component Posting: 1.16.2003<br/>
-							Initial Submission Due Date: 1.22.2003<br/>
-							Winner Announced: 1.23.2003<br/>
-							Final Submission Due Date: 2.3.2003<br/>
-                            Estimated Development End Date: 3.10.2003</p>
+						<p>Component Posting: 1.30.2003<br/>
+						Initial Submission Due Date: 2.5.2003<br/>
+						Winner Announced: 2.13.2003<br/>
+						Final Submission Due Date: 2.17.2003<br/>
+						Estimated Development End Date: 3.26.2003</p>
 
 <!-- Register at TCS -->
 						<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>

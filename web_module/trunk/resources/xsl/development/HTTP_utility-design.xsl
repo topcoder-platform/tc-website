@@ -63,7 +63,7 @@
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						The HTTP Utility component provides a simplified interface for communicating with an HTTP server.  The component handles encoding form and URL variables, defining custom HTTP header variables, basic HTTP authentication and cookie parameters.  Accessing HTTP servers from any component is straightforward with component.
+						The HTTP Utility component provides a simplified interface for communicating with an HTTP server.  The component manages HTML form and URL variable encoding, custom HTTP header definition, basic HTTP authentication and cookie parameters.  In effect, the HTTP Utility component provides the functionality encapsulated in web browser software in a simple to use API. 
 						</p>
 
 <!-- Project Type -->
