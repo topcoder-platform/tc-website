@@ -110,7 +110,7 @@ return false;
             </table>
         <% } %>
         <% if (request.getAttribute(Constants.MESSAGE)!=null) { %>
-            <span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span>
+            <p><span class="errorText"><%=request.getAttribute(Constants.MESSAGE)%></span></p>
         <% } %>
 
 

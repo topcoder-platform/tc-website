@@ -166,6 +166,9 @@ public class Constants {
     public static String MAX_DIV2_SUCCESS;
     public static String DIV1_LEVEL;
     public static String DIV2_LEVEL;
+    public static String JOB_HIT_MESSAGE_NOT_REGISTERED;
+    public static String JOB_HIT_MESSAGE_UN_REGISTERED;
+
 
     /* Contract Constants */
     public static String CONTRACTING_INFO;
