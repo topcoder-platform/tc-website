@@ -98,7 +98,8 @@
                                                         old application resides on a soon to be unsupported environment, NT4;
                                                         the new environment will be hosted on Windows Server 2003.  This technology
                                                         will increase the speed and scalability of the application.
-
+                                                        <br/>
+                                                        <br/>
                                                         <ul class="noSpList">
                                                            <strong>Objectives</strong>
                                                             <li>Provide an extensible platform designed to handle the functional requirements identified by the client.2</li>
