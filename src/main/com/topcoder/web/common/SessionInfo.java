@@ -8,6 +8,7 @@ import com.topcoder.web.common.security.WebAuthentication;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Date;
 import java.io.Serializable;
 
 public class SessionInfo implements Serializable {
@@ -20,6 +21,7 @@ public class SessionInfo implements Serializable {
     private String servletPath = null;
     private String queryString = null;
     private String requestString = null;
+    private Date date= null;
     private boolean isLoggedIn = false;
     /** group may be:
      * 'G' guest
@@ -27,9 +29,12 @@ public class SessionInfo implements Serializable {
      */
     private char group = 'G';
 
-    public SessionInfo() { }
+    public SessionInfo() {
+        date = new Date();
+    }
 
     public SessionInfo(TCRequest request, WebAuthentication authentication, Set groups) throws Exception {
+        this();
         userid = authentication.getActiveUser().getId();
         handle = authentication.getActiveUser().getUserName();
 
@@ -98,6 +103,9 @@ public class SessionInfo implements Serializable {
         return requestString;
     }
 
+    public Date getDate() {
+        return date;
+    }
 
     protected Set pruneGroups(Set groups) {
         Set groupnames = new HashSet();
