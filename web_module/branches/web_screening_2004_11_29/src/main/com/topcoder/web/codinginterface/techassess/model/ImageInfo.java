@@ -8,10 +8,10 @@ import java.io.Serializable;
  * Create Date: Jan 27, 2005
  */
 public class ImageInfo implements Serializable {
-    private int width = 0;
-    private int height = 0;
-    private String src = "";
-    private String link = "";
+    private int width = -1;
+    private int height = -1;
+    private String src = null;
+    private String link = null;
 
     public ImageInfo() {
 
