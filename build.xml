@@ -1056,6 +1056,23 @@
          </ear>
      </target>
 
+     <target name="build-idgenerator" depends="">
+         <javac
+             srcdir="${java}"
+             destdir="${classes}"
+             classpathref="class.path"
+             deprecation="${deprecation}"
+             debug="${debug}"
+             >
+             <include name="com/topcoder/util/idgenerator/**"/>
+         </javac>
+         <jar jarfile="${jars.dir}/idgenerator.jar">
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/**"/>
+             <metainf dir="${java}/com/topcoder/util/idgenerator/bean/" includes="*.xml" />
+         </jar>
+     </target>
+
+
      <target name="deploy-privatelabel" depends="compile">
          <antcall target="package-EJB-RatingBean"/>
          <antcall target="package-EJB-CoderBean"/>
