@@ -849,6 +849,10 @@
                 <include name="com/topcoder/web/common/" />
                 <include name="com/topcoder/web/tc/" />
             </classes>
+            <webinf dir="${resources}/taglib">
+                <include name="tc.tld"/>
+                <include name="rsc-taglib.tld"/>
+            </webinf>
         </war>
         <unwar src="${war.dir}/tc.war" dest="${public_html}/tc/" overwrite="yes"/>
         <delete dir="${public_html}/tc/META-INF"/>
