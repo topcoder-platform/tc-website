@@ -9,6 +9,8 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.common.web.data.Navigation;
+import com.topcoder.common.web.util.Data;
 
 import javax.naming.InitialContext;
 import java.util.Arrays;
@@ -47,6 +49,7 @@ public class Activate extends Base {
                 User user = (User) createEJB(ctx, User.class);
                 char status = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 if (Arrays.binarySearch(UNACTIVE_STATI, status)>0) {
+                    doLegacyCrap();
                     user.setStatus(userId, ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
                     setNextPage(Constants.ACTIVATE);
                     setIsNextPageInContext(true);
@@ -67,4 +70,11 @@ public class Activate extends Base {
         }
     }
 
+    private void doLegacyCrap() throws Exception {
+        Navigation nav = (Navigation)getRequest().getSession(true).getAttribute("navigation");
+        if (nav==null) nav = new Navigation();
+        Data.loadUser(nav);
+        nav.getUser().setStatus(String.valueOf(ACTIVE_STATI[1]));
+        Data.saveUser(nav);
+    }
 }
