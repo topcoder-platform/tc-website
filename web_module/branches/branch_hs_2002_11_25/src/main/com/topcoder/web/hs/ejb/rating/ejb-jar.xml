@@ -5,23 +5,18 @@
 <ejb-jar>
   <enterprise-beans>
     <session>
-      <ejb-name>School</ejb-name>
-      <home>com.topcoder.web.ejb.school.SchoolHome</home>
-      <remote>com.topcoder.web.ejb.school.School</remote>
-      <ejb-class>com.topcoder.web.ejb.school.SchoolBean</ejb-class>
+      <ejb-name>Rating</ejb-name>
+      <home>com.topcoder.web.hs.ejb.rating.RatingHome</home>
+      <remote>com.topcoder.web.hs.ejb.rating.Rating</remote>
+      <ejb-class>com.topcoder.web.hs.ejb.rating.RatingBean</ejb-class>
       <session-type>Stateless</session-type>
       <transaction-type>Container</transaction-type>
-      <env-entry>
-        <env-entry-name>datasource_name</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>JTS_HS_OLTP</env-entry-value>
-      </env-entry>
     </session>
   </enterprise-beans>
   <assembly-descriptor>
     <container-transaction>
       <method>
-        <ejb-name>School</ejb-name>
+        <ejb-name>Rating</ejb-name>
         <method-intf>Remote</method-intf>
         <method-name>*</method-name>
       </method>

@@ -4,10 +4,16 @@
 
 <weblogic-ejb-jar>
   <weblogic-enterprise-bean>
-    <ejb-name>School</ejb-name>
+    <ejb-name>Rating</ejb-name>
     <caching-descriptor>
       <max-beans-in-free-pool>20</max-beans-in-free-pool>
     </caching-descriptor>
-    <jndi-name>com.topcoder.web.ejb.school.SchoolHome</jndi-name>
+        <reference-descriptor>
+            <resource-description>
+                <res-ref-name>datasource</res-ref-name>
+                <jndi-name>JTS_HS_OLTP</jndi-name>
+            </resource-description>
+        </reference-descriptor>
+    <jndi-name>com.topcoder.web.hs.ejb.rating.RatingHome</jndi-name>
   </weblogic-enterprise-bean>
 </weblogic-ejb-jar>

@@ -1,4 +1,4 @@
-package com.topcoder.web.ejb.rating;
+package com.topcoder.web.hs.ejb.rating;
 
 import java.rmi.RemoteException;
 import javax.ejb.CreateException;
