@@ -6,7 +6,7 @@
 
 package com.topcoder.web.corp.controller.request.tces;
 
-import com.topcoder.common.web.render.ProblemRenderer;
+import com.topcoder.web.common.render.ProblemRenderer;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.CStyleLanguage;

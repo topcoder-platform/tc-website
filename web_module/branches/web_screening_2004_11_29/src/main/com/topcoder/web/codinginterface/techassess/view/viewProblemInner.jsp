@@ -58,7 +58,7 @@
             <br/><br/>
             <p class=pL><span class=bodySmallTitle>Input Area</span></p>
             <textarea class=codingArea name="code" rows="20" cols="40" wrap="off">
-              <tc-webtag:problemStatement problem="<%=prob%>" language="<%=language.getDescription()%>"/>
+              <tc-webtag:problemStatement problem="<%=prob%>" language="<%=language.getName()%>"/>
             </textarea>
 
             <br /><br />

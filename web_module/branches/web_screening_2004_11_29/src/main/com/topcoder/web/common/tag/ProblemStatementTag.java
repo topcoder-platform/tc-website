@@ -11,7 +11,7 @@ import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
 
-import com.topcoder.common.web.render.ProblemRenderer;
+import com.topcoder.web.common.render.ProblemRenderer;
 
 
 public class ProblemStatementTag extends TagSupport {
