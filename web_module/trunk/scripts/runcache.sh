@@ -7,6 +7,7 @@ PROCESSOR=DefaultProcessor
 CMD=usage
 MAXMEM=1024m
 LOGFILE=cache-`date +%Y-%m-%d-%H-%M-%S`.log
+PROPFILE=/usr/web/resources/cache.properties
 
 CP=$BASE/build/classes
 CP=$CP:$BASE/resources
@@ -19,9 +20,9 @@ if [[ $1 != "" ]] ; then
 fi
 
 if [ "$CMD" = "start" ] ; then
-    nohup $JAVACMD -cp $CP -Xmx$MAXMEM $MAIN -primary $@ >$LOGFILE 2>&1 &
+    nohup $JAVACMD -cp $CP -Xmx$MAXMEM $MAIN -primary $PROPFILE $@ >$LOGFILE 2>&1 &
     echo $! > primary.pid
-    nohup $JAVACMD -cp $CP -Xmx$MAXMEM $MAIN -secondary $@ >$LOGFILE 2>&1 &
+    nohup $JAVACMD -cp $CP -Xmx$MAXMEM $MAIN -secondary $PROPFILE $@ >$LOGFILE 2>&1 &
     echo $! > secondary.pid
         echo "start maxmem=$MAXMEM"
 elif [ "$CMD" = "stop" ] ; then
@@ -32,7 +33,7 @@ elif [ "$CMD" = "stop" ] ; then
         echo "stopped"
 else
     echo "Usage:"
-    echo "listener.sh (run|start|stop) <port> <processor> <monitor_port>"
+    echo "runcache.sh (run|start|stop)"
     echo "      start - start cache"
     echo "      stop  - stop cache"
 fi
