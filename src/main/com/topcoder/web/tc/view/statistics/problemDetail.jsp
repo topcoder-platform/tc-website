@@ -165,8 +165,12 @@
                  </tr>
                </table>
 
+
+               <br/><br/>
+               <br/><br/>
+
                <table BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
-                 <tr><td>Division 1</td></tr>
+                 <tr><td>Division 2</td></tr>
                  <tr>
                    <td BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"></TD>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
