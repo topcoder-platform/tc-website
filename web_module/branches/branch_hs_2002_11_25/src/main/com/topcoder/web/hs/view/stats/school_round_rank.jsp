@@ -61,7 +61,7 @@ pageContext.setAttribute("resultSet", rsc);
                    <TD   COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
        <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
-	        <bean:define id="coderrank" value="3000" />  <%-- @@@ make them all red --%>
+	        <bean:define id="coderrank" value="3000" />  <%-- make them all red for now --%>
                  <TR>
                    <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" HEIGHT="13"><bean:write name="resultRow" property='<%= "item[" + 3 /* order */ + "]" %>'/></TD>

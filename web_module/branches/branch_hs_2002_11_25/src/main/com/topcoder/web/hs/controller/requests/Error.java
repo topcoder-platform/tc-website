@@ -1,12 +1,13 @@
-//@@@ ok, this seems really stupid now that i read about errorPage
-
 package com.topcoder.web.hs.controller.requests;
 
 import java.io.*;
 import com.topcoder.web.hs.common.*;
 
 /**
- * A RequestProcessor which handles an exception which occured during a previous attempt at dispatching a request.
+ * A RequestProcessor which handles an exception which occured during
+ * a previous attempt at dispatching a request.  Unfortunately I can't
+ * easily integrate this with the facility provided by the errorPage
+ * property of a JSP &#64;page directive.
  *
  * @author Ambrose Feinstein
  */

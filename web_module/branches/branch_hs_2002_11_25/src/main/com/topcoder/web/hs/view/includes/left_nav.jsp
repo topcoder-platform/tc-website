@@ -21,8 +21,8 @@ String subind = "<IMG SRC=\"/i/hs/11x9.gif\" WIDTH=\"11\" HEIGHT=\"9\" ALT=\"\" 
 // spacer between items on the root menu
 String rootsep = "<TR><TD HEIGHT=\"1\" BGCOLOR=\"#C5C5C9\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
 // spacer between items on open submenus
-//String subsep = "";
-String subsep = "<TR><TD HEIGHT=\"1\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
+String subsep = "";
+//String subsep = "<TR><TD HEIGHT=\"1\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
 
 // set below in the service method, as they vary depending on the request
 String root, sub;
@@ -73,7 +73,7 @@ sub = NavZone.getLevel1();
 
     <%=rootitem("?module=Statistics&c=round_overview", "Statistics", "stats", true)%>
     <% if(subopen("stats")) { %>
-        <%=rootsep%>
+        <%=subsep%>
         <%=subitem("?module=Statistics&c=coder_ratings", "Coder Rankings", "coder_ratings")%>
         <%=subsep%>
         <%=subitem("?module=Statistics&c=school_round_rank", "High School Rankings", "school_round_rank")%>
@@ -99,7 +99,7 @@ sub = NavZone.getLevel1();
 
     <%=rootitem("?module=Static&d1=faq&d2=faq", "Support/FAQs", "faq", true)%>
     <% if(subopen("faq")) { %>
-        <%=rootsep%>
+        <%=subsep%>
         <%=subitem("?module=Static&d1=faq&d2=faq", "General FAQ ", "faq")%>
         <%=subsep%>
         <%=subitem("?module=Static&d1=faq&d2=compet_faq", "Competition FAQ ", "compet_faq")%>
@@ -123,7 +123,7 @@ sub = NavZone.getLevel1();
 
     <%=rootitem("?module=Static&d1=about&d2=about", "About Us", "about", true)%>
     <% if(subopen("about")) { %>
-        <%=rootsep%>
+        <%=subsep%>
         <%=subitem("?module=Static&d1=about&d2=about_member", "For Members", "about_member")%>
         <%=subsep%>
         <%=subitem("?module=Static&d1=about&d2=about_sponsor", "For Sponsors", "about_sponsor")%>

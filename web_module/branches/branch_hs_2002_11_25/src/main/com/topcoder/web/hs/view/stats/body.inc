@@ -35,5 +35,3 @@
             </TD>
             <TD class="statText">
             <!-- Start Body-->
-                   <P><B><Font COLOR="cccccc" SIZE="2">NOTE:  The information provided on this page is for 
-demonstration purposes only</Font></B></P>         
