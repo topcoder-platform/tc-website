@@ -36,8 +36,6 @@ public class Error extends Base {
         request.setAttribute("error_name", en);
         request.setAttribute("error_cause", et);
 
-        nav.setFolder(null);
-
         setNextPage(Constants.error_page);
         setIsNextPageInContext(true);
     }
