@@ -27,9 +27,9 @@ if (document.images) {
   image7on = new Image();
   image7on.src = "/i/menu_practice_on.gif";
   image8on = new Image();
-  image8on.src = "/i/menu_press_on.gif";  
+  image8on.src = "/i/menu_press_on.gif";
   image9on = new Image();
-  image9on.src = "/i/menu_support_on.gif";      
+  image9on.src = "/i/menu_support_on.gif";
   image2off = new Image();
   image2off.src = "/i/menu_tces_off.gif";
   image3off = new Image();
@@ -43,9 +43,9 @@ if (document.images) {
   image7off = new Image();
   image7off.src = "/i/menu_practice_off.gif";
   image8off = new Image();
-  image8off.src = "/i/menu_press_off.gif";  
+  image8off.src = "/i/menu_press_off.gif";
   image9off = new Image();
-  image9off.src = "/i/menu_support_off.gif";    
+  image9off.src = "/i/menu_support_off.gif";
 }
 function changeImages() {
   if (document.images) {
@@ -58,17 +58,19 @@ function changeImages() {
 
 <SCRIPT TYPE="text/javascript">
   function getGraph(url,wd,ht) {
-    var last=0;
-    var daHt = parseInt(ht) + parseInt('49');
-    var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0";
-    var name="graph";
-    window.open('graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,name,size);
+    url='http://www.topcoder.com'+url;
+    var wht = parseInt(ht)+49;
+    var features = 'width='+wd+',height='+wht+'status=0';
+    var win = window.open('', 'graph', features);
+    win.document.open('text/html', 'replace');
+    win.document.write('<html><head><title>TopCoder :: Graph</title></head><body bgcolor="#000000" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0"><img src="/i/logo.gif" width="206" height="49"><br><img src="' + url + '" width="' + wd + '" height="' + ht + '"></body></html>');
+    win.document.close();
     return;
   }
 </SCRIPT>
 
 <script type="text/javascript">
-function arena() 
+function arena()
 {
   w=window.open("/contest/arena/launch.html","Launch","top=2,left=2,width=300,height=225,status=1");
   return;
