@@ -143,7 +143,7 @@
                 <tr>
 					<td class="projectCells" valign="top">
 					<strong>TopCoder Software Jalopy Configuration File</strong><br/>
-					TheThe TopCoder Software Jalopy Configuration File contains the formatting rules required to adhere to the TopCoder Software Java Coding Standards. Please use this configuration file with Jalopy to format your source code before submitting it for review.
+					The TopCoder Software Jalopy Configuration File contains the formatting rules required to adhere to the TopCoder Software Java Coding Standards. Please use this configuration file with Jalopy to format your source code before submitting it for review.
 					</td>
 					<td class="projectCells" valign="top" align="center">05.28.2003</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/topcoder_code_convention.xml">Jalopy Configuration File</A></td>
