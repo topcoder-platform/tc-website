@@ -60,13 +60,13 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
 <a name="bracket"></a>
 <!-- Tab bar links-->
 <jsp:include page="tco03Links.jsp" >
-   <jsp:param name="selectedContest" value="coding"/>
-   <jsp:param name="selectedTab" value="coding_advancers"/>
+   <jsp:param name="selectedContest" value="component"/>
+   <jsp:param name="selectedTab" value="component_advancers"/>
 </jsp:include>
 
 <!-- Tab bar sublinks-->
 <jsp:include page="tco03Sublinks.jsp" >
-   <jsp:param name="selectedList" value="coding_advancers"/>
+   <jsp:param name="selectedList" value="component_advancers"/>
    <jsp:param name="selectedTab" value="bracket"/>
 </jsp:include>
 
@@ -82,8 +82,8 @@ if ( MM_FlashCanPlay ) {
        document.write('<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"');
 	document.write('  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
 	document.write(' ID="bracket" WIDTH="510" HEIGHT="450" ALIGN="top">');
-	document.write(' <PARAM NAME=movie VALUE="/i/tournament/tco03/bracket.swf"> <PARAM NAME=menu VALUE=false> <PARAM NAME=quality VALUE=high> <PARAM NAME=salign VALUE=T> <PARAM NAME=bgcolor VALUE=#FFFFFF>  '); 
-	document.write(' <EMBED src="/i/tournament/tco03/bracket.swf" menu=false quality=high salign=T bgcolor=#FFFFFF  ');
+	document.write(' <PARAM NAME=movie VALUE="/i/tournament/tco03/bracket_component.swf"> <PARAM NAME=menu VALUE=false> <PARAM NAME=quality VALUE=high> <PARAM NAME=salign VALUE=T> <PARAM NAME=bgcolor VALUE=#FFFFFF>  '); 
+	document.write(' <EMBED src="/i/tournament/tco03/bracket_component.swf" menu=false quality=high salign=T bgcolor=#FFFFFF  ');
 	document.write(' swLiveConnect=FALSE WIDTH="510" HEIGHT="450" NAME="bracket" ALIGN="top"');
 	document.write(' TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">');
 	document.write(' </EMBED>');
