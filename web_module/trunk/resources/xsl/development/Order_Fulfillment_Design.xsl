@@ -101,8 +101,8 @@
                                                         <br/>
                                                         <br/>
                                                         <ul class="noSpListTitle">
-                                                           <strong>Objectives</strong>
-                                                            <li>Provide an extensible platform designed to handle the functional requirements identified by the client.2</li>
+                                                        <strong>Objectives</strong>
+                                                            <li>Provide an extensible platform designed to handle the functional requirements identified by the client.</li>
                                                             <li>Deliver the ability to scale through the addition of hardware, not requiring changes to the underlying software.</li>
                                                             <li>Deliver an improved user experience and site navigation.</li>
                                                         </ul>
