@@ -6,6 +6,7 @@ import javax.transaction.*;
 import java.sql.*;
 import com.topcoder.common.web.error.*;
 import com.topcoder.common.web.data.*;
+import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.common.web.xml.*;
 import com.topcoder.common.*;
@@ -207,11 +208,7 @@ final class UserDb {
         user.setUserTypeDetails  ( new HashMap(4)   );
         loadGroupUsers           ( conn, user       );
         loadPermissions          ( conn, user       );
-        Permission permission = Security.getSectorPermission ( Security.CODER_SITE_SECTOR, user );
-        int coderSiteAccessLevel        = permission.getAccessLevel().getAccessLevelId();
-        if ( coderSiteAccessLevel > 0 ) {
-          UserDbCoder.loadCoder ( conn, user );
-        } 
+        UserDbCoder.loadCoder ( conn, user );
       } else {
         throw new TCException("ejb.User.UserDb:loadUser():empty resultset:\n");
       }
@@ -705,10 +702,6 @@ final class UserDb {
       for (int i=0; i<groups.size(); i++) {
         GroupUser groupUser = (GroupUser) groups.get(i);
         groupUser.setUserId ( user.getUserId() );
-        if (VERBOSE) {
-          XMLDocument test = new XMLDocument("TEST");
-          test.addTag ( groupUser.getXML() );
-        }
         insertGroupUser     ( conn, groupUser );
       }
     } catch (Exception ex) {

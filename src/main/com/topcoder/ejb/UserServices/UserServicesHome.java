@@ -3,7 +3,7 @@ package com.topcoder.ejb.UserServices;
 import javax.ejb.*;
 import java.rmi.RemoteException;
 import java.util.*;
-import com.topcoder.common.web.data.User;
+import com.topcoder.ejb.AuthenticationServices.*;
 
 
 ///////////////////////////////////////////////////

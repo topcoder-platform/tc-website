@@ -7,6 +7,7 @@ import java.sql.*;
 import com.topcoder.common.*;
 import com.topcoder.common.web.error.*;
 import com.topcoder.common.web.data.*;
+import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.common.web.xml.*;
 
 

@@ -8,6 +8,7 @@ import java.util.*;
 import java.sql.*;
 import java.net.*;
 import com.topcoder.ejb.BaseEJB;
+import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.common.*;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.xml.*;

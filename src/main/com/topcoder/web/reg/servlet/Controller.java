@@ -4,6 +4,7 @@ package com.topcoder.web.reg.servlet;
 import com.topcoder.common.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.web.reg.bean.*;
+import com.topcoder.ejb.AuthenticationServices.*;
 
 import java.io.*;
 import java.util.*;

@@ -16,6 +16,7 @@
   import com.topcoder.common.web.error.*;
   import com.topcoder.common.web.util.*;
   import com.topcoder.ejb.ContestAdminServices.*;
+  import com.topcoder.ejb.AuthenticationServices.*;
   
 
   public final class SystemTestCaseReport  {

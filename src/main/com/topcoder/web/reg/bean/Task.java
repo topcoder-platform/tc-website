@@ -3,7 +3,7 @@ package com.topcoder.web.reg.bean;
 
 import java.util.*;
 import com.topcoder.common.*;
-import com.topcoder.common.web.data.*;
+import com.topcoder.ejb.AuthenticationServices.*;
 
 public class Task
 {
