@@ -12,6 +12,7 @@ import com.topcoder.web.tc.view.reg.tag.Demographic;
 import com.topcoder.web.tc.view.reg.tag.Notification;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.NoSuchUserException;
@@ -1699,7 +1700,7 @@ public class Registration
                     userServices = userServicesHome.findByPrimaryKey(new Integer(user.getUserId()));
                 } else {
                     userServices = userServicesHome.create(user);
-                    activationCode = getActivationCode(coder.getCoderId());
+                    activationCode = StringUtils.getActivationCode(coder.getCoderId());
                     coder.setActivationCode(activationCode);
                     coder.setModified("U");
                 }
@@ -1827,16 +1828,6 @@ public class Registration
         }
     }
 
-    public static String getActivationCode(int coderId) {
-        String id = Integer.toString(coderId);
-        String hash = new BigInteger(new BigInteger(id).bitLength(), new Random(coderId)).add(new BigInteger("TopCoder", 36)).toString();
-        while (hash.length() < id.length()) {
-            hash = "0" + hash;
-        }
-        hash = hash.substring(hash.length() - id.length());
-        return new BigInteger(id + hash).toString(36).toUpperCase();
-    }
-
     public static int getCoderId(String activationCode) {
         try {
             String idhash = new BigInteger(activationCode, 36).toString();
@@ -1858,7 +1849,7 @@ public class Registration
 
     boolean activate()
             throws TaskException {
-        int coderId = getCoderId(this.code);
+        int coderId = StringUtils.getCoderId(this.code);
         if (coderId == 0) return false;
         InitialContext context = null;
         try {

@@ -1,7 +1,6 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.controller.legacy.reg.bean.Registration;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
@@ -40,7 +39,7 @@ public class Activate extends Base {
         InitialContext ctx = null;
 
         String code = StringUtils.checkNull(getRequest().getParameter(Constants.ACTIVATION_CODE));
-        long userId = Registration.getCoderId(code);
+        long userId = StringUtils.getCoderId(code);
 
         try {
             ctx = new InitialContext();
