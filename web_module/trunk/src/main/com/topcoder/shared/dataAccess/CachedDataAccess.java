@@ -19,14 +19,14 @@ public class CachedDataAccess implements DataAccessInt {
     private static Logger log = Logger.getLogger(CachedDataAccess.class);
     private long expireTime;
     private DataSource dataSource;
-    private static final int DEFAULT_EXPIRE_TIME = 1000 * 60 * 60 * 24 * 7;
+    private static final int DEFAULT_EXPIRE_TIME = 1000 * 60 * 60 * 24 * 5;
 
     /**
      * Constructor that sets the timeout for the object should it need to be
      * cached, to 1 week.
      */
     public CachedDataAccess() {
-        this(DEFAULT_EXPIRE_TIME);  
+        this(DEFAULT_EXPIRE_TIME);
     }
 
     /**
@@ -48,7 +48,7 @@ public class CachedDataAccess implements DataAccessInt {
         this(DEFAULT_EXPIRE_TIME);
         this.dataSource = dataSource;
     }
-       
+
     /**
      * Construtor that takes the timeout for the object should it need to
      * be cached, and a data source.
@@ -59,7 +59,7 @@ public class CachedDataAccess implements DataAccessInt {
         this(expireTime);
         this.dataSource = dataSource;
     }
-       
+
     /**
      * This method passes a query command request and a connection
      * to the data retriever and receives and passes on the results.
@@ -127,7 +127,7 @@ public class CachedDataAccess implements DataAccessInt {
     public long getExpireTime() {
         return expireTime;
     }
-    
+
     /**
      * @param dataSource
      */
