@@ -13,8 +13,7 @@ import java.io.*;
  */
 public class Error extends Base {
 
-    public void process() throws Exception {
-        super.process();
+    protected void businessProcessing() throws Exception {
 
         Exception e = (Exception)request.getAttribute("exception");
         String en, et;

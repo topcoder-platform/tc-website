@@ -31,15 +31,11 @@ public final class Controller extends HttpServlet {
         try {
             RequestProcessor rp;
             try {
-//@@@ debug things here to clean up later
-                //System.out.println("request.getContextPath()="+request.getContextPath());
-                //System.out.println("request.getServletPath()="+request.getServletPath());
 
                 String query = request.getQueryString();
                 System.out.println("query \"" + query + "\" from host " + request.getRemoteHost());
 
                 String cmd = checkNull(request.getParameter("module"));
-                System.out.println("cmd="+cmd);
 
                 /* one way of making empty requests end up at the front page */
                 if(cmd.equals("")) cmd = "Static";
@@ -48,6 +44,7 @@ public final class Controller extends HttpServlet {
 
                 rp = (RequestProcessor)Class.forName("com.topcoder.web.hs.controller.requests."+cmd).newInstance();
                 rp.setRequest(request);
+                rp.setResponse(response);
                 rp.process();
 
             } catch(Exception e) {
@@ -56,6 +53,7 @@ public final class Controller extends HttpServlet {
                 request.setAttribute("exception", e);
                 rp = new com.topcoder.web.hs.controller.requests.Error();
                 rp.setRequest(request);
+                rp.setResponse(response);
                 rp.process();
             }
 

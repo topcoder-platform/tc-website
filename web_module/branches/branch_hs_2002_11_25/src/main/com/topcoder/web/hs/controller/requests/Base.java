@@ -1,6 +1,8 @@
 package com.topcoder.web.hs.controller.requests;
 
 import javax.servlet.*;
+import com.topcoder.shared.security.Persistor;
+import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.hs.model.*;
 import com.topcoder.web.common.RequestProcessor;
 
@@ -12,21 +14,25 @@ import com.topcoder.web.common.RequestProcessor;
 public abstract class Base implements RequestProcessor {
 
     protected ServletRequest request;
-    private boolean nextPageInContext;
-    private String nextPage;
+    protected ServletResponse response;
+    protected BasicAuthentication auth;
+    private boolean nextPageInContext = false;
+    private String nextPage = null;
 
     public Base() {
-        nextPage = null;
-        nextPageInContext = false;
     }
 
     public void setRequest(ServletRequest sr) {
         request = sr;
     }
 
+    public void setResponse(ServletResponse sr) {
+        response = sr;
+    }
+
     protected void buildSessionInfo() {
         SessionInfoBean si = new SessionInfoBean();
-        try { //@@@
+        try { //@@@  this needs to come from calling auth.getUser instead
             String p;
             p = request.getParameter("handle");
             if(p!=null) si.setHandle(p);
@@ -40,8 +46,21 @@ public abstract class Base implements RequestProcessor {
        request.setAttribute("SessionInfo", si);
     }
 
-    public void process() throws Exception {
-      buildSessionInfo();
+    /** Some things we want to do for all subclassed request processors. */
+    protected void baseProcessing() {
+        Persistor persistor = new SessionPersistor(((HttpServletRequest)request).getSession());
+        auth = new BasicAuthentication(persistor, request, response);
+        buildSessionInfo();
+    }
+
+    /** Override this to specialize. */
+    protected void businessProcessing() throws Exception {
+    }
+
+    /** This is final to discourage overriding it.  Instead subclasses should implement businessProcessing(). */
+    public final void process() throws Exception {
+        baseProcessing();
+        businessProcessing();
     }
 
     public String getNextPage() {
@@ -52,10 +71,12 @@ public abstract class Base implements RequestProcessor {
         return nextPageInContext;
     }
 
+    /** Call this to let the controller know where to go next. */
     protected void setNextPage(String page) {
         nextPage = page;
     }
 
+    /** False if a redirect is necessary, ie you need the URL in the browser to change.  True otherwise. */
     protected void setIsNextPageInContext(boolean flag) {
         nextPageInContext = flag;
     }

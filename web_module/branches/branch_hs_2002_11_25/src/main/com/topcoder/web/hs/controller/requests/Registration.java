@@ -47,8 +47,8 @@ public class Registration extends Base {
 
   private final static String COACH_TYPE="coach";
 
-  public void process() throws Exception {
-    super.process();
+
+  protected void businessProcessing() throws Exception {
 
     String cmd=request.getParameter("c");
 

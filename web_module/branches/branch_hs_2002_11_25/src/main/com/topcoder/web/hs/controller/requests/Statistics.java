@@ -17,8 +17,7 @@ import com.topcoder.common.web.util.Data;
  */
 public class Statistics extends Base {
 
-    public void process() throws Exception {
-        super.process();
+    protected void businessProcessing() throws Exception {
 
         Data.initializeDataTypes();
         request.setAttribute("CODER_COLORS", new CoderRatingStyleBean());

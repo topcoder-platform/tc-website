@@ -10,8 +10,7 @@ import javax.servlet.http.*;
  */
 public class Static extends Base {
 
-    public void process() throws Exception {
-        super.process();
+    protected void businessProcessing() throws Exception {
 
         String path = "";
         for(int i=1; ; i++) {
