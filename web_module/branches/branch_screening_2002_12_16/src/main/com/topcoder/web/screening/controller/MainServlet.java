@@ -116,15 +116,19 @@ public class MainServlet extends HttpServlet {
             Authorization author = new TCSAuthorization(sub);
             
             if(!author.hasPermission(r)){
-                String redirect = request.getServletPath() + '?' +
-                                  request.getQueryString();
+                String redirect;
+                if(request.getMethod().equals("POST")){
+                    redirect = request.getServletPath();
+                }else{
+                    redirect = request.getServletPath() + '?' + request.getQueryString();
+                }
                 if(userId == User.USER_ANONYMOUS_ID){
                     request.setAttribute(Constants.REDIRECT,redirect);
                     request.setAttribute(Constants.MESSAGE_PARAMETER,
                         "You must be logged in to access that resource.");
-//                    throw new AnonymousUserException("Login required for "+r.getName());
+                    throw new AnonymousUserException("Login required for "+r.getName());
                 }else{
-//                    throw new PermissionDeniedException("Access denied for "+r.getName());
+                    throw new PermissionDeniedException("Access denied for "+r.getName());
                 }
             }
             

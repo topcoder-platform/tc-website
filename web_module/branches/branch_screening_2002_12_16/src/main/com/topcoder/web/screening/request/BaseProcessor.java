@@ -40,7 +40,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     private ServletRequest request;
     
     /** Holds value of property authentication. */
-    private Authentication authentication;
+    private WebAuthentication authentication;
     
     /** Creates a new instance of BaseProcessor */
     public BaseProcessor() {
@@ -100,21 +100,21 @@ public abstract class BaseProcessor implements RequestProcessor {
     /** Getter for property authentication.
      * @return Value of property authentication.
      */
-    protected Authentication getAuthentication() {
+    protected WebAuthentication getAuthentication() {
         return this.authentication;
     }
     
     /** Setter for property authentication.
      * @param authentication New value of property authentication.
      */
-    public void setAuthentication(Authentication authentication) {
+    public void setAuthentication(WebAuthentication authentication) {
         this.authentication = authentication;
     }
     
     /** Getter for property parameterMap.
      * @return Value of property parameterMap.
      */
-    public Map getParameterMap() {
+    protected Map getParameterMap() {
         HttpServletRequest rq = (HttpServletRequest)getRequest();
         
         return HttpUtils.parseQueryString(rq.getQueryString());
@@ -127,5 +127,32 @@ public abstract class BaseProcessor implements RequestProcessor {
                                         DataSource.class);
         DataAccess dAccess = new DataAccess(ds);
         return dAccess;
+    }
+    
+    protected void doStrongAuthorization() throws Exception{
+        long userId = getAuthentication().getUser().getId();
+        Resource r = new ClassResource(this.getClass());
+        PrincipalMgr pm = new PrincipalMgr();
+        HttpServletRequest request = (HttpServletRequest)getRequest();
+        
+        TCSubject sub = pm.getUserSubject(userId);
+        Authorization auth = new TCSAuthorization(sub);
+        
+        if(!auth.hasPermission(r)){
+            String redirect;
+            if(request.getMethod().equals("POST")){
+                redirect = request.getServletPath();
+            }else{
+                redirect = request.getServletPath() + '?' + request.getQueryString();
+            }
+            if(userId == User.USER_ANONYMOUS_ID){
+                request.setAttribute(Constants.REDIRECT,redirect);
+                request.setAttribute(Constants.MESSAGE_PARAMETER,
+                    "You must be logged in to access that resource.");
+                throw new AnonymousUserException("Login required for "+r.getName());
+            }else{
+                throw new PermissionDeniedException("Access denied for "+r.getName());
+            }
+        }
     }
 }
