@@ -55,7 +55,7 @@
         </tr>
         <tc:problemRatingIterator list="<%=problemRatingQuestions%>" id="quest">
         <tr>
-            <td class="bodyText" width="15" valign="top"><A href="javascript:infoWindow('/tc?&module=Static&d1=problem_rating&d2=question_info')" class="statTextBig"><img src="/i/icon_help_blue.gif" width="15" height="11" border="0"></A></td>
+            <td class="bodyText" width="15" valign="top"><A href="javascript:infoWindow('/tc?&module=Static&d1=problem_rating&d2=question_info')" class="statTextBig"><img src="/i/icon_help_white.gif" width="15" height="11" border="0"></A></td>
             <td class="bodyText" width="100%">
                 <jsp:getProperty name="quest" property="question"/>
             </td>
