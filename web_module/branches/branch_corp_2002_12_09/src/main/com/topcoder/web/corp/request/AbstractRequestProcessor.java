@@ -1,7 +1,6 @@
 package com.topcoder.web.corp.request;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.web.common.RequestProcessor;
 
@@ -20,15 +19,13 @@ import com.topcoder.web.common.RequestProcessor;
  */
 public abstract class AbstractRequestProcessor implements RequestProcessor {
     protected HttpServletRequest request;
-    protected HttpServletResponse response;
     
     /**
      * Stores given request inside for further processing
      * @see com.topcoder.web.common.RequestProcessor#setRequest(javax.servlet.http.HttpServletRequest)
      */
-    public void prepare(HttpServletRequest req, HttpServletResponse resp) {
+    public void prepare(HttpServletRequest req) {
         request = req;
-        response = resp;
     }
 
 

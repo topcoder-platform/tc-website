@@ -1,7 +1,6 @@
 package com.topcoder.web.common;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Depending on user's request type Controller will instantiate corresponding
@@ -16,6 +15,10 @@ import javax.servlet.http.HttpServletResponse;
  * example, user information must be retrieved from DB, user's authorization
  * token created and stored in HttpSession etc.
  * 
+ * CAUTION. As it was stated in classes overview it is _request_processor_
+ * (and neither _response_processor_ nor _request_response_processor_) so I
+ * have removed response parameter. Sorry for any inconviences caused by this.
+ * 
  * @author djFD molc@mail.ru
  * @version 1.02
  *
@@ -27,7 +30,7 @@ public interface RequestProcessor {
 	 * 
 	 * @param req request issued by user  
 	 */
-	public void prepare(HttpServletRequest req, HttpServletResponse resp);
+	public void prepare(HttpServletRequest req);
 	
 	/**
 	 * Based on the request (received via setRequest(..)) performs some actions
