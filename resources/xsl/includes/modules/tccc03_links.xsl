@@ -42,10 +42,10 @@
                                 </xsl:choose>
                                 <xsl:choose>
                                     <xsl:when test="$selectedTab='competitors'">
-                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_competitors" class="statTextBig"><img src="/i/tournament/tabCompetitorsOn.gif" alt="Competitors" width="104" height="21" border="0" /></a></td>
+                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_competitors&amp;rds=4462,4464,4466" class="statTextBig"><img src="/i/tournament/tabCompetitorsOn.gif" alt="Competitors" width="104" height="21" border="0" /></a></td>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_competitors" class="statTextBig"><img src="/i/tournament/tabCompetitorsOff.gif" alt="Competitors" width="104" height="21" border="0" /></a></td>
+                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_competitors&amp;rds=4462,4464,4466" class="statTextBig"><img src="/i/tournament/tabCompetitorsOff.gif" alt="Competitors" width="104" height="21" border="0" /></a></td>
                                     </xsl:otherwise>
                                 </xsl:choose>
                                 <xsl:choose>
