@@ -3,7 +3,6 @@ package com.topcoder.utilities;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.ejb.user.UserHome;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.user.UserAddressHome;
@@ -38,16 +37,8 @@ public class UserMover {
         UserMover um = new UserMover();
         try {
             Context ctx = TCContext.getInitial();
-            ResultSetContainer users = um.getUsers(ctx);
-            ResultSetContainer.ResultSetRow user = null;
-            int count = 0;
             long begin = System.currentTimeMillis();
-            for (Iterator it = users.iterator(); it.hasNext(); ) {
-                user = (ResultSetContainer.ResultSetRow)it.next();
-                um.moveUser(ctx, user);
-                count++;
-                if(count%100==0) log.info(""+count+" users processed");
-            }
+            int count = um.getUsers(ctx);
             long end = System.currentTimeMillis();
             log.debug("all done, " + count + " moved in " + (double)((end-begin)/1000) + " seconds");
         } catch (Exception e) {
@@ -57,77 +48,7 @@ public class UserMover {
 
     }
 
-    private void moveUser(Context ctx, ResultSetContainer.ResultSetRow user) throws Exception {
-        String handle = null;
-        try {
-            User userEJB = ((UserHome) ctx.lookup("main:" + UserHome.EJB_REF_NAME)).create();
-            Email emailEJB = ((EmailHome) ctx.lookup("main:" + EmailHome.EJB_REF_NAME)).create();
-            Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
-            Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
-            UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup("main:" + UserAddressHome.EJB_REF_NAME)).create();
-
-            long userId = ((Long)user.getItem("user_id").getResultData()).longValue();
-            handle = (String)user.getItem("handle").getResultData();
-            char status = ((String)user.getItem("status").getResultData()).charAt(0);
-            String firstName = (String)user.getItem("first_name").getResultData();
-            String lastName = (String)user.getItem("last_name").getResultData();
-            String email = (String)user.getItem("email").getResultData();
-            String address1 = (String)user.getItem("address1").getResultData();
-            String address2 = (String)user.getItem("address2").getResultData();
-            String city = (String)user.getItem("city").getResultData();
-            String state = (String)user.getItem("state_code").getResultData();
-            String country = (String)user.getItem("country_code").getResultData();
-            String zip = (String)user.getItem("last_name").getResultData();
-            String phone = (String)user.getItem("home_phone").getResultData();
-
-
-            userEJB.createUser(userId, handle, status);
-            userEJB.setFirstName(userId, firstName);
-            userEJB.setLastName(userId, lastName);
-
-            long emailId = emailEJB.createEmail(userId);
-            emailEJB.setAddress(emailId, email);
-            emailEJB.setPrimaryEmailId(userId, emailId);
-            emailEJB.setEmailTypeId(emailId, 1);
-
-            long addressId = addressEJB.createAddress();
-            addressEJB.setAddress1(addressId, address1);
-            addressEJB.setAddress2(addressId, address2);
-            addressEJB.setCity(addressId, city);
-            addressEJB.setStateCode(addressId, state);
-            addressEJB.setCountryCode(addressId, country);
-            addressEJB.setZip(addressId, zip);
-            addressEJB.setAddressTypeId(addressId, 2);
-
-            userAddressEJB.createUserAddress(userId, addressId);
-
-            long phoneId = phoneEJB.createPhone(userId);
-            phoneEJB.setNumber(phoneId, phone);
-            phoneEJB.setPrimaryPhoneId(userId, phoneId);
-            phoneEJB.setPhoneTypeId(phoneId, 2);
-
-            Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
-
-            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-            PrincipalMgrRemote pmr = pmrh.create();
-            UserPrincipal up = pmr.getUser(userId);
-            TCSubject tcs = new TCSubject(132456);
-            Collection groups = pmr.getGroups(tcs);
-            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
-                GroupPrincipal gp = (GroupPrincipal) iterator.next();
-                if (gp.getName().equals("Anonymous")) {
-                    pmr.addUserToGroup(gp, up, tcs);
-                }
-            }
-        } catch (Exception e) {
-            log.error(handle + " didn't move over right");
-            log.error(user.toString());
-            throw e;
-        }
-
-    }
-
-    private ResultSetContainer getUsers(Context ctx) throws Exception {
+    private int getUsers(Context ctx) throws Exception {
 
         DataSource ds = (DataSource)ctx.lookup(SOURCE_DS);
         Connection conn = null;
@@ -158,7 +79,78 @@ public class UserMover {
 
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
-            return new ResultSetContainer(rs, false);
+            String handle = null;
+
+
+            User userEJB = ((UserHome) ctx.lookup("main:" + UserHome.EJB_REF_NAME)).create();
+            Email emailEJB = ((EmailHome) ctx.lookup("main:" + EmailHome.EJB_REF_NAME)).create();
+            Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
+            Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
+            UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup("main:" + UserAddressHome.EJB_REF_NAME)).create();
+            Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote pmr = pmrh.create();
+
+            int count = 0;
+            while (rs.next()) {
+
+                long userId = rs.getLong("user_id");
+                handle = rs.getString("handle");
+                char status = rs.getString("status").charAt(0);
+                String firstName = rs.getString("first_name");
+                String lastName = rs.getString("last_name");
+                String email = rs.getString("email");
+                String address1 = rs.getString("address1");
+                String address2 = rs.getString("address2");
+                String city = rs.getString("city");
+                String state = rs.getString("state_code");
+                String country = rs.getString("country_code");
+                String zip = rs.getString("last_name");
+                String phone = rs.getString("home_phone");
+
+
+                userEJB.createUser(userId, handle, status);
+                userEJB.setFirstName(userId, firstName);
+                userEJB.setLastName(userId, lastName);
+
+                long emailId = emailEJB.createEmail(userId);
+                emailEJB.setAddress(emailId, email);
+                emailEJB.setPrimaryEmailId(userId, emailId);
+                emailEJB.setEmailTypeId(emailId, 1);
+
+                long addressId = addressEJB.createAddress();
+                addressEJB.setAddress1(addressId, address1);
+                addressEJB.setAddress2(addressId, address2);
+                addressEJB.setCity(addressId, city);
+                addressEJB.setStateCode(addressId, state);
+                addressEJB.setCountryCode(addressId, country);
+                addressEJB.setZip(addressId, zip);
+                addressEJB.setAddressTypeId(addressId, 2);
+
+                userAddressEJB.createUserAddress(userId, addressId);
+
+                long phoneId = phoneEJB.createPhone(userId);
+                phoneEJB.setNumber(phoneId, phone);
+                phoneEJB.setPrimaryPhoneId(userId, phoneId);
+                phoneEJB.setPhoneTypeId(phoneId, 2);
+
+                UserPrincipal up = pmr.getUser(userId);
+                TCSubject tcs = new TCSubject(132456);
+                Collection groups = pmr.getGroups(tcs);
+                for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                    GroupPrincipal gp = (GroupPrincipal) iterator.next();
+                    if (gp.getName().equals("Anonymous")) {
+                        pmr.addUserToGroup(gp, up, tcs);
+                    }
+                }
+
+                count++;
+                if(count%100==0) log.info(""+count+" users processed");
+            }
+
+
+            return count;
 
         } catch (SQLException e) {
             throw e;
