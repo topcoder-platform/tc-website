@@ -105,9 +105,7 @@
                         </A>
                    </td>
                    <% } %>
-                   <%--<% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
                    <td align="center" class="screeningHeader">Preference Level</td>
-                   <% } %>--%>
                    <td align="center" class="screeningHeader">
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=11">
                             Notes
@@ -143,7 +141,6 @@
                    <% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:servletLink processor="DownloadResume" param="<%=rparams%>"><screen:resultSetItem row="<%=row%>" name="resume_text" /> </screen:servletLink></td>
                    <% }%>
-                   <%--<% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap>
                     <object
                         classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
@@ -172,7 +169,6 @@
                         pluginspage="http://www.macromedia.com/go/getflashplayer" />
                         </object>
                    </td>
-                   <% } %>--%>
                    <td width="10%" align="center" class="<%=cssClasses[counter++ % 2]%>"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><%=hasNotes?"View":"None"%></screen:servletLink></td>
                 </tr>
 
