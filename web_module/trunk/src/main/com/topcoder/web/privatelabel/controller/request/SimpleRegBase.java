@@ -124,11 +124,11 @@ abstract class SimpleRegBase extends RegistrationBase {
 
         //check email
         if (info.getEmail().length() > Constants.MAX_EMAIL_LENGTH) {
-            addError(Constants.EMAIL, "Your password must be between at most " +
+            addError(Constants.EMAIL, "Your email must be between at most " +
                     Constants.MAX_EMAIL_LENGTH + " characters.");
         }
         StringTokenizer st = new StringTokenizer(info.getEmail(), "@.");
-        if (st.countTokens()!=3
+        if (st.countTokens()<3
                 || !StringUtils.contains(info.getEmail(), '@')
                 || !StringUtils.contains(info.getEmail(), '.')) {
             addError(Constants.EMAIL, "Please enter a valid email address.");
