@@ -75,7 +75,7 @@ public class Submit extends Base {
             } else if (response.getStatus()==ScreeningSubmitResponse.ERROR) {
                 addError(Constants.CODE, response.getMessage());
                 Problem p = new Problem();
-//todo                p.setProblemComponents(new ProblemComponent[] {response.getProblemComponent()});
+                p.setProblemComponents(new ProblemComponent[] {response.getProblemComponent()});
                 setDefault(Constants.PROBLEM, new ProblemInfo(code, componentId, languageId, p, problemTypeId));
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
                         new String[] {Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
