@@ -2,8 +2,6 @@ package com.topcoder.shared.docGen.xml.xsl;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.distCache.CacheClientPool;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -60,20 +58,24 @@ public class XSLTransformerCache {
             throws Exception {
         log.debug("XSLTransformerCache.getXSLTransformerWrapper for " + fileName);
         XSLTransformerWrapper result = null;
+        if (fileName == null) throw new Exception("The file name can not be null.");
+        String key = CACHE_PREFIX + fileName;
         try {
-            if (fileName == null) throw new Exception("The fileName can not be null.");
-//            result = (XSLTransformerWrapper) CacheClientPool.getPool().getClient().get(CACHE_PREFIX+fileName);
-            if (result==null) {
+            result = (XSLTransformerWrapper) (CacheClientPool.getPool().getClient().get(key));
+            if (result == null) {
                 java.io.File file = new java.io.File(fileName);
                 if (!file.exists()) throw new Exception("Unable to find file " + fileName + ".");
                 result = new XSLTransformerWrapper(file);
-                log.debug("adding " + fileName + " to cache.");
-//                CacheClientPool.getPool().getClient().set(CACHE_PREFIX+fileName, result, DEFAULT_EXPIRE_TIME);
-//                log.debug("cache size is now: " + CacheClientPool.getPool().getClient().size());
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw  e;
+            try {
+                log.debug("adding " + fileName + " to cache.");
+                CacheClientPool.getPool().getClient().set(key, result, DEFAULT_EXPIRE_TIME);
+                log.debug("cache size is now: " + CacheClientPool.getPool().getClient().size());
+            } catch (RemoteException e) {
+                log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
+            }
+        } catch (RemoteException e) {
+            log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
         }
         return result;
     }
@@ -105,14 +107,14 @@ public class XSLTransformerCache {
      */
     public void clear() throws Exception {
         String tempKey = null;
-        Object o = null;
+
         try {
             long size = CacheClientPool.getPool().getClient().size();
             ArrayList list = CacheClientPool.getPool().getClient().getKeys();
             for (int i = 0; i < list.size(); i++) {
                 tempKey = (String) list.get(i);
                 if (tempKey.startsWith(CACHE_PREFIX)) {
-                    o = CacheClientPool.getPool().getClient().remove(tempKey);
+                    CacheClientPool.getPool().getClient().remove(tempKey);
                 }
             }
 
@@ -123,9 +125,9 @@ public class XSLTransformerCache {
     }
 
     /**
-     * The number of XSLTransformerWrapper instances in the cache.
+     * The number of objects in the cache.
      *
-     * @return the integer number of entries in the XSLTransformerWrapper cache.
+     * @return the integer number of entries in the cache.
      *
      */
     public int size() {
