@@ -71,8 +71,7 @@
                   </TR>
                   <TR>
                     <TD CLASS="statTextBig" VALIGN="top">
-                      <A HREF="company.jsp" CLASS="statTextBig">Login &gt;&gt;</A>
-                      <!-- <A HREF="Javascript:login.submit()" CLASS="statTextBig">Login &gt;&gt;</A> -->
+                      <A HREF="Javascript:login.submit()" CLASS="statTextBig">Login &gt;&gt;</A> 
                     </TD>
                   </TR>
                 </TABLE>
