@@ -131,10 +131,12 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
 
         String paramName = null;
         String value = null;
+        Map.Entry me = null;
 
         for ( ; it.hasNext(); ) {
-            paramName = ((Map.Entry)it.next()).getKey().toString();
-            value = ((Map.Entry)it.next()).getValue().toString();
+            me = (Map.Entry)it.next();
+            paramName = me.getKey().toString();
+            value = me.getValue().toString();
             if (paramName.startsWith(Constants.OPTIONAL_PARAM)) {
                 try {
                     long inputId = Long.parseLong(paramName.substring(Constants.OPTIONAL_PARAM.length()));
