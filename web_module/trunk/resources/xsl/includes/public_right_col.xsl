@@ -6,7 +6,8 @@
   <!-- <xsl:import href="../includes/modules/module_login.xsl"/> -->   
   <xsl:template name="public_right_col">
   <IMG ALT="" WIDTH="1" HEIGHT="3" SRC="/i/clear.gif" BORDER="0"/><BR/>
-  <xsl:call-template name="calendar"/>  
+  <xsl:call-template name="calendar"/>
+  <A HREF="mailto:tces@topcoder.com"><IMG SRC="/i/tces_sidebar.gif" ALT="" WIDTH="171" HEIGHT="95" VSPACE="5" BORDER="0"/></A> 
                 <!-- <xsl:choose>
                   <xsl:when test="/TC/LoggedIn='true'">
                      <xsl:call-template name="my_stats"/>
