@@ -543,19 +543,18 @@
                 <include name="com/topcoder/shared/**"/>
                 <exclude name="**/*Bean.class" />
             </classes>
-            <classes dir="${resources}">
-                <include name="log4j.properties"/>
-            </classes>
+
+            <!-- libraries to be included in servlet classpath -->
             <lib dir="${jars.dir}">
-                <include name="log4j.jar"/>
                 <include name="jdom.jar"/>
-                <include name="security.jar"/>
             </lib>
+
             <webinf dir="${resources}/corp">
                 <include name="tc-webtags.tld"/>
                 <include name="*.properties"/>
                 <include name="*.xml"/>
             </webinf>
+
             <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="**/*" prefix=""/>
             <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/>
         </war>
@@ -593,7 +592,22 @@
 
     <target name="deploy-corp" depends="war_corp">
         <copy todir="${public_html}" file="${war.dir}/${corp.war.name}.war" />
-        <unwar src="${public_html}/${corp.war.name}.war" dest="${public_html}/${corp.war.name}/" overwrite="yes"/>
+        <unwar src="${public_html}/${corp.war.name}.war" dest="${public_html}/${corp.war.name}/" overwrite="yes">
+           <patternset>
+             <exclude name="META-INF/**"/>
+             <include name="**/**"/>
+           </patternset>
+        </unwar>
+        <delete file="${public_html}/${corp.war.name}.war" />
+
+        <!-- libraries to be included in weblogic classpath -->
+        <copy todir="${public_html}/../ext-lib">
+           <fileset dir="${jars.dir}">
+               <include name="security.jar"/>
+               <include name="jboss-client.jar"/>
+               <include name="log4j-boot.jar"/>
+           </fileset>
+        </copy>
     </target>
     
     <target name="corp-ejb-all" depends="compile">

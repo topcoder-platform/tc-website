@@ -44,17 +44,17 @@ public class PersistStore {
      * @return PersistStore
      */
     public static PersistStore getInstance(File dir) throws FileNotFoundException {
-        if( dir != null ) {
-            System.err.println("--- where xml would be= "+dir.getAbsolutePath());
-        }
+//        if( dir != null ) {
+//            System.err.println("--- where xml would be= "+dir.getAbsolutePath());
+//        }
         if( me == null ) {
             synchronized(STORAGE_FILE) {
                 if( me == null ) {
                     me = new PersistStore();
                     me.xmlStore = new File(dir, STORAGE_FILE);
-                    if( me.xmlStore != null ) {
-                        System.err.println("---xml store - "+ me.xmlStore.getAbsolutePath());
-                    }
+//                    if( me.xmlStore != null ) {
+//                        System.err.println("---xml store - "+ me.xmlStore.getAbsolutePath());
+//                    }
                     me.load();
                 }
             }
@@ -235,7 +235,7 @@ public class PersistStore {
     private void load() throws FileNotFoundException {
         String path = xmlStore.getAbsolutePath();
         FileInputStream fis = new FileInputStream(xmlStore);
-    	System.err.println("---xml input stream is "+fis+" ----");
+//    	System.err.println("---xml input stream is "+fis+" ----");
         try {
             store = (new org.jdom.input.DOMBuilder()).build(fis);
         }
