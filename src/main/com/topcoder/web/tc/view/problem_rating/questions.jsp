@@ -7,12 +7,23 @@
 <title>TopCoder Problem Rating Questions - <%= request.getAttribute("problemName") %></title>
 <LINK REL="stylesheet" TYPE="text/css" href="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" href="/css/coders.css"/>
+<SCRIPT type="text/javascript">
+if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
+  // Linux Stylesheets
+  document.write('<link type="text/css" rel="stylesheet" href="/css/style_linux.css"/>');
+  document.write('<link type="text/css" rel="stylesheet" href="/css/coders_linux.css"/>');
+} else {
+  // NonLinux Stylesheets
+  document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
+  document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
+}
+</SCRIPT>
 </head>
 <body bgcolor="#000000">
-<h3><%= request.getAttribute("problemName") %></h3>
+<center><h3><%= request.getAttribute("problemName") %></h3></center>
 <form action="/tc/?module=SubmitRatings" method="POST">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
-    <table>
+    <table BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
         <tr><td></td>
             <% for(int i = 0; i<10; i++){ %>
                 <td class="statTextBig">
@@ -36,7 +47,9 @@
         </tr>
         </rsc:iterator>
     </table>
-<input type="submit">
+    <center>
+<input type="submit" value="Submit Ratings">
+    </center>
 </form>
 </body>
 </html>
