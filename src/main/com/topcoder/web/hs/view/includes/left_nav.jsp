@@ -18,12 +18,6 @@ String openind = "<img src=\"/i/nav_arrow_bottom.gif\" width=\"10\" height=\"10\
 // indent submenu items with this
 String subind = "<img src=\"/i/11x9.gif\" width=\"10\" height=\"10\" alt=\"\" border=\"0\">";
 
-// spacer between items on the root menu
-String rootsep = "<tr><td height=\"1\"><img src=\"/i/frame_left_nav.gif\" width=\"166\" height=\"1\" alt=\"----------\" border=\"0\"></td></tr>";
-// spacer between items on open submenus
-String subsep = "";
-//String subsep = "<tr><td height=\"1\"><img src=\"/i/frame_1pix_bg_lg_top_left.gif\" width=\"1\" height=\"1\" alt=\"\" border=\"0\"></td></tr>";
-
 // set below in the service method, as they vary depending on the request
 String root, sub;
 
@@ -70,9 +64,11 @@ sub = NavZone.getLevel1();
 
 <table width="170" cellspacing="0" cellpadding="0" border="0" bgcolor="#26386B">
 
-    <%=rootheader("What's Inside")%>
+    <%=rootheader("High School")%>
     
-    <%=rootitem("?module=Static&d1=home&d2=how_hs_compete", "How Schools Compete", "how_hs_compete", false)%>
+    <%=rootitem("?module=Static&d1=arena&d2=arena_main", "Competition Arena", "arena_main", false)%>
+
+    <%=rootitem("?module=Static&d1=home&d2=how_hs_compete", "How To Compete", "how_hs_compete", false)%>
     
     <%=rootitem("?module=Static&d1=schedule&d2=schedule", "Schedule", "schedule", false)%>
 
@@ -92,30 +88,31 @@ sub = NavZone.getLevel1();
 
     <%=rootitem("?module=Static&d1=tournaments&d2=tournaments", "Tournaments", "tournaments", false)%>
 
-    <%=rootitem("?module=Static&d1=faq&d2=faq", "Support/FAQs", "faq", true)%>
+    <%=rootitem("?module=Static&d1=faq&d2=faq", "Support", "faq", true)%>
     <% if(subopen("faq")) { %>
         <%=subitem("?module=Static&d1=faq&d2=faq", "General FAQ ", "faq")%>
         <%=subitem("?module=Static&d1=faq&d2=compet_faq", "Competition FAQ ", "compet_faq")%>
-        <%=subitem("?module=Static&d1=faq&d2=compet_proc", "Competition Process", "compet_proc")%>
-        <%=subitem("?module=Static&d1=faq&d2=ratings_ovrev", "Ratings Overview", "ratings_ovrev")%>
+        <%=subitem("?module=Static&d1=faq&d2=compet_proc", "How Competitions Work", "compet_proc")%>
+        <%=subitem("?module=Static&d1=faq&d2=ratings_ovrev", "How Ratings Work", "ratings_ovrev")%>
         <%=subitem("?module=Static&d1=faq&d2=editor_info", "Editor Information", "editor_info")%>
         <%=subitem("?module=Static&d1=faq&d2=soft_req", "Software Requirements", "soft_req")%>
-        <%=subitem("?module=Static&d1=faq&d2=rules_quali", "Rules & Qualification ", "rules_quali")%>
+        <%=subitem("?module=Static&d1=faq&d2=resources", "Resources", "resources")%>
+        <%=subitem("?module=Static&d1=faq&d2=rules_quali", "Rules", "rules_quali")%>
     <% } %>
-
-    <%=rootitem("?module=Static&d1=resources&d2=resources", "Resources", "resources", false)%>
     
-    <%=rootheader("Corporate Info")%>
+<!-- TopCoder Info begins -->
+    <%=rootheader("TopCoder Info")%>
 
     <%=bothitem("?module=Static&d1=about&d2=about", "About TCHS", "about", "about")%>
     <% if(subopen("about")) { %>
-        <%=subitem("?module=Static&d1=about&d2=about_member", "For Members", "about_member")%>
-        <%=subitem("?module=Static&d1=about&d2=about_sponsor", "For Sponsors", "about_sponsor")%>
+        <%=subitem("?module=Static&d1=about&d2=about_member", "Members", "about_member")%>
+        <%=subitem("?module=Static&d1=about&d2=about_sponsor", "Sponsors", "about_sponsor")%>
     <% } %>
 
-    <%=rootitem("?module=Static&d1=press&d2=press_main", "Press Room", "press", false)%>
+    <%=rootitem("?module=Static&d1=press&d2=press_main", "News / Features", "press", false)%>
     
     <%=rootitem("?module=Static&d1=contacts&d2=contacts", "Contacts", "contacts", false)%>
+<!-- TopCoder Info ends -->
 
 </table>
 <!--Left Navigation Include Ends-->

@@ -29,8 +29,8 @@
         </td>
         
 <!-- Center Column begins -->
-        <td width="1" bgcolor="#c5c5c9" valign="top"><img src="/i/frame_1pix_bg_lg_top_left.gif" width="1" height="3" alt="" border="0"></td>
-        <td width="1" bgcolor="#000000" valign="top"><img src="/i/frame_1pix_bg_lg_top_left.gif" width="1" height="3" alt="" border="0"></td>
+        
+        
         <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF">
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
@@ -150,8 +150,8 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="1" bgcolor="#000000" valign="top"><img src="/i/frame_1pix_bg_lg_top.gif" width="1" height="18" alt="" border="0"></td>
-        <td width="1" bgcolor="#C5C5C9" valign="top"><img src="/i/frame_1pix_bg_lg_top_right.gif" width="1" height="18" alt="" border="0"></td>
+        
+        
         <td width="10" bgcolor="#001934"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
     </tr>

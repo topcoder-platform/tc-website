@@ -16,8 +16,8 @@
 <jsp:include page="../includes/left_nav.jsp"/>
 <jsp:include page="../includes/left_calendar.jsp"/>
        </TD>
-       <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
-       <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
+       
+       
        <TD VALIGN="top" BACKGROUND="/i/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
         <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%">
          <TR>
