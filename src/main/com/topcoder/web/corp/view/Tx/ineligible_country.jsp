@@ -41,7 +41,9 @@
 <!-- Center Column begins -->
         <td width="99%" class="bodyText"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
 
-            <p>I'm sorry, you are from the axis of evil.</p>
+            <p>Sorry, your information indicates that you are from a country that is not allowed to
+            purchase the product specified.  If you believe you are seeing this message in error,
+            please contact TopCoder.</p>
 
             <p><br></p>
 
