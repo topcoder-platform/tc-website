@@ -37,10 +37,14 @@ public class ProfileList extends BaseProcessor {
         if(result != null && result.size() > 0){
             String profile;
             int start=0;
+            /*
+             * this requires that all the sessions for a particular profile be "next"
+             * to each other in the ResultSetContainer, so be sure to sort by that first
+             */
             while(start < result.size()){
                 int end = start;
                 profile = result.getItem(start,"session_profile_id").toString();
-                while(end < result.size() && 
+                while(end < result.size() &&
                     profile.equals(result.getItem(end,"session_profile_id").toString())){
                         end++;
                 }
@@ -48,11 +52,11 @@ public class ProfileList extends BaseProcessor {
                 start = end;
             }
         }
-            
+
         getRequest().setAttribute("profileList", list);
 
         setNextPage(Constants.PROFILE_LIST_PAGE);
         setNextPageInContext(true);
     }
-    
+
 }
