@@ -56,9 +56,9 @@
 
 package com.coolservlets.util;
 
-import com.topcoder.shared.distCache.CacheClientPool;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.SimpleCacheClientImpl;
+import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.io.*;
@@ -116,7 +116,7 @@ public class Cache {
     }
 
     private CacheClient getCache() {
-        if (isDistributed) return CacheClientPool.getPool().getClient();
+        if (isDistributed) return CacheClientFactory.createCacheClient();
         else return cache;
     }
 
