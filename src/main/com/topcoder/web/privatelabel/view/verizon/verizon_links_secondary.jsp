@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
-<%@ page import="com.topcoder.web.privatelabel.Constants" %>
+<%@ page import="com.topcoder.web.privatelabel.Constants,
+                 com.topcoder.shared.util.ApplicationServer" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <script>
@@ -34,7 +35,7 @@ function openWin(url, name, w, h) {
 
 <!-- Register tab -->
                             <tr><td><img src="/i/clear.gif" width="1" height="7" alt="" ></td></tr>
-                            <tr><td><a class="subnavLink" href="?&<%=Constants.MODULE_KEY+"="+Constants.VERIZON_REG_MAIN+"&"+Constants.COMPANY_ID+"=1747&"+Constants.EVENT_ID+"=1"%>" style="margin-left:1px;display:inline;">Register Now</a></td></tr>
+                            <tr><td><a class="subnavLink" href="https://<%=ApplicationServer.SERVER_NAME%>/pl/?&<%=Constants.MODULE_KEY+"="+Constants.VERIZON_REG_MAIN+"&"+Constants.COMPANY_ID+"=1747&"+Constants.EVENT_ID+"=1"%>" style="margin-left:1px;display:inline;">Register Now</a></td></tr>
                             <tr><td><img src="/i/clear.gif" width="1" height="7" alt="" ></td></tr>
                             <tr><td class="grey"><img src="/i/events/verizon2003/ccc.gif" width="10" height="1" alt="" ></td></tr>
                             <tr><td><img src="/i/clear.gif" width="1" height="7" alt="" ></td></tr>
