@@ -266,7 +266,7 @@ minutes of hard work thrown out, but most of them accept that accidents do happe
 </P>
 
 <P>
-When there's a $150,000 tournament, though, people tend to be less accepting.
+When there's a similiar problem at a $150,000 tournament, though, people tend to be less accepting.
 </P>
 
 <P>
@@ -339,11 +339,11 @@ the morning and afternoon drive-time slots for the past month...<A CLASS="bodyGe
 <AREA ALT="" SHAPE="POLY" COORDS="23,193,112,193,121,201,234,201,234,240,38,240,12,216,12,193" HREF="/stat?&amp;c=last_match"/>
 </MAP> -->
 
-					<IMG USEMAP="#microsoft_home" SRC="/i/es/ms/microsoft_home.gif" ALT="" WIDTH="244" HEIGHT="160" BORDER="0"/><BR/>
-					<MAP NAME="microsoft_home">
-						<AREA ALT="TCES" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=tces&amp;c=ms"/>
-						<!-- <AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4415&amp;t=schedule&amp;c=srm"/> --> 
-						<AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/stat?&amp;c=last_match"/>
+					<IMG USEMAP="#cryptic_home" SRC="/i/es/cryptic/cryptic_home.gif" ALT="" WIDTH="244" HEIGHT="160" BORDER="0"/><BR/>
+					<MAP NAME="cryptic_home">
+						<AREA ALT="TCES" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=tces&amp;c=cryptic"/>
+						<AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4420&amp;t=schedule&amp;c=srm"/>
+						<!-- <AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/stat?&amp;c=last_match"/> --> 
 					</MAP>
 <!--SRM Sponsor Ends-->
 
