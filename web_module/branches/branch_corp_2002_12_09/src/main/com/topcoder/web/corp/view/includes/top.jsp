@@ -19,7 +19,7 @@
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">            
    <TR>
       <TD WIDTH="15" BGCOLOR="#000000"><A NAME="top"></A><IMG SRC="/i/p/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
-      <TD WIDTH="206" BGCOLOR="#000000"><A HREF="/portal/index.jsp" TARGET="_parent"><IMG SRC="/i/p/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="13"/></A></TD>
+      <TD WIDTH="206" BGCOLOR="#000000"><A HREF="<%=appContext%>/?module=static&d1=index" TARGET="_parent"><IMG SRC="/i/p/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="13"/></A></TD>
       <TD WIDTH="20" BGCOLOR="#000000"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" HSPACE="15"/></TD>
       <TD CLASS="time" VALIGN="bottom" NOWRAP="" ALIGN="right">
                   <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">            
@@ -59,7 +59,7 @@
 
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
    <TR>
-      <TD BACKGROUND="/i/p/graybv_lite_bg.gif" BGCOLOR="#666666"><A HREF="/portal/reg/index.jsp"><IMG SRC="/i/p/menu_reg.gif" WIDTH="170" HEIGHT="21" BORDER="0"/></A></TD>
+      <TD BACKGROUND="/i/p/graybv_lite_bg.gif" BGCOLOR="#666666"><A HREF="<%=appContext%>/?module=prim-reg"><IMG SRC="/i/p/menu_reg.gif" WIDTH="170" HEIGHT="21" BORDER="0"/></A></TD>
       <TD BACKGROUND="/i/p/graybv_lite_bg.gif" BGCOLOR="#666666"><A HREF="#"><IMG SRC="/i/p/menu_screen.gif" WIDTH="247" HEIGHT="21" BORDER="0"/></A></TD> 
       <TD WIDTH="100%" BACKGROUND="/i/p/graybv_lite_bg.gif" BGCOLOR="#666666"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="21" BORDER="0"/></TD>  
    </TR>
