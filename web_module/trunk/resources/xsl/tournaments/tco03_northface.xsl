@@ -47,7 +47,7 @@
         <td class="promoText" width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="15">
 
-                  <tr><td align="center"><A href="http://www.northface.edu" target="_blank"><img src="/i/sponsor/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A><br/>
+                  <tr><td colspan="2" align="center"><A href="http://www.northface.edu" target="_blank"><img src="/i/sponsor/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A><br/>
                   </td></tr>
                             
                 <tr valign="top">
