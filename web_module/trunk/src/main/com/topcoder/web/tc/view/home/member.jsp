@@ -11,7 +11,7 @@
 <body>
 
 <jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value=""/>
+    <jsp:param name="level1" value="competition"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -50,8 +50,6 @@
          <td width="180">
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                <tr><td><img src="/i/clear.gif" width="180" height="10" border="0"></td></tr>
-               <tr><td><jsp:include page="srm_sponsor.jsp" /></td></tr>
-               
                <tr><td><jsp:include page="coder_of_month.jsp" /></td></tr>
                
                <tr><td><jsp:include page="member_surveys.jsp" /></td></tr>
@@ -61,6 +59,12 @@
                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
                
                <tr><td><jsp:include page="top_coders.jsp" /></td></tr>
+               <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
+               
+               <tr><td><jsp:include page="top_designers.jsp" /></td></tr>
+               <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
+               
+               <tr><td><jsp:include page="top_developers.jsp" /></td></tr>
                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
                
                <tr><td><jsp:include page="top_schools.jsp" /></td></tr>
