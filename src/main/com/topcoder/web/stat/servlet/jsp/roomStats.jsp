@@ -62,9 +62,22 @@ com.topcoder.web.stat.common.ResultSetContainer rsc = (com.topcoder.web.stat.com
 pageContext.setAttribute("resultSetDates", rsc);
 com.topcoder.web.stat.common.ResultSetContainer rscRoomList = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Rooms_For_Round");
 pageContext.setAttribute("resultSetRooms", rscRoomList);
-pageContext.setAttribute("rd", srb.getProperty("rd", ""));
-pageContext.setAttribute("rm", srb.getProperty("rm", ""));
 pageContext.setAttribute("cr", srb.getProperty("cr", ""));
+
+com.topcoder.web.stat.common.ResultSetContainer rsc2 = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Room_Summary_Data");
+pageContext.setAttribute("resultSet", rsc2);
+com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow resultRow_0 = rsc2.isValidRow(0)? rsc2.getRow(0):null;
+String currRound = "";
+String currRoom = "";
+if (resultRow_0 != null) {
+  if (resultRow_0.getItem("round_id") != null)
+    currRound = resultRow_0.getItem("round_id").toString();
+  if (resultRow_0.getItem("room_id") != null)
+    currRoom = resultRow_0.getItem("room_id").toString();
+}
+pageContext.setAttribute("rd", currRound);
+pageContext.setAttribute("rm", currRoom);
+
 %>           
                 <TR>
                   <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">
@@ -98,10 +111,7 @@ pageContext.setAttribute("cr", srb.getProperty("cr", ""));
                    <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
                  </TR>      
                </TABLE>
-<% com.topcoder.web.stat.common.ResultSetContainer rsc2 = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Room_Summary_Data");
-pageContext.setAttribute("resultSet", rsc2);
-com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow resultRow_0 = rsc2.isValidRow(0)? rsc2.getRow(0):null;
-
+<%
 if (resultRow_0 == null) {
 %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">  
