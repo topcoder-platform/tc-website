@@ -4,7 +4,8 @@
                  com.topcoder.web.tc.model.ContractingResponse,
                  com.topcoder.web.tc.model.ContractingResponseGroup,
                  java.util.Iterator,
-                 java.util.List" %>
+                 java.util.List,
+                 com.topcoder.web.common.StringUtils" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -99,6 +100,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                                 <td valign=top><%=((ContractingResponse)tech).getVal()%></td>
                             </tr>
                         </tc:listIterator>
+                        <td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("techNote"))%></td>
 
             			<tr><td>&#160;</td></tr>
 
@@ -112,6 +114,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                                 <td valign=top><%=((ContractingResponse)db).getVal()%></td>
                             </tr>
                         </tc:listIterator>
+                        <td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("dbNote"))%></td>
 		            </table>
 		        </td>
 		<td valign=top width="50%">
@@ -126,6 +129,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)lang).getVal()%></td>
             </tr>
             </tc:listIterator>
+            <td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("langNote"))%></td>
 
 			<tr><td>&#160;</td></tr>
 
@@ -139,6 +143,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)os).getVal()%></td>
             </tr>
             </tc:listIterator>
+            <td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("osNote"))%></td>
             <tr><td>&#160;</td></tr>
 
             <tr>
@@ -151,6 +156,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)industry).getVal()%></td>
             </tr>
             </tc:listIterator>
+            <td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("industryNote"))%></td>
 		</table>
 		</tr>
 		</table>
