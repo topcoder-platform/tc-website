@@ -1,13 +1,18 @@
 package com.topcoder.web.common.security;
 
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.login.LoginRemote;
-import com.topcoder.shared.security.LoginException;
-import com.topcoder.shared.security.Persistor;
-import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.shared.security.User;
+import java.util.*;
+import java.security.*;
+import java.sql.*;
+import javax.sql.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import com.topcoder.security.*;
+import com.topcoder.security.admin.*;
+import com.topcoder.security.login.*;
+import com.topcoder.shared.security.*;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.ServletRequest;
@@ -30,9 +35,11 @@ public class BasicAuthentication implements WebAuthentication {
     private HttpServletResponse response;
     private LoginRemote login;
     private PrincipalMgrRemote pmgr;
+    private User guest = SimpleUser.createGuest();
 
     /**
-     * Construct an authentication instance backed by the given persistor and HTTP request and response.
+     * Construct an authentication instance backed by the given persistor
+     * and HTTP request and response.
      */
     public BasicAuthentication(Persistor userPersistor, ServletRequest request, ServletResponse response) throws Exception {
         this.persistor = userPersistor;
@@ -40,27 +47,26 @@ public class BasicAuthentication implements WebAuthentication {
         this.response = (HttpServletResponse) response;
         this.login = (LoginRemote) Constants.createEJB(LoginRemote.class);
         this.pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+
+        if(null == getSessionUser(false)) {
+            User u = checkCookie();
+            if(u == null) u = guest;
+            setSessionUser(u, false);
+        }
     }
 
     /**
-     * use the security component to log the supplied user in.
-     * if (successfulLogin)
-     *   1.  add user_id cookie to response
-     *   2.  add user_id to Persistor as a value with key=request.getSession().getId()+"user_id"
-     * if (!successfulLogin) throw AuthenticationException (or equivalent)
+     * Use the security component to log the supplied user in.
+     * If login succeeds, set a cookie and record status in the persistor.
+     * If login fails, throw a LoginException.
      */
     public void login(User u) throws LoginException {
-
         log.info("attempting login as " + u.getUserName());
-
         try {
             TCSubject sub = login.login(u.getUserName(), u.getPassword());
-            Long uid = new Long(sub.getUserId());
-
-            Cookie c = new Cookie("user_id", uid.toString());
-            c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
-            response.addCookie(c);
-            persistor.setObject(request.getSession().getId() + "user_id", uid);
+            long uid = sub.getUserId();
+            setCookie(uid);
+            setSessionUser(makeUser(uid), true);  //@@@ we could just use the name we already have
             log.info("login succeeded");
 
         } catch (Exception e) {
@@ -76,51 +82,28 @@ public class BasicAuthentication implements WebAuthentication {
      * 3.  clear any information in the session associated with them
      */
     public void logout() {
-
         log.info("logging out");
-
-        persistor.removeObject(request.getSession().getId() + "user_id");
-        Cookie c = new Cookie("user_id", "");
-        c.setMaxAge(0);
-        response.addCookie(c);
+        clearCookie();
+        setSessionUser(guest, false);
     }
 
     /**
-     * Figure out who the current user is using either a cookie if it's available, or the persistor.
-     * if there is no user, create a SimpleUser object with anonymous user information.  if there
-     * is a user create a SimpleUser object to be returned.  for now, just populate the id
-     * attribute and leave handle and password empty.
+     * Get the user for this session.  May return information based on a
+     * cookie from a prior session.  If no login has occurred and no cookie
+     * is present, returns an anonymous user.
      */
     public User getActiveUser() {
-
-        /* check each cookie in the request header */
-        Cookie[] ca = request.getCookies();
-        for (int i = 0; i < ca.length; i++)
-            if (ca[i].getName().equals("user_id")) {
-                try {
-                    return makeUser(Long.parseLong(ca[i].getValue()));
-                } catch (NumberFormatException e) {
-                    log.warn("got non-numeric user_id cookie: \"" + ca[i].getValue() + "\"");
-                }
-            }
-
-        /* forward to the method below */
-        return getUser();
+        return getSessionUser(false);
     }
 
     /**
-     * This version should only check the persistor.  if the user is not in the persistor, then
-     * return an anonymous user object.
+     * Get the user for this session, only if they have logged in during
+     * this session.  Otherwise returns an anonymous user.
      */
     public User getUser() {
-
-        /* check the persistor */
-        Long uid = (Long) persistor.getObject(request.getSession().getId() + "user_id");
-        if (uid != null)
-            return makeUser(uid.longValue());
-
-        /* found nothing, return anonymous */
-        return SimpleUser.createGuest();
+        User u = getSessionUser(true);
+        if(u == null) u = guest;
+        return u;
     }
 
     /** Fill in the name field from the user id. */
@@ -131,7 +114,115 @@ public class BasicAuthentication implements WebAuthentication {
         } catch (Exception e) {
             log.warn("caught exception in makeUser with id = " + id, e);
             e.printStackTrace();
-            return SimpleUser.createGuest();
+            return guest;
         }
+    }
+
+    /**
+     * Compute a one-way hash of a userid and the corresponding crypted
+     * password, plus a magic string thrown in for good measure.  Salting
+     * this might be nice, but it doesn't seem to buy us anything as long
+     * as the magic string remains a secret.
+     *
+     * The intent here is that
+     *   1) login cookies cannot be guessed
+     *   2) changing your password should invalidate any login cookies which may exist
+     *   3) login cookies cannot be used to gain any information about the password
+     *
+     * I would just tack on the crypted password itself, but they are
+     * reversibly encrypted with a secret key using Blowfish, and I don't
+     * know how well Blowfish holds up to a chosen-plaintext attack.
+     *
+     * Calling this function is quite expensive; it runs a query on OLTP,
+     * which cannot be cached and still get immediate behavior 2 above.
+     */
+    private String hashForUser(long uid) throws Exception {
+        DataAccessInt dai = new DataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        Request dataRequest = new Request();
+        dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");
+        dataRequest.setProperty("ui", Long.toString(uid));
+        Map dataMap = dai.getData(dataRequest);
+        ResultSetContainer rsc = (ResultSetContainer)dataMap.get("userid_to_password");
+        String password = rsc.getItem(0,0).toString();
+
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        byte[] plain = (Constants.hash_secret+uid+password).getBytes();
+        byte[] raw = md.digest(plain);
+        StringBuffer hex = new StringBuffer();
+        for(int i=0; i<raw.length; i++)
+            hex.append(Integer.toHexString(raw[i]&0xff));
+        return hex.toString();
+    }
+
+    /**
+     * Put a cookie in the response which will allow the user to be recognized
+     * on their next visit.  The cookie includes the password hash generated by
+     * {@link #hashForUser(long)}.
+     *
+     * public so com.topcoder.web.hs.controller.requests.Base can reach it, a bit of a kludge
+     */
+    public void setCookie(long uid) throws Exception {
+        String hash = hashForUser(uid);
+        Cookie c = new Cookie("user_id", ""+uid+"|"+hash);
+        // could set path here, but we have been assuming only one path is ever used
+        c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
+        response.addCookie(c);
+    }
+
+    /** Remove any cookie previously set on the client by the method above. */
+    private void clearCookie() {
+        Cookie c = new Cookie("user_id", "");
+        c.setMaxAge(0);
+        response.addCookie(c);
+    }
+
+    /** Check each cookie in the request header for a cookie set above. */
+    private User checkCookie() {
+        log.debug("checkCookie() called");
+        Cookie[] ca = request.getCookies();
+        for(int i=0; i<ca.length; i++)
+            if(ca[i].getName().equals("user_id")) {
+
+                try {
+                    StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");
+                    long uid = Long.parseLong(st.nextToken());
+                    String hash = hashForUser(uid);
+                    if(!st.hasMoreTokens()) {  //@@@ special case to convert old cookies
+                        log.info("replacing cookie in old format");
+                        Cookie c = new Cookie("user_id", ""+uid+"|"+hash);
+                        c.setMaxAge(Integer.MAX_VALUE);
+                        response.addCookie(c);
+                    } else {
+                        if(!hash.equals(st.nextToken())) continue;
+                    }
+                    return makeUser(uid);
+
+                } catch(Exception e) {
+                    log.info("exception parsing cookie", e);
+                    /* junk in the cookie, ignore it */
+                }
+            }
+
+        return null;
+    }
+
+    private User getSessionUser(boolean freshOnly) {
+        if(freshOnly && null==persistor.getObject(request.getSession().getId()+"logged_in"))
+            return null;
+        return (User)persistor.getObject(request.getSession().getId()+"user_obj");
+    }
+
+    /**
+     * Record information about who is logged in and at what level in the
+     * persistor.  Done to avoid expensive rechecking of the cookie, and to
+     * handle logins which expire with the session.
+     *
+     * @param uid  numeric user_id
+     * @param fresh  true if they have logged in during this session
+     */
+    private void setSessionUser(User user, boolean fresh) {
+//@@@ does User need to implement Serializable for this to work across a cluster?
+        persistor.setObject(request.getSession().getId()+"user_obj", user);
+        persistor.setObject(request.getSession().getId()+"logged_in", fresh ? "yes" : null);
     }
 }

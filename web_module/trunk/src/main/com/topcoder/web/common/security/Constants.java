@@ -17,6 +17,9 @@ class Constants {
 
     private static Logger log = Logger.getLogger(Constants.class);
 
+    /** Just some random junk no one else knows.  Should really come from a config file. */
+    static final String hash_secret = "746c80dbdc541fe829898aa01d9e30118bab5d6b9fe94fd052a40069385f5628";
+
     /**
      * Get a remote instance of the specified EJB.
      * Assumes the home class will have the same name plus "Home".
