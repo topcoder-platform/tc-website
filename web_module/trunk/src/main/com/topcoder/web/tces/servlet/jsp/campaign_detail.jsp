@@ -48,16 +48,16 @@
             </jsp:include>
             
             <p align="center"><tces:trailIterator id="trailItem" trailList="<%=CampaignDetailTask.getTrail()%>">
-                <a href="<jsp:getProperty name="trailitem" property="href"/>" class="statText"><jsp:getProperty name="trailItem" property="name"/></a> &gt;
-                </tces:trailiterator></p>
+                <a href="<jsp:getProperty name="trailItem" property="href"/>" class="statText"><jsp:getProperty name="trailItem" property="name"/></a> &gt;
+                </tces:trailIterator></p>
 
-            <p align="center"><strong><jsp:getproperty name="CampaignDetailTask" property="CompanyName"/></strong><br/>
-            <jsp:getproperty name="CampaignDetailTask" property="CampaignName"/></p>
+            <p align="center"><strong><jsp:getProperty name="CampaignDetailTask" property="CompanyName"/></strong><br/>
+            <jsp:getProperty name="CampaignDetailTask" property="CampaignName"/></p>
         
-            <p align="center"><strong>Total Hits:</strong> <jsp:getproperty name="CampaignDetailTask" property="TotalHits"/><br/>
-            <strong>Most Recent Hit:</strong> <jsp:getproperty name="CampaignDetailTask" property="MostRecentHit"/></p>
+            <p align="center"><strong>Total Hits:</strong> <jsp:getProperty name="CampaignDetailTask" property="TotalHits"/><br/>
+            <strong>Most Recent Hit:</strong><jsp:getProperty name="CampaignDetailTask" property="MostRecentHit"/></p>
         
-            <p align="center"><a href="<jsp:getProperty name="campaignDetailTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getproperty name="CampaignDetailTask" property="CampaignID"/>" class="statText">View Overall Campaign Interest</a></p>
+            <p align="center"><a href="<jsp:getProperty name="CampaignDetailTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getproperty name="CampaignDetailTask" property="CampaignID"/>" class="statText">View Overall Campaign Interest</a></p>
         
             <img src="/i/clear.gif" alt="" width="1" height="6" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
