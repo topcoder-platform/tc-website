@@ -12,7 +12,7 @@
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <img src="/images/praxair_promo.gif" width="170" height="147" alt="Praxair" border="0"><br>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
-                <img src="/images/rodale_promo.gif" width="170" height="160" alt="Rodale" border="0"><br>
+                <img src="/images/abb_promo.gif" width="170" height="160" alt="ABB" border="0"><br>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <p class="seeAll"><A href="/customers/index.jsp">See all customers</A></p>
 <!-- Home Page ends -->
