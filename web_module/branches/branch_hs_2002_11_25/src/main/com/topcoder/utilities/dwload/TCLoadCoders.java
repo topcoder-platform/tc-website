@@ -79,8 +79,6 @@ public class TCLoadCoders extends TCLoad {
 
             loadSchool();
          
-            loadCurrentSchool();
-
             setLastUpdateTime();
 
             log.info("SUCCESS: Coders load ran successfully.");
@@ -319,10 +317,14 @@ public class TCLoadCoders extends TCLoad {
             query.append("          WHERE c.state_code = rs.state_code ");
             query.append("          AND rs.user_type_id = 3) ");
             query.append("       ,c.image ");                    // 31
+            query.append("       ,s.school_id ");                // 32
             query.append("  FROM coder c ");
             query.append("       ,user u ");
+            query.append("       ,user_school_xref s ");
             query.append(" WHERE c.coder_id = u.user_id ");
             query.append("   AND c.modify_date > ?");
+            query.append("   AND u.user_id=s.user_id");
+            query.append("   AND s.current_ind=1");
             query.append("   AND EXISTS (SELECT 'pops' FROM group_user gu WHERE gu.user_id = u.user_id AND gu.group_id = 10)");
             query.append("   AND NOT EXISTS ");
             query.append("       (SELECT 'pops' ");
@@ -369,12 +371,13 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,terms ");                     // 28
             query.append("       ,last_login ");                // 29
             query.append("       ,coder_region_code ");         // 30
-            query.append("       ,image) ");                    // 31
+            query.append("       ,image ");                     // 31
+            query.append("       ,school_id) ");                // 32
             query.append("VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 20
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 30
-            query.append("?)");                    // 31 total values
+            query.append("?,?)");                  // 32 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             // Our update statement
@@ -410,7 +413,8 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,last_login = ? ");                // 28
             query.append("       ,coder_region_code = ? ");         // 29
             query.append("       ,image = ? ");                     // 30
-            query.append("WHERE coder_id = ?");                     // 31
+            query.append("       ,school_id = ? ");                 // 31
+            query.append("WHERE coder_id = ?");                     // 32
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             // Our select statement to determine if a particular row is
@@ -466,7 +470,8 @@ public class TCLoadCoders extends TCLoad {
                     psUpd.setTimestamp(28, rs.getTimestamp(29));  // last_login
                     psUpd.setString(29, rs.getString(30));  // coder_region_code
                     psUpd.setInt(30, rs.getInt(31));  // image
-                    psUpd.setInt(31, coder_id);  // coder_id
+                    psUpd.setInt(31, rs.getInt(32));  // school_id
+                    psUpd.setInt(32, coder_id);  // coder_id
 
                     // Now, execute the insert of the new row
                     retVal = psUpd.executeUpdate();
@@ -509,6 +514,7 @@ public class TCLoadCoders extends TCLoad {
                     psIns.setTimestamp(29, rs.getTimestamp(29));  // last_login
                     psIns.setString(30, rs.getString(30));  // coder_region_code
                     psIns.setInt(31, rs.getInt(31));  // image
+                    psIns.setInt(32, rs.getInt(32));  // school_id
 
                     // Now, execute the insert of the new row
                     retVal = psIns.executeUpdate();
@@ -1269,34 +1275,45 @@ public class TCLoadCoders extends TCLoad {
 
         try {
             query = new StringBuffer(100);
-            query.append("SELECT s.school_id ");
-            query.append(      " ,s.sort_letter ");    
-            query.append(      " ,s.city ");
-            query.append(      " ,s.state_code ");
-            query.append(      " ,s.country_code ");
-            query.append(      " ,s.name ");
-            query.append(      " ,s.short_name ");
-            query.append( " FROM school s ");
-            query.append(" WHERE s.modify_date > ?");
-            query.append(  " AND s.user_id = 0");
+            query.append("SELECT s.school_id, ");
+            query.append("s.sort_letter, ");
+            query.append("s.city, ");
+            query.append("s.state_code, ");
+            query.append("s.country_code, ");
+            query.append("s.name, ");
+            query.append("s.short_name, ");
+            query.append("d.school_division_desc  ");
+            query.append("FROM school s, ");
+            query.append("school_division_lu d ");
+            query.append("WHERE s.modify_date > ? ");
+            query.append("AND s.user_id = 0 ");
+            query.append("AND s.school_division_code=d.school_division_code");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setTimestamp(1, fLastLogTime);
 
             query = new StringBuffer(100);
             query.append("INSERT INTO school ");
-            query.append(" (school_id ");       
-            query.append(" ,sort_letter ");      
-            query.append(" ,city ");
-            query.append(" ,state_code ");
-            query.append(" ,country_code ");
-            query.append(" ,name ");
-            query.append(" ,short_name) ");
-            query.append("VALUES (");
-            query.append("?,?,?,?,?,?,?)"); 
+            query.append("(school_id, ");       
+            query.append("sort_letter, ");      
+            query.append("city, ");
+            query.append("state_code, ");
+            query.append("country_code, ");
+            query.append("name, ");
+            query.append("short_name, ");
+            query.append("school_division_desc) ");
+            query.append("VALUES (?,?,?,?,?,?,?,?)"); 
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append(" UPDATE school SET sort_letter = ?, city = ?, state_code = ?, country_code = ?, name = ?, short_name = ? WHERE school_id = ?");
+            query.append("UPDATE school ");
+            query.append("SET sort_letter = ?, ");
+            query.append("city = ?, ");
+            query.append("state_code = ?, ");
+            query.append("country_code = ?, ");
+            query.append("name = ?, ");
+            query.append("short_name = ?, ");
+            query.append("school_division_desc = ? ");
+            query.append("WHERE school_id = ?");
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             rs = executeQuery(psSel, "loadSchool");
@@ -1313,6 +1330,7 @@ public class TCLoadCoders extends TCLoad {
                     psIns.setString(5, rs.getString("country_code"));
                     psIns.setString(6, rs.getString("name"));
                     psIns.setString(7, rs.getString("short_name"));
+                    psIns.setString(8, rs.getString("school_division_desc"));
                     retVal = psIns.executeUpdate();
                 } catch (Exception e) {
                     // the insert failed, so try an update
@@ -1322,7 +1340,8 @@ public class TCLoadCoders extends TCLoad {
                     psUpd.setString(4, rs.getString("country_code"));
                     psUpd.setString(5, rs.getString("name"));
                     psUpd.setString(6, rs.getString("short_name"));
-                    psUpd.setInt(7, school_id);
+                    psUpd.setString(7, rs.getString("school_division_desc"));
+                    psUpd.setInt(8, school_id);
                     retVal = psUpd.executeUpdate();
                 }
 
@@ -1340,85 +1359,6 @@ public class TCLoadCoders extends TCLoad {
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("Load of 'school' table failed.\n" +
-                    sqle.getMessage());
-        } finally {
-            close(rs);
-            close(psSel);
-            close(psIns);
-            close(psUpd);
-        }
-    }
-
-
-
-    private void loadCurrentSchool() throws Exception {
-        int count = 0;
-        int retVal = 0;
-        PreparedStatement psSel = null;
-        PreparedStatement psIns = null;
-        PreparedStatement psUpd = null;
-        ResultSet rs = null;
-        StringBuffer query = null;
-
-        try {
-            query = new StringBuffer(100);
-            query.append("SELECT cs.coder_id ");
-            query.append(      " ,cs.school_name ");    
-            query.append(      " ,cs.school_id ");
-            query.append(      " ,cs.degree_number ");
-            query.append( " FROM current_school cs ");
-            query.append(" WHERE cs.modify_date > ?");
-            psSel = prepareStatement(query.toString(), SOURCE_DB);
-            psSel.setTimestamp(1, fLastLogTime);
-
-            query = new StringBuffer(100);
-            query.append("INSERT INTO current_school ");
-            query.append(" (coder_id ");
-            query.append(" ,school_name ");       
-            query.append(" ,school_id ");      
-            query.append(" ,degree_number) ");
-            query.append("VALUES (");
-            query.append("?,?,?,?)"); 
-            psIns = prepareStatement(query.toString(), TARGET_DB);
-
-            query = new StringBuffer(100);
-            query.append(" UPDATE current_school SET school_name = ?, school_id = ?, degree_number = ? WHERE coder_id = ?");
-            psUpd = prepareStatement(query.toString(), TARGET_DB);
-
-            rs = executeQuery(psSel, "loadCurrentSchool");
-
-            while (rs.next()) {
-                int coder_id = rs.getInt("coder_id");
-
-                try {
-                    psIns.setInt(1, coder_id);
-                    psIns.setString(2, rs.getString("school_name"));
-                    psIns.setString(3, rs.getString("school_id"));
-                    psIns.setString(4, rs.getString("degree_number"));
-                    retVal = psIns.executeUpdate();
-                } catch (Exception e) {
-                    // the insert failed, so try an update
-                    psUpd.setString(1, rs.getString("school_name"));
-                    psUpd.setString(2, rs.getString("school_id"));
-                    psUpd.setString(3, rs.getString("degree_number"));
-                    psUpd.setInt(4, coder_id);
-                    retVal = psUpd.executeUpdate();
-                }
-
-
-                count = count + retVal;
-                if (retVal != 1) {
-                    throw new SQLException("TCLoadCoder: Load current school for coder " + coder_id +
-                            " modified " + retVal + " rows, not one.");
-                }
-
-                printLoadProgress(count, "current_school");
-            }
-
-            log.info("current_school records copied = " + count);
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'current_school' table failed.\n" +
                     sqle.getMessage());
         } finally {
             close(rs);

@@ -1568,7 +1568,10 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,rr.division_seed ");                       // 30
             query.append("       ,pt.payment_type_id");                      // 31
             query.append("       ,pt.payment_type_desc");                    // 32
+            query.append("       ,s.school_id");                             // 33
             query.append("  FROM room_result rr ");
+            query.append("  JOIN user_school_xref s ON rr.coder_id=s.user_id ");
+            query.append("   AND s.current_ind=1 ");
             query.append("  JOIN room r ON rr.round_id = r.round_id ");
             query.append("   AND rr.room_id = r.room_id ");
             query.append("  LEFT OUTER JOIN round_payment rp ON rr.round_id = rp.round_id");
@@ -1618,10 +1621,11 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,division_placed ");                 // 29
             query.append("       ,division_seed ");                   // 30
             query.append("       ,payment_type_id ");                 // 31
-            query.append("       ,payment_type_desc) ");              // 32
+            query.append("       ,payment_type_desc ");               // 32
+            query.append("       ,school_id) ");                      // 33
             query.append("VALUES (?,?,?,?,?,?,?,?,?,?,");  // 10 values
             query.append("        ?,?,?,?,?,?,?,?,?,?,");  // 20 values
-            query.append("        ?,?,?,?,?,?,?,?,?,?,?,?)");  // 32 total values
+            query.append("        ?,?,?,?,?,?,?,?,?,?,?,?,?)");  // 33 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -1684,6 +1688,7 @@ public class TCLoadRound extends TCLoad {
                     psIns.setInt(31, rs.getInt("payment_type_id"));
                     psIns.setString(32, rs.getString("payment_type_desc"));
                 }
+                psIns.setInt(33, rs.getInt("school_id"));
 
                 retVal = psIns.executeUpdate();
                 count += retVal;
