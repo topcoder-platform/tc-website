@@ -29,11 +29,17 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
 
     private int uid;
 
+    private String sortBy;
+    private String sortOrder;
+
     public CampaignInterestTask() {
         super();
         setNextPage(TCESConstants.CAMPAIGN_INTEREST_PAGE);
 
         uid=-1;
+
+        sortBy="";
+        sortOrder="";
     }
 
     public void setCampaignName( String campaignName ) {
@@ -135,23 +141,63 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
             hit.put("coder_id", ((Long)hitListRow.getItem("coder_id").getResultData()).toString() );
             hit.put("job_id", ((Long)hitListRow.getItem("job_id").getResultData()).toString() );
             hit.put("handle", hitListRow.getItem("handle").toString() );
+            hit.put("ha",
+                    hitListRow.getItem("handle").toString().trim().toLowerCase() );
+
             if (((Integer)hitListRow.getItem("rating").getResultData()).intValue() > 0) {
                 hit.put("rating",
                         ((Integer)hitListRow.getItem("rating").getResultData()).toString() );
+log.debug("rating_int inserted: "+hitListRow.getItem("rating").getResultData());
+                hit.put("ra",((Integer)hitListRow.getItem("rating").getResultData()));
             }
             else {
                 // member is unrated.
                 hit.put("rating", "Not rated");
+                hit.put("ra",new Integer(0));
             }
-            hit.put("state", hitListRow.getItem("state_code").toString() );
-            hit.put("country", hitListRow.getItem("country_code").toString() );
-            hit.put("type", hitListRow.getItem("coder_type_desc").toString() );
-            hit.put("school", hitListRow.getItem("school_name").toString() );
+
+            hit.put("state",
+                    hitListRow.getItem("state_code").toString().trim() );
+
             hit.put("position", hitListRow.getItem("job_desc").toString() );
-            hit.put("hit_date", getDate(hitListRow, "timestamp") );
+
+            if ( ((String)hit.get("state")).trim().length()>0)
+                hit.put("st",((String)hit.get("state")).trim().toUpperCase());
+            else
+                hit.put("st","ZZZ");
+
+            hit.put("country",
+                    hitListRow.getItem("country_code").toString().trim() );
+            hit.put("type",
+                    hitListRow.getItem("coder_type_desc").toString().trim() );
+            hit.put("school",
+                    hitListRow.getItem("school_name").toString().trim() );
+
+            if (((String)hit.get("school")).trim().length() > 0 &&
+                ((String)hit.get("school")).indexOf("N/A") < 0) {
+                hit.put("sc",
+                        hitListRow.getItem("school_name").toString().trim().toLowerCase() );
+            }
+            else
+                hit.put("sc", "zzz"); // to ensure last in sortlist.
+
+            hit.put("hit_date",
+                    getDate(hitListRow, "timestamp"));
+            hit.put("hd",
+                    hitListRow.getItem("timestamp").toString() );
 
             hitList.add(hit);
         }
+
+        if (sortBy!=null&&sortBy.length()>0) {
+            if (sortOrder.length()>0) {
+                hitList=JSPUtils.sortMapList(hitList,sortBy,sortOrder.equals(TCESConstants.SORT_ORDER_ASC)?true:false);
+            }
+            else {
+                hitList=JSPUtils.sortMapList(hitList,sortBy,true);
+            }
+        }
+
         setHitList( hitList );
 
         setNextPage( TCESConstants.CAMPAIGN_INTEREST_PAGE );
@@ -161,6 +207,10 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
         String value = paramValues[0];
         value = (value == null?"":value.trim());
 
+        if (paramName.equalsIgnoreCase(TCESConstants.SORT_PARAM))
+            sortBy = value;
+        if (paramName.equalsIgnoreCase(TCESConstants.SORT_ORDER_PARAM))
+            sortOrder = value;
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));
     }
