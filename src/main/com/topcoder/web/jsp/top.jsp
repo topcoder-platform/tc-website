@@ -73,7 +73,7 @@
                 <% if (rating > 1199) { %>
                     <td width="99%" align="left"><img src="/i/top_div1_badge.jpg" width="370" height="75" border="0"/></td>
                 <% } else if (rating < 1) { %>
-                    <td width="99%" align="left"><img src="/i/top_unrated_badge.jpg" width="370" height="75" border="0"/></td>
+                    <td width="99%" align="left"><img src="/i/top_nonrated_badge.jpg" width="370" height="75" border="0"/></td>
                 <% } else { %>
                     <td width="99%" align="left"><img src="/i/top_div2_badge.jpg" width="390" height="75" border="0"/></td>
                 <% } %>
