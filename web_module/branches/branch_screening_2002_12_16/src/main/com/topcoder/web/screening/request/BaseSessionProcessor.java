@@ -79,7 +79,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
 
         boolean success = (beginSuccess && endSuccess);
 
-        if(info.getBeginDate().compareTo(info.getEndDate()) > 0) {
+        if(info.getBeginDate().compareTo(info.getEndDate()) >= 0) {
             errorMap.put("dateCompare", 
                     "Begin Time must be earlier than End Time");
             success = false;

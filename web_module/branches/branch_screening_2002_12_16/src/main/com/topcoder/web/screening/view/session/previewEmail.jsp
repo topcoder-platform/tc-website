@@ -39,27 +39,34 @@
 </P><BR>
 <FORM>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
-           <TR>
+           <TR><%
+if(emailInfo.getSessionInfo() != null) {%>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><%
-if(emailInfo.getSessionInfo() != null) {
-%>The following will be sent to <%
-    if(emailInfo.getSessionInfo().useCandidateEmail() && emailInfo.getSessionInfo().useRepEmail()) { 
-    %> <jsp:getProperty name="emailInfo" property="candidateAddress" /> and <jsp:getProperty name="emailInfo" property="repAddress" /><%
+    if(emailInfo.getSessionInfo().useCandidateEmail() && emailInfo.getSessionInfo().useRepEmail()) {
+    %>The follow will be sent to <jsp:getProperty name="emailInfo" property="candidateAddress" /> and <jsp:getProperty name="emailInfo" property="repAddress" /><%
     } 
     else if(emailInfo.getSessionInfo().useCandidateEmail()) {
-    %> <jsp:getProperty name="emailInfo" property="candidateAddress" /><%
+    %>The follow will be sent to <jsp:getProperty name="emailInfo" property="candidateAddress" /><%
     }
     else if(emailInfo.getSessionInfo().useRepEmail()) { 
-    %> <jsp:getProperty name="emailInfo" property="repAddress" /><%
-    }
-}%>
+    %>The follow will be sent to <jsp:getProperty name="emailInfo" property="repAddress" /><%
+    }%>
               </TD>
            </TR>
-           <TR>
+           <TR><%
+    if(emailInfo.getSessionInfo().useCandidateEmail() || emailInfo.getSessionInfo().useRepEmail()) {%>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><PRE>
 <strong>Subject:</strong> <jsp:getProperty name="emailInfo" property="subject" />
 <jsp:getProperty name="emailInfo" property="msgText" />
 </PRE></TD>
+    <%}
+    else {%>
+              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">No email to be sent</TD>
+    <%}
+}
+else {%>
+          <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">No email to be sent</TD>
+<%}%>
            </TR>
          </TABLE>             
 </FORM>         

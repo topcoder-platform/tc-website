@@ -8,7 +8,6 @@ import com.topcoder.web.screening.model.SessionInfo;
 
 public class PreviewEmail extends BaseSessionProcessor {
     public void process() throws Exception {
-        requireLogin();
         ServletRequest request = getRequest();
         EmailInfo info = null;
         try {
@@ -20,12 +19,13 @@ public class PreviewEmail extends BaseSessionProcessor {
                     request.getParameter(Constants.CANDIDATE_EMAIL));
             sInfo.setRepEmail(request.getParameter(Constants.REP_EMAIL));
             info = 
-                EmailInfo.createEmailInfo(sInfo, getAuthentication().getUser());
+                EmailInfo.createEmailInfo(sInfo, getAuthentication().getActiveUser());
         }
         catch(Exception e) {
             updateSessionInfo();
             info = new EmailInfo();
             info.setSessionInfo(getSessionInfo());
+            info.setUser(getAuthentication().getActiveUser());
         }
 
         request.setAttribute(Constants.EMAIL_INFO, info);

@@ -27,7 +27,7 @@ public class SessionInfo extends BaseModel {
     private String repEmail;
 
     public SessionInfo() {
-        candidateEmail="NO";
+        candidateEmail="YES";
         repEmail="NO";
 
         Calendar c = Calendar.getInstance();
