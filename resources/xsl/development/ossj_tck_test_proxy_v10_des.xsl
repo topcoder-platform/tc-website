@@ -278,13 +278,14 @@
                                             </strong>
                                         </p>
 
+                                        <!--
                                         <p>
                                             <strong>
                                                 <a name="inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=OSS/J%20TCK%20Test%20Proxy">Inquire for the OSS/J TCK Test Proxy Project</a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
 
-                                        <!--
+
                                         <p>
                                             <strong>
                                                 <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group2">Inquire for the Group 2 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
