@@ -32,8 +32,14 @@ abstract public class Base extends BaseProcessor {
     protected String getDb() throws Exception {
 
         long companyId;
-        if (file.getParameter(Constants.COMPANY_ID)!=null) {
-            companyId = Long.parseLong(file.getParameter(Constants.COMPANY_ID));
+        String cid = null;
+        if (file == null) {
+            cid = getRequest().getParameter(Constants.COMPANY_ID);
+        } else {
+            cid = file.getParameter(Constants.COMPANY_ID);
+        }
+        if (cid!=null) {
+            companyId = Long.parseLong(cid);
         } else {
             throw new Exception("Company id missing from request");
         }
