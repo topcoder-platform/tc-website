@@ -33,13 +33,13 @@
                 <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_tourny.gif" width="348" height="44" border="0"></td></tr>
                 
                 <tr>
-                    <td height="100%" class="statText">
+                    <td height="100%" class="statTextBig">
                         <h2>2003 High School Challenge</h2>
 
                         <p>Date: May 20, 2003<br>
                         Time: 3:00pm<br>
                         Location: Homer Babbage Library at the University of Connecticut<br>
-<!--                        <a href="?module=Static&d1=tournaments&d2=tchsc03_champ">Summary<br> -->
+                        <a href="?module=Static&d1=tournaments&d2=tchs03_schools" class="statTextBig"><strong>Summary</strong><br>
                         </p>
                     </td>
                 </tr>
