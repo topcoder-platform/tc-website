@@ -57,35 +57,28 @@
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
             <div align="center">
             
-<object
-classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-width="800"
-height="450"
-id="appSuite"
-align="top"
-<param name="allowScriptAccess" value="sameDomain" />
-<param name="movie" value="http://172.16.20.20/i/development/appSuiteDetails.swf"/>
-<param name="menu" value="false" />
-<param name="align" value="t" />
-<param name="salign" value="t" />
-<param name="menu" value="false" />
-<param name="bgcolor" value="#ffffff" />
-<embed
-src="http://172.16.20.20/i/development/appSuiteDetails.swf"
-menu="false"
-quality="high"
-bgcolor="#ffffff"
-width="800"
-height="450"
-name="appSuite"
-align="top"
-allowScriptAccess="sameDomain"
-type="application/x-shockwave-flash"
-pluginspage="http://www.macromedia.com/go/getflashplayer" />
-</object>
-
-            <p><font size="3"><strong><a href="http://www.topcoder.com/?t=contacts&c=index">Contact us</a> today so we can get started developing your next application.</strong></font></p>
+<h3><font color="#999999" face="Arial, Helvetica, sans-serif">You don't have the latest version of Macromedia Flash Player.</font></h3>
+<font face="Arial, Helvetica, sans-serif">
+<table width="60%">
+  <tr>
+    <td colspan="2">
+      <p />
+      This web site makes use of <a href="http://www.macromedia.com/software/flash/" target="_new">Macromedia<sup><font size="-1">&reg;</font></sup>Flash<sup><font size="-2">TM</font></sup></a> software. You have an old version of Macromedia Flash Player that cannot play the content we've created.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="http://www.macromedia.com/go/getflashplayer"><img src="alternate.gif" border="0" width="88" height="31" /></a>
+    </td>
+    <td>
+      <p />
+      Why not download and install the latest version now? It will only take a moment.
+    </td>
+  </tr>
+</table>
+</font>
+<p />
+<font face="Verdana, Arial, Helvetica, sans-serif" SIZE="-2">Macromedia and Flash are trademarks of Macromedia, Inc.</font>
 
             <p><br></p>
 
