@@ -46,6 +46,53 @@
     </servlet>
 
     <servlet>
+        <servlet-name>card</servlet-name>
+        <display-name>card</display-name>
+        <description>The player card controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.CardServlet</servlet-class>
+
+        <!-- begin parameters required by BaseServlet -->
+        <init-param>
+            <param-name>module_key</param-name>
+            <param-value>module</param-value>
+            <description>the url parameter that defines which processor to execute</description>
+        </init-param>
+        <init-param>
+            <param-name>default_processor</param-name>
+            <param-value>Profile</param-value>
+            <description>the processor to execute if non is specified in the request</description>
+        </init-param>
+        <!--
+        <init-param>
+            <param-name>login_processor</param-name>
+            <param-value>Login</param-value>
+            <description>the processor to execute when we need to direct the user to login</description>
+        </init-param>
+        -->
+<!--
+        <init-param>
+            <param-name>login_servlet</param-name>
+            <param-value>/tc</param-value>
+            <description>the servlet path to use when we need to direct the user to login</description>
+        </init-param>
+-->
+        <init-param>
+            <param-name>processor_path</param-name>
+            <param-value>com.topcoder.web.tc.controller.request.card.</param-value>
+            <description>the path to the processors for this app</description>
+        </init-param>
+        <init-param>
+            <param-name>error_page</param-name>
+            <param-value>/errorPage.jsp</param-value>
+            <description>where to forward for errors</description>
+        </init-param>
+        <!-- end  parameters required by BaseServlet -->
+
+    </servlet>
+
+
+
+    <servlet>
         <servlet-name>legacyMain</servlet-name>
         <display-name>legacyMain</display-name>
         <description>The main controller servlet</description>
@@ -169,6 +216,11 @@
     <servlet-mapping>
         <servlet-name>tc</servlet-name>
         <url-pattern>/tc</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>card</servlet-name>
+        <url-pattern>/card</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
