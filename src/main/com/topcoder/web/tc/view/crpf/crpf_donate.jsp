@@ -72,9 +72,9 @@
                      <td>
                         <ul><li>Credit card:</li>                        
                         <ol>
-                        <li>Go to <A href="https://www.virtualsprockets.com/Transactions/secure1.cfm?clientID=72&return=http://www.christopherreeve.org/&ContributeType=c&ContributeURL=https://www.virtualsprockets.com/Transactions/secure1.cfm&case=DEFAULT&category=2&origin=TopCoderWebsite2003&mx=0&H=0&source=C&email=$X$&O18=0&CTZ=0&mid=0&FN=2&FormType=C&ExecNum=x5s6&FA=0&ACT=0" target="_blank">www.christopherreeve.org/topcoder</A></li>
+                        <li>Go to <A href="http://www.crpf.org/contribute/contribute.cfm?orgid=TopCoderWebsite2003" target="_blank">www.christopherreeve.org/topcoder</A>.  <b>Note:  Donations will be accepted until 11:59 PM Eastern Time on November 10th</b>.</li>
                         <li>Remember to enter the TopCoder member's name and/or handle so the donation can be matched to the correct competitor</li>
-                        <li>If you have any questions about this please contact <A href="mailto:service@topcoder.com" class="bodyText">TopCoder Service</A></li>
+                        <li>If you have any questions about this please contact <A href="mailto:service@topcoder.com" class="bodyText">TopCoder Service</A></li>                        
                         </ol>
                         </ul>                    
                      </td>
@@ -87,7 +87,7 @@
                         Check:
                         <ol><li>Please complete the this donation form:</li>
                         <li>Make your check payable to the Christopher Reeve Paralysis Foundation</li>
-                        <li>Mail the form and check, postmarked no later than November 10, to:<br />
+                        <li>Mail the form and check, <b>postmarked no later than November 10</b>, to:<br />
                         TopCoder<br />
                         703 Hebron Ave<br />
                         Glastonbury,CT 06033<br />
