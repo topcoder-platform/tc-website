@@ -17,6 +17,14 @@ public class Search extends Base {
 
   private final static String STATE_INPUT_CODE="st";
 
+  private final static String HANDLE_INPUT_CODE="hap";
+
+  private final static String SCHOOL_NAME_INPUT_CODE="snp";
+
+  private final static String MIN_RATING_INPUT_CODE="minra";
+
+  private final static String MAX_RATING_INPUT_CODE="maxra";
+
   private final static String SEARCH_BASE="/search/";
 
   private final static String ADVANCED_SEARCH_PAGE="advanced_search.jsp";
@@ -77,8 +85,13 @@ public class Search extends Base {
       HashMap errors=new HashMap();
       request.setAttribute("form_errors",errors);
 
+      List member_list=null;
+
       if (isValidSearch(errors,sb)) {
+        findMembers(member_list,sb);
       }
+
+      sb.setMemberList(member_list);
 
       setNextPage(SEARCH_BASE+ADVANCED_SEARCH_PAGE);
       setIsNextPageInContext(true);
@@ -184,7 +197,7 @@ public class Search extends Base {
     return(value);
   }
 
-  private static boolean isValidListValue(Object _value,List _list) {
+  private boolean isValidListValue(Object _value,List _list) {
     if (_value==null) {
       return(false);
     }
@@ -197,8 +210,22 @@ public class Search extends Base {
     return(false);
   }
 
+  private Object getListTextFromValue(Object _value,List _list) {
+    if (_value==null) {
+      return(null);
+    }
+    for (Iterator iterator=_list.iterator();iterator.hasNext();) {
+      ListPairBean lpb=(ListPairBean)iterator.next();
+      if (_value.equals(lpb.getValue())) {
+        return(lpb.getText());
+      }
+    }
+    return(null);
+  }
+
   private boolean isValidSearch(Map _errors,SearchBean _sb) {
     boolean valid=true;
+    valid&=checkValidHandle(_errors,_sb.getHandle());
     valid&=(checkValidState(_errors,_sb.getStateCode(),_sb.getStateList())&&
             checkValidSchool(_errors,_sb.getSchoolId(),_sb.getSchoolList()));
     valid&=checkValidStateSchool(_errors,_sb.getStateCode(),_sb.getSchoolId());
@@ -208,13 +235,20 @@ public class Search extends Base {
     return(valid);
   }
 
-  private static void addErrorMessage(Map _errors,String _key,String _message) {
+  private void addErrorMessage(Map _errors,String _key,String _message) {
     List msgs=(List)_errors.get(_key);
     if (msgs==null) {
       msgs=new ArrayList();
       _errors.put(_key,msgs);
     }
     msgs.add(_message);
+  }
+
+  private boolean checkValidHandle(Map _errors,String _handle) {
+    if (_handle==null) {
+      return(false);
+    }
+    return(true);
   }
 
   /**
@@ -231,7 +265,7 @@ public class Search extends Base {
   /**
    * Check for valid school
    */
-  private static boolean checkValidSchool(Map _errors,Long _school_id,
+  private boolean checkValidSchool(Map _errors,Long _school_id,
                                           List _list) {
     if (!isValidListValue(_school_id,_list)) {
       addErrorMessage(_errors,"SchoolId",INVALID_SCHOOL_ID);
@@ -302,6 +336,70 @@ public class Search extends Base {
       return(false);
     }
     return(true);
+  }
+
+  private int findMembers(List _member_list,SearchBean _sb) throws Exception {
+    Context ctx=TCContext.getInitial();
+    DataSource ds=(DataSource)ctx.lookup(DBMS.DW_DATASOURCE_NAME);
+    DataAccessInt dai=new CachedDataAccess(ds);
+    Map map=new HashMap();
+
+    String handle_pattern="%";
+    Integer min_rating=new Integer(0);
+    Integer max_rating=new Integer(1000000);
+    String state_code_pattern="%";
+    String school_name_pattern="%";
+
+    try {
+      if (!"".equals(_sb.getHandle())) {
+        handle_pattern=_sb.getHandle();
+      }
+      if (!"".equals(_sb.getMinRating())) {
+        min_rating=new Integer(_sb.getMinRating());
+      }
+      if (!"".equals(_sb.getMaxRating())) {
+        max_rating=new Integer(_sb.getMaxRating());
+      }
+      if (!"".equals(_sb.getStateCode())) {
+        state_code_pattern=_sb.getStateCode();
+      }
+      if (-1!=_sb.getSchoolId().longValue()) {
+        school_name_pattern=getListTextFromValue(_sb.getSchoolId(),
+                                                _sb.getSchoolList()).toString();
+      }
+    }
+    catch (NumberFormatException _nfe) {
+     /* this should never happen */
+      _nfe.printStackTrace();
+    }
+    
+    map.put(DataAccessConstants.COMMAND,"member_search");
+    map.put(HANDLE_INPUT_CODE,handle_pattern);
+    map.put(MIN_RATING_INPUT_CODE,min_rating);
+    map.put(MAX_RATING_INPUT_CODE,max_rating);
+    map.put(STATE_INPUT_CODE,state_code_pattern);
+    map.put(SCHOOL_NAME_INPUT_CODE,school_name_pattern);
+    Request req=new Request(map);
+    Map data=dai.getData(req);
+
+    ResultSetContainer rsc;
+    ResultSetContainer.ResultSetRow rsr;
+
+    int count=0;
+    rsc=(ResultSetContainer)data.get("member_search");
+    for (Iterator i=rsc.iterator();i.hasNext();count++) {
+      rsr=(ResultSetContainer.ResultSetRow)i.next();
+      SearchMemberBean smb=new SearchMemberBean();
+      smb.setUserId((Long)rsr.getItem("user_id").getResultData());
+      smb.setHandle((String)rsr.getItem("handle").getResultData());
+      smb.setRating((Integer)rsr.getItem("rating").getResultData());
+      smb.setStateCode((String)rsr.getItem("state_code").getResultData());
+      smb.setSchoolName((String)rsr.getItem("school_name").getResultData());
+      smb.setLastCompeted((Date)rsr.getItem("last_competed").getResultData());
+      _member_list.add(smb);
+    }
+
+    return(count);
   }
 
 };
