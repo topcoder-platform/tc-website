@@ -243,7 +243,7 @@ public class Legacy extends Base {
         Map demo = new HashMap();
         String[] textFields = {"handle","email","firstname","lastname","zipcode","city","company","maxdayssincerating","minevents","mindays","maxdays","minrating","maxrating"};
         String[] checkBoxes = {"count","pro","stud","resume","travel","auth"};
-        boolean[] def = {false,true,true};
+        boolean[] def = {false,true,true,false,false,false};
         boolean revise = "on".equals(request.getParameter("revise"));
         for(int i = 0; !revise && i<languages.getRowCount(); i++){
             ResultSetContainer.ResultSetRow lang = languages.getRow(i);
