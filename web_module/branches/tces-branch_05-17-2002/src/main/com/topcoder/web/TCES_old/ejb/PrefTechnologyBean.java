@@ -18,21 +18,16 @@ import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.PrefTechnology;
 import	com.topcoder.web.TCES.ejb.PrefTechnologyObject;
 
+/**
+ * This is the implementation of the PrefTechnology class.
+ * @see com.topcoder.web.TCES.ejb.PrefTechnology
+ * @author Phil Selby, May 22nd, 2002
+ */
+
 public class PrefTechnologyBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-
-	public String getKey( Integer profile_id ) {
-		String	key = "";
-
-		key += fmt0.format( profile_id );
-		return( key );
-	}
-
-	public String getKey( PrefTechnologyObject obj ) {
-		return( getKey( obj.profile_id ) );
-	}
 
 	public void create( Integer profile_id, Integer technology_id ) throws SQLException {
 		Connection	conn = null;
@@ -119,7 +114,6 @@ public class PrefTechnologyBean implements javax.ejb.SessionBean {
 		Connection	conn = null;
 		PreparedStatement	ps = null;
 		ResultSet	rs = null;
-		String	key = getKey( profile_id );
 		PrefTechnologyObject	obj = null;
 
 		obj = new PrefTechnologyObject();
@@ -151,8 +145,7 @@ public class PrefTechnologyBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord(Integer profile_id, Integer technology_id ) throws SQLException {
-		String	identifier = getKey( profile_id );
+	public int putRecord( Integer profile_id, Integer technology_id ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();

@@ -18,21 +18,16 @@ import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.ProfileSkill;
 import	com.topcoder.web.TCES.ejb.ProfileSkillObject;
 
+/**
+ * This is the implementation of the ProfileSkill class.
+ * @see com.topcoder.web.TCES.ejb.ProfileSkill
+ * @author Phil Selby, May 22nd, 2002
+ */
+
 public class ProfileSkillBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-
-	public String getKey( Integer profile_skill_id ) {
-		String	key = "";
-
-		key += fmt0.format( profile_skill_id );
-		return( key );
-	}
-
-	public String getKey( ProfileSkillObject obj ) {
-		return( getKey( obj.profile_skill_id ) );
-	}
 
 	public void create( Integer profile_skill_id, Integer profile_id, Integer skill_level_id, Integer skill_id, Integer proficiency ) throws SQLException {
 		Connection	conn = null;
@@ -161,7 +156,6 @@ public class ProfileSkillBean implements javax.ejb.SessionBean {
 		Connection	conn = null;
 		PreparedStatement	ps = null;
 		ResultSet	rs = null;
-		String	key = getKey( profile_skill_id );
 		ProfileSkillObject	obj = null;
 
 		obj = new ProfileSkillObject();
@@ -202,8 +196,7 @@ public class ProfileSkillBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord(Integer profile_skill_id, Integer profile_id, Integer skill_level_id, Integer skill_id, Integer proficiency ) throws SQLException {
-		String	identifier = getKey( profile_skill_id );
+	public int putRecord( Integer profile_skill_id, Integer profile_id, Integer skill_level_id, Integer skill_id, Integer proficiency ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();

@@ -18,21 +18,16 @@ import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.ProfileResponse;
 import	com.topcoder.web.TCES.ejb.ProfileResponseObject;
 
+/**
+ * This is the implementation of the ProfileResponse class.
+ * @see com.topcoder.web.TCES.ejb.ProfileResponse
+ * @author Phil Selby, May 22nd, 2002
+ */
+
 public class ProfileResponseBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-
-	public String getKey( Integer response_id ) {
-		String	key = "";
-
-		key += fmt0.format( response_id );
-		return( key );
-	}
-
-	public String getKey( ProfileResponseObject obj ) {
-		return( getKey( obj.response_id ) );
-	}
 
 	public void create( Integer response_id, Integer question_id, Integer profile_id, Integer answer_id, String text, Integer whatisthis, Date when ) throws SQLException {
 		Connection	conn = null;
@@ -190,7 +185,6 @@ public class ProfileResponseBean implements javax.ejb.SessionBean {
 		Connection	conn = null;
 		PreparedStatement	ps = null;
 		ResultSet	rs = null;
-		String	key = getKey( response_id );
 		ProfileResponseObject	obj = null;
 
 		obj = new ProfileResponseObject();
@@ -237,8 +231,7 @@ public class ProfileResponseBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord(Integer response_id, Integer question_id, Integer profile_id, Integer answer_id, String text, Integer whatisthis, Date when ) throws SQLException {
-		String	identifier = getKey( response_id );
+	public int putRecord( Integer response_id, Integer question_id, Integer profile_id, Integer answer_id, String text, Integer whatisthis, Date when ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();

@@ -18,21 +18,16 @@ import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.School;
 import	com.topcoder.web.TCES.ejb.SchoolObject;
 
+/**
+ * This is the implementation of the School class.
+ * @see com.topcoder.web.TCES.ejb.School
+ * @author Phil Selby, May 22nd, 2002
+ */
+
 public class SchoolBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-
-	public String getKey( Integer school_id ) {
-		String	key = "";
-
-		key += fmt0.format( school_id );
-		return( key );
-	}
-
-	public String getKey( SchoolObject obj ) {
-		return( getKey( obj.school_id ) );
-	}
 
 	public void create( Integer school_id, String name, String location ) throws SQLException {
 		Connection	conn = null;
@@ -133,7 +128,6 @@ public class SchoolBean implements javax.ejb.SessionBean {
 		Connection	conn = null;
 		PreparedStatement	ps = null;
 		ResultSet	rs = null;
-		String	key = getKey( school_id );
 		SchoolObject	obj = null;
 
 		obj = new SchoolObject();
@@ -168,8 +162,7 @@ public class SchoolBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord(Integer school_id, String name, String location ) throws SQLException {
-		String	identifier = getKey( school_id );
+	public int putRecord( Integer school_id, String name, String location ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();

@@ -18,21 +18,16 @@ import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.Skill;
 import	com.topcoder.web.TCES.ejb.SkillObject;
 
+/**
+ * This is the implementation of the Skill class.
+ * @see com.topcoder.web.TCES.ejb.Skill
+ * @author Phil Selby, May 22nd, 2002
+ */
+
 public class SkillBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-
-	public String getKey( Integer skill_id ) {
-		String	key = "";
-
-		key += fmt0.format( skill_id );
-		return( key );
-	}
-
-	public String getKey( SkillObject obj ) {
-		return( getKey( obj.skill_id ) );
-	}
 
 	public void create( Integer skill_id, String description ) throws SQLException {
 		Connection	conn = null;
@@ -119,7 +114,6 @@ public class SkillBean implements javax.ejb.SessionBean {
 		Connection	conn = null;
 		PreparedStatement	ps = null;
 		ResultSet	rs = null;
-		String	key = getKey( skill_id );
 		SkillObject	obj = null;
 
 		obj = new SkillObject();
@@ -151,8 +145,7 @@ public class SkillBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord(Integer skill_id, String description ) throws SQLException {
-		String	identifier = getKey( skill_id );
+	public int putRecord( Integer skill_id, String description ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();
@@ -206,6 +199,29 @@ public class SkillBean implements javax.ejb.SessionBean {
 		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
 		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 		return( flatten( results ) );
+	}
+
+	public Hashtable listContent() throws SQLException {
+		Connection	conn = null;
+		PreparedStatement	ps = null;
+		ResultSet	rs = null;
+		Hashtable	results = new Hashtable();
+		String	query = "SELECT SKILL_ID, description FROM SKILL";
+
+		try {
+			conn = getConnection();
+			ps = conn.prepareStatement( query );
+			rs = ps.executeQuery();
+			while( rs.next() )
+				results.put( new Integer( rs.getInt( 1 ) ), rs.getString( 2 ) );
+		} catch( SQLException e ) {
+			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
+			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+			throw( e );
+		}
+		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
+		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		return( results );
 	}
 
 	private String flatten( Vector v ) {

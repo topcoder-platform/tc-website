@@ -18,21 +18,16 @@ import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.Concentration;
 import	com.topcoder.web.TCES.ejb.ConcentrationObject;
 
+/**
+ * This is the implementation of the Concentration class.
+ * @see com.topcoder.web.TCES.ejb.Concentration
+ * @author Phil Selby, May 22nd, 2002
+ */
+
 public class ConcentrationBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-
-	public String getKey( Integer concentration_id ) {
-		String	key = "";
-
-		key += fmt0.format( concentration_id );
-		return( key );
-	}
-
-	public String getKey( ConcentrationObject obj ) {
-		return( getKey( obj.concentration_id ) );
-	}
 
 	public void create( Integer concentration_id, Integer subject_id, Integer education_id, Integer concentration_type ) throws SQLException {
 		Connection	conn = null;
@@ -147,7 +142,6 @@ public class ConcentrationBean implements javax.ejb.SessionBean {
 		Connection	conn = null;
 		PreparedStatement	ps = null;
 		ResultSet	rs = null;
-		String	key = getKey( concentration_id );
 		ConcentrationObject	obj = null;
 
 		obj = new ConcentrationObject();
@@ -185,8 +179,7 @@ public class ConcentrationBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord(Integer concentration_id, Integer subject_id, Integer education_id, Integer concentration_type ) throws SQLException {
-		String	identifier = getKey( concentration_id );
+	public int putRecord( Integer concentration_id, Integer subject_id, Integer education_id, Integer concentration_type ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();

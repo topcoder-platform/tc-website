@@ -18,21 +18,16 @@ import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.ProfileQuestion;
 import	com.topcoder.web.TCES.ejb.ProfileQuestionObject;
 
+/**
+ * This is the implementation of the ProfileQuestion class.
+ * @see com.topcoder.web.TCES.ejb.ProfileQuestion
+ * @author Phil Selby, May 22nd, 2002
+ */
+
 public class ProfileQuestionBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-
-	public String getKey( Integer question_id ) {
-		String	key = "";
-
-		key += fmt0.format( question_id );
-		return( key );
-	}
-
-	public String getKey( ProfileQuestionObject obj ) {
-		return( getKey( obj.question_id ) );
-	}
 
 	public void create( Integer question_id, String text, Integer question_type, Integer question_style ) throws SQLException {
 		Connection	conn = null;
@@ -147,7 +142,6 @@ public class ProfileQuestionBean implements javax.ejb.SessionBean {
 		Connection	conn = null;
 		PreparedStatement	ps = null;
 		ResultSet	rs = null;
-		String	key = getKey( question_id );
 		ProfileQuestionObject	obj = null;
 
 		obj = new ProfileQuestionObject();
@@ -185,8 +179,7 @@ public class ProfileQuestionBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord(Integer question_id, String text, Integer question_type, Integer question_style ) throws SQLException {
-		String	identifier = getKey( question_id );
+	public int putRecord( Integer question_id, String text, Integer question_type, Integer question_style ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();

@@ -18,21 +18,16 @@ import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.ProfileEducation;
 import	com.topcoder.web.TCES.ejb.ProfileEducationObject;
 
+/**
+ * This is the implementation of the ProfileEducation class.
+ * @see com.topcoder.web.TCES.ejb.ProfileEducation
+ * @author Phil Selby, May 22nd, 2002
+ */
+
 public class ProfileEducationBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-
-	public String getKey( Integer education_id ) {
-		String	key = "";
-
-		key += fmt0.format( education_id );
-		return( key );
-	}
-
-	public String getKey( ProfileEducationObject obj ) {
-		return( getKey( obj.education_id ) );
-	}
 
 	public void create( Integer education_id, Integer profile_id, Integer degree_type_id, Integer school_id, Date graduation_date, String new_school ) throws SQLException {
 		Connection	conn = null;
@@ -176,7 +171,6 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		Connection	conn = null;
 		PreparedStatement	ps = null;
 		ResultSet	rs = null;
-		String	key = getKey( education_id );
 		ProfileEducationObject	obj = null;
 
 		obj = new ProfileEducationObject();
@@ -220,8 +214,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord(Integer education_id, Integer profile_id, Integer degree_type_id, Integer school_id, Date graduation_date, String new_school ) throws SQLException {
-		String	identifier = getKey( education_id );
+	public int putRecord( Integer education_id, Integer profile_id, Integer degree_type_id, Integer school_id, Date graduation_date, String new_school ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();

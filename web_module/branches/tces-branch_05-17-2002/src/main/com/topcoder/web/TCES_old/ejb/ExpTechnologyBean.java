@@ -18,21 +18,16 @@ import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.ExpTechnology;
 import	com.topcoder.web.TCES.ejb.ExpTechnologyObject;
 
+/**
+ * This is the implementation of the ExpTechnology class.
+ * @see com.topcoder.web.TCES.ejb.ExpTechnology
+ * @author Phil Selby, May 22nd, 2002
+ */
+
 public class ExpTechnologyBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-
-	public String getKey( Integer experience_id ) {
-		String	key = "";
-
-		key += fmt0.format( experience_id );
-		return( key );
-	}
-
-	public String getKey( ExpTechnologyObject obj ) {
-		return( getKey( obj.experience_id ) );
-	}
 
 	public void create( Integer experience_id, Integer technology_id ) throws SQLException {
 		Connection	conn = null;
@@ -119,7 +114,6 @@ public class ExpTechnologyBean implements javax.ejb.SessionBean {
 		Connection	conn = null;
 		PreparedStatement	ps = null;
 		ResultSet	rs = null;
-		String	key = getKey( experience_id );
 		ExpTechnologyObject	obj = null;
 
 		obj = new ExpTechnologyObject();
@@ -151,8 +145,7 @@ public class ExpTechnologyBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord(Integer experience_id, Integer technology_id ) throws SQLException {
-		String	identifier = getKey( experience_id );
+	public int putRecord( Integer experience_id, Integer technology_id ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();

@@ -18,21 +18,16 @@ import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.Profile;
 import	com.topcoder.web.TCES.ejb.ProfileObject;
 
+/**
+ * This is the implementation of the Profile class.
+ * @see com.topcoder.web.TCES.ejb.Profile
+ * @author Phil Selby, May 22nd, 2002
+ */
+
 public class ProfileBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-
-	public String getKey( Integer profile_id ) {
-		String	key = "";
-
-		key += fmt0.format( profile_id );
-		return( key );
-	}
-
-	public String getKey( ProfileObject obj ) {
-		return( getKey( obj.profile_id ) );
-	}
 
 	public void create( Integer profile_id, Integer coder_id, Integer status_id ) throws SQLException {
 		Connection	conn = null;
@@ -133,7 +128,6 @@ public class ProfileBean implements javax.ejb.SessionBean {
 		Connection	conn = null;
 		PreparedStatement	ps = null;
 		ResultSet	rs = null;
-		String	key = getKey( profile_id );
 		ProfileObject	obj = null;
 
 		obj = new ProfileObject();
@@ -168,8 +162,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord(Integer profile_id, Integer coder_id, Integer status_id ) throws SQLException {
-		String	identifier = getKey( profile_id );
+	public int putRecord( Integer profile_id, Integer coder_id, Integer status_id ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();

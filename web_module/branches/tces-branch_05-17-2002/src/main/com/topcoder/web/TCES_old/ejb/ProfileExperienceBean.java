@@ -18,21 +18,16 @@ import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.ProfileExperience;
 import	com.topcoder.web.TCES.ejb.ProfileExperienceObject;
 
+/**
+ * This is the implementation of the ProfileExperience class.
+ * @see com.topcoder.web.TCES.ejb.ProfileExperience
+ * @author Phil Selby, May 22nd, 2002
+ */
+
 public class ProfileExperienceBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-
-	public String getKey( Integer experience_id ) {
-		String	key = "";
-
-		key += fmt0.format( experience_id );
-		return( key );
-	}
-
-	public String getKey( ProfileExperienceObject obj ) {
-		return( getKey( obj.experience_id ) );
-	}
 
 	public void create( Integer experience_id, Date date_start, Date date_end, String job_title, String company_name, String company_url, String job_description, Integer profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer location_id, Integer co_size_id ) throws SQLException {
 		Connection	conn = null;
@@ -289,7 +284,6 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 		Connection	conn = null;
 		PreparedStatement	ps = null;
 		ResultSet	rs = null;
-		String	key = getKey( experience_id );
 		ProfileExperienceObject	obj = null;
 
 		obj = new ProfileExperienceObject();
@@ -357,8 +351,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord(Integer experience_id, Date date_start, Date date_end, String job_title, String company_name, String company_url, String job_description, Integer profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer location_id, Integer co_size_id ) throws SQLException {
-		String	identifier = getKey( experience_id );
+	public int putRecord( Integer experience_id, Date date_start, Date date_end, String job_title, String company_name, String company_url, String job_description, Integer profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer location_id, Integer co_size_id ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();

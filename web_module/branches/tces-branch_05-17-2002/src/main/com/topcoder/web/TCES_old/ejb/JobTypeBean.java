@@ -18,21 +18,16 @@ import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.JobType;
 import	com.topcoder.web.TCES.ejb.JobTypeObject;
 
+/**
+ * This is the implementation of the JobType class.
+ * @see com.topcoder.web.TCES.ejb.JobType
+ * @author Phil Selby, May 22nd, 2002
+ */
+
 public class JobTypeBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
-
-	public String getKey( Integer job_type_id ) {
-		String	key = "";
-
-		key += fmt0.format( job_type_id );
-		return( key );
-	}
-
-	public String getKey( JobTypeObject obj ) {
-		return( getKey( obj.job_type_id ) );
-	}
 
 	public void create( Integer job_type_id, String description ) throws SQLException {
 		Connection	conn = null;
@@ -119,7 +114,6 @@ public class JobTypeBean implements javax.ejb.SessionBean {
 		Connection	conn = null;
 		PreparedStatement	ps = null;
 		ResultSet	rs = null;
-		String	key = getKey( job_type_id );
 		JobTypeObject	obj = null;
 
 		obj = new JobTypeObject();
@@ -151,8 +145,7 @@ public class JobTypeBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord(Integer job_type_id, String description ) throws SQLException {
-		String	identifier = getKey( job_type_id );
+	public int putRecord( Integer job_type_id, String description ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();
@@ -206,6 +199,29 @@ public class JobTypeBean implements javax.ejb.SessionBean {
 		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
 		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 		return( flatten( results ) );
+	}
+
+	public Hashtable listContent() throws SQLException {
+		Connection	conn = null;
+		PreparedStatement	ps = null;
+		ResultSet	rs = null;
+		Hashtable	results = new Hashtable();
+		String	query = "SELECT JOB_TYPE_ID, description FROM JOB_TYPE";
+
+		try {
+			conn = getConnection();
+			ps = conn.prepareStatement( query );
+			rs = ps.executeQuery();
+			while( rs.next() )
+				results.put( new Integer( rs.getInt( 1 ) ), rs.getString( 2 ) );
+		} catch( SQLException e ) {
+			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
+			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+			throw( e );
+		}
+		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
+		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		return( results );
 	}
 
 	private String flatten( Vector v ) {
