@@ -38,16 +38,20 @@
                   </TABLE>                
                   <TABLE WIDTH="250" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#333333">
                      <TR>
-                        <TD CLASS="time" ALIGN="right" VALIGN="middle">&#160;
+                        <TD CLASS="time" ALIGN="center" VALIGN="middle">&#160;
                            <% if((String)request.getAttribute("msg") != null){ %>
                               <p CLASS="statText">
                                  <%= request.getAttribute("msg").toString() %>
                               </p>
+                           <% }else if((String)request.getParameter("msg") != null){ %>
+                              <p CLASS="statText">
+                                 <%= request.getParameter("msg") %>
+                              </p>
                            <% } %>
                            <screen:form NAME="login" METHOD="POST" ACTION="/screening">
                               <INPUT type="hidden" name='rp' value='Login'/>
-                              <% if((String)request.getAttribute("redir") != null){ %>
-                                 <INPUT type="hidden" name='redir' value='<%= request.getAttribute("redir").toString() %>'/>
+                              <% if((String)request.getParameter("redir") != null){ %>
+                                 <INPUT type="hidden" name='redir' value='<%= request.getParameter("redir").toString() %>'/>
                               <% } %>
                               <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
                                  <TR>
