@@ -72,10 +72,6 @@ The 24 finalists in the Algorithm Coding Competition, representing 10 nationalit
 <td class="sidebarTitle" align="center" colspan="2">Algorithm Competitors</td>
 </tr>
 <tr class="sidebarText">
-<td width="50%">*Tomasz Czajka, West Lafayette, IN</td>
-<td width="50%">*Reid Barton, Arlington, MA</td>
-</tr>
-<tr class="sidebarText">
 <td width="50%">*Jan Kuipers, The Netherlands</td>
 <td width="50%">*Tomasz Czajka, Poland</td>
 </tr>
