@@ -58,7 +58,7 @@ public class ModifyCommand extends BaseProcessor {
         setGroups(cg.getAllCommandGroups(getDb()));
 
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
-            checkCommandDesc(getCommandDesc());
+            checkCommandDesc(getCommandDesc(), c);
             checkGroupId(getGroupId(), cg);
             checkCommandId(getCommandId(), c);
             if (!hasErrors()) {
