@@ -31,8 +31,9 @@ public class ProfileDetail extends BaseProfileProcessor {
         SessionProfile profile = spHome.create();
 
         log.debug("ProfileDetail for profile: " + info.getProfileId());
-        info.setTestSetAList(getTestSetAList(profile.getSessionRoundId(info.getProfileId().longValue()),
-                getUser()));
+        long sessionRoundId = profile.getSessionRoundId(info.getProfileId().longValue());
+        info.setTestSetAList(getTestSetAList(sessionRoundId, getUser()));
+        info.setTestSetA(new Long(sessionRoundId));
         info.setTestSetBList(getTestSetBList(info.getProfileId().longValue(), getUser()));
 
         info.setProfileName(profile.getSessionProfileDesc(info.getProfileId().longValue()));

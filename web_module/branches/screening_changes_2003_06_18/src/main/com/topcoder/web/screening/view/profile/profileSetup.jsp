@@ -89,7 +89,6 @@ function submitConfirm() {
             </table>
 
             <jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
-            <jsp:useBean id="AllTestSetAList" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
 
             <screen:form name="profileSetupForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="" >
@@ -110,7 +109,7 @@ function submitConfirm() {
                     <td class="testTableSubtitleEven">Problem Set</td>
                     <td class="testTableEven">
                         <select name="<%=Constants.TEST_SET_A%>" onChange="submitReload()">
-                            <screen:resultSetRowIterator id="row" list="<%=AllTestSetAList%>"><%
+                            <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><%
                             if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) {
                                 %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option><%
                             } else {
