@@ -78,14 +78,16 @@
                             <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><a href="?module=Static&d1=schedule&d2=sched_april_2003" class="statText">More 2003 Match Dates&#160;</a></td></tr>
                         </table>
 
+<!-- Regular season is over
                         <table width="100%" border="0" cellspacing="0" cellpadding="5">
                             <tr><td colspan="7" class="globalNavSmall">The TopCoder High School regular season will begin in March 2003. Before the regular season begins, students should use the TopCoder High School Competition Arena to practice.</td></tr>
                         </table>
+-->                        
                     </td>
                 </tr>
             </table>
 <!--Small Calendar ends-->
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr valign="baseline"><td><br><img src="/i/left_bottom_elements.gif" width="170" height="116" alt="" border="0"></td></tr>
+                <tr valign="baseline"><td><br><img src="/i/left_bottom_elements.gif" width="170" height="246" alt="" border="0"></td></tr>
             </table>
