@@ -27,6 +27,9 @@ public class SoftwareComponent {
     public final static int DEV_PHASE = 113;
     public final static int DESIGN_PHASE = 112;
 
+    private final static int LEVEL1 = 100;
+    private final static int LEVEL2 = 200;
+
     private int phaseId;
     private int levelId;
     private int submissionCount;
@@ -182,11 +185,20 @@ public class SoftwareComponent {
     public static void main(String[] args) {
         if (args.length!=4) {
             System.out.println("usage: java " + SoftwareComponent.class.toString() + " " +
-                    "<levelId> <numSubmissions> <numSubmissionPassScreening> <phaseId>");
+                    "<level> <numSubmissions> <numSubmissionPassScreening> <phaseId>");
             System.out.println("dev phaseId " + DEV_PHASE);
             System.out.println("design phaseId " + DESIGN_PHASE);
         } else {
-            SoftwareComponent sc = new SoftwareComponent(Integer.parseInt(args[0]), Integer.parseInt(args[1]),
+            int level = 1;
+            if (args[0].equals("1")) {
+                level = LEVEL1;
+            } else if (args[0].equals("2")) {
+                level = LEVEL2;
+            } else {
+                System.out.println("invalid level");
+                return;
+            }
+            SoftwareComponent sc = new SoftwareComponent(level, Integer.parseInt(args[1]),
                     Integer.parseInt(args[2]), Integer.parseInt(args[3]));
             System.out.println("-------------------------------------------------------------");
             if (sc.phaseId==DEV_PHASE) {
