@@ -109,7 +109,9 @@
                             <xsl:when test="$roundId=4710">
                                 <b>For information on how to win an Intel&#174; Centrino&#153; mobile technology-based notebook computer click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
                            </xsl:when>
-                            <xsl:when test="$roundId=5075">
+                                </xsl:choose>
+
+                            <xsl:if test="$roundId=5075">
                               In celebration of SRM 200, TopCoder will hold 10 random drawings at the conclusion of the challenge phase.  In order to be eligible to be randomly chosen for a prize, you must both register for SRM 200 during the registration period and participate in the match.<br/>
                               <br/>
                               The prizes to be given away are: <br/>
@@ -119,9 +121,7 @@
                               (4) TopCoder Polo Shirts<br/>
                               <br/>
                               A given competitor will only be eligible to win, at most, one random drawing.
-                           </xsl:when>
-                                </xsl:choose>
-
+                           </xsl:if>
 
                         </TD>
                 </TR>
