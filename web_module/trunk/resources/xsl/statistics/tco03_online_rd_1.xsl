@@ -500,7 +500,7 @@ void format( char buf[], double x ) {
 
 <p>
 This has the effect of printing <i>x</i>, properly formatted, into <i>buf</i>.
-</p>
+</p> 
 
 
                         <p>
