@@ -2,9 +2,8 @@ package com.topcoder.web.query.ejb.QueryServices;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-import javax.ejb.EJBObject;
 import javax.ejb.EJBException;
-import java.rmi.RemoteException;
+import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
 /**

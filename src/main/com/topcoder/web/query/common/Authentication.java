@@ -3,12 +3,11 @@ package com.topcoder.web.query.common;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.ejb.QueryServices.QueryAuthenticationHome;
 import com.topcoder.web.query.ejb.QueryServices.QueryAuthentication;
-import com.topcoder.web.query.common.AuthenticationException;
+import com.topcoder.web.query.ejb.QueryServices.QueryAuthenticationHome;
 
 import javax.naming.InitialContext;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 
 /**

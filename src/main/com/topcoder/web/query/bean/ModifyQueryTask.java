@@ -2,7 +2,6 @@ package com.topcoder.web.query.bean;
 
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.Authentication;
 import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.ejb.QueryServices.Query;
@@ -10,7 +9,6 @@ import com.topcoder.web.query.ejb.QueryServices.QueryHome;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 
 /**
@@ -32,11 +30,12 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
     /* Creates a new LoginTask */
     public ModifyQueryTask() {
         super();
-        setQueryId(0);
-        setRanking(false);
-        setColumnIndex(0);
-        setText("");
-        setName("");
+        db = "";
+        queryId = 0;
+        ranking = false;
+        columnIndex = 0;
+        text = "";
+        name = "";
     }
 
 
@@ -134,7 +133,7 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
         }
     }
 
-    private boolean isNewQuery() {
+    public boolean isNewQuery() {
         return getQueryId()==0;
     }
 

@@ -2,15 +2,16 @@ package com.topcoder.web.query.servlet;
 
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-
-import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.bean.Task;
+import com.topcoder.web.query.common.AuthenticationException;
+import com.topcoder.web.query.common.Constants;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Enumeration;
 

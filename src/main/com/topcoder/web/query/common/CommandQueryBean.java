@@ -57,4 +57,17 @@ public class CommandQueryBean {
         }
     }
 
+    public String toString() {
+        StringBuffer buf = new StringBuffer();
+        buf.append(" commandid: ");
+        buf.append(commandId);
+        buf.append(" queryId; ");
+        buf.append(queryId);
+        buf.append(" queryName: ");
+        buf.append(queryName);
+        buf.append(" sortOrder: ");
+        buf.append(sortOrder);
+        return buf.toString();
+    }
+
 }

@@ -1,7 +1,5 @@
 package com.topcoder.web.query.servlet.jsp.tag;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.QueryBean;
 
 import javax.servlet.jsp.JspException;
