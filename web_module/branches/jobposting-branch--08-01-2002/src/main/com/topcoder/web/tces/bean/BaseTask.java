@@ -21,10 +21,12 @@ public abstract class BaseTask implements Task {
 
     private InitialContext ctx;
     private String nextPage;
+    private TrailItem[] trail;
 
     public BaseTask() {
         setInitialContext(null);
         setNextPage(null);
+        setTrail(null);
     }
 
     public abstract void processStep(String step)  throws Exception;
@@ -44,6 +46,14 @@ log.debug("next page -> "+nextPage);
 
     public String getNextPage() {
         return nextPage;
+    }
+
+    public TrailItem[] getTrail() {
+        return trail;
+    }
+
+    public void setTrail(TrailItem[] trail) {
+        this.trail = trail;
     }
 
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
