@@ -47,6 +47,7 @@ public class Constants {
     public static String ADDRESS3;
     public static String COUNTRY_CODE;
     public static String STATE_CODE;
+    public static String PROVINCE;
     public static String CITY;
     public static String ZIP;
 

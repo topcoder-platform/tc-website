@@ -22,6 +22,7 @@ public class SimpleRegInfo extends Base {
     private String countryName;
     private String stateCode;
     private String stateName;
+    private String province;
     private String city;
     private String zip;
     private long companyId;
@@ -46,6 +47,7 @@ public class SimpleRegInfo extends Base {
         setCountryName(info.getCountryName());
         setStateCode(info.getStateCode());
         setStateName(info.getStateName());
+        setProvince(info.getProvince());
         setCity(info.getCity());
         setZip(info.getZip());
         setCompanyId(info.getCompanyId());
@@ -177,6 +179,14 @@ public class SimpleRegInfo extends Base {
 
     public void setStateName(String stateName) {
         this.stateName = stateName;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
     }
 
     public String getCity() {

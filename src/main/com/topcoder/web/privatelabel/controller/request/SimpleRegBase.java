@@ -74,6 +74,8 @@ abstract class SimpleRegBase extends RegistrationBase {
             info.setStateCode(StringUtils.checkNull(getRequestParameter(Constants.STATE_CODE)));
         if (hasRequestParameter(Constants.CITY))
             info.setCity(StringUtils.checkNull(getRequestParameter(Constants.CITY)));
+        if (hasRequestParameter(Constants.PROVINCE))
+            info.setProvince(StringUtils.checkNull(getRequestParameter(Constants.PROVINCE)));
         if (hasRequestParameter(Constants.ZIP))
             info.setZip(StringUtils.checkNull(getRequestParameter(Constants.ZIP)));
         if (hasRequestParameter(Constants.COMPANY_ID))
@@ -159,6 +161,8 @@ abstract class SimpleRegBase extends RegistrationBase {
                 addError(Constants.STATE_CODE, "Please chooose a state from the list.");
             }
         }
+
+        //nothing to check for province
 
         //city
         if (info.getCity().length()<1) {
