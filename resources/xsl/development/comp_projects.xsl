@@ -133,13 +133,13 @@
                                    <img src="/i/development/smJava.gif"/>
                                 </xsl:when>
                                 <xsl:when test="./catalog_name = 'Java Custom' ">
-                                   <img src="/i/development/smJava.gif"/>
+                                   <img src="/i/development/smJavaCustom.gif"/>
                                 </xsl:when>
                                  <xsl:when test="./catalog_name = '.NET' ">
                                     <img src="/i/development/netSm.gif"/>
                                  </xsl:when>
                                  <xsl:when test="./catalog_name = '.NET Custom' ">
-                                    <img src="/i/development/netSm.gif"/>
+                                    <img src="/i/development/smNetCustom.gif"/>
                                  </xsl:when>
                                  <xsl:when test="./catalog_name = 'Flash' ">
                                     <img src="/i/development/flashSm.gif"/>
@@ -229,13 +229,13 @@
                                   <img src="/i/development/smJava.gif"/>
                                </xsl:when>
                                <xsl:when test="./catalog_name = 'Java Custom' ">
-                                  <img src="/i/development/smJava.gif"/>
+                                  <img src="/i/development/smJavaCustom.gif"/>
                                </xsl:when>
                                 <xsl:when test="./catalog_name = '.NET' ">
                                    <img src="/i/development/netSm.gif"/>
                                 </xsl:when>
                                 <xsl:when test="./catalog_name = '.NET Custom' ">
-                                   <img src="/i/development/netSm.gif"/>
+                                   <img src="/i/development/smNetCustom.gif"/>
                                 </xsl:when>
                                 <xsl:when test="./catalog_name = 'Flash' ">
                                    <img src="/i/development/flashSm.gif"/>
