@@ -49,6 +49,13 @@
            <jsp:param name="title" value="<%=CampaignDetailTask.getCompanyName()%>"/>
         </jsp:include>
         <P ALIGN="center">
+<%
+System.out.println(request.getContextPath());
+System.out.println(request.getQueryString());
+System.out.println(request.getPathInfo());
+System.out.println(request.getServletPath());
+%>
+
           <A HREF="<%=request.getServletPath()+"?"+TCESConstants.TASK_PARAM+"="+TCESConstants.MAIN_TASK+"&"+TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID"/>" class="statText">Main</A>
         </P> 
         <P ALIGN="center">
