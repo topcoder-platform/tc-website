@@ -83,22 +83,25 @@
             <% } %>
 
     <% } else if (tabLev1.equals("overview")) { %>
-<%--
+
             <% if (tabLev2.equals("details")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_about" class="statTextBig"><img src="/i/tournament/tccc04/tab_details_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_about" class="statTextBig"><img src="/i/tournament/tccc04/tab_details_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } %>
+            
+            <% if (tabLev2.equals("join_us")) {%>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=spectator_package" class="statTextBig"><img src="/i/tournament/tccc04/tab_joinus_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
+            <% } else { %>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=spectator_package" class="statTextBig"><img src="/i/tournament/tccc04/tab_joinus_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
+            <% } %>
+<%--            
             <% if (tabLev2.equals("sponsors")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_sponsors" class="statTextBig"><img src="/i/tournament/tccc04/tab_sponsors_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_sponsors" class="statTextBig"><img src="/i/tournament/tccc04/tab_sponsors_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } %>
-            <% if (tabLev2.equals("join_us")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_onsite_schedule" class="statTextBig"><img src="/i/tournament/tccc04/tab_joinus_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
-            <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_onsite_schedule" class="statTextBig"><img src="/i/tournament/tccc04/tab_joinus_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
-            <% } %>
+            
             <% if (tabLev2.equals("onsite_events")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_onsite_events" class="statTextBig"><img src="/i/tournament/tccc04/tab_onsiteevents_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } else { %>
@@ -161,6 +164,7 @@
             
       <% } else if (tabLev1.equals("overview")) { %>
             <% if (tabLev2.equals("join_us")) {%>
+                    <td class="<%=tabLev3.equals("spectator")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=spectator_package" class="topLink">Spectator Package</a></td>
                     <td class="<%=tabLev3.equals("schedule")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_onsite_schedule" class="topLink">Schedule</a></td>
                     <td class="<%=tabLev3.equals("directions")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_directions" class="topLink">Directions</a></td>
                     <td class="<%=tabLev3.equals("transportation")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_transportation" class="topLink">Transportation</a></td>
