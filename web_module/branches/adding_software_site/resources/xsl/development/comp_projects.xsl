@@ -97,7 +97,7 @@
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td width="15%" class="projectHeaders">Project</td>
                     <td class="projectHeaders" align="center">Registrants<br/>Rated/Unrated</td>
-                    <td class="projectHeaders" align="center">Max Registrants<br/>Rated/Unrated</td>
+                    <td class="projectHeaders" align="center">Registration Ends</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
                     <td class="projectHeaders" align="center">Complexity</td>
@@ -125,6 +125,9 @@
                         </xsl:variable>
                         <xsl:variable name="estimated_dev">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="estimated_dev_date"/></xsl:call-template>
+                        </xsl:variable>
+			<xsl:variable name="reg_end">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template>
                         </xsl:variable>
                         <tr valign="top">
                             <td class="projectCells" align="center">
@@ -161,7 +164,7 @@
                                 </xsl:choose>
                             </td>
                             <td class="projectCells" align="center">
-                                <xsl:value-of select="/TC/DEVELOPMENT/MaxRatedInquiries"/>/<xsl:value-of select="/TC/DEVELOPMENT/MaxUnratedInquiries"/>
+                                <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template>
                             </td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
