@@ -531,6 +531,7 @@ final class UserDbCoder {
         updateCurrentSchool ( conn, coder.getCurrentSchool() );
         ArrayList demographicResponses = coder.getDemographicResponses();
         updateDemographicResponses(conn, coder.getCoderType().getCoderTypeId(), demographicResponses);
+        updateCoderConfirmations(conn, coder.getCoderConfirmations());
       }
     } catch (SQLException sqe) {
       DBMS.printSqlException ( true, sqe );
@@ -806,7 +807,7 @@ final class UserDbCoder {
    * Update coder_confirmation table for this user.
    * @author Greg Paul
    */
-  private static void updateCoderConfirmation(Connection conn, ArrayList coderConfirmations)
+  private static void updateCoderConfirmations(Connection conn, ArrayList coderConfirmations)
     throws TCException {
     log.debug("ejb.User.UserDbCoder:updateCoderConfirmations():called." );
     PreparedStatement ps = null;
@@ -837,7 +838,7 @@ final class UserDbCoder {
       throw new TCException ( sqe.getMessage() );
     } catch ( Exception ex ) {
       throw new TCException (
-        "ejb.User.UserDbCoder:updateDemographicResponses:ERROR:"+ex
+        "ejb.User.UserDbCoder:updateCoderConfirmations():ERROR:"+ex
       );
     } finally {
       if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
