@@ -74,11 +74,15 @@ public class UserMover {
             query.append( " from user u");
             query.append(     ", coder c");
             query.append(" where u.user_id = c.coder_id");
+            query.append("   and u.user_id not in (select user_id");
+            query.append("                           from common_oltp:email)");
             //query.append(  " and u.user_id = 114443");
             query.append(" order by status_order desc");
 
+            log.info("built query");
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
+            log.info("executed query");
             String handle = null;
             long userId = 0;
 
@@ -89,6 +93,8 @@ public class UserMover {
             Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
             UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup("main:" + UserAddressHome.EJB_REF_NAME)).create();
             Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+
+            log.info("created ejbs");
 
             PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote pmr = pmrh.create();
@@ -109,6 +115,7 @@ public class UserMover {
                 }
             }
 
+            log.info("created ejbs");
 
             int count = 0;
             String firstName = null;
@@ -138,31 +145,56 @@ public class UserMover {
                     zip = rs.getString(13);
                     phone = rs.getString(9);
 
+                    try {
+                        userEJB.createUser(userId, handle, status);
+                        userEJB.setFirstName(userId, firstName);
+                        userEJB.setLastName(userId, lastName);
+                    } catch (Exception e) {
+                        log.error("error moving over user " + handle + "(" + userId + ")");
+                        e.printStackTrace();
+                    }
 
-                    userEJB.createUser(userId, handle, status);
-                    userEJB.setFirstName(userId, firstName);
-                    userEJB.setLastName(userId, lastName);
+                    try {
+                        long emailId = emailEJB.createEmail(userId);
+                        emailEJB.setAddress(emailId, email);
+                        emailEJB.setPrimaryEmailId(userId, emailId);
+                        emailEJB.setEmailTypeId(emailId, 1);
+                    } catch (Exception e) {
+                        log.error("error moving over email for " + handle + "(" + userId + ")");
+                        e.printStackTrace();
+                    }
 
-                    long emailId = emailEJB.createEmail(userId);
-                    emailEJB.setAddress(emailId, email);
-                    emailEJB.setPrimaryEmailId(userId, emailId);
-                    emailEJB.setEmailTypeId(emailId, 1);
+                    long addressId = 0;
+                    try {
+                        addressId = addressEJB.createAddress();
+                        addressEJB.setAddress1(addressId, address1);
+                        addressEJB.setAddress2(addressId, address2);
+                        addressEJB.setCity(addressId, city);
+                        addressEJB.setStateCode(addressId, state);
+                        addressEJB.setCountryCode(addressId, country);
+                        addressEJB.setZip(addressId, zip);
+                        addressEJB.setAddressTypeId(addressId, 2);
+                    } catch (Exception e) {
+                        log.error("error moving over address for " + handle + "(" + userId + ")");
+                        e.printStackTrace();
+                    }
 
-                    long addressId = addressEJB.createAddress();
-                    addressEJB.setAddress1(addressId, address1);
-                    addressEJB.setAddress2(addressId, address2);
-                    addressEJB.setCity(addressId, city);
-                    addressEJB.setStateCode(addressId, state);
-                    addressEJB.setCountryCode(addressId, country);
-                    addressEJB.setZip(addressId, zip);
-                    addressEJB.setAddressTypeId(addressId, 2);
+                    try {
+                        userAddressEJB.createUserAddress(userId, addressId);
+                    } catch (Exception e) {
+                        log.error("error moving over user address for " + handle + "(" + userId + ")");
+                        e.printStackTrace();
+                    }
 
-                    userAddressEJB.createUserAddress(userId, addressId);
-
-                    long phoneId = phoneEJB.createPhone(userId);
-                    phoneEJB.setNumber(phoneId, phone);
-                    phoneEJB.setPrimaryPhoneId(userId, phoneId);
-                    phoneEJB.setPhoneTypeId(phoneId, 2);
+                    try {
+                        long phoneId = phoneEJB.createPhone(userId);
+                        phoneEJB.setNumber(phoneId, phone);
+                        phoneEJB.setPrimaryPhoneId(userId, phoneId);
+                        phoneEJB.setPhoneTypeId(phoneId, 2);
+                    } catch (Exception e) {
+                        log.error("error moving over phone for " + handle + "(" + userId + ")");
+                        e.printStackTrace();
+                    }
 
                     UserPrincipal up = pmr.getUser(userId);
                     pmr.addUserToGroup(anonGroup, up, tcs);
