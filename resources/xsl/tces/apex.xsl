@@ -95,6 +95,8 @@
 
 <A CLASS="bodyText" HREF="/?&amp;t=tces&amp;c=apex_details&amp;a=secure">Job Requirements</A>&#160;|&#160;
 
+
+
 </TD>
 
 </TR>
@@ -109,7 +111,7 @@
 
 
 
-<P>Apex Data Services (<A HREF="http://www.apexinc.com" CLASS="bodyText">http://www.apexinc.com</A>) is an international data conversion company headquartered in Herndon, VA.  We are an employee-owned company devoted to the growth of our staff as we solve interesting technical problems in a stimulating environment.</P>
+<P>Apex Data Services (<A HREF="http://www.apexinc.com" CLASS="bodyText" TARGET="_blank">http://www.apexinc.com</A>) is an international data conversion company headquartered in Herndon, VA.  We are an employee-owned company devoted to the growth of our staff as we solve interesting technical problems in a stimulating environment.</P>
 
 <P>We are looking for a small number of excellent software developers, and believe that our environment will challenge even the best and brightest.  Here's some of what makes us the best place for the best people to work:</P>
 
