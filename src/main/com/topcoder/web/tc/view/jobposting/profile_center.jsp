@@ -1,9 +1,10 @@
 <%@ page import="java.util.Map,
-                 java.util.Iterator"%>
+                 java.util.Iterator,
+                 com.topcoder.web.tc.model.JobHitData"%>
 <%@ page errorPage="/errorPage.jsp" %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
-<jsp:useBean id="JobHitTask" scope="request" class="com.topcoder.web.tc.controller.legacy.jobposting.bean.JobHitTask" />
-<tc:getProperty id="coderType" name="JobHitTask" property="CoderTypeId" />
+<jsp:useBean id="JobHitData" scope="request" class="com.topcoder.web.tc.model.JobHitData" />
+<tc:getProperty id="coderType" name="JobHitData" property="CoderTypeId" />
 <img src="/i/clear.gif" width="240" height="1" vspace="5" border="0"><br>
   <div align="center">
   <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
@@ -22,7 +23,7 @@
   </TR>
   <TR valign="middle">
     <TD CLASS="statTextBig" ALIGN="left" VALIGN="middle" COLSPAN="2">
-      <% if (JobHitTask.hasResume()) { %>
+      <% if (JobHitData.hasResume()) { %>
         Click <A HREF="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" CLASS="statTextBig">here</A> to upload a new resume.</A>
         <br/>
         Click <A HREF="/Resume?&t=DownloadTask" CLASS="statTextBig">here</A> to download your resume.
@@ -43,17 +44,17 @@
     <tr valign="middle">
     <td class="statText" width="30" align="right" valign="middle"><img src="/i/clear.gif" width="30" height="1"></td>
     <td class="statText" align="left" valign="top">
-    Name: <jsp:getProperty name="JobHitTask" property="FirstName" />
-        <jsp:getProperty name="JobHitTask" property="LastName" /><br>
+    Name: <jsp:getProperty name="JobHitData" property="FirstName" />
+        <jsp:getProperty name="JobHitData" property="LastName" /><br>
       Address:<br>
-        <jsp:getProperty name="JobHitTask" property="Address1" /><br>
-        <jsp:getProperty name="JobHitTask" property="Address2" /><br>
-    <jsp:getProperty name="JobHitTask" property="City" />,
-        <jsp:getProperty name="JobHitTask" property="State" />,
-        <jsp:getProperty name="JobHitTask" property="Zip" />,
-        <tc:getProperty id="country" name="JobHitTask" property="Country" />
+        <jsp:getProperty name="JobHitData" property="Address1" /><br>
+        <jsp:getProperty name="JobHitData" property="Address2" /><br>
+    <jsp:getProperty name="JobHitData" property="City" />,
+        <jsp:getProperty name="JobHitData" property="State" />,
+        <jsp:getProperty name="JobHitData" property="Zip" />,
+        <tc:getProperty id="country" name="JobHitData" property="Country" />
         <tc:countrySelect name="country" selectedValue="<%=country%>" selectedOnly="true" /><br>
-        Phone: <jsp:getProperty name="JobHitTask" property="Phone" /><br>
+        Phone: <jsp:getProperty name="JobHitData" property="Phone" /><br>
     </td>
   </tr>
   <tr valign="middle">
@@ -62,14 +63,14 @@
   <tr valign="middle">
     <td class="statText" align="right" valign="middle">&nbsp;</td>
     <td class="statText"  align="left" valign="top">
-      Email: <jsp:getProperty name="JobHitTask" property="Email" /><br>
-      Handle: <jsp:getProperty name="JobHitTask" property="Handle" /><br>
-      Member Since Date: <jsp:getProperty name="JobHitTask" property="MemberSince" /><br>
-      Most Recent Rated Event: <jsp:getProperty name="JobHitTask" property="MostRecentEvent" /><br>
-<%if (coderType.equalsIgnoreCase(JobHitTask.CODER_TYPE_STUDENT)) { %>
+      Email: <jsp:getProperty name="JobHitData" property="Email" /><br>
+      Handle: <jsp:getProperty name="JobHitData" property="Handle" /><br>
+      Member Since Date: <jsp:getProperty name="JobHitData" property="MemberSince" /><br>
+      Most Recent Rated Event: <jsp:getProperty name="JobHitData" property="MostRecentEvent" /><br>
+<%if (coderType.equalsIgnoreCase(JobHitData.CODER_TYPE_STUDENT)) { %>
       <br/>
-      GPA: <jsp:getProperty name="JobHitTask" property="Gpa" /><br>
-      GPA Scale: <jsp:getProperty name="JobHitTask" property="GpaScale" /><br>
+      GPA: <jsp:getProperty name="JobHitData" property="Gpa" /><br>
+      GPA Scale: <jsp:getProperty name="JobHitData" property="GpaScale" /><br>
 <% } %>
     </td>
   </tr>
@@ -94,17 +95,17 @@
     <td class="statText" align="right" valign="middle">&nbsp;</td>
     <td class="statText"  align="left" valign="top">
       <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
-<%if (coderType.equalsIgnoreCase(JobHitTask.CODER_TYPE_STUDENT)) { %>
+<%if (coderType.equalsIgnoreCase(JobHitData.CODER_TYPE_STUDENT)) { %>
     <tr>
         <td class="statText">School:</td>
         <td class="statText">
-        <% System.out.println("blkaldkjflkajsf: " + JobHitTask.getSchool()); %>
-            <jsp:getProperty name="JobHitTask" property="School" />
+        <% System.out.println("blkaldkjflkajsf: " + JobHitData.getSchool()); %>
+            <jsp:getProperty name="JobHitData" property="School" />
       </td>
     </tr>
 <%}%>
 
-        <% Map demographics = JobHitTask.getDemographics();
+        <% Map demographics = JobHitData.getDemographics();
             Iterator it = demographics.entrySet().iterator();
             Map.Entry me = null;
             while (it.hasNext()) {

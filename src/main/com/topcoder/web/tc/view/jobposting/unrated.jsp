@@ -1,6 +1,6 @@
 <%@ page language="java" %>
 <%@ page errorPage="/errorPage.jsp" %>
-<jsp:useBean id="JobHitTask" scope="request" class="com.topcoder.web.tc.controller.legacy.jobposting.bean.JobHitTask" />
+<jsp:useBean id="JobHitData" scope="request" class="com.topcoder.web.tc.model.JobHitData" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
@@ -35,7 +35,7 @@
                 The ability to apply for a job at TopCoder is restricted to rated members. In line with TopCoder's
                 overall philosophy, this policy allows companies to differentiate coders who otherwise look the same
                 on paper. Non-rated members wishing to obtain a rating should review the competition calendar for the
-                <A HREF="/?&t=schedule&c=srm&RoundId=<jsp:getProperty name="JobHitTask" property="NextRoundId"/>" CLASS="statTextBig">next Single Round Match</A>
+                <A HREF="/?&t=schedule&c=srm&RoundId=<jsp:getProperty name="JobHitData" property="NextRoundId"/>" CLASS="statTextBig">next Single Round Match</A>
                 or click <A HREF="/?&t=schedule&c=index" class="statTextBig">here</A> for a complete list of upcoming Single
                 Round Matches.
                 <BR/>
