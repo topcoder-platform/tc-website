@@ -95,7 +95,7 @@
 </TABLE> -->
  	<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/><BR/>
 
-   <A CLASS="bodyGeneric" href="/stat?&amp;c=last_match"><B><%= contestName %></B></A><BR/>
+   <A CLASS="bodyGeneric" href="/stat?&amp;c=last_match&amp;rd=<%= roundID %>"><B><%= contestName %></B></A><BR/>
 DATE<BR/>
     <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
