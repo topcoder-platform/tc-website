@@ -103,7 +103,7 @@
                 break;
             }
         }
-        if(!resultRow.getStringItem("selectable").equals('N')) {
+        if(!resultRow.getStringItem("selectable").equals("N")) {
         %>
           </select>
         <%
