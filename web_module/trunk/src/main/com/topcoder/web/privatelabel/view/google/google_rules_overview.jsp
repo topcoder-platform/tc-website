@@ -80,7 +80,7 @@ function openWin(url, name, w, h) {
                   <font color="006633"><strong>Summary of the Tournament</strong></font>
 
 <p><font size="-1">
-The 2003 Google Code Jam 2003 is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the Code Jam 2003 to identify possible candidates for employment.  Google Code Jam 2003 will take place between Wednesday, October 1 and Friday, November 14, 2003.  It begins with a 2-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of three (3) days of qualification, two (2) online elimination rounds and one (1) onsite final round.  All participants who compete in Round 1 (the first online elimination round) will receive a Google Code Jam 2003 t-shirt.  In addition, Google will award a total of  $25,000 in cash prizes.
+The Google&#153; Code Jam 2003 is being offered by Google Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the Code Jam 2003 to identify possible candidates for employment.  Google Code Jam 2003 will take place between Wednesday, October 1 and Friday, November 14, 2003.  It begins with a 2-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of three (3) days of qualification, two (2) online elimination rounds and one (1) onsite final round.  All participants who compete in Round 1 (the first online elimination round) will receive a Google Code Jam 2003 t-shirt.  In addition, Google will award a total of  $25,000 in cash prizes to the 25 finalists in the tournament.
 <br><br>
 <strong>Eligibility</strong><br>
 All citizens and lawful permanent residents of the following countries (and all non-immigrants currently residing in the United States with a valid Visa) are eligible to win cash prizes after completing the appropriate affidavit and tax form:
@@ -95,7 +95,7 @@ All citizens and lawful permanent residents of the following countries (and all 
 <li>	United Kingdom 
 <li>	United States (including the U.S. territories of Guam, Puerto Rico and the U.S. Virgin Islands) 
 </ul>
-Participants who do not meet the citizenship requirements to win prize money are eligible to compete. However these individuals will be required to donate any cash prizes to charity. Participants will choose a charity to receive their winnings from the TopCoder approved list of charities. A prize-winning participant may request a new charity be added to the list, however it shall remain in TopCoder's sole discretion to add that charity after reviewing the proposed charity's credentials.
+Participants who do not meet the citizenship requirements to win prize money are still eligible to compete. However these individuals will be required to donate any cash prizes to charity. Participants will choose a charity to receive their winnings from the TopCoder approved list of charities. A prize-winning participant may request a new charity be added to the list, however it shall remain in Google's sole discretion to add that charity after reviewing the proposed charity's credentials.
 <br><br>
 <strong>Registration</strong><br>
 Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.
@@ -105,7 +105,7 @@ The Qualification Round will be open for 72 hours from 8:00AM EDT Friday, Octobe
 <br><br>
 The Qualification Round will consist of two phases: the Coding Phase and System Testing Phase.
 <ul>
-<li>	The Qualification Round Coding Phase is a timed event where contestants are presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the problem was opened to the time it was submitted.
+<li>	The Qualification Round Coding Phase is a timed event where contestants are presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.
 <br><br>
 <li>	The Qualification Round System Testing Phase is applied to all submitted code. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question. 
 </ul>
@@ -182,7 +182,7 @@ NOTE:  In the event of a tie for any advancing position, the tie will be resolve
 <strong>Competition Round Structure</strong><br>
 Each online and onsite round of competition (excluding the Qualification Round) consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. The Qualification Round will consist only of the Coding Phase and System Testing Phase.  (See "Qualification Round" above for details regarding the Coding Phase and System Testing Phase of the Qualification Round.)
 <ul>
-<li>	The Coding Phase is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the problem was opened to the time it was submitted.
+<li>	The Coding Phase is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted. 
 <br><br>
 <li>	The Challenge Phase is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 50 points as a penalty, applied against their total score in that round of competition. 
 <br><br>
@@ -249,14 +249,14 @@ All participants who compete in Round 1 will receive a Google Code Jam 2003 t-sh
                   </tr>
                 
                 <tr valign="top">
-                  <td class="sidebarText" colspan="2"><font size="-2">*NOTE:  In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.</td>
+                  <td class="sidebarText" colspan="2"><font size="-2">*NOTE:  Prize will be awarded at the conclusion of the Championship Round.  Winner must be present at Google's headquarters to receive the prize.</td>
 
                 </tr>
             </table>
 </p></font>
 <a name="conditions"></a>
 <font color="006633"><b>Conditions of Participation</b></font><br><br>
-<font size="-1">By participating in the tournament, you agree to be bound by these rules and to all decisions of Google and TopCoder, which are final, binding and conclusive in all matters.
+<font size="-1">By participating in the tournament, contestants agree to be bound by these rules and to all decisions of Google and TopCoder, which are final, binding and conclusive in all matters.
 <br>
 <br>
 <font color="#ff0000">Contestants must not cheat. All ideas for any code and/or challenge submitted must be the contestant's alone.
@@ -277,7 +277,7 @@ Prizewinners will be announced upon completion of the Championship Round.  Any p
 <font size="-1">Prizes will be presented onsite upon receipt of the documents identified above.  All t-shirts will be sent to competitors using the address given during registration.  Unclaimed or undeliverable prizes will not be awarded.
 <br>
 <br>
-As a condition of participation in the tournament, all information provided by you upon registration must be comprehensive, accurate and up-to-date. Google and/or TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by Google and TopCoder.
+As a condition of participation in the tournament, all information provided during registration must be comprehensive, accurate and up-to-date. Google and/or TopCoder may require contestants to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, contestants must have completed any and all registration forms required by Google and TopCoder.
 <br>
 <br>
 As a condition of winning and redeeming a cash prize, winners will be required
@@ -294,7 +294,7 @@ to TopCoder and Google rights to all information submitted during the tournament
 and Google from liability arising out of any prize won. Google requires contestants
 to complete Form W-9 or W-8BEN, as applicable, for tax reporting purposes. <br>
 <br>
-If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit or the applicable tax form, the winner will be disqualified and the prize money won by the disqualified winner will be forfeited. Providing false information in the registration process or in the required forms described in this paragraph will disqualify a winner.
+If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit or the applicable tax form, the winner will be disqualified and the prize money won by the disqualified winner will be forfeited. Providing false information in the registration process or in the required forms described above will disqualify a winner.
 <br>
 <br>
 By participating in a tournament and redeeming a prize, a winner releases and agrees to hold harmless Google and TopCoder, their affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this tournament, or participation in any tournament-related activity, or the receipt, use or misuse of a prize. Google and TopCoder specifically disclaim all liability associated with, and make no warranties with regard to, any prize given.
@@ -313,7 +313,7 @@ Google and TopCoder reserve the right, in their sole discretion, to revoke any a
 <font size="-1">The tournament is void in whole or in part where prohibited by law.
                   <p><br /></p>
                   <p><a href="http://www.topcoder.com"><img align="right" src="http://www.google.com/codejam/topcoder.gif" width="100" height="33" border="0"></a>
-                  <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_rules_conditions">Terms and Conditions</a>.
+                  <font size="-1">This tournament is brought to you by TopCoder, Inc. (<a href="http://www.topcoder.com">http://www.topcoder.com</a>) 703 Hebron Avenue, Glastonbury, CT 06033 and Google Inc. (<a href="http://www.google.com">http://www.google.com</a>) 2400 Bayshore Parkway, Mountain View, CA 94043.
                   </font></p>
                   </div>
                </td>

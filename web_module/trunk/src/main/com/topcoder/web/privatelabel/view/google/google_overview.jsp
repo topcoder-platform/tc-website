@@ -76,30 +76,30 @@ function openWin(url, name, w, h) {
 Google is looking for engineers with the programming skill to rewrite the world’s information infrastructure. The Google Code Jam 2003 is one way we hope to find them. Your participation in this contest gives us a chance to observe how you operate in conditions similar to the all-out environment within the Googleplex. Think of it as a job interview with a large potential cash bonus just for showing up. 
 <br><br>
 <font color="006633" size="3"><b>Say it your way</b></font><br><br>
-Use Java, C++, C# or VB.NET. Pick any of these programming languages to code your solutions. All are acceptable and none is given an advantage over the other in the judging.
+Use Java, C++, C# or VB.NET. Pick any of these programming languages to code your solutions. All are acceptable and none is given an advantage.
 <br><br>
 <font color="006633" size="3"><b>How it works</b></font><br><br>
 The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints.  Here’s the line-by-line documentation:
 <ul>
 <strong>Download the Arena</strong><br>
-TopCoder's Competition Arena (a Java Applet) is where you begin. Download the app, read the problem statements then code solutions, compile and test those solutions and submit their code for points. You can download the arena ahead of time to work on sample problems prior to the competition.
+The TopCoder&#153; Competition Arena (a Java Applet) is where you begin. Download the app, read the problem statements, then code solutions, compile and test those solutions and submit the code for points. You can download the arena ahead of time to work on sample problems prior to the competition.
 <br><br>
 <strong>Coding Phase</strong><br>
 At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. In a race to see who can create an accurate solution in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tallies the points during each step of the competition.
 <br><br>
 <strong>Challenge Phase</strong><br>
-During the Challenge Phase, competitors view each other's code and try to "break'" that code by passing test cases through the submitted code, with the hope that the results are not satisfied by anyone else’s software. Breaking another developer's code is the most direct form of competition for a programmer. In this phase, points are awarded for successful challenges and deducted for unsuccessful challenges. 
+During the Challenge Phase, competitors view each other's code and try to "break'" that code by passing test cases through the submitted code, with the hope that the results are not satisfied by the software written. Breaking another developer's code is the most direct form of competition for a programmer. In this phase, points are awarded for successful challenges and deducted for unsuccessful challenges. 
 <br><br>
 <strong>System Tests</strong><br>
-Within minutes of the end of the Challenge Phase, the judges determine the accuracy of all submissions and award final points to all competitors. The evaluation of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against a competitive field.
+Within minutes of the end of the Challenge Phase, the automated, objective system tests determine the accuracy of all submissions and award final points to all competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against a competitive field.
 </ul>
 </font></p>
 
 <font color="006633" size="3"><b>Are You Ready?</b></font>
 <p><font size="-1">
-Registration for the Google Code Jam 2003 opens on October 1st and ends on October 15th, 2003. Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Challenge on October 24th.
+Registration for the Google Code Jam 2003 opens on October 1st and ends on October 15th, 2003. Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam 2003 on October 24th.
 <br><br>
-The competitors with the top 250 scores from Round 1 will advance to Round 2 on October 27th. The top 25 performers in Round 2 will be invited to compete for the cash prizes in the Championship Round onsite at the Googleplex (Mountain View, CA) on November 14th. 
+The competitors with the top 250 scores from Round 1 will advance to Round 2 on October 27th. The top 25 performers in Round 2 will be invited to compete for cash prizes in the Championship Round onsite at the Googleplex (Mountain View, CA) on November 14th. 
 </font></p>
 <ul>
                           <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
