@@ -95,7 +95,7 @@
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
-                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/GentivaOrderProcessingApplicationSpec.pdf">Business Requirement Specification</a> for this application project.
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/HealthCareOrderProcessingApplicationSpec.pdf">Business Requirement Specification</a> for this application project.
                                                     </p>
 
 
@@ -295,7 +295,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Gentiva%20Order%20Processing">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Health%20Care%20Order%20Processing">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
