@@ -51,12 +51,6 @@
   <BODY>
   <jsp:include page="../top.jsp" />
 
-<!-- Menu begins -->
-<jsp:include page="../menu.jsp">
-    <jsp:param name="level1" value="competition"/>
-</jsp:include>
-<!-- Menu ends -->
-
   <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
 <!-- Left Column Begins -->
