@@ -22,15 +22,12 @@ public class ProblemList extends BaseProcessor {
      */
     public void process() throws Exception {
         User user = getAuthentication().getActiveUser();
-        InitialContext context = new InitialContext();
-        DataAccessInt dAccess = new DataAccess(
-            (DataSource)context.lookup(Constants.DATA_SOURCE));
-        
+
         Request dr = new Request();
         dr.setContentHandle("problemList");
         dr.setProperty("uid", String.valueOf(user.getId()));
         
-        Map map = dAccess.getData(dr);
+        Map map = getDataAccess(true).getData(dr);
 
         if(map == null || map.size() != 1)
             throw new ScreeningException("Data retrieval error");
