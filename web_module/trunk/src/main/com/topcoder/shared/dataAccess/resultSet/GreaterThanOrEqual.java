@@ -38,11 +38,10 @@ public class GreaterThanOrEqual implements ResultFilter {
         } else {
             item = rsr.getItem(colName);
         }
-        Number other = (Number)item.getResultData();
 
-        log.debug("row: " + rsr);
-        log.debug("item: " + item);
-        log.debug("compare " + other + " with " + n);
+
+        Number other = (Number)item.getResultData();
+        if (other==null) return false;
 
         return ((Comparable)other).compareTo(n)>=0;
 

@@ -33,6 +33,7 @@ public class Equals implements ResultFilter {
             item = rsr.getItem(colName);
         }
 
+
         return (o==null&&item.getResultData()==null)||o.equals(item.getResultData());
 
     }
