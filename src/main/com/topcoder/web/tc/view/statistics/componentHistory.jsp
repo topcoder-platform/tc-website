@@ -35,12 +35,31 @@
 
         <TD CLASS="bodyText" WIDTH="99%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="15" BORDER="0"><BR/>
 
+<% 
+Request srb = (Request) request.getAttribute("REQUEST_BEAN");
+pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
+ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Basic_Coder_Information");
+boolean bEmpty = (rsc == null || rsc.size()!=1);
+%>
+
 <!-- Center column begins -->
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                 <TR>
                     <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
                     <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
-                    <TD CLASS="bodySubhead" VALIGN="middle" WIDTH="100%">&#160;&#160;&#160;Component History&#160;&#160;</TD>
+                    <TD CLASS="bodySubhead" VALIGN="middle" WIDTH="100%">&#160;&#160;&#160;Component 
+<% if(srb.getProperty("pi").equals("113")){
+%>
+       Development
+<%
+   }
+   else{
+%>
+       Design
+
+<%
+   }
+%>History&#160;&#160;</TD>
                     <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
                 </TR>
             </TABLE>
@@ -51,11 +70,8 @@
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 
-<% 
-Request srb = (Request) request.getAttribute("REQUEST_BEAN");
-pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
-ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Basic_Coder_Information");
-boolean bEmpty = (rsc == null || rsc.size()!=1);
+
+<%
 if (!bEmpty) {
   ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
   pageContext.setAttribute("resultRow", rsr);
@@ -75,10 +91,22 @@ if (!bEmpty) {
                                 <TD width="99%" CLASS="statText" HEIGHT="16" align="right">
                                     <A HREF="/stat?c=member_profile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
 
-                                     | <A HREF="mailto:service@topcodersoftware.com?subject=ComponentScores" CLASS="statText">Contact TopCoder with Scoring Problems</A> 
+                                     | 
+<% 
+   if(srb.getProperty("pi").equals("113"))
+   {
+%>
+                     <A HREF="/stat?c=component_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Ratings History</A>
+<%
+   }
+   else{
+%>
+                     <A HREF="/stat?c=component_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Ratings History</A>
+<%}%>
 
-                             | <A HREF="/stat?pi=112&c=ratings_history&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Ratings History</A> 
-                             | <A HREF="/stat?pi=113&c=ratings_history&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Ratings History</A> 
+
+                             | <A HREF="/stat?pi=112&c=tcs_ratings_history&pi=112&&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Ratings History</A> 
+                             | <A HREF="/stat?pi=113&c=tcs_ratings_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Ratings History</A> 
                                 </TD>
                             </TR>
                             
