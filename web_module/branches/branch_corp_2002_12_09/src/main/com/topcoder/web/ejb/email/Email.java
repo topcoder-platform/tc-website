@@ -19,12 +19,14 @@ public interface Email extends EJBObject {
      */
     long createEmail(long userId) throws RemoteException, EJBException;
 
+
     /**
      *
      *
      * @see com.topcoder.web.ejb.email.EmailBean#getEmailId
      */
     long getEmailId(long userId) throws RemoteException, EJBException;
+
 
     /**
      *
@@ -45,7 +47,7 @@ public interface Email extends EJBObject {
     /**
      *
      *
-     * @see com.topcoder.web.ejb.email.EmailBean#setEmailTypeIde
+     * @see com.topcoder.web.ejb.email.EmailBean#setEmailTypeId
      */
     void setEmailTypeId(long userId, long emailId, long emailTypeId)
                  throws RemoteException, EJBException;
