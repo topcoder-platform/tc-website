@@ -1,5 +1,5 @@
 <%@ taglib uri="/search-taglib.tld" prefix="adv" %>
-<%@ page import="com.topcoder.web.hs.model.*","java.util.*" %>
+<%@ page import="com.topcoder.web.hs.model.*,java.util.*" %>
 <jsp:useBean id="search" type="com.topcoder.web.hs.model.SearchBean" scope="request"/>
 <jsp:useBean id="NavZone" class="com.topcoder.web.hs.model.NavZoneBean" scope="request" />
 <jsp:setProperty name="NavZone" property="Level0" value="stats" />
@@ -162,17 +162,16 @@
       <TD><B>School</B></TD>
       <TD><B>Last Competed</B></TD>
      </TR>
-      <% List member_list=search.getMemberList();
-         for (int i=0;i<member_list.size();i++) {
-           SearchMemberBean smb=(SearchMemberBean)member_list.get(i); %>
-     <TR>
-      <TD><%=smb.getHandle()%></TD>
-      <TD><%=smb.getRating().toString()%></TD>
-      <TD><%=smb.getStateCode()%></TD>
-      <TD><%=smb.getSchoolName()%></TD>
-      <TD><%=smb.getLastCompeted()%></TD>
-     </TR>
-      <% } %>
+     <adv:resultSetRowIterator id="member" list="<%=search.getMemberList()%>">
+        <TR>
+            <TD><A HREF="?module=Statistics&c=member_profile&cr=<adv:resultSetItem row='<%=member%>' name="user_id"/>"><adv:resultSetItem row="<%=member%>" name="handle"/></A></TD>
+            <TD><adv:resultSetItem row="<%=member%>" name="rating"/></TD>
+            <TD><adv:resultSetItem row="<%=member%>" name="state_code"/></TD>
+            <TD><adv:resultSetItem row="<%=member%>" name="school_name"/></TD>
+            <TD><adv:resultSetItem row="<%=member%>" name="last_competed" format="MM/dd/yyyy" ifNull="N/A"/></TD>
+       </TR>
+
+     </adv:resultSetRowIterator>
     </TABLE>
   </TR>
     <% }
