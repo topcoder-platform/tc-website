@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.user;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -20,6 +21,11 @@ public class UserBean extends BaseEJB {
 
     private final static Logger log = Logger.getLogger(UserBean.class);
 
+    public long createNewUser(String handle, char status, String dataSource) throws EJBException {
+        long ret = IdGeneratorClient.getSeqId("main_sequence", dataSource);
+        createUser(ret, handle, status, dataSource);
+        return ret;
+    }
 
     public void createUser(long userId, String handle, char status, String dataSource)
             throws EJBException {
@@ -437,7 +443,7 @@ public class UserBean extends BaseEJB {
         }
         return (code);
     }
-    
+
     public void setHandle(long userId, String handle, String dataSource)
             throws EJBException {
         log.debug("setHandle called. user_id=" + userId);
@@ -473,7 +479,7 @@ public class UserBean extends BaseEJB {
             close(ctx);
         }
     }
-    
+
     public String getHandle(long userId, String dataSource)
             throws EJBException {
         log.debug("getHandle called. user_id=" + userId);
@@ -513,7 +519,7 @@ public class UserBean extends BaseEJB {
             close(conn);
             close(ctx);
         }
-        return (handle);            
+        return (handle);
     }
 
 
