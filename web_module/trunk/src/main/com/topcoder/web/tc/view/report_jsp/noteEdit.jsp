@@ -23,6 +23,7 @@
             <td>
                 <form action="/tc" method=post name="noteForm">
                 <input type="hidden" name="module" value="UpdateNote"/>
+                <input type="hidden" name="<%=com.topcoder.web.tc.Constants.USER_ID%>" value="<%=request.getAttribute(com.topcoder.web.tc.Constants.USER_ID)%>"/>
                     <tc-webtag:textArea name="<%=com.topcoder.web.tc.Constants.NOTE_TEXT%>" rows="3" cols="40"/>
                     <input type="submit" name="submit" value="Update"/>
                 </form>

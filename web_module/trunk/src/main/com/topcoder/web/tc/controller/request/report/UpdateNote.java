@@ -67,7 +67,9 @@ public class UpdateNote extends Base {
                 note.setText(Long.parseLong(nId), noteText, DBMS.OLTP_DATASOURCE_NAME);
             }
 
-            setNextPage("?module=ViewNotes&"+Constants.USER_ID+"="+userId);
+            SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+
+            setNextPage(info.getServletPath()+"?"+Constants.MODULE_KEY+"=ViewNotes&"+Constants.USER_ID+"="+userId);
             setIsNextPageInContext(false);
 
         } catch (TCWebException e) {
