@@ -14,24 +14,24 @@ import java.util.Calendar;
  */
 public class TCO04AlgorithmTerms extends TermsBase {
 
-    protected Calendar getEnd() {
+    public Calendar getEnd() {
         Calendar end = Calendar.getInstance();
         end.set(2004, Calendar.SEPTEMBER, 7, 9, 0);
         return end;
     }
 
-    protected Calendar getBeginning() {
+    public Calendar getBeginning() {
         Calendar beginning = Calendar.getInstance();
         //beginning.set(2004, Calendar.AUGUST, 9, 9, 0);
         beginning.set(2004, Calendar.JULY, 9, 9, 0);
         return beginning;
     }
 
-    protected String getEventName() {
+    public String getEventName() {
         return "TCO Alogrithm Competition";
     }
 
-    protected int getTermsId() {
+    public int getTermsId() {
         return Constants.TCO04_ALGORITHM_TERMS_OF_USE_ID;
     }
 
@@ -40,7 +40,7 @@ public class TCO04AlgorithmTerms extends TermsBase {
         setIsNextPageInContext(true);
     }
 
-    protected boolean isEligible() throws Exception {
+    public boolean isEligible() throws Exception {
         Request r = new Request();
         r.setContentHandle("tco04_eligibility");
         r.setProperty("cr", String.valueOf(getUser().getId()));

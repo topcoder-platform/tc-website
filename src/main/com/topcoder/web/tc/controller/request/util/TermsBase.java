@@ -54,7 +54,7 @@ abstract class TermsBase extends Base {
         }
     }
 
-    protected boolean isRegistered() throws Exception {
+    public boolean isRegistered() throws Exception {
         log.debug("checking if " + getUser().getId() + " has agreed to terms " + getTermsId());
         boolean ret = false;
         UserTermsOfUse userTerms = (UserTermsOfUse)createEJB(getInitialContext(), UserTermsOfUse.class);
@@ -64,12 +64,12 @@ abstract class TermsBase extends Base {
     }
 
 
-    protected abstract Calendar getEnd();
-    protected abstract Calendar getBeginning();
-    protected abstract String getEventName();
-    protected abstract int getTermsId();
+    public abstract Calendar getEnd();
+    public abstract Calendar getBeginning();
+    public abstract String getEventName();
+    public abstract int getTermsId();
     protected abstract void setSuccessPage();
-    protected abstract boolean isEligible() throws Exception;
+    public abstract boolean isEligible() throws Exception;
 
 
 }

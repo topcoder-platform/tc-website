@@ -58,19 +58,19 @@ public class TCO04AlgorithmTermsAgree extends TermsAgreeBase {
         helper.setAuthentication(auth);
     }
 
-    protected Calendar getEnd() {
+    public Calendar getEnd() {
         return helper.getEnd();
     }
 
-    protected Calendar getBeginning() {
+    public Calendar getBeginning() {
         return helper.getBeginning();
     }
 
-    protected String getEventName() {
+    public String getEventName() {
         return helper.getEventName();
     }
 
-    protected int getTermsId() {
+    public int getTermsId() {
         return helper.getTermsId();
     }
 
@@ -79,7 +79,7 @@ public class TCO04AlgorithmTermsAgree extends TermsAgreeBase {
         setIsNextPageInContext(false);
     }
 
-    protected boolean isEligible() throws Exception {
+    public boolean isEligible() throws Exception {
         return helper.isEligible();
     }
 }

@@ -12,7 +12,7 @@ public class TCO04ComponentTerms extends TCO04AlgorithmTerms {
         return "TCO Component Competition";
     }
 
-    protected int getTermsId() {
+    public int getTermsId() {
         return Constants.TCO04_COMPONENT_TERMS_OF_USE_ID;
     }
 

@@ -2,10 +2,14 @@ package com.topcoder.web.tc.controller.request;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.util.TCCC04TermsAgree;
+import com.topcoder.web.tc.controller.request.util.TCO04ComponentTerms;
+import com.topcoder.web.tc.controller.request.util.TCO04AlgorithmTerms;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class Home extends Base {
 
@@ -78,8 +82,27 @@ public class Home extends Base {
             dataRequest.setProperty("cr", String.valueOf(getUser().getId()));
             getRequest().setAttribute("member_info", dwDai.getData(dataRequest).get("Coder_Data"));
 
-            getRequest().setAttribute("isEligible", String.valueOf(TCCC04TermsAgree.isEligible(getUser().getId())));
-            getRequest().setAttribute("isRegistered", String.valueOf(TCCC04TermsAgree.isRegistered(getUser().getId())));
+            TCO04ComponentTerms compTerms = new TCO04ComponentTerms();
+            compTerms.setRequest(getRequest());
+            compTerms.setResponse(getResponse());
+            compTerms.setAuthentication(getAuthentication());
+
+            TCO04AlgorithmTerms algoTerms = new TCO04AlgorithmTerms();
+            algoTerms.setRequest(getRequest());
+            algoTerms.setResponse(getResponse());
+            algoTerms.setAuthentication(getAuthentication());
+
+            Calendar now = Calendar.getInstance();
+            now.setTime(new Date());
+            if (now.before(compTerms.getEnd())&&now.after(compTerms.getBeginning())) {
+                getRequest().setAttribute("isEligibleComp", String.valueOf(compTerms.isEligible()));
+                getRequest().setAttribute("isRegisteredComp", String.valueOf(compTerms.isRegistered()));
+            }
+
+            if (now.before(algoTerms.getEnd())&&now.after(algoTerms.getBeginning())) {
+                getRequest().setAttribute("isEligibleAlgo", String.valueOf(algoTerms.isEligible()));
+                getRequest().setAttribute("isRegisteredAlgo", String.valueOf(algoTerms.isRegistered()));
+            }
 
 
 
