@@ -77,53 +77,9 @@ public class Submit extends FullRegSubmit {
         super.setCoderType(ret.getId(), ((FullRegInfo)regInfo).getCoderType());
         ret = super.storeQuestions(regInfo, ret);
 
-        //check for resume save
-        ResumeRegInfo info = (ResumeRegInfo)regInfo;
-        if(info.getUploadedFile() != null)
-        {
-            byte[] fileBytes = null;
-            String fileName = "";
-            int fileType = -1;
-
-            fileBytes = new byte[(int) info.getUploadedFile().getSize()];
-            info.getUploadedFile().getInputStream().read(fileBytes);
-            if (fileBytes == null || fileBytes.length == 0)
-                addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
-            else {
-                //fileType = Integer.parseInt(file.getParameter("fileType"));
-                Map types = getFileTypes(transDb);
-                if(types.containsKey(info.getUploadedFile().getContentType()) )
-                {
-                    log.debug("FOUND TYPE");
-                    fileType = ((Long) types.get(info.getUploadedFile().getContentType())).intValue();
-                }
-                else
-                {
-                    log.debug("DID NOT FIND TYPE " + info.getUploadedFile().getContentType());
-                }
-                fileName = info.getUploadedFile().getRemoteFileName();
-                ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
-                resumeServices.putResume(ret.getId(), fileType, fileName, fileBytes, transDb);
-            }
-        }
-
         return ret;
     }
 
-    protected Map getFileTypes(String db) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("file_types");
-        Map qMap = getDataAccess(db, true).getData(r);
-        ResultSetContainer questions = (ResultSetContainer) qMap.get("file_types");
-        ResultSetContainer.ResultSetRow row = null;
-
-        Map ret = new HashMap();
-        for (Iterator it = questions.iterator(); it.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow) it.next();
-            ret.put(row.getStringItem("mime_type"), new Long( row.getLongItem("file_type_id")) );
-        }
-        return ret;
-    }
 
     protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
         try {
@@ -301,7 +257,7 @@ public class Submit extends FullRegSubmit {
                 Date transEnd = translateDate(endDate);
 
 
-                buf.append("Thank you for your interest in employment opportunities with Brooks Automation Private Limited in Chennai, India.  As part of our candidate selection and evaluation process, we would like you to participate in the Brooks Automation Technical Assessment Tool, powered by TopCoder.  Through this Technical Assessment Tool, you will be asked to solve algorithmic problems as an objective measure of your programming and technical problem solving ability.\n\n");
+                buf.append("Thank you for your interest in employment opportunities with Amazon.com. As part of our candidate selection and evaluation process, we would like you to participate in the Amazon.com Technical Assessment Tool, powered by TopCoder. Through this Technical Assessment Tool, you will be asked to solve algorithmic problems as an objective measure of your programming and technical problem solving ability.\n\n");
                 buf.append("Please review the Help Manual before getting started:\n");
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
@@ -310,18 +266,18 @@ public class Submit extends FullRegSubmit {
                 buf.append("The following session has been scheduled for you:\n\n");
                 buf.append("Begin: ");
                 buf.append(new SimpleDateFormat("MM/dd/yyyy hh:mm a").format(transBegin));
-                buf.append(" IST\n");
+                buf.append(" PT\n");
                 buf.append("End: ");
                 buf.append(new SimpleDateFormat("MM/dd/yyyy hh:mm a").format(transEnd));
-                buf.append(" IST\n");
+                buf.append(" PT\n");
                 buf.append("Login: ");
                 buf.append(info.getHandle());
                 buf.append("\n");
                 buf.append("Password: ");
                 buf.append(info.getPassword());
                 buf.append("\n\n");
-                buf.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TECHNICAL ASSESSMENT TOOL PRIOR TO THE END TIME SHOWN ABOVE.  YOU SHOULD ALLOW APPROXIMATELY 1 HOUR TO COMPLETE ALL PORTIONS OF THE TEST.\n\n");
-                buf.append("You must have the Java 1.4.x runtime installed to access the Technical Assessment Tool here:\n");
+                buf.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TECHNICAL ASSESSMENT TOOL PRIOR TO THE END TIME SHOWN ABOVE. YOU SHOULD ALLOW APPROXIMATELY 1.5 HOURS TO COMPLETE ALL PORTIONS OF THE TEST. \n\n");
+                buf.append("All users need to have the Java 1.4.x runtime installed and can access the Technical Assessment Tool here: \n");
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
                 buf.append("/corp/testing/testingApp.jsp?company=");
@@ -329,14 +285,13 @@ public class Submit extends FullRegSubmit {
                 buf.append("\n\n");
                 buf.append("If you are unable to connect when you attempt to login, please try checking the HTTP Tunneling option and entering your login/password again.");
                 buf.append("\n\n");
-                buf.append("If you encounter any technical problems while using the Technical Assessment Tool, please contact us at brooks@topcoder.com.\n\n");
+                buf.append("If you encounter any technical problems while using the Technical Assessment Tool, please contact us at amazon@topcoder.com.\n\n");
                 buf.append("Thank you,\n\n");
-                buf.append("Brooks Automation Private Limited\n");
-                buf.append("Chennai, India");
+                buf.append("Amazon.com Recruiting Team");
 
                 mail.setBody(buf.toString());
                 mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
-                mail.setFromAddress("brooks@topcoder.com", "Brooks Automation Private Limited, Chennai");
+                mail.setFromAddress("amazon@topcoder.com", "Invitation to Amazon.com Technical Assessment Tool");
                 EmailEngine.send(mail);
                 log.info("sent registration email to " + info.getEmail());
 
@@ -415,9 +370,9 @@ public class Submit extends FullRegSubmit {
         //bring to GMT
         log.debug("TIME: " + c.get(GregorianCalendar.YEAR));
         log.debug("EST: " + TimeZone.getTimeZone("EST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
-        log.debug("IST: " + TimeZone.getTimeZone("IST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
+        log.debug("PST: " + TimeZone.getTimeZone("PST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
         ret = new Date( ret.getTime() - TimeZone.getTimeZone("EST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
-        ret = new Date( ret.getTime() + TimeZone.getTimeZone("IST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
+        ret = new Date( ret.getTime() + TimeZone.getTimeZone("PST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
 
         return ret;
     }
