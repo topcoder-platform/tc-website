@@ -7,7 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Student Representatives</title>
+<title>Working at TopCoder</title>
 
 <jsp:include page="../../script.jsp" />
 
@@ -61,8 +61,9 @@
                         <ul>
 <%--                            
                             <li><a href="?&#38;t=about_tc&#38;c=tc_project_manager">Project Manager</a></li>
+                            --%>
                             <li><a href="?&#38;t=about_tc&#38;c=tc_salesperson">Salesperson</a></li>
---%>
+
                             <li><A HREF="/?&amp;t=tces&amp;c=topcoder_developer&amp;a=secure">Developer</A></li>
                         </ul>
                     </td>

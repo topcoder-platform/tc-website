@@ -7,7 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Student Representatives</title>
+<title>About TopCoder - Overview</title>
 
 <jsp:include page="../../script.jsp" />
 
