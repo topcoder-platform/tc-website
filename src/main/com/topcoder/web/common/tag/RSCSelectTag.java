@@ -18,7 +18,7 @@ public class RSCSelectTag extends SelectTag {
 
     /**
      * Sets the fieldText.
-     * @param fieldText The fieldText to set
+     * @param txt The fieldText to set
      */
     public void setFieldText(String txt) {
         fieldText = txt;
@@ -26,7 +26,7 @@ public class RSCSelectTag extends SelectTag {
 
     /**
      * Sets the fieldValue.
-     * @param fieldValue The fieldValue to set
+     * @param val The fieldValue to set
      */
     public void setFieldValue(String val) {
         fieldValue = val;
@@ -34,7 +34,7 @@ public class RSCSelectTag extends SelectTag {
 
     /**
      * Sets the list.
-     * @param list The list to set
+     * @param rsc The list to set
      */
     public void setList(ResultSetContainer rsc) {
         list = rsc;
@@ -44,7 +44,7 @@ public class RSCSelectTag extends SelectTag {
      *
      * @see com.topcoder.web.common.tag.SelectTag#getOptionText(java.lang.Object)
      */
-    String getOptionText(Object o) {
+    protected String getOptionText(Object o) {
         ResultSetContainer.ResultSetRow row;
         row = (ResultSetContainer.ResultSetRow) o;
         return row.getItem(fieldText).toString();
@@ -53,7 +53,7 @@ public class RSCSelectTag extends SelectTag {
     /**
      * @see com.topcoder.web.common.tag.SelectTag#getOptionValue(java.lang.Object)
      */
-    String getOptionValue(Object o) {
+    protected String getOptionValue(Object o) {
         ResultSetContainer.ResultSetRow row;
         row = (ResultSetContainer.ResultSetRow) o;
         return row.getItem(fieldValue).toString();
@@ -62,14 +62,14 @@ public class RSCSelectTag extends SelectTag {
     /**
      * @see com.topcoder.web.common.tag.SelectTag#getSelectOptions()
      */
-    List getSelectOptions() throws JspException {
+    protected List getSelectOptions() throws JspException {
         return list;
     }
 
     /**
      * @see com.topcoder.web.common.tag.SelectTag#getSelected()
      */
-    String getSelected() throws JspException {
+    protected String getSelected() throws JspException {
         setSelectedValue((String) getDefaultValue());
         return super.getSelected();
     }
