@@ -25,8 +25,7 @@ public class ViewProblemSetInner extends Base {
                 log.debug("defaults: " + defaults);
                 if (hasDefault(Constants.PROBLEMS) && hasDefault(Constants.PROBLEM_TYPE_ID)) {
                     log.debug("has defaults");
-                    getRequest().setAttribute(Constants.PROBLEM_SETS, getDefault(Constants.PROBLEM_SETS));
-                    getRequest().setAttribute(Constants.LANGUAGES, getDefault(Constants.LANGUAGES));
+                    getRequest().setAttribute(Constants.PROBLEMS, getDefault(Constants.PROBLEMS));
                     getRequest().setAttribute(Constants.PROBLEM_TYPE_ID, getDefault(Constants.PROBLEM_TYPE_ID));
                     setNextPage(Constants.PAGE_VIEW_PROBLEM_SET_INNER);
                     setIsNextPageInContext(true);

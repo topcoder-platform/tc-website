@@ -119,8 +119,10 @@ public class RequestTracker {
 
     protected static void createRequest(long userId, String url, Timestamp time,
                                         String sessionId, String dataSource) throws TCWebException {
+/*
         log.debug("createRequest called. url: " + url
                 + " userId: " + userId + " time: " + time + " session: " + sessionId);
+*/
 
         StringBuffer query = new StringBuffer(200);
         query.append("insert into request (user_id, url, timestamp, session_id) ");
@@ -149,7 +151,7 @@ public class RequestTracker {
     }
 
     protected static void createRequest(String url, Timestamp time, String sessionId, String dataSource) throws TCWebException {
-        log.debug("createRequest called. url: " + url + " time: " + time + " session: " + sessionId);
+//        log.debug("createRequest called. url: " + url + " time: " + time + " session: " + sessionId);
         StringBuffer query = new StringBuffer(200);
         query.append("insert into request (url, timestamp, session_id) ");
         query.append(" values (?, ?, ?)");
