@@ -87,7 +87,7 @@
 					The more a coder competes, the better their rating can become. Ratings are the key determining factor for establishing the initial elimination field for either the Invitational Tournament or Collegiate Challenge. A coder's rating is based on several factors (detailed ratings overview), but the basic idea is that ratings are based upon the points gained in a given match, the number of matches competed in, and how that stacks up against other coders with similar points and matches.</P>
 					<P>As you look through the site, you will see color coding with member's handles. These colors indicate the rating level of that member. Participating members (those who compete versus spectate) are able to view each other's profiles, past code submissions, stats and more.</P>
 					<P><B>Prizes</B><BR/>
-Although are no prizes awarded for the Single Round Matches, major TopCoder tournaments offer a substantial total purse. 
+Although there are no prizes awarded for the Single Round Matches, major TopCoder tournaments offer a substantial total purse. 
 The purse for these tournaments ranges anywhere from $100,000 to $250,000.  TopCoder holds two major tournaments per year: 
 the Collegiate Challenge, open for full-time students, and the Invitational, open to all eligible members.					
 					</P>
