@@ -168,9 +168,9 @@ A total of $5,000 will be paid out for each weekly team competition. Each week, 
 collect the prize money, so each winning team member will receive $100 each. A total of $4,800 will be paid out to Division 1 winners. The remaining $200 will be paid to the highest 
 scoring team in Division 2.<BR/><BR/>
 Playoffs (3 rounds in total) - Total prize purse of $55,000<BR/><BR/>
-8 teams compete - August 12, 2002<BR/>
-4 teams compete - August 19, 2002<BR/>
-2 teams compete - August 26, 2002<BR/><BR/>
+8 teams compete - TBD<BR/>
+4 teams compete - TBD<BR/>
+2 teams compete - TBD<BR/><BR/>
 Best 4 teams win:  $55,000 total prize purse to be paid as follows:<BR/>
 #1 team: $25,000 ($5,000 per team member)<BR/>
 #2 team: $15,000 ($3,000 per team member)<BR/>
