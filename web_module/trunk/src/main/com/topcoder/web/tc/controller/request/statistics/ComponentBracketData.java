@@ -93,6 +93,12 @@ public class ComponentBracketData extends Base {
                 addElement(hd, "handle", profileRsc.getStringItem(0, "handle"), emptyAtts);
                 addElement(hd, "room_seed", String.valueOf(i), emptyAtts);
                 addElement(hd, "coderID", arr[i], emptyAtts);
+                String img = "";
+                if(profileRsc.getStringItem(0, "image_path") == null || profileRsc.getStringItem(0, "image_path").equals("")) {
+                    img = "/i/m/nophoto.jpg";
+                } else {
+                    img = profileRsc.getStringItem(0, "image_path");
+                }
                 addElement(hd, "photo", profileRsc.getStringItem(0, "image_path"), emptyAtts);
                 addElement(hd, "AlgRating", profileRsc.getStringItem(0, "rating"), emptyAtts);
                 addElement(hd, "DesRating", String.valueOf(profileRsc.getIntItem(0, "design_rating")), emptyAtts);
