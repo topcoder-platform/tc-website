@@ -85,9 +85,9 @@
                                     <td class="bodyText" valign="top">
                                         <strong>Application Specification Deliverables</strong>
                                         <br/>
-                                        This document provides an outline of the items required for the specification process.  The
-                                        Application Specification Document is completed by a TopCoder project presented to
-                                        designers at the start of the design phase.
+                                        The Application Requirements Specification provides an outline of the items required
+                                        for the specification process.  The Application Specification Document is completed
+                                        by a TopCoder project manager and presented to designers at the start of the design phase.
                                     </td>
                                     <td></td>
                                     <td class="bodyText" valign="top">
