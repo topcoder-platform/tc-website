@@ -50,7 +50,7 @@
 <% String message = (String) request.getAttribute("message"); %>
 <%= (message == null) ? "" : ("<p class='notice'>" + message + "</p>") %>
 
-<FORM NAME="login" METHOD="POST" ACTION="/tces/tces" onSubmit="">
+<FORM NAME="login" METHOD="GET" ACTION="/tces/tces" onSubmit="">
 <INPUT TYPE="HIDDEN" NANE="c" VALUE="login">
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="132" ALIGN="center">
                   <TR>
