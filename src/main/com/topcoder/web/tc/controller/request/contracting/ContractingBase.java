@@ -290,7 +290,7 @@ abstract public class ContractingBase extends BaseProcessor {
         p.removeObject(Constants.CONTRACTING_INFO);
     }
     
-    protected ContractingInfo getInfoFromDB() {
+    protected ContractingInfo getInfoFromDB() throws Exception {
         ContractingInfo info = new ContractingInfo();
         
         log.debug("LOADING DATA FROM DB");
