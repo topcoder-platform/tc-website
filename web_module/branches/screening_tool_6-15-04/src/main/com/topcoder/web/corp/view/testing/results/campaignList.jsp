@@ -33,8 +33,8 @@
                     <td class="bodyText">
                         <p><span class=testHead>Campaign List</span><br/>
                         <scre>
-                        <screen:resultSetRowIterator id="companyInfo" list="<%=Constants.COMPANY_INFO%>">
-                        Company Name: <screen:resultSetItem row="companyInfo" name="company_name" /><br/>
+                        <screen:resultSetRowIterator id="row" list="<%=Constants.COMPANY_INFO%>">
+                        Company Name: <screen:resultSetItem row="<%=row%>" name="company_name" /><br/>
                         </screen:resultSetRowIterator>
                         </p>
                     </td>
@@ -55,19 +55,19 @@
                     int counter = 0;
                     String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
                 %>
-                <screen:resultSetRowIterator id="companyCampaignsList"
+                <screen:resultSetRowIterator id="row"
                                              list="<%=Constants.COMPANY_CAMPAIGNS_LIST%>">
                 <tr>
                     <td class="<%=cssClasses[counter++ % 2]%>" nowrap="nowrap">
                         <a href="/corp/testing/results/campaignResults.jsp?<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="companyCampaignsList" name="campaign_id" />">
-                            <screen:resultSetItem row="companyCampaignsList" name="campaign_name" />
+                            <screen:resultSetItem row="<%=row%>" name="campaign_name" />
                         </a>
                     </td>
                     <td class="<%=cssClasses[counter++ % 2]%>" align="center">
-                        <screen:resultSetItem row="companyCampaignsList" name="most_recent_activity" />
+                        <screen:resultSetItem row="<%=row%>" name="most_recent_activity" />
                     </td>
                     <td class="<%=cssClasses[counter++ % 2]%>" nowrap="right">
-                        <screen:resultSetItem row="companyCampaignsList" name="candidates_num" />
+                        <screen:resultSetItem row="<%=row%>" name="candidates_num" />
                     </td>
                     <td class="<%=cssClasses[counter++ % 2]%>" nowrap="center">
                         <A href='/corp/testing/results/positionList.jsp?<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="companyCampaignsList" name="campaign_id" />'>view</A>
