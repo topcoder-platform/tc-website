@@ -30,12 +30,6 @@
 	   <BR>
 	   </TD>
 	   <TR>
-      <TD WIDTH="170" bgcolor="#001935" VALIGN="top">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
 	  <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
 		<TD><BR>
 
