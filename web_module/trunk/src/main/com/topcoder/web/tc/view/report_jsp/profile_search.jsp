@@ -231,9 +231,10 @@
                 sa = request.getParameterValues("skillset"+resultRow.getStringItem("skill_type_id")); 
                 for(int i = 0; sa!=null && i<sa.length; i++){
                     String skill_selection = sa[i];
+                    int us = skill_selection.toString().indexOf("_");
             %>
                 <option value="<%=skill_selection%>">
-                    <%= skillNames.get(new Integer(skill_selection.toString().substring(0,skill_selection.toString().indexOf("_")))) %>
+                    <%= skillNames.get(new Integer(skill_selection.toString().substring(0,us))) + " >= " + skill_selection.substring(us+1); %>
                 </option>
             <%}%>
         </select>
