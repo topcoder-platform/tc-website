@@ -147,7 +147,7 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
             hit.put("type", hitListRow.getItem("coder_type_desc").toString() );
             hit.put("school", hitListRow.getItem("school_name").toString() );
             hit.put("position", hitListRow.getItem("job_desc").toString() );
-            hit.put("hit_date", dateToString(((TCTimestampResult)hitListRow.getItem("timestamp"))) );
+            hit.put("hit_date", getDate(hitListRow, "timestamp") );
 
             hitList.add(hit);
         }

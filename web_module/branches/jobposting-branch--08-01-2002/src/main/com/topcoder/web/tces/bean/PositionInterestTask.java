@@ -149,8 +149,8 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
             throw new Exception ("Bad campaign ID or campaign does not belong to user.");
         }
         ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
-        setCampaignName( posNameRow.getItem("campaign_name").toString() );
-        setCampaignStatus( posNameRow.getItem("status_desc").toString() );
+        setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
+        setCampaignStatus( cpgnInfRow.getItem("status_desc").toString() );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
         if (rsc.getRowCount() == 0) {
