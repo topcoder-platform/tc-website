@@ -111,13 +111,13 @@
                         <% boolean odd = true;; %>
                         <tces:mapIterator id="resp" MapList="<%=StudentResponsesList%>">
                             <TR>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("title")%>
                               </TD>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("percent")%>
                               </TD>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("count")%>
                               </TD>
                             </TR>
@@ -198,13 +198,13 @@
                         <% boolean odd = true; %>
                         <tces:mapIterator id="resp" MapList="<%=ProResponsesList%>">
                             <TR>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("title")%>
                               </TD>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("percent")%>
                               </TD>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("count")%>
                               </TD>
                             </TR>
