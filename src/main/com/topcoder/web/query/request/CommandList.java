@@ -3,7 +3,6 @@ package com.topcoder.web.query.request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.ejb.QueryServices.Command;
 import com.topcoder.web.query.ejb.QueryServices.CommandHome;
@@ -31,6 +30,7 @@ public class CommandList extends BaseProcessor {
 
 	protected void baseProcessing() throws Exception {
         Enumeration parameterNames = request.getParameterNames();
+        log.debug("baseProcessng called: " + parameterNames.toString());
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
             String[] parameterValues = request.getParameterValues(parameterName);
