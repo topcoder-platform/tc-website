@@ -61,7 +61,7 @@
 
 <P>The Timer component provides "stopwatch" type functionality to existing and new software. This component allows for run-time performance analysis by enabling developers to clock the execution speed of specified code blocks. As with existing logging solutions, implementing the timer solution is configurable so as to enable real-time configuration modifications. In addition, the timer component is designed to have minimal impact on processing speed.
 <BR/>
-For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300028&amp;cat=13">Timer Component</A> at <A HREF="www.topcodersoftware.com">topcodersoftware.com</A>.
+For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300028&amp;cat=13" CLASS="statText">Timer Component</A> at <A HREF="www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
 </P>
 
 <P><B>Project Type</B></P>
@@ -83,10 +83,11 @@ TopCoder will compensate the member with the winning solution.  Compensation wil
 
 <P>Members will also collect royalties on the revenue generated from the sale of the component.  This amount is determined using the company royalty pool percentage, currently set as 10% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase. </P>
 
-<P><B>DESIGNER</B><BR/>
-Total Payment	$180.00<BR/>
-First Payment	$135.00<BR/>
-Second Payment	$45.00<BR/>
+<P><B>Designer</B><BR/>
+Royalty Percentage - 25%<BR/>
+Total Payment - $180.00<BR/>
+First Deliverable - $135.00<BR/>
+Project Completion - $45.00<BR/>
 </P>
 
 <P>*Completion of the project is defined as follows:

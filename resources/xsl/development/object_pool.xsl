@@ -65,7 +65,7 @@
 Object Pools provide functionality to centralize the management of selected resources. Objects in the pool are created once and reused numerous times. This eliminates the need for continual object initialization and destruction; therefore, saving resources and reducing compilation overhead.
 While a pool can be used for any object type, it is most beneficial to use with objects that have a relatively high initialization overhead. An example is the initialization of database connection objects.
 <BR/>
-For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300000&amp;cat=14">Object Pool Component</A> at <A HREF="www.topcodersoftware.com">topcodersoftware.com</A>.
+For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300000&amp;cat=14" CLASS="statText">Object Pool Component</A> at <A HREF="www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
 </P>
 
 <P>
@@ -99,9 +99,10 @@ Members will also collect royalties on the revenue generated from the sale of th
 
 
 <P>
-<B>DESIGNER</B>
+<B>Designer</B>
 </P>
 <P>
+Royalty Percentage - 25%<BR/>
 Total Payment - $300.00<BR/>
 First Deliverable - $225.00<BR/>
 Project Completion - $75.00<BR/>
