@@ -33,7 +33,10 @@ function goTo(selection){
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="180" VALIGN="top">
-         <jsp:include page="../includes/global_left.jsp" />
+            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="level1" value="statistics"/>
+                <jsp:param name="level2" value="quick_stats"/>
+            </jsp:include>
        </TD>
        <TD WIDTH="10" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
        <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"/><BR/>
