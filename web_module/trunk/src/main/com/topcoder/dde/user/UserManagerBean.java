@@ -1127,7 +1127,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             ps1.setLong(1, userId);
             ps1.setInt(2, Constants.COMPONENT_DOWNLOAD_TERMS_ID);
             rs = ps1.executeQuery();
-            if (rs.next()) {
+            if (!rs.next()) {
                 ps = conn.prepareStatement(sqlUpdate);
                 ps.setLong(1, userId);
                 ps.setInt(2, Constants.COMPONENT_DOWNLOAD_TERMS_ID);
