@@ -10,13 +10,13 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <script language="JavaScript"><!--
   function next() {
-    document.problemListForm.<%=DataAccessConstants.START_RANK%>.value=<%=rsc.getStartRow()+50%>;
-    document.problemListForm.<%=DataAccessConstants.END_RANK%>.value=<%=rsc.getEndRow()+50%>;
+    document.problemListForm.<%=DataAccessConstants.START_RANK%>.value=<%=rsc.getStartRow()+Constants.PROBLEM_ARCHIVE_SCROLL_SIZE%>;
+    document.problemListForm.<%=DataAccessConstants.END_RANK%>.value=<%=rsc.getEndRow()+Constants.PROBLEM_ARCHIVE_SCROLL_SIZE%>;
     document.problemListForm.submit();
   }
   function previous() {
-    document.problemListForm.<%=DataAccessConstants.START_RANK%>.value=<%=rsc.getStartRow()-50%>;
-    document.problemListForm.<%=DataAccessConstants.END_RANK%>.value=<%=rsc.getEndRow()-50%>;
+    document.problemListForm.<%=DataAccessConstants.START_RANK%>.value=<%=rsc.getStartRow()-Constants.PROBLEM_ARCHIVE_SCROLL_SIZE%>;
+    document.problemListForm.<%=DataAccessConstants.END_RANK%>.value=<%=rsc.getEndRow()-Constants.PROBLEM_ARCHIVE_SCROLL_SIZE%>;
     document.problemListForm.submit();
   }
 //--></script>
