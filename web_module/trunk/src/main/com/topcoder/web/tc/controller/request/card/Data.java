@@ -28,6 +28,7 @@ public class Data extends Base {
     protected void businessProcessing() throws TCWebException {
 
         try {
+            getResponse().setContentType("text/xml");
             PrintWriter out = getResponse().getWriter();
             StreamResult streamResult = new StreamResult(out);
             SAXTransformerFactory tf = (SAXTransformerFactory) SAXTransformerFactory.newInstance();
@@ -91,7 +92,6 @@ public class Data extends Base {
             hd.endElement("","","memberStats");
             hd.endDocument();
 
-            getResponse().setContentType("text/xml");
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
