@@ -255,13 +255,12 @@
                 <include name="**/*.jsp"/>
             </fileset>
         </copy>
-<!--
+
         <copy todir="${tces.trgt}">
             <fileset dir="${tces.src}">
                 <include name="**/*.jsp"/>
             </fileset>
         </copy>
--->
 
         <copy todir="${public_html}/WEB-INF">
             <fileset dir="${taglib}">
