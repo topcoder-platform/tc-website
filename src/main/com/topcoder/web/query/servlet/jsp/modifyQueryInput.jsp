@@ -87,7 +87,19 @@
                 </TABLE>
               </TD>
             </TR>
-          <FORM>
+           <TR>
+             <TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">
+               <query:inputSelect name="<%=Constants.INPUT_ID_PARAM%>" class="dropdown" list="<%=ModifyQueryInputTask.getOtherInputList()%>" size="10" multiple="false"/>
+             </TD>
+           </TR>
+           <TR>
+             <TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">
+               <A HREF="javascript: document.ModQueryInputForm.<%=Constants.STEP_PARAM%>.value=<%=Constants.REMOVE_STEP%>; void document.ModQueryInputForm.submit()" class="statText">
+                 [add]
+               </A>
+             </TD>
+           </TR>
+           <FORM>
         </TABLE>
       </TD>
       <TD WIDTH="4" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
