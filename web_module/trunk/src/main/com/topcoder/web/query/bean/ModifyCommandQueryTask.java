@@ -36,11 +36,6 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
     /* Creates a new LoginTask */
     public ModifyCommandQueryTask() {
         super();
-        currentQueryList = new ArrayList();
-        otherQueryList = new ArrayList();
-        commandId = 0;
-        queryId = 0;
-        commandDesc = "";
         attributeQueue = new HashMap();
     }
 
@@ -79,7 +74,6 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
             CommandQueryBean cqb = null;
             for (int j=0; j<getCurrentQueryList().size(); j++) {
                 cqb = (CommandQueryBean)getCurrentQueryList().get(j);
-                log.debug("XXX: " + cqb.toString());
                 cq.setSortOrder(cqb.getCommandId(), cqb.getQueryId(), cqb.getSortOrder());
             }
         } else if (step!=null && step.equals(Constants.NEW_STEP)) {
