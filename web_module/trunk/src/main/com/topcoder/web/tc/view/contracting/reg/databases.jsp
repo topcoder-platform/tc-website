@@ -155,6 +155,7 @@ return false;
 		</FORM>
 
         </div>
+		<p align=center>Please check to make sure that your information is up-to-date.</p>
         <p><br/></p>
         </td>
 <!-- Center Column Ends -->
