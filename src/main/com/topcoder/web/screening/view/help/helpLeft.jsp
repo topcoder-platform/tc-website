@@ -1,4 +1,5 @@
 <%@  page language="java"%>
+<% String selected = request.getParameter("selected")==null?"":request.getParameter("selected"); %>
 
                         <table border="0" cellpadding="3" cellspacing="0" width="100%">
                             <tr><td><h3 class="bodySubtitle">Contents</h3></td></tr>
