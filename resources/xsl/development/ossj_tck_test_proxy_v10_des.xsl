@@ -81,7 +81,7 @@
                                             <a href="#eligibility">Eligibility</a> |
                                             <a href="#timeline">Timeline</a> |
                                             <a target="_new" href="/i/development/downloads/OSSJTCKTestProxyApplicationSpec_v10.pdf">Requirement Specification</a> |
-                                            <a href="#inquire">Inquire</a>
+                                            <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=OSS/J%20TCK%20Test%20Proxy">Inquire</a>
                                         </p>
 
                                         <!-- Overview -->
@@ -98,7 +98,7 @@
                                             
                                             <p>In order to make the process of developing test cases more efficient, the OSS/J community has asked TopCoder to initially develop an OSS/J Test Proxy that will provide a mechanism for utilizing the same junit test cases as they exist today, but execute the tests through any desired integration profile (i.e. JMS/XML, SOAP).</p>
                                             
-                                            <p>IMPORTANT NOTE:  This design project is unique in that what we are requesting of the designer is to take the requirements that are laid out below and come up with a high-level design that identifies additional components that will satisfy these requirements when packaged and used together.  The designer must properly document the component requirements and interfaces within the Application Design Specification and Class Diagram. A corresponding set of component requirements specifications will then be posted along with the winning design from this project so that the final components can be designed and developed separately.</p>
+                                            <p>IMPORTANT NOTE: This design project requires the designer to take the requirements that are laid out below and come up with a design that identifies additional components that will satisfy these requirements when packaged and used together. The designer must properly document the component requirements and interfaces within the Application Design Specification and Class Diagram. A corresponding component specification will then be posted along with the winning design from this project so that the components can be designed and developed separately.</p>
 
                                         <p>
                                             <strong>View the
@@ -113,7 +113,7 @@
                                                 <a name="projecttype">Project Type</a>
                                             </strong>
                                             <br/>
-                                            Application Design Project: Provide a complete HIGH-LEVEL design for the OSS/J TCK Test Proxy project.  Please review the TopCoder Software
+                                            Application Design Project: Provide a completed design for the OSS/J TCK Test Proxy project.  Please review the TopCoder Software
                                             <a href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
                                         </p>
 
