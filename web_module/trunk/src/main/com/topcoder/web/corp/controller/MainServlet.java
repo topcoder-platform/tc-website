@@ -269,8 +269,8 @@ public class MainServlet extends HttpServlet {
         loginPageDest
                 .append(Constants.LOGIN_PAGE).append('?')
                 .append(Login.KEY_DESTINATION_PAGE).append('=')
-                .append(URLEncoder.encode(originatingPage));
-        fetchRegularPage(req, resp, loginPageDest.toString(), true);
+                .append(originatingPage);
+        fetchRegularPage(req, resp, loginPageDest.toString(), false);
     }
 
 
