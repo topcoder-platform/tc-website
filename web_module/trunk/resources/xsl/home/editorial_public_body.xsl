@@ -145,18 +145,18 @@
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText">
-    <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>    
+    <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>    
     </TD>
     <TD VALIGN="top" WIDTH="40%" ALIGN="left" CLASS="bodyText">
-<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Match 78</B></FONT><BR/>
-April 9, 2002<BR/>
-By&#160;lbackstrom<BR/>
+<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Single Round Match 79</B></FONT><BR/>
+April 10, 2002<BR/>
+By&#160;ZorbaTHut<BR/>
     </TD>
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
      <TD VALIGN="top" WIDTH="60%" ALIGN="left" CLASS="bodyText">
-&#183; <A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="bodyGeneric">Room One Review</A><BR/>
-&#183; <A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="bodyGeneric">Rookie Review</A><BR/>
-&#183; <A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A><BR/>
+&#183; <A HREF="/?t=statistics&amp;c=srm79_room1" CLASS="bodyGeneric">Room One Review</A><BR/>
+&#183; <A HREF="/?t=statistics&amp;c=srm79_rookie" CLASS="bodyGeneric">Rookie Review</A><BR/>
+&#183; <A HREF="/?t=statistics&amp;c=srm79_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A><BR/>
     </TD>
      <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>   
   </TR>
