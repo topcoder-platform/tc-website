@@ -290,29 +290,12 @@
                 <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=contracts&amp;c=contract_history">Contracts</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=tax_forms&amp;c=tax_forms_history">Tax Forms</a></td></tr>
 
-                <tr><td id="leftNavTitle">Competition:</td></tr>
-                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Statistics</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Features</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Tournaments</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Round Tables</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=support&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Support/FAQs</a></td></tr>
-
 <% } %>     
 
 <!-- TopCoder Info begins -->
 
     <% if ((level1.equals("review_board"))) { %> 
 
-                <tr><td id="leftNavTitle">Competition:</td></tr>
-                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Statistics</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Features</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Tournaments</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Round Tables</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=support&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Support/FAQs</a></td></tr>
                 <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=about_tc&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>About TopCoder</a></td></tr>
                 <tr><td id="leftNavOn"><a class="leftOn" href="/tc/?d1=review_board&d2=competition"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Review Boards</a></td></tr>
