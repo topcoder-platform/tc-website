@@ -156,7 +156,7 @@
                                     <strong>Match 140</strong><br/>
                                     Register: 6:00&#160;PM<br/>
                                     Compete: 9:00&#160;PM<br/>
-                                    Sponsored by: NVIDIA<br/>
+                                    Sponsored by: Solipsys &#38; NVIDIA<br/>
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     ..//<a href="/?RoundId=4490&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">27</td>
