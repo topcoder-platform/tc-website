@@ -284,14 +284,14 @@ Finally we shall go through the sorted array and calculate the total number of k
         </td>
         <td style="background: #eee;" class="bodyText">20 / 40 (50.00%) </td>
       </tr>
-      <tr>
+      <!-- <tr>
         <td style="background: #eee;" class="bodyText">
           <b>High Score</b>
         </td>
         <td style="background: #eee;" class="bodyText">
 <B>ambrose</B> for 429.52 points  
                 </td>
-      </tr>
+      </tr> -->
     </table>
   </blockquote>
 <P>
