@@ -34,7 +34,7 @@
 <input type="hidden" name="module" value="SubmitRatings">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="500" align="center" class="sidebarBox">
-        <tr><td class="testTableTitleSmall" valign="top" align="center" colspan="11">Problem:&nbsp;<%= request.getAttribute("problemName") %></td></tr>
+        <tr><td class="testTableTitleSmall" valign="top" align="center" colspan="11"><font size="3">Problem:&nbsp;<%= request.getAttribute("problemName") %></font</td></tr>
         <tr><td class="sidebarTitle" valign="top">Question</td>
             <% for(int i = 1; i<=10; i++){ %>
                 <td class="sidebarTitle" align="center" valign="top">

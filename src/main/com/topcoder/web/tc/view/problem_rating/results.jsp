@@ -97,12 +97,15 @@
     <img src="/i/clear.gif" width="500" height="1" vspace="5" border="0"><br/>
 
     <table  WIDTH="500" BORDER="0" CELLSPACING="0" CELLPADDING="6"align="center" class="sidebarBox">
-        <tr><td class="testTableTitleSmall" valign="top" align="center" colspan="4">Problem:&nbsp;<%= request.getAttribute("problemName") %></td></tr>
+        <tr><td class="testTableTitleSmall" valign="top" align="center" colspan="4"><font size="3">Problem:&nbsp;<%= request.getAttribute("problemName") %></font></td></tr>
+        <tr><td class="sidebarTitle" valign="top" align="center" colspan="2"></td>
+<%--        <td class="sidebarTitle" valign="top" align="center">Everyone</td>--%>
+        <td class="sidebarTitle" valign="top" align="center" colspan="2">Participants Only</td></tr>
         <tr>
-           <td class="sidebarTitle" align="left" valign="bottom" nowrap>Question</td>
-           <td class="sidebarTitle" align="right" valign="bottom" nowrap>Total Avg. Rating</td>
-           <td class="sidebarTitle" align="right" valign="bottom" nowrap>Div I Avg. Rating</td>
-           <td class="sidebarTitle" align="right" valign="bottom" nowrap>Div II Avg. Rating</td>
+           <td class="sidebarTitle" align="left" valign="bottom" width="25%" nowrap>Question</td>
+           <td class="sidebarTitle" align="center" valign="bottom" width="25%" nowrap>Total Avg. Rating</td>
+           <td class="sidebarTitle" align="center" valign="bottom" width="25%" nowrap>Div I Avg. Rating</td>
+           <td class="sidebarTitle" align="center" valign="bottom" width="25%" nowrap>Div II Avg. Rating</td>
         </tr>
         <%  if (!problemRatingResults.isEmpty()) {
                 count = ((ProblemRatingResult)problemRatingResults.get(0)).getOverallCount().intValue();
@@ -115,18 +118,21 @@
             <td class="sidebarText">
                 <jsp:getProperty name="result" property="Question"/>
             </td>
-            <td class="sidebarText" align="right">
+            <td class="sidebarText" align="center">
                 <tc-tags:format object="<%=result.getOverallAverage()%>" format="0.00"/>
             </td>
-            <td class="sidebarText" align="right">
+            <td class="sidebarText" align="center">
                 <tc-tags:format object="<%=result.getDiv1Average()%>" format="0.00"/>
             </td>
-            <td class="sidebarText" align="right">
+            <td class="sidebarText" align="center">
                 <tc-tags:format object="<%=result.getDiv2Average()%>" format="0.00"/>
             </td>
         </tr>
         </tc:problemRatingResultIterator>
-        <tr><td class="sidebarTitle" colspan="4" align="center"><%=count%> Total ratings | <%=div1Count%> Div I ratings | <%=div2Count%> Div II ratings</td></tr>
+        <tr><td class="sidebarTitle" align="center"></td>
+        <td class="sidebarTitle" align="center">Total ratings: <%=count%></td>
+        <td class="sidebarTitle" align="center">Div I ratings: <%=div1Count%></td>
+        <td class="sidebarTitle" align="center">Div II ratings: <%=div2Count%></td></tr>
     </table><br/>
          <center>
 <SCRIPT language="JavaScript">
