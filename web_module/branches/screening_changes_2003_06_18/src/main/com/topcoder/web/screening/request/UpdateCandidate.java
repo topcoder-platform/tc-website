@@ -25,7 +25,7 @@ import com.topcoder.web.screening.ejb.coder.CoderHome;
 import com.topcoder.web.screening.ejb.coder.CompanyCandidate;
 import com.topcoder.web.screening.ejb.coder.CompanyCandidateHome;
 import com.topcoder.web.screening.model.CandidateInfo;
-import com.topcoder.web.screening.model.SessionInfo;
+import com.topcoder.web.screening.model.TestSessionInfo;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
@@ -319,7 +319,7 @@ public class UpdateCandidate extends BaseProcessor
     private void updateSessionCandidate(long candidateId) {
         HttpServletRequest request = (HttpServletRequest)getRequest();
         HttpSession session = request.getSession();
-        SessionInfo info = (SessionInfo)
+        TestSessionInfo info = (TestSessionInfo)
             session.getAttribute(Constants.SESSION_INFO);
         if(info != null) {
             info.setCandidateId(String.valueOf(candidateId));

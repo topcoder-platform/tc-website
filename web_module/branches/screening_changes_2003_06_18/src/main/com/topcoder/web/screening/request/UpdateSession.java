@@ -15,7 +15,7 @@ import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
 import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.EmailInfo;
-import com.topcoder.web.screening.model.SessionInfo;
+import com.topcoder.web.screening.model.TestSessionInfo;
 import com.topcoder.web.common.PermissionException;
 
 
@@ -44,7 +44,7 @@ public class UpdateSession extends BaseSessionProcessor {
             return;
         }
 
-        SessionInfo info = getSessionInfo();
+        TestSessionInfo info = getSessionInfo();
         InitialContext context = new InitialContext();
         SessionHome sHome = (SessionHome)
             PortableRemoteObject.narrow(

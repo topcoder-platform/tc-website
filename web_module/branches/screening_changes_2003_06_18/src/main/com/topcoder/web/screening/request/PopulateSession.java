@@ -7,7 +7,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.Util;
-import com.topcoder.web.screening.model.SessionInfo;
+import com.topcoder.web.screening.model.TestSessionInfo;
 import com.topcoder.web.common.PermissionException;
 
 import java.util.Map;
@@ -26,7 +26,7 @@ public class PopulateSession extends BaseSessionProcessor {
         DataAccessInt access = Util.getDataAccess();
 
         Map map = access.getData(sessionInfo);
-        SessionInfo info = getSessionInfo();
+        TestSessionInfo info = getSessionInfo();
 
         info.setCandidateList((ResultSetContainer)
                 map.get(Constants.SESSION_CANDIDATE_INFO_QUERY_KEY));

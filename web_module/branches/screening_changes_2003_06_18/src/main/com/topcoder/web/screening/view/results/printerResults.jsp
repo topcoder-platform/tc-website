@@ -14,7 +14,7 @@
 
 </head>
 
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.screening.model.SessionInfo" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.screening.model.TestSessionInfo" />
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
 <jsp:useBean id="profileInfo" class="com.topcoder.web.screening.model.ProfileInfo" />
 <jsp:useBean id="testResultsInfo" class="com.topcoder.web.screening.model.TestResultsInfo" />

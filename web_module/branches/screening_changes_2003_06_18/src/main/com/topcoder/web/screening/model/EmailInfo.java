@@ -23,7 +23,7 @@ import com.topcoder.web.screening.common.ScreeningException;
 public class EmailInfo extends BaseModel {
     private static DataAccess access;
 
-    private SessionInfo sessionInfo;
+    private TestSessionInfo sessionInfo;
     private String subject;
     private String repSubject;
     private String candidateAddress;
@@ -51,7 +51,7 @@ public class EmailInfo extends BaseModel {
      *
      * @param val
      */
-    public void setSessionInfo( SessionInfo val ) {
+    public void setSessionInfo( TestSessionInfo val ) {
         sessionInfo = val;
     }
 
@@ -60,7 +60,7 @@ public class EmailInfo extends BaseModel {
      *
      * @return
      */
-    public SessionInfo getSessionInfo() {
+    public TestSessionInfo getSessionInfo() {
         return sessionInfo;
     }
 
@@ -326,7 +326,7 @@ public class EmailInfo extends BaseModel {
 
     }
 
-    public static EmailInfo createEmailInfo(SessionInfo info, User repInfo)
+    public static EmailInfo createEmailInfo(TestSessionInfo info, User repInfo)
         throws Exception {
         EmailInfo emailInfo = new EmailInfo();
         emailInfo.setSessionInfo(info);

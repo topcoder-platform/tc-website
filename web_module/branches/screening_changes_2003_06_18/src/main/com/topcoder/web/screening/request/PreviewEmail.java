@@ -2,7 +2,7 @@ package com.topcoder.web.screening.request;
 
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.EmailInfo;
-import com.topcoder.web.screening.model.SessionInfo;
+import com.topcoder.web.screening.model.TestSessionInfo;
 
 import javax.servlet.ServletRequest;
 
@@ -11,7 +11,7 @@ public class PreviewEmail extends BaseSessionProcessor {
         ServletRequest request = getRequest();
         EmailInfo info = null;
         try {
-            SessionInfo sInfo = getSessionInfo();
+            TestSessionInfo sInfo = getSessionInfo();
 
             //these three values should be passed in
             sInfo.setCandidateId(request.getParameter(Constants.CANDIDATE_ID));

@@ -1,7 +1,7 @@
 package com.topcoder.web.screening.view.tag;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.screening.model.SessionInfo;
+import com.topcoder.web.screening.model.TestSessionInfo;
 
 import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
@@ -23,7 +23,7 @@ public class SessionStatusTag extends TagSupport {
             Date sessEnd = (Date) row.getItem("end_time").getResultData();
             String status = "N/A";
             if (sessBegin != null) {
-                int statusFlag = SessionInfo.sessionStatus(curr, sessBegin, segEnd, sessEnd);
+                int statusFlag = TestSessionInfo.sessionStatus(curr, sessBegin, segEnd, sessEnd);
                 switch (statusFlag) {
                     case -1:
                         status = "Future";

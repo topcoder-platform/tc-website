@@ -12,7 +12,7 @@ import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
 import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.ProfileInfo;
-import com.topcoder.web.screening.model.SessionInfo;
+import com.topcoder.web.screening.model.TestSessionInfo;
 import com.topcoder.web.common.PermissionException;
 
 import javax.naming.InitialContext;
@@ -162,7 +162,7 @@ public class UpdateProfile extends BaseProfileProcessor {
     private void updateSessionProfile(long profileId) {
         HttpServletRequest request = (HttpServletRequest)getRequest();
         HttpSession session = request.getSession();
-        SessionInfo info = (SessionInfo)
+        TestSessionInfo info = (TestSessionInfo)
             session.getAttribute(Constants.SESSION_INFO);
         if(info != null) {
             info.setProfileId(String.valueOf(profileId));

@@ -84,7 +84,7 @@ function submitSession() {
                 </tr>
             </table>
 
-            <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
+            <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.TestSessionInfo" scope="session" />
             
             <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
             <input type="HIDDEN" name="rp" value="" >

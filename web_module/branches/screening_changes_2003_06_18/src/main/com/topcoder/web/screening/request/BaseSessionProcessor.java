@@ -8,7 +8,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.Util;
-import com.topcoder.web.screening.model.SessionInfo;
+import com.topcoder.web.screening.model.TestSessionInfo;
 import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.ServletRequest;
@@ -23,13 +23,13 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
     private static int BEGIN = 0;
     private static int END = 1;
 
-    protected SessionInfo getSessionInfo() {
+    protected TestSessionInfo getSessionInfo() {
         HttpServletRequest request = (HttpServletRequest)getRequest();
         HttpSession session = request.getSession();
-        SessionInfo info = (SessionInfo)
+        TestSessionInfo info = (TestSessionInfo)
             session.getAttribute(Constants.SESSION_INFO);
         if(info == null) {
-            info = new SessionInfo();
+            info = new TestSessionInfo();
             session.setAttribute(Constants.SESSION_INFO, info);
         }
 
@@ -44,7 +44,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
     }
 
     protected void updateSessionInfo() {
-        SessionInfo info = getSessionInfo();
+        TestSessionInfo info = getSessionInfo();
 
         ServletRequest request = getRequest();
         info.setProfileId(request.getParameter(Constants.PROFILE_ID));
@@ -62,7 +62,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
     }
 
     protected boolean validateSessionInfo() throws Exception {
-        SessionInfo info = getSessionInfo();
+        TestSessionInfo info = getSessionInfo();
         HashMap errorMap = new HashMap(10);
 
         boolean beginSuccess =

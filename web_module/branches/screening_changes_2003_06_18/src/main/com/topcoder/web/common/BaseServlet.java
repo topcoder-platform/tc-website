@@ -109,9 +109,9 @@ public abstract class BaseServlet extends HttpServlet {
 
             try {
                 try {
-                    String cmd = StringUtils.checkNull(request.getParameter(MODULE));
+                    String cmd = StringUtils.checkNull((String) request.getAttribute(MODULE));
                     if (cmd.equals(""))
-                        cmd = StringUtils.checkNull((String) request.getAttribute(MODULE));
+                        cmd = StringUtils.checkNull(request.getParameter(MODULE));
                     if (cmd.equals(""))
                         cmd = DEFAULT_PROCESSOR;
                     if (!isLegalCommand(cmd))

@@ -49,7 +49,7 @@ public class TestResults extends BaseProcessor {
         }
         String roundId = result.getItem(0,"contest_round_id").toString();
         String divisionId = result.getItem(0,"contest_division_id").toString();
-        SessionInfo sessionInfo = new SessionInfo();
+        TestSessionInfo sessionInfo = new TestSessionInfo();
         sessionInfo.setBeginDate(((Date)result.getItem(0, "begin_time").getResultData()));
         sessionInfo.setEndDate(((Date)result.getItem(0, "end_time").getResultData()));
         getRequest().setAttribute("sessionInfo",sessionInfo);

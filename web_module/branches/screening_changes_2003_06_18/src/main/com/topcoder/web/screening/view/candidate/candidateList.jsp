@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.web.screening.common.Constants,
-                 com.topcoder.web.screening.model.SessionInfo,
+                 com.topcoder.web.screening.model.TestSessionInfo,
                  java.util.Date" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">

@@ -163,7 +163,7 @@ public class Constants
                 }
                 if (f[i].get(null)==null)
                     log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
-                else log.debug("loaded " + f[i].getName() + " constant with value " + f[i].get(null));
+                else log.debug(f[i].getName() + " <== " + f[i].get(null));
             } catch (Exception e) {
                 /* probably harmless, could just be a type or modifier mismatch */
                 e.printStackTrace();
