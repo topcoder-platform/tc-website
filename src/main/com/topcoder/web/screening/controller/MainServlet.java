@@ -153,15 +153,12 @@ public class MainServlet extends HttpServlet {
 
             sendToPage(request, response, wherenow, forward);
         } catch (AnonymousUserException e) {
-            e.printStackTrace();
             sendToPage(request, response, Constants.LOGIN_PAGE, true);
         } catch (PermissionDeniedException e) {
-            e.printStackTrace();
             sendToPermErrorPage(request, response, e);
+        } catch (ScreeningException e) {
+            sendToErrorPage(request, response, e);
         } catch (Exception e) {
-//            if("true".equalsIgnoreCase(Constants.DEBUG)) {
-                e.printStackTrace(); //temporary for debugging
-//            }
             sendToErrorPage(request, response, e);
         }
     }
