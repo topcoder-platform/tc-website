@@ -167,7 +167,7 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($designtco)">
                         <tr valign="top">
-                            <td class="projectCells" colspan="9">The second round of the 2004 TCCC Component Design Competition begins on 2/17/2004</td>
+                            <td class="projectCells" colspan="9">The third round of the 2004 TCCC Component Design Competition begins on 3/30/2004</td>
                         </tr>
                 </xsl:if>
            </table>
@@ -261,7 +261,7 @@
                 <xsl:variable name="devTCCC" select="//TC/DEVELOPMENT/projects/project[phase_id=$dev-phase and status_id=303]"/>
                 <xsl:if test="not($devTCCC)">
                         <tr valign="top">
-                            <td class="projectCells" colspan="9">The first round of the 2004 TCCC Component Development Competition begins on 2/17/2004</td>
+                            <td class="projectCells" colspan="9">The second round of the 2004 TCCC Component Development Competition begins on 3/9/2004</td>
                         </tr>
                 </xsl:if>
             </table>
@@ -356,7 +356,7 @@
                 </xsl:for-each>
             </table>
 <!-- Open Component Design Projects ends -->
-    
+
             <br/>
 
 <!-- Open Component Development Projects begins -->
