@@ -108,6 +108,7 @@ public class QueryRunner implements DataRetrieverInt {
             resultMap = new HashMap();
             queryMap = (Map) inputs.get(DataAccessConstants.QUERY_KEY);
             queryIterator = queryMap.entrySet().iterator();
+            log.debug("executing: " + queryMap.size() + " queries");
             for (; queryIterator.hasNext();) {
                 me = (Map.Entry) queryIterator.next();
                 queryText = (String) me.getValue();
