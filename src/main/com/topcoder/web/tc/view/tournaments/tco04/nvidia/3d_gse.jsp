@@ -35,7 +35,7 @@
 					</ul>
 
 					<p>EOE</p>
-					<p><span class="bodySubtitle"><a href="">Apply Now!</a></span></p>
+					<p><span class="bodySubtitle"><a href="/tc?JobHit?jid=218&jt=1">Apply Now!</a></span></p>
 					
 				   </td>
    				</tr>
