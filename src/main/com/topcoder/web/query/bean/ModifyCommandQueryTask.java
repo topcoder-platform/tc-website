@@ -137,6 +137,8 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
                     getCommandQuery(getCurrentQueryList(), queryId).setSortOrder(Integer.parseInt(value));
                 } catch (NumberFormatException e) {
                     super.addError(Constants.SORT_ORDER_PARAM, e);
+                } catch (Exception e) {
+                    super.addError(Constants.SORT_ORDER_PARAM, e);
                 }
             }
         }
@@ -205,7 +207,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
      * to this list, or not.
      * @param otherQueryList
      */
-    private void setOtherQueryList(ResultSetContainer otherQueryList) {
+    private void setOtherQueryList(ResultSetContainer otherQueryList) throws Exception {
         Iterator it = otherQueryList.iterator();
         ResultSetContainer.ResultSetRow rsr = null;
         ArrayList list = new ArrayList(otherQueryList.size());
@@ -227,7 +229,19 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
         setOtherQueryList(list);
     }
 
-    public ArrayList getCurrentQueryList() {
+    /**
+     * Gets the current list of queries for this command.  if we
+     * don't have that information in memory, get it from the db.
+     * @return
+     * @throws Exception
+     */
+    public ArrayList getCurrentQueryList() throws Exception {
+        if (currentQueryList==null) {
+            CommandQueryHome cqHome = (CommandQueryHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_QUERY);
+            CommandQuery cq = cqHome.create();
+            cq.setDataSource(getDb());
+            setCurrentQueryList(cq.getQueriesForCommand(getCommandId()));
+        }
         return currentQueryList;
     }
 
