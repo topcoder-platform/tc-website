@@ -24,9 +24,13 @@
 <table width="100%" border="0" cellpadding="3" cellspacing="0">
     <tr valign="top">
         <td width="15" class="testTop">&#160;</td>
+        <td width="1" class="testTopHiliteLeft">&#160;</td>
         <td nowrap="nowrap" class="testTop"><screen:servletLink processor="PopulateSession" styleclass="testTopNav">Create a New Session</screen:servletLink></td>
+        <td width="1" class="testTopHiliteLeft">&#160;</td>
         <td nowrap="nowrap" class="testTop"><screen:servletLink processor="ProfileList" styleclass="testTopNav">Test Profiles</screen:servletLink></td>
+        <td width="1" class="testTopHiliteLeft">&#160;</td>
         <td nowrap="nowrap" class="testTop"><screen:servletLink processor="ProblemList" styleclass="testTopNav">Problem Sets</screen:servletLink></td>
+        <td width="1" class="testTopHiliteLeft">&#160;</td>
         <td nowrap="nowrap" class="testTop"><screen:servletLink processor="BuildCandidateList" styleclass="testTopNav">Candidates</screen:servletLink></td>          
         <td width="100%" class="testTop">&#160;</td>
    </tr>
