@@ -6,6 +6,7 @@ import com.topcoder.shared.netCommon.screening.request.ScreeningGetProblemSetsRe
 import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsResponse;
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel;
+import com.topcoder.shared.netCommon.screening.ScreeningConstants;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
 
@@ -64,7 +65,12 @@ public class ViewProblemSet extends Base {
                         info.setClassName(labels[j].getClassName());
                         info.setStartTime(labels[j].getOpenTime().longValue());
                         info.setProblemTypeId(problemSets[i].getType().intValue());
-                        info.setTime(labels[j].getLength().longValue());
+                        //todo this sucks that we have to know this, it'd be nice if the objects were populated
+                        if (problemSets[i].getType().intValue()==ScreeningConstants.PROBLEM_COMPANY) {
+                            info.setTime(labels[j].getLength().longValue());
+                        } else {
+                            info.setTime(problemSets[i].getCompletionTime().intValue());
+                        }
                         problemList.add(info);
                     }
 
