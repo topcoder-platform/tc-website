@@ -1,8 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <%@ page import="com.topcoder.web.corp.common.Constants" %>
-<%@ page autoFlush="false"%>
-<%@ page buffer="64kb"%>
 <html>
 <head>
 <title>Topcoder | Testing Application Management Tool</title>
