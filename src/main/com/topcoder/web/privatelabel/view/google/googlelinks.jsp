@@ -41,13 +41,6 @@ function openWin(url, name, w, h) {
                   <a href="/pl/?&module=Static&d1=google&d2=google_registration">Registration</a> &nbsp;|&nbsp; 
             <% } %>
 
-<!-- FAQ tab -->
-            <% if (selectedTab.equals("faq")) {%>
-                 <font color="006633">FAQ</font> &nbsp;|&nbsp; 
-            <% } else { %>
-                  <a href="/pl/?&module=Static&d1=google&d2=google_faq">FAQ</a> &nbsp;|&nbsp; 
-            <% } %>
-
 <!-- Advancers tab -->
             <% if (selectedTab.equals("advancers")) {%>
                  <font color="006633">Advancers</font> &nbsp;|&nbsp; 
