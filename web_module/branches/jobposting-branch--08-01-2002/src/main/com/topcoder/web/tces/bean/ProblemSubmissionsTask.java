@@ -92,7 +92,7 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         resultMap = dai.getData(dataRequest);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Submissions");
-        ArrayList probList = new ArrayList();
+/*        ArrayList probList = new ArrayList();
         ResultSetContainer.ResultSetRow probListRow = null;
         for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
             probListRow = rsc.getRow(rowI);
@@ -121,7 +121,8 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         }
 
         setSubmissionList( probList );
-
+*/
+        setSubmissionList( (List)rsc );
         setNextPage( TCESConstants.PROBLEM_SUBMISSIONS_PAGE );
     }
     

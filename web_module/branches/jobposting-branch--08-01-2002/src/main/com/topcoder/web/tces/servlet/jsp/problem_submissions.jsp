@@ -80,38 +80,38 @@
 
                 
 
-                <tces:mapIterator id="submission" mapList="<%=(List)ProblemSubmissionsTask.getSubmissionList()%>">
+                <tces:rowIterator id="submission" rowList="<%=(List)ProblemSubmissionsTask.getSubmissionList()%>">
                   <TR>
                     <TD class="statText" HEIGHT="18">&#160;
-                        <%= (String)submission.get("date") %>
+                        <%= submission.getItem("date") %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>&rd=<%= (String)submission.get("round_id") %>" class="statText">
-                        <%= (String)submission.get("contest_name") %>
+                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>&rd=<%= submission.getItem("round_id") %>" class="statText">
+                        <%= submission.getItem("contest_name") %>
                       </A>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= (String)submission.get("division_name") %>
+                        <%= submission.getItem("division_name") %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>&pm=<%= (String)submission.get("problem_id") %>" class="statText">
-                        <%= (String)submission.get("level_desc") %>
+                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>&pm=<%= submission.getItem("problem_id") %>" class="statText">
+                        <%= submission.getItem("level_desc") %>
                       </A>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= (String)submission.get("final_points") %>
+                        <%= submission.getItem("final_points") %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= (String)submission.get("language_name") %>
+                        <%= submission.getItem("language_name") %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= (String)submission.get("end_status_desc") %>
+                        <%= submission.getItem("end_status_desc") %>
                     </TD>
                   </TR>
                 </tces:mapIterator>
