@@ -27,17 +27,19 @@ public class ProfileSearch extends Base {
                 time = System.currentTimeMillis() - time;
                 log.debug("query constructed in "+time);
                 getRequest().setAttribute("QUERY",query);
-                time = System.currentTimeMillis();
-                QueryDataAccess qda = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-                QueryRequest qr = new QueryRequest();
-                qr.addQuery("results",query);
-                Map m = qda.getData(qr);
-                time = System.currentTimeMillis() - time;
-                log.debug("data got in "+time);
+                if(!"on".equals(request.getParameter("queryOnly"))){
+                    time = System.currentTimeMillis();
+                    QueryDataAccess qda = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+                    QueryRequest qr = new QueryRequest();
+                    qr.addQuery("results",query);
+                    Map m = qda.getData(qr);
+                    time = System.currentTimeMillis() - time;
+                    log.debug("data got in "+time);
 
 
-                getRequest().setAttribute("column_headers",headers);
-                getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY,m);
+                    getRequest().setAttribute("column_headers",headers);
+                    getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY,m);
+                }
                 setNextPage(Constants.JSP_ADDR + response_addr);
                 setIsNextPageInContext(true);
             } else {
