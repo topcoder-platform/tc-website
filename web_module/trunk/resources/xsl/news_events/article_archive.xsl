@@ -63,6 +63,10 @@
 
                             <tr><td class="newsText"><A href="http://www.newsforge.com/article.pl?sid=04/09/30/187225" target="_blank">Coders win, winners code</A> [October 5 - NewsForge]</td></tr>
 
+                            <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_10_03_04">Triple Threat</A> [October - Software Development Magazine]</td></tr>
+
+                            <tr><td class="newsText"><A href="http://www.brainerddispatch.com/stories/100204/bus_1002040018.shtml" target="_blank">Hometown hero</A> [October 2 - Brainerd Dispatch]</td></tr>
+
                             <tr><td class="newsText"><A href="http://searchcio.techtarget.com/originalContent/0,289142,sid19_gci1006375,00.html" target="_blank">Outsourcing trend touches independents, too</A> [September 15 - Search CIO]</td></tr>
 
                             <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_08_10_04">Better than You: King of code</A> [August 10 - Red Herring]</td></tr>

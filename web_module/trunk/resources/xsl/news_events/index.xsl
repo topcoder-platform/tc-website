@@ -93,6 +93,35 @@
 
             <hr width="100%" size="1" noshade="noshade" />
 
+<!-- SoftDevMag -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=art_10_03_04"><img src="/i/pressroom/softdevmag_logo.gif" alt="" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=art_10_03_04">Triple Threat</A></strong></font><br />
+                        TopCoder is itself a triple threat: It ranks programmers through competitions, has a catalog of commercial software components built by its members, and offers services using a patented process of distributing specifications in the form of problems up for bid. <span class="prHead"> [October]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- Brainerd Article -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.brainerddispatch.com/stories/100204/bus_1002040018.shtml" target="_blank"><img src="/i/pressroom/brainerd_logo.gif" alt="Newsforge" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.brainerddispatch.com/stories/100204/bus_1002040018.shtml" target="_blank">Hometown hero</A></strong></font><br />
+						Jimb Esser left Minnesota for San Jose, Calif., after being sought by Cryptic Studios, makers of the City of Heroes online game. Cryptic Studios sought Esser after finding him -- where else but online -- through the TopCoder Web site and a programming tournament. <span class="prHead">[October 2]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- CRPF -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
