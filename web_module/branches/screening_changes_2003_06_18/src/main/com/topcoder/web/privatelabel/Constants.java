@@ -43,7 +43,7 @@ public class Constants {
     public static int MAX_EMAIL_LENGTH;
 
     //DB's
-    public static String REGINSTRATION_DB;
+    public static String REGISTRATION_DB;
 
     private Constants() {
     }
