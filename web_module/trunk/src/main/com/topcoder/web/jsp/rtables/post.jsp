@@ -332,7 +332,7 @@
           </TABLE>
   <!---------end header table------------->
 
-   <form action="/rtables/post.jsp" name="postForm" method="post" onSubmit="return authorizedSubmit">
+   <form action="/rtables/post.jsp" name="postForm" method="post" onSubmit="">
      <input type="hidden" name="doCreate" value="true">
      <input type="hidden" name="mode" value="<%= mode %>">
      <input type="hidden" name="forum" value="<%= forumID %>">
