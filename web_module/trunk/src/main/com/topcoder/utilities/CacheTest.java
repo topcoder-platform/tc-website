@@ -32,6 +32,9 @@ public class CacheTest {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        try {
+            
+        
         Map m = new HashMap();
         
         m.put("ryan", "test");
@@ -54,6 +57,11 @@ public class CacheTest {
         
         m = (Map) cc.get("ryan");
         log.error("From-Cache: " + m.toString());
+        
+        } catch(Exception e)
+        {
+            log.error(e.getMessage());
+        }
     }
     
 }
