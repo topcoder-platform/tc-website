@@ -7,6 +7,7 @@
     <TITLE>Registration</TITLE>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+    <jsp:include page="../script.jsp" />
   </HEAD>
   <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
     <jsp:include page="../top.jsp" />
