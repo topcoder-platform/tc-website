@@ -51,10 +51,10 @@
                                 <td class="forumText"><img src="images/clear.gif" alt="" width="5" height="5" border="0"/></td>
                                 <td class="forumText">
 <logic:equal name="project" property="catalog" value="Java">
-                                <img src="images/smJava.gif" alt="" width="33" height="17" border="0">
+                                <img src="images/javaSm.gif" alt="" border="0">
 </logic:equal>
 <logic:equal name="project" property="catalog" value=".NET">
-                                <img src="images/netSm.gif" alt="" width="33" height="17" border="0">
+                                <img src="images/dotnetSm.gif" alt="" border="0">
 </logic:equal>
                                 </td>
                                 <td class="forumText"><img src="images/clear.gif" alt="" width="5" height="5" border="0"/></td>
