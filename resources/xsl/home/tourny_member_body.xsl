@@ -88,67 +88,6 @@
 
   <!-- Center Column Begins -->  
     <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"> 
-<!-- Invitational block -->    
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"> 
-  <TR>
-    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR> 
-  <TR>
-    <TD CLASS="statTextBig" COLSPAN="3" BGCOLOR="#666666" HEIGHT="21" VALIGN="middle" ALIGN="center"><B>TopCoder Invitational Information</B></TD>
-  </TR>
-  <TR>
-    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" HSPACE="6" BORDER="0"/></TD>
-    <TD CLASS="bodyText" VALIGN="top"><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A><BR/>
-      <xsl:choose>
-      <xsl:when test="/TC/HOME/InvitationalInfo/IsRegistered='0'">
-        <xsl:choose>
-        <xsl:when test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/is_eligible='false'">
-          <xsl:choose>
-          <xsl:when test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/in_eligible_country='false'">
-            Unfortunately you are not eligible to participate in the 2002 TopCoder Invitational Tournament because are you are not from an eligible country.
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:choose>
-            <xsl:when test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/has_enough_ratings='false'">
-              You are not eligible to compete in the 2002 TopCoder Invitational Tournament because you have not competed in at least 3 rated events.
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:choose>
-              <xsl:when test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/has_recent_competition='false'">
-                You are not eligible to compete in the 2002 TopCoder Invitational Tournament because you have not competed since March 30, 2002.
-              </xsl:when>
-              <xsl:otherwise>
-              </xsl:otherwise>
-              </xsl:choose>
-            </xsl:otherwise>
-            </xsl:choose>
-          </xsl:otherwise>
-          </xsl:choose>
-        </xsl:when>
-        <xsl:otherwise>
-Based on your profile information and your rated event participation, you are eligible to sign up for the 2002 TopCoder Invitational tournament.  Even if your rating is below the current cut-off, signing up for the event now will ensure that you are on the stand-by list in the event that not all of the invited members accept their invitations.<BR/><BR/>
-          <A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="bodyText">Sign up Now!</A><BR/>
-          <BR/>
-        </xsl:otherwise>
-        </xsl:choose>
-      </xsl:when>
-      <xsl:otherwise>
-        You have signed up to participate in the 2002 TopCoder Invitational.  If you are one of the top 1024 rated TopCoder members on October 1, 2002 you will receive an email confirming your eligibility.
-      </xsl:otherwise>
-      </xsl:choose>
-    </TD>
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-  <TR>  
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-  </TR> 
-  <TR>
-    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-  </TR>    
-</TABLE>
-
      <!-- My Stats Begins -->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
   <TR>
