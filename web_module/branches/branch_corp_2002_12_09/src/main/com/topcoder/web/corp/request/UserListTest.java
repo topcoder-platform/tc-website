@@ -34,8 +34,8 @@ import java.sql.SQLException;
 *
 */
 
-class UserList extends BaseProcessor {
-    private static Logger log = Logger.getLogger(UserBean.class);
+class UserListTest extends BaseProcessor {
+    private static Logger log = Logger.getLogger(UserListTest.class);
 
 	public UserList() {
         pageInContext = true;
