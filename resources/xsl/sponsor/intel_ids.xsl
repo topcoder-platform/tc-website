@@ -101,7 +101,7 @@
                             </tr>
                         </table>
                             
-                        <p class="promoText"><A href="http://www.intel.com/ids/register/index.htm?iid=ids_topcoder+register" target="_blank">Register now</A> 
+                        <p class="promoText"><A href="http://www.intel.com/ids/register/index.htm?iid=ids_topcoder+register&amp;" target="_blank">Register now</A> 
                         and make sure you're taking advantage of all your resources! As a member of Intel Developer Services, you'll be among the first to learn about 
                         the latest Intel technologies, helping you create faster, more responsive applications in less time.</p>
                         
