@@ -483,7 +483,7 @@ public final class TaskDevelopment {
                             }
                         //}
 
-                        if (!permissionAdded && rating > 0 || rating == -1) {
+                        if (!permissionAdded ) {
 
                             log.error("Could not find a match for the specific forum");
                         }
@@ -496,21 +496,7 @@ public final class TaskDevelopment {
                         mail.setSubject(project);
 
 
-                        if (rating <= 0 && rating != -1) {
-                            xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
-                            mail.setBody("Thank you, " + handle + ", for your inquiry.\r\n\r\n" +
-                                    "Unfortunately, you are not yet a rated TopCoder member. You can get rated by participating in our Coding Competitions. Please check the current schedule for details regarding upcoming matches. To view other components and discuss component ideas with other members, visit TopCoder Software. Your TopCoder handle and password will give you access to post questions or comments on the Customer Forums.\r\n\r\n" +
-                                    "If you have any problems please contact service@topcodersoftware.com\r\n\r\n" +
-                                    "TopCoder Software Team");
-
-                            EmailEngine.send(mail);
-                        } else {
-
-                            //log.debug("http://172.16.20.222:8080/pages/c_forum.jsp?f=" +activeForumId);
-                            //response.sendRedirect("http://172.16.20.222:8080/pages/c_forum.jsp?f=" +activeForumId);
-                            //log.debug("afterwards?");
-                            xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
-                            //return "";
+                        xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
 
                             if (Long.parseLong(phase) == ComponentVersionInfo.SPECIFICATION) {
                                 mail.setBody("Your inquiry has been received. Thank You!\r\n\r\n" +
@@ -529,7 +515,7 @@ public final class TaskDevelopment {
                             }
                             EmailEngine.send(mail);
 
-                        }
+                        
                     } else {
                         TCSEmailMessage mail = new TCSEmailMessage();
                         mail.addToAddress(to, TCSEmailMessage.TO);
@@ -544,7 +530,6 @@ public final class TaskDevelopment {
                         EmailEngine.send(mail);
 
                     }
-                    //xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
                 } else {
                     requiresLogin = true;
                 }
