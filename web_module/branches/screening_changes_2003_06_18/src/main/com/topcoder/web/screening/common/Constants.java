@@ -155,7 +155,7 @@ public class Constants
         Field[] f = Constants.class.getFields();
         for (int i = 0; i < f.length; i++) {
             try {
-                log.debug(f[i].getType());
+                log.debug(f[i].getType().getName());
                 if (f[i].getType().getName().equals("int")) {
                     f[i].setInt(null, Integer.parseInt(config.getInitParameter(f[i].getName().toLowerCase())));
                 } else if (f[i].getType().getName().equals("int")) {
