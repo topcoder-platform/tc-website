@@ -94,9 +94,8 @@
                           <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
                           <b>
                           <xsl:choose>
-                            <xsl:when test="ContestId='4136'">04/27/2002<br/></xsl:when>
-                            <xsl:when test="ContestId='4140'">04/30/2002<br/></xsl:when>
-                            <xsl:when test="ContestId='4145'">05/01/2002<br/></xsl:when>
+                            <xsl:when test="ContestId='4150'">05/08/2002<br/></xsl:when>
+                            <xsl:when test="ContestId='4155'">05/09/2002<br/></xsl:when>
                             <xsl:when test="ContestId='4165'">05/18/2002<br/></xsl:when>
                             <xsl:otherwise>
                               <xsl:value-of select="substring(ContestStartTimestamp,0,11)"/><br/>
@@ -107,9 +106,8 @@
                           <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
                             <B>
                               <xsl:choose>
-                                <xsl:when test="ContestId='4136'">12:30 PM</xsl:when>
-                                <xsl:when test="ContestId='4140'">8:30 PM</xsl:when>
-                                <xsl:when test="ContestId='4145'">7:30 PM</xsl:when>
+                                <xsl:when test="ContestId='4150'">7:30 PM</xsl:when>
+                                <xsl:when test="ContestId='4155'">7:30 PM</xsl:when>
                                 <xsl:when test="ContestId='4165'">11:30 AM</xsl:when>
                                 <xsl:otherwise>
                                   <xsl:value-of select="$start_hr"/>:<xsl:value-of select="$start_min"/>&#160;<xsl:value-of select="$am_pm"/>
@@ -120,9 +118,8 @@
                           <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
                             <B>
                               <xsl:choose>
-                                <xsl:when test="ContestId='4136'">2:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
-                                <xsl:when test="ContestId='4140'">10:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
-                                <xsl:when test="ContestId='4145'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
+                                <xsl:when test="ContestId='4150'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
+                                <xsl:when test="ContestId='4155'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
                                 <xsl:when test="ContestId='4165'">1:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
                                 <xsl:otherwise>
                                   <xsl:value-of select="number($start_hr)+2"/>:<xsl:value-of select="format-number(number($start_min)-30,'00')"/>&#160;<xsl:value-of select="$am_pm"/>&#160;<xsl:value-of select="ShortDaylight"/>.
@@ -144,9 +141,9 @@
                           </A>
                       </TD></TR>
                       <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
-					  <B>Each match has a total prize purse of $<xsl:choose><xsl:when test="$contestId='4136' or $contestId='4140'">2</xsl:when><xsl:otherwise>1</xsl:otherwise></xsl:choose>0,000</B><BR/>
-					  - $<xsl:choose><xsl:when test="$contestId='4136' or $contestId='4140'">10</xsl:when><xsl:otherwise>5</xsl:otherwise></xsl:choose>00 from each match is donated to <A HREF="/index?t=support&amp;c=charities" CLASS="bodyText">charity</A><BR/>
-					  - $<xsl:choose><xsl:when test="$contestId='4136' or $contestId='4140'">2</xsl:when><xsl:otherwise>1</xsl:otherwise></xsl:choose>00 is paid to the unrated competitor who has the highest points for the match<BR/>
+					  <B>Each match has a total prize purse of $10,000</B><BR/>
+					  - $500 from each match is donated to <A HREF="/index?t=support&amp;c=charities" CLASS="bodyText">charity</A><BR/>
+					  - $100 is paid to the unrated competitor who has the highest points for the match<BR/>
 					  - Coders must place with a positive point total to collect their prize.<BR/><BR/>
 					  <A HREF="/index?t=support&amp;c=divisions" CLASS="bodyText">More about the Prize structure</A><BR/><BR/>
 					  <B>Single Round Match Description</B><UL>
