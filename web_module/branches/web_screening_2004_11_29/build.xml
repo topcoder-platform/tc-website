@@ -843,10 +843,12 @@
          <war warfile="${war.dir}/techassess.war" webxml="${resources}/techassess/web.xml">
              <classes dir="${classes}">
                  <include name="com/topcoder/web/codinginterface/techassess/**"/>
+                 <include name="com/topcoder/web/codinginterface/view/tag/**"/>
                  <include name="com/topcoder/web/common/**"/>
              </classes>
              <webinf dir="${resources}/taglib">
                  <include name="tc-webtags.tld"/>
+                 <include name="codinginterface.tld"/>
                  <!--
                  <include name="screening.tld"/>
                  <include name="tc.tld"/>
