@@ -7,7 +7,7 @@
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 <% ResultSetContainer referralList = (ResultSetContainer)request.getAttribute("referralList");%>
 
 </head>

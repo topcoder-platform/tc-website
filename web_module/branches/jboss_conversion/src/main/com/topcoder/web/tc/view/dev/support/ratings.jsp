@@ -5,13 +5,13 @@
 <head>
 <title>Development FAQ</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
@@ -19,7 +19,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="support"/>
                 <jsp:param name="level3" value="ratings"/>
@@ -39,7 +39,7 @@
 
                 <a name="des_dev"></a>
                 <h3>Design / Development Ratings</h3>
-                
+
                 <p>
                 After each competition, each coder who submitted a solution to the competition is re-rated according to the following algorithm. Keep in mind that software competitions consist of the last 50 scored components, excluding the coder's own previous component submissions.  The ranking of each coder is then determined based on the score the coder received compared to the scores of the last 50 scored components.  The rating used for the previous scores is the rating of the coder at the time the coder submitted the solution.
                 The average rating of everyone is then calculated:
@@ -47,7 +47,7 @@
                                     <BR/>
                                     <IMG ALT="average rating" HEIGHT="58" WIDTH="167" SRC="/i/rating/avg.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where NumCoders is the number of coders in the competition and Rating is the 
+                Where NumCoders is the number of coders in the competition and Rating is the
                 rating without the volatility of the coder in the competition before the competition.
                 <BR/>
                                     <BR/>
@@ -75,7 +75,7 @@
                 Where Volatility is the volatility of the coder before the competition.
                 <BR/>
                                     <BR/>
-                The probability of the coder getting a higher score than another coder in the 
+                The probability of the coder getting a higher score than another coder in the
                 competition (WPi for i from 1 to NumCoders) is estimated.  See below for the 'Estimation Algorithm'.
                 The expected rank of the coder is calculated:
                 <BR/>
@@ -96,8 +96,8 @@
                                     <BR/>
                                     <IMG ALT="expected performance" HEIGHT="34" WIDTH="170" SRC="/i/rating/ap.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where ARank is the actual rank of the coder in the competition based on score 
-                (1 for first place, NumCoders forlast).  If the coder tied with another coder, 
+                Where ARank is the actual rank of the coder in the competition based on score
+                (1 for first place, NumCoders forlast).  If the coder tied with another coder,
                 the rank is the average of the positions covered by the tied coders.
                 <BR/>
                                     <BR/>
@@ -114,8 +114,8 @@
                 Where TimesPlayed is the number of times the coder has been rated before.
                 <BR/>
                                     <BR/>
-                To stabilize the higher rated members, the Weight of members whose rating is 
-                between 2000 and 2500 is decreased 10% and the Weight of members whose rating 
+                To stabilize the higher rated members, the Weight of members whose rating is
+                between 2000 and 2500 is decreased 10% and the Weight of members whose rating
                 is over 2500 is decreased 20%.
                 <BR/>
                                     <BR/>
@@ -143,9 +143,9 @@
                 <B>Estimation Algorithm:</B>
                 <BR/>
                                     <BR/>
-Taking the difference of each coder's performance is also a normal 
-distribution.  A positive value would then indicate a win and a negative 
-value would indicate a loss.  The percentage chance that a player wins, 
+Taking the difference of each coder's performance is also a normal
+distribution.  A positive value would then indicate a win and a negative
+value would indicate a loss.  The percentage chance that a player wins,
 therefore, uses the standard normal cumulative disribution as follows:
     <BR />
  &#160;&#160;&#160;&#160;        WinProbability( SkillA, DeviationA, SkillB, DeviationB)
@@ -157,7 +157,7 @@ performance can be turned into a percentage using the normal distribution, so th
 performance and 25% represents better three days out of four, etc.  Then, to estimate the probability that the
 coder beats coder i, the range from 0% to 100% is broken into 1% blocks, and the midpoint is taken of each
 block and the corresponding performance is computed.  The win probability is the number of blocks where the
-midpoint favors coder i.  If it's a tie, the block is split between both coders.   
+midpoint favors coder i.  If it's a tie, the block is split between both coders.
                 <BR/>
                                     <BR/>
 Here is the psuedo-code function to estimate the probability of coder A beating coder B
@@ -203,7 +203,7 @@ WinProbability( SkillA, DeviationA, SkillB, DeviationB)
                 <BR/>
             Return count  (count is the win probability)
             </p>
-            
+
 
             <p><br/></p>
         </td>
@@ -226,7 +226,7 @@ WinProbability( SkillA, DeviationA, SkillB, DeviationB)
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

@@ -5,14 +5,14 @@
 <head>
 <title>TopCoder Member Card</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -20,7 +20,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="my_home"/>
                 <jsp:param name="level2" value="card"/>
             </jsp:include>
@@ -71,7 +71,7 @@
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -83,7 +83,7 @@
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

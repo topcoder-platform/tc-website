@@ -13,7 +13,7 @@
 <head>
 <title>TopCoder Placement Registration</title>
 
-<jsp:include page="../../../script.jsp" />
+<jsp:include page="../../script.jsp" />
 
 <% CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);%>
 
@@ -44,7 +44,7 @@ return false;
 
 <body>
 
-<jsp:include page="../../../top.jsp" >
+<jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -52,7 +52,7 @@ return false;
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../../includes/global_left.jsp">
+            <jsp:include page="../../includes/global_left.jsp">
                 <jsp:param name="level1" value="my_home"/>
                 <jsp:param name="level2" value="employmentOpps"/>
             </jsp:include>
@@ -63,7 +63,7 @@ return false;
         <td width="100%" align="center">
         <div class="myTCBody">
 
-        <jsp:include page="../../page_title.jsp" >
+        <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="employmentOpps"/>
             <jsp:param name="title" value="Registration"/>
         </jsp:include>
@@ -184,7 +184,7 @@ return false;
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../../public_right.jsp">
+            <jsp:include page="../../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -196,7 +196,7 @@ return false;
     </tr>
 </table>
 
-<jsp:include page="../../../foot.jsp" />
+<jsp:include page="../../foot.jsp" />
 
 </body>
 

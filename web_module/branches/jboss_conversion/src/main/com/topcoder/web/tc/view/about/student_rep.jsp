@@ -4,7 +4,7 @@
 <head>
 <title>Student Representatives</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 </head>
 

@@ -4,13 +4,13 @@
 <head>
 <title>Review Documentation</title>
 
-<jsp:include page="../../../../script.jsp" />
+<jsp:include page="../../script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../../../top.jsp" >
+<jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="components"/>
                 <jsp:param name="level3" value="samples"/>
@@ -33,7 +33,7 @@
 <!-- Center Column Begins -->
          <td class="bodyText" WIDTH="100%">
         <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
-        <jsp:include page="../../body_top.jsp" >
+        <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="development"/>
            <jsp:param name="image1" value="white"/>
            <jsp:param name="title" value="Components"/>
@@ -89,7 +89,7 @@
     </tr>
 </table>
 
-<jsp:include page="../../../../foot.jsp" />
+<jsp:include page="../../foot.jsp" />
 
 </body>
 

@@ -9,7 +9,7 @@
 <head>
 <title>Why Join TopCoder?</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 </head>
 
