@@ -347,7 +347,7 @@ public abstract class Base extends BaseProcessor {
         getResponse().flushBuffer();
     }
 
-    protected Message receive(int waitTime) throws TCWebException {
+    protected Message receive(int waitTime) throws TCWebException, TimeOutException {
 
         if (messageId == null) throw new RuntimeException("You must call send before receive.");
 
