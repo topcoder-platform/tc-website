@@ -18,6 +18,7 @@ import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
+import java.util.Enumeration;
 
 /**
  * A base implementation for TC servlets.  It should provide
@@ -101,6 +102,12 @@ public abstract class BaseServlet extends HttpServlet {
             TCSubject user = getUser(authentication.getActiveUser().getId());
             info = createSessionInfo(request, authentication, user.getPrincipals());
             if (!request.getRequestURI().endsWith(getServletConfig().getServletName())) {
+                Enumeration e = getServletConfig().getServletContext().getAttributeNames();
+                int i = 0;
+                log.debug("here goes");
+                while (e.hasMoreElements()) {
+                    log.debug(""+ i++ + e.nextElement().toString());
+                }
                 fetchRegularPage(request, response, getServletConfig().getServletName()+info.getQueryString(), false);
                 return;
             }
