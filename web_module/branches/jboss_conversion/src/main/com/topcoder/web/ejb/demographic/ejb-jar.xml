@@ -7,7 +7,7 @@
 <ejb-jar>
     <enterprise-beans>
         <session>
-            <ejb-name>Response</ejb-name>
+            <ejb-name>DemographicResponse</ejb-name>
             <home>com.topcoder.web.ejb.demographic.ResponseHome</home>
             <remote>com.topcoder.web.ejb.demographic.Response</remote>
             <ejb-class>com.topcoder.web.ejb.demographic.ResponseBean</ejb-class>
@@ -18,7 +18,7 @@
     <assembly-descriptor>
         <container-transaction>
             <method>
-                <ejb-name>Response</ejb-name>
+                <ejb-name>DemographicResponse</ejb-name>
                 <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>

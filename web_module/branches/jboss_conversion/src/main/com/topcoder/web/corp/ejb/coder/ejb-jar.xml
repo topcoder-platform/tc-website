@@ -4,7 +4,7 @@
 <ejb-jar>
     <enterprise-beans>
         <session>
-            <ejb-name>Coder</ejb-name>
+            <ejb-name>ScreeningCoder</ejb-name>
             <home>com.topcoder.web.corp.ejb.coder.CoderHome</home>
             <remote>com.topcoder.web.corp.ejb.coder.Coder</remote>
             <ejb-class>com.topcoder.web.corp.ejb.coder.CoderBean</ejb-class>
@@ -33,7 +33,7 @@
     <assembly-descriptor>
         <container-transaction>
             <method>
-                <ejb-name>Coder</ejb-name>
+                <ejb-name>ScreeningCoder</ejb-name>
                 <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
