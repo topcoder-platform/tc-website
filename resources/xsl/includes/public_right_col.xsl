@@ -8,7 +8,14 @@
   <img alt="" width="1" height="3" src="/i/clear.gif" border="0"/><br/>
   <xsl:call-template name="calendar"/>
   <a href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><img src="/i/tces_sidebar.gif" alt="" width="171" height="95" vspace="5" border="0"/></a> 
-  <a href="/?&amp;t=tces&amp;c=index"><img src="/i/tces_quote_sm.gif" alt="Only rated members can apply for jobs" width="170" height="159" border="0" /></a>
+
+<map name="tcesMapSm">
+	<area shape="rect" alt="" coords="88,84,161,98" href="/?t=schedule&amp;c=index"></area>
+	<area shape="rect" alt="" coords="10,96,63,110" href="/?t=tces&amp;c=index"></area>
+	<area shape="rect" alt="" coords="1,3,169,23" href="/?t=tces&amp;c=index"></area>
+</map>
+<img src="/i/tces_quote_sm.gif" width="170" height="159" border="0" alt="Only rated members can apply for jobs" usemap="#tcesMapSm" />
+
                 <!-- <xsl:choose>
                   <xsl:when test="/TC/LoggedIn='true'">
                      <xsl:call-template name="my_stats"/>
