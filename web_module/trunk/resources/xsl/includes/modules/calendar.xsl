@@ -20,9 +20,9 @@
                             <tr>
                                 <td id="calendarBlankMini">&#160;</td>
                                 <td id="calendarMini">1</td>
-                                <td id="calendarTCO03mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_comp_sched"><span id="calendarTCO03Date">4</span></A></td>
-                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=4615&amp;t=schedule&amp;c=srm">5</A></td>
-                                <td id="calendarTCO03mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_comp_sched"><span id="calendarTCO03Date">6</span></A></td>
+                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_comp_sched"><span id="calendarTCO03Mini">2</span></A></td>
+                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=4615&amp;t=schedule&amp;c=srm">3</A></td>
+                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_comp_sched"><span id="calendarTCO03Mini">4</span></A></td>
                                 <td id="calendarMini">5</td>
                                 <td id="calendarMini">6</td>
                             </tr>
@@ -39,9 +39,9 @@
                             
                             <tr> 
                                 <td id="calendarMini">14</td>
-                                <td id="calendarTCO03mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_comp_sched"><span id="calendarTCO03Date">15</span></A></td>
+                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_comp_sched"><span id="calendarTCO03Mini">15</span></A></td>
                                 <td id="calendarMini">16</td>
-                                <td id="calendarTCO03mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_comp_sched"><span id="calendarTCO03Date">17</span></A></td>
+                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_comp_sched"><span id="calendarTCO03Mini">17</span></A></td>
                                 <td id="calendarMini">18</td>
                                 <td id="calendarMini">19</td>
                                 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=4625&amp;t=schedule&amp;c=srm">20</A></td>
