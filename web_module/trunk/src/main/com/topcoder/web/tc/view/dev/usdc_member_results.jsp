@@ -15,7 +15,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_details"); %>
-
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_result_by_coder"); %>
 </head>
 
 <body>
@@ -68,11 +68,11 @@
                                 <td class=header colspan=6><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> Results</td>
                             </tr>
                             <tr>
-                                <td class="sidebarTitle" nowrap=nowrap>Component Name</td>
-                                <td class="sidebarTitle" align=center nowrap=nowrap>Handle</td>
+                                <td class="sidebarTitle" nowrap=nowrap>Component Name</td>                              
                                 <td class="sidebarTitle" align=center>Submit Date</td>
                                 <td class="sidebarTitle" align=center>Points</td>
                                 <td class="sidebarTitle" align=right>Component Prize</td>
+                                <td class="sidebarTitle" align=center >Placed</td>
                             </tr>
                         </table>
                         

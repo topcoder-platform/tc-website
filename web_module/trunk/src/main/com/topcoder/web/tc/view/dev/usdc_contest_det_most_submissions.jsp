@@ -69,7 +69,7 @@
                             <tr>
                                 <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item name="num_submissions" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=center><a href="/tc?module=USDCMemberResults&from=1&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cd=<rsc:item name="user_id" row="<%=resultRow%>"/>">details</a></td>
+                                <td class="sidebarText" align=center><a href="/tc?module=USDCMemberResults&from=1&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>">details</a></td>
                             </tr>
                             </rsc:iterator>
                         </table>
