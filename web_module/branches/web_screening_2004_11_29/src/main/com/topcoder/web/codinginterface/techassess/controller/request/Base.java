@@ -64,11 +64,13 @@ public abstract class Base extends BaseProcessor {
 
     protected void loadSessionErrorsIntoRequest(String messageId) {
         HashMap m = (HashMap)getRequest().getSession().getAttribute(ERRORS_KEY+messageId);
+        log.debug("loading session errors into request " + m);
         if (m!=null) errors = m;
     }
 
     protected void loadSessionDefaultsIntoRequest(String messageId) {
         HashMap m = (HashMap)getRequest().getSession().getAttribute(DEFAULTS_KEY+messageId);
+        log.debug("loading session defaultss into request " + m);
         if (m!=null) defaults = m;
     }
 
