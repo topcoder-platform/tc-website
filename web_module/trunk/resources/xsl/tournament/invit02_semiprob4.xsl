@@ -122,30 +122,32 @@ Level Three (1000) - <A HREF="/i/invit02/Omaha.pdf" CLASS="bodyText">Omaha</A><B
             <TR>
               <TD VALIGN="top" CLASS="bodyText">
               
-8:00:00 AM - zoidal opens the Level One problem <BR/>
-8:00:01 AM - derkuci opens the Level One problem <BR/>
-8:00:01 AM - ambrose opens the Level One problem <BR/>
-8:00:02 AM - DjinnKahn opens the Level One problem <BR/>
-8:18:48 AM - DjinnKahn opens the Level Two problem <BR/>
-8:19:21 AM - ambrose submits the Level One problem for 180.11 points <BR/>
-8:19:29 AM - ambrose opens the Level Two problem <BR/>
-8:20:53 AM - zoidal opens the Level Two problem <BR/>
-8:25:52 AM - ambrose submits the Level Two problem for 476.36 points <BR/>
-8:26:03 AM - ambrose opens the Level Three problem <BR/>
-8:30:32 AM - derkuci submits the Level One problem for 140.90 points <BR/>
-8:30:44 AM - derkuci opens the Level Two problem <BR/>
-8:32:07 AM - DjinnKahn submits the Level Two problem for 416.07 points <BR/>
-8:32:14 AM - DjinnKahn opens the Level Three problem <BR/>
-8:35:04 AM - zoidal submits the Level Two problem for 407.77 points <BR/>
-8:35:09 AM - zoidal opens the Level Three problem <BR/>
-8:39:20 AM - derkuci submits the Level Two problem for 459.37 points<BR/> 
-8:39:30 AM - derkuci opens the Level Three problem<BR/> 
-9:04:41 AM - ambrose submits the Level Three problem for 491.61 points<BR/> 
-9:09:24 AM - zoidal submits the Level One problem for 93.30 points<BR/> 
-9:14:57 AM - zoidal submits the Level Three problem for 483.41 points<BR/><BR/>
+<BR/><B>CODING PHASE</B><BR/>
+6:00:01 PM - ZorbaTHut opens the Level One problem<BR/>
+6:00:03 PM - jms137 opens the Level One problem<BR/>
+6:00:03 PM - DjinnKahn opens the Level One problem<BR/>
+6:00:35 PM - John Dethridge opens the Level One problem<BR/>
+6:06:15 PM - ZorbaTHut submits the Level One problem for 190.94 points (final submission)<BR/>
+6:06:21 PM - ZorbaTHut opens the Level Two problem<BR/>
+6:08:02 PM - John Dethridge submits the Level One problem for 187.47 points (final submission)<BR/>
+6:08:21 PM - John Dethridge opens the Level Three problem<BR/>
+6:12:42 PM - ZorbaTHut submits the Level Two problem for 381.24 points (final submission)<BR/>
+6:12:48 PM - ZorbaTHut opens the Level Three problem<BR/>
+6:20:29 PM - jms137 submits the Level One problem for 140.35 points (final submission)<BR/>
+6:20:38 PM - jms137 opens the Level Two problem<BR/>
+6:21:18 PM - John Dethridge opens the Level Two problem<BR/>
+6:25:15 PM - DjinnKahn submits the Level One problem for 125.79 points (final submission)<BR/>
+6:25:20 PM - DjinnKahn opens the Level Two problem<BR/>
+6:34:05 PM - DjinnKahn submits the Level Two problem for 366.41 points (final submission)<BR/>
+6:34:19 PM - DjinnKahn opens the Level Three problem<BR/>
+6:36:54 PM - John Dethridge submits the Level Two problem for 315.46 points (final submission)<BR/>
+6:44:44 PM - jms137 submits the Level Two problem for 257.74 points (final submission)<BR/>
+6:44:52 PM - jms137 opens the Level Three problem<BR/>
+7:14:50 PM - John Dethridge submits the Level Three problem for 416.94 points (final submission)<BR/>
 
-<B>Challenges</B><BR/>
-9:23:18 AM - DjinnKahn challenges ambrose on the Level Two problem successfully<BR/>
+<BR/><B>CHALLENGE PHASE</B><BR/>
+7:25:36 PM - jms137 challenges John Dethridge on the Level Two problem UNsuccessfully<BR/>
+
 
           </TD>
             </TR>            
