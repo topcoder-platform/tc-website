@@ -117,13 +117,13 @@ public abstract class BaseServlet extends HttpServlet {
                     if (!isLegalCommand(cmd))
                         throw new NavigationException("Invalid module in request: " + cmd);
 
-                    String processorName = PATH + (PATH.endsWith(".")?"":".") + cmd;
+                    String module = PATH + (PATH.endsWith(".")?"":".") + cmd;
 
-                    log.debug("creating request processor for " + processorName);
+                    log.debug("creating request processor for " + module);
                     try {
-                        SimpleResource resource = new SimpleResource(processorName);
+                        SimpleResource resource = new SimpleResource(module);
                         if (hasPermission(authentication, resource)) {
-                            rp = callProcess(processorName, request, authentication);
+                            rp = callProcess(getProcessor(module), request, authentication);
                         } else {
                             throw new PermissionException(authentication.getActiveUser(), resource);
                         }
@@ -253,4 +253,14 @@ public abstract class BaseServlet extends HttpServlet {
         return createAuthorization(auth.getActiveUser()).hasPermission(r);
     }
 
+    protected String getProcessor(String key ) {
+        String ret = null;
+        if (ret == null) {
+            ret = getServletConfig().getInitParameter(key);
+        }
+        if (ret == null) {
+            ret = key;
+        }
+        return ret;
+    }
 }
