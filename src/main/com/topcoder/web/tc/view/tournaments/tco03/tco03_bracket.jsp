@@ -56,17 +56,19 @@
 
             <p>Click a column name to sort the list of advancers by that column.</p>
 
+            <p><a href="?module=SimpleStats&c=tco03_bracket&trans=true">Reset List</a></p>
+
             <table width="500" align="center" border="0" cellpadding="5" cellspacing="0" class="formFrame">
                <tr>
-                  <td width = "10%" align = "right" class="bracket_header"><a class="topLink" href="/">Seed</a></td>
-                  <td width = "15%" align = "left" class="bracket_header"><a class="topLink" href="/">Handle</a></td>
-                  <td width = "15%" align = "right" class="bracket_header"><a class="topLink" href="/">Rating</a></td>
-                  <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="/">Round 1</a></td>
-                  <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="/">Round 2</a></td>
-                  <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="/">Round 3</a></td>
-                  <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="/">Round 4</a></td>
-                  <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="/">Semi</a></td>
-                  <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="/">Final</a></td>
+                  <td width = "10%" align = "right" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=seed">Seed</a></td>
+                  <td width = "15%" align = "left" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=handle_sort">Handle</a></td>
+                  <td width = "15%" align = "right" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=rating">Rating</a></td>
+                  <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=round1_sort">Round 1</a></td>
+                  <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=round2_sort">Round 2</a></td>
+                  <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=round3_sort">Round 3</a></td>
+                  <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=round4_sort">Round 4</a></td>
+                  <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=semi_sort">Semi</a></td>
+                  <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=finals_sort">Final</a></td>
                </tr>
 
 
