@@ -28,8 +28,8 @@ public class TCO05LogoTermsAgree extends Base {
             TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
             try {
                 tm.begin();
-                if (!ut.hasTermsOfUse(getUser().getId(), Constants.TCO05_LOGO_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME)) {
-                    ut.createUserTermsOfUse(getUser().getId(), Constants.TCO05_LOGO_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME);
+                if (!ut.hasTermsOfUse(getUser().getId(), Constants.TCO05_LOGO_TERMS_ID, DBMS.JTS_OLTP_DATASOURCE_NAME)) {
+                    ut.createUserTermsOfUse(getUser().getId(), Constants.TCO05_LOGO_TERMS_ID, DBMS.JTS_OLTP_DATASOURCE_NAME);
                 }
                 tm.commit();
             } catch (Exception e) {
