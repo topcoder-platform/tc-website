@@ -7,6 +7,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
@@ -25,8 +26,11 @@ import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.UserPrincipal;
 
 import javax.rmi.PortableRemoteObject;
+import javax.transaction.UserTransaction;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -61,6 +65,54 @@ public class Submit extends FullRegSubmit {
             throw new RuntimeException("impossible, isEligible returned false, fix the code");
         }
     }
+
+    protected long commit(SimpleRegInfo regInfo) throws TCWebException {
+        UserTransaction tx = null;
+
+        long ret = 0;
+        UserPrincipal newUser = null;
+        try {
+            tx = Transaction.get();
+            Transaction.begin(tx);
+
+            PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+            mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
+
+            newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
+
+            //i don't like this cuz we're mondifing the input, but i don't have a smart solution yet
+            regInfo.setUserId(newUser.getId());
+
+            ret = store(regInfo);
+            Transaction.commit(tx);
+        } catch (Exception e) {
+            Exception ex = null;
+            try {
+                if (tx != null) {
+                    Transaction.rollback(tx);
+                }
+            } catch (Exception x) {
+                throw new TCWebException(e);
+            }
+
+            try {
+                //since we don't have a transaction spanning the security
+                //stuff, attempt to remove this newly created user manually
+                if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
+                    PrincipalMgrRemote mgr = (PrincipalMgrRemote)
+                            com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+                    mgr.removeUser(newUser, CREATE_USER);
+                }
+            } catch (Exception x) {
+                if (ex==null) ex = x;
+                throw new TCWebException(x);
+            }
+            throw new TCWebException(e);
+        }
+        return ret;
+    }
+
+
 
     protected long store(SimpleRegInfo regInfo) throws Exception {
         long ret = super.storeWithoutCoder(regInfo);
@@ -97,7 +149,6 @@ public class Submit extends FullRegSubmit {
                 resumeServices.putResume(ret, fileType, fileName, fileBytes, transDb);
             }
         }
-
         return ret;
     }
 

@@ -64,20 +64,9 @@ public class SimpleRegSubmit extends SimpleRegBase {
             tx = Transaction.get();
             Transaction.begin(tx);
 
-/*
-            PrincipalMgrRemote mgr = getPrincipalManager();
-            if (regInfo.isNew()) {
-                log.debug("RYAN NEW");
-                newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
-            } else {
-                log.debug("RYAN OLD");
-                newUser = mgr.getUser(regInfo.getHandle());
-            }
-*/
             ret = store(regInfo);
             Transaction.commit(tx);
         } catch (Exception e) {
-//            Exception ex = null;
             try {
                 if (tx != null) {
                     Transaction.rollback(tx);
@@ -85,19 +74,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
             } catch (Exception x) {
                 throw new TCWebException(e);
             }
-/*
-            try {
-                //since we don't have a transaction spanning the security
-                //stuff, attempt to remove this newly created user manually
-                if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
-                    PrincipalMgrRemote mgr = getPrincipalManager();
-                    mgr.removeUser(newUser, CREATE_USER);
-                }
-            } catch (Exception x) {
-                if (ex==null) ex = x;
-                throw new TCWebException(x);
-            }
-*/
             throw new TCWebException(e);
         }
         return ret;
@@ -108,43 +84,13 @@ public class SimpleRegSubmit extends SimpleRegBase {
         Address address = (Address) createEJB(getInitialContext(), Address.class);
         Email email = (Email) createEJB(getInitialContext(), Email.class);
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
-/*
-        Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-        Rating rating = (Rating) createEJB(getInitialContext(), Rating.class);
-*/
 
-//        PrincipalMgrRemote mgr = getPrincipalManager();
-
-        //add user to groups
-/*
-        if (regInfo.isNew()) {
-            Collection groups = mgr.getGroups(CREATE_USER);
-            GroupPrincipal group = null;
-            boolean anonFound = false;
-            boolean userFound = false;
-            for (Iterator it = groups.iterator(); it.hasNext() && !(anonFound && userFound);) {
-                group = (GroupPrincipal) it.next();
-                if (group.getName().equals(ANON_GROUP)) {
-                    mgr.addUserToGroup(group, newUser, CREATE_USER);
-                    anonFound = true;
-                } else if (group.getName().equals(SOFTWARE_GROUP)) {
-                    mgr.addUserToGroup(group, newUser, CREATE_USER);
-                    userFound = true;
-                }
-            }
-
-
-            if (!anonFound) {
-                throw new Exception("Can't find anonymous group '" + ANON_GROUP + "'");
-            } else if (!userFound) {
-                throw new Exception("Can't find software user group '" + SOFTWARE_GROUP + "'");
-            }
+        long userId = regInfo.getUserId();
+        if (userId>0) {
+            user.createUser(regInfo.getUserId(), regInfo.getHandle(), getNewUserStatus(), transDb);
+        } else {
+            userId = user.createNewUser(regInfo.getHandle(), getNewUserStatus(), transDb);
         }
-*/
-
-        //create user
-
-        long userId = user.createNewUser(regInfo.getHandle(), getNewUserStatus(), transDb);
         user.setFirstName(userId, regInfo.getFirstName(), transDb);
         user.setMiddleName(userId, regInfo.getMiddleName(), transDb);
         user.setLastName(userId, regInfo.getLastName(), transDb);
@@ -203,8 +149,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
         long userId = this.storeWithoutCoder(regInfo);
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
         Rating rating = (Rating) createEJB(getInitialContext(), Rating.class);
-
-//        PrincipalMgrRemote mgr = getPrincipalManager();
 
         //create coder
         if (!coder.exists(userId, transDb)) { // check if the user exists in registration database already as a coder
