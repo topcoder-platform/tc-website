@@ -32,7 +32,7 @@
 
 <html>
 <head>
-	<title>Untitled</title>
+	<title>SRM Demographic</title>
 </head>
 
 <body>
