@@ -48,8 +48,8 @@
                   <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>
                   About [TC]
                 </A>&#160;&#160;&#160;:&#160;&#160;&#160; -->  
-                <A HREF="http://www.topcodersoftware.com" TARGET="_parent" CLASS="globalNavSmall">TopCoder Software</A>&#160;&#160;&#160;|&#160;&#160;&#160;
-                <A HREF="#" TARGET="_parent" CLASS="globalNavSmall">TopCoder High School</A>&#160;&#160;&#160;|&#160;&#160;&#160;
+                <!-- <A HREF="http://www.topcodersoftware.com" TARGET="_parent" CLASS="globalNavSmall">TopCoder Software</A>&#160;&#160;&#160;|&#160;&#160;&#160;
+                <A HREF="#" TARGET="_parent" CLASS="globalNavSmall">TopCoder High School</A>&#160;&#160;&#160;|&#160;&#160;&#160; -->
 <% if ( nav.getLoggedIn() ) { %>
 <A HREF="/?t=authentication&amp;c=submit_logout" CLASS="globalNavSmall" TARGET="_parent">Logout</A>
 <% } else { %>
