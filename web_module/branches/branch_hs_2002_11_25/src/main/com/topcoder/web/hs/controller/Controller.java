@@ -30,9 +30,10 @@ public final class Controller extends HttpServlet {
 
         /* once for things we can handle, and once for things we can't */
         try {
+            RequestProcessor rp;
             try {
 //@@@ debug things here to clean up later
-                if(request.getParameter("e") != null) throw new Error("testing");
+                if(request.getParameter("e") != null) throw new java.lang.Error("testing");
                 //System.out.println("request.getContextPath()="+request.getContextPath());
                 //System.out.println("request.getServletPath()="+request.getServletPath());
 
@@ -47,7 +48,7 @@ public final class Controller extends HttpServlet {
 
                 if(!isLegal(cmd)) throw new IllegalArgumentException("invalid command: "+cmd);
 
-                RequestProcessor rp = (RequestProcessor) Class.forName("com.topcoder.web.hs.controller.requests."+cmd).newInstance();
+                rp = (RequestProcessor)Class.forName("com.topcoder.web.hs.controller.requests."+cmd).newInstance();
                 rp.setRequest(request);
                 rp.process();
 
@@ -55,7 +56,7 @@ public final class Controller extends HttpServlet {
 
                 /* try to forward to the error page */
                 request.setAttribute("exception", e);
-                RequestProcessor rp = new com.topcoder.web.hs.controller.requests.Error();
+                rp = new com.topcoder.web.hs.controller.requests.Error();
                 rp.setRequest(request);
                 rp.process();
             }
