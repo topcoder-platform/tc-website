@@ -147,15 +147,34 @@
                                         </p>
                                         <p>
                                             <br/>
-                                            Component Posting: 2.27.2003
+                                            Application Project Posting: 7.15.2003
                                             <br/>
-                                            Design Submission Due Date: 3.31.2003
+                                            Member Selection: 7.18.2003
                                             <br/>
-                                            Winner Announced: 4.9.2003
+                                            Member Acceptance: 7.21.2003
                                             <br/>
-                                            Updated Submission Due Date: 5.12.2003
+                                            Design Start: 7.22.2003
                                             <br/>
-                                            Estimated Development End Date: 7.11.2003
+                                            Phase 1 Complete: 7.28.2003
+                                            <ul>
+                                                <li> Use Cases </li>
+                                                <li> Class Diagrams </li>
+                                                <li> Sequence Diagrams </li>
+                                            </ul>
+                                            Phase 2 Complete: 8.04.2003
+                                            <ul>
+                                                <li> Design Specification </li>
+                                            </ul>
+                                            Phase 3 Complete: 8.11.2003
+                                            <ul>
+                                                <li> Test Plan </li>
+                                                <li> Development Scope Document</li>
+                                            </ul>
+                                            Winner Announced 8.13.3003
+                                            <br>
+                                            Updated Submission Due Date: 8.15.2003
+                                            <br/>
+                                            Estimated Development End Date: 10.6.2003
                                             <br/>
                                         </p>
                                         <!-- Register at TCS -->
