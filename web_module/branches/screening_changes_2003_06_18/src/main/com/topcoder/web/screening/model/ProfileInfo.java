@@ -256,7 +256,12 @@ public class ProfileInfo extends BaseModel {
     }
 
     public boolean hasTestSetA() {
-        return !testSetA.equals(new Long(Constants.NO_TEST_SET_A));
-
+        /* basically what we want to do here is figure out if the profile
+         * has a test set a.  if it's a new one, we don't really care if it's
+         * null, because it's new, we can assume that it has a test set a
+         * if it's not new, or if the test set was set to no test set a, then we'll
+         * return as such
+         */
+        return (testSetA!=null&&!isNew()) || (testSetA==null&&isNew()) || !testSetA.equals(new Long(Constants.NO_TEST_SET_A));
     }
 }
