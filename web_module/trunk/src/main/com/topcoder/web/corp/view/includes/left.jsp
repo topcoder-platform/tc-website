@@ -11,7 +11,7 @@
                 <tr><td id="myServicesTitle">My Services</td></tr>
 
 <!-- Candidate Testing begins-->
-                <tr><td id="myServicesNav"><img src="/i/nav_arrow_bottom.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="corpLeft">Candidate Testing</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_<%=level1.equals("testing")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="corpLeft">Candidate Testing</a></td></tr>
 <% if (level1.equals("testing")) { %>
                 <tr><td id="<%=level2.equals("overview")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="corpLeft">Overview</a></td></tr>
                 <tr><td id="<%=level2.equals("problemSelection")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=problem_selection" target="_parent" class="corpLeft">Problem Selection</a></td></tr>
@@ -20,14 +20,11 @@
                 <tr><td id="<%=level2.equals("reporting")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=reporting" target="_parent" class="corpLeft">Reporting</a></td></tr>
                 <tr><td id="<%=level2.equals("security")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=security_fraud" target="_parent" class="corpLeft">Security and Fraud Detection</a></td></tr>
                 <tr><td id="<%=level2.equals("pricing")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=pricing" target="_parent" class="corpLeft">Pricing</a></td></tr>
-<% } else { %>
-                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="corpLeft">Candidate Testing</a></td></tr>
 <% } %>
 <!-- Candidate Testing ends-->
-
-                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=spon_prog&d2=index" class="corpLeft">Sponsorship</a></td></tr>
-                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="/tces/tces?task=MainTask" class="corpLeft">Employment Services</a></td> </tr>
-                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=acc_admin&d2=index" class="corpLeft">My Account</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_<%=level1.equals("sponsorship")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=spon_prog&d2=index" class="corpLeft">Sponsorship</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_<%=level1.equals("recruiting")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="/tces/tces?task=MainTask" class="corpLeft">Employment Services</a></td> </tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_<%=level1.equals("myAccount")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=acc_admin&d2=index" class="corpLeft">My Account</a></td></tr>
             </table>
 <!-- My Services ends -->
 
