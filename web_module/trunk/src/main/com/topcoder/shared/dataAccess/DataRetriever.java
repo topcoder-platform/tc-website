@@ -333,7 +333,7 @@ public class DataRetriever implements DataRetrieverInt {
      */
     public Map executeCommand(Map inputMap) throws Exception {
         //create a new map to avoid mutating the passed in version.
-        Map inputs = new Hashtable(inputMap);
+        Map inputs = new HashMap(inputMap);
         String commandDesc = (String) inputs.get(DataAccessConstants.COMMAND);
         if (commandDesc == null)
             throw new Exception("Missing command description");
