@@ -1620,7 +1620,7 @@ if students change schools, reloading an old round will lose historical data
             query.append("       ,school_id) ");                      // 30
             query.append("VALUES (?,?,?,?,?,?,?,?,?,?,");  // 10 values
             query.append("        ?,?,?,?,?,?,?,?,?,?,");  // 20 values
-            query.append("        ?,?,?,?,?,?,?,?,?,?,?)");  // 30 total values
+            query.append("        ?,?,?,?,?,?,?,?,?,?)");  // 30 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(1024);
