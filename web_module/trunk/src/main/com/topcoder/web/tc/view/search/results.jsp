@@ -37,14 +37,14 @@
               <%boolean even = false;%>
               <rsc:iterator list="<%=results%>" id="resultRow">
               <tr>
-                  <td class="<%=even?"formHandleOdd":"formHandleEven"%>" valign="top" nowrap>
+                  <td class="<%=even?"formHandleEven":"formHandleOdd"%>" valign="top" nowrap>
                       <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="user_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
                   </td>
-                  <td class="<%=even?"formHandleOdd":"formHandleEven"%>" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/>&#160;&#160;</td>
-                  <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
-                  <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="left" nowrap><rsc:item row="<%=resultRow%>" name="country_name"/></td>
-                  <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/>&#160;&#160;&#160;&#160;&#160;</td>
-                  <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+                  <td class="<%=even?"formHandleEven":"formHandleOdd"%>" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/>&#160;&#160;</td>
+                  <td class="<%=even?"formTextEven":"formTextOdd"%>" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
+                  <td class="<%=even?"formTextEven":"formTextOdd"%>" valign="middle" align="left" nowrap><rsc:item row="<%=resultRow%>" name="country_name"/></td>
+                  <td class="<%=even?"formTextEven":"formTextOdd"%>" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/>&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                  <td class="<%=even?"formTextEven":"formTextOdd"%>" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
               </tr>
               <%even=!even;%>
               </rsc:iterator>

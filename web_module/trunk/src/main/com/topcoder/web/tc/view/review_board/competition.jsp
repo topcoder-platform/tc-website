@@ -121,22 +121,6 @@
 
             <hr width="100%" size="1" noshade="noshade" />
 
-            <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=272072"><img src="/i/m/snapdragon_mug.gif" alt="snapdragon" width="63" height="70" border="0" /></a></td>
-                    <td width="99%" class="bodyText">
-                        <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=272072"><strong>SnapDragon</strong></a><span class="smallText"></span>
-                        has participated in over 50 TopCoder rated events.  As of this writing, he is TopCoder's 
-                        highest rated member, and is the only member to have broken the 3400 rating 
-                        mark.  SnapDragon is a graduate of the University of Waterloo and currently works for 
-                        Bioinformatics Solutions Inc. in Ontario, Canada.</p>                       
-                     </td>
-                </tr>
-            </table>            
-
-            <hr width="100%" size="1" noshade="noshade" />
-
 <p align="middle" >
 <A href="mailto:service@topcoder.com" class="bodyText">Have a question about the TopCoder Competition Review Board?</strong></a>
 </p>

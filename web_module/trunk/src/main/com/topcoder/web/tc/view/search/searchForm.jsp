@@ -138,7 +138,7 @@
 
                     <tr>
                         <td colspan="2" class="bodyText" align="center">
-                            <A href="javascript:document.searchForm.submit()" class="bodyText"><img src="/i/submit.gif" width="60" height="18" border="0"/></A><br /><br />
+                            <A href="javascript:document.searchForm.submit()" class="bodyText"><img src="/i/search.gif" width="60" height="18" border="0"/></A><br /><br />
                         </td>
                     </tr>
                 </table>
