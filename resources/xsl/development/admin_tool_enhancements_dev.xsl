@@ -72,6 +72,21 @@
                                             application interface.
                                         </p>
                                         <p>
+                                            The Admin Tool Enhancement project has completed the Design Phase and will now enter
+                                            the Development Phase.  The functional requirements for the Admin Tool project have
+                                            been seperated into 3 groups.  For this project there will be 2 members selected per
+                                            functional group to compete for the winning submission.
+                                            <br>
+                                                Group 1
+                                            </br>
+                                            <br>
+                                                Group 2
+                                            </br>
+                                            <br>
+                                                Group 3
+                                            </br>
+                                        </p>
+                                        <p>
                                             Members that are chosen for the Admin Tool Enhancements project will be given full access
                                             to the current TopCoder code base and access to our development environments.
                                         </p>
@@ -79,8 +94,8 @@
                                         <p>
                                             <strong>Project Type</strong>
                                             <br/>
-                                            Application Development Project: Provide a completed development solution for the Admin Tool
-                                            application.   Please review the TopCoder Software
+                                            Application Development Project: Provide a completed development solution according to the design requirements
+                                            for the Admin Tool application.   Please review the TopCoder Software
                                             <a href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
                                         </p>
                                         <!-- Technologies -->
