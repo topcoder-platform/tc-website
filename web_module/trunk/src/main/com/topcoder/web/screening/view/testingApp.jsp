@@ -51,15 +51,15 @@
                     <td class="bodyText">
                         <h1 id="bodyTitle">Testing Environment</h1>
                         
-                        <p>This page should present you with a button to start the competition arena applet.</p>
+                        <p>This page should present you with a button to start the applet.</p>
                         
-                        <p><strong>NOTE:</strong> If a red button to "Load Testing Environment" does <strong>not</strong> appear below, you may not have the 
+                        <p><strong>NOTE:</strong> If an orange button to <strong>Load Testing Environment</strong> does <strong>not</strong> appear below, you may not have the 
                         appropriate Plug-in software installed. 
                         
                         <script type="text/javascript">
                             function getReq(){u='/?t=support&amp;c=software_req';window.open(u);close();}
                         </script>
-                        <a href="Javascript:getReq()">Get more information</a></p>
+                        <a href="http://java.sun.com/products/plugin/" target="_blank">Get more information</a></p>
                         
                         <div align="center">
                         <p>
