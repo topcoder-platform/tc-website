@@ -100,7 +100,7 @@
                                     <BR/>
                                     <IMG ALT="expected performance" HEIGHT="34" WIDTH="170" SRC="/i/rating/ep.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where <SPAN STYLE="font-family:Symbol;">f</SPAN>
+                Where <IMG ALT="inverse standard normal" HEIGHT="11" WIDTH="11" SRC="/i/rating/phi.gif" BORDER="0"/>
                 is the inverse of the standard normal function.
                 <BR/>
                                     <BR/>
@@ -167,7 +167,7 @@ midpoint favors coder i.  If it's a tie, the block is split between both coders.
                 <BR/>
                                     <BR/>
 Here is the psuedo-code function to estimate the probability of coder A beating coder B
-(<SPAN STYLE="font-family:Symbol;">f</SPAN> is the inverse of the
+(<IMG ALT="inverse standard normal" HEIGHT="11" WIDTH="11" SRC="/i/rating/phi.gif" BORDER="0"/> is the inverse of the
 standard normal function):
                 <BR/>
                                     <BR/>
