@@ -89,7 +89,7 @@ return false;
                         <tr>
 				<td width="100%" class=<%=cssClasses[i % 2]%>><%=pref.getText()%>:</td>
 				<td class=<%=cssClasses[i++ % 2]%>>
-					<%=pref.getType()%>
+                                        <tc:preferenceInput preference="<%=pref%>" />
 				</td>
 			</tr>
                         </tc:preferenceIterator>
