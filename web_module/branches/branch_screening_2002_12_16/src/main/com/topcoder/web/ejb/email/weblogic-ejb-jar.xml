@@ -7,6 +7,12 @@
         <caching-descriptor>
             <max-beans-in-free-pool>20</max-beans-in-free-pool>
         </caching-descriptor>
+        <reference-descriptor>
+            <resource-description>
+                <res-ref-name>datasource</res-ref-name>
+                <jndi-name>COMMON_OLTP</jndi-name>
+            </resource-description>
+        </reference-descriptor>
         <jndi-name>com.topcoder.web.ejb.email.EmailHome</jndi-name>
     </weblogic-enterprise-bean>
 </weblogic-ejb-jar>

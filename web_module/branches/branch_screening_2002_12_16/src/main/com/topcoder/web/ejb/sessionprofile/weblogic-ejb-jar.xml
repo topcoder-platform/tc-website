@@ -8,13 +8,13 @@
             <max-beans-in-free-pool>200</max-beans-in-free-pool>
             <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
         </caching-descriptor>
-        <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileHome</jndi-name>
         <reference-descriptor>
             <resource-description>
                 <res-ref-name>datasource</res-ref-name>
                 <jndi-name>SCREENING_OLTP</jndi-name>
             </resource-description>
         </reference-descriptor>
+        <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileHome</jndi-name>
     </weblogic-enterprise-bean>
     <weblogic-enterprise-bean>
         <ejb-name>SessionProfileProblem</ejb-name>
@@ -22,12 +22,26 @@
             <max-beans-in-free-pool>200</max-beans-in-free-pool>
             <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
         </caching-descriptor>
-        <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome</jndi-name>
         <reference-descriptor>
             <resource-description>
                 <res-ref-name>datasource</res-ref-name>
                 <jndi-name>SCREENING_OLTP</jndi-name>
             </resource-description>
         </reference-descriptor>
+        <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome</jndi-name>
+    </weblogic-enterprise-bean>
+    <weblogic-enterprise-bean>
+        <ejb-name>SessionProfileLanguage</ejb-name>
+        <caching-descriptor>
+            <max-beans-in-free-pool>200</max-beans-in-free-pool>
+            <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
+        </caching-descriptor>
+        <reference-descriptor>
+            <resource-description>
+                <res-ref-name>datasource</res-ref-name>
+                <jndi-name>SCREENING_OLTP</jndi-name>
+            </resource-description>
+        </reference-descriptor>
+        <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileLanguageHome</jndi-name>
     </weblogic-enterprise-bean>
 </weblogic-ejb-jar>

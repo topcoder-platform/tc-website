@@ -10,7 +10,7 @@
             <remote>com.topcoder.web.ejb.note.Note</remote>
             <ejb-class>com.topcoder.web.ejb.note.NoteBean</ejb-class>
             <session-type>Stateless</session-type>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
             <resource-ref>
                 <res-ref-name>datasource</res-ref-name>
                 <res-type>javax.sql.DataSource</res-type>
