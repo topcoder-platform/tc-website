@@ -95,8 +95,8 @@ public class ComponentBracketData extends Base {
                 addElement(hd, "coderID", arr[i], emptyAtts);
                 addElement(hd, "photo", profileRsc.getStringItem(0, "image_path"), emptyAtts);
                 addElement(hd, "AlgRating", profileRsc.getStringItem(0, "rating"), emptyAtts);
-                addElement(hd, "DesRating", profileRsc.getStringItem(0, "design_rating"), emptyAtts);
-                addElement(hd, "DevRating", profileRsc.getStringItem(0, "development_rating"), emptyAtts);
+                addElement(hd, "DesRating", String.valueOf(profileRsc.getIntItem(0, "design_rating")), emptyAtts);
+                addElement(hd, "DevRating", String.valueOf(profileRsc.getIntItem(0, "development_rating")), emptyAtts);
                 addElement(hd, "memberSince", sdf.format(profileRsc.getItem(0, "member_since").getResultData()), emptyAtts);
                 
                 hd.endElement("", "", "competitor");
