@@ -12,19 +12,22 @@
 <a name="top"/>
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">    
     <tr>
-        <td colspan="4"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+        <td colspan="2"><img src="/i/clear.gif" width="1" height="2" border="0"/></td>
     </tr>                
 
     <tr valign="middle">
         <td width="100%" align="right" class="globalNavSmall" nowrap="0"> 
             <a href="http://www.topcodersoftware.com" target="_parent" class="globalNavSmall">topcodersoftware.com</a>
-<% if( activeUser.isAnonymous() ) {  // no logged user %>
-            <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=LoginPage" class="globalNavSmall" target="_parent">&#160;&#160;|&#160;&#160;Login</a>
-<% } else { %>
-            <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="globalNavSmall" target="_parent">&#160;&#160;|&#160;&#160;Logout</a>
-<% } %>
 <% if (isHomePage) { %>
-            <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="globalNavSmall">&#160;&#160;|&#160;&#160;Home</a>
+
+    <% if( activeUser.isAnonymous() ) {  // no logged user %>
+            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=LoginPage" class="globalNavSmall" target="_parent">Login</a>
+    <% } else { %>
+            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="globalNavSmall" target="_parent">Logout</a>
+    <% } %>
+
+            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="globalNavSmall">Home</a>
+    
 <% } else { %>
             &#160;
 <%  } %>
@@ -38,9 +41,9 @@
         <td width="15" bgcolor="#000000"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0" /></td>
         <td width="206" bgcolor="#000000">
 <% if (isHomePage) { %>
-        <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent"><img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="13" /></a>
+        <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent"><img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="10" /></a>
 <% } else { %>
-        <img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="13" />
+        <img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="10" />
 <%  } %>
         </td>
         <td width="20" bgcolor="#000000"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15" /></td>
