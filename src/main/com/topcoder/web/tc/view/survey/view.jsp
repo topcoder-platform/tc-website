@@ -56,7 +56,10 @@
                   <% int i=1; %>
                   <% boolean resultsViewable = false;%>
                   <tc:questionIterator list="<%=questionInfo%>" id="question">
+<%--
                   <% resultsViewable |= (!Question.isFreeForm(question) && question.getTypeId() != Question.GENERAL_DO_NOT_SHOW_RESULTS_TYPE);%>
+--%>
+                  <% resultsViewable |= (question.getTypeId() != Question.GENERAL_DO_NOT_SHOW_RESULTS_TYPE);%>
                   <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
                         <tr>
                            <td colspan="2" class="bodySubtitle" valign="top" width="100%" align="center">
