@@ -54,15 +54,17 @@
                collaboration of fund raising and competition, one we think our
                members will enjoy.</p>
 
-               <p>So how will it work?  Members will gather donations from friends, family
-               and colleagues.  These people will, in essence, sponsor you in this
-               competition.  All donations go to CRPF, and TopCoder will match all the
+               <p><b>So how will it work?</b></p>
+               <p>TopCoder members will be sponsored by friends, family, and colleagues who 
+               make donations to CRPF through the members' involvement in this tournament.  
+               All donations go to CRPF, and TopCoder will match all the
                donations up to $50,000!  Members must raise a minimum of $25 to
                compete.  A total of 10 members will win the grand prize - an expenses
-               paid trip to attend <i>A Magical Evenin</i>", the annual star-studded gala
+               paid trip to attend <i>A Magical Evening</i>, the annual star-studded gala
                ball benefiting CRPF, held in New York City.</p>
 
-               <p>How do you win?  Be one of the:
+               <p><b>How do you win?</b><p>
+               <p>Be one of the:
                <ul>
 	         <li>4 highest scorers in Round 3</li>
 	         <li>4 highest fund-raisers (minimum donations raised of $500)</li>
@@ -73,8 +75,8 @@
                </p>
 
                <p><A href="/tc/?&module=Static&d1=crpf&d2=crpf_overview">Click here</A> for more information on the tournament, how to donate, and
-               who the top fund raisers are.  As always, best of luck to you in the
-               Arena!</p>
+               who the top fund raisers are.
+               </p>
                </td>
                <td valign="top" align="right" width="208"><img src="/i/tournament/crpf03/indexlinks.gif" width="208" height="172" border="0" usemap="#indexlinks">
                <map name="indexlinks">
