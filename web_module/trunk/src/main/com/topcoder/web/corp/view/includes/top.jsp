@@ -26,7 +26,7 @@
 &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">Update Profile</a>
     <% } %>
 
-&#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=about&d3=index" class="loginLinks">About TopCoder Corp Services</a>
+&#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=about&d3=index" class="loginLinks">About Corporate Services</a>
 &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=contact&d3=index" class="loginLinks">Contact Us</a>
         </td>
         <td class="login" width="10">&nbsp;</td>
@@ -85,7 +85,7 @@
         <td class="topNav" nowrap>&nbsp;&nbsp;<a href="/testing/" class="topLink">Testing Application Management Tool</a>&nbsp;&nbsp;</td>
         <td class="topNav" nowrap>&nbsp;&nbsp;<a href="/tces/?task=MainTask" class="topLink">Recruiting Reporting Tool</a>&nbsp;&nbsp;</td>
         <td class="topNav" nowrap>&nbsp;&nbsp;<a href="http://www.topcodersoftware.com" class="topLink">TopCoder Software</a>&nbsp;&nbsp;</td>
-        <td class="topNav" width="49%">&#160;</td>
+        <td class="topNav" width="49%">&#160;</td> 
     </tr>
 </table>
 
