@@ -70,9 +70,9 @@ public class RequestTracker {
             for (Iterator it = a.iterator(); it.hasNext();) {
                 UserRequest r = (UserRequest) it.next();
                 if (r.u.isAnonymous()) {
-                    rs.createRequest(makeUrl(r.r), new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    rs.createRequest(r.url, new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 } else {
-                    rs.createRequest(r.u.getId(), makeUrl(r.r), new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    rs.createRequest(r.u.getId(), r.url, new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 }
             }
 
@@ -84,27 +84,24 @@ public class RequestTracker {
 
     }
 
-    private static String makeUrl(TCRequest request) {
-        StringBuffer buf = new StringBuffer(254);
-        buf.append("http://");
-        buf.append(request.getServerName());
-        buf.append(request.getContextPath());
-        buf.append(request.getServletPath());
-        String query = request.getQueryString();
-        buf.append((query == null) ? ("") : ("?" + query));
-        return buf.toString();
-    }
 
 
     private static class UserRequest {
         private User u;
-        private TCRequest r;
+        private String  url;
         private long time;
 
         private UserRequest(User u, TCRequest r) {
             this.u = u;
-            this.r = r;
-            this.time=System.currentTimeMillis();
+            StringBuffer buf = new StringBuffer(254);
+            buf.append("http://");
+            buf.append(r.getServerName());
+            buf.append(r.getContextPath());
+            buf.append(r.getServletPath());
+            String query = r.getQueryString();
+            buf.append((query == null) ? ("") : ("?" + query));
+            this.url = buf.toString();
+            this.time = System.currentTimeMillis();
         }
     }
 
