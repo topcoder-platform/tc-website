@@ -8,6 +8,7 @@
 <title>2004 TopCoder Open - Computer Programming Tournament</title>
 <jsp:include page="../../script.jsp" />
 <link type="text/css" rel="stylesheet" href="/css/TCO04style.css"/>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tccc04_alg_qual"); %>
 </head>
