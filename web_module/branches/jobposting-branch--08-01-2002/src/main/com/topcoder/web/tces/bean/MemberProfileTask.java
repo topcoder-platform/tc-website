@@ -362,6 +362,8 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         statsByLang.add(totalLang);
 
+JSPUtils.sortMapList( getStatsByLang(), TCESConstants.MEM_RATING_STATSBYLANG_KEYS[6], true);
+
         setNextPage( TCESConstants.MEMBER_PROFILE_PAGE );
     }
 

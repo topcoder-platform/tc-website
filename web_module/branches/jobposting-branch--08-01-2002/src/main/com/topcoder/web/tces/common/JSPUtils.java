@@ -110,7 +110,7 @@ public class JSPUtils {
                 mapsMap.put(curMap.get(fieldName), keyDupList);
             }
             else {
-                keyDupList = (List)mapsMap.get( curMap.get(fieldName));
+                keyDupList = (ArrayList)mapsMap.get( curMap.get(fieldName));
             }
 
             keyDupList.add(curMap);
