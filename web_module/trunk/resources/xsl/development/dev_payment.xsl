@@ -54,8 +54,6 @@
 				<p><span class="bodySubtitle">Payment Methods</span><br/>
 				Members can be paid by the following methods:</p>
 
-				<p>Note:  All member payments will be made via check unless you notify TopCoder of a different preferred payment method.</p>
-
 				<ol>
 				<li>Check<br/>
 				Checks will be mailed to the address contained in your TopCoder member profile via first class mail through the United States Postal Service.</li>
@@ -76,17 +74,24 @@
 					<li>To sign up for wire transfer payments, email us at <A href="mailto:payments@topcoder.com" class="bodyText">payments@topcoder.com</A>.</li>
 					</ul>
 
-				<li><A href="https://www.paypal.com/us/auction/pal=F4B23WRCCNZVE" target="_blank">PayPal&#174;</A>
-				<div align="left"><A href="https://www.paypal.com/us/auction/pal=F4B23WRCCNZVE" target="_blank"><img src="/i/development/paypal.gif" alt="" width="234" height="60" border="0"/></A></div></li>
-					<br/>
-					<ul>
-					<li>There is no charge to receive payments via PayPal.</li>
-					<li>Provide TopCoder with the email address you used to establish your PayPal account.</li>
-					<li>If you do not have an account, click here to sign up.</li>
-					<li>Funds are transferred via e-check and are generally available within a few business days.</li>
-					<li>To receive your payments via PayPal, email us at <A href="mailto:payments@topcoder.com" class="bodyText">payments@topcoder.com</A>.</li>
-					</ul>
+				<li><A href="https://www.paypal.com/us/auction/pal=F4B23WRCCNZVE" target="_blank">PayPal&#174;</A></li>
+				<table cellpadding="0" cellspacing="0" border="0" width="500">
+					<tr>
+						<td width="100%" class="bodyText">
+							<ul>
+								<li>There is no charge to receive payments via PayPal.</li>
+								<li>Provide TopCoder with the email address you used to establish your PayPal account.</li>
+								<li>If you do not have an account, click <A href="https://www.paypal.com/us/auction/pal=F4B23WRCCNZVE" target="_blank">here</A> to sign up.</li>
+								<li>Funds are transferred via e-check and are generally available within a few business days.</li>
+								<li>To receive your payments via PayPal, email us at <A href="mailto:payments@topcoder.com" class="bodyText">payments@topcoder.com</A>.</li>
+							</ul>
+						</td>
+						<td align="right" valign="top" class="bodyText"><A href="https://www.paypal.com/us/auction/pal=F4B23WRCCNZVE" target="_blank"><img src="/i/development/paypal.gif" alt="" width="234" height="60" border="0"/></A></td>
+					</tr>
+				</table>
 				</ol>
+
+				<p>Note:  All member payments will be made via check unless you notify TopCoder of a different preferred payment method.</p>
 
 				<p><span class="bodySubtitle">Payment Requirements</span><br/>
 				You must provide the following in order for TopCoder to pay you:</p>
@@ -106,10 +111,10 @@
 					</ul>
 				</ol>
 					
-				<p>Important Tax Note:<br/>
+				<p><strong>Important Tax Note:</strong><br/>
 				TopCoder will withhold taxes (currently at a rate of 29%) for payments made to foreign persons who perform work in the U.S., unless such person claims a treaty benefit.</p>
 
-				<p>Claiming Tax Treaty Benefits<br/>
+				<p><span class="bodySubtitle">Claiming Tax Treaty Benefits</span><br/>
 				Members claiming a reduction of or exemption from income tax withholding must provide a valid U.S. tax identification number and complete the following:</p>
 
 				<ol>
@@ -126,12 +131,12 @@
 					</ul>
 				</ol>
 
-				<p>Questions<br/>
+				<p><strong>Questions</strong><br/>
 				Click <a href="/?t=support&amp;c=form_faq">here</a> for TopCoder tax form FAQs</p>
 
 				<p>Please email any other questions to <A href="mailto:payments@topcoder.com" class="bodyText">payments@topcoder.com</A>.</p>
 
-				<p>Send tax forms to:<br/><br/>
+				<p><strong>Send tax forms to:</strong><br/><br/>
 				TopCoder, Inc.<br/>
 				Attn: Payments<br/>
 				703 Hebron Avenue<br/>
