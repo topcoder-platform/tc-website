@@ -39,7 +39,7 @@ public class BasicAuthentication implements WebAuthentication {
              that ignoring the cookie, the user is logged in.
      * if (!successfulLogin) throw AuthenticationException (or equivalent)
      */
-    public void login(User u) {
+    public void login(User u) throws com.topcoder.shared.security.AuthenticationException {
 
         try {
             Hashtable env = new Hashtable();

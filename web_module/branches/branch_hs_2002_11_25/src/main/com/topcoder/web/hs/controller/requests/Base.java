@@ -1,8 +1,9 @@
 package com.topcoder.web.hs.controller.requests;
 
 import javax.servlet.*;
-import com.topcoder.shared.security.Persistor;
-import com.topcoder.web.common.security.BasicAuthentication;
+import javax.servlet.http.*;
+import com.topcoder.shared.security.*;
+import com.topcoder.web.common.security.*;
 import com.topcoder.web.hs.model.*;
 import com.topcoder.web.common.RequestProcessor;
 

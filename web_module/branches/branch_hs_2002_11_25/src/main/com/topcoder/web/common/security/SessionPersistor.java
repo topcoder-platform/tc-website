@@ -12,7 +12,7 @@ public class SessionPersistor implements Persistor {
     HttpSession session;
 
     /** create a new instance bound to the given session */
-    SessionPersistor(HttpSession session) {
+    public SessionPersistor(HttpSession session) {
         this.session = session;
     }
     

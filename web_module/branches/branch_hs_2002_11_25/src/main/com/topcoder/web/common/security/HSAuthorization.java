@@ -35,7 +35,7 @@ public class HSAuthorization implements Authorization {
             policy = policyHome.create();
 
         } catch(Exception e) {
-            throw new com.topcoder.shared.security.AuthenticationException(e);
+            throw new RuntimeException(e.getMessage());  //@@@ use authexception?
         }
     }
 
@@ -43,11 +43,11 @@ public class HSAuthorization implements Authorization {
     public boolean hasPermission(Resource r) {
 
         try {
-            TCPermission perm = new TCPermission(r.getName());
+            TCPermission perm = new GenericPermission(r.getName());
             return policy.checkPermission(user, perm);
 
         } catch(Exception e) {
-            throw new com.topcoder.shared.security.AuthenticationException(e);
+            return false;
         }
     }
 }

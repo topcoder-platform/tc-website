@@ -9,7 +9,7 @@ import com.topcoder.web.common.security.*;
  *
  * @author Ambrose Feinstein
  */
-public class Logout extends BaseProcessor {
+public class Logout extends Base {
 
     protected void businessProcessing() throws Exception {
         auth.logout();
