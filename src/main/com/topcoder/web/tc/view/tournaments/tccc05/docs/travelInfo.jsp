@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 java.util.Map"%>
+                 java.util.Map,
+                 com.topcoder.web.tc.Constants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -66,8 +67,7 @@
 
         <TABLE border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
     <FORM name="questForm" method="POST" action="/">
-        <INPUT TYPE="hidden" NAME="t" VALUE="affidavit"/>
-        <INPUT TYPE="hidden" NAME="c" VALUE="2004_open_submit_info"/>
+        <INPUT TYPE="hidden" NAME="<%=Constants.MODULE_KEY%>" VALUE="TCCC05TravelInfoSubmit"/>
             <TR><TD COLSPAN="2"><H1 align="center">Travel Form</H1></TD></TR>
             <TR><TD COLSPAN="2"><U><B>COMPETITOR INFORMATION:</B></U><BR/></TD></TR>
 

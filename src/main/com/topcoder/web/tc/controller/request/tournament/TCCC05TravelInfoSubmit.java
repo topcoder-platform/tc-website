@@ -17,7 +17,8 @@ public class TCCC05TravelInfoSubmit extends BaseSubmitTravelInfo {
         next.append("?").append(Constants.MODULE_KEY).append("=Static&");
         next.append(Constants.STATIC_PREFIX).append("1=tournaments&");
         next.append(Constants.STATIC_PREFIX).append("2=tccc05&");
-        next.append(Constants.STATIC_PREFIX).append("2=travelInfoSent");
+        next.append(Constants.STATIC_PREFIX).append("3=docs&");
+        next.append(Constants.STATIC_PREFIX).append("4=travelInfoSent");
         return next.toString();
     }
     protected String[] getRecipients() {
