@@ -25,10 +25,13 @@
                 <xsl:variable name="status_id" select="'301'" />
 <!-- Declaration ends -->
 
-            <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
-
-<!-- Read Me's begins -->
+<div class="devRightSpacer">
             <table width="170" border="0" cellspacing="0" cellpadding="5">
+                <tr valign="top">
+                    <td width="100%">
+                        <a href="/index?t=development&amp;c=components"><img src="/i/development/winners_promo.gif" border="0"/></a>
+                    </td>
+                </tr>
                 <tr valign="top">
                     <td width="100%" class="smallText">
                         <p>Read the Component <a href="/index?t=development&amp;c=comp_meth">Methodology</a> before submitting a Component design or development solution.</p>
@@ -36,7 +39,7 @@
                     </td>
                 </tr>
             </table>
-<!-- Read Me's ends -->
+</div>
 
            <p><br/></p>
 

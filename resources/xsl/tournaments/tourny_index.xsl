@@ -62,30 +62,16 @@
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
 
 <!-- Upcoming Tournaments begins -->
+<!--
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Upcoming Tournaments</font></td></tr>
             </table>
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top">
-                    <td width="274" rowspan="2" valign="top"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about"><img src="/i/tournament/tccc04.gif" alt="2003 TopCoder Open" width="274" height="121" border="0" /></A></td>
-                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2004 TopCoder Collegiate Challenge&#153; sponsored by Yahoo!<sup>&#174; </sup></strong></font></td>
-                </tr>
-                <tr valign="top">
-                    <td class="bodyText">
-                        April 2004<br />
-                        Boston, Massachusetts<br />
-                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
-                    </td>
-                    <td width="1%" valign="bottom"></td>
-                </tr>
-            </table>
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-
+-->
 <!-- Upcoming Tournaments ends -->
 
 <!-- Past Tournaments begins -->
@@ -94,6 +80,26 @@
             </table>
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2" valign="top"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about"><img src="/i/tournament/photo_tccc04.jpg" alt="2004 TCCC" width="274" height="121" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2004 TopCoder Collegiate Challenge&#153; sponsored by Yahoo!<sup>&#174; </sup></strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        April 15-16<br />
+                        Boston Park Plaza Hotel<br/>
+                        Boston, Massachusetts<br />
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
+                    </td>
+                    <td width="1%" valign="bottom"></td>
+                    <td width="1%" valign="bottom"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about"><img src="/i/tournament/logo_tccc04.gif" alt="" width="113" height="73" border="0" /></A></td>
+                </tr>
+            </table>
+
+                <hr width="100%" size="1" noshade="noshade" />
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
