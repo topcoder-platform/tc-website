@@ -64,7 +64,7 @@ public class CampaignResults extends BaseScreeningProcessor {
 
         request.setAttribute(Constants.CAMPAIGN_ID, campaignId);
 
-        log.info("Got the request to display the campaign results for campaign : " + campaignId);
+        log.debug("Got the request to display the campaign results for campaign : " + campaignId);
 
         // Construct a request for company details
         Request dr = new Request();
@@ -73,12 +73,12 @@ public class CampaignResults extends BaseScreeningProcessor {
 
         try {
             // Execute the request for company details
-            log.info("Getting the company details for user : " + userId);
+            log.debug("Getting the company details for user : " + userId);
             Map map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong
             if (map == null || map.size() != 1) {
-                log.info("The company details retrieval failed for user : " + userId);
+                log.error("The company details retrieval failed for user : " + userId);
                 throw new ScreeningException("Company details retrieval error for user : " + userId);
             }
 
@@ -89,11 +89,11 @@ public class CampaignResults extends BaseScreeningProcessor {
 
             // Notify the user if there is more than 1 company
             if (result.size() != 1) {
-                log.info("The user " + userId + " has more than 1 company associated with him.");
-                log.info("The following companies had been found:");
+                log.debug("The user " + userId + " has more than 1 company associated with him.");
+                log.debug("The following companies had been found:");
                 for (int i = 0; i < result.size(); i++) {
                     ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) result.get(i);
-                    log.info(row.getStringItem("company_name"));
+                    log.debug(row.getStringItem("company_name"));
                 }
                 throw new ScreeningException("The user should be associated only with 1 company at once.");
             }
@@ -109,13 +109,13 @@ public class CampaignResults extends BaseScreeningProcessor {
             dr.setProperty("cgn", campaignId);
 
             // Execute the request for campaign details
-            log.info("Getting the campaign details for user : " + userId + " and company :" + companyId
+            log.debug("Getting the campaign details for user : " + userId + " and company :" + companyId
                     + " and campaign : " + campaignId);
             map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong
             if (map == null || map.size() != 1) {
-                log.info("The campaign details retrieval failed for user : " + userId + ", campaign : "
+                log.debug("The campaign details retrieval failed for user : " + userId + ", campaign : "
                     + campaignId + ", company : " + companyId);
                 throw new ScreeningException("Campaign details retrieval error for user : " + userId + ", campaign : "
                     + campaignId + ", company : " + companyId);
@@ -132,7 +132,7 @@ public class CampaignResults extends BaseScreeningProcessor {
             dr.setProperty("cgn", campaignId);
 
             // Execute a request for campaign results
-            log.info("Getting the campaign results for user : " + userId + " and company :" + companyId
+            log.debug("Getting the campaign results for user : " + userId + " and company :" + companyId
                     + " and campaign : " + campaignId);
             map = Util.getDataAccess(false).getData(dr);
 
@@ -167,7 +167,7 @@ public class CampaignResults extends BaseScreeningProcessor {
             request.setAttribute(Constants.PAGE_START_INDEX, startIndex);
 
             // Redirect the user to campaign results JSP
-            log.info("Forwarding the request to " + Constants.CAMPAIGN_RESULTS_PAGE);
+            log.debug("Forwarding the request to " + Constants.CAMPAIGN_RESULTS_PAGE);
             
             getRequest().setAttribute(Constants.USER_ID, String.valueOf(getUser().getId()));
             setNextPage(Constants.CAMPAIGN_RESULTS_PAGE);
