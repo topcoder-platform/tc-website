@@ -27,26 +27,38 @@ public final class Controller extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        /* once for things we can handle, and once for things we can't */
         try {
-            //System.out.println("request.getContextPath()="+request.getContextPath());
-            //System.out.println("request.getServletPath()="+request.getServletPath());
-            String query = request.getQueryString();
-            System.out.println("query \"" + query + "\" from host " + request.getRemoteHost());
+            try {
+//@@@ debug things here to clean up later
+                if(request.getParameter("e") != null) throw new Error("testing");
+                //System.out.println("request.getContextPath()="+request.getContextPath());
+                //System.out.println("request.getServletPath()="+request.getServletPath());
 
-            if(query==null || query.equals("")) {
-                //@@@ dont hardcode this path... is there a saner way to handle empty queries further down?
-                getServletContext().getRequestDispatcher(response.encodeURL("/hs"+"/home/index.jsp")).forward(request, response);
-                return;
+                String query = request.getQueryString();
+                System.out.println("query \"" + query + "\" from host " + request.getRemoteHost());
+
+                String cmd = checkNull(request.getParameter("module"));
+                System.out.println("cmd="+cmd);
+
+                /* one way of making empty requests end up at the front page */
+                if(cmd.equals("")) cmd = "Static";
+
+                if(!isLegal(cmd)) throw new IllegalArgumentException("invalid command: "+cmd);
+
+                RequestProcessor rp = (RequestProcessor) Class.forName("com.topcoder.web.hs.controller.requests."+cmd).newInstance();
+                rp.setRequest(request);
+                rp.process();
+
+            } catch(Exception e) {
+
+                /* try to forward to the error page */
+                request.setAttribute("exception", e);
+                RequestProcessor rp = new com.topcoder.web.hs.controller.requests.Error();
+                rp.setRequest(request);
+                rp.process();
             }
-
-            String cmd = checkNull(request.getParameter("c"));
-            System.out.println("cmd="+cmd);
-
-            if(!isLegal(cmd)) throw new IllegalArgumentException("invalid command: "+cmd);
-
-            RequestProcessor rp = (RequestProcessor) Class.forName("com.topcoder.web.hs.controller.requests."+cmd).newInstance();
-            rp.setRequest(request);
-            rp.process();
 
             if(rp.isNextPageInContext()) {
                 getServletContext().getRequestDispatcher(response.encodeURL(rp.getNextPage())).forward(request, response);
@@ -54,13 +66,16 @@ public final class Controller extends HttpServlet {
                 response.sendRedirect(response.encodeRedirectURL(rp.getNextPage()));
             }
 
-        } catch (Exception e) {
-            response.setStatus(404);
-//@@@ or forward to an error page, although that requires another round of catching and throwing
+        /* things are extremely broken, make one last attempt to get an error message to the logs and browser */
+        } catch(Exception e2) {
+            e.printStackTrace();
+            e2.printStackTrace();
+            response.setStatus(500);  //@@@ this doesnt seem to work
             PrintWriter out = response.getWriter();
-            out.println("<pre>");
+            out.println("<html><head><title>Internal Error</title></head>");
+            out.println("Exception encountered:<br><pre>");
             e.printStackTrace(out);
-            out.println("</pre>");
+            out.println("</pre></body></html>");
         }
     }
 

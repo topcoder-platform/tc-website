@@ -15,17 +15,23 @@ public class Static extends Base {
 
     public void process() {
         super.process();
+
         String path = "";
         for(int i=1; ; i++) {
-            String p = request.getParameter("d_"+i);
+            String p = request.getParameter("d"+i);
             if(p==null) break;
             if(!isLegal(p)) throw new IllegalArgumentException("disallowed path component: "+p);
             path += "/"+p;
         }
-        if(!path.equals(""))
-            path += ".jsp";
-        //@@@ does authentication go here or in controller?
-        setNextPage("/hs"+path);
+
+        /* default path if not logged in */
+        if(path.equals(""))
+          path = "/home/index";  //@@@ name this
+        path += ".jsp";
+
+        /* here we should check whether the path is allowed for this type of user */
+
+        setNextPage("/hs"+path);  //@@@ remove prefix... make relative to controller servlet
         setIsNextPageInContext(true);
     }
 
@@ -38,7 +44,7 @@ public class Static extends Base {
         if(s.equals("")) return false;
         char[] c = s.toCharArray();
         for(int i=0; i<c.length; i++)
-            if(0 > "0123456789-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_".indexOf(c[i]))
+            if(0 > "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_".indexOf(c[i]))
                 return false;
         return true;
     }
