@@ -46,6 +46,7 @@ public class SessionInfo implements Serializable {
         StringBuffer buf = new StringBuffer(200);
         buf.append("http://");        //todo any better way than a hardcode?
         buf.append(request.getServerName());
+        buf.append(servletPath);
         buf.append(queryString);
         requestString = buf.toString();
 
