@@ -33,11 +33,13 @@ import com.topcoder.common.*;
 
 public class QueryLoader {
 
-    String id, name, ranking, column_index, text;
+    private static final String DEFAULT_DATA_SOURCE = "DW";
+    String data_source, id, name, ranking, column_index, text;
 
     private QueryLoader(String query_id, String query_name, String rankingInt, 
                         String rank_column_index, String query_text)
     {
+        data_source = DEFAULT_DATA_SOURCE;
 	id = query_id;
 	name = query_name;
         ranking = rankingInt;
@@ -45,21 +47,36 @@ public class QueryLoader {
 	text = query_text;
     }
 
+    private QueryLoader(String query_data_source, String query_id, String query_name, String rankingInt,
+                        String rank_column_index, String query_text)
+    {
+        data_source = query_data_source;
+        id = query_id;
+        name = query_name;
+        ranking = rankingInt;
+        column_index = rank_column_index;
+        text = query_text;
+    }
+
     public static void main (String[] args)
     {
-	if (args.length != 5) {
+        QueryLoader x = null;
+        if (args.length == 5 ) {
+	  x = new QueryLoader(args[0], args[1], args[2], args[3], args[4]);
+        } else if (args.length == 6) {
+	  x = new QueryLoader(args[0], args[1], args[2], args[3], args[4], args[5]);
+	} else {
 	    System.out.println("This program is used to load query records.");
-	    System.out.println("Usage: QueryLoader <ID> <name> <ranking> <rank_column_index> <text>");
+	    System.out.println("Usage: QueryLoader <data_source_name> <ID> <name> <ranking> <rank_column_index> <text>");
 	    return;
 	}
-      
-	QueryLoader x = new QueryLoader(args[0], args[1], args[2], args[3], args[4]);
-	x.putText();
-
+        x.putText();
 	System.out.println("The returned text is " + x.getText());
       	
     }
-  
+ 
+
+ 
     private void putText()
     {
 	Connection conn = null;
@@ -67,9 +84,19 @@ public class QueryLoader {
         ResultSet rs = null;
 	String sqlStr = "";
 	char quote = '"';
+        Context ctx = null;
 
 	try {
-	    conn = DBMS.getDirectDWConnection();
+
+            Hashtable ht = new Hashtable(); 
+            ht.put ( Context.INITIAL_CONTEXT_FACTORY, "weblogic.jndi.WLInitialContextFactory" );
+            ht.put ( Context.PROVIDER_URL, ApplicationServer.HOST_URL );
+            ctx = new InitialContext ( ht );
+            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup ( this.data_source );
+            conn = ds.getConnection();
+
+	    //conn = DBMS.getDirectDWConnection();
+
 	    sqlStr = "SELECT count(*) FROM query WHERE query_id="+id;
 	    ps = conn.prepareStatement(sqlStr);
 	    rs = ps.executeQuery();
@@ -109,6 +136,8 @@ public class QueryLoader {
 	    if ( rs != null ) { try { rs.close();  rs = null;} catch ( Exception ignore ) {ignore.printStackTrace();} }
 	    if ( ps != null ) { try { ps.close();  ps = null;} catch ( Exception ignore ) {ignore.printStackTrace();} }
 	    if ( conn != null ) { try { conn.close();  conn = null;} catch ( Exception ignore ) {ignore.printStackTrace();} }
+	    if ( ctx != null ) { try { ctx.close();  ctx = null;} catch ( Exception ignore ) {ignore.printStackTrace();} }
+ 
 	} 
    	
     }
@@ -120,9 +149,19 @@ public class QueryLoader {
 	ResultSet rs = null;
 	String sqlStr = "";
 	String retVal = "";
+        Context ctx = null;
     
 	try {
-	    conn = DBMS.getDirectDWConnection();
+
+            Hashtable ht = new Hashtable(); 
+            ht.put ( Context.INITIAL_CONTEXT_FACTORY, "weblogic.jndi.WLInitialContextFactory" );
+            ht.put ( Context.PROVIDER_URL, ApplicationServer.HOST_URL );
+            ctx = new InitialContext ( ht );
+            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup ( this.data_source );
+            conn = ds.getConnection();
+
+	    //conn = DBMS.getDirectDWConnection();
+
 	    sqlStr = "SELECT TEXT FROM QUERY WHERE query_id=" + id;
 	    System.out.println("sqlStr: " + sqlStr);
         
@@ -139,6 +178,7 @@ public class QueryLoader {
 	    if ( rs != null ) { try { rs.close();  rs = null;} catch ( Exception ignore ) {ignore.printStackTrace();} }
 	    if ( ps != null ) { try { ps.close();  ps = null;} catch ( Exception ignore ) {ignore.printStackTrace();} }
 	    if ( conn != null ) { try { conn.close();  conn = null;} catch ( Exception ignore ) {ignore.printStackTrace();} }
+	    if ( ctx != null ) { try { ctx.close();  ctx = null;} catch ( Exception ignore ) {ignore.printStackTrace();} }
 	}
 
 	return retVal;
