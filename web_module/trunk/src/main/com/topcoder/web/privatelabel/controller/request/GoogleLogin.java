@@ -90,7 +90,8 @@ public class GoogleLogin extends FullLogin {
         try {
             getAuthentication().login(new SimpleUser(0, handle, password));
         } catch (LoginException e) {
-            addError(Constants.HANDLE, e.getMessage());
+            if (!hasError(Constants.HANDLE))
+                addError(Constants.HANDLE, e.getMessage());
         }
 
         User user = (User) createEJB(getInitialContext(), User.class);
