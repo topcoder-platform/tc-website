@@ -45,8 +45,6 @@
       alert(frm.er.value+" is not a valid integer");
     else
       frm.submit();
-
-	}
    }
 </script>
 
