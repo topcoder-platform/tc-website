@@ -431,10 +431,8 @@
 <!-- Coder of the Month Ends -->
 
 <!-- TCS Promo Begins -->
-            <xsl:call-template name="tcs_promo"/>
 <!-- TCS Promo Ends-->
         
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
                 <tr valign="top"><td height="17" class="moduleTitle" bgcolor="#093158"><img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="244" height="20" border="0" /></td></tr>
