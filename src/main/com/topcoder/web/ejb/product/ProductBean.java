@@ -91,7 +91,7 @@ public class ProductBean implements SessionBean {
                         "current_value",
                         9999999999L,
                         1,
-                        true
+                        false
                 );
             }
 

@@ -393,7 +393,7 @@ public class InputBean extends BaseEJB {
             ctx = new InitialContext();
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
-                        "sequence_object", "name", "current_value", 9999999999L, 1, true);
+                        "sequence_object", "name", "current_value", 9999999999L, 1, false);
             }
             ret = IdGenerator.nextId("INPUT_SEQ");
 
