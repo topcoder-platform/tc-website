@@ -548,7 +548,7 @@ public class DataRetriever implements DataRetrieverInt {
                     endRow = tempInt.intValue();
                 ps = conn.prepareStatement(queryText);
                 rs = ps.executeQuery();
-                log.debug("startrow: " + startRow + " endRow: " + endRow);
+                //log.debug("startrow: " + startRow + " endRow: " + endRow);
                 // Call different constructors depending on if we have to
                 // generate a ranklist column or not.
                 ResultSetContainer rsc;
