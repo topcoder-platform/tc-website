@@ -339,7 +339,7 @@ public class Search extends Base {
     private int findMembers(SearchBean sb) throws Exception {
         Context ctx = TCContext.getInitial();
         DataSource ds = (DataSource) ctx.lookup(DBMS.HS_DW_DATASOURCE_NAME);
-        DataAccessInt dai = new CachedDataAccess(ds);
+        DataAccessInt dai = new DataAccess(ds);
         Map map = new HashMap();
 
         String handlePattern = "%";
