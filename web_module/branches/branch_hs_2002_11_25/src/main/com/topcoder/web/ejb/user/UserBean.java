@@ -41,23 +41,12 @@ public class UserBean implements SessionBean {
     ctx=_ctx;
   }
 
-  public long createUser() throws RemoteException {
-
-    long user_id=0;
+  public void createUser(long _user_id) throws RemoteException {
 
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
       DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
-      if (!IdGenerator.isInitialized()) {
-        IdGenerator.init(new InformixDB(),ds,"sequence_object","name",
-                         "current_value",9999999999L,10,true);
-      }
-
-      user_id=IdGenerator.nextId("USER_SEQ");
-    
       StringBuffer query=new StringBuffer(1024);
       query.append("INSERT ");
       query.append("INTO user (user_id) ");
@@ -65,7 +54,7 @@ public class UserBean implements SessionBean {
 
       Connection con=ds.getConnection();
       PreparedStatement ps=con.prepareStatement(query.toString());
-      ps.setLong(1,user_id);
+      ps.setLong(1,_user_id);
 
       int rc=ps.executeUpdate();
       if (rc!=1) {
@@ -81,8 +70,6 @@ public class UserBean implements SessionBean {
       _ne.printStackTrace();
       throw(new RemoteException(_ne.getMessage()));
     }
-    
-    return(user_id);
   }
 
   public void setFirstName(long _user_id,String _first_name)

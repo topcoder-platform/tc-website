@@ -87,7 +87,7 @@ public class UserSchoolBean implements SessionBean {
       DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       StringBuffer query=new StringBuffer(1024);
-      query.append("SELECT current ");
+      query.append("SELECT current_ind ");
       query.append("FROM user_school_xref ");
       query.append("WHERE user_id=? AND school_id=?");
 
@@ -127,7 +127,7 @@ public class UserSchoolBean implements SessionBean {
       
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE user_school_xref ");
-      query.append("SET current=? ");
+      query.append("SET current_ind=? ");
       query.append("WHERE user_id=? AND school_id=?");
 
       Connection con=ds.getConnection();
