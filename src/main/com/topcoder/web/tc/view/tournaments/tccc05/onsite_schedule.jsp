@@ -34,13 +34,14 @@
 
 			<tr><td colspan="2" class="sidebarTitle">Thursday, March 10, 2005</td></tr>
 			<tr><td class="formTextEven">9:00am - 4:00pm</td><td class="formTextEven">Component Design & Development Championship Round</td></tr>
-			<tr><td class="formTextOdd">10:00am - 12:00pm</td><td class="formTextOdd">Algorithm Semifinal Room 1</td></tr>
-			<tr><td class="formTextEven">12:00pm - 1:00pm</td><td class="formTextEven">Lunch</td></tr>
-			<tr><td class="formTextOdd">1:00pm - 3:00pm</td><td class="formTextOdd">Algorithm Semifinal Room 2</td></tr>
-			<tr><td class="formTextEven">3:00pm - 4:00pm</td><td class="formTextEven">Sponsor Presentation</td></tr>
-			<tr><td class="formTextOdd">4:00pm - 6:00pm</td><td class="formTextOdd">Algorithm Semifinal Room 3</td></tr>
-			<tr><td class="formTextEven">5:00pm - 8:00pm</td><td class="formTextEven">Spectator Showdown</td></tr>
-			<tr><td class="formTextOdd">6:00pm - 7:00pm</td><td class="formTextOdd">Sponsor Presentation</td></tr>
+			<tr><td class="formTextOdd">9:30am - 10:30am</td><td class="formTextOdd">NVIDIA presentation</td></tr>
+			<tr><td class="formTextEven">10:00am - 12:00pm</td><td class="formTextEven">Algorithm Semifinal Room 1</td></tr>
+			<tr><td class="formTextOdd">12:00pm - 1:00pm</td><td class="formTextOdd">Lunch</td></tr>
+			<tr><td class="formTextEven">1:00pm - 3:00pm</td><td class="formTextEven">Algorithm Semifinal Room 2</td></tr>
+			<tr><td class="formTextOdd">3:00pm - 3:30pm</td><td class="formTextOdd">Motorola Presentation</td></tr>
+			<tr><td class="formTextEven">4:00pm - 6:00pm</td><td class="formTextEven">Algorithm Semifinal Room 3</td></tr>
+			<tr><td class="formTextOdd">5:00pm - 8:00pm</td><td class="formTextOdd">Spectator Showdown</td></tr>
+			<tr><td class="formTextEven">6:30pm - 10:00pm</td><td class="formTextEven">Yahoo! Evening Event</td></tr>
 
 			<tr><td colspan="2" class="bodyText">&#160;</td></tr>
 
@@ -48,7 +49,7 @@
 			<tr><td class="formTextEven">10:00am - 12:00pm</td><td class="formTextEven">Algorithm Wildcard Round</td></tr>
 			<tr><td class="formTextOdd">12:00pm - 1:00pm</td><td class="formTextOdd">Lunch</td></tr>
 			<tr><td class="formTextEven">12:00pm - 3:00pm</td><td class="formTextEven">Spectator Showdown</td></tr>
-			<tr><td class="formTextOdd">1:00pm - 2:00pm</td><td class="formTextOdd">Yahoo! Presentation</td></tr>
+			<tr><td class="formTextOdd">1:00pm - 2:00pm</td><td class="formTextOdd">Presentation by Steven Skiena, PhD</td></tr>
 			<tr><td class="formTextEven">2:30pm - 4:30pm</td><td class="formTextEven">Algorithm Championship Round</td></tr>
 			<tr><td class="formTextOdd">4:30pm - 5:00pm</td><td class="formTextOdd">All Champion Announcements</td></tr>
 			<tr><td class="formTextEven">5:00pm - 6:00pm</td><td class="formTextEven">Media Hour / Press Conference</td></tr>
