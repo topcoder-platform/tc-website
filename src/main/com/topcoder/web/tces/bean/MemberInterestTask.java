@@ -126,14 +126,17 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
                     " does not belong to uid=" + Long.toString(uid));
         }
 
-        rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
-        if (rsc.getRowCount() == 0) {
-            throw new Exception("No company name!");
-        }
-        ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
-        if (super.getSessionInfo().isAdmin())
+		if (super.getSessionInfo().isAdmin())
 			setCompanyName(TCESConstants.ADMIN_COMPANY);
-		else setCompanyName(cmpyNameRow.getItem("company_name").toString());
+		else {
+			rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
+            if (rsc.getRowCount() == 0) {
+                throw new Exception("No company name!");
+            }
+            ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
+
+			setCompanyName(cmpyNameRow.getItem("company_name").toString());
+		}
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
         if (rsc.getRowCount() == 0) {
