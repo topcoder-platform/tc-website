@@ -52,7 +52,7 @@
             </table>
 
             <iframe src="/i/corp/screening/probState.html" width="100%" height="200px" scrolling="auto" frameborder="1">
-            [Your user agent does not support frames or is currently configured not to display frames. However, you may visit <a href="/i/corp/screening/probState.html">the related document.</a>]
+            [Your user agent does not support frames or is currently configured not to display frames. However, you may visit <a href="/i/corp/screening/probState.html" target="_top">the related document.</a>]
             </iframe>
 
             <br/><br/>
@@ -141,15 +141,15 @@ public class Cyberline
 
             <table cellspacing=0 cellpadding=0 border=0 class=codingButtons>
                <tr>
-                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonResize.gif" alt="" /></a></td>
-                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonFind.gif" alt="" /></a></td>
-                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonGoTo.gif" alt="" /></a></td>
-                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonSave.gif" alt="" /></a></td>
-                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
-                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
-                  <td><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonClear.gif" alt="" /></a></td>
-                  <td><a href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonClose.gif" alt="" /></a></td>
-                  <td><a href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonSubmit.gif" alt="" /></a></td>
+                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonResize.gif" alt="" /></a></td>
+                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonFind.gif" alt="" /></a></td>
+                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonGoTo.gif" alt="" /></a></td>
+                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonSave.gif" alt="" /></a></td>
+                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
+                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
+                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonClear.gif" alt="" /></a></td>
+                  <td><a href="/mockup/exampleDirections.jsp" target="_top"><img src="/i/corp/screening/buttonClose.gif" alt="" /></a></td>
+                  <td><a href="/mockup/exampleDirections.jsp" target="_top"><img src="/i/corp/screening/buttonSubmit.gif" alt="" /></a></td>
                </tr>
             </table>
 

@@ -116,7 +116,7 @@
                </tr>
                <tc-webtag:listIterator id="problem" list="problems">
                    <tr>
-                      <td class=tableTextOdd><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_PROBLEM%>&<%=Constants.PROBLEM_TYPE_ID%>=<%=problemType%>&<%=Constants.COMPONENT_ID%>=<jsp:getProperty name="problem" property="componentID"/>"><img src="/i/corp/screening/buttonOpen.gif" alt="" /></a></td>
+                      <td class=tableTextOdd><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_PROBLEM%>&<%=Constants.PROBLEM_TYPE_ID%>=<%=problemType%>&<%=Constants.COMPONENT_ID%>=<jsp:getProperty name="problem" property="componentID"/>"><img src="/i/corp/screening/buttonOpen.gif" alt="" target="_top"/></a></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="className"/></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="statusDesc"/></td>
                       <td class=tableTextOdd align=center><span class=bigRed>26:59</span></td>

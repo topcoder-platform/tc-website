@@ -73,7 +73,7 @@ function submitEnter(e) {
                                 </tr>
                                 <tr>
                                     <td class=tableText align=right>&#160;</td>
-                                    <td class=loginRight><a href="javascript: document.loginForm.submit();"><img src="/i/corp/screening/buttonGo.gif" alt=""/></a></td>
+                                    <td class=loginRight><a href="javascript: document.loginForm.submit();"><img src="/i/corp/screening/buttonGo.gif" alt="" target="_top"/></a></td>
                                 </tr>
                                 <tr><td class=tableText colspan=2>&#160;</td></tr>
                             </table>
