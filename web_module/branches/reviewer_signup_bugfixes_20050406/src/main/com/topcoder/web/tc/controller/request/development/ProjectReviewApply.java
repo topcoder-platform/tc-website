@@ -93,13 +93,13 @@ public class ProjectReviewApply extends Base {
                         }
 
                         boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
-                        if (primary && rba.projectHasPrimaryReviewer(DBMS.TCS_OLTP_DATASOURCE_NAME, projectId, phaseId)) {
+                        if (primary && rba.projectHasPrimaryReviewer(DBMS.TCS_OLTP_DATASOURCE_NAME, projectId)) {
                             throw new NavigationException("Sorry, this review position is already taken.");
                         }
 
                         if (phaseId == SoftwareComponent.DEV_PHASE) {
                             int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
-                            if (rba.projectHasReviewType(DBMS.TCS_OLTP_DATASOURCE_NAME, projectId, phaseId, reviewTypeId)) {
+                            if (rba.projectHasReviewType(DBMS.TCS_OLTP_DATASOURCE_NAME, projectId, reviewTypeId)) {
                                 throw new NavigationException("Sorry, this review position is already taken.");
                             }
                         }

@@ -96,7 +96,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 dataSource);
     }
 
-    public boolean projectHasPrimaryReviewer(String dataSource, long projectId, int phaseId) {
+    public boolean projectHasPrimaryReviewer(String dataSource, long projectId) {
         return selectSet("rboard_application",
                 new String[]{"user_id", "review_resp_id", "create_date"},
                 new String[]{"project_id", "primary_ind"},
@@ -104,7 +104,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 dataSource).size() > 0;
     }
     
-    public boolean projectHasReviewType(String dataSource, long projectId, int phaseId, int reviewTypeId) {
+    public boolean projectHasReviewType(String dataSource, long projectId, int reviewTypeId) {
         return selectSet("rboard_application",
                 new String[]{"user_id", "primary_ind", "create_date"},
                 new String[]{"project_id", "review_resp_id"},
