@@ -608,7 +608,7 @@
         <delete dir="${tmp-dir}"/><mkdir dir="${tmp-dir}"/>
         
         <!-- zip 'sources' -->
-        <jar destfile="${tmp-dir}/${unit-jar-name}-ejb.jar">
+        <jar jarfile="${tmp-dir}/${unit-jar-name}-ejb.jar">
             <zipfileset dir="${classes}" includes="${unit-class-path}/**/*.class"/>
             <zipfileset dir="${java}/${unit-class-path}" includes="*.xml" prefix="META-INF"/>
         </jar>
