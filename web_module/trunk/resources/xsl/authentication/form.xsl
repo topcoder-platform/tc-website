@@ -47,34 +47,22 @@
 ]]></SCRIPT>
 
 
-                <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="132" ALIGN="center">
-                  <!-- <TR><TD COLSPAN="3"><IMG ALT="" HEIGHT="20" WIDTH="132" SRC="/IMAGES/LOGIN_TOP.GIF"/></TD></TR> -->
-                  <!-- <TR>
-                    <TD CLASS="statTextBig" VALIGN="top" ROWSPAN="6"><IMG SRC="/i/login_left.gif" ALT="" WIDTH="31" HEIGHT="149" BORDER="0" HSPACE="15"/></TD>
-                    <TD CLASS="statTextBig" VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="20" BORDER="0"/></TD>
-                    <TD CLASS="statTextBig" VALIGN="top" ROWSPAN="6"><IMG SRC="/i/login_right.gif" ALT="" WIDTH="32" HEIGHT="149" BORDER="0" HSPACE="15"/></TD>
-                  </TR> -->
+                <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
                   <TR>
-                    <TD CLASS="statTextBig" VALIGN="top" HEIGHT="14">Handle:</TD>
-                  </TR>
-                  <TR>
-                    <TD HEIGHT="25" VALIGN="TOP">
-                      <INPUT MAXLENGTH="15" SIZE="12" NAME="Handle" TYPE="TEXT" VALUE="" onKeyPress="submitEnter(event)"/>
+                  <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">Handle:&#160;&#160;</TD>
+                    <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2">
+                      <INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="Handle" TYPE="TEXT" VALUE="" onKeyPress="submitEnter(event)"/>
                     </TD>
                   </TR>
                   <TR>
-                    <TD CLASS="statTextBig" VALIGN="top" HEIGHT="14">Password:</TD>
-                  </TR>
-                  <TR>
-                    <TD HEIGHT="25" VALIGN="TOP">
-                      <INPUT MAXLENGTH="15" SIZE="12" NAME="Password" TYPE="Password" VALUE="" onKeyPress="submitEnter(event)"/>
+                  <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">Password:&#160;&#160;</TD>
+                    <TD HEIGHT="20" VALIGN="TOP">
+                      <INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="Password" TYPE="Password" VALUE="" onKeyPress="submitEnter(event)"/>
                     </TD>
-                  </TR>
-                  <TR>
                     <TD CLASS="statTextBig" VALIGN="top">
                       <!--<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="45" BORDER="0"/>-->
-                      <A HREF="Javascript:login.submit()" CLASS="statTextBig">Login &gt;&gt;</A>
-                    </TD>
+                      &#160;&#160;<A HREF="Javascript:login.submit()" CLASS="statTextBig">Login &gt;</A>
+                    </TD>                    
                   </TR>
                 </TABLE>
               </FORM>
