@@ -25,7 +25,7 @@
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="review_board"/>
-                <jsp:param name="level2" value="design"/> 
+                <jsp:param name="level2" value="development"/> 
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -39,7 +39,7 @@
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="review_boards"/>  
            <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Design"/>  
+           <jsp:param name="title" value="Development"/>  
         </jsp:include>
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
       <tr>
@@ -61,14 +61,14 @@
       </tr>
 
 <table width="100%" border="0" cellpadding="3" cellspacing="0">
-<tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong>Design Review Board</strong></font></td></tr>
+<tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong>Development Review Board</strong></font></td></tr>
 </table>
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=260578"><img src="/i/m/danno_mug.gif" alt="danno" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=278342"><img src="/i/m/adic_mug.gif" alt="adic" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=260578"><strong>danno</strong></a><span class="smallText"> graduated with a BS degree in Computer Science and Mathematics from Houghton College.  He was the runner up for Best Paper at IEEE's SMC/ia 2001 Conference.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=278342"><strong>adic</strong></a><span class="smallText"></span>
                         </p>                       
                      </td>
                 </tr>
@@ -78,10 +78,10 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158333"><img src="/i/m/dvickrey_mug.gif" alt="dvickrey" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=154579"><img src="/i/m/Altrag_mug.gif" alt="Altrag" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158333"><strong>dvickrey</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=154579"><strong>Altrag</strong></a><span class="smallText"> graduated from the University of Calgary and also placed 27th in the 2002 ACM ICPC world finals.</span>
                         </p>                       
                      </td>
                 </tr>
@@ -91,56 +91,69 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=299180"><img src="/i/m/isv_mug.gif" alt="isv" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=260911"><img src="/i/m/amitc _mug.gif" alt="amitc " width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=299180"><strong>isv</strong></a><span class="smallText"> graduated from Don State Technical University in Russia and is a certified specialist in Computer Science.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=260911"><strong>amitc</strong></a><span class="smallText"></span>
                         </p>                       
                      </td>
                 </tr>
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
-            
+
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=291974"><img src="/i/m/kanliang_mug.gif" alt="kanliang" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=287614"><img src="/i/m/argolite _mug.gif" alt="argolite " width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=291974"><strong>kanliang</strong></a><span class="smallText"> graduated from the Renmin University of China.  She hopes to learn from others' designs as part of the review board.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=287614"><strong>argolite</strong></a><span class="smallText"> graduated from the University of British Columbia.  He believes that being a part of the review board allows him to see soltions to problems from angles he might not have seen on his own.</span>
                         </p>                       
                      </td>
                 </tr>
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
-            
+
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=265736"><img src="/i/m/Ken_Alverson_mug.gif" alt="Ken Alverson" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=111202"><img src="/i/m/ColinMacLeod_mug.gif" alt="ColinMacLeod" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=265736"><strong>Ken Alverson</strong></a><span class="smallText"> graduated from the Case Western Reserve University.  He placed 5th in a Microsoft Research sponsored collegiate programming competition.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=111202"><strong>ColinMacLeod</strong></a><span class="smallText"></span>
                         </p>                       
                      </td>
                 </tr>
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
-            
+
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=154754"><img src="/i/m/Ken_Vogel_mug.gif" alt="Ken Vogel" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=152605"><img src="/i/m/georgepf  _mug.gif" alt="georgepf  " width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=154754"><strong>Ken Vogel</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=152605"><strong>georgepf</strong></a><span class="smallText"> graduated from MIT.</span>
                         </p>                       
                      </td>
                 </tr>
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
-            
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=279471"><img src="/i/m/haha_mug.gif" alt="haha" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=279471"><strong>haha</strong></a><span class="smallText"> graduated from Tsinghua University in Beijing, China.  He has also had training to attend ACM/ICPC 2000 and 2001.</span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=152342"><img src="/i/m/kyky_mug.gif" alt="kyky" width="63" height="70" border="0" /></a></td>
@@ -156,69 +169,134 @@
             
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=292451"><img src="/i/m/Mr._Sketch_mug.gif" alt="Mr. Sketch" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=280367"><img src="/i/m/lkw_mug.gif" alt="lkw" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=292451"><strong>Mr. Sketch</strong></a><span class="smallText"> graduated Cum Laude with a BS in Computer Science and Computer Engineering.  He also has four years of on-the-job experience designing software.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=280367"><strong>lkw</strong></a><span class="smallText">  graduated from Queens College and is a Sun Certified Programmer for Java2 Platform</span>
                         </p>                       
                      </td>
                 </tr>
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
-            
+
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=150940"><img src="/i/m/orb_mug.gif" alt="orb" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=108262"><img src="/i/m/mathgodleo _mug.gif" alt="mathgodleo " width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=150940"><strong>orb</strong></a><span class="smallText"> graduated from the University of Texas.  He has also written for several magazines including Java Developer's Journal and Doctor Dobb's Journal.  His first book should be coming out soon.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=108262"><strong>mathgodleo</strong></a><span class="smallText"> graduated from Caltech and enjoys seeing the different ways that different people can implement the same design by being on the review board.</span>
                         </p>                       
                      </td>
                 </tr>
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
-            
+
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=290395"><img src="/i/m/pmadden_mug.gif" alt="pmadden" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=296745"><img src="/i/m/pzhao_mug.gif" alt="pzhao" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=290395"><strong>pmadden</strong></a><span class="smallText"> graduated with a BS and an MS in Computer Science and Mathematics from New Mexico Tech and also earned an PhD in Computer Science from UCLA.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=296745"><strong>pzhao</strong></a><span class="smallText"> graduated with a BS from Tsinghua University in Beijing, China.  He competed in ACM 1998 and his team got 7th place in the final round.</span>
                         </p>                       
                      </td>
                 </tr>
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
-            
+
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=138663"><img src="/i/m/Sord_mug.gif" alt="Sord" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=268546"><img src="/i/m/tangentz_mug.gif" alt="TangentZ" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=138663"><strong>Sord</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=268546"><strong>TangentZ</strong></a><span class="smallText"> received a Master of Computer Science degree from Dalhousie University.  While in school, he spent time researching artificial intelligence with a focus on neural networks. </span>
                         </p>                       
                      </td>
                 </tr>
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
-            
+
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=296145"><img src="/i/m/srowen_mug.gif" alt="srowen" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=299761"><img src="/i/m/techie1_mug.gif" alt="techie1" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=296145"><strong>srowen</strong></a><span class="smallText"> graduated from Harvard University with a BA in Computer Science and has several Sun certifications.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=299761"><strong>techie1</strong></a><span class="smallText"> graduated from the Stevens Institute of Technology.  He is also a developer for Java, MCSD, and MCSD.NET.</span>
                         </p>                       
                      </td>
                 </tr>
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
-            
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=302018"><img src="/i/m/Tomson _mug.gif" alt="Tomson " width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=302018"><strong>Tomson</strong></a><span class="smallText"> attends the Shanghai Jiaotong University.  In high school, he was the runner-up in the National Olympic of Information and won the first-class prize in the National Physics Olympics.</span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158447"><img src="/i/m/vald _mug.gif" alt="vald " width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158447"><strong>ValD </strong></a><span class="smallText"> currently studies at the University of Albany and plans to graduate with honors.  In his spare time, he studies optimization problems and evolution strategies.  In fact, ValD believes he may be making progress towards a new evolution model. </span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=265522"><img src="/i/m/veredox _mug.gif" alt="veredox " width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=265522"><strong>veredox</strong></a><span class="smallText"> graduated with a BS in Network Computing from Northern Michigan University.  As a part of the review board, he wants to make sure TCS provides the highest quality components.</span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=286907"><img src="/i/m/WishingBone_mug.gif" alt="WishingBone" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=286907"><strong>WishingBone</strong></a><span class="smallText"> graduated from Zhejiang University and enjoys meeting outstanding programmers world-wide through his participation in the review boards</span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=251989"><img src="/i/clear.gif" alt="AdamSelene" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=251989"><strong>AdamSelene</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top"><br>
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=277356"><img src="/i/clear.gif" alt="aksonov" width="63" height="70" border="0" /></a></td>
@@ -247,62 +325,10 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=153434"><img src="/i/clear.gif" alt="bokbok" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=262467"><img src="/i/clear.gif" alt="billy" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=153434"><strong>bokbok</strong></a><span class="smallText"> graduated from Princeton University.  He feels that being a part of the review board will allow him to learn from others as they learn from him.</span>
-                        </p>                       
-                     </td>
-                </tr>
-            </table>
-
-            <hr width="100%" size="1" noshade="noshade" />
-            
-            <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=156859"><img src="/i/clear.gif" alt="ivern" width="63" height="70" border="0" /></a></td>
-                    <td width="99%" class="bodyText">
-                        <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=156859"><strong>ivern</strong></a><span class="smallText"></span>
-                        </p>                       
-                     </td>
-                </tr>
-            </table>            
-
-            <hr width="100%" size="1" noshade="noshade" />
-            
-            <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158258"><img src="/i/clear.gif" alt="jerm" width="63" height="70" border="0" /></a></td>
-                    <td width="99%" class="bodyText">
-                        <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158258"><strong>jerm</strong></a><span class="smallText"></span>
-                        </p>                       
-                     </td>
-                </tr>
-            </table>            
-            
-            <hr width="100%" size="1" noshade="noshade" />
-            
-            <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158201"><img src="/i/clear.gif" alt="mecraw" width="63" height="70" border="0" /></a></td>
-                    <td width="99%" class="bodyText">
-                        <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158201"><strong>mecraw</strong></a><span class="smallText"> graduated from UMass Amherst.</span>
-                        </p>                       
-                     </td>
-                </tr>
-            </table>            
-
-            <hr width="100%" size="1" noshade="noshade" />
-            
-            <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=304697"><img src="/i/clear.gif" alt="ozzie" width="63" height="70" border="0" /></a></td>
-                    <td width="99%" class="bodyText">
-                        <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=304697"><strong>ozzie</strong></a><span class="smallText"> graduated from Lalor Secondary College in Melbourne, Australia.  He is a Sun Certified Programmer for Java 1.1 and 1.4.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=262467"><strong>billy</strong></a><span class="smallText"></span>
                         </p>                       
                      </td>
                 </tr>
@@ -312,10 +338,10 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=119676"><img src="/i/clear.gif" alt="Pops" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=303185"><img src="/i/clear.gif" alt="Cosmin.ro" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a><span class="smallText"> graduated from Indiana University and has received many corporate awards.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=303185"><strong>Cosmin.ro</strong></a><span class="smallText"></span>
                         </p>                       
                      </td>
                 </tr>
@@ -325,10 +351,10 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=293470"><img src="/i/clear.gif" alt="sapro" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=159921"><img src="/i/clear.gif" alt="Da Twink Daddy" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=293470"><strong>sapro</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=159921"><strong>Da Twink Daddy</strong></a><span class="smallText"></span>
                         </p>                       
                      </td>
                 </tr>
@@ -338,30 +364,67 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=278595"><img src="/i/clear.gif" alt="seaniswise" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=271773"><img src="/i/clear.gif" alt="heather" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=278595"><strong>seaniswise</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=271773"><strong>heather</strong></a><span class="smallText"></span>
                         </p>                       
                      </td>
                 </tr>
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
-            
+
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=272069"><img src="/i/clear.gif" alt="sunyuan" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=151886"><img src="/i/clear.gif" alt="kdby" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=272069"><strong>sunyuan</strong></a><span class="smallText"> graduated from the University of Toronto and looks forward to keeping up to date on new technologies by being on the review board.</span>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=151886"><strong>kdby</strong></a><span class="smallText"></span>
                         </p>                       
                      </td>
                 </tr>
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
-            
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=272490"><img src="/i/clear.gif" alt="kolanovic" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=272490"><strong>kolanovic</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158922"><img src="/i/clear.gif" alt="Revoklaw" width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158922"><strong>Revoklaw</strong></a><span class="smallText"></span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=150498"><img src="/i/clear.gif" alt="ThinMan " width="63" height="70" border="0" /></a></td>
+                    <td width="99%" class="bodyText">
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=150498"><strong>ThinMan</strong></a><span class="smallText"> graduated with a BS in Mathematics and Chemistry from Washington University.  He also has a PhD in Inorganic Chemistry from Northwestern University.  In his field, he works to develop and maintain crystallographic software.</span>
+                        </p>                       
+                     </td>
+                </tr>
+            </table>            
+
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=269515"><img src="/i/clear.gif" alt="valeriy" width="63" height="70" border="0" /></a></td>
@@ -374,9 +437,6 @@
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
-            
-            
-
             
 
 <p align="middle" >
