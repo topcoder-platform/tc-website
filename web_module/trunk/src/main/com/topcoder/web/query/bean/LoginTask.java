@@ -1,9 +1,9 @@
 package com.topcoder.web.query.bean;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.Authentication;
 import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
+import com.topcoder.web.query.common.Authentication;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,45 +26,39 @@ public class LoginTask extends BaseTask implements Task, Serializable {
     /* Holds user input from the password field */
     private String passwordInput;
 
-    /* Holds a message to be displayed on the login page */
-    private String message;
-
-    /* Holds a boolean indicating whether the login task should perform custom redirection */
-    private boolean customRedir;
-
     private HttpSession session;
+    private String redirectPage;
 
     /* Creates a new LoginTask */
     public LoginTask() {
         super();
-        customRedir=false;
         setHandleInput("");
         setPasswordInput("");
+        setRedirectPage("");
     }
 
 	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
             throws AuthenticationException, Exception {
-            setSession(request.getSession(true));
-	}
+        super.setAuthentication(Authentication.getAuthentication(request.getSession(true)));
+        session = request.getSession(true);
+    }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
     }
 
     public void process(String step) throws Exception {
-        if (Authentication.getRequestedURL(session).trim().length()>0) {
-            setNextPage(Authentication.getRequestedURL(session).trim());
-            customRedir=true;
-            Authentication.resetRequestedURL(session);
+        if (getRedirectPage().length()>0) {
+            setNextPage(getRedirectPage());
         } else {
             setNextPage(getServletPath()+"?"+Constants.TASK_PARAM+"="+Constants.DB_SELECTION_TASK);
-            super.setInternalResource(false);
         }
+
         try {
-            Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "");
+            super.getAuthentication().attemptLogin(getHandleInput(), getPasswordInput(), getInitialContext(), session);
         } catch (AuthenticationException e) {
-            setMessage(Authentication.getErrorMessage(session));
             setNextPage(Constants.LOGIN_PAGE );
         }
+        super.setInternalResource(false);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
@@ -75,6 +69,8 @@ public class LoginTask extends BaseTask implements Task, Serializable {
             setHandleInput(value);
         else if (paramName.equalsIgnoreCase(Constants.PASSWORD_PARAM))
             setPasswordInput(value);
+        else if (paramName.equalsIgnoreCase(Constants.REDIRECT_PAGE_PARAM))
+            setRedirectPage(value);
     }
 
     /** Setter for property handleInput.
@@ -105,24 +101,13 @@ public class LoginTask extends BaseTask implements Task, Serializable {
         return passwordInput;
     }
 
-    /** Setter for property message.
-     * @param message New value of property message.
-     */
-    public void setMessage(String message) {
-        this.message=message;
+    public String getRedirectPage() {
+        return redirectPage;
     }
 
-    /** Getter for property message
-     * @return Value of property message
-     */
-    public String getMessage() {
-        return message;
+    public void setRedirectPage(String redirectPage) {
+        this.redirectPage = redirectPage;
     }
-
-    public void setSession(HttpSession session) {
-        this.session = session;
-    }
-
 
 }
 

@@ -36,7 +36,7 @@ public class Authentication implements Serializable {
 
     private static final String AUTHENTICATION_KEY = "query_auth";
 
-    private Authentication() {
+    public Authentication() {
         setUserId(0);
         setErrorMessage("");
         setRequestedURL("");

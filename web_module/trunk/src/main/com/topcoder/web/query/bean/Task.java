@@ -1,5 +1,7 @@
 package com.topcoder.web.query.bean;
 
+import com.topcoder.web.query.common.Authentication;
+
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -68,5 +70,7 @@ public interface Task {
     List getNavLinks();
 
     boolean isInternalResource();
+
+    Authentication getAuthentication();
 
 }

@@ -40,8 +40,8 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
 
 	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
             throws AuthenticationException, Exception {
-        HttpSession session = request.getSession(true);
-        if (!Authentication.isLoggedIn(session)) {
+        super.servletPreAction(request, response);
+        if (!super.getAuthentication().isLoggedIn()) {
             log.debug("User not authenticated for access to query tool resource.");
             throw new AuthenticationException("User not authenticated for access to query tool resource.");
         }
