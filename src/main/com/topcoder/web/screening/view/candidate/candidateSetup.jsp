@@ -61,7 +61,7 @@ function back() {
                 <tr>
                     <td class="testTableSubtitleOdd">Email Address:</td>
                         <% if (candidateInfo.isNew()) { %>
-                    <td class="testTableOdd"><input type="text" name="emailAddress" size="30" maxlength="30" value="<jsp:getProperty name="candidateInfo" property="userName" />"></td>
+                    <td class="testTableOdd"><input type="text" name="emailAddress" size="30" maxlength="50" value="<jsp:getProperty name="candidateInfo" property="userName" />"></td>
                         <% } else { %>
                     <td class="testTableOdd"><jsp:getProperty name="candidateInfo" property="userName" /></td>
                         <% } %>
