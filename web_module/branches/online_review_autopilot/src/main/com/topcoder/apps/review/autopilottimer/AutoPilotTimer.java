@@ -81,7 +81,7 @@ public class AutoPilotTimer
                 
                 for(int i = 0; i < projs.length;i++) {
                     if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_SUBMISSION) {
-                        if(projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
+                        if(projs[i].getCurrentPhaseInstance() != null && projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
                             logger.debug("SELECTED: " + projs[i].getProjectName());
                         }
                     } 
