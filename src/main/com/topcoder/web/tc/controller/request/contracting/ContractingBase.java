@@ -83,6 +83,8 @@ abstract public class ContractingBase extends BaseProcessor {
             
                 setNextPage();
             }
+            
+            getRequest().setAttribute("isEdit", String.valueOf(info.isEdit()));
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
@@ -340,7 +342,7 @@ abstract public class ContractingBase extends BaseProcessor {
         rsc = (ResultSetContainer)getDataAccess().getData(r).get("contracting_user_notes");
         for(int i = 0; i < rsc.size(); i++) {
             info.setNote(rsc.getStringItem(i, "note_type_id"), rsc.getStringItem(i, "text"));
-            log.debug("SET NOTE " + rsc.getStringItem(i, "note_id") + " TO " + rsc.getStringItem(i, "text"));
+            log.debug("SET NOTE " + rsc.getStringItem(i, "note_type_id") + " TO " + rsc.getStringItem(i, "text"));
         }
 
         return info;
