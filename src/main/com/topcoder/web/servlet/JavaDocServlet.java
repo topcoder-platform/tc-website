@@ -40,12 +40,12 @@ public final class JavaDocServlet extends HttpServlet {
 
     private void getServices() {
         try {
-            log.info("JavaDocServlet getting JavaDocServices...");
+            log.debug("JavaDocServlet getting JavaDocServices...");
             InitialContext ctx = (InitialContext) TCContext.getInitial();
             JavaDocServicesHome home =
                     (JavaDocServicesHome) ctx.lookup(ApplicationServer.JAVA_DOC_SERVICES);
             services = home.create();
-            log.info("...successful");
+            log.debug("...successful");
         } catch (Exception e) {
             log.error("Error getting JavaDocServices:", e);
         }
@@ -91,17 +91,17 @@ public final class JavaDocServlet extends HttpServlet {
         Object obj = session.getAttribute(webServiceName);
         boolean showPage = false;
         if (obj == null) {
-            log.info("Not logged in.");
+            log.debug("Not logged in.");
             //the user is not logged in
 
             if (password == null || handle == null) {
                 //the user has not yet tried to login
-                log.info("Hasn't tried to log in.");
+                log.debug("Hasn't tried to log in.");
                 writeLoginHtml(out, webServiceName);
             } else {
 
                 //try to authenticate the user
-                log.info("Has tried to login, will try to authenticate.");
+                log.debug("Has tried to login, will try to authenticate.");
                 String error = "";
 
                 try {
@@ -113,11 +113,11 @@ public final class JavaDocServlet extends HttpServlet {
                 }
 
                 if (error.length() != 0) {
-                    log.info("Invalid login: " + error);
+                    log.debug("Invalid login: " + error);
                     //invalid login
                     writeLoginHtmlWithError(out, webServiceName, error);
                 } else {
-                    log.info("Good login.");
+                    log.debug("Good login.");
                     //good login
                     session.setAttribute(webServiceName, Boolean.TRUE);
                     showPage = true;
@@ -130,7 +130,7 @@ public final class JavaDocServlet extends HttpServlet {
 
         if (showPage) {
             //the user is logged in, get the file specified by path
-            log.info("Showing page.");
+            log.debug("Showing page.");
 
             String requestPath = path;
             //fill in the path if there isn't one
@@ -155,7 +155,7 @@ public final class JavaDocServlet extends HttpServlet {
                 forwardToErrorPage(request, response, e, "Error using JavaDocServices to get file.");
                 return;
             }
-            log.info("file = " + file);
+            log.debug("file = " + file);
 
             //fix the links in the file to start with "javadocs?webServiceName=name&"
             file = HTMLLinkChanger.prependToAllAddresses(SERVLET_NAME + "?" +
