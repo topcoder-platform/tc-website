@@ -39,7 +39,7 @@ public class ResumeDownloadTask extends BaseTask {
         SessionPersistor persistor = new SessionPersistor(request.getSession(true));
         WebAuthentication authToken = new BasicAuthentication(persistor, request, response);
 
-        if (!authToken.getActiveUser().isAnonymous()) {
+        if (authToken.getActiveUser().isAnonymous()) {
             log.debug("User not logged in, can't download a file.");
             throw new Exception("User not logged in, can't download a file.");
         } else {
