@@ -6,7 +6,7 @@
   <enterprise-beans>
     <session>
       <ejb-name>School</ejb-name>
-      <home>com.topcoder.web.ejb.user.SchoolHome</home>
+      <home>com.topcoder.web.ejb.school.SchoolHome</home>
       <remote>com.topcoder.web.ejb.school.School</remote>
       <ejb-class>com.topcoder.web.ejb.school.SchoolBean</ejb-class>
       <session-type>Stateless</session-type>
