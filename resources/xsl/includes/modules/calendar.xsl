@@ -55,7 +55,7 @@
                       </TR>
                       <TR> 
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">29</TD>
-                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">30</TD>
+                        <TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4290&amp;t=schedule&amp;c=srm</xsl:attribute>30</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
