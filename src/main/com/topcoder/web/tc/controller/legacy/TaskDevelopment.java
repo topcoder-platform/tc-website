@@ -24,11 +24,9 @@ import com.topcoder.shared.security.PathResource;
 
 import com.topcoder.dde.catalog.Catalog;
 import com.topcoder.dde.catalog.CatalogHome;
-import com.topcoder.dde.catalog.ComponentInfo;
 import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentVersionInfo;
-import com.topcoder.dde.catalog.Technology;
 import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.web.common.PermissionException;
@@ -40,7 +38,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import javax.naming.Context;
-import java.util.Collection;
 import java.util.Map;
 import java.text.NumberFormat;
 
@@ -150,19 +147,8 @@ public final class TaskDevelopment {
             log.debug("PROJECT IS: " + request.getParameter("projectId"));
 
 
-            if (command.equals("inquire")) {
-                if (nav.isLoggedIn()) {
-                    String to = Conversion.checkNull(request.getParameter("To"));
-                    devTag.addTag(new ValueTag("ProjectName", project));
-                    devTag.addTag(new ValueTag("Project", project));
-                    devTag.addTag(new ValueTag("To", to));
-                    xsldocURLString = XSL_DIR + command + ".xsl";
-                } else {
-                    requiresLogin = true;
-                }
-            }
-            /********************** tcs_inquire *******************/
-            else if (command.equals("tcs_inquire") || command.equals("tcs_app_inquire")) {
+
+            if (command.equals("tcs_inquire") || command.equals("tcs_app_inquire")) {
                 if (nav.isLoggedIn()) {
                     Request dataRequest = null;
                     ResultSetContainer rsc = null;
@@ -196,6 +182,7 @@ public final class TaskDevelopment {
                 }
             }
             /********************** tcs_inquire-design *******************/
+/*  doesn't seem like this is used anymore
             else if (command.equals("tcs_inquire-design") || command.equals("tcs_inquire-dev")) {
                 if (comp != null && comp.length() > 0) {
                     log.debug("here");
@@ -242,8 +229,12 @@ public final class TaskDevelopment {
                     log.error("Missing component id");
                 }
             }
+*/
             /********************** send *******************/
-            else if (command.equals("send")) {
+
+/* doesn't seem like this is used
+
+else if (command.equals("send")) {
                 if (nav.isLoggedIn()) {
                     devTag.addTag(new ValueTag("Project", project));
                     //String handle = nav.getUser().getHandle();
@@ -283,7 +274,7 @@ public final class TaskDevelopment {
                 } else {
                     requiresLogin = true;
                 }
-            } else if (command.equals("multiplier_status")) {
+            }*/ else if (command.equals("multiplier_status")) {
                 Request dataRequest = null;
                 ResultSetContainer rsc = null;
                 Map resultMap = null;
@@ -600,10 +591,27 @@ public final class TaskDevelopment {
                         mail.setFromAddress(from);
 
                         mail.setSubject("APPLICATION: " + project + " -- " + handle);
-                        msgText.append("\n\nRating: ");
-                        msgText.append(rating);
-                        mail.setBody(msgText.toString());
 
+                        Request r = new Request();
+                        r.setContentHandle("member_profile");
+                        r.setProperty("cr", String.valueOf(nav.getUserId()));
+                        DataAccessInt appDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+                        ResultSetContainer appRsc = (ResultSetContainer)appDai.getData(r).get("Coder_Data");
+
+                        msgText.append("\n\nAlgorithm Rating:\n");
+                        msgText.append(rating);
+                        msgText.append("\n\nDev Rating:\n");
+                        msgText.append(appRsc.getIntItem(0, "development_rating");
+                        msgText.append("\n\nDesign Rating:\n");
+                        msgText.append(appRsc.getIntItem(0, "design_rating");
+                        msgText.append("\n\n").append("http://");
+                        msgText.append(ApplicationServer.SERVER_NAME);
+                        msgText.append("/stat?c=member_profile&cr=");
+                        msgText.append(nav.getUserId());
+                        msgText.append("\n");
+                        msgText.append(rating);
+
+                        mail.setBody(msgText.toString());
                         xsldocURLString = XSL_DIR + "inquiry_app.xsl";
                         EmailEngine.send(mail);
 
