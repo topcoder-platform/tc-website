@@ -90,7 +90,7 @@
  <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>" align="center"><%= hit.getItem("state_code").toString() %></td>
  <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("country_code").toString() %></td>
  <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("coder_type_desc").toString() %></td>
- <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("school_name").toString() %></td>
+ <td class="<%=i%2==1?"testTableOddWrapping":"testTableEvenWrapping"%>"><%= hit.getItem("school_name").toString() %></td>
  <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("gpa").toString() %></td>
  <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>" align="center"><%= hit.getItem("grad_year").toString() %></td>
  <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("hit_date").toString() %></td>
