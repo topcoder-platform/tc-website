@@ -28,7 +28,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
             StringBuffer buf = new StringBuffer(1000);
 
             TCSEmailMessage mail = new TCSEmailMessage();
-            mail.setSubject("TopCoder Google Activation");
+            mail.setSubject("IMPORTANT - Google Event Activation Email");
 
             buf.append("wanna activate your account? click here:\n\n");
             buf.append("http://");
