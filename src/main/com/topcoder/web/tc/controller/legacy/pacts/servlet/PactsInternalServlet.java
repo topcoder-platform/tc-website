@@ -66,7 +66,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             if (!doAuthenticate(request, response)) return;
 
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
-            if (request.getParameter(MODULE) != null) process(request, response);
+            if (request.getParameter(MODULE) != null) {
+                process(request, response);
+                return;
+            }
 
             String task = request.getParameter(TASK_STRING);
             String command = request.getParameter(CMD_STRING);
@@ -510,7 +513,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             if (!doAuthenticate(request, response)) return;
 
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
-            if (request.getParameter(MODULE) != null) process(request, response);
+            if (request.getParameter(MODULE) != null)  {
+                process(request, response);
+                return;
+            }
 
             String task = null;
             String command = null;
