@@ -729,12 +729,6 @@
         </init-param>
 
         <init-param>
-            <param-name>note_list_page</param-name>
-            <param-value>candidate/noteList.jsp</param-value>
-            <description></description>
-        </init-param>
-
-        <init-param>
             <param-name>note_create_page</param-name>
             <param-value>candidate/noteCreate.jsp</param-value>
             <description></description>

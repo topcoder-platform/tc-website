@@ -57,7 +57,6 @@ public class Constants
     public static String CANDIDATE_INFO;
     public static String CANDIDATE_SETUP_PAGE;
     public static String CANDIDATE_LIST_PAGE;
-    public static String NOTE_LIST_PAGE;
     public static String NOTE_CREATE_PAGE;
     public static String UC_DEFAULT_FORWARD_PROCESSOR;
     public static String UC_CREATE_CODER_STATUS_ID;
@@ -198,7 +197,6 @@ public class Constants
         CANDIDATE_INFO = config.getInitParameter("candidate_info_attribute");
         CANDIDATE_SETUP_PAGE = JSP_ROOT+config.getInitParameter("candidate_setup_page");
         CANDIDATE_LIST_PAGE = JSP_ROOT+config.getInitParameter("candidate_list_page");
-        NOTE_LIST_PAGE = JSP_ROOT+config.getInitParameter("note_list_page");
         NOTE_CREATE_PAGE = JSP_ROOT+config.getInitParameter("note_create_page");
         UC_DEFAULT_FORWARD_PROCESSOR = config.getInitParameter("update_candidate_default_forward_processor");
         UC_CREATE_CODER_STATUS_ID = config.getInitParameter("update_candidate_create_coder_status_id");
