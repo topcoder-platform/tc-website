@@ -5,7 +5,7 @@
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
             
-<!-- Start Title -->            
+<!-- Start Title -->   
 <table width="100%" border="0" cellpadding="0" cellspacing="1" class="forumBkgd">
     <tr>
         <td class="whiteBkgnd">
@@ -202,8 +202,8 @@
                 <tr>
                     <td class="forumTextOdd">
 						<bean:define id="projectId" name="project" property="id" />
-						<bean:define id="submissionId" name="submission" property="id" />
-					    <html:link page='<%="/submissionDownload.do?id="+projectId+"&sid="+submissionId%>' styleClass="breadcrumbLinks"><bean:message key="prompt.download" /></html:link></td>
+						<bean:define id="submissionId" name="sid" />
+					    <html:link page='<%="/submissionDownload.do?id="+projectId+"&sid="+submissionId %>' styleClass="breadcrumbLinks"><bean:message key="prompt.download" /></html:link></td>
                 </tr>                
 </logic:present>                
             </table>
@@ -300,8 +300,8 @@
         <td align="center" class="lightBkgnd">
             <table border="0" cellpadding="0" cellspacing="4">
                 <tr>
-                    <td><review:showDeliverable name="project" property="project" button="true" styleClass="submitButton" /></td>
-                    <td><review:contactPM name="project" property="id" button="true" styleClass="submitButton" /></td>
+                    <td><review:showDeliverable name="project" property="project" button="true" styleClass="submitButton" />
+                    <review:contactPM name="project" property="id" button="true" styleClass="submitButton" /></td>
                 </tr>
             </table>
         </td>

@@ -1414,6 +1414,23 @@ public class ProjectTrackerBean implements SessionBean {
     }
 
     /**
+     * Gets the PM for the project, or returns null if no PM is found.
+     *
+     * @param projectId the id of the project whose PM will be retrieved.
+     *
+     * @return the User for the PM
+     */
+    public User getPM(long projectId) {
+        UserRole[] userRole = getUserRoles(projectId);
+        for (int i = 0; i < userRole.length; i++) {
+            if (userRole[i].getRole().getId() == Role.ID_PRODUCT_MANAGER) {
+                return userRole[i].getUser();
+            }
+        }
+        return null;
+    }
+
+    /**
      * Gets current phaseInstance for a project.
      *
      * @param projectId
@@ -1804,7 +1821,7 @@ public class ProjectTrackerBean implements SessionBean {
                 RolePrincipal rp;
                 long roleId;
 
-                String roleName = prefix + "View Project";
+                String roleName = prefix + "View Project " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1818,7 +1835,7 @@ public class ProjectTrackerBean implements SessionBean {
                 // Assign View Project to pm
                 principalMgr.assignRole(userPrincipal, rp, requestor);
 
-                roleName = prefix + "Submit";
+                roleName = prefix + "Submit "  + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1829,7 +1846,7 @@ public class ProjectTrackerBean implements SessionBean {
                 pc.addPermission(new SubmitPermission(projectId));
                 policyMgr.addPermissions(rp, pc, requestor);
 
-                roleName = prefix + "Screen";
+                roleName = prefix + "Screen "  + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1840,7 +1857,7 @@ public class ProjectTrackerBean implements SessionBean {
                 pc.addPermission(new ScreenPermission(projectId));
                 policyMgr.addPermissions(rp, pc, requestor);
 
-                roleName = prefix + "Review";
+                roleName = prefix + "Review " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1851,7 +1868,7 @@ public class ProjectTrackerBean implements SessionBean {
                 pc.addPermission(new ReviewPermission(projectId));
                 policyMgr.addPermissions(rp, pc, requestor);
 
-                roleName = prefix + "Aggregation";
+                roleName = prefix + "Aggregation " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1862,7 +1879,7 @@ public class ProjectTrackerBean implements SessionBean {
                 pc.addPermission(new AggregationPermission(projectId));
                 policyMgr.addPermissions(rp, pc, requestor);
 
-                roleName = prefix + "Submit Final Fix";
+                roleName = prefix + "Submit Final Fix " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1873,7 +1890,7 @@ public class ProjectTrackerBean implements SessionBean {
                 pc.addPermission(new SubmitFinalFixPermission(projectId));
                 policyMgr.addPermissions(rp, pc, requestor);
 
-                roleName = prefix + "Final Review";
+                roleName = prefix + "Final Review " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -2155,7 +2172,7 @@ public class ProjectTrackerBean implements SessionBean {
             try {
                 UserPrincipal userPrincipal = principalMgr.getUser(userId);
 
-                String roleName = prefix + "View Project";
+                String roleName = prefix + "View Project " + projectId;
                 long roleId = getRoleId(roleName);
                 if (roleId == -1) {
                     throw new RuntimeException("Can't find roleName: " + roleName);
@@ -2164,7 +2181,7 @@ public class ProjectTrackerBean implements SessionBean {
                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, requestor);
                 principalMgr.assignRole(userPrincipal, rolePrincipal, requestor);
 
-                roleName = prefix + "Submit";
+                roleName = prefix + "Submit " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId == -1) {
                     throw new RuntimeException("Can't find roleName: " + roleName);
@@ -2531,10 +2548,10 @@ public class ProjectTrackerBean implements SessionBean {
                         "AND cc.component_id = cv.component_id " +
                         "AND cv.comp_vers_id = p.comp_vers_id " +
                         "AND cv.component_id in ( " +
-                        "	select component_id " +
-                        "	from comp_versions cv " +
-                        "	where cv.comp_vers_id = ? " +
-                        "	) ");
+                        "   select component_id " +
+                        "   from comp_versions cv " +
+                        "   where cv.comp_vers_id = ? " +
+                        "   ) ");
 
                 ps.setLong(1, compVersId);
                 rs = ps.executeQuery();
@@ -2800,14 +2817,14 @@ public class ProjectTrackerBean implements SessionBean {
                 "        pi.end_date," +
                 "        p.project_id, " +
                 "       ROUND(sum(s.score)/3,2) score," +
-                "	case when sb.submitter_id =  (" +
+                "   case when sb.submitter_id =  (" +
                 "   select sub.submitter_id" +
                 "   from submission sub " +
                 "   where sub.project_id = p.project_id" +
                 "   and sub.cur_version = 1" +
                 "   and sub.is_removed = 0" +
                 "   and sub.submission_type = 1" +
-                "	and not exists (select submitter_id from submission" +
+                "   and not exists (select submitter_id from submission" +
                 "   where project_id = sub.project_id and" +
                 "   submitter_id <> sub.submitter_id and " +
                 "   submission_date < sub.submission_date " +

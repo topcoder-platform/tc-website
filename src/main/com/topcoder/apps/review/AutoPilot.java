@@ -13,16 +13,23 @@ import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
 
+import com.topcoder.message.email.EmailEngine;
+import com.topcoder.message.email.TCSEmailMessage;
+
+import java.util.List;
+import java.util.ArrayList;
+
 /**
  *
  * @author  rfairfax
  */
 public class AutoPilot {
+    public static final long ADMINISTRATOR_ID = 100129;
 
     public static ResultData finalReviewEmail(FinalReviewData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -69,10 +76,75 @@ public class AutoPilot {
         return new SuccessResult();
     }
 
+    public static ResultData finalReviewFailed(FinalReviewData data, int notFixedItems, String comment) {
+        try {
+            //setup user info
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
+            subject.addPrincipal(new RolePrincipal("Administrator", 1));
+
+            UserManagerLocal userManager = EJBHelper.getUserManager();
+            DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
+            ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
+
+            SecurityEnabledUser user = userManager.getUser(subject);
+
+            Project project = projectTracker.getProject(data.getProject(), user.getTCSubject());
+
+            if(!project.getAutoPilot()) return new SuccessResult();
+
+            // Send mails to the product Manager and reviewers
+            UserRole[] participants = project.getParticipants();
+            for(int i = 0; i < participants.length;i++) {
+                if( (participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER) ||
+                    (participants[i].getRole().getId() == Role.ID_REVIEWER) )
+                {
+                    MailHelper.failedReviewMail(user, participants[i].getUser(), notFixedItems, comment, project);
+                }
+            }
+
+            // add the winner for receiving the mail
+            MailHelper.failedReviewMail(user, project.getWinner(), notFixedItems, comment, project);
+
+
+            // Move to final fixes
+            ProjectForm form = new ProjectForm();
+
+            form.fromProject(project);
+
+            form.setCurrentPhase("Final Fixes");
+
+            form.setScorecardTemplates(docManager.getScorecardTemplates());
+
+            form.setReason("auto pilot moving to Final Fixes");
+
+            UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
+            UserProjectInfo info = null;
+            for(int i = 0; i < projs.length; i++) {
+                if(projs[i].getId() == project.getId()) {
+                    info = projs[i];
+                }
+            }
+
+            if(info == null) return new FailureResult("Project not found");
+
+            OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
+
+            ProjectData new_data = form.toActionData(orpd);
+            ResultData result = new BusinessDelegate().projectAdmin(new_data);
+            if(!(result instanceof SuccessResult)) {
+                return result;
+            }
+        } catch(Exception e) {
+            return new FailureResult(e.toString());
+        }
+
+        return new SuccessResult();
+    }
+
     public static ResultData finalFixes(SolutionData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -126,7 +198,7 @@ public class AutoPilot {
     public static ResultData aggregationReview(AggregationReviewData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -195,7 +267,7 @@ public class AutoPilot {
     public static ResultData aggregation(AggregationData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -251,7 +323,7 @@ public class AutoPilot {
     public static ResultData appeal(AppealData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -275,6 +347,7 @@ public class AutoPilot {
             if(data.getProject().getCurrentPhaseInstance().getEndDate() != null
                 && data.getProject().getCurrentPhaseInstance().getEndDate().getTime() > System.currentTimeMillis() ) return new SuccessResult();
 */
+
             //after appeals phase end, check for open appeals
             Appeal[] appeals = docManager.getAppeals(project, -1, -1, user.getTCSubject());
             for (int i = 0; i < appeals.length; i++) {
@@ -307,9 +380,7 @@ public class AutoPilot {
             mail.append("\n\nhas completed appeals response");
 
             sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Response Notification", mail.toString());
-
-
-        } catch (Exception e) {
+        } catch(Exception e) {
             return new FailureResult(e.toString());
         }
 
@@ -319,7 +390,7 @@ public class AutoPilot {
     public static ResultData reviewPMReview(ProjectData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -412,7 +483,7 @@ public class AutoPilot {
 
     public static ResultData screeningPMReview(ProjectData data) {
         try {
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -510,7 +581,7 @@ public class AutoPilot {
     public static ResultData screeningEmail(ScreeningData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
@@ -594,7 +665,7 @@ public class AutoPilot {
     public static ResultData reviewEmail(ReviewData data) {
         try {
             //setup user info
-            TCSubject subject = new TCSubject(100129);
+            TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();

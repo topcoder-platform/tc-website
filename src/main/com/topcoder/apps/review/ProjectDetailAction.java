@@ -94,6 +94,17 @@ public final class ProjectDetailAction extends ReviewAction {
                         && pr.getSubmissions()[i].isSubmitted()) {
                     utility.setSubmitted(true);
                     request.setAttribute(Constants.SUBMISSION_KEY, pr.getSubmissions()[i]);
+
+                    // If a final submission exists for the user, the sumbission ID passed for downloanding
+                    // will be -1 so it downloads the final submission and not the initial
+                    if ((len > 0) && (pr.getSubmissions()[len - 1] instanceof FinalFixSubmission) &&
+                         orpd.getUser().equals(pr.getSubmissions()[len - 1].getSubmitter())
+                        && pr.getSubmissions()[len - 1].isSubmitted()) {
+                        request.setAttribute(Constants.SUBMISSION_ID_KEY, new Long(-1));
+                    } else {
+                        request.setAttribute(Constants.SUBMISSION_ID_KEY, new Long(pr.getSubmissions()[i].getId()));
+                    }
+
                     break;
                 }
             }

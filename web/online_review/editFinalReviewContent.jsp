@@ -142,6 +142,51 @@
 			</table>
     </logic:equal>
 </logic:iterate>
+
+		<table width="100%" border="0" cellpadding="3" cellspacing="1" align="center" class="forumBkgd">
+			<tr>
+				<td class="grayBkgnd" colspan="6">
+				    Overall</td>
+
+			</tr>
+		</table>
+
+            <table width="100%" border="0" cellpadding="3" cellspacing="1" align="center" class="forumBkgd">
+				<tr>
+					<td class="forumText" colspan="6">
+					    <p class='scorecardQuestion'>Comments for Final Fixes</p></td>
+				</tr>
+				
+				<logic:equal name="finalReviewForm" property="commentsValid" value="false">
+					<tr>
+						<td colspan="6" width="100%" class="errorText">
+						    <html:errors property='comments' /></td>
+					</tr>
+				</logic:equal>
+				<tr>
+					<td class="forumTextEven" align="center">						
+						<html:textarea property="comments" rows="10" cols="80" /></td>
+					</td>
+				</tr>
+				<logic:equal name="finalReviewForm" property="approvedValid" value="false">
+					<tr>
+						<td colspan="6" width="100%" class="errorText">
+						<html:errors property='approved' /></td>
+					</tr>
+				</logic:equal>
+				<tr>
+					<td class="forumTextOdd" align="center">
+						<html:checkbox property="approved"/>Approve Final Fixes
+					</td>
+				</tr>
+		</table>
+
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+				<tr>
+					<td class="whiteBkgnd" colspan="3"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+				</tr>
+			</table>
+
 		</td>
 	</tr>
 	<tr>

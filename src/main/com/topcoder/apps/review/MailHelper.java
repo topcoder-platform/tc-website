@@ -79,19 +79,24 @@ class MailHelper {
         xmlDocument.addTag(new ValueTag("PROJECT_NAME", project.getName()));
         xmlDocument.addTag(new ValueTag("SCORE", formatNumber(score)));
         xmlDocument.addTag(new ValueTag("PLACE", getPlaceString(place)));
-        PhaseInstance[] phases = project.getTimeline();
-        for (int i = 0; i < phases.length; i++) {
-            if (phases[i].getPhase().getId() == Phase.ID_FINAL_FIXES) {
-                xmlDocument.addTag(new ValueTag("DEADLINE", formatDate(phases[i].getEndDate())));
+
+
+
+        if (place != PLACE_SCREENING_FAIL) {
+            PhaseInstance[] phases = project.getTimeline();
+            for (int i = 0; i < phases.length; i++) {
+                if (phases[i].getPhase().getId() == Phase.ID_FINAL_FIXES) {
+                    xmlDocument.addTag(new ValueTag("DEADLINE", formatDate(phases[i].getEndDate())));
+                }
             }
-        }
-        UserRole[] roles = project.getParticipants();
-        for (int i = 0; i < roles.length; i++) {
-            if (roles[i].getUser().equals(to) && roles[i].getRole().getId() == Role.ID_DESIGNER_DEVELOPER) {
-                float payment = roles[i].getPaymentInfo().getPayment();
-                xmlDocument.addTag(new ValueTag("INITIAL_PAYMENT", formatNumber(payment * .75)));
-                xmlDocument.addTag(new ValueTag("REMAINING_PAYMENT", formatNumber(payment * .25)));
-                xmlDocument.addTag(new ValueTag("TOTAL_PAYMENT", formatNumber(payment)));
+            UserRole[] roles = project.getParticipants();
+            for (int i = 0; i < roles.length; i++) {
+                if (roles[i].getUser().equals(to) && roles[i].getRole().getId() == Role.ID_DESIGNER_DEVELOPER) {
+                    float payment = roles[i].getPaymentInfo().getPayment();
+                    xmlDocument.addTag(new ValueTag("INITIAL_PAYMENT", formatNumber(payment * .75)));
+                    xmlDocument.addTag(new ValueTag("REMAINING_PAYMENT", formatNumber(payment * .25)));
+                    xmlDocument.addTag(new ValueTag("TOTAL_PAYMENT", formatNumber(payment)));
+                }
             }
         }
 
@@ -133,6 +138,44 @@ class MailHelper {
         // format mail and send it
         String bodyText = formatBody(xmlDocument, filenameXSL);
         sendMail(from, to, project.getName() + " results", bodyText);
+    }
+
+    static void failedReviewMail(SecurityEnabledUser from, User to, int notFixedItems, String comment, Project project)
+                     throws Exception {
+
+        // fill common data into the xml
+        XMLDocument xmlDocument = new XMLDocument("MAILDATA");
+        xmlDocument.addTag(new ValueTag("USER_NAME", to.getHandle()));
+        xmlDocument.addTag(new ValueTag("PROJECT_NAME", project.getName()));
+        xmlDocument.addTag(new ValueTag("NOT_FIXED_ITEMS",notFixedItems ));
+        xmlDocument.addTag(new ValueTag("COMMENT", comment));
+        xmlDocument.addTag(new ValueTag("IS_COMMENTED", comment.trim().length() > 0 ? 1 : 0));
+
+        String filenameXSL = ConfigHelper.getXSL(ConfigHelper.FINAL_REVIEW_FAIL_XSL);
+
+        if (filenameXSL == null) {
+            StringBuffer s = new StringBuffer();
+            s.append("\nThe " + ConfigHelper.FINAL_REVIEW_FAIL_XSL + " property doesn't seem to exist in " + ConfigHelper.CONFIG_FILE + '\n');
+            s.append("The contents of the config file is: \n\n>>> ");
+
+            InputStream is = MailHelper.class.getClassLoader().getResourceAsStream(ConfigHelper.CONFIG_FILE);
+            int ch;
+            while ((ch = is.read()) != -1) {
+                s.append((char) ch);
+                if (ch == '\n') {
+                    s.append(">>> ");
+                }
+            }
+            is.close();
+            s.append('\n');
+
+            throw new Exception(s.toString());
+        }
+
+        // format mail and send it
+        String bodyText = formatBody(xmlDocument, filenameXSL);
+
+        sendMail(from, to, "Final Review results", bodyText);
     }
 
     static String formatNumber(double dscore) {

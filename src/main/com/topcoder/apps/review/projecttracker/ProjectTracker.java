@@ -88,6 +88,11 @@ public interface ProjectTracker extends EJBObject {
             RemoteException;
 
     /**
+     * Gets the PM for the project, or returns null if no PM is found.
+     */
+    public User getPM(long projectId);
+
+    /**
      * Create a new Online Review Project.
      *
      * @param projectName

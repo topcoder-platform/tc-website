@@ -7,6 +7,8 @@ package com.topcoder.apps.review;
 import com.topcoder.util.log.Level;
 import org.apache.struts.action.*;
 
+import com.topcoder.apps.review.document.FixItem;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -43,8 +45,8 @@ public final class SaveFinalReviewAction extends ReviewAction {
                                    ActionForwards forwards,
                                    OnlineReviewProjectData orpd) {
         log(Level.INFO, "SaveFinalReviewAction: User '"
-                + orpd.getUser().getHandle() + "' in session "
-                + request.getSession().getId());
+                        + orpd.getUser().getHandle() + "' in session "
+                        + request.getSession().getId());
 
         FinalReviewForm frForm = (FinalReviewForm) form;
 
@@ -61,13 +63,28 @@ public final class SaveFinalReviewAction extends ReviewAction {
             FinalReviewData data = frForm.toReviewData(orpd);
             ResultData result = new BusinessDelegate().finalReview(data);
 
-            if (result instanceof SuccessResult) {
+            if (result instanceof SuccessResult)  {
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
-            }
 
-            if (result instanceof SuccessResult) {
-                AutoPilot.finalReviewEmail(data);
+
+                // If the final fixes are not approved, mails will be sent and the project will go back to final fixes
+                if (data.getFinalReview().isApproved()) {
+                    AutoPilot.finalReviewEmail(data);
+                } else {
+                    // Count how many not fixed items are
+                    FixItem[] items = data.getFinalReview().getFixCheckList();
+
+                    int notFixedItems = 0;
+
+                    for (int i = 0; i < items.length; i++)
+                        if (items [i].getFinalFixStatus().getId() == 1) { // fix constant!
+                            notFixedItems++;
+                        }
+
+                    AutoPilot.finalReviewFailed(data, notFixedItems, data.getFinalReview().getComments());
+                }
+
             }
 
             return result;

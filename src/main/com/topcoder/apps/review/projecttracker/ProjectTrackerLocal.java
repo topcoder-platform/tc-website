@@ -66,6 +66,12 @@ public interface ProjectTrackerLocal extends EJBLocalObject {
             GeneralSecurityException,
             ConcurrentModificationException;
 
+
+    /**
+     * Gets the PM for the project, or returns null if no PM is found.
+     */
+    public User getPM(long projectId);
+
     /**
      * Create a new Online Review Project.
      *

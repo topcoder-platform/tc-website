@@ -117,7 +117,23 @@
 			</table>
     </logic:equal>
 </logic:iterate>
+
+	
+            <table class="forumBkgd" align="center" border="0" cellpadding="3" cellspacing="1" width="100%">
+				<tbody><tr>
+					<td class="forumText" colspan="6">
+					    <p class="scorecardQuestion">Comments for Final Fixes</p></td>
+				</tr>
+	            	<tr>
+					<td class="forumTextOdd"  colspan="6">
+					<bean:write name="finalReviewForm" property="comments" />
+					</td>
+				</tr>
+			</tbody></table>
+
 		</td>
+		
+		
 	</tr>
 	<tr>
 		<td align="center" class="lightBkgnd">

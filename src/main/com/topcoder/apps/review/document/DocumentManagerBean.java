@@ -2843,7 +2843,7 @@ public class DocumentManagerBean implements SessionBean {
             if (!retrieveFull) {
                 ps = conn.prepareStatement(
                         "SELECT fr.final_review_id, " +
-                        "fr.is_completed, fr.final_review_v_id " +
+                        "fr.is_completed, fr.final_review_v_id, fr.is_approved, fr.comments " +
                         "FROM final_review fr, agg_worksheet aw " +
                         "WHERE fr.cur_version = 1 AND " +
                         "aw.cur_version = 1 AND " +
@@ -2857,18 +2857,21 @@ public class DocumentManagerBean implements SessionBean {
                     long finalReviewId = rs.getLong(1);
                     boolean isCompleted = rs.getBoolean(2);
                     long reviewVersionId = rs.getLong(3);
+                    boolean isApproved = rs.getBoolean (4);
+                    String comments = rs.getString (5);
+
                     finalReview = new FinalReview(finalReviewId, null, aggWorksheet, isCompleted, requestor.getUserId(),
-                            reviewVersionId);
+                            reviewVersionId, isApproved, comments);
                 } else {
                     finalReview = new FinalReview(-1, null, aggWorksheet,
-                            false, requestor.getUserId(), -1);
+                            false, requestor.getUserId(), -1, false, null);
                 }
             } else {
                 ps = conn.prepareStatement(
                         "SELECT fr.final_review_id, fi.fix_item_id, " +
                         "fi.final_fix_s_id, fi.agg_response_id, " +
                         "fr.is_completed, fr.final_review_v_id, " +
-                        "fi.fix_item_v_id " +
+                        "fi.fix_item_v_id, fr.is_approved, fr.comments " +
                         "FROM final_review fr, agg_worksheet aw, fix_item fi " +
                         "WHERE fr.cur_version = 1 AND " +
                         "aw.cur_version = 1 AND " +
@@ -2884,6 +2887,8 @@ public class DocumentManagerBean implements SessionBean {
                 long finalReviewId = 0;
                 long reviewVersionId = 0;
                 boolean isCompleted = false;
+                boolean isApproved = false;
+                String comments = null;
 
                 while (rs.next()) {
                     //info("Found fixItem");
@@ -2894,6 +2899,9 @@ public class DocumentManagerBean implements SessionBean {
                     isCompleted = rs.getBoolean(5);
                     reviewVersionId = rs.getLong(6);
                     long fixItemVid = rs.getLong(7);
+                    isApproved = rs.getBoolean (8);
+                    comments = rs.getString (9);
+
                     FinalFixStatusManager finalFixStatusManager = (FinalFixStatusManager) Common.getFromCache(
                             "FinalFixStatusManager");
                     FinalFixStatus finalFixStatus = finalFixStatusManager.getFinalFixStatus(finalFixStatusId);
@@ -2906,7 +2914,7 @@ public class DocumentManagerBean implements SessionBean {
                 if (fixItemList.size() > 0) {
                     FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
                     finalReview = new FinalReview(finalReviewId, fixItemArr, aggWorksheet, isCompleted, requestor.getUserId(),
-                            reviewVersionId);
+                            reviewVersionId, isApproved, comments);
                 } else {
                     if (Common.isRole(project, requestor.getUserId(), Role.ID_FINAL_REVIEWER) &&
                             project.getCurrentPhase().getId() == Phase.ID_FINAL_REVIEW) {
@@ -2926,7 +2934,7 @@ public class DocumentManagerBean implements SessionBean {
                         }
                         FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
                         finalReview = new FinalReview(-1, fixItemArr, aggWorksheet,
-                                isCompleted, requestor.getUserId(), -1);
+                                isCompleted, requestor.getUserId(), -1, isApproved, comments);
                     }
                 }
             }
@@ -3354,17 +3362,20 @@ public class DocumentManagerBean implements SessionBean {
                     info("DM.saveFinalReview(): Saving a new FinalReview, id: " + finalReview.getId());
                 }
                 ps =
-                        conn.prepareStatement(
-                                "INSERT INTO final_review "
-                        + "(final_review_v_id, final_review_id, "
-                        + "agg_worksheet_id, is_completed, "
-                        + "modify_user, cur_version) "
-                        + "VALUES "
-                        + "(0, ?, ?, ?, ?, 1)");
+                    conn.prepareStatement(
+                            "INSERT INTO final_review "
+                            + "(final_review_v_id, final_review_id, "
+                            + "agg_worksheet_id, is_completed, "
+                            + "modify_user, cur_version, is_approved, comments) "
+                            + "VALUES "
+                            + "(0, ?, ?, ?, ?, 1, ?, ?)");
+
                 ps.setLong(1, finalReview.getId());
                 ps.setLong(2, finalReview.getAggregationWorkSheet().getId());
                 ps.setBoolean(3, finalReview.isCompleted());
                 ps.setLong(4, requestorId);
+                ps.setBoolean(5, finalReview.isApproved());
+                ps.setString (6, finalReview.getComments());
 
                 int nr = ps.executeUpdate();
                 if (nr != 1) {

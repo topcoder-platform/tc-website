@@ -14,8 +14,14 @@ import com.topcoder.apps.review.document.DocumentManager;
 import com.topcoder.apps.review.document.DocumentManagerHome;
 import com.topcoder.apps.review.projecttracker.ProjectTracker;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
-import com.topcoder.dde.forum.ForumModeratePermission;
-import com.topcoder.dde.forum.ForumPostPermission;
+import com.topcoder.apps.review.projecttracker.ProjectType;
+import com.topcoder.apps.review.projecttracker.Project;
+import com.topcoder.apps.review.projecttracker.User;
+import com.topcoder.apps.review.document.DocumentManager;
+import com.topcoder.apps.review.document.DocumentManagerHome;
+import com.topcoder.dde.notification.Notification;
+import com.topcoder.dde.notification.NotificationHome;
+import com.topcoder.dde.forum.*;
 import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.forum.*;
 import com.topcoder.security.GeneralSecurityException;
@@ -162,17 +168,17 @@ public class ComponentManagerBean
                 homeBindings.lookup(ForumAdminLocalHome.EJB_REF_NAME);
 /*
             /** SECURITY MANAGER
-		Hashtable principalMgrEnvironment=new Hashtable();
-		principalMgrEnvironment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-		try{
-		    principalMgrEnvironment.put(Context.PROVIDER_URL, getConfigValue("securitymanagerip"));
-		} catch(ConfigManagerException exception) {
+        Hashtable principalMgrEnvironment=new Hashtable();
+        principalMgrEnvironment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+        try{
+            principalMgrEnvironment.put(Context.PROVIDER_URL, getConfigValue("securitymanagerip"));
+        } catch(ConfigManagerException exception) {
             throw new NamingException(
             "Unable to access configuration file: " + exception.toString());
         }
 
 
-		Context principalMgrContext = new InitialContext(principalMgrEnvironment);
+        Context principalMgrContext = new InitialContext(principalMgrEnvironment);
   */
         principalmgrHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(
                 homeBindings.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME),
@@ -281,6 +287,7 @@ public class ComponentManagerBean
 
             //I don't think you need the line below since it will be created already
             //role = principalManager.createRole("DDEComponentDownload " + componentId, null);
+
             perms = new PermissionCollection();
             perms.addPermission(new DownloadPermission(componentId));
             policyManager.addPermissions(catalogRole, perms, null);
@@ -735,6 +742,8 @@ public class ComponentManagerBean
 
     public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor, long levelId)
             throws CatalogException {
+
+
         if (info == null) {
             throw new CatalogException(
                     "Null specified for version info");
@@ -811,6 +820,8 @@ public class ComponentManagerBean
             }
         }
 
+        long newForum = -1;
+
         // If the version is changing to specification or development
         // Makes sure the specification forum is created even if the component
         // is moved directly from collaboration to development.
@@ -826,7 +837,6 @@ public class ComponentManagerBean
             }
             if (numforums == 0) {
                 try {
-                    long newForum;
                     com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
                     try {
                         forum = forumadminHome.create().createForum(forum,
@@ -873,7 +883,8 @@ public class ComponentManagerBean
         if ((versionBean.getPhaseId() == ComponentVersionInfo.COLLABORATION
                 && info.getPhase() == ComponentVersionInfo.SPECIFICATION) ||
                 (versionBean.getPhaseId() == ComponentVersionInfo.SPECIFICATION
-                && info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
+                    && info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
+            log.debug("Phase Change.");
 
             long projectTypeId;
             if (info.getPhase() == ComponentVersionInfo.SPECIFICATION) {
@@ -890,7 +901,43 @@ public class ComponentManagerBean
                         homeBindings.lookup(ProjectTrackerHome.EJB_REF_NAME),
                         ProjectTrackerHome.class);
                 ProjectTracker pt = ptHome.create();
-                pt.createProject(
+
+                // if component went to dev, get the winner from design to add to forum post notification.
+                if ((versionBean.getPhaseId() != ComponentVersionInfo.DEVELOPMENT) &&
+                    (info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
+                    log.debug("Project went to development. Design winner will be added to notification");
+
+
+                    Project project = pt.getProjectById(
+                        pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DESIGN), requestor);
+
+
+                    if (project.getWinner() != null) {
+                        log.debug("WinnerId=" + project.getWinner().getId());
+
+                        NotificationHome notificationHome = (NotificationHome)
+                                PortableRemoteObject.narrow(
+                                homeBindings.lookup(NotificationHome.EJB_REF_NAME),
+                                NotificationHome.class);
+
+                        Notification notification = notificationHome.create();
+
+                        if (notification != null) {
+                            notification.createNotification(
+                                    "com.topcoder.dde.forum.ForumPostEvent " + project.getForumId(),
+                                    project.getWinner().getId(),
+                                    notification.FORUM_POST_TYPE_ID);
+                        } else {
+                            log.debug("Can't get the notification bean.  The design winner was not added.");
+                        }
+                    } else {
+                        log.debug("Winner can't be retrieved because project.getWinner()==null.  No notification added");
+                    }
+
+
+                }
+
+                long projectId = pt.createProject(
                         versionBean.getCompCatalog().getComponentName(),
                         info.getVersionLabel(),
                         info.getVersionId(),
@@ -899,6 +946,30 @@ public class ComponentManagerBean
                         null,
                         requestor,
                         levelId);
+
+                if (newForum >= 0) {
+
+                    log.debug("New forum created, adding PM to notification.");
+
+
+                    User pm = pt.getPM(projectId);
+
+                    NotificationHome notificationHome = (NotificationHome)
+                                PortableRemoteObject.narrow(
+                                homeBindings.lookup(NotificationHome.EJB_REF_NAME),
+                                NotificationHome.class);
+
+                    Notification notification = notificationHome.create();
+
+                    if (pm == null) {
+                        log.debug("The PM can't be retrieved for this project.  Notification not added.");
+                    } else {
+                        notification.createNotification("com.topcoder.dde.forum.ForumPostEvent " + newForum,
+                                pm.getId(),
+                                notification.FORUM_POST_TYPE_ID);
+                    }
+                }
+
             } catch (ClassCastException e) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(e.toString());
@@ -917,6 +988,7 @@ public class ComponentManagerBean
             }
         }
 
+
         versionBean.setVersionText(info.getVersionLabel());
         versionBean.setComments(info.getComments());
         versionBean.setPhaseId(info.getPhase());
@@ -933,6 +1005,7 @@ public class ComponentManagerBean
             throw new CatalogException(
                     "Null specified for version info");
         }
+
         if (ComponentVersionInfo.SPECIFICATION == versionDateInfo.getPhaseId() ||
                 ComponentVersionInfo.DEVELOPMENT == versionDateInfo.getPhaseId() ||
                 ComponentVersionInfo.COMPLETED == versionDateInfo.getPhaseId()) {
