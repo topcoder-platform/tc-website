@@ -2,7 +2,7 @@
   language="java"
   errorPage="errorPage.jsp"
   import= "com.topcoder.web.query.common.*,
-          com.topcoder.web.query.bean.*"
+           com.topcoder.web.query.bean.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
 <jsp:useBean id="DBSelectionTask" scope="request" class="com.topcoder.web.query.bean.DBSelectionTask" />
@@ -25,12 +25,13 @@
         <TABLE WIDTH="100%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <TR><TD>DB Selection</TD></TR>
           <TR><TD>Select a Database</TD></TR>
-<%System.out.println(DBSelectionTask.getDbList());%>
+<%System.out.println("list: " + DBSelectionTask.getDbList());%>
           <query:listIterator id="db" list="<%=DBSelectionTask.getDbList()%>">
             <TR><TD>
-              <A HREF="<jsp:getProperty name="DBSelectionTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_LIST_TASK%>&<%=Constants.DB_PARAM%>=<%=db%>" class="statText">
+<%--              <A HREF="<jsp:getProperty name="DBSelectionTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_LIST_TASK%>&<%=Constants.DB_PARAM%>=<%=db%>" class="statText">
                 <%=db%>
               </A>
+--%>
             </TD></TR>
           </query:listIterator>
         </TABLE>
