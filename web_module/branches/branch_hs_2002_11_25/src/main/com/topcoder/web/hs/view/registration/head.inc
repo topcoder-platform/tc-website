@@ -1,8 +1,7 @@
 <%@ page
  errorPage="../home/error.jsp"
-    import="java.text.DecimalFormat"
-%>
-
+    import="com.topcoder.shared.dataAccess.resultSet.*",
+           "java.util.*" %>
 <HTML>
 <HEAD>
  <TITLE>::TopCoder High School::</TITLE>

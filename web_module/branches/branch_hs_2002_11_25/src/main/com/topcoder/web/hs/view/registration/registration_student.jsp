@@ -1,4 +1,7 @@
 <%@ include file="head.inc" %>
+<bean:define name="FORM_DATA" id="data" type="java.util.Map" scope="request"/>
+<% ResultSetContainer rsc;
+   ResultSetContainer.ResultSetRow rsr; %>
 <P><B>Registration for Students</B></P>
 <P>Welcome to TopCoder HighSchool. Before you register, there are a few things we think you should know: First, and most importantly, TopCoder is a commercial site. We charge sponsors for the right to advertise on our site. This money pays for the operation of the site and the prizes awarded in competitions.</P>
 <P>This has several implications. Because we feel it is our obligation to let our sponsors know who their message is reaching, we collect as much demographic information as possible without making the registration process overly burdensome. Furthermore, we require that you verify the accuracy of the information you provide. This does not mean that sponsors have access to your personal information; they do not. It means that we want to give them as accurate aggregate information as possible.</P>
@@ -162,9 +165,13 @@
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" align="left" valign="middle">
     <SELECT NAME="editor" CLASS="dropdown">
-     <OPTION VALUE=""></OPTION>
-     <OPTION VALUE="1">JVI</OPTION>
-     <OPTION VALUE="0">Standard</OPTION>
+     <% rsc=(ResultSetContainer)data.get("editor_list");
+        for (Iterator i=rsc.iterator();i.hasNext();) {
+          rsr=(ResultSetContainer.ResultSetRow)i.next();
+          Integer id=(Integer)rsr.getItem("editor_id").getResultData();
+          String desc=(String)rsr.getItem("editor_desc").getResultData(); %>
+     <OPTION VALUE="<%=id%>"><%=desc%></OPTION>
+     <% } %>
     </SELECT>
    </TD>
   </TR>
