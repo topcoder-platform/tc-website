@@ -8,8 +8,8 @@
 <html>
 <head>
 <title>2005 TopCoder Collegiate Challenge  - Computer Programming Tournament - Overview</title>
-
-<jsp:include page="../../script.jsp" />
+<link type="text/css" rel="stylesheet" href="/css/TCCC05style.css"/>
+<link type="text/css" rel="stylesheet" href="/css/style.css"/>
 
 <% ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("studentRepList"); %>
 </head>
@@ -18,7 +18,7 @@
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="overview"/>
-<jsp:param name="tabLev2" value="details"/>
+<jsp:param name="tabLev2" value="student_reps"/>
 <jsp:param name="tabLev3" value=""/>
 </jsp:include>
 
@@ -30,8 +30,9 @@
             
         <p class=bigTitle>Student Representatives</p>
 
-				</table>
-                <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+               <p>The following is a list of all referrals TopCoder student representatives for the TCCC05.</p>
+
+                <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle">
                         Handle

@@ -70,6 +70,12 @@
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=specshow"><img src="/i/tournament/tccc05/tabs/L2_specshowOff.gif" alt="" border=0 /></A></td>
 				<% } %>
 --%>
+				<% if (tabLev2.equals("student_reps")) {%>
+					<td class=nav><A href="/tc?module=TCCC05StudentReps"><img src="/i/tournament/tccc05/tabs/L2_studentrepsOn.gif" alt="" border=0 /></A></td>
+				<% } else { %>
+					<td class=nav><A href="/tc?module=TCCC05StudentReps"><img src="/i/tournament/tccc05/tabs/L2_studentrepsOff.gif" alt="" border=0 /></A></td>
+				<% } %>
+
 				<% } else if (tabLev1.equals("algorithm")) { %>
 				<% if (tabLev2.equals("details")) {%>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_description"><img src="/i/tournament/tccc05/tabs/L2_detailsOn.gif" alt="" border=0 /></A></td>
