@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.corp.controller.request.Registration,
                  com.topcoder.shared.util.ApplicationServer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -44,9 +44,9 @@
                     </td>
                 </tr>
             </table>
-            
+
             <div align="center">
-                
+
             <table width="500" border="0" cellpadding="0" cellspacing="10">
                 <tr valign=middle>
                     <td class="bodyText" width="200"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/pages/s_subscriptions.jsp" class="bodyText"><img src="/i/corp/icon_software.gif" alt="TopCoder Software" width="200" height="75" border="0"></a></td>
@@ -65,12 +65,12 @@
                 </tr>
 
                 <tr valign=middle>
-                    <td class="bodyText" colspan="2"><br>We value your membership. If you have questions about our Coding Competions or 
-                    our products and services, contact us by <a href="mailto:sales@topcoder.com" class="bodyText">email</a> or call us toll free 
+                    <td class="bodyText" colspan="2"><br>We value your membership. If you have questions about our Coding Competions or
+                    our products and services, contact us by <a href="mailto:sales@topcoder.com" class="bodyText">email</a> or call us toll free
                     at 866.867.2633.</td>
                 </tr>
            </table>
-           
+
            </div>
 
             <p><br></p>

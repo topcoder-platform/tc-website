@@ -5,7 +5,7 @@
                  java.util.Map,
                  com.topcoder.web.corp.Constants"
          %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%
         ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");

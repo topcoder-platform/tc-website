@@ -31,7 +31,7 @@
             <a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=LoginPage" class=loginLinks>Login</a>
             &#160;&#160;|&#160;&#160;<a href="https://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Registration" class=loginLinks>Register</a>
 <% } else { %>
-            <strong>Hello, <jsp:getProperty name="sessionInfo" property="Handle" /></strong>
+            <strong>Hello, <jsp:getProperty name="sessionInfo" property="handle" /></strong>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Logout" class=loginLinks>Logout</a>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Registration" class=loginLinks>Update Profile</a>
 <% } %>
