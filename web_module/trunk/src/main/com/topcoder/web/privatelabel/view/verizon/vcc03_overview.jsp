@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body bgcolor="#000000">
 <table  width="100%" border="0" cellspacing="0" cellpadding="0" class="bodyText">
 
    <tr>
@@ -55,7 +55,7 @@
                         <jsp:param name="selectedSubtab" value=""/>
                      </jsp:include>
             </tr>
-            <tr><td class="bodyText" bgcolor="#ffffff"><img src="/i/events/verizon2003/vcc03_right.gif" width="114" height="253" border="0"/></td></tr>
+            <tr><td class="bodyText" bgcolor="#ffffff"><img src="/i/events/verizon2003/vcc03_right.gif" width="127" height="300" border="0"/></td></tr>
          </table><br />
        </td>
       <td width="10" bgcolor="#666666"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
@@ -164,7 +164,7 @@
             3rd Place - $300 USD<br />
             4th Place - $100 USD</p>
 
-            <p>To find out more detailed information about the Verizon Coding Challenge, including a list of the prizes, please read the <a href="/index?t=tournaments&amp;c=vcc03_rules_conditions">Terms and Conditions</a>. 
+            <p>To find out more detailed information about the Verizon Coding Challenge, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=verizon&d2=vcc03_rules_conditions">Terms and Conditions</a>. 
             </p>
 
             
