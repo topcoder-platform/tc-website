@@ -1,3 +1,6 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map,
+                 com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -5,6 +8,7 @@
 <title>2004 TopCoder Collegiate Challenge - Computer Programming Tournament - Advancers</title>
 
 <jsp:include page="../../script.jsp" />
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tccc04_alg_qual"); %>
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
     
@@ -54,39 +58,44 @@
                </tr>
                 <tr>
                    <td class="testTableTitle_off" width="10%" align="center">
-                       <a class="statTextBig" href="">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tccc04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=seed&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Seed
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="30%" align="left">
-                       <a class="statTextBig" href="">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tccc04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Handle
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="20%" align="center">
-                       <a class="statTextBig" href="">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tccc04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=round_name&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Problem Set
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="20%" align="right">
-                       <a class="statTextBig" href="">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tccc04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Rating
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="20%" align="right">
-                       <a class="statTextBig" href="">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tccc04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Points
                        </a>
                    </td>
                 </tr>
 
+                <%boolean even = false;%>
+                <rsc:iterator list="<%=rsc%>" id="resultRow">
                     <tr class="formHandleOdd">
-                       <td class="formHandleOdd" align="center"></td>
-                       <td class="formHandleOdd" align="left"></td>
-                       <td class="formHandleOdd" align="center"></td>
-                       <td class="formHandleOdd" align="right"></td>
-                       <td class="formHandleOdd" align="right"></td>
+                       <td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="center"><rsc:item name="seed" row="<%=resultRow%>"/></td>
+                       <td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="left"><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
+                       <td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="center"><rsc:item name="round_name" row="<%=resultRow%>"/></td>
+                       <td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+                       <td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="right"><rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
                    </tr>
+                   <%even=!even;%>
+                </rsc:iterator>
+
              </table>
 
          <p><br/></p>
