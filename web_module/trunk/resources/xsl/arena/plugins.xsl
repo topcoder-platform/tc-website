@@ -86,10 +86,10 @@ ClassPath: PopsEdit.jar<BR/>
 Plugin Name: FileEdit<BR/>
 Description: Plugin that will read/write the problem information to an external file. This allows you to use your favorite editor/IDE to code the solutions to the problems.<BR/>
 Author: Pops<BR/>
-Date: 5/6/2002<BR/>
+Date: 5/9/2002<BR/>
 Instructions: <A HREF="/contest/classes/FileEdit.htm" CLASS="statText">Documentation >></A><BR/>
-Upgrade Release Notes: <A HREF="/contest/classes/FileEdit_Upgrade_2_5.htm" CLASS="statText">Release Notes >></A><BR/>
-Version: 2.5<BR/>
+Upgrade Release Notes: <A HREF="/contest/classes/FileEdit_Upgrade_2_5_1.htm" CLASS="statText">Release Notes >></A><BR/>
+Version: 2.51<BR/>
 Plugin Entry Point: fileedit.EntryPoint<BR/>
 Plugin ClassPath: FileEdit.jar<BR/>
 <A HREF="/contest/classes/FileEdit.jar" CLASS="statText">FileEdit.jar Applet Plugin >></A><BR/>
