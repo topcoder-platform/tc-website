@@ -78,7 +78,7 @@ return false;
 		</table>
 		
 		<FORM ACTION="/tc" METHOD=POST onSubmit="" enctype="multipart/form-data" name="frmPref">
-		<input type="hidden" name="module" value="ContractingPreferences"/>
+		<input type="hidden" name="module" value="ContractingLanguages"/>
 		<input type="hidden" name="dataToLoad" value="preferences" />
 		
 		<tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
