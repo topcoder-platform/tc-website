@@ -678,11 +678,11 @@ public class PDFGenerator extends BaseProcessor {
         constraints.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
         constraints.setWidths(new int[] {5, 95});
         
-        com.topcoder.shared.problem.Element[] constraintsElements = info.getProblem().getComponent(0).getNotes();
+        com.topcoder.shared.problem.Constraint[] constraintsElements = info.getProblem().getComponent(0).getConstraints();
         
         for(int i = 0; i < constraintsElements.length; i++) {
             constraints.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-            constraints.addCell(new Phrase(new NodeElementRenderer((NodeElement)constraintsElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            constraints.addCell(new Phrase(constraintsElements[i].getRenderer().toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         }
 
         constraints.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
