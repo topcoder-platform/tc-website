@@ -17,7 +17,7 @@
         		</TR>
         		<TR> 
         		    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-          			<TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="registerNav" VALIGN="middle" HEIGHT="14">&#160;&#160;May 13 - May 12, 2002</TD>
+          			<TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="registerNav" VALIGN="middle" HEIGHT="14">&#160;&#160;May 13 - May 19, 2002</TD>
         		<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
         		</TR>
         		<TR> 
