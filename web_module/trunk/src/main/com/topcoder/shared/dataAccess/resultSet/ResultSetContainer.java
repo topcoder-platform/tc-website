@@ -1383,19 +1383,19 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @return  The specified item
      */
     public TCResultItem getItem(int iRow, String sCol) {
-        return this.getItem(iRow, sCol);
+        return this.getRow(iRow).getItem(sCol);
     }
 
     public int getIntItem(int iRow, String sCol) {
-        return this.getIntItem(iRow, sCol);
+        return this.getRow(iRow).getIntItem(sCol);
     }
 
     public long getLongItem(int iRow, String sCol) {
-        return this.getLongItem(iRow, sCol);
+        return this.getRow(iRow).getLongItem(sCol);
     }
 
     public String getStringItem(int iRow, String sCol) {
-        return this.getStringItem(iRow, sCol);
+        return this.getRow(iRow).getStringItem(sCol);
     }
 
     /**
