@@ -41,11 +41,14 @@
 <% com.topcoder.web.stat.common.ResultSetContainer rsc = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Coder_Data");
 boolean bEmpty = (rsc.size()!=1);
 boolean vieweeHasImage = false;
+boolean hasCharity = false;
 com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow rsr = null;
 if (!bEmpty) {
   rsr = rsc.getRow(0);
   pageContext.setAttribute("resultRow", rsr);
   vieweeHasImage = rsr.getItem(23).toString().equals("1");
+  if (Integer.parseInt(rsr.getItem(25).toString()) > 0)
+    hasCharity = true;  //have there winnings ever gone to charity
 }
 %>
 
@@ -105,7 +108,7 @@ if (!bEmpty) {
                 </TR>
                 <TR>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">Total Earnings:</TD>
-                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right">$<bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /*"earnings"*/ + "].resultData" %>'/></TD>
+                  <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="right">$<bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /*"earnings"*/ + "].resultData" %>'/><%=hasCharity?"*":""%></TD>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" ALIGN="left">
           <A HREF="/stat?c=earnings_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ earnings history ]</A>
@@ -141,6 +144,11 @@ if (!bEmpty) {
 <% } else { %>&#160;</xsl:otherwise><%}%>
                   </TD>
                 </TR>                
+                <% if (hasCharity) {%> 
+                  <TR>
+                    <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">* Some or all of these earnings have been donated to charity.</TD>
+                  </TR>                
+                <% } %>
                 <!-- <TR>
                   <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BOR
             DER="0"/></TD>
