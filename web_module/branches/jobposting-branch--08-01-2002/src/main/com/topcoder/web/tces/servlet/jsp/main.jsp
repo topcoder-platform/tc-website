@@ -77,7 +77,7 @@
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <b><%=(String)campaignInfo.get("end_date")%></b>
+                    <%=(String)campaignInfo.get("end_date")%>
                   </TD>
                 </TR>
 
