@@ -160,11 +160,7 @@ public class DBMS {
         Connection conn = ds.getConnection();
         PreparedStatement ps = conn.prepareStatement("set lock mode to wait 5");
         ps.execute();
-        try {
-            ps.close();
-        } catch (Exception e) {
-            log.error("couldn't close ps " + e.getMessage());
-        }
+        ps.close();
         return conn;
     }
 
