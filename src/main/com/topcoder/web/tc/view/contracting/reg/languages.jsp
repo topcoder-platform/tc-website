@@ -68,7 +68,7 @@ return false;
     <script language="javascript">
         function goToPage(s)
         {
-            document.frmLang.module = s;
+            document.frmLang.module.value = s;
             document.frmLang.submit();
         }
     </script>

@@ -62,6 +62,19 @@ return false;
         </jsp:include>
 
 <!-- Breadcrumb-->
+
+    <script language="javascript">
+        function goToPage(s)
+        {
+            document.frmPref.module = s;
+            document.frmPref.submit();
+        }
+    </script>
+
+		<FORM ACTION="/tc" METHOD=POST onSubmit="" enctype="multipart/form-data" name="frmPref">
+		<input type="hidden" name="module" value="ContractingLanguages"/>
+		<input type="hidden" name="previouspage" value="preferences" />
+		
         <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
 			<tr>
 				<td class=oppDesc width="100%" valign=top>
@@ -77,9 +90,6 @@ return false;
 			</tr>
 		</table>
 		
-		<FORM ACTION="/tc" METHOD=POST onSubmit="" enctype="multipart/form-data" name="frmPref">
-		<input type="hidden" name="module" value="ContractingLanguages"/>
-		<input type="hidden" name="previouspage" value="preferences" />
 		
 		<tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
                     <span class=bodySubtitle><%=prefGroup.getName()%></span>
@@ -124,7 +134,7 @@ return false;
 			</tr>
 		</table> 
 
-		<div width="100%" align=center><br/><br/><a href="javascript:document.frmPref.submit();"><img src="/i/submit.jpg" border=0/></a></div>
+		<div width="100%" align=center><br/><br/><a href="javascript:goToPage('Languages');"><img src="/i/submit.jpg" border=0/></a></div>
 
 		</FORM>
 
