@@ -53,7 +53,7 @@ public class TCCC05ProjectDetails extends StatBase {
             if(rsc.getDoubleItem(i, "final_score") >= 70) {
                 if(i < placementPoints.length)  {
                     pts = placementPoints[i];
-                    placed = String.valueOf(i+1);
+                    place = String.valueOf(i+1);
                 }
             }
             
