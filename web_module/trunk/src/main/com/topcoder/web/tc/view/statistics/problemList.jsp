@@ -39,6 +39,7 @@
      */
     String addParams(String queryString) {
         Hashtable h = HttpUtils.parseQueryString(queryString);
+        System.out.println("size: " + h.size());
         StringBuffer buf = new StringBuffer(100);
         Map.Entry me = null;
         for (Iterator it = h.entrySet().iterator(); it.hasNext();) {
