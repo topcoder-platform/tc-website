@@ -119,7 +119,7 @@
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText"><A href="/tc?module=USDCContestDetails&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
+                                <td class="sidebarText"><A href="/tc?module=USDCContestDetails&type=4&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="contest_start_timestamp" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="contest_end_timestamp" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
@@ -146,7 +146,7 @@
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText"><A href="/tc?module=USDCContestDetails&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
+                                <td class="sidebarText"><A href="/tc?module=USDCContestDetails&type=4&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="contest_start_timestamp" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="contest_end_timestamp" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
