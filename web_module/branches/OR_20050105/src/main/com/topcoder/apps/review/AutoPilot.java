@@ -89,6 +89,7 @@ public class AutoPilot {
 
             if(!project.getAutoPilot()) return new SuccessResult();
 
+            // Send mails to the product Manager and reviewers
             UserRole[] participants = project.getParticipants();
             for(int i = 0; i < participants.length;i++) {
                 if( (participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER) ||
@@ -107,7 +108,8 @@ public class AutoPilot {
 
             form.fromProject(project);
             form.setCurrentPhase("Final Fixes");
-            form.setReason("auto pilot moving to Final FixesFinal Fixes");
+            form.setScorecardTemplates(docManager.getScorecardTemplates());
+            form.setReason("auto pilot moving to Final Fixes");
 
 
 

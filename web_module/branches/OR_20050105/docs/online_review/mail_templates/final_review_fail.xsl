@@ -5,20 +5,17 @@
 <xsl:output method="text" indent="yes"/>
 <xsl:template match="/">
 <xsl:for-each select="MAILDATA">
-
-Hi, <xsl:value-of select="USER_NAME"/>,
+Hello <xsl:value-of select="USER_NAME"/>,
 
 The project <xsl:value-of select="PROJECT_NAME"/> has failed to pass final review.
 
 <xsl:if test="NOT_FIXED_ITEMS &gt; 0">
 <xsl:value-of select="NOT_FIXED_ITEMS"/> item(s) were not fixed.
-
 	<xsl:if test="IS_COMMENTED = 1">
-	   The following was commented about it:
-	   <xsl:value-of select="COMMENT"/>	   
+The following was commented about it:
+<xsl:value-of select="COMMENT"/>	   
 	</xsl:if>
 </xsl:if>
-
 <xsl:if test="NOT_FIXED_ITEMS = 0 and IS_COMMENTED = 1">
 All the items were fixed, however it was rejected with the following comment:
 <xsl:value-of select="COMMENT"/>
