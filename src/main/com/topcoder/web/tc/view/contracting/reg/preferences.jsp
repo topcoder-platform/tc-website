@@ -134,7 +134,7 @@ return false;
 			</tr>
 		</table> 
 
-		<div width="100%" align=center><br/><br/><a href="javascript:goToPage('Languages');"><img src="/i/submit.jpg" border=0/></a></div>
+		<div width="100%" align=center><br/><br/><a href="javascript:goToPage('ContractingLanguages');"><img src="/i/submit.jpg" border=0/></a></div>
 
 		</FORM>
 
