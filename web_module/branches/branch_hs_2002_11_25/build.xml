@@ -114,7 +114,8 @@
     <junit fork="yes" haltonerror="true">
       <classpath>
         <pathelement location="${testclasses}"/>
-        <pathelement path="${java.class.path}"/>
+        <pathelement location="${jars.dir}/weblog.jar"/>
+        <pathelement path="${class.path}"/>
       </classpath>
       <batchtest>
         <formatter type="plain" usefile="false"/>
