@@ -99,6 +99,7 @@ public class Constants {
     public static String VERIZON_REG_DEMOG;
     public static String VERIZON_REG_CONFIRM;
     public static String VERIZON_REG_SUBMIT;
+    public static String STATIC;
 
     //various constants
     public static int STUDENT;
