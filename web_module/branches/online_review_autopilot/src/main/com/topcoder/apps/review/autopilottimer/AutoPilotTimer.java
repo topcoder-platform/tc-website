@@ -56,12 +56,11 @@ public class AutoPilotTimer
         return status;
     }
 
-    /**
-     * The RefreshTask updates the RefreshableCache.
-     */
-    private class RefreshTask extends TimerTask {
+    private class SubmissionTask extends TimerTask {
         public void run() {
             logger.debug("AUTO PILOT TIMER FIRED");
+            
+            //get projects that are in submission phase and have submission end time > current
         }
     }
 
@@ -72,7 +71,7 @@ public class AutoPilotTimer
         try {
     
             timer = new Timer();
-            timer.schedule(new RefreshTask(), DELAY * 60 * 1000, //initial delay
+            timer.schedule(new SubmissionTask(), DELAY * 60 * 1000, //initial delay
                     DELAY * 60 * 1000); //subsequent rate
             isInitialised = Boolean.TRUE;
         } catch (Exception e) {
