@@ -71,6 +71,19 @@ List resultsList = (List)request.getAttribute("results");
                     <b>Last Name</b>
                 </td>
             </tr>
+            <tc:placementProfileSearchResultIterator id="searchResult" list="<%=resultsList%>">
+            <tr>
+                <td>
+                    <%=searchResult.getHandle()%>
+                </td>
+                <td>
+                    <%=searchResult.getFirstName()%>
+                </td>
+                <td>
+                    <%=searchResult.getLastName()%>
+                </td>
+            </tr>
+            </tc:placementProfileSearchResultIterator>
         </table>
         <% }%>
         <br />

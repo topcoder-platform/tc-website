@@ -68,6 +68,8 @@ public class PlacementProfile extends BaseProcessor {
                 ResultSetContainer rsc = (ResultSetContainer)m.get("search");
 
                 ArrayList results = new ArrayList();
+                
+                log.debug(rsc.size());
 
                 for(int i = 0; i < rsc.size(); i++) {
                     results.add(new PlacementProfileSearchResult(rsc.getIntItem(i, "user_id"), rsc.getStringItem(i, "handle"),
