@@ -30,9 +30,9 @@ public final class Navigation
         implements Serializable, HttpSessionBindingListener {
 
     private Browser browser;
-    private boolean serializable;
-    private User userSerializable;
-    private transient User user;
+//    private boolean serializable;
+//    private User userSerializable;
+    private User user;
     private HashMap sessionObjects;
     private static Logger log = Logger.getLogger(Navigation.class);
     private CoderSessionInfo info;
@@ -78,9 +78,9 @@ public final class Navigation
      */
     public Navigation() {
         browser = null;
-        serializable = false;
+//        serializable = false;
         user = new User();
-        userSerializable = new User();
+//        userSerializable = new User();
         sessionObjects = new HashMap(3);
         info = new CoderSessionInfo();
     }
@@ -150,9 +150,13 @@ public final class Navigation
         return result;
     }
 
-
+    /**
+     * deprecated
+     * @return
+     */
     public boolean userIsSerializable() {
-        return this.serializable;
+        return false;
+       // return this.serializable;
     }
 
     public Browser getBrowser() {
@@ -172,11 +176,11 @@ public final class Navigation
     }
 
     public User getUser() {
-        if (serializable) {
-            return this.userSerializable;
-        } else {
+//        if (serializable) {
+//            return this.userSerializable;
+//        } else {
             return this.user;
-        }
+//        }
     }
 
 
@@ -185,6 +189,8 @@ public final class Navigation
     }
 
 //set
+
+/*
     public void makeUserTransient() throws Exception {
         try {
             if (serializable) {
@@ -197,8 +203,14 @@ public final class Navigation
             throw new Exception("common.Navigation:makeUserTransient:ERROR:\n" + e);
         }
     }
+*/
 
+    /**
+     * deprecated
+     * @throws Exception
+     */
     public void makeUserSerializable() throws Exception {
+/*
         try {
             if (!serializable) {
                 userSerializable = (User) user.clone();
@@ -209,6 +221,7 @@ public final class Navigation
         } catch (Exception e) {
             throw new Exception("common.Navigation:makeUserSerializable:ERROR:\n" + e);
         }
+*/
     }
 
     public void setBrowser(Browser browser) {
@@ -216,13 +229,13 @@ public final class Navigation
     }
 
     public void setUser(User user) {
-        if (serializable) {
-            this.userSerializable = user;
-            log.debug("common.Navigation:setUser:serializable user set");
-        } else {
+//        if (serializable) {
+//            this.userSerializable = user;
+//            log.debug("common.Navigation:setUser:serializable user set");
+//        } else {
             this.user = user;
             log.debug("common.Navigation:setUser:transient user set");
-        }
+//        }
     }
 
     public void setSessionObjects(HashMap sessionObjects) {
