@@ -67,13 +67,15 @@ if ( plugin ) {
 if ( MM_FlashCanPlay ) {
 document.write(' <object ');
 document.write(' classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
-document.write(' codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
+document.write(' codebase="http://fpdownload.macromedia.com" ');
+document.write('/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
 document.write(' width="400" ');
 document.write(' height="400" ');
 document.write(' id="tc_card" ');
 document.write(' align="middle">');
 document.write(' <param name="allowScriptAccess" value="sameDomain" />');
-document.write(' <param name="movie" value="/i/card/tc_card.swf?memberID=144400" />');
+document.write(' <param name="movie" ');
+document.write(' value="/i/card/tc_card.swf?memberID=144400"/>');
 document.write(' <param name="menu" value="false" />');
 document.write(' <param name="quality" value="high" />');
 document.write(' <param name="bgcolor" value="#ffffff" />');
@@ -96,9 +98,10 @@ document.write(' </object> ');
 
 <SCRIPT language="JavaScript">
 <!--
-       if (!MM_FlashCanPlay){
-       document.write('<img src="http://www.topcoder.com/i/card/noFlash.gif" width="400" height="400" border="0">');
-       }
+if (!MM_FlashCanPlay){
+document.write('<A href="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"> ');
+document.write('<img src="/i/card/noFlash.gif" width="400" height="400" border="0"></A> ');
+}
 // -->
 </SCRIPT>
 

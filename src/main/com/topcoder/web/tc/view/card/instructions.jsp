@@ -46,7 +46,7 @@
             <ol>
             <li>Insert the following JavaScript into the <b>&lt;head&gt;</b> of your page:</li>
             
-<pre>
+<pre class="cardCode">
 &lt;SCRIPT LANGUAGE="JavaScript"&gt;
 &lt;!--
 var MM_contentVersion = 6;
@@ -74,19 +74,22 @@ if ( plugin ) {
 &lt;/SCRIPT&gt;
 </pre>
             <li>Insert the following JavaScript code into the <b>&lt;body&gt;</b> of your page similar to how you would insert an image:<br/>
-<pre>
+
+<pre class="cardCode">
 &lt;SCRIPT language="JavaScript"&gt;
                 &lt;!--
 if ( MM_FlashCanPlay ) {
 document.write(' &lt;object ');
 document.write(' classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
-document.write(' codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
+document.write(' codebase="http://fpdownload.macromedia.com" ');
+document.write('/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
 document.write(' width="400" ');
 document.write(' height="400" ');
 document.write(' id="tc_card" ');
 document.write(' align="middle"&gt;');
 document.write(' &lt;param name="allowScriptAccess" value="sameDomain" /&gt;');
-document.write(' &lt;param name="movie" value="http://www.topcoder.com/i/card/tc_card.swf?memberID=144400" /&gt;');
+document.write(' &lt;param name="movie" ');
+document.write(' value="http://www.topcoder.com/i/card/tc_card.swf?memberID=144400"/&gt;');
 document.write(' &lt;param name="menu" value="false" /&gt;');
 document.write(' &lt;param name="quality" value="high" /&gt;');
 document.write(' &lt;param name="bgcolor" value="#ffffff" /&gt;');
@@ -110,8 +113,9 @@ document.write(' &lt;/object&gt; ');
 &lt;SCRIPT language="JavaScript"&gt;
 &lt;!--
 if (!MM_FlashCanPlay){
-document.write('&lt;A href="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"&gt; ');
-document.write('&lt;img src="http://www.topcoder.com/i/card/noFlash.gif" width="400" height="400" border="0"&gt;&lt;/A&gt; ');
+document.write('&lt;A href="http://www.macromedia.com/shockwave');
+document.write('/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"&gt; ');
+document.write('&lt;img src="http://www.topcoder.com/i/card/noFlash.gif" border="0"&gt;&lt;/A&gt; ');
 }
 // --&gt;
 &lt;/SCRIPT&gt;
