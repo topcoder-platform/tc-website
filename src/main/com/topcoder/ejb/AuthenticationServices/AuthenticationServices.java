@@ -38,4 +38,7 @@ public interface AuthenticationServices extends EJBObject {
   public boolean isStaff ( PermissionAssignee assignee )
     throws RemoteException;
 
+  public User loadUser ( int userId )
+    throws RemoteException;
+
 }
