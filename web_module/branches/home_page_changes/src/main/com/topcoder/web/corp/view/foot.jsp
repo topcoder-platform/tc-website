@@ -13,7 +13,7 @@
         <a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=about_tc&c=terms" class="footerLinks">Terms</a></td></tr>
 
 <!-- Member sites -->
-    <tr><td width="100%" class="footer"><a href="http://<%=ApplicationServer.SERVER_NAME%>" class="footerLinks">Developer Center</a>&#160;&#160;|&#160;&#160;
+    <tr><td width="100%" class="footer"><a href="/tc" class="footerLinks">Developer Center</a>&#160;&#160;|&#160;&#160;
     <a href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</a>
 <!-- Main Navigation bar ends -->
 
