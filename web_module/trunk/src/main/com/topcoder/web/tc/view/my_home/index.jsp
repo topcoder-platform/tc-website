@@ -31,7 +31,7 @@
          <div class="myTCBody">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="my_home"/>
-            <jsp:param name="title" value=""/>
+            <jsp:param name="title" value="&#160;"/>
         </jsp:include>
 
             <table border=0 cellpadding=5 cellspacing=0 width="100%">

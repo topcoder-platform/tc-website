@@ -6,7 +6,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.03.05<br>11:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.21.05<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=skiena">Prof. Steven Skiena to speak at TCCC05</A></span><br><br>
       The well-known author and algorist Prof. Steven Skiena will be featured presenter at the TCCC05 finals!
       </td>
@@ -14,6 +14,18 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=skiena">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>02.18.05<br>11:20 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=contracting&d2=limegroup">The Lime Group</A></span><br><br>
+      <A href="/tc?module=Static&d1=contracting&d2=limegroup">The Lime Group</A> is offering positions as a Lead Developer and Software Developer, available to <strong>ALL</strong> TopCoder members.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=index">register</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -54,7 +66,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>02.09.05<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=contracting&d2=akamai">Akamai</A> and <A href="/tc?module=Static&d1=contracting&d2=goldengate">GoldenGate</A></span><br><br>
-      We've posted more <A href="/tc?module=Static&d1=contracting&d2=index">Employment Opportunities</A>, available to <strong>ALL</strong> TopCoder members.
+      <A href="/tc?module=Static&d1=contracting&d2=akamai">Akamai</A> is looking for several Engineers and <A href="/tc?module=Static&d1=contracting&d2=goldengate">GoldenGate</A> is looking for a Technical Lead and a Senior Software Developer, available to <strong>ALL</strong> TopCoder members.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -126,7 +138,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>02.04.05<br>12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=contracting&d2=jumptrading">JumpTrading</A> and <A href="/tc?module=Static&d1=contracting&d2=oreilly">O'Reilly</A></span><br><br>
-      We've posted more <A href="/tc?module=Static&d1=contracting&d2=index">Employment Opportunities</A>, available to <strong>ALL</strong> TopCoder members.
+      <A href="/tc?module=Static&d1=contracting&d2=jumptrading">JumpTrading</A> is offering a position as a Professional Trader and <A href="/tc?module=Static&d1=contracting&d2=oreilly">O'Reilly</A> has a spot open for a Software Engineer, available to <strong>ALL</strong> TopCoder members.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
