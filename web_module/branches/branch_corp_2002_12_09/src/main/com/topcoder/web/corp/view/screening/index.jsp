@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          autoFlush="false"
          buffer="64kb"
+         import="com.topcoder.web.corp.Constants"
          errorPage="../exc/InternalError.jsp" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -26,8 +27,8 @@
       <TD VALIGN="top"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1"></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<table border="0" width="100%"><tr><td>
+      <TD width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+<table border="0" width="100%"><tr><td CLASS="bodyText" width="100%">
 <FONT SIZE="3" COLOR="#666666"><B>Candidate Evaluation Application</B></FONT><BR/>
 <P>
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
@@ -57,12 +58,12 @@ Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu
 <P><BR/></P>
 </td></tr>
 <tr><td>
-             <form method="POST" action="<%=request.getContextPath()%>/Tx/?op=begin">
-       <input type="hidden" name="back-to" value="/"/>
+     <form method="POST" action="<%=request.getContextPath()%>/Tx/?op=begin">
+       <input type="hidden" name="back-to" value="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>/"/>
+       <input type="hidden" name="prod-id" value="1"/> <!-- product id -->
+       <input type="hidden" name="utype-id" value="2"/> <!-- unit type id -->
        <table>
-         <tr><td>Product ID</td><td><input type="text" name="prod-id" value="1"/></td></tr>
-         <tr><td>Unit type ID</td><td><input type="text" name="utype-id" value="2"/></td></tr>
-         <tr><td colspan="2" align ="center"><input type="submit" value=" buy it "/></td></tr>
+         <tr><td width="100%" align ="center"><input type="submit" value=" buy it "/></td></tr>
        </table>
      </form>
 </td></tr>
