@@ -124,7 +124,7 @@ quite sufficient:
 <P>
 <pre>
 sum = 1;
-for (i=2; i&#60;sqrt(n+!); i++) {
+for (i=2; i&#60;sqrt(n+1); i++) {
     if (n % i == 0) {
 	sum+= i;
 	if (i &#60; n/i) {
