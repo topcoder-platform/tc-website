@@ -12,12 +12,6 @@
   <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
     <jsp:include page="../top.jsp" />
 
-<!-- Menu begins -->
-<jsp:include page="../menu.jsp">
-    <jsp:param name="level1" value="jobs"/>
-</jsp:include>
-<!-- Menu ends -->
-
     <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
       <TR>
        <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
