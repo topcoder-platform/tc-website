@@ -6,6 +6,21 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <jsp:usebean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
+
+<SCRIPT TYPE="text/javascript">
+function getProblemDetail(id) {
+    var width = screen.availWidth * 2 / 3;
+    var height = screen.availHeight / 2;
+    var left = (screen.availWidth - width) / 2;
+    var top = 0;
+    var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
+    var name="problemDetail";
+    
+    window.open('/corp/testing/?module=PopulateProblemDetail&roundProblemId='+id,name,cmd);
+    return;
+  }
+</SCRIPT>
+
         <table  border="0" cellspacing="0" cellpadding="5" width="600" align="center" class="bodyText">
               <tr valign="middle">
                   <td colspan="6" class="bodyText" align=center>Search Results:##to##of <%= searchResults.getTotal()%>
@@ -38,7 +53,7 @@
                   <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="country_name"/></td>
                   <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="coder_type"/></td>
                   <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="job"/></td>
-                  <td class="screeningCellOdd" align=center><A href=""><rsc:item row="<%=resultRow%>" name="problem_name"/></A></td>
+                  <td class="screeningCellOdd" align=center><A href="javascript:getProblemDetail('<rsc:item row="<%=resultRow%>" name="session_round_id"/>,<rsc:item row="<%=resultRow%>" name="problem_id"/>');"><rsc:item row="<%=resultRow%>" name="problem_name"/></A></td>
                   <td class="screeningCellOdd" align=center>01/01/04</td>
                   <td class="screeningCellOdd" align=center>00:40.20</td>
                   <td class="screeningCellOdd" align=center>
