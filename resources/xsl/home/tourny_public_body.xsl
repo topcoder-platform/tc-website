@@ -108,14 +108,17 @@
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
-	<P><IMG SRC="/i/2002tccc/tourney_thumb_photo.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
-	<A HREF="/index?t=statistics&amp;c=2002tccc_feature" CLASS="bodyGeneric"><B>A Matter of Time</B></A><BR/>
-	<I>dmwright Began Journey To Title At Age Six</I><BR/><BR/>
-	Tuesday, April 20, 2002<BR/>
+	<P><IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
+	<A HREF="/index?t=news_events&amp;c=feat_050102" CLASS="bodyGeneric"><B>The Women of TopCoder</B></A><BR/>
+	<I>Few in Numbers, Not in Ability</I><BR/><BR/>
+	Wednesday, May 1, 2002<BR/>
 	By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
 	</P>
-	<P>A pump of his fists, a loud hand clap, and exclamation of "Yes!" was the reaction of evd when it was announced that fellow Stanford University student <A HREF="/index?t=statistics&amp;c=2002tccc_feature" CLASS="bodyGeneric">dmwright</A> had won the 2002 Sun Microsystems and TopCoder 
-	Collegiate Challenge on Saturday April 20, at the University Park Hotel @ MIT in Cambridge, MA...<A HREF="/index?t=statistics&amp;c=2002tccc_feature" CLASS="bodyGeneric">full&#160;story</A></P>
+	<P>Even though many of us flip the television channels when a commercial appears, it's very easy to 
+	ascertain that certain items such as: make-up kits, stuffed animals and Barbie dolls are targeted 
+	toward little girls, while sports equipment, remote control cars and action/adventure and sports 
+	computer games have little boys written all over them. Both <A HREF="/index?t=news_events&amp;c=feat_050102" CLASS="bodyGeneric">pearl</A> and <A HREF="/index?t=news_events&amp;c=feat_050102" CLASS="bodyGeneric">polgara</A>, two of TopCoder's 
+	top-rated female members...<A HREF="/index?t=news_events&amp;c=feat_050102" CLASS="bodyGeneric">full&#160;story</A></P>
 	</TD>
     <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
