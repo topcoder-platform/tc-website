@@ -26,8 +26,8 @@
         <p>Eight Component finalists will be invited to compete live at the onsite finals in Santa Clara, CA, USA.</p>
             <ul>
                 <li><strong>Registration</strong><br />
-                    STARTS: Monday, December 20, 2004 at 9:00 AM ET<br/>
-                    ENDS: Monday, January 3, 2005 at 6:00 PM ET</li>
+                    STARTS: Monday, December 20, 2004 at 9:00 AM EST<br/>
+                    ENDS: Monday, January 3, 2005 at 6:00 PM EST</li>
                 <li><strong>Online Rounds</strong><br />
                     January 4 - February 3, 2004</li>
                 <li><strong>Onsite Finals</strong><br />
