@@ -13,7 +13,6 @@ import java.util.Map;
 public class AdvancedSearch extends SimpleSearch {
 
     protected void businessProcessing() throws TCWebException {
-        super.businessProcessing();
         try {
 
             MemberSearch m = getResults();
