@@ -67,7 +67,7 @@ public class Constants {
 
         REGISTRATION_PAGE_SUCCESS = JSP_ROOT+cfg.getInitParameter("page-Registration-success");
         REGISTRATION_PAGE_RETRY = JSP_ROOT+cfg.getInitParameter("page-Registration-retry");
-        USEREDIT_PAGE_SUCCESS = cfg.getInitParameter("page-UserEdit-success");
+        USEREDIT_PAGE_SUCCESS = JSP_ROOT+cfg.getInitParameter("page-UserEdit-success");
         USEREDIT_PAGE_RETRY = JSP_ROOT+cfg.getInitParameter("page-UserEdit-retry");
         USERLIST_PAGE = JSP_ROOT+cfg.getInitParameter("page-UserList");
         LOGIN_PAGE = JSP_ROOT+cfg.getInitParameter("page-login");
