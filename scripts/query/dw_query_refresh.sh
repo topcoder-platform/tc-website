@@ -931,6 +931,5 @@ SELECT sum(case when rating between 0000 and 0099 then 1 else 0 end) as group01
  ,rating r
  WHERE c.coder_id = r.coder_id
  AND status = 'A'
- AND num_ratings > 0
- AND rating > 0
+ AND num_ratings > @ra@
 "
