@@ -111,7 +111,13 @@
 
                 <xsl:for-each select="/TC/TOURNAMENTS/Competitors/Competitor">
                     <tr>
-                       <td class="advancers_list" align="right"><xsl:value-of select="seed"/></td>
+                       <td class="advancers_list" align="right">
+                           <xsl:choose>
+                               <xsl:when test="number(seed)=0">N/A</xsl:when>
+                               <xsl:otherwise><xsl:value-of select="seed"/></xsl:otherwise>
+                           </xsl:choose>
+                           <xsl:value-of select="seed"/>
+                       </td>
                        <td class="advancers_list" align="left">
                            <a>
                                     <xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
