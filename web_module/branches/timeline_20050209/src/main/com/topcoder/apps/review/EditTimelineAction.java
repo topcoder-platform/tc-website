@@ -51,7 +51,7 @@ public final class EditTimelineAction extends ReviewAction {
                 + orpd.getUser().getHandle() + "' in session "
                 + request.getSession().getId());
 
-        String action = request.getParameter("timelineAction");
+        String action = request.getParameter(Constants.ACTION_KEY);
 
         if (action == null) {
             return new FailureResult("No action provided");
@@ -81,6 +81,7 @@ ResultData result = new SuccessResult();
         } else if (Constants.ACTION_LOAD.equals(action)) {
             log(Level.INFO, "load_timeline");
             request.getSession().setAttribute(mapping.getAttribute(), form);
+
         } else if (Constants.ACTION_CANCEL.equals(action)) {
             log(Level.INFO, "cancel_timeline");
             BusinessDelegate businessDelegate = new BusinessDelegate();
@@ -90,8 +91,11 @@ ResultData result = new SuccessResult();
                 ProjectRetrieval pr = (ProjectRetrieval) result;
                 ((ProjectForm) form).timeLineFromProject(pr.getProject());
                 request.getSession().setAttribute(mapping.getAttribute(), form);
-                forwards.addForward(mapping.findForward("cancel"));
+
             }
+
+            forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
+            forwards.addForward(mapping.findForward("cancel"));
         }
 
 

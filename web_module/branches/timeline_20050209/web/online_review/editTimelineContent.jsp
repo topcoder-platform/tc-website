@@ -132,16 +132,16 @@
         <td align="center" class="lightBkgnd">
             <table border="0" cellpadding="0" cellspacing="4">
                 <tr>
-               	 	<input type="hidden" name="timelineAction" value=""/>
+               	 	<input type="hidden" name="action" value=""/>
                	 	<html:hidden property="currentEdition" value="timeline"/>
 			<td>
-			    <input type="button" value="Apply Changes" onclick="timelineAction.value='store'; submit()" />
+			    <input type="button" value="Apply Changes" onclick="action.value='store'; submit()" />
 			</td>
 			<td>
-			    <input type="button" value="Refresh" onclick="timelineAction.value='refresh'; submit()" />
+			    <input type="button" value="Refresh" onclick="action.value='refresh'; submit()" />
 			</td>
 			<td>
-			    <input type="button" value="Cancel" onclick="timelineAction.value='cancel'; submit()" />
+			    <input type="button" value="Cancel" onclick="action.value='cancel'; submit()" />
 			</td>
 			           
 		</tr>

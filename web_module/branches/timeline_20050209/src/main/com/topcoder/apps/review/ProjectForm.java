@@ -180,10 +180,6 @@ public final class ProjectForm extends ReviewForm {
      */
     private boolean[] adjustStartDates = null;
 
-    /**
-     * The user action for the timeline. Can be "load", "store", "cancel" or "refresh"
-     */
-    private String timelineAction = null;
 
     // ----------------------------------------------------------- Properties
 
@@ -584,25 +580,6 @@ public final class ProjectForm extends ReviewForm {
     }
 
     /**
-     * Return the user action for the timeline.
-     *
-     * @return the user action.
-     */
-    public String getTimelineAction() {
-        return timelineAction;
-    }
-
-    /**
-     * Set the user action  for the timeline.
-     *
-     * @param action The user action.
-     */
-    public void setTimelineAction(String timelineAction) {
-        this.timelineAction = timelineAction;
-    }
-
-
-    /**
      * Return the user reason.
      *
      * @return the user reason.
@@ -914,9 +891,10 @@ public final class ProjectForm extends ReviewForm {
         boolean checkProjectData = false;
 
 
-        String timelineAction = request.getParameter("timelineAction") ;
-        if (timelineAction != null) {
+        if ("timeline".equals(currentEdition)) {
             // the user edited the timeline
+
+            String timelineAction = request.getParameter(Constants.ACTION_KEY);
 
             if (Constants.ACTION_STORE.equals(timelineAction)) {
                 checkTimeline = true;
@@ -1127,7 +1105,6 @@ public final class ProjectForm extends ReviewForm {
                 endDates[i] = dateFormatter.format(project.getTimeline()[i].getEndDate());
             }
 
-            phaseLengths[i]=i;//remove!!!
             adjustStartDates[i]=true;
         }
     }

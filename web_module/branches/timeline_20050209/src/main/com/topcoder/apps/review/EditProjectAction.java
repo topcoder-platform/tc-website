@@ -62,59 +62,7 @@ public final class EditProjectAction extends ReviewAction {
         BusinessDelegate businessDelegate = new BusinessDelegate();
         ResultData result = businessDelegate.projectDetail(orpd);
 
-        String timelineAction = request.getParameter("timelineAction") ;
-
-log(Level.INFO, "action="+action);
-log(Level.INFO, "timelineAction="+timelineAction);
-
         if (result instanceof SuccessResult) {
-
-            if (timelineAction != null) {
-                // the user edited the timeline
-
-                if (Constants.ACTION_STORE.equals(timelineAction)) {
-                    log(Level.INFO, "store_timeline");
-                    request.getSession().setAttribute(mapping.getAttribute(), form);
-                    forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
-                    forwards.addForward(mapping.findForward("store"));
-
-                    return result;
-                }
-
-                if (Constants.ACTION_REFRESH.equals(timelineAction)) {
-                    log(Level.INFO, "refresh_timeline");
-
-                    // test!!
-                    ((ProjectForm) form).setPhaseLength(0,((ProjectForm) form).getPhaseLength(0)+1);
-
-                    request.getSession().setAttribute(mapping.getAttribute(), form);
-
-                    forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
-                    forwards.addForward(mapping.findForward("refresh"));
-
-                    return result;
-                }
-
-                if (Constants.ACTION_LOAD.equals(timelineAction)) {
-                    log(Level.INFO, "load_timeline");
-                    request.getSession().setAttribute(mapping.getAttribute(), form);
-                    return result;
-                }
-
-                if (Constants.ACTION_CANCEL.equals(timelineAction)) {
-                    log(Level.INFO, "cancel_timeline");
-                    ProjectRetrieval pr = (ProjectRetrieval) result;
-                    ((ProjectForm) form).timeLineFromProject(pr.getProject());
-                    request.getSession().setAttribute(mapping.getAttribute(), form);
-                    forwards.addForward(mapping.findForward("cancel"));
-                    return result;
-                }
-
-            }
-
-
-
-
 
             ProjectRetrieval pr = (ProjectRetrieval) result;
             // Populate the form
