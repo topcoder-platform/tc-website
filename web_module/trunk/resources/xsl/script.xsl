@@ -45,50 +45,6 @@ document.write(date + ", " + year + " ");
 
 
   <xsl:template name="Preload">
-    <SCRIPT type="text/javascript"><![CDATA[
-if (document.images) {
-  image2on = new Image();
-  image2on.src = "/i/menu_tces_on.gif";
-  image3on = new Image();
-  image3on.src = "/i/menu_applet2_on.gif";
-  image4on = new Image();
-  image4on.src = "/i/menu_tcs_on.gif";
-  image5on = new Image();
-  image5on.src = "/i/menu_rounds_on.gif";
-  image6on = new Image();
-  image6on.src = "/i/menu_dev_on.gif";
-  image7on = new Image();
-  image7on.src = "/i/menu_practice_on.gif";
-  image8on = new Image();
-  image8on.src = "/i/menu_press_on.gif";  
-  image9on = new Image();
-  image9on.src = "/i/menu_support_on.gif";      
-  image2off = new Image();
-  image2off.src = "/i/menu_tces_off.gif";
-  image3off = new Image();
-  image3off.src = "/i/menu_applet2_off.gif";
-  image4off = new Image();
-  image4off.src = "/i/menu_tcs_off.gif";
-  image5off = new Image();
-  image5off.src = "/i/menu_rounds_off.gif";
-  image6off = new Image();
-  image6off.src = "/i/menu_dev_off.gif";
-  image7off = new Image();
-  image7off.src = "/i/menu_practice_off.gif";
-  image8off = new Image();
-  image8off.src = "/i/menu_press_off.gif";  
-  image9off = new Image();
-  image9off.src = "/i/menu_support_off.gif";      
-}
-function changeImages() {
-  if (document.images) {
-    for (var i=0; i<changeImages.arguments.length; i+=2) {
-      document[changeImages.arguments[i]].src = eval(changeImages.arguments[i+1] + ".src");
-    }
-  }
-}
-]]></SCRIPT>
-
 <SCRIPT TYPE="text/javascript">
   function getGraph(url,wd,ht) {
     var last=0;
