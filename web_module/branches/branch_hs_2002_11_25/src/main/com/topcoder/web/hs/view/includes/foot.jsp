@@ -21,10 +21,10 @@
 </TABLE>
 <TABLE BGCOLOR="#6C6D71" CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%">
 <TR>
-<TD ALIGN="left" BACKGROUND="/i/footer_graphic_tile.gif" HEIGHT="15" COLSPAN="2"><IMG BORDER="0" HEIGHT="16" WIDTH="710" SRC="/i/footer_graphic.gif"></TD></TR>
+<TD ALIGN="left" BACKGROUND="/i/hs/footer_graphic_tile.gif" HEIGHT="15" COLSPAN="2"><IMG BORDER="0" HEIGHT="16" WIDTH="710" SRC="/i/hs/footer_graphic.gif"></TD></TR>
 <TR>
-<TD BACKGROUND="/i/steel_gray_bg.gif" BGCOLOR="#43515E" VALIGN="top" WIDTH="20"><IMG BORDER="0" HEIGHT="1" WIDTH="20" SRC="/i/clear.gif"></TD>
-<TD BACKGROUND="/i/steel_gray_bg.gif" BGCOLOR="#43515E" ALIGN="left" VALIGN="top" WIDTH="100%"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"><BR><SPAN CLASS="smallFoot">        
+<TD BACKGROUND="/i/hs/steel_gray_bg.gif" BGCOLOR="#43515E" VALIGN="top" WIDTH="20"><IMG BORDER="0" HEIGHT="1" WIDTH="20" SRC="/i/hs/clear.gif"></TD>
+<TD BACKGROUND="/i/hs/steel_gray_bg.gif" BGCOLOR="#43515E" ALIGN="left" VALIGN="top" WIDTH="100%"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/hs/clear.gif"><BR><SPAN CLASS="smallFoot">        
         &nbsp;&nbsp;<A HREF="?module=Static&d1=about&d2=about" CLASS="globalNavSmall">about [TCHS]</A>   
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=contacts&d2=contacts" CLASS="globalNavSmall">contacts</A>
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=home&d2=privacy" CLASS="globalNavSmall">privacy</A>

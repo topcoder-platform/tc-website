@@ -113,7 +113,7 @@ problem and when a solution is submitted. Keep in mind that these times are capt
 submission actually gets to our server, so network latency may play a minor role in the competition process.<BR/>
 <BR/>  
 
-Total points awarded = <IMG WIDTH="172" HEIGHT="37" ALT="points" SRC="/i/pts.gif"/><BR/>
+Total points awarded = <IMG WIDTH="172" HEIGHT="37" ALT="points" SRC="/i/hs/pts.gif"/><BR/>
 <BR/>
 Where PT is the time spent coding a problem, TT is the total time allocated for coding all problems, 
 and MP is the maximum points available for that problem.<BR/>

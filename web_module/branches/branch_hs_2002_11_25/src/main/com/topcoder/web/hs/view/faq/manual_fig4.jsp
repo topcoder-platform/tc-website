@@ -48,7 +48,7 @@ HREF="?module=Static&d1=faq&d2=manual_fig2"><b>Figure 2.</b> Lobby</A></li><li><
 Coding Phase
  </li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig5"><b>Figure 5.</b> Status Window - Challenge Phase</A></li></ul></P><P CLASS="bodyText"><b>Figure 4: Coding Window - 
 
-Coding Phase</b></P><IMG BORDER="0" HEIGHT="434" WIDTH="619" ALT="Coding Window" SRC="/i/problem_statement.gif"><P CLASS="bodyText">The <b>Coding Window</b> consists of: 
+Coding Phase</b></P><IMG BORDER="0" HEIGHT="434" WIDTH="619" ALT="Coding Window" SRC="/i/hs/problem_statement.gif"><P CLASS="bodyText">The <b>Coding Window</b> consists of: 
           <ol CLASS="bodyText"><li>The <b>problem information:</b> Class Name, Method Name, Return Type, and Argument Types, found at the top of the window.</li><BR><li>Choice of <b>Standard</b> or <b>VI</b> editor is 
 
 given. The user can switch between editors at any time during the Coding Phase.</li><BR><li>The <b>Problem Statement</b>.</li><BR><li>The <b>Coding Area</b>.</li><BR><li>When coding a problem,  A line number is used for 

@@ -43,7 +43,7 @@
             <!--Body starts Here-->
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
 					<TR><TD VALIGN="middle" COLSPAN="2" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&#160;<B>Press Releases</B> <!--Archive--> - 2002&#160;&#160;&#160;</TD></TR>
-						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 
         <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;10.30.02</TD><TD VALIGN="middle" CLASS="bodyText">&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="?module=Static&d1=press&d2=pr_10_30_02" >TopCoder Competitions Expand to High Schools</A></TD></TR>
 		</TABLE>
@@ -51,7 +51,7 @@
 <P><BR/></P>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
 					<TR><TD VALIGN="middle" COLSPAN="2" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&#160;<B>Articles</B> - 2002&#160;&#160;&#160;</TD></TR>
-						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;11.13.02</TD>
 <TD CLASS="bodyText" VALIGN="middle">&nbsp;&nbsp;&nbsp;&nbsp;<A CLASS="bodyText" HREF="http://builder.com.com/article.jhtml?id=u00220021106adm01.htm&rcode=&page=1" TARGET="_blank">You'll find more than competitions at TopCoder these days</A></TD></TR>
 <TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;04.10.02</TD>
@@ -69,11 +69,11 @@
 <P><BR/></P>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
 					<TR><TD VALIGN="middle" COLSPAN="3"  BACKGROUND="/i/hs/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&#160;<B>Features</B> - 2002&#160;&#160;&#160;</TD></TR>
-						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="top">&nbsp;11.20.02</TD><TD CLASS="bodyText" VALIGN="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leadhyena_inran&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD CLASS="bodyText" VALIGN="top"><A CLASS="bodyGeneric" HREF="http://www.topcoder.com/?&t=news_events&c=feat_112002" TARGET="_blank">The eight seconds of death: tips on preventing timeout
 </A></TD></TR>
 <TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="top">&nbsp;08.07.02</TD><TD CLASS="bodyText" VALIGN="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KaiEl&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD CLASS="bodyText" VALIGN="top"><A CLASS="bodyGeneric" HREF="http://www.topcoder.com/index?t=news_events&c=feat_080702" TARGET="_blank">Match Strategy</A></TD></TR>
-<TR><TD COLSPAN="3" CLASS="bodyText" VALIGN="top"><IMG BORDER="0" HEIGHT="15" WIDTH="1" ALT="" SRC="/i/clear.gif"></TD></TR>
+<TR><TD COLSPAN="3" CLASS="bodyText" VALIGN="top"><IMG BORDER="0" HEIGHT="15" WIDTH="1" ALT="" SRC="/i/hs/clear.gif"></TD></TR>
 
 		</TABLE>
 <P><BR/></P>                         

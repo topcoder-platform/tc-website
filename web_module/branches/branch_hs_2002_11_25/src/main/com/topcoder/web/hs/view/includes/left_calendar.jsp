@@ -1,6 +1,6 @@
 <!--Small Calendar Starts-->
         
-     <TABLE BGCOLOR="#333333" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+     <TABLE BGCOLOR="#333333" BACKGROUND="/i/hs/steel_darkblue_bg.gif" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
         <TR> 
                <TD VALIGN="top">
                   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="1" CELLPADDING="0">

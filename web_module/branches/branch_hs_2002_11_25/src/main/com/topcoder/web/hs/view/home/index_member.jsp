@@ -87,7 +87,7 @@
 <!--<TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%">
 <TR>
     <TD WIDTH="170" BGCOLOR="#001934">
-        <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0">
+        <IMG SRC="/i/hs/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0">
         </TD>
     <TD VALIGN="baseline" WIDTH="100%">
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
@@ -98,7 +98,7 @@
              </TR>
             </TABLE>
             </TD>
-    <TD WIDTH="" BGCOLOR="#001934" VALIGN="top" WIDTH="226"><IMG SRC="/i/clear.gif" WIDTH="226" HEIGHT="1" BORDER="0"></TD>
+    <TD WIDTH="" BGCOLOR="#001934" VALIGN="top" WIDTH="226"><IMG SRC="/i/hs/clear.gif" WIDTH="226" HEIGHT="1" BORDER="0"></TD>
 </TR>
 </TABLE>-->
 
