@@ -14,6 +14,7 @@ public class SurveyList extends Base {
                 getRequest().setAttribute("surveyList", getDataAccess().getData(r).get("survey_list"));
             } else {
                 r.setContentHandle("user_survey_list");
+                r.setProperty("cr", String.valueOf(getAuthentication().getActiveUser().getId()));
                 getRequest().setAttribute("surveyList", getDataAccess().getData(r).get("user_survey_list"));
             }
         } catch (Exception e) {
