@@ -64,8 +64,8 @@
 			<tr>
 				<td>					
 					<p><br/><span class="bodySubtitle">Step 1 - Read the TopCoder Component Design Tutorial</span><br/>
-					Download the <a href="/i/development/downloads/TopCoder_Software_Component_Design_Tutorial.pdf" target="_blank">Component Design Tutorial</a>.
-					This document is a tutorial for developers new to the TopCoder component development methodology and environment.</p>
+					Read the <a href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=desTutorial">Component Design Tutorial</a>.
+					This page is a tutorial for developers new to the TopCoder component development methodology and environment.</p>
 			
 					<p><span class="bodySubtitle">Step 2 - Install the necessary Software</span><br/>
 					In order to view designs you will need to have a UML tool installed.  TopCoder members currently use the free version of <a href="http://www.gentleware.com/">Poseidon</a>.</p>
