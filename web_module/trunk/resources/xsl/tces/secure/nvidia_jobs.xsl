@@ -66,8 +66,26 @@
  <TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
    <TR>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       SOFTWARE<BR/><BR/>
-       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Software Engineer</A><BR/><BR/>
+       <b>SOFTWARE</b><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Software Engineer</A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Systems Software Engineer</A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Performance Analysis Software Engineer</A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Software QA Engineer</A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Cad Engineer (intern/co-op position only)</A><BR/>
+       <b>ARCHITECTURE</b><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Graphics Architecture Engineer</A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">3D Graphics Applications Software Engineer</A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Platform Architecture Engineer (Intern/Co-op position only)</A><BR/>
+       <b>IT/BUSINESS DEVELOPMENT</b><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Web Software Engineer</A><BR/>
+       <b>MARKETING</b><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Technical Marketing Engineering Intern</A><BR/>
+       <b>HARDWARE</b><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Hardware Engineer - ASIC</A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Mixed Signal Design Engineer</A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Applications Engineer </A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Systems Engineer </A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Analog/Mixed-Signal Design Engineer Ð Wireless </A><BR/>
       </TD>
   </TR>
 </TABLE>
