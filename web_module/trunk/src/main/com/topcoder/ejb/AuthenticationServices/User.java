@@ -41,6 +41,7 @@ public class User extends SecureObject implements java.io.Serializable, Permissi
         User result = null;
         try {
             result = new User();
+            result.setUserId(getUserId());
             result.setModified(getModified());
             result.setHandle(getHandle());
             result.setPassword(getPassword());
