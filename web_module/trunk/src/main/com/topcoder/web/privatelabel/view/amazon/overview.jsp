@@ -8,30 +8,28 @@
 <link rel="STYLESHEET" type="text/css" href="/css/amazon.css">
 
 </head>
-<body>
+<body bgcolor="#FFFFFF" link="#003399" alink="#FF9933" vlink="#996633" topmargin=0 text="#000000">
 
-<table width="100%" valign=top cellpadding=0 cellspacing=0 border=1 class=bodyFrame>
+<table width="100%" valign=top cellpadding=0 cellspacing=0 border=0 class=bodyFrame>
 	<tr>
 		<td colspan=4 align=center valign=bottom><jsp:include page="head.jsp" /></td>
 	</tr>
 	<tr>
-		<td class=blueBar colspan=4><img src="/i/clear.gif" width=1 height=29 border=1/></td>
+		<td class=blueBar colspan=4><img src="/i/clear.gif" width=1 height=29 border=0/></td>
 	</tr>
 	<tr>
-		<td class=foilTop colspan=4><img src="/i/screening/amazon/foil_top.gif" border=1/></td>
+		<td class=foilTop colspan=4><img src="/i/screening/amazon/foil_top.gif" border=0/></td>
 	</tr>
 	<tr>
-		<td class=foilLeft><img src="/i/clear.gif" width=13 height=1 border=1 /></td>
-		<td class=foilCorner><img src="/i/screening/amazon/foil_corner.gif" border=1 /></td>
+		<td class=foilLeft><img src="/i/clear.gif" width=13 height=1 border=0 /></td>
+		<td class=foilCorner><img src="/i/screening/amazon/foil_corner.gif" border=0 /></td>
 		<td class=bodyCol>
 			<div class=bodySpacer>
 
-			Technical Program/Product Manager, Associates, #04-10074
+			<span class=pageTitle><B>Page Title</B></span>
 			<br/><br/>
-			Interested in a challenging opportunity that will leverage your unique blend of technology and business skills? As a technical program/product manager, you will shape the next generation product strategy for the Amazon Associates program, the leading provider and largest network of affiliate solutions on the Web.Your responsibilities will include innovating and prioritizing new features and services to extend our current product offering, conducting business and competitive analyses, building product roadmaps, collecting requirements, writing functional specs, scheduling, and managing key software projects.The ideal candidate will possess a technical background that enables him/her to interact easily with software and Web developers and a demonstrated ability to think strategically about product and business issues. The right person will have 5-7 years of product and program management experience, be highly analytical, have strong communication skills, be detail-oriented yet able to look at a wide array of choices and identify what truly matters, and be calm in the face of fast-moving and hectic environments. Experience working with large, high performance systems, distributed networks, and a working knowledge of database modeling, OO language and design, XML, XSLT, HTML, and JavaScript is desired. Bachelors degree required; MBA and computer science. External/Internal Candidates Apply Now.
-			Software Development Engineer, UI - Media Technologies, #03-009520
-			<br/><br/>
-			Amazon.com's Media Technologies team has an immediate opening for a talented and enthusiastic web developer to create and support media-centric features for the Amazon website. As a small team we work on an exciting and eclectic mix of services including the LookInside the Book, rich media (audio/video/3D), music downloads, electronic software downloads, eBooks and eDocs, online manuals, order contingent downloads, entertainment applications and interactive chat. Successful candidates for this position will have a strong background in OO Perl, UNIX, HTML, Javascript, SQL, CGI. Experience working with Mason, XML, DTHML, CSS, Javascript, search engines, and setting up Apache services is desired. Equally important to these specific skills are a candidate's ability to multi-task, quickly adapt to new development environments and changing business requirements, learn new systems, create reliable/maintainable code, and find creative and scalable solutions to difficult problems. The ability to communicate clearly and concisely both written and orally is a key competency as is demonstratable skill as a self-starter. The mediacentric nature of our group means that an artistic inclination or skills such as Photoshop/Director/Shockwave/Flash can be helpful but is not required. Bachelor's degree in computer science or a relevant area is highly desired. External/Internal Candidates Apply Now.
+
+			Text
 
  			</div>
 		</td>
