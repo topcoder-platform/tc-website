@@ -6,12 +6,12 @@
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
 %>
 
-    <% if ((level1.equals("testing")) || (level1.equals("recruiting")) || (level1.equals("tces")) || (level1.equals("manageUsers"))) { %>
-
-<!-- TCES begins -->
             <img src="/i/clear.gif" width="180" height="6" border="0" alt=""><br>
             <img src="/i/left_nav_top.gif" width="180" height="11" border="0" alt=""><br>
 
+    <% if ((level1.equals("testing")) || (level1.equals("recruiting")) || (level1.equals("tces")) || (level1.equals("manageUsers"))) { %>
+
+<!-- TCES begins -->
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="myServicesTitle">Employment Services:</td></tr>
 
@@ -40,42 +40,76 @@
     <% } else if ((level1.equals("sponsorship"))) { %>
 
 <!-- Sponsorship begins -->
-            <img src="/i/clear.gif" width="180" height="6" border="0" alt=""><br>
-            <img src="/i/left_nav_top.gif" width="180" height="11" border="0" alt=""><br>
-
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="myServicesTitle">Sponsorship:</td></tr>
-                <tr><td id="<%=level1.equals("sponsorship")?(level2.equals("overview")?"myServicesNavSelect":"myServicesNavOn"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("sponsorship")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=sponsorship&d3=index" target="_parent" class="<%=level1.equals("sponsorship")?"corpLeftOn":"corpLeft"%>">Overview</a></td></tr>
-
-<!-- SRM begins-->
-                <tr><td id="<%=level1.equals("srm")?(level2.equals("index")?"myServicesNavSelect":"myServicesNavOn"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("srm")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=srm&d3=index" target="_parent" class="<%=level1.equals("srm")?"corpLeftOn":"corpLeft"%>">Single Round Matches</a></td></tr>
-            <% if (level1.equals("srm")) { %>
-                <tr><td id="<%=level2.equals("web")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=srm&d3=web" class="corpLeftOn">Web Site Coverage</a></td></tr>
-                <tr><td id="<%=level2.equals("applet")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=srm&d3=applet" class="corpLeftOn">Applet Coverage</a></td></tr>
-                <tr><td id="<%=level2.equals("email")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=srm&d3=email" target="_parent" class="corpLeftOn">Email Distribution</a></td></tr>
-            <% } %>
-<!-- SRM ends-->
-
-<!-- Tournament begins-->
-                <tr><td id="<%=level1.equals("tourny")?(level2.equals("index")?"myServicesNavSelect":"myServicesNavOn"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("tourny")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=tourny&d3=index" target="_parent" class="<%=level1.equals("tourny")?"corpLeftOn":"corpLeft"%>">Tournaments</a></td></tr>
-            <% if (level1.equals("tourny")) { %>
-                <tr><td id="<%=level2.equals("web")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=tourny&d3=web" class="corpLeftOn">Web Site Coverage</a></td></tr>
-                <tr><td id="<%=level2.equals("applet")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=tourny&d3=applet" class="corpLeftOn">Applet Coverage</a></td></tr>
-                <tr><td id="<%=level2.equals("email")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=tourny&d3=email" target="_parent" class="corpLeftOn">Email Distribution</a></td></tr>
-                <tr><td id="<%=level2.equals("media")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=tourny&d3=media" target="_parent" class="corpLeftOn">Media Coverage</a></td></tr>
-                <tr><td id="<%=level2.equals("onsite")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=tourny&d3=onsite" target="_parent" class="corpLeftOn">Onsite arena</a></td></tr>
-                <tr><td id="<%=level2.equals("pr")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=tourny&d3=pr" target="_parent" class="corpLeftOn">Public Relations</a></td></tr>
-            <% } %>
-<!-- Tournament ends-->
-
-                <tr><td id="<%=level1.equals("pbtc")?(level2.equals("index")?"myServicesNavSelect":"myServicesNavOn"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("pbtc")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=pbtc&d3=index" target="_parent" class="<%=level1.equals("pbtc")?"corpLeftOn":"corpLeft"%>">Powered by TopCoder</a></td></tr>
-                <tr><td id="<%=level1.equals("private_label")?(level2.equals("index")?"myServicesNavSelect":"myServicesNavOn"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("private_label")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=private_label&d3=index" target="_parent" class="<%=level1.equals("private_label")?"corpLeftOn":"corpLeft"%>">Private Label Events</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index" target="_parent" class="corpLeft">Single Round Matches</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index" target="_parent" class="corpLeft">Tournaments</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=pbtc_index" target="_parent" class="corpLeft">Powered by TopCoder<br><img src="/i/clear.gif" width="10" height="3" alt="" border="0">Competitions</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=private_index" target="_parent" class="corpLeft">Private Label Competitions</a></td></tr>
 <!-- Sponsorship ends -->
 
-    <% } else { %>
+    <% } else if ((level1.equals("srm"))) { %>
 
-            <img src="/i/clear.gif" width="180" height="6" border="0" alt=""><br>
-            <img src="/i/left_nav_top.gif" width="180" height="11" border="0" alt=""><br>
+<!-- SRM begins-->
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
+                <tr><td id="myServicesTitle">Sponsorship:</td></tr>
+
+                <tr><td id="<%=level1.equals("srm")?(level2.equals("index")?"myServicesNavSelect":"myServicesNavOn"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("srm")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=srm_index" target="_parent" class="<%=level1.equals("srm")?"corpLeftOn":"corpLeft"%>">Single Round Matches</a></td></tr>
+            <% if (level1.equals("srm")) { %>
+                <tr><td id="<%=level2.equals("web")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=srm_web" class="corpLeftOn">TopCoder Web Site</a></td></tr>
+                <tr><td id="<%=level2.equals("applet")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=srm_applet" class="corpLeftOn">Arena Applet</a></td></tr>
+                <tr><td id="<%=level2.equals("email")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=srm_email" target="_parent" class="corpLeftOn">Opt-In Email</a></td></tr>
+            <% } %>
+
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index" target="_parent" class="corpLeft">Tournaments</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=pbtc_index" target="_parent" class="corpLeft">Powered by TopCoder<br><img src="/i/clear.gif" width="10" height="3" alt="" border="0">Competitions</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=private_index" target="_parent" class="corpLeft">Private Label Competitions</a></td></tr>
+<!-- SRM ends-->
+
+    <% } else if ((level1.equals("tourny"))) { %>
+
+<!-- Tournament begins -->
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
+                <tr><td id="myServicesTitle">Sponsorship:</td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index" target="_parent" class="corpLeft">Single Round Matches</a></td></tr>
+
+                <tr><td id="<%=level1.equals("tourny")?(level2.equals("index")?"myServicesNavSelect":"myServicesNavOn"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("tourny")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=tourny_index" target="_parent" class="<%=level1.equals("tourny")?"corpLeftOn":"corpLeft"%>">Tournaments</a></td></tr>
+            <% if (level1.equals("tourny")) { %>
+                <tr><td id="<%=level2.equals("web")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=tourny_web" class="corpLeftOn">TopCoder Web Site</a></td></tr>
+                <tr><td id="<%=level2.equals("applet")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=tourny_applet" class="corpLeftOn">Arena Applet</a></td></tr>
+                <tr><td id="<%=level2.equals("email")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=tourny_email" target="_parent" class="corpLeftOn">Opt-In Email</a></td></tr>
+                <tr><td id="<%=level2.equals("onsite")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=tourny_onsite" target="_parent" class="corpLeftOn">Onsite Branding</a></td></tr>
+                <tr><td id="<%=level2.equals("pr")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=tourny_pr" target="_parent" class="corpLeftOn">Public Relations</a></td></tr>
+                <tr><td id="<%=level2.equals("review")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=tourny_review" target="_parent" class="corpLeftOn">Post-Tournament Review</a></td></tr>
+            <% } %>
+
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=pbtc_index" target="_parent" class="corpLeft">Powered by TopCoder<br><img src="/i/clear.gif" width="10" height="3" alt="" border="0">Competitions</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=private_index" target="_parent" class="corpLeft">Private Label Competitions</a></td></tr>
+<!-- Tournament ends -->
+
+    <% } else if ((level1.equals("pbtc"))) { %>
+
+<!-- Powered by TopCoder begins -->
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
+                <tr><td id="myServicesTitle">Sponsorship:</td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index" target="_parent" class="corpLeft">Single Round Matches</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index" target="_parent" class="corpLeft">Tournaments</a></td></tr>
+                <tr><td id="<%=level1.equals("pbtc")?(level2.equals("index")?"myServicesNavSelect":"myServicesNavOn"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("pbtc")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=pbtc_index" target="_parent" class="<%=level1.equals("pbtc")?"corpLeftOn":"corpLeft"%>">Powered by TopCoder<br><img src="/i/clear.gif" width="10" height="3" alt="" border="0">Competitions</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=private_index" target="_parent" class="corpLeft">Private Label Competitions</a></td></tr>
+<!-- Powered by TopCoder ends -->
+
+    <% } else if ((level1.equals("private_label"))) { %>
+
+<!-- Private Label begins -->
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
+                <tr><td id="myServicesTitle">Sponsorship:</td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index" target="_parent" class="corpLeft">Single Round Matches</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index" target="_parent" class="corpLeft">Tournaments</a></td></tr>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="?module=Static&d1=corp&d2=spon_prog&d3=pbtc_index" target="_parent" class="corpLeft">Powered by TopCoder<br><img src="/i/clear.gif" width="10" height="3" alt="" border="0">Competitions</a></td></tr>
+                <tr><td id="<%=level1.equals("private_label")?(level2.equals("index")?"myServicesNavSelect":"myServicesNavOn"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("private_label")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=private_label&d3=index" target="_parent" class="<%=level1.equals("private_label")?"corpLeftOn":"corpLeft"%>">Private Label Competitions</a></td></tr>
+<!-- Private Label ends -->
+
+    <% } else { %>
 
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="myServicesTitle">Corporate Services:</td></tr>
