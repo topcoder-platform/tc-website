@@ -23,6 +23,7 @@ public class Constants implements ConstantsInt {
 
 
     public static String DEFAULT_PAGE;
+    public static int COMPONENT_DOWNLOAD_TERMS_ID;
 
 
     static {
