@@ -22,11 +22,11 @@
   <xsl:template name="MemberBody">
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
-    <tr><td width="1" rowspan="2"><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
+    <tr><td width="1" colspan="5"><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
 
     <tr valign="top">
 <!-- Left Column Begins -->
-        <td width="170" bgcolor="#000000"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><br /> -->
+        <td width="170" bgcolor="#000000">
 
             <xsl:call-template name="global_left"/>
 
@@ -36,7 +36,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-    <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0" /></td>
+        <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
@@ -697,7 +697,7 @@ Software Promo Ends -->
 
 <!-- Coder of the Month Begins -->
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><td><a href="/stat?c=member_profile&amp;cr=304168"><img src="/i/codermonth_dec.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0" /></a></td></tr>
+                <tr><td><a href="/stat?c=member_profile&amp;cr=308953"><img src="/i/codermonth_jan03.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0" /></a></td></tr>
             </table>
 <!-- Coder of the Month ends -->
         </td>
