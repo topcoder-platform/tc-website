@@ -63,7 +63,7 @@
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;July</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.24.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;polgara</TD><TD VALIGN="middle" CLASS="bodyText">Developing for Users</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.10.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;HeyJude</TD><TD VALIGN="middle" CLASS="bodyText">Working with Women Coders</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.10.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;bitbucket43</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=feat_071002" CLASS="bodyGeneric">From the Field - Avoid Overloading!</A></TD></TR>
 
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;June</TD></TR> 
