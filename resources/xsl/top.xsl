@@ -48,17 +48,16 @@
     <tr valign="middle">
         <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
         <td width="206">
-          <a target="_parent">
+          <A target="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/</xsl:attribute>
             <img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/>
-          </a>
+          </A>
         </td>
-        <td width="20"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15"/></td>
-        <td nowrap="" align="right">
+        <td width="99%">
 
 <xsl:choose>
     <xsl:when test="/TC/LoggedIn='true'">
-            <table width="99%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">            
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">            
                 <tr valign="middle"><form name="selectform">
                     <td width="99%" align="left">
                         <xsl:choose>
@@ -69,6 +68,7 @@
                                 <IMG src="/i/top_div1_badge.jpg" width="370" height="75" border="0" alt="DIVISION I" />
                             </xsl:otherwise>
                         </xsl:choose>
+                    </td>
 
                     <td align="right">
                         <xsl:choose>
@@ -103,7 +103,7 @@
     </xsl:when>             
             
     <xsl:otherwise>
-            <table width="99%" border="0" cellpadding="0" cellspacing="0">            
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">            
                 <tr>
                     <td align="right" width="99%">
                         <xsl:choose>
