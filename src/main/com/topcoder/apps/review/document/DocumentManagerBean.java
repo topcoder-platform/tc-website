@@ -4157,25 +4157,19 @@ public class DocumentManagerBean implements SessionBean {
             ", a.appeal_v_id" +
             ", s.author_id" +
             ", sub.submitter_id" +
-            ", sub.submission_id" +
-            ", sub2.submission_id " +
             ", rur.r_user_role_id " +
             "FROM appeal a " +
             ", scorecard_question sq " +
             ", scorecard s " +
             ", submission sub " +
-            ", submission sub2 " +
             ", r_user_role rur " +
             "WHERE a.cur_version = 1 " +
             "AND sq.cur_version = 1 " +
             "AND s.cur_version = 1 " +
             "AND sub.cur_version = 1 " +
-            "AND sub2.cur_version = 1 " +
             "AND a.question_id = sq.question_id " +
             "AND sq.scorecard_id = s.scorecard_id " +
             "AND s.submission_id = sub.submission_id " +
-            "AND s.project_id = sub2.project_id " +
-            "AND a.appealer_id = sub2.submitter_id " +
             "AND rur.r_role_id = 1 " +
             "AND rur.login_id = sub.submitter_id " +
             "AND rur.cur_version = 1 " +
@@ -4248,11 +4242,8 @@ public class DocumentManagerBean implements SessionBean {
                 long appealVersionId = rs.getLong(7);
                 long reviewerId = rs.getLong(8);
                 long submitterId = rs.getLong(9);
-                //long submissionId = rs.getLong(10);
-                //long appealerSubmissionId = rs.getLong(11);
-                //GT Changed this so that it all matches the submission IDs
-                long submissionId = rs.getLong(12);
-                long appealerSubmissionId = rs.getLong(12);
+                long submissionId = rs.getLong(10);
+                long appealerSubmissionId = rs.getLong(10);
 
 
                 if (!(Common.isAdmin(requestor) ||
