@@ -1,7 +1,6 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.codinginterface.techassess.Constants;
-import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
 
 /**
  * @author  dok
@@ -26,8 +25,7 @@ public class TestWindowResponse extends Base {
                 loadSessionErrorsIntoRequest(messageId);
                 if (hasDefault(Constants.PROBLEM)) {
                     getRequest().setAttribute(Constants.MESSAGE_ID, messageId);
-                    ProblemInfo problem = (ProblemInfo)getDefault(Constants.PROBLEM);
-                    getRequest().setAttribute(Constants.PROBLEM, problem);
+                    getRequest().setAttribute(Constants.PROBLEM, getDefault(Constants.PROBLEM));
                     setNextPage(Constants.PAGE_TEST);
                     setIsNextPageInContext(true);
                 //this logic is mostly for the case that they hit refresh
