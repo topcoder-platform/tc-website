@@ -558,6 +558,8 @@ logger.debug("got ds");
             ri.setPhoneNumber(userCustomer.getTelephoneNbr());
             ri.setUseComponents(userCustomer.getUseComponents());
             ri.setUseConsultants(userCustomer.getUseConsultants());
+
+
             ri.setReceiveNews(userCustomer.getReceiveTcsnews());
             ri.setNewsInHtml(userCustomer.getReceiveNewshtml());
             //logger.debug("newsInHtml: " + userCustomer.getReceiveNewshtml());
