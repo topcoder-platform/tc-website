@@ -24,6 +24,7 @@ import com.topcoder.web.tc.model.PlacementConfig;
 import com.topcoder.common.web.render.*;
 import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.problem.TextElement;
+import com.topcoder.shared.problem.NodeElement;
 import com.topcoder.shared.problem.TestCase;
 import java.io.FileOutputStream;
 
@@ -568,10 +569,11 @@ public class PDFGenerator extends BaseProcessor {
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         problem.addCell(cell);
 
-        TextElementRenderer tr = new TextElementRenderer((TextElement)info.getProblem().getComponent(0).getIntro());
+        NodeElementRenderer nr = new NodeElementRenderer((NodeElement)info.getProblem().getComponent(0).getIntro());
+        TextElementRenderer tr;
         
         Phrase statement = new Phrase();
-        statement.add(new Paragraph(tr.toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        statement.add(new Paragraph(nr.toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
         problem.addCell(statement);
 
