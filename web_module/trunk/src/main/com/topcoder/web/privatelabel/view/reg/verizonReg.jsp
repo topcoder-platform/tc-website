@@ -20,12 +20,12 @@
 <!-- TCO Header -->
 <a name="top_page"></a>
 <!--
-            <object 
+            <object
             type="application/x-shockwave-flash"
             data="/i/tournament/vcc03/vcc03_still.swf"
             width="100%"
             height="125"
-            border="0">           
+            border="0">
             <param name="movie" value="/i/tournament/vcc03/vcc03_still.swf" />
             <param name="quality" value="high" />
             <param name="salign" value="t">
@@ -47,14 +47,14 @@
          <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
          <img src="/i/clear.gif" width="180" height="40" border="0"/>
          </p>
-         </td>         
+         </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
         <td class="bodyText" width="100%">
 
 <!-- Tab bar links-->
@@ -65,7 +65,7 @@
 <jsp:include page="/verizon/verizonSublinks.jsp" >
    <jsp:param name="selectedList" value="register_now"/>
    <jsp:param name="selectedTab" value=""/>
-</jsp:include>   
+</jsp:include>
 
       <blockquote>
       <h2>Registration</h2>
@@ -140,7 +140,7 @@
                     Password
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.PASSWORD%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/>
+                    <tc-webtag:textInput name="<%=Constants.PASSWORD%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/> (<%=Constants.MIN_PASSWORD_LENGTH%> to <%=Constants.MAX_PASSWORD_LENGTH%> characters)
                 </td>
             </tr>
 
@@ -287,13 +287,13 @@
             </tr>
             <tr>
                <td>
-               </td>           
+               </td>
                <td align="left">
                   <p><br /></p>
                   <p><a href="javascript: document.regForm.submit();" class="button" align="center">Submit</a></p>
                   <p><br /></p>
                </td>
-            </tr> 
+            </tr>
             </form>
          </table>
          </blockquote>
