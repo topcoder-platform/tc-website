@@ -32,6 +32,7 @@ public class Unlock extends Preview {
                         if (!(e.detail instanceof RowNotFoundException))
                             throw e;
                     }
+                    getRequest().setAttribute("cardUnlocked", new Boolean(cardUnlocked));
                     if (!cardUnlocked) {
                         UserTransaction tx = null;
                         tx = Transaction.get();
