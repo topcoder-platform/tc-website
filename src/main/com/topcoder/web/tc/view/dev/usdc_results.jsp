@@ -43,7 +43,7 @@
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
 <%
-if(request.getParameter("ph") == "112")
+if(Integer.parse(request.getParameter("ph")) == 112)
 {
 %>
 <!-- Tab bar links-->
@@ -55,8 +55,7 @@ if(request.getParameter("ph") == "112")
 }
 else
 {
-    %>
-    <%=request.getParameter("ph")%>
+%>
 <jsp:include page="usdc_links.jsp" >
    <jsp:param name="selectedTab" value="results"/>
    <jsp:param name="selectedTab2" value="development"/>
