@@ -142,7 +142,7 @@
                                document.write('</object>');
                             }
                             else {
-                               document.write('<a href="http://www.macromedia.com/go/getflashplayer">get flash</a>');
+                               document.write('<a href="http://www.macromedia.com/go/getflashplayer"><img src="/i/getflash.gif" width="15" heigh="15" border="0"></a>');
                             }
                             // -->
                             </SCRIPT>
