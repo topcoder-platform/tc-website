@@ -10,21 +10,31 @@
 
 <table width="180" border="0" cellspacing="0" cellpadding="5" bgcolor="#555555">
     <tr>
-        <td class="statTextBig" bgcolor="#333333">August: <a href="/stat?c=member_profile&cr=303185" class="coderTextYellow">Cosmin.ro</a></td>
+        <td class="statTextBig" bgcolor="#333333">August: <a href="/stat?c=member_profile&cr=286907" class="coderTextRed">WishingBone</a></td>
     </tr>
 </table>
 
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#222222">
+<%--
     <tr>
         <td align="left" background="/i/graybv_lite_bg.gif" class="statText">Contest</td>
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText">Rating</td>
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText"></td>
     </tr>
+--%>
+    <tr>
+        <td align="left" background="/i/graybv_lite_bg.gif" class="statText" colspan=2>Details</td>
+    </tr>
 
-     <tr>
+    <tr>
+        <td class="formHandleEven">WishingBone has done 130 reviews for TopCoder Software, earning him over $20,000.</td>
+        <td rowspan="3" align="center" valign="middle"><img src="/i/m/WishingBone_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
+    </tr>
+<%--
+    <tr>
         <td class="formHandleEven">SRM 205</td>
         <td class="formHandleEven" align="right">2031</td>
-        <td rowspan="3" align="center" valign="middle"><img src="/i/m/Cosmin.ro_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
+        <td rowspan="3" align="center" valign="middle"><img src="/i/m/WishingBone_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
     </tr>
     <tr>
         <td class="formHandleEven">SRM 204</td>
@@ -34,6 +44,7 @@
         <td class="formHandleEven">SRM 203</td>
         <td class="formHandleEven" align="right">1804</td>
     </tr>
+--%>
 </table>
 
 <table width="180" border="0" cellspacing="0" cellpadding="0">
