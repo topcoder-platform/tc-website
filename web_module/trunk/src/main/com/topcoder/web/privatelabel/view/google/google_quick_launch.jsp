@@ -47,7 +47,7 @@
         <PARAM name="port" value="5051">
         <PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=5051">
         <PARAM name="companyName" value="Google">
-        <PARAM name="poweredby" value="true">
+        <PARAM name="poweredbyview" value="true">
         <PARAM name="com.topcoder.client.contestApplet.editors.NoPluginManager" value="true">
 
         <EMBED type="application/x-java-applet;version=1.3"
@@ -59,7 +59,7 @@
             port="5051"
             tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7001"
             companyName="Google"
-            poweredby="true"
+            poweredbyview="true"
             com.topcoder.client.contestApplet.editors.NoPluginManager="true"
             width="239"
             height="26"
