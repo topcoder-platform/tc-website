@@ -55,7 +55,7 @@
                         
                         <div align="center">
                         
-                        <A href="<%=request.getContextPath()+"/Tx/?&"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&pid=17"%>"><img src="/i/corp/title_3_month_program.gif" alt="3 Month Program - $5,000" width="286" height="167" border="0"></A><br>
+                        <A href="<%=request.getContextPath()+"/Tx/?&"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&pid=17"%>"><img src="/i/corp/title_3_month_program.gif" alt="3 Month Program - $10,000" width="286" height="167" border="0"></A><br>
                         
                         <img src="/i/corp/verisign_m.gif" alt="Payment Services by Verisign" width="103" height="43" border="0" vspace="20">
                         
