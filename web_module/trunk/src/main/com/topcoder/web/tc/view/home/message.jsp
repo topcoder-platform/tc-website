@@ -3,8 +3,8 @@
 <jsp:useBean id="compTerms" class="com.topcoder.web.tc.controller.request.util.TCCC05ComponentTerms" scope="request" />
 <jsp:useBean id="algoTerms" class="com.topcoder.web.tc.controller.request.util.TCCC05AlgorithmTerms" scope="request" />
 <%  Calendar now = Calendar.getInstance();
-now.setTime(new Date());
-if ((now.after(compTerms.getBeginning())&&now.before(compTerms.getEnd()))||(now.after(algoTerms.getBeginning())&&now.before(algoTerms.getEnd()))) {
+    now.setTime(new Date());
+    if ((now.after(compTerms.getBeginning())&&now.before(compTerms.getEnd()))||(now.after(algoTerms.getBeginning())&&now.before(algoTerms.getEnd()))) {
 %>
 
     <table border="0" cellspacing="0" cellpadding="0" width="180">
@@ -24,7 +24,7 @@ if ((now.after(compTerms.getBeginning())&&now.before(compTerms.getEnd()))||(now.
             <%   } else { %>
                    Sorry, you are not eligible to register for the TCCC.
             <%   }
-            <%  } %>
+               } %>
             <% if (compTerms.isRegistered()) { %>
                 You are registered for the TCCC Component Competition.
             <% } %>
@@ -35,7 +35,7 @@ if ((now.after(compTerms.getBeginning())&&now.before(compTerms.getEnd()))||(now.
             <%   } else { %>
                    Sorry, you are not eligible to register for the TCCC.
             <%   }
-            <% } %>
+               } %>
             </td>
         </tr>
     </table>
