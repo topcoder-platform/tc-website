@@ -153,7 +153,7 @@
 						<td colspan="6" width="100%" class="errorText">
 						    <html:errors property='comments' /></td>
 					</tr>
-				</logic>
+				</logic:equal>
 				<tr>
 					<td class="forumTextEven" align="center">						
 						<html:textarea property="comments" rows="10" cols="80" /></td>
@@ -164,7 +164,7 @@
 						<td colspan="6" width="100%" class="errorText">
 						<html:errors property='approved' /></td>
 					</tr>
-				</logic>
+				</logic:equal>
 				<tr>
 					<td class="forumTextOdd" align="center">
 						<html:radio property="approved" value="true" title="Accepted" />
