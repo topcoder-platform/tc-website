@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/dgarthur_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=262936"><strong>dgarthur</strong></a><br/>
+                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,17 +19,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm216_prob">SRM 216 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Monday, October 18, 2004</p>
+                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm217_prob">SRM 217 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, October 27, 2004</p>
 
                         <p>
 
-It was not an easy night for Division 1 participants as all three problems proved both
-unusual and challenging, each in their own way. Many strong competitors were thrown off by
-this and ended up with scores of 0, which makes <b>tomek</b>'s intimidating 1641.97 points all 
-the more impressive - congratulations!
+SRM 217 was pretty easy on division 2, with many coders solving the first two
+problems.  haipt81 ended up winning without any challenges by less than 3
+points.  Esi was a close second, followed by nihilista, almost 80 points behind.
                         
-						<a href="/index?t=statistics&c=srm216_prob" class="bodyText"><strong>full&#160;story</strong></a>
+						<a href="/index?t=statistics&c=srm217_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
