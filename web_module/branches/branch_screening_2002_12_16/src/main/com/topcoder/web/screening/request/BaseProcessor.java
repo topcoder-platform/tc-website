@@ -9,6 +9,8 @@ import java.util.Hashtable;
 import java.util.Map;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+import javax.sql.DataSource;
 
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
@@ -18,6 +20,8 @@ import com.topcoder.shared.security.*;
 import com.topcoder.web.common.security.*;
 import com.topcoder.web.screening.common.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.DataAccess;
+
 
 /** Provides some of the basic methods and data common to request processors.
  * @author Porgery
@@ -204,4 +208,12 @@ public abstract class BaseProcessor implements RequestProcessor {
         return HttpUtils.parseQueryString(rq.getQueryString());
     }
     
+    protected DataAccess getDataAccess() throws Exception {
+        InitialContext context = new InitialContext();
+        DataSource ds = (DataSource)
+            PortableRemoteObject.narrow(context.lookup(Constants.DATA_SOURCE),
+                                        DataSource.class);
+        DataAccess dAccess = new DataAccess(ds);
+        return dAccess;
+    }
 }

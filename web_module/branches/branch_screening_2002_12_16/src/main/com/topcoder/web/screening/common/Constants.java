@@ -93,6 +93,9 @@ public class Constants
     public static String PROBLEM_INFO_QUERY_KEY;
     public static String PROBLEM_ALGORITHMIC_CATEGORY_QUERY_KEY;
     public static String PROBLEM_BUSINESS_CATEGORY_QUERY_KEY;
+    public static String EXAMPLE_PROBLEM_ID;
+    public static String PROBLEM_TYPE_EXAMPLE_ID;
+    public static String PROBLEM_TYPE_TEST_SET_B_ID;
     
     //Results constants
     public static String PROBLEM_RESULT_PAGE;
@@ -100,15 +103,20 @@ public class Constants
     public static String TEST_RESULTS_PAGE;
 
     //Session constants
+    public static String POPULATE_SESSION_PROCESSOR;
     public static String UPDATE_SESSION_PROCESSOR;
     public static String PREVIEW_EMAIL_PAGE;
     public static String SESSION_SETUP_PAGE;
     public static String SESSION_INFO;
+    public static String SESSION_LOOKUP_COMMAND;
+    public static String SESSION_CANDIDATE_INFO_QUERY_KEY;
+    public static String SESSION_PROFILE_INFO_QUERY_KEY;
 
     //Common Constants
     public static String DATA_SOURCE;
     public static String TX_DATA_SOURCE;
     public static String DW_DATA_SOURCE;
+    public static String CONTACT_INFO_QUERY_KEY;
 
     public static void initialize(ServletConfig config) {
         //Controller Servlet Constants
@@ -224,6 +232,11 @@ public class Constants
             config.getInitParameter("problem_algorithmic_category_query_key");
         PROBLEM_BUSINESS_CATEGORY_QUERY_KEY = 
             config.getInitParameter("problem_business_category_query_key");
+        EXAMPLE_PROBLEM_ID = config.getInitParameter("example_problem_id");
+        PROBLEM_TYPE_EXAMPLE_ID = 
+            config.getInitParameter("problem_type_example_id");
+        PROBLEM_TYPE_TEST_SET_B_ID = 
+            config.getInitParameter("problem_type_test_set_b_id");
         
         //Result constants
         PROBLEM_RESULT_PAGE = config.getInitParameter("problem_result_page");
@@ -232,6 +245,8 @@ public class Constants
         TEST_RESULTS_PAGE = config.getInitParameter("test_results_page");
 
         //Session constants
+        POPULATE_SESSION_PROCESSOR = 
+            config.getInitParameter("populate_session_processor");
         UPDATE_SESSION_PROCESSOR = 
             config.getInitParameter("update_session_processor");
         PREVIEW_EMAIL_PAGE = 
@@ -240,12 +255,19 @@ public class Constants
             config.getInitParameter("session_setup_page");
         SESSION_INFO = 
             config.getInitParameter("session_info_attribute");
-
+        SESSION_LOOKUP_COMMAND = 
+            config.getInitParameter("session_lookup_command");
+        SESSION_CANDIDATE_INFO_QUERY_KEY = 
+            config.getInitParameter("session_candidate_info_query_key");
+        SESSION_PROFILE_INFO_QUERY_KEY = 
+            config.getInitParameter("session_profile_info_query_key");
 
         //Common Constants
         DATA_SOURCE = config.getInitParameter("data_source_name");
         TX_DATA_SOURCE = config.getInitParameter("tx_data_source_name");
         DW_DATA_SOURCE = config.getInitParameter("dw_data_source_name");
+        CONTACT_INFO_QUERY_KEY = 
+            config.getInitParameter("contact_info_query_key");
 
         isInitialized = true;
     }

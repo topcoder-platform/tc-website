@@ -1,5 +1,6 @@
 package com.topcoder.web.screening.request;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -7,7 +8,7 @@ import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.SessionInfo;
 
 public abstract class BaseSessionProcessor extends BaseProcessor {
-    protected void updateSessionInfo() {
+    protected SessionInfo getSessionInfo() {
         HttpServletRequest request = (HttpServletRequest)getRequest();
         HttpSession session = request.getSession();
         SessionInfo info = (SessionInfo)
@@ -17,6 +18,13 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
             session.setAttribute(Constants.SESSION_INFO, info);
         }
 
+        return info;
+    }
+
+    protected void updateSessionInfo() {
+        SessionInfo info = getSessionInfo();
+
+        ServletRequest request = getRequest();
         info.setProfileId(request.getParameter(Constants.PROFILE_ID));
         info.setCandidateId(request.getParameter(Constants.CANDIDATE_ID));
         info.setBeginMonth(request.getParameter(Constants.BEGIN_MONTH));

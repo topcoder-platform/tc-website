@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
 import javax.servlet.ServletRequest;
-import javax.sql.DataSource;
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -50,11 +47,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         //check to see if they are logged in
         User user = getAuthentication().getUser();
 
-        InitialContext context = new InitialContext();
-        DataSource ds = (DataSource)
-            PortableRemoteObject.narrow(context.lookup(Constants.DATA_SOURCE),
-                                        DataSource.class);
-        DataAccess dAccess = new DataAccess(ds);
+        DataAccess dAccess = getDataAccess();
 
         ProfileInfo info = 
             (ProfileInfo)request.getAttribute(Constants.PROFILE_INFO);
