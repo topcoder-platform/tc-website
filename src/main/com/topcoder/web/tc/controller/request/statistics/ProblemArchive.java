@@ -7,9 +7,10 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.*;
 
 import java.util.Map;
+import java.util.ArrayList;
 
 /**
  * User: dok
@@ -51,6 +52,34 @@ public class ProblemArchive extends Base {
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("problem_list");
+
+            String className = StringUtils.checkNull(getRequest().getParameter(Constants.CLASS_NAME));
+            String minDiv1Success = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_DIV1_SUCCESS));
+            String minDiv2Success = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_DIV2_SUCCESS));
+            String maxDiv1Success = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_DIV1_SUCCESS));
+            String maxDiv2Success = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_DIV2_SUCCESS));
+            String div1Level = StringUtils.checkNull(getRequest().getParameter(Constants.DIV1_LEVEL));
+            String div2Level = StringUtils.checkNull(getRequest().getParameter(Constants.DIV2_LEVEL));
+
+            ArrayList filters = new ArrayList();
+            if (!className.equals(""))
+                filters.add(new Contains(className, "problem_name"));
+            if (!minDiv1Success.equals(""))
+                filters.add(new GreaterThanOrEqual(new Float(minDiv1Success), "div1_success"));
+            if (!minDiv2Success.equals(""))
+                filters.add(new GreaterThanOrEqual(new Float(minDiv2Success), "div2_success"));
+            if (!maxDiv1Success.equals(""))
+                filters.add(new LessThanOrEqual(new Float(maxDiv1Success), "div1_success"));
+            if (!maxDiv2Success.equals(""))
+                filters.add(new LessThanOrEqual(new Float(maxDiv2Success), "div2_success"));
+            if (!div1Level.equals(""))
+                filters.add(new Equals(new Integer(div1Level), "div1_level"));
+            if (!div2Level.equals(""))
+                filters.add(new Equals(new Integer(div2Level), "div2_level"));
+
+            if (filters.size()>0) {
+                rsc = new ResultSetContainer(rsc, (ResultFilter[])filters.toArray());
+            }
 
             SortInfo s = new SortInfo();
             s.addDefault(rsc.getColumnIndex("problem_name"), "asc");
