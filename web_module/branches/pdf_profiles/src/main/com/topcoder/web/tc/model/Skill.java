@@ -39,4 +39,11 @@ public class Skill implements Serializable {
         return text;
     }
     
+    public boolean equals(Object o) {
+        if(!(o instanceof Skill))
+            return false;
+        
+        Skill s = (Skill)o;
+        return s.getID() == getID();
+    }
 }

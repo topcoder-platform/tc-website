@@ -14,11 +14,14 @@ import com.topcoder.web.tc.model.PlacementConfigInfo;
 
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.coderskill.CoderSkill;
 
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
+
+import com.topcoder.web.tc.model.Skill;
 
 import java.lang.StringBuffer;
 
@@ -53,10 +56,28 @@ public class ProfileConfig extends BaseProcessor {
             info.setPresentedBy(userbean.getFirstName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME) + " " + userbean.getLastName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME));
             info.setPresentedByEmail(emailbean.getAddress(emailbean.getPrimaryEmailId(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME), DBMS.COMMON_OLTP_DATASOURCE_NAME));
 
-            
             setDefault("presentedBy", info.getPresentedBy());
-            setDefault("presentedByEmail", info.getPresentedBy());
+            setDefault("presentedByEmail", info.getPresentedByEmail());
+
+            //set images list - todo
             
+            //load skills
+            CoderSkill skillbean = (CoderSkill)createEJB(ctx, CoderSkill.class);
+        
+            Request r = new Request();
+            r.setContentHandle("skill_types");
+
+            ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_types");
+            for(int i = 0; i < rsc.size(); i++) {
+                ResultSetContainer rscSkills = skillbean.getSkillsByType(info.getUserID(), rsc.getIntItem(i, "skill_type_id"),DBMS.OLTP_DATASOURCE_NAME);
+                for(int j = 0; j < rscSkills.size(); j++) {
+                    Skill s = new Skill(); 
+                    s.setID(rscSkills.getIntItem(j, "skill_id"));
+                    s.setText(rscSkills.getStringItem(j, "skill_desc"));
+                    
+                    info.createSkill(rsc.getStringItem(i, "skill_type_desc"), s, rscSkills.getIntItem(j, "ranking"));
+                }
+            }
             
             getRequest().setAttribute("configInfo", info);
 
@@ -71,6 +92,12 @@ public class ProfileConfig extends BaseProcessor {
     protected static DataAccessInt getDWDataAccess() throws Exception { 
        DataAccessInt dAccess = null;
        dAccess = new DataAccess(DBMS.DW_DATASOURCE_NAME);
+       return dAccess;
+    }
+    
+    protected static DataAccessInt getDataAccess() throws Exception { 
+       DataAccessInt dAccess = null;
+       dAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
        return dAccess;
     }
 }

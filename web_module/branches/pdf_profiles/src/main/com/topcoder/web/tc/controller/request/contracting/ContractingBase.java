@@ -352,6 +352,7 @@ abstract public class ContractingBase extends BaseProcessor {
 
         rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_types");
         for(int i = 0; i < rsc.size(); i++) {
+            boolean createdGroup = false;
             ResultSetContainer rscSkills = skillbean.getSkillsByType(info.getUserID(), rsc.getIntItem(i, "skill_type_id"),DBMS.OLTP_DATASOURCE_NAME);
             for(int j = 0; j < rscSkills.size(); j++) {
                 info.setSkill(rscSkills.getStringItem(j, "skill_id"), rscSkills.getStringItem(j, "ranking"));

@@ -14,6 +14,7 @@ public class PlacementConfigInfo implements Serializable {
     private String name;
     private String presentedBy;
     private String presentedByEmail;
+    private HashMap skillGroups;
     
     public PlacementConfigInfo() {
         userID = 0;
@@ -21,6 +22,43 @@ public class PlacementConfigInfo implements Serializable {
         name = "";
         presentedBy = "";
         presentedByEmail = "";
+        skillGroups = new HashMap();
+    }
+    
+    public List getSkillGroups() {
+        ArrayList al = new ArrayList();
+        
+        Iterator i = skillGroups.keySet().iterator();
+        while(i.hasNext()) {
+            String s = (String)i.next();
+            al.add(s);
+        }
+        
+        return al;
+    }
+    
+    public void createSkillGroup(String group) {
+        if(!hasSkillGroup(group)) {
+            skillGroups.put(group, new HashMap());
+        }
+    }
+    
+    public boolean hasSkillGroup(String group) {
+        return skillGroups.keySet().contains(group);
+    }
+    
+    public Map getSkillGroup(String group) {
+        return (Map)skillGroups.get(group);
+    }
+    
+    public void createSkill(String group, Skill skill, int rating) {
+        if(!hasSkillGroup(group)) {
+            createSkillGroup(group);
+        }
+        
+        Map grp = getSkillGroup(group);
+        
+        grp.put(skill, new Integer(rating));
     }
     
     public void setPresentedBy(String p) {

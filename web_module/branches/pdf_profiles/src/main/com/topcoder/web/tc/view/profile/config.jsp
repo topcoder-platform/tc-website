@@ -8,8 +8,10 @@
 <html>
     <head><title>Placement Profile Config</title></head>
     <body>
-        <form name=frmConfig method=post action="/tc">
-        <input type="hidden" name="module" value=""/>
+        <form name=frmConfig method=post enctype="multipart/form-data" action="/tc">
+        <input type="hidden" name="module" value="ProfileConfig"/>
+        <input type="hidden" name="process" value="true" />
+        <input type="hidden" name="uid" value="<jsp:getProperty name="configInfo" property="UserID"/>" />
         <b>Profile Config</b><br />
         <table border=0>
             <tr>
@@ -42,6 +44,40 @@
                 </td>
                 <td>
                     <tc-webtag:textInput name="presentedByEmail"  size="25" maxlength="50"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Presented To Logo:</b>
+                </td>
+                <td>
+                    Existing: select here<br/>
+                    New: <input type="file" name="logo" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Skills</b>
+                </td>
+                <td>
+                    <tc:listIterator id="skillGroup" list="<%=configInfo.getSkillGroups()%>">
+                    <table border=0>
+                        <tr>
+                            <td colspan=2>
+                                <b><%=skillGroup%></b>
+                            </td>
+                        </tr>
+                    </table>
+                    </tc:listIterator>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    <input type="submit" />
                 </td>
             </tr>
         </table>
