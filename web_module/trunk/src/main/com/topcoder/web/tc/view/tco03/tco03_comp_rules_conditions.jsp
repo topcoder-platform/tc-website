@@ -115,7 +115,7 @@ for any reason, including infection by computer virus, bugs, tampering, unauthor
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
@@ -127,7 +127,7 @@ for any reason, including infection by computer virus, bugs, tampering, unauthor
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
 <!-- Gutter Ends -->
     </tr>
 </table>
