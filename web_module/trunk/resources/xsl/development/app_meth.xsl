@@ -110,14 +110,14 @@
                     </p>
                     <p>
 					<ol>
-					<li>TopCoder Software Product Manager creates an Application Design Specification to define scope.</li>
-					<li>Product Manager creates Activity Diagrams to define the functional flow of the applications.</li>
-					<li>Product Manager creates high-level use cases that describe all actors and processes involved in the 
+					<li>TopCoder Software Application Manager creates an Application Design Specification to define scope.</li>
+					<li>Application Manager creates Activity Diagrams to define the functional flow of the applications.</li>
+					<li>Application Manager creates high-level Use Cases that describe all actors and processes involved in the 
 					functionality of the application.</li>  
-					<li>Product Manager and Graphic Artist create a working prototype of the application.  This is a graphical 
+					<li>Application Manager and Information Architect create a working prototype of the application.  This is a graphical 
 					rendering of the application user interface.</li>
-					<li>Product Manager creates a Deployment Diagram that defines the logical and physical layout of the system.</li> 
-					<li>Product Manager creates the Design Project Plan for the project.</li>
+					<li>Application Manager creates a Architecture Diagram that defines the logical and physical layout of the system.</li> 
+					<li>Application Manager creates the Design Project Plan for the project.</li>
 					</ol>
 					</p>
                     </td>
@@ -145,17 +145,31 @@
                    	submit application designs to TopCoder Software.</p>
                    	<p>
                    	<ol>
-					<li>All eligible TopCoder members may submit completed designs for the application.</li> 
-					<li>Submissions must include use-case diagrams, a component diagram, completed Application Design Specification, 
-					Detailed Deployment Diagram, Sequence Diagrams, Persistence Diagrams, Configuration Data, Static Data, Component 
-					Requirements Specifications and test cases.</li>  
-					<li>Submissions are expected to specify both generic components that come from the TopCoder Software Component 
-					Catalog, new components and component extensions necessary to implement functionality specific to the application.</li>
-					<li>An Architecture Review Board reviews and scores all design submissions.  The Board will take several factors, 
-					including number of current TopCoder Software components used and new components identified into account when scoring 
-					the submissions.</li>  
-					<li>The Architecture Review Board selects a winning design and the top two entries are compensated.</li> 
-					<li>The winning designer(s) incorporate Review Board suggestions into their design(s).</li>
+					<li>All eligible TopCoder members may submit completed designs for the application.</li>
+					<li>Designers must submit a completed Application Design Specification on the Specification Submission Due 
+					Date as stated in the Application Project Posting page.</li>
+					<li>Application Managers will provide functional feedback to designers via the TopCoder Software NewsGroups.</li>
+					<li>Designers must submit the following documents by the Design Submission Due Date:
+					<ul>
+					<li>Updated Application Specification Document</li>
+					<li>Updated Use Case diagrams if required</li>
+					<li>Deployment Diagrams - Associations between application classes and components</li>
+					<li>Sequence Diagrams - Associations between application classes and components</li>
+					<li>Persistence Diagrams - Data Definition Language (DDL), XML Schema, Document Type Definition (DTD)</li>
+					<li>Configuration Data - Explanation of configuration parameters</li>
+					<li>Static Data - Data required for the application to be used</li>
+					<li>Test Cases - Functional Test Cases that cover the public API of the application</li>
+					</ul></li>
+					<li>The Application Specification Document is expected to specify both generic components that can be mapped 
+					to the TopCoder Software Component Catalog, new components and component extensions necessary to implement 
+					functionality specific to the application.</li>
+					<li>An Architecture Review Board reviews and scores all design submissions. The Board will take several factors, 
+					including number of current TopCoder Software components used and new components identified into account when
+					scoring the submissions.</li>
+					<li>The Architecture Review Board selects a winning design submission and the top two entries are compensated.</li>
+					<li>If the new components are required for the application, they will be developed separately using the 
+					<a class="statText" href="index?t=development&amp;c=comp_meth">Component Development Methodology</a>.</li>
+					<li>The winning designer(s) incorporate Review Board suggestions into their design.</li>
 					<li>The Architecture Review Board performs a final review and accepts the application design.</li>
 					<li>The winning design is posted as an Application Development Project.</li>
 					</ol>
@@ -198,16 +212,15 @@
 					solution, unit test cases and all associated documentation.</li>
 					<li>Solutions are designed as extensions, customizations and integrations of TopCoder Software components and 
 					must be developed as such.  The development teams can add additional code where necessary.</li>  
-					<li>The Architecture Review Board and TopCoder Software Application Manager are available to answer questions 
+					<li>The Designer and TopCoder Software Application Manager are available to answer questions 
 					and give guidance.</li>
 					<li>A Development Review Board is selected from the Development Review Board Pool.</li>  
-					<li>The Development Review Board and Architecture Review Board are responsible for systems testing and scoring 
+					<li>The Development Review Board and Designer are responsible for systems testing and scoring 
 					each application.</li>  
 					<li>Scoring includes accuracy testing, negative testing, stress testing, User Interface testing and integration testing.</li>  
 					<li>Once all solutions are scored a winning solution is chosen and the runner-up development team is compensated.</li>
 					</ol>
 					</p>  
-
                     </td>
                 </tr>
 <!-- Development ends -->
@@ -230,7 +243,7 @@
                     <td class="statText">
                   
                     <ol>
-					<li>The Development Review Board and Architecture Review Board team up with the TopCoder Software Application Manager 
+					<li>The Development Review Board and Designer team up with the TopCoder Software Application Manager 
 					and Quality Assurance Manager to perform several iterations of QA testing with the winning Development Team.</li>  
 					<li>Once the TopCoder Software Application Manager is satisfied that the winning application meets the rigorous 
 					standards of TopCoder Software the development solution is accepted and the winning Development Team is compensated.</li>
