@@ -157,7 +157,7 @@ living in the same household as such persons, are ineligible to enter the tourna
 <A NAME="4"></A><B>Qualification Round and Qualification Period</B><BR/>
 In order to participate in the Qualification round, contestants must first sign-up for the SunNetwork<sup>sm</sup> 
 Coding Challenge.  Competitors may sign-up prior to the SunNetwork<sup>sm</sup> Conference via the TopCoder website 
-at <A HREF="www.topcoder.com/sunnetworkchallenge" CLASS="statText"><FONT COLOR="#FFCC00">www.topcoder.com/sunnetworkchallenge</FONT></A>, or at
+at <A HREF="http://www.topcoder.com/sunnetworkchallenge" CLASS="statText"><FONT COLOR="#FFCC00">www.topcoder.com/sunnetworkchallenge</FONT></A>, or at
 the SunNetwork<sup>sm</sup> Conference.  
  To register at the SunNetwork<sup>sm</sup> Conference, contestants should proceed to the 
  TopCoder pavilion at the Moscone Center to sign-up at any time during the Qualification Period.  (Please note:  
