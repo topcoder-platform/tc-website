@@ -334,7 +334,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         ResumeServices rServices = null;
         try {
             rServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            hasResume = rServices.hasResume(memberID);
+            hasResume = rServices.hasResume(memberID, DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
         }

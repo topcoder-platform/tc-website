@@ -8,13 +8,13 @@ import java.rmi.RemoteException;
 
 public interface ResumeServices extends EJBObject {
 
-    public Resume getResume(long userId)
+    public Resume getResume(long userId, String dataSource)
             throws RemoteException;
-    public void putResume(long userId,int fileType, String fileName, byte[] file)
+    public void putResume(long userId,int fileType, String fileName, byte[] file, String dataSource)
             throws RemoteException;
-    public ResultSetContainer getFileTypes()
+    public ResultSetContainer getFileTypes(String dataSource)
             throws RemoteException;
-    public boolean hasResume(long userId)
+    public boolean hasResume(long userId, String dataSource)
             throws RemoteException;
 
 

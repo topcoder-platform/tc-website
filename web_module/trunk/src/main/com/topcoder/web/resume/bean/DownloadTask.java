@@ -1,12 +1,14 @@
 package com.topcoder.web.resume.bean;
 
-import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.common.web.data.Navigation;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.resume.ResumeServices;
 
-import javax.servlet.http.*;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class DownloadTask extends ResumeTask{
     private Resume resume = null;
@@ -26,6 +28,10 @@ public class DownloadTask extends ResumeTask{
             throw new Exception("User not logged in, can't download a file.");
         } else {
              userId = navigation.getUserId();
+        }
+        if (super.getFileUpload().getParameter("cid")!=null) {
+            companyId = Long.parseLong(super.getFileUpload().getParameter("cid"));
+            db = getCompanyDb(companyId);
         }
     }
 
@@ -47,7 +53,7 @@ public class DownloadTask extends ResumeTask{
     public void processStep(String step) throws Exception {
         try{
             ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            resume = resumeServices.getResume(userId);
+            resume = resumeServices.getResume(userId, db);
         }catch(Exception e){
             throw new ResumeTaskException(e);
         }

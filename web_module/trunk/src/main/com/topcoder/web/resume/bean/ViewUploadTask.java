@@ -1,13 +1,15 @@
 package com.topcoder.web.resume.bean;
 
-import com.topcoder.web.resume.common.Constants;
-import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.common.web.data.Navigation;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.resume.common.Constants;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class ViewUploadTask extends ResumeTask{
     private static Logger log = Logger.getLogger(UploadTask.class);
@@ -36,15 +38,19 @@ public class ViewUploadTask extends ResumeTask{
     }
 
     public void processStep(String step) throws Exception {
+        if (super.getFileUpload().getParameter("cid")!=null) {
+            companyId = Long.parseLong(super.getFileUpload().getParameter("cid"));
+            db = getCompanyDb(companyId);
+        }
         Resume resume = null;
         ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-        resume = resumeServices.getResume(userId);
+        resume = resumeServices.getResume(userId, db);
         if (resume != null) {
             setHasResume(true);
         } else {
             setHasResume(false);
         }
-        fileTypes = resumeServices.getFileTypes();
+        fileTypes = resumeServices.getFileTypes(db);
         super.setNextPage(Constants.UPLOAD_PAGE);
     }
 

@@ -83,7 +83,7 @@ public class ResumeDownloadTask extends BaseTask {
 
     public void processStep(String step) throws Exception {
         ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-        resume = resumeServices.getResume(getMemberId());
+        resume = resumeServices.getResume(getMemberId(), DBMS.OLTP_DATASOURCE_NAME);
 
     }
 
