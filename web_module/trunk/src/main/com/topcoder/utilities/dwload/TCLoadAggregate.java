@@ -1596,7 +1596,6 @@ public class TCLoadAggregate extends TCLoad {
             query.append(" AND p.round_id = round_problem.round_id");
             query.append(" AND p.problem_id = round_problem.problem_id");
             query.append(" AND p.division_id = round_problem.division_id");
-            query.append(" AND p.level_id = round_problem.level_id)");
             query.append(" ,challenges_made_successful = ");
             query.append(" (SELECT count(*) ");
             query.append(" FROM challenge c ");
@@ -1608,7 +1607,6 @@ public class TCLoadAggregate extends TCLoad {
             query.append(" AND rr.division_id = p.division_id");
             query.append(" AND p.problem_id = c.problem_id");
             query.append(" AND p.division_id = round_problem.division_id");
-            query.append(" AND p.level_id = round_problem.level_id");
             query.append(" AND p.problem_id = round_problem.problem_id");
             query.append(" AND p.round_id = round_problem.round_id");
             query.append(" AND c.succeeded = " + STATUS_SUCCEEDED + ")");
@@ -1623,7 +1621,6 @@ public class TCLoadAggregate extends TCLoad {
             query.append(" AND rr.division_id = p.division_id");
             query.append(" AND p.problem_id = c.problem_id");
             query.append(" AND p.division_id = round_problem.division_id");
-            query.append(" AND p.level_id = round_problem.level_id");
             query.append(" AND p.problem_id = round_problem.problem_id");
             query.append(" AND p.round_id = round_problem.round_id");
             query.append(" AND c.succeeded = " + STATUS_FAILED + ")");
@@ -1813,7 +1810,6 @@ public class TCLoadAggregate extends TCLoad {
             query.append(" AND p.problem_id = cp.problem_id");
             query.append(" AND cp.language_id = problem_language.language_id");
             query.append(" AND p.division_id = problem_language.division_id");
-            query.append(" AND p.level_id = problem_language.level_id");
             query.append(" AND p.problem_id = problem_language.problem_id");
             query.append(" AND p.round_id = problem_language.round_id)");
             query.append(" ,challenges_made_successful = ");
@@ -1834,7 +1830,6 @@ public class TCLoadAggregate extends TCLoad {
             query.append(" AND rr.coder_id = cp.coder_id");
             query.append(" AND p.problem_id = cp.problem_id");
             query.append(" AND cp.language_id = problem_language.language_id");
-            query.append(" AND p.level_id = problem_language.level_id");
             query.append(" AND c.succeeded = " + STATUS_SUCCEEDED + ")");
             query.append(" ,challenges_made_failed = ");
             query.append(" (SELECT count(*) ");
@@ -1854,7 +1849,6 @@ public class TCLoadAggregate extends TCLoad {
             query.append(" AND rr.coder_id = cp.coder_id");
             query.append(" AND p.problem_id = cp.problem_id");
             query.append(" AND cp.language_id = problem_language.language_id");
-            query.append(" AND p.level_id = problem_language.level_id");
             query.append(" AND c.succeeded = " + STATUS_FAILED + ")");
             query.append(" ,open_order = ");
             query.append(" (SELECT distinct open_order ");
