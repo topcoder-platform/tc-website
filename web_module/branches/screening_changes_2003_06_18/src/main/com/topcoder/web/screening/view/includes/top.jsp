@@ -2,13 +2,13 @@
 <a name="top"></a>
 
 <!-- Logo Bar Include Begins -->
-<jsp:usebean id="requestInfo" class="com.topcoder.web.screening.model.RequestInfo" />
+<jsp:usebean id="requestInfo" class="com.topcoder.web.common.SessionInfo" />
 <% boolean isHomePage = "true".equals(request.getParameter("isHomePage")); %>
 <table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
     <tr valign="middle">
         <td class="login" width="99%">&nbsp;</td>
         <td class="login" nowrap>
-<% if(requestInfo.isLoggedIn()) { %>
+<% if(!requestInfo.isAnonymous()) { %>
              <strong>Hello, <jsp:getproperty name="requestInfo" property="Handle" />.</strong>
             &#160;&#160;|&#160;&#160;<a href="/?module=Logout" class="loginLinks" target="_parent">Logout</a>
 <%} %>
