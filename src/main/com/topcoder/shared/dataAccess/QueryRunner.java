@@ -26,7 +26,7 @@ public class QueryRunner implements DataRetrieverInt {
      * Constructor that takes a connection object
      * @param conn
      */
-    public QueryRunner(Connection conn) {
+    protected QueryRunner(Connection conn) {
         this.conn = conn;
     }
 
