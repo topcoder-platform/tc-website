@@ -3,8 +3,16 @@ package com.topcoder.web.privatelabel.controller.request;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.coder.Coder;
+import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.security.UserPrincipal;
+
+
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  *
@@ -27,10 +35,25 @@ public class FullRegSubmit extends SimpleRegSubmit {
 
     protected UserPrincipal store(SimpleRegInfo regInfo) throws Exception {
         UserPrincipal ret = super.store(regInfo);
-        //TODO do the rest of the db stuff, resume, coder type, demographics
+        Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+        Response response = (Response)createEJB(getInitialContext(), Response.class);
 
+        coder.setCoderTypeId(ret.getId(), ((FullRegInfo)regInfo).getCoderType(), db);
 
-
+        DemographicResponse r = null;
+        DemographicQuestion q = null;
+        Map questions = FullRegBase.getQuestions(db);
+        for (Iterator it = ((FullRegInfo)regInfo).getResponses().iterator(); it.hasNext();) {
+            r = (DemographicResponse) it.next();
+            q = (DemographicQuestion) questions.get(new Long(r.getQuestionId()));
+            response.createResponse(ret.getId(), r.getQuestionId(), db);
+            if (q.getAnswerType()==DemographicQuestion.SINGLE_SELECT ||
+                    q.getAnswerType()==DemographicQuestion.MULTIPLE_SELECT ) {
+                response.setAnswerId(ret.getId(), r.getQuestionId(), r.getAnswerId(), db);
+            } else {
+                response.setResponseText(ret.getId(), r.getQuestionId(), r.getText(), db);
+            }
+        }
 
         return ret;
     }
