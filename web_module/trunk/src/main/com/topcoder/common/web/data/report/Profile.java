@@ -118,7 +118,7 @@ public class Profile implements Serializable {
         if (Conversion.checkNull(email).equals(""))
             this.email = "%";
         else
-            this.email= lastName.trim();
+            this.email= email.trim();
         log.debug("handle: " + handle);
         log.debug("first: " + firstName);
         log.debug("last: " + lastName);
