@@ -26,7 +26,7 @@
         <td width="180">
             <jsp:include page="../../includes/global_left.jsp">
                 <jsp:param name="level1" value="about"/>
-                <jsp:param name="level2" value="whyjoin"/>
+                <jsp:param name="level2" value="jobs"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
