@@ -1,6 +1,7 @@
 package com.topcoder.common.web.data.report;
 
 import com.topcoder.common.web.util.Conversion;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -99,6 +100,7 @@ public class Profile implements Serializable {
          " AND dr.demographic_question_id = dq.demographic_question_id" +
        " ORDER BY dq.demographic_question_id";
 
+    private static Logger log = Logger.getLogger(Profile.class);
 
     public Profile(String handle, String firstName, String lastName) {
         if (Conversion.checkNull(handle).equals(""))
@@ -113,6 +115,9 @@ public class Profile implements Serializable {
             this.lastName = "%";
         else
             this.lastName = lastName.trim();
+        log.debug("handle: " + handle);
+        log.debug("first: " + firstName);
+        log.debug("last: " + lastName);
         generalInfo = null;
         generalQuery = new Query(GENERAL_QUERY, GENERAL_QUERY_TYPES);
         demographicQuery = new Query(DEMOGRAPHIC_QUERY, DEMOGRAPHIC_QUERY_TYPES);
@@ -212,7 +217,7 @@ public class Profile implements Serializable {
 
     public String getSchoolName() {
         if (generalInfo == null) return "";
-        return generalInfo[23].toString();
+        return generalInfo[22].toString();
     }
 
     public String getNotify() {
@@ -256,6 +261,7 @@ public class Profile implements Serializable {
         generalQuery.setValue(handle);
         generalQuery.setValue(firstName);
         generalQuery.setValue(lastName);
+
         ArrayList a = generalQuery.execute();
         if (a.size() == 0)
             throw new Exception("Could not find user with handle: " + handle + " first name: " + firstName + " last name: " + lastName);
