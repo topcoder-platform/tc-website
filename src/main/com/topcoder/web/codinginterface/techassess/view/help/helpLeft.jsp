@@ -29,16 +29,6 @@
                             </tr>
 <!-- Getting Started ends -->
 
-<!-- Load Testing Application begins -->
-                            <tr>
-                            <% if (selected.equals("testingApp")) { %>
-                                <td class=helpTitleOn>Loading the Technical<br />Assessment Applicaton</td>
-                            <% } else { %>
-                                <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=testingApp">Loading the Technical<br />Assessment  Applicaton</a></td>
-                            <% } %>
-                            </tr>
-<!-- Load Testing Application ends -->
-
 <!-- The Coding Window begins -->
                             <tr>
                             <% if (selected.equals("codingWindow")) { %>
