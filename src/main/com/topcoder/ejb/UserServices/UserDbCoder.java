@@ -28,7 +28,7 @@ final class UserDbCoder {
     private static Logger log = Logger.getLogger(UserDbCoder.class);
     private static final int ADDRESS_TYPE_ID = 2; //home
     private static final int DEFAULT_PHONE_TYPE_ID = 2;
-    private static final int CODER_RATING_RANK_TYPE_ID = 1;
+    private static final int CODER_RATING_RANK_TYPE_ID = 2;
 
 //                                 INSERT
 
