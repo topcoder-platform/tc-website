@@ -24,7 +24,7 @@ public abstract class Base implements RequestProcessor {
         request = sr;
     }
 
-    protected buildSessionInfo() {
+    protected void buildSessionInfo() {
         SessionInfoBean si = new SessionInfoBean();
         try {
           String p;
