@@ -2,7 +2,7 @@
   language="java"
   import="java.util.*,
           com.topcoder.common.web.data.report.*,
-          com.topcoder.web.stat.common.*"
+          com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
 
