@@ -6,13 +6,16 @@
 com.topcoder.web.stat.bean.StatRequestBean srb = (com.topcoder.web.stat.bean.StatRequestBean) request.getAttribute("REQUEST_BEAN");
 
 String sDivision = srb.getProperty("dn","1");
+String romanDivision = null;
+if (sDivision.equals("1")) romanDivision = "I";
+else if (sDivision.equals("2")) romanDivision = "II";
 %>
 				  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" background="/i/steel_darkblue_bg.gif" WIDTH="100%">
                     <TR>
                       <TD background="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="smallFoot"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
                     </TR>
                     <TR>
-                      <TD background="/i/steel_gray_bg.gif" COLSPAN="4" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">&nbsp;Rating Point Gain&nbsp;-&nbsp;Division&nbsp;<%=sDivision%></TD>
+                      <TD background="/i/steel_gray_bg.gif" COLSPAN="4" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">&nbsp;Rating Point Gain&nbsp;-&nbsp;Division&nbsp;<%=romanDivision%></TD>
                     </TR>
                     <TR>
                       <TD background="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="smallFoot" WIDTH="1"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
