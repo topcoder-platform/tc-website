@@ -41,7 +41,7 @@
             <%even=!even;%>
 
         </rsc:iterator>
-        <tr><td colspan=4><A HREF="/tc?module=EditNote&uid=<%=request.getAttribute(com.topcoder.web.tc.Constants.USER_ID)%>">Add Note</A></td></tr>
+        <tr><td colspan=4 align=center><A HREF="/tc?module=EditNote&uid=<%=request.getAttribute(com.topcoder.web.tc.Constants.USER_ID)%>">Add Note</A></td></tr>
 
     </table><br/><br/>
 
