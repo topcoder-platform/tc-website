@@ -12,12 +12,12 @@
         		</TR>
         		<TR> 
         		    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-          			<TD WIDTH="73" ROWSPAN="4" VALIGN="top"><IMG SRC="/i/m/Yarin_mug.gif" ALT="Coder of the Week" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="3"/></TD>
+          			<TD WIDTH="73" ROWSPAN="4" VALIGN="top"><IMG SRC="/i/m/sandeepgupta_mug.gif" ALT="Coder of the Week" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="3"/></TD>
           			<TD WIDTH="100%" CLASS="bodyTextBold" HEIGHT="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
         		</TR>
         		<TR> 
         		    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-          			<TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="registerNav" VALIGN="middle" HEIGHT="14">&#160;&#160;April 22 - 28, 2002</TD>
+          			<TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="registerNav" VALIGN="middle" HEIGHT="14">&#160;&#160;April 29 - May 5, 2002</TD>
         		<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
         		</TR>
         		<TR> 
@@ -32,16 +32,16 @@
                   Competitions:<BR/></TD>
                					 <TD CLASS="bodyText" HEIGHT="53" WIDTH="50%" ALIGN="right" VALIGN="top" NOWRAP="">
 
-               	  Yarin<BR/>
-               	  2090<BR/>
-                  February &#160;28,&#160;2002<BR/>
+               	  sandeepgupta<BR/>
+               	  1788<BR/>
+                  April &#160;30,&#160;2002<BR/>
                   2<BR/></TD>
               				</TR>
         		<TR> 
           			<TD COLSPAN="2" CLASS="bodyText" VALIGN="top">
-<A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">Click here</A> to read about
+<A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">Click here</A> to read about the
 
-the record Rating Point Gain of <A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">Yarin</A> in Single Round Match 83.
+impressive Rating Point Gain of <A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">sandeepgupta</A> in Single Round Match 85.
          			</TD>
         		</TR>              				              				
             			</TABLE>
