@@ -144,7 +144,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
 <p> 
 Radioactive dating is an important technique used by scientists to determine the age of all sorts of things from ten thousand year old artifacts to billion year old rocks.  Because the half-life of Carbon-14 is relatively short, it is well suited for measuring the ages of artifacts from early civilization.  For older items, other techniques are required, since there is not enough Carbon-14 left to get an accurate date.  However, this is all pretty much irrelevant to actually solving the problem.
 
-At first glance, one might expect a problem like this as the easy in round 2 of the TopCoder Open to require some sort of more advanced method, like a binary search.  And, if you're algebra was really rusty, a binary search, or a simpler linear search on the age of the artifact would have worked.  In fact, since the oldest the artifact could be (when the concentration is 1/10000) is only 76141 years, you could easily implement the following pseudocode, and it would run in plenty of time:
+At first glance, one might expect a problem like this as the easy in round 2 of the TopCoder Open to require some sort of more advanced method, like a binary search.  And, if your algebra was really rusty, a binary search, or a simpler linear search on the age of the artifact would have worked.  In fact, since the oldest the artifact could be (when the concentration is 1/10000) is only 76141 years, you could easily implement the following pseudocode, and it would run in plenty of time:
 <pre>
     smaller = (concentration - error)/10000
     bigger = (concentration + error)/10000
@@ -246,7 +246,7 @@ The first thing that you'll probably want in this problem is a method that, give
 </pre>
 
 
-Once we have our flood fill method written, its not too hard to pick out which group to remove.  The tie breaker rule is designed such that if we order are loops correctly, we really only have to worry about color and group size.  (Veteran TopCoders will tell you that the tie breaker rules are often designed like this, so it usually pays off to spend a minute or two coming up with a way to order things so you don't need to worry about ties.)  Anyhow, the next step is to figure out how to pick and remove a group from the board.  For clarity, I'm going to break this out into a couple of separate methods, called find, which returns the coordinates of a block in the group to be removed, and remove, which takes the coordinates and removes the appropriate blocks.  The find method will loop through all of the blocks in the board and, if they haven't been visited yet (if they had been visited, it would mean they were in a group that had already been found), we will call our floodfill method.  So, the pseudocode for the find method contains two nested loops, and keeps track of the location of the <i>best</i> group found so far:
+Once we have our flood fill method written, it's not too hard to pick out which group to remove.  The tie breaker rule is designed such that if we order our loops correctly, we really only have to worry about color and group size.  (Veteran TopCoders will tell you that the tie breaker rules are often designed like this, so it usually pays off to spend a minute or two coming up with a way to order things so you don't need to worry about ties.)  Anyhow, the next step is to figure out how to pick and remove a group from the board.  For clarity, I'm going to break this out into a couple of separate methods, called find, which returns the coordinates of a block in the group to be removed, and remove, which takes the coordinates and removes the appropriate blocks.  The find method will loop through all of the blocks in the board and, if they haven't been visited yet (if they had been visited, it would mean they were in a group that had already been found), we will call our floodfill method.  So, the pseudocode for the find method contains two nested loops, and keeps track of the location of the <i>best</i> group found so far:
 <pre>
     int[] find(){
         int bestColorIndex = 1000;
@@ -302,7 +302,7 @@ Now, the easy part is all done, here comes the tricky part.  Once we've found a 
             }
         }
 </pre>
-Those are the three major components of a solution, and its not too hard to put them all together, and keep track of the score as groups are removed.</p> 
+Those are the three major components of a solution, and it's not too hard to put them all together, and keep track of the score as groups are removed.</p> 
 
 <font size="+2"> 
 <b>Calculate</b> 
