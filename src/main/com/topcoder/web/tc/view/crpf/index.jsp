@@ -51,7 +51,7 @@
                <p>TopCoder is excited to announce the first ever TopCoder Charity
                Challenge.  The Charity Challenge will benefit the Christopher Reeve
                Paralysis Foundation ("CRPF").  This tournament is an unprecedented
-               collaboration of fund raising and competition, and one we think our
+               collaboration of fund raising and competition, one we think our
                members will enjoy.</p>
 
                <p>So how will it work?  Members will gather donations from friends, family
@@ -59,7 +59,7 @@
                competition.  All donations go to CRPF, and TopCoder will match all the
                donations up to $50,000!  Members must raise a minimum of $25 to
                compete.  A total of 10 members will win the grand prize - an expenses
-               paid trip to attend "A Magical Evening", the annual star-studded gala
+               paid trip to attend <i>A Magical Evenin</i>", the annual star-studded gala
                ball benefiting CRPF, held in New York City.</p>
 
                <p>How do you win?  Be one of the:
