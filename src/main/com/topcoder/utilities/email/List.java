@@ -87,7 +87,6 @@ public class List
           try{
             mail.setCoderId(0);
             mail.setMailSubject(mailSubject);
-            mail.setReason("bulk");
             mail.setMailSentDate( new java.sql.Date(System.currentTimeMillis()) );
             mail.setMailText(emailBody);
             mail.setMailFromAddress(fromAddress);
