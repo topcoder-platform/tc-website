@@ -210,7 +210,7 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
         for (int i = 0; i < list.size() - 1 && !found; i++) {
             curr = (QueryInputBean) list.get(i);
             next = (QueryInputBean) list.get(i + 1);
-            found = (curr).getSortOrder() == (next).getSortOrder();
+            found = curr.getSortOrder() == next.getSortOrder();
             if (found) {
                 super.addError(Constants.SORT_ORDER_PARAM + curr.getInputId(), "No two sort order entries may be the same");
             } else {
