@@ -92,7 +92,7 @@
 Each competition room will have a maximum of 10 coders. There will be 2 divisions. Division I is 1200 rating and up, while Division II is below 1200. The single round match room assignments will only place members of like divisions together. Any member who changes divisions as a result of a rating change will compete in their new division in the next rated event following the rating change. Coders must place with a positive point total to collect any prize. 
         <br /><br />
 All prizes will be calculated at the conclusion of the match, based on the ratings of the coders in each room, as well as the final scores of each coder.
-Prizes are calulated based on the ratings of the coders who are assigned to a given room.  The higher the ratings of the coders assigned to a given room, the higher the prize purse for that room will be.  A detailed explaination of how the prizes will be calculated can be found at <a href="/?t=support&amp;c=divisions">http://www.topcoder.com/index?t=support&amp;c=divisions</a>.
+Prizes are calculated based on the ratings of the coders who are assigned to a given room.  The higher the ratings of the coders assigned to a given room, the higher the prize purse for that room will be.  A detailed explanation of how the prizes will be calculated can be found at <a href="/?t=support&amp;c=divisions">http://www.topcoder.com/index?t=support&amp;c=divisions</a>.
         <br /><br />
 All prizes will be awarded at the conclusion of the single round of competition.
 Any and all applicable taxes on a prize are the sole responsibility of the prize winner. 
