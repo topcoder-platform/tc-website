@@ -6,6 +6,7 @@ import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 
@@ -35,6 +36,14 @@ public class ViewNotes extends Base {
                 User user = (User)createEJB(getInitialContext(), User.class);
                 getRequest().setAttribute(Constants.HANDLE, user.getHandle(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));
                 getRequest().setAttribute(Constants.USER_ID, userId);
+
+
+                Request noteRequest = new Request();
+                noteRequest.setContentHandle("registered_for_placement");
+                noteRequest.setProperty(Constants.USER_ID, String.valueOf(userId));
+                ResultSetContainer hasNotesRSC = (ResultSetContainer)getDataAccess().getData(noteRequest).get("registered_for_placement");
+                getRequest().setAttribute("registered_for_placement", new Boolean(hasNotesRSC.getStringItem(0, "registered_for_placement").equals("1")));
+
 
                 setNextPage(Constants.NOTE_LIST);
                 setIsNextPageInContext(true);
