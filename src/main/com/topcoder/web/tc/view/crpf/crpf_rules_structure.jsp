@@ -50,7 +50,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                <table align="center">
                   <tr>
                      <td><img src="/i/events/crpf03/banner_online_rounds_start.gif" alt="Online rounds start November 11" width="510" height="41" border="0"><br/>
-                     <A href="/tc?&module=Static&d1=crpf&d2=crpf_overview"><img src="/i/events/crpf03/crpf_banner_2.jpg" width="510" height="135" border="0" alt="TopCoder Charity Challenge benefiting the CPPF"></A><br/>
+                     <A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_overview"><img src="/i/events/crpf03/crpf_banner_2.jpg" width="510" height="135" border="0" alt="TopCoder Charity Challenge benefiting the CPPF"></A><br/>
                      <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
                   </tr>
                </table>
@@ -76,7 +76,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
             Round 1 is open to all members who are 18 years of age or older and who raise a minimum of $25 as of 11:59pm on November 10th.  </p>
 
             <p>Everyone who competes in an online round must log on to the TopCoder Competition Arena no later than ten minutes prior to
-            the start of the online round.  (Click <a href="/tc?&module=Static&d1=crpf&d2=crpf_sched">here</a> for competition dates and times.)
+            the start of the online round.  (Click <a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_sched">here</a> for competition dates and times.)
             TopCoder members from around the world may be participating in these rounds,
             <strong>but all start times will be communicated as Eastern Time, so contestants in different time zones must adjust
             accordingly</strong>.  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an
