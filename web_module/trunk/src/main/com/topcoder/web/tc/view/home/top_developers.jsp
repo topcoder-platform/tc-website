@@ -21,7 +21,7 @@
     <rsc:iterator list="<%=coders%>" id="resultRow">
         <tr>
             <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
-            <td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><tc-webtag:handle coderId='<%=resultRow.getIntItem("coder_id")%>' context="algorithm"/></td>
+            <td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><tc-webtag:handle coderId='<%=resultRow.getIntItem("coder_id")%>' context="development"/></td>
             <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><rsc:item name="rating" row="<%=resultRow%>" format="#"/></td>
         </tr>
         <% even = !even;%>
