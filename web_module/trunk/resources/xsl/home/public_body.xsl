@@ -365,7 +365,7 @@ a person's code that invalidate their entire solution and make their 75 minutes 
 				<tr valign="middle">
 					<td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
 					<td class="statTextBig" background="/i/steel_bluebv_bg.gif">Handle</td>
-					<td class="statTextBig" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Total Earnings*</td>  
+					<td class="statTextBig" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Average Score</td>  
 					<td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
 				</tr>              
 							
@@ -376,7 +376,7 @@ a person's code that invalidate their entire solution and make their 75 minutes 
 				<tr valign="top">
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 					<td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
-					<td class="statText" align="right">$936.00</td>
+					<td class="statText" align="right">87.54</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>             
 							
@@ -387,7 +387,7 @@ a person's code that invalidate their entire solution and make their 75 minutes 
 				<tr valign="top">
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 					<td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=158067">KurtSteinKraus</a></td>
-					<td class="statText" align="right">$336.00</td>
+					<td class="statText" align="right">83.78</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>             
 							
@@ -398,7 +398,7 @@ a person's code that invalidate their entire solution and make their 75 minutes 
 				<tr valign="top">
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 					<td class="statText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=302729">kislookhin</a></td>
-					<td class="statText" align="right">$210.00</td>
+					<td class="statText" align="right">82.40</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>             
 							
@@ -409,7 +409,7 @@ a person's code that invalidate their entire solution and make their 75 minutes 
 				<tr valign="top">
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
-					<td class="statText" align="right">$210.00</td>
+					<td class="statText" align="right">81.52</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>             
 							
@@ -420,17 +420,7 @@ a person's code that invalidate their entire solution and make their 75 minutes 
 				<tr valign="top">
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 					<td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150940">orb</a></td>
-					<td class="statText" align="right">$210.00</td>
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-				</tr>             
-							
-				<tr>
-					<td colspan="4"><img src="/i/clear.gif" width="1" height="5" border="0"/></td>
-				</tr>                       
-							
-				<tr valign="top">
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-					<td class="statText" colspan="2">*for all Component Projects (before royalties)</td>
+					<td class="statText" align="right">81.38</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>             
 							

@@ -108,6 +108,33 @@
 								<td background="" class="statText" align="center">1.3.2003</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
+
+							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=currency">Currency</a></td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=java_compiler">Java Compiler</a></td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_selector-design">Object Selector</a></td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
 							
 							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
 
