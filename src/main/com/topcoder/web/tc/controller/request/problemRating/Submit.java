@@ -74,6 +74,12 @@ public class Submit extends Base {
                     setIsNextPageInContext(true);
                     return;
                 }
+                if(rating < 1 || rating > 10){
+                    addError("problemRating","You must rate each question between 1 and 10, inclusive.");
+                    setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingQuestions");
+                    setIsNextPageInContext(true);
+                    return;
+                }
                 questions.add(new Integer(qid));
                 answers.add(new Integer(rating));
             }
