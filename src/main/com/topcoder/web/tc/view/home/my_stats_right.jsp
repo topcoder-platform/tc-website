@@ -52,4 +52,8 @@
         <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="development_earnings" format="$0.00"/></td>
     </tr>
 </table>
+
+<table width="180" border="0" cellspacing="0" cellpadding="0">
+    <tr><td width="180" height="11"><img src="/i/my_stats_bottom.gif" alt="" width="180" height="11" border="0"></td></tr>
+</table>
 <% } %>
