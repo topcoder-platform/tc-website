@@ -385,7 +385,7 @@
 <%
               rsr = (ResultSetContainer.ResultSetRow)it.next();
 %>
-              <TD><A HREF="<%=Constants.SERVLET_ADDR%>?<%=Constants.TASK_NAME_KEY%>=<%=Constants.REPORT_PROFILE_DETAIL_KEY%>&amp;<%=Constants.REPORT_CODER_ID_KEY%>=<%=rsr.getItem("user_id").toString()%>">detail</A></TD>
+              <TD><A HREF="<%=Constants.SERVLET_ADDR%>&<%=Constants.TASK_NAME_KEY%>=<%=Constants.REPORT_PROFILE_DETAIL_KEY%>&<%=Constants.REPORT_CODER_ID_KEY%>=<%=rsr.getItem("user_id").toString()%>">detail</A></TD>
 <%
               for (int j=0; j<columns.length; j++) {
                   if (rsr.getItem(Integer.parseInt(columns[j])).getResultData() instanceof Date) {  %>
