@@ -211,6 +211,8 @@ public class PlacementInfoDetail extends Base {
                     industrySkills.add(resp);
                 }
             }
+            getRequest().setAttribute("industrySkills", industrySkills);
+            getRequest().setAttribute("industryNote", getNote(Constants.INDUSTRY_NOTE_TYPE_ID, userId));
 
             Request noteRequest = new Request();
             noteRequest.setContentHandle("has_notes");
@@ -225,8 +227,6 @@ public class PlacementInfoDetail extends Base {
             getRequest().setAttribute("has_resume", String.valueOf(resumeServices.hasResume(userId, DBMS.OLTP_DATASOURCE_NAME)));
             getRequest().setAttribute("contractingInfo", info);
 
-            getRequest().setAttribute("industrySkills", industrySkills);
-            getRequest().setAttribute("industryNote", getNote(Constants.INDUSTRY_NOTE_TYPE_ID, userId));
 
             setNextPage(Constants.PLACEMENT_INFO_DETAIL);
             setIsNextPageInContext(true);
