@@ -1,4 +1,7 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map,
+                 com.topcoder.web.common.StringUtils"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -7,6 +10,11 @@
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
+
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tccc05_alg_adv_overview"); %>
+
 
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
@@ -23,45 +31,65 @@
             
         <p class=bigTitle>Advancers - Overview</p>
 
-            <p>Click a column title to sort the list of advancers by that column. Click <a href="?module=SimpleStats&c=tco04_alg_adv_overview&trans=true&d1=tournaments&d2=tco04&d3=alg_adv_overview">here</a> to reset the list to its originally sorted format.</p>
+            <p>Click a column title to sort the list of advancers by that column. Click <a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&d1=tournaments&d2=tccc05&d3=alg_adv_overview">here</a> to reset the list to its originally sorted format.</p>
 
             <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
                 <tr class="advHeader">
-                    <td width = "10%" align = "center"><a href="/">Seed</a></td>
-                    <td width = "15%"><a href="/">Handle</a></td>
-                    <td width = "5%" align = "center"><a href="/">Rating</a></td>
-                    <td width = "10%" align = "center"><a href="/">Round 1</a></td>
-                    <td width = "10%" align = "center"><a href="/">Round 2</a></td>
-                    <td width = "10%" align = "center"><a href="/">Round 3</a></td>
-                    <td width = "10%" align = "center"><a href="/">Round 4</a></td>
-                    <td width = "10%" align = "center"><a href="/">Semi</a></td>
-                    <td width = "10%" align = "center"><a href="/">Wildcard</a></td>
-                    <td width = "10%" align = "center"><a href="/">Final</a></td>
+                    <td width = "10%" align = "center" ><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=seed&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Seed</a></td>
+                    <td width = "15%" ><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=handle_sort&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Handle</a></td>
+                    <td width = "5%" align = "center" ><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=desc&sc=rating&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Rating</a></td>
+                    <td width = "10%" align = "center" ><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=round1_sort&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Round 1</a></td>
+                    <td width = "10%" align = "center" ><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=round2_sort&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Round 2</a></td>
+                    <td width = "10%" align = "center" ><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=round3_sort&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Round 3</a></td>
+                    <td width = "10%" align = "center" ><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=round4_sort&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Round 4</a></td>
+                    <td width = "10%" align = "center" ><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=semi_sort&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Semi</a></td>
+                    <td width = "10%" align = "center" ><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=wildcard_sort&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Wildcard</a></td>
+                    <td width = "10%" align = "center" ><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=finals_sort&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Final</a></td>
                 </tr>
-               <tr class="advanceLt">
-                  <td align="center">test</td>
-                  <td>test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-               </tr>
-               <tr class="advanceDk">
-                  <td align="center">test</td>
-                  <td>test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-                  <td align="center">test</td>
-               </tr>
+<%-- formatting this crappy to save space in the download to the client --%>
+                <%boolean even = false;%>
+                <rsc:iterator list="<%=rsc%>" id="resultRow">
+<tr class="<%=even?"advanceDk":"advanceLt"%>"><td align="center" ><rsc:item name="seed" row="<%=resultRow%>"/></td>
+<td ><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
+<td align="right" ><rsc:item name="rating" row="<%=resultRow%>"/>&#160;&#160;</td>
+<% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
+<td  ><rsc:item name="round1" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  ><rsc:item name="round1" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("round2")).equals("Eliminated")) { %>
+<td  ><rsc:item name="round2" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  ><rsc:item name="round2" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("round3")).equals("Eliminated")) { %>
+<td  ><rsc:item name="round3" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  ><rsc:item name="round3" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("round4")).equals("Eliminated")) { %>
+<td  ><rsc:item name="round4" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  ><rsc:item name="round4" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
+<td  ><rsc:item name="semi" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  ><rsc:item name="semi" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("wildcard")).equals("Eliminated")) { %>
+<td  ><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  ><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
+<td  ><rsc:item name="final" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  ><rsc:item name="final" row="<%=resultRow%>"/></td>
+<% } %>
+</tr>
+<%even=!even;%>
+</rsc:iterator>                
             </table>
         </div>
 		</td>
