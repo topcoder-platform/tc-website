@@ -67,7 +67,7 @@
                         
                         <xsl:choose>
                             <xsl:when test="$sectionName='home'">
-                                <A href="/?t=about_tc&amp;c=jobs"><img src="/i/promos/hiring_pm_promo_head.gif" width="123" height="52" border="0" alt="Hiring Project Managers" hspace="10" /></A>
+                                <A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/>/components/free_components.jsp</xsl:attribute><IMG src="/i/promos/free_comps_promo_head.gif" width="178" height="61" border="0" alt="FREE COMPONENTS" vspace="7"  hspace="10" /></A>
                             </xsl:when>
                             <xsl:otherwise>
                                 <img src="/i/clear.gif" alt="" width="10" height="75" border="0" /><br />
@@ -102,7 +102,7 @@
                     <td align="right" width="99%">
                         <xsl:choose>
                             <xsl:when test="$sectionName='home'">
-                                <A href="/?t=about_tc&amp;c=jobs"><img src="/i/promos/hiring_pm_promo_head.gif" width="123" height="52" border="0" alt="Hiring Project Managers" hspace="10" /></A>
+                                <A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/>/components/free_components.jsp</xsl:attribute><IMG src="/i/promos/free_comps_promo_head.gif" width="178" height="61" border="0" alt="FREE COMPONENTS" vspace="7" hspace="10" /></A>
                             </xsl:when>
                             <xsl:otherwise>
                                 <img src="/i/clear.gif" alt="" width="10" height="75" border="0" /><br />
