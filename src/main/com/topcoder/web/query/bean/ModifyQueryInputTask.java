@@ -52,10 +52,6 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
             log.debug("User not authenticated for access to query tool resource.");
             throw new AuthenticationException("User not authenticated for access to query tool resource.");
         }
-
-        QueryInputHome qiHome = (QueryInputHome) getInitialContext().lookup(ApplicationServer.Q_QUERY_INPUT);
-        QueryInput qi = qiHome.create();
-        setCurrentInputList(qi.getInputsForQuery(getQueryId()));
 	}
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -116,6 +112,8 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
                 getQueryInput(getCurrentInputList(), inputId).setOptional(value.equals("on"));
             } catch (NumberFormatException e) {
                 super.addError(Constants.OPTIONAL_PARAM, e);
+            } catch (Exception e) {
+                super.addError(Constants.OPTIONAL_PARAM, e);
             }
         } else if (paramName.startsWith(Constants.DEFAULT_VALUE_PARAM)) {
             try {
@@ -123,12 +121,16 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
                 getQueryInput(getCurrentInputList(), inputId).setDefaultValue(value);
             } catch (NumberFormatException e) {
                 super.addError(Constants.DEFAULT_VALUE_PARAM, e);
+            } catch (Exception e) {
+                super.addError(Constants.DEFAULT_VALUE_PARAM, e);
             }
         } else if (paramName.startsWith(Constants.SORT_ORDER_PARAM)) {
             try {
                 long inputId = Long.parseLong(paramName.substring(Constants.SORT_ORDER_PARAM.length()));
                 getQueryInput(getCurrentInputList(), inputId).setSortOrder(Integer.parseInt(value));
             } catch (NumberFormatException e) {
+                super.addError(Constants.SORT_ORDER_PARAM, e);
+            } catch (Exception e) {
                 super.addError(Constants.SORT_ORDER_PARAM, e);
             }
         }
@@ -179,7 +181,19 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
         this.inputId = inputId;
     }
 
-    public ArrayList getCurrentInputList() {
+    /**
+     * Gets the current list of inputs for this query.  if we
+     * don't have that information in memory, get it from the db.
+     * @return
+     * @throws Exception
+     */
+    public ArrayList getCurrentInputList() throws Exception {
+        if (currentInputList==null) {
+            QueryInputHome qiHome = (QueryInputHome) getInitialContext().lookup(ApplicationServer.Q_QUERY_INPUT);
+            QueryInput qi = qiHome.create();
+            qi.setDataSource(getDb());
+            setCurrentInputList(qi.getInputsForQuery(getQueryId()));
+        }
         return currentInputList;
     }
 
@@ -222,7 +236,7 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
      * to this list, or not.
      * @param otherInputList
      */
-    private void setOtherInputList(ResultSetContainer otherInputList) {
+    private void setOtherInputList(ResultSetContainer otherInputList) throws Exception {
         Iterator it = otherInputList.iterator();
         ResultSetContainer.ResultSetRow rsr = null;
         ArrayList list = new ArrayList(otherInputList.size());
