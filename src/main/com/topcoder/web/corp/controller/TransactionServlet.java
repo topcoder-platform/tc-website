@@ -371,6 +371,7 @@ public class TransactionServlet extends HttpServlet {
      */
     private boolean refreshRetCode(HttpServletRequest req, TransactionInfo txi) {
         String rcString = req.getParameter(RETKEY_IRESULT);
+        log.debug("request return code: " + rcString);
         if (rcString == null || rcString.trim().length() == 0) {
             return txi.getRcVeriSign() == null;
         }
@@ -386,6 +387,7 @@ public class TransactionServlet extends HttpServlet {
         } else {
             txi.setRcVeriSign(null);
         }
+        log.debug("return code in transactino info object: " + txi.getRcVeriSign());
         return rc == RCINT_APPROVED;
     }
 
