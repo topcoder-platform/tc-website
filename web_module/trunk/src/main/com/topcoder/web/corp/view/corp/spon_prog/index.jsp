@@ -35,74 +35,69 @@
 
 <!-- Gutter Begins -->
         <td valign="top"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
-        <td valign="top" width="7"><img src="/i/corp/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
+        
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_event_sponsorship.gif" alt="" width="546" height="41" border="0"></td></tr>
+              
                 
                 <tr valign="top">
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
-                        <h2 class="corpHead">The fastest growing online property attracting developers from around the world</h2>
+                        <div align="center"><img src="/i/corp/tcms_header.gif" width="530" height="76" alt="" border="0"><br/>
+                        <img src="/i/corp/marketing_image.jpg" width="530" height="220" alt="" border="0">
+                        </div>
 
                         <p><span class="bodySubtitle">Reaching the Developer Community</span><br>
                         TopCoder has created an online venue that brings together some of the most talented developers 
-                        from around the world. Each week, TopCoder hosts an online programming competition 
-                        <a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">(Single Round Match)</a> during 
-                        which developers compete for ratings, bragging rights, and a 
-                        <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">tournament</a> invitation.</p>
+                        from around the world.  Each week, TopCoder hosts an online programming competition (Single Round Match) 
+                        during which developers compete for ratings and bragging rights, and to hone their skills for our 
+                        large <a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_tourny">tournaments</a>.</p>
                         
-                        <p><span class="bodySubtitle">First of Its Kind</span><br>
-                        TopCoder competitions offer a venue previously unavailable to the programming world&#151;the ability
-                        to conduct real-time competitions that are judged immediately and objectively. With TopCoder, technologists 
-                        from around the world are able to compete online and in a short and concentrated period of time. Moreover,
-                        with each of the weekly Single Round Matches (SRMs) lasting only 90 minutes, programmers don't have 
-                        to sacrifice as much free time to compete and have the chance to compete more often.</p>
+                        <p><img src="/i/corp/quote_reggie.gif" width="252" height="123" alt="" border="0" align="right"><span class="bodySubtitle">First of Its Kind</span><br>
+                        TopCoder competitions offer a venue previously unavailable to the programming world - real-time competitions 
+                        that are judged immediately and objectively.  With TopCoder, technologists 
+                        from around the world are able to compete online in a short and concentrated amount of time.  Moreover, 
+                        with each weekly Single Round Match lasting only 90-minutes, programmers don't have to sacrifice as much 
+                        free time to compete and have the chance to compete more often.</p>
                         
                         <p><span class="bodySubtitle">Sponsorship Programs</span><br>
-                        TopCoder's Sponsorship Program provides companies with an ability to educate, interact with, and brand 
-                        themselves to the membership.  This is accomplished by putting sponsoring companies in front of developers 
-                        in the most applicable places and at the most visited times.</p>
+                        TopCoder's Sponsorship Program provides companies with an ability to educate, interact with and market 
+                        themselves to the member base. This is accomplished by putting sponsoring companies in front of developers 
+                        in the most applicable places during the most visited times.</p>
 
-                        <p>TopCoder offers a unique opportunity to sponsor one or more of several diverse events that were designed 
-                        to meet and exceed your marketing goals.  Choose to sponsor the event(s) that is right for you:</p>
-
+                        <p>TopCoder offers a unique opportunity to sponsor diverse events that are designed to meet and exceed 
+                        your marketing goals. Choose to sponsor the event that is right for you:</p>
+						
+						
+                        
                         <ul>
-                            <span class="listSubtitle"><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">Single Round Matches</a></span><br>
-                            <li>Weekly online event</li>
-                            <li>Sponsors promoted on TC website, arena applet and opt-in email</li>
-                            <li>Captures attention of developers for 2&#189; - 3 hours at one time</li>
-                        </ul>
- 
-                        <ul>
-                            <span class="listSubtitle"><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournaments</a></span><br>
+                            <span class="listSubtitle"><a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_tourny">Tournaments</a></span><br>
                             <li>Held biannually</li>
-                            <li>Title, Corporate and Associate Sponsorships are available</li>
-                            <li>Online and onsite over an eight-week period</li>
-                            <li>Sponsors promoted on TC website, arena applet, opt-in email, and onsite</li>
+                            <li>Title, Premier and Corporate sponsorships available</li>
+                            <li>Online and onsite over a 10 - 12 week period</li>
+                            <li>Sponsors promoted on TopCoder website, arena applet, opt-in email and onsite</li>
                             <li>Extensive PR</li>
                         </ul>
  
                         <ul>
-                            <span class="listSubtitle"><a href="?module=Static&d1=corp&d2=spon_prog&d3=pbtc_index">Powered by TopCoder&#8482; Competitions</a></span><br>
-                            <li>For designated developers (conference attendees, employees, etc.)</li>
-                            <li>Online and/or onsite</li>
-                        </ul>
- 
-                        <ul>
-                            <span class="listSubtitle"><a href="?module=Static&d1=corp&d2=spon_prog&d3=private_index">Private Label Competitions</a></span><br>
+                            <span class="listSubtitle"><a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_conference">Conference Events</a></span><br>
+                            <li>For designated developers (conference attendees, emloyees, etc.)</li>
                             <li>Customized for your business needs</li>
-                            <li>Internal within your organization</li>
+                            <li>Online and/or onsite</li>
+                            
                         </ul>
+                      
 
                         <p><span class="bodySubtitle">The TopCoder Advantage</span><br>
-                        TopCoder offers sponsorships to marketers trying to reach a powerful community of technologists. This 
-                        highly sought after demographic influences technology buying decisions for thousands of companies. They 
-                        dictate the future direction of technology and manage thousands of people.</p>
+                        TopCoder offers sponsorships to companies trying to reach a powerful community of technologists.  This highly sought after 
+                        demographic influences technology buying decisions for thousands of companies.  They dictate the future direction of 
+                        technology and manage thousands of people.</p>
+                        
+                        <p>For more information, contact Paul Moriarty at <a href="mailto:sponsorships@topcoder.com?subject=Request For Information - Sponsorship">sponsorships@topcoder.com</a> or 866.TOP.CODE</p>
                         
                         <p><br></p>
                     </td>

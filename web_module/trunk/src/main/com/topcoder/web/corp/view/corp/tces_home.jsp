@@ -36,38 +36,73 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td valign="top"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
-        <td valign="top" width="7"><img src="/i/corp/title_brackets.gif" width="7" height="47" alt="[ ]" border="0"></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_corp_tces.gif" alt="" width="546" height="41" border="0"></td></tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText" width="99%">
-                        <img src="/i/corp/clear.gif" width="1" height="20" alt="" border="0">
-                        <div align="center"> <img src="/i/corp/quote_employer2.gif" width="510" height="90" alt="" border="0"> </div>
+                        <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0">
                         
-                      <p><span class="bodySubtitle"><a href="?module=Static&d1=corp&d2=recruiting&d3=index">Recruiting</a></span><br>
-                        We provide employers with innovative programs designed to attract, identify, and evaluate collegiate candidates and 
-                        experienced professionals for full time employment consideration.  With a member base in excess of 30,000&#151;including 
-                        more than 17,000 students from over 750 schools&#151;employers obtain objective measurement detail about candidates, including 
-                        code samples and statistics, that is not found elsewhere.</p>
+                    <div align="center"><img src="/i/corp/tces_header.jpg" width="530" height="173" alt="" border="0"></div>
+                      
+                      <p>TopCoder has created an online venue that brings together some of the most talented developers from over 
+                      160 countries around the world.  This enterprising group of over 38,000 developers joins TopCoder to compete 
+                      against, learn from and interact with one another.  For those companies looking to hire developers, we offer 
+                      a variety of employment services.  Our competition model ensures that the best candidates are separated from the rest.</p>
+                      
+                      <p><span class="bodySubtitle"><a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournament Sponsorship</a></span><br>
+                      TopCoder conducts global programming tournaments involving thousands of developers, the latest technologies, energy and 
+                      excitement not seen in any other online venue in the software world.  The finals for these events are large gatherings 
+                      of proven and recognizable software developers.  Whether you want to hire developers at the professional or college 
+                      level, sponsoring TopCoder tournaments is the most effective way to reach the development community.</p>
+                      
+                      <p><img src="/i/corp/quote_nvidia.gif" width="273" height="170" alt="" border="0" align="right"><span class="bodySubtitle">
+                      <a href="/corp/?module=Static&d1=corp&d2=private_label&d3=index">Private Label Events</a></span><br>
+                      Whether your company seeks to identify and recruit the best talent or develop and recognize employees, TopCoder can provide 
+                      expertise and experience in executing online and onsite events.</p>
 
-                        <p><span class="bodySubtitle"><a href="?module=Static&d1=corp&d2=testing&d3=index">Testing</a></span><br>
-                        The TopCoder Testing Program allows companies to test the technical abilities of candidates during the interview process, 
-                        thereby reducing the time incurred by in-house engineers.  Employers can choose problem sets to test candidates' problem 
-                        solving skills with scenarios that mirror on-the-job issues. </p>
+                        <p><span class="bodySubtitle"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=index">Testing</a></span><br>
+                        The TopCoder Testing Program allows companies to test the technical abilities of candidates during the interview 
+                        process, thereby reducing the time incurred by in-house engineers. Employers can choose problem sets to test candidates' 
+                        problem solving skills with scenarios that mirror on-the-job issues.</p>
 	
-                        <p><span class="bodySubtitle"><a href="?module=UserList">Manage Users</a></span><br>
-                        Use our online application to manage the access your company users get to the TCES Recruiting and Testing Tools. Add new 
-                        users, assign different levels of administrative access to existing users, or delete users. Options vary depending on which 
-                        TCES packages you purchase.</p>
+                        <p><span class="bodySubtitle">Client list</span><br></p>
+                        
+                        <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                        	<tr>
+                        		<td><img src="/i/corp/tcesclient_yahoo.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_nvidia.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_paypal.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_google.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        	</tr>
+                        	<tr>
+                        		<td><img src="/i/corp/tcesclient_microsoft.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_fbi.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_verizon.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_doubleclick.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        	</tr>
+                        	<tr>
+                        		<td><img src="/i/corp/tcesclient_cryptic.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_amazon.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_apex.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_appian.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        	</tr>
+                        </table>
+                        
+                        <p><br></p>
+                        
+                        <p>For more information, contact Paul Moriarty at <a href="mailto:tces@topcoder.com?subject=TCES Request For Information">tces@topcoder.com</a> or 866.TOP.CODE</p>
 
                         <p><br></p>
                     </td>
+
+<!-- Gutter -->
+         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
+<!-- Gutter Ends -->
 
 <!-- Right Column begins -->
                     <jsp:include page="../right.jsp">
