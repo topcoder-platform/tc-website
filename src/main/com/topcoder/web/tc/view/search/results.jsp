@@ -35,7 +35,7 @@
               <rsc:iterator list="<%=results%>" id="resultRow">
               <tr>
                   <td align="left" class="formHandleEven" valign="top" nowrap>
-                      <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context="algorithm"/>
+                      <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context="algorithm" darkBG="false"/>
                   </td>
                   <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/>&#160;&#160;</td>
                   <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="Unrated"/>&#160;&#160;</td>
