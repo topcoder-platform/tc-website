@@ -37,6 +37,8 @@ public class Report extends Base {
             s.addDefault(rsc.getColumnIndex("amount"), "desc");
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
             getRequest().setAttribute("donationInfo", rsc);
+            ResultSetContainer rsc1 = (ResultSetContainer)m.get("crpf_donation_total");
+            getRequest().setAttribute("donationTotal", rsc1);
         } catch (Exception e) {
             throw new TCWebException(e);
         }
