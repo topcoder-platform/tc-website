@@ -2,18 +2,51 @@ package com.topcoder.web.ejb.user;
 
 import junit.framework.*;
 
-import java.util.*;
-import javax.naming.*;
-import javax.rmi.*;
-import javax.ejb.EJBException;
-import javax.ejb.EJBObject;
 import com.topcoder.web.ejb.EJBTestCase;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.shared.util.TCContext;
+
+import javax.ejb.CreateException;
+import javax.naming.Context;
+import javax.naming.NamingException;
+import java.rmi.RemoteException;
 
 public class UserTest extends EJBTestCase {
 
 
     private static final String USER_HOME=UserHome.class.getName();
 
+    private String createHandle() {
+
+        return alphaNum(this.getClass().getName() + System.currentTimeMillis());
+    }
+
+    private String alphaNum(String s) {
+
+        String rv = "";
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c >= '0' && c <= '9') rv += c;
+            else rv += 'X';
+        }
+        return rv;
+    }
+
+    private long createSecurityUser(String handle) throws RemoteException, GeneralSecurityException, CreateException, NamingException {
+
+        Context ctx= TCContext.getInitial();
+        PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
+                                  ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+        PrincipalMgrRemote pmr=pmrh.create();
+
+        TCSubject tcs=new TCSubject(0);
+        UserPrincipal up=pmr.createUser(handle, "password",tcs);
+        return up.getId();
+    }
 
     ////////////////////////////////////////////////////////////////////////////
     public static Test suite() {
@@ -46,8 +79,11 @@ public class UserTest extends EJBTestCase {
     ////////////////////////////////////////////////////////////////////////////
 
         User u = getHandle();
+        String handle = createHandle() + "testCreateUser";
 
-        long id = u.createUser();
+        long id = createSecurityUser(handle);
+
+        u.createUser(id, createHandle(), 'A');
 
         assertTrue(id >= 0);
         assertTrue(null == u.getFirstName(id));
@@ -61,8 +97,12 @@ public class UserTest extends EJBTestCase {
     ////////////////////////////////////////////////////////////////////////////
 
         User u = getHandle();
+        String handle = createHandle() + "testFirstName";
 
-        long id = u.createUser();
+        long id = createSecurityUser(handle);
+
+
+        u.createUser(id, createHandle(), 'A');
 
         String name = "testUser";
 
@@ -73,18 +113,12 @@ public class UserTest extends EJBTestCase {
             u.setFirstName(id, null);
             fail("No exception thrown when set to null");
         } catch (Exception e) {
-            if (e instanceof RuntimeException) {
-                fail (e.toString());
-            }
         }
 
         try {
             u.setFirstName(-1, name);
             fail("No exception thrown when id < 0");
         } catch (Exception e) {
-            if (e instanceof RuntimeException) {
-                fail (e.toString());
-            }
         }
     }
 
@@ -94,8 +128,11 @@ public class UserTest extends EJBTestCase {
     ////////////////////////////////////////////////////////////////////////////
 
         User u = getHandle();
+        String handle = createHandle() + "testLastName";
 
-        long id = u.createUser();
+        long id = createSecurityUser(handle);
+
+        u.createUser(id, createHandle(), 'A');
 
         String name = "testUser";
 
@@ -106,18 +143,12 @@ public class UserTest extends EJBTestCase {
             u.setLastName(id, null);
             fail("No exception thrown when set to null");
         } catch (Exception e) {
-            if (e instanceof RuntimeException) {
-                fail (e.toString());
-            }
         }
 
         try {
             u.setLastName(-1, name);
             fail("No exception thrown when id < 0");
         } catch (Exception e) {
-            if (e instanceof RuntimeException) {
-                fail (e.toString());
-            }
         }
     }
 
@@ -127,8 +158,11 @@ public class UserTest extends EJBTestCase {
     ////////////////////////////////////////////////////////////////////////////
 
         User u = getHandle();
+        String handle = createHandle() + "testUserStatusId";
 
-        long id = u.createUser();
+        long id = createSecurityUser(handle);
+
+        u.createUser(id, createHandle(), 'A');
 
         long status = 1;
 
@@ -139,18 +173,12 @@ public class UserTest extends EJBTestCase {
             u.setUserStatusId(id, -1);
             fail("No exception thrown when status < 0");
         } catch (Exception e) {
-            if (e instanceof RuntimeException) {
-                fail (e.toString());
-            }
         }
 
         try {
             u.setUserStatusId(-1, status);
             fail("No exception thrown when id < 0");
         } catch (Exception e) {
-            if (e instanceof RuntimeException) {
-                fail (e.toString());
-            }
         }
     }
 }
