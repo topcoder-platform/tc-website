@@ -83,12 +83,11 @@ boolean doUpdate = false;
 
 String[] parameterValues;
 
-
+isTaskValidated = true;
 parameterValues = (String[])htParams.get("firstName");
 if (this.isValid(parameterValues)) {
         coderObject.first_name = parameterValues[0];
 } else {
-    Log.msg("firstName not valid.");
     //xxx todo - add error redirect
     coderObject.first_name = null;
     isTaskValidated = false;
@@ -98,7 +97,6 @@ parameterValues = (String[])htParams.get("lastName");
 if (this.isValid(parameterValues)) {
         coderObject.last_name = parameterValues[0];
 } else {
-    Log.msg("lastName not valid.");
     //xxx todo - add error redirect
     coderObject.last_name = null;
     isTaskValidated = false;
@@ -108,7 +106,6 @@ parameterValues = (String[])htParams.get("address1");
 if (this.isValid(parameterValues)) {
         coderObject.address1 = parameterValues[0];
 } else {
-    Log.msg("address1 not valid.");
     //xxx todo - add error redirect
     coderObject.address1 = null;
     isTaskValidated = false;
@@ -118,7 +115,6 @@ parameterValues = (String[])htParams.get("address2");
 if (this.isValid(parameterValues)) {
         coderObject.address2 = parameterValues[0];
 } else {
-    Log.msg("address2 not valid.");
     coderObject.address2 = null;
 }
 
@@ -171,14 +167,8 @@ if (this.isValid(parameterValues)) {
 
 
 
-if (doUpdate) {
-        coderObject.address1 = null;
-        coderObject.address2 = null;
-        coderObject.city = null;
-        coderObject.state_code = null;
-        coderObject.zip = null;
-        coderObject.country_code = null;
-        coderObject.home_phone = null;
+if (isTaskValidated) {
+
         coderObject.work_phone=null;
         coderObject.middle_name=null;
         coderObject.activation_code=null;
