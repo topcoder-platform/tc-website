@@ -103,7 +103,7 @@ function goTo(selection){
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="180" VALIGN="top">
-            <% if (srb.getProperties().containsKey("rd")) { %>
+            <% if (srb.getContentHandle().startsWith("last_match")) { %>
                 <jsp:include page="../includes/global_left.jsp">
                     <jsp:param name="level1" value="statistics"/>
                 </jsp:include>
