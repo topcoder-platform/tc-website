@@ -318,8 +318,13 @@ abstract public class ContractingBase extends BaseProcessor {
             ResultSetContainer rscPrefs = prefbean.getPreferencesByGroup(info.getUserID(), rsc.getIntItem(i, "preference_group_id"),DBMS.COMMON_OLTP_DATASOURCE_NAME);
             for(int j = 0; j < rscPrefs.size(); j++) {
                 info.setEdit(true);
-                info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "preference_value_id"));
-                log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "preference_value_id"));
+                if(rscPrefs.getStringItem(j, "preference_type_id") == Constants.PREFERENCE_TEXT_ANSWER) {
+                    info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "value"));
+                    log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "value"));
+                } else {
+                    info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "preference_value_id"));
+                    log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "preference_value_id"));
+                }
             }
         }
         
