@@ -25,6 +25,7 @@ public class Constants {
     public static String FIRST_NAME;
     public static String LAST_NAME;
     public static String EMAIL;
+    public static String ACTIVATION_CODE;
 
     /* pages */
     public static String SURVEY_RESULTS;
@@ -43,6 +44,9 @@ public class Constants {
     public static String ACTIVATE;
     public static String RECOVER_PASSWORD;
     public static String EMAIL_SENT;
+
+    /* misc constants */
+    public static String ACTIVE_STATUS;
 
     private Constants() {
     }

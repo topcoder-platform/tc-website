@@ -192,6 +192,12 @@
             <description></description>
         </init-param>
 
+        <init-param>
+            <param-name>Activate</param-name>
+            <param-value>authentication.Activate</param-value>
+            <description></description>
+        </init-param>
+
 
         <!-- request parameters -->
         <init-param>
@@ -224,6 +230,18 @@
             <description></description>
         </init-param>
 
+        <init-param>
+            <param-name>activation_code</param-name>
+            <param-value>code</param-value>
+            <description></description>
+        </init-param>
+
+        <!-- misc constants -->
+        <init-param>
+            <param-name>active_status</param-name>
+            <param-value>A</param-value>
+            <description></description>
+        </init-param>
     </servlet>
 
     <servlet>
