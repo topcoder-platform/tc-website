@@ -29,6 +29,13 @@ INSERT INTO command VALUES(49,'Email all TopCoder members',1);
 INSERT INTO command VALUES(50,'sponsor_image',7);
 INSERT INTO command VALUES(51,'Rated Members w/ Activation Code',1);
 INSERT INTO command VALUES(52,'Members that said Yes to Sun Network Event',1);
+INSERT INTO command VALUES(53,'Invitational Group 1',1);
+INSERT INTO command VALUES(54,'Invitational Group 2',1);
+INSERT INTO command VALUES(55,'Invitational Group 3',1);
+INSERT INTO command VALUES(56,'Invitational Group 4',1);
+INSERT INTO command VALUES(57,'Invitational Group 5',1);
+INSERT INTO command VALUES(58,'Invitational Group 6',1);
+
 
 INSERT INTO data_type VALUES (1001,'Integer Input');
 INSERT INTO data_type VALUES (1002,'Decimal Input');
@@ -71,6 +78,13 @@ INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(49,73,1
 INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(50,74,1);
 INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(51,75,1);
 INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(52,76,1);
+INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(53,77,1);
+INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(54,78,1);
+INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(55,79,1);
+INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(56,80,1);
+INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(57,81,1);
+INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(58,82,1);
+
 
 
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(3,"cr",1001,"Coder ID");

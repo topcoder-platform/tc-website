@@ -460,3 +460,144 @@ where
 ORDER BY
   1
 "
+
+
+java com.topcoder.utilities.QueryLoader "OLTP" 77 "Invitational Group 1" 0 0 "
+select
+  LOWER(u.email) AS email_address,
+  u.handle
+from
+  coder c,
+  user u,
+  rating r
+where
+  u.user_id = r.coder_id and
+  c.coder_id = r.coder_id and
+  rating = 0 and
+  u.status = 'A' and
+  num_ratings = 0 and
+  lower(email) not like '%topcoder.com' and
+  handle not like 'guest%' and
+  country_code in ('036','124','372','356','826','840','156','554') and
+  u.user_id not in (select user_id from group_user where group_id = 13)
+and exists
+  (select 1 from coder_notify cn where cn.coder_id = c.coder_id and cn.notify_id in (1, 5))
+ORDER BY 1
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 78 "Invitational Group 2" 0 0 "
+select
+  LOWER(u.email) AS email_address,
+  u.handle
+from
+  coder c,
+  user u,
+  rating r
+where
+  u.user_id = r.coder_id and
+  c.coder_id = r.coder_id and
+  rating = 0 and
+  u.status = 'A' and
+  num_ratings = 0 and
+  lower(email) not like '%topcoder.com' and
+  handle not like 'guest%' and
+  country_code in ('036','124','372','356','826','840','156','554') and
+  u.user_id not in (select user_id from group_user where group_id = 13)
+and exists
+  (select 1 from coder_notify cn where cn.coder_id = c.coder_id and cn.notify_id in (1, 5))
+ORDER BY 1
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 79 "Invitational Group 3" 0 0 "
+select
+  LOWER(u.email) AS email_address,
+  u.handle
+from
+  coder c,
+  user u,
+  rating r
+where
+  u.user_id = r.coder_id and
+  c.coder_id = r.coder_id and
+  rating > 0 and
+  u.status = 'A' and
+  num_ratings = 2 and
+  lower(email) not like '%topcoder.com' and
+  handle not like 'guest%' and
+  country_code in ('036','124','372','356','826','840','156','554') and
+  u.user_id not in (select user_id from group_user where group_id = 13)
+and exists
+  (select 1 from coder_notify cn where cn.coder_id = c.coder_id and cn.notify_id in (1, 5))
+order by 1
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 80 "Invitational Group 4" 0 0 "
+select
+  LOWER(u.email) AS email_address,
+  u.handle
+from
+  coder c,
+  user u,
+  rating r
+where
+  u.user_id = r.coder_id and
+  c.coder_id = r.coder_id and
+  rating > 0 and
+  u.status = 'A' and
+  num_ratings > 2 and
+  date(last_rated_event) < '03/30/2002' and
+  lower(email) not like '%topcoder.com' and
+  handle not like 'guest%' and
+  country_code in ('036','124','372','356','826','840','156','554') and
+  u.user_id not in (select user_id from group_user where group_id = 13)
+and exists
+  (select 1 from coder_notify cn where cn.coder_id = c.coder_id and cn.notify_id in (1, 5))
+order by 1
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 81 "Invitational Group 5" 0 0 "
+select
+  LOWER(u.email) AS email_address,
+  u.handle,
+  (r.rating - 865) AS spare
+from
+  coder c,
+  user u,
+  rating r
+where
+  u.user_id = r.coder_id and
+  c.coder_id = r.coder_id and
+  rating > 0 and
+  u.status = 'A' and
+  num_ratings > 2 and
+  date(last_rated_event) >= '04/01/2002' and
+  lower(email) not like '%topcoder.com' and
+  handle not like 'guest%' and
+  country_code in ('036','124','372','356','826','840','156','554') and
+  u.user_id not in (select user_id from group_user where group_id = 13)
+  and rating between 868 and 1004
+order by 1
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 82 "Invitational Group 6" 0 0 "
+select
+  LOWER(u.email) AS email_address,
+  u.handle,
+  (865 - r.rating) AS spare
+from
+  coder c,
+  user u,
+  rating r
+where
+  u.user_id = r.coder_id and
+  c.coder_id = r.coder_id and
+  rating > 0 and
+  u.status = 'A' and
+  num_ratings > 2 and
+  date(last_rated_event) >= '04/01/2002' and
+  lower(email) not like '%topcoder.com' and
+  handle not like 'guest%' and
+  country_code in ('036','124','372','356','826','840','156','554') and
+  u.user_id not in (select user_id from group_user where group_id = 13)
+  and rating between 738 and 867
+"
