@@ -304,9 +304,9 @@ public class AutoPilot {
             StringBuffer mail = new StringBuffer();
             mail.append("The following project: \n\n");
             mail.append(project.getName());
-            mail.append("\n\nhas completed appeals");
+            mail.append("\n\nhas completed appeals response");
 
-            sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Notification", mail.toString());
+            sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Response Notification", mail.toString());
 
 
         } catch(Exception e) {
