@@ -58,7 +58,7 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="captionText" width="49%"><img src="/i/development/royalty_payments.gif" alt="Royalty Payments" width="276" height="49" border="0" /><br />
                         We're proud to announce our first round of royalty payments totaling $3500. The TopCoder members to the right 
-                        developed the components that make up the <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600191" class="statText">Rules Engine Tool.</a> 
+                        developed the components that make up the <a href="http://software.topcoder.com/pages/c_component.jsp?comp=600191" class="statText">Rules Engine Tool.</a> 
                         Inquire about <a href="?t=development&amp;c=comp_projects" class="statText">open projects</a> so you can earn royalties too.</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td width="49%">
@@ -231,7 +231,7 @@
                 <tr valign="middle">
                     <td class="statText">
                         <p><strong>File Resource Utility</strong><br />
-                        Facilitates the conversion between local files, remote resources, streams and byte arrays. Check out <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=6500713" target="parent" class="statText">FIle Resource Utility</a> on the TopCoder Software web site.</p>
+                        Facilitates the conversion between local files, remote resources, streams and byte arrays. Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=6500713" target="parent" class="statText">FIle Resource Utility</a> on the TopCoder Software web site.</p>
                         
                         <p><strong>Review Board Comments</strong><br />
                         "Nice job. Very polished, quite thourough, and well documented!"
@@ -265,7 +265,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3312447" class="statText">Bulk Email</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=3312447" class="statText" target="parent">Bulk Email</a></td>
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=155381"><strong>djFD</strong></a></td>
                     <td class="statText" height="15" align="center">75.13</td>
@@ -277,7 +277,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3304122" class="statText">Chat Server</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=3304122" class="statText" target="parent">Chat Server</a></td>
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a></td>
                     <td class="statText" height="15" align="center">95.00</td>
@@ -289,7 +289,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=5710148" class="statText">Data Grouping</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5710148" class="statText" target="parent">Data Grouping</a></td>
                     <td class="statText" height="15" align="center">2</td>
                     <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154754"><strong>Ken Vogel</strong></a></td>
                     <td class="statText" height="15" align="center">87.95</td>
@@ -301,7 +301,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=5703170" class="statText">File Delta</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5703170" class="statText" target="parent">File Delta</a></td>
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=287614"><strong>argolite</strong></a></td>
                     <td class="statText" height="15" align="center">78.59</td>
@@ -313,7 +313,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=4202855" class="statText">File Diff</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=4202855" class="statText" target="parent">File Diff</a></td>
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261822"><strong>bodrius</strong></a></td>
                     <td class="statText" height="15" align="center">82.30</td>
@@ -325,7 +325,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=6500713" class="statText">File Resource Utility</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=6500713" class="statText" target="parent">File Resource Utility</a></td>
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342"><strong>adic</strong></a></td>
                     <td class="statText" height="15" align="center">87.57</td>
@@ -337,7 +337,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=4201389" class="statText">Heartbeat</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=4201389" class="statText" target="parent">Heartbeat</a></td>
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a></td>
                     <td class="statText" height="15" align="center">85.39</td>
@@ -349,7 +349,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=5903352" class="statText">HTTP Listener</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5903352" class="statText" target="parent">HTTP Listener</a></td>
                     <td class="statText" height="15" align="center">2</td>
                     <td class="statText" height="15"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304697"><strong>ozzie</strong></a></td>
                     <td class="statText" height="15" align="center">85.74</td>
@@ -361,7 +361,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=5503427" class="statText">Image Converter</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5503427" class="statText" target="parent">Image Converter</a></td>
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342"><strong>adic</strong></a></td>
                     <td class="statText" height="15" align="center">79.52</td>
@@ -373,7 +373,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=6407963" class="statText">String Pattern Matching</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=6407963" class="statText" target="parent">String Pattern Matching</a></td>
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145"><strong>srowen</strong></a></td>
                     <td class="statText" height="15" align="center">87.88</td>
@@ -385,7 +385,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=5709951" class="statText">SVG 2DSGraphics</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5709951" class="statText" target="parent">SVG 2DSGraphics</a></td>
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=289824"><strong>MPhk</strong></a></td>
                     <td class="statText" height="15" align="center">88.46</td>
@@ -397,7 +397,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3300871" class="statText">URL Loader</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=3300871" class="statText" target="parent">URL Loader</a></td>
                     <td class="statText" height="15" align="center">3</td>
                     <td class="statText" height="15"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a></td>
                     <td class="statText" height="15" align="center">96.13</td>
@@ -430,9 +430,9 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3500966" class="statText">Math Matrix</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=3500966" class="statText" target="parent">Math Matrix</a></td>
                     <td class="statText" height="15" align="center">3</td>
-                        <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=286907" class="coderTextRed"><strong>WishingBone</strong></a></td>
+                        <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=286907" class="coderTextRed" ><strong>WishingBone</strong></a></td>
                     <td class="statText" height="15" align="center">88.34</td>
                     <td class="statText" height="15" align="right">$720.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -442,7 +442,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2803396" class="statText">Randon String Generator</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=2803396" class="statText" target="parent">Randon String Generator</a></td>
                     <td class="statText" height="15" align="center">25</td>
                         <td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=108262" class="coderTextYellow"><strong>mathgodleo</strong></a></td>
                     <td class="statText" height="15" align="center">99.27</td>
