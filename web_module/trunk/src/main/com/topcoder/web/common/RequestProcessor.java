@@ -17,19 +17,24 @@ import javax.servlet.ServletRequest;
  */
 public interface RequestProcessor {
 
-    public void setRequest(ServletRequest sr);
+    void setRequest(ServletRequest sr);
 
-    public void setAuthentication(WebAuthentication sr);
+    void setAuthentication(WebAuthentication sr);
 
     /** entry point from the controller */
-    public void process() throws Exception;
+    void process() throws Exception;
 
     /**
      * if the next page is outside the context of our particular application, it will
      * likely have to be handled differently.
      */
-    public boolean isNextPageInContext();
+    boolean isNextPageInContext();
 
     /** where the controller should go next, to render this request */
-    public String getNextPage();
+    String getNextPage();
+
+    String getError(String key);
+
+    boolean hasError(String key);
+
 }
