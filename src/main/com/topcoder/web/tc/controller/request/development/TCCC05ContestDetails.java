@@ -35,6 +35,10 @@ public class TCCC05ContestDetails extends StatBase {
     
     private ArrayList arr = new ArrayList();
     
+    int getMax() {
+        return Integer.MAX_VALUE;
+    }
+    
     void statProcessing() throws com.topcoder.web.common.TCWebException {
         Map result2 =  (Map)getRequest().getAttribute("resultMap");
 
@@ -143,7 +147,7 @@ public class TCCC05ContestDetails extends StatBase {
             arr.add(user);
         }
         
-        user.addPoints(pts);
+        user.addPoints(pts, getMax());
         if(completed) {
             user.setComplete(user.getComplete() + 1);
         } else {
