@@ -1709,29 +1709,6 @@ public class Registration
                 //throw new TaskException(e);
                 addError(REGISTER, "There was a problem sending the activation email. Please contact service@topcoder.com");
             }
-        } else {
-            //refresh their cache stuff in case they changed their quote or somthing else that is relevant.
-            String tempKey = null;
-            try {
-                Request r = new Request();
-                r.setContentHandle("member_profile");
-                r.setProperty("cr",String.valueOf(user.getUserId()));
-                String key= r.getCacheKey();
-                log.debug("looking for userid " + key + " in cache");
-                CacheClient client = CacheClientFactory.createCacheClient();
-                ArrayList list = client.getKeys();
-                log.debug("searching " + list.size() + " keys");
-                for (int i=0; i<list.size(); i++) {
-                    tempKey = (String)list.get(i);
-                    log.debug(tempKey);
-                    if (tempKey.equals(key)) {
-                        log.debug("removing " + tempKey);
-                        client.remove(tempKey);
-                    }
-                }
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
         }
     }
 
