@@ -395,6 +395,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
             for (int i=0; i<f.length&&include; i++) {
                 include = f[i].include(rsr);
             }
+            log.debug("include " + include);
             if (include) {
                 addRow(rsr);
             }
