@@ -16,17 +16,17 @@
 
 </head>
 
-<body onLoad="focus()" id="quickLaunch">
+<body>
 
 <table width="100%" cellspacing="0" cellpadding="10" border="0">
     <tr>
-        <td class="statText" width="100%">
+        <td class="bodyText" width="100%">
             <h2>Competition Arena</h2>
 
             <p>This page should present you with a button to start the competition arena applet.</p>
 
             <p>NOTE: If a red button to "Load Competition Arena" does <strong>not</strong> appear below, you may not have the appropriate 
-            Plug-in software installed. <a href="Javascript:getReq()" class="statText">Get&nbsp;more&nbsp;information</a></p>
+            Plug-in software installed.</p>
 
             <div align="center">
         <OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
