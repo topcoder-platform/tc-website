@@ -179,10 +179,12 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         setCoderType(coder.getCoderType().getCoderTypeDesc());
         setCoderTypeId(Integer.toString(coder.getCoderType().getCoderTypeId()));
         setSchool(coder.getCurrentSchool().getName());
-        setDegree(rsc.getItem(0, "degree").toString());
-        setMajor(rsc.getItem(0, "major").toString());
-        setGradYear(rsc.getItem(0, "grad_year").toString());
-        setGradMonth(rsc.getItem(0, "grad_month").toString());
+        if (!rsc.isEmpty()) {
+            setDegree(rsc.getItem(0, "degree").toString());
+            setMajor(rsc.getItem(0, "major").toString());
+            setGradYear(rsc.getItem(0, "grad_year").toString());
+            setGradMonth(rsc.getItem(0, "grad_month").toString());
+        }
 
         ArrayList assignments = getDemographicAssignments(coder.getCoderType().getCoderTypeId());
         for (int i = 0; i < assignments.size(); i++) {
@@ -218,8 +220,8 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     public boolean hasResume() {
         return hasResume;
     }
- 
-    public void setHasResume(boolean hasResume) { 
+
+    public void setHasResume(boolean hasResume) {
         this.hasResume = hasResume;
     }
 
