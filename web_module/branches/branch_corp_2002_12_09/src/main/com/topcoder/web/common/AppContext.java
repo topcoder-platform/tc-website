@@ -9,6 +9,7 @@ import java.util.Properties;
 
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
+import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
 import javax.transaction.NotSupportedException;
 import javax.transaction.SystemException;
@@ -72,7 +73,12 @@ public class AppContext {
     throws NamingException, CreateException, RemoteException
     {
         InitialContext ic = getSecurityContext();
-        log.debug("remote security context is: " +ic); 
+        log.debug("remote security context is: " +ic);
+        NamingEnumeration e = (NamingEnumeration)ic.list((String)"");
+        while(e.hasMoreElements()) {
+            log.debug("jndi-node: "+e.nextElement());
+        }
+         
         Object  l = ic.lookup(LoginRemoteHome.EJB_REF_NAME);
         ic.close();
         return ((LoginRemoteHome) l).create();
