@@ -176,7 +176,7 @@ String sSortUrl = "/stat?c=reliability_rating&cr="+srb.getProperty("cr")+"&sq=re
                    <TD CLASS="statText" VALIGN="middle" ALIGN="center">
                        <bean:write name="resultRow2" property='<%= "item[" + 1 /* competition type*/ + "]" %>'/>
                    </TD>
-                   <TD CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write format="0.##%" ifNull="N/A" name="resultRow2" property='<%= "item[" + 5 /* new Rating */ + "]" %>'/></TD>
+                   <TD CLASS="statText" VALIGN="middle" ALIGN="center">><rsc:item set="<%=rsc2%>" name="reliability" ifNull="N/A" format="%"/>/<bean:write format="0.##%" ifNull="N/A" name="resultRow2" property='<%= "item[" + 5 /* new Rating */ + "]" %>'/></TD>
                    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
 				 </logic:iterate>
