@@ -50,6 +50,8 @@ public class Unlock extends Preview {
                         }
                         Transaction.commit(tx);
                     }
+                    setNextPage(Constants.CARD_INSTRUCTIONS);
+                    setIsNextPageInContext(true);
                 } else {
                     throw new NavigationException("Sorry you have not been rated in competition.");
                 }
