@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app PUBLIC 
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+ "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<web-app>
+
+ 
+<servlet>
+  <servlet-name>tces</servlet-name>
+  <display-name>tces</display-name>
+  <description>The job posting servlet</description>
+  <servlet-class>com.topcoder.web.tces.servlet.Controller</servlet-class>
+
+  <init-param>
+    <param-name>profile_page</param-name>
+    <param-value>profile.jsp</param-value>
+    <description>
+      A page to show a bunch of profile information for a member.
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>error_page</param-name>
+    <param-value>/errorPage.jsp</param-value>
+    <description>
+      The error page we'll be using.
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>step_param</param-name>
+    <param-value>st</param-value>
+    <description>
+      The key for the step parameter of a request.
+    </description>
+  </init-param>
+  
+  <init-param>
+    <param-name>job_id_param</param-name>
+    <param-value>jid</param-value>
+    <description>
+      The key for the job_id parameter of a request.
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>job_hit_type_param</param-name>
+    <param-value>jt</param-value>
+    <description>
+      The key used to get the hit_type_id from a request.
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>job_hit_prefix</param-name>
+    <param-value>jobhit_</param-value>
+    <description>
+      We're building jsp's that have checkboxes for job hits
+      so this prefix should be used as the name of the checkbox
+      followed by the jobid we're working with.
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>click_thru_id</param-name>
+    <param-value>1</param-value>
+    <description>
+      The id from the database of a click_thru (hit_type_lu).
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>job_posting_id</param-name>
+    <param-value>2</param-value>
+    <description>
+      The id from the database of a job_posting (hit_type_lu).
+    </description>
+  </init-param>
+  
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>tces</servlet-name>
+  <url-pattern>tces</url-pattern>
+</servlet-mapping>
+
+</web-app>
