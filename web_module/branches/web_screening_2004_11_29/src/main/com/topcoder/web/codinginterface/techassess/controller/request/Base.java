@@ -9,7 +9,6 @@ import com.topcoder.shared.security.User;
 
 import java.util.HashMap;
 import java.io.PrintWriter;
-import java.io.IOException;
 
 /**
  * User: dok
@@ -40,16 +39,16 @@ public abstract class Base extends BaseProcessor {
         String messageId = sender.sendMessageGetID(new HashMap(), m);
         return messageId;
     }
-    protected void postProcessing() {
+    protected void postProcessing(Message message) {
 
     }
 
-    protected Message receive(int waitTime, String correlationId) throws TimeOutException {
+    protected Message receive(int waitTime, String correlationId) throws TimeOutException, Exception {
 
         Message ret = null;
         getResponse().setStatus(200);
         getResponse().setContentType("text/html");
-        try {
+
             PrintWriter out = getResponse().getWriter();
             out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">");
             out.println("<html>");
@@ -94,7 +93,7 @@ public abstract class Base extends BaseProcessor {
             out.println("            <br /><br />");
             out.println("            <p class=pC><span class=bodySmallTitle>Processing...</span></p>");
             ret = (Message)receiver.receive(waitTime, correlationId, getResponse());
-            postProcessing();
+            postProcessing(ret);
             out.println("            <br /><br />");
             out.println("            </td>");
             out.println("            <td class=bodyR>&#160;</td>");
@@ -111,9 +110,6 @@ public abstract class Base extends BaseProcessor {
             out.println("</body>");
             out.println("</html>");
             out.flush();
-        } catch (IOException e) {
-            //todo do something with this
-        }
 
         return ret;
     }
