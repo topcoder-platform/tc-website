@@ -37,26 +37,30 @@ public class AnswerInput extends BaseTag {
         if (l!=null) {
             answers = l.iterator();
         }
-        String inputText = null;
-        if (l==null || l.isEmpty()) {
-            log.debug("answers was null or empty");
-            if (question.getStyleId()==Question.LONG_ANSWER) {
-                inputText = buildText();
-            } else if (question.getStyleId()==Question.SHORT_ANSWER) {
-                inputText = buildText();
-            }
-            pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
-            return wrapItUp();
-        } else {
-            return doAfterBody();
-        }
+        return doAfterBody();
     }
 
     public int doAfterBody() throws JspException {
 
         Answer answer = null;
         String inputText = null;
-        if (answers.hasNext()) {
+        if (answers==null || question.getAnswerInfo().isEmpty()) {
+            log.debug("answers was null or empty");
+            if (question.getStyleId()==Question.LONG_ANSWER) {
+                inputText = buildText();
+            } else if (question.getStyleId()==Question.SHORT_ANSWER) {
+                inputText = buildText();
+            }
+            /* if we haven't done so already, set the information
+               to make it accessible from the jsp and evaluate, otherwise, skip the body
+             */
+            if (pageContext.getAttribute(getId())==null) {
+                pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
+                return EVAL_BODY_TAG;
+            } else {
+                return wrapItUp();
+            }
+        } else if (answers!=null && answers.hasNext()) {
             log.debug("answers wasn't null and there were more elements");
             answer = (Answer)answers.next();
             if (question.getStyleId()==Question.MULTIPLE_CHOICE) {
