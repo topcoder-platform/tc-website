@@ -68,7 +68,6 @@
                         rtUser =user.getHandle();
                         rtPassword =user.getPassword();
                     }
-                    System.out.println("user: " + rtUser + " password: " + rtPassword);
                 } catch( Exception e ) {
                     response.sendRedirect(Redirect_URL);
                     return;
