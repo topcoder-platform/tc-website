@@ -24,7 +24,7 @@
                 <tr>
                     <td class="tourney_subnav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_overview" class="statTextBig">Overview</a></td>
-                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_eligiblity" class="statTextBig">Eligibility</a></td>
+                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_eligibility" class="statTextBig">Eligibility</a></td>
                     <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_conditions" class="statTextBig">Conditions of Participation</a></td>
                     <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_prizes" class="statTextBig">Prizes</a></td>
                     <td class="statTextBig" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -34,7 +34,7 @@
 
     <xsl:otherwise>
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tourney_subnav">
-                <tr><td width="100%" bgcolor="#999999"><img src="/i/clear.gif" alt="" width="10" height="4" border="0" /></td></tr>
+                <tr><td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
             </table>
     </xsl:otherwise>
 </xsl:choose>
