@@ -50,20 +50,11 @@
     <tr valign="top">
         <td>
             <p><strong>Website</strong><br/>
-<!--            <a href="/i/es/diversifieddata/public_home.gif" class="bodyText" target="_blank">Public Home Page</a><br/> -->
-<!--           <a href="/i/es/diversifieddata/member_home.gif" class="bodyText" target="_blank">Member Home Page</a><br/> -->
-            <a href="/i/es/diversifieddata/diversifieddata_mockup.gif" class="bodyText" target="_blank">Job Listing Main Page</a><br/>
+
+            <a href="/i/es/paypal/paypal_mockup.gif" class="bodyText" target="_blank">Job Listing Main Page</a><br/>
             <a href="/?t=tces&amp;c=diversifieddata" class="bodyText" target="_blank">Diversified Data Main Page</a></p>
 
-<!--            <p><strong>Arena Applet</strong><br/>-->
-<!--            <a href="/i/es/diversifieddata/applet_login.gif" class="bodyText" target="_blank">Login Window</a><br/>-->
-<!--            <a href="/i/es/diversifieddata/applet_lobby.gif" class="bodyText" target="_blank">Lobby Window</a><br/>-->
-<!--            <a href="/i/es/diversifieddata/applet_coding.gif" class="bodyText" target="_blank">Coding Window</a><br/>-->
-<!--            <a href="/i/es/diversifieddata/applet_status.gif" class="bodyText" target="_blank">Status Window</a><br/>-->
-<!--            <a href="/i/es/diversifieddata/applet_leaderboard.gif" class="bodyText" target="_blank">Leaderboard Window</a></p>-->
 
-<!--            <p><strong>Email</strong><br/>-->
-<!--            <a href="/?t=tces&amp;c=diversifieddata_em" class="bodyText" target="_blank">Employment Announcement</a></p>-->
         </td>
     </tr>
 </table>
