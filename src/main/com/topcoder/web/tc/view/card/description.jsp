@@ -27,20 +27,23 @@
         </td>
 <!-- Left Column Ends -->
 
-<!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
 <!-- Center Column Begins -->
-         <td class="bodyText" WIDTH="100%">
+         <td class="cardCell" WIDTH="100%">
 
+        <jsp:include page="../body_top.jsp" >
+           <jsp:param name="image" value="cards"/>  
+           <jsp:param name="image1" value="white"/>  
+           <jsp:param name="title" value=""/>  
+        </jsp:include>
+            
+         <div class="bodyText">
+
+            <a href="/tc?module=Static&d1=card&d2=preview">Preview</a>
+
+         </div>
          <p><br/></p>
          </td>
 <!-- Center Column Ends -->
-
-<!-- Gutter -->
-         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
-<!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
          <td width="170">

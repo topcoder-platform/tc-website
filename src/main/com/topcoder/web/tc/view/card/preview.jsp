@@ -55,8 +55,14 @@ if ( plugin ) {
 
 <!-- Center Column Begins -->
          <td class="cardCell" WIDTH="100%">
+        <jsp:include page="../body_top.jsp" >
+           <jsp:param name="image" value="cards"/>  
+           <jsp:param name="image1" value="white"/>  
+           <jsp:param name="title" value="Preview"/>  
+        </jsp:include>
 
-            <p class="bodyText">This is a preview of what your card will look like:</p>
+            <div class="bodyText">
+            <p align="center">This is a preview of what your card will look like:</p>
 
         <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
             <tr>
@@ -105,11 +111,14 @@ document.write('<img src="/i/card/noFlash.gif" width="400" height="400" border="
 // -->
 </SCRIPT>
 
+                    <p align="center"><a href="/tc?module=Static&d1=card&d2=instructions">Unlock my card</a>
+
                 </td>
             </tr>
         </table>
 
-         <p><br/></p>
+        </div>
+        <p><br/></p>
          </td>
 <!-- Center Column Ends -->
 
