@@ -430,6 +430,7 @@
 
             <classes dir="${build_classdir}">
                 <include name="com/topcoder/apps/review/cacherefresher/**/*"/>
+                <include name="com/topcoder/apps/review/autopilottimer/**/*"/>
                 <include name="com/topcoder/apps/review/security/**/*"/>
                 <include name="com/topcoder/apps/review/*"/>
             </classes>
@@ -474,6 +475,12 @@
             <metainf dir="${javasrc}/main/com/topcoder/apps/review/cacherefresher" includes="*.xml"/>
         </jar>
     </target>
+    
+    <target name="auto_pilot_timer" depends="compile">
+        <jar jarfile="${builddir}/auto_pilot_timer.sar" basedir="${build_classdir}" includes="com/topcoder/apps/review/autopilottimer/**">
+            <metainf dir="${javasrc}/main/com/topcoder/apps/review/autopilottimer" includes="*.xml"/>
+        </jar>
+    </target>
 
     <target name="testwar_pl" depends="compile_tests_pl">
         <delete file="${builddir}/test.war"/>
@@ -492,13 +499,14 @@
         </juniteewar>
     </target>
 
-    <target name="ear_libs" depends="cache_refresher">
+    <target name="ear_libs" depends="cache_refresher,auto_pilot_timer">
     	<mkdir dir="${builddir_ear}"/>
     	<mkdir dir="${build_libdir_ear}"/>
 
         <copy file="${builddir}/persistence.jar" todir="${builddir_ear}" />
         <copy file="${builddir}/review.war" todir="${builddir_ear}" />
         <copy file="${builddir}/cache_refresher.sar" todir="${builddir_ear}" />
+        <copy file="${builddir}/auto_pilot_timer.sar" todir="${builddir_ear}" />
 
         <copy file="${idgenerator.jar}" todir="${build_libdir_ear}" />
         <copy file="${securitymanager.jar}" todir="${build_libdir_ear}" />
@@ -883,7 +891,7 @@
 
 
 
-    <target name="dist" depends="war,jar,cache_refresher">
+    <target name="dist" depends="war,jar,cache_refresher,auto_pilot_timer">
     </target>
 
     <target name="dist_tests" depends="compile_tests_pl">

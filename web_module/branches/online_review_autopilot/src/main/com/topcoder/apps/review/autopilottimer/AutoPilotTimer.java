@@ -61,6 +61,7 @@ public class AutoPilotTimer
      */
     private class RefreshTask extends TimerTask {
         public void run() {
+            logger.debug("AUTO PILOT TIMER FIRED");
         }
     }
 
