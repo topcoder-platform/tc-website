@@ -6,9 +6,9 @@
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 
 <style type="text/css">
-.pageSpacer 
-{ 
-   width: 510px; 
+.pageSpacer
+{
+   width: 510px;
 	padding: 15px 0px 10px 0px;
    text-align: left;
 }
@@ -58,9 +58,9 @@
             Please read through the following terms and then click "Accept" when you're done.
             <br><br>
             <div align="center"><form name="terms">
-            <textarea name="bigbox" rows="15" cols="60" readonly>Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here </textarea>
+            <textarea name="terms" rows="20" cols="60" readonly wrap="off"><%=request.getAttribute("terms")%></textarea>
             <br><br>
-            <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_submit"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
+            <A href="/tc?module=TCO05LogoTermsAgree"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
             </form></div>
          </div>
 
