@@ -100,11 +100,12 @@ The Qualification Round will be open for 24 hours from 12:00PM ET Wednesday, Sep
 <br/><br/>
 
 The Qualification Round will consist of two phases: the Coding Phase and System Testing Phase.
+<ul>
+<li>The Qualification Round Coding Phase is a timed event where contestants are presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.  Competitors will have 60 minutes to complete either or both of the problems.  The 60 minutes will begin to elapse once the first problem is opened.  The timer in the coding window will count down to the end of the 60 minutes.  A competitor who begins the qualification attempt within the final 60 minutes of the Qualification Round will have less than 60 minutes to attempt qualification.</li>
+<li>The Qualification Round System Testing Phase is applied to all submitted code. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question.</li>
+</ul>
 
-* The Qualification Round Coding Phase is a timed event where contestants are presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.  Competitors will have 60 minutes to complete either or both of the problems.  The 60 minutes will begin to elapse once the first problem is opened.  The timer in the coding window will count down to the end of the 60 minutes.  A competitor who begins the qualification attempt within the final 60 minutes of the Qualification Round will have less than 60 minutes to attempt qualification.
-
-* The Qualification Round System Testing Phase is applied to all submitted code. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question. 
-
+<br/><br/>
 The Qualification Round will contain ten (10) virtual rooms and five (5) problem sets.  The top 100 scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2004. 
 <br/><br/>
 
@@ -112,36 +113,32 @@ The Qualification Round will contain ten (10) virtual rooms and five (5) problem
 Up to 500 individuals will qualify to compete in Round 1.  The top 250 scorers from Round 1 will advance to Round 2.  The top 50 scorers from Round 2 will advance to the Championship Round, which will be held onsite at Google’s headquarters in Mountain View, CA, USA.
 <br/><br/>
 The Rounds will be held on the following dates:
+<br/><br/>
+<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
+<tr valign="top">
+<td class="sidebarTitle">Round</strong></td>
+<td class="sidebarTitle">Date and Time * (all Eastern Time)</strong></td>
+</tr>
+<tr valign="top">
+<td class="sidebarText" nowrap=nowrap>Round 1</td>
+<td class="sidebarText">Monday, September 20, 2004<br>Sign in: 6:00 PM - 8:55 PM<br>START: 9:00 PM 
+</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText" nowrap=nowrap>Round 2</td>
+<td class="sidebarText">Thursday, September 23, 2004<br>START: 9:00 PM
+</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText" nowrap=nowrap>Championship Round</td>
+<td class="sidebarText">Friday, October 15, 2004<br>START: 4:00 PM
+</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText" colspan="2">*NOTE: In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.</td>
+</tr>
+</table>
 
-Round
-Date and Time * (all Eastern Time)
-
-
-* Round 1
-
-
-
-* Round 2
-
-
-
-* Championship Round
-
-
-
-Monday, September 20, 2004
-Sign in:  6:00 PM - 8:55 PM
-START:          9:00 PM 
-
-Thursday, September 23, 2004
-START:          9:00 PM
-
-
-Friday, October 15, 2004
-START:          4:00 PM
-
-
-*NOTE:  In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.
 <br/><br/>
 
 <span class=greenSubtitle>About the Tournament</span><br/>
@@ -155,27 +152,34 @@ All competitors who have been invited to compete will be randomly assigned to sp
 <br/><br/>
 <b>Scoring and Advancing</b><br/>
 After each round of competition, the top scorers will be identified and will advance to the next round.  Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round (see Competition Round Structure) for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:
-
-Round 1 (online)
-* Up to 500 coders will compete in Round 1 and up to 250 will advance.  The 250 highest scoring competitors will advance to Round 2.  Each coder must have positive points to advance, so if there are less than 250 competitors who score positive points, only those competitors with a positive point total will advance.  
-
-Round 2 (online)
-* Up to 250 coders will compete and up to 50 will advance.  The 50 highest scoring competitors will advance to the Championship Round.  Each coder must have positive points to advance, so if there are less than 50 competitors who score positive points, only those competitors with a positive point total will advance.
-
-NOTE:  In the event of a tie for any advancing position, the tie will be resolved in the following manner:
-
-o Total points acquired (higher is better) during the previous rounds of the tournament, excluding the Qualification Round 
-o If a tie still remains, all tied coders will advance to the next round
 <br/><br/>
+<div class=indented>
+<b>Round 1 (online)</b>
+<ul>
+<li>Up to 500 coders will compete in Round 1 and up to 250 will advance.  The 250 highest scoring competitors will advance to Round 2.  Each coder must have positive points to advance, so if there are less than 250 competitors who score positive points, only those competitors with a positive point total will advance.</li>
+</ul>
+
+<b>Round 2 (online)</b>
+<ul>
+<li>Up to 250 coders will compete and up to 50 will advance.  The 50 highest scoring competitors will advance to the Championship Round.  Each coder must have positive points to advance, so if there are less than 50 competitors who score positive points, only those competitors with a positive point total will advance.</li>
+</ul>
+
+<b>NOTE:</b>  In the event of a tie for any advancing position, the tie will be resolved in the following manner:
+<ul>
+<li>Total points acquired (higher is better) during the previous rounds of the tournament, excluding the Qualification Round </li>
+<li>If a tie still remains, all tied coders will advance to the next round</li>
+</ul>
+</div>
+
 <b>Competition Round Structure</b><br/>
 Each online and onsite round of competition (excluding the Qualification Round) consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. The Qualification Round will consist only of the Coding Phase and System Testing Phase.  (See "Qualification Round" above for details regarding the Coding Phase and System Testing Phase of the Qualification Round.)
 
-* The Coding Phase is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.
+<ul>
+<li>The Coding Phase is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.</li>
+<li>The Challenge Phase is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 50 points as a penalty, applied against their total score in that round of competition.</li>
+<li>The System Testing Phase is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</li>
+</ul>
 
-* The Challenge Phase is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 50 points as a penalty, applied against their total score in that round of competition. 
-
-* The System Testing Phase is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.
-<br/><br/>
 <b>Onsite Championship Round</b><br/>
 The 50 advancers from Round 2 will travel to Google’s headquarters to compete in the Championship Round of the tournament being held on Friday, October 15, 2004.  Each finalist must confirm his/her attendance in the Championship Round by September 30, 2004.  If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
 <br/><br/>
@@ -184,28 +188,56 @@ Google will provide all travel accommodations for each finalist to attend the Ch
 TopCoder will determine the room assignments for the Championship Round prior to the start of the Championship Round. 
 <br/><br/>
 The Championship Round will be a single round of 50 coders. The first, second, third and fourth place finishers in the Championship Round are determined by comparing the total points of each coder, with the highest point value placing first. The winner of the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Championship Round, the tie will be resolved in the following manner (in order):
+<ul>
+<li>Total points acquired (higher is better) during online Rounds 1 and 2</li>
+<li>If a tie still remains in the Championship Round, then the prize money will be distributed equally among the tied coders</li>
+</ul>
 
-* Total points acquired (higher is better) during online Rounds 1 and 2
-* If a tie still remains in the Championship Round, then the prize money will be distributed equally among the tied coders
-<br/><br/>
 <span class=greenSubtitle>About the Prizes</span><br/>
 All participants who compete in Round 1 will receive a Google Code Jam 2004, Powered by TopCoder t-shirt.  In addition, the 50 finalists in the Championship Round will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
 <br/><br/>
-Competitor(s)
-Prize
-1st place finisher* - Tournament Champion
-$10,000
-2nd place finisher* in the Championship Round
-$5,000
-3rd place finisher* in the Championship Round
-$2,500
-4th place finisher* in the Championship Round
-$1,000
-46 finalists not finishing with one of the top 4 scores* in the Championship Round
-$250 each
-Up to 500 competitors who compete in Round 1 
-Google Code Jam 2004, Powered by TopCoder t-shirt
-* Prize will be awarded at the conclusion of the Championship Round.  Winner must be present at the onsite round to receive prize.
+<table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
+<tr valign="top">
+<td class="sidebarTitle">Competitor(s)</td>
+<td class="sidebarTitle" align=right>Prize</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText"><b>1st place finisher* - Tournament Champion</b></td>
+<td class="sidebarText" align=right><b>$10,000</b>
+</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText" nowrap>2nd place finisher* in the Championship Round</td>
+<td class="sidebarText" nowrap align=right>$5,000
+</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText" nowrap>3rd place
+finisher* in the Championship Round</td>
+<td class="sidebarText" nowrap align=right>$2,500
+</td>
+</tr>                
+<tr valign="top">
+<td class="sidebarText" nowrap>4th place
+finisher* in the Championship Round</td>
+<td class="sidebarText" nowrap align=right>$1,000
+</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText" nowrap>46 finalists not finishing with one of the <br/>top 4 scores* in the Championship Round</td>
+<td class="sidebarText" nowrap align=right>$250 each
+</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText" nowrap>Up to 500 competitors who compete in Round 1 </td>
+<td class="sidebarText" nowrap align=right>Google Code Jam 2004, Powered by TopCoder t-shirt
+</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText" colspan="2">* Prize will be awarded at the conclusion of the Championship Round.  Winner must be present at the onsite round to receive prize.</td>
+</tr>
+</table>
+
 <br/><br/>
 <span class=greenSubtitle>Conditions of Participation</span><br/>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of Google and TopCoder, which are final, binding and conclusive in all matters.  Also, by participating in this tournament, you consent to providing certain information to Google for recruiting purposes.  Such information shall include your registration information and your competition statistics.
@@ -215,10 +247,10 @@ By participating in the tournament, you agree to be bound by these rules and to 
 Winners in each round of competition will be those competitors who win the most points in their respective rooms. All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
 <br/><br/>
 Prizewinners will be announced upon completion of the Championship Round.  Any prizewinner claiming a cash prize must complete the following documents onsite before claiming the prize (Google will provide the prizewinners with these documents prior to the start of the Championship Round):
-
-* Affidavit of Eligibility and Liability and Publicity Release 
-* Applicable tax form
-<br/><br/>
+<ul>
+<li>Affidavit of Eligibility and Liability and Publicity Release </li>
+<li>Applicable tax form</li>
+</ul>
 Prizes will be presented onsite upon receipt of the documents identified above.  All t-shirts will be sent after the conclusion of the Championship Round to competitors using the address given during registration, and may take 4-6 weeks to arrive.  Unclaimed or undeliverable prizes will not be awarded.
 <br/><br/>
 As a condition of participation in the tournament, all information provided by you upon registration must be comprehensive, accurate and up-to-date. Google and/or TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by Google and TopCoder.
