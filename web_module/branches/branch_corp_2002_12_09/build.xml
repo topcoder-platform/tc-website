@@ -683,8 +683,12 @@
             <zipfileset dir="${java}/com/topcoder/web/corp/request/jsp/" includes="prim-reg.jsp" prefix="reg" />
             <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="error.jsp" prefix="" />
 			<zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="index.jsp" prefix="" />
+			<zipfileset dir="${java}/com/topcoder/web/corp/view/includes/" includes="*.jsp" prefix="includes" />
+
 
             <zipfileset dir="${resources}/${corp.war.name}/images/" includes="*.gif" prefix="images" />
+
+			
 
 <!--
             <zipfileset dir="${java}/com/topcoder/web/corp/jsp">
