@@ -1,4 +1,4 @@
-package com.topcoder.web.servlet.admin;
+package com.topcoder.web.admin.controller;
 
 
 import com.topcoder.common.web.data.Navigation;
@@ -8,10 +8,11 @@ import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.servlet.admin.task.Home;
-import com.topcoder.web.servlet.admin.task.coder.Challenge;
-import com.topcoder.web.servlet.admin.task.coder.Compilation;
-import com.topcoder.web.servlet.admin.task.coder.SystemTestCaseReport;
+import com.topcoder.web.admin.task.Home;
+import com.topcoder.web.admin.task.Challenge;
+import com.topcoder.web.admin.task.Compilation;
+import com.topcoder.web.admin.task.SystemTestCaseReport;
+import com.topcoder.web.admin.Constants;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -87,65 +88,28 @@ public final class TC extends HttpServlet {
                 if (requestCommand.equals("")) {
                     html = Home.process(request, response, renderer, nav, document);
                 } else {
-                    html = renderer.render(document, XSL.DIR + requestCommand);
+                    html = renderer.render(document, Constants.DIR + requestCommand);
                 }
-            }
-            //************************ request ************************
-/*
-      else if ( requestTask.equals("request") ) {
-        html = admin.task.corp.Request.process ( request, response, renderer, nav, document );
-      }
-*/
-            //************************ contest ************************
-/*
-      else if ( requestTask.equals("contest") ) {
-        html = admin.task.coder.Contest.process ( request, response, renderer, nav, document );
-      }
-*/
-            //************************ systemtestcasereport ************************
-            else if (requestTask.equals("systemtestcasereport")) {
-                html = SystemTestCaseReport.process(request, response, renderer, nav, document);
             }
             //************************ challenge ************************
             else if (requestTask.equals("challenge")) {
                 html = Challenge.process(request, response, renderer, nav, document);
             }
-            //************************ problems ************************
-            else if (requestTask.equals("problems")) {
-                //html = admin.task.util.PProblem.process ( request, response, renderer, nav, document );
-            }
-
-            //************************ cache ************************
-/*
-      else if ( requestTask.equals("cache") ) {
-        html = admin.task.util.Cache.process ( request, response, renderer, nav, document );
-      }
-*/
-            //************************ report ************************
-/*
-      else if ( requestTask.equals("report") ) {
-        html = admin.task.report.Report.process ( request, response, renderer, nav, document );
-      }
-*/
             //************************ compilation ************************
             else if (requestTask.equals("compilation")) {
                 html = Compilation.process(request, response, renderer, nav, document);
+            } if (requestTask.equals("login")) {
+
             }
-            //************************ contact mail ************************
-/*
-      else if ( requestTask.equals("contact_mail") ) {
-        html = admin.task.coder.ContactUs.process ( request, response, renderer, nav, document );
-      }
-*/
             //************************ invalid ************************
             else {
                 StringBuffer msg = new StringBuffer(150);
-                msg.append("com.topcoder.web.servlet.admin.TC:processCommands:ERROR:invalid task:");
+                msg.append("com.topcoder.web.admin.controller.TC:processCommands:ERROR:invalid task:");
                 msg.append(requestTask);
                 msg.append(":\n");
                 throw new NavigationException(
                         msg.toString()
-                        , XSL.NAVIGATION_ERROR_URL
+                        , Constants.NAVIGATION_ERROR_URL
                 );
             }
             out = response.getWriter();
@@ -166,7 +130,7 @@ public final class TC extends HttpServlet {
                 html = renderer.render(document, ne.getUrl());
                 out.print(html);
                 out.flush();
-                log.error("com.topcoder.web.servlet.admin.TC:NAVIGATION ERROR:\n" + ne.getMessage());
+                log.error("com.topcoder.web.admin.controller.TC:NAVIGATION ERROR:\n" + ne.getMessage());
             } catch (Exception end) {
                 end.printStackTrace();
                 try {
@@ -186,10 +150,10 @@ public final class TC extends HttpServlet {
                     document = new XMLDocument("TC");
                     addURLTags(nav, request, response, document);
                 }
-                html = renderer.render(document, XSL.INTERNAL_ERROR_URL);
+                html = renderer.render(document, Constants.INTERNAL_ERROR_URL);
                 out.print(html);
                 out.flush();
-                log.error("com.topcoder.web.servlet.admin.TC:INTERNAL ERROR:\n" + e);
+                log.error("com.topcoder.web.admin.controller.TC:INTERNAL ERROR:\n" + e);
             } catch (Exception end) {
                 end.printStackTrace();
                 try {
@@ -232,7 +196,7 @@ public final class TC extends HttpServlet {
                 result = (Navigation) session.getAttribute("navigation");
             }
         } catch (Exception e) {
-            throw new Exception("com.topcoder.web.servlet.admin.TC:setupSession:ERROR:\n" + e);
+            throw new Exception("com.topcoder.web.admin.controller.TC:setupSession:ERROR:\n" + e);
         }
         return result;
     }
@@ -255,7 +219,7 @@ public final class TC extends HttpServlet {
                     )
             );
         } catch (Exception e) {
-            throw new Exception("com.topcoder.web.servlet.admin.TC:addURLTags:ERROR:\n" + e);
+            throw new Exception("com.topcoder.web.admin.controller.TC:addURLTags:ERROR:\n" + e);
         }
     }
 
