@@ -106,7 +106,7 @@
                         <html:text property='<%="phaseEnd["+pIdx+"]"%>' size="20" /></td>
                 </tr>
 <%if((pIdx.intValue() % 4 == 3) ||(pIdx.intValue() == (theProject.getTimeline().length-1))) {%>
-
+ 
                         </table>
                     </td>
 <%}%>
