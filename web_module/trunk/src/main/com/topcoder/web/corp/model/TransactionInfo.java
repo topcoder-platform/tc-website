@@ -351,7 +351,8 @@ public class TransactionInfo {
                         break;
                         
                     default:
-                        throw new Exception("unsupported data type was returned");
+                        throw new Exception("unsupported data type was returned"+
+                        roleID.getResultData().getClass().getName());
                 }
                 rolesPerProduct.add( new RolePrincipal(roleDescr, id));
             }
