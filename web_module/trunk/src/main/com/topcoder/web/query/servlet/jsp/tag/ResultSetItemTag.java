@@ -4,9 +4,11 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
 
 public class ResultSetItemTag extends BodyTagSupport {
 
+    private static Logger log = Logger.getLogger(ResultSetItemTag.class);
     private ResultSetContainer.ResultSetRow row;
     private String name;
 
@@ -19,6 +21,7 @@ public class ResultSetItemTag extends BodyTagSupport {
     }
 
     public int doStartTag() throws JspException {
+        log.debug("doStartTag called...");
         pageContext.setAttribute(getId(), row.getItem(name));
         return SKIP_BODY;
     }
