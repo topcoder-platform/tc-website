@@ -286,18 +286,15 @@
                                                     <p>
                                                         <a name="requirementspecification"></a>
                                                         <strong>Document and Templates </strong>
+                                                        <br/>
                                                         View the <a target="_new" class="bodyText" href="/?t=development&amp;c=app_sample_docs">Documents and Templates</a> for the Application Development Methodology
 
 
                                                     </p>
 
                                                     <p>
-                                                        <strong>
-                                                            Inquiry is closed.
-                                                            <!--
-                                                                    <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card">Inquire for the Online Gift Card Sales Project</a> to get selected as a designer and to obtain the information necessary to submit a solution.
-                                                            -->
-                                                        </strong>
+                                                        <strong> Registration </strong>
+                                                        Click here to <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card"> register </a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
