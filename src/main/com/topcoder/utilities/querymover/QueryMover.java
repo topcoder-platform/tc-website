@@ -169,6 +169,11 @@ public class QueryMover {
                     sourceCommandGroup.getCommandGroupDesc(), targetDSN);
             CommandBean targetCommand = findCommand(targetC, sourceCommand.getCommandDesc(), targetDSN);
 
+            log.debug("source command: " + sourceCommand.toString());
+            log.debug("source group: " + sourceCommandGroup.toString());
+            log.debug("target command: " + targetCommand.toString());
+            log.debug("target group: " + targetCommandGroup.toString());
+
             int newCommandGroupId = 0;
 
             /* it's a new command. */
