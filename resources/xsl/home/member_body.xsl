@@ -391,8 +391,8 @@
                     <tr>
                         <td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 132</strong></a><br />
-                            Saturday, February 1, 2003<br /><br />
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 133</strong></a><br />
+                            Wednesday, February 5, 2003<br /><br />
                         </td>
                         <td valign="top" width="6"><img src="/i/clear.gif" alt="" width="6" height="1" border="0"/></td>
                     </tr>
@@ -484,26 +484,25 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 
         <tr>
           <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
-          <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-            By&#160;lbackstrom<br /><i>[TC]&#160;Member</i><br /></td>
+          <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
+            By&#160;Yarin<br /><i>[TC]&#160;Member</i><br /></td>
           <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
           <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-            <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 132</b></font>
+            <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 133</b></font>
           </td>
         </tr>
 
         <tr>
           <td valign="top" class="bodyText" width="100%">
             <a class="bodyGeneric">
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm132_prob</xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm133_prob</xsl:attribute>
             <b>Problem Set Analysis &amp; Opinion</b></a><br />
             <p>
-This afternoon's contest was one of the wackiest in recent memory. Division 2 
-featured a couple of math problems that could lead to issues of double 
-imprecision if solved the wrong way, and a simple dynamic programming problem 
-about binary search trees. Division 1 seemed very simple at first glance, with 
-almost everyone submitting the first two problems.
-            <a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm132_prob</xsl:attribute>Get the analysis</a>
+            It seems that SRM 131 was no exception, and that 400+ competitors in a SRM will become standard. The problem
+                set was written by yours truly, thus any comments I make will definitely be biased - I wouldn't write a
+                problem if I didn't think it was "good"! For a change though, no problem required dynamic programming.
+                Instead two of the problems could be considered to be graph theory, although of different kind.
+            <a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm133_prob</xsl:attribute>Get the analysis</a>
             </p></td>
           <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
         </tr>
