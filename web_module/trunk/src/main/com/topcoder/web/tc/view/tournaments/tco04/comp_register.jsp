@@ -21,7 +21,9 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=pageTitle>Register for the Component Competition</p>
+        <p class=pageTitle>Component Competition Registration</p>
+        <p>Registration for the Component Competition opens Monday, August 9 at 9:00 AM ET</p>
+        <p><span class="bodySubtitle">Click <a href="">here</a> to register now.</span></p>
 
          <p><br/></p>
             
