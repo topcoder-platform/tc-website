@@ -22,6 +22,7 @@ import com.topcoder.web.common.RequestProcessor;
 public abstract class BaseProcessor implements RequestProcessor {
     protected HttpServletRequest request;
     protected boolean pageInContext = false;
+    protected String nextPage = null;
     
     // form based processors must set it to new HashMap() inside
     // constructor, while others are allowed leave it as is
@@ -49,20 +50,21 @@ public abstract class BaseProcessor implements RequestProcessor {
         //
     }
 
-//    /**
-//     * Returns the next page to go to.  just a placeholder for now and should 
-//     * be overridden by exteneded classes.  Not sure if null is a good default
-//     * to return.  (will Check into this)
-//     */
-//    public String getNextPage() {
-//        return null;
-//    }
+    /**
+     * Subclass responsibility is to set explicitely protected variable nextPage
+     * to desired value.
+     */
+    public final String getNextPage() {
+        return nextPage;
+    }
 
 	/**
-	 * @see com.topcoder.web.common.RequestProcessor#isNextPageInContext()
+     * The only subclass responsibility is to set explicitely protected variable
+     * pageInContext
+     * @see com.topcoder.web.common.RequestProcessor#isNextPageInContext()
 	 */
-	public boolean isNextPageInContext() {
-		return isNextPageInContext();
+	public final boolean isNextPageInContext() {
+		return pageInContext;
 	}
 
 //

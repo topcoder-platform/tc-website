@@ -21,32 +21,35 @@ package com.topcoder.web.corp.request;
 
 public class Static extends BaseProcessor { 
     
-    private String url;  // Next page to go to
+//    private String url;  // Next page to go to
+    public Static() {
+        pageInContext = false; // all pages are in different context
+    }
 
     private final String STATIC_PREFIX = "d";  // Prefix for parameters
 
-    /* Return the next page once process() has been called.  */
-    public String getNextPage() {
-        return url; 
-    }
+//    /* Return the next page once process() has been called.  */
+//    public String getNextPage() {
+//        return url; 
+//    }
 
     /* process() method in BaseProcessor calls method 
      * businessProcessing()                                         */
     void businessProcessing() throws Exception {
         try {
-            url = requestProcessor();
+            nextPage = requestProcessor();
         }
         catch (Exception e) {
             /* TEMPORARY CODE: not sure yet how to handle illegal page 
              * requests.  Send to error page for now.
              */
-            url = ("/errorPage.jsp?message=" + e);
+            nextPage = ("/errorPage.jsp?message=" + e);
         }
     }
 
-    public boolean isNextPageInContext() {
-        return false;
-    }
+//    public boolean isNextPageInContext() {
+//        return false;
+//    }
     /**
      * method for processesing a page request and checking to make sure it 
      * is valid then returning the "served up" page containing a valid URI 
