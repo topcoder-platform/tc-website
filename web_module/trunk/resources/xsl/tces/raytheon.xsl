@@ -62,8 +62,7 @@
 <A HREF="/?&amp;t=tces&amp;c=raytheon_openings&amp;a=secure" CLASS="bodyText">Jobs</A>&#160;|&#160;
 <A CLASS="bodyText" HREF="http://www.raytheon.com/businesses/" TARGET="_blank">Businesses</A>&#160;|&#160;
 <A CLASS="bodyText" HREF="http://www.raytheon.com/about/hottech.htm" TARGET="_blank">Hot Technologies</A>&#160;|&#160;
-<A CLASS="bodyText" HREF="http://www.rayjobs.com/index.cfm?Option=Benefits" TARGET="_blank">Benefits</A>&#160;|&#160;
-<A CLASS="bodyText" HREF="/?&amp;t=tces&amp;c=raytheon">Raytheon Main Page</A>
+<A CLASS="bodyText" HREF="http://www.rayjobs.com/index.cfm?Option=Benefits" TARGET="_blank">Benefits</A>
       </TD>
   </TR>
 </TABLE>
