@@ -127,20 +127,19 @@ public final class TC extends HttpServlet {
             }
         } catch (NavigationException ne) {
             try {
-                out = response.getWriter();
                 ne.printStackTrace();
-                if (nav == null) {
-                    session = request.getSession(true);
-                    nav = setupSession(response, session);
+                response.setStatus(500);
+                try {
+                    PrintWriter ot = response.getWriter();
+                    ot.println("<html><head><title>Internal Error</title></head>");
+                    ot.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");
+                    ot.println("</body></html>");
+                    ot.flush();
+                } catch (IOException ie) {
+                    //what more can i do captain?
+                    ie.printStackTrace();
                 }
-                if (document == null) {
-                    document = new XMLDocument("TC");
-                    addURLTags(request, document);
-                }
-                html = renderer.render(document, ne.getUrl());
-                out.print(html);
-                out.flush();
-                log.error("com.topcoder.web.admin.controller.TC:NAVIGATION ERROR:\n" + ne.getMessage());
+
             } catch (Exception end) {
                 end.printStackTrace();
                 try {
