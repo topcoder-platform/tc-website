@@ -37,7 +37,7 @@ public abstract class Base implements RequestProcessor {
           p = request.getParameter("rating");
           if(p!=null) si.setRating(Integer.parseInt(p));
        } catch(Exception e) { e.printStackTrace(); }
-       sr.setAttribute("SessionInfo", si);
+       request.setAttribute("SessionInfo", si);
     }
 
     public abstract void process();

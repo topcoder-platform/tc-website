@@ -19,7 +19,7 @@ public class SessionInfoBean {
   public SessionInfoBean() { }
 
   public String getHandle() { return handle; }
-  public void   setHandle(string handle) { this.handle = handle; }
+  public void   setHandle(String handle) { this.handle = handle; }
   public int    getUserId() { return userid; }
   public void   setUserId(int userid) { this.userid = userid; }
   public char   getGroup() { return group; }
