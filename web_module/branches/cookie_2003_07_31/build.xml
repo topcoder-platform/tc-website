@@ -219,9 +219,7 @@
         <jar jarfile="${ejb_jars}/PactsServices.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/messaging/QueueMessageSender.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/ApplicationServer.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/TCResourceBundle.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/*.class"/>
