@@ -56,7 +56,7 @@
 <!-- TCO Head Begins -->
             <div align="center">
                 <img src="/i/clear.gif" alt="" width="10" height="15" border="0" /><br/>
-                <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=overview" target="_top"><img src="/i/tournament/tccc04/tccc04_home_banner2.gif" alt="2004 TopCoder Open" width="540" height="99" border="0"/></A><br/>
+                <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=overview" target="_top"><img src="/i/tournament/tco04/tco04_home_banner2.gif" alt="2004 TopCoder Open" width="540" height="99" border="0"/></A><br/>
                 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br/>
             </div>
 <!-- TCO Head Ends -->
