@@ -38,10 +38,10 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
-        <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <td width="100%" class="bodyText"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
             <p>
               Your account has been successfully activated.<br/>Thank You!<br/><br/>
-              <A HREF="/tc?&module=Login">Click here to login to your new member account >></A>
+              <A HREF="/tc?&module=Login" class="bodyText">Click here to login to your new member account >></A>
             </p>
         </td>
 <!-- Center Column ends -->
