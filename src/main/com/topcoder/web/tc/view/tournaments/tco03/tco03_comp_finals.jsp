@@ -55,47 +55,23 @@ function openWin(url, name, w, h) {
 </jsp:include>
 
             <h2>Advancers</h2>
-            <br/>
-<!-- Design Winners Begins -->
-<%--            <table border="0" cellspacing="0" cellpadding="3" width="510" align="center">
-               <tr>
-                  <td class="formHandleEven" align="left" width="30%">Statistics</td>
-                  <td class="formHandleEven" align="center" width="17%">Pops</td>
-                  <td class="formHandleEven" align="center" width="17%">kyky</td>
-                  <td class="formHandleEven" align="center" width="17%">aksonov</td>
-                  <td class="formHandleEven" align="center" width="17%">rnielsen</td>
-                </tr>
-                <tr>
-                  <td class="formHandleOdd" align="left">Member since</td>
-                  <td class="formHandleOdd" align="right">04.17.01</td>
-                  <td class="formHandleOdd" align="right">08.02.01</td>
-                  <td class="formHandleOdd" align="right">04.17.02</td>
-                  <td class="formHandleOdd" align="right">09.10.01</td>
-                </tr>
-                <tr>
-                  <td class="formHandleEven" align="left">Total earnings</td>
-                  <td class="formHandleEven" align="right">$9,688.95</td>
-                  <td class="formHandleEven" align="right">$1,225.75</td>
-                  <td class="formHandleEven" align="right">$5,143.45</td>
-                  <td class="formHandleEven" align="right">$0.00</td>
-                </tr>
-                <tr>
-                  <td class="formHandleOdd" align="left">TC rating</td>
-                  <td class="formHandleOdd" align="right">1745</td>
-                  <td class="formHandleOdd" align="right">2170</td>
-                  <td class="formHandleOdd" align="right">1511</td>
-                  <td class="formHandleOdd" align="right">1293</td>
-                </tr>
-                <tr>
-                  <td class="formHandleEven" align="left">TCO avg. score</td>
-                  <td class="formHandleEven" align="right">93.92</td>
-                  <td class="formHandleEven" align="right">80.53</td>
-                  <td class="formHandleEven" align="right">93.80</td>
-                  <td class="formHandleEven" align="right">92.63</td>
-                </tr>
-            </table>
-            <br/>
---%>
+
+            <p>
+View the component tournament progress live!  Every half hour, the
+latest submissions from both the designers and developers will be posted
+on the Live Updates page!  Each submission will include the latest
+class, sequence and use case diagrams as well as the component
+specification and java files.  You can also see the initial review
+scorecards for each competitor.  Click on the "View" buttons below to
+launch the submissions browser!
+            </p>
+            <p>
+Don't forget to watch the competitors stage their appeals and discuss
+their submissions with the review board and the project managers live in
+the Arena applet.
+            </p>
+
+
             <table border="0" cellspacing="0" cellpadding="5" width="500" align="center">
             <tr>
             <td align="left" valign="top" width="50%">
@@ -104,34 +80,34 @@ function openWin(url, name, w, h) {
                <tr>
                   <td class="header" align="center" colspan="3">Design Finals</td>
                <tr>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right"></td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right"><A href="/" class="coderTextYellow">Pops</a></td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right"><A href="/" class="coderTextYellow">kyky</a></td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="40%"></td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/" class="coderTextYellow">Pops</a>&#160;&#160;</td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/" class="coderTextYellow">kyky</a>&#160;&#160;</td>
                </tr>
                <tr>
-                  <td class="formTextOdd" align="left">Member since</td>
-                  <td class="formTextOdd" align="right">04.17.01</td>
-                  <td class="formTextOdd" align="right">08.02.01</td>
+                  <td class="formTextOdd" align="left">Member since:</td>
+                  <td class="formTextOdd" align="right">04.17.01&#160;&#160;</td>
+                  <td class="formTextOdd" align="right">08.02.01&#160;&#160;</td>
                 </tr>
                 <tr>
-                  <td class="formTextEven" align="left">Total earnings</td>
-                  <td class="formTextEven" align="right">$5,143.45</td>
-                  <td class="formTextEven" align="right">$0.00</td>
+                  <td class="formTextEven" align="left">Total earnings:</td>
+                  <td class="formTextEven" align="right">$5,143.45&#160;&#160;</td>
+                  <td class="formTextEven" align="right">$0.00&#160;&#160;</td>
                 </tr>
                 <tr>
-                  <td class="formTextOdd" align="left">TC rating</td>
-                  <td class="formTextOdd" align="right">1511</td>
-                  <td class="formTextOdd" align="right">1293</td>
+                  <td class="formTextOdd" align="left">TC rating:</td>
+                  <td class="formTextOdd" align="right">1511&#160;&#160;</td>
+                  <td class="formTextOdd" align="right">1293&#160;&#160;</td>
                 </tr>
-                <tr>
-                  <td class="formTextEven" align="left">TCO avg. score</td>
-                  <td class="formTextEven" align="right">93.92</td>
-                  <td class="formTextEven" align="right">80.53</td>
+                <tr>  
+                  <td class="formTextEven" align="left">Initial score:</td>
+                  <td class="formTextEven" align="right">93.92&#160;&#160;</td>
+                  <td class="formTextEven" align="right">80.53&#160;&#160;</td>
                 </tr>
                <tr>
-                  <td class="formTextOdd" align="left" width="40%">Current update</td>
-                  <td class="formTextOdd" align="right" width="30%"><A href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_frame','pops_frame',800,600);">view</A></td>
-                  <td class="formTextOdd" align="right" width="30%"><A href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_frame','kyky_frame',800,600);">view</A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"><strong>Live Updates:</td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" target="pops_initial_doc1" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial_doc1','pops_initial_doc1',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" target="kyky_initial_doc1" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_initial_doc1','kyky_initial_doc1',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
                
@@ -143,34 +119,34 @@ function openWin(url, name, w, h) {
                   <td class="header" align="center" colspan="3">Development Finals</td>
                </tr>
                <tr>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right"></td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right"><A href="/" class="coderTextYellow">aksonov</a></td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right"><A href="/" class="coderTextBlue">rnielsen</a></td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="40%"></td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/" class="coderTextYellow">aksonov</a>&#160;&#160;</td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/" class="coderTextBlue">rnielsen</a>&#160;&#160;</td>
                </tr>
                <tr>
-                  <td class="formTextOdd" align="left">Member since</td>
-                  <td class="formTextOdd" align="right">04.17.02</td>
-                  <td class="formTextOdd" align="right">09.10.01</td>
+                  <td class="formTextOdd" align="left">Member since:</td>
+                  <td class="formTextOdd" align="right">04.17.02&#160;&#160;</td>
+                  <td class="formTextOdd" align="right">09.10.01&#160;&#160;</td>
                </tr>
                 <tr>
-                  <td class="formTextEven" align="left">Total earnings</td>
-                  <td class="formTextEven" align="right">$5,143.45</td>
-                  <td class="formTextEven" align="right">$0.00</td>
+                  <td class="formTextEven" align="left">Total earnings:</td>
+                  <td class="formTextEven" align="right">$5,143.45&#160;&#160;</td>
+                  <td class="formTextEven" align="right">$0.00&#160;&#160;</td>
                </tr>
                 <tr>
-                  <td class="formTextOdd" align="left">TC rating</td>
-                  <td class="formTextOdd" align="right">1511</td>
-                  <td class="formTextOdd" align="right">1293</td>
+                  <td class="formTextOdd" align="left">TC rating:</td>
+                  <td class="formTextOdd" align="right">1511&#160;&#160;</td>
+                  <td class="formTextOdd" align="right">1293&#160;&#160;</td>
                 </tr>
                 <tr>
-                  <td class="formTextEven" align="left">TCO avg. score</td>
-                  <td class="formTextEven" align="right">93.80</td>
-                  <td class="formTextEven" align="right">92.63</td>
+                  <td class="formTextEven" align="left">Initial score:</td>
+                  <td class="formTextEven" align="right">93.80&#160;&#160;</td>
+                  <td class="formTextEven" align="right">92.63&#160;&#160;</td>
                 </tr>
                <tr>
-                  <td class="formTextOdd" align="left" width="40%">Current update</td>
-                  <td class="formTextOdd" align="right" width="30%"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_frame">view</A></td>
-                  <td class="formTextOdd" align="right" width="30%"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_frame">view</A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"><strong>Live Updates:</td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" target="aksonov_initial_doc1" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_initial_doc1','aksonov_initial_doc1',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" target="rnielsen_initial_doc1" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_initial_doc1','rnielsen_initial_doc1',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
             
