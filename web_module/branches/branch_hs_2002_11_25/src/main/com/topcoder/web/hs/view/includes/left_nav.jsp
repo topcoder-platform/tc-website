@@ -28,7 +28,7 @@
     <TR>
 
 
-<% if(!nav.getFolder(0).equals("stats")) { %>
+<% if(!nav.getFolder().equals("stats")) { %>
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Statistics&c=round_overview" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Statistics</A></TD>
 
@@ -67,7 +67,7 @@
     <TR>
 
 
-<% if(!nav.getFolder(0).equals("stats")) { %>
+<% if(!nav.getFolder().equals("faq")) { %>
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=faq&d2=faq" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Support/FAQs</A></TD>
 
@@ -111,7 +111,7 @@
     <TR>
 
 
-<% if(!nav.getFolder(0).equals("stats")) { %>
+<% if(!nav.getFolder().equals("about")) { %>
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=about&d2=about" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>About Us</A></TD>
 

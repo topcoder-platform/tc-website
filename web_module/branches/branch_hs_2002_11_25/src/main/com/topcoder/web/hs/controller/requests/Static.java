@@ -19,7 +19,7 @@ public class Static extends Base {
             if(p==null) break;
             if(!Constants.isLegal(p)) throw new NavigationException("disallowed path component: "+p);
             path += "/"+p;
-            nav.setFolder(i-1, path);
+            nav.setFolder(i-1, p);
         }
         if(path.equals("")) throw new NavigationException("path must have at least one component");
         path += ".jsp";
