@@ -11,8 +11,8 @@
         <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?d1=review_board&d2=competition" class="footerLinks">Review Boards</a>&#160;&#160;|&#160;&#160;
         <a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=news_events&c=index" class="footerLinks">Press Room</a>&#160;&#160;|&#160;&#160;
         <a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=contacts&c=index" class="footerLinks">Contact Us</a>&#160;&#160;|&#160;&#160;
-        <a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=&c=privacy" class="footerLinks">Privacy</a>&#160;&#160;|&#160;&#160;
-        <a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=&c=terms" class="footerLinks">Terms</a></td></tr>
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=about_tc&c=privacy" class="footerLinks">Privacy</a>&#160;&#160;|&#160;&#160;
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=about_tc&c=terms" class="footerLinks">Terms</a></td></tr>
 
 <!-- Member sites -->
     <tr><td width="100%" class="footer"><a href="http://<%=ApplicationServer.SERVER_NAME%>" class="footerLinks">Competition</a>&#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=index" class="footerLinks">Development</a>&#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=tces&c=index" class="footerLinks">Job Listing</a>&#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="footerLinks">Software</a>&#160;&#160;|&#160;&#160;<a href="/?module=Static&d1=corp&d2=tces_home" class="footerLinks">Employment Services</a>&#160;&#160;|&#160;&#160;<a href="/?module=Static&d1=corp&d2=spon_prog&d3=index" class="footerLinks">Sponsorship</a></td></tr>
