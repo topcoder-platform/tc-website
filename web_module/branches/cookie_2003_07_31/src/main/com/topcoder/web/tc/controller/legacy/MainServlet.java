@@ -137,7 +137,7 @@ public final class MainServlet extends HttpServlet {
             document = new XMLDocument("TC");
             nav = getNav(request);
             if (nav==null) {
-                nav = new Navigation(request);
+                nav = new Navigation(request, response);
             }
             addURLTags(nav, request, response, document);
             // NEED THE TASK TO SEE WHAT THE USER WANTS
@@ -229,7 +229,7 @@ public final class MainServlet extends HttpServlet {
                     nav = null;
                     document = new XMLDocument("TC");
                     session = request.getSession(true);
-                    nav = new Navigation(request);
+                    nav = new Navigation(request, response);
                     addURLTags(nav, request, response, document);
                     HTMLString = "home";
                 }
@@ -373,7 +373,7 @@ public final class MainServlet extends HttpServlet {
                 ne.printStackTrace();
                 if (nav == null) {
                     session = request.getSession(true);
-                    nav = new Navigation(request);
+                    nav = new Navigation(request, response);
                 }
                 if (document == null) {
                     document = new XMLDocument("TC");
@@ -443,7 +443,7 @@ public final class MainServlet extends HttpServlet {
         try {
             String requestTask = Conversion.checkNull(request.getParameter("t"));
             String requestCommand = Conversion.checkNull(request.getParameter("c"));
-            nav = new Navigation(request);
+            nav = new Navigation(request, response);
             out = response.getWriter();
             StringBuffer msg = new StringBuffer();
             msg.append("\n***************");

@@ -1,49 +1,21 @@
 package com.topcoder.web.tc.controller.request.problemRating;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.tc.model.ProblemRatingQuestion;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.common.NavigationException;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-import javax.rmi.PortableRemoteObject;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Iterator;
 
-abstract public class Base extends BaseProcessor {
+abstract public class PRBase extends Base {
 
 
-    public DataAccessInt getDataAccess() throws Exception {
-        return getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false);
-    }
-
-    public DataAccessInt getDataAccess(boolean cached) throws Exception {
-        return getDataAccess(DBMS.OLTP_DATASOURCE_NAME, cached);
-    }
-
-    public DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
-        if (datasource == null) return null;
-        InitialContext context = new InitialContext();
-        DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(context.lookup(datasource),
-                        DataSource.class);
-        close(context);
-        DataAccessInt dAccess = null;
-        if (cached)
-            dAccess = new CachedDataAccess(ds);
-        else
-            dAccess = new DataAccess(ds);
-        return dAccess;
-    }
     protected void processResults() throws Exception{
         Request r = new Request();
         String pid = getRequest().getParameter(Constants.PROBLEM_ID);

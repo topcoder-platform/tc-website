@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class Results extends Base {
+public class Results extends PRBase {
     protected void businessProcessing() throws TCWebException {
         try{
             processResults();

@@ -46,19 +46,4 @@ public class MainServlet extends BaseServlet {
         getServletContext().getContext("/").getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
     }
 
-    protected WebAuthentication createAuthentication(HttpServletRequest request,
-                                                     HttpServletResponse response) throws Exception {
-        WebAuthentication ret = super.createAuthentication(request, response);
-        HttpSession session = request.getSession(true);
-        Navigation nav = (Navigation)session.getAttribute("navigation");
-        if (nav==null) {
-            nav = new Navigation(request);
-        }
-        if (nav.getAuthentication()==null) {
-            nav.setAuthentication(ret);
-        }
-        session.setAttribute("navigation", nav);
-        return ret;
-    }
-
 }

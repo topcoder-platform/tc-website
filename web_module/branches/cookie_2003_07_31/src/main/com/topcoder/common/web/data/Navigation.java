@@ -9,6 +9,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.Authentication;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
 
 import javax.naming.Context;
 import javax.servlet.http.*;
@@ -80,9 +82,10 @@ public final class Navigation
     }
 
 
-    public Navigation(HttpServletRequest request) throws TCException {
+    public Navigation(HttpServletRequest request, HttpServletResponse response) throws TCException {
         this();
         try {
+            authentication = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response);
             String appName = StringUtils.checkNull(request.getParameter("AppName"));
             if (browser==null) {
                 browser = new Browser();

@@ -173,9 +173,25 @@
     </servlet>
 
 
+    <servlet>
+        <servlet-name>legacyMain</servlet-name>
+        <display-name>legacyMain</display-name>
+        <description>The main controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.MainServlet</servlet-class>
+
+
+    </servlet>
+
+
+
+    <servlet-mapping>
+        <servlet-name>legacyMain</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>tc</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/tc</url-pattern>
     </servlet-mapping>
 
 </web-app>
