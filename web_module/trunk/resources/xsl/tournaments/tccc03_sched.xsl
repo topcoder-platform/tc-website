@@ -95,7 +95,7 @@
                     </tr>
 
                     <tr valign="middle">
-                      <td align="right" class="tourney_subnav"><a class="statText" href="/index/?t=tournaments&amp;c=tccc03_competitors"><strong>Total Competitors</strong></a></td>
+                      <td align="right" class="tourney_subnav"><a class="statText" href="/index/?t=tournaments&amp;c=tccc03_competitors&amp;rds=4462,4464,4466"><strong>Total Competitors</strong></a></td>
                       <td align="center" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_ne200" class="statTextBig"></a>Northeast</td>
                       <td align="center" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_se200" class="statTextBig"></a>Southeast</td>
                       <td align="center" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_w200" class="statTextBig"></a>West</td>
