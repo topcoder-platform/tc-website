@@ -9,7 +9,7 @@ import java.util.Calendar;
  * Date: Dec 15, 2004
  * Time: 10:40:08 AM
  */
-public class TCCC05ComponentTerms extends TCO04AlgorithmTerms {
+public class TCCC05ComponentTerms extends TCCC05AlgorithmTerms {
 
     public Calendar getEnd() {
         Calendar end = Calendar.getInstance();
