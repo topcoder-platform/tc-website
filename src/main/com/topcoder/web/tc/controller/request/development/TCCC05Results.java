@@ -11,7 +11,7 @@ import com.topcoder.shared.util.DBMS;
  *
  * @author rfairfax
  */
-public class TCCC05Results {
+public class TCCC05Results extends StatBase {
     
     String getCommandName() {
         return "tccc05_results";
