@@ -1013,6 +1013,12 @@
             <description></description>
         </init-param>
 
+        <init-param>
+            <param-name>printer_results_page</param-name>
+            <param-value>results/printerResults.jsp</param-value>
+            <description></description>
+        </init-param>
+
         <!-- Session parameters -->
         <init-param>
             <param-name>populate_session_processor</param-name>

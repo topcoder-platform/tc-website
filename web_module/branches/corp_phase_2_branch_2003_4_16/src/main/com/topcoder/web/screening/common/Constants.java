@@ -110,6 +110,7 @@ public class Constants
     public static String PROBLEM_RESULT_PAGE;
     public static String TC_PROBLEM_RESULT_PAGE;
     public static String TEST_RESULTS_PAGE;
+    public static String PRINTER_RESULTS_PAGE;
 
     //Session constants
     public static String POPULATE_SESSION_PROCESSOR;
@@ -250,6 +251,7 @@ public class Constants
         PROBLEM_RESULT_PAGE = JSP_ROOT+config.getInitParameter("problem_result_page");
         TC_PROBLEM_RESULT_PAGE = JSP_ROOT+config.getInitParameter("tc_problem_result_page");
         TEST_RESULTS_PAGE = JSP_ROOT+config.getInitParameter("test_results_page");
+        PRINTER_RESULTS_PAGE = JSP_ROOT+config.getInitParameter("printer_results_page");
 
         //Session constants
         POPULATE_SESSION_PROCESSOR = config.getInitParameter("populate_session_processor");
