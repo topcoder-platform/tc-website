@@ -47,7 +47,8 @@
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0">
                         
-                    <div align="center"><img src="/i/corp/tces_header.jpg" width="530" height="173" alt="" border="0"></div>
+                    <div align="center"><img src="/i/corp/tces_header.gif" width="530" height="53" alt="" border="0"><br/>
+                    <img src="/i/corp/tces_image.jpg" width="530" height="220" alt="" border="0"></div>
                       
                       <p>TopCoder has created an online venue that brings together some of the most talented developers from over 
                       160 countries around the world.  This enterprising group of over 38,000 developers joins TopCoder to compete 
