@@ -73,7 +73,7 @@ else
                             <%for(int i = 0; i < lst.size(); i++) { %>
                             <tr>
                                 <% TCCC05MemberResult result = (TCCC05MemberResult)lst.get(i); %>
-                                <td class="sidebarText"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=result.getCompID()%>>"><%=result.getComponent()%></A>
+                                <td class="sidebarText"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=result.getCompID()%>"><%=result.getComponent()%></A>
                                 <% if(!result.isComplete())  { 
                                     isComplete = false;%>
                                     *
