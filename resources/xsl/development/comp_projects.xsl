@@ -160,7 +160,7 @@
                 </xsl:if>
 
                 <tr>
-                    <td class="bodyText" colspan="6"><a href="http://172.16.20.20/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
+                    <td class="bodyText" colspan="6"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
                 </tr>
                 <tr>
                     <td class="bodyText" colspan="6">*Total Payment (before royalties) </td>
@@ -226,7 +226,7 @@
                         </tr>
                 </xsl:if>
                 <tr>
-                    <td class="bodyText" colspan="6"><a href="http://172.16.20.20/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
+                    <td class="bodyText" colspan="6"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
                 </tr>
                 <tr>
                     <td class="bodyText" colspan="6">*Total Payment (before royalties) </td>
