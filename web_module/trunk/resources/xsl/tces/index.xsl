@@ -47,10 +47,7 @@
  <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText" width="100%"> 
-                    <table>
-                        <tr>
-                            <td colspan="2" class="bodyText">
-                            
+                    
                             <div align="center" valign="middle"> <img src="/i/es/header_looking_for.gif" alt="" width="510" height="84" border="0"/></div>
                        
                                 <p><img src="/i/es/quote_member.gif" alt="" width="246" height="194" border="0" align="right"/>Our clients are interested in hiring and retaining the industry's top talent. They all believe that their most valuable asset is their 
