@@ -33,7 +33,7 @@ function openWin(url, name, w, h) {
 <!-- Gutter Ends -->
 
 <!-- Header -->
-         <td width="100%" valign="top" class="bodyText" colspan="3">
+         <td width="100%" valign="top" class="bodyText" colspan="5">
        
          <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
             <tr><td colspan="11" align="center"><img src="/i/events/google2003/google_logo_white.gif" width="300" height="150" border="0"/></td></tr>
@@ -88,7 +88,7 @@ function openWin(url, name, w, h) {
             <img src="/i/clear.gif" width="10" height="10" border="0"/><br />            
 
       <h2>Registration</h2><br />
-        <table cellpadding="0" cellspacing="3" class="bodyText" align="center" width="100%">
+        <table cellpadding="0" cellspacing="3" class="bodyText" align="center" width="100%" border="0">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_REG_DEMOG%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
@@ -99,10 +99,10 @@ function openWin(url, name, w, h) {
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap>
+                <td align="right" width="50%" nowrap>
                     Handle
                 </td>
-                <td align="left" width="100%">
+                <td align="left" width="50%">
                     <tc-webtag:textInput name="<%=Constants.HANDLE%>"  size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>"/>
                 </td>
             </tr>
@@ -318,6 +318,12 @@ function openWin(url, name, w, h) {
             <p><br /></p>
          </td>
 <!-- Center Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+         <td valign="top"><img src="/i/clear.gif" width="150" height="1" border="0"/></td>
 
 <!-- Gutter Begins -->
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>

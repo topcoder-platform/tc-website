@@ -37,7 +37,7 @@ function openWin(url, name, w, h) {
 <!-- Gutter Ends -->
 
 <!-- Header -->
-         <td width="100%" valign="top" class="bodyText" colspan="3">
+         <td width="100%" valign="top" class="bodyText" colspan="5">
        
          <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
             <tr><td colspan="11" align="center"><img src="/i/events/google2003/google_logo_white.gif" width="300" height="150" border="0"/></td></tr>
@@ -103,10 +103,10 @@ function openWin(url, name, w, h) {
                 </td>
             </tr>
             <tr>
-                <td align="right">
+                <td align="right" width="50%">
                     Student/Professional
                 </td>
-                <td align="left" width="100%">
+                <td align="left" width="50%">
                     Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
                     Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
                 </td>
@@ -142,6 +142,12 @@ function openWin(url, name, w, h) {
             <p><br /></p>
          </td>
 <!-- Center Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+         <td valign="top"><img src="/i/clear.gif" width="150" height="1" border="0"/></td>
 
 <!-- Gutter Begins -->
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
