@@ -50,6 +50,9 @@ public class PersistStore {
                 if( me == null ) {
                     me = new PersistStore();
                     me.xmlStore = new File(dir, STORAGE_FILE);
+                    if( me.xmlStore != null ) {
+                        System.err.println("---xml store - "+ me.xmlStore.getAbsolutePath());
+                    }
                     me.load();
                 }
             }
