@@ -154,21 +154,6 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             dataRequest.setProperty("jid", Integer.toString(getPositionID()) );
         }
 
-        dataRequest.setProperty("uid", Integer.toString(uid) );
-        dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-        Map resultMap = dai.getData(dataRequest);
-
-        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
-        ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
-        setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
-
-        if (getPositionID()>=0) {
-            rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
-            ResultSetContainer.ResultSetRow posNameRow = rsc.getRow(0);
-            setPositionName( posNameRow.getItem("job_desc").toString() );
-        }
-
         int types[] = { TCESConstants.PRO_CODER_TYPE,
                         TCESConstants.STUDENT_CODER_TYPE };
 
@@ -181,8 +166,19 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             dataRequest.setProperty("uid", Integer.toString(uid) );
             dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
             dataRequest.setProperty("ct", Integer.toString(types[typeI]) );
-            dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-            resultMap = dai.getData(dataRequest);
+            DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            Map resultMap = dai.getData(dataRequest);
+
+            ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
+            ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
+            setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
+
+            if (getPositionID()>=0) {
+                rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
+                ResultSetContainer.ResultSetRow posNameRow = rsc.getRow(0);
+                setPositionName( posNameRow.getItem("job_desc").toString() );
+            }
+
 
             rsc = (getPositionID()>=0)?
                        (ResultSetContainer) resultMap.get("TCES_Position_Coders_By_Type")
