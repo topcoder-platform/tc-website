@@ -8,16 +8,6 @@
         <caching-descriptor>
             <max-beans-in-free-pool>20</max-beans-in-free-pool>
         </caching-descriptor>
-        <reference-descriptor>
-            <resource-description>
-                <res-ref-name>datasource_name</res-ref-name>
-                <jndi-name>DS</jndi-name>
-            </resource-description>
-            <resource-description>
-                <res-ref-name>jts_datasource_name</res-ref-name>
-                <jndi-name>JTS_DS</jndi-name>
-            </resource-description>
-        </reference-descriptor>
         <jndi-name>com.topcoder.web.ejb.termsofuse.TermsOfUseHome</jndi-name>
     </weblogic-enterprise-bean>
 </weblogic-ejb-jar>
