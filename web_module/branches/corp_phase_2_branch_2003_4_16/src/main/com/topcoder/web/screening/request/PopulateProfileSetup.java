@@ -12,13 +12,11 @@ import com.topcoder.web.screening.model.ProfileInfo;
 
 import javax.servlet.ServletRequest;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Map;
 
 public class PopulateProfileSetup extends BaseProfileProcessor {
     private ServletRequest request;
     private Request profileProblemSet;
-    private Request profileTestSetA;
     private Request profileCompanyProblem;
     private Request profileLanguage;
     private static Logger log = Logger.getLogger(PopulateProfileSetup.class);
@@ -27,10 +25,6 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         profileProblemSet = new Request();
         profileProblemSet.setProperty(DataAccessConstants.COMMAND,
                 Constants.PROFILE_PROBLEM_SET_QUERY_KEY);
-
-        profileTestSetA = new Request();
-        profileTestSetA.setProperty(DataAccessConstants.COMMAND,
-                Constants.PROFILE_TEST_SET_A_QUERY_KEY);
 
         profileCompanyProblem = new Request();
         profileCompanyProblem.setProperty(DataAccessConstants.COMMAND,
@@ -50,8 +44,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
 
         DataAccessInt dAccess = getDataAccess();
 
-        ProfileInfo info = 
-            (ProfileInfo)request.getAttribute(Constants.PROFILE_INFO);
+        ProfileInfo info = (ProfileInfo)request.getAttribute(Constants.PROFILE_INFO);
         if(info == null) {
             info = buildProfileInfo(request);
             request.setAttribute(Constants.PROFILE_INFO, info);
@@ -62,43 +55,20 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         Map map = getDataAccess(true).getData(profileProblemSet);
         if(map != null) {
             log.debug("the result map was not null");
-            info.setProblemSetList((ResultSetContainer)
-                map.get(Constants.PROFILE_PROBLEM_SET_QUERY_KEY));
+            info.setProblemSetList((ResultSetContainer) map.get(Constants.PROFILE_PROBLEM_SET_QUERY_KEY));
         } else {
             log.debug("there are no problems associated with this user's(" + user.getId() + ") company");
         }
 
         if(info.getTestSetA() == null) {
             ResultSetContainer rsc = info.getProblemSetList();
-            if(rsc != null && rsc.size() > 0) {
-                ResultSetContainer.ResultSetRow row =
-                 (ResultSetContainer.ResultSetRow)rsc.get(0);
+            if(rsc != null && !rsc.isEmpty()) {
+                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)rsc.get(0);
                 info.setTestSetA(row.getItem("round_id").toString());
             }
         }
-        profileTestSetA.setProperty("rid", info.getTestSetA().toString());
-        profileTestSetA.setProperty("uid", String.valueOf(user.getId()));
 
-        map = dAccess.getData(profileTestSetA);
-
-        if(map != null) {
-            ResultSetContainer rsc = (ResultSetContainer)
-                map.get(Constants.PROFILE_TEST_SET_A_QUERY_KEY);
-            ArrayList list = new ArrayList();
-            if(rsc.size() > 0) {
-                for(Iterator i = rsc.iterator(); i.hasNext();) {
-                    ResultSetContainer.ResultSetRow row =
-                        (ResultSetContainer.ResultSetRow)i.next();
-                    long roundId = Long.parseLong(
-                            row.getItem("round_id").toString());
-                    long problemId = Long.parseLong(
-                            row.getItem("problem_id").toString());
-                    list.add(
-                      ProblemInfo.createProblemInfo(user, roundId, problemId));
-                }
-            }
-            info.setTestSetAList(list);
-        }
+        info.setTestSetAList(getTestSetAList(info.getTestSetA().longValue(), user));
 
         String[] testSetBArr = info.getTestSetB();
         ArrayList list = new ArrayList();
@@ -115,8 +85,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         }
         info.setTestSetBList(list);
 
-        profileCompanyProblem.setProperty("uid", 
-                                            String.valueOf(user.getId()));
+        profileCompanyProblem.setProperty("uid", String.valueOf(user.getId()));
         map = getDataAccess(true).getData(profileCompanyProblem);
         if(map != null) {
             info.setCompanyProblemList((ResultSetContainer)
