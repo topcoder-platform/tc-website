@@ -124,7 +124,7 @@
 							Final Submission Due Date: 1.27.2003</p>
 
 <!-- Register at TCS -->
-							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
+
 
                             <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Email Address Validator: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>

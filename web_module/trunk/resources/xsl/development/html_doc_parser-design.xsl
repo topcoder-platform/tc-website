@@ -117,7 +117,7 @@
 							Final Submission Due Date: 01.20.2003<br/>
 							Estimated Development End Date: 02.24.2003</p>
 
-							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
+
 
                             <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=HTML Document Parser: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
