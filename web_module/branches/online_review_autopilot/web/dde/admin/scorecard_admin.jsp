@@ -94,7 +94,7 @@ if (aString != null && aString.equals("status")) {
   long sid = -1;
   if (sidString != null) {
     sid = Long.parseLong(sidString);
-    ScorecardTemplate template = new ScorecardTemplate(-sid,"",0,0,0,null);
+    ScorecardTemplate template = new ScorecardTemplate(-sid,"",0,0,0,null,false);
     dmb.saveScorecardTemplate(template, false, false);
   }
 }  else if (aString != null && aString.equals("default")) {
