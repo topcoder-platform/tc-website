@@ -76,7 +76,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Online Rounds begins -->
 
             <p align="right">Round 1&#160;|&#160;<a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_final">Finals</a></p>
-            <table align="center" border="0" cellpadding="2" cellspacing="2" class="sidebarBox">
+            <table align="center" border="0" cellpadding="2" cellspacing="2" class="sidebarBox" width=300>
     		<% String sLink = "/stat?c=member_profile&cr=";%>
                 <tr>
                     <td class="crpfTitle" width="100%" colspan="2" bgcolor="#4E9DD5">Round 1</td>
@@ -96,7 +96,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 7358573%>' bg='W' cid='7358573' /></td><td class="sidebarText" align="right">1404.89</td></tr>
 <tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 251832%>' bg='W' cid='251832' /></td><td class="sidebarText" align="right">1404.07</td></tr>
 <tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 155275%>' bg='W' cid='155275' /></td><td class="sidebarText" align="right">1323.66</td></tr>
-<tr valign="top"><td class="sidebarText" align="left">frane</td><td class="sidebarText" align="right">1293.01</td></tr>
+<tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 2059666%>' bg='W' cid='2059666' /></td><td class="sidebarText" align="right">1293.01</td></tr>
 <tr valign="top"><td class="sidebarText" align="left">dangelo</td><td class="sidebarText" align="right">1214.14</td></tr>
 <tr valign="top"><td class="sidebarText" align="left">abiczo</td><td class="sidebarText" align="right">1196.68</td></tr>
 <tr valign="top"><td class="sidebarText" align="left">turuthok</td><td class="sidebarText" align="right">1185.74</td></tr>
