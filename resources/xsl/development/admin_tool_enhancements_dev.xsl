@@ -59,7 +59,7 @@
                                             <strong>Admin Tool Enhancements Application: Development</strong>
                                         </h1>
                                         <p>
-                                            <font size="-2">&nbsp; &nbsp; &nbsp; &nbsp;
+                                            <font size="-2">&#160;&#160;&#160;&#160;
                                             <a href="#summary">Summary of the Tournament</a> |
                                             <a href="#about">About the Tournament</a> |
                                             <a href="#prizes">About the Prizes</a> |
