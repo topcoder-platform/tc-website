@@ -1321,5 +1321,12 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.expireOldAffidavits();
     }
+
+    public void createAffidavitTemplate(int affidavitTypeId, String text) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        ps.createAffidavitTemplate(affidavitTypeId, text);
+    }
+
+
 }
 
