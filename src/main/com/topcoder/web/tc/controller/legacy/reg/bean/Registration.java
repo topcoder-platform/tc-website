@@ -1712,6 +1712,7 @@ public class Registration
             //refresh their cache stuff in case they changed their quote or somthing else that is relevant.
             String tempKey = null;
             try {
+                log.debug("looking for userid " + user.getUserId() + " in cache");
                 String key = String.valueOf(user.getUserId());
                 CacheClient client = CacheClientFactory.createCacheClient();
                 ArrayList list = client.getKeys();
