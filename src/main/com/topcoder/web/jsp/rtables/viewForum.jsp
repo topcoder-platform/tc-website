@@ -314,7 +314,7 @@ String checked4 = "";
 
           <!-- Global Seconday Nav Begins -->
 
-         <%@ include file="../includes/global_left.jsp" %>
+         <jsp:include page="../includes/global_left.jsp" />
 
           <!-- Global Seconday Nav Ends -->
 
@@ -359,7 +359,7 @@ String checked4 = "";
 
                   <tr>
 
-                    <td valign="middle" class="statText"><a href="rtables/index.jsp" class="statText">[ view round tables ]</a> &#160;<a href="/rtables/post.jsp&mode=new&forum=<%=forumID%>" class="statText">[ post new message ]</a> &#160;<a href="/rtables/search.jsp&forum=<%=forumID%>" class="statText">[ search ]</a> &#160;</td>
+                    <td valign="middle" class="statText"><a href="/rtables/index.jsp" class="statText">[ view round tables ]</a> &#160;<a href="/rtables/post.jsp&mode=new&forum=<%=forumID%>" class="statText">[ post new message ]</a> &#160;<a href="/rtables/search.jsp&forum=<%=forumID%>" class="statText">[ search ]</a> &#160;</td>
 
                   </tr>
 
