@@ -35,7 +35,7 @@ public class RegistrationHelper {
 
   private final static long TERMS_OF_USE_ID=1;
 
-  private final static long EMAIL_TYPE_ID_PRIMARY=1;
+  private final static long EMAIL_TYPE_ID_DEFAULT=1;
 
   private final static char NEW_USER_TYPE='A';
 
@@ -188,6 +188,7 @@ public class RegistrationHelper {
     rsr=(ResultSetContainer.ResultSetRow)iterator.next();
 
     _srb.setUserId(new Long(_sib.getUserId()));
+    _srb.setHandle(_sib.getHandle());
 
     _srb.setFirstName((String)rsr.getItem("first_name").getResultData());
     _srb.setLastName((String)rsr.getItem("last_name").getResultData());
@@ -295,14 +296,13 @@ public class RegistrationHelper {
 
   public static void createStudent(StudentRegistrationBean _srb)
                                                               throws Exception {
-    /* !!This is a hack!! Because the persisting is done in a web container, or
+    /* !!This is bad!! Because the persisting is done in a web container, or
     * servlet, its not possible to use EJBContext.getUserTransaction(). Instead
     * we simply get a UserTransaction object for each database we are accessing.
     * The problem is that both commits cannot happen atomically. Hence errors in
     * one database will not force a rollback in another. This should be fixed!
     */
-    UserTransaction utx_common=null;
-    UserTransaction utx_tchs=null;
+    UserTransaction utx=null;
 
     try {
       /*utx=EJBContext.getUserTransaction();
@@ -311,8 +311,7 @@ public class RegistrationHelper {
       Context ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
                                        ApplicationServer.SECURITY_HOST);
 
-      // this doesn't work because the JBoss context doesn't support
-      // transactions
+      /* this doesn't work because the JBoss ctx doesn't support transactions */
       /*utx_common=(UserTransaction)
                                 ctx.lookup("javax.transaction.UserTransaction");
       utx_common.begin();*/
@@ -335,8 +334,8 @@ public class RegistrationHelper {
 
       ctx=TCContext.getInitial();
 
-      utx_tchs=(UserTransaction)ctx.lookup("javax.transaction.UserTransaction");
-      utx_tchs.begin();
+      utx=(UserTransaction)ctx.lookup("javax.transaction.UserTransaction");
+      utx.begin();
 
       UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
       User user=uh.create();
@@ -352,8 +351,9 @@ public class RegistrationHelper {
       EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
       Email email=eh.create();
       long email_id=email.createEmail(user_id);
-      email.setEmailTypeId(email_id,user_id,EMAIL_TYPE_ID_PRIMARY);
-      email.setAddress(email_id,user_id,_srb.getEmail());
+      email.setPrimaryEmailId(user_id,email_id);
+      email.setAddress(email_id,_srb.getEmail());
+      email.setEmailTypeId(email_id,EMAIL_TYPE_ID_DEFAULT);
 
       CoderHome ch=(CoderHome)ctx.lookup(CoderHome.EJB_REF_NAME);
       Coder coder=ch.create();
@@ -366,32 +366,16 @@ public class RegistrationHelper {
       Rating rating=rh.create();
       rating.createRating(user_id);
 
-      /*utx.commit();*/
-
-      /*utx_common.commit();*/
-      utx_tchs.commit();
+      utx.commit();
     }
     catch (Exception _e) {
       _e.printStackTrace();
-      /*if (utx!=null) {
+      if (utx!=null) {
         try {
           utx.rollback();
         }
-        catch (Exception _e1) {
-
-      }*/
-      if (utx_common!=null) {
-        try {
-          utx_common.rollback();
-        }
         catch (Exception _ex) {
-        }
-      }
-      if (utx_tchs!=null) {
-        try {
-          utx_tchs.rollback();
-        }
-        catch (Exception _ex) {
+          /* log it */
         }
       }
       throw(_e);
@@ -400,6 +384,68 @@ public class RegistrationHelper {
 
   public static void updateStudent(StudentRegistrationBean _srb)
                                                               throws Exception {
+
+    /* This is bad, please see above comment */
+    UserTransaction utx=null;
+
+    try {
+      /*utx=EJBContext.getUserTransaction();
+      utx.begin();*/
+
+      Context ctx;
+
+      if (_srb.getChangePassword()) {
+        ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
+                                 ApplicationServer.SECURITY_HOST);
+
+        PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
+                                ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+        PrincipalMgrRemote pmr=pmrh.create();
+
+        TCSubject tcs=new TCSubject(0);
+
+        UserPrincipal up=pmr.getUser(_srb.getHandle());
+        pmr.editPassword(up,_srb.getPassword(),tcs);
+      }
+
+      ctx=TCContext.getInitial();
+
+      utx=(UserTransaction)ctx.lookup("javax.transaction.UserTransaction");
+      utx.begin();
+
+      UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
+      User user=uh.create();
+      user.setFirstName(_srb.getUserId().longValue(),_srb.getFirstName());
+      user.setLastName(_srb.getUserId().longValue(),_srb.getLastName());
+
+      EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
+      Email email=eh.create();
+      long email_id=email.createEmail(_srb.getUserId().longValue());
+      email.setPrimaryEmailId(_srb.getUserId().longValue(),email_id);
+      email.setAddress(email_id,_srb.getEmail());
+      email.setEmailTypeId(email_id,EMAIL_TYPE_ID_DEFAULT);
+
+      CoderHome ch=(CoderHome)ctx.lookup(CoderHome.EJB_REF_NAME);
+      Coder coder=ch.create();
+      coder.setEditorId(_srb.getUserId().longValue(),
+                        _srb.getEditorId().intValue());
+      coder.setLanguageId(_srb.getUserId().longValue(),
+                          _srb.getLanguageId().intValue());
+
+      utx.commit();
+    }
+    catch (Exception _e) {
+      _e.printStackTrace();
+      if (utx!=null) {
+        try {
+          utx.rollback();
+        }
+        catch (Exception _ex) {
+          /* log it */
+        }
+      }
+      throw(_e);
+    }
   }
 
   public static void populateCoachWithDefaults(CoachRegistrationBean _crb) {
@@ -471,6 +517,7 @@ public class RegistrationHelper {
     rsr=(ResultSetContainer.ResultSetRow)iterator.next();
 
     _crb.setUserId(new Long(_sib.getUserId()));
+    _crb.setHandle(_sib.getHandle());
 
     _crb.setFirstName((String)rsr.getItem("first_name").getResultData());
     _crb.setLastName((String)rsr.getItem("last_name").getResultData());
@@ -635,8 +682,9 @@ public class RegistrationHelper {
       EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
       Email email=eh.create();
       long email_id=email.createEmail(user_id);
-      email.setEmailTypeId(email_id,user_id,EMAIL_TYPE_ID_PRIMARY);
-      email.setAddress(email_id,user_id,_crb.getEmail());
+      email.setPrimaryEmailId(user_id,email_id);
+      email.setAddress(email_id,_crb.getEmail());
+      email.setEmailTypeId(email_id,EMAIL_TYPE_ID_DEFAULT);
 
       CoderHome ch=(CoderHome)ctx.lookup(CoderHome.EJB_REF_NAME);
       Coder coder=ch.create();
