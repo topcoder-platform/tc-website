@@ -52,12 +52,8 @@ document.sessionConfirmForm.submit();
 
             <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
                         
-            <table border="0" cellspacing="0" cellpadding="0" width="70%">
-                <tr><screen:form name="sessionConfirmForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
-                        <input type="HIDDEN" name="rp" value="" >
-                    <td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td>
-                </tr>
-            </table>
+            <screen:form name="sessionConfirmForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
+            <input type="HIDDEN" name="rp" value="" >
                         
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Session</td></tr>
@@ -74,7 +70,7 @@ document.sessionConfirmForm.submit();
                 </tr>
                 
                 <tr>
-                    <td class="testTableSubtitleEven">Candidate:</td>
+                    <td class="testTableSubtitleEven">Profile:</td>
                         <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
                         <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
                         <input type="HIDDEN" name="profileId" value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" >
@@ -105,21 +101,27 @@ document.sessionConfirmForm.submit();
                 </tr>  
 
                 <tr>
-                    <input type="HIDDEN" name="candidateEmail" value="<jsp:getProperty name="sessionInfo" property="candidateEmail" />" >
-                    <td colspan="3" class="testTableOdd">Invite candidate to Testing Application:&#160;<strong><jsp:getProperty name="sessionInfo" property="candidateEmail" /></strong></td>
-                </tr>
+                    <td colspan="3" width="100%" align="center">
+                        <table border="0" cellspacing="10" cellpadding="0">
+                            <tr>
+                                <input type="HIDDEN" name="candidateEmail" value="<jsp:getProperty name="sessionInfo" property="candidateEmail" />" >
+                                <td colspan="3" class="testTableOdd">Invite candidate to Testing Application:&#160;<strong><jsp:getProperty name="sessionInfo" property="candidateEmail" /></strong></td>
+                            </tr>
                 
-                <tr>
-                    <input type="HIDDEN" name="repEmail" value="<jsp:getProperty name="sessionInfo" property="repEmail" />" >
-                    <td colspan="3" class="testTableOdd">Send me email reminder:&#160;<strong><jsp:getProperty name="sessionInfo" property="repEmail" /></strong></td>
-                </tr>
+                            <tr>
+                                <input type="HIDDEN" name="repEmail" value="<jsp:getProperty name="sessionInfo" property="repEmail" />" >
+                                <td colspan="3" class="testTableOdd">Send me email reminder:&#160;<strong><jsp:getProperty name="sessionInfo" property="repEmail" /></strong></td>
+                            </tr>
 
-                <tr><td colspan="3"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
+                            <tr><td colspan="3"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
+                        </table>
+                    </td>
+                </tr>
             </table>
 
             <table border="0" cellspacing="10" cellpadding="0" width="70%">
                  <tr>
-                    <td><div align="center"><p class="button"><screen:servletLink processor="CancelSession" styleClass="button">Cancel</screen:servletLink>&#160;&#160;<a href="JavaScript:submitEdit()" CLASS="bodyText">Edit</a>&#160;&#160;<a href="JavaScript:submitUpdate()" CLASS="bodyText">Submit</a></p></div></td>
+                    <td><div align="center"><p class="button"><screen:servletLink processor="CancelSession" styleClass="button">Cancel</screen:servletLink>&#160;&#160;<a href="JavaScript:submitEdit()" CLASS="button">Edit</a>&#160;&#160;<a href="JavaScript:submitUpdate()" CLASS="button">Submit</a></p></div></td>
                 </screen:form></tr>
             </table>
             <p><br></p>
