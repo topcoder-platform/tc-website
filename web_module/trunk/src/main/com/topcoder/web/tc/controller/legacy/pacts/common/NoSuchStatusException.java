@@ -1,6 +1,6 @@
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.NavigationException;
 
 /**
  * This is an exception class used by the data interface bean
@@ -12,7 +12,7 @@ import com.topcoder.web.common.TCWebException;
  * @version 1.00, 03/14/2002
  */
 
-public class NoSuchStatusException extends TCWebException {
+public class NoSuchStatusException extends NavigationException {
     /**
      * Constructs a <code>NoSuchStatusException</code> object
      * with no message.
