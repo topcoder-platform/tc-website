@@ -779,9 +779,8 @@ public class MPSQASServicesBean extends BaseEJB
         sqlStr.append(             ",status ");
         sqlStr.append(             ",result_type_id ");
         sqlStr.append(             ",problem_text ");
-        sqlStr.append(             ",modify_date ");
         sqlStr.append(             ",param_types) ");
-        sqlStr.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, current, ?)");
+        sqlStr.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         ps=conn.prepareStatement(sqlStr.toString());
         ps.setInt(1,problemId);
         ps.setString(2,info.getClassName());
@@ -919,7 +918,6 @@ public class MPSQASServicesBean extends BaseEJB
         sqlStr.append(    ",result_type_id = ? ");
         sqlStr.append(    ",proposed_difficulty_id = ? ");
         sqlStr.append(    ",proposed_division_id = ? ");
-        sqlStr.append(    ",modify_date = current ");
         sqlStr.append("WHERE problem_id = ?");
         ps = conn.prepareStatement(sqlStr.toString());
         ps.setString(1, info.getClassName());
@@ -1270,7 +1268,7 @@ public class MPSQASServicesBean extends BaseEJB
       }
 
       backUpProblemStatement(problemId, userId);
-      sqlStr.append("UPDATE problem SET problem_text = ?, modify_date = current ");
+      sqlStr.append("UPDATE problem SET problem_text = ? ");
       sqlStr.append(" WHERE problem_id = ?");
       ps = conn.prepareStatement(sqlStr.toString());
       ps.setBytes(1, DBMS.serializeTextString(statement));
