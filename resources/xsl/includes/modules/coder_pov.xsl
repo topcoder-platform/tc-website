@@ -12,8 +12,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-<!--                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />-->
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=252022"><strong>AleaActaEst</strong></a><br/>
+                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> 
 
@@ -22,16 +22,15 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm169_prob">SRM 169 - Problem Set &amp; Analysis</a></font></strong><br />
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tco03_online_rd_3">SRM 169 - Problem Set &amp; Analysis</a></font></strong><br />
                         Tuesday, October 28, 2003</p>
 
 <p> 
-The fact that 507 coders (or should I say top coders) have registered for 
-this match is quite impressive. DIV I coders lived up to their high standard 
-and the submission and success rates where pretty solid. But I think there 
-was one other quite impressive thing if not a bit suprising and frustrating....
-
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm169_prob</xsl:attribute><strong>full&#160;story</strong></a>
+The best-of-the-best battled for the 50 round 4 slots.  Unlike previous rounds, slow-yet-cautious coding 
+practices prevailed, with many submissions falling to challenges and systests.  Most quickly submitted the 
+easy problem, but had troubles with the medium.  Valiant coders who submitted the medium had even greater 
+woes ahead.
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=tco03_online_rd_3</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
