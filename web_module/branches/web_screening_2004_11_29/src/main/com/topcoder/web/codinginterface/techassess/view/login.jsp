@@ -54,7 +54,7 @@ function submitEnter(e) {
                             <br/><br/>
                         </p>
 
-                        <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method=post name=loginForm>
+                        <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method=post name=loginForm target="_top">
                             <tc-webtag:hiddenInput name="<%=Constants.MODULE%>" value="<%=Constants.RP_LOGIN%>"/>
                             <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>"/>
                             <table width="400" cellspacing=0 cellpadding=0 border=0 class=tableFrame>
@@ -73,7 +73,7 @@ function submitEnter(e) {
                                 </tr>
                                 <tr>
                                     <td class=tableText align=right>&#160;</td>
-                                    <td class=loginRight><a href="javascript: document.loginForm.submit();"><img src="/i/corp/screening/buttonGo.gif" alt="" target="_top"/></a></td>
+                                    <td class=loginRight><a href="javascript: document.loginForm.submit();"><img src="/i/corp/screening/buttonGo.gif" alt=""/></a></td>
                                 </tr>
                                 <tr><td class=tableText colspan=2>&#160;</td></tr>
                             </table>
