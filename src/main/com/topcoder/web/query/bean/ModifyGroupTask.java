@@ -53,6 +53,7 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
 
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             checkGroupDesc(getGroupDesc());
+            checkGroupId(getGroupId(), cg);
             if (!super.hasErrors()) {
                 if (isNewGroup()) {
                     cg.createCommandGroup(getGroupDesc());
@@ -88,7 +89,17 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
 
     private void checkGroupDesc(String groupDesc) {
         if (super.isEmpty(groupDesc)) {
-            super.addError(Constants.GROUP_DESC_PARAM, "Invalid Group Description");
+            super.addError(Constants.GROUP_DESC_PARAM, "You must specify a group description");
+        } else if (groupDesc.length() > 100) {
+            super.addError(Constants.GROUP_DESC_PARAM, "Invalid Group Description, too long");
+        }
+    }
+
+    private void checkGroupId(int groupId, CommandGroup cg) throws Exception {
+        if (!isNewGroup()) {
+            if (cg.getCommandGroupName(groupId)==null) {
+                super.addError(Constants.GROUP_ID_PARAM, "Invalid Group Id");
+            }
         }
     }
 

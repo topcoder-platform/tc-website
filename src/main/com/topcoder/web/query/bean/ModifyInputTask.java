@@ -59,6 +59,7 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
             checkInputCode(getInputCode(), i);
             checkInputDesc(getInputDesc());
             checkDataTypeId(getDataTypeId());
+            checkInputId(getInputId(), i);
             if (!super.hasErrors()) {
                 if (isNewInput()) {
                     i.createInput(getInputCode(), getDataTypeId(), getInputDesc());
@@ -91,7 +92,7 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
             try {
                 setInputId(Long.parseLong(value));
             } catch (NumberFormatException e) {
-                super.addError(Constants.INPUT_ID_PARAM, e);
+                super.addError(paramName, e);
             }
         } else if (paramName.equalsIgnoreCase(Constants.INPUT_DESC_PARAM)) {
             setInputDesc(value);
@@ -101,22 +102,26 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
             try {
                 setDataTypeId(Integer.parseInt(value));
             } catch (NumberFormatException e) {
-                super.addError(Constants.DATA_TYPE_ID_PARAM, e);
+                super.addError(paramName, e);
             }
         }
     }
 
     private void checkInputCode(String inputCode, Input i) throws Exception {
         if (super.isEmpty(inputCode)) {
-            super.addError(Constants.INPUT_CODE_PARAM, "Invalid Input Code");
-        } else if (!i.inputCodeExists(inputCode)) {
-            super.addError(Constants.QUERY_NAME_PARAM, "Input Code does not exist");
+            super.addError(Constants.INPUT_CODE_PARAM, "You must enter an input code");
+        } else if (i.inputCodeExists(inputCode) && isNewInput()) {
+            super.addError(Constants.INPUT_CODE_PARAM, "Input Code already exists");
+        } else if (inputCode.length() > 25) {
+            super.addError(Constants.INPUT_CODE_PARAM, "Input Code too long");
         }
     }
 
     private void checkInputDesc(String inputDesc) {
         if (super.isEmpty(inputDesc)) {
-            super.addError(Constants.COLUMN_INDEX_PARAM, "Invalid Query Name");
+            super.addError(Constants.INPUT_DESC_PARAM, "You must enter an input description");
+        } else if (inputDesc.length() > 100) {
+            super.addError(Constants.INPUT_DESC_PARAM, "Input description too long");
         }
     }
 
@@ -127,6 +132,14 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
         }
         if (!found) {
             super.addError(Constants.DATA_TYPE_ID_PARAM,  "Invalid data type");
+        }
+    }
+
+    private void checkInputId(long inputId, Input i) throws Exception {
+        if (!isNewInput()) {
+            if (i.getInputCode(inputId)==null) {
+                super.addError(Constants.INPUT_ID_PARAM, "Invalid input id");
+            }
         }
     }
 

@@ -4,6 +4,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.Authentication;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.LinkBean;
+import com.topcoder.web.query.common.DatabaseBean;
 
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
@@ -166,7 +167,7 @@ public abstract class BaseTask implements Task, Serializable {
     }
 
     boolean isEmpty(String s) {
-        return s != null && s.trim().length() > 0;
+        return !(s != null && s.trim().length() > 0);
     }
 
     public boolean isInternalResource() {
