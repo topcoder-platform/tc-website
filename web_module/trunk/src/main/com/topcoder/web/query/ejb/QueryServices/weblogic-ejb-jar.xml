@@ -3,20 +3,12 @@
 "http://www.bea.com/servers/wls510/dtd/weblogic-ejb-jar.dtd">
 <weblogic-ejb-jar>
    <weblogic-enterprise-bean>
-      <ejb-name>QueryAuthentication</ejb-name>
-      <caching-descriptor>
-         <max-beans-in-free-pool>200</max-beans-in-free-pool>
-         <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
-      </caching-descriptor>
-      <jndi-name>com.topcoder.web.query.ejb.QueryServices.QueryAuthentication</jndi-name>
-   </weblogic-enterprise-bean>
-   <weblogic-enterprise-bean>
       <ejb-name>Query</ejb-name>
       <caching-descriptor>
          <max-beans-in-free-pool>200</max-beans-in-free-pool>
          <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
       </caching-descriptor>
-      <jndi-name>com.topcoder.web.query.ejb.QueryServices.Query</jndi-name>
+      <jndi-name>com.topcoder.web.query.ejb.QueryServices.QueryHome</jndi-name>
    </weblogic-enterprise-bean>
    <weblogic-enterprise-bean>
       <ejb-name>QueryInput</ejb-name>
@@ -24,7 +16,7 @@
          <max-beans-in-free-pool>200</max-beans-in-free-pool>
          <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
       </caching-descriptor>
-      <jndi-name>com.topcoder.web.query.ejb.QueryServices.QueryInput</jndi-name>
+      <jndi-name>com.topcoder.web.query.ejb.QueryServices.QueryInputHome</jndi-name>
    </weblogic-enterprise-bean>
    <weblogic-enterprise-bean>
       <ejb-name>Command</ejb-name>
@@ -32,7 +24,7 @@
          <max-beans-in-free-pool>200</max-beans-in-free-pool>
          <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
       </caching-descriptor>
-      <jndi-name>com.topcoder.web.query.ejb.QueryServices.Command</jndi-name>
+      <jndi-name>com.topcoder.web.query.ejb.QueryServices.CommandHome</jndi-name>
    </weblogic-enterprise-bean>
    <weblogic-enterprise-bean>
       <ejb-name>CommandGroup</ejb-name>
@@ -40,7 +32,7 @@
          <max-beans-in-free-pool>200</max-beans-in-free-pool>
          <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
       </caching-descriptor>
-      <jndi-name>com.topcoder.web.query.ejb.QueryServices.CommandGroup</jndi-name>
+      <jndi-name>com.topcoder.web.query.ejb.QueryServices.CommandGroupHome</jndi-name>
    </weblogic-enterprise-bean>
    <weblogic-enterprise-bean>
       <ejb-name>Input</ejb-name>
@@ -48,7 +40,7 @@
          <max-beans-in-free-pool>200</max-beans-in-free-pool>
          <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
       </caching-descriptor>
-      <jndi-name>com.topcoder.web.query.ejb.QueryServices.Input</jndi-name>
+      <jndi-name>com.topcoder.web.query.ejb.QueryServices.InputHome</jndi-name>
    </weblogic-enterprise-bean>
    <weblogic-enterprise-bean>
       <ejb-name>CommandQuery</ejb-name>
@@ -56,6 +48,6 @@
          <max-beans-in-free-pool>200</max-beans-in-free-pool>
          <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
       </caching-descriptor>
-      <jndi-name>com.topcoder.web.query.ejb.QueryServices.CommandQuery</jndi-name>
+      <jndi-name>com.topcoder.web.query.ejb.QueryServices.CommandQueryHome</jndi-name>
    </weblogic-enterprise-bean>
 </weblogic-ejb-jar>
