@@ -147,7 +147,7 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 
 <!-- Register at TCS -->
 						   <p>
-						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review">Inquire for the project</a></strong> to be eligible to be selected as one of the two (2) developers for this project.  Each development submission receiving a score of fifty (50) or greater will receive the minimum development payment.  
+						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review%20Business%20Logic">Inquire for the project</a></strong> to be eligible to be selected as one of the two (2) developers for this project.  Each development submission receiving a score of fifty (50) or greater will receive the minimum development payment.  
 						</p>
 						
                             <p>
