@@ -797,14 +797,6 @@
 
 
     <!-- screening application specific targets go here -->
-    <target name="deploy_screening" depends="compile">
-        <delete dir="${war.dir}"/>
-        <mkdir dir="${war.dir}"/>
-        <antcall target="war_query"/>
-        <antcall target="deploy-screening"/>
-        <antcall target="screening-ejbs"/>
-    </target>
-
     <target name="screening-ejbs" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="ScreeningCoder"/>
@@ -844,43 +836,6 @@
         </antcall>
     </target>
 
-
-
-
-    <target name="deploy-screening" depends="compile">
-        <war warfile="${war.dir}/screening.war" webxml="${resources}/screening/web.xml">
-            <fileset dir="${java}/com/topcoder/web/screening/view">
-                <include name="**/*.jsp"/>
-                <include name="**/*.jpg"/>
-                <include name="**/*.gif"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/screening/"/>
-                <include name="com/topcoder/web/common/"/>
-                <include name="com/topcoder/shared/util/"/>
-                <include name="com/topcoder/shared/docGen/"/>
-                <include name="com/topcoder/shared/dataAccess/"/>
-                <include name="com/topcoder/shared/security/"/>
-                <include name="com/topcoder/shared/language/"/>
-                <include name="com/topcoder/shared/problem/"/>
-                <include name="com/topcoder/shared/problemParser/"/>
-                <include name="com/topcoder/shared/netCommon/"/>
-                <include name="com/topcoder/common/web/"/>
-
-                <exclude name="com/topcoder/web/screening/ejb/"/>
-            </classes>
-
-            <classes dir="${resources}">
-                <include name="ApplicationServer.properties"/>
-            </classes>
-
-            <webinf dir="${resources}/screening">
-                <include name="screening.tld"/>
-            </webinf>
-        </war>
-        <unwar src="${war.dir}/screening.war" dest="${public_html}/screening/" overwrite="yes"/>
-        <delete dir="${public_html}/screening/META-INF"/>
-    </target>
     <!-- end of screening application specific targets -->
 
 
