@@ -83,6 +83,26 @@ boolean student = true;
 String editor = objCoder.editor_id.toString();
 String language = objCoder.language_id.toString();
 
+
+StateBean beanState = new StateBean();
+
+Lookup states;
+try {
+    states = beanState.listStateCodeStateName();
+} catch (SQLException exc) {
+//xxx todo: add exception handling
+}
+
+CountryBean beanCountry = new CountryBean();
+Lookup countries;
+try {
+    countries = beanCountries.listCountryCodeCountryName();
+} catch (SQLException ecx) {
+//xxx todo: add exception handling
+}
+
+
+
 %>
 
 <FORM NAME="frm" ACTION="<%= TCESController.ALIAS %>?task=<%= tces.getCurrentNav().getTaskKey() %>" METHOD="POST">
@@ -171,63 +191,8 @@ ALIGN="left" VALIGN="middle"></TD>
 SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="statTextBig">
         
-    <SELECT NAME="state" CLASS="dropdown" ONCHANGE="changeCountry()">
-<OPTION VALUE=""></OPTION><OPTION VALUE="ZZ">Not In US</OPTION>
-<OPTION VALUE="AL">Alabama</OPTION>
-<OPTION VALUE="AK">Alaska</OPTION>
-<OPTION VALUE="AZ">Arizona</OPTION>
-<OPTION VALUE="AR">Arkansas</OPTION>
-<OPTION VALUE="CA">California</OPTION>
-<OPTION VALUE="CO">Colorado</OPTION>
-<OPTION VALUE="CT">Connecticut</OPTION>
-<OPTION VALUE="DE">Delaware</OPTION>
-<OPTION VALUE="DC">District of Columbia</OPTION>
-<OPTION VALUE="FL">Florida</OPTION>
-<OPTION VALUE="GA">Georgia</OPTION>
-<OPTION VALUE="HI">Hawaii</OPTION>
-<OPTION VALUE="ID">Idaho</OPTION>
-<OPTION VALUE="IL">Illinois</OPTION>
-<OPTION VALUE="IN">Indiana</OPTION>
-<OPTION VALUE="IA">Iowa</OPTION>
-<OPTION VALUE="KS">Kansas</OPTION>
-<OPTION VALUE="KY">Kentucky</OPTION>
-<OPTION VALUE="LA">Louisiana</OPTION>
-<OPTION VALUE="ME">Maine</OPTION>
-<OPTION VALUE="MD">Maryland</OPTION>
-<OPTION VALUE="MA">Massachusetts</OPTION>
-<OPTION VALUE="MI">Michigan</OPTION>
-<OPTION VALUE="MN">Minnesota</OPTION>
-<OPTION VALUE="MS">Mississippi</OPTION>
-<OPTION VALUE="MO">Missouri</OPTION>
-<OPTION VALUE="MT">Montana</OPTION>
-<OPTION VALUE="NE">Nebraska</OPTION>
-<OPTION VALUE="NV">Nevada</OPTION>
-<OPTION VALUE="NH">New Hampshire</OPTION>
-<OPTION VALUE="NJ">New Jersey</OPTION>
-<OPTION VALUE="NM">New Mexico</OPTION>
-<OPTION VALUE="NY">New York</OPTION>
-<OPTION VALUE="NC">North Carolina</OPTION>
-<OPTION VALUE="ND">North Dakota</OPTION>
-<OPTION VALUE="ZZ">Not in US</OPTION>
-<OPTION VALUE="OH">Ohio</OPTION>
-<OPTION VALUE="OK">Oklahoma</OPTION>
-<OPTION VALUE="OR">Oregon</OPTION>
-<OPTION VALUE="PA">Pennsylvania</OPTION>
-<OPTION VALUE="PR">Puerto Rico</OPTION>
-<OPTION VALUE="RI">Rhode Island</OPTION>
-<OPTION VALUE="SC">South Carolina</OPTION>
-<OPTION VALUE="SD">South Dakota</OPTION>
-<OPTION VALUE="TN">Tennessee</OPTION>
-<OPTION VALUE="TX">Texas</OPTION>
-<OPTION VALUE="UT">Utah</OPTION>
-<OPTION VALUE="VT">Vermont</OPTION>
-<OPTION VALUE="VI">Virgin Islands</OPTION>
-<OPTION VALUE="VA">Virginia</OPTION>
-<OPTION VALUE="WA">Washington</OPTION>
-<OPTION VALUE="WV">West Virginia</OPTION>
-<OPTION VALUE="WI">Wisconsin</OPTION>
-<OPTION VALUE="WY">Wyoming</OPTION>
-</SELECT>
+<%= states.getSelectBox(state, "state", "dropdown", "changeCountry()") %>
+
 </TD>
   </TR>
     <TR>
