@@ -205,6 +205,10 @@ public class MainServlet extends HttpServlet {
 
     private void sendToPage(HttpServletRequest request, HttpServletResponse response, String page, boolean forward)
             throws ServletException, IOException {
+        if( page == null ) {
+            log.debug("null URL");
+            return;
+        }
         log.debug((forward?"forwarding ":"redirecting ") + "to " + page);
         if (forward) {
             getServletContext().getRequestDispatcher(page).forward(request, response);
