@@ -825,142 +825,24 @@
                 <xsl:call-template name="div_line_row"/>
 
                 <tr>
-                    <td valign="top" bgcolor="#333333"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-                    <td valign="middle" height="18" class="statTextBig" bgcolor="#333333"><font color="#666666">&#160;for Members:</font></td>
-                    <td valign="top" bgcolor="#333333"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-                </tr>
-               
-               <xsl:call-template name="div_line_row"/>
-
-<!-- For Members -->
-                <tr>
                     <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
                         <xsl:when test="/TC/Command='membr_whyjoin'">graybv_lite_bg</xsl:when>
                         <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_whyjoin</xsl:attribute>Why membership?</a>
+                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_whyjoin</xsl:attribute>Members</a>
                     </td>
                 </tr>
                 
                 <xsl:call-template name="div_line_row"/>
-
-                <tr>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
-                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-                        <xsl:when test="/TC/Command='membr_ratings'">graybv_lite_bg</xsl:when>
-                        <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_ratings</xsl:attribute>What are ratings?</a>
-                        </td></tr>
-              
-                <xsl:call-template name="div_line_row"/>
-
-                <tr>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
-                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-                        <xsl:when test="/TC/Command='membr_divisions'">graybv_lite_bg</xsl:when>
-                        <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_divisions</xsl:attribute>What are divisions?</a>
-                        </td></tr>
-                
-                <xsl:call-template name="div_line_row"/>
-
-                <tr>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
-                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-                        <xsl:when test="/TC/Command='membr_match'">graybv_lite_bg</xsl:when>
-                        <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_match</xsl:attribute>What is a match?</a>
-                        </td></tr>
-             
-                <xsl:call-template name="div_line_row"/>
-
-                <tr>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
-                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-                        <xsl:when test="/TC/Command='membr_tournament'">graybv_lite_bg</xsl:when>
-                        <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_tournament</xsl:attribute>What is a tournament?</a>
-                        </td></tr>
-               
-               <xsl:call-template name="div_line_row"/>
-
-                <tr>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
-                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-                        <xsl:when test="/TC/Command='membr_referrals'">graybv_lite_bg</xsl:when>
-                        <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_referrals</xsl:attribute>What are referrals?</a>
-                        </td></tr>
-              
-                <xsl:call-template name="div_line_row"/>
-
-                <tr>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
-                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-                        <xsl:when test="/TC/Command='membr_comm'">graybv_lite_bg</xsl:when>
-                        <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_comm</xsl:attribute>What is the community?</a>
-                        </td></tr>
-              
-                <xsl:call-template name="div_line_row"/>
-
-                <tr>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
-                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-                        <xsl:when test="/TC/Command='membr_comm'">graybv_lite_bg</xsl:when>
-                        <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>What is TCES?</a>
-                        </td></tr>
-             
-                <xsl:call-template name="div_line_row"/>
-
-                <tr>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
-                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-                        <xsl:when test="/TC/Command='membr_comm'">graybv_lite_bg</xsl:when>
-                        <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=jobs</xsl:attribute>Jobs at TopCoder</a>
-                    </td>
-                </tr>
-              
-                <xsl:call-template name="div_line_row"/>
-
-<!-- For Sponsors -->
-                <tr>
-                    <td valign="top" bgcolor="#333333"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-                    <td valign="middle" height="18" class="statTextBig" bgcolor="#333333"><font color="#666666">&#160;for Sponsors:</font></td>
-                    <td valign="top" bgcolor="#333333"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-                </tr>
-               
-               <xsl:call-template name="div_line_row"/>
 
                 <tr>
                     <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
                         <xsl:when test="/TC/Command='spons_srm'">graybv_lite_bg</xsl:when>
                         <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_srm</xsl:attribute>Single Round Match Package</a>
+                        &#160;&#160;&#160;&#160;&#160;<A class="statText" href="http://corporate.topcoder.com/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=index">Sponsorship</A>
                         </td></tr>
                
-                <xsl:call-template name="div_line_row"/>
-
-                <tr>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
-                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-                        <xsl:when test="/TC/Command='spons_tourny'">graybv_lite_bg</xsl:when>
-                        <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_tourny</xsl:attribute>Tournament Package</a>
-                        </td></tr>
-             
-                <xsl:call-template name="div_line_row"/>
-
-<!-- For Employers -->
-                <tr>
-                    <td valign="top" bgcolor="#333333"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-                    <td valign="middle" height="18" class="statTextBig" bgcolor="#333333"><font color="#666666">&#160;for Employers:</font></td>
-                    <td valign="top" bgcolor="#333333"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-                </tr>
-                
                 <xsl:call-template name="div_line_row"/>
 
                 <tr>
@@ -968,21 +850,10 @@
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
                         <xsl:when test="/TC/Command='nopagehere'">graybv_lite_bg</xsl:when>
                         <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>[TC] Employment Services</a>
+                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>Employment Services</a>
                     </td>
                 </tr>
                
-                <xsl:call-template name="div_line_row"/>
-
-                <tr>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
-                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-                        <xsl:when test="/TC/Command='empl_difference'">graybv_lite_bg</xsl:when>
-                        <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=empl_difference</xsl:attribute>Competition vs Certification</a>
-                    </td>
-                </tr>
-             
                 <xsl:call-template name="div_line_row"/>
 
                 <xsl:call-template name="press_row"/>
