@@ -92,32 +92,34 @@ public class ResumeServicesBean extends BaseEJB {
             throws RemoteException{
         log.debug("ejb:ResumeServices:putResume("+userID+","+fileType+","+fileName+","+file.length+") called...");
         Connection conn = null;
-        PreparedStatement ps = null;
+        PreparedStatement psSel = null;
+        PreparedStatement psUpd = null;
+        PreparedStatement psIns = null;
         ResultSet rs = null;
         try{
             conn = DBMS.getConnection();
-            ps = conn.prepareStatement(GET_RESUME_ID);
-            ps.setInt(1,userID);
-            rs = ps.executeQuery();
-
+            psSel = conn.prepareStatement(GET_RESUME_ID);
+            psSel.setInt(1,userID);
+            rs = psSel.executeQuery();
+           
+            int numUpdated = 0; 
             if (rs.next()) {
-                ps.close();
-                ps = conn.prepareStatement(UPDATE_RESUME_QUERY);
-                ps.setString(1, fileName);
-                ps.setInt(2, fileType);
-                ps.setBytes(3, file);
-                ps.setInt(4, rs.getInt("resume_id"));
+                psUpd = conn.prepareStatement(UPDATE_RESUME_QUERY);
+                psUpd.setString(1, fileName);
+                psUpd.setInt(2, fileType);
+                psUpd.setBytes(3, file);
+                psUpd.setInt(4, rs.getInt("resume_id"));
+                numUpdated = psUpd.executeUpdate();
             } else {
-                ps.close();
-                ps = conn.prepareStatement(INSERT_RESUME_QUERY);
-                ps.setInt(1, DBMS.getSeqId(conn,DBMS.RESUME_SEQ));
-                ps.setInt(2, userID);
-                ps.setString(3, fileName);
-                ps.setInt(4, fileType);
-                ps.setBytes(5, file);
+                psIns = conn.prepareStatement(INSERT_RESUME_QUERY);
+                psIns.setInt(1, DBMS.getSeqId(conn,DBMS.RESUME_SEQ));
+                psIns.setInt(2, userID);
+                psIns.setString(3, fileName);
+                psIns.setInt(4, fileType);
+                psIns.setBytes(5, file);
+                numUpdated = psIns.executeUpdate();
             }
 
-            int numUpdated = ps.executeUpdate();
 
             if (numUpdated != 1) {
                 throw new Exception(numUpdated + " columns where changed, when 1 was expected.");
@@ -131,22 +133,14 @@ public class ResumeServicesBean extends BaseEJB {
             e.printStackTrace();
             throw new RemoteException(e.getMessage());
         } finally {
-            try {
-                if (ps != null) ps.close();
-            } catch (Exception ignore) {
-                log.error("ps   close problem");
-            }
-            try {
-                 if (rs != null) rs.close();
-             } catch (Exception ignore) {
-                 log.error("rs   close problem");
-             }
-             try {
-                if (conn != null) conn.close();
-            } catch (Exception ignore) {
-                log.error("conn close problem");
-            }
-            ps = null;
+            try { if (psSel != null) psSel.close(); } catch (Exception ignore) { log.error("psSel   close problem"); }
+            try { if (psUpd != null) psUpd.close(); } catch (Exception ignore) { log.error("psUpd   close problem"); }
+            try { if (psIns != null) psIns.close(); } catch (Exception ignore) { log.error("psIns   close problem"); }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("rs   close problem"); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("conn close problem"); }
+            psSel = null;
+            psUpd = null;
+            psIns = null;
             rs = null;
             conn = null;
         }
