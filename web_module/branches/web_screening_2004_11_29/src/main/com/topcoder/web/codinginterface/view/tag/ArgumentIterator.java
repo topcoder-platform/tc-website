@@ -25,7 +25,6 @@ public class ArgumentIterator extends BodyTagSupport {
 
     public static final String INDEX = "argumentIndex";
     public static final String ARGUMENT = "argument";
-    public static final String INPUT = "inputElement";
     public static final String DIMENSION = "argumentDimension";
 
     private Problem problem = null;
@@ -74,15 +73,6 @@ public class ArgumentIterator extends BodyTagSupport {
             pageContext.setAttribute(ARGUMENT, new DataTypeRenderer(arguments[index]).toPlainText(language),
                     PageContext.PAGE_SCOPE);
             pageContext.setAttribute(DIMENSION, String.valueOf(arguments[index].getDimension()), PageContext.PAGE_SCOPE);
-            String input = null;
-            if (arguments[index].getDimension() > 0) {
-                input = "<a href=\"Javascript:launchArray(" + index +
-                        ");\"><img src=\"/i/corp/screening/buttonCreate.gif\" alt=\"Create\"/></a>";
-            } else {
-                String name = CodingInterfaceConstants.TEST_ARGUMENT_INPUT + index;
-                input = "<input type=\"text\" name=\"" + name + "\" size=\"20\" maxlength=\"50\" value=\"\">";
-            }
-            pageContext.setAttribute(INPUT, input, PageContext.PAGE_SCOPE);
             index++;
             return EVAL_BODY_TAG;
         } else {
