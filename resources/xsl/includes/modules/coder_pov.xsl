@@ -12,8 +12,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-<!--                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />-->
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br/>
+                        <img src="/i/m/antimatter_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=275071"><strong>antimatter</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> 
 
@@ -22,18 +22,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tco03_online_rd_4">TCO - Online Round 4 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, November 5, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm170_prob">SRM 170 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Saturday, November 8, 2003</p>
 
 <p> 
-Call it nerves.  Call it writers pulling out all the stops.
-Call it Round 4 of the TopCoder Open!  Faced with an Easy problem
-that would have been a Medium on any other night, and a Medium
-problem that would have been a Hard on any other night, 
-50 of TopCoder's top coders managed 37 correct
-submissions. That's 37 total. On all three problems combined.
+The submissions started quickly as many Divison 2 coders finished their 250-point problem in just a few minutes, but 
+many of them ran into trouble with their 500-pointer, and only a handful finished the 1000 successfully, leaving the median 
+score for Division 2 at just over 215 points.  On the Division 1 side, things were slow out of the gate for most coders as they 
+worked on their 250, which was the same problem as the Division 2 500, and the median score there was about 240.
 
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=tco03_online_rd_4</xsl:attribute><strong>full&#160;story</strong></a>
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm170_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
