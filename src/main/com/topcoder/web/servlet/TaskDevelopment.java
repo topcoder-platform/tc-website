@@ -77,6 +77,13 @@ public final class TaskDevelopment {
                     msgText.append("\n\n");
                     msgText.append("Hours per Week:  ");
                     msgText.append(workWeek);
+
+                    User user = nav.getUser();
+                    CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
+                    int rating = coder.getRating().getRating();
+
+                    msgText.append("\n\nRating:\n");
+                    msgText.append(rating);
                     msgText.append("\n\nExperience:\n");
                     msgText.append(experience);
                     msgText.append("\n\nComment:\n");
