@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.demographic;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+
 import javax.ejb.EJBObject;
 import javax.ejb.EJBException;
 import java.rmi.RemoteException;
@@ -12,4 +14,5 @@ public interface Response extends EJBObject {
 
     public void setResponseText(long userId, long questionId, String text, String dataSource) throws RemoteException, EJBException;
 
+    public ResultSetContainer getResponses(long userId, String dataSource) throws RemoteException, EJBException;
 }
