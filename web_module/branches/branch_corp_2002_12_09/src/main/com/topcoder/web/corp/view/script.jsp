@@ -102,8 +102,14 @@ function sponsorLinkWindow(spons,nam,top,lef,wid,hei)
   }
   function clearForm(form){
     for(i=0;i<form.elements.length; ++i) {
-      if( form.elements[i].type=='text' || form.elements[i].type=='password' ) {
-        form.elements[i].value='';
+      if( form.elements[i].type == 'text' || form.elements[i].type == 'password' ) {
+        form.elements[i].value= '';
+      }
+      else if( form.elements[i].type == 'select-one' ) {
+        form.elements[i].selectedIndex = 0;
+      }
+      else if( form.elements[i].type == 'checkbox' ) {
+        form.elements[i].checked=false;
       }
     }
   }
