@@ -35,7 +35,6 @@
                 <tr><td id="<%=level2.equals("overview")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=about&d2=index">Overview</a></td></tr>
                 <tr><td id="<%=level2.equals("whyjoin")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=about&d2=whyjoin">Why Join TopCoder?</a></td></tr>
                 <tr><td id="<%=level2.equals("jobs")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=about&d2=jobs">Working at TopCoder</a></td></tr>
-                <tr><td id="<%=level2.equals("student_rep")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=about&d2=student_rep">Student Reps</a></td></tr>
                 <tr><td id="<%=level2.equals("terms")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=about&d2=terms">Terms, Revisions</a></td></tr>
                  <tr><td id="<%=level2.equals("privacy")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=about&d2=privacy">Privacy Policy</a></td></tr>
             <% } %>
