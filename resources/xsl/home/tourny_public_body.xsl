@@ -236,9 +236,10 @@ to come...<A HREF="/?t=statistics&amp;c=srm90_lessons" CLASS="bodyGeneric">full 
     </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
-    <!-- <a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=home','Citrix','1','1','680','489')"><IMG SRC="/i/sponspromo_citrix.gif" ALT="" WIDTH="244" HEIGHT="172" BORDER="0"/></a><BR/><BR/> -->
-<A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/promo_teams.gif" WIDTH="244" HEIGHT="81" BORDER="0"/></A><BR/>
-<A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/promo_jobs.gif" WIDTH="244" HEIGHT="81" BORDER="0"/></A>
+    <!--<a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=home','Citrix','1','1','680','489')">-->
+    <A HREF="/?ContestId=4180&amp;t=schedule&amp;c=srm"><IMG SRC="/i/sponspromo_motorola.gif" ALT="" WIDTH="244" HEIGHT="172" BORDER="0"/></A><BR/><BR/>
+<!--<A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/promo_teams.gif" WIDTH="244" HEIGHT="81" BORDER="0"/></A><BR/>
+<A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/promo_jobs.gif" WIDTH="244" HEIGHT="81" BORDER="0"/></A>-->
 <xsl:call-template name="top_10_coders"/>
 
            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
