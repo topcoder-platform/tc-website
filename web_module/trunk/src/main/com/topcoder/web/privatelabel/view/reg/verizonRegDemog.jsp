@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.privatelabel.view.tag.DemographicInput" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="/privatelabel.tld" prefix="pl" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -34,12 +35,12 @@
             </tr>
 
             <%-- todo figure out something for this error stuff --%>
-            <tr>
-                <td colspan="2">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.FILE_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
-                </td>
-            </tr>
             <pl:questionIterator id="question" list="<%=questionList%>">
+                <tr>
+                    <td colspan="2">
+                        <tc-webtag:errorIterator id="err" name="<%=DemographicInput.PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                </tr>
                 <tr>
                     <td align="right">
                         <%=question.getText()%>
