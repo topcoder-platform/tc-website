@@ -89,6 +89,26 @@
             <description></description>
         </init-param>
         <init-param>
+            <param-name>google_reg_page</param-name>
+            <param-value>/reg/googleReg.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>google_reg_demog_page</param-name>
+            <param-value>/reg/googleRegDemog.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>google_reg_confirm_page</param-name>
+            <param-value>/reg/googleRegConfirm.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>google_reg_success_page</param-name>
+            <param-value>/reg/googleRegSuccess.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
             <param-name>default_page</param-name>
             <param-value>/index.jsp</param-value>
             <description></description>
@@ -268,23 +288,43 @@
             <description></description>
         </init-param>
         <init-param>
-            <param-name>full_reg_main</param-name>
-            <param-value>FullReg</param-value>
+            <param-name>verizon_reg_main</param-name>
+            <param-value>VerizonReg</param-value>
             <description></description>
         </init-param>
         <init-param>
-            <param-name>full_reg_demog</param-name>
-            <param-value>FullRegDemog</param-value>
+            <param-name>verizon_reg_demog</param-name>
+            <param-value>VerizonRegDemog</param-value>
             <description></description>
         </init-param>
         <init-param>
-            <param-name>full_reg_confirm</param-name>
-            <param-value>FullRegConfirm</param-value>
+            <param-name>verizon_reg_confirm</param-name>
+            <param-value>VerizonRegConfirm</param-value>
             <description></description>
         </init-param>
         <init-param>
-            <param-name>full_reg_submit</param-name>
-            <param-value>FullRegSubmit</param-value>
+            <param-name>verizon_reg_submit</param-name>
+            <param-value>VerizonRegSubmit</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>google_reg_main</param-name>
+            <param-value>GoogleReg</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>google_reg_demog</param-name>
+            <param-value>GoogleRegDemog</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>google_reg_confirm</param-name>
+            <param-value>GoogleRegConfirm</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>google_reg_submit</param-name>
+            <param-value>GoogleRegSubmit</param-value>
             <description></description>
         </init-param>
 
