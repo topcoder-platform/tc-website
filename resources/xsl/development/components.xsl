@@ -188,22 +188,22 @@
                             
                            <!-- <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>1st Place</strong></td></tr>-->
 
-                            <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: <span class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=264803"><strong>zimmy</strong></a></span></strong></td></tr>
+                            <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: <span class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261390"><strong>Sharakan</strong></a></span></strong></td></tr>
 
                             <tr><td height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
                             <tr valign="top">
 <!--                        <td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=299904" class="coderTextRed"><img src="/i/m/mishagam_big.jpg" alt="None" width="62" height="70" border="0" hspace="5" vspace="5" /></a></td>-->
                                 <td class="statText" rowspan="5" width="5"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
-                                <td class="statText" width="65%">Developer Level:</td>
+                                <td class="statText" width="65%">Designer Level:</td>
                                 <td class="statText" align="right" width="10%">I</td>
                                 <td class="statText" width="25%"></td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="statText">Rating:</td>
-                                <td class="statText" align="right">1373</td>
-                                <td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=264803" class="statText">[ ratings history ]</a></td>
+                                <td class="statText" align="right">1140</td>
+                                <td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=261390" class="statText">[ ratings history ]</a></td>
                             </tr>
 
                             <tr valign="top">
@@ -214,13 +214,13 @@
 
                             <tr valign="top">
                                 <td class="statText">Review Board Score for this Project:</td>
-                                <td class="statText" align="right">87.48</td>
+                                <td class="statText" align="right">89.25</td>
                                 <td class="statText"></td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="statText">Total Submissions for this Project:</td>
-                                <td class="statText" align="right">2</td>
+                                <td class="statText" align="right">1</td>
                                 <td class="statText"></td>
                             </tr>
                             
@@ -276,14 +276,14 @@
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="middle">
                     <td class="statText">
-                        <p><strong>Standard Class</strong><br />
-                        Defines an object representation of a class.  Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=5800878" target="parent" class="statText">Standard Class</a> on the TopCoder Software web site.</p>
+                        <p><strong>Bar Graph</strong><br />
+                        Data structure to store data to represent various bar graph types.  Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=7338647" target="parent" class="statText">Bar Graph</a> on the TopCoder Software web site.</p>
 
 
                         
                         <p><strong>Review Board Comments</strong><br />
-                        "Good implementation that addresses the design with details..."
-                        <a href="/stat?c=member_profile&amp;cr=286907" class="coderTextRed">&#160;&#151;WishingBone</a></p></td>
+                        "A clean and well-documented extension of the Chart Data Structure."
+                        <a href="/stat?c=member_profile&amp;cr=260578" class="coderTextGreen">&#160;&#151;danno</a></p></td>
                 </tr>
             </table>
 
@@ -313,16 +313,59 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=7353016" class="statText" target="parent">.Unsigned Data Types</a></td>
-                    <td class="statText" height="15" align="center">2</td>
-                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145"><strong>srowen</strong></a></td>
-                    <td class="statText" height="15" align="center">90.72</td>
-                    <td class="statText" height="15" align="right">$4,548.60&#160;&#160;</td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=7338647" class="statText" target="parent">Bar Graph</a></td>
+                    <td class="statText" height="15" align="center">1</td>
+                    <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261390"><strong>Sharakan</strong></a></td>
+                    <td class="statText" height="15" align="center">89.25</td>
+                    <td class="statText" height="15" align="right">$0.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
-                
+
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5711016" class="statText" target="parent">SQL Parser</a></td>
+                    <td class="statText" height="15" align="center">2</td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=152342"><strong>kyky</strong></a></td>
+                    <td class="statText" height="15" align="center">83.70</td>
+                    <td class="statText" height="15" align="right">$634.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
 
                 <tr><td height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;</td>
+                    <td class="statText" height="15" align="center">&#160;</td>
+                    <td class="statText" height="15"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=287614"><strong>argolite</strong></a></td>
+                    <td class="statText" height="15" align="center">83.64</td>
+                    <td class="statText" height="15" align="right">$1,209.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=7361823" class="statText" target="parent">Type Safe Enum</a></td>
+                    <td class="statText" height="15" align="center">2</td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=152342"><strong>srowen</strong></a></td>
+                    <td class="statText" height="15" align="center">88.80</td>
+                    <td class="statText" height="15" align="right">$4,601.60&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;</td>
+                    <td class="statText" height="15" align="center">&#160;</td>
+                    <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261390"><strong>Sharakan</strong></a></td>
+                    <td class="statText" height="15" align="center">81.35</td>
+                    <td class="statText" height="15" align="right">$0.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
