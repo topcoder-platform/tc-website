@@ -53,6 +53,8 @@ public class TestResults extends BaseProcessor {
         pinfo.setIsNew(false);
         if (result.isEmpty()) {
             pinfo.setTestSetA(new Long(Constants.NO_TEST_SET_A));
+        } else {
+            pinfo.setTestSetA(result.getItem(0,"session_round_id").toString());
         }
         if (pinfo.hasTestSetA()) {
             String roundId = result.getItem(0,"contest_round_id").toString();
@@ -71,7 +73,6 @@ public class TestResults extends BaseProcessor {
 
             problemSetAList = new ArrayList();
             result = (ResultSetContainer)map.get("testSetAResults");
-            pinfo.setTestSetA(result.getItem(0,"session_round_id").toString());
             for(int i=0; i < result.size(); i++){
                 problemSetAList.add(
                     ProblemInfo.createProblemInfo(
@@ -104,13 +105,13 @@ public class TestResults extends BaseProcessor {
         pinfo.setProfileName(result.getItem(0,"session_profile_desc").toString());
 
         problemSetBList = new ArrayList();
-        result = (ResultSetContainer)map.get("testSetBResults");
-        for(int i=0; i < result.size(); i++){
+        ResultSetContainer resultB = (ResultSetContainer)map.get("testSetBResults");
+        for(int i=0; i < resultB.size(); i++){
             problemSetBList.add(
                 ProblemInfo.createProblemInfo(
                     getUser(),
-                    Long.parseLong(result.getItem(i,"session_round_id").toString()),
-                    Long.parseLong(result.getItem(i,"problem_id").toString())));
+                    Long.parseLong(resultB.getItem(i,"session_round_id").toString()),
+                    Long.parseLong(resultB.getItem(i,"problem_id").toString())));
         }
         pinfo.setTestSetBList(problemSetBList);
         getRequest().setAttribute("profileInfo",pinfo);
