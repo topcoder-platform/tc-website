@@ -47,9 +47,8 @@ public class ViewProblem extends Base {
             try {
                 send(request);
             } catch (ServerBusyException e) {
-                setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
-                setIsNextPageInContext(false);
-                return;
+                throw new NavigationException("Sorry, the server is busy with a previous request.  " +
+                        "When using this tool, please wait for a response before you attempt to proceed.");
             }
 
             showProcessingPage();

@@ -96,10 +96,6 @@ public abstract class Base extends BaseProcessor {
                 lock();
                 this.messageId = sender.sendMessageGetID(new HashMap(), m);
             } else {
-                //we need to mark it not busy anymore because if we don't
-                //they won't be able to make any more requests.
-                log.debug("unlock it and let them go to the error page");
-                unlock();
                 throw new ServerBusyException();
             }
         } else {
