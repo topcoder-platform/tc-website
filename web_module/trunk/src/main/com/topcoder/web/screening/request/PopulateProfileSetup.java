@@ -114,7 +114,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
 
         profileCompanyProblem.setProperty("uid", 
                                             String.valueOf(user.getId()));
-        map = dAccess.getData(profileCompanyProblem);
+        map = getDataAccess(true).getData(profileCompanyProblem);
         if(map != null) {
             info.setCompanyProblemList((ResultSetContainer)
                 map.get(Constants.PROFILE_COMPANY_PROBLEM_QUERY_KEY));
