@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.21.05<br>5:20 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=supernova">"My TCCC05 Experience" by supernova</A></span><br><br>
+      Read supernova's personal account of what it was like at the TCCC05.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=supernova">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>03.18.05<br>3:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=7167&thread=488979&mc=1">Small change to Unused Code Rule, new problem timeout limit, and more...</A></span><br><br>
       For the first SRM in April (April 2) we're going to be making a few changes and adding some new features.
@@ -238,18 +250,6 @@
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /><br>03.03.05<br>4:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=244237&thread=443165&mc=1">School name to be made public in Member Profiles</A></span><br><br>
-      A member's school name will be available within the web site member profiles, and will eventually be available from within the TopCoder Arena.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/rtables/viewThread.jsp?forum=244237&thread=443165&mc=1">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
 </table>
 <br><br>
 
