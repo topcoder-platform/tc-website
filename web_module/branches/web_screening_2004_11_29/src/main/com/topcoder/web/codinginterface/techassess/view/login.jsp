@@ -61,11 +61,11 @@ function submitEnter(e) {
 
 					<tr>
 						<td class=loginLeft>Login:</td>
-						<td class=loginRight><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+						<td class=loginRight><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
 					</tr>
 					<tr>
 						<td class=loginLeft>Password:</td>
-						<td class=loginRight><tc-webtag:textInput name="<%=Constants.PASSWORD%>" size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+						<td class=loginRight><tc-webtag:textInput name="<%=Constants.PASSWORD%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
 					</tr>
 					<tr>
 						<td class=tableText align=right>&#160;</td>
