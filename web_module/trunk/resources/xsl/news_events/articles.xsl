@@ -52,6 +52,36 @@
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>          
             <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
 		<!-- <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR> -->
+		
+		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Articles - 2003</TD></TR>
+		
+		 <tr valign="top">
+                                <td class="bodyText" height="14">&#160;04.23.03</td>
+                                <td class="bodyText"><a class="bodyText" href="http://www.devx.com/cplus/article/12009" target="_blank">International Collegiate Programming Champion Talks Shop</a></td>
+                    </tr>  
+                    
+                     <tr valign="top">
+                                <td class="bodyText" height="14">&#160;04.13.03</td>
+                                <td class="bodyText"><a class="bodyText" href="http://www.princeton.edu/~seasweb/eqnews/spring03/feature8.html" target="_blank">Newlyweds Earn Nest Egg</a></td>
+                     </tr> 
+                     
+                          
+                       <!--
+                        <tr valign="middle">
+                                <td class="bodyText" height="14">&#160;03.20.03</td>
+                                <td class="bodyText"><a class="bodyText" href="/?&amp;t=news_events&amp;c=article_041603_theage">J. Dethridge Receives award from Governor John Landy</a></td>
+                            </tr>
+                     
+                       <tr valign="top">
+                                <td class="bodyText" height="14">&#160;02.01.03</td>
+                                <td class="bodyText"><a class="bodyText" href="http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=smart010&amp;date=20030201&amp;query=World%27s+Smartest+Guy" target="_blank">2001 TopCoder Collegiate Challenge Winner is World's Smartest Guy</a></td>
+                     </tr>   -->
+                            
+		
+		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
+		
+		
+		
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Articles - 2002</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;12.09.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.computerworld.com/careertopics/careers/story/0,10801,76488,00.html" CLASS="bodyText" TARGET="_blank">Need Coders?</A></TD></TR>	 
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;12.09.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.computerworld.com/careertopics/careers/story/0,10801,76427,00.html" CLASS="bodyText" TARGET="_blank">And the Winner Is...</A></TD></TR>	        
