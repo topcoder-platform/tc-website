@@ -86,7 +86,7 @@
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        Simplified Sign-on is an application that allows users to store their application credentials
+                                                        Simplified Sign-on is an existing application that allows users to store their application credentials
                                                         in a central repository, and then transparently handles the users authentication against
                                                         supported applications.  This application includes a front-end servlet that receives application
                                                         authentication requests for web-based applications.  However, there are fat client applications
