@@ -7,9 +7,9 @@
 -->
                 <tr>
                     <td height="42" align="center"><A href="/tc/?module=Static&amp;d1=review_board&amp;d2=competition"  target="_top"><img src="/i/promos/competition_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
-                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td height="42" align="center"><A href="/tc/?module=Static&amp;d1=review_board&amp;d2=design"  target="_top"><img src="/i/promos/design_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
-                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td height="42" align="center"><A href="/tc/?module=Static&amp;d1=review_board&amp;d2=development"  target="_top"><img src="/i/promos/development_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
                 </tr>
             </table>
