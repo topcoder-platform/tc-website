@@ -26,7 +26,7 @@ import org.apache.log4j.*;
 */
 public class QueueRequest {
 
-  private static final Category log = PactsLog.getInstance(QueueRequest.class.getName());
+  private static final Category log = Category.getInstance(QueueRequest.class.getName());
   private static final long EXPIRED_TIME = 10000;
   //private static final long MAIN_WAIT = 200;
   private String queueType = "";

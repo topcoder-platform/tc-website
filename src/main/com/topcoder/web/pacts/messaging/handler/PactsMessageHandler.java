@@ -31,7 +31,7 @@ import org.apache.log4j.*;
 */
 public class PactsMessageHandler implements MessageHandler, PactsConstants {
 
-  private static Category log = PactsLog.getInstance(PactsMessageHandler.class.getName());
+  private static Category log = Category.getInstance(PactsMessageHandler.class.getName());
   private DataInterfaceBean dib = null;
   private InternalDispatchUserProfile upb = null;
 
