@@ -339,7 +339,7 @@ abstract public class ContractingBase extends BaseProcessor {
 
         rsc = (ResultSetContainer)getDataAccess().getData(r).get("contracting_user_notes");
         for(int i = 0; i < rsc.size(); i++) {
-            info.setNote(rsc.getStringItem(i, "note_id"), rsc.getStringItem(i, "text"));
+            info.setNote(rsc.getStringItem(i, "note_type_id"), rsc.getStringItem(i, "text"));
             log.debug("SET NOTE " + rsc.getStringItem(i, "note_id") + " TO " + rsc.getStringItem(i, "text"));
         }
 
