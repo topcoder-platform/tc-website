@@ -8,17 +8,27 @@
                 </TR>
                       <TR>
                           <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-                        <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">05.28.02</TD>
+                        <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">07.01.02</TD>
                         <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom">
-                          <A CLASS="bodyGeneric">
-                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_05_28_02</xsl:attribute>
-                            TopCoder Adds China, New Zealand and Ireland To Its Developer Community
-                          </A>
+                        <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_07_01_02</xsl:attribute>TopCoder Expands Development Projects and Other Services to Citizens of all Countries to Work as Independent Contractors</A>
                         </TD>
                         <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                      </TR>                                 
+                      </TR>
+                      <TR> 
+                         <TD VALIGN="top" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+                      </TR>
                       <TR>
+                          <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                        <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">07.01.02</TD>
+                        <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                        <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom">
+                            <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_07_01_02b</xsl:attribute>TopCoder Reduces Single Round Matches to Once Per Week and Removes Prize Money</A>
+                        </TD>
+                        <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+                      </TR>                      
+                                                       
+                      <!-- <TR>
                           <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">05.06.02</TD>
                         <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
@@ -84,7 +94,7 @@
                 <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://daily.stanford.edu/daily/servlet/Story?id=8141&amp;section=News&amp;date=04-08-2002" CLASS="bodyGeneric" TARGET="_blank">Students Advance to TopCoders Finals</A></TD>
                           <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
                       </TR>
-                      <!-- <TR> 
+                      <TR> 
                         <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.06.02</TD>
                         <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>

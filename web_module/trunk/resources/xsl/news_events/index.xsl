@@ -55,8 +55,22 @@
 						<TR><TD VALIGN="middle" CLASS="smallText" COLSPAN="2" HEIGHT="18">&#160;<!--<A HREF="/index?t=news_events&amp;c=index" CLASS="smallText">&#160;Press Release 2002</A>--></TD></TR>
 						<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BGCOLOR="#333333" HEIGHT="18">&#160;LATEST NEWS</TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+        <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;07.01.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_07_01_02" CLASS="bodyText">TopCoder Expands Development Projects and Other Services to Citizens of all Countries to Work as Independent Contractors</A></TD></TR>
+        <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;07.01.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_07_01_02b" CLASS="bodyText">TopCoder Reduces Single Round Matches to Once Per Week and Removes Prize Money</A></TD></TR>
+						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
+						
+						<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Press Releases <!--Archive--> - 2002</TD></TR>
+						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+		<TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;05.28.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.globe.com/dailyglobe2/126/business/Tournaments_become_latest_high_tech_recruiting_tool+.shtml" TARGET="_blank" CLASS="bodyText">Tournaments Become Latest High-tech Recruiting Tool</A></TD></TR>				
+        
         <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;05.28.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_05_28_02" CLASS="bodyText">TopCoder Adds China, New Zealand and Ireland To Its Developer Community</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_drdobbs2" CLASS="bodyText">And the winner is...</A></TD></TR>
+		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.30.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.stanforddaily.com/tempo?page=content&amp;id=8146&amp;repository=0001_article" CLASS="bodyText" TARGET="_blank">Wright Sweeps Most Recent TopCoder Championship</A></TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.22.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.admin.mtu.edu/urel/breaking/2002/codewin.html" CLASS="bodyText" TARGET="_blank">Michigan Tech Student Wins $5,000 in TopCoder Competition</A></TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.20.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://ADTmag.com/article.asp?id=6296" CLASS="bodyText" TARGET="_blank">Student Wins $100K in Collegiate Programming Challenge</A></TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.20.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://boston.internet.com/news/article/0,,2001_1013931,00.html" CLASS="bodyText" TARGET="_blank">College Code King Crowned</A></TD></TR>		
+		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.11.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_04_11_02" CLASS="bodyText">Student seeks top computer title</A></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.11.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_04_11_02b" CLASS="bodyText">BHS grad has shot at winning $100,000 in computer contest</A></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.10.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_contratimes" CLASS="bodyText">Computer wiz takes on high on-line stakes</A></TD></TR>
@@ -65,12 +79,7 @@
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.08.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_04_08_02" CLASS="bodyText">Extra credit</A></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.06.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_marietta" CLASS="bodyText">Georgia Tech computer science major to compete in TopCoder . . .</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.05.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_dnvrbizjrnl2" CLASS="bodyText">Coder wins big in contests</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.01.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_clevplain" CLASS="bodyText">Digital Playground</A></TD></TR>
-
-						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
-						
-						<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Press Releases <!--Archive--> - 2002</TD></TR>
-						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.01.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_clevplain" CLASS="bodyText">Digital Playground</A></TD></TR>						
 						<TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;03.25.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_03_25_02" CLASS="bodyText">TopCoder Announces Sixteen Finalists for $150,000 Sun Microsystems and TopCoder Collegiate Challenge</A></TD></TR>											
 						<TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;03.05.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_03_05_02" CLASS="bodyText">TopCoder Reaches 10,000 Members Milestone</A></TD></TR>						
 						<TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;02.19.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_02_19_02" CLASS="bodyText">TopCoder Announces Field for the 2002 Sun Microsystems and TopCoder Collegiate Challenge Programming Tournament</A></TD></TR>          
@@ -91,7 +100,7 @@
 						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.29.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_05_29_01" CLASS="bodyText">TopCoder Addresses Demand for Elite Programmers with Coding Competitions</A></TD></TR>                 
 						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.22.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_05_22_01" CLASS="bodyText">Sixteen Collegiate Programmers to Compete for Coveted "TopCoder" Title</A></TD></TR>                 
 						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.24.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_04_24_01" CLASS="bodyText">TopCoder Names Jack Hughes Chairman of the Board</A></TD></TR>                                                      
-						<TR><TD COLSPAN="2" CLASS="bodyText"><BR/><BR/>Please direct media related questions to:<BR/><A HREF="mailto:gherchen@topcoder.com" CLASS="bodyText">George Herchenroether, VP of Marketing</A></TD></TR>
+						<!-- <TR><TD COLSPAN="2" CLASS="bodyText"><BR/><BR/>Please direct media related questions to:<BR/><A HREF="mailto:gherchen@topcoder.com" CLASS="bodyText">George Herchenroether, VP of Marketing</A></TD></TR> -->
 					</TABLE>
 <P><BR/></P>
 					</TD>
