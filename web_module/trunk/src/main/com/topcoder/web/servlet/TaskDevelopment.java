@@ -342,7 +342,7 @@ public final class TaskDevelopment {
                                 
                                    log.debug("Role: " + roleName);
                                    log.debug("FormName:  FormUser " +activeForum.getId()); 
-                                   activeForumId= activeForum.getId()
+                                   activeForumId= Long.toString(activeForum.getId());
                                    if(roleName.equalsIgnoreCase("ForumUser " + activeForumId)){
                                       log.debug("--->got a match");
                                       notFound = false;
@@ -357,6 +357,7 @@ public final class TaskDevelopment {
                                          //ignore
                                          log.error("GeneralSecurityException occurred! ", gse);
                                          msgText.append("GeneralSecurityException occurred! " + gse.getMessage());
+                                         notFound = true;
                                          
                                       }
                                    }
@@ -389,8 +390,14 @@ public final class TaskDevelopment {
 
                     if (rating <= 0)
                         xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
-                    else
-                        response.sendRedirect("http://172.16.20.222:8080/pages/c_forum.jsp?f=" +activeForumId);
+                    else{
+              
+                        //log.debug("http://172.16.20.222:8080/pages/c_forum.jsp?f=" +activeForumId);
+                        //response.sendRedirect("http://172.16.20.222:8080/pages/c_forum.jsp?f=" +activeForumId);
+                        //log.debug("afterwards?");
+                        xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
+                        //return "";
+                    }
 
                         //xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
                } else {
