@@ -78,8 +78,8 @@ public class Home extends Base {
             dataRequest.setProperty("cr", String.valueOf(getUser().getId()));
             getRequest().setAttribute("member_info", dwDai.getData(dataRequest).get("Coder_Data"));
 
-            getRequest().setAttribute("isEligible", Boolean.toString(TCCC04TermsAgree.isEligible(getUser().getId())));
-            getRequest().setAttribute("isRegistered", Boolean.toString(TCCC04TermsAgree.isRegistered(getUser().getId())));
+            getRequest().setAttribute("isEligible", String.valueOf(TCCC04TermsAgree.isEligible(getUser().getId())));
+            getRequest().setAttribute("isRegistered", String.valueOf(TCCC04TermsAgree.isRegistered(getUser().getId())));
 
 
 
