@@ -11,6 +11,11 @@ import com.topcoder.common.web.util.Data;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.TCESAuthorization;
+
+import com.topcoder.security.TCSubject;
+import com.topcoder.shared.security.Authorization;
+import com.topcoder.shared.security.Resource;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
@@ -67,7 +72,7 @@ public class Controller extends HttpServlet {
             ctx = (InitialContext) TCContext.getInitial();
 
             if (taskName != null && taskName.trim().length() > 0) {
-                log.info("[**** tces **** " + taskName + " **** " + request.getRemoteHost() + " ****]");    
+                log.info("[**** tces **** " + taskName + " **** " + request.getRemoteHost() + " ****]");  log.info("[**** TASK STEO NAME: **** " + taskStepName + " **** " );    
                 // process a task
                 Task task = null;
                 Class taskClass = null;
@@ -93,6 +98,18 @@ public class Controller extends HttpServlet {
                 authToken = new BasicAuthentication(persistor, request, response); 
                 task.setAuthToken(authToken);
 //----------
+
+//  Preliminary Authorization work:
+//
+//              User curUser = getAuthenticityToken().getActiveUser();
+//              uid = curUser.getId();
+//              Resource taskResource = new ProcessorResource(task);
+//              Authorization authorize = new TCESAuthorization(new TCSubject(uid));
+//              if (!authorize.hasPermission(taskResource)) {
+//                  throw new TCESAuthorizationException(
+//                          uid + ": not Authorized for access to resource: "
+//                          " + taskName);
+//              }
 
                 task.servletPreAction(request, response);
 

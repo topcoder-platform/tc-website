@@ -21,28 +21,13 @@ isErrorPage="true"
     <TD WIDTH="20" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" HSPACE="35"/></TD>
     <TD WIDTH="100%" BGCOLOR="#000000" ALIGN="right" VALIGN="top">
       <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
-        <TR>
-          <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/top_back_tab.gif" ALT="" WIDTH="19" HEIGHT="17" BORDER="0"/></TD>
-          <TD VALIGN="middle" BGCOLOR="#43515E" WIDTH="100%" BACKGROUND="/i/steel_gray_bg.gif" ALIGN="right" CLASS="globalNavSmall"><A HREF="/?t=authentication&amp;c=login" CLASS="globalNavSmall" TARGET="_parent">Login</A>&#160;&#160;&#160;:&#160;&#160;&#160;<A HREF="/?t=contacts&amp;c=index" CLASS="globalNavSmall" TARGET="_parent">Contacts</A>&#160;&#160;&#160;:&#160;&#160;&#160;<A HREF="/?t=index" CLASS="globalNavSmall" TARGET="_parent">Home</A></TD>
-          <TD WIDTH="50" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0" VSPACE="8"/></TD>
-        </TR>
-        <TR>
-          <TD VALIGN="middle" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-          <TD><IMG SRC="/i/clear.gif" WIDTH="72" HEIGHT="1" BORDER="0" VSPACE="20"/></TD>
-          <TD CLASS="time" VALIGN="middle" NOWRAP="" ALIGN="right"><BR CLEAR="all"/><BR/><SPAN CLASS="smallBrackets">[ </SPAN> <A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="registerToday" TARGET="_parent">Register Today</A> :<span class="time"><jsp:include page="date_time.jsp" /></span><SPAN CLASS="smallBrackets">]</SPAN><BR CLEAR="ALL"/><BR CLEAR="ALL"/></TD><TD WIDTH="50" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/></TD>
-
-        </TR>
       </TABLE>
     </TD>
   </TR>
   <TR>
     <TD COLSPAN="2" BGCOLOR="#000000" VALIGN="bottom"><IMG SRC="/i/logo_btm_tab.gif" ALT="" WIDTH="187" HEIGHT="6" BORDER="0"/></TD>
-    <TD COLSPAN="2" BGCOLOR="#000000" ALIGN="right"><A HREF="Javascript:arena()" CLASS="registerNav"><IMG SRC="/i/label_download_applet.gif" ALT="Download the Applet" WIDTH="134" HEIGHT="17" BORDER="0"/></A><A HREF="/index?t=schedule&amp;c=practice_room" CLASS="registerNav"><IMG SRC="/i/label_visit_practice_room.gif" ALT="Visit the Practice Room" WIDTH="141" HEIGHT="17" BORDER="0"/></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
   </TR>
 </TABLE>
-
-
-
 
  <TABLE BGCOLOR="#CCCCCC" CELLSPACING="0" CELLPADDING="0" BORDER="0" HEIGHT="69%" WIDTH="100%">
  <TR>
@@ -56,6 +41,5 @@ isErrorPage="true"
  <TD BGCOLOR="#CCCCCC" WIDTH="25"><IMG BORDER="0" HEIGHT="1" WIDTH="25" SRC="/i/clear.gif"></TD>
  </TR>
  </TABLE>
-   <jsp:include page="/foot.jsp" /> 
 </body>
 </html>
