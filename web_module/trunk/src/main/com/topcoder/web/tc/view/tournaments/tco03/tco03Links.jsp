@@ -99,9 +99,9 @@
 
 <!-- Summary tab -->
             <% if (selectedTab.equals("component_summary")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=reception" class="statTextBig"><img src="/i/tournament/tco03/tab_summary_on.gif" alt="Summary" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=comp_final" class="statTextBig"><img src="/i/tournament/tco03/tab_summary_on.gif" alt="Summary" width="88" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=reception" class="statTextBig"><img src="/i/tournament/tco03/tab_summary_off.gif" alt="Summary" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=comp_final" class="statTextBig"><img src="/i/tournament/tco03/tab_summary_off.gif" alt="Summary" width="88" height="22" border="0" /></A></td>
             <% } %>
 
 <!-- Onsite tab -->
