@@ -75,7 +75,7 @@ public final class MainServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (xslCaching) {
+        if (!xslCaching) {
             try {
                 synchronized (this) {
                     htmlMaker.refresh();
