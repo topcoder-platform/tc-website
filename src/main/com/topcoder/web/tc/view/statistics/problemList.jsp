@@ -43,7 +43,7 @@
         Map.Entry me = null;
         for (Iterator it = h.entrySet().iterator(); it.hasNext();) {
             me = (Map.Entry)it.next();
-            System.out.println("key: " + me.getKey() + " valu: " + me.getValue().toString());
+            System.out.println("key: " + me.getKey() + " valu: " + (String)me.getValue());
             if (me.getKey().equals(Constants.CLASS_NAME)
                     || me.getKey().equals(Constants.MIN_DIV1_SUCCESS)
                     || me.getKey().equals(Constants.MIN_DIV2_SUCCESS)
