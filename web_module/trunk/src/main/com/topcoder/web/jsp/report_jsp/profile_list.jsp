@@ -231,8 +231,8 @@
               }
               function submitForm() {
                  var states = document.profileListForm.<%=Constants.REPORT_STATE_KEY%>.value;
-                 selectAll();
-                 deSelectAll();
+                 markSelectedColumns();
+                 markUnSelectedColumns();
                  setRelocateIds();
                  document.profileListForm.<%=Constants.REPORT_STATE_KEY%>.value=addQuotes(states);
                  if (checkRelocate()) {
@@ -251,12 +251,12 @@
                 }
                 return ret;
               }
-              function selectAll() {
+              function markSelectedColumns() {
                 var list = document.profileListForm.selectedColumns;
                 for (i=0; i<list.options.length; i++)
                   list.options[i].selected=true;
               }
-              function deSelectAll() {
+              function markUnSelectedColumns() {
                 var list = document.profileListForm.availableColumns;
                 for (i=0; i<list.options.length; i++)
                   list.options[i].selected=false;
@@ -274,7 +274,7 @@
               function checkRelocate() {
                 var list = document.profileListForm.relocateAnswers;
                 for (i=0; i<list.length; i++) {
-                  if (list.options[i].selected=true)
+                  if (list.options[i].selected==true)
                     return true;
                 }
                 return false;
