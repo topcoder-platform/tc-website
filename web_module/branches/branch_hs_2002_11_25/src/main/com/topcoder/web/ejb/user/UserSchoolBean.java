@@ -47,16 +47,12 @@ public class UserSchoolBean implements SessionBean {
 
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
       StringBuffer query=new StringBuffer(1024);
       query.append("INSERT ");
       query.append("INTO user_school_xref (user_id,school_id) ");
       query.append("VALUES (?,?)");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setLong(2,_school_id);
@@ -107,16 +103,12 @@ public class UserSchoolBean implements SessionBean {
 
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT current_ind ");
       query.append("FROM user_school_xref ");
       query.append("WHERE user_id=? AND school_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setLong(2,_school_id);
@@ -128,7 +120,7 @@ public class UserSchoolBean implements SessionBean {
       else {
         throw(new EJBException("No rows found when selecting from "+
                                "'user_school_xref' with user_id="+_user_id+
-                                  " AND school_id="+_school_id+"."));
+                               " AND school_id="+_school_id+"."));
       }
     }
     catch (SQLException _sqle) {
@@ -168,16 +160,12 @@ public class UserSchoolBean implements SessionBean {
 
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-      
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE user_school_xref ");
       query.append("SET current_ind=? ");
       query.append("WHERE user_id=? AND school_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setBoolean(1,_current);
       ps.setLong(2,_user_id);
@@ -225,16 +213,12 @@ public class UserSchoolBean implements SessionBean {
 
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
       StringBuffer query=new StringBuffer(1024);
       query.append("DELETE ");
       query.append("FROM user_school_xref ");
       query.append("WHERE user_id=? AND school_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setLong(2,_school_id);

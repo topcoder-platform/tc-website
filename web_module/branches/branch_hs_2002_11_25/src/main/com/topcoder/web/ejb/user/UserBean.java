@@ -48,14 +48,12 @@ public class UserBean implements SessionBean {
 
     try {
 
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
       StringBuffer query=new StringBuffer(1024);
       query.append("INSERT ");
       query.append("INTO user (user_id) ");
       query.append("VALUES (?)");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
 
@@ -101,16 +99,12 @@ public class UserBean implements SessionBean {
 
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-      
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE user ");
       query.append("SET first_name=? ");
       query.append("WHERE user_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setString(1,_first_name);
       ps.setLong(2,_user_id);
@@ -156,16 +150,12 @@ public class UserBean implements SessionBean {
 
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-      
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE user ");
       query.append("SET last_name=? ");
       query.append("WHERE user_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setString(1,_last_name);
       ps.setLong(2,_user_id);
@@ -210,17 +200,13 @@ public class UserBean implements SessionBean {
     PreparedStatement ps=null;
 
     try {
-
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
       
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE user ");
       query.append("SET user_status_id=? ");
       query.append("WHERE user_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_status_id);
       ps.setLong(2,_user_id);
@@ -269,16 +255,12 @@ public class UserBean implements SessionBean {
 
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT first_name ");
       query.append("FROM user ");
       query.append("WHERE user_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
 
@@ -330,16 +312,12 @@ public class UserBean implements SessionBean {
 
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT last_name ");
       query.append("FROM user ");
       query.append("WHERE user_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
 
@@ -391,16 +369,12 @@ public class UserBean implements SessionBean {
 
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT user_status_id ");
       query.append("FROM user ");
       query.append("WHERE user_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
 

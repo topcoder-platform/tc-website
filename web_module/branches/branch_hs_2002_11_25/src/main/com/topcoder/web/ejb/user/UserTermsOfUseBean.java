@@ -47,16 +47,12 @@ public class UserTermsOfUseBean implements SessionBean {
 
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
       StringBuffer query=new StringBuffer(1024);
       query.append("INSERT ");
       query.append("INTO user_terms_of_use_xref (user_id,terms_of_use_id) ");
       query.append("VALUES (?,?)");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setLong(2,_terms_of_use_id);
@@ -104,16 +100,12 @@ public class UserTermsOfUseBean implements SessionBean {
 
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
       StringBuffer query=new StringBuffer(1024);
       query.append("DELETE ");
       query.append("FROM user_terms_of_use_xref ");
       query.append("WHERE user_id=? AND terms_of_use_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_user_id);
       ps.setLong(2,_terms_of_use_id);
