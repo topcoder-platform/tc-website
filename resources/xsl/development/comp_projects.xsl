@@ -281,8 +281,8 @@
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td width="15%" class="projectHeaders">Project</td>
-                    <td class="projectHeaders" align="center">Registrants</td>
-                    <td class="projectHeaders" align="center">Max Registrants</td>
+                    <td class="projectHeaders" align="center">Registrants<br/>Rated/Unrated</td>
+                    <td class="projectHeaders" align="center">Max Registrants<br/>Rated/Unrated</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
                     <td class="projectHeaders" align="center">Complexity</td>
@@ -338,7 +338,7 @@
                             <td class="projectCells" align="center">
                                 <xsl:choose>
                                     <xsl:when test="./total_inquiries&lt;number(/TC/DEVELOPMENT/MaxInquiries)">
-                                        <xsl:value-of select="./total_inquiries"/>
+                                        <xsl:value-of select="./total_rated_inquiries"/>/<xsl:value-of select="./total_unrated_inquiries"/>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         Registration Full
@@ -346,7 +346,7 @@
                                 </xsl:choose>
                             </td>
                             <td class="projectCells" align="center">
-                                <xsl:value-of select="/TC/DEVELOPMENT/MaxInquiries"/>
+                                <xsl:value-of select="/TC/DEVELOPMENT/MaxRatedInquiries"/>/<xsl:value-of select="/TC/DEVELOPMENT/MaxUnRatedInquiries"/>
                             </td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
@@ -429,7 +429,7 @@
                             <td class="projectCells" align="center">
                                 <xsl:choose>
                                     <xsl:when test="./total_inquiries&lt;number(/TC/DEVELOPMENT/MaxInquiries)">
-                                        <xsl:value-of select="./total_inquiries"/>
+                                        <xsl:value-of select="./total_rated_inquiries"/>/<xsl:value-of select="./total_unrated_inquiries"/>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         Registration Full
@@ -437,7 +437,7 @@
                                 </xsl:choose>
                             </td>
                             <td class="projectCells" align="center">
-                                <xsl:value-of select="/TC/DEVELOPMENT/MaxInquiries"/>
+                                <xsl:value-of select="/TC/DEVELOPMENT/MaxRatedInquiries"/>
                             </td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
