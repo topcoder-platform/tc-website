@@ -60,9 +60,9 @@
 
 <!-- Details tab -->
             <% if (tabLev2.equals("details")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_details" class="statTextBig"><img src="/i/tournament/tccc04/tab_details_on.gif" alt="details" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_onlinerounds" class="statTextBig"><img src="/i/tournament/tccc04/tab_details_on.gif" alt="details" width="88" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_details" class="statTextBig"><img src="/i/tournament/tccc04/tab_details_off.gif" alt="details" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_onlinerounds" class="statTextBig"><img src="/i/tournament/tccc04/tab_details_off.gif" alt="details" width="88" height="22" border="0" /></A></td>
             <% } %>
 
 
@@ -103,12 +103,12 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tccc04SubNav">
                 <tr>
                     <td class="tccc04SubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="<%=tabLev3.equals("online")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_overview" class="topLink">Online Rounds</a></td>
-                    <td class="<%=tabLev3.equals("room1")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_overview" class="topLink">Room 1</a></td>
-                    <td class="<%=tabLev3.equals("room2")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_overview" class="topLink">Room 2</a></td>
-                    <td class="<%=tabLev3.equals("room3")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_overview" class="topLink">Room 3</a></td>
-                    <td class="<%=tabLev3.equals("room4")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_overview" class="topLink">Room 4</a></td>
-                    <td class="<%=tabLev3.equals("finals")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_overview" class="topLink">Finals</a></td>
+                    <td class="<%=tabLev3.equals("online")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_onlinerounds" class="topLink">Online Rounds</a></td>
+                    <td class="<%=tabLev3.equals("room1")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_room1" class="topLink">Room 1</a></td>
+                    <td class="<%=tabLev3.equals("room2")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_room2" class="topLink">Room 2</a></td>
+                    <td class="<%=tabLev3.equals("room3")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_room3" class="topLink">Room 3</a></td>
+                    <td class="<%=tabLev3.equals("room4")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_room4" class="topLink">Room 4</a></td>
+                    <td class="<%=tabLev3.equals("finals")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_finals" class="topLink">Finals</a></td>
                     <td class="tccc04SubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>
