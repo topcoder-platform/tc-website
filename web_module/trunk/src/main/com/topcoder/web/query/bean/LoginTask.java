@@ -46,17 +46,19 @@ public class LoginTask extends BaseTask implements Task, Serializable {
 
     public void process(String step) throws Exception {
 
-        if (step.equalsIgnoreCase(Constants.NEW_STEP)) {
+        if (step.equals(Constants.NEW_STEP)) {
             if (!super.getAuthentication().isLoggedIn()) {
                 try {
                     super.getAuthentication().attemptLogin(getHandleInput(), getPasswordInput(), getInitialContext(), session);
                 } catch (AuthenticationException e) {
                     setErrorMessage(e.getMessage());
-                    setNextPage(Constants.LOGIN_PAGE);
                 }
-            } else {
+            }
+            if (super.getAuthentication().isLoggedIn()) {
                 setNextPage(getServletPath() + "?" + Constants.TASK_PARAM + "=" + Constants.DB_SELECTION_TASK);
                 super.setInternalResource(false);
+            } else {
+                setNextPage(Constants.LOGIN_PAGE);
             }
         } else {
             setNextPage(Constants.LOGIN_PAGE);
