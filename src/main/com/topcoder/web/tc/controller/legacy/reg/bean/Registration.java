@@ -579,6 +579,12 @@ public class Registration
     static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
     static final char[] UNACTIVE_STATI = {'U', '2'};
     static final char[] ACTIVE_STATI = {'1', 'A'};
+       
+    static {
+        Arrays.sort(ACTIVE_STATI);
+        Arrays.sort(UNACTIVE_STATI);
+        Arrays.sort(INACTIVE_STATI);
+    }
     
     public void setAutoActivate(boolean b) {
         autoActivate = b;
@@ -677,8 +683,14 @@ public class Registration
         try {
             InitialContext ctx = TCContext.getInitial();
             com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
-        
-            return userbean.userExists(Long.parseLong(memberId), DBMS.OLTP_DATASOURCE_NAME);
+                   
+            if(!userbean.userExists(Long.parseLong(memberId), DBMS.OLTP_DATASOURCE_NAME))
+                return false;
+            
+            char status = userbean.getStatus(Long.parseLong(memberId), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            if(Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
+                return true;
+            }
         } catch (Exception ignore) {}
         
         return false;
