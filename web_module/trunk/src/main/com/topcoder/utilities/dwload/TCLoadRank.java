@@ -839,6 +839,7 @@ public class TCLoadRank extends TCLoad {
             query.append( " and cs.coder_id = c.coder_id");
             query.append( " and cs.school_id = s.school_id");
             query.append( " AND c.coder_id = r.coder_id");
+            query.append( " AND cs.school_id = ?");
             if (activeOnly)
                 query.append( " AND a.coder_id = c.coder_id");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
