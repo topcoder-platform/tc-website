@@ -30,14 +30,17 @@ import com.topcoder.dde.catalog.ComponentVersionInfo;
 import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.tc.controller.request.development.Base;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
 
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import javax.naming.Context;
+import javax.naming.InitialContext;
 import java.util.Map;
 import java.text.NumberFormat;
 
@@ -662,7 +665,7 @@ else if (command.equals("send")) {
         return result;
     }
 
-    public static boolean tcoTermsCheck(long userId) throws Exception {
+    private static boolean tcoTermsCheck(long userId) throws Exception {
         Calendar c = Calendar.getInstance();
 
         if(c.before(new GregorianCalendar(2004, 6, 10)) || c.after(new GregorianCalendar(2004, 9, 23)))
@@ -670,19 +673,16 @@ else if (command.equals("send")) {
             return true;
         }
 
-
-        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-        Request inquiryRequest = new Request();
-        inquiryRequest.setContentHandle("checkTerms");
-        inquiryRequest.setProperty("uid", String.valueOf(userId));
-        inquiryRequest.setProperty("tid", String.valueOf( Constants.TCO04_COMPONENT_TERMS_OF_USE_ID ));
-        ResultSetContainer detailRsc = (ResultSetContainer) dAccess.getData(inquiryRequest).get("checkTerms");
-
-        if(detailRsc.isEmpty()) {
-            return false;
+        boolean ret = false;
+        InitialContext ctx = TCContext.getInitial();
+        try {
+            UserTermsOfUse userTerms = (UserTermsOfUse)BaseProcessor.createEJB(ctx, UserTermsOfUse.class);
+            ret = userTerms.hasTermsOfUse(userId, Constants.TCO04_COMPONENT_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+        } finally {
+            BaseProcessor.close(ctx);
         }
 
-        return true;
+        return ret;
     }
 
     public static boolean isProjectRegClosed(long projectId) throws Exception {
