@@ -11,16 +11,13 @@ import com.topcoder.web.privatelabel.Constants;
  */
 
 public class CredentialReminder extends BaseCredentialReminder {
-    public void setNextPage() {
-        if (hasErrors()) {
-            setNextPage(Constants.GOOGLE_INDIA_05_CREDENTIALS_PAGE);
-            setIsNextPageInContext(true);
-        } else{
-            setNextPage(Constants.GOOGLE_INDIA_05_CREDENTIALS_SENT_PAGE);
-            setIsNextPageInContext(true);
-        }
-    }
 
+    protected String getStartPage() {
+        return Constants.GOOGLE_INDIA_05_CREDENTIALS_PAGE;
+    }
+    protected String getSuccessPage() {
+        return Constants.GOOGLE_INDIA_05_CREDENTIALS_SENT_PAGE;
+    }
 }
 
 

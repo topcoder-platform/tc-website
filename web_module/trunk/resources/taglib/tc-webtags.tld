@@ -275,5 +275,20 @@
 
     </tag>
 
+    <tag>
+        <name>hiddenInput</name>
+        <tagclass>com.topcoder.web.common.tag.HiddenInputTag</tagclass>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
 
 </taglib>
