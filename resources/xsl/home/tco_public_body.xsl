@@ -133,6 +133,30 @@
                 </tr>
             </table>
 
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
+
+<!-- Small Promos begins -->
+            <xsl:call-template name="small_promos"/>
+<!-- Small Promos ends -->
+
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
+        
+<!-- Corporate Promos begins -->
+            <xsl:call-template name="corp_promos"/>
+<!-- Corporate Promos ends -->
+
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
+        
+<!-- Getting Started Arena Begins -->
+            <xsl:call-template name="arena"/>
+<!-- Getting Started Arena Ends -->
+
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
+        
+<!-- Press Room Highlights Begins -->
+            <xsl:call-template name="tc_updates"/>
+<!-- Press Room Highlights Ends -->
+
             <p><br/></p>
 
         </td>
