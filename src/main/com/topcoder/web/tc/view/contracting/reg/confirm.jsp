@@ -52,187 +52,282 @@
 			</tr>
 		</table>
 
+		
+        <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
+		<tr>
+		<td valign=top width="50%">
 		<table width="100%" cellpadding="0" cellspacing="5" class="bodyText" align="center" >
             <tr>
-				<td align="right" width="50%"><b>Preferences</b></td>
-				<td width="50%"><a href="">edit<a/></td>
+				<td align=right width="65%"><b>Preferences</b></td>
+				<td width="35%"><a href="">edit<a/></td>
             </tr>
             <tr>
-				<td align="right"><b>Contract Work</b></td>
-				<td>&#160;</td>
+				<td align=right><b>Contract Work</b></td>
+				<td valign=top>&#160;</td>
             </tr>
             <tr>
-				<td align="right">Minimum hourly rate:</td>
-				<td>$20/hr</td>
+				<td align=right>Minimum hourly rate:</td>
+				<td valign=top>$20/hr</td>
             </tr>
             <tr>
-				<td align="right">Maximum length of engagement:</td>
-				<td>Indefinite</td>
+				<td align=right>Maximum length of engagement:</td>
+				<td valign=top>Indefinite</td>
             </tr>
             <tr>
-				<td align="right">Minimum length of engagement</td>
-				<td>3 months</td>
+				<td align=right>Minimum length of engagement</td>
+				<td valign=top>3 months</td>
             </tr>
             <tr>
-				<td align="right">Willing to travel:</td>
-				<td>No</td>
+				<td align=right>Willing to travel:</td>
+				<td valign=top>No</td>
             </tr>
             <tr>
-				<td align="right"><b>Permanent Work</b></td>
-				<td>&#160;</td>
+				<td align=right><b>Permanent Work</b></td>
+				<td valign=top>&#160;</td>
             </tr>
             <tr>
-				<td align="right">Minimum hourly rate:</td>
-				<td>$20/hr</td>
+				<td align=right>Minimum hourly rate:</td>
+				<td valign=top>$20/hr</td>
             </tr>
             <tr>
-				<td align="right">Maximum length of engagement:</td>
-				<td>Indefinite</td>
+				<td align=right>Maximum length of engagement:</td>
+				<td valign=top>Indefinite</td>
             </tr>
             <tr>
-				<td align="right">Minimum length of engagement</td>
-				<td>6 months</td>
+				<td align=right>Minimum length of engagement</td>
+				<td valign=top>6 months</td>
             </tr>
             <tr>
-				<td align="right">Willing to travel:</td>
-				<td>Yes</td>
+				<td align=right>Willing to travel:</td>
+				<td valign=top>Yes</td>
             </tr>
 			
-			<tr><td colspan=2>&#160;</td></tr>
+			<tr><td>&#160;</td></tr>			
 
             <tr>
-				<td align="right" width="50%"><b>Language Skills</b></td>
-				<td width="50%"><a href="">edit<a/></td>
+				<td align=right><b>Technology Skills</b></td>
+				<td><a href="">edit<a/></td>
             </tr>
             <tr>
-				<td align="right">Javascript:</td>
-				<td>7</td>
+				<td align=right>OO Concepts:</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">VB Script:</td>
-				<td>7</td>
+				<td align=right>ActiveX:</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">SQL:</td>
-				<td>7</td>
+				<td align=right>CGI:</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">HTML:</td>
-				<td>7</td>
+				<td align=right>ASP:</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">COBOL:</td>
-				<td>7</td>
+				<td align=right>JSP:</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">FORTRAN:</td>
-				<td>7</td>
+				<td align=right>Servlets:</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">Smalltalk:</td>
-				<td>7</td>
+				<td align=right>CORBA:</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">Eiffel:</td>
-				<td>7</td>
+				<td align=right>RMI:</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">Lisp:</td>
-				<td>7</td>
+				<td align=right>EJB:</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">C:</td>
-				<td>7</td>
+				<td align=right>COM/DCOM:</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">C++:</td>
-				<td>7</td>
+				<td align=right>TCP/IP:</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">Java:</td>
-				<td>7</td>
+				<td align=right>X Window/Motif:</td>
+				<td valign=top>7</td>
             </tr>
-            <tr>
-				<td align="right">Visual Basic:</td>
-				<td>7</td>
-            </tr>
-            <tr>
-				<td align="right">Pascal:</td>
-				<td>7</td>
-            </tr>
-            <tr>
-				<td align="right">PERL:</td>
-				<td>7</td>
-            </tr>
-            <tr>
-				<td align="right">XML:</td>
-				<td>7</td>
-            </tr>
-            <tr>
-				<td align="right">XSL:</td>
-				<td>7</td>
-            </tr>
-            <tr>
-				<td align="right">Python:</td>
-				<td>7</td>
-            </tr>
-			
-			<tr><td colspan=2>&#160;</td></tr>
+
+			<tr><td>&#160;</td></tr>			
 
             <tr>
-				<td align="right" width="50%"><b>Technology Skills</b></td>
-				<td width="50%"><a href="">edit<a/></td>
+				<td align=right><b>Databases</b></td>
+				<td valign=top><a href="">edit<a/></td>
             </tr>
             <tr>
-				<td align="right">OO Concepts:</td>
-				<td>7</td>
+				<td align=right>Oracle</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">ActiveX:</td>
-				<td>7</td>
+				<td align=right>Sybase</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">CGI:</td>
-				<td>7</td>
+				<td align=right>Informix</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">ASP:</td>
-				<td>7</td>
+				<td align=right>MS SQL Server</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">JSP:</td>
-				<td>7</td>
+				<td align=right>DB2</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">Servlets:</td>
-				<td>7</td>
+				<td align=right>Access</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">CORBA:</td>
-				<td>7</td>
+				<td align=right>Paradox</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">RMI:</td>
-				<td>7</td>
+				<td align=right>dbase</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">EJB:</td>
-				<td>7</td>
+				<td align=right>Interbase</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">COM/DCOM:</td>
-				<td>7</td>
+				<td align=right>PostgreSQL</td>
+				<td valign=top>7</td>
             </tr>
             <tr>
-				<td align="right">TCP/IP:</td>
-				<td>7</td>
+				<td align=right>MySQL</td>
+				<td valign=top>7</td>
             </tr>
-            <tr>
-				<td align="right">X Window/Motif:</td>
-				<td>7</td>
-            </tr>
-			<tr><td colspan=12 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=success"><img src="/i/submit.jpg" border=0/></a></td></tr>
 		</table>
+		</td>
+		<td valign=top width="50%">
+		<table width="100%" cellpadding="0" cellspacing="5" class="bodyText" align="center" >
+            <tr>
+				<td align=right width="65%"><b>Language Skills</b></td>
+				<td valign=top width="35%"><a href="">edit<a/></td>
+            </tr>
+            <tr>
+				<td align=right>Javascript:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>VB Script:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>SQL:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>HTML:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>COBOL:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>FORTRAN:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>Smalltalk:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>Eiffel:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>Lisp:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>C:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>C++:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>Java:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>Visual Basic:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>Pascal:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>PERL:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>XML:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>XSL:</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>Python:</td>
+				<td valign=top>7</td>
+            </tr>
+
+			<tr><td>&#160;</td></tr>			
+
+            <tr>
+				<td align=right><b>Operating Systems</b></td>
+				<td valign=top><a href="">edit<a/></td>
+            </tr>
+            <tr>
+				<td align=right>OS/2</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>Windows 2000</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>DOS</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>Windows NT</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>Linux</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>UNIX</td>
+				<td valign=top>7</td>
+            </tr>
+            <tr>
+				<td align=right>MAC OS</td>
+				<td valign=top>7</td>
+            </tr>
+		</table>
+		</tr>
+		<tr><td colspan=2 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=success"><img src="/i/submit.jpg" border=0/></a></td></tr>
+		</table>
+
+
         </div>
         <p><br/></p>
         </td>
