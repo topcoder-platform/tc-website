@@ -164,7 +164,7 @@ function submitUpdate() {
                     <input type="HIDDEN" name="language" value="<screen:resultSetItem row="<%=row%>" name="language_id" />">
                 <tr>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <td class="testTableOdd" colspan="5"><screen:resultSetItem row="<%=row%>" name="language_name" /></td>
+                    <td class="testTableOdd" colspan="4"><screen:resultSetItem row="<%=row%>" name="language_name" /></td>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
                 <% } %>
