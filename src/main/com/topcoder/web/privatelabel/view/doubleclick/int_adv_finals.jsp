@@ -34,8 +34,16 @@
                            <td class="sidebarTitle" width="25%">Score</td>
                         </tr>
 
-<tr><td class="sidebarText">Champion</td><td class="sidebarText">eliotdclk</td><td class="sidebarText">541.70</td></tr>
-<tr><td class="sidebarText">2nd</td><td class="sidebarText">toder</td><td class="sidebarText">518.48</td></tr>
+                        <tr><td class="sidebarText">Champion</td><td class="sidebarText">eliotdclk</td><td class="sidebarText">541.70</td></tr>
+                        <tr><td class="sidebarText">2nd</td><td class="sidebarText">toder</td><td class="sidebarText">518.48</td></tr>
+                        <tr><td class="sidebarText">3rd</td><td class="sidebarText">lapse</td><td class="sidebarText">451.11</td></tr>
+                        <tr><td class="sidebarText">4th</td><td class="sidebarText">goldclicker</td><td class="sidebarText">215.76</td></tr>
+                        <tr><td class="sidebarText">5th</td><td class="sidebarText">jsmargolis</td><td class="sidebarText">0.00</td></tr>
+                        <tr><td class="sidebarText">6th</td><td class="sidebarText">GoatBoy</td><td class="sidebarText">0.00</td></tr>
+                        <tr><td class="sidebarText">7th</td><td class="sidebarText">kkcchan</td><td class="sidebarText">0.00</td></tr>
+                        <tr><td class="sidebarText">8th</td><td class="sidebarText">ysegal</td><td class="sidebarText">0.00</td></tr>
+                        <tr><td class="sidebarText">9th</td><td class="sidebarText">Masou</td><td class="sidebarText">-50.00</td></tr>
+                        <tr><td class="sidebarText">10th</td><td class="sidebarText">gborggaard</td><td class="sidebarText">-150.00</td></tr>
 
 
                      </table>
