@@ -50,7 +50,11 @@ function find(n) {
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
-            <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft"><img src="/i/tournament/tco04/microsoft_right.jpg" alt="" width="170" height="90" border="0" /></a><br />
+            <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft"><img src="/i/tournament/tco04/microsoft_right.jpg" alt="Microsoft" width="170" height="90" border="0" /></a><br />
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
+            <a href="mailto:sponsorships@topcoder.com"><img src="/i/tournament/tco04/sponsorship.gif" alt="Sponsorship" width="170" height="101" border="0" /></a><br />
 
             <p><br/></p>
 
