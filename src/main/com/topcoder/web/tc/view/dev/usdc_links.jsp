@@ -65,3 +65,8 @@
       <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
    </tr>
 </table>
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="003399">
+    <tr><td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+</table>
