@@ -48,12 +48,12 @@
 
             <p>Click a column name to sort the list of advancers by that column.</p>
 
-            <table width="400" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
+            <table width="510" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
                 <tr>
                   <td class="header" width="100%" colspan="5">Qualification Round</td>
                </tr>
                 <tr>
-                   <td class="testTableTitle_off" width="10%" align="right">
+                   <td class="testTableTitle_off" width="10%" align="center">
                        <a class="statTextBig" href="">
                            Seed
                        </a>
@@ -81,7 +81,7 @@
                 </tr>
 
                     <tr class="formHandleOdd">
-                       <td class="formHandleOdd" align="right"></td>
+                       <td class="formHandleOdd" align="center"></td>
                        <td class="formHandleOdd" align="left"></td>
                        <td class="formHandleOdd" align="center"></td>
                        <td class="formHandleOdd" align="right"></td>
