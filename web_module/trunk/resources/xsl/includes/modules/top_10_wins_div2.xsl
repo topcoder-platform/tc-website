@@ -22,46 +22,30 @@
           <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="1" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
         <TR>
-          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 29</TD>
+          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 48</TD>
         </TR>
         <TR>
           <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=271976" CLASS="coderTextBlue">Corrinado</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=274023" CLASS="coderTextBlue">venco</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD ALIGN="right" CLASS="statText">1210.52</TD>
-          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-        </TR>
-        <TR>
-          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 59</TD>
-        </TR>
-        <TR>
-          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
-        </TR>
-        <TR>
-          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=272510" CLASS="coderTextBlue">C8H10N4O2</A></TD>
-          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD ALIGN="right" CLASS="statText">1150.53</TD>
+          <TD ALIGN="right" CLASS="statText">1651.44</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
         </TR>
         <TR>
-          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 30</TD>
+          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 26</TD>
         </TR>
         <TR>
           <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=155869" CLASS="coderTextBlue">Kniht</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=268010" CLASS="coderTextBlue">cem1834</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD ALIGN="right" CLASS="statText">1146.03</TD>
+          <TD ALIGN="right" CLASS="statText">1651.01</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-        </TR>
-        <TR>
-          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
         <TR>
           <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 27</TD>
@@ -71,105 +55,121 @@
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=158452" CLASS="coderTextBlue">[UCF]Pawn</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=262602" CLASS="coderTextBlue">infrared</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD ALIGN="right" CLASS="statText">1134.64</TD>
-          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-        </TR>
-        <TR>
-          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
-        </TR>
-        <TR>
-          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 32</TD>
-        </TR>
-        <TR>
-          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
-        </TR>
-        <TR>
-          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=150527" CLASS="coderTextBlue">Penwiper</A></TD>
-          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD ALIGN="right" CLASS="statText">1094.54</TD>
+          <TD ALIGN="right" CLASS="statText">1649.46</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
         </TR>
         <TR>
           <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
         <TR>
-          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 65</TD>
+          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 28</TD>
         </TR>
         <TR>
           <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=274537" CLASS="coderTextYellow">mpb</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=156439" CLASS="coderTextBlue">Moose</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD ALIGN="right" CLASS="statText">1092.11</TD>
-          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-        </TR>
-        <TR>
-          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
-        </TR>
-        <TR>
-          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 37</TD>
-        </TR>
-        <TR>
-          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
-        </TR>
-        <TR>
-          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=160039" CLASS="coderTextGreen">deads</A></TD>
-          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD ALIGN="right" CLASS="statText">1048.53</TD>
+          <TD ALIGN="right" CLASS="statText">1639.74</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
         </TR>
         <TR>
           <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
         <TR>
-          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 60</TD>
+          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 49</TD>
         </TR>
         <TR>
           <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=273504" CLASS="coderTextYellow">doh</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=266149" CLASS="coderTextGreen">akhil_bansal</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD ALIGN="right" CLASS="statText">784.46</TD>
-          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-        </TR>
-        <TR>
-          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
-        </TR>
-        <TR>
-          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 61</TD>
-        </TR>
-        <TR>
-          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
-        </TR>
-        <TR>
-          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=269702" CLASS="coderTextYellow">coachbudka</A></TD>
-          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD ALIGN="right" CLASS="statText">778.27</TD>
+          <TD ALIGN="right" CLASS="statText">1631.84</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
         </TR>
         <TR>
           <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
         <TR>
-          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 33</TD>
+          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 29</TD>
         </TR>
         <TR>
           <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=267125" CLASS="coderTextBlue">linodemasi</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=133860" CLASS="coderTextBlue">Serpent</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD ALIGN="right" CLASS="statText">773.48</TD>
+          <TD ALIGN="right" CLASS="statText">1614.94</TD>
+          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        </TR>
+        <TR>
+          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 30</TD>
+        </TR>
+        <TR>
+          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
+        </TR>
+        <TR>
+          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=268529" CLASS="coderTextBlue">Ozymandias</A></TD>
+          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+          <TD ALIGN="right" CLASS="statText">1613.97</TD>
+          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        </TR>
+        <TR>
+          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 31</TD>
+        </TR>
+        <TR>
+          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
+        </TR>
+        <TR>
+          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=251130" CLASS="coderTextBlue">wyatt</A></TD>
+          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+          <TD ALIGN="right" CLASS="statText">1598.37</TD>
+          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        </TR>
+        <TR>
+          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 35</TD>
+        </TR>
+        <TR>
+          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
+        </TR>
+        <TR>
+          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=263874" CLASS="coderTextGreen">FatlXception</A></TD>
+          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+          <TD ALIGN="right" CLASS="statText">1593.05</TD>
+          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        </TR>
+        <TR>
+          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;Room 46</TD>
+        </TR>
+        <TR>
+          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
+        </TR>
+        <TR>
+          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=273414" CLASS="coderTextGreen">drcode</A></TD>
+          <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+          <TD ALIGN="right" CLASS="statText">1582.82</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
         </TR>
 		<TR>

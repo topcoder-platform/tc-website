@@ -93,7 +93,7 @@
 				</TR>
 				<TR>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-					<TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=261637" CLASS="coderTextBlue">awesjosh</A></TD>
+					<TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=261637" CLASS="coderTextYellow">awesjosh</A></TD>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 					<TD ALIGN="right" CLASS="statText">571.92</TD>
 					<TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
