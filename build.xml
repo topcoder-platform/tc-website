@@ -120,6 +120,32 @@
         <antcall target="package-EJB-AuthenticationServicesBean"/>
         <antcall target="package-EJB-CoderStatisticsBean"/>
         <antcall target="package-EJB-StatisticsBean"/>
+        <antcall target="package-EJB-EmailServicesBean"/>
+        <antcall target="package-EJB-ContestAdminServicesBean"/>
+        <antcall target="package-EJB-SearchBean"/>
+        <antcall target="package-EJB-ReportingBean"/>
+   </target>
+
+<target name="package-EJB-ReportingBean" depends="compile,init-ReportingBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-ReportingBean-properties" >
+       <property name="bean.dir"          value="Reporting" />
+        <property name="bean.jar.name"     value="Reporting.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+<target name="package-EJB-SearchBean" depends="compile,init-SearchBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-SearchBean-properties" >
+       <property name="bean.dir"          value="Search" />
+        <property name="bean.jar.name"     value="Search.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
    </target>
 
 <target name="package-EJB-PactsServicesBean" depends="compile,init-PactsServicesBean-properties,package-EJB-GenericBean"/>
