@@ -818,7 +818,7 @@ else if (command.equals("send")) {
         DataAccessInt dAccess = new DataAccess(DBMS.DW_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("member_profile");
-        r.setProperty("uid", String.valueOf(userId));
+        r.setProperty("cr", String.valueOf(userId));
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("Coder_Data");
         if(rsc.getItem(0, "design_rating").getResultData() == null)
         {
@@ -832,7 +832,7 @@ else if (command.equals("send")) {
         DataAccessInt dAccess = new DataAccess(DBMS.DW_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("member_profile");
-        r.setProperty("uid", String.valueOf(userId));
+        r.setProperty("cr", String.valueOf(userId));
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("Coder_Data");
         if(rsc.getItem(0, "development_rating").getResultData() == null)
         {
