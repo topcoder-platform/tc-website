@@ -27,6 +27,10 @@ public class Reg extends FullReg {
     
     protected void registrationProcessing() throws TCWebException {
         try {
+            if (getAuthentication().getUser().isAnonymous()) {
+                throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
+            }
+            
             TCSubject tcUser = Util.retrieveTCSubject(getAuthentication().getActiveUser().getId());
             Authorization authorization = new TCSAuthorization(tcUser);
 
