@@ -612,16 +612,21 @@ SELECT com.company_name
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1001 "TCES_Campaign_List" 0 0 "
-SELECT c.campaign_id,
-       c.campaign_name,
-       c.start_date,
-       c.end_date
-  FROM contact con,
-       campaign c
+SELECT c.campaign_id
+     , c.campaign_name
+     , c.start_date
+     , c.end_date
+     , co.company_id
+     , co.company_name
+  FROM contact con
+     , campaign c
+     , company co
  WHERE con.contact_id = @uid@
    AND c.company_id = con.company_id
+   AND c.company_id = co.company_id
+   AND con.company_id = co.company_id
    AND c.status_id = 1
- ORDER BY 1
+ ORDER BY co.company_id
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1002 "TCES_Campaign_Info" 0 0 "
@@ -795,7 +800,7 @@ SELECT dq.demographic_question_id
    AND cjx.status_id = 1
    AND (cjx.campaign_id = @cid@)
    AND (coder.coder_type_id = @ct@)
-   AND dq.demographic_question_id NOT IN (1,2,12)
+   AND dq.demographic_question_id NOT IN (1,2,12,24)
  GROUP BY dr.demographic_answer_id
      , dq.demographic_question_text
      , da.sort
@@ -864,6 +869,7 @@ SELECT dq.demographic_question_id
    AND dr.demographic_question_id = da.demographic_question_id
    AND (jh.job_id = @jid@)
    AND (coder.coder_type_id = @ct@)
+   AND dq.demographic_question_id NOT IN (1,2,12,24)
  GROUP BY dr.demographic_answer_id
      , dq.demographic_question_text
      , da.sort
@@ -960,7 +966,7 @@ SELECT dq.demographic_question_id
    AND da.demographic_question_id = dq.demographic_question_id
    AND dr.demographic_question_id = da.demographic_question_id
    AND (dr.coder_id = @mid@)
-   AND dq.demographic_question_id NOT IN (1,2,12)
+   AND dq.demographic_question_id NOT IN (1,2,12,24)
  ORDER BY dq.demographic_question_id
      , da.sort
 "
@@ -1032,7 +1038,7 @@ SELECT u.user_id, u.password
   FROM user u
        ,contact c
  WHERE c.contact_id = u.user_id
-   AND u.handle = @hn@
+   AND u.handle = '@hn@'
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 83 "TCES Notification" 0 0 "
