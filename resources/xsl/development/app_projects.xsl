@@ -148,7 +148,7 @@
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=Content_Syndication_ASP_Dev">Content Syndication: AS{</a>
+                                        <a href="?t=development&amp;c=Content_Syndication_ASP_Dev">Content Syndication: ASP</a>
                                     </td>
                                     <td class="projectCells" align="right">$500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$350 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
