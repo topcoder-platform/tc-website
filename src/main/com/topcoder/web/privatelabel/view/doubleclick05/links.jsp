@@ -27,9 +27,11 @@
             <td align="center" class="<%=tl2.equals("faq")?"dc_subnav_on":"dc_subnav"%>">
                 <a class="<%=tl2.equals("faq")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick05&d2=faq">FAQ</a>
             </td>
+<%--
             <td align="center" class="<%=tl2.equals("winners")?"dc_subnav_on":"dc_subnav"%>">
                 <a class="<%=tl2.equals("winners")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick05&d2=winners">Winners</a>
             </td>
+--%>
             <td align="center" class="<%=tl2.equals("arena")?"dc_subnav_on":"dc_subnav"%>">
                 <a class="<%=tl2.equals("arena")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick05&d2=arena">Competition Arena</a>
             </td>
