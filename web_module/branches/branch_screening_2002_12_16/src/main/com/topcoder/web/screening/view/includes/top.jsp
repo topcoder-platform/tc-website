@@ -3,11 +3,11 @@
     <!-- Logo Bar Include Begins -->       
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">            
    <TR>
-      <TD COLSPAN="3" WIDTH="100%" BGCOLOR="#333333" ALIGN="right" VALIGN="middle" HEIGHT="15"><screen:link page="/index.jsp" target="_top" styleClass="globalNavSmall">Main Page</screen:link><img src="/i/ev/clear.gif" width="20" height="1" hspace="5" border="0"/></TD>        
+      <TD COLSPAN="3" WIDTH="100%" BGCOLOR="#333333" ALIGN="right" VALIGN="middle" HEIGHT="15"><screen:servletLink target="_top" styleClass="globalNavSmall">Main Page</screen:servletLink><img src="/i/ev/clear.gif" width="20" height="1" hspace="5" border="0"/></TD>        
    </TR>   
    <TR>
       <TD WIDTH="15" BGCOLOR="#000000"><A NAME="top"></A><img src="/i/ev/clear.gif" width="15" height="1" border="0"/></TD>
-      <TD WIDTH="206" BGCOLOR="#000000"><screen:link page="/index.jsp" target="_top"><img src="/i/ev/logo.gif" width="206" height="49" border="0" vspace="13"/></screen:link></TD>
+      <TD WIDTH="206" BGCOLOR="#000000"><screen:servletLink target="_top"><img src="/i/ev/logo.gif" width="206" height="49" border="0" vspace="13"/></screen:servletLink></TD>
       <TD WIDTH="100%" BGCOLOR="#000000"><img src="/i/ev/clear.gif" width="1" height="1" border="0"/></TD>        
    </TR>             
 </TABLE>
@@ -18,9 +18,9 @@
       <TD WIDTH="20" BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666"><img src="/i/ev/clear.gif" width="30" height="1" border="0"/></TD>
       <TD BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666" NOWRAP="" CLASS="statText"><screen:link page="/sess_setup.jsp" styleClass="statText">Create a New Session</screen:link></TD>
       <TD WIDTH="20" BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666"><img src="/i/ev/clear.gif" width="30" height="1" border="0"/></TD>      
-      <TD BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666" NOWRAP="" CLASS="statText"><screen:link page="/sess_o_list.jsp" styleClass="statText">Test Profiles</screen:link></TD> 
+      <TD BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666" NOWRAP="" CLASS="statText"><screen:servletLink processor="ProfileList" styleClass="statText">Test Profiles</screen:servletLink></TD> 
       <TD WIDTH="20" BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666"><img src="/i/ev/clear.gif" width="30" height="1" border="0"/></TD>           
-      <TD BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666" NOWRAP="" CLASS="statText"><screen:link page="/prob_list.jsp" styleClass="statText">Problems</screen:link></TD>     
+      <TD BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666" NOWRAP="" CLASS="statText"><screen:servletLink processor="ProblemList" styleClass="statText">Problems</screen:servletLink></TD>     
       <TD WIDTH="20" BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666"><img src="/i/ev/clear.gif" width="30" height="1" border="0"/></TD>       
       <TD BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666" NOWRAP="" CLASS="statText"><screen:link page="/cand_list.jsp" styleClass="statText">Candidates</screen:link></TD>          
       <TD WIDTH="100%" BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666"><img src="/i/ev/clear.gif" width="1" height="21" border="0"/></TD>  

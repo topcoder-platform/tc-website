@@ -60,6 +60,7 @@ public class Constants
     public static String POPULATE_PROFILE_PROCESSOR;
     public static String PROFILE_SETUP_PAGE;
     public static String PROFILE_CONFIRM_PAGE;
+    public static String PROFILE_LIST_PAGE;
     public static String PROFILE_ADD_PROBLEM_PROCESSOR;
     public static String PROFILE_REMOVE_PROBLEM_PROCESSOR;
     public static String PROFILE_CONFIRM_PROCESSOR;
@@ -144,6 +145,7 @@ public class Constants
             config.getInitParameter("populate_profile_processor");
         PROFILE_SETUP_PAGE = config.getInitParameter("profile_setup_page");
         PROFILE_CONFIRM_PAGE = config.getInitParameter("profile_confirm_page");
+        PROFILE_LIST_PAGE = config.getInitParameter("profile_list_page");
         PROFILE_ADD_PROBLEM_PROCESSOR = 
             config.getInitParameter("profile_add_problem_processor");
         PROFILE_REMOVE_PROBLEM_PROCESSOR =
