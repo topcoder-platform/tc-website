@@ -49,21 +49,22 @@
            <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="CompanyName"/>"/>
         </jsp:include>
         
-        <p>
+        <p align="center">
         <b>
         <jsp:getProperty name="CampaignDetailTask" property="CompanyName"/>
         </b>
         <br>
         <jsp:getProperty name="CampaignDetailTask" property="CampaignName"/>
+        <br>
         <jsp:getProperty name="CampaignDetailTask" property="CampaignStatus"/>
         </p>
         
-        <p>
+        <p align="center">
         Total Hits: <jsp:getProperty name="CampaignDetailTask" property="TotalHits"/><br>
         Most Recent Hit: <jsp:getProperty name="CampaignDetailTask" property="MostRecentHit"/>
         </p>
         
-        <p>
+        <p align="center">
         <a href="<%=TCESConstants.CAMPAIGN_INTEREST_PAGE%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID"/>" class="statText">View Hit Details</a>
         </p>
         

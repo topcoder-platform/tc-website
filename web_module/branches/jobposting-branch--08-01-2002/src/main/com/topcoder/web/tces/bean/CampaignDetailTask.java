@@ -148,9 +148,13 @@ log.debug("setting most recent hit = "+mostRecentHit);
 
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Hit_Info");
+log.debug("chinf: "+Integer.toString(rsc.getRowCount()) );
+for (int i=0;i<rsc.getRowCount();i++) {
+log.debug( rsc.getRow(i).toString() );
+}
         ResultSetContainer.ResultSetRow cpgnHitsRow = rsc.getRow(0);
-        setTotalHits( TCData.getTCString(cpgnHitsRow, "total_hits") );
-        setMostRecentHit( TCData.getTCString(cpgnHitsRow, "most_recent") );
+        setTotalHits( Long.toString(TCData.getTCLong(cpgnHitsRow, "total_hits")) );
+        setMostRecentHit( TCData.getTCDate(cpgnHitsRow, "most_recent") );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_List");
         ArrayList positionList = new ArrayList();
