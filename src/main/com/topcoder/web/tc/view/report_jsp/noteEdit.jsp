@@ -21,7 +21,7 @@
             <input type="hidden" name="module" value="UpdateNote"/>
             <input type="hidden" name="<%=com.topcoder.web.tc.Constants.USER_ID%>" value="<%=request.getAttribute(com.topcoder.web.tc.Constants.USER_ID)%>"/>
             <tr><td align=center><b><font size="+2"><%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%></font></b></td></tr>
-            <tr><td align=center><a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%>">View Report Profile</a></p></td>
+            <tr><td align=center><a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%>">View Report Profile</a></p></td></tr>
             <tr>
                 <td align=center>
                     <tc-webtag:textArea name="<%=com.topcoder.web.tc.Constants.NOTE_TEXT%>" rows="3" cols="40"/>
