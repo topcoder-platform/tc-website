@@ -577,84 +577,84 @@ score was seen: <b>1601.35</b> by first timer <b>Yi Zhang</b>. The runner ups in
 <!-- Software Promo Ends -->
 
 <!-- Software Leader Board Begins -->
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" bgcolor="#001935" background="/i/steel_darkblue_bg.gif">
-                <tr><td height="17" class="moduleTitle" valign="middle"><img src="/i/module_labels_tcs_coders.gif" alt="TopCoder Software Leaders" width="226" height="17" border="0"/></td></tr>
-            </table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" bgcolor="#001935" background="/i/steel_darkblue_bg.gif">
+				<tr><td height="17" class="moduleTitle" valign="middle"><img src="/i/module_labels_tcs_coders.gif" alt="TopCoder Software Leaders" width="226" height="17" border="0"/></td></tr>
+			</table>
 
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif">
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="3" border="0"/></td>
-                    <td width="59%"><img src="/i/clear.gif" width="1" height="3" border="0"/></td>
-                    <td width="39%"><img src="/i/clear.gif" width="1" height="3" border="0"/></td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="3" border="0"/></td>
-                </tr>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif">
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="3" border="0"/></td>
+					<td width="59%"><img src="/i/clear.gif" width="1" height="3" border="0"/></td>
+					<td width="39%"><img src="/i/clear.gif" width="1" height="3" border="0"/></td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="3" border="0"/></td>
+				</tr>              
+							
+				<tr valign="middle">
+					<td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
+					<td class="statTextBig" background="/i/steel_bluebv_bg.gif">Handle</td>
+					<td class="statTextBig" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Average Score</td>  
+					<td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
+				</tr>              
+							
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
+					<td class="statText" align="right">90.28</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>             
+							
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
+					<td class="statText" align="right">84.26</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>             
+											
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150940">orb</a></td>
+					<td class="statText" align="right">83.78</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>             
+							
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=267860">atdiehm</a></td>
+					<td class="statText" align="right">83.39</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>     
+											
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=285960">jkang</a></td>
+					<td class="statText" align="right">82.40</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>             
 
-                <tr valign="middle">
-                    <td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
-                    <td class="statTextBig" background="/i/steel_bluebv_bg.gif">Handle</td>
-                    <td class="statTextBig" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Average Score</td>
-                    <td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
-                    <td class="statText" align="right">89.46</td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150940">orb</a></td>
-                    <td class="statText" align="right">83.78</td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=285960">jkang</a></td>
-                    <td class="statText" align="right">82.40</td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=141163">darkstalker</a></td>
-                    <td class="statText" align="right">81.89</td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
-                    <td class="statText" align="right">81.52</td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr>
-                    <td colspan="4"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
-                </tr>
-            </table>
+				<tr>
+					<td colspan="4"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
+				</tr>                       
+			</table>
 <!-- Software Leader Board Ends -->
 
 <!-- <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02"> -->
