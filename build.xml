@@ -806,14 +806,10 @@
     </target>
 
     <target name="build-security" depends="compile">
-        <jar
-            jarfile="${ejb_jars}/security.jar"
-            basedir="${classes}"
-            includes="com/topcoder/security/**">
-	        <metainf dir="${resources}/security/conf" includes="*.xml" excludes="application.xml"/>
-	    </jar>
-        <jar jarfile="${ejb_jars}/security.jar" update="true">
+        <jar jarfile="${ejb_jars}/security.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/security/**"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <metainf dir="${resources}/security/conf" includes="*.xml" excludes="application.xml"/>
         </jar>
 
         <ear earfile="${ear.dir}/security.ear" appxml="${resources}/security/conf/application.xml">
