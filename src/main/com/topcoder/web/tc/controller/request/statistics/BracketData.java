@@ -76,11 +76,11 @@ public class BracketData extends Base {
                 hd.startElement("", "", "competitor", emptyAtts);
                 addElement(hd, "handle", profileRsc.getStringItem(0, "handle"), emptyAtts);
                 addElement(hd, "photo", profileRsc.getStringItem(0, "image_path"), emptyAtts);
-                addElement(hd, "alg_rating", competitorRsc.getStringItem(0, "rating"), emptyAtts);
-                addElement(hd, "alg_rank", competitorRsc.getStringItem(0, "rank"), emptyAtts);
-                addElement(hd, "alg_percentile", df.format(competitorRsc.getDoubleItem(0, "percentile")), emptyAtts);
-                addElement(hd, "member_since", sdf.format(competitorRsc.getItem(0, "member_since").getResultData()), emptyAtts);
-                addElement(hd, "competitions", competitorRsc.getStringItem(0, "num_competitions"), emptyAtts);
+                addElement(hd, "alg_rating", profileRsc.getStringItem(0, "rating"), emptyAtts);
+                addElement(hd, "alg_rank", profileRsc.getStringItem(0, "rank"), emptyAtts);
+                addElement(hd, "alg_percentile", df.format(profileRsc.getDoubleItem(0, "percentile")), emptyAtts);
+                addElement(hd, "member_since", sdf.format(profileRsc.getItem(0, "member_since").getResultData()), emptyAtts);
+                addElement(hd, "competitions", profileRsc.getStringItem(0, "num_competitions"), emptyAtts);
                 addElement(hd, "room_seed", rsr.getStringItem("room_seed"), emptyAtts);
                 hd.endElement("", "", "competitor");
             }
