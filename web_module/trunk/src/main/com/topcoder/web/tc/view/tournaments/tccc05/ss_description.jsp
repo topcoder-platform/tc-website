@@ -30,8 +30,8 @@
 
 <%-- uncomment this when SS starts --%>
 <%--
-		<p align=right><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_leader_website">view the leaderboard</A></p>
 --%>
+		<p align=right><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_leader_website">view the leaderboard</A></p>
 
 		<p><span class="bodySubtitle">OPEN COMPETITION!</span><br/>Once again, TopCoder is holding a competition for attendees of the 2005 TopCoder Collegiate Challenge. The Spectator Showdown is a 
 		competition open to members of the event audience who want to join in the competitive spirit and battle for prizes.  

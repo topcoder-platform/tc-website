@@ -26,7 +26,7 @@
 		<div class="leadPhoto">
 		<span class="bodyText" align="center"><p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=photos">See more photos!</a></p></span>
 		<img src="/i/tournament/tccc05/onsite_photos/shot_room3.jpg" alt="" class="photoFrameBig" /><br/>
-		<span class="leadPhotoCaption">mathijs in Room 3<br/><br/></span>
+		<span class="leadPhotoCaption">mathijs wins a close one<br/><br/></span>
 		</div>
 
 		<a href="/stat?c=member_profile&cr=269554"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>

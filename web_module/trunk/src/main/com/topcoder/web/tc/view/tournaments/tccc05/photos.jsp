@@ -10,7 +10,7 @@
 
 var imageDir = "/i/tournament/tccc05/onsite_photos/";
 var imageNum = 1;
-var totalImages = 80;
+var totalImages = 86;
 
 <%
     final String CURR_IMAGE_KEY = "currImage";

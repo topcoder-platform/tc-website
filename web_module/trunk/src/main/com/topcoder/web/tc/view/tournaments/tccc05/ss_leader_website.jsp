@@ -230,6 +230,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_tccc05
                                     <td class="leaderCell" align="right"><rsc:item name='points' row='<%=Row%>' format="0.00"/></td>
                                 </tr>
                             <% j++;%>
+                            </rsc:iterator>
                         </table>
                     </td>
 
