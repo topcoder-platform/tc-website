@@ -31,7 +31,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     private int jobID;
     private int memberID;
     private Map memberInfo;
-    private String positionName;
+    private String jobName;
     private List statsByLevel;
 
     private int uid;
@@ -86,12 +86,12 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         this.memberInfo = memberInfo;
     }
 
-    public String getPositionName() {
-        return positionName;
+    public String getJobName() {
+        return jobName;
     }
 
-    public void setPositionName(String positionName) {
-        this.positionName = positionName;
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
     }
 
 
@@ -161,7 +161,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Position_Name");
         ResultSetContainer.ResultSetRow posNameRow = oltpRSC.getRow(0);
-        setPositionName( posNameRow.getItem("job_desc").toString() );
+        setJobName( posNameRow.getItem("job_desc").toString() );
 
         oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Member_Profile");
         ResultSetContainer.ResultSetRow memProfRow = oltpRSC.getRow(0);
