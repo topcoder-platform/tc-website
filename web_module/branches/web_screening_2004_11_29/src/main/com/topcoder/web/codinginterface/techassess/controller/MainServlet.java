@@ -13,6 +13,7 @@ import com.topcoder.security.admin.PrincipalMgrRemote;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.naming.NamingException;
+import javax.naming.InitialContext;
 import java.rmi.RemoteException;
 
 /**
@@ -32,7 +33,13 @@ public class MainServlet extends BaseServlet {
         if (!Constants.isInitialized())
             throw new ServletException("Constants did not initialize properly");
 */
-        log.debug(System.getProperty("java.class.path","."));
+        try {
+            InitialContext ctx = new InitialContext();
+            log.debug(ctx.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 
