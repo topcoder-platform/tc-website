@@ -83,33 +83,33 @@
                 <tces:mapIterator id="comp" mapList="<%=(List)CompetitionHistoryTask.getCompetitionList()%>">
                   <TR>
                     <TD class="statText" HEIGHT="18">&#160;
-                        <%= (String)submission.get("date") %>
+                        <%= (String)comp.get("date") %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
                       <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>&rd=<%= (String)submission.get("round_id") %>" class="statText">
-                        <%= (String)submission.get("contest_name") %>
+                        <%= (String)comp.get("contest_name") %>
                       </A>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= (String)submission.get("division_name") %>
+                        <%= (String)comp.get("division_name") %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= (String)submission.get("final_points") %>
+                        <%= (String)comp.get("final_points") %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= (String)submission.get("avg_points") %>
+                        <%= (String)comp.get("avg_points") %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= (String)submission.get("old_rating") %>
+                        <%= (String)comp.get("old_rating") %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= (String)submission.get("new_rating") %>
+                        <%= (String)comp.get("new_rating") %>
                     </TD>
                   </TR>
                 </tces:mapIterator>
