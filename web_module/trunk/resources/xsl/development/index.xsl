@@ -55,7 +55,7 @@
 </P>
 
 <P>
-<b>TopCoder is now offering development projects for commercial components.  Members can now receive, in addition to the advance compensation, royalties on all sales of these components through TopCoder.  Check out the projects below and watch for more information on TopCoder Software.</b>
+<b>TopCoder is now offering development projects for commercial components.  Members can now receive, in addition to the initial payment, royalties on all sales of these components through TopCoder.  Check out the projects below and watch for more information on TopCoder Software.</b>
 </P>
 
 <P>
@@ -66,12 +66,32 @@ We will choose the project participants based upon TopCoder rating, historical T
 Keep in mind, TopCoder is paying significant money for these projects, and we expect a significant commitment from the project participants. You must feel confident that you can meet the deadlines specified in the project description.
 </P>
 
-
+<P>
+Project: <A HREF="/index?t=development&amp;c=pdf_conversion" CLASS="statText">PDF Conversion Design</A><BR/>
+Start Date: Apr 16, 2002<BR/>
+Length: 1 week<BR/>
+Member Selection: <b>Open</b><BR/>
+Inquiry Deadline: Apr 12, 2002 12:00 PM EDT<BR/>
+</P>
+<P>
+Project: <A HREF="/index?t=development&amp;c=calendar" CLASS="statText">Calendar Component</A><BR/>
+Start Date: Apr 16, 2002<BR/>
+Length: 2 weeks<BR/>
+Member Selection: <b>Open</b><BR/>
+Inquiry Deadline: Apr 12, 2002 12:00 PM EDT<BR/>
+</P>
+<P>
+Project: <A HREF="/index?t=development&amp;c=file_upload" CLASS="statText">File Upload Component</A><BR/>
+Start Date: Apr 16, 2002<BR/>
+Length: 3.5 weeks<BR/>
+Member Selection: <b>Open</b><BR/>
+Inquiry Deadline: Apr 12, 2002 12:00 PM EDT<BR/>
+</P>
 <P>
 Project: <A HREF="/index?t=development&amp;c=web_services_proto" CLASS="statText">Web Services Proof of Concept</A><BR/>
 Start Date: Apr 16, 2002<BR/>
 Length: 2 weeks<BR/>
-Member Selection: Open<BR/>
+Member Selection: <b>Open</b><BR/>
 Inquiry Deadline: Apr 12, 2002 12:00 PM EDT<BR/>
 </P>
 
