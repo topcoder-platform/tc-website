@@ -220,7 +220,7 @@
                             </td>
                             <td background="" class="statText" align="center"><xsl:value-of select="./total_inquiries"/></td>
                             <td background="" class="statText" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
-                            <td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission"/></xsl:call-template></td>
+                            <td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                             <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                         </tr>
                     </xsl:if>
