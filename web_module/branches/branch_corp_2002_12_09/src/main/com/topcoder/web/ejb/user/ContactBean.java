@@ -88,9 +88,9 @@ public class ContactBean implements SessionBean {
         }
     }
 
-    public void setCompany(long contactId, long companyId) {
+    public void setCompanyId(long contactId, long companyId) {
 
-        log.debug("setCompany called...contactId: " + contactId + " companyId: " + companyId);
+        log.debug("setCompanyId called...contactId: " + contactId + " companyId: " + companyId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -118,9 +118,9 @@ public class ContactBean implements SessionBean {
         } catch (Exception e) {
             throw new EJBException("Exception updating contact_id: " + contactId + " company_id: " + companyId + "\n" + e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setCompany");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setCompany");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setCompany");}}
+            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setCompanyId");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setCompanyId");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setCompanyId");}}
         }
     }
 
