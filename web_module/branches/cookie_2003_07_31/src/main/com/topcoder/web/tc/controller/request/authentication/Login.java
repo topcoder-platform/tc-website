@@ -4,22 +4,22 @@ import com.topcoder.web.common.*;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.web.tc.controller.request.Base;
+import com.topcoder.web.ejb.user.User;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.naming.InitialContext;
 import java.util.Map;
+import java.util.Arrays;
 
 public class Login extends Base {
 
-    private static final String[] INACTIVE_STATI = {"I", "0", "9", "6", "5", "4"};
-    private static final String[] UNACTIVE_STATI = {"U", "2"};
+
 
     public static final String USER_NAME = "username";
     public static final String PASSWORD = "password";
@@ -44,8 +44,8 @@ public class Login extends Base {
 
                         getAuthentication().login(new SimpleUser(0, username, password));
 
-                        String status = getStatus(getAuthentication().getUser().getId());
-                        if (status.equals("A")) {
+                        char status = getStatus(getAuthentication().getUser().getId());
+                        if (Arrays.binarySearch(Activate.ACTIVE_STATI, status)<0) {
                             String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                             setNextPage(dest);
                             setIsNextPageInContext(false);
@@ -53,10 +53,10 @@ public class Login extends Base {
                             return;
                         } else {
                             getAuthentication().logout();
-                            if (hasDisabledAccount(status)) {
+                            if (Arrays.binarySearch(Activate.INACTIVE_STATI, status)<0) {
                                 throw new LoginException("Sorry, your account is not active.  " +
                                         "If you believe this is an error, please contact TopCoder.");
-                            } else if (hasUnactiveAccount(status)) {
+                            } else if (Arrays.binarySearch(Activate.UNACTIVE_STATI, status)<0) {
                                 setNextPage(Constants.UNACTIVE);
                                 setIsNextPageInContext(true);
                             } else {
@@ -83,44 +83,25 @@ public class Login extends Base {
         setIsNextPageInContext(true);
     }
 
-    private boolean hasDisabledAccount(String status) throws Exception {
-        boolean found = false;
-        for (int i=0; !found&&i<INACTIVE_STATI.length; i++) {
-            found = status.equals(INACTIVE_STATI[i]);
-        }
-        return found;
-    }
 
-    private boolean hasUnactiveAccount(String status) throws Exception {
-        boolean found = false;
-        for (int i=0; !found&&i<UNACTIVE_STATI.length; i++) {
-            found = status.equals(UNACTIVE_STATI[i]);
-        }
-        return found;
-    }
 
 
     /**
-     * get the status for a user.  if the user doesn't exists, we'll return empty string
      * @param userId
      * @return
-     * @throws Exception
+     * @throws Exception if user doesn't exist or some other ejb problem
      */
-    private String getStatus(long userId) throws Exception {
-        DataAccessInt dAccess = getDataAccess();
-
-        Request dataRequest = new Request();
-        dataRequest.setProperty("uid", String.valueOf(userId));
-        dataRequest.setContentHandle("user_status");
-
-        Map map = dAccess.getData(dataRequest);
-
-        ResultSetContainer result = (ResultSetContainer) map.get("user_status");
-        if (result.isEmpty()) {
-            return "";
-        } else {
-            return result.getStringItem(0, "status");
+    private char getStatus(long userId) throws Exception {
+        char result;
+        InitialContext ctx = null;
+        try {
+            ctx = new InitialContext();
+            User user = (User)createEJB(ctx, User.class);
+            result = user.getStatus(userId, DBMS.OLTP_DATASOURCE_NAME);
+        } finally {
+            close(ctx);
         }
+        return result;
 
     }
 

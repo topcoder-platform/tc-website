@@ -11,8 +11,21 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.shared.util.DBMS;
 
 import javax.naming.InitialContext;
+import java.util.Arrays;
 
 public class Activate extends Base {
+
+    static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
+    static final char[] UNACTIVE_STATI = {'U', '2'};
+    static final char[] ACTIVE_STATI = {'A', '1'};
+
+    static {
+        //sort them so that one can use Arrays.binarySearch to figure out if a particular
+        //status is in the list
+        Arrays.sort(INACTIVE_STATI);
+        Arrays.sort(UNACTIVE_STATI);
+        Arrays.sort(ACTIVE_STATI);
+    }
 
     protected void businessProcessing() throws TCWebException {
         InitialContext ctx = null;
@@ -33,11 +46,11 @@ public class Activate extends Base {
                 //activate account
                 User user = (User) createEJB(ctx, User.class);
                 char status = user.getStatus(userId, DBMS.OLTP_DATASOURCE_NAME);
-                if (status==Constants.UNACTIVE_STATUS.charAt(0)) {
+                if (Arrays.binarySearch(UNACTIVE_STATI, status)<0) {
                     user.setStatus(userId, Constants.ACTIVE_STATUS.charAt(0), DBMS.OLTP_DATASOURCE_NAME);
                     setNextPage(Constants.ACTIVATE);
                     setIsNextPageInContext(true);
-                } else if (status == Constants.ACTIVE_STATUS.charAt(0)) {
+                } else if (Arrays.binarySearch(ACTIVE_STATI, status)<0) {
                     throw new NavigationException("Account has already been activated.");
                 } else {
                     throw new NavigationException("Your account can not be activated.");
@@ -53,4 +66,5 @@ public class Activate extends Base {
             close(ctx);
         }
     }
+
 }

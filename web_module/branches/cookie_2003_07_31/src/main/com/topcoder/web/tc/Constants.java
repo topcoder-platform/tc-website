@@ -47,8 +47,7 @@ public class Constants {
     public static String EMAIL_SENT;
 
     /* misc constants */
-    public static String ACTIVE_STATUS;
-    public static String UNACTIVE_STATUS;
+
 
     private Constants() {
     }
