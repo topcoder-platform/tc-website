@@ -220,8 +220,20 @@
              <exclude name="com/topcoder/shared/language/**" />
          </javac>
     </target>
+    
+    <target name="compile_timeline" >
+        <mkdir dir="${build_classdir}"/>
+        <javac srcdir="${javamain}"
+               destdir="${build_classdir}"
+               verbose="${verbose}"
+               debug="${debug}"
+               classpathref="buildlibs">
+            <include name="com/topcoder/project/phases/**" />
+            <include name="com/topcoder/date/workdays/**" />
+        </javac>
+    </target>
 
-    <target name="package" depends="compile,build-or">
+    <target name="package" depends="compile,compile_timeline,build-or">
         <mkdir dir="${dist.jars.dir}"/>
         <copy file="${idgenerator.jar}" todir="${dist.jars.dir}"/>
         <copy file="${forum.jar}" todir="${dist.jars.dir}"/>
@@ -336,22 +348,22 @@
 	<copy file="${typesafeenum.jar}" todir="${dist.jars.dir}"/>
 	<copy file="${workdays.jar}" todir="${dist.jars.dir}"/>
 	<copy file="${projectphases.jar}" todir="${dist.jars.dir}"/>
-        
-        <!-- qq -->
+
+        <!-- Add the TCPhase class to the project_phases.jar package -->
         <jar    jarfile="${dist.jars.dir}/${projectphases.jar.name}"
         	update="true"
-        	includes="build.xml" />
+        	basedir="."
+        	includes="${build_classdir}/com/topcoder/project/phases/TCPhase.class" />
+        
+        <!-- Add the TCWorkdays class to the workdays.jar package -->
+        <jar    jarfile="${dist.jars.dir}/${workdays.jar.name}"
+        	update="true"
+        	basedir="."
+        	includes="${build_classdir}/com/topcoder/date/workdays/TCWorkdays.class" />
         
         
     </target>
 
-        <!-- qq -->
-<target name="qq">
-        <jar    jarfile="${dist.jars.dir}/${projectphases.jar.name}"
-        	update="true"
-        	basedir="."
-        	includes="build/classes/com/topcoder/project/phases/TCPhase.class" />
-</target>        
 
 
     <target name="make-ear" unless="with-tests" depends="package">
