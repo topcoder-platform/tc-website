@@ -857,8 +857,8 @@ public class PDFGenerator extends BaseProcessor {
                     cb.setColorFill(Color.white);
                     cb.setColorStroke(Color.white);
                     cb.setFontAndSize(BaseFont.createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED ), 14);
-                    cb.setTextMatrix(200, 30);
-                    cb.showText("Member Profile for [" + info.getHandle() + "]");
+                    cb.setTextMatrix(300, 30);
+                    cb.showText("-" + writer.getPageNumber() + "-");
                     cb.endText();
 
                     //cb.addImage(footerimg);
