@@ -283,9 +283,9 @@ new lobbies and list sorting....<A HREF="/?t=statistics&amp;c=srm95_lessons" CLA
 <AREA SHAPE="rect" ALT="" COORDS="107,117,192,132" HREF="/stat?c=last_match"></AREA>
 </MAP>
 <A HREF="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=home','Citrix','1','1','680','489')"><img BORDER="0" HEIGHT="172" WIDTH="244" ALT="" SRC="/i/sponspromo_citrix.gif"/></A><BR/> -->
-<!-- <A HREF="/?ContestId=4180&amp;t=schedule&amp;c=srm"><IMG SRC="/i/sponspromo_motorola.gif" ALT="" WIDTH="244" HEIGHT="172" BORDER="0"/></A><BR/><BR/> -->
-<A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/promo_teams.gif" WIDTH="244" HEIGHT="81" BORDER="0"/></A><BR/>
-<A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/promo_jobs.gif" WIDTH="244" HEIGHT="81" BORDER="0"/></A>
+<A HREF="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm96"><IMG SRC="/i/sponspromo_motorola.gif" ALT="" WIDTH="244" HEIGHT="172" BORDER="0"/></A><BR/><BR/>
+<!-- <A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/promo_teams.gif" WIDTH="244" HEIGHT="81" BORDER="0"/></A><BR/>
+<A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/promo_jobs.gif" WIDTH="244" HEIGHT="81" BORDER="0"/></A> -->
 <xsl:call-template name="top_10_coders"/>
 
            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
