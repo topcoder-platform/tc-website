@@ -244,21 +244,25 @@ public final class TaskDevelopment {
                }
   */
 
-//               DataAccessInt dai = null;
-//               DataAccessInt transDai = null;
                Request dataRequest = null;
                ResultSetContainer rsc = null;
                Map resultMap = null;
-               DataAccessInt dai = new DataAccess((javax.sql.DataSource)
-                        TCContext.getInitial().lookup(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL)));
-
+               log.debug("getting dai");
                dataRequest = new Request();
                dataRequest.setContentHandle("open_projects");
-               //dataRequest.setProperty("dn", "1");
-               resultMap = dai.getData(dataRequest);
-               rsc = (ResultSetContainer) resultMap.get("Top_Scorers");
 
+               DataAccessInt dai = new DataAccess((javax.sql.DataSource)
+                        TCContext.getInitial().lookup(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG)));
+               log.debug("got dai");
+
+               resultMap = dai.getData(dataRequest);
+               log.debug("got map");
+               rsc = (ResultSetContainer) resultMap.get("Retrieve open projects");
+
+               log.debug("got rsc");
+               if(rsc == null)
+                  log.debug("rsc is null");
                devTag.addTag(rsc.getTag("projects", "project"));
                xsldocURLString = XSL_DIR + command + ".xsl";
 
@@ -436,6 +440,7 @@ public final class TaskDevelopment {
                         selectedPrincipal = PRINCIPAL_MANAGER.getUser(handle);
                         userId = selectedPrincipal.getId();
                         PricingTier pt = new PricingTier(1, 5.0);
+                        log.debug("got user");
                     }
                     catch (NoSuchUserException noSuchUserException)
 	            {
@@ -528,6 +533,8 @@ public final class TaskDevelopment {
                     RolePrincipal[] roles = (RolePrincipal[])rolesSet.toArray(new RolePrincipal[0]);
                     //String formattedProject = project.substring(0, project.lastIndexOf(' ')-1);
 
+                    log.debug("phase: " + phase);
+                    log.debug("phase: " + version);
                     USER_MANAGER.registerInquiry(userId, componentId, rating,  (new Integer(nav.getUser().getUserId())).longValue(), comment, agreedToTerms, Long.parseLong(phase), Long.parseLong(version));
 
 
