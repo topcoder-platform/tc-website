@@ -132,6 +132,13 @@ public class Registration
     public static final int TOPCODER_EMAIL_REFERRAL = 70;
     public static final int JAVA_USER_GROUP_REFERRAL = 90;
     public static final int SEARCH_ENGINE_REFERRAL = 100;
+    public static final int CAMPUS_POSTER = 80;
+    public static final int IRC_CHAT = 110;
+    public static final int RECRUITER = 120;
+    public static final int MAGAZINE_ADVERT = 33;
+
+
+
     private final static String PUNCTUATION = "-_.{}[]()";
     private final static String HANDLE_ALPHABET="ABCDEFGHIJKLMNOPQRSTUVWXYZ"+
                                                 "abcdefghijklmnopqrstuvwxyz"+
@@ -1224,6 +1231,8 @@ public class Registration
                 return "Java user group name";
             case SEARCH_ENGINE_REFERRAL:
                 return "search engine";
+            case MAGAZINE_ADVERT:
+                return "magazine name";
         }
         return "";
     }
