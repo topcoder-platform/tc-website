@@ -20,6 +20,7 @@ public class RegistrationInfo extends Base {
     private String city;
     private String state;
     private String zip;
+    private long companyId;
 
     public RegistrationInfo() {
 
@@ -39,6 +40,7 @@ public class RegistrationInfo extends Base {
         setStateCode(StringUtils.checkNull(request.getParameter(Constants.STATE_CODE)));
         setCity(StringUtils.checkNull(request.getParameter(Constants.CITY)));
         setZip(StringUtils.checkNull(request.getParameter(Constants.ZIP)));
+        setCompanyId(Long.parseLong(StringUtils.checkNull(request.getParameter(Constants.COMPANY_ID))));
     }
 
     public String getHandle() {
@@ -153,4 +155,11 @@ public class RegistrationInfo extends Base {
         this.zip = zip;
     }
 
+    public long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(long companyId) {
+        this.companyId = companyId;
+    }
 }

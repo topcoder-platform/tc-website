@@ -1,13 +1,11 @@
 package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.RegistrationInfo;
 
 public class RegistrationSubmit extends RegistrationBase {
 
     protected void registrationProcessing() {
 
-        RegistrationInfo regInfo = new RegistrationInfo(getRequest());
         checkRegInfo(regInfo);
 
         if (hasErrors()) {

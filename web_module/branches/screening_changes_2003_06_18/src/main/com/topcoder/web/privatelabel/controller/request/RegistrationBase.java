@@ -10,10 +10,11 @@ import java.util.StringTokenizer;
 abstract class RegistrationBase extends BaseProcessor {
 
     private String db;
-
+    protected RegistrationInfo regInfo;
     protected final void businessProcessing() {
-        long companyId = Long.parseLong(StringUtils.checkNull(getRequest().getParameter(Constants.COMPANY_ID)));
-        setDb(getCompanyDb(companyId));
+        regInfo = new RegistrationInfo(getRequest());
+        getRequest().setAttribute("registrationInfo", regInfo);
+        setDb(getCompanyDb(regInfo.getCompanyId()));
         registrationProcessing();
     }
 

@@ -7,7 +7,6 @@ public class RegistrationConfirm extends RegistrationBase {
 
     protected void registrationProcessing() {
 
-        RegistrationInfo regInfo = new RegistrationInfo(getRequest());
         checkRegInfo(regInfo);
 
         if (hasErrors()) {
