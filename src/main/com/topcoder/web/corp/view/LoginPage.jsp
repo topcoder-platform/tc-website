@@ -124,7 +124,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="includes/foot_generic.jsp"/>
+  <jsp:include page="foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

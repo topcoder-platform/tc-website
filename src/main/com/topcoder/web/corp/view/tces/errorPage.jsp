@@ -65,7 +65,7 @@ isErrorPage="true"
  </tr>
  </table>
 
-<jsp:include page="../corp/includes/foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 </html>
