@@ -13,6 +13,7 @@
     <property name="bin" value="lib/bin"/>
     <property name="src.dir" value="src"/>
     <property name="java" value="${src.dir}/main"/>
+    <property name="shared" value="../shared/src/main"/>
     <property name="testjava" value="${src.dir}/testcases"/>
     <property name="resources" value="resources"/>
     <property name="taglib" value="${resources}/taglib"/>
@@ -84,6 +85,14 @@
 
     <target name="compile" depends="init">
         <available property="jdk1.4+" classname="java.nio.ByteBuffer" />
+        <javac
+            srcdir="${shared}"
+            destdir="${classes}"
+            classpathref="class.path"
+            deprecation="${deprecation}"
+            debug="${debug}"
+            >
+        </javac>
         <javac
             srcdir="${java}"
             destdir="${classes}"
