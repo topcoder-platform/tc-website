@@ -5,6 +5,21 @@
 <title>Algorithm Tutorials</title>
 
 <jsp:include page="../../script.jsp" />
+<style type="text/css">
+    .code
+{
+	width: 100%;
+	padding: 10px;
+	margin: 20px;
+	color: #333;
+	font-size: 11px;
+	font-weight: normal;
+	line-height: 14px;
+	background-color: #EEEEEE;
+	border: 1px solid #999;
+    }
+
+</style>
 
 </head>
 
@@ -38,6 +53,8 @@
 			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
 			</p>
 
+<A href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs1">...read Section 1</A>
+<br/><br/>
 <span class="outline1"><A href="#basic">Basic methods for searching graphs</A></span><br/>
 	<span class="outline2"><A href="#introduction">Introduction</A></span><br/>
 	<span class="outline2"><A href="#stack">Stack</A></span><br/>
@@ -66,17 +83,17 @@ A stack is one of the simplest data structures available.  There are four main o
 <li>Empty - Tests if the stack is empty or not</li>
 </ol>
 In C++, this is done with the STL class stack<T>:
-<pre>
+<pre class="code">
 #include <stack>
 stack<int> myStack;
 </pre>
 In Java, we use the Stack class:
-<pre>
+<pre class="code">
 import java.util.*;
 Stack stack = new Stack();
 </pre>
 In C#, we use Stack class:
-<pre>
+<pre class="code">
 using System.Collections;
 Stack stack = new Stack();
 </pre>
@@ -88,7 +105,7 @@ Now to solve an actual problem using our search!  The depth first search is well
 This concept maps extremely well to a Depth First search.  The basic concept is to visit a node, then push all of the nodes to be visited onto the stack.  To find the next node to visit we simply pop a node of the stack, and then push all the nodes connected to that one onto the stack as well and we continue doing this until all nodes are visited.  It is a key property of the Depth First search that we not visit the same node more than once, otherwise it is quite possible that we will recurse infinitely.  We do this by marking the node as we visit it, then unmarking it after we have finished our recursions.  This action allows us to visit all the paths that exist in a graph; however for large graphs this is mostly infeasible so we sometimes omit the marking the node as not visited step to just find one valid path through the graph (which is good enough most of the time).
 <br/><br/>
 So the basic structure will look something like this:
-<pre>
+<pre class="code">
 dfs(node start) {
  stack<node> s;
  s.push(start);
@@ -105,7 +122,7 @@ dfs(node start) {
 }
 </pre>
 Alternatively we can define the function recursively as follows:
-<pre>
+<pre class="code">
 dfs(node current) {
  mark current as visited;
  visit all of current's unvisited neighbors by calling dfs(neighbor)
@@ -117,7 +134,7 @@ The problem we will be discussing is <A href="/tc?module=ProblemDetail&rd=5857&p
 We will define a graph where each node has 4 connections, one each to the node above, left, right and below.  However, we can represent these connections implicitly within the grid, we need not build out any new data structures.  The structure we will use to represent the grid in grafixMask is a two dimensional array of booleans, where regions that we have already determined to be filled in will be set to true, and regions that are unfilled are set to false.
 <br/><br/>
 To set up this array given the data from the problem is very simple, and looks something like this:
-<pre>
+<pre class="code">
 bool fill[600][400];
 initialize fills to false;
 
@@ -127,7 +144,7 @@ foreach rectangle in Rectangles
 Now we have an initialized connectivity grid.  When we want to move from grid position (x, y) we can either move up, down, left or right.  When we want to move up for example, we simply check the grid position in (x, y-1) to see if it is true or false.  If the grid position is false, we can move there, if it is true, we cannot.
 <br/><br/>
 Now we need to determine the area of each region that is left.  We don't want to count regions twice, or pixels twice either, so what we will do is set fill[x][y] to true when we visit the node at (x, y).  This will allow us to perform a Depth-First search to visit all of the nodes in a connected region and never visit any node twice, which is exactly what the problem wants us to do!  So our loop after setting everything up will be:
-<pre>
+<pre class="code">
 int[] result;
 
 for x = 0 to 599
@@ -138,7 +155,7 @@ for x = 0 to 599
 All this code does is check if we have not already filled in the position at (x, y) and then calls doFill() to fill in that region.  At this point we have a choice, we can define doFill recursively (which is usually the quickest and easiest way to do a depth first search), or we can define it explicitly using the built in stack classes.  I will cover the recursive method first, but we will soon see for this problem there are some serious issues with the recursive method.
 <br/><br/>
 We will now define doFill to return the size of the connected area and the start position of the area:
-<pre>
+<pre class="code">
 int doFill(int x, int y) {
 // Check to ensure that we are within the bounds of the grid, if not, return 0
  if (x < 0 || x >= 600) return 0; 
@@ -167,7 +184,7 @@ This solution should work fine, however there is a limitation due to the archite
 
 <p>
 We can use the same function definition, and the structure of the function will be quite similar, just we won't use any recursion any more:
-<pre>
+<pre class="code">
 class node { int x, y; }
 
 int doFill(int x, int y) {
@@ -226,7 +243,7 @@ There are four main operations on a queue:
 <li>Empty - Tests if the queue is empty or not</li>
 </ol>
 In C++, this is done with the STL class queue<T>:
-<pre>
+<pre class="code">
 #include <queue>
 queue<int> myQueue;
 </pre>
@@ -239,7 +256,7 @@ The operations map to the LinkedList class as follows:
 <li>Front - Object LinkedList.getFirst()</li>
 <li>Empty - int LinkedList.size()</li>
 </ol>
-<pre>
+<pre class="code">
 import java.util.*;
 LinkedList myQueue = new LinkedList();
 </pre>
@@ -252,7 +269,7 @@ The operations map to the Queue class as follows:
 <li>Front - Object Queue.Peek()</li>
 <li>Empty - int Queue.Count</li>
 </ol>
-<pre>
+<pre class="code">
 using System.Collections;
 Queue myQueue = new Queue();
 </pre>
@@ -261,7 +278,7 @@ Queue myQueue = new Queue();
 The Breadth First search is an extremely useful searching technique.  It differs from the depth-first search in that it uses a queue to perform the search, so the order in which the nodes are visited is quite different.  It has the extremely useful property that if all of the edges in a graph are unweighted (or the same weight) then the first time a node is visited is the shortest path to that node from the source node.  You can verify this by thinking about what using a queue means to the search order.  When we visit a node and add all the neighbors into the queue, then pop the next thing off of the queue, we will get the neighbors of the first node as the first elements in the queue.  This comes about naturally from the FIFO property of the queue and ends up being an extremely useful property.  One thing that we have to be careful about in a Breadth First search is that we do not want to visit the same node twice, or we will lose the property that when a node is visited it is the quickest path to that node from the source.
 <br/><br/>
 The basic structure of a breadth first search will look this:
-<pre>
+<pre class="code">
 void bfs(node start) {
  queue<node> s;
  s.push(start);
@@ -273,7 +290,7 @@ void bfs(node start) {
   check for termination condition (have we reached the node we want to?)
 
   add all of top's unvisited neighbors to the stack.
-<pre>
+<pre class="code">
  }
 }
 </pre>
@@ -284,7 +301,7 @@ The problem we will be discussing in relation to the Breadth First search is a b
 A quick summary of the problem is that we want to exchange the positions of two players on a grid.  There are impassable spaces represented by 'X' and spaces that we can walk in represented by ' '.  Since we have two players our node structure becomes a bit more complicated, we have to represent the positions of person A and person B.  Also, we won't be able to simply use our array to represent visited positions any more, we will have an auxiliary data structure to do that.  Also, we are allowed to make diagonal movements in this problem, so we now have 9 choices, we can move in one of 8 directions or simply stay in the same position.  Another little trick that we have to watch for is that the players can not just swap positions in a single turn, so we have to do a little bit of validity checking on the resulting state.
 <br/><br/>
 First, we set up the node structure and visited array:
-<pre>
+<pre class="code">
 class node {
  int player1X, player1Y, player2X, player2Y;
  int steps; // The current number of steps we have taken to reach this step
@@ -297,7 +314,7 @@ Here a node is represented as the (x,y) positions of player 1 and player 2.  It 
 The visited array is simply a direct representation of our node in array form, with the first dimension being player1X, second player1Y, etc.  Note that we don't need to keep track of steps in the visited array.
 <br/><br/>
 Now that we have our basic structure set up, we can solve the problem (note that this code is not compilable):
-<pre>
+<pre class="code">
 int minTurns(String[] board) {
  int width = board[0].length;
  int height = board.length;
@@ -358,6 +375,8 @@ int minTurns(String[] board) {
 This ended up being quite a bit more complicated than the basic Breadth First search implementation, but you can still see all of the basic elements in the code.  Now, if you want to practice more problems where Breadth First search is applicable, try these:
 <br/><br/>
 Inviational 02 Semifinal Room 2 - Div 1 500 - <A href="/tc?module=ProblemDetail&rd=4371&pm=1170">Escape</A>
+<br/><br/>
+<A href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs3">...continue to Section 3</A>
 			</p>
             
 

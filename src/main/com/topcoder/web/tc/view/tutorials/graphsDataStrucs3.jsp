@@ -5,6 +5,21 @@
 <title>Algorithm Tutorials</title>
 
 <jsp:include page="../../script.jsp" />
+<style type="text/css">
+    .code
+{
+	width: 100%;
+	padding: 10px;
+	margin: 20px;
+	color: #333;
+	font-size: 11px;
+	font-weight: normal;
+	line-height: 14px;
+	background-color: #EEEEEE;
+	border: 1px solid #999;
+    }
+
+</style>
 
 </head>
 
@@ -38,6 +53,8 @@
 			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
 			</p>
 
+<A href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs2">...read Section 2</A>
+<br/><br/>
 <span class="outline1"><A href="#finding">Finding the best path through a graph</A></span><br/>
 	<span class="outline2"><A href="#dijkstra">Dijkstra (Heap method)</A></span><br/>
 	<span class="outline2"><A href="#floydWarshall">Floyd-Warshall</A></span>
@@ -70,7 +87,7 @@ The fundamental operations on a Heap are:
 <li>Empty - Tests if the heap is empty or not.
 </ol>
 Pretty close to the Queue or Stack, so it's only natural that we apply the same type of searching principle that we have used before, except substitute the Heap in place of the Queue or Stack.  Our basic search routine (remember this one well!) will look something like this:
-<pre>
+<pre class="code">
 void dijkstra(node start) {
  priorityQueue<node> s;
  s.add(start);
@@ -81,14 +98,14 @@ void dijkstra(node start) {
 </pre>  
   check for termination condition (have we reached the target node?)<br/>
   add all of top's unvisited neighbors to the stack.
-<pre>
+<pre class="code">
  }
 }
 </pre>
 Unfortunately, not all of the default language libraries used in TopCoder have an easy to use priority queue structure.
 <br/><br/>
 C++ users are lucky to have an actual priority_queue<> structure in the STL, which is used as follows:
-<pre>
+<pre class="code">
 #include <queue>
 using namespace std;
 priority_queue<type> pq;
@@ -100,7 +117,7 @@ priority_queue<type> pq;
 However, you have to be careful as the C++ priority_queue<> returns the *highest* element first, not the lowest.  This has been the cause of many solutions that should be O(m * log(n)) instead ballooning in complexity, or just not working.
 <br/><br/>
 To define the ordering on a type, there are a few different methods.  The way I find most useful is the following though:
-<pre>
+<pre class="code">
 Define your structure:
 struct node {
  int cost;
@@ -108,7 +125,7 @@ struct node {
 };
 </pre>
 And we want to order by cost, so we define the less than operator for this structure as follows:
-<pre>
+<pre class="code">
 bool operator<(const node &leftNode, const node &rightNode) {
  if (leftNode.cost != rightNode.cost) return leftNode.cost < rightNode.cost;
  if (leftNode.at != rightNode.at) return leftNode.at < rightNode.at;
@@ -118,7 +135,7 @@ bool operator<(const node &leftNode, const node &rightNode) {
 Even though we don't need to order by the 'at' member of the structure, we still do otherwise elements with the same cost but different 'at' values may be coalesced into one value.  The return false at the end is to ensure that if two duplicate elements are compared the less than operator will return false.
 <br/><br/>
 Java users unfortunately have to do a bit of makeshift work, as there is not a direct implementation of the Heap structure. We can approximate it with the TreeSet structure which will do full ordering of our dataset.  It is less space efficient, but will serve our purposes fine.
-<pre>
+<pre class="code">
 import java.util.*;
 TreeSet pq = new TreeSet();
 
@@ -126,13 +143,13 @@ TreeSet pq = new TreeSet();
 2. Pop - boolean remove(Object o)
 </pre>
 In this case, we can remove anything we want, but pop should remove the first element, so we will always call it like
-<pre>
+<pre class="code">
 this: pq.remove(pq.first());
 3. Top - Object first()
 4. Empty - int size()
 </pre>
 To define the ordering we do something quite similar to what we use in C++:
-<pre>
+<pre class="code">
 class Node implements Comparable {
  public int cost, at;
 
@@ -153,7 +170,7 @@ Getting back to the actual algorithm now, the beautiful part is that it applies 
 There are some extremely nice properties as well, since we are picking the node with the least total cost so far to explore first, the first time we visit a node is the best path to that node (unless there are negative weight edges in the graph).  So we only have to visit each node once, and the really nice part is if we ever hit the target node, we know that we are done.
 <br/><br/>
 For the example here we will be using <A href="/tc?module=ProblemDetail&rd=4725&pm=2288">KiloManX</A>, from SRM 181, the Div 1 1000.  This is an excellent example of the application of the Heap Dijkstra problem to what appears to be a Dynamic Programming question initially.  In this problem the edge weight between nodes changes based on what weapons we have picked up.  So in our node we at least need to keep track of what weapons we have picked up, and the current amount of shots we have taken (which will be our cost).  The really nice part is that the weapons that we have picked up corresponds to the bosses that we have defeated as well, so we can use that as a basis for our visited structure.  If we represent each weapon as a bit in an integer, we will have to store a maximum of 32,768 values (2^15, as there is a maximum of 15 weapons).  So we can make our visited array simply be an array of 32,768 booleans.  Defining the ordering for our nodes is very easy in this case, we want to explore nodes that have lower amounts of shots taken first, so given this information we can define our basic structure to be as follows:
-<pre>
+<pre class="code">
 boolean visited[32768];
 
 class node {
@@ -163,7 +180,7 @@ class node {
 };
 </pre>
 Now we will apply the familiar structure to solve these types of problems.
-<pre>
+<pre class="code">
 int leastShots(String[] damageChart, int[] bossHealth) {
  priorityQueue<node> pq;
 
@@ -217,7 +234,7 @@ TCCC '04 Round 4 - 500 - <A href="/tc?module=ProblemDetail&rd=5009&pm=2274">Bomb
 Floyd-Warshall is a very powerful technique when the graph is represented by an adjacency matrix.  It runs in O(n^3) time, where n is the number of vertices in the graph.  However, in comparison to Dijkstra, which only gives us the shortest path from one source to the targets, Floyd-Warshall gives us the shortest paths from all source to all target nodes.  There are other uses for Floyd-Warshall as well; it can be used to find connectivity in a graph (known as the Transitive Closure of a graph).
 <br/><br/>
 First, however we will discuss the Floyd Warshall All-Pairs Shortest Path algorithm, which is the most similar to Dijkstra.  After running the algorithm on the adjacency matrix the element at adj[i][j] represents the length of the shortest path from node i to node j.  The pseudo-code for the algorithm is given below:
-<pre>
+<pre class="code">
 for (k = 1 to n)
  for (i = 1 to n)
   for (j = 1 to n)
