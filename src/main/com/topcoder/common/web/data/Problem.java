@@ -15,7 +15,9 @@ public class Problem implements Serializable {
   private String resultType;
   private int resultTypeId;
   private String difficulty;
+  private String divisionDesc;
   private int difficultyId;
+  private int divisionId;
   private int pointVal;
   private ArrayList paramTypes;
   private String defaultSolution;  
@@ -42,9 +44,11 @@ public class Problem implements Serializable {
     this.defaultSolution = "";
     this.problemText = "";
     this.submitOrder = 0;
+    this.divisionId = 0;
     this.testCases = new ArrayList();
     this.modified = false;
     this.activeInd = "";
+    this.divisionDesc = "";
   }
     
   ////////////////////////////////////////////////////////////////////////////////
@@ -94,6 +98,12 @@ public class Problem implements Serializable {
   }
 
   ////////////////////////////////////////////////////////////////////////////////
+  public final void setDivisionId(int divisionId) {
+  ////////////////////////////////////////////////////////////////////////////////
+    this.divisionId = divisionId;
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////
   public final void setRoundId(int roundId) {
   ////////////////////////////////////////////////////////////////////////////////
     this.roundId = roundId;
@@ -103,6 +113,12 @@ public class Problem implements Serializable {
   public final void setProblemId(int problemId) {
   ////////////////////////////////////////////////////////////////////////////////
     this.problemId = problemId;
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////
+  public final void setDivisionDesc(String in) {
+  ////////////////////////////////////////////////////////////////////////////////
+    this.divisionDesc = in;
   }
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -196,6 +212,12 @@ public class Problem implements Serializable {
   }
 
   ////////////////////////////////////////////////////////////////////////////////
+  public final int getDivisionId() {
+  ////////////////////////////////////////////////////////////////////////////////
+    return this.divisionId;
+  }
+  
+  ////////////////////////////////////////////////////////////////////////////////
   public final int getProblemId() {
   ////////////////////////////////////////////////////////////////////////////////
     return this.problemId;
@@ -207,6 +229,12 @@ public class Problem implements Serializable {
     return this.className;
   }
 
+  ////////////////////////////////////////////////////////////////////////////////
+  public final String getDivisionDesc() {
+  ////////////////////////////////////////////////////////////////////////////////
+    return this.divisionDesc;
+  }
+  
   ////////////////////////////////////////////////////////////////////////////////
   public final String getNewClassName() {
   ////////////////////////////////////////////////////////////////////////////////
@@ -350,6 +378,8 @@ public class Problem implements Serializable {
        result.addTag( new ValueTag("ResultTypeId" , resultTypeId) );
        result.addTag( new ValueTag("Difficulty" , difficulty) );
        result.addTag( new ValueTag("DifficultyID" , difficultyId) );
+       result.addTag( new ValueTag("DivisionId" , divisionId) );
+       result.addTag( new ValueTag("DivisionDesc" , divisionDesc) );
        result.addTag( new ValueTag("Modified" , modified) );
 
        RecordTag paramTag = new RecordTag("PARAMTYPES");

@@ -11,6 +11,7 @@
   import admin.*;
   import com.topcoder.ejb.ContestAdminServices.*;
   import com.topcoder.common.*;
+  import com.topcoder.common.web.data.*;
   import com.topcoder.common.web.data.admin.*;
   import com.topcoder.common.web.error.*;
   import com.topcoder.common.web.xml.*;
@@ -126,7 +127,8 @@
 
         compilationTag.addTag(new ValueTag("RoundId", request.getParameter("RoundId")));
         for (int i = 0; i < coders.size(); i++) {
-          compilationTag.addTag(((Coder)coders.get(i)).getXML());
+          compilationTag.addTag(((com.topcoder.common.web.data.admin.Coder)coders.get(i)).getXML());
+  
         }
 
         document.addTag(compilationTag);

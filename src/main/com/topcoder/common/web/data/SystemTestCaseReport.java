@@ -27,8 +27,8 @@ public final class SystemTestCaseReport implements Serializable, Base {
    
   public SystemTestCaseReport() {
     problem = new Problem();
-    processingTime = null;
-    timestamp = null;
+    processingTime = new java.sql.Timestamp(System.currentTimeMillis());
+    timestamp = new java.sql.Timestamp(System.currentTimeMillis());
     coderId = 0;
     numIterations = 0;
     testCaseId = 0;

@@ -32,16 +32,16 @@ public interface ContestAdminServices extends EJBObject {
 
 /** jay's tools **/
   public ArrayList getRoundList(int contest_id) throws RemoteException;
-  public ArrayList getChallengeList(int round_id, int filter) throws RemoteException;
   public ArrayList getSystemTestCaseReportList(int roundId, int problemId, int coderId, int filter ) throws RemoteException;
   public ArrayList getCoderList(int roundId, int problemId) throws RemoteException;
+  public ArrayList getCoderList(int roundId ) throws RemoteException;
   public ArrayList getProblemList(int round_id) throws RemoteException ;
   public ArrayList getSystemTestCaseReportList(int round_id, int filter ) throws RemoteException;
   public ArrayList getRoundList() throws RemoteException;
   public void nullifyChallenge (int challengeId) throws RemoteException;
   public void removeSystemTestResult (int roundId, int coderId, int problemId, int testCaseId) throws RemoteException;
   public ArrayList getRoomList(int round_id) throws RemoteException ;
-  public ArrayList getChallengeList(int roundId, int roomId, int filter) throws RemoteException;
+  public ArrayList getChallengeList(int roundId, int roomId, int filter, int constraintType) throws RemoteException;
   public void overturnChallenge(int challenge_id) throws RemoteException;
 /*
   public static void overturnSucceededChallenge(java.sql.Connection conn, int problem_id, int round_id, 

@@ -98,7 +98,7 @@ public final class Challenge
   }
     	
 // set
-  public void setStatusid(int statusId) {
+  public void setStatusId(int statusId) {
     this.statusId = statusId;
   }
   
