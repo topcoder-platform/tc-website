@@ -89,7 +89,7 @@
                                     <strong>Match 166</strong><br />
                                     Register: 7:00&#160;PM<br />
                                     Compete: 10:00&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: <A href="http://www.northface.edu">Northface</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4635&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarTCO03">
