@@ -42,7 +42,7 @@
 
 
 			<br/><br/>
-			<span class=bigTitle>Tough problems. Intense competition. No pressure.</span>
+			<span class=bigTitle>Schedule</span>
 			<span valign=top>
 			<table class=smallBoxTable align=right cellspacing=0 cellpadding=0>
 				<tr>
