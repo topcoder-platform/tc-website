@@ -771,7 +771,7 @@ public class PDFGenerator extends BaseProcessor {
         submission.addCell(cell);
 
         doc.add(submission);
-        doc.add(new Phrase(info.getSubmissionText(), FontFactory.getFont(FontFactory.COURIER, 10, Font.NORMAL, Color.black)));
+        doc.add(new Phrase(info.getSubmissionText(), FontFactory.getFont(FontFactory.COURIER, 8, Font.NORMAL, Color.black)));
 
     }
     
