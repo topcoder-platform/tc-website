@@ -6,7 +6,13 @@
 </head>
 <body>
 
+<jsp:include page="../../script.jsp" />
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr valign="top" align="center">
+         <td colspan="3"><img src="/i/tc_logo_help.gif" width="217" height="44" border="0"></td>
+      </tr>
+
     <tr valign="top">
 
 <!-- Gutter Begins -->
@@ -19,7 +25,7 @@
       <tr>
          <td>
             <p class="bodyText">
-                This list represents the top rated coders that have competed within the last 6 months.
+                This list represents the top rated coders that have competed within the last 6 monthes.
             </p>
          </td>
       </tr>
@@ -34,10 +40,6 @@
   </table>
 </td>
 <!-- Center Column Ends -->
-
-<!-- Gutter -->
-      <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
 
 <!-- Gutter -->
       <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
