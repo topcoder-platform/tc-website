@@ -49,7 +49,7 @@ function openWin(url, name, w, h) {
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-        <td align="center">    
+        <td class="bodyText" align="center">
             <table border="0" cellspacing="15" cellpadding="0" width="540">
                 <tr valign="top">
                     <td colspan="2" align="center"><img src="/i/sponsor/intel_ids/IDS_TC-header.gif" width="510" height="115" /></td>
@@ -82,7 +82,7 @@ function openWin(url, name, w, h) {
                 </tr>
              
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" class="bodyText">
                         <p class="promoCallout">
                         <A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_sample','comp',545,700);"><strong>Check out a sample</strong></A> of what Intel Developer 
                         Services offers you.  Then join <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel Developer Services</strong></A> 
