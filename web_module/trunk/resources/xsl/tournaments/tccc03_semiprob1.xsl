@@ -96,7 +96,7 @@
 						<font size="+2"><b>TCU</b></font><BR />
 						Used as: Division 1 - Level 1:
 						<blockquote>
-						<table cellspacing="2">
+						<table cellspacing="2" cellpadding="2">
 						<tr>
 						<td style="background: #eee;" class="bodyText"><b>Value</b></td>
 						<td style="background: #eee;" class="bodyText">200</td>
@@ -124,7 +124,7 @@
 						<font size="+2"><b>FaceFinder</b></font><BR />
 						Used as: Division 1 - Level 2:
 						<blockquote>
-						<table cellspacing="2">
+						<table cellspacing="2" cellpadding="2">
 						<tr>
 						<td style="background: #eee;" class="bodyText"><b>Value</b></td>
 						<td style="background: #eee;" class="bodyText">550</td>
@@ -149,12 +149,12 @@
 						giving the total number of regions.  A more inspired solution, that would work on much larger inputs, 
 						would make use of Euler's formula:
 						<pre>
-		n - m + f = 1 + k
-		where n represents the total number of line endpoints or distinct intersection points
-		      m represents the total number of line segments
-		      f represents the total number of regions
-		      k represents the total number of components
-			</pre>
+n - m + f = 1 + k
+where n represents the total number of line endpoints or distinct intersection points
+	m represents the total number of line segments
+	f represents the total number of regions
+	k represents the total number of components
+						</pre>
 						To clarify, a component is a connected region of the plane.  2 line segments belong to the same component 
 						if you could travel from one to the other using only line segments and intersection points (no jumping).  
 						Since Euler was such a prolific mathematician, he has numerous theorems and formulas named after him.  
@@ -165,7 +165,7 @@
 						<font size="+2"><b>HardwareOptimize</b></font><BR />
 						Used as: Division 1 - Level 3:
 						<blockquote>
-						<table cellspacing="2">
+						<table cellspacing="2" cellpadding="2">
 						<tr>
 						<td style="background: #eee;" class="bodyText"><b>Value</b></td>
 						<td style="background: #eee;" class="bodyText">1000</td>
