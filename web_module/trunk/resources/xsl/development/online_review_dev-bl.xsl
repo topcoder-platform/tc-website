@@ -74,13 +74,13 @@ Online Review Application Business Logic Development Project The Online Review A
 The business logic development will be completed following the APIs as described in the UML provided in the design distribution.  The deliverable must include a fully functional business logic tier using stub classes, which should include test data as described in HTML mockup.  The stub classes will implement the persistence layer API.  In addition to the stubb classes, the developer must also implement unit test cases to emulate the front-end.  These test cases should also use test data as described in the HTML mock ups provided.
 						</p>
 						<p>
-All development project teams are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.  Access to these components will be granted upon request to the Application Manager.
+All development project teams are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.
 						</p>
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
 Application Business Logic Development Project: Provide a complete development solution for the business logic tier of the Online Review Application.
-Please review the TopCoder Software <a class="statText" href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at <a class="statText" href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.
+Please review the TopCoder Software <a class="statText" href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> and the <a class="statText" href="/i/development/downloads/Developer_Application_Deliverables.pdf">Development Deliverables Document</a> before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at <a class="statText" href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.
                         </p>
                             
 <!-- Technologies -->
@@ -97,7 +97,7 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br />
-			    TopCoder will compensate first and second place submitters. The development payment will be distributed at the completion of the project review period.  The integration payment will be distributed at the completion of the project integration period<sup>*</sup>.
+			    TopCoder will compensate first and second place submitters. The development payment will be distributed at the completion of the project review period.  The integration payment will be distributed at the completion of the project integration period<sup>*</sup>.  In addition, developers selected for this project will be granted access to the TopCoder Software Component Catalog for the duration of this project.
 			    </p>
 
 							
@@ -114,7 +114,7 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 <!-- Definition of Completion -->
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
 				<p>
-				The Initial Submission has been delivered by the Initial Submission Due Date.  The Submission has been reviewed by the board and if required changes have been re-submitted by the developer. Development payment is conditional on receiving a minimum score of fifty (50) by the Development Review Board.  The Integration Payment will be paid out following the completion of the integration period.  The Integration Payment is condition on acceptance of the fully functional application by the TopCoder Application Manager.
+				The Initial Submission has been delivered by the Initial Submission Date.  The Submission has been reviewed by the board and if required changes have been re-submitted by the developer. Development payment is conditional on receiving a minimum score of fifty (50) by the Development Review Board.  The Integration Payment will be paid out following the Integration Submission Date.  The Integration Payment is conditional on acceptance of the fully functional application by the TopCoder Application Manager.
 				</p>
 
 
@@ -131,7 +131,7 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 
 <!-- Time Line -->
 						<p><strong>Time Line</strong><br/>
-						All inquiries must be received by 12 PM EST on the Inquiry Deadline.  <bold>Two (2) developers will be selected</bold> from the pool of members who have inquired by the deadline.  Inquiring for a project does not guarantee selection.  The two developers selected will be contracted to submit solutions by the Initial Submission date. Selected members who fail to submit by the deadline or which earn less than fifty (50) points on the review may be suspended from TopCoder Software submissions for six (6) weeks following the submission date.  Developers will have access to an online newsgroup, where all questions submitted prior to 6PM EDT on the Initial Submission date will be answered. Following review from the board, the winning member is given until the Review Fixes Submission date to modify their submission.  Following completion of the development project, the winning developer is required to support their submission and participate in the integration of the application.
+						All inquiries must be received by 12 PM EST on the Inquiry Deadline.  <bold>Two (2) developers will be selected</bold> from the pool of members who have inquired by the deadline.  Inquiring for a project does not guarantee selection.  The two (2) developers selected will be contracted to submit solutions by the Initial Submission date. Selected members who fail to submit by the deadline or which earn less than fifty (50) points on the review may be suspended from TopCoder Software submissions for six (6) weeks following the submission date.  Developers will have access to an online newsgroup, where all questions submitted prior to 6PM EDT on the Initial Submission date will be answered. Following review from the board, the winning member is given until the Review Fixes Submission date to modify their submission.  Following completion of the development project, the winning developer is required to support their submission and participate in the integration of the application.
 						</p>
 
 						<p>
@@ -147,11 +147,11 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 
 <!-- Register at TCS -->
 						   <p>
-						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review%20Business%20Logic">Inquire for the project</a></strong> to be eligible to be selected as one of the two (2) developers for this project.  Each development submission receiving a score of fifty (50) or greater will receive the minimum development payment.  
+						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review%20Business%20Logic">Inquire for the project</a></strong> to be selected as one of the two (2) developers for this project.  Each development submission receiving a score of fifty (50) or greater will receive the minimum development payment.  
 						</p>
 						
                             <p>
-                                 To submit a solution, email your submissions to <a href="mailto:submissions@topcodersoftware.com" class="statText">submissions@topcodersoftware.com</a>.
+                                 If you have questions, email <a href="mailto:submissions@topcodersoftware.com" class="statText">submissions@topcodersoftware.com</a>.
                             </p>
 						<p><br /></p>
 					</td>
