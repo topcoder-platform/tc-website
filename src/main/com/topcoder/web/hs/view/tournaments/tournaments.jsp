@@ -51,18 +51,14 @@
 </TR>
 <TR>
     <TD CLASS="bodyText">Location:&nbsp;&nbsp;</TD>
-    <TD CLASS="bodyText">&nbsp;&nbsp;TBA </TD>
+    <TD CLASS="bodyText">&nbsp;&nbsp;UConn: Homer Babbage Library</TD>
 </TR>
 <TR>
     <TD COLSPAN="2"CLASS="bodyText"><P><B>Dates:</B><BR></TD>
 </TR>
 <TR>
-    <TD CLASS="bodyText">Semifinal Round:&nbsp;&nbsp;</TD>
-    <TD CLASS="bodyText">&nbsp;&nbsp;May 15, 2003</TD>
-</TR>
-<TR>
     <TD CLASS="bodyText">Championship Round:&nbsp;&nbsp;</TD>
-    <TD CLASS="bodyText">&nbsp;&nbsp;May 24, 2003</TD>
+    <TD CLASS="bodyText">&nbsp;&nbsp;Tuesday, May 20, 2003 3:00 PM</TD>
 </TR>
 </TABLE>
 
