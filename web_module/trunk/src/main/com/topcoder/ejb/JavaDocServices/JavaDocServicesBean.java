@@ -113,6 +113,8 @@ public class JavaDocServicesBean extends BaseEJB {
         String file = "";
 
         try {
+            conn = DBMS.getConnection();
+
             sql = new StringBuffer();
             sql.append("SELECT wsjd.content ");
             sql.append("FROM web_service_java_doc wsjd ");
