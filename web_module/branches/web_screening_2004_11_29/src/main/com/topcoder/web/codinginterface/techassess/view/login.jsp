@@ -1,6 +1,5 @@
 <%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="/WEB-INF/tc-webtag" %>
-<%--<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />--%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
@@ -9,7 +8,7 @@
 <link type="text/css" rel="stylesheet" href="/css/screening.css"/>
 </head>
 <body>
-
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <table width=800 align=center cellspacing=0 cellpadding=0 class=bodyTable>
 	<tr>
 		<td colspan=3>
