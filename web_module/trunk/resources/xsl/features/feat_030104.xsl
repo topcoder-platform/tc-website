@@ -58,51 +58,81 @@
                 <tr valign="top">
                     <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
                     <td class="bodyText" width="100%">         
-                        <p><font size="4"><strong>The 5 Most Common Design Mistakes</strong></font><br />
-                        Tuesday, February 10, 2004</p>
+                        <p><font size="4"><strong>The Educational Component of TopCoding</strong></font><br />
+                        Monday, March 1, 2004</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=290395"><strong>pmadden</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
 <p><b>Introduction</b><br/>
-Being on the review board, I see designs that are first attempts, those that are well polished and everything in-between.  After seeing so many, a few mistakes seem to be made over and over.  I polled two fellow designers, srowen and kyky, to see if they have had any similar experiences with mistakes and whether they would have any recommendations to avoid those mistakes.  I've attempted to summarize their and my experiences in a compilation of the most 5 common mistakes and how to avoid them.</p>
+In the real world, I teach graduate and undergraduate algorithms at an
+upstate New York university; for the past year, I've been requiring my
+students to compete in SRMs.  While there's a wide range on how well
+the students do, and I've destroyed the university TopCoder rating,
+most are better off for the experience.</p>
 
-<p><span class="bodySubtitle">1. Making assumptions</span><br/>
-Easily the biggest mistake that I run across because it can happen in every stage of the design process.  You should have a crystal clear understanding of the requirements - if you do not, you have made an assumption on some requirement point.  This is a problem because the reviewer may make a different assumption on the same point and mark you down because of it.</p>
+<p>As a new semester has just started, and there will be the usual
+flurry of "why do you make us do this" questions, it's a good time
+to talk about the benefits (and also pitfalls) of TopCoding.
+My objective is to make my students smarter and more
+competative in the job market.  While writing software is by no means
+the only thing a computer scientist needs to do, it is a fundamental
+skill.  A weak coder is sure to have problems in many other areas, and
+the best way to improve is to buckle down and start writing.</p>
 
-<p>You should make use of the forums extensively to either challenge unclear requirements or to refine your own understanding until you are crystal clear.  The forum also becomes a nice paper trail of your decision that can be followed by the review board members.</p>
+<p><span class="bodySubtitle">Benefits</span><br/>
+While there's a long list of things I like about TopCoder, I see
+the main educational benefits to be the following.</p>
 
-<p>Your design elements (documentation, skeletons, class diagrams, sequence diagrams, etc) must show your intent clearly.  You cannot assume that the developer, or more importantly - the review board, will 'get it' or understand the subtlety or implications in your design.  While I'm working on a design, I usually keep a scratch sheet that I use to write down any of my thoughts that occur.  I will not consider the design finished until all those thoughts have been documented somewhere in the design.</p>
+<ul>
+<li><b>TopCoding requires mastery of a language</b><br/>With normal classroom assignments, there's enough time for a poor programmer to stumble through the textbook, recompiling for hours on end, finally cobbling together something that works.  In the arena, as well as in a real job, there's no time for this.  If an employee needs two days and the help of a friend to put together "Hello World," they'll be out on the street in no time.  The hard time limit of the arena makes it easy for a professor such as myself to find and help the students who have weak coding skills. </li>
+<li><b>Algorithms figure prominently</b><br/>While some SRM problems are simply hacking exercises, many require knowing and being able to code classic algorithms.  I doubt that there are any Div-1 coders who don't know Dijkstra, Floyd-Warshall, Quicksort, or 0-1 knapsack off the top of their heads; for a computer science career, being able to recognize problem structures is essential.</li>
+<li><b>Creativity is required</b><br/>In most university courses, there's an "expected answer" that is hinted at in the textbook.  With an SRM problem, the time limit requires creativity and new thinking.  One SRM pushed me into thinking about an old problem in a new way--resulting in one of my recent research publications, and a probable dissertation topic for one of my PhD students.  While one might wish to have a university course teach "creativity," this is extremely hard to do.</li>
+<li><b>Competition is Good</b><br/> Head-to-head challenges bring out the best in anyone.  With TopCoder, grey coders strive to become red, Div-2s hope to break into Div-1; all it takes is patience, effort, and the will to improve.  I've noticed that both grad and undergrad students become more serious about their studies after getting trounced by a 13-year-old kid in his bedroom half a world away.</li>
+</ul>
 
-<p><span class="bodySubtitle">2. You're a designer - not a developer</span><br/>
-You are writing a design for a developer - not developing the component.  Remember, a developer is synonymous to a programmer analyst.  I mention this because the 'analyst' part of that definition is the key word.  The developer is responsible for analyzing your design and figuring out the most efficient implementation - not you.</p>
+<p><span class="bodySubtitle">Pitfalls</span><br/>
+While there are many good things to be said about programming contests,
+there are some real dangers as well--things that everyone should be
+aware of.</p>
 
-<p>This means that you should never write a single line of code (with the single exception of validating a concept that your design hinges on).  If you write code, two possible side effects could happen.  Your eventual design, whether you realize it or not, will generally either require or heavily favor the implementation that you wrote  - eliminating or severely limiting a potentially better implementation the programmer analyst could implement.  Secondly, your design will inevitably create a component whose API is easy for you to implement rather than focusing on a component whose API is easy for the customer to use - which should be your focus.</p>
+<ul>
+<li><b>Not all of Computer Science is Hacking</b><br/>
+ There is a great deal to learn that has little to do with writing
+ software; hardware, operating systems, formal languages, theory.  I
+ would hope that no one would construe my belief that coding is
+ important with the idea that it's the only thing one needs to know.
+ In my career, I find that what I learned in my English classes is as
+ important as anything else.</li>
 
-<p><span class="bodySubtitle">3. Making behemoth APIs</span><br/>
-A single class taking up the majority of the design with function after function is probably symptomatic of a design problem rather than being a valid design decision.  While there are cases when a huge class is proper, the far likelier case is that the class has too large of scope and can be broken down into smaller, more easily maintainable classes with a more specific scope.  The overall design usually becomes more flexible with smaller classes because you have more 'building blocks' to combine in different ways.</p>
+<li><b>Not all problems should be solved in 75 minutes</b><br/>
+ To say that some correct SRM solutions are poorly designed would be
+ an understatement.  TopCoder has design competitions for good reason;
+ the best solutions may take weeks or months to develop, so that the
+ code is robust and useful in many different situations.</li>
 
-<p>Secondly, a huge API generally points to the component being in 'overkill' mode - trying to accomplish too much too early on.  Most of the components that are being designed are version 1.0 components.  A component should start simple, accomplishing or slightly surpassing the requirements, and allow future enhancements (driven by market needs) to expand upon it.</p>
+<li><b>Not all problems should run in less than 8 seconds</b><br/>
+ For any problem, there may be a number of different solutions.  As an
+ algorithms buff, I find myself looking for the lowest big-O
+ complexity solution, rather than something that takes very few lines
+ of code.  So, while I'm working on a tricky O(n log n) convex hull,
+ someone else cranks out a brute force solution in a fraction of the
+ coding time.  In the real world, the more efficient algorithm might
+ be the right way to go; in the arena, that's seldom the case.</li>
+ </ul>
 
-<p><span class="bodySubtitle">4. Know the parties involved and their focus</span><br/>
-Designers need to understand who will be using the designs and for what purpose.  The audience of the design consists of three separate parties:  the customer, the review board and the developer.  These parties are distinctly different in focus and need to be treated differently in your design.  The customer is looking at the design to figure out how to use it.  The review board is looking for well-founded patterns, flexibility and overall cleanliness of the design.  The developer is reviewing it to determine the best implementation.  Too many of the designs submitted forget who the target audience of each element is.  Let's look at each element and discuss who the element is for and why.</p>
+<p><span class="bodySubtitle">Conclusion</span><br/>
+From the outside, SRMs might look like an exercise in hacking.  There
+is, however, a great deal to be learned by good students, poor
+students, professionals, and even a university professor.  As should be
+obvious from my first few competitions, I learned C++ in the arena.</p>
 
-<p>The component specification is of main interest to the review board and secondarily by the developer.  The component specification explains what the design accomplishes, the approach used, why it is designed this way and what the strengths/weaknesses are of the approach.  Think of the specification as your explanation to the review board on your design and it should address all assumptions, the reasoning and the design decisions that you have made in the design.  The specification should not only document the strengths of your design but also the weaknesses (otherwise you run the risk of a review board member finding the weakness and marking down for it).</p>
-
-<p>The class diagram is of interest to all parties and is probably tied with the specification document in importance.  The customer and review board will use it to understand the structure of the component and how it interacts.  The developer will use it as a guide to their development.  Because of the importance to all parties, it must be crystal clear in intent (see the presentation point below for ideas on improving this area).</p>
-
-<p>The developer will primarily use the 'documentation tab' to understand the element's use, rules and functionality within the component.  The documentation is written using javadoc formatting (or XML doc formatting in .NET designs) but is NOT really javadoc in the true sense.  This documentation is to the developer to explain how to implement that particular element.  The developer is then responsible in writing the proper customer javadocs.  The method documentation should mention functions intent and what are valid and invalid arguments.  A variable documentation should not only state what the variable means but also its limits and potentially, what methods modify it.</p>
-
-<p>The use cases are of primary interest to the customer.  The use cases cover a high level look at the cases this component would be good for.  Use cases are a bit of art because they can be described at many levels (from fairly detailed cases to very high level cases).  A good rule of thumb is to think from the customer's standpoint and try to decide what level of detail is appropriate.</p>
-
-<p>The sequence diagrams are of primary interest to the developer.  Think of the sequence diagrams as pseudo-code on how your component accomplishes the use cases and should not be very low-level (again, you're the designer - not the developer).  They should show the flow from class to class but not really get into the internal implementation details.</p>
-
-<p><span class="bodySubtitle">5. Presentation</span><br/>
-Presentation is one of the most important elements in the review process.  A badly presented design will almost always lose to a well-presented weaker design because it is easier to grasp.  A clear, concise design leaves the reviewer with no assumptions or misunderstandings and represents the thoroughness and time the designer put into the design.   The presentation is the 'sell' aspect to the review board - here's the design, it's easy to understand so score it well.</p>
-
-<p>The component specification should contain no spelling errors and be neatly laid out (alignment, sections, bullet points, etc).  The class diagram should have no overlapping edges to any element, use colors to denote class types and have well laid out association lines (did you know that you can click on the middle of a association line to create an angle?).  More importantly, you should logically group related elements together in the class diagram - implementations of an interface better be near the interface rather than scattered around.  Classes, methods and variables should be consistently named across the diagram as well within each class. The sequence diagrams are nearly impossible, in Posedian, to lay out cleanly - you should make generous use of notes in the diagram to further explain the sequence.</p>
-
-<p>While many other design mistakes have been seen, these probably represent the largest grouping of them.  The suggestions (and errors for that matter) are generic enough to be applied to any of the components that you may submit.  Try to follow some of the suggestions represented here and the designs you submit should start receiving higher points.</p>
+<p>While it may be uncommon to find TopCoder in a university course
+today, over time this may change.  Time constrained contests are a
+great way to sharpen coding chops, and better coders produce much more
+reliable software.  The Association for Computing Machinery understands
+this--they've been doing competitions for thirty years.  Perhaps it's
+time for mainstream academia to get with the program.</p>
 
                         <p><br/></p>
 
