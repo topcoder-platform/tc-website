@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.privatelabel.view.tag.DemographicInput" %>
+                 com.topcoder.web.privatelabel.view.tag.DemographicInput,
+                 com.topcoder.web.common.BaseProcessor" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="/privatelabel.tld" prefix="pl" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -12,7 +13,7 @@
 <head>
 <title>TopCoder | Private Label Registration</title>
 </head>
-
+<% System.out.println("errors: " + request.getAttribute(BaseProcessor.ERRORS_KEY).toString());%>
 <body>
     <table cellpadding="1" cellspacing="3">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">

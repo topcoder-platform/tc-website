@@ -26,7 +26,6 @@ public class FullRegDemog extends FullRegBase {
             setDefaults(regInfo);
         } else {
             try {
-                getRequest().setAttribute("fileTypeList", getFileTypes());
                 getRequest().setAttribute("questionList", getQuestions());
             } catch (Exception e) {
                 throw new TCWebException(e);
@@ -34,19 +33,6 @@ public class FullRegDemog extends FullRegBase {
             setNextPage(Constants.VERIZON_REG_DEMOG_PAGE);
         }
         setIsNextPageInContext(true);
-    }
-
-    protected ResultSetContainer getFileTypes() throws Exception {
-        InitialContext ctx = null;
-        ResultSetContainer ret = null;
-        try {
-            ctx = new InitialContext();
-            ResumeServices resume = (ResumeServices) createEJB(ctx, ResumeServices.class);
-            ret = resume.getFileTypes();
-        } finally {
-            close(ctx);
-        }
-        return ret;
     }
 
 }
