@@ -15,7 +15,7 @@
 
     <xsl:call-template name="Preload" />      
 
- <title>TopCoder | Development</title>
+ <title>Application Methodology for TopCoder Software Development</title>
 
     <xsl:call-template name="CSS" />      
 
@@ -48,20 +48,14 @@
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">white</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
-            <xsl:with-param name="title">&#160;Application Development</xsl:with-param>
+            <xsl:with-param name="title">&#160;Applications</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr valign="top">
-                    <td height="10"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
-                </tr>
-            </table>
+            <img src="/i/clear.gif" alt="" width="240" height="20" border="0" />
                 
+            <div align="center"><h1 class="devSubhead"><strong>TopCoder Software Application Development Methodology</strong></h1></div>
+            
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
-                <tr valign="top">
-                    <td class="bodyText"><div align="center"><h1 class="devSubhead"><strong>TopCoder Software Application Development Methodology</strong></h1></div></td>
-                </tr>
-
                 <tr valign="top">
                     <td width="100%">
                         <div align="center">
@@ -94,11 +88,11 @@
 
 <!-- Specification begins -->
                 <tr valign="top">
-                    <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="spec"></a>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+                    <td width="100%"><a name="spec"></a>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
                             <tr valign="top">
                                 <td class="methNav" width="98%"><span class="bodyText"><strong>Specification</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="bodyText" width="2%" nowrap="nowrap"><div class="topPage"><a href="#top">[Top of Page]</a></div></td>
+                                <td class="methNav" width="2%" nowrap="nowrap"><div class="topPage"><a href="#top">[Top of Page]</a></div></td>
                             </tr>
                         </table>
                     </td>
@@ -128,11 +122,11 @@
 
 <!-- Design begins -->
                 <tr valign="top">
-                    <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="design"></a>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+                    <td width="100%"><a name="design"></a>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
                             <tr valign="top">
                                 <td class="methNav" width="98%"><a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>Architecture and Design</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="bodyText" width="2%" nowrap="nowrap"><div class="topPage"><a href="#top">[Top of Page]</a></div></td>
+                                <td class="methNav" width="2%" nowrap="nowrap"><div class="topPage"><a href="#top">[Top of Page]</a></div></td>
                             </tr>
                         </table>
                     </td>
@@ -178,11 +172,11 @@
 
 <!-- Development begins -->
                 <tr valign="top">
-                    <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="development"></a>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+                    <td width="100%"><a name="development"></a>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
                             <tr valign="top">
                                 <td class="methNav" width="98%"><a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>Development and Testing</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="bodyText" width="2%" nowrap="nowrap"><div class="topPage"><a href="#top">[Top of Page]</a></div></td>
+                                <td class="methNav" width="2%" nowrap="nowrap"><div class="topPage"><a href="#top">[Top of Page]</a></div></td>
                             </tr>
                         </table>
                     </td>
@@ -222,11 +216,11 @@
 
 <!-- QA begins -->
                 <tr valign="top">
-                    <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="qa"></a>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+                    <td width="100%"><a name="qa"></a>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
                             <tr valign="top">
                                 <td class="methNav" width="98%"><a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>QA</strong></span>&#160;&#160;&#160;&#160;</td>
-                                <td class="bodyText" width="2%" nowrap="nowrap"><div class="topPage"><a href="#top">[Top of Page]</a></div></td>
+                                <td class="methNav" width="2%" nowrap="nowrap"><div class="topPage"><a href="#top">[Top of Page]</a></div></td>
                             </tr>
                         </table>
                     </td>
