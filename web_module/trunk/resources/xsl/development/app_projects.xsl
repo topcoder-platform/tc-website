@@ -102,25 +102,25 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=PMD_Service_Dev">Project Management Dashboard Service</a>
                                     </td>
-                                    <td class="projectCells" align="right">$2,500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$935 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">08.11.2004</td>
+                                    <td class="projectCells" align="right">$3,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,100 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">08.13.2004</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=PMD_Reports_Formatting_Dev">Project Management Dashboard Reports - Formatting</a>
                                     </td>
-                                    <td class="projectCells" align="right">$2,350 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$875 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">08.11.2004</td>
+                                    <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">08.13.2004</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=PMD_Reports_Execution_Dev">Project Management Dashboard Reports - Execution</a>
                                     </td>
-                                    <td class="projectCells" align="right">$2,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$750 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">08.11.2004</td>
+                                    <td class="projectCells" align="right">$2,400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">08.13.2004</td>
                                 </tr>
 
 
