@@ -1,5 +1,7 @@
 <%@ page errorPage="/errorPage.jsp" %>
-<%@ page import="com.topcoder.web.screening.common.Constants" %>
+<%@ page import="com.topcoder.web.screening.common.Constants,
+                 com.topcoder.web.screening.model.SessionInfo,
+                 java.util.Date" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -59,16 +61,16 @@
                     String trparams = Constants.SESSION_ID + "=" + row.getItem("session_id") + "&referrer=BuildCandidateList";
                     boolean hasSession = !row.getItem("has_session").toString().equals("0");
                     boolean hasNotes = ((Long)row.getItem("note_count").getResultData()).longValue()>0;
-                    boolean hasResults = row.getItem("has_results").getResultData().equals("1");
+
                 %>
 
                 <tr>
                    <td width="1" class="testFormOdd">&#160;</TD>
                    <td width="30%" class="testTableOdd"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></td>               
-                   <td width="10%" align="center" class="testTableOdd"><% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>"><%=hasResults?"Results":"Details"%></screen:servletLink><% } %></td> 
+                   <td width="10%" align="center" class="testTableOdd"><% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>"><screen:sessionStatusLink row="<%=row%>" /></screen:servletLink><% } %></td>
                    <td width="20%" align="center" class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
                    <td width="20%" align="center" class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
-                   <td width="10%" align="center" class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="status" /></td> 
+                   <td width="10%" align="center" class="testTableOdd"><screen:sessionStatus row="<%=row%>" /></td>
                    <td width="10%" align="center" class="testTableOdd"><screen:servletLink processor="NoteList" param="<%=params%>"><%=hasNotes?"View":"None"%></screen:servletLink></td> 
                 </tr>
 

@@ -295,12 +295,46 @@
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+    </tag>
+
+    <tag>
+        <name>sessionStatus</name>
+        <tagclass>com.topcoder.web.screening.view.tag.SessionStatusTag</tagclass>
+        <bodycontent>Empty</bodycontent>
+        <info>
+            Write the status of a session given a resultsetcontainer row
+        </info>
+        <attribute>
+            <name>row</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
         <attribute>
             <name>selected</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+
+    <tag>
+        <name>sessionStatus</name>
+        <tagclass>com.topcoder.web.screening.view.tag.SessionStatusLinkTag</tagclass>
+        <bodycontent>Empty</bodycontent>
+        <info>
+            Write the link text of a session given a resultsetcontainer row
+        </info>
+        <attribute>
+            <name>row</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selected</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
 
     <tag>
         <name>listIterator</name>
