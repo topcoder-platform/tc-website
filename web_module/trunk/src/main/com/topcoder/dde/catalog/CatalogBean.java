@@ -1026,32 +1026,64 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     }
 
 
+    private final static String COMPONENTS_BY_STATUS_AND_CATALOG =
+        " select cc.component_id " +
+             " , cv.comp_vers_id " +
+             " , cc.current_version as version " +
+             " , cc.component_name " +
+             " , cv.version_text " +
+             " , cv.comments " +
+             " , cc.short_desc " +
+             " , cc.description " +
+             " , cv.phase_time " +
+             " , cv.phase_id " +
+             " , cv.price " +
+             " , cc.status_id " +
+             " , cc.root_category_id " +
+          " from comp_catalog cc " +
+             " , comp_versions cv " +
+         " where cc.root_category_id = ? " +
+           " and cc.status_id = ? " +
+           " and cv.component_id = cc.component_id " +
+           " and cc.current_version = cv.version ";
+
     public Collection getComponentsByStatusAndCatalog(long status, long catalogId)
-           throws CatalogException {
-        List summaries = new ArrayList();
-        Iterator compIterator;
+           throws CatalogException, NamingException, SQLException {
+
+        Connection conn = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
         try {
-            compIterator = catalogHome.findByCatalogAndStatus(catalogId, status).iterator();
-        } catch(FinderException exception) {
-            throw new CatalogException(exception.toString());
-        }
-        while (compIterator.hasNext()) {
-            LocalDDECompCatalog comp =
-                (LocalDDECompCatalog) compIterator.next();
-            LocalDDECompVersions ver;
-            try {
-                ver = versionsHome.findByComponentIdAndVersion(
-                    ((Long) comp.getPrimaryKey()).longValue(),
-                    comp.getCurrentVersion());
-            } catch(FinderException exception) {
-                throw new CatalogException(
-                "Failed to retrieve current version information for component "
-                + comp.getPrimaryKey() + ": " + exception.toString());
+            conn = getConnection();
+            ps = conn.prepareStatement(COMPONENTS_BY_STATUS_AND_CATALOG);
+            rs = ps.executeQuery();
+
+            ArrayList ret = new ArrayList();;
+            while (rs.next()) {
+                ret.add(new ComponentSummary(
+                        rs.getLong("component_id"),
+                        rs.getLong("comp_vers_id"),
+                        rs.getLong("version"),
+                        rs.getString("component_name"),
+                        rs.getString("version_text").trim(),
+                        rs.getString("comments"),
+                        rs.getString("short_desc"),
+                        rs.getString("description"),
+                        rs.getLong("phase_id"),
+                        rs.getDate("phase_time"),
+                        rs.getDouble("price"),
+                        rs.getLong("Status_id"),
+                        rs.getLong("root_category_id")));
             }
-            summaries.add(generateSummary(comp, ver));
+            Collections.sort(ret, new Comparators.ComponentSummarySorter());
+            return ret;
+
+        } finally {
+            try { if (rs != null) { rs.close(); rs = null; } } catch (SQLException e) {}
+            try { if (ps != null) { ps.close(); ps = null; } } catch (SQLException e) {}
+            try { if (conn  != null) {  conn.close();  conn = null; } } catch (SQLException e) {}
         }
-        Collections.sort(summaries, new Comparators.ComponentSummarySorter());
-        return summaries;
+
     }
 
     public ComponentSummary getComponent(long componentId)
