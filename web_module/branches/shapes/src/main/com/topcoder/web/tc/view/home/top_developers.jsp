@@ -10,7 +10,7 @@
         <td class="statTextBig" align="right" width="99%"><a href="/stat?c=top_developers" class="statTextBig">View all</a>&#160;</td>
     </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#333333">
+<table border="0" cellspacing="0" cellpadding="2" width="100%" bgcolor="#333333">
     <tr valign="middle">
         <td align="center" background="/i/graybv_lite_bg.gif" class="statText" width="10%"></td>
         <td align="left" background="/i/graybv_lite_bg.gif" class="statText" width="45%">Handle</td>
