@@ -37,7 +37,7 @@
         <p>Registration for the Algorithm Competition opens Monday, August 9 at 9:00 AM ET</p>
         <% } %>
         <% if (now.after(beginning) && now.before(end)) { %>
-        <p><span class="bodySubtitle">Click <a href="">here</a> to register for the Algorithm Competition now.</span></p>
+        <p><span class="bodySubtitle">Click <a href="/tc?module=TCO04AlgorithmTerms">here</a> to register for the Algorithm Competition now.</span></p>
         <% } %>
         <% if (now.after(end)) { %>
         <p>Registration for the Algorithm Competition is closed.</p>
