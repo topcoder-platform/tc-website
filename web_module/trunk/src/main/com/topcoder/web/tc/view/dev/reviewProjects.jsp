@@ -53,6 +53,7 @@
 <p align="left">In order to sign up for a review position, click on the "details" link for any component with positions available, and then select "Apply Now" next to the position that you would like to commit to.</p>
 
             <br/>
+<%--
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
@@ -71,7 +72,6 @@
 
                 <rsc:iterator list="<%=tournamentProjectList%>" id="resultRow">
                     <tr>
-                        <%-- <a> should link to project description page like the Open Projects page does --%>
                         <% if ((resultRow.getLongItem("category_id"))==Constants.DOT_NET_CATALOG_ID) { %>
                             <td class="projectCells" align="center"><img src="/i/development/netSm.gif"/></td>
                         <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
@@ -95,6 +95,7 @@
            </table>
 
             <br/>
+--%>
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
