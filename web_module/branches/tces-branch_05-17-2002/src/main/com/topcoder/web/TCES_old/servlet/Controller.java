@@ -22,6 +22,8 @@ public class Controller
     static final String CONTROLLER_ERROR_URL = "error.jsp";
     static final String TASK_PACKAGE = "com.topcoder.web.tces.bean";
 		 
+    private Map dispatcherMap;
+
     public void init(Servlet servletConfig) throws ServletException {
 	    /* a previous instance of the servlet may have already created the dispatcherMap */
 			dispatcherMap = (Map) getServletContext().getAttribute("dispatcherMap");
@@ -159,7 +161,7 @@ public class Controller
                 if (rd == null) {
 									throw new ServletException("cannot obtain request dispatcher");
 								} else {
-                	dispatcherMap.put(target, rd);								
+                	dispatcherMap.put(url, rd);								
 								}
             }
         }
