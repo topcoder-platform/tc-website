@@ -7,7 +7,7 @@
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/pr_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
@@ -90,7 +90,7 @@
 	<!-- Right Column Begins -->
 		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
 <!-- Right Column Include Begins --> 
-        <xsl:call-template name="public_right_col"/>       
+        <xsl:call-template name="pr_right_col"/>       
 <!-- Right Column Include Ends -->       
         </TD>
 	<!-- Right Column Ends -->
