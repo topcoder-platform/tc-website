@@ -69,9 +69,13 @@ public class ProjectReviewApply extends Base {
                     Timestamp ts = null;
                     try {
                         ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
-                    } catch (RowNotFoundException e) {
-                        System.out.println("none found");
-                        // No previous review application found, we don't need to do anything here.
+                    } catch (RemoteException e) {
+                        if (e.detail instanceof RowNotFoundException) {
+                            System.out.println("none found");
+                            // No previous review application found, we don't need to do anything here.
+                        } else {
+                            throw new TCWebException(e);
+                        }
                     }
                     if (ts != null && System.currentTimeMillis() < ts.getTime() + APPLICATION_DELAY) {
                         System.out.println("found");
