@@ -1133,6 +1133,19 @@
         </td>
     </tr>
 
+<!-- Documentation -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='documentation'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=documentation</xsl:attribute>Documentation</A>
+        </td>
+    </tr>
+
         </xsl:if>
   </xsl:template>
 
