@@ -17,7 +17,7 @@ public class View extends SurveyData {
         setIsNextPageInContext(true);
     }
 
-    protected List makeAnswerInfo(long surveyId, long questionId) throws Exception {
+    protected List makeAnswerInfo(long questionId) throws Exception {
         log.debug("makeAnswerInfo called");
         Request req = new Request();
         DataAccessInt dataAccess = getDataAccess(true);

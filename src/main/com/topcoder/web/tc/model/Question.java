@@ -13,6 +13,7 @@ public class Question implements Serializable {
     private int typeId;
     private int styleId;
     private String text;
+    private boolean isRequired;
     private List answerInfo;
 
     public Question() {}
@@ -47,6 +48,14 @@ public class Question implements Serializable {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public boolean isRequired() {
+        return isRequired;
+    }
+
+    public void setRequired(boolean required) {
+        isRequired = required;
     }
 
     public List getAnswerInfo() {
