@@ -38,6 +38,7 @@
         </attribute>
     </tag>
 
+<!--
     <tag>
         <name>img</name>
         <tagclass>com.topcoder.web.common.tag.ImgTag</tagclass>
@@ -86,6 +87,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+-->
 
     <tag>
         <name>link</name>
