@@ -61,7 +61,7 @@
                 <tr valign="top">
                     <td width="100%">
                         <div align="center">
-                        <table width="494" border="0" cellpadding="0" cellspacing="0">
+                        <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td><a class="statText" href="#qa"><img src="/i/development/development_methodology_03.gif" width="189" height="69" border="0" alt="quality_assurance" /></a></td>
                             <td><img src="/i/development/development_methodology_04.gif" width="116" height="69" alt="" /></td>

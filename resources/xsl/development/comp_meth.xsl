@@ -122,13 +122,11 @@ A.methNav:active {
                 <tr valign="top">
                     <td width="100%">
                         <div align="center">
-                        <table width="565" border="0" cellpadding="0" cellspacing="0">
+                        <table border="0" cellpadding="0" cellspacing="0">
                             <tr>
-                                <td rowspan="3"><img src="/i/clear.gif" width="59" height="204" alt="" /></td>
                                 <td><a class="statText" href="#certification"><img src="/i/development/methodology_02.gif" width="161" height="67" alt="Certification" border="0" /></a></td>
                                 <td><img src="/i/development/methodology_03.gif" width="118" height="67" alt="" /></td>
                                 <td><a class="statText" href="#collaboration"><img src="/i/development/methodology_04.gif" width="177" height="67" alt="Collaboration" border="0" /></a></td>
-                                <td rowspan="3"><img src="/i/clear.gif" width="50" height="204" alt="" /></td>
                             </tr>
                         
                             <tr>
@@ -142,7 +140,8 @@ A.methNav:active {
                                 <td><img src="/i/development/methodology_10.gif" width="118" height="81" alt="" /></td>
                                 <td><a class="statText" href="#design"><img src="/i/development/methodology_11.gif" width="177" height="81" alt="Design" border="0" /></a></td>
                             </tr>
-                        </table></div></td>
+                        </table></div>
+                    </td>
                 </tr>
 
                 <tr valign="top">
