@@ -26,11 +26,11 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <td width="100%" align="center" valign="top"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
+        <td width="100%" align="center"><img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br/>
             <jsp:include page="big_promo.jsp" /><img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
             <jsp:include page="small_promos.jsp" /><img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
             <jsp:include page="corp_promos.jsp" /><img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
@@ -43,7 +43,7 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
