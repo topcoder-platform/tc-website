@@ -113,9 +113,9 @@
 
 
 
-<target name="package-EJB-ContestAdminServicesBean" depends="compile,init-ContestAdminServicesBean-properties,package-EJB-GenericBean"/>
+   <target name="package-EJB-ContestAdminServicesBean" depends="compile,init-ContestAdminServicesBean-properties,package-EJB-GenericBean"/>
 
-<target name="init-ContestAdminServicesBean-properties" >
+   <target name="init-ContestAdminServicesBean-properties" >
        <property name="bean.dir"          value="ContestAdminServices" />
         <property name="bean.jar.name"     value="ContestAdminServices.jar" />
         <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
@@ -124,12 +124,32 @@
         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
    </target>
 
+
+
+
+   <target name="package-EJB-StatisticsBean" depends="compile,init-StatisticsBean-properties,package-EJB-GenericBean"/>
+
+   <target name="init-StatisticsBean-properties" >
+       <property name="bean.dir"          value="Statistics" />
+        <property name="bean.jar.name"     value="Statistics.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/stat/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+
+
    <target name="initGenericBean" >
       <delete dir="${bean.build.dir}"/>
       <delete dir="${bean.class.dir}/*.class" />
       <mkdir  dir="${bean.build.dir}"/>
       <mkdir  dir="${bean.meta-inf.dir}"/>
    </target>
+
+
+
+
 
    <target name="package-EJB-GenericBean" depends="initGenericBean">
 
