@@ -8,7 +8,7 @@
 <html>
 <head>
 
-<link rel=stylesheet href="http://java.sun.com/javaone/javaone2004.css">
+<link rel=stylesheet type="text/css" href="http://java.sun.com/javaone/javaone2004.css">
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick.css"/>
 
 <title>2004 JavaOne Coding Challenge</title>
@@ -34,14 +34,16 @@
    							<tr><td width="19"><img src="/i/clear.gif" width="634" height="20"></td></tr>
 						</table>
   				<!-- end breadcrumb -->
-  				
-  						<span class="title"><br/>Prizes</span>
-						<p class="middle">From each day's Qualification Round, the top four Qualifiers will be invited back in the evening to compete 
+  						<p></p>
+  					<img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone04/coding_challenge.gif" width="351" height="27" border="0">
+  						<p></p>
+  						<p class ="regmiddle"><strong><font size="4">Prizes</font></strong></p>
+						<p class ="regmiddle">From each day's Qualification Round, the top four Qualifiers will be invited back in the evening to compete 
 						in a <br/>one-hour head-to-head competition for these exciting grand prizes. In addition, the first 1000 participants 
 						receive a JavaOne Coding Challenge t-shirt and messenger bag.</p>
 
 						
-			<table width="600" align="left" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+			<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="30%" class="sidebarTitle">Participant(s)</td>
                     <td width="70%" class="sidebarTitle">Prize</td>
