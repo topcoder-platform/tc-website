@@ -80,7 +80,7 @@ public class VerizonRegSubmit extends FullRegSubmit {
             buf.append("There is a practice room available that will allow you to become acclimated with the competition environment for the Verizon Coding Challenge.  The practice room contains a problem set that is very similar in nature to the problems that will be given during competition.  The practice room will be available from 7:00AM IST (GMT +5:30) on October 31, 2003 through 6:00PM IST (GMT +5:30) on November 7, 2003.\n\n");
             buf.append("You can access the arena by navigating to http://www.topcoder.com/verizon and clicking on the \"Practice Arena\" link.\n\n");
             buf.append("Windows, Linux and Unix users need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
-            buf.append("Mac OS X  users need to have the Java 1.4.x runtime installed, which requires OS X version 10.2.x.\n\n");
+            buf.append("Mac OS X users need to have the Java 1.4.x runtime installed, which requires OS X version 10.2.x.\n\n");
             buf.append("We also suggest that you read up on the competition process by navigating to http://www.topcoder.com/verizon and downloading the competition manual.\n\n");
             buf.append("If you have any questions about how to participate, please email them to service@topcoder.com\n\n");
             buf.append("Thank you for registering for the Verizon Coding Challenge.  We look forward to seeing you in the Arena!\n\n");
