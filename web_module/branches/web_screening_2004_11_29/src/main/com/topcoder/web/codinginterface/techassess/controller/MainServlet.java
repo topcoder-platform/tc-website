@@ -17,6 +17,7 @@ public class MainServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(MainServlet.class);
 
     public void init(ServletConfig config) throws ServletException {
+        log.debug("loading up the techassess servlet");
         super.init(config);
 /*
         Constants.initialize();
