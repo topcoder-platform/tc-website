@@ -234,8 +234,10 @@ public class PersistStore {
 
     private void load() throws FileNotFoundException {
         String path = xmlStore.getAbsolutePath();
+        FileInputStream fis = new FileInputStream(xmlStore);
+    	System.err.println("---xml input stream is "+fis+" ----");
         try {
-            store = (new org.jdom.input.DOMBuilder()).build(new FileInputStream(xmlStore));
+            store = (new org.jdom.input.DOMBuilder()).build(fis);
         }
         catch(org.jdom.JDOMException e) {
             e.printStackTrace();
