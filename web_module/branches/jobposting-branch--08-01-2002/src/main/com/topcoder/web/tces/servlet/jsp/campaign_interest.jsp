@@ -55,7 +55,7 @@
               <P><B>Position Interest</B></P>
               
               <P>
-              <B><%=CampaignInterestTask.getCampaignName()></B><BR>
+              <B><%=CampaignInterestTask.getCampaignName()%></B><BR>
               Status: <B>Active</B><BR>
               <a href="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignInterestTask.getCampaignID()%>" class="statText">View collective demographic info</A><BR>
               </P>
