@@ -138,7 +138,6 @@ public class BasicAuthentication implements WebAuthentication {
      * note: greg paul - i've changed it to cache the password for 30 minutes to avoid the db hit.
      */
     private String hashForUser(long uid) throws Exception {
-        log.debug("hashForUser called...");
         CachedDataAccess dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
         dai.setExpireTime(30*60*1000);   //cache their password for 30 minutes, this should help db load
         Request dataRequest = new Request();
@@ -154,7 +153,6 @@ public class BasicAuthentication implements WebAuthentication {
         StringBuffer hex = new StringBuffer();
         for(int i=0; i<raw.length; i++)
             hex.append(Integer.toHexString(raw[i]&0xff));
-        log.debug("hashForUser hash for user done...");
         return hex.toString();
     }
 
@@ -182,7 +180,6 @@ public class BasicAuthentication implements WebAuthentication {
 
     /** Check each cookie in the request header for a cookie set above. */
     private User checkCookie() {
-        log.debug("checkCookie() called");
         Cookie[] ca = request.getCookies();
         for(int i=0; i<ca.length; i++)
             if(ca[i].getName().equals("user_id")) {
