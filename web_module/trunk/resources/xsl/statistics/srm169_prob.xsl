@@ -87,17 +87,17 @@ The fact that 507 coders (or should I say top coders) have registered for
 this match is quite impressive. DIV I coders lived up to their high standard 
 and the submission and success rates where pretty solid. But I think there 
 was one other quite impressive thing
-if not a bit suprising and frustrating....<br/>
+if not a bit suprising and frustrating....<br/><br/>
 Lets look at the following scenario:<br/>
 It is probably (if memory serves me correctly) the only time that I have 
 seen complete silence in my room (Div II) and basically no submissions for 
-the longest period of time.<br/>
+the longest period of time.<br/><br/>
 Here is how it went: <br/>
 We all started with the 250 as usual and we all submitted the easy problem 
 within the normal time frame of about 5 to 10 mins. So far, so good. I check 
 the submission times and I see that I am ok. I was about 4th in my room at 
 the time when I submitted. So what do we all do next? But of course, we open 
-and tackle the 500 problem. So we all opened the 500 and...<br/>
+and tackle the 500 problem. So we all opened the 500 and...<br/><br/>
 And I think that any spectator watching my room would have been quite taken 
 aback and would have shaken his applet a bit in order to see why nothing was 
 happening. And nothing seemed to be happening for the longest period of 
@@ -105,7 +105,7 @@ time. But in actuality we were all hard at work trying to figure out a
 strategy for getting this problem into submission. Time passed, and an 
 occasional compilation or testing message would appear on the room history 
 list. Finally after what must have been like 40 minutes submissions started 
-to trickle in. <br/>But alas! No time was left to even attempt the 1000 and 
+to trickle in. <br/><br/>But alas! No time was left to even attempt the 1000 and 
 in my room there were no submissions for the hard problem. What is even more 
 interesting is the fact that most of the submissions for the DIV II 500 
 would fail either by a direct coder challenge or through a system test case. 
@@ -117,6 +117,7 @@ maximize chances at scoring high points especially for those who would like
 to trade the green of their earthly pastures for the blue of the heavens.
 </p>
 
+<p>
 <H1>
 The Problems
 </H1>
@@ -240,7 +241,7 @@ over case (3) below.<br/>
 back. In such a case we return -1;<br/>
 
 &#160;&#160;&#160;&#160;(4) Note that we can have a case where we would have 
-division by 0 in our <be>
+division by 0 in our <br/>
 &#160;&#160;&#160;&#160;formula if the speed of the swimmer is the same as 
 the speed of the river current. We <br/>
 &#160;&#160;&#160;&#160;need to ensure that we trap this case before it gets 
@@ -282,8 +283,8 @@ Most code that failed the system tests or was successfully challenged did
 not ensure that
 case (2) takes precedence over case (3) as well as missing the (equal-to) 
 condition in case (3)
-
 </p>
+
 <font size="+2">
 <b>Twain</b>
 </font>
@@ -349,7 +350,7 @@ very time
 consuming to debug.<br/>
 Lets look at two sample transformations necessary for this question:<br/><br/>
 
-<u><b>Transformation (1) - year 1</u></b><br/><br/>
+<u><b>Transformation (1) - year 1</b></u><br/><br/>
 
 &#160;&#160;&#160;&#160;	- If a word starts with "x", replace the "x" with a 
 "z".<br/>
@@ -440,7 +441,7 @@ from beginning and end.<br/><br/>
 		input = input.replaceAll("chr","kr" );
 		for(int i=0; i &lt; input.length(); i++)
 		{
-		   if(input.charAt(i) == 'c' && input.charAt(i+1) != 'h')
+		   if(input.charAt(i) == 'c' &amp;&amp; input.charAt(i+1) != 'h')
 		   input = input.substring(0, i) + "k" +
        		   input.substring(i+1);
 		}
@@ -787,7 +788,7 @@ Here is a java snippet for (2) assuming the grid is made to be [10][10]<br/>
 			{
 				for(int c = col-1; c &lt; = col+1; c++)
 				{
-					if(row==r && col==c) continue;
+					if(row==r &amp;&amp; col==c) continue;
 					if(grid[r][c] == 'M')
 						count++;
 				}
@@ -801,18 +802,19 @@ Here is a java snippet for (2) assuming the grid is made to be [10][10]<br/>
 The success rate for this problem was almost 100% but a few solutions failed 
 mostly on incorrectly going through the neighbors. Especially one has to be 
 careful with the
-<pre>&#160;&#160;&#160;&#160;if(row==r && col==c) continue
+<pre>&#160;&#160;&#160;&#160;if(row==r &amp;&amp; col==c) continue
 </pre> condition to ensure that one doesn't do this instead:
 (for example)
-<pre>&#160;&#160;&#160;&#160;if(row==0 && col==0) continue;</pre>
-
+<pre>&#160;&#160;&#160;&#160;if(row==0 &amp;&amp; col==0) continue;</pre>
 </p>
+
 <font size="+2">
 <b>GoldMine</b>
 </font>
 <A href="Javascript:openProblemRating(1957)"><img hspace="10" border="0" 
 height="18" width="60" src="/i/rate_it.gif"/></A><br/>
-Used as: Division One - Level Three: <blockquote><table cellspacing="2">
+Used as: Division One - Level Three: 
+<blockquote><table cellspacing="2">
 <tr>
 <td class="bodyText" style="background: #eee;">
 <b>Value</b>
@@ -854,6 +856,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 </td>
 </tr>
 </table></blockquote>
+
 <p>
 This is a rather straight forward problem once you realize that is can be 
 solved in a greedy manner.<br/>
@@ -905,8 +908,8 @@ That's all, folks. Until the next SRM. keep on coding!
 </p>
 
                         <p>
-                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><br />
+<!--                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br />-->
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=252022"><strong>AleaActaEst</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                         </p>
                     </td>
