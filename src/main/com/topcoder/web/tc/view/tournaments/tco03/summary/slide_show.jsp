@@ -10,95 +10,70 @@
 <!-- Hide from non-JavaScript browsers
 
 var imageDir = "/i/tournament/tco03/download_photos/";
-var imageNum = 0;
+var imageNum = 1;
+var totalImages = 316;
 
-imageArray = new Array();
-imageArray[imageNum++] = new imageItem(imageDir + "0001.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0002.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0003.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0004.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0005.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0006.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0007.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0008.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0009.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0010.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0011.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0012jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0013.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0014.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0015.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0016.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0017.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0018.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0019.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0020.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0021.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0022.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0023.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0024.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0025.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0026.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0027.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0028.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0029.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0030.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0031.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0032.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0033.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0034.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0035.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0036.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0037.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0038.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0039.jpg");
-imageArray[imageNum++] = new imageItem(imageDir + "0040.jpg");
+<%
+    final String CURR_IMAGE_KEY = "currImage";
+    String currImage = request.getParameter(CURR_IMAGE_KEY)==null?"":request.getParameter(CURR_IMAGE_KEY);
+%>
 
-var totalImages = imageArray.length;
-
-// This determines the location of the slide image
-function imageItem(image_location) {
-    this.imageItem = new Image();
-    this.imageItem.src = image_location;
+function lpad(val) {
+  var temp = ""+val;
+  while(temp.length<4) temp="0"+temp;
+  return temp;
 }
-function get_ImageItemLocation(imageObj) {
-    return(imageObj.imageItem.src)
-}
- 
-// This sets the function for the Fast-Forward Button
+
 function getNextImage() {
-    imageNum = (imageNum+1) % totalImages;
-    var new_image = get_ImageItemLocation(imageArray[imageNum]);
+    imageNum = (imageNum+1) % (totalImages+1);
+    if (imageNum==0) imageNum++;
+    var new_image = imageDir+lpad(imageNum)+".jpg";
     return(new_image);
 }
- 
-// This sets the function for the Rewind Button
+
 function getPrevImage() {
-    imageNum = (imageNum-1) % totalImages;
-    var new_image = get_ImageItemLocation(imageArray[imageNum]);
+    imageNum = (imageNum-1) % (totalImages+1);
+    if (imageNum==0) imageNum=totalImages;
+    var new_image = imageDir+lpad(imageNum)+".jpg";
     return(new_image);
-} 
+}
+
 function prevImage(place) {
     var new_image = getPrevImage();
+    document.blah.<%=CURR_IMAGE_KEY%>.value = imageNum;
     document[place].src = new_image;
-}
- 
-function switchImage(place) {
-    var new_image = getNextImage();
-    document[place].src = new_image;
-    var recur_call = "switchImage('"+place+"')";
 }
 
-function changeImage(image, newImage) {
-    document[image].src=newImage;
-    return;
-  }
+function nextImage(place) {
+    var new_image = getNextImage();
+    document.blah.<%=CURR_IMAGE_KEY%>.value = imageNum;
+    document[place].src = new_image;
+}
+
+function changeImage(place, imageIndex) {
+    var temp = imageIndex;
+    if (imageIndex>totalImages) {
+      temp = totalImages;
+    } else if (imageIndex<1) {
+      temp = 1;
+    }
+    imageNum = temp;
+    var new_image = imageDir+lpad(temp)+".jpg";
+    document.blah.<%=CURR_IMAGE_KEY%>.value = temp;
+    document[place].src = new_image;
+
+}
 // End Hiding -->
 </script>
-     
+
 </head>
 
-<body>
+<%if (!currImage.equals("")) { %>
+<body onload="changeImage('slideImg', <%=currImage%>);">
+ <% } else { %>
+ <body onload="changeImage('slideImg', 1);">
+ <% } %>
+
 
 <jsp:include page="../../../top.jsp" >
     <jsp:param name="level1" value=""/>
@@ -139,28 +114,43 @@ function changeImage(image, newImage) {
             <p><br/></p>
 
             <p class="terciary"><div align="center">
-                <a href="Javascript:void changeImage('slideImg', '/i/tournament/tco03/download_photos/0001.jpg');">Reception</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', '/i/tournament/tco03/download_photos/0021.jpg');">Room 1</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', '/i/tournament/tco03/download_photos/0049.jpg');">Room 2</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', '/i/tournament/tco03/download_photos/0068.jpg');">Room 3</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', '/i/tournament/tco03/download_photos/0110.jpg');">Room 4</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', '/i/tournament/tco03/download_photos/0147.jpg');">NVIDIA Gathering</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', '/i/tournament/tco03/download_photos/0168.jpg');">Component Finals</a><br/>
-                
-                <a href="Javascript:void changeImage('slideImg', '/i/tournament/tco03/download_photos/0191.jpg');">Intel Presentation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', '/i/tournament/tco03/download_photos/0196.jpg');">War Room</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', '/i/tournament/tco03/download_photos/0204.jpg');">Coding Finals</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', '/i/tournament/tco03/download_photos/0254.jpg');">Winners</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', '/i/tournament/tco03/download_photos/0282.jpg');">Press Conference</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', '/i/tournament/tco03/download_photos/0304.jpg');">Awards Dinner</a>
+                <a href="Javascript:void changeImage('slideImg', 1);">Reception</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 21);">Room 1</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 49);">Room 2</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 68);">Room 3</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 110);">Room 4</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 147);">NVIDIA Gathering</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 168);">Component Finals</a><br/>
+
+                <a href="Javascript:void changeImage('slideImg', 191);">Intel Presentation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 196);">War Room</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 204);">Coding Finals</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 254);">Winners</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 282);">Press Conference</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 304);">Awards Dinner</a>
             </div></p>
-            
+            <p>
+              <form name="blah" action="/tc">
+                <input type="hidden" name="module" value="Static"/>
+                <input type="hidden" name="d1" value="tournaments"/>
+                <input type="hidden" name="d2" value="tco03"/>
+                <input type="hidden" name="d3" value="summary"/>
+                <input type="hidden" name="d4" value="slide_show"/>
+                <input type="text" value="1" name="<%=CURR_IMAGE_KEY%>" size="3"/>
+              </form>
+              of
+              <script language="JavaScript"><!--
+              document.write(totalImages);
+             //-->
+             </script>
+            </p>
+
             <div align="center">
-                <img src="/i/tournament/tco03/download_photos/0001.jpg" width="448" height="336" name="slideImg" class="photoFrameBig">
-            </div>            
-                
+                <img src="" width="448" height="336" name="slideImg" class="photoFrameBig">
+            </div>
+
             <p class="terciary"><div align="center">
-	        &lt;&lt; <a href="#" onClick="prevImage('slideImg');">previous</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onClick="switchImage('slideImg');">next</a> &gt;&gt;</a>
+	        &lt;&lt; <a href="#" onClick="prevImage('slideImg');">previous</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onClick="nextImage('slideImg');">next</a> &gt;&gt;</a>
             </div></p>
 
             <p><br/></p>
