@@ -286,7 +286,7 @@ function submitEnter(e) {
                 </td>
             </tr>
             <tr>
-                <td ccolspan="2" class="errorText" align="center">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
