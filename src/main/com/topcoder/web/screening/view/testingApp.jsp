@@ -1,3 +1,5 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+ <%@ page errorPage="/errorPage.jsp" %>
 <html>
   <head>
     <title>Competition Arena</title>
@@ -29,7 +31,7 @@
               NOTE: If a red button to "Load Competition Arena" does <b>not</b> appear below,
               you may not have the appropriate Plug-in software installed.
               <SCRIPT type="text/javascript">
-                function getReq(){u='\?t=support&amp;c=software_req';window.open(u);close();}
+                function getReq(){u='/?t=support&amp;c=software_req';window.open(u);close();}
               </SCRIPT><BR/>
               <a href="Javascript:getReq()">
                 Click here for more information &gt;&gt;
