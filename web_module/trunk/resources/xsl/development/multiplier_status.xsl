@@ -142,7 +142,7 @@
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
-                                        Version&#160;<xsl:value-of select="./version"/>
+                                        Version&#160;<xsl:value-of select="./version_text"/>
                                     </xsl:if>
                                 </a>
                             </td>
@@ -216,7 +216,7 @@
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
-                                        Version&#160;<xsl:value-of select="./version"/>
+                                        Version&#160;<xsl:value-of select="./version_text"/>
                                     </xsl:if>
                                 </a>
                             </td>
