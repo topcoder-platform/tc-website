@@ -287,12 +287,9 @@ public class MainServlet extends HttpServlet {
         String loginPage = servletConfig.getInitParameter(
             PFX_PAGE + KEY_LOGINPAGE
         );
-        String loginPageDest = loginPage + "&" + destParam + "=" +
-            java.net.URLEncoder.encode(
-                originatingPage
-//                , resp.getCharacterEncoding() // 1.4
-            );
-        fetchRegularPage(req, resp, loginPageDest, true);
+        req.setAttribute(destParam, originatingPage);
+
+        fetchRegularPage(req, resp, loginPage, true);
     }
 
 

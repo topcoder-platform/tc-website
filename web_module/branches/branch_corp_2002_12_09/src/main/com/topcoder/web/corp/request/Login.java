@@ -99,6 +99,11 @@ public class Login extends BaseProcessor {
         // done. if there is destination page then go there
         String destination = request.getParameter(KEY_DESTINATION_PAGE);
 
+        // check if a destination page is stored in request attributes 
+        if (destination == null || destination.trim().length() == 0) { 
+            destination = (String)request.getAttribute(KEY_DESTINATION_PAGE);
+            request.setAttribute(KEY_DESTINATION_PAGE, null);
+        }
         if( ! miniLogin ) {
             SessionPersistor.getInstance(request.getSession(true)).popLastPage();
         }
