@@ -1,7 +1,6 @@
 <%@  page
   language="java"
   import="com.topcoder.common.web.data.CoderRegistration,
-          com.topcoder.ejb.DataCache.*,
           com.topcoder.common.web.util.*,
           java.text.DecimalFormat,
           com.topcoder.common.web.data.Navigation,
@@ -13,7 +12,6 @@
    request.getSession(true).setAttribute("navigation", nav);
    CoderSessionInfo sessionInfo = nav.getSessionInfo();
    String styleClass = "coderTextWhite";
-   DataCache dcHome = com.topcoder.common.web.util.Cache.get();
    int rating = 0;
    if (!sessionInfo.isAnonymous()) {
        rating = sessionInfo.getRating();
@@ -37,7 +35,7 @@
 <table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
     <tr valign="middle">
         <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
-        <td nowrap="0" class="registerToday"><span class="time">Current Member Count</span>&#160;:&#160; <%=new DecimalFormat("#,##0").format(dcHome.getMemberCount())%> - <span class="time"><jsp:include page="date_time.jsp" /></span><a href="Javascript:tcTime()" class="statText">[Get Time]</a></span></td>
+        <td nowrap="0" class="registerToday"><span class="time">Current Member Count</span>&#160;:&#160; <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> - <span class="time"><jsp:include page="date_time.jsp" /></span><a href="Javascript:tcTime()" class="statText">[Get Time]</a></span></td>
         <td width="99%" align="right" class="login" nowrap="0">
 
 <% if ( !sessionInfo.isAnonymous() ) { %>
