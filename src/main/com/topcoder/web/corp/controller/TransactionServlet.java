@@ -329,6 +329,12 @@ public class TransactionServlet extends HttpServlet {
                 log.error("Can't complete CC Tx", e);
                 response.setStatus(HttpServletResponse.SC_ACCEPTED);
             }
+            try {
+                removeTransaction(request);
+            } catch (Exception e) {
+                log.error("failed to remove transaction");
+                e.printStackTrace();
+            }
         } else {
             throw new ServletException("post-op " + op + " not supported");
         }
@@ -741,6 +747,14 @@ public class TransactionServlet extends HttpServlet {
         CacheClient cc = CacheClientFactory.createCacheClient();
         //keying based on the session id from the original request
         cc.set(KEY_TRANSACTION_INFO+transactionKey(request), info, 1000*60*60);
+    }
+
+    private void removeTransaction(HttpServletRequest request) throws Exception {
+        log.debug("remove transaction");
+        CacheClient cc = CacheClientFactory.createCacheClient();
+        cc.remove(KEY_TRANSACTION_INFO+transactionKey(request));
+
+
     }
 
 }

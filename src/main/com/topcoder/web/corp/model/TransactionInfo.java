@@ -50,7 +50,7 @@ public class TransactionInfo implements Serializable {
     private int qtty = 0;
     private double cost = 0;
 
-    private Exception tcExc = null;
+    private String tcExc = null;
     private String terms = null;
     private long termsId = 0;
     private boolean agreed = false;
@@ -270,11 +270,11 @@ public class TransactionInfo implements Serializable {
         return ret;
     }
 
-    public Exception getTcExc() {
+    public String getTcExc() {
         return tcExc;
     }
 
-    public void setTcExc(Exception tcExc) {
+    public void setTcExc(String tcExc) {
         this.tcExc = tcExc;
     }
 
