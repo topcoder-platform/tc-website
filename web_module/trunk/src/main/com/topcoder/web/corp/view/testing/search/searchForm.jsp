@@ -1,7 +1,11 @@
 <%@ page import="com.topcoder.web.corp.common.Constants,
-                com.topcoder.shared.dataAccess.DataAccessConstants"%>
+                com.topcoder.shared.dataAccess.DataAccessConstants,
+                java.util.*"%>
 <%@ page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="privatelabel.tld" prefix="pl" %>
+<jsp:usebean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
+<%List questionList = searchResults.getQuestions();%>
 <script language="JavaScript"><!--
                         function submitEnter(e) {
                             var keycode;
