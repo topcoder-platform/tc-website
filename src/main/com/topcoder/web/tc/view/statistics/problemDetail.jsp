@@ -71,13 +71,15 @@
                Used As:
              </td>
              <td class="statText">
-               <rsc:item set="<%=generalInfo%>" name="div1_use" /> <%=generalInfo.getItem(0, "div2_use")==null?"":", "%><rsc:item set="<%=generalInfo%>" name="div2_use" />
+               <rsc:item set="<%=generalInfo%>" name="div1_use" /> <%=generalInfo.getItem(0, "div2_use").getResultData()==null?"":", "%><rsc:item set="<%=generalInfo%>" name="div2_use" />
              </td>
            </tr>
          <table>
 
          <table BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
+
            <tr>
+             <td></td>
              <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
                <td class="statText"><rsc:item name="division" row="<%=resultRow%>"/></TD>
              </rsc:iterator>
