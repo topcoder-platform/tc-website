@@ -77,7 +77,7 @@ abstract public class ContractingBase extends BaseProcessor {
     protected abstract void setNextPage();
     
     protected ContractingInfo updateContractingInfo(ContractingInfo info) {
-        if(getRequestParamater("dataToLoad") != null && getRequestParamater("dataToLoad").equals("preferences")) {
+        if(getRequestParameter("dataToLoad") != null && getRequestParameter("dataToLoad").equals("preferences")) {
             log.debug("LOADING DATA FROM REQUEST");
             info.clearPreferences();
             
@@ -103,7 +103,7 @@ abstract public class ContractingBase extends BaseProcessor {
         return info;
     }
     
-    public String getRequestParamater(String param) {
+    public String getRequestParameter(String param) {
         return getRequest().getParameter(param);
     }
     
