@@ -102,7 +102,7 @@
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements_dev">Admin Tool Enhancements</a></td>
                     <td class="bodyText" align="center">$2,200</td>
                     <td class="bodyText" align="center">$665</td>
-                    <td class="bodyText" align="center">closed</td>
+                    <td class="bodyText" align="center">10.16.2003</td>
                 </tr>
 
 
