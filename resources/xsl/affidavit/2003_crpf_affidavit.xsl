@@ -17,7 +17,7 @@
   LIABILITY AND PUBLICITY RELEASE<BR/>
   <BR/>
   <BR/>
-  2003 TopCoder Charity Challenge<BR/>
+  2003 TopCoder Charity Challenge, Sponsored by AT&amp;T<BR/>
   benefiting the Christopher Reeve Paralysis Foundation<BR/>
   <BR/>
   <BR/>
@@ -147,8 +147,8 @@
             AFFIDAVIT OF ELIGIBILITY AND LIABILITY AND PUBLICITY RELEASE<br/>
             <BR/>
             <BR/>
-  2003 TopCoder Charity Challenge<BR/>
-  benefiting the Christopher Reeve Paralysis Foundation<BR/>
+            2003 TopCoder Charity Challenge, Sponsored by AT&amp;T<BR/>
+            benefiting the Christopher Reeve Paralysis Foundation<BR/>
             <BR/>
             <BR/>
         </center>
