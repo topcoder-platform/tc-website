@@ -200,7 +200,7 @@
          </javac>
     </target>
 
-    <target name="package" depends="compile">
+    <target name="package" depends="compile,build-or">
         <mkdir dir="${dist.jars.dir}"/>
         <copy file="${idgenerator.jar}" todir="${dist.jars.dir}"/>
         <copy file="${forum.jar}" todir="${dist.jars.dir}"/>
@@ -270,8 +270,9 @@
                 <exclude name="CVS/**/*"/>
                 <exclude name="online_review/**/*"/>
             </fileset>
-            <classes dir="${classes}">
+            <classes dir="${build_classdir}">
                 <include name="com/topcoder/dde/servlets/**"/>
+                <include name="com/topcoder/dde/request/**"/>
                 <include name="com/topcoder/dde/util/**"/>
                 <include name="com/topcoder/shared/**/*.class"/>
                 <include name="com/topcoder/web/common/**/*.class"/>
