@@ -79,7 +79,7 @@ All development project teams are encouraged to use as many completed TopCoder S
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
 Application Front-End Development Project: Provide a complete front-end solution for the Online Review Application.
-Please review the TopCoder Software <a class="statText" href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at service@topcodersoftware.com.
+Please review the TopCoder Software <a class="statText" href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at service@topcodersoftware.com.
                         </p>
                             
 <!-- Technologies -->
