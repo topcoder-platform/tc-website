@@ -56,16 +56,16 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
-							<h1 class="devSubhead"><strong>Math Evaluator: Development</strong></h1>
+							<h1 class="devSubhead"><strong>Math Expression Evaluator: Development</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Math Evaluator: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Math Expression Evaluator: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
 							The Math Expression Evaluator component provides a way to evaluate arithmetic and boolean expressions from an expression specified as a string, e.g, "4*sin(33)^94". The component will interface with the java.lang.Math package to provide implementations of supported methods. However, it extends that functionality in that it simplifies the definition and execution of mathematical expressions without requiring programming knowledge.
 							</p>
 
 							<p><strong>Project Type</strong><br />
-							Component Development Project: Provide a complete development solution for the Math Evaluator component.<br />
+							Component Development Project: Provide a complete development solution for the Math Expression Evaluator component.<br />
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 							If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -83,7 +83,7 @@
 							<p><strong>Developer</strong><br />
 							Royalty Percentage - 25%</p>
 							
-							<p>Total Payment - $240.00></p>
+							<p>Total Payment - $240.00</p>
 
 							<p><sup>*</sup>Completion of the project is defined as follows:</p>
 
@@ -113,7 +113,7 @@
 
 							<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Math Evaluator: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Math Expression Evaluator: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 

@@ -111,7 +111,7 @@
 			<table border="0" cellspacing="0" cellpadding="10" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr valign="middle">
 					<td class="statText" background="/i/steel_darkblue_bg.gif">
-						<p><strong>Email Engine Enhancement:&#160;Design</strong><br />
+						<p><strong>Email Engine Enhancement:&#160;Development</strong><br />
 						<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600056" class="statText">Email Engine Enhancement</a> 
 						provides basic and advanced email functionality through Java API's.
 						<br/>For more details, check out Email Engine at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.</p>
