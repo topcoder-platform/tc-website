@@ -37,7 +37,7 @@
     ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
     ResultSetContainer.ResultSetRow currentRow = null;
     int topN = Integer.parseInt(srb.getProperty("er","5"));
-    boolean lastMatch = srb.getProperty("rd")==null;
+    boolean lastMatch = request.getAttribute("rd") ==null;
     if(topN<0||topN>100)topN = 5;
     currentRow = leaders.getRow(0);
     String contestName = currentRow.getItem("contest_name").toString();
