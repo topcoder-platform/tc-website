@@ -35,7 +35,7 @@ H3 { font-size: 125%; }
 {
 	color: #FFF;
 	background-color: #FFFFFF;
-	background-image: url(/i/tournament/tco04/bv_lite_bg.gif);
+	background-image: url(/i/tournament/tccc05/bv_lite_bg.gif);
 }
 
 .problem
@@ -148,9 +148,9 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
     <body>
             <table border=0 cellspacing=0 width="100%" align="center">
                 <tr>
-                    <td align="left" valign="middle" width="50%"><img src="/i/tournament/tco04/showdownTCOLogo.gif" border="0"/></td>
+                    <td align="left" valign="middle" width="50%"><img src="/i/tournament/tccc05/ss_tccc05_logo.gif" border="0"/></td>
                     <td align="center" valign="middle"><img src="/i/tournament/tccc05/ss_logo.gif" border=0 /></td>
-                    <td align="right" valign="middle" width="50%"><img src="/i/tournament/tco04/showdownMSLogo.gif" border="0"/></td>
+                    <td align="right" valign="middle" width="50%"><img src="/i/tournament/tccc05/ss_yahoo_logo.gif" border="0"/></td>
                 </tr>
             </table>
 
