@@ -2,22 +2,22 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:import href="../top.xsl" />
     <xsl:import href="../script.xsl" />
-    <xsl:import href="../includes/body_top.xsl" />  
+    <xsl:import href="../includes/body_top.xsl" />
     <xsl:import href="../foot.xsl" />
-    <xsl:import href="../includes/modules/stats_intro.xsl" />  
-  <xsl:import href="../includes/global_left.xsl"/>  
-    <xsl:import href="../includes/dev/public_dev_right.xsl" />     
+    <xsl:import href="../includes/modules/stats_intro.xsl" />
+  <xsl:import href="../includes/global_left.xsl"/>
+    <xsl:import href="../includes/dev/public_dev_right.xsl" />
     <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
     <xsl:template match="/">
 
 <html>
 <head>
 
-    <xsl:call-template name="Preload" />      
+    <xsl:call-template name="Preload" />
 
  <title>Application Methodology for TopCoder Software Development</title>
 
-    <xsl:call-template name="CSS" />      
+    <xsl:call-template name="CSS" />
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities." />
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++" />
@@ -52,9 +52,9 @@
             </xsl:call-template>
 
             <img src="/i/clear.gif" alt="" width="240" height="20" border="0" />
-                
+
             <div align="center"><h1 class="devSubhead"><strong>TopCoder Software Application Development Methodology</strong></h1></div>
-            
+
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td width="100%">
@@ -75,14 +75,14 @@
                             <td><img src="/i/development/development_methodology_11.gif" width="116" height="87" alt="" /></td>
                             <td><a href="#design"><img src="/i/development/development_methodology_12.gif" width="189" height="87" alt="design" border="0" /></a></td>
                         </tr>
-                        </table>        
+                        </table>
                         </div></td>
                 </tr>
 
                 <tr valign="top">
                     <td class="bodyText">
-                        <p>The TopCoder Software Application Development Methodology utilizes the TopCoder Software Component Catalog and 
-                        distributed member base to create robust, high quality applications.  It combines our Component Development 
+                        <p>The TopCoder Software Application Development Methodology utilizes the TopCoder Software Component Catalog and
+                        distributed member base to create robust, high quality applications.  It combines our Component Development
                         Methodology with our peer review, components customization, and application integration processes.</p></td>
                 </tr>
 
@@ -97,7 +97,7 @@
                         </table>
                     </td>
                 </tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText">
                     <p><b>Specification Phase:</b> The Specification phase defines the scope of the project and the functional requirements.
@@ -106,11 +106,11 @@
                     <ol>
                     <li>TopCoder Software Application Manager creates an Application Design Specification to define scope.</li>
                     <li>Application Manager creates Activity Diagrams to define the functional flow of the applications.</li>
-                    <li>Application Manager creates high-level Use Cases that describe all actors and processes involved in the 
-                    functionality of the application.</li>  
-                    <li>Application Manager and Information Architect create a working prototype of the application.  This is a graphical 
+                    <li>Application Manager creates high-level Use Cases that describe all actors and processes involved in the
+                    functionality of the application.</li>
+                    <li>Application Manager and Information Architect create a working prototype of the application.  This is a graphical
                     rendering of the application user interface.</li>
-                    <li>Application Manager creates a Architecture Diagram that defines the logical and physical layout of the system.</li> 
+                    <li>Application Manager creates a Architecture Diagram that defines the logical and physical layout of the system.</li>
                     <li>Application Manager creates the Design Project Plan for the project.</li>
                     </ol>
                     </p>
@@ -131,7 +131,7 @@
                         </table>
                     </td>
                 </tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText">
                         <p><b>Architecture and Design Phase:</b>  TopCoder Software Designers create and submit application
@@ -181,7 +181,7 @@
                         </table>
                     </td>
                 </tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText">
                     <p><b>Development and Testing Phase:</b> TopCoder members inquire for the development position as posted
@@ -223,16 +223,16 @@
                         </table>
                     </td>
                 </tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText">
-                  
+
                     <ol>
                         <li>The Development Review Board and Designer perform several iterations of QA testing and provide feedback to the developers at specified milestones of the development phase.</li>
-                        <li>The Development Review Board and Designer team up with the TopCoder Software Project Manager to perform several iterations of QA testing with the winning developers at the completion of integration.</li>
+                        <li>The Primary Development Review Board members and Designer team up with the TopCoder Software Project Manager to perform several iterations of QA testing with the winning developers at the completion of integration.</li>
                         <li>Once the TopCoder Software Project Manager is satisfied that the application meets the rigorous standards of TopCoder Software the application solution is accepted and the Development Integration Team is compensated.</li>
                     </ol>
-                
+
 
                     </td>
                 </tr>
@@ -242,7 +242,7 @@
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td height="10"><img src="/i/clear.gif" alt="" width="10" height="20" border="0" /></td>
-                </tr>    
+                </tr>
             </table>
         </td>
 <!-- Center Column Ends -->
@@ -253,10 +253,10 @@
 
 <!-- Right Column Begins -->
         <td width="244"><img src="/i/clear.gif" width="244" height="1" alt="" border="0" /><br/>
-            <xsl:call-template name="public_dev_right" />        
+            <xsl:call-template name="public_dev_right" />
         </td>
 <!-- Right Column Ends -->
-    
+
     </tr>
 </table>
 
