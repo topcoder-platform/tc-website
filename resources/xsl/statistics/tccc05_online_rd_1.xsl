@@ -121,7 +121,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      361 / 429 (84.15%)
+      357 / 425 (84.00%)
     </td>
   </tr>
   <tr>
@@ -129,7 +129,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      324 / 361 (89.75%)
+      320 / 357 (89.64%)
     </td>
   </tr>
   <tr>
@@ -137,7 +137,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>Ghafarpour</b> for 323.16 points (2 mins 8 secs)
+      <b>marian</b> for 308.97 points (6 mins 32 secs)
     </td>
   </tr>
   <tr>
@@ -145,7 +145,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      220.15 (for 324 correct submissions)
+      220.01 (for 320 correct submissions)
     </td>
   </tr>
 </table></blockquote>
@@ -191,7 +191,7 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      307 / 429 (71.56%)
+      303 / 425 (71.29%)
     </td>
   </tr>
   <tr>
@@ -199,7 +199,7 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      287 / 307 (93.49%)
+      283 / 303 (93.40%)
     </td>
   </tr>
   <tr>
@@ -215,7 +215,7 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      365.75 (for 287 correct submissions)
+      365.01 (for 283 correct submissions)
     </td>
   </tr>
 </table></blockquote>
@@ -269,7 +269,7 @@ for(int i=1; i&lt;=n; i++) // n = number of moves we want the answer for
                     y+dy[d] &gt;= 0 &amp;&amp; y+dy[d] &lt; 8)
                     prob += boardprob[i-1][y+dy[d]][x+dx[d]];
             }
-            boardprob[i][y][x] = prob;
+            boardprob[i][y][x] = prob / 8;
         }
 
 </pre>      
@@ -296,7 +296,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      83 / 429 (19.35%)
+      83 / 425 (19.53%)
     </td>
   </tr>
   <tr>
