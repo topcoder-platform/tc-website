@@ -5,7 +5,7 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
-<TITLE>TopCoder - Candidate Evaluation</TITLE>
+<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
 <jsp:include page="/script.jsp"/>
 <SCRIPT TYPE="text/javascript">
 function getProblemDetail(id) {

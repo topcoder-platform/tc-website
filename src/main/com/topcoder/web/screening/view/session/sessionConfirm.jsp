@@ -4,7 +4,7 @@
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <HTML>
 <HEAD>
-<TITLE>TopCoder - Candidate Evaluation</TITLE>
+<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
 <jsp:include page="/script.jsp"/>
 
 <SCRIPT type="text/javascript"><!--

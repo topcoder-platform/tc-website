@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
 <HEAD>
-<TITLE>TopCoder - Candidate Evaluation</TITLE>
+<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
 <jsp:include page="/script.jsp"/>
 </HEAD>
 
