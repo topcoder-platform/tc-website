@@ -57,9 +57,9 @@ return false;
 
 		<FORM ACTION="" METHOD=POST onSubmit="">
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
-			<tr><td>&#160;</td><td class=bodyText colspan=5><span class=bodySubtitle>Novice</span></td><td class=bodyText colspan=5 align=right><span class=bodySubtitle>Expert</span></td>
+			<tr><td>&#160;</td><td class=bodyText colspan=5><span class=bodySubtitle>No experience</span></td><td class=bodyText colspan=6 align=right><span class=bodySubtitle>Expert</span></td>
         	<tr><td class=bodyText valign=top width="100%"><span class=bodySubtitle>Technology</span></td>
-            <% for(int i = 1; i<=10; i++){ %>
+            <% for(int i = 0; i<=10; i++){ %>
                 <td class=bodyText align=center valign=top>
                     <span class=bodySubtitle><%=i%></span>
                 </td>
@@ -67,83 +67,83 @@ return false;
 			</tr>
 	        <tr>
 	            <td class=formTextEven valign=top>OO Concepts</td>
-            <% for(int i = 1; i<=10; i++){ %>
+            <% for(int i = 0; i<=10; i++){ %>
 	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
             <% } %>
 	        </tr>
 	        <tr>
 	            <td class=formTextOdd valign=top>ActiveX</td>
-            <% for(int i = 1; i<=10; i++){ %>
+            <% for(int i = 0; i<=10; i++){ %>
 	            <td valign=top align=center class=formTextOdd><input type="radio" name=group2 property=""/></td>
             <% } %>
 	        </tr>
 	        <tr>
 	            <td class=formTextEven valign=top>CGI</td>
-            <% for(int i = 1; i<=10; i++){ %>
+            <% for(int i = 0; i<=10; i++){ %>
 	            <td valign=top align=center class=formTextEven><input type="radio" name=group3 property=""/></td>
             <% } %>
 	        </tr>
 	        <tr>
 	            <td class=formTextOdd valign=top>ASP</td>
-            <% for(int i = 1; i<=10; i++){ %>
+            <% for(int i = 0; i<=10; i++){ %>
 	            <td valign=top align=center class=formTextOdd><input type="radio" name=group4 property=""/></td>
             <% } %>
 	        </tr>
 	        <tr>
 	            <td class=formTextEven valign=top>JSP</td>
-            <% for(int i = 1; i<=10; i++){ %>
+            <% for(int i = 0; i<=10; i++){ %>
 	            <td valign=top align=center class=formTextEven><input type="radio" name=group5 property=""/></td>
             <% } %>
 	        </tr>
 	        <tr>
 	            <td class=formTextOdd valign=top>Servlets</td>
-            <% for(int i = 1; i<=10; i++){ %>
+            <% for(int i = 0; i<=10; i++){ %>
 	            <td valign=top align=center class=formTextOdd><input type="radio" name=group6 property=""/></td>
             <% } %>
 	        </tr>
 	        <tr>
 	            <td class=formTextEven valign=top>CORBA</td>
-            <% for(int i = 1; i<=10; i++){ %>
+            <% for(int i = 0; i<=10; i++){ %>
 	            <td valign=top align=center class=formTextEven><input type="radio" name=group7 property=""/></td>
             <% } %>
 	        </tr>
 	        <tr>
 	            <td class=formTextOdd valign=top>RMI</td>
-            <% for(int i = 1; i<=10; i++){ %>
+            <% for(int i = 0; i<=10; i++){ %>
 	            <td valign=top align=center class=formTextOdd><input type="radio" name=group8 property=""/></td>
             <% } %>
 	        </tr>
 	        <tr>
 	            <td class=formTextEven valign=top>EJB</td>
-            <% for(int i = 1; i<=10; i++){ %>
+            <% for(int i = 0; i<=10; i++){ %>
 	            <td valign=top align=center class=formTextEven><input type="radio" name=group9 property=""/></td>
             <% } %>
 	        </tr>
 	        <tr>
 	            <td class=formTextOdd valign=top>COM/DCOM</td>
-            <% for(int i = 1; i<=10; i++){ %>
+            <% for(int i = 0; i<=10; i++){ %>
 	            <td valign=top align=center class=formTextOdd><input type="radio" name=group10 property=""/></td>
             <% } %>
 	        </tr>
 	        <tr>
 	            <td class=formTextEven valign=top>TCP/IP</td>
-            <% for(int i = 1; i<=10; i++){ %>
+            <% for(int i = 0; i<=10; i++){ %>
 	            <td valign=top align=center class=formTextEven><input type="radio" name=group11 property=""/></td>
             <% } %>
 	        </tr>
 	        <tr>
 	            <td class=formTextOdd valign=top>X Window/Motif</td>
-            <% for(int i = 1; i<=10; i++){ %>
+            <% for(int i = 0; i<=10; i++){ %>
 	            <td valign=top align=center class=formTextOdd><input type="radio" name=group12 property=""/></td>
             <% } %>
 	        </tr>
 			<tr>
 	            <td class=bodyText valign=middle>Additional Comments:</td>
-				<td class=bodyText colspan=10>
+				<td class=bodyText colspan=11>
 				<TEXTAREA NAME="comments" ROWS="3" COLS="40"></TEXTAREA>
 				</td>
 			</tr>
-			<tr><td colspan=11 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=os"><img src="/i/submit.jpg" border=0/></a></td></tr>
+			<tr><td colspan=12 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=os"><img src="/i/submit.jpg" border=0/></a></td></tr>
 		</table>
 		</FORM>
 
