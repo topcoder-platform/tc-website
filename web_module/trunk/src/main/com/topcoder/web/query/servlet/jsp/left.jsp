@@ -1,6 +1,5 @@
 <%@  page
   language="java"
-  errorPage="errorPage.jsp"
   import="com.topcoder.web.query.common.Constants"%>
 <%
     String db = request.getParameter(Constants.DB_PARAM)==null?"":request.getParameter(Constants.DB_PARAM);

@@ -1,6 +1,5 @@
 <%@  page
   language="java"
-  errorPage="errorPage.jsp"
   import= "com.topcoder.web.query.common.*,
            com.topcoder.web.query.request.*"
 %>
