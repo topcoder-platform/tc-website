@@ -46,8 +46,7 @@
                     <td><img src="/i/clear.gif" alt="" width="28" height="15" border="0" /></td>
                     <td class="bodyText" colspan="3">   
                                  <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                                    <tr><td colspan="3" class="bodyText"> The 6.1oz 100% ring-spun cotton, heavyweight beefy ash t-shirt has double needle hems, and is 
-                                    taped shoulder to shoulder. The Topcoder logo is silkscreened on the left chest and on the upper back. </td></tr>
+                                    <tr><td colspan="3" class="bodyText">The 100% Taslan 3/4-length jacket is red and black and features a hidden hood in the collar and a full zip front. The jacket is wind and water resistant. The TopCoder logo is embroidered on the left chast and on the upper back.</td></tr>
                                     <tr>
                                         <form name="sizeSelect">
                                         <td valign="middle" nowrap>$64.95 ($66.95 for XXL)</td>
@@ -62,7 +61,7 @@
                                           </select>
                                           </td>
                                           <td valign="middle" class="bodyText" width="100%">
-                                          <input type="image" src="/i/store/buy_button.gif" width="60" height="18" border="0" onClick="location.href = window.open(document.sizeSelect.menu.options[document.sizeSelect.menu.selectedIndex].value);" value="Buy Now" class="bodyText">
+                                          <input type="button" onClick="window.open(document.sizeSelect.menu.options[document.sizeSelect.menu.selectedIndex].value);" value="Buy Now" class="bodyText">
                                           </td>
                                         </form>
                                     </tr>
