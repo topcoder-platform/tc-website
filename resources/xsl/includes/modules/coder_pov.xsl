@@ -22,8 +22,8 @@
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> -->
 
-                        <!--<img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />-->
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys </strong></a><br/>
+                        <img src="/i/m/LunaticFringe_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=288584"><strong>LunaticFringe </strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -32,18 +32,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm155_prob">Problem Set Analysis &amp; Opinion: SRM 155</a></font></strong><br />
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm156_prob">Problem Set Analysis &amp; Opinion: SRM 156</a></font></strong><br />
                         Thursday, July 17, 2003</p>
 
-                       <p>
-                        <b>SnapDragon</b> continues his dominance, winning for the sixth
-                        time out of the past eight contests. <b>Yarin</b> was hot on his heels
-                        until a late resubmit to fix a typo.  <b>ZorbaTHut</b> used one of
-                        only a handful of challenges in Division 1 to pull into second place.
-                        In Division 2, <b>TheFaxman</b> finished all three problems in a
-                        lightning quick 24 minutes, only to watch <b>ambclams</b> pull ahead
-                        for the victory two minutes later.
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm155_prob</xsl:attribute><strong>full&#160;story</strong></a>
+                       <p>At the end of the challenge phase, it seemed certain that <b>Yarin</b> 
+                       would win tonight's SRM by over 100 points.  However, a fatal oversight in 
+                       his 900-point submission knocked him out of the running and gave <b>tomek</b> 
+                       his second SRM win.  <b>tomek</b>, ranked third out of all Division-I coders, 
+                       earned another bragging right this week: his perfect winning streak now stands at 8 
+                       consecutive matches, crushing <b>Yarin</b>'s almost one-year-old record of 7.
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm156_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
