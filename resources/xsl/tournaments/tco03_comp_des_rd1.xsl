@@ -139,7 +139,7 @@
                     <td class="formHandleEven" align="right">$158.00</td>
                 </tr>
 
-                <tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="5">*the average of the best level I score and the best level II score</td></tr>
+                <tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="5">*the average of the two highest scores, including at least one level II score</td></tr>
 
             </table>
            
@@ -184,7 +184,7 @@
                     <td class="formHandleOdd" align="right">$105.00</td>
                 </tr>
 
-                <tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="5">*the average of the best level I score and the best level II score</td></tr>
+                <tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="5">*the average of the two highest scores, including at least one level II score</td></tr>
 
             </table>            
 
