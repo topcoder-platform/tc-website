@@ -116,24 +116,26 @@
                 </tr>
                 
                 <!--
-                <tr valign="top">
+               <tr valign="top">
                     <td align="center" colspan="4" class="formTextOdd">No New Projects Available</td>
-                </tr>
-                -->
-                <tr valign="top">
+               </tr>
+               -->
+               <tr valign="top">
                     <td class="formTextOdd" colspan="4">Online Gift Card Sales</td>
+               </tr>    
                <tr valign="top">
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=online_gift_card_v10_dev">Group 1</a></td>
                     <td class="formTextOdd" align="center">$833</td>
                     <td class="formTextOdd" align="center">$313</td>
                     <td class="formTextOdd" align="center">12.19.2003</td>
+               </tr>
                <tr valign="top">
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=online_gift_card_v10_dev">Group 2</a></td>
                     <td class="formTextOdd" align="center">$333</td>
                     <td class="formTextOdd" align="center">$125</td>
-                    <td class="formTextOdd" align="center">12.19.2003</td>                    
-
-                <tr valign="top">
+                    <td class="formTextOdd" align="center">12.19.2003</td>   
+               </tr>                 
+               <tr valign="top">
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements_dev">Admin Tool Enhancements</a></td>
                     <td class="formTextOdd" align="center">$2,200</td>
                     <td class="formTextOdd" align="center">$665</td>
