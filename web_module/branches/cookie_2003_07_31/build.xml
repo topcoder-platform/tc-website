@@ -83,13 +83,6 @@
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
     </target>
 
-    <target name="full_deploy" depends="build_ejbs,deploy">
-    </target>
-
-    <target name="deploy" depends="build_wars">
-    </target>
-
-
     <target name="javadocs">
         <mkdir dir="${build.javadocs}"/>
         <javadoc
@@ -687,6 +680,7 @@
 
 
     <target name="deploy-tc" depends="compile">
+        <antcall target="build_ejbs"/>
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="ProblemRatingServices"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/ProblemRatingServices"/>
