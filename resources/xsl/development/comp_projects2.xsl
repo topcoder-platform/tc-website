@@ -113,7 +113,7 @@
                                 <xsl:variable name="href"> <!--2&#47;19&#47;2003-->
                                     <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;payment=', $payment, '&amp;date=2&#47;19&#47;2003')"/>
                                     
-                                </xsl:variable><xsl:value-of select=
+                                </xsl:variable><xsl:value-of select="./componentName"/>
                             </a></td>
                         <td background="" class="statText" align="center"><xsl:value-of select="./payment"/></td>
                         <td background="" class="statText" align="center">2.19.2003</td>
