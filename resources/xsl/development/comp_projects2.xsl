@@ -106,7 +106,7 @@
                 
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
                     <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
-                    <xsl:variable name="payment" select="./price"/>
+                    <xsl:variable name="price" select="./price"/>
                     <xsl:variable name="comp" select="./component_id"/>
                     <tr valign="top">
                         <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
