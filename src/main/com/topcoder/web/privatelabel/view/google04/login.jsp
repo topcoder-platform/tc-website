@@ -35,7 +35,7 @@ function submitEnter(e) {
 			<table border=0 width=100% cellpadding=0 cellspacing=0>
 				<tr>
 					<td width="49%"></td>
-					<td valign=bottom align=center><img border=0 src="http://www.google.com/codejam/codejam_logo.gif" alt="Google Code Jam logo"></td>
+					<td valign=bottom align=center><img border=0 src="/i/events/google2004/codejamLogo.gif" alt="Google Code Jam logo"></td>
 					<td width="49%" valign=bottom align=right><a href="/"><img align="right" src="/i/events/google2003/google_pbtc.gif" border="0"></a></td>
 				</tr>
 			</table>
@@ -56,7 +56,8 @@ function submitEnter(e) {
 
 
 			<br/><br/>
-			<p><font size="-1"><br/>
+			<span class=bigTitle>Registration</span>
+			<br/><br/>
                         Registration will close on Tuesday, September 14 at 6:00PM EDT.<br/><br/>
                         If you are currently a TopCoder member or registered for the Google Code Jam 2003, you may enter your handle and password below to use your account for the Google Code Jam 2004.<br/><br/>
                         Note: Your browser must have cookies enabled in order for this to work.<br/><br/>
@@ -94,8 +95,9 @@ function submitEnter(e) {
                         </form>
                         <br/>
                         If you are not currently a TopCoder member or do not want to use your TopCoder account, please click <a href="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>?&module=Google04Reg&cid=1865&eid=1">here</a>.
-                        </font>
-                        </p>
+
+			<br/><br/>
+			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
 		</td>
 		<td width="49%">&#160;</td>
 	<tr>
