@@ -160,7 +160,23 @@ public class Registration
     // id for the sun contest
     public static final int SUN_CONTEST_ID = 4295;
 
-    public static final int[] REFERRAL_ID = {DECLINE_TO_ANSWER, CAMPUS_JOB_FAIR_REFERRAL, OTHER_REFERRAL, NONMEMBER_REFERRAL, NEWS_ARTICLE_REFERRAL, NEWSLETTER_REFERRAL, MEMBER_REFERRAL, ANOTHER_WEBSITE_REFERRAL, FACULTY_EMAIL_REFERRAL, TOPCODER_EMAIL_REFERRAL, JAVA_USER_GROUP_REFERRAL, SEARCH_ENGINE_REFERRAL};
+    public static final int[] REFERRAL_ID = {DECLINE_TO_ANSWER,
+                                             CAMPUS_JOB_FAIR_REFERRAL,
+                                             OTHER_REFERRAL,
+                                             NONMEMBER_REFERRAL,
+                                             NEWS_ARTICLE_REFERRAL,
+                                             NEWSLETTER_REFERRAL,
+                                             MEMBER_REFERRAL,
+                                             ANOTHER_WEBSITE_REFERRAL,
+                                             FACULTY_EMAIL_REFERRAL,
+                                             TOPCODER_EMAIL_REFERRAL,
+                                             JAVA_USER_GROUP_REFERRAL,
+                                             SEARCH_ENGINE_REFERRAL,
+                                             CAMPUS_POSTER,
+                                             IRC_CHAT,
+                                             RECRUITER,
+                                             MAGAZINE_ADVERT};
+
 
     private static final String DEMOGRAPHIC_QUESTION_EMPLOYER = "15";
     private static final String DEMOGRAPHIC_QUESTION_EMPLOYED = "21";
@@ -1234,7 +1250,7 @@ public class Registration
             case MAGAZINE_ADVERT:
                 return "magazine name";
             default:
-                return "";
+                return "no details required";
         }
     }
 
