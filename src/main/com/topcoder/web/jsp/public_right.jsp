@@ -64,6 +64,13 @@ function find(n) {
 
 <!-- About Us ends -->
 
+<% } else if (level1.equals("card")) { %>
+
+            <div class="cardRightTop"><A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><IMG src="/i/es/animated_emp_promo.gif" alt="" width="170" height="119" border="0" /></A></div>
+            <div class="cardRight"><a href="/i/corp/downloads/tc_demo_tces.pdf"><img src="/i/corp/promos/tc_demo_tces.gif" alt="Download TCES Demographics" width="170" height="218" border="0"></a></div>
+
+            <p><br/></p>
+
 <!-- Review Board begins -->
 <% } else if (level1.equals("review_board")) { %>
 
