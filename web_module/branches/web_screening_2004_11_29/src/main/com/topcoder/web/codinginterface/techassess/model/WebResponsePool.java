@@ -38,8 +38,8 @@ public class WebResponsePool extends ResponsePool {
             } else {
                 try {
                     response.getWriter().print("X");
-                    int i=0;
-                    while (i==0) {}
+                    response.flushBuffer();
+                    Thread.sleep(10000);
                     wait(waitTime);
                 } catch (InterruptedException e) {
                     //ignore
