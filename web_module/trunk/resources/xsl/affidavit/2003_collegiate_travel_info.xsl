@@ -100,10 +100,8 @@
           <H1>Registration Form</H1>
           <BR/>
           <BR/>
-          <FONT color="#FF0000"><U><B>REGISTRATION DEADLINE:</B></U>  March 17, 2003</FONT><BR/>
+          <FONT color="#FF0000"><U><B>REGISTRATION DEADLINE:</B></U>  March 17, 2003</FONT>
         </CENTER>
-        <BR/>
-        <BR/>
         <TABLE border="0" cellspacing="3" cellpadding="0" width="100%">
     <FORM name="questForm" method="POST" action="/">
         <INPUT TYPE="hidden" NAME="t" VALUE="affidavit"/>
