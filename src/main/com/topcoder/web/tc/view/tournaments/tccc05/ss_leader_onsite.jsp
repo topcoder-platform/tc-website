@@ -11,7 +11,8 @@
 <META HTTP-EQUIV="refresh" content="60">
 <title>2004 TopCoder Open - Computer Programming Tournament</title>
 
- <STYLE TYPE="text/css">
+ 
+<STYLE TYPE="text/css">
  <!--
 html, body
 {

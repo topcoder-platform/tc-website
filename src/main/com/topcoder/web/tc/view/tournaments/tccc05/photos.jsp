@@ -10,7 +10,7 @@
 
 var imageDir = "/i/tournament/tccc05/onsite_photos/";
 var imageNum = 1;
-var totalImages = 86;
+var totalImages = 155;
 
 <%
     final String CURR_IMAGE_KEY = "currImage";
@@ -92,17 +92,18 @@ function changeImage(place, imageIndex) {
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 28);">Room 1</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 51);">Room 2</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 69);">Room 3</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 87);">WildCard</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 102);">Algorithm Finals</a>
 <%--
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 1);">WildCard</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 1);">Algorithm Finals</a>
 --%>
 
 <br/>
 
+                <a href="Javascript:void changeImage('slideImg', 124);">Component Finals</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 127);">Spectator Showdown</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 135);">Winners</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 148);">Press Conference</a>
 <%--
-                <a href="Javascript:void changeImage('slideImg', 1);">Winners</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 1);">Spectator Showdown</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 1);">Press Conference</a>
 --%>                
             </div></p>
             
