@@ -16,6 +16,7 @@ import javax.servlet.http.HttpUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.Date;
 
 /**
@@ -99,7 +100,7 @@ public class TestResults extends BaseScreeningProcessor {
             tinfo.setProblemSetBResults((ResultSetContainer) map.get("testSetBResults"));
 
             ResultSetContainer rscB = (ResultSetContainer) map.get("testSetBResults");
-            ArrayList percents = new ArrayList();
+            Map percents = new HashMap();
             for(int i = 0; i < tinfo.getProblemSetBCount(); i++)
             {
                 //get percentile info
@@ -110,7 +111,7 @@ public class TestResults extends BaseScreeningProcessor {
                 dr2.setProperty("tm", String.valueOf( rscB.getLongItem(i, "total_time" )));
                 Map m2 = dAccess.getData(dr2);
                 
-                percents.add( new Double(((ResultSetContainer)m2.get("candidate_percentile")).getDoubleItem(0, "percentile") ));
+                percents.put(String.valueOf( rscB.getLongItem(i, "problem_id" )), new Double(((ResultSetContainer)m2.get("candidate_percentile")).getDoubleItem(0, "percentile") ));
                 
             }
             

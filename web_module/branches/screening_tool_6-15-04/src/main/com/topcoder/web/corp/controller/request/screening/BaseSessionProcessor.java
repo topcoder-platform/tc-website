@@ -23,7 +23,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
     protected TestSessionInfo getSessionInfo() {
         HttpSession session = getRequest().getSession();
         TestSessionInfo info = (TestSessionInfo)
-            session.getAttribute(Constants.USAGE_TYPE);
+            session.getAttribute(Constants.SESSION_INFO);
         if(info == null) {
             info = new TestSessionInfo();
             session.setAttribute(Constants.SESSION_INFO, info);

@@ -31,7 +31,7 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
         {
             HttpSession session = getRequest().getSession();
             Long usageType = (Long)
-                session.getAttribute(Constants.SESSION_INFO);
+                session.getAttribute(Constants.USAGE_TYPE);
             if(usageType == null) {
                 DataAccessInt dAccess = Util.getDataAccess(true);
                 Request dr = new Request();
@@ -49,6 +49,7 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
             usage = usageType.longValue();
             
             //maybe set attribute here?
+            getRequest().setAttribute(Constants.USAGE_TYPE, usageType);
             
             screeningProcessing();
         }
