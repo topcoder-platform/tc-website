@@ -30,9 +30,8 @@ public class SimpleSearch extends Base {
             if (m.getMinNumRatings()!=null) r.setProperty(Constants.MIN_NUM_RATINGS, m.getMinNumRatings().toString());
             if (m.getMaxNumRatings()!=null) r.setProperty(Constants.MAX_NUM_RATINGS, m.getMaxNumRatings().toString());
 
-            //todo perhaps we should cache it for a short period of time depending on how paging works
             CachedDataAccess cda = (CachedDataAccess)getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
-            cda.setExpireTime(30*60*1000);
+            cda.setExpireTime(15*60*1000); //cache for 15 minutes
             Map res = cda.getData(r);
 
             ResultSetContainer rsc = (ResultSetContainer)res.get("member_search");
