@@ -34,11 +34,13 @@
    							<tr><td width="19"><img src="/i/clear.gif" width="634" height="20"></td></tr>
 						</table>
   				<!-- end breadcrumb -->
-  				
-  				<span class="title"><br/>Schedule</span>
+  				<p></p>
+  				<img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone04/coding_challenge.gif" width="351" height="27" border="0">
+  				<p></p>
+  				<p class="regmiddle"><strong><font size="4">Schedule</font></strong></p>
   				<p></p>
   						
-			<table width="600" align="left" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+			<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="33%" class="sidebarTitle">Date</td>
                     <td width="34%" class="sidebarTitle">Problem Set Theme</td>
