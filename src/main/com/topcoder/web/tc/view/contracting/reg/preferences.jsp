@@ -52,12 +52,14 @@ return false;
             <jsp:param name="title" value="Registration"/>
         </jsp:include>
 
+		This is a description paragraph with some instructions and some details about the questions asked.
+		<br/><br/>
+
 		<FORM ACTION="" METHOD=POST onSubmit="">
-        <table border=0 cellpadding=2 cellspacing=0 width="100%" class=bodyText>
-			<tr><td class=bodyText colspan=11>This is a description paragraph with some instructions and some details about the questions asked.</td></tr>
+        <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
 			<tr>
-				<td width="100%">Minimum hourly rate:</td>
-				<td>
+				<td width="100%" class=formTextEven>Minimum hourly rate:</td>
+				<td class=formTextEven>
 					<SELECT NAME="minHrRate">
 					<OPTION VALUE="">&#160;-
 					<OPTION VALUE="">$5.00/hr
@@ -69,8 +71,8 @@ return false;
 				</td>
 			</tr>
 			<tr>
-				<td>Maximum length of engagement:</td>
-				<td>
+				<td class=formTextOdd>Maximum length of engagement:</td>
+				<td class=formTextOdd>
 					<SELECT NAME="maxEngage">
 					<OPTION VALUE="">&#160;-
 					<OPTION VALUE="">3 months
@@ -81,8 +83,8 @@ return false;
 				</td>
 			</tr>
 			<tr>
-				<td>Minimum length of engagement</td>
-				<td>
+				<td class=formTextEven>Minimum length of engagement</td>
+				<td class=formTextEven>
 					<SELECT NAME="maxEngage">
 					<OPTION VALUE="">&#160;-
 					<OPTION VALUE="">No minimum
@@ -93,8 +95,8 @@ return false;
 				</td>
 			</tr>
 			<tr>
-				<td>Willing to travel:</td>
-				<td>
+				<td class=formTextOdd>Willing to travel:</td>
+				<td class=formTextOdd>
 					<SELECT NAME="travel">
 					<OPTION VALUE="">&#160;-
 					<OPTION VALUE="">Yes
