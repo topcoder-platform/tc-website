@@ -80,11 +80,19 @@ ResultData result = new SuccessResult();
 
         } else if (Constants.ACTION_LOAD.equals(action)) {
             log(Level.INFO, "load_timeline");
+            result = ((ProjectForm) form).editTimeline();
+
             request.getSession().setAttribute(mapping.getAttribute(), form);
 
         } else if (Constants.ACTION_CANCEL.equals(action)) {
             log(Level.INFO, "cancel_timeline");
-            BusinessDelegate businessDelegate = new BusinessDelegate();
+
+            request.getSession().setAttribute(mapping.getAttribute(), form);
+
+            forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
+            forwards.addForward(mapping.findForward("cancel"));
+
+/*            BusinessDelegate businessDelegate = new BusinessDelegate();
             result = businessDelegate.projectDetail(orpd);
 
             if (result instanceof SuccessResult) {
@@ -95,6 +103,7 @@ ResultData result = new SuccessResult();
                 forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
                 forwards.addForward(mapping.findForward("cancel"));
             }
+            */
 
         }
 

@@ -10,6 +10,10 @@ import com.topcoder.util.format.DateFormatMethod;
 import com.topcoder.util.format.FormatMethodFactory;
 import com.topcoder.util.format.PrimitiveFormatter;
 import com.topcoder.util.format.PrimitiveFormatterFactory;
+import com.topcoder.project.phases.TCPhase;
+import com.topcoder.date.workdays.TCWorkdays;
+
+
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
@@ -192,11 +196,11 @@ private Log log = null;
     /**
      * The Project from the ProjectPhases component to store a set of phases.
      */
-    //qq private com.topcoder.project.phases.Project projectPhases = null;
+     private com.topcoder.project.phases.Project projectPhases = null;
 
 
     /**
-     * The length in hours of each phase.
+     * The length in minutes of each phase.
      */
     private int[] phaseLengths = null;
 
@@ -864,20 +868,20 @@ private Log log = null;
     }*/
 
     /**
-     * Return the specified phase's length in hours
+     * Return the specified phase's length in minutes
      *
      * @param index The index of phase.
-     * @return the specified phase's length in hours
+     * @return the specified phase's length in minutes
      */
     public int getPhaseLength(int index) {
         return phaseLengths[index];
     }
 
     /**
-     * Set the specified phase's length in hours
+     * Set the specified phase's length in minutes
      *
      * @param index The index of phase.
-     * @param start The new phase's length in hours
+     * @param start The new phase's length in minutes
      */
     public void setPhaseLength(int index, int phaseLength) {
         phaseLengths[index] = phaseLength;
@@ -1149,7 +1153,20 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
             }
         }
 
-        timeLineFromProject(project);
+        for (int i = 0; i < project.getTimeline().length; i++) {
+            if (project.getTimeline()[i].getStartDate() == null) {
+                    startDates[i] = null;
+                } else {
+                    startDates[i] = dateFormatter.format(project.getTimeline()[i].getStartDate());
+                }
+
+                if (project.getTimeline()[i].getEndDate() == null) {
+                    endDates[i] = null;
+                } else {
+                    endDates[i] = dateFormatter.format(project.getTimeline()[i].getEndDate());
+                }
+            }
+
 
         for (int i = 0; i < projectStatuses.length; i++) {
             if (projectStatuses[i].getId() == ProjectStatus.ID_TERMINATED) {
@@ -1172,27 +1189,67 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
      * The bean must have been previously created using fromProject method.
      *
      */
-    public void timeLineFromProject(Project project)
+/*   qq borrar
+public void timeLineFromProject(Project project)
     {
         log(Level.INFO, "timeLineFromProject");
 
         for (int i = 0; i < project.getTimeline().length; i++) {
-log(Level.INFO, project.getTimeline()[i].getStartDate());
-        if (project.getTimeline()[i].getStartDate() == null) {
-                startDates[i] = null;
-            } else {
-                startDates[i] = dateFormatter.format(project.getTimeline()[i].getStartDate());
-            }
-            if (project.getTimeline()[i].getEndDate() == null) {
-                endDates[i] = null;
-            } else {
-                endDates[i] = dateFormatter.format(project.getTimeline()[i].getEndDate());
-            }
+            if (project.getTimeline()[i].getStartDate() == null) {
+                    startDates[i] = null;
+                } else {
+                    startDates[i] = dateFormatter.format(project.getTimeline()[i].getStartDate());
+                }
 
-            adjustStartDates[i]=true;
-        }
+                if (project.getTimeline()[i].getEndDate() == null) {
+                    endDates[i] = null;
+                } else {
+                    endDates[i] = dateFormatter.format(project.getTimeline()[i].getEndDate());
+                }
+
+
+                forcedStartDates[i] = startDates[i];
+
+                if (i > 0) {
+                    adjustStartDates[i] = (endDates[i-1] == startDates[i-1]);
+                } else {
+                    adjustStartDates[i]=false;
+                }
+
+            }
     }
+*/
 
+    public ResultData editTimeline() {
+        log(Level.INFO, "timeLineFromProject");
+
+        try {
+
+        projectPhases = new com.topcoder.project.phases.Project(project.getTimeline()[0].getStartDate(),
+                        new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT));
+        } catch (Exception e) {
+            return new FailureResult("Couldn't load the TCWorkdays configuration due to: " + e);
+        }
+
+        adjustStartDates[0] = false; // qq fix
+
+        int n = startDates.length;
+        TCPhase[] phases = new TCPhase[n];
+
+
+        for (int i = 0; i < n; i++) {
+
+            phases[i] = new TCPhase(projectPhases, project.getTimeline()[i].getStartDate(), project.getTimeline()[i].getEndDate());
+            if (i > 0) {
+                phases [i].addDependency(phases[i - 1]);
+                adjustStartDates[i] = project.getTimeline()[i].getStartDate().equals(project.getTimeline()[i-1].getEndDate());
+            }
+            phaseLengths[i] = phases[i].getLength();
+        }
+
+        return new SuccessResult();
+
+    }
     /**
      * Creates the ProjectData from this form bean.
      *
