@@ -6,14 +6,6 @@
 
 <jsp:include page="../../script.jsp" />
 
-<script>
-function openWin(url, name, w, h) {
-    win = window.open(url, 'biowin', "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
-    win.location.href = url;
-    win.focus();
-}
-</script>
-
 </head>
 
 <body onLoad="timer(1);">

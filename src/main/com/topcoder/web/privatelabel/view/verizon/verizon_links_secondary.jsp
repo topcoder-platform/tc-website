@@ -3,13 +3,6 @@
                  com.topcoder.shared.util.ApplicationServer" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<script>
-function openWin(url, name, w, h) {
-    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
-    win.location.href = url;
-    win.focus();
-}
-</script>
 
                         <table border="0" cellpadding="0" cellspacing="0" width="133">
 <!-- Summary tab -->

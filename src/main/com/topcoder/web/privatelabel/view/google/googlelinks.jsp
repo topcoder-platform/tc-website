@@ -4,14 +4,6 @@
     String selectedTab = request.getParameter("selectedTab")==null?"":request.getParameter("selectedTab");
 %>
 
-<script>
-function openWin(url, name, w, h) {
-    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
-    win.location.href = url;
-    win.focus();
-}
-</script>
-
 <font size="-1">
 <!-- Overview tab -->
             <% if (selectedTab.equals("overview")) {%>
