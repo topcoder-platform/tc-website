@@ -29,71 +29,52 @@
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="50%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="50%">
+        <td width="70%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
             <h1 class="testHead">Problem Detail</h1>
                     </td>
                 </tr>
             </table>
+            <p></p>
 
-            <FORM>
-            <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-           <TR>
-              <TD COLSPAN="6"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-
-
+            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
             <jsp:useBean id="problemInfo" type="com.topcoder.web.screening.model.ProblemInfo" scope="request" />
             <TR>
-              <TD COLSPAN="6" CLASS="statText" HEIGHT="15" BGCOLOR="#666666">&#160;<B><jsp:getProperty name="problemInfo" property="problemName" /></B></TD>
-           </TR>
-	        <TR>
-		       <TD COLSPAN="2" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;</B></TD>
-		       <TD COLSPAN="2" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;TopCoder Submission %</B></TD>
-		       <TD COLSPAN="2" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;</B></TD>
-	        </TR>
-            <TR>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Overall Accuracy %</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Sub. Acc. %</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Sub. %</B></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Categories</B></TD>
-<%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
-            </TR>
-           <TR>
-              <TD COLSPAN="6"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+              <TD COLSPAN="6" CLASS="testTableTitle">&#160;<jsp:getProperty name="problemInfo" property="problemName" /></TD>
            </TR>
             <TR>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="divisionDesc" /></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="difficultyDesc" /></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="overallAccuracy" />%</TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="submissionAccuracy" />%</TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="submission" />%</TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="algorithmicCategoryList" /></TD>
-<%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="businessCategoryList" /></TD> --%>
+               <TD ALIGN="center" CLASS="testFormHeader">Division</TD>
+               <TD ALIGN="center" CLASS="testFormHeader">Difficulty</TD>
+		       <TD ALIGN="center" CLASS="testFormHeader">Overall Accuracy %</TD>
+		       <TD ALIGN="center" CLASS="testFormHeader">Sub. Acc. %</TD>
+		       <TD ALIGN="center" CLASS="testFormHeader">Sub. %</TD>
+               <TD ALIGN="center" CLASS="testFormHeader">Algorithmic Categories</TD>
             </TR>
-           <TR>
-              <TD COLSPAN="6"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="30" BORDER="0"></TD>
-           </TR>
-         </TABLE>
+            <TR>
+               <TD ALIGN="center" CLASS="bodyText"><jsp:getProperty name="problemInfo" property="divisionDesc" /></TD>
+               <TD ALIGN="center" CLASS="bodyText"><jsp:getProperty name="problemInfo" property="difficultyDesc" /></TD>
+               <TD ALIGN="center" CLASS="bodyText"><jsp:getProperty name="problemInfo" property="overallAccuracy" />%</TD>
+               <TD ALIGN="center" CLASS="bodyText"><jsp:getProperty name="problemInfo" property="submissionAccuracy" />%</TD>
+               <TD ALIGN="center" CLASS="bodyText"><jsp:getProperty name="problemInfo" property="submission" />%</TD>
+               <TD ALIGN="center" CLASS="bodyText"><jsp:getProperty name="problemInfo" property="algorithmicCategoryList" /></TD>
+            </TR>
+         </table>
 
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+         <p></p>
+
+            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
            <TR>
-              <TD CLASS="bodyText" VALIGN="middle" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<b>Problem Statement:</b></TD>
+              <TD CLASS="testTableTitle">Problem Statement:</TD>
            </TR>
            <TR>
               <TD CLASS="bodyText" VALIGN="top">
 <screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language="Java" class="bodyText"/>
               </TD>
            </TR>
-           <TR>
-              <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
-           </TR>
-         </TABLE>
-</FORM>
+         </table>
+
             <p><br></p>
         </td>
 <!-- Middle Column ends -->
