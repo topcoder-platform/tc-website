@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Artifact Software is a corporate sponsor of the 2003 TopCoder Open coding tournament</title>
+<title>Northface University is a corporate sponsor of the 2003 TopCoder Open coding tournament</title>
 
 <jsp:include page="../script.jsp" />
 
