@@ -13,6 +13,7 @@ import javax.jms.ObjectMessage;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import java.util.HashMap;
 
 /**
  * User: dok
@@ -45,9 +46,9 @@ public class Login extends Base {
             throw new NavigationException("Invalid request, missing required parameter.");
         }
 
-/*
         ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
         request.setServerID(Constants.SERVER_ID);
+/*
         log.debug("send message");
         String messageId = send(request);
         log.debug("sent message " + messageId);
@@ -71,12 +72,13 @@ public class Login extends Base {
         sender.setPersistent(true);
         sender.setDBPersistent(false);
         sender.setFaultTolerant(false);
+        String messageId = sender.sendMessageGetID(new HashMap(), request);
 
         QueueMessageReceiver receiver = new QueueMessageReceiver(ScreeningApplicationServer.JMS_FACTORY,
                 DBMS.RESPONSE_QUEUE, context, "server="+Constants.SERVER_ID);
         ObjectMessage resp = receiver.getMessage(100);
         receiver.setFaultTolerant(false);
-        receiver.setPersistent(false);
+        receiver.setPersistent(true);
         log.debug("got " + resp);
 
 
