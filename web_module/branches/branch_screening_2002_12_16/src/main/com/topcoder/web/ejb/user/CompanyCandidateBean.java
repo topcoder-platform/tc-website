@@ -31,7 +31,7 @@ public class CompanyCandidateBean extends BaseEJB {
      * @param candidateId
      * @throws RemoteException
      */
-    public void createCompanyCandiate(long companyId, long candidateId)
+    public void createCompanyCandidate(long companyId, long candidateId)
         throws RemoteException {
 
         // construct debug message
@@ -43,7 +43,7 @@ public class CompanyCandidateBean extends BaseEJB {
         varBuf.append(" candidateId: ");
         varBuf.append(candidateId);
 
-        debugBuf.append("createCompanyCandiate called. ");
+        debugBuf.append("createCompanyCandidate called. ");
         debugBuf.append(varBuf.toString());
 
         log.debug(debugBuf.toString());
@@ -70,23 +70,23 @@ public class CompanyCandidateBean extends BaseEJB {
 
         } catch (SQLException e) {
             StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("SQLException in createCompanyCandiate. ");
+            exceptionBuf.append("SQLException in createCompanyCandidate. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
             StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in createCompanyCandiate. ");
+            exceptionBuf.append("NamingException in createCompanyCandidate. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
             StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("Exception in createCompanyCandiate. ");
+            exceptionBuf.append("Exception in createCompanyCandidate. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createCompanyCandiate");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createCompanyCandiate");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createCompanyCandiate");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createCompanyCandidate");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createCompanyCandidate");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createCompanyCandidate");}}
         }
     }
 
@@ -96,7 +96,7 @@ public class CompanyCandidateBean extends BaseEJB {
      * @param candidateId
      * @throws RemoteException
      */
-    public void removeCompanyCandiate(long companyId, long candidateId)
+    public void removeCompanyCandidate(long companyId, long candidateId)
         throws RemoteException {
         // construct debug message
         StringBuffer debugBuf = new StringBuffer(200);
@@ -107,7 +107,7 @@ public class CompanyCandidateBean extends BaseEJB {
         varBuf.append(" candidateId: ");
         varBuf.append(candidateId);
 
-        debugBuf.append("removeCompanyCandiate called. ");
+        debugBuf.append("removeCompanyCandidate called. ");
         debugBuf.append(varBuf.toString());
 
         log.debug(debugBuf.toString());
@@ -135,23 +135,23 @@ public class CompanyCandidateBean extends BaseEJB {
 
         } catch (SQLException e) {
             StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("SQLException in removeCompanyCandiate. ");
+            exceptionBuf.append("SQLException in removeCompanyCandidate. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
             StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in removeCompanyCandiate. ");
+            exceptionBuf.append("NamingException in removeCompanyCandidate. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
             StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("Exception in removeCompanyCandiate. ");
+            exceptionBuf.append("Exception in removeCompanyCandidate. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in removeCompanyCandiate");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in removeCompanyCandiate");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in removeCompanyCandiate");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in removeCompanyCandidate");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in removeCompanyCandidate");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in removeCompanyCandidate");}}
         }
     }
 }

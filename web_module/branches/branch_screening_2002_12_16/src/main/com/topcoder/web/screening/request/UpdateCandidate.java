@@ -1,5 +1,7 @@
 package com.topcoder.web.screening.request;
 
+import java.util.Map;
+
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.ServletRequest;
@@ -8,10 +10,17 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.NoSuchUserException;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserHome;
+import com.topcoder.web.ejb.user.CompanyCandidate;
+import com.topcoder.web.ejb.user.CompanyCandidateHome;
 
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
@@ -100,6 +109,30 @@ public class UpdateCandidate extends BaseProcessor
                 context.lookup(CoderHome.class.getName()), CoderHome.class);
         Coder coder = cHome.create();
         coder.createCoder(userId, createCoderStatusId);
+
+        DataAccess access = getDataAccess();
+        Request dataRequest = new Request();
+        dataRequest.setProperty(DataAccessConstants.COMMAND,
+                            Constants.CONTACT_INFO_QUERY_KEY);
+        dataRequest.setProperty("uid", String.valueOf(requestor.getUserId()));
+        Map map = access.getData(dataRequest);
+        ResultSetContainer rsc = (ResultSetContainer)
+                map.get(Constants.CONTACT_INFO_QUERY_KEY);
+        if(rsc.size() == 0 || rsc.size() > 1) {
+            throw new ScreeningException(
+                    "Contact result set size wrong(" + rsc.size() + ")");
+        }
+        ResultSetContainer.ResultSetRow row = 
+            (ResultSetContainer.ResultSetRow)rsc.get(0);
+        long companyId = 
+            Long.parseLong(row.getItem("company_id").toString());
+
+        CompanyCandidateHome ccHome = (CompanyCandidateHome)
+            PortableRemoteObject.narrow(
+                context.lookup(CompanyCandidateHome.class.getName()), 
+                               CompanyCandidateHome.class);
+        CompanyCandidate candidate = ccHome.create();
+        candidate.createCompanyCandidate(companyId, userId);
 
         long emailId = email.createEmail(userId);
         email.setAddress(emailId, userId, info.getEmailAddress());

@@ -50,7 +50,7 @@ public class CoderBean extends BaseEJB {
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setLong(1,coderId);
-            pstmt.setInt(5,coderStatusId);
+            pstmt.setInt(2,coderStatusId);
 
             pstmt.executeUpdate();
 

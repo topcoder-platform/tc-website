@@ -60,6 +60,7 @@ function submitSession() {
 <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
 <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="POST">
         <input type="HIDDEN" name="rp" value="" >
+        <input type="HIDDEN" name="referrer" value="<%=Constants.POPULATE_SESSION_PROCESSOR%>" >
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Test Profile</b>&#160;</TD>
@@ -101,18 +102,18 @@ function submitSession() {
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Month&#160;</TD>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
               <select name="beginMonth">
-              	<option>January</option>
-              	<option>February</option>
-              	<option>March</option>
-              	<option>April</option>
-              	<option>May</option>
-              	<option>June</option>
-              	<option>July</option>
-              	<option>August</option>
-              	<option>September</option>
-              	<option>October</option>
-              	<option>November</option>
-              	<option>December</option>
+              	<option value="1">January</option>
+              	<option value="2">February</option>
+              	<option value="3">March</option>
+              	<option value="4">April</option>
+              	<option value="5">May</option>
+              	<option value="6">June</option>
+              	<option value="7">July</option>
+              	<option value="8">August</option>
+              	<option value="9">September</option>
+              	<option value="10">October</option>
+              	<option value="11">November</option>
+              	<option value="12">December</option>
               </select>
               </TD>
            </TR>

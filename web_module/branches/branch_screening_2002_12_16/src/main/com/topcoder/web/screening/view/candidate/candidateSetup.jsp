@@ -5,6 +5,7 @@
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Candidate Setup</TITLE>
+<jsp:include page="/script.jsp"/>
 </HEAD>
 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">

@@ -17,7 +17,7 @@ public interface CompanyCandidate extends EJBObject {
      * @param candidateId
      * @throws RemoteException
      */
-    public void createCompanyCandiate(long companyId, long candidateId)
+    public void createCompanyCandidate(long companyId, long candidateId)
         throws RemoteException;
 
     /**
