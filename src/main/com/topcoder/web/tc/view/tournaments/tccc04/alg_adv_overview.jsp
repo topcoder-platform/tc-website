@@ -64,6 +64,7 @@
                     <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=round3_sort">Round 3</a></td>
                     <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=round4_sort">Round 4</a></td>
                     <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=semi_sort">Semi</a></td>
+                    <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=wildcard_sort">Wildcard</a></td>
                     <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=finals_sort">Final</a></td>
                 </tr>
 
@@ -97,6 +98,11 @@
 <td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
 <% } else { %>
 <td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("wildcard")).equals("Eliminated")) { %>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  class="<%=even?"advanceDk":"advanceLt"%>"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
 <td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
