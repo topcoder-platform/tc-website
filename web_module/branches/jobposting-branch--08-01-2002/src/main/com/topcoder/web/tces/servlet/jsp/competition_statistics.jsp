@@ -154,7 +154,6 @@
 
         <p><b>Competition Stats by Level</B></P>
 
-        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>
             <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
@@ -233,7 +232,7 @@
                 <tces:rowIterator id="level" rowList="<%=(List)CompetitionStatisticsTask.getOverallStatsByLevel()%>">
                   <TR>
                     <TD class="statText" HEIGHT="18">&#160;
-                        <b><%= level.getItem("level_desc").toString() %></b>
+                        <nobr><b><%= level.getItem("level_desc").toString() %></b></nobr>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
@@ -245,7 +244,7 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.autoFormat(level.getItem("submit_percent")) %>
+                        <%= CompetitionStatisticsTask.autoFormat(level.getItem("submit_percent")) %>%
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
@@ -253,11 +252,11 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.autoFormat(level.getItem("submission_accuracy")) %>
+                        <%= CompetitionStatisticsTask.autoFormat(level.getItem("submission_accuracy")) %>%
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.autoFormat(level.getItem("overall_accuracy")) %>
+                        <%= CompetitionStatisticsTask.autoFormat(level.getItem("overall_accuracy")) %>%
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
@@ -288,7 +287,7 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.getStatistic("overall_submit_percent") %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_submit_percent") %>%
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
@@ -296,11 +295,11 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.getStatistic("overall_submission_accuracy") %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_submission_accuracy") %>%
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= CompetitionStatisticsTask.getStatistic("overall_accuracy") %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_accuracy") %>%
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
