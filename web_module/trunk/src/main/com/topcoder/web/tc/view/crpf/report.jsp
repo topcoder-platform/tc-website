@@ -35,6 +35,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
+
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
@@ -50,11 +51,6 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
 <!-- Center Column Begins -->
          <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-               <jsp:include page="../body_top.jsp" >
-                  <jsp:param name="image" value="events"/>
-                  <jsp:param name="image1" value="white"/>
-                  <jsp:param name="title" value="TopCoder Charity Challenge"/>
-               </jsp:include>
 
 <!--CRPF Header-->
                <table align="center">
