@@ -8,13 +8,13 @@
           <xsl:choose>
             <xsl:when test="/TC/LoggedIn='true'">
               <A CLASS="registerNav" TARGET="_parent">
-                <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp?&amp;<xsl:value-of select="/TC/UserId"/></xsl:attribute>
+                <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/?&amp;t=reg&amp;<xsl:value-of select="/TC/UserId"/></xsl:attribute>
                 <IMG SRC="/i/menu_profile_on.gif" ALT="Update Profile" WIDTH="114" HEIGHT="21" BORDER="0"/>
               </A>  
             </xsl:when>
             <xsl:otherwise>
               <A CLASS="registerNav" TARGET="_parent">
-                <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
+                <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/?&amp;t=reg</xsl:attribute>
                 <IMG SRC="/i/menu_reg_off.gif" ALT="Register" WIDTH="114" HEIGHT="21" BORDER="0"/>
               </A>  
             </xsl:otherwise>
@@ -43,7 +43,7 @@
             </IMG>
           </A>
           <A onMouseOver="changeImages('image5', 'image5on')" onMouseOut="changeImages('image5', 'image5off')" TARGET="_parent">
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/index.jsp</xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=rtables</xsl:attribute>
             <IMG NAME="image5" SRC="/i/menu_rounds_off.gif" ALT="Round Tables" WIDTH="90" HEIGHT="21" BORDER="0"/>
           </A>          
           <A onMouseOver="changeImages('image6', 'image6on')" onMouseOut="changeImages('image6', 'image6off')" TARGET="_parent">
