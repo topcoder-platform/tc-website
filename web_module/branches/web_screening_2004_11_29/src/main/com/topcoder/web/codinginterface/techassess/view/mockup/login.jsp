@@ -17,11 +17,12 @@
       <jsp:param name="tabLev1" value="login"/>
       </jsp:include>
 
+<%-- TITLE/CLOCK --%>
       <jsp:include page="time.jsp" >
       <jsp:param name="probTimer" value="off"/>
       </jsp:include>
 
-     <table cellspacing=0 cellpadding=0 class=bodyTable>
+      <table cellspacing=0 cellpadding=0 class=bodyTable>
          <tr>
             <td><img src="/i/corp/screening/bodyTL.gif" alt=""/></td>
             <td class=bodyT>&#160;</td>

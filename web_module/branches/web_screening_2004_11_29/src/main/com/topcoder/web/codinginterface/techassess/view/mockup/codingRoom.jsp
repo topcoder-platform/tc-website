@@ -17,11 +17,12 @@
       <jsp:param name="tabLev1" value="login"/>
       </jsp:include>
 
+<%-- TITLE/CLOCK --%>
       <jsp:include page="time.jsp" >
       <jsp:param name="probTimer" value="off"/>
       </jsp:include>
 
-     <table cellspacing=0 cellpadding=0 class=bodyTable>
+      <table cellspacing=0 cellpadding=0 class=bodyTable>
          <tr>
             <td><img src="/i/corp/screening/bodyTL.gif" alt=""/></td>
             <td class=bodyT>&#160;</td>
@@ -31,14 +32,25 @@
             <td class=bodyL>&#160;</td>
 <%-- CONTENT --%>
             <td class=bodyContent>
-            <p class=pL>
-            <span class=bodySmallTitle>Problem Statement</span><br />
+            
+            <table cellspacing=0 cellpadding=0 border=0 width="100%">
+               <tr>
+                  <td align=left><span class=bodySmallTitle>Problem Statement</span></td>
+                  <td align=right>
+                  Choose your language: 
+                  <input type="radio" name="language" value="java">&#160;Java&#160;
+                  <input type="radio" name="language" value="cplus">&#160;C++&#160;
+                  <input type="radio" name="language" value="csharp">&#160;C#&#160;
+                  </td>
+               </tr>
+            </table>
+
             <iframe src="/i/corp/screening/probState.html" width="100%" height="200px" scrolling="auto" frameborder="1">
             [Your user agent does not support frames or is currently configured not to display frames. However, you may visit <a href="/i/corp/screening/probState.html">the related document.</a>]
             </iframe>
 
             <br/><br/>
-            <span class=bodySmallTitle>Input Area</span><br />
+            <p class=pL><span class=bodySmallTitle>Input Area</span></p>
             <textarea class=codingArea name="code" rows="21" cols="42">
 using System;
 using System.Collections;
