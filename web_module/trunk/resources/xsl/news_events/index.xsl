@@ -56,9 +56,9 @@
                 <tr><td class="bodyText"><div align="right"><strong>Current News</strong>&#160;&#160;|&#160;&#160;<A href="/?t=news_events&amp;c=press_release_archive">Press Releases Archive</A>&#160;&#160;|&#160;&#160;<A href="/?t=news_events&amp;c=article_archive">Articles Archive</A></div></td></tr>
             </table>
             
-<!-- 2003 -->
+<!-- 2004 -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
+                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
             </table>
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
@@ -78,7 +78,13 @@
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
-           
+            
+<!-- 2003 -->
+            <table width="100%" border="0" cellpadding="4" cellspacing="0">
+                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
+            </table>
+            
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>           
                  
 <!-- News Observer Times -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
