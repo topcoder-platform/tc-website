@@ -98,15 +98,15 @@ public class SearchResults extends BaseScreeningProcessor {
         query.append(") ");
         
         //additional restrictions here
-        if(ret.getFirstName().trim() != "")
+        if(!"".equals(ret.getFirstName().trim()))
         {
             query.append("and u.first_name like '" + ret.getFirstName() + "' ");
         }
-        if(ret.getLastName().trim() != "")
+        if(!"".equals(ret.getLastName().trim()))
         {
             query.append("and u.last_name like '" + ret.getLastName() + "' ");
         }
-        if(ret.getEmailAddress().trim() != "")
+        if(!"".equals(ret.getEmailAddress().trim()))
         {
             query.append("and e.address like '" + ret.getEmailAddress() + "' ");
         }

@@ -3,8 +3,8 @@
 <%@ page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
-<jsp:usebean id="memberSearch" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
-<%= memberSearch.getTotal();%>
+<jsp:usebean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
+<%= searchResults.getTotal()%>
         <table  border="0" cellspacing="0" cellpadding="5" width="600" align="center" class="bodyText">
               <tr valign="middle">
                   <td colspan="6" class="bodyText" align=center>Search Results:##to##of##
