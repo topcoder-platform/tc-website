@@ -22,7 +22,7 @@
                 <xsl:variable name="design-phase" select="'112'" />
                 <xsl:variable name="dev-phase" select="'113'" />
                 <xsl:variable name="priceFormat" select="'$###,###.00'" />
-                <xsl:variable name="status_id" select="'302'" />
+                <xsl:variable name="status_id" select="'301'" />
 <!-- Declaration ends -->
 
             <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
@@ -178,11 +178,6 @@
                             </tr>
 
                             <tr>
-                                <td class="devProjectSecond">Second Place:</td>
-                                <td class="devProjectSecondMoney"><xsl:value-of select="format-number(price*.5, $priceFormat)"/></td>
-                            </tr>
-
-                            <tr>
                                 <td class="devProjectInquire">Inquire By:</td>
                                 <td class="devProjectDate"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                             </tr>
@@ -257,11 +252,6 @@
                             <tr>
                                 <td class="devProjectWinner">Winning Developer:</td>
                                 <td class="devProjectWinnerMoney"><xsl:value-of select="format-number(price, $priceFormat)"/></td>
-                            </tr>
-
-                            <tr>
-                                <td class="devProjectSecond">Second Place:</td>
-                                <td class="devProjectSecondMoney"><xsl:value-of select="format-number(price*.5, $priceFormat)"/></td>
                             </tr>
 
                             <tr>
