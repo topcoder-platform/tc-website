@@ -657,26 +657,15 @@ rating if components were appropriately not used.</p></td>
     
     
 			    <tr>
-			    	<td class="forumTextOdd" width="80%"><p class="scorecardQuestion">The component presents an easy-to-use API for the application to use.
+			    	<td class="forumTextOdd" width="80%"><p class="scorecardQuestion">
+The component presents an easy-to-use API for the application to use.
 </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">The reviewer should look at the demo
-section of the component specification to see the designer's vision of
-how the component will be used. The reviewer should then analyze how
-the API addresses the requirements and how easy it is to use the API to
-accomplish the requirements.
+</p><p class="scorecardQuestion">The reviewer should look at the demo section of the component specification to see the designer's vision of how the component will be used.  The reviewer should then analyze how the API addresses the requirements and how easy it is to use the API to accomplish the requirements.
 </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Rating 1 &#8211; The API demonstrates an
-obvious lack of consistency, cohesion or generally makes it a pain to
-use. Tasks (as defined by the requirements) take multiple API calls to
-accomplish what should be more straightforward.
-</p><p class="scorecardQuestion">Rating 2 &#8211; The API is not immediately
-obvious (by looking at the class diagram alone) how to use or how to
-accomplish the requirement tasks.
-</p><p class="scorecardQuestion">Rating 3 &#8211; The API is obvious (by looking at the class diagram) but could have been made simpler or more powerful/flexible.
-</p><p class="scorecardQuestion">Rating 4 &#8211; The API is simple to use
-and provides useful helper/utility functions for common tasks (usually
-those defined in the requirements). Having a simple, yet
-powerful/flexible, API would also fall into this category.</p></td>
+</p><p class="scorecardQuestion">Rating 1 &#8211; The API demonstrates an obvious lack of consistency, cohesion, or is generally hard to use. Tasks (as defined by the requirements) take multiple API calls to accomplish what should be done atomically.
+</p><p class="scorecardQuestion">Rating 2 &#8211; The API is not immediately obvious; one cannot understand how to accomplish the required tasks by looking at the class diagram and reading the demo section (provide the name(s) of the requirement task(s) not easily performed using the API).
+</p><p class="scorecardQuestion">Rating 3 &#8211; TheThe API is obvious (by looking at the class diagram and the demo section) but could have been made simpler or more powerful/flexible (provide specific modifications to the API that would make it easier to use).
+</p><p class="scorecardQuestion">Rating 4 &#8211; The API is consistent, powerful, flexible, and is easy to understand. The design of the API is driven by a single concept, making the API easy to learn. The common tasks (as defined by the requirements) are easy to perform using the API.</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 			    	    Weight: 30
 			    	</td>
