@@ -18,8 +18,8 @@ Please view the following links for review of the NVIDIA Employment program.<BR/
 <B>Website</B><BR/>
 <A HREF="/i/es/nvidia/public_home.gif">Public Home Page</A><BR/>
 <A HREF="/i/es/nvidia/member_home.gif">Member Home Page</A><BR/>
-<A HREF="http://www.topcoder.com/?&t=jobs&c=nvidia">NVIDIA Main Page</A><BR/>
-<A HREF="http://www.topcoder.com/?&t=jobs&c=nvidia_openings">NVIDIA Job Listing Page</A><BR/>
+<A HREF="http://www.topcoder.com/?t=tces&amp;c=nvidia">NVIDIA Main Page</A><BR/>
+<A HREF="http://www.topcoder.com/?t=tces&amp;c=nvidia_openings">NVIDIA Job Listing Page</A><BR/>
 <!-- <A HREF="statsindex.gif">Statistics Index Page</A><BR/>
 <A HREF="overview.gif">Match Overview Page</A><BR/>
 <A HREF="results.gif">Match Results Page</A><BR/>
