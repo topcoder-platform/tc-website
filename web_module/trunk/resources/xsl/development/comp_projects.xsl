@@ -177,7 +177,7 @@
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
-                    <td class="projectTitles" colspan="9">Component Development Projects</td>
+                    <td class="usdc_banner" colspan="9">USDC Component Development Projects</td>
                 </tr>
 
                 <tr valign="middle">
