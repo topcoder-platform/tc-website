@@ -19,7 +19,7 @@ String openind = "<IMG SRC=\"/i/hs/nav_arrow_bottom.gif\" WIDTH=\"9\" HEIGHT=\"9
 String subind = "<IMG SRC=\"/i/hs/11x9.gif\" WIDTH=\"11\" HEIGHT=\"9\" ALT=\"\" BORDER=\"0\">";
 
 // spacer between items on the root menu
-String rootsep = "<TR><TD HEIGHT=\"1\" BGCOLOR=\"#C5C5C9\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
+String rootsep = "<TR><TD HEIGHT=\"1\" BGCOLOR=\"#333333\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
 // spacer between items on open submenus
 String subsep = "";
 //String subsep = "<TR><TD HEIGHT=\"1\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
@@ -29,21 +29,21 @@ String root, sub;
 
 // formats a table row for a section header on the root menu
 String rootheader(String text) {
-    return "<TR><TD CLASS=\"titlesidenav\">&nbsp;<B>" + text + "</B></TD></TR>";
+    return "<TR><TD CLASS=\"titlesidenav\" HEIGHT=\"15\" VALIGN=\"middle\">&nbsp;<B>" + text + "</B></TD></TR>";
 }
 
 // formats a table row for an item on the root menu
 String rootitem(String link, String name, String key, boolean canopen) {
     String bg = root.equals(key) ? (canopen?sibbg:selbg) : defbg;
     String img = canopen && root.equals(key) ? openind : itemind;
-    return "<TR><TD CLASS=\"sidenav\" " + bg + ">&nbsp;<A CLASS=\"sidenav\" HREF=\"" + link + "\">" + img + name + "</A></TD></TR>";
+    return "<TR><TD HEIGHT=\"15\" VALIGN=\"middle\" CLASS=\"sidenav\" " + bg + ">&nbsp;<A CLASS=\"sidenav\" HREF=\"" + link + "\">" + img + name + "</A></TD></TR>";
 }
 
 // formats a table row for an item on a submenu
 String subitem(String link, String name, String key) {
     String bg = sub.equals(key) ? selbg : sibbg;
     String img = subind;
-    return "<TR><TD CLASS=\"sidenav\" " + bg + ">&nbsp;<A CLASS=\"sidenav\" HREF=\"" + link + "\">" + img + name + "</A></TD></TR>";
+    return "<TR><TD HEIGHT=\"15\" VALIGN=\"middle\" CLASS=\"sidenav\" " + bg + ">&nbsp;<A CLASS=\"sidenav\" HREF=\"" + link + "\">" + img + name + "</A></TD></TR>";
 }
 
 // decides whether a submenu should be rendered
