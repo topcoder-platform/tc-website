@@ -116,9 +116,9 @@ public final class MainServlet extends BaseServlet {
                 throw new NavigationException("Your session has been idle for more that 30 minutes.");
             }
             // INIT SESSION AND XML DOCUMENT
-            log.debug("getting session");
+            //log.debug("getting session");
             session = request.getSession(true);
-            log.debug("session gotten");
+            //log.debug("session gotten");
 
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
             document = new XMLDocument("TC");
