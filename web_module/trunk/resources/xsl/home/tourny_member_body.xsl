@@ -205,7 +205,21 @@
     <TD COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0" VSPACE="1"/><BR/>
       <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
         <TR>
-          <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="5" CLASS="statText" HEIGHT="18" VALIGN="bottom"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/><A><xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute><xsl:attribute name="CLASS">statText</xsl:attribute><IMG SRC="/i/my_profile.gif" ALT="" WIDTH="59" HEIGHT="14" BORDER="0"/></A><A><xsl:attribute name="HREF">/stat?c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute><xsl:attribute name="CLASS">statText</xsl:attribute><IMG SRC="/i/my_rating.gif" ALT="" WIDTH="96" HEIGHT="14" BORDER="0"/></A><A><xsl:attribute name="HREF">/stat?c=earnings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute><xsl:attribute name="CLASS">statText</xsl:attribute><IMG SRC="/i/my_earning.gif" ALT="" WIDTH="111" HEIGHT="14" BORDER="0"/></A></TD>    
+          <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="5" CLASS="statText" HEIGHT="18" VALIGN="bottom">
+            <IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
+            <A CLASS="statText">
+              <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>
+              <IMG SRC="/i/my_profile.gif" ALT="" WIDTH="59" HEIGHT="14" BORDER="0"/>
+            </A>
+            <A CLASS="statText">
+              <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>
+              <IMG SRC="/i/my_rating.gif" ALT="" WIDTH="96" HEIGHT="14" BORDER="0"/>
+            </A>
+            <A CLASS="statText">
+              <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=earnings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>
+              <IMG SRC="/i/my_earning.gif" ALT="" WIDTH="111" HEIGHT="14" BORDER="0"/>
+            </A>
+          </TD>    
         </TR>        
         <TR>
           <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="5" CLASS="smallFoot"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
@@ -278,13 +292,13 @@
           <xsl:choose><xsl:when test="/TC/LoggedIn='true'">
             <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="middle" WIDTH="10">
               <A>
-                <xsl:attribute name="HREF">/stat?c=coder_room_stats&amp;rd=<xsl:value-of select="RoundId"/>&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
+                <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_room_stats&amp;rd=<xsl:value-of select="RoundId"/>&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
                 <IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="2" BORDER="0"/>
               </A>
             </TD>
             <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="left"> 
               <A>
-                <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
+                <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
                 <xsl:attribute name="CLASS">statText</xsl:attribute>
                 <FONT>
                   <xsl:attribute name="color">
@@ -371,17 +385,36 @@
     <!-- Last SRM Begins -->    
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR>
-    <TD VALIGN="middle" BGCOLOR="#FFFFFF" WIDTH="184"><A HREF="/index?t=statistics&amp;c=match_summary"><IMG SRC="/i/label_srm_summary.gif" ALT="Last Match Summary" WIDTH="184" HEIGHT="26" HSPACE="5" BORDER="0" ALIGN="left"/></A></TD>
+    <TD VALIGN="middle" BGCOLOR="#FFFFFF" WIDTH="184">
+      <A HREF="/index?t=statistics&amp;c=match_summary">
+        <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=match_summary</xsl:attribute>
+        <IMG SRC="/i/label_srm_summary.gif" ALT="Last Match Summary" WIDTH="184" HEIGHT="26" HSPACE="5" BORDER="0" ALIGN="left"/>
+      </A>
+    </TD>
     <TD WIDTH="100%" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <!-- <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="194" ALIGN="right"><A HREF="/stat?c=last_match" CLASS="bodyGeneric"><IMG SRC="/i/label_view_results.gif" ALT="Last Match Results" WIDTH="194" HEIGHT="26" BORDER="0" ALIGN="right"/></A></TD> -->
   </TR>
 </TABLE>   
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
-    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP="0" HEIGHT="15"><A HREF="/index?t=statistics&amp;c=index#leaders" CLASS="bodyGeneric">Div. Leaders</A></TD>
-    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="35%" NOWRAP="0"><A HREF="/index?t=statistics&amp;c=index#problem_stats" CLASS="bodyGeneric">Problem Stats</A></TD> 
-    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="15%" NOWRAP="0"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">Results</A></TD>
+    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP="0" HEIGHT="15">
+      <A CLASS="bodyGeneric">
+        <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=index#leaders</xsl:attribute>
+        Div. Leaders
+      </A>
+    </TD>
+    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="35%" NOWRAP="0">
+      <A CLASS="bodyGeneric">
+        <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=index#problem_stats</xsl:attribute>
+        Problem Stats
+      </A>
+    </TD> 
+    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="15%" NOWRAP="0">
+      <A CLASS="bodyGeneric">
+        <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match</xsl:attribute>
+        Results
+      </A>
+    </TD>
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP="0"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Want to write?</A></TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
   </TR>    
@@ -445,12 +478,23 @@
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
     <TD VALIGN="top" WIDTH="40%" ALIGN="left" CLASS="bodyText">    
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
-    <B>SRM 95</B></FONT><BR/>
-	By&#160;ZorbaTHut,<I>[TC] Member</I><BR/>
-	<A HREF="/?t=statistics&amp;c=srm95_room1" CLASS="bodyGeneric">Room One Review</A><BR/>
-	<A HREF="/?t=statistics&amp;c=srm95_rookie" CLASS="bodyGeneric">Rookie Review</A><BR/>
-	<A HREF="/?t=statistics&amp;c=srm95_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A></TD>
+      <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
+        <B>SRM 95</B>
+      </FONT><BR/>
+      By&#160;ZorbaTHut,<I>[TC] Member</I><BR/>
+      <A CLASS="bodyGeneric">
+        <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm95_room1</xsl:attribute>
+         Room One Review
+      </A><BR/>
+      <A CLASS="bodyGeneric">
+        <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm95_rookie</xsl:attribute>
+        Rookie Review
+      </A><BR/>
+      <A CLASS="bodyGeneric">
+        <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm95_prob</xsl:attribute>
+        Problem Set Analysis &amp; Opinion
+      </A>
+    </TD>
     <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
     <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
@@ -458,12 +502,16 @@
     <TD VALIGN="top" WIDTH="60%" ALIGN="left" CLASS="bodyText">
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
     <B>June 7, 2002</B><BR/>    
-	By&#160;slowjoe,<I>[TC] Member</I></FONT><BR/>
+  By&#160;slowjoe,<I>[TC] Member</I></FONT><BR/>
 Single Round match 95 was a Wednesday night contest.  For the cognoscenti,
 it was the first match with the spiffing new arena, complete with shiny
-new lobbies and list sorting....<A HREF="/?t=statistics&amp;c=srm95_lessons" CLASS="bodyGeneric">full&#160;story</A>
-	</TD>
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>	  
+new lobbies and list sorting....
+    <A CLASS="bodyGeneric">
+      <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm95_lessons</xsl:attribute>
+      full&#160;story
+    </A>
+  </TD>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>    
   </TR>
   <TR><TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  
   <TR>  
@@ -508,12 +556,30 @@ new lobbies and list sorting....<A HREF="/?t=statistics&amp;c=srm95_lessons" CLA
     </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244">
+
 <!--
-<A HREF="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm96"><IMG SRC="/i/sponspromo_motorola.gif" ALT="" WIDTH="244" HEIGHT="172" BORDER="0"/></A><BR/><BR/>
-<A HREF="/index?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/promo_teams.gif" ALT="" WIDTH="244" HEIGHT="81" BORDER="0"/></A><BR/><A HREF="/index?t=jobs&amp;c=index"><IMG SRC="/i/promo_jobs.gif" ALT="" WIDTH="244" HEIGHT="80" BORDER="0"/></A><BR/><BR/>
-<A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/teams_banner.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A><BR/>
-<A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/jobs_banner2.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A>
+      <A>
+        <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm98</xsl:attribute>
+        <IMG SRC="/i/sponspromo_motorola.gif" ALT="" WIDTH="244" HEIGHT="172" BORDER="0"/>
+      </A><BR/><BR/>
+      <A HREF="/index?t=about_tc&amp;c=membr_teams">
+        <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_teams</xsl:attribute>
+        <IMG SRC="/i/promo_teams.gif" ALT="" WIDTH="244" HEIGHT="81" BORDER="0"/>
+      </A><BR/>
+      <A HREF="/index?t=jobs&amp;c=index">
+        <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=jobs&amp;c=index</xsl:attribute>
+        <IMG SRC="/i/promo_jobs.gif" ALT="" WIDTH="244" HEIGHT="80" BORDER="0"/>
+      </A><BR/><BR/>
+      <A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams">
+        <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_teams</xsl:attribute>
+        <IMG SRC="/i/teams_banner.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/>
+      </A><BR/>
+      <A TARGET="_parent" HREF="/?t=jobs&amp;c=index">
+        <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=jobs&amp;c=index</xsl:attribute>
+        <IMG SRC="/i/jobs_banner2.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/>
+      </A>
 -->
+
 <xsl:call-template name="my_stats"/>
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/>
      <xsl:choose>
