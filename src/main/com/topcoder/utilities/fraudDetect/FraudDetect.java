@@ -44,50 +44,15 @@ public class FraudDetect {
         final int roundId = new Integer(args[1]).intValue();
         final int problemId = new Integer(args[2]).intValue();
 
-        Thread r = new Thread(
-                new Runnable() {
-                    public void run() {
-
-                        try {
-                            FraudDetect tm = new FraudDetect();
-                            tm.ds = (DataSource)TCContext.getInitial().lookup(dataSourceName);
-                            ArrayList a = tm.fraud(roundId, problemId);
-                            for (int c = 0; c < a.size(); c++)
-                                System.out.println("REPORT:" + a.get(c).toString());
-                        } catch (Exception exception1) {
-                            exception1.printStackTrace();
-                        }
-                    }
-                });
-            r.start();
-/*        else {
+        try {
             FraudDetect tm = new FraudDetect();
-            ArrayList problems = tm.getProblemInfo(roundId);
-            HashSet hst = new HashSet();
-            for (int i = 0; i < problems.size(); i++) {
-                final int component_id = ((Problem) problems.get(i)).getProblemId();
-                final int round_id = ((Problem) problems.get(i)).getRoundId();
-                if (!hst.contains(new Integer(component_id))) {
-                    hst.add(new Integer(component_id));
-                    Thread r = new Thread(
-                            new Runnable() {
-                                public void run() {
-
-                                    try {
-                                        log.debug("Thread spawned: " + component_id + "," + round_id);
-                                        FraudDetect tm = new FraudDetect();
-                                        ArrayList a = tm.fraud(round_id, component_id);
-                                        for (int c = 0; c < a.size(); c++)
-                                            System.out.println("REPORT:" + a.get(c).toString());
-                                    } catch (Exception exception1) {
-                                        exception1.printStackTrace();
-                                    }
-                                }
-                            }, "Thread " + i);
-                    r.start();
-                }
-            }
-        } */
+            tm.ds = (DataSource) TCContext.getInitial().lookup(dataSourceName);
+            ArrayList a = tm.fraud(roundId, problemId);
+            for (int c = 0; c < a.size(); c++)
+                System.out.println("REPORT:" + a.get(c).toString());
+        } catch (Exception exception1) {
+            exception1.printStackTrace();
+        }
     }
 
 
@@ -1081,7 +1046,7 @@ public class FraudDetect {
     private String rpad(String s, char c, int len) {
         StringBuffer buf = new StringBuffer(len);
         buf.append(s);
-        while(buf.length()<len) {
+        while (buf.length() < len) {
             buf.append(c);
         }
         return buf.toString();
