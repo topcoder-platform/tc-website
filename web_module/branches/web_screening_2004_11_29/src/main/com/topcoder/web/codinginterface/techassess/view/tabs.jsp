@@ -1,16 +1,20 @@
 <%
     String tabLev1 = request.getParameter("tabLev1")==null?"":request.getParameter("tabLev1");
 %>
+
+<%--
+<div class=pbtcBox><img src="/i/corp/screening/pbtcLogo.gif" alt=""/></div>
+--%>
 <table cellspacing=0 cellpadding=0 class=tabTable>
-	<tr>
-		<td rowspan=2><img src="/i/corp/screening/clientLogo.gif" alt=""/></td>
-		<%-- colspan must equal # of tabs --%>
-		<td class=titleBar colspan=4><img src="/i/corp/screening/techAssTitle.gif" alt=""/></td>
-		<td class=tabBarEnd align=right rowspan=2><img src="/i/corp/screening/tabBarEnd.gif" alt=""/></td>
-	</tr>
-	<tr>
-		<td class=tabBar><img src="/i/corp/screening/tab.gif" alt=""/></td>
-		<td class=tabBar><img src="/i/corp/screening/tab.gif" alt=""/></td>
-		<td class=tabBar><img src="/i/corp/screening/tab.gif" alt=""/></td>
-	</tr>
+   <tr>
+      <td class=logoBox rowspan=2><img src="/i/corp/screening/clientLogo.gif" alt=""/></td>
+      <%-- colspan must equal # of tabs --%>
+      <td class=titleBar colspan=4><img src="/i/corp/screening/pbtcLogo.gif" alt=""/></td>
+      <td class=tabBarEnd align=right rowspan=2><img src="/i/corp/screening/tabBarEnd.gif" alt=""/></td>
+   </tr>
+   <tr>
+      <td class=tabBar><A href="/mockup/directions.jsp"><img src="/i/corp/screening/mainTab.gif" alt=""/></A></td>
+      <td class=tabBar><A href="/mockup/help.jsp"><img src="/i/corp/screening/helpTab.gif" alt=""/></A></td>
+      <td class=tabBar><A href="/mockup/login.jsp"><img src="/i/corp/screening/logoutTab.gif" alt=""/></A></td>
+   </tr>
 </table>
