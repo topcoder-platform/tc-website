@@ -39,7 +39,7 @@
                   </TR>
                   <TR>
                     <TD HEIGHT="25" VALIGN="TOP">
-                      <INPUT MAXLENGTH="25" SIZE="20" NAME="handle" TYPE="TEXT" VALUE="<jsp:getProperty name="LoginTask" property="HandleInput" />">
+                      <INPUT MAXLENGTH="25" SIZE="20" NAME="<%=Constants.HANDLE_PARAM%>" TYPE="TEXT" VALUE="<jsp:getProperty name="LoginTask" property="HandleInput" />">
                     </TD>
                   </TR>
                   <TR>
@@ -47,7 +47,7 @@
                   </TR>
                   <TR>
                     <TD HEIGHT="25" VALIGN="TOP">
-                      <INPUT MAXLENGTH="25" SIZE="20" NAME="password" TYPE="Password" VALUE="">
+                      <INPUT MAXLENGTH="25" SIZE="20" NAME="<%Constants.PASSWORD_PARAM%>" TYPE="Password" VALUE="">
                     </TD>
                   </TR>
                   <TR>
