@@ -256,6 +256,6 @@ public class PopulateCandidate extends BaseProcessor {
         }
 
         ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) rsc.get(0);
-        return row.getIntItem("usage_type");
+        return row.getIntItem("usage_type_id");
     }
 }
