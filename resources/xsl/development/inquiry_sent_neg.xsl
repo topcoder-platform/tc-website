@@ -55,7 +55,7 @@
                     <td class="bodyText" width="100%">
                         <p><strong>Thank you, <xsl:value-of select="/TC/DEVELOPMENT/handle"/>, for your inquiry.</strong></p>
                         
-                        <p>Unfortunately, the project you applied for is full.</p>
+                        <p>Unfortunately, registration is closed on this project.</p>
                         
                         <p>If you have any problems please contact <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
 
