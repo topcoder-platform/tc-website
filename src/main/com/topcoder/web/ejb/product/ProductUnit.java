@@ -46,10 +46,4 @@ public interface ProductUnit extends EJBObject {
     void setNumUnits(long productId, long unitId, int numUnits)
             throws RemoteException, EJBException;
 
-    /**
-     *
-     * @see com.topcoder.web.ejb.product.ProductUnitBean#getUnitDescription
-     */
-    String getUnitDescription(long productId, long unitId)
-            throws RemoteException, EJBException;
-}
+ }
