@@ -170,8 +170,15 @@
                                 </a>
                                 to get information necessary to submit a solution &gt;&gt;</strong>
                             </p>
-                            <p>
-                                 To submit a solution, email your submissions to <a href="mailto:submissions@topcodersoftware.com" class="statText">submissions@topcodersoftware.com</a>.
+                           <p>
+                                <strong>
+                                <a class="statText">
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="concat('http://172.16.20.222:8080/pages/s_upload_submission.jsp?version=', $version, '&amp;phase=' , $phase, '&amp;comp_id=', $componentId, '&amp;Project=', $formattedName)"/>
+                                    </xsl:attribute>
+                                    Upload your submission! &gt;&gt;
+                                </a>
+                               </strong>
                             </p>
                         <p><br /></p>
                     </td>
