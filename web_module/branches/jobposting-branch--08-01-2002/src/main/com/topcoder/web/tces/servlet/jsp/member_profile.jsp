@@ -66,10 +66,11 @@
               <BR>
               <%= MemberInfo.get(TCESConstants.MEM_INFO_CONTACT_KEY)%>
               <BR>
-              Interested in 
-                <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
+              <B>Interested in 
+                <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>" class="statText">
                     <%=MemberProfileTask.getJobName()%>
                 </A>
+              </B>
               </P>                            
               
               <P>
@@ -92,14 +93,46 @@
               </TABLE>
               
               <P>
-              Current Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_CURRENT_KEY)%>
-              Highest Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_HIGH_KEY)%>
-              Lowest Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_LOW_KEY)%>
-              Rating Percentile: <%=MemberInfo.get(TCESConstants.MEM_RATING_PCTILE_KEY)%>
-              Number of Ratings: <%=MemberInfo.get(TCESConstants.MEM_RATING_NUMEVENTS_KEY)%>
-              Most Recent Rated Event: <%=MemberInfo.get(TCESConstants.MEM_RATING_MOSTRECENT_KEY)%>
-              Average Points per Contest: <%=MemberInfo.get(TCESConstants.MEM_RATING_AVGPOINTS_KEY)%>
+              Current Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_CURRENT_KEY)%><BR>
+              Highest Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_HIGH_KEY)%><BR>
+              Lowest Rating: <%=MemberInfo.get(TCESConstants.MEM_RATING_LOW_KEY)%><BR>
+              Rating Percentile: <%=MemberInfo.get(TCESConstants.MEM_RATING_PCTILE_KEY)%><BR>
+              Number of Ratings: <%=MemberInfo.get(TCESConstants.MEM_RATING_NUMEVENTS_KEY)%><BR>
+              Most Recent Rated Event: <%=MemberInfo.get(TCESConstants.MEM_RATING_MOSTRECENT_KEY)%><BR>
+              Average Points per Contest: <%=MemberInfo.get(TCESConstants.MEM_RATING_AVGPOINTS_KEY)%><BR>
               </P>    
+              
+                            
+              <TABLE ID="dataByLevelTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
+                <TR>
+                    <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES.length;i++) { %>
+                        <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18">&#160;<b>
+                            <%= TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES[i] %>
+                        </b></TD>
+                        <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <% } %>
+                </TR>                    
+                <tces:mapIterator id="level" MapList="<%=MemberProfileTask.getStatsByLevel()%>">
+        
+                <TR>
+                  <TD class="statText" HEIGHT="18"></A>
+                    <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS.length;i++) { %>
+                        
+                        <%= level.get(TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[i]) %>
+                        
+                    <% } %>
+                    
+                  </TD>
+                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+
+                </TR>
+
+                </tces:mapIterator>
+
+              </TABLE>
+              <P><BR></P>
+                            
+              
               
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

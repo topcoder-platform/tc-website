@@ -240,7 +240,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         memberInfo.put(TCESConstants.MEM_RATING_MOSTRECENT_KEY,
                             getDate(memStatsRow,"last_rated_event") );
         memberInfo.put(TCESConstants.MEM_RATING_AVGPOINTS_KEY,
-                            memStatsRow.getItem("avg_final_points").toString() );
+                            decFmt.format(Double.parseDouble(memStatsRow.getItem("avg_final_points").toString())) );
 
 
 
