@@ -1,6 +1,8 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.QueueResponseManager;
@@ -38,13 +40,71 @@ public abstract class Base extends BaseProcessor {
     protected Message receive(int waitTime, String correlationId) throws TimeOutException {
 
         Message ret = null;
-        getResponse().setStatus(500);
+        getResponse().setStatus(200);
         getResponse().setContentType("text/html");
         try {
             PrintWriter out = getResponse().getWriter();
             out.println("<html><head><title>Wait page</title></head><body><table><tr><td>");
+            out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Technical Assessment</title>");
+            out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" >");
+            out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >");
+            out.println("</head>");
+            SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+            out.print("<body onLoad=\"window.location=");
+            out.print(info.getServletPath());
+            out.print("?module=Index");
+            out.print("\">");
+            out.println("<table class=bodyCenter cellspacing=0 cellpadding=0>");
+            out.println("<tr>");
+            out.println("      <td align=center>");
+            out.println("            <table cellspacing=0 cellpadding=0 class=tabTable>");
+            out.println("               <tr>");
+            out.println("                  <td class=logoBox rowspan=2><img src=\"/i/corp/screening/clientLogo.gif\" alt=\"\"/></td>");
+            out.println("                  <td class=titleBar colspan=4><img src=\"/i/corp/screening/pbtcLogo.gif\" alt=\"\"/></td>");
+            out.println("                  <td class=tabBarEnd align=right rowspan=2><img src=\"/i/corp/screening/tabBarEnd.gif\" alt=\"\"/></td>");
+            out.println("               </tr>");
+            out.println("               <tr>");
+            out.println("                  <td class=tabBar><a href=\"/mockup/directions.jsp\"><img src=\"/i/corp/screening/mainTab.gif\" alt=\"\"/></a></td>");
+            out.println("                  <td class=tabBar><a href=\"/mockup/help.jsp\"><img src=\"/i/corp/screening/helpTab.gif\" alt=\"\"/></a></td>");
+            out.println("                  <td class=tabBar><a href=\"/mockup/login.jsp\"><img src=\"/i/corp/screening/logoutTab.gif\" alt=\"\"/></a></td>");
+            out.println("               </tr>");
+            out.println("            </table>");
+            out.println("            <table cellspacing=0 cellpadding=0 class=timeTable>");
+            out.println("               <tr>");
+            out.println("                  <td class=timeCellLeft><img src=\"/i/corp/screening/techAssTitle.gif\" alt=\"\" /></td>");
+            out.println("                  <td class=timeCellRight>&#160;<br />&#160;</td>");
+            out.println("               </tr>");
+            out.println("            </table>");
+            out.println("      <table cellspacing=0 cellpadding=0 class=bodyTable>");
+            out.println("         <tr>");
+            out.println("            <td><img src=\"/i/corp/screening/bodyTL.gif\" alt=\"\"/></td>");
+            out.println("            <td class=bodyT>&#160;</td>");
+            out.println("            <td><img src=\"/i/corp/screening/bodyTR.gif\" alt=\"\"/></td>");
+            out.println("         </tr>");
+            out.println("         <tr>");
+            out.println("            <td class=bodyL>&#160;</td>");
+            out.println("            <td class=bodyContent>");
+            out.println("            <br /><br />");
+            out.println("            <p class=pC><span class=bodySmallTitle>Processing...</span></p>");
             ret = (Message)receiver.receive(waitTime, correlationId, getResponse());
-            out.println("</td></tr></table></body></html>");
+            out.println("            <br /><br />");
+            out.println("            </td>");
+            out.println("            <td class=bodyR>&#160;</td>");
+            out.println("         </tr>");
+            out.println("         <tr>");
+            out.println("            <td><img src=\"/i/corp/screening/bodyBL.gif\" alt=\"\"/></td>");
+            out.println("            <td class=bodyB>&#160;</td>");
+            out.println("            <td><img src=\"/i/corp/screening/bodyBR.gif\" alt=\"\"/></td>");
+            out.println("         </tr>");
+            out.println("      </table>");
+            out.println("</td>");
+            out.println("   </tr>");
+            out.println("</table>");
+            out.println("</body>");
+            out.println("</html>");
             out.flush();
         } catch (IOException e) {
             //todo do something with this
