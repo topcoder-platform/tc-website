@@ -109,9 +109,9 @@ public class SimpleSearch extends Base {
         queryBottom.append(" WHERE c.coder_id = r.coder_id");
         queryBottom.append(" AND c.status = 'A'");
         if (m.getStateCode() != null)
-            queryBottom.append(" AND c.state_code like '").append(m.getStateCode()).append("'");
+            queryBottom.append(" AND c.state_code like '").append(StringUtils.replace(m.getStateCode(), "'", "''")).append("'");
         if (m.getHandle() != null)
-            queryBottom.append(" AND LOWER(c.handle) like LOWER('").append(m.getHandle()).append("')");
+            queryBottom.append(" AND LOWER(c.handle) like LOWER('").append(StringUtils.replace(m.getHandle(), "'", "''")).append("')");
         queryBottom.append(" AND r.last_rated_round_id = ro.round_id");
         queryBottom.append(" AND r.rating BETWEEN ");
         queryBottom.append(m.getMinRating()== null?"0":m.getMinRating().toString());
@@ -122,7 +122,7 @@ public class SimpleSearch extends Base {
         queryBottom.append(" AND ");
         queryBottom.append(m.getMaxNumRatings()== null?String.valueOf(Integer.MAX_VALUE):m.getMaxNumRatings().toString());
         if (m.getCountryCode() != null)
-            queryBottom.append(" AND c.country_code like '").append(m.getCountryCode()).append("'");
+            queryBottom.append(" AND c.country_code like '").append(StringUtils.replace(m.getCountryCode(), "'", "''")).append("'");
         if (m.getMaxDaysSinceLastComp() != null) {
             queryBottom.append(" AND cal.calendar_id = ro.calendar_id");
             queryBottom.append(" AND cal.date > CURRENT - ").append(m.getMaxDaysSinceLastComp()).append(" UNITS DAY");
