@@ -134,7 +134,7 @@ public class Controller
     }
     
     void forward(HttpServletRequest request, HttpServletResponse response, String url)
-        throws ServletException
+        throws ServletException, IOException
     {
         response.setHeader("Cache-Control","no-store");
         response.setHeader("Pragma","no-cache");
