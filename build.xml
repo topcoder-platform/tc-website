@@ -660,6 +660,7 @@
 
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="errorPage.jsp"/>
+                <include name="script.jsp"/>
                 <include name="menu.jsp"/>
             </fileset>
             <fileset dir="${java}/com/topcoder/web/corp/view">
