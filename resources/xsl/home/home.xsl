@@ -63,7 +63,7 @@
         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=home&amp;c=public_home</xsl:attribute>
         [TC] home
       </A>
-    </SPAN><BR/><SPAN CLASS="smallText">Copyright &#169; 2002, TopCoder, Inc. All rights reserved.</SPAN><BR/><BR/><BR/></TD>
+    </SPAN><BR/><SPAN CLASS="smallText">Copyright &#169; 2003, TopCoder, Inc. All rights reserved.</SPAN><BR/><BR/><BR/></TD>
   </TR>
 </TABLE>    
     <!-- Footer Include Ends -->
