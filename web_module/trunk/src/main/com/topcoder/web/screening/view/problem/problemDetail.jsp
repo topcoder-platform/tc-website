@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page errorPage="/errorPage.jsp" %>
+<%@ page errorPage="../errorPage.jsp" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
@@ -105,7 +105,7 @@
     </tr>
 </table>
 
-  <jsp:include page="/includes/foot.jsp" />
+  <jsp:include page="../includes/foot.jsp" />
 
 </body>
 </html>
