@@ -63,9 +63,11 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
     /** Holds flag indicating whether coder has participated in Division I. */
     private boolean hasDivisionI;
+    private boolean hasMultipleDivILanguage;
 
     /** Holds flag indicating whether coder has participated in Division II. */
     private boolean hasDivisionII;
+    private boolean hasMultipleDivIILanguage;
 
     /** Holds data about the coder's Division II performance. */
     private ResultSetContainer.ResultSetRow divIIStats;
@@ -92,6 +94,8 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         setJobID(-1);
         setCampaignID(-1);
+        setHasMultipleDivILanguage(false);
+        setHasMultipleDivIILanguage(false);
     }
 
 
@@ -405,6 +409,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
                 if (!getDivIStatsByLevel().isEmpty() && !getDivIStatsByLang().isEmpty()) {
                     setHasDivisionI(true);
                 }
+                setHasMultipleDivILanguage(getDivIStatsByLang().size()>1);
             }
 
             setHasDivisionII(false);
@@ -420,6 +425,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
                 if (!getDivIIStatsByLevel().isEmpty() && !getDivIIStatsByLang().isEmpty()) {
                     setHasDivisionII(true);
                 }
+                setHasMultipleDivIILanguage(getDivIIStatsByLang().size()>1);
             }
         } else {
             setIsRanked(false);
@@ -555,6 +561,24 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     public void setDivIIStatsByLevel(List divIIStatsByLevel) {
         this.divIIStatsByLevel = divIIStatsByLevel;
     }
+
+
+    public boolean hasMultipleDivILanguage() {
+        return hasMultipleDivILanguage;
+    }
+
+    public void setHasMultipleDivILanguage(boolean hasOneDivILanguage) {
+        this.hasMultipleDivILanguage = hasOneDivILanguage;
+    }
+
+    public boolean hasMultipleDivIILanguage() {
+        return hasMultipleDivIILanguage;
+    }
+
+    public void setHasMultipleDivIILanguage(boolean hasOneDivIILanguage) {
+        this.hasMultipleDivIILanguage = hasOneDivIILanguage;
+    }
+
 
 }
 
