@@ -29,6 +29,8 @@ public class JSPUtils {
                 sb.append("  ");
             } else if (ch == '<') {
                 sb.append("&lt;");
+            } else if (ch == '&') {
+                sb.append("&amp;");
             } else if (ch == 10 || ch == 13) {
                 sb.append(ch);
             } else if (((int) ch) < 32) {
