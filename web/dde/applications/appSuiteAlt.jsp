@@ -68,7 +68,7 @@
   </tr>
   <tr>
     <td>
-      <a href="http://www.macromedia.com/go/getflashplayer"><img src="alternate.gif" border="0" width="88" height="31" /></a>
+      <a href="http://www.macromedia.com/go/getflashplayer"><img src="http://172.16.210.55:8080/images/flash/getFlash.gif" border="0" width="88" height="31" /></a>
     </td>
     <td>
       <p />
