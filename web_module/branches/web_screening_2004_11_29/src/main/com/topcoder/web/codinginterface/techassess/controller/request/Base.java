@@ -9,6 +9,7 @@ import com.topcoder.shared.netCommon.messages.Message;
 
 import javax.jms.ObjectMessage;
 import java.util.HashMap;
+import java.io.Serializable;
 
 /**
  * User: dok
@@ -34,8 +35,8 @@ public abstract class Base extends BaseProcessor {
         return messageId;
     }
 
-    protected ObjectMessage receive(int waitTime, String correlationId) throws TimeOutException {
-        return (ObjectMessage)receiver.receive(waitTime, correlationId);
+    protected Serializable receive(int waitTime, String correlationId) throws TimeOutException {
+        return receiver.receive(waitTime, correlationId);
     }
 
 
