@@ -64,7 +64,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
     {
         HttpSession session = request.getSession(true);
 
-        if (Authentication.attemptLogin( getHandleInput(), getPasswordInput(), session)) {
+        if (Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session)) {
             setNextPage(TCESConstants.LOGIN_OK_PAGE );
         }
         else {

@@ -4,8 +4,10 @@ import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 
+import javax.naming.InitialContext;
 import javax.servlet.http.*;
 import java.io.Serializable;
+import java.util.Map;
 
 public class Authentication implements Serializable {
 
@@ -46,7 +48,7 @@ public class Authentication implements Serializable {
 
         // record in this session that we have authenticated a user.
 
-        auth.setUserId( ((Long)rRow.getItem("user_id").requestData()).intValue() );
+        auth.setUserId( ((Long)rRow.getItem("user_id").getResultData()).intValue() );
         return true;
     }
 
