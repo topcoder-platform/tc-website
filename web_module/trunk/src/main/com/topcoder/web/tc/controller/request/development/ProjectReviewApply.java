@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.request.development;
 
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.rboard.RBoardUser;
+import com.topcoder.web.ejb.rboard.RBoardApplication;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.tc.Constants;
@@ -30,6 +31,7 @@ public class ProjectReviewApply extends Base {
             if (userIdentified()) {
 
                 RBoardUser rbu = (RBoardUser) createEJB(getInitialContext(), RBoardUser.class);
+                RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
 
                 //we'll use the existing command, it's overkill, but we're probably not
                 //talking high volume here
@@ -41,34 +43,38 @@ public class ProjectReviewApply extends Base {
                 ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
                 int catalog = detail.getIntItem(0, "category_id");
 
-                if (catalog == Constants.JAVA_CATALOG_ID) {
-                    if (rbu.canReviewJava(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
-                        applicationProcessing();
-                    } else {
-                        throw new NavigationException("Sorry, you can not review this project because " +
-                                "you are not a Java reviewer");
-                    }
-                } else if (catalog == Constants.DOT_NET_CATALOG_ID) {
-                    if (rbu.canReviewDotNet(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
-                        applicationProcessing();
-                    } else {
-                        throw new NavigationException("Sorry, you can not review this project because " +
-                                "you are not a .Net reviewer");
-                    }
-                } else if (catalog == Constants.FLASH_CATALOG_ID) {
-                    if (rbu.canReviewFlash(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
-                        applicationProcessing();
-                    } else {
-                        throw new NavigationException("Sorry, you can not review this project because " +
-                                "you are not a Flash reviewer");
-                    }
+                if (rba.exists(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, phaseId)) {
+                    throw new NavigationException("You have already applied to review this project.");
                 } else {
-                    throw new TCWebException("unknown catalog found " + catalog);
-                }
+                    if (catalog == Constants.JAVA_CATALOG_ID) {
+                        if (rbu.canReviewJava(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                            applicationProcessing();
+                        } else {
+                            throw new NavigationException("Sorry, you can not review this project because " +
+                                    "you are not a Java reviewer");
+                        }
+                    } else if (catalog == Constants.DOT_NET_CATALOG_ID) {
+                        if (rbu.canReviewDotNet(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                            applicationProcessing();
+                        } else {
+                            throw new NavigationException("Sorry, you can not review this project because " +
+                                    "you are not a .Net reviewer");
+                        }
+                    } else if (catalog == Constants.FLASH_CATALOG_ID) {
+                        if (rbu.canReviewFlash(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                            applicationProcessing();
+                        } else {
+                            throw new NavigationException("Sorry, you can not review this project because " +
+                                    "you are not a Flash reviewer");
+                        }
+                    } else {
+                        throw new TCWebException("unknown catalog found " + catalog);
+                    }
 
-                //put the terms text in the request
-                TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
-                setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+                    //put the terms text in the request
+                    TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
+                    setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+                }
 
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
