@@ -59,7 +59,6 @@
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
                             <tr><td valign="middle" height="18" bgcolor="#43515E" class="statText"><strong>Great Jobs at TopCoder</strong></td></tr>
-                            <tr><td valign="middle" height="18" class="bodyText">Jobs</td></tr>
                         </table>
                         
 <!-- Client Job List begins -->
