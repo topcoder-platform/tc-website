@@ -78,11 +78,11 @@
                                 <p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
-                                        We do not have a notarized affidavit from you on file. View a <a href="/?&amp;t=affidavit&amp;c=2003_open_affidavit">
+                                        We do not have a notarized affidavit from you on file. View a <a href="/?&amp;t=affidavit&amp;c=2003_comp_open_affidavit">
                                         printable version</a> of your affidavit.  This affidavit must be notarized and returned to us at the address below.
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        View a <a href="/?&amp;t=affidavit&amp;c=2003_open_affidavit">printable version</a> of your affidavit.  Please read
+                                        View a <a href="/?&amp;t=affidavit&amp;c=2003_comp_open_affidavit">printable version</a> of your affidavit.  Please read
                                         the affidavit, sign it and return it to us at the address below.  Note that you do not have to have this affidavit
                                         notarized because we already have a notorized affidavit on file for you.
                                     </xsl:otherwise>
@@ -118,7 +118,7 @@
                                 <li>
                                 <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by Midnight, Eastern Time, Wednesday, November 12th:</p>
 
-                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_open_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
+                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_comp_open_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
                                 </li>
 
                                 <li>

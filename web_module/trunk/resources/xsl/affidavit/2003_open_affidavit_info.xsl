@@ -93,7 +93,7 @@
                                 </li>
                                 <li>
                                 <p>
-                                    <strong>2003 TOPCODER OPEN QUESTIONNAIRE</strong> - Form must be completed and submitted by Midnight, Eastern Time, Wednesday, Novemeber 12th:
+                                    <strong>2003 TOPCODER OPEN QUESTIONNAIRE</strong> - Form must be completed and submitted by Midnight, Eastern Time, Wednesday, November 12th:
                                     View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=201">2003 TopCoder Open Questionnaire</a>.  Complete ALL questions.
                                 </p>
                                 </li>
