@@ -94,7 +94,7 @@ abstract public class PRBase extends Base {
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow)it.next();
             result = new ProblemRatingResult();
-            result.setName(row.getStringItem("question"));
+            result.setName(row.getStringItem("name"));
             ArrayList frequencies = new ArrayList(10);
             for (int i=1; i<11; i++) {
                 frequencies.add(row.getItem("rating_"+i).getResultData());

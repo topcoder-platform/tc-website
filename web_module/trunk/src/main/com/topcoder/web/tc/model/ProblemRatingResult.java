@@ -44,5 +44,11 @@ public class ProblemRatingResult {
         return buf.substring(0, buf.length() - 1);  //skip that last comma
     }
 
+    /**
+     * @return
+     */
+    public String getkeyValueString() {
+        return name+"="+getList();
+    }
 
 }
