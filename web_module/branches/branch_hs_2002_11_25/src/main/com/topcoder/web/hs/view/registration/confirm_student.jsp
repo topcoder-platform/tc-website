@@ -18,6 +18,7 @@
  <INPUT TYPE="hidden" NAME="confirm_email" VALUE="<jsp:getProperty name="student" property="ConfirmEmail"/>">
  <INPUT TYPE="hidden" NAME="editor" VALUE="<jsp:getProperty name="student" property="EditorId"/>">
  <INPUT TYPE="hidden" NAME="language" VALUE="<jsp:getProperty name="student" property="LanguageId"/>">
+ <INPUT TYPE="hidden" NAME="terms" VALUE="true">
  <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1" ALIGN="center">
   <TR VALIG="middle">
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle">&nbsp;</TD>
