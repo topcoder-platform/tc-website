@@ -7,7 +7,7 @@
           com.topcoder.web.corp.common.TCESConstants" %>
 
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
-
+<%@ taglib uri="/rsc-taglib.tld" prefix="rsc"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -86,7 +86,7 @@
                     <td width="40%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></td>
                     <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>" nowrap="nowrap"><%=campaignInfo.getItem("start_date").toString()%></td>
                     <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>" nowrap="nowrap"><%=campaignInfo.getItem("end_date").toString()%></td>
-                    <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>" nowrap="nowrap"><%=campaignInfo.getItem("most_recent_hit").toString()%></td>
+                    <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>" nowrap="nowrap"><rsc:item row="<%=campaignInfo%>" name="most_recent_hit" format="MM/dd/yyyy"/></td>
                 </tr>
 
                 </tces:rowIterator>
