@@ -75,7 +75,7 @@
       <rmic classname="com.topcoder.server.distCache.CacheServerSyncImpl" base="${classes}"/>
    </target>
 
-   <target name="deploy" depends="servlets,moveStruts,moveReg">
+   <target name="deploy" depends="servlets,jsp,moveStruts,moveReg">
    </target>
 
    <target name="servlets" depends="compile">
