@@ -1,7 +1,5 @@
 package com.topcoder.web.query.servlet.jsp.tag;
 
-import com.topcoder.shared.util.logging.Logger;
-
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -9,8 +7,6 @@ import java.util.List;
 import java.util.Iterator;
 
 public abstract class Select extends TagSupport {
-
-    private static Logger log = Logger.getLogger(Select.class);
 
     private String name = null;
     private String value = null;
@@ -54,7 +50,6 @@ public abstract class Select extends TagSupport {
     }
 
     public int doEndTag() throws JspException {
-        log.debug("doEndTag called...");
         try {
             JspWriter out = pageContext.getOut();
             if (selectedOnly) {
