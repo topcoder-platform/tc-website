@@ -447,9 +447,9 @@ SELECT j.job_id,
        j.job_desc,
        COUNT(*) AS hit_count,
        MAX(jh.timestamp) AS most_recent
-  FROM job j,
-       job_hit jh,
-       campaign_job_xref cjx
+  FROM job j
+     , campaign_job_xref cjx
+     , OUTER job_hit jh
  WHERE cjx.campaign_id = @cid@
    AND cjx.status_id = 1
    AND j.job_id = cjx.job_id
