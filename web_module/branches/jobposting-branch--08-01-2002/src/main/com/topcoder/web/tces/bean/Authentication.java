@@ -18,38 +18,41 @@ public class Authentication implements Serializable {
 
 
     public static boolean attemptLogin(String handle, String password, InitialContext ctx, HttpSession session) {
-        Authentication auth = new Authentication();
+        try {
+            Authentication auth = new Authentication();
 
-        auth.setUserId(USER_NOT_LOGGED_IN);
+            auth.setUserId(USER_NOT_LOGGED_IN);
 
-        Request dataRequest = new Request();
-        dataRequest.setContentHandle("tces_user_and_pw");
-        dataRequest.setProperty("hn", handle );
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
-        Map resultMap = dai.getData(dataRequest);
-        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
+            Request dataRequest = new Request();
+            dataRequest.setContentHandle("tces_user_and_pw");
+            dataRequest.setProperty("hn", handle );
+            DataAccessInt dai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+            Map resultMap = dai.getData(dataRequest);
+            ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
 
-        if (rsc.getRowCount() == 0) {
-            auth.setErrorMessage("Incorrect handle.  Please retry.");
-            return false;
+            if (rsc.getRowCount() == 0) {
+                auth.setErrorMessage("Incorrect handle.  Please retry.");
+                return false;
+            }
+
+            ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
+            String actualPassword = rRow.getItem("password").toString();
+            if (actualPassword == null) {
+                auth.setErrorMessage("Incorrect login.  Please retry.");
+                return false;
+            }
+
+            if (!actualPassword.trim().equals(password.trim())) {
+                auth.setErrorMessage("Incorrect password.  Please retry.");
+                return false;
+            }
+
+            // record in this session that we have authenticated a user.
+
+            auth.setUserId( ((Long)rRow.getItem("user_id").getResultData()).intValue() );
+            return true;
+        } catch (Exception e) {
         }
-
-        ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
-        String actualPassword = rRow.getItem("password").toString();
-        if (actualPassword == null) {
-            auth.setErrorMessage("Incorrect login.  Please retry.");
-            return false;
-        }
-
-        if (!actualPassword.trim().equals(password.trim())) {
-            auth.setErrorMessage("Incorrect password.  Please retry.");
-            return false;
-        }
-
-        // record in this session that we have authenticated a user.
-
-        auth.setUserId( ((Long)rRow.getItem("user_id").getResultData()).intValue() );
-        return true;
     }
 
     public static boolean isLoggedIn(HttpSession session) {
@@ -83,7 +86,7 @@ public class Authentication implements Serializable {
         return auth.errorMessage;
     }
 
-    private int setUserId(int userId) {
+    private void setUserId(int userId) {
         this.userId=userId;
     }
 
