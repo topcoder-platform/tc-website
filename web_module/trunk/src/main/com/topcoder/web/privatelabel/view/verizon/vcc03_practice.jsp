@@ -64,7 +64,7 @@
 
                         <h2 class="pgTitle">Practice Arena</h2>
 
-                        <p>Click <a href="Javascript:openWin('?module=Static&d1=verizon&d2=vcc03_quick_launch','comp',300,350);">here</a> to run the Practice Arena as a Java Applet.<br/><br/> 
+                        <p>Click <a href="Javascript:openWin('?module=Static&d1=verizon&d2=vcc03_quick_launch','comp',300,310);">here</a> to run the Practice Arena as a Java Applet.<br/><br/> 
                         
                         Click <a href="http://www.topcoder.com/contest/arena/ContestAppletVerizon.jnlp">here</a> to run the Practice Arena as a Java Web Start Application.<br/><br/> 
                         Note: If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html">here</a>.<br/><br/> 
