@@ -62,31 +62,14 @@
 
 
 
-<P><B>SOFTWARE ENGINEER</B><br/>
-The platform storage software team designs system software for NVIDIA's Athlon motherboard chipsets (nForce, nForce2,  nForce3 Pro).  We work on cutting-edge storage technologies actively used by millions of enthusiasts.  We are looking for a brilliant and enthusiastic candidate who is excited about taking consumer disk performance to the next level.</P>
+<P><B>SYSTEM SOFTWARE ENGINEER</B><br/>
+Systems Software supports NVIDIA's new high performance chipset business. They are generalists, with a deep understanding of the today's PC architecture, including bus protocols such as PCI, AGP, USB and 1394, and CPU booting, arbitration, and cache management protocols.  System Engineers program down to the metal, and are comfortable around hardware specs. They write software for Networking, Audio, IDE, SMBus and other hardware, and implement support for modern PC standards such as ACPI and OnNow.
+<br/><br/>
+Minimum GPA:  3.8
+<br/><br/>
+Candidates should have a solid engineering background and understanding of good code methodology.  Strong C programming skills with assembly experience.  Will have shown initiative in pursuing independent coding projects.  Having experience writing code to directly control hardware is a plus.</P>
 
-<p>Responsibilities:</p>
-<ul>
-<li>Windows driver development for nForce platform chipset  storage solutions (ATA, ATAPI, Serial ATA,  RAID)</li>
-<li>Storage system performance benchmarking and optimization</li>
-<li>Bringup and emulation of next generation chipset hardware</li>
-</ul>
-
-<p>Requirements:</p>
-<ul>
-<li>MS or BS in Computer or Electrical Engineering.</li>
-</ul>
-
-<p>Candidate must have experience in the following areas:</p>
-<ul>
-<li>System software development in C and C++</li>
-<li>Extensive knowledge of filesystems and disk performance</li>
-<li>Knowledge of PC hardware architecture and bus standards (FSB, PCI, ATA)</li>
-<li>Thorough understanding of modern OS design and performance issues (multiprocessing, packet based communications, memory management, synchronization)</li>
-<li>Windows driver experience a plus</li>
-</ul>
-
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=194&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=195&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           

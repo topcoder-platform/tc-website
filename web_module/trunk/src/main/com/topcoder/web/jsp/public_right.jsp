@@ -27,12 +27,16 @@ function find(n) {
 --%>
 
 <!-- Member Profiles, Search Pages, and Private Label Events Pages begins -->
-<% if ((level1.equals("profile")) | (level1.equals("search")) | (level1.equals("privatelabel"))) { %>
+<% if ((level1.equals("profile")) | (level1.equals("search")) | (level1.equals("tournament")) | (level1.equals("privatelabel"))) { %>
 
           <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
             
             
        		<A href="/?&t=tces&c=yahoo"><img src="/i/tournament/tccc04/yahoo/right_promo.gif" alt="Title Sponsor of the TCCC" width="170" height="103" border="0" /></A><br/>
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />	
+            
+       		<A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=sponsor_nvidia"><img src="/i/tournament/tccc04/promo_sm_nvidia.gif" alt="Premier Sponsor of the TCCC" width="170" height="95" border="0" /></A><br/>
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />	
             
