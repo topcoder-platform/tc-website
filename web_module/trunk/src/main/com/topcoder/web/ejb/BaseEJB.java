@@ -49,7 +49,7 @@ public abstract class BaseEJB implements SessionBean {
         this.ctx = ctx;
     }
 
-    protected int insert(String tableName, String[] colNames, String[] colValues, String dataSource) {
+    protected int insert(String tableName, String[] colNames, String[] colValues, String dataSource) throws EJBException {
         if (colNames.length!=colValues.length)
             throw new IllegalArgumentException("name and value arrays don't have the same number of elements.");
         else {
@@ -95,7 +95,7 @@ public abstract class BaseEJB implements SessionBean {
     }
 
 
-    protected int delete(String tableName, String[] colNames, String[] colValues, String dataSource) {
+    protected int delete(String tableName, String[] colNames, String[] colValues, String dataSource) throws EJBException {
         if (colNames.length!=colValues.length)
             throw new IllegalArgumentException("name and value arrays don't have the same number of elements.");
         else {
@@ -134,7 +134,7 @@ public abstract class BaseEJB implements SessionBean {
         }
     }
 
-    protected int update(String tableName, String[] colNames, String[] colValues, String dataSource) {
+    protected int update(String tableName, String[] colNames, String[] colValues, String dataSource) throws EJBException {
         if (colNames.length!=colValues.length)
             throw new IllegalArgumentException("name and value arrays don't have the same number of elements.");
         else {
@@ -173,7 +173,7 @@ public abstract class BaseEJB implements SessionBean {
         }
     }
 
-    protected Integer selectInt(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) {
+    protected Integer selectInt(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) throws EJBException {
         String sRet = selectString(tableName, colName, colNames, colValues, dataSource);
         Integer ret = null;
         if (!(sRet==null||sRet.equals(""))) {
@@ -182,7 +182,7 @@ public abstract class BaseEJB implements SessionBean {
         return ret;
     }
 
-    protected Long selectLong(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) {
+    protected Long selectLong(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) throws EJBException {
         String sRet = selectString(tableName, colName, colNames, colValues, dataSource);
         Long ret = null;
         if (!(sRet==null||sRet.equals(""))) {
@@ -191,7 +191,7 @@ public abstract class BaseEJB implements SessionBean {
         return ret;
     }
 
-    protected String selectString(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) {
+    protected String selectString(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) throws EJBException {
         if (colNames.length!=colValues.length)
             throw new IllegalArgumentException("name and value arrays don't have the same number of elements.");
         else {
