@@ -61,7 +61,7 @@
               <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%>
               <BR>
               <%= MemberInfo.getItem(0, "address1").toString()%>
-              <%= MemberInfo.getItem(0, "address1").toString().equals("")?"":"<BR>"+MemberInfo.getItem(0, "address2").toString()+"<BR>"%>
+              <%= MemberInfo.getItem(0, "address2").toString().equals("")?"<BR>":"<BR>"+MemberInfo.getItem(0, "address2").toString()+"<BR>"%>
               <%= MemberInfo.getItem(0, "city").toString()%>,
               <%= MemberInfo.getItem(0, "state_code").toString()%>
               <%= MemberInfo.getItem(0, "zip").toString()%>
