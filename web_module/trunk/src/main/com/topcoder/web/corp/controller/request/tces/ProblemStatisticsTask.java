@@ -136,6 +136,15 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
                     " does not belong to uid=" + Long.toString(uid));
         }
 
+        if (isRestrictedCampaign(getCampaignID())) {
+            if (!getRoundIds(getCampaignID()).contains(new Long(getRoundId()))) {
+                throw new NotAuthorizedException(" cid=" + Integer.toString(getCampaignID()) +
+                        " rd=" + getRoundId() +
+                        " does not belong to uid=" + Long.toString(uid));
+            }
+        }
+
+
         resultMap = getDataAccess(getDw()).getData(dataRequest);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Coder_Problem_Stats");
