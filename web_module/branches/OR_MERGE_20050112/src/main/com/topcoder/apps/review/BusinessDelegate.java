@@ -46,151 +46,151 @@ public final class BusinessDelegate {
     // --------------------------------------------------------- Public Methods
 
     /**
-	 * Set whether to use mockup data.
+     * Set whether to use mockup data.
      *
      * @param useMockup Whether to use mockup data.
-	 */
-	public void setUseMockup(boolean useMockup)
-	{
+     */
+    public void setUseMockup(boolean useMockup)
+    {
         this.useMockup = useMockup;
-	}
+    }
 
-	/**
-	 * Process the login and return the result.
+    /**
+     * Process the login and return the result.
      *
-	 * @param data The input action data.
-	 * @return the result of login.
-	 */
-	public ResultData login(ActionData data)
-	{
+     * @param data The input action data.
+     * @return the result of login.
+     */
+    public ResultData login(ActionData data)
+    {
         if (useMockup) {
             return new FEMockupData().login(data);
-		} else {
+        } else {
             return new Login().start(data);
         }
-	}
+    }
 
-	/**
-	 * Return the my open projects information.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the my open projects information.
+     *
+     * @param data The input action data.
      * @return the my open projects information.
-	 */
-	public ResultData viewMyOpenProjects(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData viewMyOpenProjects(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().viewMyOpenProjects(data);
-		} else {
+        } else {
             return new ViewMyOpenProjects().start(data);
         }
-	}
+    }
 
-	/**
-	 * Return the all projects information.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the all projects information.
+     *
+     * @param data The input action data.
      * @return the all projects information.
-	 */
-	public ResultData viewAllOpenProjects(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData viewAllOpenProjects(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().viewAllOpenProjects(data);
-		} else {
+        } else {
             return new ViewAllProjects().start(data);
         }
-	}
+    }
 
-	/**
-	 * Return the project detail information.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the project detail information.
+     *
+     * @param data The input action data.
      * @return the project detail information.
-	 */
-	public ResultData projectDetail(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData projectDetail(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().projectDetail(data);
-		} else {
+        } else {
             return new ProjectDetail().start(data);
         }
-	}
+    }
 
-	/**
-	 * Submit the solution.
-	 *
-	 * @param data The input action data.
+    /**
+     * Submit the solution.
+     *
+     * @param data The input action data.
      * @return the result of submission.
-	 */
-	public ResultData submitSolution(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData submitSolution(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().submitSolution(data);
-		} else {
+        } else {
             return new SubmitSolution().start(data);
         }
-	}
+    }
 
-	/**
-	 * Sent the message to project manager.
-	 *
-	 * @param data The input action data.
+    /**
+     * Sent the message to project manager.
+     *
+     * @param data The input action data.
      * @return the result of sending.
-	 */
-	public ResultData sendContactPM(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData sendContactPM(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().sendContactPM(data);
-		} else {
+        } else {
             return new ContactProductManager().start(data);
         }
-	}
+    }
 
-	/**
-	 * Return the screening scorecard list.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the screening scorecard list.
+     *
+     * @param data The input action data.
      * @return the screening scorecard list.
-	 */
-	public ResultData getScreeningList(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData getScreeningList(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().getScreeningList(data);
-		} else {
+        } else {
             return new RetrieveScreeningScorecards().start(data);
         }
-	}
+    }
 
-	/**
-	 * Return the screening scorecard.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the screening scorecard.
+     *
+     * @param data The input action data.
      * @return the screening scorecard.
-	 */
-	public ResultData screeningScorecard(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData screeningScorecard(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().screeningScorecard(data);
-		} else {
+        } else {
             return new ScreenProject().start(data);
         }
-	}
+    }
 
-	/**
-	 * Return the review scorecard list.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the review scorecard list.
+     *
+     * @param data The input action data.
      * @return the review scorecard list.
-	 */
-	public ResultData getReviewList(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData getReviewList(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().getReviewList(data);
-		} else {
+        } else {
             return new RetrieveReviewScorecards().start(data);
         }
-	}
+    }
 
-	/**
+    /**
      * Return the review scorecard.
      *
      * @param data The input action data.
@@ -199,25 +199,25 @@ public final class BusinessDelegate {
     public ResultData reviewScorecard(ActionData data) {
         if (useMockup) {
             return new FEMockupData().reviewScorecard(data);
-		} else {
+        } else {
             return new ReviewProject().start(data);
         }
     }
 
-	/**
-	 * Return the test case review list.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the test case review list.
+     *
+     * @param data The input action data.
      * @return the test case review list.
-	 */
-	public ResultData testCaseReviews(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData testCaseReviews(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().testCaseReviews(data);
-		} else {
+        } else {
             return new com.topcoder.apps.review.TestCaseReview().start(data);
         }
-	}
+    }
 
     /**
      * Return the aggregation worksheet.
@@ -228,7 +228,7 @@ public final class BusinessDelegate {
     public ResultData aggregationWorksheet(ActionData data) {
         if (useMockup) {
             return new FEMockupData().aggregationWorksheet(data);
-		} else {
+        } else {
             return new AggregateProject().start(data);
         }
     }
@@ -242,25 +242,25 @@ public final class BusinessDelegate {
     public ResultData aggregationReview(ActionData data) {
         if (useMockup) {
             return new FEMockupData().aggregationReview(data);
-		} else {
+        } else {
             return new ReviewAggregate().start(data);
         }
     }
 
-	/**
-	 * Submit the final fix.
-	 *
-	 * @param data The input action data.
+    /**
+     * Submit the final fix.
+     *
+     * @param data The input action data.
      * @return the result of submission.
-	 */
-	public ResultData submitFinalFix(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData submitFinalFix(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().submitFinalFix(data);
-		} else {
+        } else {
             return new SubmitFinalFix().start(data);
         }
-	}
+    }
 
     /**
      * Return the final review.
@@ -271,7 +271,7 @@ public final class BusinessDelegate {
     public ResultData finalReview(ActionData data) {
         if (useMockup) {
             return new FEMockupData().finalReview(data);
-		} else {
+        } else {
             return new com.topcoder.apps.review.FinalReview().start(data);
         }
     }
@@ -285,7 +285,7 @@ public final class BusinessDelegate {
     public ResultData projectAdmin(ActionData data) {
         if (useMockup) {
             return new FEMockupData().projectAdmin(data);
-		} else {
+        } else {
             return new ProjectAdministration().start(data);
         }
     }
@@ -299,7 +299,7 @@ public final class BusinessDelegate {
     public ResultData submissionDownload(ActionData data) {
         if (useMockup) {
             return new FEMockupData().submissionDownload(data);
-		} else {
+        } else {
             return new SubmissionDownload().start(data);
         }
     }
@@ -460,7 +460,10 @@ public final class BusinessDelegate {
                     return new String[] {"PM Review", ""};
                 }
             }
+/* by cucu
         } else if (phaseId == Constants.PHASE_APPEALS) {
+*/
+        } else if ((phaseId == Constants.PHASE_APPEALS) || (phaseId == Constants.PHASE_APPEALS_RESPONSE)) {
             // Appeals
             if (roleId == Constants.ROLE_DESINGER_DEVELOPER) {
                 // Designer / Developer
@@ -1175,9 +1178,9 @@ public final class BusinessDelegate {
      */
     public ResultData getTestCases(ActionData data) {
         if (useMockup) {
-			// TODO Fix mockup?
+            // TODO Fix mockup?
             return null;
-		} else {
+        } else {
             return new RetrieveTestCases().start(data);
         }
     }
@@ -1189,28 +1192,28 @@ public final class BusinessDelegate {
      */
     public ResultData testCasesDownload(ActionData data) {
         if (useMockup) {
-			// TODO Fix mockup?
+            // TODO Fix mockup?
             return null;
-		} else {
+        } else {
             return new TestCasesDownload().start(data);
         }
     }
 
     /**
-	 * Submit the testcases.
-	 *
-	 * @param data The input action data.
+     * Submit the testcases.
+     *
+     * @param data The input action data.
      * @return the result of submission.
-	 */
-	public ResultData submitTestCases(ActionData data)
-	{
-		if (useMockup) {
-			// TODO Fix mockup?
+     */
+    public ResultData submitTestCases(ActionData data)
+    {
+        if (useMockup) {
+            // TODO Fix mockup?
             return null;
-		} else {
+        } else {
             return new SubmitTestCases().start(data);
         }
-	}
+    }
 
     public ScorecardTemplate[] getScorecardTemplates() {
         if (useMockup) {
