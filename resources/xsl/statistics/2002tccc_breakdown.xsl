@@ -80,6 +80,16 @@
 <AREA SHAPE="rect" ALT="" COORDS="8,53,117,74" HREF="/stat?c=member_profile&amp;cr=262935" CLASS="coderTextRed"/>
 <AREA SHAPE="rect" ALT="" COORDS="9,25,117,48" HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed"/>
 </MAP>
+
+<!-- Semifinal breakdown by regions --> 
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BACKGROUND="/i/steel_darkblue_bg.gif">   
+  <TR>
+    <TD VALIGN="top" align="center"><A HREF="/?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/sunsemi1_sm.gif" ALT="" WIDTH="267" HEIGHT="161" BORDER="0" VSPACE="5"/><IMG SRC="/i/sunsemi2_sm.gif" ALT="" WIDTH="217" HEIGHT="161" BORDER="0" VSPACE="5"/></A></TD>
+    <!-- <TD VALIGN="top" COLSPAN="2" ALIGN="left" BGCOLOR="#FFFFFF"></TD> -->
+  </TR> 
+</TABLE>
+
+
 <!-- Favs, Cinder, Who to Watch --> 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BACKGROUND="/i/steel_darkblue_bg.gif">  
   <TR>  
