@@ -218,7 +218,7 @@
       </move>
 
       <property name="mock.trgt"     value="${public_html}/hs" />
-      <property name="mock.src"      value="${web}/hs/mock_view" />
+      <property name="mock.src"      value="${web}/hs/view" />
 
       <mkdir dir="${mock.trgt}" /> 
 
