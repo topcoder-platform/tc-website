@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br/>
+                        <img src="/i/m/Eeyore_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=273434"><strong>Eeyore</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,13 +19,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tccc04_online_rd_3">TCCC04 Round 3 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, March 10, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm186_prob">SRM 186 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Saturday, March 13, 2004</p>
 
                         <p>
-It must be tournament time. I've never seen so many reds open and abandon multiple problems. Of the fifty advancers, at least fourteen abandoned either the easy or the medium problem. And at the end of the night, seven reds and yellows were left with all three problems open, but unsubmitted. Congratulations to bstanescu, who rode two problems and a challenge to victory!
+The dragon roars again! On a Saturday when his chief rival was away,
+<b>SnapDragon</b> came from behind to take the round and, as his reward
+for weeks of consistent coding excellence, to recapture the number-one
+ranking from <b>tomek</b>. Will he be king of the hill for long? 
 
-                       <a href="/?t=statistics&amp;c=tccc04_online_rd_3" class="bodyText"><strong>full&#160;story</strong></a>
+                       <a href="/?t=statistics&amp;c=srm186_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
