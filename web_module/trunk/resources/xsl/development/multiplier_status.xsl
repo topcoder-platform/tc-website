@@ -103,7 +103,7 @@
                         </li>
                         <li>
                             As with the standard competition, 1st and 2nd place is limited to those submissions that pass screening <br />
-                           and receive a review score greater than 75.  
+                           and receive a review score greater than 75.   
                         </li>
                         </ul>
 
