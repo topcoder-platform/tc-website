@@ -102,7 +102,7 @@ public class Submit extends View {
                 if (st.hasMoreTokens()) {
                     questionId = Long.parseLong(st.nextToken());
                 }
-                errorKey = AnswerInput.PREFIX+questionId;
+                errorKey = AnswerInput.PREFIX + questionId;
                 if (question == null) {
                     question = findQuestion(questionId);
                     if (question == null) {
@@ -144,22 +144,20 @@ public class Submit extends View {
                         }
                     }
                 }
-                if (!hasErrors()) {
-                    SurveyResponse response = new SurveyResponse();
-                    response.setQuestionId(question.getId());
-                    response.setUserId(getUser().getId());
-                    if (isFreeForm(question)) {
-                        String text = StringUtils.checkNull(values[i]).trim();
-                        if (text.length()!=0) {
-                            response.setText(StringUtils.checkNull(values[i]));
-                            response.setFreeForm(true);
-                            ret.add(response);
-                        }
-                    } else {
-                        response.setAnswerId(answerId);
-                        response.setFreeForm(false);
+                SurveyResponse response = new SurveyResponse();
+                response.setQuestionId(question.getId());
+                response.setUserId(getUser().getId());
+                if (isFreeForm(question)) {
+                    String text = StringUtils.checkNull(values[i]).trim();
+                    if (text.length() != 0) {
+                        response.setText(StringUtils.checkNull(values[i]));
+                        response.setFreeForm(true);
                         ret.add(response);
                     }
+                } else {
+                    response.setAnswerId(answerId);
+                    response.setFreeForm(false);
+                    ret.add(response);
                 }
             }
         }
@@ -193,13 +191,13 @@ public class Submit extends View {
     private void setDefaults(List responses) {
         SurveyResponse r = null;
         for (Iterator it = responses.iterator(); it.hasNext();) {
-            r = (SurveyResponse)it.next();
-            if (findQuestion(r.getQuestionId()).getStyleId()==Question.MULTIPLE_CHOICE) {
-                setDefault(AnswerInput.PREFIX+r.getQuestionId()+","+r.getAnswerId(), "true");
+            r = (SurveyResponse) it.next();
+            if (findQuestion(r.getQuestionId()).getStyleId() == Question.MULTIPLE_CHOICE) {
+                setDefault(AnswerInput.PREFIX + r.getQuestionId() + "," + r.getAnswerId(), "true");
             } else if (r.isFreeForm()) {
-                setDefault(AnswerInput.PREFIX+r.getQuestionId(), r.getText());
+                setDefault(AnswerInput.PREFIX + r.getQuestionId(), r.getText());
             } else {
-                setDefault(AnswerInput.PREFIX+r.getQuestionId(), new Long(r.getAnswerId()));
+                setDefault(AnswerInput.PREFIX + r.getQuestionId(), new Long(r.getAnswerId()));
             }
         }
     }
@@ -210,9 +208,9 @@ public class Submit extends View {
         InitialContext ctx = null;
         try {
             ctx = new InitialContext();
-            Response response = (Response)createEJB(ctx, Response.class);
+            Response response = (Response) createEJB(ctx, Response.class);
             for (Iterator it = questionInfo.iterator(); it.hasNext();) {
-                q = (Question)it.next();
+                q = (Question) it.next();
                 ret |= response.exists(getUser().getId(), q.getId());
             }
         } finally {
