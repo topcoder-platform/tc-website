@@ -20,8 +20,16 @@ final class LoggerLog4j127 extends com.topcoder.shared.util.logging.Logger {
         logger.info(message);
     }
 
+    public void info(Object message, Throwable t) {
+        logger.info(message, t);
+    }
+
     public void warn(Object message) {
         logger.warn(message);
+    }
+
+    public void warn(Object message, Throwable t) {
+        logger.warn(message, t);
     }
 
     public void error(Object message) {

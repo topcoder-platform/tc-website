@@ -22,8 +22,16 @@ final class LoggerLog4j11 extends Logger {
         category.info(message);
     }
 
+    public void info(Object message, Throwable t) {
+        category.info(message, t);
+    }
+
     public void warn(Object message) {
         category.warn(message);
+    }
+
+    public void warn(Object message, Throwable t) {
+        category.warn(message, t);
     }
 
     public void error(Object message) {

@@ -43,8 +43,22 @@ public abstract class Logger {
     /**
      *
      * @param message
+     * @param t
+     */
+    public abstract void info(Object message, Throwable t);
+
+    /**
+     *
+     * @param message
      */
     public abstract void warn(Object message);
+
+    /**
+     *
+     * @param message
+     * @param t
+     */
+    public abstract void warn(Object message, Throwable t);
 
     /**
      *
