@@ -110,7 +110,7 @@ while (strtok.hasMoreTokens()){
               		<% 
                             // jeddie 09/05/02
                             // stBuffer.toString()
-                            out.println(problem.toHTML(JavaLanguage.JAVA_LANGUAGE, false));
+                            problem.toHTML(JavaLanguage.JAVA_LANGUAGE, false);
                         %>
                    </TD>
                  </TR>
