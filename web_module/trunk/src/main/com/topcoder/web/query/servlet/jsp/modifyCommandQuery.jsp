@@ -48,8 +48,8 @@
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandQueryTask%>" key="<%=Constants.COMMAND_ID_PARAM%>"/></TD></TR>
             <TR>
               <TD COLSPAN="2">
-                <TABLE WIDTH="100%" BGCOLOR="#333333" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-                  <TR>
+                <TABLE WIDTH="100%" BGCOLOR="#000000" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                  <TR BGCOLOR="#333333">
                     <TD CLASS="statTextBig"></TD>
                     <TD CLASS="statTextBig">Query</TD>
                     <TD CLASS="statTextBig">Sort Order</TD>
