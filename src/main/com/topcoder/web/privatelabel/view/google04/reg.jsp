@@ -119,7 +119,7 @@ function submitEnter(e) {
                 </td>
             </tr>
 
-            <%if(!regInfo.isNew()) { %>
+            <%if(regInfo.isNew()) { %>
             <tr>
                 <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br/></tc-webtag:errorIterator>
