@@ -76,7 +76,7 @@ public class StudentRegistration extends Base {
       }
 
       Map data=(Map)request.getAttribute("STUDENT_DATA");
-      data.put("state_schools",schools);
+      data.put("school_list",schools);
       request.setAttribute("STUDENT_DATA",data);
 
     }
@@ -119,7 +119,6 @@ public class StudentRegistration extends Base {
     preserveNonNullParameter("first_name","FIRST_NAME");
     preserveNonNullParameter("last_name","LAST_NAME");
     preserveParameter("state_code","STATE_CODE");
-    preserveParameter("school_id","SCHOOL_ID");
     preserveIntegerParameter("school_id","SCHOOL_ID");
     preserveNonNullParameter("handle","HANDLE");
     preserveNonNullParameter("email","EMAIL");
