@@ -49,7 +49,9 @@ public class TransactionInfo {
     private String rcVeriSign = null;
     private Exception tcExc = null;
     private String terms = null;
+    private long termsId = 0;
     private boolean agreed = false;
+    private boolean fromEligibleCountry = false;
     private Set rolesPerProduct = null;
 
     private static final int TIME_UNIT_TYPE_ID = 1;
@@ -283,6 +285,14 @@ public class TransactionInfo {
         this.terms = terms;
     }
 
+    public long getTermsId() {
+        return termsId;
+    }
+
+    public void setTermsId(long termsId) {
+        this.termsId = termsId;
+    }
+
     public boolean hasAgreed() {
         return agreed;
     }
@@ -290,7 +300,15 @@ public class TransactionInfo {
     public void setAgreed(boolean agreed) {
         this.agreed = agreed;
     }
-    
+
+    public boolean isFromEligibleCountry() {
+        return fromEligibleCountry;
+    }
+
+    public void setFromEligibleCountry(boolean fromEligibleCountry) {
+        this.fromEligibleCountry = fromEligibleCountry;
+    }
+
     /**
      * by djFD 03/19/2003
      * 
