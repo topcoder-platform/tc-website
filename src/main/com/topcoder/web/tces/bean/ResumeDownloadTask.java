@@ -58,7 +58,7 @@ public class ResumeDownloadTask extends BaseTask {
         Map oltpResultMap = oltp.getData(oltpDataRequest);
 
         ResultSetContainer oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Verify_Member_Access");
-        if (oltpRSC.getRowCount() == 0) {
+        if (oltpRSC.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
             throw new Exception (" mid="+Integer.toString(getMemberId())
                                  + " jid="+Integer.toString(getJobId())
                                  + " cid="+Integer.toString(getCampaignId())

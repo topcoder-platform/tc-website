@@ -217,7 +217,9 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
             throw new Exception("No company name!");
         }
         ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
-        setCompanyName(cmpyNameRow.getItem("company_name").toString());
+     	if (super.getSessionInfo().isAdmin())
+			setCompanyName(TCESConstants.ADMIN_COMPANY);
+		else setCompanyName(cmpyNameRow.getItem("company_name").toString());
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
         if (rsc.getRowCount() == 0) {
@@ -234,7 +236,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
         setCampaignName(cpgnInfRow.getItem("campaign_name").toString());
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
-        if (rsc.getRowCount() == 0) {
+        if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
             throw new TCESAuthenticationException("jid=" + Integer.toString(getJobID()) +
                     " cid=" + Integer.toString(getCampaignID()) +
                     "does not belong to uid=" + Long.toString(uid));

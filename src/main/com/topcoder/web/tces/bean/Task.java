@@ -1,6 +1,7 @@
 package com.topcoder.web.tces.bean;
 
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.corp.model.SessionInfo;
 
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
@@ -76,5 +77,9 @@ public interface Task {
     void setServletPath(String servletPath);
 
     String getServletPath();
+
+    void setSessionInfo(SessionInfo info);
+
+    SessionInfo getSessionInfo();
 }
 

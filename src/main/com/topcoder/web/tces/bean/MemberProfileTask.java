@@ -368,7 +368,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         // verify that campaign/job/tces user have access to this members's info.
         ResultSetContainer oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Verify_Member_Access");
-        if (oltpRSC.getRowCount() == 0) {
+        if (oltpRSC.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
             throw new TCESAuthenticationException(" mid=" + Integer.toString(getMemberID())
                     + " jid=" + Integer.toString(getJobID())
                     + " cid=" + Integer.toString(getCampaignID())
@@ -378,7 +378,9 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         // start packaging data for presentation.
 
         oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Company_Name");
-        setCompanyName(oltpRSC.getItem(0, "company_name").toString());
+        if (super.getSessionInfo().isAdmin())
+			setCompanyName(TCESConstants.ADMIN_COMPANY);
+		else setCompanyName(oltpRSC.getItem(0, "company_name").toString());
 
         oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Position_Name");
         setJobName(oltpRSC.getItem(0, "job_desc").toString());

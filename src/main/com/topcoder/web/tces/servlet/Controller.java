@@ -13,6 +13,7 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.corp.Util;
+import com.topcoder.web.corp.model.SessionInfo;
 import com.topcoder.web.corp.request.Login;
 import com.topcoder.web.tces.bean.Task;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
@@ -26,6 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.Enumeration;
+import java.util.Set;
 
 
 /**
@@ -86,6 +88,7 @@ public class Controller extends HttpServlet {
         String taskStepName = request.getParameter(TCESConstants.STEP_PARAM);
 
         InitialContext ctx = null;
+        SessionInfo info = null;
         try {
             ctx = (InitialContext) TCContext.getInitial();
 
@@ -107,6 +110,12 @@ public class Controller extends HttpServlet {
                         authToken.getActiveUser().getId()
                 );
                 Authorization authorize = new TCSAuthorization(tcUser);
+
+                info = new SessionInfo();
+                request.setAttribute("SessionInfo", info);
+                Set groups = ((TCSAuthorization)authorize).getGroups();
+                info.setAll(authToken.getActiveUser(), groups);
+
                 Resource taskResource = new SimpleResource(taskClassName);
                 if (!authorize.hasPermission(taskResource)) {
                     if (authToken.getActiveUser().isAnonymous()) {
@@ -114,7 +123,7 @@ public class Controller extends HttpServlet {
                                 "Anonymous user does not have permision");
                     }
                     throw new NotAuthorizedException(
-                            "User not Authorized for access to resource: "
+                            "User " + tcUser.getUserId() + " not Authorized for access to resource: "
                             + taskName);
                 }
 
@@ -124,6 +133,7 @@ public class Controller extends HttpServlet {
                 taskClass = Class.forName(taskClassName);
                 task = (Task) taskClass.newInstance();
                 task.setInitialContext(ctx);
+                task.setSessionInfo(info);
 
                 Enumeration parameterNames = request.getParameterNames();
                 while (parameterNames.hasMoreElements()) {
@@ -219,6 +229,7 @@ public class Controller extends HttpServlet {
                                     HttpServletResponse response, Throwable exception,
                                     boolean authorizeError) throws ServletException, IOException {
 
+        exception.printStackTrace();
         request.setAttribute("caught-exception", exception);
         if (!authorizeError) {
             log.error("Controller error - going to error page", exception);

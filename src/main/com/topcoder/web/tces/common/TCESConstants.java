@@ -112,6 +112,8 @@ public class TCESConstants {
     public static String MEM_RATING_MOSTRECENT_KEY = "mostrecent";
     public static String MEM_RATING_AVGPOINTS_KEY = "avgpoints";
 
+    public static final String ADMIN_COMPANY = "Admin Access";
+
     public static String[] MEM_RATING_STATSBYLEVEL_KEYS = {"level_desc",
                                                            "num_presented",
                                                            "num_submitted",

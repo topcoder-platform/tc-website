@@ -101,40 +101,44 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
     private void viewMain() throws Exception {
         Request dataRequest = new Request();
-        dataRequest.setContentHandle("tces_main");
+        ResultSetContainer rsc = null;
 
-        log.debug("Database Source: " + DBMS.OLTP_DATASOURCE_NAME + " User ID:" + uid);
+        if (super.getSessionInfo().isAdmin()) {
+            dataRequest.setContentHandle("tces_admin_main");
+            DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            Map resultMap = dai.getData(dataRequest);
 
-        dataRequest.setProperty("uid", Long.toString(uid));
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-        Map resultMap = dai.getData(dataRequest);
-        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
+            rsc = (ResultSetContainer) resultMap.get("TCES_Admin_Campaign_List");
 
-        if (rsc.getRowCount() == 0) {
-            throw new Exception("No company name found for user id #" + uid);
-        }
+            setCompanyName(TCESConstants.ADMIN_COMPANY);
+            setHasManyCompanies(true);
+            setCampaignInfoList(rsc);
 
-        ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
+        } else {
+            dataRequest.setContentHandle("tces_main");
 
-        setCompanyName(TCData.getTCString(rRow, "company_name"));
+            log.debug("Database Source: " + DBMS.OLTP_DATASOURCE_NAME + " User ID:" + uid);
 
-        rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_List");
+            dataRequest.setProperty("uid", Long.toString(uid));
+            DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            Map resultMap = dai.getData(dataRequest);
+            rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
 
-        setHasManyCompanies(false);
-        if (!rsc.isEmpty()) {
-            int firstCompany = -1;
-            firstCompany = Integer.parseInt(rsc.getItem(0, "company_id").toString());
-            int companyId = -1;
-            /* figure out if there are more than one companies in this compaign list */
-            for (int i = 0; i < rsc.size() && !hasManyCompanies(); i++) {
-                companyId = Integer.parseInt(rsc.getItem(i, "company_id").toString());
-                if (companyId != firstCompany) {
-                    setHasManyCompanies(true);
-                }
+            if (rsc.getRowCount() == 0) {
+                throw new Exception("No company name found for user id #" + uid);
             }
-        }
 
-        setCampaignInfoList(rsc);
+            ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
+
+            setCompanyName(TCData.getTCString(rRow, "company_name"));
+
+            rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_List");
+
+            setHasManyCompanies(false);
+
+            setCampaignInfoList(rsc);
+
+        }
 
         setNextPage(TCESConstants.MAIN_PAGE);
     }
