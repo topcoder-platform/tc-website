@@ -151,7 +151,7 @@
                                 <li>Updated Use Case Diagrams if required</li>
                                 <li>Sequence Diagrams - Interactions between application classes and components</li>
                                 <li>Class Diagrams - Intrerfaces between application level interaction</li>
-                                <il>Application Design Specification Document</il>
+                                <li>Application Design Specification Document</li>
                                 <li>Test Plan</li>
                                 <li>Development Plan</li>
                             </ul></li>
