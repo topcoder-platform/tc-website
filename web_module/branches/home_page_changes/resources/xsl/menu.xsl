@@ -31,11 +31,7 @@
         </td>
 
 
-        <td class="topNav" nowrap="0"><A class="topLink"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/></xsl:attribute>Software</A></td>
-
-        <td class="topNav" nowrap="0"><A  class="topLink"><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=tces_home</xsl:attribute>Employment Services</A></td>
-
-        <td class="topNav" nowrap="0"><A  class="topLink"><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=index</xsl:attribute>Marketing Services</A></td>
+        <td class="topNav" nowrap="0"><A class="topLink" href="/corp/?module=Static&amp;d1=corp&amp;d2=index">Corporate Services</A></td>
 
         <td class="topNav" width="49%">&#160;</td>
     </tr>
