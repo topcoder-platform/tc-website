@@ -65,12 +65,12 @@
 			<tc-webtag:item row="<%=resultRow%>" name="first_name"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
 			<tc-webtag:item row="<%=resultRow%>" name="last_name"/></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>"> <A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&editUser=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>		
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>"> <A HREF="<%=appContext%>/?module=create-edit&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>		
 	  </TR>
 	</tc-webtag:iterator>
 
 	<TR>
-		<TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr" CLASS="bodyText">Add</A></TD>		
+		<TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=appContext%>/?module=create-edit" CLASS="bodyText">Add</A></TD>		
 	</TR>				
 </TABLE>
 <P><BR/></P>    
