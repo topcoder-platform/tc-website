@@ -80,21 +80,7 @@
                         <a href="/contest/classes/TZTester/TZTester.jar" class="statText">TZTester.jar Plugin</a></p>
 
                         <hr width="100%" noshade="noshade" color="#666666" />
-                        
-                        <p class="statText">
-                        Plugin Name: <strong>RonProc</strong><br />
-                        Description: A plugin to extract test cases enabling automated solution testing.<br />
-                        Author: b0b0b0b<br />
-                        Date: 10/21/2002<br />
-                        <a href="/contest/classes/RonProc/RonProc.html" class="statText">Documentation</a><br />
-                        Version: 1.00b13b<br />
-                        <a href="/contest/classes/RonProc/RonProc.java" class="statText">Source code</a><br />
-                        EntryPoint: codeprocessor.EntryPoint (case sensitive)<br />
-                        ClassPath: CodeProcessor.jar; FileEdit.jar; ProblemParser.jar<br />
-                        <a href="/contest/classes/RonProc/RonProc.jar" class="statText">RonProc.jar Plugin</a></p>
-
-                        <hr width="100%" noshade="noshade" color="#666666" />
-                        
+                    
                         <p class="statText">
                         Plugin Name: <strong>ProblemParser</strong><br />
                         Description: A plugin to parse the problem statement.<br />
