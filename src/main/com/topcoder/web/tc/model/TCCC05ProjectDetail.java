@@ -19,6 +19,7 @@ public class TCCC05ProjectDetail implements Serializable {
     private double score;
     private int userID;
     private String payment;
+    private String submitTimestamp;
     
     /** Creates a new instance of TC04OverallResult */
     public TCCC05ProjectDetail() {
@@ -28,15 +29,25 @@ public class TCCC05ProjectDetail implements Serializable {
         score = 0;
         userID = 0;
         payment = "";
+        submitTimestamp = "";
     }
     
-    public TCCC05ProjectDetail(String h, int pts, String pl, double sc, int u, String pay) {
+    public TCCC05ProjectDetail(String h, int pts, String pl, double sc, int u, String pay, String sub) {
         handle = h;
         points = pts;
         placed = pl;
         score = sc;
         userID = u;
         payment = pay;
+        submitTimestamp = sub;
+    }
+    
+    public String getSubmitTimestamp() {
+        return submitTimestamp;
+    }
+    
+    public void setSubmitTimestamp(String s) {
+        this.submitTimestamp = s;
     }
     
     public String getPayment() {
