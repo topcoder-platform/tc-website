@@ -9,7 +9,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <jsp:useBean id="prices" scope="request" class="java.util.List"/>
-<jsp:useBean id="projectList" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"/>
+<%ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
 <%--<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>--%>
 
 <%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>

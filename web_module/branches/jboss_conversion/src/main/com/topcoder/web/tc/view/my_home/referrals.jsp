@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -7,7 +8,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:include page="../../script.jsp" />
-<jsp:useBean id="referralList" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+<% ResultSetContainer referralList = (ResultSetContainer)request.getAttribute("referralList");%>
 
 </head>
 

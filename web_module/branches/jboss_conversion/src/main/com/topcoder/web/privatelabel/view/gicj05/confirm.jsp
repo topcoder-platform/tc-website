@@ -1,11 +1,13 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.List,
+                 java.util.Map"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="/privatelabel.tld" prefix="pl" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.ResumeRegInfo" scope="session" />
-<jsp:useBean id="responseList" class="java.util.List" scope="request" />
-<jsp:useBean id="questionMap" class="java.util.Map" scope="request" />
+<% List responseList = (List)request.getAttribute("responseList");%>
+<% Map questionMap = (Map)request.getAttribute("questionMap");%>
 <html>
 <head>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>

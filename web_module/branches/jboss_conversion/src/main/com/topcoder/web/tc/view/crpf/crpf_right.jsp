@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ page language="java" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%ResultSetContainer donationTotal = (ResultSetContainer )request.getAttribute("donationTotal");%>
+<%ResultSetContainer donationTotal = (ResultSetContainer)request.getAttribute("donationTotal");%>
 
 <SCRIPT LANGUAGE="JavaScript">
 <!--

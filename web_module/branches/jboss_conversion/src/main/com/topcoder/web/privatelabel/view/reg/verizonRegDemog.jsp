@@ -2,12 +2,13 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.privatelabel.view.tag.DemographicInput,
-                 com.topcoder.web.common.BaseProcessor" %>
+                 com.topcoder.web.common.BaseProcessor,
+                 java.util.List" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="/privatelabel.tld" prefix="pl" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
-<jsp:useBean id="questionList" class="java.util.List" scope="request" />
+<% List questionList = (List)request.getAttribute("questionList");%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>

@@ -1,8 +1,11 @@
+<%@ page import="java.util.List"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<jsp:useBean id="questionInfo" scope="request" class="java.util.List" />
+<% List questionInfo = (List)request.getAttribute("questionInfo");%>
+
+
 <html>
 
 <head>

@@ -1,19 +1,22 @@
-<%@ page import="com.topcoder.web.tc.model.ProblemRatingResult"%>
+<%@ page import="com.topcoder.web.tc.model.ProblemRatingResult,
+                 java.util.List"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc-tags" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<jsp:useBean id="problemRatingResults" scope="request" class="java.util.List" />
-<jsp:useBean id="overallDistribution" scope="request" class="java.util.List" />
-<jsp:useBean id="div1Distribution" scope="request" class="java.util.List" />
-<jsp:useBean id="div2Distribution" scope="request" class="java.util.List" />
+<% List problemRatingResults = (List)request.getAttribute("problemRatingResults");%>
+<% List overallDistribution = (List)request.getAttribute("overallDistribution");%>
+<% List div1Distribution = (List)request.getAttribute("div1Distribution");%>
+<% List div2Distribution = (List)request.getAttribute("div2Distribution");%>
+
+
 <%
     int count = 0;
     int div1Count = 0;
     int div2Count = 0;
 %>
-<html> 
+<html>
 <head>
 <title>TopCoder Problem Rating Results - <%=request.getAttribute("problemName")%></title>
 <jsp:include page="../script.jsp"/>
