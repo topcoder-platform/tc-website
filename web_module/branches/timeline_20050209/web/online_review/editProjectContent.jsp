@@ -74,10 +74,6 @@
 
 
 
-
-
-
-
 <!-- Time Line -->
                 
             <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
@@ -89,7 +85,7 @@
                 </tr>
                 <tr>
                     <td class="timelineTitleCenter" width="1"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
-                    <logic:iterate id="phaseInstance" name="project" property="timeline">
+                    <logic:iterate id="phaseInstance" name="projectForm" property="timeline">
                         <td class="timelineTitleCenter" width="12%">
                             <bean:define id="phaseName" name="phaseInstance" property="phase.name" />
 			    <html:radio property="currentPhase" value="<%=phaseName.toString()%>" />
