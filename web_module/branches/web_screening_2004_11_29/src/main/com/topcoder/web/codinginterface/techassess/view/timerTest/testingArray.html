@@ -71,14 +71,12 @@
                 
                 for(var i = 0; i < getLength("document.frmTesting", "listBox.options") ; i++) {
                     var val = getOption("document.frmTesting", "listBox", i).text;
-                    alert(val);
                     val = replace(val, "\\", "\\\\");
                     val = replace(val, "\"", "\\\"");
                     arr = arr + "\"" + val + "\",";
                 }
                 
                 arr = arr.substring(0, arr.length-1);
-                alert(arr);
                 
                 putValue("window.opener.opener.document.forms[0]", "arg" + arg, arr);
                 putValue("window.opener.document.forms[0]", "arg" + arg + "input", "modify");
@@ -302,8 +300,8 @@
                                 var newVal = getOption("document.frmTesting", "listBox", i).text;
                                 var newSelected = getOption("document.frmTesting", "listBox", i).selected;
 
-                                putOption("document.frmTesting", "listBox", i+1, new Option(newVal, newVal, newSelected));
-                                putOption("document.frmTesting", "listBox", i, new Option(temp, temp, tempSelected));
+                                putOption("document.frmTesting", "listBox", i+1, new Option(newVal, newVal, newSelected,newSelected));
+                                putOption("document.frmTesting", "listBox", i, new Option(temp, temp, tempSelected,tempSelected));
                             }
                         }
                     } else {
@@ -330,8 +328,8 @@
                                 var newVal = getOption("document.frmTesting", "listBox", i).text;
                                 var newSelected = getOption("document.frmTesting", "listBox", i).selected;
 
-                                putOption("document.frmTesting", "listBox", i-1, new Option(newVal, newVal, newSelected));
-                                putOption("document.frmTesting", "listBox", i, new Option(temp, temp, tempSelected));
+                                putOption("document.frmTesting", "listBox", i-1, new Option(newVal, newVal, newSelected,newSelected));
+                                putOption("document.frmTesting", "listBox", i, new Option(temp, temp, tempSelected,tempSelected));
                             }
                         }
                     } else {
