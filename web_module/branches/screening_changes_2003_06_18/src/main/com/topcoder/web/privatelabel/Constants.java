@@ -33,6 +33,7 @@ public class Constants {
     public static String STATE_CODE;
     public static String CITY;
     public static String ZIP;
+    public static String MODULE_KEY;
 
     //rules
     public static int MAX_PASSWORD_LENGTH;
@@ -41,6 +42,12 @@ public class Constants {
     public static int MIN_HANDLE_LENGTH;
     public static String HANDLE_ALPHABET;
     public static int MAX_EMAIL_LENGTH;
+
+    //processors
+    public static String REGISTRATION_MAIN;
+    public static String REGISTRATION_CONFIRM;
+    public static String REGISTRATION_SUBMIT;
+
 
     //DB's
     public static String REGISTRATION_DB;

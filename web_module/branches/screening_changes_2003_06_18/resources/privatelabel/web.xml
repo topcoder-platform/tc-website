@@ -170,6 +170,29 @@
             <description></description>
         </init-param>
 
+        <!-- processors -->
+        <init-param>
+            <param-name>registration_main</param-name>
+            <param-value>Registration</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>registration_main</param-name>
+            <param-value>Registration</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>registration_confirm</param-name>
+            <param-value>RegistrationConfirm</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>registration_submit</param-name>
+            <param-value>RegistrationSubmit</param-value>
+            <description></description>
+        </init-param>
+
+
 
 
     </servlet>
