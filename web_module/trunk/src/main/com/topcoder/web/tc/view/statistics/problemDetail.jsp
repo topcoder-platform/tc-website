@@ -237,6 +237,23 @@
                    </rsc:iterator>
                  </tr>
                  <tr>
+                   <td class="statText">Top Submission</td>
+                   <rsc:iterator list="<%=div1Lang%>" id="resultRow">
+                     <td class="statText">
+                     <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
+                         <a href="/stat?c=problem_solution&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
+                     <% } %>
+                     </td>
+                   </rsc:iterator>
+                   <rsc:iterator list="<%=div1Overall%>" id="resultRow">
+                     <td class="statText">
+                     <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
+                         <a href="/stat?c=problem_solution&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
+                     <% } %>
+                     </td>
+                   </rsc:iterator>
+                 </tr>
+                 <tr>
                    <td class="statText">Average Correct Time</td>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
                      <td class="statText"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %></td>
@@ -347,6 +364,23 @@
                      <td class="statText">
                      <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
                          <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
+                     <% } %>
+                     </td>
+                   </rsc:iterator>
+                 </tr>
+                 <tr>
+                   <td class="statText">Top Submission</td>
+                   <rsc:iterator list="<%=div2Lang%>" id="resultRow">
+                     <td class="statText">
+                     <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
+                         <a href="/stat?c=problem_solution&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
+                     <% } %>
+                     </td>
+                   </rsc:iterator>
+                   <rsc:iterator list="<%=div2Overall%>" id="resultRow">
+                     <td class="statText">
+                     <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
+                         <a href="/stat?c=problem_solution&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
                      <% } %>
                      </td>
                    </rsc:iterator>
