@@ -10,6 +10,7 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 
 import java.io.InputStream;
+import java.io.File;
 
 /**
  *
@@ -70,6 +71,14 @@ public class ServerMonitorBot {
                     }
                 } else {
                     fiveone = true;
+                }
+                
+                //delete file
+                try {
+                    File f = new File("index.html");
+                    f.delete();
+                } catch (Exception e) {
+                    
                 }
 
                 /*String[] callAndArgs2 = {"wget",
