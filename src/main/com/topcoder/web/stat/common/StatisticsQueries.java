@@ -7,6 +7,10 @@ package com.topcoder.web.stat.common;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.2  2002/05/09 03:15:28  steveb
+ *           Added STRING data type constant
+ *           SB
+ *
  *           Revision 1.1.1.1  2002/04/02 17:20:38  steveb
  *           initial web load into cvs
  *
