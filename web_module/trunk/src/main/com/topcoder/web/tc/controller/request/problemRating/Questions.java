@@ -26,7 +26,7 @@ public class Questions extends Base {
             Map qMap = dataAccess.getData(r);
             ResultSetContainer ratings = (ResultSetContainer) qMap.get("problem rated");
             if(ratings.getRow(0).getIntItem("count")!=0){
-                setNextPage(Constants.PROBLEM_RATING_RESULTS);
+                setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingResults&" + Constants.PROBLEM_ID + "=" + request.getParameter("pid"));
                 setIsNextPageInContext(true);
                 return;
             }
