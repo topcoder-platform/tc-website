@@ -12,7 +12,6 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.shared.util.*;
-import com.topcoder.web.corp.ejb.coder.*;
 import com.topcoder.web.ejb.sessionprofile.*;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 
@@ -23,6 +22,8 @@ import com.topcoder.web.ejb.session.SessionHome;
 import com.topcoder.web.ejb.session.SessionSegment;
 import com.topcoder.web.ejb.session.SessionSegmentHome;
 import com.topcoder.web.corp.common.ScreeningException;
+import com.topcoder.web.corp.ejb.coder.Coder;
+import com.topcoder.web.corp.ejb.coder.CompanyCandidate;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -68,10 +69,7 @@ public class Submit extends FullRegSubmit {
         long ret = super.storeWithoutCoder(regInfo);
 
         //need to add coder record to avoid breaking a bunch of foreign keys
-        CoderHome cHome = (CoderHome)
-                PortableRemoteObject.narrow(
-                        getInitialContext().lookup(CoderHome.class.getName()), CoderHome.class);
-        Coder coder = cHome.create();
+        Coder coder = (Coder)createEJB(getInitialContext(),Coder.class);
         coder.createCoder(newUser.getId(), 1);
 
         super.setCoderType(ret, ((FullRegInfo) regInfo).getCoderType());
@@ -129,11 +127,7 @@ public class Submit extends FullRegSubmit {
 
             try {
                 //placed here to fix transaction woes.
-                CompanyCandidateHome ccHome = (CompanyCandidateHome)
-                        PortableRemoteObject.narrow(
-                                getInitialContext().lookup(CompanyCandidateHome.class.getName()),
-                                CompanyCandidateHome.class);
-                CompanyCandidate candidate = ccHome.create();
+                CompanyCandidate candidate = (CompanyCandidate)createEJB(getInitialContext(), CompanyCandidate.class);
 
                 long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
 

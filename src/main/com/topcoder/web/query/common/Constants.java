@@ -174,14 +174,10 @@ public class Constants {
         DB_LIST.add(new DatabaseBean("TCS_CATALOG", "TCS Catalog"));
         DB_LIST.add(new DatabaseBean("CORP_DS", "Corporate"));
         DB_LIST.add(new DatabaseBean("SCREENING_OLTP", "Screening"));
-        DB_LIST.add(new DatabaseBean("HS_OLTP", "HS Transactional"));
-        DB_LIST.add(new DatabaseBean("HS_DW", "HS Warehouse"));
-        DB_LIST.add(new DatabaseBean("VERIZON_OLTP", "Verizon"));
-        DB_LIST.add(new DatabaseBean("VERIZON_DW", "Verizon DW"));
         DB_LIST.add(new DatabaseBean("GOOGLE_OLTP", "Google"));
         DB_LIST.add(new DatabaseBean("GOOGLE_DW", "Google DW"));
-        DB_LIST.add(new DatabaseBean("DC_OLTP", "DoubleClick"));
-        DB_LIST.add(new DatabaseBean("DC_DW", "DoubleClick DW"));
+        DB_LIST.add(new DatabaseBean("GOOGLE_INDIA_OLTP", "Google India"));
+        DB_LIST.add(new DatabaseBean("GOOGLE_INDIA_DW", "Google India DW"));
     }
 
 }
