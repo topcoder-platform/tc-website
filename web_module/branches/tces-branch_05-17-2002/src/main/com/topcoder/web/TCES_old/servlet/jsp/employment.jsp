@@ -117,9 +117,32 @@ String endYear = "";
 
 <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
 
+<tr>
+<td class="statTextBig" width="45%" align="right" valign="middle"><img src="/i/clear.gif" width="150" height="2" border="0"></td>
+<td width="2%"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td width="53%" colspan="3" class="statTextBig" align="left" valign="middle">Required fields are in <b>bold</b></td>
+</tr>
+  
+<tr valign="middle">
+<td colspan="5" class="statText" valign="middle">&nbsp;</td>
+</tr>    
+  
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Education</td>
+</tr>
+  
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
+</tr>
+    
+<tr>
+<td><img src="/i/clear.gif" height="1" width="1" border="0"></td>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td colspan="3" class="errorText" align="left" valign="middle"></td>
+</tr>
 
 <tr>
-<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Company</b>&nbsp;</td>
+<td width="45%" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Company</b>&nbsp;</td>
 <td colspan="4" class="statTextBig" align="left" valign="middle"><img src="/i/clear.gif" width="1" height="1" border="0"><input type="text" name="firstName" value ="<%= company %>" size="30" maxlength="30"></td>
 </tr>
 
