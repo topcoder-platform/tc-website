@@ -55,39 +55,6 @@ if (rsc!=null && !rsc.isEmpty()) {
   problem.setProblemComponents(arrProblemComponent);
 }
 
-
-/* jeddie 09/05/02 - Don't need to make problem-text readable since we're using the ProblemComponentRenderer
-//here is where we make the problem-text readable
-int i=-1;
-while((i = sProblemText.indexOf("\n\n"))>=0){
-	sProblemText = sProblemText.substring(0,i+1) + "&nbsp;" + sProblemText.substring(i+1);
-}
-java.util.StringTokenizer strtok = new java.util.StringTokenizer(sProblemText,"\n");
-StringBuffer stBuffer = new StringBuffer(sProblemText.length());
-String sTemp = "";
-boolean bAsciiArt = false;
-while (strtok.hasMoreTokens()){
-	sTemp = strtok.nextToken();
-	bAsciiArt = (sTemp.length() < 100);	 
-	for (i=0; i < sTemp.length() && sTemp.charAt(i)==' '; i++){
-		bAsciiArt = true;
-		stBuffer.append("&nbsp;");
-	}
-	sTemp = sTemp.substring(i);
-	if (!bAsciiArt) stBuffer.append(JSPUtils.htmlEncode(sTemp));
-	else{
-	for (i=0;i<sTemp.length(); i++){
-	  if (sTemp.charAt(i)==' ')
-	    stBuffer.append("&nbsp;");
-	  else if (sTemp.charAt(i)=='\t')
-	    stBuffer.append("&nbsp;&nbsp;&nbsp;");
-	  else
-	    stBuffer.append(JSPUtils.htmlEncode(sTemp.substring(i, i+1)));
-	}
-	}
-	stBuffer.append("<BR>");
-}
-*/
 %>		 
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
            <TR>
@@ -101,8 +68,11 @@ while (strtok.hasMoreTokens()){
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" COLSPAN="7" HEIGHT="18">&#160;Problem Statement for <%=sClassName%>
-                   </TD>
+                   <% if (sClassName == null) {
+                     <TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" COLSPAN="7" HEIGHT="18">&#160;</TD>
+                   <% } else { %>
+                     <TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" COLSPAN="7" HEIGHT="18">&#160;Problem Statement for <%=sClassName%></TD>
+                   <% } %>
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
