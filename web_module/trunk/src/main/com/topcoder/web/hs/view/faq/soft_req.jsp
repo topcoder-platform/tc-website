@@ -33,12 +33,11 @@
                 <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
                 
                 <tr valign="top">
-                    <td width="100%">
+                    <td width="100%" class="bodyText">
                         <h3>Software Requirements</h3><a name="top"></a>
                         
-                        <p class="bodyTextBold">What do I need to install to run the TopCoder Competition Arena?</p>
-                        
-                        <p>The online tournament rounds run in a Java applet. We have designed our utilities to utilize some of the features
+                        <p><strong>What do I need to install to run the TopCoder Competition Arena?</strong><br>
+                        The online tournament rounds run in a Java applet. We have designed our utilities to utilize some of the features
                         of Sun's 1.2 version of the JDK. This means that in order to run the applet, you will need to install a web
                         browser plug-in that allows the browser to run 1.2 applications. <a target="_blank" href="http://java.sun.com/getjava/install.html">Find out</a> 
                         which browser and operating systems are compatible with the plug-in.
