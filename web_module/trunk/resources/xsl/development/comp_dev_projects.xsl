@@ -74,7 +74,7 @@
 						<p>
 						Project: <a class="statText" href="/index?t=development&amp;c=timer_dev">Timer</a><br/>
 						Posted: 11.21.2002<br/>
-						Submission Deadline: 12.06.2002<br/>
+						Submission Deadline: 12.05.2002<br/>
 						</p>   
 
 						<p>
@@ -86,9 +86,9 @@
 
 					<td class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=unit_test_gen_dev">Unit Test Generator</a><br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=utg_dev">Unit Test Generator</a><br/>
 						Posted: 11.21.2002<br/>
-						Submission Deadline: 12.06.2002<br/>
+						Submission Deadline: 12.05.2002<br/>
 						</p>   
 
 						<p>
@@ -98,16 +98,6 @@
 						</p>   
 					</td>
 				</tr>
-							
-<!--				<tr><td class="statText" colspan="2"><strong>In-Progress Projects</strong></td></tr>	
-							
-				<tr valign="top">
-					<td class="statText">
-						<p>
-						There are no In-Progress Component Development postings.<br/>
-						</p>   
-					</td>
-				</tr> -->
 			</table>
 				
 			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">

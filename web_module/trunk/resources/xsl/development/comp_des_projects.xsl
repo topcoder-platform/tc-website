@@ -72,9 +72,9 @@
 				<tr valign="top">
 					<td class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=xxx">Project 1</a><br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=spell_check">Spell Check</a><br/>
 						Posted: 11.21.2002<br/>
-						Submission Deadline: xx.xx.2002<br/>
+						Submission Deadline: 12.04.2002<br/>
 						</p>   
 
 						<p>
@@ -86,9 +86,9 @@
 
 					<td class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=xxx">Project 2</a><br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=math_eval">Math Evaluator</a><br/>
 						Posted: 11.21.2002<br/>
-						Submission Deadline: xx.xx.2002<br/>
+						Submission Deadline: 12.04.2002<br/>
 						</p>   
 
 						<p>
@@ -98,17 +98,6 @@
 						</p>   
 					</td>
 				</tr>
-							
-<!--				<tr><td class="statText" colspan="2"><strong>In-Progress Projects</strong></td></tr>	
-							
-				<tr valign="top">
-					<td class="statText">
-						<p>
-						There are no In-Progress Component Design postings.<br/>
-						</p>   
-					</td>
-				</tr>  -->
-							
 			</table>
 				
 			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
