@@ -6,7 +6,6 @@ import com.topcoder.web.privatelabel.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.model.DemographicAnswer;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.servlet.request.FileUpload;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -25,10 +24,6 @@ import java.util.Iterator;
  */
 abstract class FullRegBase extends SimpleRegBase {
 
-    public FileUpload fu = null;
-    /* does this request include a resume, it's possible that there is already
-       a resume stored in the reg info in the persistor
-    */
     protected static Logger log = Logger.getLogger(FullRegBase.class);
 
     protected abstract void registrationProcessing() throws TCWebException;
@@ -40,8 +35,6 @@ abstract class FullRegBase extends SimpleRegBase {
     protected void setDefaults(FullRegInfo info) {
         super.setDefaults(info);
         setDefault(Constants.CODER_TYPE, String.valueOf(info.getCoderType()));
-        setDefault(Constants.RESUME, info.getFileName());
-        setDefault(Constants.FILE_TYPE, String.valueOf(info.getFileType()));
     }
 
     protected void checkFullRegInfo(FullRegInfo info) throws TCWebException {
@@ -50,25 +43,12 @@ abstract class FullRegBase extends SimpleRegBase {
 
     protected String getRequestParameter(String name) throws Exception {
         String ret = null;
-        if (fu==null) {
-            log.debug("getting parameter from request");
-            ret = getRequest().getParameter(name);
-        } else {
-            log.debug("getting parameter from file upload");
-            ret = fu.getParameter(name);
-        }
-        log.debug("getRequestParameter: " + name + " = " + ret);
+        ret = getRequest().getParameter(name);
         return ret;
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
         return new FullRegInfo(super.makeRegInfo());
-    }
-
-
-    public void setResume(FileUpload resume) {
-        log.debug("setting resume");
-        fu = resume;
     }
 
     protected List getQuestions() throws Exception {
