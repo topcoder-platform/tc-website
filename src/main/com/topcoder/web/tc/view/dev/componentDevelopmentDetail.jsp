@@ -184,7 +184,7 @@
                                Registration is closed.
                            <% } else { %>
                                <% if (projectDetail.getIntItem(0, "status_id")==Constants.TOURNAMENT_COMPONENT ||
-                                       projectDetail.getIntItem(0,"num_inquiries")<Constants.MAX_INQUIRIES) { %>
+                                       projectDetail.getIntItem(0,"num_inquiries")<Constants.MAX_RATED_INQUIRIES) { %>
                             <p class="bigRed">
                             **Important Note:
                             By registering to work on this project you are committing to delivering the specified requirements.  Failure to submit the project requirements by the specified date will result in a one month suspension from TopCoder design and development competitions.</p>
