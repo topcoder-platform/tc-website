@@ -10,6 +10,4 @@
                         Check out the <A class="bodyText" href="/?t=arena&amp;c=plugins">plugins</A> available for the Competition Arena
                     </td>
                 </tr>
-
-                <tr><td><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
             </table>
