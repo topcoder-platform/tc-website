@@ -1,9 +1,9 @@
-<%--                   
+<%--
 /**
  *  profile.jsp
  */
 --%>
-<%@  page 
+<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.common.web.data.report.*,
@@ -23,8 +23,7 @@
   ResultSetContainer statusList = null;
   ResultSetContainer.ResultSetRow p = null;
   ArrayList detailList = null;
-  String className = null;
-  Boolean processed = (Boolean)request.getAttribute(Constants.PROCESSED_KEY); 
+  Boolean processed = (Boolean)request.getAttribute(Constants.PROCESSED_KEY);
   if (processed!=null && processed.booleanValue()) {
     profiles = (ResultSetContainer)request.getAttribute(Constants.REPORT_PROFILE_LIST_KEY);
     detailList = (ArrayList)request.getAttribute(Constants.REPORT_PROFILE_DETAIL_KEY);
@@ -82,20 +81,6 @@
       violationList = (ResultSetContainer)((Map)detailList.get(k)).get("violations");
       statusList = (ResultSetContainer)((Map)detailList.get(k)).get("status_changed");
 
-      int rating = ((Integer)p.getItem("rating").getResultData()).intValue();
-
-      if (rating >= 2200) 
-        className = "coderTextRed";
-      else if (rating >= 1500 && rating < 2200)
-        className = "coderTextYellow";
-      else if (rating >= 1200 && rating < 1500)
-        className = "coderTextBlue";
-      else if (rating >= 900 && rating < 1200)
-        className = "coderTextGreen";
-      else if (rating >= 1 && rating < 900)
-        className = "coderTextGray";
-      else if (rating == 0) 
-        className = "coderTextWhite";
 %>
 
   <table cellpadding="0" cellspacing="0" border="0">
@@ -111,8 +96,17 @@
     <tr>
       <td colspan="3"><center><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=p%>"/>" CLASS="">View Member Profile</A></center></td>
     </tr>
-        <tr>
+    <tr>
       <td colspan="3"><center><A HREF="mailto:<rsc:item name="email" row="<%=p%>"/>" CLASS="">Send email to <rsc:item name="handle" row="<%=p%>"/></A></center></td>
+    </tr>
+    <tr>
+      <td colspan="3"><center>
+        <% if (p.getStringItem("registered_for_placement").equals("1")) { %>
+             <A HREF="/tc?module=PlacementInfoDetail&uid=<rsc:item name="user_id" row="<%=p%>"/>">View Placement Information</A>
+        <% } else { %>
+            Not registered for placement.
+        <% } %>
+      </center></td>
     </tr>
     <tr>
       <td><br/></td>
@@ -222,9 +216,9 @@
     if (!demographicList.isEmpty()) {
 %>
   <br/><br/>
-  <table cellpadding="0" cellspacing="0"> 
+  <table cellpadding="0" cellspacing="0">
     <tr><td colspan="2"><b>Demographic Information</b></td></tr>
-  
+
        <rsc:iterator list="<%=demographicList%>" id="resultRow">
          <tr>
       <td><rsc:item name="demographic_question_text" row="<%=resultRow%>"/></td>
