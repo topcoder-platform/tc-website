@@ -157,7 +157,8 @@ public class Controller extends HttpServlet {
                     task.processStep(taskStepName);
                 } catch (TCESAuthenticationException authex) {
                     log.error("User authenticated error in TCES resource." + authex.getMessage());
-                    request.setAttribute("message", "You must login to view this page.");
+                    request.setAttribute("message", "In order to continue, you must provide your user name " +
+                            "and password, even if you’ve logged in already.");
                     log.debug("login nextpage will be: " + HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
                     request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
                     Login l = new Login();

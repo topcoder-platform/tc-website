@@ -593,7 +593,8 @@ public class TransactionServlet extends HttpServlet {
     private void fetchLoginPage(HttpServletRequest request,HttpServletResponse response,WebAuthentication authToken)
             throws ServletException, IOException {
 
-        request.setAttribute("message", "You must login to view this page.");
+        request.setAttribute("message", "In order to continue, you must provide your user name and "+
+                "password, even if you’ve logged in already.");
         log.debug("login nextpage will be: " + HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
         request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
         Login l = new Login();
