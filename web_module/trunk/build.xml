@@ -842,6 +842,7 @@
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
                 <include name="privatelabel.tld"/>
+                <include name="rsc-taglib.tld"/>
             </webinf>
         </war>
     </target>
