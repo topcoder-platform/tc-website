@@ -16,6 +16,48 @@
 
     <xsl:choose>
 <!-- My TopCoder begins -->
+        <xsl:when test="/TC/Task='my_topcoder'">
+            <xsl:call-template name="left_nav_top_row" />
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
+
+                <tr>
+                    <td id="leftSubnav">
+                        <A class="leftOn" href="/Registration">Update My Profile</A>
+                    </td>
+                </tr>
+<!-- Referrals -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                        <xsl:when test="/TC/Command='referrals'">leftSubnavOn</xsl:when>
+                            <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn" href="/">Referrals</A>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="leftSubnav">
+                        <A class="leftOn" href="/tc?module=Static&amp;d1=card&amp;d2=description">Cards / Badges</A>
+                    </td>
+                </tr>
+
+                <xsl:call-template name="schedule_row"/>
+                <xsl:call-template name="stats_row"/>
+                <xsl:call-template name="feat_row"/>
+                <xsl:call-template name="events_row"/>
+                <xsl:call-template name="rtables_row"/>
+                <xsl:call-template name="tc_gear_row"/>
+                <xsl:call-template name="rules_row"/>
+            </table>
+
+            <xsl:call-template name="simple_search"/>
+            <xsl:call-template name="left_nav_btm_row"/>
+        </xsl:when>
+
 <!-- Schedule begins -->
         <xsl:when test="/TC/Task='schedule'">
             <xsl:call-template name="left_nav_top_row" />
