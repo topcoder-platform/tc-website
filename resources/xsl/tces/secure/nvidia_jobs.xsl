@@ -85,7 +85,7 @@
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Mixed Signal Design Engineer</A><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Applications Engineer </A><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Systems Engineer </A><BR/> 
-       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Analog/Mixed-Signal Design Engineer Ð Wireless </A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Analog/Mixed-Signal Design Engineer - Wireless </A><BR/>
       </TD>
   </TR>
 </TABLE>
