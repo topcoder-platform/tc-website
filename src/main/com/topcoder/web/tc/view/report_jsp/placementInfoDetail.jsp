@@ -41,7 +41,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 
             </tr>
             <tr>
-				<td align=center><p><a href="/tc?module=LegacyReprot&t=profile&ha=<%=request.getAttribute(Constants.HANDLE)%>">View Report Profile</a></p></td>
+				<td align=center><p><a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(Constants.HANDLE)%>">View Report Profile</a></p></td>
 
             </tr>
         </table>
