@@ -452,14 +452,19 @@ If you have ever played a video game, gone to a movie, or just watched a bit of 
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
 
 <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=fbi</xsl:attribute></A>  
-<IMG USEMAP="#fbi_home" SRC="/i/es/fbi/fbi_home.gif" alt="" width="244" height="160" border="0"/>  
+<IMG USEMAP="#artifact_home" SRC="/i/artifact/artifact_home.gif" alt="" width="244" height="160" border="0"/>  
   <BR/>
+<MAP NAME="artifact_home">
+<AREA ALT="Artifact Software" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact"/>
+</MAP>
+<!--  
 <map name="fbi_home">
-<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?c=round_stats&amp;rd=4350"/>
-<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4360&amp;t=schedule&amp;c=srm"/> -->
+ <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?c=round_stats&amp;rd=4350"/>
+<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4360&amp;t=schedule&amp;c=srm"/>
+<map name="artifact_home">
 <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
 <area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=fbi"/>
-</map>
+</map> -->
 <A HREF="/?&amp;t=development&amp;c=index">
 <IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>
 <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
