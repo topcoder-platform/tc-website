@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+  <tlibversion>1.0</tlibversion>
+  <jspversion>1.1</jspversion>
+  <shortname>TopCoder Query Tags</shortname>
+  <info>
+  </info>
+
+  <tag>
+    <name>rowIterator</name>
+    <tagclass>com.topcoder.web.query.servlet.jsp.tag.RowIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.query.servlet.jsp.tag.RowIteratorTagInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Tag to iterate through a ResultSetContainer
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>rowList</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>RSCTag</name>
+    <tagclass>com.topcoder.web.query.servlet.jsp.tag.RSCTag</tagclass>
+    <teiclass>com.topcoder.web.query.servlet.jsp.tag.RSCTagInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Tag to get the value of a TCResultItem
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>row</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>colName</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+
+</taglib>
