@@ -619,7 +619,7 @@ public class UserBean extends BaseEJB {
 
     }
 
-    public String getPassword(long userId, String passwrd, String dataSource) throws EJBException {
+    public String getPassword(long userId, String dataSource) throws EJBException {
         return selectString("user",
                 "password",
                 new String[] {"user_id"},
