@@ -131,6 +131,7 @@ if (!rsc.isEmpty()) {
                                 <TD COLSPAN="2" HEIGHT="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
                             </TR>
 
+<%--
                             <% if (rsr.getStringItem("school_name")!=null) { %>
                             <TR>
                                 <TD></TD>
@@ -138,6 +139,7 @@ if (!rsc.isEmpty()) {
                                 <strong><rsc:item name="school_name" row="<%=rsr%>"/></strong></TD>
                             </TR>
                             <% } %>
+--%>
 
                             <TR>
                                 <TD></TD>
