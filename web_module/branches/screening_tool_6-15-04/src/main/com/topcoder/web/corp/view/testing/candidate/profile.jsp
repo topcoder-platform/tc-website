@@ -68,7 +68,7 @@ function getProblemDetail(id) {
 
 <!-- Middle column begins -->
         <td width="100%" align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="600">
+            <table border="0" cellspacing="0" cellpadding="0" width="700">
                 <tr valign="top">
                     <td class="bodyText">
                         <p class=testHead>Candidate Info</p>
@@ -76,7 +76,7 @@ function getProblemDetail(id) {
                 </tr>
             </table>
 
-            <table cellspacing="0" cellpadding="0" width="600" class="screeningFrameNB">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
                 <tr>
                     <td valign=top class=screeningCellBG>
 
@@ -221,7 +221,7 @@ if ( MM_FlashCanPlay ) {
 
                         <%
                             int counter = 0;
-                            String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
+                            String[] cssClasses = {"screeningCellOdd", "screeningCellEven"};
                         %>
                         <screen:resultSetRowIterator id="row"
                                 list="<%=(List) request.getAttribute(Constants.CANDIDATE_DEMOGRAPHIC_INFO)%>">
@@ -229,7 +229,7 @@ if ( MM_FlashCanPlay ) {
                             <td class="<%=cssClasses[counter % 2]%>">
                                 <screen:resultSetItem row="<%=row%>" name="demographic_question_text" />
                             </td>
-                            <td class="<%=cssClasses[counter++ % 2]%>">
+                            <td class="<%=cssClasses[counter++ % 2]%>" nowrap=nowrap>
                                 <screen:resultSetItem row="<%=row%>" name="demographic_answer_text" />
                             </td>
                         </tr>
@@ -240,7 +240,7 @@ if ( MM_FlashCanPlay ) {
             </table>
 
             <!-- Notes -->
-            <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
                 <tr>
                     <td width="70%" class="screeningHeader">Notes</td>
                     <td width="15%" align="center" class="screeningHeader">Author</td>
@@ -278,7 +278,7 @@ if ( MM_FlashCanPlay ) {
                 </tr>
             </table>
 
-            <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
                 <tr>
                     <td width="30%" class="screeningHeader">Problem Name</td>
                     <td width="14%" align="center" class="screeningHeader">Language</td>
