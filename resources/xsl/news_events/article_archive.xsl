@@ -63,6 +63,8 @@
                             
                             <tr><td class="newsText"><A href="http://www.fortune.com/fortune/print/0,15935,594536,00.html" target="_blank">Geek Gods</A> [March 5 - Fortune]</td></tr> 
                             
+                            <tr><td class="newsText"><A href="http://www.masshightech.com/displayarticledetail.asp?art_id=64966&amp;cat_id=3" target="_blank">Regional programmers take the TopCoder challenge</A> [March 1 - Mass High Tech]</td></tr> 
+
                             <tr><td class="newsText"><A href="http://www.computerworld.com/developmenttopics/development/story/0,10801,89274,00.html?SKC=development-89274" target="_blank">Standards penetrate telecom industry</A> [January 26 - Computer World]</td></tr> 
                             
                             <tr><td class="newsText"><A href="http://www.digitaljournal.com/news/?articleID=3913" target="_blank">World's Top Coder Takes Home $50,000 in Computing Contest</A> [January 9 - Digital Journal.com]</td></tr> 
