@@ -174,8 +174,7 @@ public class TransactionServlet extends HttpServlet {
                     req.setAttribute(KEY_TRANSACTION_INFO, txInfo);
                     req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
                 } else {
-                    //TODO put the right page in here
-                    req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
+                    req.getRequestDispatcher(defaultPageBadCountry).forward(req, resp);
                 }
             } catch (NotAuthorizedException nae) {
                 if (auth.getUser().isAnonymous()) {
