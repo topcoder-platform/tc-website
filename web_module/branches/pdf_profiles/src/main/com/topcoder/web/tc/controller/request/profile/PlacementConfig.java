@@ -40,8 +40,6 @@ public class PlacementConfig extends BaseProcessor {
 
             setNextPage(Constants.PROFILE_CONFIG_PAGE); 
             setIsNextPageInContext(true);
-        } catch (TCWebException tce) {
-            throw tce;
         } catch (Exception e) {
             throw new TCWebException(e);
         }

@@ -57,7 +57,7 @@ List resultsList = (List)request.getAttribute("results");
         <table border=0>
             <tr>
                 <td colspan=4>
-                    <b>Search Results Here</b>
+                    <b>Search Results</b>
                 </td>
             </tr>
             <tr>
@@ -87,6 +87,7 @@ List resultsList = (List)request.getAttribute("results");
                 </td>
                 <td>
                     <a href="/tc?module=ProfileConfig&uid=<%=searchResult.getID()%>">configure</a>
+                </td>
             </tr>
             </tc:placementProfileSearchResultIterator>
         </table>
