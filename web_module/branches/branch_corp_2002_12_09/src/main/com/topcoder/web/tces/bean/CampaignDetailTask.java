@@ -164,7 +164,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
 //            throw new TCESAuthenticationException("User not authenticated for access to TCES resource.");
 //        }
 
-        User curUser = authToken.getUser();
+        User curUser = getAuthenticityToken().getUser();
         if (curUser.isAnonymous()) { 
             log.debug("User not authenticated for access to TCES resource.");
             throw new TCESAuthenticationException("User not authenticated for access to TCES resource.");
@@ -175,7 +175,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
 //            throw new TCESAuthorizationException(curUser.getUserName()+": not Authorized for access to TCES resource.");
 //      }
 
-        uid = Authentication.userLoggedIn(session);
+        uid = curUser.getId();
     }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
