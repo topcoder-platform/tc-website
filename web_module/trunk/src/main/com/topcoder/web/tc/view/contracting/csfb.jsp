@@ -69,6 +69,25 @@ GMAG AD is looking to recruit outstanding individuals for positions in London & 
 <a name="job1"></a>
 <span class="bodySubtitle">Quantitative Software Developer</span>
 <br><br>
+People focusing on the Quantitative projects in GMAG AD typically work on a partnership basis with the modelling teams within GMAG. Their projects range from helping with the integration of GMAG models into risk-management systems (the latter being managed by the IT department), to working with the modellers on technology heavy projects such as designing computationally intensive analytics software, producing & supporting user-friendly pricing sheets or the non-modelling analytics required.  Successful candidates will have strong code design/implementation skills as well as reasonable mathematical skills. 
+<br><br>
+Key requirements for the role are:
+<ul>
+<li>An undergraduate degree with honours in a science subject or a mathematical field; including Applied Mathematics, Computer Science, Engineering or Physics.</li>
+<li>Strong C++ skills.</li>
+<li>Ideal candidate will also have familiarity with COM and the Visual Studio development environment on Windows.</li>
+<li>Experience in quantitative development/analytics deployment would be desirable</li>
+<li>Good communication skills</li>
+<li>Ability to work in a team environment</li>
+<li>Financial knowledge and or advanced mathematics are a plus but not a prerequisite.</li>
+</ul>
+<a href="/tc?module=JobHit&jid=281&jt=4">Register for this position here!</a>
+<br/><br/>
+
+<hr noshade="noshade" size="1" />
+<a name="job2"></a>
+<span class="bodySubtitle">Core Infrastructure / Internal Systems Developer</span>
+<br><br>
 People focussing on the Core Infrastructure side are responsible for all the key aspects of Infrastructure for GMAG. This includes the development & maintenance of the build/test/release environment, organisation of overnight builds/test monitoring tools, routine code maintenance as well as migration to new compilers. This group also is responsible for making our code base available on non-NT platforms. 
 <br><br>
 Key requirements for the role are:
@@ -80,12 +99,12 @@ Key requirements for the role are:
 <li>Good communication skills</li>
 <li>Financial knowledge and or advanced mathematics are a plus but not a prerequisite. </li>
 </ul>
-<a href="/tc?module=JobHit&jid=281&jt=4">Register for this position here!</a>
+<a href="/tc?module=JobHit&jid=282&jt=4">Register for this position here!</a>
 <br/><br/>
 
 <hr noshade="noshade" size="1" />
-<a name="job2"></a>
-<span class="bodySubtitle">Core Infrastructure / Internal Systems Developer</span>
+<a name="job3"></a>
+<span class="bodySubtitle">Sr. Design Engineer</span>
 <br><br>
 The design group focuses on building strategic frameworks & efficiency tools for the group. This includes coming up with appropriate abstractions of our models & market data environment to help with the integration of our models into the firms risk-management system.  People in this part of the group need to have a strong understanding of trading/risk systems and also how analytics can be used within them.  
 <br><br>
@@ -98,25 +117,6 @@ Key requirements for the role are:
 <li>Good communication skills</li>
 <li>Ability to work in a team environment</li>
 <li>Financial knowledge and/or advanced mathematics are a plus but not a prerequisite.</li>
-</ul>
-<a href="/tc?module=JobHit&jid=282&jt=4">Register for this position here!</a>
-<br/><br/>
-
-<hr noshade="noshade" size="1" />
-<a name="job3"></a>
-<span class="bodySubtitle">Sr. Design Engineer</span>
-<br><br>
-People focusing on the Quantitative projects in GMAG AD typically work on a partnership basis with the modelling teams within GMAG. Their projects range from helping with the integration of GMAG models into risk-management systems (the latter being managed by the IT department), to working with the modellers on technology heavy projects such as designing computationally intensive analytics software, producing & supporting user-friendly pricing sheets or the non-modelling analytics required.  Successful candidates will have strong code design/implementation skills as well as reasonable mathematical skills. 
-<br><br>
-Key requirements for the role are:
-<ul>
-<li>An undergraduate degree with honours in a science subject or a mathematical field; including Applied Mathematics, Computer Science, Engineering or Physics.</li>
-<li>Strong C++ skills.</li>
-<li>Ideal candidate will also have familiarity with COM and the Visual Studio development environment on Windows.</li>
-<li>Experience in quantitative development/analytics deployment would be desirable</li>
-<li>Good communication skills</li>
-<li>Ability to work in a team environment</li>
-<li>Financial knowledge and or advanced mathematics are a plus but not a prerequisite.</li>
 </ul>
 <a href="/tc?module=JobHit&jid=283&jt=4">Register for this position here!</a>
 <br/><br/>
