@@ -47,16 +47,16 @@ public class QueryDataAccess implements DataAccessInt {
             Connection conn = dataSource.getConnection();
             QueryRunner qr = new QueryRunner(conn);
             Map map = qr.executeCommand(request.getProperties());
+            return map;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        } finally {
             if (conn != null && !conn.isClosed()) {
                 try {
                     conn.close();
                 } catch (Exception ce) {
-                    log.error("Failed to close connection");
-                }
-            }
-            return map;
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
+                log.error("Failed to close connection");
+             }
         }
     }
 

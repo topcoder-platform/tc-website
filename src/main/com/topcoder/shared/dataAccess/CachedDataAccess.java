@@ -98,13 +98,6 @@ public class CachedDataAccess implements DataAccessInt {
                 conn = dataSource.getConnection();
                 dr = new DataRetriever(conn);
                 map = dr.executeCommand(request.getProperties());
-                if (conn != null && !conn.isClosed()) {
-                    try {
-                        conn.close();
-                    } catch (Exception ce) {
-                        log.error("Failed to close connection");
-                    }
-                }
             }
             /* attempt to add this object to the cache */
             if (cached) {
@@ -117,6 +110,13 @@ public class CachedDataAccess implements DataAccessInt {
             return map;
         } catch (Exception e) {
             throw e;
+        } finally {
+            if (conn != null && !conn.isClosed()) {
+                try {
+                    conn.close();
+                } catch (Exception ce) {
+                log.error("Failed to close connection");
+             }
         }
     }
 

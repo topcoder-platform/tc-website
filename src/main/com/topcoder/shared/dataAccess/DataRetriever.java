@@ -160,10 +160,11 @@ public class DataRetriever implements DataRetrieverInt {
     private void closeConnections() {
         closeObject(rs);
         closeObject(ps);
-        closeObject(conn);
+// skip connection, it's passed in and should be closed outside.
+//        closeObject(conn);
         rs = null;
         ps = null;
-        conn = null;
+//        conn = null;
     }
 
     private void handleException(Exception e, String lastQuery, Map inputs) {
