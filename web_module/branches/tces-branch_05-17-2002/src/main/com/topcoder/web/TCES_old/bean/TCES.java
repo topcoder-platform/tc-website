@@ -76,48 +76,88 @@ public class TCES extends Task implements Serializable {
 			}
 			try {
 				if (currentNav.getTaskKey().equals("contact")) {
-					CoderBean beanCoder = new CoderBean();
-					coderObject.coder_id = new Long( (long)currentUser.getUserId() );
-					coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.SELECT, coderObject);
-					boolean doUpdate = false;
-					if (htParams.get("firstName") != null) {
-						coderObject.first_name = ((String[])htParams.get("firstName"))[0];
-						doUpdate = true;
-					}
-					if (htParams.get("lastName") != null) {
-						coderObject.last_name = ((String[])htParams.get("lastName"))[0];
-						doUpdate = true;
-					}
-					if (doUpdate) {
-						coderObject.state_code=null;
-						coderObject.country_code=null;
-						//coderObject.first_name=null;
-						//coderObject.last_name=null;
-						coderObject.home_phone=null;
-						coderObject.work_phone=null;
-						coderObject.address1=null;
-						coderObject.address2=null;
-						coderObject.city=null;
-						coderObject.zip=null;
-						coderObject.middle_name=null;
-						coderObject.activation_code=null;
-						coderObject.member_since=null;
-						coderObject.notify=null;
-						coderObject.quote=null;
-						coderObject.employer_search=null;
-						coderObject.relocate=null;
-						coderObject.modify_date=null;
-						coderObject.referral_id=null;
-						coderObject.editor_id=null;
-						coderObject.notify_inquiry=null;
-						coderObject.referral_user_id=null;
-						coderObject.language_id=null;
-						coderObject.coder_type_id=null;
-						coderObject.image=null;
-						coderObject.date_of_birth=null;
-						coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.UPDATE, coderObject);
-						isTaskValidated = true;
-					}
+CoderBean beanCoder = new CoderBean();
+coderObject.coder_id = new Long( (long)currentUser.getUserId() );
+coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.SELECT, coderObject);
+boolean doUpdate = false;
+
+String[] parameterValues;
+
+
+parameterValues = (String[])htParams.get("firstName");
+if (this.isValid(parameterValues)) {
+        coderObject.first_name = parameterValues[0];
+} else {
+    //xxx todo - add error redirect
+    coderObject.first_name = null;
+    isTaskValidated = false;
+}
+
+parameterValues = (String[])htParams.get("lastName");
+if (this.isValid(parameterValues)) {
+        coderObject.last_name = parameterValues[0];
+} else {
+    //xxx todo - add error redirect
+    coderObject.last_name = null;
+    isTaskValidated = false;
+}
+
+parameterValues = (String[])htParams.get("address1");
+if (this.isValid(parameterValues)) {
+        coderObject.address1 = parameterValues[0];
+} else {
+    coderObject.address1 = null;
+    //xxx todo - add error redirect
+    isTaskValidated = false;
+}
+
+parameterValues = (String[])htParams.get("address2");
+if (parameterValues != null &&
+    parameterValues.length > 0 && 
+    parameterValues[0] != null && 
+   !parameterValues[0].trim().equals("")) {
+        coderObject.address2 = parameterValues[0];
+} else {
+    coderObject.address2 = null;
+}
+
+parameterValues = (String[])htParams.get("city");
+if (parameterValues != null &&
+    parameterValues.length > 0 && 
+    parameterValues[0] != null && 
+   !parameterValues[0].trim().equals("")) {
+        coderObject.city = parameterValues[0];
+} else {
+    //xxx todo - add error redirect
+    isTaskValidated = false;
+}
+
+if (doUpdate) {
+        coderObject.state_code=null;
+        coderObject.country_code=null;
+        coderObject.home_phone=null;
+        coderObject.work_phone=null;
+        coderObject.city=null;
+        coderObject.zip=null;
+        coderObject.middle_name=null;
+        coderObject.activation_code=null;
+        coderObject.member_since=null;
+        coderObject.notify=null;
+        coderObject.quote=null;
+        coderObject.employer_search=null;
+        coderObject.relocate=null;
+        coderObject.modify_date=null;
+        coderObject.referral_id=null;
+        coderObject.editor_id=null;
+        coderObject.notify_inquiry=null;
+        coderObject.referral_user_id=null;
+        coderObject.language_id=null;
+        coderObject.coder_type_id=null;
+        coderObject.image=null;
+        coderObject.date_of_birth=null;
+        coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.UPDATE, coderObject);
+        isTaskValidated = true;
+}
 		/*
 					UserBean beanUser = new UserBean();
 					UserObject objUser = new UserObject();
@@ -152,4 +192,9 @@ public class TCES extends Task implements Serializable {
             process();
         } catch (TaskException e) {}
     }        
+    
+    //trj - add convenience function
+    private static boolean isValid(String[] s) {
+        return (s != null && s.length > 0 && s[0] != null && !s[0].trim().equals(""));
+    }
 }
