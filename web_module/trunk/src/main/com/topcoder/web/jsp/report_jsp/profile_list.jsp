@@ -26,13 +26,10 @@
   ResultSetContainer.ResultSetRow rsr = null;
   Iterator it = null;
   String[] columns = null;
-  Boolean processed = (Boolean)request.getAttribute(Constants.PROCESSED_KEY);
   m = (Map)request.getAttribute(Constants.REPORT_PROFILE_LIST_KEY);
   if (m==null) {
     m = (Map)request.getAttribute(Constants.REPORT_PROFILE_LIST_MENU_KEY);
-System.out.println(" here: \n" + m);
     if (m!=null) { 
-System.out.println(" here1: \n" + m);
       profiles = (ResultSetContainer)m.get("Profile_List");
       states = (ResultSetContainer)m.get("State_List");
       countries = (ResultSetContainer)m.get("Country_List");
@@ -268,7 +265,7 @@ System.out.println(" here1: \n" + m);
                 var ret="";
                 var list = document.profileForm.relocateAnswers;
                 for (i=0; i<list.length; i++) {
-                  if(i==list.length=1)
+                  if(i==list.length-1)
                     ret+=list[i].value;
                   else ret+=list[i].value+",";
                 }
