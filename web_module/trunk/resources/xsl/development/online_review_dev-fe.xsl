@@ -79,7 +79,7 @@ All development project teams are encouraged to use as many completed TopCoder S
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
 Application Front-End Development Project: Provide a complete front-end solution for the Online Review Application.
-Please review the TopCoder Software <a class="statText" href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.
+Please review the TopCoder Software <a class="statText" href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at <a class="statText" href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.
                         </p>
                             
 <!-- Technologies -->
@@ -133,7 +133,7 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 						All inquiries must be received by 12 PM EST on the Inquiry Deadline.  <bold>Two (2) developers will be selected</bold> from the pool of members who have inquired by the deadline.  Inquiring for a project does not guarantee selection.  The two developers selected will be contracted to submit solutions by the Initial Submission date. Selected members who fail to submit by the deadline or which earn less than fifty (50) points on the review may be suspended from TopCoder Software submissions for six (6) weeks following the submission date.  Developers will have access to an online newsgroup, where all questions submitted prior to 6PM EDT on the Initial Submission date will be answered. Following review from the board, the winning member is given until the Review Fixes Submission date to modify their submission.  Following completion of the development project, the winning developer is required to support their submission and participate in the integration of the application.
 						</p>
 
-						<p><br/>
+						<p>
 						Posting Date: 5.20.2003<br/>
 						Inquiry Deadline: 5.27.2003<br/>
 						Developers Announced: 5.27.2003<br/>
