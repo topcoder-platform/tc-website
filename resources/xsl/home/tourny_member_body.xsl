@@ -100,13 +100,22 @@
     <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="bodyText">
       <xsl:choose>
-      <xsl:when test="/TC/HOME/InvitationalInfo/IsRegistered='0'">
+      <xsl:when test="/TC/HOME/InvitationalInfo/IsRegistered='false'">
         <xsl:choose>
-        <xsl:when test="/TC/HOME/InvitationalInfo/IsEligible='0'">
-          You are not eligible to compete in the 2002 TopCoder Invitational Tournament.  There are 3 possible reasons for this.<BR/>
-          1) You are not from an eligible country.<BR/>  
-          2) You have not competed in at least 3 rated events.<BR/> 
-          3) You have not competed since March 30, 2002.
+        <xsl:when test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/is_eligible='false'">
+          <xsl:choose>
+          <xsl:when test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/in_eligible_country='false'">
+            Unfortunately you are not eligible to participate in the 2002 TopCoder Invitational Tournament because are you are from an eligible country.
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:if test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/has_enough_ratings='false'">
+              You are not eligible to compete in the 2002 TopCoder Invitational Tournament because you have not competed in at least 3 rated events.
+            </xsl:if>
+            <xsl:if test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/has_recent_competition='false'">
+              You are not eligible to compete in the 2002 TopCoder Invitational Tournament because you have not competed since March 30, 2002.
+            </xsl:if>
+          </xsl:otherwise>
+          </xsl:choose>
         </xsl:when>
         <xsl:otherwise>
 Based on your profile information and your rated event participation, you are eligible to register for the 2002 TopCoder Invitational tournament.  Even if your rating is below the current cut-off, registering for the event now will ensure that you are on the stand-by list in the event that not all of the invited members accept their invitations.<BR/><BR/>
@@ -115,7 +124,7 @@ Based on your profile information and your rated event participation, you are el
         </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
-          You are currently registered for the 2002 TopCoder Invitational.
+        You have signed up to participate in the 2002 TopCoder Invitational.  If you are one of the top 1024 rated TopCoder members on October 1, 2002 you will receive an email confirming your eligibility.
       </xsl:otherwise>
       </xsl:choose>
     </TD>
