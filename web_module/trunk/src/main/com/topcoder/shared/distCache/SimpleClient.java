@@ -178,6 +178,28 @@ public class SimpleClient {
                 System.out.println("Exception: " + e.getMessage());
                 e.printStackTrace();
             }
+        } else if (line.equals("mem")) {
+            try {
+                ArrayList al = client.getEntries();
+                ByteArrayOutputStream baos = null;
+                ObjectOutputStream oos = null;
+                long tot = 0;
+                for (int i = 0; i < al.size(); i++) {
+                    CachedValue cv = (CachedValue) (al.get(i));
+                    System.out.println("key = " + cv.getKey() + ", value = " + cv.getValue() + ", last used = " + new Date(cv.getLastUsed()));
+                    baos = new ByteArrayOutputStream();
+                    oos = new ObjectOutputStream(baos);
+                    oos.writeObject(cv.getValue());
+                    oos.flush();
+                    int size = baos.size();
+                    oos.close();
+                    tot+=size;
+                }
+                System.out.println("your bloated cache is consuming " + tot + " bytes.");
+            } catch (Exception e) {
+                System.out.println("Exception: " + e.getMessage());
+                e.printStackTrace();
+            }
         } else {
             try {
                 int pos = line.indexOf("<-");
