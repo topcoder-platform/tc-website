@@ -1,4 +1,4 @@
-package com.topcoder.web.stat.bean;
+package com.topcoder.web.hs.model;
 
 import java.util.*;
 
