@@ -681,7 +681,7 @@
     </target>
 
 <!-- hs -->
-   <target name="deploy_hs" depends="dev_war_hs,build_hs_ejbs">
+   <target name="deploy_hs" depends="war_hs,build_hs_ejbs">
    </target>
 
    <target name="build_hs_ejbs" depends="compile">
