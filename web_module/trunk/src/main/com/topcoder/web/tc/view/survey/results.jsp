@@ -81,7 +81,7 @@
                             codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
                             width=200
                             height=15
-                            border="1"
+                            border="0"
                             id="myFlash<%=question.getId()%>_<rsc:item row="<%=answer%>" name="answer_id"/>" >
                             <PARAM  NAME=movie  VALUE="/i/barGraph.swf">
                             <PARAM NAME=quality VALUE="high">
@@ -91,7 +91,7 @@
                             quality=high
                             width=200
                             height=15
-                            border="1"
+                            border="0"
                             type="application/x-shockwave-flash"
                             pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"
                             name="myFlash"
