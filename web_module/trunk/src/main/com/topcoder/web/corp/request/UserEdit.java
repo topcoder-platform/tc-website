@@ -31,7 +31,6 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import javax.transaction.Transaction;
 import javax.transaction.UserTransaction;
-import javax.transaction.TransactionManager;
 import java.rmi.RemoteException;
 import java.util.Enumeration;
 import java.util.Map;
@@ -100,7 +99,7 @@ public class UserEdit extends BaseProcessor {
         InitialContext icEJB = null;
         InitialContext secCtx = null;
         Transaction tx = null;
-        Transaction secTx = null;
+        UserTransaction secTx = null;
         try {
             mgr = Util.getPrincipalManager();
 
@@ -109,9 +108,9 @@ public class UserEdit extends BaseProcessor {
 
             secCtx = (InitialContext) TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                     ApplicationServer.SECURITY_PROVIDER_URL);
-            TransactionManager transMan = (TransactionManager) secCtx.lookup("TransactionManager");
-            transMan.begin();
-            secTx = transMan.getTransaction();
+            secTx = (UserTransaction) secCtx.lookup("UserTransaction");
+            secTx.begin();
+
             if (secTok.createNew) {
                 secTok.targetUser = createUserPrincipal();
                 targetUserID = secTok.targetUser.getId();
