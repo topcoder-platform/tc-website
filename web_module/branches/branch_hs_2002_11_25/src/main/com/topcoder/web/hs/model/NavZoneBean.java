@@ -10,7 +10,7 @@ public class NavZoneBean {
   public NavZoneBean() { }
 
   public String getZone() { return zone; }
-  public void   setZone(String zone) { this.zone = zone; }
+  public void   setZone(String zone) { this.zone = zone==null?"null":zone; }
 
   public boolean inStats() { return zone.toLowerCase().equals("stats"); }
   public boolean inFaq()   { return zone.toLowerCase().equals("faq"); }
