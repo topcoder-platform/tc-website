@@ -102,6 +102,18 @@
       <td colspan="3"><center><A HREF="mailto:<rsc:item name="email" row="<%=p%>"/>" CLASS="">Send email to <rsc:item name="handle" row="<%=p%>"/></A></center></td>
     </tr>
     <tr>
+      <td colspan="3"><center><A HREF="mailto:<rsc:item name="email" row="<%=p%>"/>" CLASS="">Send email to <rsc:item name="handle" row="<%=p%>"/></A></center>
+      </td>
+      <td colspan="3"><center>
+        <% if (p.getStringItem("has_notes").equals("1")) { %>
+             <A HREF="/tc?module=ViewNotes&uid=<rsc:item name="user_id" row="<%=p%>"/>">View Notes</A>
+        <% } else { %>
+             <A HREF="/tc?module=EditNote&uid=<rsc:item name="user_id" row="<%=p%>"/>">Add Note</A>
+        <% } %>
+        </center>
+        </td>
+    </tr>
+    <tr>
       <td><br/></td>
     </tr>
     <tr>
