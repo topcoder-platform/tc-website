@@ -19,6 +19,7 @@ public class Constants {
     public static String DEFAULT_PAGE;
 
     /* request parameters */
+    public static String PROBLEM_ID;
     public static String SURVEY_ID;
     public static String MODULE_KEY;
 
