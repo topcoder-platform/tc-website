@@ -93,7 +93,7 @@ public class SessionInfoBean implements Serializable {
             setRating(Integer.parseInt(rr.getItem("rating").toString()));
 
         } catch(Exception e) {
-            log.error("caught exception from database queries, some values left at defaults", e);
+            log.warn("caught exception from database queries, some values left at defaults", e);
         }
     }
 }

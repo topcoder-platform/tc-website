@@ -42,13 +42,14 @@ public class Controller extends HttpServlet {
         try {
             RequestProcessor rp;
 
-            log.info(request.getMethod()+" "+HttpUtils.getRequestURL(request)+" from "+request.getRemoteHost());
-
             String canonpath = request.getContextPath() + request.getServletPath();
-            log.debug("canonical path to servlet = "+canonpath);
             String query = request.getQueryString();
             String qtail = (query==null) ? ("") : ("?"+query);
-            log.debug("query from URL of request = "+qtail);
+
+            String loginfo = request.getRemoteHost()+" **** "+request.getMethod()+" "+HttpUtils.getRequestURL(request)+qtail+" ****]";
+            log.debug("[**** "+loginfo);
+            /* it gets logged again at info level once we have the user to prepend */
+            request.setAttribute(loginfo);
 
             /* and those we perhaps can */
             try {
@@ -71,10 +72,10 @@ public class Controller extends HttpServlet {
                     callProcess(rp, request, response);
 
                 } catch(PermissionException pe) {
-                    log.info("caught PermissionException");  // no stack trace to the logs
+                    log.debug("caught PermissionException");  // no stack trace to the logs
 
                     if(pe.getUser()!=null && !pe.getUser().isGuest()) {
-                        log.info("already logged in, rethrowing");
+                        log.debug("already logged in, rethrowing");
                         throw pe;
                     }
 
