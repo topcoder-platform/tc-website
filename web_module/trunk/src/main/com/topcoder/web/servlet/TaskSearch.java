@@ -21,15 +21,18 @@ import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 
 public final class TaskSearch {
@@ -321,6 +324,11 @@ public final class TaskSearch {
             throws NavigationException {
         String result = null;
         Context ctx = null;
+        DataAccessInt dai = null;
+        Request dataRequest = null;
+        ResultSetContainer rsc = null;
+        Map resultMap = null;
+
         try {
             HashMap sessionObjects = nav.getSessionObjects();
             ArrayList referrals = null;
@@ -332,12 +340,23 @@ public final class TaskSearch {
                 Search s = sHome.create();
                 referrals = s.getReferrals(nav.getUser().getUserId());
                 if (referrals != null) {
-                    CoderStatisticsHome csHome = (CoderStatisticsHome) ctx.lookup(ApplicationServer.CODER_STATISTICS);
-                    CoderStatistics cs = csHome.create();
+
+                    dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
+                    dataRequest = new Request();
+                    dataRequest.setContentHandle("member_profile");
+
+                    com.topcoder.common.web.data.stat.coder.Coder stat = null;
                     for (int i = 0; i < referrals.size(); i++) {
                         com.topcoder.common.web.data.stat.coder.Coder referral = (com.topcoder.common.web.data.stat.coder.Coder) referrals.get(i);
-                        com.topcoder.common.web.data.stat.coder.Coder stat = cs.getCoderStatistics(referral.getCoderId());
-                        if (stat != null) {
+                        dataRequest.setProperty("cr", String.valueOf(referral.getCoderId()));
+                        resultMap = dai.getData(dataRequest);
+                        rsc = (ResultSetContainer) resultMap.get("Coder_Data");
+                        if (!rsc.isEmpty()) {
+                            stat = new com.topcoder.common.web.data.stat.coder.Coder();
+                            stat.setMemberSince((java.sql.Date)rsc.getItem(0, "member_since").getResultData());
+                            stat.setHandle(rsc.getItem(0, "handle").toString());
+                            stat.setRating(((Integer)rsc.getItem(0, "rating").getResultData()).intValue());
+                            stat.setTotalEarnings(((Float)rsc.getItem(0, "total_earnings").getResultData()).floatValue());
                             referrals.remove(i);
                             referrals.add(i, stat);
                         }
