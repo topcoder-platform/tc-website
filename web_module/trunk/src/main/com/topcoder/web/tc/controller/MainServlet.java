@@ -31,14 +31,18 @@ public class MainServlet extends BaseServlet {
 
     protected SessionInfo createSessionInfo(HttpServletRequest request,
                                             WebAuthentication auth, Set groups) throws Exception {
+        //todo get rid of this junk, we end up doing all the same stuff anyway, when the navigation object
+        //goes, so does this crap
         Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
         CoderSessionInfo ret = null;
+        ret = new CoderSessionInfo(request, auth, groups);
         if (nav == null) {
-            ret = new CoderSessionInfo(request, auth, groups);
             nav = new Navigation(request, ret);
+            nav.setCoderSessionInfo(ret);
             request.getSession(true).setAttribute("navigation", nav);
         } else {
-            ret = nav.getSessionInfo();
+            nav.setCoderSessionInfo(ret);
+            request.setAttribute("navigation", nav);
         }
         return ret;
     }
