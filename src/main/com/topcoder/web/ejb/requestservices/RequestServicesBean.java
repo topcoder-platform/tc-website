@@ -23,35 +23,29 @@ public class RequestServicesBean extends BaseEJB {
             throws EJBException {
         log.debug("createRequest called. url: " + url
                 + " userId: " + userId);
-
-        Context ctx = null;
-        PreparedStatement ps = null;
-        Connection conn = null;
-
-        try {
-            StringBuffer query = new StringBuffer(180);
-            query.append("INSERT INTO request (user_id, url) ");
-            query.append("VALUES(?,?) ");
-
-            conn = DBMS.getConnection(dataSource);
-            ps = conn.prepareStatement(query.toString());
-
-            ps.setLong(1, userId);
-            ps.setString(2, url);
-
-            ps.executeUpdate();
-
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException in createNote userId: " + userId + " url: " + url);
-        } catch (Exception e) {
-            throw new EJBException("Exception in createNote userId: " + userId + " url: " + url);
-        } finally {
-            close(ps);
-            close(conn);
-            close(ctx);
+        int ret = insert("request",
+                new String[] {"user_id", "url"},
+                new String[] {String.valueOf(userId), String.valueOf(url)},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows inserted into " +
+                    "'request'. Inserted " + ret + ", " +
+                    "should have inserted 1."));
         }
     }
 
+    public void createRequest(String url, String dataSource)
+            throws EJBException {
+        log.debug("createRequest called. url: " + url);
+        int ret = insert("request",
+                new String[] {"url"},
+                new String[] {String.valueOf(url)},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows inserted into " +
+                    "'request'. Inserted " + ret + ", " +
+                    "should have inserted 1."));
+        }
+    }
 
 }
