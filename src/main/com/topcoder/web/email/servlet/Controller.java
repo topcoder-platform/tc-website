@@ -61,16 +61,10 @@ public class Controller
             String taskName = request.getParameter(EmailConstants.TASK);
             log.debug("Requested task: " + taskName);
 
-            try {
-
-                // if there's no task parameter, go home
-                if (taskName == null) {
-                    log.debug("No task parameter - going home");
-                    taskName = EmailConstants.HOME_TASK;
-                }
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-                taskName = EmailConstants.LOGIN_TASK;
+            // if there's no task parameter, go home
+            if (taskName == null) {
+                log.debug("No task parameter - going home");
+                taskName = EmailConstants.HOME_TASK;
             }
 
             String taskClassName = EmailConstants.TASK_PACKAGE + "." + taskName;
@@ -104,7 +98,7 @@ public class Controller
     }
 
     protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
-                                  boolean forward) throws Exception {
+                                          boolean forward) throws Exception {
 
         if (forward) {
             if (!dest.startsWith("/")) {
