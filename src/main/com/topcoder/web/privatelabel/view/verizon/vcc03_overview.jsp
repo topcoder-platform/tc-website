@@ -21,7 +21,7 @@
    <tr>
 
  <!-- Verizon logo-->
-        <td width="147" bgcolor="#000000" rowspan="2" valign="top"><img src="/i/events/verizon2003/logo_black_147.gif" width="147" height="140" border="0"/></td>
+        <td width="147" bgcolor="#000000" rowspan="2" valign="top"> <A href="http://www.verizon.com"> <img src="/i/events/verizon2003/logo_black_147.gif" width="147" height="140" border="0"/></A></td>
 
 <!-- Top Nav-->
         <td class="black" width="588">
