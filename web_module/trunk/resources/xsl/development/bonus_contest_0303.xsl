@@ -129,7 +129,9 @@ A.methNav:active {
                         <strong>As a TopCoder member you can earn cash, royalties, recognition... AND a $2,000 cash bonus!</strong>
 
                         <p>The TopCoder member with the highest average Architecture Review Board score for design submissions 
-                        during February and March will win a $2,000** cash bonus on top of the regular payment and royalties for each winning design solution.</p>
+                        during February and March will win a $2,000** cash bonus on top of the regular payment and royalties for each winning design solution.
+                        </p>
+                        
                     </td>
                 </tr>
             </table>
@@ -287,9 +289,14 @@ A.methNav:active {
                         <hr width="100%" noshade="noshade" color="#666666" />
                         
                         <p><strong>It's easy to enter</strong><br />
+<!--
                         Just submit designs that pass screening for a minimum of four Component Projects whose initial submission dates are 
                         between February 1, 2003 and March 31, 2003. You will be entered automatically. No need to fill out any 
-                        forms or notify us.</p>
+                        forms or notify us.
+-->                        
+                        <br/>
+                        Just submit designs that pass screening for a minimum of four Component Design Projects whose initial submission dates are between February 1, 2003 and March 31, 2003.  To pass screening, a design submission must be in the top 5 for that component and have a screening score of 75 or greater.  All submissions that pass screening will be entered into the contest.  The design submission with the highest review board score greater than or equal to 75 will be declared the component design winner for that project.  
+                        </p>
 
                         <p>Get started today... There are plenty of <a class="statText" href="index?t=development&amp;c=comp_projects">available projects</a> for you to choose from.</p>
 
