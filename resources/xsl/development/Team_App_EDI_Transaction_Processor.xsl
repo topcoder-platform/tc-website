@@ -146,7 +146,7 @@
                                                             <br/>
                                                         </p>
                                                         <p>
-                                                            Total: 15,000
+                                                            Total: $15,000
                                                         </p>
                                                         <br/>
                                                         All payments will be subject to any prize penalties that were assessed by a team during the
