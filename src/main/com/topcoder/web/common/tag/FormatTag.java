@@ -21,8 +21,13 @@ public class FormatTag  extends TagSupport {
             if (object!=null) {
                 formatter = ObjectFormatterFactory.getEmptyFormatter();
                 if (format!=null) {
-                    formatter.setFormatMethodForClass(new Date().getClass(),
-                            FormatMethodFactory.getDefaultDateFormatMethod(format), true);
+                    if (object instanceof Number) {
+                        formatter.setFormatMethodForClass(Number.class,
+                                new NumberFormatMethod(format), true);
+                    } else if (object instanceof Date) {
+                        formatter.setFormatMethodForClass(Date.class,
+                                FormatMethodFactory.getDefaultDateFormatMethod(format), true);
+                    }
                 }
                 formatter.setFormatMethodForClass(new Object().getClass(),
                         FormatMethodFactory.getDefaultObjectFormatMethod(), true);
