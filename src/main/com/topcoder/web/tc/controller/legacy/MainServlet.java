@@ -111,6 +111,9 @@ public final class MainServlet extends HttpServlet {
         String requestCommand = null;
         boolean responseWritten = false;
         try {
+            if (!request.getServerName().startsWith(ApplicationServer.SERVER_NAME))
+                throw new NavigationException();
+
             // CHECK FOR SESSION TIMEOUT
             if (request.isRequestedSessionIdValid() == false && request.getRequestedSessionId() != null) {
                 timedOut = true;
