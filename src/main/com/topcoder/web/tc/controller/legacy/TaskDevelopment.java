@@ -112,6 +112,7 @@ public final class TaskDevelopment {
             RecordTag devTag = new RecordTag("DEVELOPMENT");
             String comp = Conversion.checkNull(request.getParameter("comp"));
             devTag.addTag(new ValueTag("comp", comp));
+            devTag.addTag(new ValueTag("MaxInquiries", Constants.MAX_INQUIRIES));
             String date = Conversion.checkNull(request.getParameter("date"));
             String payment = Conversion.checkNull(request.getParameter("payment"));
 
@@ -400,7 +401,6 @@ public final class TaskDevelopment {
                     if (!isProjectLockedOut(componentId, version, phase)) {
                         long userId;
                         devTag.addTag(new ValueTag("Project", project));
-                        devTag.addTag(new ValueTag("MaxInquiries", Constants.MAX_INQUIRIES));
 
                         //String handle = nav.getUser().getHandle();
                         String handle = nav.getSessionInfo().getHandle();
@@ -598,7 +598,7 @@ public final class TaskDevelopment {
             }
             document.addTag(devTag);
 
-            log.debug("XML: " + document);
+            ////log.debug("XML: " + document);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             log.error("TaskDevelopment:ERROR:\n" + ne);
