@@ -44,7 +44,6 @@ public class Login extends Base {
                             String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                             setNextPage(dest);
                             setIsNextPageInContext(false);
-                            doLegacyCrap(request, response);
                             return;
                         } else {
                             if (hasDisabledAccount(status)) {

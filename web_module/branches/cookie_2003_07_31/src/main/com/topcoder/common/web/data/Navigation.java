@@ -85,23 +85,8 @@ public final class Navigation
 
     public Navigation(HttpServletRequest request, CoderSessionInfo info) throws TCException {
         this();
-        try {
-            this.info = info;
-            String appName = StringUtils.checkNull(request.getParameter("AppName"));
-            if (browser==null) {
-                browser = new Browser();
-                browser.setAppName(appName);
-                browser.setAppVersion(StringUtils.checkNull(request.getParameter("AppVersion")));
-                browser.setUserAgent(StringUtils.checkNull(request.getParameter("UserAgent")));
-            }
-            if (!appName.equals("") && browser.getAppName().equals("")) {
-                browser.setAppName(appName);
-                browser.setAppVersion(StringUtils.checkNull(request.getParameter("AppVersion")));
-                browser.setUserAgent(StringUtils.checkNull(request.getParameter("UserAgent")));
-            }
-        } catch (Exception e) {
-            throw new TCException("MainServlet:setupSession:ERROR:\n" + e);
-        }
+        this.info = info;
+        init(request);
     }
 
     public Navigation(HttpServletRequest request, HttpServletResponse response) throws TCException {
@@ -111,9 +96,24 @@ public final class Navigation
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
             info = new CoderSessionInfo(request, authentication, user.getPrincipals());
-            this(request, info);
+            init(request);
         } catch (Exception e) {
             throw new TCException();
+        }
+    }
+
+    private void init(HttpServletRequest request) {
+        String appName = StringUtils.checkNull(request.getParameter("AppName"));
+        if (browser==null) {
+            browser = new Browser();
+            browser.setAppName(appName);
+            browser.setAppVersion(StringUtils.checkNull(request.getParameter("AppVersion")));
+            browser.setUserAgent(StringUtils.checkNull(request.getParameter("UserAgent")));
+        }
+        if (!appName.equals("") && browser.getAppName().equals("")) {
+            browser.setAppName(appName);
+            browser.setAppVersion(StringUtils.checkNull(request.getParameter("AppVersion")));
+            browser.setUserAgent(StringUtils.checkNull(request.getParameter("UserAgent")));
         }
     }
 
