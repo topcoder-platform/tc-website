@@ -88,8 +88,8 @@
 
 <!-- Documentation -->
                         <p><strong>Documentation</strong><br />
-                        <a class="statText" target="_new">
                                 All
+                        <a class="statText" target="_new">
                                 <xsl:attribute  name="href">
                                     <xsl:value-of select="concat('http://www.topcodersoftware.com/pages/c_component.jsp?comp=', $componentId)"/>
                                 </xsl:attribute>documentation
