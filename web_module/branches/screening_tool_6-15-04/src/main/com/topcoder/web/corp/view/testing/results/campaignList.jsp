@@ -1,16 +1,17 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page import="com.topcoder.web.corp.common.Constants"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>Topcoder | Testing Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp"/>
+<%@ taglib uri="screening.tld" prefix="screen" %>
 
 </HEAD>
 <body>
 
 <!-- Header begins -->
 <%--<jsp:include page="../includes/top.jsp" />--%>
-<jsp:include page="../includes/topTemp.jsp" />
+<jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -24,16 +25,19 @@
         <td width="100%" align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
-                    <td class="bodyText"> 
+                    <td class="bodyText">
                         <p><span class=testHead>Campaign List</span><br/>
-                        Company Name: Brooks<br/>
+                        <scre>
+                        <screen:resultSetRowIterator id="companyInfo" list="<%=request.getParameter(Constants.COMPANY_INFO)%>">
+                        Company Name: <screen:resultSetItem row="<%=companyInfo%>" name="company_name" /><br/>
+                        </screen:resultSetRowIterator>
                         </p>
                     </td>
                 </tr>
             </table>
 
             <br/>
-            
+
             <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="33%">Campaign Name</td>
@@ -42,26 +46,29 @@
                     <td class="screeningHeader" width="33%" align=right>Positions</td>
                 </tr>
 
-<script type="text/javascript">
-for (i = 1; i <= 10; i++)
-{
-    document.write("<tr>")
-    if(i%2==1)
-    {
-        document.write("<td class='screeningCellOdd' nowrap=nowrap><A href='/corp/testing/results/campaignResults.jsp'>campaign"+i+"</A></td> ")
-        document.write("<td class='screeningCellOdd' align=center>06.21.2004 04:34</td>")
-        document.write("<td class='screeningCellOdd' align=right>"+i+"</td>")
-        document.write("<td class='screeningCellOdd' align=center><A href='/corp/testing/results/positionList.jsp'>view</A></td>")
-    } else {
-        document.write("<td class='screeningCellEven' nowrap=nowrap><A href='/corp/testing/results/campaignResults.jsp'>campaign"+i+"</A></td> ")
-        document.write("<td class='screeningCellEven' align=center>06.21.2004 04:34</td>")
-        document.write("<td class='screeningCellEven' align=right>"+i+"</td>")
-        document.write("<td class='screeningCellEven' align=center><A href='/corp/testing/results/positionList.jsp'>view</A></td>")
-    }
-    document.write("</tr>")
-}
-</script>
-
+                <%
+                    int counter = 0;
+                    String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
+                %>
+                <screen:resultSetRowIterator id="companyCampaignsList"
+                                             list="<%=request.getParameter(Constants.COMPANY_CAMPAIGNS_LIST)%>">
+                <tr>
+                    <td class="<%=cssClasses[counter++ % 2]%>" nowrap="nowrap">
+                        <a href="/corp/testing/results/campaignResults.jsp?campaign_id=<screen:resultSetItem row="<%=companyCampaignsList%>" name="campaign_id" />">
+                            <screen:resultSetItem row="<%=companyCampaignsList%>" name="campaign_name" />
+                        </a>
+                    </td>
+                    <td class="<%=cssClasses[counter++ % 2]%>" align="center">
+                        <screen:resultSetItem row="<%=companyCampaignsList%>" name="most_recent_activity" />
+                    </td>
+                    <td class="<%=cssClasses[counter++ % 2]%>" nowrap="right">
+                        <screen:resultSetItem row="<%=companyCampaignsList%>" name="candidates_num" />
+                    </td>
+                    <td class="<%=cssClasses[counter++ % 2]%>" nowrap="center">
+                        <A href='/corp/testing/results/positionList.jsp?campaign_id=<screen:resultSetItem row="<%=companyCampaignsList%>" name="campaign_id" />'>view</A>
+                    </td>
+                </tr>
+                </screen:resultSetRowIterator>
             </table>
 
             <p><br></p>
