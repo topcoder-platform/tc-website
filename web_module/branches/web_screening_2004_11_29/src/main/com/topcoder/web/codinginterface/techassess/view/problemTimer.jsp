@@ -34,6 +34,7 @@ if (o!=null) {
                 }
         %>
         var EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;
+        var countDown = <%=request.getParameter("countDown")%>;
 
         //perform clock sync, time below is in milliseconds after epoch
         var problemServerTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
@@ -54,11 +55,18 @@ if (o!=null) {
             var correctedLocalTime = new Date(d.getTime() - problemSyncedOffset);
 
             for (i=0; i<startTimes.length;i++) {
-                var time=0;
-                if (startTimes[i]==0) {
-                  time = 0;
-                } else {
-                  time = correctedLocalTime.getTime()-startTimes[i];
+                if (types[i]==EXAMPLE_SET) {
+                    text = "N/A";
+                } else  {
+                    var time=0;
+                    if (startTimes[i]==0) {
+                      time = 0;
+                    } else {
+                      if (countDown=='true')
+                        time = correctedLocalTime.getTime()-startTimes[i];
+                      else
+                        time = endTimes[i] - correctedLocalTime.getTime();
+                    }
                 }
                 text = convertToTimeString(time);
                 if (top.mainFrame) {

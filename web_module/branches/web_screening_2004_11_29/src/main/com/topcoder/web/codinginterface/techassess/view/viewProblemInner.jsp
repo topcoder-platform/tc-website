@@ -16,7 +16,9 @@
       inputItem.value='';
     }
 </SCRIPT>
-<jsp:include page="problemTimer.jsp"/>
+<jsp:include page="problemTimer.jsp">
+  <jsp:param name="countDown" value="true"/>
+</jsp:include>
 </head>
 <body>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />

@@ -47,15 +47,15 @@ if (o!=null) {
             var correctedLocalTime = new Date(d.getTime() - problemSyncedOffset);
 
             for (i=0; i<endTimes.length;i++) {
-                var timeLeft
-                if (startTimes[i]==0) {
-                  timeLeft = endTimes[i];
-                } else {
-                  timeLeft = endTimes[i] - correctedLocalTime.getTime();
-                }
                 if (types[i]==EXAMPLE_SET) {
                     text = "N/A";
                 } else  {
+                    var timeLeft
+                    if (startTimes[i]==0) {
+                      timeLeft = endTimes[i];
+                    } else {
+                      timeLeft = endTimes[i] - correctedLocalTime.getTime();
+                    }
                     if(timeLeft > 0 ) {
                         text = convertToTimeString(timeLeft);
                     } else {
