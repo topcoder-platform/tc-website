@@ -54,7 +54,7 @@
                 <B>New ratings are calculated as follows:</B>
                 <BR/>
                                     <BR/>
-                After each competition, each coder who attended the competition is re-rated according
+                After each competition, each coder who attended the competition is re-rated according to
                 the following algorithm.  Keep in mind that only coders who shared the same problem set are rated against one another.  The average rating of everyone in the competition is calculated:
                 <BR/>
                                     <BR/>
