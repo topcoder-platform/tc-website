@@ -57,17 +57,17 @@ function submitConfirm() {
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><screen:img page="/ev/clear.gif" width="10" height="1" /></TD>
+      <TD VALIGN="top"><img src="/i/ev/clear.gif" width="10" height="1" /></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><screen:img page="/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
+      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Create a New Session - </B></FONT><FONT SIZE="3" COLOR="#990000"><B>Set-Up a New Test Profile</B></FONT> 
 <P>
 		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>
 <jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
-<screen:form name="profileSetupForm" method="POST" action="/screening">
+<screen:form name="profileSetupForm" method="POST" action="<%=Constants.CONTROLLER_URL%>">
         <INPUT TYPE="HIDDEN" NAME="rp" VALUE="" >
         <% if(!profile.isNew()) { %>
         <INPUT TYPE="HIDDEN" NAME="profileId" VALUE="<jsp:getProperty name="profile" property="profileId" />" >
@@ -75,14 +75,14 @@ function submitConfirm() {
 
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
            <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Name</b>&#160;</TD><TD><screen:img page="/ev/clear.gif" width="1" height="1" border="0" /></TD>
+              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Name</b>&#160;</TD><TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
               <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="profileName" value ="<jsp:getProperty name="profile" property="profileName" />" size="30" maxlength="30"></TD>
            </TR>
            <TR>
-              <TD></TD><TD><screen:img page="/ev/clear.gif" width="1" height="1" border="0" /></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+              <TD></TD><TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
            </TR>
            <TR align="right" valign="middle">
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Problem Set</b>&#160;</TD><TD><screen:img page="/ev/clear.gif" width="1" height="1" border="0" /></TD>
+              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Problem Set</b>&#160;</TD><TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
               <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">          
               <select name="testSetA" onChange="submitReload()">
                 <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>">
@@ -96,13 +96,13 @@ function submitConfirm() {
               </TD>
            </TR>
            <TR>
-              <TD></TD><TD><screen:img page="/ev/clear.gif" width="1" height="1" border="0" /></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+              <TD></TD><TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
            </TR>
          </TABLE>
           
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="80%">                   
            <TR>
-              <TD COLSPAN="4"><screen:img page="/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="4"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>           
            <TR>
               <TD COLSPAN="4" CLASS="bodyText"><B>Test Set A</B></TD>
@@ -114,7 +114,7 @@ function submitConfirm() {
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Category</B></TD>		       
 	        </TR>
            <TR>
-              <TD COLSPAN="4"><screen:img page="/ev/clear.gif" width="1" height="1" border="0" /></TD>
+              <TD COLSPAN="4"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
            </TR>	        
             <screen:resultSetRowIterator id="row" list="<%=profile.getTestSetAList()%>">
 	        <TR>
@@ -125,13 +125,13 @@ function submitConfirm() {
 	        </TR>
             </screen:resultSetRowIterator>
            <TR>
-              <TD COLSPAN="4"><screen:img page="/ev/clear.gif" width="1" height="1" border="0" /></TD>
+              <TD COLSPAN="4"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
            </TR>	        	        	        
          </TABLE>         
          
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="80%"> 
            <TR>
-              <TD COLSPAN="5"><screen:img page="/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>                           
            <TR>
               <TD COLSPAN="5" CLASS="bodyText"><B>Test Set B</B></TD>
@@ -144,7 +144,7 @@ function submitConfirm() {
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC">&#160;</TD>	       
 	        </TR>
            <TR>
-              <TD COLSPAN="4"><screen:img page="/ev/clear.gif" width="1" height="1" border="0" /></TD>
+              <TD COLSPAN="4"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
            </TR>	        
             <INPUT TYPE="HIDDEN" name="testSetBRemove" value="" >
             <screen:resultSetRowIterator id="row" list="<%=profile.getTestSetBList()%>">
@@ -158,7 +158,7 @@ function submitConfirm() {
 	        </TR>	        
             </screen:resultSetRowIterator>
            <TR>
-              <TD COLSPAN="5"><screen:img page="/ev/clear.gif" width="1" height="30" border="0" /></TD>
+              <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="30" border="0" /></TD>
            </TR>
            <TR>
               <TD COLSPAN="5" ALIGN="center">
@@ -176,7 +176,7 @@ function submitConfirm() {
          
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="95%">                   
            <TR>
-              <TD><screen:img page="/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>           
            <TR>
               <TD CLASS="bodyText"><B>Available Languages</B></TD>
@@ -193,19 +193,19 @@ function submitConfirm() {
 	        </TR>
 </screen:resultSetRowIterator>
            <TR>
-              <TD><screen:img page="/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">Clear | <A HREF="#" CLASS="bodyText" onClick="submitConfirm()">Confirm</A></TD>	       
 	        </TR>           	        	        	        
          </TABLE>                         
-</FORM>         
+</screen:form>         
 <P><BR/></P> 
 
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
-      <TD WIDTH="10"><screen:img page="/ev/clear.gif" width="10" height="1" border="0" /></TD>
+      <TD WIDTH="10"><img src="/i/ev/clear.gif" width="10" height="1" border="0" /></TD>
       <!-- Gutter Ends -->
    </TR>
 </TABLE>

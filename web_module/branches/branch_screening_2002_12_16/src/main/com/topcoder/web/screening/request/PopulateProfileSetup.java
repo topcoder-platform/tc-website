@@ -79,10 +79,12 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         }
         else {
             ResultSetContainer rsc = info.getProblemSetList();
-            ResultSetContainer.ResultSetRow row = 
-             (ResultSetContainer.ResultSetRow)rsc.get(0);
-            profileTestSetA.setProperty("rid", 
-                    row.getItem("round_id").toString());
+            if(rsc != null && rsc.size() > 0) {
+                ResultSetContainer.ResultSetRow row = 
+                 (ResultSetContainer.ResultSetRow)rsc.get(0);
+                profileTestSetA.setProperty("rid", 
+                        row.getItem("round_id").toString());
+            }
         }
 
         map = dAccess.getData(profileTestSetA);
