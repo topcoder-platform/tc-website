@@ -10,13 +10,13 @@ package com.topcoder.web.pacts.common;
 public interface PactsConstants {
     // Object types
     // Coordinate with note_type_lu table in the DB
-    public static final int AFFIDAVIT_OBJ = 1;
-    public static final int CONTRACT_OBJ = 2;
-    public static final int PAYMENT_OBJ = 3;
-    public static final int USER_PROFILE_OBJ = 4;
-    public static final int TAX_FORM_OBJ = 5;
-    public static final int NOTE_OBJ = 6;
-    public static final int USER_TAX_FORM_OBJ = 7;
+    public static final int USER_PROFILE_OBJ  = 4;
+    public static final int NOTE_OBJ          = 6;
+    public static final int AFFIDAVIT_OBJ     = 51;
+    public static final int CONTRACT_OBJ      = 52;
+    public static final int PAYMENT_OBJ       = 53;
+    public static final int TAX_FORM_OBJ      = 55;
+    public static final int USER_TAX_FORM_OBJ = 57;
 
     // Message Properties
     public static final String STATUS_PROPERTY = "status_id";
@@ -194,18 +194,22 @@ public interface PactsConstants {
     public static final int STRING = 5;
 
     //status_id
-    public static final int CONTRACT_ACTIVE_STATUS = 1;
-    public static final int CONTRACT_INACTIVE_STATUS = 2;
-    public static final int AFFIDAVIT_PENDING_STATUS = 8;
-    public static final int AFFIDAVIT_AFFIRMED_STATUS = 9;
-    public static final int AFFIDAVIT_EXPIRED_STATUS = 11;
-    public static final int PAYMENT_ON_HOLD_STATUS = 6;
-    public static final int PAYMENT_OWED_STATUS = 7;
-    public static final int PAYMENT_PENDING_STATUS = 16;
-    public static final int PAYMENT_CANCELED_STATUS = 17;
-    public static final int PRINTED_STATUS = 3;
-    public static final int PAID_STATUS    = 4;
-    public static final int READY_TO_PRINT_STATUS = 5;
+
+    public static final int CONTRACT_INACTIVE_STATUS = 50;
+    public static final int CONTRACT_ACTIVE_STATUS   = 51;
+
+    public static final int PRINTED_STATUS          = 52;
+    public static final int PAID_STATUS             = 53;
+    public static final int READY_TO_PRINT_STATUS   = 54;
+    public static final int PAYMENT_ON_HOLD_STATUS  = 55;
+    public static final int PAYMENT_OWED_STATUS     = 56;
+    public static final int PAYMENT_PENDING_STATUS  = 64;
+    public static final int PAYMENT_CANCELED_STATUS = 65;
+
+    public static final int AFFIDAVIT_PENDING_STATUS  = 57;
+    public static final int AFFIDAVIT_AFFIRMED_STATUS = 58;
+    public static final int AFFIDAVIT_EXPIRED_STATUS  = 59;
+
 
     // Criteria descriptors
     // Shared across searches
