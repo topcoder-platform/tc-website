@@ -7,6 +7,9 @@ package com.topcoder.web.stat.common;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.1.1  2002/04/02 17:20:38  steveb
+ *           initial web load into cvs
+ *
  *           Revision 1.1.2.1  2002/03/16 20:18:40  gpaul
  *           moving these over from the member dev area.
  *
@@ -63,6 +66,7 @@ public interface StatisticsQueries extends StatisticsTokens {
     public static final int DECIMAL_INPUT = 1002;
     public static final int DATE_INPUT = 1003;
     public static final int SORT_DIRECTION_INPUT = 1004;
+    public static final int STRING_INPUT = 1005;
 
     // Other query set items.  Do not change without updating the
     // data warehouse query table.
