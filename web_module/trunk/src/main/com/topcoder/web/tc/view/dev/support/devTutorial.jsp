@@ -1071,6 +1071,8 @@
 					conventions. - </strong>Our coding conventions are the published 
 				standards for Java and C#. You can view them at the following links:<br>
 				<br>
+				<A href="http://java.sun.com/docs/codeconv/html/CodeConvTOC.doc.html">Java Coding Conventions</A><br/>
+				<A href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vsent7/html/vxconcodingtechniques.asp">.NET Coding Conventions</A><br/><br/>
 			</p>
 			<p><strong>The implementation code contains detailed documentation for classes, 
 					methods, and variables, written in Javadoc / XML style as required by the Java 
