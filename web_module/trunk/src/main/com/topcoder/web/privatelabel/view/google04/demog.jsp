@@ -57,7 +57,7 @@ function submitEnter(e) {
 			</jsp:include>
 			</div>
                           <table cellpadding="1" cellspacing="3" class="bodyText" align="center" width="100%" border="0">
-        <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
+        <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm" enctype="multipart/form-data">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE04_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
@@ -76,7 +76,19 @@ function submitEnter(e) {
                     </td>
                </tr>
             </pl:questionIterator>
-
+           <tr>
+                <td colspan="2" class="errorText" align="center">
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.FILE%>"><%=err%><br/></tc-webtag:errorIterator>
+                </td>
+            </tr>
+           <tr>
+                <td align="right" nowra> 
+                    Resume
+                </td>
+                <td align="left">
+                    <input type=file name="Resume">
+                </td>
+           </tr>
             <tr>
                <td colspan="2" align="center">
                   <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
