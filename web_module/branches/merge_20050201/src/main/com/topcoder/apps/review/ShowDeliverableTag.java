@@ -265,7 +265,7 @@ public class ShowDeliverableTag extends BaseTag {
                                                     0,0,0,0,0,false);
 
 
-                    finalReview = documentManager.getFinalReview(project, false, new TCSubject(155846));
+                    finalReview = documentManager.getFinalReview(project, false, new TCSubject(user.getId()));
 
                     // if the final review has a positive id, it's because it was retrieved from the db
                     if (finalReview.getId() >= 0) isFinalFixAvailable = true;
