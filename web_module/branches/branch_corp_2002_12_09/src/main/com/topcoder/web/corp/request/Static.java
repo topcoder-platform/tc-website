@@ -37,7 +37,6 @@ public class Static extends BaseProcessor {
      *  @throws Exception 
      */
     void businessProcessing() throws Exception {
-        log.debug("Static request = "+
         nextPage = requestProcessor();
         log.debug("Static processor nextPage = "+nextPage);
 
@@ -54,6 +53,7 @@ public class Static extends BaseProcessor {
                 log.debug("user anonymous unauthorized to access static page, " +
                           "sending to the login page.");
                 nextPage = getLoginPage();
+                log.debug("Next page set to login page: "+nextPage);
             }
         }
     }
