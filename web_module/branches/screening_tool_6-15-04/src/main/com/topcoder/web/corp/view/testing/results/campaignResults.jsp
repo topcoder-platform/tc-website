@@ -1,3 +1,5 @@
+<%@ page import="com.topcoder.web.corp.common.Constants,
+                 java.util.List"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -10,7 +12,7 @@
 
 <!-- Header begins -->
 <%--<jsp:include page="../includes/top.jsp" />--%>
-<jsp:include page="../includes/topTemp.jsp" />
+<jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -24,15 +26,21 @@
         <td width="100%" align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
-                    <td class="bodyText"> 
+                    <td class="bodyText">
                         <p><span class=testHead>Campaign Results</span><br/>
-                        Company Name: Brooks<br/>
-                        Campaign Name: Operation FindCandidate<br/>
+                        <screen:resultSetRowIterator id="row"
+                                list="<%=(List) request.getAttribute(Constants.COMPANY_INFO)%>">
+                        Company Name: <screen:resultSetItem row="<%=row%>" name="company_name" /><br/>
+                        </screen:resultSetRowIterator>
+                        <screen:resultSetRowIterator id="row"
+                                list="<%=(List) request.getAttribute(Constants.CAMPAIGN_INFO)%>">
+                        Campaign Name: <screen:resultSetItem row="<%=row%>" name="campaign_name" /><br/>
+                        </screen:resultSetRowIterator>
                         </p>
                     </td>
                 </tr>
             </table>
-            
+
             <br/>
 
             <table border="0" cellspacing="0" cellpadding="0" width="600">
@@ -41,9 +49,9 @@
                     <td class="bodyText" align=right>Showing 1-20:&#160;&#160;&#160;<A href="/">Prev 20</A> | <A href="/">Next 20</a></td>
                 </tr>
             </table>
-            
+
             <br/>
-            
+
             <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="10%"><A class=screeningHeader href="/">Name</A></td>
