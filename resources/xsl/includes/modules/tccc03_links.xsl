@@ -4,7 +4,7 @@
   <xsl:param name="selectedTab"></xsl:param>
             <table border="0" cellspacing="0" cellpadding="0" width="100%" id="tccc_bkgd">
                 <tr valign="top">
-                    <td width="110"><a href="/?&amp;t=tournaments&amp;c=tccc03_schedule_mit"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="110" height="90" border="0" /></a></td>
+                    <td width="110"><a href="/?&amp;t=tournaments&amp;c=tccc03_reception"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="110" height="90" border="0" /></a></td>
                     <td valign="middle" class="statText" width="99%">
                         <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
                         <div align="center"><font size="3"><strong>Attention TopCoder Members</strong></font></div>
@@ -14,7 +14,7 @@
                         &#160;&#160;<a href="/index?t=tournaments&amp;c=tccc03_directions" class="statText">Get Directions</a><br />
                         <img src="/i/clear.gif" alt="" width="1" height="5" border="0" />
                     </td>
-                    <td width="135"><a href="/?&amp;t=tournaments&amp;c=tccc03_schedule_mit"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
+                    <td width="135"><a href="/?&amp;t=tournaments&amp;c=tccc03_reception"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
                 </tr>
                 <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="10" height="10" border="0" /></td></tr>
             </table>
