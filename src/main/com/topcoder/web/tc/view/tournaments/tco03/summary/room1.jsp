@@ -55,7 +55,7 @@
             <span class="leadPhotoCaption">bstanescu enjoying the moment<br/><br/></span>
             </div>
             
-            <h2>bstansescu outcodes number one seed to take Room 1</h2>
+            <h2>bstanescu outcodes number one seed to take Room 1</h2>
 
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
             Thursday, December 4, 2003</p>
