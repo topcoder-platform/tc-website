@@ -59,7 +59,7 @@
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
                             <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Diversified Data Jobs</b></td></tr>
-                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=diversifieddata_softdev&amp;a=secure" class="bodyText">Jobs</A></td></tr>
+                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=diversifieddata_openings&amp;a=secure" class="bodyText">Jobs</A></td></tr>
                         </table>
 
 <!-- Client Message Begins -->

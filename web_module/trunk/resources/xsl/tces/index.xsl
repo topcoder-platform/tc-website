@@ -82,6 +82,7 @@
                             </tr>
                             
                             <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+
 <!-- DiversifiedData ends -->
 
 <!-- AlphaSimplex begins -->
