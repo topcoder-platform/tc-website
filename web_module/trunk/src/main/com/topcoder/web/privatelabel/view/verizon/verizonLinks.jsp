@@ -3,7 +3,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
     String selectedTab = request.getParameter("selectedTab")==null?"":request.getParameter("selectedTab");
-    String selectedSubtab = request.getParameter("selectedSubtab")==null?"":request.getParameter("selectedSubtab");    
+    String selectedSubtab = request.getParameter("selectedSubtab")==null?"":request.getParameter("selectedSubtab");
 %>
 
 <script>
@@ -40,18 +40,18 @@ function openWin(url, name, w, h) {
 
 <!-- Register tab -->
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
-<%--                                    <a class="leftnav" href="?&<%=Constants.MODULE_KEY+"="+Constants.VERIZON_REG_MAIN+"&"+Constants.COMPANY_ID+"=1747&"+Constants.EVENT_ID+"=1"%>" style="margin-left:1px;display:inline;">Register Now</a><br/>--%>
+<%--                                    <a class="leftnav" href="https://<%=ApplicationServer.SERVER_NAME%>/pl/?&<%=Constants.MODULE_KEY+"="+Constants.VERIZON_REG_MAIN+"&"+Constants.COMPANY_ID+"=1747&"+Constants.EVENT_ID+"=1"%>" style="margin-left:1px;display:inline;">Register Now</a><br/>--%>
                                     <a class="leftnav" href="?&<%=Constants.MODULE_KEY+"="+Constants.STATIC+"&d1=verizon&d2=vcc03_reg%>" style="margin-left:1px;display:inline;">Registration</a><br/>
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
                                     <img src="/i/events/verizon2003/ccc.gif" width="110" height="1" alt="" ><br>
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
-                                    
+
 <!-- Instructions tab -->
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
                                     <a class="leftnav" href="/pl/?&module=Static&d1=verizon&d2=vcc03_instructions" style="margin-left:1px;display:inline;">Competition Instructions</a><br/>
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
                                     <img src="/i/events/verizon2003/ccc.gif" width="110" height="1" alt="" ><br>
-                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>                                    
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
                                 </td>
                             </tr>
                         </table>
