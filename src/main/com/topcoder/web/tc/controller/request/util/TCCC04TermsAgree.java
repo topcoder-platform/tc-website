@@ -17,7 +17,10 @@ public class TCCC04TermsAgree extends Base {
             } else {
                 UserTermsOfUse userTerms = (UserTermsOfUse)createEJB(getInitialContext(), UserTermsOfUse.class);
                 if (!userTerms.hasTermsOfUse(getUser().getId(), Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME)) {
+                    log.debug("user has not previously aggreed to these terms");
                     userTerms.createUserTermsOfUse(getUser().getId(), Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+                } else {
+                    log.debug("user has previously aggreed to these terms");
                 }
                 setNextPage(Constants.MEMBER_HOME_PAGE);
                 setIsNextPageInContext(true);
