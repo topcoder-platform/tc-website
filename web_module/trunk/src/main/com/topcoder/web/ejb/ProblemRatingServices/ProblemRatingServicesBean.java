@@ -14,8 +14,6 @@ public class ProblemRatingServicesBean extends BaseEJB{
 
     private static final String TAG = "ProblemRatingServicesBean";
 
-    protected SessionContext ctx;
-
     /**
      * Returns the tag to append to the default debug statement.
      * This may be overridden for verbose debugging.
