@@ -89,16 +89,16 @@
   <!-- Center Column Begins -->  
     <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"> 
 <!-- Invitational block -->    
-<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"> 
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"> 
   <TR>
-    <TD VALIGN="top" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
   </TR> 
   <TR>
-    <TD CLASS="statTextBig" COLSPAN="2" BGCOLOR="#666666" HEIGHT="21" VALIGN="middle" ALIGN="center"><B>TopCoder Invitational Information</B></TD>
+    <TD CLASS="statTextBig" COLSPAN="3" BGCOLOR="#666666" HEIGHT="21" VALIGN="middle" ALIGN="center"><B>TopCoder Invitational Information</B></TD>
   </TR>
   <TR>
-    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD CLASS="bodyText">
+    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" HSPACE="6" BORDER="0"/></TD>
+    <TD CLASS="bodyText" VALIGN="top"><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A><BR/>
       <xsl:choose>
       <xsl:when test="/TC/HOME/InvitationalInfo/IsRegistered='0'">
         <xsl:choose>
@@ -127,7 +127,7 @@
         </xsl:when>
         <xsl:otherwise>
 Based on your profile information and your rated event participation, you are eligible to sign up for the 2002 TopCoder Invitational tournament.  Even if your rating is below the current cut-off, signing up for the event now will ensure that you are on the stand-by list in the event that not all of the invited members accept their invitations.<BR/><BR/>
-          <A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="bodyText">Click here to sign up for the 2002 TopCoder Invitational</A>
+          <A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="bodyText">Click here to sign up for the 2002 TopCoder Invitational</A><BR/><BR/>
         </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
@@ -136,11 +136,17 @@ Based on your profile information and your rated event participation, you are el
       </xsl:otherwise>
       </xsl:choose>
     </TD>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR>
+  <TR>  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR> 
   <TR>
-    <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-  </TR>
-</TABLE> -->
+    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+  </TR>    
+</TABLE>
 
      <!-- My Stats Begins -->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
@@ -768,8 +774,6 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
 </TABLE>
 <IMG SRC="/i/tournament/2002sunnetwork_btm.gif" alt="" width="244" height="34" border="0"/><BR/> -->
 
-<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002invit_rules</xsl:attribute>
-<IMG SRC="/i/2002invit_button.gif" alt="" width="244" height="77" border="0"/></A><BR/><BR/>
 <!-- <A>
     <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4220&amp;t=schedule&amp;c=srm</xsl:attribute>
     <IMG SRC="/i/sponspromo_motorola.gif" ALT="" WIDTH="244" HEIGHT="172" BORDER="0"/>

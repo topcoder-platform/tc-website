@@ -11,7 +11,7 @@
 		<TD WIDTH="12%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/index?t=schedule&amp;c=invit02_rules_onsite" CLASS="statText">Onsite&#160;Rounds</A></TD>
 		<TD WIDTH="10%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/index?t=schedule&amp;c=invit02_rules_prizes" CLASS="statText">Prizes</A></TD>
 		<TD WIDTH="12%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/index?t=schedule&amp;c=invit02_rules_scoring" CLASS="statText">Scoring&#160;/&#160; Advancing</A></TD>
-		<TD WIDTH="12%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/contest/invit02_rules.pdf" CLASS="statText">Download&#160;Rules</A></TD>	  
+		<!-- <TD WIDTH="12%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/contest/invit02_rules.pdf" CLASS="statText">Download&#160;Rules</A></TD> -->
 	  </TR>
       <TR>
         <TD COLSPAN="6" ALIGN="left" VALIGN="middle" HEIGHT="14" CLASS="statText">&#160;</TD>
