@@ -21,12 +21,12 @@
 		<td valign=top align=center>
 		<div class="bodySpacer">
             
-        <p class="bigTitle">TITLE</p>
+        <p class="bigTitle">tomek takes Room 1</p>
 
 		<div class="leadPhoto">
 		<span class="bodyText" align="center"><p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=photos">See more photos!</a></p></span>
 		<img src="/i/tournament/tccc05/onsite_photos/shot_room1.jpg" alt="" class="photoFrameBig" /><br/>
-		<span class="leadPhotoCaption">CAPTION<br/><br/></span>
+		<span class="leadPhotoCaption">One very happy finalist<br/><br/></span>
 		</div>
 
 		<a href="/stat?c=member_profile&cr=159052"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
@@ -37,6 +37,8 @@
 		</p>
 
 		<p>
+The competitors got off to a slow start on a tricky easy problem. Before long though, many of them had moved on to the medium problem. misof and tomek were the first two to submit it, and they moved on to a hard problem with plenty of time to spare.  Eventually, they both submitted the third problem, and tomek had the lead over misof going into the challenge phase.  ante was in third place, as the only other competitor to submit all three problems.  Despite a flurry of challenges during the challenge phase, only one of them was successful, but it was significant in that it gave misof the lead over tomek going into system tests.  That lead turned out to be short lived though, as only tomek's medium survived testing.  In the end, tomek won as expected, and misof and ante moved on to the wildcard round.
+<br><br>
 <h1>Buoyancy</h1>
 There are 4 different cases to think about.  The object may be either
 less dense than water, or more dense than water, and it may either
