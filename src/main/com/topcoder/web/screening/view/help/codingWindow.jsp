@@ -94,39 +94,39 @@
                         your class members and invoke the appropriate methods.  Bellow you will find code templates for Java, C++ and C#:</p>
                         
                         <a name="coded"></a><p class="bodySubtitle">Java Code Template</p>
-                        <pre>import <necessary classes>
+                        <pre>import &lt; necessary classes&gt; 
 
-public class <class-name> {
-        public <return-type> <method-name>(<argument-type> arg1) {
+public class &lt;class-name&gt; {
+        public &lt; return-type&gt; &lt; method-name&gt;(&lt; argument-type&gt; arg1) {
                 //your source here
-                return <result>;
+                return &lt; result&gt;;
         }
 }
                         </pre>
 
                         <p class="bodySubtitle">C++ Code Template</p>
-                        <pre>#include <necessary classes>
+                        <pre>#include &lt;necessary classes&gt;
 
 using namespace std; //Required for TopCoder gcc compiler
 
-class <class-name>
+class &lt; class-name>
 {
         public:
-        <return-type> <method-name> (<argument-type> arg1)
+        &lt; return-type&gt; &lt; method-name&gt; (&lt; argument-type&gt; arg1)
         {
                 //your source here
-                return <result>;
+                return &lt; result&gt;;
         };
 };
                         </pre>
 
                         <p class="bodySubtitle">C# Code Template</p>
-                        <pre>using <necessary classes>;
+                        <pre>using &lt;necessary classes&gt;;
 
-public class <class-name> {
-        public <return-type> <method-name>(<argument-type> arg1) {
+public class &lt; class-name> {
+        public &lt; return-type&gt; &lt; method-name&gt;(&lt; argument-type&gt; arg1) {
                 //your source here
-                return <result>;
+                return &lt; result&gt;;
         }
 }
                         </pre>
