@@ -39,7 +39,7 @@
                     <td><img src="/i/p/clear.gif" width="5" height="1"></td>
                     <td valign="top" class="bodyText"><strong>Create a Test Profile</strong><br />
                         Each candidate is assigned to a Test Profile.  Each Test Profile is assigned two sets of problems&#151;Test Set A, which 
-                        is used to screen for accuracy and speed, and Test Set B, which is used to screen for accuracy and style.</td>               
+                        is used to screen for accuracy and speed, and Test Set B, which is used to screen for accuracy and style.</td>   
                 </tr>
                 <tr><td colspan="3"><img src="/i/p/clear.gif" width="1" height="10"></td></tr>      
                 <tr>
