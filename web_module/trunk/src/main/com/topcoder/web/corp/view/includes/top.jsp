@@ -38,7 +38,7 @@
         <td width="15" bgcolor="#000000"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0" /></td>
         <td width="206" bgcolor="#000000">
 <% if (isHomePage) { %>
-        <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="13" /></a>
+        <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent"><img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="13" /></a>
 <% } else { %>
         <img src="/i/logo.gif" width="206" height="49" border="0" vspace="13" />
 <%  } %>
@@ -46,9 +46,8 @@
         <td width="20" bgcolor="#000000"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15" /></td>
         <td width="100%" nowrap="nowrap" align="right" bgcolor="#000000">
 <% if( activeUser.isAnonymous() ) { %>
-            <form name="frmMiniLogin" method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
            <table border="0" cellpadding="0" cellspacing="0">
-                <tr valign="middle">
+                <tr valign="middle"><form name="frmMiniLogin" method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
                     <td nowrap="nowrap" class="statTextBig" align="right">User Name:&#160;&#160;</td>
                     <td colspan="2"><input class="dropdown" maxlength="15" size="12" name="<%=Login.KEY_USER_HANDLE%>" type="TEXT" onkeypress="submitEnter(event, document.frmMiniLogin)" /></td>
                 </tr>
@@ -56,11 +55,11 @@
                 <tr valign="middle">
                     <td nowrap="nowrap" class="statTextBig" align="right">Password:&#160;&#160;</td>
                     <td><input class="dropdown" maxlength="15" size="12" name="<%=Login.KEY_USER_PASS%>" type="Password" onkeypress="submitEnter(event, document.frmMiniLogin)" /></td>
-                    <td nowrap="nowrap" class="statTextBig">&#160;&#160;<a href="javascript:document.frmMiniLogin.submit();" class="statTextBig"><font color="#CCCCCC">Login &gt;</font></a></td>
+                    <td nowrap="nowrap" class="statTextBig">&#160;&#160;<a href="javascript:document.frmMiniLogin.submit();" class="statTextBig">Login&#160;&gt;</a>
+                        <input name="<%=Login.KEY_LOGINMODE%>" type="hidden" value="1"/>
+                    </td></form>
                 </tr>
             </table>
-            <input name="<%=Login.KEY_LOGINMODE%>" type="hidden" value="1"/>
-            </form>
         </td>
         <td width="10" bgcolor="#000000"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
     </tr>
