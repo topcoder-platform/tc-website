@@ -1645,7 +1645,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         StringBuffer txtGetProblems = new StringBuffer();
         txtGetProblems.append(" SELECT p.problem_id, cp.class_name, d.difficulty_desc, r.round_id, r.division_id, dv.division_desc  ")
                 .append(" , cp.method_name from round_component r, problem p, component cp, difficulty d , division dv where d.difficulty_id = r.difficulty_id ")
-                .append(" and r.round_id = ?  and r.component_id = p.problem_id and cp.problem_id = p.problem_id and r.division_id = dv.division_id ")
+                .append(" and r.round_id = ?  and r.component_id = cp.component_id and cp.problem_id = p.problem_id and r.division_id = dv.division_id ")
                 .append(" group by p.problem_id, cp.class_name, d.difficulty_desc, r.round_id, r.division_id, dv.division_desc, cp.method_name ")
                 .append(" ORDER BY p.problem_id ");
 
