@@ -41,7 +41,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
+        <td width="4"><img src="/i/spacer.gif" width="4" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->    
@@ -54,17 +54,17 @@
             </xsl:call-template>
             
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
-                <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
+                <tr><td height="3"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
                 <tr valign="top">
                     <td class="bodyText" width="100%">         
 <!-- 2003 Features -->
                         <table width="100%" border="0" cellpadding="3" cellspacing="0">
-                            <tr><td valign="middle" bgcolor="#666666" colspan="3" class="statText"><font size="3"><strong>2003 Features</strong></font></td></tr>        
+                            <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong>2003 Features</strong></font></td></tr>        
 
                             <tr valign="middle">
-                                <td width="20%" class="statTextBig" bgcolor="#999999"><strong>Date</strong></td>
-                                <td width="20%" class="statTextBig" bgcolor="#999999"><strong>Author</strong></td>
-                                <td width="60%" class="statTextBig" bgcolor="#999999"><strong>Feature</strong></td>
+                                <td width="20%" class="bodySubtitle"><strong>Date</strong></td>
+                                <td width="20%" class="bodySubtitle"><strong>Author</strong></td>
+                                <td width="60%" class="bodySubtitle"><strong>Feature</strong></td>
                             </tr>
                             
                             <tr>
@@ -108,12 +108,12 @@
         
 <!-- 2002 Features -->
                         <table width="100%" border="0" cellpadding="3" cellspacing="0">
-                            <tr><td valign="middle" bgcolor="#666666" colspan="3" class="statText"><font size="3"><strong>2002 Features</strong></font></td></tr>        
+                            <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong>2002 Features</strong></font></td></tr>        
 
                             <tr valign="middle">
-                                <td width="20%" class="statTextBig" bgcolor="#999999"><strong>Date</strong></td>
-                                <td width="20%" class="statTextBig" bgcolor="#999999"><strong>Author</strong></td>
-                                <td width="60%" class="statTextBig" bgcolor="#999999"><strong>Feature</strong></td>
+                                <td width="20%" class="bodySubtitle"><strong>Date</strong></td>
+                                <td width="20%" class="bodySubtitle"><strong>Author</strong></td>
+                                <td width="60%" class="bodySubtitle"><strong>Feature</strong></td>
                             </tr>
                             
                             <tr>
@@ -238,15 +238,14 @@
                             <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
                         </table>
                         
-                        <p><a href="/index?t=features&amp;c=feat_topics" class="bodyText">Write feature articles for TopCoder.com</a></p>
+                        <p><a href="/index?t=features&amp;c=feat_topics">Write feature articles for TopCoder.com</a></p>
                         
                         <p><br/></p>
                     </td>
                 </tr>
             </table>
         </td>
-    <!-- Center Column Ends -->
-<!-- Body Area Ends -->
+<!-- Center Column Ends -->
 
 <!-- Gutter -->
         <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
@@ -254,9 +253,7 @@
 
 <!-- Right Column Begins -->
         <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
-
         <xsl:call-template name="public_right_col"/>       
-
         </td>
 <!-- Right Column Ends -->
 
