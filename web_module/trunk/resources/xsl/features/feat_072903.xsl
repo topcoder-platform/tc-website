@@ -94,7 +94,7 @@ now tantalizingly close to the qualify minimum with 4 designs.
 </p>
 <p>
 The halfway point, week 5, saw first submissions from <strong>argolite</strong>, <strong>giginim</strong>, and 
-<strong>mishagam</strong>.  <strong>Askonov</strong> and <strong>Tomson</strong> submitted a second design with 
+<strong>mishagam</strong>.  <strong>aksonov</strong> and <strong>Tomson</strong> submitted a second design with 
 <strong>adic</strong>, <strong>isv</strong> and <strong>ozzie</strong> submitting their third designs.  Of the 
 submissions that have been scored up to this point, <strong>srowen</strong> held the point lead followed closely by 
 <strong>ozzie</strong> and <strong>WishingBone</strong>.  The current leaders in the number of submissions was 
