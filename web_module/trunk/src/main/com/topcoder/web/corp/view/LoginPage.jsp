@@ -71,8 +71,10 @@
 
             <table width="350" border="0" cellpadding="3" cellspacing="0" class="loginForm">
                 <tr><td class="testTableTitle">Login</td></tr>
-                <tr valign="middle"><form method="post" name="frmLogin" action="/?module=Login">
+                <tr valign="middle">
+                  <form method="post" name="frmLogin" action="/">
                     <input type="hidden" name="<%=Login.KEY_DESTINATION_PAGE%>" value="<%= nextpage %>">
+                    <input type="hidden" name="module" value="Login">
                     <td class="statText" align="center">
                         <table border="0" cellpadding="3" cellspacing="0">
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
