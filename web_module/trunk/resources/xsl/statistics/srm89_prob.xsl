@@ -350,8 +350,18 @@ The solution we need for this particular problem is the solution to the maximum 
 also known as the <I>assignment problem</I>.  One algorithm that solves this problem is known as the
 <A HREF="http://www.math.uwo.ca/~mdawes/courses/344/kuhn-munkres.html" CLASS="bodyText">Kuhn-Munkres algorithm</A> (also described 
 <A HREF="http://www.math.uwo.ca/~mdawes/courses/344/kuhn-munkres.pdf" CLASS="bodyText">here</A>).<BR/><BR/>
+
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+          <P><BR/></P>
+          
+<P><B>Member Comments</B></P>
+
+<P>Just wanted to comment that the SRM 89 Problem Set Analysis was fantastic! Very 
+detailed, and a great analysis of the correct algorithms involved. Keep up the 
+good work!</P>
+
+<P><A HREF="/stat?c=member_profile&amp;cr=154075" CLASS="bodyGeneric">BlueTDimly</A></P>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
