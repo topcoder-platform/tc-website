@@ -18,27 +18,36 @@ public class Google {
 
     public static void main(String[] args) {
         String dataSourceName = null;
-        long roundId1 = 0;
-        long roundId2 = 0;
+        long[] rounds = new long[args.length-2];
         long componentId = 0;
-        if (args.length != 3) {
-            System.out.println("SYNTAX: java " + Contest.class.getName() + "<datasource> <round id> <round id> <problem id>");
+        if (args.length < 3) {
+            System.out.println("SYNTAX: java " + Contest.class.getName() + "<datasource> <component id> <round id> <round id> ");
             return;
         }
         dataSourceName = args[0];
-        roundId1 = Long.parseLong(args[1]);
-        roundId2 = Long.parseLong(args[2]);
-        componentId = Long.parseLong(args[3]);
+        componentId = Long.parseLong(args[1]);
+        for (int i=2; i<args.length; i++) {
+            rounds[i-2]=Long.parseLong(args[i]);
+        }
 
         try {
             Fraud fraud = null;
-            List submissions = getSubmissions(dataSourceName, roundId1, componentId);
-            submissions.addAll(getSubmissions(dataSourceName, roundId2, componentId));
+            List submissions = getSubmissions(dataSourceName, rounds[0], componentId);
+            for (int i=1; i<rounds.length; i++) {
+                submissions.addAll(getSubmissions(dataSourceName, rounds[i], componentId));
+            }
             log.debug("got submissions");
             if (submissions != null && submissions.size() > 0) {
                 Submission temp = (Submission) submissions.get(0);
-                log.info("running contest fraud detect for round: " + roundId1 + " and " + roundId2 + " component: " +
-                        temp.getClassName() + "(" + componentId + ") for " + submissions.size() + " submissions");
+                StringBuffer buf = new StringBuffer();
+                buf.append("running contest fraud detect for round: ");
+                for (int i=0; i<rounds.length; i++) {
+                    buf.append(rounds[i]).append(",");
+                }
+                buf.append(" component: ");
+                buf.append(temp.getClassName()).append("(").append(componentId).append(") for ");
+                buf.append(submissions.size()).append(" submissions");
+                log.info(buf.toString());
 
                 List normalizedSource = new ArrayList(submissions.size());
                 for (int i = 0; i < submissions.size(); i++) {
