@@ -235,7 +235,7 @@ function getProblemDetail(id) {
 
                     <td class='<%=cssClasses[counter++ % 2]%>' align=center>
                         <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POPULATE_CANDIDATE_PROCESSOR%>&<%=Constants.CANDIDATE_ID%>=<%=row.getStringItem("user_id")%>'>
-                        view
+                        <%=row.getStringItem("note_text")%>
                         </A>
                     </td>
                 </tr>
