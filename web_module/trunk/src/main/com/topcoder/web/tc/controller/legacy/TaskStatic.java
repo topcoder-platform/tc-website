@@ -248,7 +248,7 @@ public final class TaskStatic {
             e.printStackTrace();
         }
 
-//        log.debug(document.getXML(2));
+        log.debug(document.getXML(2));
         try {
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (Exception e) {
