@@ -73,18 +73,18 @@ member receiving the score of 93 would be in 1st place and would receive 10 poin
 
 <p><strong>Registration</strong><br/>
 All members who are participating in the weekly contest must register for a component within 24 hours of the weekly posting date.  
-Failure to register for one component will result in disqualification for that weekly contest.</p>
+Failure to register for a component will result in disqualification for that weekly contest.</p>
 
 <p><strong>Reliability Rating</strong><br/>
 Member profiles will be modified to reflect a reliability factor for component design and development competitions. 
 The reliability factor will be calculated as the percent of projects that a member registers for in which that same 
 member presents a timely submission that achieves the minimum passing component score of 70.</p>
 
-<p>Members will be eligible to receive a bonus on top of the prize money if their Reliability Ratings are equal to or 
-exceed 80%.  Winning members with Reliability Ratings ranging from 80% to 89% will receive a bonus equal to 10% of the prize.  
-For Reliability Ratings ranging from 90% to 94%, winning members will receive a bonus equal to 15% of the prize.  And 
-winning members with a Reliability Rating of 95% to 100% will receive a bonus equal to 20% of the prize.  The following is an 
-example of payouts based on the member's Reliability Rating:</p>
+<p>Members will be eligible to receive a bonus on top of the prize money if their Reliability Ratings are equal to or exceed 
+80%. Winning members with Reliability Ratings equal to or exceeding 80% and less than 90% will receive a bonus equal to 10% 
+of the prize. For Reliability Ratings equal to or exceeding 90% and less than 95%, winning members will receive a bonus equal 
+to 15% of the prize. And winning members with a Reliability Rating equal to or exceeding of 95% will receive a bonus equal 
+to 20% of the prize. The following is an example of payouts based on the member's Reliability Rating:</p>
 
 
 			<table width="400" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
