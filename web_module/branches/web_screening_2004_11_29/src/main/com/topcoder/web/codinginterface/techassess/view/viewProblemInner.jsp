@@ -8,7 +8,7 @@
 <link type="text/css" rel="stylesheet" href="/css/screening.css" >
 
 <SCRIPT type="text/javascript">
-    function submit(module) {
+    function doSubmit(module) {
       document.problemForm.<%=Constants.MODULE%>.value=module;
       document.problemForm.submit();
     }
@@ -82,8 +82,8 @@
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonResize.gif" alt="" /></a></td>
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonFind.gif" alt="" /></a></td>
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonGoTo.gif" alt="" /></a></td>
-                          <td><a href="JavaScript:submit('<%=Constants.RP_SAVE%>')"><img src="/i/corp/screening/buttonSave.gif" alt="" /></a></td>
-                          <td><a href="JavaScript:submit('<%=Constants.RP_COMPILE%>')"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
+                          <td><a href="JavaScript:doSubmit('<%=Constants.RP_SAVE%>')"><img src="/i/corp/screening/buttonSave.gif" alt="" /></a></td>
+                          <td><a href="JavaScript:doSubmit('<%=Constants.RP_COMPILE%>')"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonClear.gif" alt="" /></a></td>
                           <td><a href="/mockup/exampleDirections.jsp" target="_top"><img src="/i/corp/screening/buttonClose.gif" alt="" /></a></td>

@@ -17,7 +17,7 @@ public class ProblemInfo implements Serializable {
     private long componentId = 0;
     private Language language = null;
     private Problem problem = null;
-    private int problemType = 0;
+    private int problemTypeId = 0;
 
     public ProblemInfo() {
 
@@ -28,7 +28,7 @@ public class ProblemInfo implements Serializable {
         this.componentId = componentId;
         this.language = BaseLanguage.getLanguage(languageId);
         this.problem = problem;
-        this.problemType = problemType;
+        this.problemTypeId = problemType;
     }
 
     public String getCode() {
@@ -63,12 +63,12 @@ public class ProblemInfo implements Serializable {
         this.problem = problem;
     }
 
-    public int getProblemType() {
-        return problemType;
+    public int getProblemTypeId() {
+        return problemTypeId;
     }
 
-    public void setProblemType(int problemType) {
-        this.problemType = problemType;
+    public void setProblemTypeId(int problemTypeId) {
+        this.problemTypeId = problemTypeId;
     }
 
 
