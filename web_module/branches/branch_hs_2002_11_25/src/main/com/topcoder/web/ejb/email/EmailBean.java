@@ -2,7 +2,7 @@ package com.topcoder.web.ejb.email;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.idgenerator.*;
-import com.topcoder.util.idgenerator.sql.InformixDB;
+import com.topcoder.util.idgenerator.sql.*;
 
 import java.rmi.RemoteException;
 import java.sql.*;
