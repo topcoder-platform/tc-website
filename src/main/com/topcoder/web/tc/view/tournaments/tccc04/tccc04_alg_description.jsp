@@ -40,10 +40,10 @@
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="algorithm"/>
    <jsp:param name="tabLev2" value="about"/>
-   <jsp:param name="tabLev3" value="schedule"/> 
+   <jsp:param name="tabLev3" value="description"/>
 </jsp:include>
 
-            <h2>Schedule</h2>
+            <h2>Description of the Algorithm Competition</h2>
 
             <p>
             The 2004 Collegiate Challenge is bigger and better than ever! 24 Algorithm finalists and 8 Component finalists will be invited to compete live at the onsite finals in Boston.</p>

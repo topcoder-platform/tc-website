@@ -39,25 +39,22 @@
 <!-- Tab bar links-->
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="algorithm"/>
-   <jsp:param name="tabLev2" value="summary"/>
-   <jsp:param name="tabLev3" value=""/>
+   <jsp:param name="tabLev2" value="about"/>
+   <jsp:param name="tabLev3" value="description"/>
 </jsp:include>
 
-            <h2>Overview of the Algorithm Competition</h2>
+            <h2>Description of the Component Competition</h2>
 
+            <p>
+            The 2004 Collegiate Challenge is bigger and better than ever! 24 Algorithm finalists and 8 Component finalists will be invited to compete live at the onsite finals in Boston.</p>
             <ul>
-                <li><strong>Dates: </strong><br />
-                    October 7th through December 5th, 2003</li>
-                <li><strong>Rounds: </strong><br />
-                    Two qualification rounds - online<br />
-                    Four elimination rounds - online<br />
-                    The Semifinal and Championship rounds will be held at the Mohegan Sun Casino in Uncasville, CT on December 4th and 5th</li>
-                <li><strong>Prizes: </strong><br />
-                    Total Prize Purse: $100,000 in cash<br />
-                    Up to 500 competitors will receive a prize just for competing in Online Round #1<br />
-                    Up to 200 eligible competitors will receive cash prizes</li>
-                <li><strong>Finalists: </strong><br />
-                    The top 16 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds</li>
+                <li><strong>Elimination Starts</strong><br />
+                    January 2004 - Component<br />
+                    February 2004 - Algorithm<br /></li>
+                <li><strong>Onsite Finals</strong><br />
+                    April 2004 in Boston, MA</li>
+                <li><strong>Free Competition</strong></li>
+                <li><strong>Open to all college students</strong></li>
             </ul>
 
          <p><br/></p>
