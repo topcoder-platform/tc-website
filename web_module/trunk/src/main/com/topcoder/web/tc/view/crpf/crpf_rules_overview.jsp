@@ -35,7 +35,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="charity"/> 
+                <jsp:param name="level2" value="charity"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -44,7 +44,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
+<!-- Center Column Begins -->
          <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
 <!--CRPF Header-->
@@ -55,7 +55,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                      <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
                   </tr>
                </table>
-               
+
 <!-- Tab bar links-->
 <jsp:include page="crpfLinks.jsp" >
    <jsp:param name="selectedTab" value="rules"/>
@@ -67,22 +67,22 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
    <jsp:param name="selectedTab" value="overview"/>
 </jsp:include>
 
-               
+
 
                <blockquote>
                <h2>Overview of the Tournament</h2>
-               <p>The 2003 TopCoder Charity Challenge will benefit the Christopher Reeve Paralysis Foundation ("CRPF").  TopCoder 
+               <p>The 2003 TopCoder Charity Challenge will benefit the Christopher Reeve Paralysis Foundation ("CRPF").  TopCoder
                members will gather donations, and TopCoder will match all donations up to $50,000.</p>
-               <p>The tournament will take place between November 11th and November 24th.  It will consist of three (3) online rounds, 
-               with the top 4 finishers in Round 3 and the top 4 fundraisers winning a grand prize.  In addition, 2 other fundraisers 
-               who raise $100 or more will be chosen to win a grand prize.  Each grand prize is an expenses paid trip to <i>A Magical Evening</i>, the 
-               annual star-studded gala ball benefiting the CRPF.  The ball will be held at the Marriott Marquis in New York City on 
+               <p>The tournament will take place between November 11th and November 24th.  It will consist of three (3) online rounds,
+               with the top 4 finishers in Round 3 and the top 4 fundraisers winning a grand prize.  In addition, 2 other fundraisers
+               who raise $100 or more will be chosen to win a grand prize.  Each grand prize is an expenses paid trip to <i>A Magical Evening</i>, the
+               annual star-studded gala ball benefiting the CRPF.  The ball will be held at the Marriott Marquis in New York City on
                November 24th.</p>
 
                </blockquote>
-            
+
             <p><br /></p>
-         </td>                       
+         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
@@ -92,7 +92,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Right Column Begins -->
          <td width="170">
             <img src="/i/clear.gif" width="170" height="1" border="0"><br/>
-            <jsp:include page="crfp_right.jsp" />
+            <jsp:include page="crpf_right.jsp" />
          </td>
 <!-- Right Column Ends -->
 

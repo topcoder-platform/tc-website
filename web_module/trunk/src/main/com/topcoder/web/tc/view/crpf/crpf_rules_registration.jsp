@@ -34,7 +34,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="charity"/> 
+                <jsp:param name="level2" value="charity"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -43,7 +43,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
+<!-- Center Column Begins -->
          <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
 <!--CRPF Header-->
@@ -54,7 +54,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                      <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
                   </tr>
                </table>
-               
+
 <!-- Tab bar links-->
 <jsp:include page="crpfLinks.jsp" >
    <jsp:param name="selectedTab" value="rules"/>
@@ -66,13 +66,13 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
    <jsp:param name="selectedTab" value="registration"/>
 </jsp:include>
 
-               
+
 
                <blockquote>
                </blockquote>
-            
+
             <p><br /></p>
-         </td>                       
+         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
@@ -82,7 +82,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Right Column Begins -->
          <td width="170">
             <img src="/i/clear.gif" width="170" height="1" border="0"><br/>
-            <jsp:include page="crfp_right.jsp" />
+            <jsp:include page="crpf_right.jsp" />
          </td>
 <!-- Right Column Ends -->
 

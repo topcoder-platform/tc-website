@@ -23,7 +23,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 </head>
 
 <body>
- 
+
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value="review_board"/>
 </jsp:include>
@@ -34,7 +34,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="charity"/> 
+                <jsp:param name="level2" value="charity"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -43,7 +43,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
+<!-- Center Column Begins -->
          <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
 <!--CRPF Header-->
@@ -54,7 +54,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                      <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
                   </tr>
                </table>
-               
+
 <!-- Tab bar links-->
 <jsp:include page="crpfLinks.jsp" >
    <jsp:param name="selectedTab" value="donate"/>
@@ -66,10 +66,10 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
    <jsp:param name="selectedTab" value=""/>
 </jsp:include>
 
-               
+
 
                <blockquote>
-               <table class="bodyText"> 
+               <table class="bodyText">
                   <tr>
                      <td>
                      </td>
@@ -81,13 +81,13 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                      <td width="150" align="center" valign="top"><img src="/i/tournament/crpf03/creditcard.gif" width="89" height="63" border="0">
                      </td>
                      <td>
-                        <ul><li>Credit card:</li>                        
+                        <ul><li>Credit card:</li>
                         <ol>
                         <li>Go to <A href="http://www.crpf.org/contribute/contribute.cfm?orgid=TopCoderWebsite2003" target="_blank">www.christopherreeve.org/topcoder</A>.  <b>Note:  Donations will be accepted until 11:59 PM Eastern Time on November 10th</b>.</li>
                         <li>Remember to enter the TopCoder member's name and/or handle so the donation can be matched to the correct competitor</li>
-                        <li>If you have any questions about this please contact <A href="mailto:service@topcoder.com" class="bodyText">TopCoder Service</A></li>                        
+                        <li>If you have any questions about this please contact <A href="mailto:service@topcoder.com" class="bodyText">TopCoder Service</A></li>
                         </ol>
-                        </ul>                    
+                        </ul>
                      </td>
                   </tr>
                   <tr>
@@ -100,7 +100,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                         <A href="http://www.adobe.com/products/acrobat/readstep.html">Adobe Acrobat 5</A> is required to view this form</li>
                         <li>Make your check payable to the Christopher Reeve Paralysis Foundation</li>
                         <li>Checks must be received at TopCoder <b>no later than November 10</b>.<br />
-                        Mail the form and check to:<br /> 
+                        Mail the form and check to:<br />
                         TopCoder<br />
                         703 Hebron Ave<br />
                         Glastonbury,CT 06033<br />
@@ -115,9 +115,9 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                   </tr>
                </table>
                </blockquote>
-            
+
             <p><br /></p>
-         </td>                       
+         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
@@ -127,7 +127,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Right Column Begins -->
          <td width="170">
             <img src="/i/clear.gif" width="170" height="1" border="0"><br/>
-            <jsp:include page="crfp_right.jsp" />
+            <jsp:include page="crpf_right.jsp" />
          </td>
 <!-- Right Column Ends -->
 
