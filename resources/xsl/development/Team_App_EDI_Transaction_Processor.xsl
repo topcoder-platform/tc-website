@@ -136,17 +136,17 @@
                                                         <p>
                                                             <strong>Winning Application Team</strong>
                                                             <br/>
-                                                            Payment: $12,600
+                                                            Payment: $9,000
                                                             <br/>
                                                         </p>
                                                         <p>
                                                             <strong>Second Place Application Team</strong>
                                                             <br/>
-                                                            Payment: $8,400
+                                                            Payment: $6,000
                                                             <br/>
                                                         </p>
                                                         <p>
-                                                            Total: $21,000
+                                                            Total: 15,000
                                                         </p>
                                                         <br/>
                                                         All payments will be subject to any prize penalties that were assessed by a team during the
