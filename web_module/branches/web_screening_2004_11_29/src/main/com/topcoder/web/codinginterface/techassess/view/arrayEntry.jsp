@@ -79,7 +79,12 @@
                 arr = arr.substring(0, arr.length-1);
 
                 putValue("window.opener.document.forms[0]", "arg" + arg, arr);
+                <%--
+                figure out how to indicate that we're modifying.  this is tricky cuz we're using
+                a button for array entry and text input item for non arrays.  i guess we'd have
+                the dynamically change the src for the image.
                 putValue("window.opener.document.forms[0]", "arg" + arg + "input", "modify");
+                --%>
 
                 window.close();
                 window.opener.focus();

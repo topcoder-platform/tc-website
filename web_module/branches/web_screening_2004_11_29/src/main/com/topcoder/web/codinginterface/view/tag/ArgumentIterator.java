@@ -80,8 +80,7 @@ public class ArgumentIterator extends BodyTagSupport {
                         ");\"><img src=\"/i/corp/screening/buttonCreate.gif\" alt=\"Create\"/></a>";
             } else {
                 String name = CodingInterfaceConstants.TEST_ARGUMENT + index;
-                input = "<input type=\"text\" name=\"" + name + "\" size=\"20\" maxlength=\"50\" value=\"" +
-                        getDefaultValue(name) == null ? "" : getDefaultValue(name).toString() + "\">";
+                input = "<input type=\"text\" name=\"" + name + "\" size=\"20\" maxlength=\"50\" value=\"\">";
             }
             pageContext.setAttribute(INPUT, input, PageContext.PAGE_SCOPE);
             index++;

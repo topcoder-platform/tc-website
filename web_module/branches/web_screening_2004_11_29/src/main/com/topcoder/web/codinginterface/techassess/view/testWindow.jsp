@@ -63,6 +63,28 @@
 
             var windowHandle = null;
 
+            //startup, load variables from the parent
+            for(var i = 0; i < numArgs; i++) {
+                switch(argTypes[i]) {
+                    case "String[]":
+<%--                figure out how to indicate that we're modifying.  this is tricky cuz we're using
+                a button for array entry and text input item for non arrays.  i guess we'd have
+                the dynamically change the src for the image.
+
+                        if(getValue("window.opener.document.forms[0]", "arg" + i) != "") {
+                            putValue("document.frmTesting", "arg" + i + "input", "modify");
+                        }
+--%>
+                        break;
+                    case "int":
+                        putValue("document.frmTesting", "arg" + i + "input", getValue("window.opener.document.forms[0]", "arg" + i));
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+
             function launchArray(id) {
                 if(windowHandle && !windowHandle.closed) {
                     windowHandle.focus();
@@ -117,7 +139,9 @@
                 }
 
                 //put values in hidden fields
+                //we put it in the parent so that they can close the testing window and still have the values around.
                 for(var i = 0; i < numArgs; i++) {
+                    alert("put " + getValue("document.frmTesting", "arg" + i + "input").toLowerCase() + " in for arg " + i);
                     switch(argTypes[i]) {
                         case "String[]":
                         case "int[]":
@@ -127,14 +151,19 @@
                         case "int":
                         case "long":
                             putValue("window.document.forms[0]", "arg" + i, parseInt(getValue("document.frmTesting", "arg" + i + "input")));
+                            putValue("window.opener.document.forms[0]", "arg" + i, parseInt(getValue("document.frmTesting", "arg" + i + "input")));
                             break;
                         case "double":
                             putValue("window.document.forms[0]", "arg" + i, parseFloat(getValue("document.frmTesting", "arg" + i + "input")));
+                            putValue("window.opener.document.forms[0]", "arg" + i, parseFloat(getValue("document.frmTesting", "arg" + i + "input")));
                             break;
                         case "boolean":
                             putValue("window.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input"));
+                            putValue("window.opener.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input"));
+                            break;
                         default:
                             putValue("window.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input").toLowerCase());
+                            putValue("window.opener.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input").toLowerCase());
                             break;
                     }
                 }
