@@ -302,6 +302,11 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
+            <name>fromScope</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
             <name>toScope</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
