@@ -9,7 +9,7 @@ import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -19,7 +19,7 @@ import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
 
 public class ProblemInfo extends BaseModel {
-    private static CachedDataAccess access;
+    private static DataAccess access;
 
     private String problemName;
     private String divisionDesc;
@@ -241,7 +241,7 @@ public class ProblemInfo extends BaseModel {
                         context.lookup(Constants.DATA_SOURCE),
                                             DataSource.class);
 
-            access = new CachedDataAccess(ds);
+            access = new DataAccess(ds);
         }
 
         Request problemDetail = new Request();
