@@ -243,16 +243,16 @@ public class TCLoadTCS extends TCLoad {
                 log.info("PROCESSING USER " + rs.getInt("user_id"));
 
                 //update record, if 0 rows affected, insert record
-                sSQL = "update user_rating set rating = ?,  phase_id = ?, vol = ?, rating_no_vol = ?, num_ratings = ?, mod_date_time = CURRENT " +
+                sSQL = "update user_rating set rating = ?,  vol = ?, rating_no_vol = ?, num_ratings = ?, last_rated_project_id = ?, mod_date_time = CURRENT " +
                         " where user_id = ? and phase_id = ? ";
 
                 ps2 = prepareStatement(sSQL, TARGET_DB);
                 ps2.setObject(1, rs.getObject("rating"));
-                ps2.setObject(2, rs.getObject("phase_id"));
-                ps2.setObject(3, rs.getObject("vol"));
-                ps2.setObject(4, rs.getObject("rating_no_vol"));
-                ps2.setObject(5, rs.getObject("num_ratings"));
+                ps2.setObject(2, rs.getObject("vol"));
+                ps2.setObject(3, rs.getObject("rating_no_vol"));
+                ps2.setObject(4, rs.getObject("num_ratings"));
                 //ps2.setObject(6, rs.getObject("last_component_rated"));
+                ps2.setObject(5, rs.getObject("last_rated_project_id"));
                 ps2.setLong(6, rs.getLong("user_id"));
                 ps2.setObject(7, rs.getObject("phase_id"));
 
@@ -264,8 +264,8 @@ public class TCLoadTCS extends TCLoad {
                 if(retVal == 0)
                 {
                     //need to insert
-                    sSQL = "insert into user_rating (user_id, rating, phase_id, vol, rating_no_vol, num_ratings, mod_date_time, create_date_time) " +
-                           "values (?, ?, ?, ?, ?, ?, CURRENT, CURRENT) ";
+                    sSQL = "insert into user_rating (user_id, rating, phase_id, vol, rating_no_vol, num_ratings, last_rated_project_id, mod_date_time, create_date_time) " +
+                           "values (?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("user_id"));
@@ -274,6 +274,7 @@ public class TCLoadTCS extends TCLoad {
                     ps2.setObject(4, rs.getObject("vol"));
                     ps2.setObject(5, rs.getObject("rating_no_vol"));
                     ps2.setObject(6, rs.getObject("num_ratings"));
+                    ps2.setObject(7, rs.getObject("last_rated_project_id"));
 
                     ps2.execute();
 
