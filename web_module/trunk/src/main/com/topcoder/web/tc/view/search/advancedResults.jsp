@@ -68,6 +68,13 @@
                           <input type="hidden" name=<%=DataAccessConstants.START_RANK%> value=""/>
                           <input type="hidden" name=<%=DataAccessConstants.END_RANK%> value=""/>
                           <input type="hidden" name=<%=Constants.HANDLE%> value="<jsp:getProperty name="memberSearch" property="handle"/>"/>
+                          <input type="hidden" name=<%=Constants.STATE_CODE%> value="<jsp:getProperty name="memberSearch" property="stateCode"/>"/>
+                          <input type="hidden" name=<%=Constants.COUNTRY_CODE%> value="<jsp:getProperty name="memberSearch" property="countryCode"/>"/>
+                          <input type="hidden" name=<%=Constants.MAX_DAYS_SINCE_LAST_COMP%> value="<jsp:getProperty name="memberSearch" property="maxDaysSinceLastComp"/>"/>
+                          <input type="hidden" name=<%=Constants.MIN_RATING%> value="<jsp:getProperty name="memberSearch" property="minRating"/>"/>
+                          <input type="hidden" name=<%=Constants.MAX_RATING%> value="<jsp:getProperty name="memberSearch" property="maxRating"/>"/>
+                          <input type="hidden" name=<%=Constants.MIN_NUM_RATINGS%> value="<jsp:getProperty name="memberSearch" property="minNumRatings"/>"/>
+                          <input type="hidden" name=<%=Constants.MAX_NUM_RATINGS%> value="<jsp:getProperty name="memberSearch" property="maxNumRatings"/>"/>
 
                           <jsp:include page="searchForm.jsp"/>
                           <jsp:include page="results.jsp"/>
