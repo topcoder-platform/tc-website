@@ -34,51 +34,57 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="8" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="5" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-        <td class="bodyText" width="100%">
+        <td class="bodyText">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">development</xsl:with-param>
                 <xsl:with-param name="title">&#160;Inquiry</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="10" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
-
-            <form name="frmSend" method="POST" action="/?&amp;t=development">
-              <input type="hidden" name="t" value="development"/>
-              <input type="hidden" name="c" value="tcs_send"/>
-              
-              <input type="hidden" name="comp">
-                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/comp"/></xsl:attribute>
-              </input>
-              <input type="hidden" name="phase">
-                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/phase"/></xsl:attribute>
-              </input>
-              <input type="hidden" name="version">
-                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/version"/></xsl:attribute>
-              </input>
-              
-              <input type="hidden" name="date">
-                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/date"/></xsl:attribute>
-              </input>
-              <input type="hidden" name="Project">
-                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/Project"/></xsl:attribute>
-              </input>
-              <input type="hidden" name="handle">
-                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/handle"/></xsl:attribute>
-              </input>
-              <input type="hidden" name="To">
-                <xsl:attribute name="VALUE">service@topcodersoftware.com</xsl:attribute>
-              </input>
+            <img src="/i/clear.gif" alt="" width="240" height="20" border="0"/><br/>
             
-                <tr valign="top">
-                    <td class="bodyText">
-                        <h2><xsl:value-of select="/TC/DEVELOPMENT/ProjectName"/></h2>
-                        <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
-                        <textarea name="TermDesc" rows="10" cols="65" readonly="true" class="bodyText" wrap="VIRTUAL">
+                <form name="frmSend" method="POST" action="/?&amp;t=development">
+                <input type="hidden" name="t" value="development"/>
+                <input type="hidden" name="c" value="tcs_send"/>
+              
+                <input type="hidden" name="comp">
+                    <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/comp"/></xsl:attribute>
+                </input>
+              
+                <input type="hidden" name="phase">
+                    <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/phase"/></xsl:attribute>
+                </input>
+              
+                <input type="hidden" name="version">
+                    <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/version"/></xsl:attribute>
+                </input>
+              
+                <input type="hidden" name="date">
+                    <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/date"/></xsl:attribute>
+                </input>
+              
+                <input type="hidden" name="Project">
+                    <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/Project"/></xsl:attribute>
+                </input>
+              
+                <input type="hidden" name="handle">
+                    <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/handle"/></xsl:attribute>
+                </input>
+              
+                <input type="hidden" name="To">
+                    <xsl:attribute name="VALUE">service@topcodersoftware.com</xsl:attribute>
+                </input>
+            
+                <h2><xsl:value-of select="/TC/DEVELOPMENT/ProjectName"/></h2>
+               
+               <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
+                Terms &amp; Conditions<br/>
+                <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
+                <textarea name="TermDesc" rows="10" cols="60" readonly="true" class="bodyText" wrap="VIRTUAL">
 OWNERSHIP AND RIGHTS
 You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property rights, in and to the information posted on the TopCoder website.  If TopCoder selects your design or development solution as a "winning" design or development solution (meaning your submissions scored in first, second or third place), you will receive a monetary award.  As consideration for your winning design or development solution and for your monetary award, you agree to irrevocably and unconditionally transfer and assign to TopCoder all right, title and interest you have, may have or acquire in, the winning design or development solution, and you agree to execute and deliver such documents, certificates, assignments and other writings, and take such other actions as may be necessary or desirable to vest in TopCoder the ownership rights granted to TopCoder hereunder.  If your submission is not declared a winning design or development solution, you retain any and all rights to ownership of such material submitted to TopCoder.  TopCoder will not gain ownership of this material.  However, by submitting any design documents or source code to TopCoder, you hereby grant us a perpetual, royalty-free, irrevocable, non-exclusive right and license to use, reproduce and publish such documents or source code for commercial and/or non-commercial use.  Such license shall not include the right to resell the design or development submission. 
 
@@ -89,22 +95,16 @@ You agree that if TopCoder is unable because of your unavailability, or for any 
 Nothing in this Agreement shall be construed as granting you any right or license under any intellectual property right of TopCoder (including any rights TopCoder may have in any patents, copyrights, trademarks, service marks or any trade secrets), by implication, estoppel or otherwise, except as expressly set forth herein.
 
 If you have any questions regarding these Terms, contact us at service@topcoder.com.</textarea>
-                    </td>
-                </tr>
 
-                <tr valign="top"><td class="bodyText">Agree to Terms <input type="checkbox" name="terms"/></td></tr>
+                <p>Agree to Terms <input type="checkbox" name="terms"/></p>
                 
-                <tr valign="top"><td class="bodyText">Comments<br />
-                        <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
-                        <textarea name="Comment" rows="5" cols="40"/></td></tr>
+                <p>Comments<br />
+                <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
+                <textarea name="Comment" rows="5" cols="50"/></p>
+                
+                <p><br/></p>
 
-                <tr><td class="bodyText"><br />
-<!--
-                     <A CLASS="statTextBig" HREF="Javascript:if(document.frmSend.terms){document.frmSend.submit();}else{alert('You must agree to the terms to apply for this project.');}">
--->
-                     <a class="statTextBig" href="Javascript:submitForm();"><strong>Click here to submit &gt;&gt;</strong></a>
-                  </td>
-                </tr>
+                <p align="center"><strong><A href="Javascript:submitForm();">Submit Inquiry</A> &gt;&gt;</strong></p>
               
               <script type="text/javascript"><![CDATA[
                 function submitForm() {
@@ -113,23 +113,25 @@ If you have any questions regarding these Terms, contact us at service@topcoder.
                   return;
                 }
               ]]></script>
+            
             </form>
 
-            </table>
+            <p><br/></p>
+            
          </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="5" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
         <td width="244">
-        <xsl:call-template name="public_dev_right"/>        
+            <xsl:call-template name="public_dev_right"/>        
         </td>
 <!-- Right Column Ends -->
 
-  </tr>
+    </tr>
 </table>
 
 <xsl:call-template name="Foot"/>
