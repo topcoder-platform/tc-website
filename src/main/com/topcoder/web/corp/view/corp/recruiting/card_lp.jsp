@@ -56,7 +56,7 @@ if ( plugin ) {
         <td width="170">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="recruiting"/>
-                <jsp:param name="level2" value="overview"/> 
+                <jsp:param name="level2" value=""/> 
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
