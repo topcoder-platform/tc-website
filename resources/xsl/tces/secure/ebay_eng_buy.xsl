@@ -63,7 +63,7 @@
                         </table>
 
 <!-- Client Job List begins -->
-                        <p><A href="/?&amp;t=tces&amp;c=ebay" class="bodyText"><img src="/i/es/ebay/ebay_logo.gif" width="134" height="71" alt="eBay" border="0" /></A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=ebay" class="bodyText"><img src="/i/es/ebay/eBay_logo.gif" width="121" height="56" alt="eBay" border="0" /></A></p>
 
                         <h3>Staff Software Engineer, Buying - 0300137</h3>
                         

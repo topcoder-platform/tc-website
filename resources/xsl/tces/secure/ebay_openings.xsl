@@ -62,7 +62,7 @@
                         </table>
 
 <!-- Client Job List begins -->
-                        <p><A href="/?&amp;t=tces&amp;c=ebay" class="bodyText"><img src="/i/es/ebay/ebay_logo.gif" width="134" height="71" alt="eBay" border="0" /></A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=ebay" class="bodyText"><img src="/i/es/ebay/eBay_logo.gif" width="121" height="56" alt="eBay" border="0" /></A></p>
 
                         <p><A href="/?&amp;t=tces&amp;c=ebay_prin_soft&amp;a=secure" class="bodyText">Principal Software Engineer, Messaging - 0300475</A></p>
                         
