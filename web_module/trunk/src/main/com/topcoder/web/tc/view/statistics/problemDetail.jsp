@@ -118,7 +118,7 @@
 
              <% if (!div1Lang.isEmpty()) { %>
                <table BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
-                 <tr><td class="statText">Division 1</td></tr>
+                 <tr><td class="statText">Division I</td></tr>
                  <tr>
                    <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText"></TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
@@ -242,7 +242,7 @@
 
                <% if (!div2Lang.isEmpty()) { %>
                <table BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
-                 <tr><td class="statText">Division 2</td></tr>
+                 <tr><td class="statText">Division II</td></tr>
                  <tr>
                    <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText"></TD>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
