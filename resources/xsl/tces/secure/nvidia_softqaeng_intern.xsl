@@ -79,6 +79,8 @@ Windows Hardware Quality Labs (WHQL).  Examine Microsoft's WHQL site <A HREF="ht
 <LI>The ability to research and comprehend technically complex specifications concerning the development of PC architecture and sub-systems.</LI>
 <LI>Knowledgeable of current industry standards such as DirectX, OpenGL, EDID &#38; DDC, DVD, ACPI, and PC Design Guides.</LI>
 </UL>
+
+
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=31&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
 
 <!--end contextual links-->
