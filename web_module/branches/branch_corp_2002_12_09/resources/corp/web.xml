@@ -86,14 +86,20 @@
 
         <init-param>
             <param-name>page-success</param-name>
-            <param-value>/TxSuccess.jsp</param-value>
-            <description>Transaction success page</description>
+            <param-value>/Tx/Accepted.jsp</param-value>
+            <description>Default CC transaction success page</description>
         </init-param>
 
         <init-param>
             <param-name>page-failure</param-name>
-            <param-value>/TxFailure.jsp</param-value>
-            <description>Transaction failure page</description>
+            <param-value>/Tx/Rejected.jsp</param-value>
+            <description>CC transaction failure page</description>
+        </init-param>
+
+        <init-param>
+            <param-name>intermediate-form</param-name>
+            <param-value>/Tx/helper_form.jsp</param-value>
+            <description>intermediate form used to organize user to VeriSign interaction</description>
         </init-param>
     </servlet>
 
