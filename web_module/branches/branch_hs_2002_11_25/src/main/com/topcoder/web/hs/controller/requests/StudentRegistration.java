@@ -1,10 +1,9 @@
 package com.topcoder.web.hs.controller.requests;
 
+import com.topcoder.web.hs.model.*;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.util.*;
 
 import java.util.*;
 import javax.naming.*;
@@ -21,21 +20,19 @@ import javax.sql.*;
  */
 public class StudentRegistration extends Base {
 
-  private final static String STATE="st";
+  private final static String STATE_INPUT_CODE="st";
 
-  private final static String REG_BASE="/registration/";
+  private final static String REGISTRATION_BASE="/registration/";
 
-  private final static String REG_STUDENT_PAGE="registration_student.jsp";
+  private final static String REGISTRATION_PAGE="registration_student.jsp";
 
-  private final static String CONFIRM_STUDENT_PAGE="confirm_student.jsp";
+  private final static String CONFIRM_PAGE="confirm_student.jsp";
 
   private final static String THANK_YOU_PAGE="thankyou.jsp";
 
-  private final static String PICK_STATE_CMD="pick_state";
+  private final static String REGISTER_CMD="register";
 
-  private final static String REG_STUDENT_CMD="reg_student";
-
-  private final static String CONFIRM_STUDENT_CMD="confirm_student";
+  private final static String CONFIRM_CMD="confirm";
 
   private final static String INVALID_COMMAND="Invalid command passed to "+
                                               "registration module: ";
@@ -48,60 +45,40 @@ public class StudentRegistration extends Base {
      * registration page 
      */
     if (cmd==null||cmd.equals("")) {
-      redirectToStudentRegistration();
-    }
+      StudentRegistrationBean srb=new StudentRegistrationBean();
+      populateStudentRegistrationBean(srb);
 
-    /* If the user has clicked on a different state we need to get the list
-     * of high schools for that state and send it back
-     */
-    else if (cmd.equals(PICK_STATE_CMD)) {
+      request.setAttribute("STUDENT",srb);
 
-      redirectToStudentRegistration();
-
-      Context ctx=TCContext.getInitial();
-      DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-      DataAccessInt dai=new CachedDataAccess(ds);
-
-
-      /* check to see if the users has picked a state */
-      String pick=request.getParameter("state");
-      if (pick!=null&&!pick.equals("")) {
-        Map map=new HashMap();
-        map.put(DataAccessConstants.COMMAND,"state_schools");
-        map.put(STATE,pick);
-        Request req=new Request(map);
-        Map picked=dai.getData(req);
-        Map data=(Map)request.getAttribute("STUDENT_DATA");
-        data.put("school_list",picked.get("state_schools"));
-      }
-
-      request.setAttribute("STUDENT_DATA",data);
-
+      setNextPage(REGISTRATION_BASE+REGISTRATION_PAGE);
+      setIsNextPageInContext(true);
     }
 
     /* If the user clicks the "Continute" button after entering his registration
      * information, then perform some data validation and redirect to the
      * confirmation page
      */
-    else if (cmd.equals(REG_STUDENT_CMD)) {
+    else if (cmd.equals(REGISTER_CMD)) {
 
     }
 
     /* When the user confirms his registration information, perform data
      * validation again, and commit it to the database
      */
-    else if (cmd.equals(CONFIRM_STUDENT_CMD)) {
-      Context ctx=TCContext.getInitial();
-      DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+    else if (cmd.equals(CONFIRM_CMD)) {
 
     }
 
+    /* If any other command is given, redirect to the errorPage and display a
+     * meaningful message
+     */
     else {
       throw(new IllegalArgumentException(INVALID_COMMAND+cmd));
     }
   }
 
-  private void redirectToStudentRegistration() throws Exception {
+  private void populateStudentRegistrationBean(StudentRegistrationBean _srb)
+                                                              throws Exception {
     Context ctx=TCContext.getInitial();
     DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
     DataAccessInt dai=new CachedDataAccess(ds);
@@ -110,52 +87,86 @@ public class StudentRegistration extends Base {
     map.put(DataAccessConstants.COMMAND,"student_form");
     Request req=new Request(map);
     Map data=dai.getData(req);
+
+    ResultSetContainer rsc;
+    ResultSetContainer.ResultSetRow rsr;
+
+    rsc=(ResultSetContainer)data.get("state_list");
+    List state_list=new ArrayList();
+    for (Iterator i=rsc.iterator();i.hasNext();) {
+      rsr=(ResultSetContainer.ResultSetRow)i.next();
+      String state_code=(String)rsr.getItem("state_code").getResultData();
+      String state_name=(String)rsr.getItem("state_name").getResultData();
+      state_list.add(new ListPairBean(state_code,state_name));
+    }
+
+    _srb.setStateList(state_list);
+
+    rsc=(ResultSetContainer)data.get("editor_list");
+    List editor_list=new ArrayList();
+    for (Iterator i=rsc.iterator();i.hasNext();) {
+      rsr=(ResultSetContainer.ResultSetRow)i.next();
+      Integer editor_id=(Integer)rsr.getItem("editor_id").getResultData();
+      String editor_desc=(String)rsr.getItem("editor_desc").getResultData();
+      editor_list.add(new ListPairBean(editor_id.toString(),editor_desc));
+    }
+
+    _srb.setEditorList(editor_list);
     
-    data.put("school_list",new ArrayList());
+    rsc=(ResultSetContainer)data.get("editor_list");
+    List language_list=new ArrayList();
+    for (Iterator i=rsc.iterator();i.hasNext();) {
+      rsr=(ResultSetContainer.ResultSetRow)i.next();
+      Integer language_id=(Integer)rsr.getItem("language_id").getResultData();
+      String language_name=(String)rsr.getItem("language_name").getResultData();
+      language_list.add(new ListPairBean(language_id.toString(),language_name));
+    }
 
-    request.setAttribute("STUDENT_DATA",data);
+    _srb.setLanguageList(language_list);
 
-    /* need to preserve any passed in parameters */
-    preserveNonNullParameter("first_name","FIRST_NAME");
-    preserveNonNullParameter("last_name","LAST_NAME");
-    preserveParameter("state_code","STATE_CODE");
-    preserveIntegerParameter("school_id","SCHOOL_ID");
-    preserveNonNullParameter("handle","HANDLE");
-    preserveNonNullParameter("email","EMAIL");
-    preserveNonNullParameter("confirm_email","CONFIRM_EMAIL");
-    preserveIntegerParameter("editor_id","EDITOR_ID");
-    preserveIntegerParameter("language_id","LANGUAGE_ID");
+    _srb.setFirstName(getParameterNonNull("first_name"));
+    _srb.setLastName(getParameterNonNull("last_name"));
+    _srb.setStateCode(getParameterNonNull("state"));
+    _srb.setSchoolId(getParameterNonNull("school"));
+    _srb.setHandle(getParameterNonNull("handle"));
+    _srb.setEmail(getParameterNonNull("email"));
+    _srb.setEditorId(getParameterNonNull("editor"));
+    _srb.setLanguageId(getParameterNonNull("language"));
 
-    setNextPage(REG_BASE+REG_STUDENT_PAGE);
-    setIsNextPageInContext(true);
+    /* add error checking here */
+
+    if (!_srb.getStateCode().equals("")) {
+      map.put(DataAccessConstants.COMMAND,"state_schools");
+      map.put(STATE_INPUT_CODE,_srb.getStateCode());
+      req=new Request(map);
+      Map schools=dai.getData(req);
+
+      rsc=(ResultSetContainer)data.get("state_schools");
+      List school_list=new ArrayList();
+      for (Iterator i=rsc.iterator();i.hasNext();) {
+        rsr=(ResultSetContainer.ResultSetRow)i.next();
+        Integer school_id=(Integer)rsr.getItem("school_id").getResultData();
+        String short_name=(String)rsr.getItem("short_name").getResultData();
+        school_list.add(new ListPairBean(school_id.toString(),short_name));
+      }
+
+      _srb.setSchoolList(school_list);
+    }
+    else {
+      _srb.setSchoolList(new ArrayList());
+    }
+      
   }
 
-  private void preserveParameter(String _param,String _name) {
-    String value=request.getParameter(_param);
-    request.setAttribute(_name,value);
-  }
-
-  private void preserveNonNullParameter(String _param,String _name) {
+  private String getParameterNonNull(String _param) {
     String value=request.getParameter(_param);
     if (value==null) {
       value="";
     }
-    request.setAttribute(_name,value);
+    return(value);
   }
 
-  private void preserveIntegerParameter(String _param,String _name) {
-    String param=request.getParameter(_param);
-    Integer value=null;
-    try {
-      value=new Integer(param);
-    }
-    catch (NumberFormatException _nfe) {
-      /* do nothing */
-    }
-    request.setAttribute(_name,value);
-  }
-
-  private boolean validateStudent() {
+  private boolean validateStudent(StudentRegistrationBean _srb) {
     return(false);
   }
 
