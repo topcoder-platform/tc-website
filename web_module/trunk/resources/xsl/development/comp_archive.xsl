@@ -112,15 +112,18 @@
                     <td background="/i/steel_bluebv_bg.gif" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
                 </tr>
 
-				<tr>
-					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-					<td background="" class="statText">Project Title</td>
-					<td background="" class="statText" align="center">00.00.00</td>
-					<td background="" class="statText" align="center">00.00.00</td>
-					<td background="" class="statText" align="center">00.00.00</td>
-					<td background="" class="statText" align="center">00.00.00</td>
-					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-				</tr>                 
+
+                <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
+    				<tr>
+    					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
+    					<td background="" class="statText"><xsl:value-of select="./component_name"/></td>
+    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="REVIEW_COMPLETE_DATE"/></xsl:call-template></td>
+    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="FINAL_SUBMISSION_DATE"/></xsl:call-template></td>
+    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="PHASE_COMPLETE_DATE"/></xsl:call-template></td>
+    					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
+    				</tr>                 
+                </xsl:for-each> 
                
 
                 <tr><td colspan="7" background=""><img src="/i/clear.gif" width="1" height="15" alt="" border="0" /></td></tr>
@@ -149,16 +152,17 @@
                     <td background="/i/steel_bluebv_bg.gif" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
                 </tr>
 
-				<tr>
-					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-					<td background="" class="statText">Project Title</td>
-					<td background="" class="statText" align="center">00.00.00</td>
-					<td background="" class="statText" align="center">00.00.00</td>
-					<td background="" class="statText" align="center">00.00.00</td>
-					<td background="" class="statText" align="center">00.00.00</td>
-					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-				</tr>                 
-               
+                <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
+    				<tr>
+    					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
+    					<td background="" class="statText"><xsl:value-of select="./component_name"/></td>
+    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="REVIEW_COMPLETE_DATE"/></xsl:call-template></td>
+    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="FINAL_SUBMISSION_DATE"/></xsl:call-template></td>
+    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="PHASE_COMPLETE_DATE"/></xsl:call-template></td>
+    					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
+    				</tr>                 
+                </xsl:for-each> 
 
                 <tr><td colspan="7" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
 
