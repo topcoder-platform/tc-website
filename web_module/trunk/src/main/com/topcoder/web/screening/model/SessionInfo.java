@@ -28,7 +28,7 @@ public class SessionInfo extends BaseModel {
 
     public SessionInfo() {
         candidateEmail="YES";
-        repEmail="NO";
+        repEmail="YES";
 
         Calendar c = Calendar.getInstance();
         beginMonth = endMonth = String.valueOf(c.get(Calendar.MONTH) + 1);
