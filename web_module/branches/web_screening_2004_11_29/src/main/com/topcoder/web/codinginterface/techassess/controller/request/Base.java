@@ -9,12 +9,18 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
+import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsResponse;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.language.JavaLanguage;
+import com.topcoder.shared.language.CPPLanguage;
+import com.topcoder.shared.language.CSharpLanguage;
+import com.topcoder.shared.language.VBLanguage;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Iterator;
+import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.io.IOException;
 
@@ -252,6 +258,36 @@ public abstract class Base extends BaseProcessor {
 
         return (Message) receiver.receive(waitTime, messageId, getResponse());
     }
+
+
+    protected static  ArrayList getLanguages(ArrayList languageIds) {
+        ArrayList languages = new ArrayList(languageIds.size());
+        for (Iterator it = languageIds.iterator(); it.hasNext();) {
+            switch (((Integer)it.next()).intValue()) {
+                case JavaLanguage.ID : {
+                    languages.add(JavaLanguage.JAVA_LANGUAGE);
+                    break;
+                }
+
+                case CPPLanguage.ID : {
+                    languages.add(CPPLanguage.CPP_LANGUAGE);
+                    break;
+                }
+
+                case CSharpLanguage.ID : {
+                    languages.add(CSharpLanguage.CSHARP_LANGUAGE);
+                    break;
+                }
+
+                case VBLanguage.ID : {
+                    languages.add(VBLanguage.VB_LANGUAGE);
+                    break;
+                }
+            }
+        }
+        return languages;
+    }
+
 
 
 }

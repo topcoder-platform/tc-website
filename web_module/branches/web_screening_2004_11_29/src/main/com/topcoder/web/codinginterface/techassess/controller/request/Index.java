@@ -5,14 +5,9 @@ import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.netCommon.screening.request.ScreeningGetProblemSetsRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsResponse;
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
-import com.topcoder.shared.language.JavaLanguage;
-import com.topcoder.shared.language.CPPLanguage;
-import com.topcoder.shared.language.CSharpLanguage;
-import com.topcoder.shared.language.VBLanguage;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * User: dok
@@ -23,10 +18,6 @@ public class Index extends Base {
     protected static Logger log = Logger.getLogger(Index.class);
 
     protected void businessProcessing() throws Exception {
-        indexProcessing(Constants.RP_INDEX_RESPONSE);
-    }
-
-    protected void indexProcessing(String nextPage) throws Exception {
 
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
@@ -40,7 +31,7 @@ public class Index extends Base {
 
             send(request);
 
-            showProcessingPage(buildProcessorRequestString(nextPage,
+            showProcessingPage(buildProcessorRequestString(Constants.RP_INDEX_RESPONSE,
                     new String[] {Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
 
             ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse)receive(5000);
@@ -53,45 +44,13 @@ public class Index extends Base {
             log.debug("there are " + sets.size() + " problem sets");
 
             setDefault(Constants.PROBLEM_SETS, sets);
-            setDefault(Constants.LANGUAGES, getLanguages(response));
+            setDefault(Constants.LANGUAGES, getLanguages(response.getAllowedLanguages()));
 
             closeProcessingPage();
 
         }
 
     }
-
-
-
-    private ArrayList getLanguages(ScreeningGetProblemSetsResponse response) {
-        ArrayList languageIds= response.getAllowedLanguages();
-        ArrayList languages = new ArrayList(languageIds.size());
-        for (Iterator it = languageIds.iterator(); it.hasNext();) {
-            switch (((Integer)it.next()).intValue()) {
-                case JavaLanguage.ID : {
-                    languages.add(JavaLanguage.JAVA_LANGUAGE);
-                    break;
-                }
-
-                case CPPLanguage.ID : {
-                    languages.add(CPPLanguage.CPP_LANGUAGE);
-                    break;
-                }
-
-                case CSharpLanguage.ID : {
-                    languages.add(CSharpLanguage.CSHARP_LANGUAGE);
-                    break;
-                }
-
-                case VBLanguage.ID : {
-                    languages.add(VBLanguage.VB_LANGUAGE);
-                    break;
-                }
-            }
-        }
-        return languages;
-    }
-
 
 
 }
