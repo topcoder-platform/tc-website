@@ -28,6 +28,8 @@ import com.topcoder.shared.problem.NodeElement;
 import com.topcoder.shared.problem.TestCase;
 import java.io.FileOutputStream;
 
+import com.topcoder.shared.language.*;
+
 import com.topcoder.web.common.MultipartRequest;
 
 import com.topcoder.web.ejb.user.User;
@@ -148,6 +150,16 @@ public class PDFGenerator extends BaseProcessor {
         problem.setProblemComponents(arrProblemComponent);
         
         config.setProblem(problem);
+        
+        if(rsc.getIntItem(0, "language_id") == 1) {
+            config.setLanguage(JavaLanguage.JAVA_LANGUAGE);
+        } else if(rsc.getIntItem(0, "language_id") == 3) {
+            config.setLanguage(CPPLanguage.CPP_LANGUAGE);
+        } else if(rsc.getIntItem(0, "language_id") == 4) {
+            config.setLanguage(CSharpLanguage.CSHARP_LANGUAGE);
+        } else if(rsc.getIntItem(0, "language_id") == 5) {
+            config.setLanguage(VBLanguage.VB_LANGUAGE);
+        }
         
         //get resume
         
