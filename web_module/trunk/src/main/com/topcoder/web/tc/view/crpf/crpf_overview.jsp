@@ -61,7 +61,7 @@
                 <h2>Overview of the Tournament</h2>
             
                <p><img src="/i/tournament/crpf03/crpf_magical_evening_toast.jpg" alt="Last year's Magical Evening toast" width="332" height="265" border="0" align="right">
-               <font size="3"><strong>Win an trip to <em>A Magical Evening,</em> the annual star-studded gala ball benefiting the Christopher Reeve Paralysis Foundation!</strong></font><br>
+               <font size="3"><strong>Win a trip to <em>A Magical Evening,</em> the annual star-studded gala ball benefiting the Christopher Reeve Paralysis Foundation!</strong></font><br>
                 Last year's <em>Magical Birthday Bash</em> was the largest fundraising event for the CRPF. Hosted by Kim Cattrall, with a special performance 
                 by Robin Williams, the <em>Birthday Bash</em> celebrated the birthdays of Christopher Reeve and his friends Barbara Walters, Michael Douglas, 
                 Catherine Zeta-Jones, and Ron Meyer. <a href="http://www.christopherreeve.org/News/News.cfm?ID=368&c=30" target="_blank">See more pictures</a> of last year's event.</p>
