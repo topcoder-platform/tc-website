@@ -100,17 +100,17 @@
                                 <td id="calendar">4</td>
                                 <td id="calendar">5</td>
                                 <td id="calendar">6</td>
-                                <td id="calendar">7</td>
-                                <td id="calendar">8</td>
-                                <td id="calendar">9</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">10</span><br />
+                                    <span id="calendarSRMDate">7</span><br />
                                     <strong>Match 190</strong><br />
-                                    Register: 9:00&#160;AM<br />
-                                    Compete: 12:00&#160;PM<br />
-                                    <!--Sponsor: <A href="/?t=tces&amp;c=index">NVIDIA</A><br />-->
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    Sponsor: <A href="/?t=tces&amp;c=index">PayPal</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4770&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                <td id="calendar">8</td>
+                                <td id="calendar">9</td>
+                                <td id="calendar">10</td>
                             </tr>
                             
                             <tr> 
@@ -145,30 +145,30 @@
                                 <td id="calendar">18</td>
                                 <td id="calendar">19</td>
                                 <td id="calendar">20</td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">21</span><br />
-                                    <strong>Match 191</strong><br />
-                                    Register: 6:00&#160;PM<br />
-                                    Compete: 9:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tces&amp;c=index">NVIDIA</A><br />
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4775&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                <td id="calendar">21</td>
                                 <td id="calendar">22</td>
                                 <td id="calendar">23</td>
-                                <td id="calendar">24</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">24</span><br />
+                                    <strong>Match 191</strong><br />
+                                    Register: 9:00&#160;AM<br />
+                                    Compete: 12:00&#160;PM<br />
+                                    Sponsor: Yahoo!<br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?RoundId=4775&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                             </tr>
                             
                             <tr> 
                                 <td id="calendar">25</td>
+                                <td id="calendar">26</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">26</span><br />
+                                    <span id="calendarSRMDate">27</span><br />
                                     <strong>Match 192</strong><br />
-                                    Register: 6:00&#160;PM<br />
-                                    Compete: 9:00&#160;PM<br />
-                                    <!--Sponsor: <A href="/?t=tces&amp;c=index">NVIDIA</A><br />-->
+                                    Register: 5:00&#160;PM<br />
+                                    Compete: 8:00&#160;PM<br />
+                                    Sponsor: <A href="/?t=tces&amp;c=index">PayPal</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4780&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-                                <td id="calendar">27</td>
                                 <td id="calendar">28</td>
                                 <td id="calendar">29</td>
                                 <td id="calendar">30</td>

@@ -93,7 +93,7 @@
                                     <strong>Match 185</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=sponsor&amp;c=intel_ids">Intel</A><br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">Intel</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4745&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">2</td>
@@ -133,7 +133,7 @@
                                     <strong>Match 186</strong><br />
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tces&amp;c=index">NVIDIA</A><br />
+                                    Sponsor: <A href="/?t=tces&amp;c=index">PayPal</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4750&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                             </tr>
@@ -174,7 +174,7 @@
                                     <strong>Match 188</strong><br />
                                     Register: 7:00&#160;PM<br />
                                     Compete: 10:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tces&amp;c=index">Google</A><br />
+                                    Sponsor: Yahoo!<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4760&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">26</td>
@@ -190,6 +190,7 @@
                                     <strong>Match 189</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
+                                    Sponsor: <A href="/?t=tces&amp;c=index">Google</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4765&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendarBlank">&#160;</td>
