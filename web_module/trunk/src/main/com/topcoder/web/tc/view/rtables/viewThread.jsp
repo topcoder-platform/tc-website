@@ -3,7 +3,7 @@
  *  viewThread.jsp
  */
 --%>
-<%@  page 
+<%@  page
   language="java"
   import="java.io.*,
           java.util.*,
@@ -16,9 +16,9 @@
 <%  ////////////////
   //
   String Redirect_URL = "http://" + request.getServerName();
-  String responseURL = response.encodeURL("");
+  //String responseURL = response.encodeURL("");
   String bufurl = response.encodeURL("/rtables/post.jsp");
-%>        
+%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -33,6 +33,12 @@
 <jsp:include page="../script.jsp" />
 
 <%@ include file="rating.jsp" %>
+
+<style type="text/css">
+
+PRE  { white-space: normal; }
+
+</style>
 
 </HEAD>
 
@@ -70,7 +76,7 @@
 
 <%  ////////////////////////
   // authorization check
-  
+
   if( ! SkinUtils.userIsAuthorized(request,session) ) {
     response.sendRedirect(Redirect_URL);
   }
@@ -114,14 +120,14 @@
 %>
 <%!  ////////////////
   // global variables
-  SimpleDateFormat dateFormatter 
+  SimpleDateFormat dateFormatter
     = new SimpleDateFormat("EEE, MMM d yyyy 'at' hh:mm a z");
-    
+
   /**
    * Print a child message
    */
-  private String printChildMessage( Forum forum, ForumThread thread, ForumMessage message, int indentation, int msgID, String bufurl, String responseURL)
-  { 
+  private String printChildMessage( Forum forum, ForumThread thread, ForumMessage message, int indentation, int msgID, String bufurl)
+  {
     StringBuffer buf = new StringBuffer();
     try {
     String subject = message.getSubject();
@@ -133,123 +139,84 @@
     int messageID = message.getID();
     Date creationDate = message.getCreationDate();
     String msgBody = message.getBody();
-    buf.append("<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"");
-    buf.append( 100-(3*indentation) ).append("%\" align=\"right\">");
-    buf.append("<tr>");
-    buf.append("<td width=\"1\" colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"5\" /></td>");
-    buf.append("</tr>");
-    buf.append("<tr>");
-    buf.append("<td colspan=\"2\">");
-    buf.append("<table width=\"");
-    buf.append( 100-(3*indentation) ).append("%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">");
-    buf.append("<tr>");
-    buf.append("<td><img src=\"/i/clear.gif\" width=\"4\" height=\"4\" /></td>");
-    buf.append("<td width=\"");
-    buf.append( 100-(18.33*indentation) ).append("\"><img src=\"/i/clear.gif\" height=\"4\"  width=\"");
-    buf.append( 100-(18.33*indentation) ).append("\" /></td>");
-    buf.append("<td><img src=\"/i/clear.gif\" width=\"4\" height=\"4\" /></td>");
-    buf.append("</tr>");
-    buf.append("</table>");
-    buf.append("</td>");
-    buf.append("</tr>");
-     if (messageID!=msgID) {
-    buf.append("<tr>");
-    buf.append("<td colspan=\"2\" valign=\"middle\" class=\"statTextBig\" background=\"/i/steel_bluebv_bg.gif\" height=\"18\"><img src=\"/i/clear.gif\" width=\"3\" height=\"1\" align=\"left\" /><b>");
-    buf.append( "<a name =").append(messageID).append(">").append(subject).append("</a>" );
-    buf.append("</b></td>");
-    buf.append("</tr>");
-    }
-    else {
-    buf.append("<tr>");
-    buf.append("<td colspan=\"2\" class=\"statTextBig\"><img src=\"/i/clear.gif\" width=\"3\" height=\"1\" /><b>");
-    buf.append( "<a name =").append(messageID).append(">").append(subject).append("</a>" );
-    buf.append("</b></td>");
-    buf.append("</tr>");
-    }
-    buf.append("<tr bgcolor=\"#000000\">");
-    buf.append("<td width=\"1\" colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"1\" /></td>");
-    buf.append("</tr>");
-    buf.append("<tr>");    
-    buf.append("<td align=\"left\" valign=\"middle\" class=\"statText\" background=\"/i/steel_blue_bg.gif\" height=\"18\"><img src=\"/i/clear.gif\" width=\"3\" height=\"1\" />");
-    buf.append("Posted By: "+getUserDisplay(author));
-    buf.append("</td>");
-    buf.append("<td align=\"right\" valign=\"middle\" class=\"statText\" background=\"/i/steel_blue_bg.gif\" height=\"18\">");
-    buf.append("Posted ").append(dateFormatter.format(creationDate));
-    buf.append("<img src=\"/i/clear.gif\" width=\"3\" height=\"1\" /></td>");
-    buf.append("</tr>");
-    buf.append("<tr>");
-    buf.append("<td width=\"1\" colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"1\" /></td>");
-    buf.append("</tr>");
-    buf.append("<tr>");
-    buf.append("<td width=\"1\" colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"3\" /></td>");
-    buf.append("</tr>");
-    buf.append("<tr>");
-    buf.append("<td valign=\"top\" colspan=\"2\" class=\"statText\"><img src=\"/i/clear.gif\" width=\"3\" height=\"1\" />").append( (msgBody!=null)?msgBody:"" ).append("</td>");
-    buf.append("</tr>");
-    buf.append("<tr>");
-    buf.append("<td width=\"1\" colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"3\" /></td>");
-    buf.append("</tr>");
-    buf.append("<tr>");
-    buf.append("<td width=\"1\" colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"2\" /></td>");
-    buf.append("</tr>");
-    buf.append("<tr>");
-    buf.append("<td colspan=\"2\">");
-    buf.append("<table width=\"");
-    buf.append( 100-(3*indentation) ).append("%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">");
-    buf.append("<tr>");
-    buf.append("<td><img src=\"/i/clear.gif\" width=\"4\" height=\"4\" /></td>");
-    buf.append("<td width=\"");
-    buf.append( 100-(18.33*indentation) ).append("\"><img src=\"/i/clear.gif\" height=\"4\"  width=\"");
-    buf.append( 100-(18.33*indentation) ).append("\" /></td>");
-    buf.append("<td><img src=\"/i/clear.gif\" width=\"4\" height=\"4\" /></td>");
-    buf.append("</tr>");
-    buf.append("</table>");
-    buf.append("</td>");
-    buf.append("</tr>");
-    buf.append("<tr>");
-    buf.append("<td width=\"1\" colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"5\" /></td>");
-    buf.append("</tr>");
-    if (responseURL=="") {
-    buf.append("<tr>");
-    buf.append("<td width=\"1\" colspan=\"2\" class=\"statText\" align=\"center\">");
-    buf.append("<a class=\"statTextBig\"href=\"").append(bufurl).append("?mode=reply&forum=");
-    buf.append(forumID).append("&thread=").append(threadID).append("&message=").append(messageID).append("\"");
-    buf.append("><b>[Reply]</b></a>");
-    buf.append("</td>");
-    buf.append("</tr>");
-    }  else {
-    buf.append("<tr>");
-    buf.append("<td width=\"1\" colspan=\"2\" class=\"statText\" align=\"center\">");
-    buf.append("<a class=\"statTextBig\" href=\"").append(bufurl).append("&mode=reply&forum=");
-    buf.append(forumID).append("&thread=").append(threadID).append("&message=").append(messageID).append("\"");
-    buf.append("><b>[Reply]</b></a>");
-    buf.append("</td>");
-    buf.append("</tr>");
-    }
-    buf.append("<tr>");
-    buf.append("<td width=\"1\" colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"15\" /></td>");
-    buf.append("</tr>");
+    buf.append("<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"100%\">");
+        buf.append("<tr>");
+            buf.append("<td width=\"").append(150-Math.round((float)147/((float)(indentation-1)/50+1))).append("%\">");
+            buf.append("<td colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"5\" /></td>");
+        buf.append("</tr>");
+   if (messageID!=msgID) {
+        buf.append("<tr>");
+            buf.append("<td></td>");
+            buf.append("<td colspan=\"2\" valign=\"middle\" class=\"statTextBig\" background=\"/i/steel_bluebv_bg.gif\" height=\"18\"><img src=\"/i/clear.gif\" width=\"3\" height=\"1\" align=\"left\" /><b>");
+                buf.append( "<a name =").append(messageID).append(">").append(subject).append("</a>" );
+            buf.append("</b></td>");
+        buf.append("</tr>");
+   }
+        else {
+        buf.append("<tr>");
+            buf.append("<td></td>");
+            buf.append("<td colspan=\"2\" class=\"statTextBig\"><img src=\"/i/clear.gif\" width=\"3\" height=\"1\" /><b>");
+                buf.append( "<a name =").append(messageID).append(">").append(subject).append("</a>" );
+            buf.append("</b></td>");
+        buf.append("</tr>");
+        }
+        buf.append("<tr>");
+            buf.append("<td></td>");
+            buf.append("<td colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"1\" /></td>");
+        buf.append("</tr>");
+        buf.append("<tr>");
+            buf.append("<td></td>");
+            buf.append("<td align=\"left\" valign=\"middle\" class=\"statText\" background=\"/i/steel_blue_bg.gif\" height=\"18\"><img src=\"/i/clear.gif\" width=\"3\" height=\"1\" />");
+                buf.append("Posted By: "+getUserDisplay(author));
+            buf.append("</td>");
+            buf.append("<td align=\"right\" valign=\"middle\" class=\"statText\" background=\"/i/steel_blue_bg.gif\" height=\"18\">");
+                buf.append("Posted ").append(dateFormatter.format(creationDate));
+                buf.append("<img src=\"/i/clear.gif\" width=\"3\" height=\"1\" /></td>");
+        buf.append("</tr>");
+        buf.append("<tr>");
+            buf.append("<td></td>");
+            buf.append("<td colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"4\" /></td>");
+        buf.append("</tr>");
+        buf.append("<tr>");
+            buf.append("<td></td>");
+            buf.append("<td valign=\"top\" colspan=\"2\" class=\"statText\"><img src=\"/i/clear.gif\" width=\"3\" height=\"1\" />").append( (msgBody!=null)?msgBody:"" ).append("</td>");
+        buf.append("</tr>");
+        buf.append("<tr>");
+            buf.append("<td></td>");
+            buf.append("<td colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"10\" /></td>");
+        buf.append("</tr>");
+        buf.append("<tr>");
+            buf.append("<td></td>");
+            buf.append("<td colspan=\"2\" class=\"statText\" align=\"center\">");
+                buf.append("<a class=\"statTextBig\"href=\"").append(bufurl).append("?mode=reply&forum=");
+                buf.append(forumID).append("&thread=").append(threadID).append("&message=").append(messageID).append("\"");
+                buf.append("><b>[Reply]</b></a>");
+                buf.append("</td>");
+        buf.append("</tr>");
+        buf.append("<tr>");
+            buf.append("<td colspan=\"3\"><img src=\"/i/clear.gif\" width=\"1\" height=\"15\" /></td>");
+        buf.append("</tr>");
     buf.append("</table>");
     buf.append("<br clear=\"all\">");
     } catch( Exception ignored ) {}
     return buf.toString();
   }
-  
+
   /**
    * Recursive method to print all the children of a message.
-   */  
-  private String printChildren( TreeWalker walker, Forum forum, ForumThread thread, ForumMessage message, int indentation, int msgID, String bufurl, String responseURL )
+   */
+  private String printChildren( TreeWalker walker, Forum forum, ForumThread thread, ForumMessage message, int indentation, int msgID, String bufurl)
   {
     StringBuffer buf = new StringBuffer();
-    
-    buf.append( printChildMessage( forum, thread, message, indentation, msgID, bufurl, responseURL ) );
-    
+
+    buf.append( printChildMessage( forum, thread, message, indentation, msgID, bufurl) );
+
     // recursive call
         int numChildren = walker.getChildCount(message);
         if( numChildren > 0 ) {
             for( int i=0; i<numChildren; i++ ) {
                 buf.append(
-          printChildren( walker, forum, thread, walker.getChild(message,i), (indentation+1),msgID, bufurl, responseURL )
+          printChildren( walker, forum, thread, walker.getChild(message,i), (indentation+1),msgID, bufurl)
         );
             }
         }
@@ -259,9 +226,9 @@
 
 <%  //////////////////////
   // page error variables
-  
+
   String errorMessage = "";
-  
+
   boolean invalidForumID = (forumID < 0);
   boolean invalidThreadID = (threadID < 0);
   boolean notAuthorizedToViewForum = false;
@@ -312,8 +279,8 @@
 %>
 <%  /////////////////////
   // global error check
-  boolean errors = (invalidForumID || invalidThreadID 
-    || notAuthorizedToViewForum || forumNotFound 
+  boolean errors = (invalidForumID || invalidThreadID
+    || notAuthorizedToViewForum || forumNotFound
     || threadNotFound || rootMessageNotFound || (forum==null) );
 %>
 <%  /////////////////////
@@ -346,15 +313,11 @@
 <%  //////////////////////
   // get forum properties (assumed no errors at this point)
   String forumName = forum.getName();
-  String threadName = thread.getName();
 %>
 <%  /////////////////////
   // get root message properties
   com.coolservlets.forum.User author = rootMessage.getUser();
 
-  int rootMsgAuthorID = author.getID();
-  String authorName = null;
-  authorName = author.getUsername();
   Date creationDate = rootMessage.getCreationDate();
   String rootMsgSubject = rootMessage.getSubject();
   String rootMsgBody = rootMessage.getBody();
@@ -364,22 +327,18 @@
 int numReplies = thread.getMessageCount()-1;
 %>
 
-     
+
      <!---------header table------------->
                         <table width="100%" cellspacing="0" cellpadding="0" border="0">
                             <tr><td valign="top" height="5"><img src="/i/clear.gif" width="1" height="5" /></td></tr>
-      
-<% if (responseURL=="") {%>
+
                             <tr><td valign="middle" class="statText"><a href="/rtables/index.jsp" class="statText">[ view round tables ]</a> &#160;<a href="/rtables/viewForum.jsp?forum=<%=forumID%>" class="statText">[ view threads ]</a> &#160;<a href="/rtables/post.jsp?mode=new&forum=<%=forumID%>" class="statText">[ post new message ]</a> &#160;<a href="/rtables/search.jsp?forum=<%=forumID%>" class="statText">[ search ]</a> &#160;</td></tr>
-<% } else {%>
-                            <tr><td valign="middle" class="statText"><a href="/rtables/index.jsp" class="statText">[ view round tables ]</a> &#160;<a href="/rtables/viewForum.jsp?forum=<%=forumID%>" class="statText">[ view threads ]</a> &#160;<a href="/rtables/post.jsp?mode=new&forum=<%=forumID%>" class="statText">[ post new message ]</a> &#160;<a href="/rtables/search.jsp?forum=<%=forumID%>" class="statText">[ search ]</a> &#160;</td></tr>
-<% } %>
-     
+
                         </table>
      <!---------end header table------------->
-     
-     <br>         
-   
+
+     <br>
+
 <%-- root message --%>
                         <table width="100%" cellspacing="0" cellpadding="0" border="0">
                             <tr>
@@ -388,9 +347,9 @@ int numReplies = thread.getMessageCount()-1;
                                 <td><img src="/i/clear.gif" width="1" height="1" /></td>
                                 <td><img src="/i/clear.gif" width="1" height="1" /></td>
                             </tr>
-        
+
                             <tr><td valign="middle" colspan="4" class="statTextBig" background="/i/steel_gray_bg.gif" height="18">&#160;<b><%= forumName %> > <%= rootMsgSubject %></b></td></tr>
-        
+
                             <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="1" /></td></tr>
 
 <% if (rootMessageID!=msgID) { %>
@@ -399,14 +358,14 @@ int numReplies = thread.getMessageCount()-1;
                             <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="2" /></td></tr>
                             <tr><td colspan="4" class="statTextBig" background="/i/steel_bluebv_bg.gif" height="18"><a name =<%= rootMessageID %>> <b><img src="/i/clear.gif" width="3" height="1" /><%= rootMsgSubject %></b></a></td></tr>
 <% } %>
-        
+
                             <tr background="/i/steel_darkblue_bg.gif"><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="1" /></td></tr>
-     
+
                             <tr>
                                 <td align="left" class="statText" height="18"><img src="/i/clear.gif" width="3" height="1" />Posted By: <%=getUserDisplay(author)%></td>
                                 <td colspan="3" align="right" class="statText" height="18">Posted <i><%= dateFormatter.format(creationDate) %>&#160;<img src="/i/clear.gif" width="6" height="1" /></td>
                             </tr>
-                            
+
                             <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="3" /></td></tr>
                             <tr><td colspan="4" class="statText"><img src="/i/clear.gif" width="3" height="1" /><%= (rootMsgBody!=null)?rootMsgBody:"" %></td></tr>
                             <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="3" /></td></tr>
@@ -414,21 +373,15 @@ int numReplies = thread.getMessageCount()-1;
                             <tr><td colspan="4"><img src="/i/clear.gif" width="1" height="4" /></td></tr>
                             <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="5" /></td></tr>
 
-<% if (responseURL=="") { %>
                             <tr><td width="1" colspan="4" align="center"><a class="statTextBig" href="<%=response.encodeURL("/rtables/post.jsp")%>?mode=reply&forum=<%=forumID%>&thread=<%=threadID%>&message=<%=rootMessageID%>">[ Reply ]</a></td></tr>
 
-<% } else { %>
-                            <tr><td width="1" colspan="4" align="center"><a class="statTextBig" href="<%=response.encodeURL("/rtables/post.jsp")%>&mode=reply&forum=<%=forumID%>&thread=<%=threadID%>&message=<%=rootMessageID%>"><span class="statText">[ Reply ]</span></a></td></tr>
-
-<% } %>
-      
                             <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="15" /></td></tr>
                             <tr><td valign="top" colspan="4" class="statText"><b>There <%= (numReplies==1)?"is":"are" %> <%= numReplies %> <%= (numReplies==1)?"reply":"replies" %> to this message.</b></td></tr>
                         </table>
-    
+
 <%  /////////////////////////
   // print out all child messages:
-  
+
   // if there are children to display:
   if( numReplies > 0 ) {
     StringBuffer buf = new StringBuffer();
@@ -436,8 +389,8 @@ int numReplies = thread.getMessageCount()-1;
     int numChildren = treeWalker.getChildCount(rootMessage);
     int indentation = 1;
     for( int i=0; i<numChildren; i++ ) {
-      buf.append( 
-        printChildren( treeWalker, forum, thread, treeWalker.getChild(rootMessage,i), indentation, msgID, bufurl, responseURL)
+      buf.append(
+        printChildren( treeWalker, forum, thread, treeWalker.getChild(rootMessage,i), indentation, msgID, bufurl)
       );
     }
 %>
@@ -450,15 +403,15 @@ int numReplies = thread.getMessageCount()-1;
                         <br>
                 <!--------end main content table------------>
                     </td>
-                    
+
                     <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
                 </TR>
-                
-                <TR><TD BGCOLOR="#001B35" WIDTH="100%" colspan="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>     
+
+                <TR><TD BGCOLOR="#001B35" WIDTH="100%" colspan="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
             </TABLE>
-            
+
             <p><b></p>
-            
+
         </TD>
 <!-- Center Column Ends -->
 
