@@ -17,7 +17,7 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
@@ -37,7 +37,7 @@
             <jsp:param name="title" value=""/>  
         </jsp:include>
 
-        <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
+        <table width="100%" border="0" cellpadding="5" cellspacing="0">
             <tr>
                 <td class="statTextBig">
                     Handle
@@ -48,20 +48,15 @@
             </tr>
             <rsc:iterator list="<%=referralList%>" id="info">
             <tr>
-                <td>
+                <td class="formHandleOdd">
                     <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
                 </td>
-                <td class="statText">
+                <td class="formHandleOdd" align="right">
                     <rsc:item row="<%=info%>" name="member_since" format="MM.dd.yyyy"/>
                 </td>
             </tr>
             </rsc:iterator>
         </table>
-
-
-
-
-
         </div>
         <p><br/></p>
         </td>
