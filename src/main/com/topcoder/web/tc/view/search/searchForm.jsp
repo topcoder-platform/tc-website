@@ -146,6 +146,48 @@
                                     </td>
                                 </tr>
 
+                                <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
+
+                                <tr><td class="bodyText" align="center" colspan="2">Design Rating</td></tr>
+
+                                <tr>
+                                    <td class="bodyText" width="50%" align="center">Min</td>
+                                    <td class="bodyText" width="50%" align="center">Max</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="bodyText">
+                                        <tc-webtag:textInput name="<%=Constants.MIN_DESIGN_RATING%>" size="6" maxlength="6" onkeypress="submitEnter(event)"/>
+                                    </td>
+
+                                    <td class="bodyText">
+                                        <tc-webtag:textInput name="<%=Constants.MAX_DESIGN_RATING%>" size="6" maxlength="6" onkeypress="submitEnter(event)"/>
+                                    </td>
+                                </tr>
+
+                                <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
+
+                                <tr><td class="bodyText" align="center" colspan="2">Development Rating</td></tr>
+
+                                <tr>
+                                    <td class="bodyText" width="50%" align="center">Min</td>
+                                    <td class="bodyText" width="50%" align="center">Max</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="bodyText">
+                                        <tc-webtag:textInput name="<%=Constants.MIN_DEV_RATING%>" size="6" maxlength="6" onkeypress="submitEnter(event)"/>
+                                    </td>
+
+                                    <td class="bodyText">
+                                        <tc-webtag:textInput name="<%=Constants.MAX_DEV_RATING%>" size="6" maxlength="6" onkeypress="submitEnter(event)"/>
+                                    </td>
+                                </tr>
+
+                                <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
+
+
+
                                 <%--<tr><td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
 
                                 <tr><td class="bodyText">School</td></tr>
