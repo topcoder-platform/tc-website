@@ -68,16 +68,16 @@
                     <tc-webtag:errorIterator id="err" name="<%=Constants.FILE_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
-            <tr>
-                <pl:questionIterator id="question" list="<%=questionList%>">
+            <pl:questionIterator id="question" list="<%=questionList%>">
+                <tr>
                     <td align="right">
                         <%=question.getDemographicQuestionText()%>
                     </td>
                     <td align="left">
                         <pl:demographicInput question="<%=question%>"/>
                     </td>
-                </pl:questionIterator>
-            </tr>
+               </tr>
+            </pl:questionIterator>
 
 
 
