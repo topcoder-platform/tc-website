@@ -130,7 +130,7 @@ public class Submit extends FullRegSubmit {
 
             buf.append("You will need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
 
-            buf.append("We also suggest that you read up on the competition process by navigating to");
+            buf.append("We also suggest that you read up on the competition process by navigating to ");
             buf.append("http://");
             buf.append(ApplicationServer.SERVER_NAME);
             buf.append("/gicj05 and reading over the Competition Instructions.\n\n");
