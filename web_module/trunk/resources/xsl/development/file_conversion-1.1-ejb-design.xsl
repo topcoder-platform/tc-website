@@ -56,9 +56,9 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
-							<h1 class="devSubhead"><strong>File Conversion: EJB Design</strong></h1>
+							<h1 class="devSubhead"><strong>File Conversion Enhancement: EJB Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Conversion: EJB Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Conversion Enhancement: EJB Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Component Overview</strong><br />
 							The File Conversion component transforms standard files (i.e. Microsoft Word, Microsoft Excel, GIF, JPG) into Portable Document Format (PDF) files. The value the component provides is consistency in a document format that can be read on all major platforms (i.e. Microsoft, Macintosh, Solaris, HPUX, IBM AIX). PDF files are non-platform specific and are typically read through freeware software, published by Adobe, Inc, called Acrobat Reader. Companies that communicate with electronic documents are faced with the challenge of supporting multiple file formats and software versions, either when distributing files to multiple recipients or receiving files from multiple sources. The File Conversion component will allow standard file types to be converted into PDF to avoid issues such as: Windows users sharing documents with Macintosh users or having the wrong version of Microsoft Office.
@@ -115,15 +115,15 @@
 							<p><strong>Time Line</strong><br/>
 							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
-							<p>Component Posting: 12.26.2002<br/>
-							Initial Submission Due Date: 01.08.2003<br/>
-							Winner Announced: 01.16.2003<br/>
-							Final Submission Due Date: 01.20.2003<br/>
-							Estimated Development End Date: 02.24.2003</p>
+							<p>Component Posting: 1.9.2003<br/>
+							Initial Submission Due Date: 1.15.2003<br/>
+							Winner Announced: 1.23.2003<br/>
+							Final Submission Due Date: 1.27.2003<br/>
+                            Estimated Development End Date: 3.3.2003</p>
 
-							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
+							<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Conversion: EJB Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Conversion Enhancement: EJB Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
