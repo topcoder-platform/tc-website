@@ -72,7 +72,7 @@
                 <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4325" CLASS="statTextBig">Round 1 B</A> 
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=schedule&amp;c=invit02_r3" CLASS="statTextBig"></A>Round 2
+                <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4335" CLASS="statTextBig">Round 2</A>
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
                 <A HREF="/index?t=schedule&amp;c=invit02_r4" CLASS="statTextBig"></A>Round 3
