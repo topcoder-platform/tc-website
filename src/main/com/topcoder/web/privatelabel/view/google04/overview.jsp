@@ -140,16 +140,17 @@
 			<br/>
 			<span class=greenSubtitle>Prizes</span>
 			<br/><br/>
-			The 500 participants in Round 1 will receive a "Google Code Jam 2004, Powered by TopCoder" t-shirt. The top four scorers in the Championship Round will receive the following cash prizes:
+			The 500 participants in Round 1 will receive a "Google Code Jam 2004, Powered by TopCoder" t-shirt. The top five scorers in the Championship Round will receive the following cash prizes:
 			<br/><br/>
 			<div class=indented>
 			      <b>1st Place - $10,000</b><br/>
-			      2nd Place - $5,000<br/>
-			      3rd Place - $3,500<br/>
-			      4th Place - $1,250<br/>
+			      2nd Place - $7,000<br/>
+			      3rd Place - $5,000<br/>
+			      4th Place - $3,000<br/>
+			      5th Place - $2,000<br/>
 			</div>
 			<br/>
-			Those finalists not finishing as one of the top four scorers in the Championship Round will each receive $250.
+			Those finalists not finishing as one of the top five scorers in the Championship Round will share $23,000.
 
 			<br/><br/>
 			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.

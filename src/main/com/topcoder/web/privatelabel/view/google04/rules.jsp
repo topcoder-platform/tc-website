@@ -51,7 +51,7 @@
 <span class=bigRed>No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
 <br/><br/>
 <span class=greenSubtitle>Summary of the Tournament</span><br/>
-The Google&#153; Code Jam 2004 is being offered by Google Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the Code Jam 2004 to identify possible employees for their company.  The Code Jam 2004 will take place between Wednesday, September 1 and Friday, October 15, 2004.  It begins with a 2-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) day of qualification, two (2) online elimination rounds and one (1) onsite final round.  All participants who compete in Round 1 (the first online elimination round) will receive a "Google Code Jam 2004, Powered by TopCoder" t-shirt.  In addition, Google will award $30,000 in cash prizes to the 50 finalists in the tournament.
+The Google&#153; Code Jam 2004 is being offered by Google Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the Code Jam 2004 to identify possible employees for their company.  The Code Jam 2004 will take place between Wednesday, September 1 and Friday, October 15, 2004.  It begins with a 2-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) day of qualification, two (2) online elimination rounds and one (1) onsite final round.  All participants who compete in Round 1 (the first online elimination round) will receive a "Google Code Jam 2004, Powered by TopCoder" t-shirt.  In addition, Google will award $50,000 in cash prizes to the 50 finalists in the tournament.
 <br/><br/>
 <b>Eligibility</b><br/>
 All individuals who are 18 years of age or older by September 1, 2004 may register and compete in the Google Code Jam 2004.  
@@ -179,23 +179,48 @@ All participants who compete in Round 1 will receive a "Google Code Jam 2004, Po
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap>2nd place finisher* in the Championship Round</td>
-<td class="sidebarText" nowrap align=right>$5,000
+<td class="sidebarText" nowrap align=right>$7,000
 </td>
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap>3rd place
 finisher* in the Championship Round</td>
-<td class="sidebarText" nowrap align=right>$2,500
+<td class="sidebarText" nowrap align=right>$5,000
 </td>
 </tr>                
 <tr valign="top">
 <td class="sidebarText" nowrap>4th place
 finisher* in the Championship Round</td>
-<td class="sidebarText" nowrap align=right>$1,000
+<td class="sidebarText" nowrap align=right>$3,000
+</td>
+</tr>                
+<tr valign="top">
+<td class="sidebarText" nowrap>5th place
+finisher* in the Championship Round</td>
+<td class="sidebarText" nowrap align=right>$2,000
 </td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap>46 finalists not finishing with one of the <br/>top 4 scores* in the Championship Round</td>
+<td class="sidebarText" nowrap>6th - 10th place
+finishers* in the Championship Round</td>
+<td class="sidebarText" nowrap align=right>$1,000 each
+</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText" nowrap>11th - 20th place
+finishers* in the Championship Round</td>
+<td class="sidebarText" nowrap align=right>$750 each
+</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText" nowrap>21st - 32nd place
+finishers* in the Championship Round</td>
+<td class="sidebarText" nowrap align=right>$500 each
+</td>
+</tr>
+<tr valign="top">
+<td class="sidebarText" nowrap>33rd - 50th place
+finishers* in the Championship Round</td>
 <td class="sidebarText" nowrap align=right>$250 each
 </td>
 </tr>
@@ -222,7 +247,7 @@ Prizewinners will be announced upon completion of the Championship Round.  Any p
 <li>Affidavit of Eligibility and Liability and Publicity Release </li>
 <li>Applicable tax form</li>
 </ul>
-Cash prizes will be sent to winners upon receipt of the documents identified above.  All t-shirts will be sent after the conclusion of the Championship Round to competitors using the address given during registration, and may take 4-6 weeks to arrive.  Unclaimed or undeliverable prizes will not be awarded.
+Cash prizes will be distributed to winners upon receipt of the documents identified above within two(2) weeks of the conclusion of the Championship Round.  All t-shirts will be sent after the conclusion of the Championship Round to competitors using the address given during registration, and may take 4-6 weeks to arrive.  Unclaimed or undeliverable prizes will not be awarded.
 <br/><br/>
 As a condition of participation in the tournament, all information provided by you upon registration must be comprehensive, accurate and up-to-date. Google and/or TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by Google and TopCoder.
 <br/><br/>
