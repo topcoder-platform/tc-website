@@ -4,7 +4,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.shared.util.DBMS;
-
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.naming.Context;
@@ -13,51 +12,60 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 import javax.ejb.EJBException;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 
+
 /**
-*
-* @author   George Nassar
-* @version  $Revision$
-*
-*/
-
+ * Bean which modifies Email table
+ *
+ * @author George Nassar
+ * @version $Revision$
+ */
 public class EmailBean implements SessionBean {
-
-    private SessionContext ctx;
     private static Logger log = Logger.getLogger(EmailBean.class);
-    private static final String dataSourceName = "CORP_OLTP";
-    private static final String idGenDataSourceName = "CORP_OLTP";
+    private SessionContext ctx;
 
     //required ejb methods
+    public void ejbActivate() {}
 
-    public void ejbActivate() {
-    }
+    /**
+     *
+     */
+    public void ejbPassivate() {}
 
-    public void ejbPassivate() {
-    }
-
+    /**
+     *
+     */
     public void ejbCreate() {
-
-      //InitContext = new InitialContext(); // from BaseEJB
+        //InitContext = new InitialContext(); // from BaseEJB
     }
 
-    public void ejbRemove() {
-    }
+    /**
+     *
+     */
+    public void ejbRemove() {}
 
+    /**
+     *
+     *
+     */
     public void setSessionContext(SessionContext ctx) {
-
         this.ctx = ctx;
     }
 
     //business methods
 
+    /**
+     *
+     *
+     * @param userId the user ID to assign an email to
+     *
+     * @return a long with the unique email ID created
+     */
     public long createEmail(long userId) {
-
         log.debug("createEmail called...");
 
         Context ctx = null;
@@ -68,40 +76,87 @@ public class EmailBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
+
             if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(idGenDataSourceName), "sequence_object", "name", "current_value", 9999999999L, 1, true);
+                IdGenerator.init(
+                                 new SimpleDB(),
+                                 (DataSource)ctx.lookup((String)
+                                 ctx.lookup("java:comp/env/datasource_name")),
+                                 "sequence_object",
+                                 "name",
+                                 "current_value",
+                                 9999999999L,
+                                 1,
+                                 true);
             }
+
             ret = IdGenerator.nextId("EMAIL_SEQ");
 
-            StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO email (user_id, email_id) VALUES (");
-            query.append(Long.toString(userId) + "," + Long.toString(ret));
-            query.append(")");
-
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows);
 
+            ps = conn.prepareStatement("INSERT INTO email (user_id, " +
+                                       "email_id) VALUES (?,?)");
+            ps.setLong(1, userId);
+            ps.setLong(2, ret);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in insert: " +
+                                       rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
             throw new EJBException("SQLException creating email");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating email");
         } catch (Exception e) {
-            throw new EJBException("Exception creating email:\n" + e.getMessage());
+            throw new EJBException("Exception creating email:\n" +
+                                   e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createEmail");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createEmail");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createEmail");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "createEmail");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in createEmail");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in createEmail");
+                }
+            }
         }
-        return(ret);
+
+        return (ret);
     }
 
-    public long getEmailTypeId(long userId, long emailId) {
-
-        log.debug("getEmailTypeId called...user_id: " + userId + " email_id: " + emailId);
+    /**
+     *
+     *
+     * @param userId user ID of the entry
+     * @param emailId email ID of the entry
+     *
+     * @return a long with the entry's email type ID
+     */
+     public long getEmailTypeId(long userId, long emailId) {
+        log.debug("getEmailTypeId called...user_id: " + userId +
+                  " email_id: " + emailId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -111,38 +166,79 @@ public class EmailBean implements SessionBean {
         long ret = 0;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("SELECT email_type_id FROM email WHERE user_id = ");
-            query.append(Long.toString(userId));
-            query.append(" AND email_id = ");
-            query.append(Long.toString(emailId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            rs = ps.executeQuery();
-            if (rs.next()) ret = rs.getLong("email_type_id");
 
+            ps = conn.prepareStatement("SELECT email_type_id FROM email " +
+                                       "WHERE user_id = ? AND email_id = ?");
+            ps.setLong(1, userId);
+            ps.setLong(2, emailId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getLong("email_type_id");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
             throw new EJBException("SQLException getting email_type_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting email_type_id");
         } catch (Exception e) {
-            throw new EJBException("Exception getting email_type_id\n" + e.getMessage());
+            throw new EJBException("Exception getting email_type_id\n" +
+                                   e.getMessage());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getEmailTypeId");}}
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getEmailTypeId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getEmailTypeId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getEmailTypeId");}}
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getEmailTypeId");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getEmailTypeId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getEmailTypeId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getEmailTypeId");
+                }
+            }
         }
-        return(ret);
+
+        return (ret);
     }
 
+    /**
+     *
+     *
+     * @param userId user ID of the entry
+     * @param emailId email ID of the entry
+     *
+     * @return a String with the entry's address
+     */
     public String getAddress(long userId, long emailId) {
-
-        log.debug("getAddress called...user_id: " + userId + " email_id: " + emailId);
+        log.debug("getAddress called...user_id: " + userId + " email_id: " +
+                  emailId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -152,38 +248,78 @@ public class EmailBean implements SessionBean {
         String ret = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("SELECT address FROM email WHERE user_id = ");
-            query.append(Long.toString(userId));
-            query.append(" AND email_id = ");
-            query.append(Long.toString(emailId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            rs = ps.executeQuery();
-            if (rs.next()) ret = rs.getString("address");
 
+            ps = conn.prepareStatement("SELECT address FROM email " +
+                                       "WHERE user_id = ? AND email_id = ?");
+            ps.setLong(1, userId);
+            ps.setLong(2, emailId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getString("address");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
             throw new EJBException("SQLException getting email address");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting email address");
         } catch (Exception e) {
-            throw new EJBException("Exception getting email address\n" + e.getMessage());
+            throw new EJBException("Exception getting email address\n" +
+                                   e.getMessage());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getAddress");}}
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getAddress");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getAddress");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getAddress");}}
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getAddress");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getAddress");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getAddress");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getAddress");
+                }
+            }
         }
-        return(ret);
+
+        return (ret);
     }
 
+    /**
+     *
+     *
+     * @param userId user ID of entry to set
+     * @param emailId email ID of entry to set
+     * @param emailTypeId the email type ID to set to
+     */
     public void setEmailTypeId(long userId, long emailId, long emailTypeId) {
-
-        log.debug("setEmailTypeId called...userId: " + userId + " emailId: " + emailId + " emailTypeId: " + emailTypeId);
+        log.debug("setEmailTypeId called...userId: " + userId + " emailId: " +
+                  emailId + " emailTypeId: " + emailTypeId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -191,36 +327,70 @@ public class EmailBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE email SET email_type_id = " + emailTypeId + " WHERE user_id = ");
-            query.append(Long.toString(userId));
-            query.append(" AND email_id = ");
-            query.append(Long.toString(emailId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows);
 
+            ps = conn.prepareStatement("UPDATE email SET email_type_id = ?" +
+                                       "WHERE user_id = ? AND email_id = ?");
+            ps.setLong(1, emailTypeId);
+            ps.setLong(2, userId);
+            ps.setLong(3, emailId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
             throw new EJBException("SQLException updating emailTypeId");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating emailTypeId");
         } catch (Exception e) {
-            throw new EJBException("Exception updating emailTypeId\n" + e.getMessage());
+            throw new EJBException("Exception updating emailTypeId\n" +
+                                   e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setEmailTypeId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setEmailTypeId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setEmailTypeId");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "setEmailTypeId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setEmailTypeId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setEmailTypeId");
+                }
+            }
         }
     }
 
+    /**
+     *
+     *
+     * @param userId user ID of entry to set
+     * @param emailId email ID of entry to set
+     * @param address the email address to set to
+     */
     public void setAddress(long userId, long emailId, String address) {
-
-        log.debug("setAddress called...userId: " + userId + " emailId: " + emailId + " address: " + address);
+        log.debug("setAddress called...userId: " + userId + " emailId: " +
+                  emailId + " address: " + address);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -228,30 +398,57 @@ public class EmailBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE email SET address = '" + address + "' WHERE user_id = ");
-            query.append(Long.toString(userId));
-            query.append(" AND email_id = ");
-            query.append(Long.toString(emailId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows);
 
+            ps = conn.prepareStatement("UPDATE email SET address = ? " +
+                                       "WHERE user_id = ? AND email_id = ?");
+            ps.setString(1, address);
+            ps.setLong(2, userId);
+            ps.setLong(3, emailId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
             throw new EJBException("SQLException updating email_address");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating email_address");
         } catch (Exception e) {
-            throw new EJBException("Exception updating email_address\n" + e.getMessage());
+            throw new EJBException("Exception updating email_address\n" +
+                                   e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setAddress");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setAddress");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setAddress");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "setAddress");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setAddress");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setAddress");
+                }
+            }
         }
     }
 }

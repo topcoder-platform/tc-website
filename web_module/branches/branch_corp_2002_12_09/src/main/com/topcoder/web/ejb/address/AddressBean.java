@@ -4,7 +4,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.shared.util.DBMS;
-
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.naming.Context;
@@ -13,51 +12,59 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 import javax.ejb.EJBException;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 
+
 /**
-*
-* @author   George Nassar
-* @version  $Revision$
-*
-*/
-
+ * Bean which modifies Address table
+ *
+ * @author George Nassar
+ * @version $Revision$
+ */
 public class AddressBean implements SessionBean {
-
-    private SessionContext ctx;
     private static Logger log = Logger.getLogger(AddressBean.class);
-    private static final String dataSourceName = "CORP_OLTP";
-    private static final String idGenDataSourceName = "CORP_OLTP";
+    private SessionContext ctx;
 
     //required ejb methods
+    public void ejbActivate() {}
 
-    public void ejbActivate() {
-    }
+    /**
+     *
+     */
+    public void ejbPassivate() {}
 
-    public void ejbPassivate() {
-    }
-
+    /**
+     *
+     */
     public void ejbCreate() {
-
-      //InitContext = new InitialContext(); // from BaseEJB
+        //InitContext = new InitialContext(); // from BaseEJB
     }
 
-    public void ejbRemove() {
-    }
+    /**
+     *
+     */
+    public void ejbRemove() {}
 
+    /**
+     *
+     *
+     *
+     */
     public void setSessionContext(SessionContext ctx) {
-
         this.ctx = ctx;
     }
 
     //business methods
 
+    /**
+     *
+     *
+     * @return a long with the unique address ID created
+     */
     public long createAddress() {
-
         log.debug("createAddress called...");
 
         Context ctx = null;
@@ -68,40 +75,86 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            log.debug("user transaction "+ctx.lookup("javax/transaction/UserTransaction"));
+            log.debug("user transaction " +
+                      ctx.lookup("javax/transaction/UserTransaction"));
+
             if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(idGenDataSourceName), "sequence_object", "name", "current_value", 9999999999L, 1, true);
+                IdGenerator.init(
+                                 new SimpleDB(),
+                                 (DataSource)ctx.lookup((String)
+                                 ctx.lookup("java:comp/env/datasource_name")),
+                                 "sequence_object",
+                                 "name",
+                                 "current_value",
+                                 9999999999L,
+                                 1,
+                                 true);
             }
+
             ret = IdGenerator.nextId("ADDRESS_SEQ");
 
-            StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO address (address_id) VALUES (");
-            query.append(Long.toString(ret));
-            query.append(")");
-
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows);
 
+            ps = conn.prepareStatement("INSERT INTO address (address_id) " +
+                                       "VALUES (?)");
+            ps.setLong(1, ret);
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in insert: " +
+                                       rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
             throw new EJBException("SQLException creating address");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating address");
         } catch (Exception e) {
-            throw new EJBException("Exception creating address:\n" + e.getMessage());
+            throw new EJBException("Exception creating address:\n" +
+                                   e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createAddress");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createAddress");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createAddress");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "createAddress");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in createAddress");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in createAddress");
+                }
+            }
         }
-        return(ret);
+
+        return (ret);
     }
 
+    /**
+     *
+     *
+     * @param addressId the address ID of the entry
+     *
+     * @return a long with the entry's address type ID
+     *
+     * @throws EJBException
+     */
     public long getAddressTypeId(long addressId) {
-
         log.debug("getAddressTypeId called...address_id: " + addressId);
 
         Context ctx = null;
@@ -112,35 +165,78 @@ public class AddressBean implements SessionBean {
         long ret = 0;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("SELECT address_type_id FROM address WHERE address_id = ");
-            query.append(Long.toString(addressId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            rs = ps.executeQuery();
-            if (rs.next()) ret = rs.getLong("address_type_id");
 
+            ps = conn.prepareStatement("SELECT address_type_id FROM address " +
+                                       "WHERE address_id = ?");
+            ps.setLong(1, addressId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getLong("address_type_id");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting address_type_id for address_id: " + addressId);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting address_type_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting address type ID");
         } catch (Exception e) {
-            throw new EJBException("Exception getting address_type_id for address_id: " + addressId + "\n" + e.getMessage());
+            throw new EJBException("Exception getting address_type_id\n" +
+                                   e.getMessage());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getAddressTypeId");}}
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getAddressTypeId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getAddressTypeId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getAddressTypeId");}}
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getAddressTypeId");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getAddressTypeId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in " +
+                              "getAddressTypeId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getAddressTypeId");
+                }
+            }
         }
+
         return (ret);
     }
 
+    /**
+     *
+     *
+     * @param addressId the address ID of the entry
+     *
+     * @return a String with the entry's address line 1
+     *
+     * @throws EJBException
+     */
     public String getAddress1(long addressId) {
-
         log.debug("getAddress1 called...address_id: " + addressId);
 
         Context ctx = null;
@@ -151,35 +247,77 @@ public class AddressBean implements SessionBean {
         String ret = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("SELECT address1 FROM address WHERE address_id = ");
-            query.append(Long.toString(addressId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            rs = ps.executeQuery();
-            if (rs.next()) ret = rs.getString("address1");
 
+            ps = conn.prepareStatement("SELECT address1 FROM address WHERE " +
+                                       "address_id = ?");
+            ps.setLong(1, addressId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getString("address1");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting address1 for address_id: " + addressId);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting address1");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting address 1");
         } catch (Exception e) {
-            throw new EJBException("Exception getting address1 for address_id: " + addressId + "\n" + e.getMessage());
+            throw new EJBException("Exception getting address1\n" +
+                                   e.getMessage());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getAddress1");}}
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getAddress1");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getAddress1");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getAddress1");}}
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getAddress1");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getAddress1");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getAddress1");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getAddress1");
+                }
+            }
         }
+
         return (ret);
     }
 
+    /**
+     *
+     *
+     * @param addressId the address ID of the entry
+     *
+     * @return a String with the entry's address line 2
+     *
+     * @throws EJBException
+     */
     public String getAddress2(long addressId) {
-
         log.debug("getAddress2 called...address_id: " + addressId);
 
         Context ctx = null;
@@ -190,192 +328,399 @@ public class AddressBean implements SessionBean {
         String ret = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("SELECT address2 FROM address WHERE address_id = ");
-            query.append(Long.toString(addressId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            rs = ps.executeQuery();
-            if (rs.next()) ret = rs.getString("address2");
 
+            ps = conn.prepareStatement("SELECT address2 FROM address " +
+                                       "WHERE address_id = ?");
+            ps.setLong(1, addressId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getString("address2");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting address2 for address_id: " + addressId);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting address2");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting address 2");
         } catch (Exception e) {
-            throw new EJBException("Exception getting address2 for address_id: " + addressId + "\n" + e.getMessage());
+            throw new EJBException("Exception getting address2\n" +
+                                   e.getMessage());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getAddress2");}}
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getAddress2");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getAddress2");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getAddress2");}}
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getAddress2");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getAddress2");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getAddress2");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getAddress2");
+                }
+            }
         }
+
         return (ret);
     }
 
-     public String getCity(long addressId) {
+    /**
+     *
+     *
+     * @param addressId the address ID of the entry
+     *
+     * @return a String with the entry's city
+     *
+     * @throws EJBException
+     */
+    public String getCity(long addressId) {
+        log.debug("getCity called...address_id: " + addressId);
 
-         log.debug("getCity called...address_id: " + addressId);
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        String ret = null;
 
-         Context ctx = null;
-         PreparedStatement ps = null;
-         ResultSet rs = null;
-         Connection conn = null;
-         DataSource ds = null;
-         String ret = null;
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
 
-         try {
-             StringBuffer query = new StringBuffer(100);
-             query.append("SELECT city FROM address WHERE address_id = ");
-             query.append(Long.toString(addressId));
+            ps = conn.prepareStatement("SELECT city FROM address " +
+                                       "WHERE address_id = ?");
+            ps.setLong(1, addressId);
 
-             ctx = new InitialContext();
-             ds = (DataSource)ctx.lookup(dataSourceName);
-             conn = ds.getConnection();
-             ps = conn.prepareStatement(query.toString());
-             rs = ps.executeQuery();
-             if (rs.next()) ret = rs.getString("city");
+            rs = ps.executeQuery();
 
-         } catch (SQLException sqe) {
-             DBMS.printSqlException(true, sqe);
-             throw new EJBException("SQLException getting city for address_id: " + addressId);
-         } catch (NamingException e) {
-             throw new EJBException("NamingException getting city");
-         } catch (Exception e) {
-             throw new EJBException("Exception getting city for address_id: " + addressId + "\n" + e.getMessage());
-         } finally {
-             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getCity");}}
-             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getCity");}}
-             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getCity");}}
-             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getCity");}}
-         }
-         return (ret);
-     }
+            if (rs.next())
+                ret = rs.getString("city");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting city");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting city");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting city\n" +
+                                   e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getCity");
+                }
+            }
 
-     public String getStateCode(long addressId) {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in getCity");
+                }
+            }
 
-         log.debug("getStateCode called...address_id: " + addressId);
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getCity");
+                }
+            }
 
-         Context ctx = null;
-         PreparedStatement ps = null;
-         ResultSet rs = null;
-         Connection conn = null;
-         DataSource ds = null;
-         String ret = null;
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getCity");
+                }
+            }
+        }
 
-         try {
-             StringBuffer query = new StringBuffer(100);
-             query.append("SELECT state_code FROM address WHERE address_id = ");
-             query.append(Long.toString(addressId));
+        return (ret);
+    }
 
-             ctx = new InitialContext();
-             ds = (DataSource)ctx.lookup(dataSourceName);
-             conn = ds.getConnection();
-             ps = conn.prepareStatement(query.toString());
-             rs = ps.executeQuery();
-             if (rs.next()) ret = rs.getString("state_code");
+    /**
+     *
+     *
+     * @param addressId the address ID of the entry
+     *
+     * @return a String with the entry's state code
+     *
+     * @throws EJBException
+     */
+    public String getStateCode(long addressId) {
+        log.debug("getStateCode called...address_id: " + addressId);
 
-         } catch (SQLException sqe) {
-             DBMS.printSqlException(true, sqe);
-             throw new EJBException("SQLException getting state_code for address_id: " + addressId);
-         } catch (NamingException e) {
-             throw new EJBException("NamingException getting state code");
-         } catch (Exception e) {
-             throw new EJBException("Exception getting state_code for address_id: " + addressId + "\n" + e.getMessage());
-         } finally {
-             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getStateCode");}}
-             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getStateCode");}}
-             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getStateCode");}}
-             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getStateCode");}}
-         }
-         return (ret);
-     }
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        String ret = null;
 
-     public String getZip(long addressId) {
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
 
-         log.debug("getZip called...address_id: " + addressId);
+            ps = conn.prepareStatement("SELECT state_code FROM address " +
+                                       "WHERE address_id = ?");
+            ps.setLong(1, addressId);
 
-         Context ctx = null;
-         PreparedStatement ps = null;
-         ResultSet rs = null;
-         Connection conn = null;
-         DataSource ds = null;
-         String ret = null;
+            rs = ps.executeQuery();
 
-         try {
-             StringBuffer query = new StringBuffer(100);
-             query.append("SELECT zip FROM address WHERE address_id = ");
-             query.append(Long.toString(addressId));
+            if (rs.next())
+                ret = rs.getString("state_code");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting state_code");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting state code");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting state_code\n" +
+                                   e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getStateCode");
+                }
+            }
 
-             ctx = new InitialContext();
-             ds = (DataSource)ctx.lookup(dataSourceName);
-             conn = ds.getConnection();
-             ps = conn.prepareStatement(query.toString());
-             rs = ps.executeQuery();
-             if (rs.next()) ret = rs.getString("zip");
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getStateCode");
+                }
+            }
 
-         } catch (SQLException sqe) {
-             DBMS.printSqlException(true, sqe);
-             throw new EJBException("SQLException getting zip for address_id: " + addressId);
-         } catch (NamingException e) {
-             throw new EJBException("NamingException getting zip");
-         } catch (Exception e) {
-             throw new EJBException("Exception getting zip for address_id: " + addressId + "\n" + e.getMessage());
-         } finally {
-             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getZip");}}
-             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getZip");}}
-             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getZip");}}
-             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getZip");}}
-         }
-         return (ret);
-     }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getStateCode");
+                }
+            }
 
-     public String getCountryCode(long addressId) {
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getStateCode");
+                }
+            }
+        }
 
-         log.debug("getCountryCode called...address_id: " + addressId);
+        return (ret);
+    }
 
-         Context ctx = null;
-         PreparedStatement ps = null;
-         ResultSet rs = null;
-         Connection conn = null;
-         DataSource ds = null;
-         String ret = null;
+    /**
+     *
+     *
+     * @param addressId the address ID of the entry
+     *
+     * @return a String with the entry's zip code
+     *
+     * @throws EJBException
+     */
+    public String getZip(long addressId) {
+        log.debug("getZip called...address_id: " + addressId);
 
-         try {
-             StringBuffer query = new StringBuffer(100);
-             query.append("SELECT country_code FROM address WHERE address_id = ");
-             query.append(Long.toString(addressId));
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        String ret = null;
 
-             ctx = new InitialContext();
-             ds = (DataSource)ctx.lookup(dataSourceName);
-             conn = ds.getConnection();
-             ps = conn.prepareStatement(query.toString());
-             rs = ps.executeQuery();
-             if (rs.next()) ret = rs.getString("country_code");
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
 
-         } catch (SQLException sqe) {
-             DBMS.printSqlException(true, sqe);
-             throw new EJBException("SQLException getting country_code for address_id: " + addressId);
-         } catch (NamingException e) {
-             throw new EJBException("NamingException getting country code");
-         } catch (Exception e) {
-             throw new EJBException("Exception getting country_code for address_id: " + addressId + "\n" + e.getMessage());
-         } finally {
-             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getCountryCode");}}
-             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getCountryCode");}}
-             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getCountryCode");}}
-             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getCountryCode");}}
-         }
-         return (ret);
-     }
+            ps = conn.prepareStatement("SELECT zip FROM address " +
+                                       "WHERE address_id = ?");
+            ps.setLong(1,addressId);
 
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getString("zip");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting zip");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting zip");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting zip\n" + e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getZip");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in getZip");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getZip");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getZip");
+                }
+            }
+        }
+
+        return (ret);
+    }
+
+    /**
+     *
+     *
+     * @param addressId the address ID of the entry
+     *
+     * @return a String with the entry's country code
+     *
+     * @throws EJBException
+     */
+    public String getCountryCode(long addressId) {
+        log.debug("getCountryCode called...address_id: " + addressId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        String ret = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT country_code FROM address " +
+                                       "WHERE address_id = ?");
+            ps.setLong(1, addressId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getString("country_code");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting country code");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting country code");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting country_code\n" +
+                                   e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getCountryCode");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getCountryCode");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getCountryCode");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getCountryCode");
+                }
+            }
+        }
+
+        return (ret);
+    }
+
+    /**
+     *
+     *
+     * @param addressId address ID of entry to set
+     * @param addressTypeId the address type to set to
+     *
+     * @throws EJBException
+     */
     public void setAddressTypeId(long addressId, long addressTypeId) {
-
-        log.debug("setAddressTypeId called...addressId: " + addressId + " addressTypeId: " + addressTypeId);
+        log.debug("setAddressTypeId called...addressId: " + addressId +
+                  " addressTypeId: " + addressTypeId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -383,34 +728,75 @@ public class AddressBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE address SET address_type_id = " + addressTypeId + " WHERE address_id = ");
-            query.append(Long.toString(addressId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " address_type_id: " + addressTypeId);
 
+            ps = conn.prepareStatement("UPDATE address SET address_type_id =" +
+                                       " ? WHERE address_id = ?");
+            ps.setLong(1, addressTypeId);
+            ps.setLong(2, addressId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows + " for address_id: " + addressId +
+                                       " address_type_id: " + addressTypeId);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating address_id: " + addressId + " address_type_id: " + addressTypeId);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException updating address_id: " +
+                                   addressId + " address_type_id: " +
+                                   addressTypeId);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating address type ID");
         } catch (Exception e) {
-            throw new EJBException("Exception updating address_id: " + addressId + " address_type_id: " + addressTypeId + "\n" + e.getMessage());
+            throw new EJBException("Exception updating address_id: " +
+                                   addressId + " address_type_id: " +
+                                   addressTypeId + "\n" + e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setAddressTypeId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setAddressTypeId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setAddressTypeId");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "setAddressTypeId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in " +
+                              "setAddressTypeId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setAddressTypeId");
+                }
+            }
         }
     }
 
+    /**
+     *
+     *
+     * @param addressId address ID of entry to set
+     * @param address1 the address line 1 to set to
+     *
+     * @throws EJBException
+     */
     public void setAddress1(long addressId, String address1) {
-
-        log.debug("setAddress1 called...addressId: " + addressId + " address1: " + address1);
+        log.debug("setAddress1 called...addressId: " + addressId +
+                  " address1: " + address1);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -418,34 +804,73 @@ public class AddressBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE address SET address1 = '" + address1 + "' WHERE address_id = ");
-            query.append(Long.toString(addressId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " address1: " + address1);
 
+            ps = conn.prepareStatement("UPDATE address SET address1 = ? " +
+                                       "WHERE address_id = ?");
+            ps.setString(1, address1);
+            ps.setLong(2, addressId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows + " for address_id: " + addressId +
+                                       " address1: " + address1);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating address_id: " + addressId + " address1: " + address1);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException updating address_id: " +
+                                   addressId + " address1: " + address1);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating address 1");
         } catch (Exception e) {
-            throw new EJBException("Exception updating address_id: " + addressId + " address1: " + address1 + "\n" + e.getMessage());
+            throw new EJBException("Exception updating address_id: " +
+                                   addressId + " address1: " + address1 +
+                                   "\n" + e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setAddress1");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setAddress1");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setAddress1");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "setAddress1");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setAddress1");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setAddress1");
+                }
+            }
         }
     }
 
+    /**
+     *
+     *
+     * @param addressId address ID of entry to set
+     * @param address2 the address line 2 to set to
+     *
+     * @throws EJBException
+     */
     public void setAddress2(long addressId, String address2) {
-
-        log.debug("setAddress2 called...addressId: " + addressId + " address2: " + address2);
+        log.debug("setAddress2 called...addressId: " + addressId +
+                  " address2: " + address2);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -453,34 +878,73 @@ public class AddressBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE address SET address2 = '" + address2 + "' WHERE address_id = ");
-            query.append(Long.toString(addressId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " address2: " + address2);
 
+            ps = conn.prepareStatement("UPDATE address SET address2 = ? " +
+                                       "WHERE address_id = ?");
+            ps.setString(1, address2);
+            ps.setLong(2, addressId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows + " for address_id: " + addressId +
+                                       " address2: " + address2);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating address_id: " + addressId + " address2: " + address2);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException updating address_id: " +
+                                   addressId + " address2: " + address2);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating address 2");
         } catch (Exception e) {
-            throw new EJBException("Exception updating address_id: " + addressId + " address2: " + address2 + "\n" + e.getMessage());
+            throw new EJBException("Exception updating address_id: " +
+                                   addressId + " address2: " + address2 +
+                                   "\n" + e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setAddress2");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setAddress2");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setAddress2");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "setAddress2");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setAddress2");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setAddress2");
+                }
+            }
         }
     }
 
+    /**
+     *
+     *
+     * @param addressId address ID of entry to set
+     * @param city the city to set to
+     *
+     * @throws EJBException
+     */
     public void setCity(long addressId, String city) {
-
-        log.debug("setCity called...addressId: " + addressId + " city: " + city);
+        log.debug("setCity called...addressId: " + addressId + " city: " +
+                  city);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -488,34 +952,72 @@ public class AddressBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE address SET city = '" + city + "' WHERE address_id = ");
-            query.append(Long.toString(addressId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " city: " + city);
 
+            ps = conn.prepareStatement("UPDATE address SET city = ? " +
+                                       "WHERE address_id = ?");
+            ps.setString(1, city);
+            ps.setLong(2, addressId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows + " for address_id: " + addressId +
+                                       " city: " + city);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating address_id: " + addressId + " city: " + city);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException updating address_id: " +
+                                   addressId + " city: " + city);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating city");
         } catch (Exception e) {
-            throw new EJBException("Exception updating address_id: " + addressId + " city: " + city + "\n" + e.getMessage());
+            throw new EJBException("Exception updating address_id: " +
+                                   addressId + " city: " + city + "\n" +
+                                   e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setCity");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setCity");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setCity");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in setCity");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setCity");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setCity");
+                }
+            }
         }
     }
 
+    /**
+     *
+     *
+     * @param addressId address ID of entry to set
+     * @param stateCode the state code to set to
+     *
+     * @throws EJBException
+     */
     public void setStateCode(long addressId, String stateCode) {
-
-        log.debug("setStateCode called...addressId: " + addressId + " stateCode: " + stateCode);
+        log.debug("setStateCode called...addressId: " + addressId +
+                  " stateCode: " + stateCode);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -523,33 +1025,71 @@ public class AddressBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE address SET state_code = '" + stateCode + "' WHERE address_id = ");
-            query.append(Long.toString(addressId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " state_code: " + stateCode);
 
+            ps = conn.prepareStatement("UPDATE address SET state_code = ? " +
+                                       "WHERE address_id = ?");
+            ps.setString(1, stateCode);
+            ps.setLong(2, addressId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows + " for address_id: " + addressId +
+                                       " state_code: " + stateCode);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating address_id: '" + addressId + "' state_code: " + stateCode);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException updating address_id: '" +
+                                   addressId + "' state_code: " + stateCode);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating state code");
         } catch (Exception e) {
-            throw new EJBException("Exception updating address_id: " + addressId + " state_code: " + stateCode + "\n" + e.getMessage());
+            throw new EJBException("Exception updating address_id: " +
+                                   addressId + " state_code: " + stateCode +
+                                   "\n" + e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setStateCode");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setStateCode");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setStateCode");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "setStateCode");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setStateCode");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setStateCode");
+                }
+            }
         }
     }
 
+    /**
+     *
+     *
+     * @param addressId address ID of entry to set
+     * @param zip the zip code to set to
+     *
+     * @throws EJBException
+     */
     public void setZip(long addressId, String zip) {
-
         log.debug("setZip called...addressId: " + addressId + " zip: " + zip);
 
         Context ctx = null;
@@ -558,34 +1098,72 @@ public class AddressBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("UPDATE address SET zip = '" + zip + "' WHERE address_id = ");
-            query.append(Long.toString(addressId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " zip: " + zip);
 
+            ps = conn.prepareStatement("UPDATE address SET zip = ? " +
+                                       "WHERE address_id = ?");
+            ps.setString(1, zip);
+            ps.setLong(2, addressId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows + " for address_id: " + addressId +
+                                       " zip: " + zip);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating address_id: " + addressId + " zip: " + zip);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException updating address_id: " +
+                                   addressId + " zip: " + zip);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating zip");
         } catch (Exception e) {
-            throw new EJBException("Exception updating address_id: " + addressId + " zip: " + zip + "\n" + e.getMessage());
+            throw new EJBException("Exception updating address_id: " +
+                                   addressId + " zip: " + zip + "\n" +
+                                   e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setZip");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setZip");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setZip");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in setZip");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setZip");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setZip");
+                }
+            }
         }
     }
 
+    /**
+     *
+     *
+     * @param addressId address ID of entry to set
+     * @param countryCode the country code to set to
+     *
+     * @throws EJBException
+     */
     public void setCountryCode(long addressId, String countryCode) {
-
-        log.debug("setCountryCode called...addressId: " + addressId + " countryCode: " + countryCode);
+        log.debug("setCountryCode called...addressId: " + addressId +
+                  " countryCode: " + countryCode);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -593,28 +1171,60 @@ public class AddressBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("UPDATE address SET country_code = '" + countryCode + "' WHERE address_id = ");
-            query.append(Long.toString(addressId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for address_id: " + addressId + " country_code: " + countryCode);
 
+            ps = conn.prepareStatement("UPDATE address SET country_code = ? " +
+                                       "WHERE address_id = ?");
+            ps.setString(1, countryCode);
+            ps.setLong(2, addressId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows + " for address_id: " + addressId +
+                                       " country_code: " + countryCode);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating address_id: " + addressId + " country_code: " + countryCode);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException updating address_id: " +
+                                   addressId + " country_code: " +
+                                   countryCode);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating country code");
         } catch (Exception e) {
-            throw new EJBException("Exception updating address_id: " + addressId + " country_code: " + countryCode + "\n" + e.getMessage());
+            throw new EJBException("Exception updating address_id: " +
+                                   addressId + " country_code: " +
+                                   countryCode + "\n" + e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setCountryCode");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setCountryCode");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setCountryCode");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "setCountryCode");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setCountryCode");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setCountryCode");
+                }
+            }
         }
     }
 }

@@ -3,20 +3,21 @@ package com.topcoder.web.ejb.product;
 import javax.ejb.CreateException;
 import java.rmi.RemoteException;
 
-/**
-*
-* @author   George Nassar
-* @version  $Revision$
-*
-*/
 
+/**
+ * Home interface for Product table EJB
+ *
+ * @author George Nassar
+ * @version $Revision$
+ */
 public interface ProductHome extends javax.ejb.EJBHome {
     /**
-    *
-    * @return
-    * @throws CreateException
-    * @throws RemoteException
-    *
-    */
+     * Creates the remote Product EJB object
+     *
+     * @a Product EJB object
+     *
+     * @throws CreateException
+     * @throws RemoteException
+     */
     public Product create() throws CreateException, RemoteException;
 }

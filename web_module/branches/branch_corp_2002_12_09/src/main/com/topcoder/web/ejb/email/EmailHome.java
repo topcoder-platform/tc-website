@@ -3,20 +3,21 @@ package com.topcoder.web.ejb.email;
 import javax.ejb.CreateException;
 import java.rmi.RemoteException;
 
-/**
-*
-* @author   George Nassar
-* @version  $Revision$
-*
-*/
 
+/**
+ * Home interface for Email table EJB
+ *
+ * @author George Nassar
+ * @version $Revision$
+ */
 public interface EmailHome extends javax.ejb.EJBHome {
     /**
-    *
-    * @return
-    * @throws CreateException
-    * @throws RemoteException
-    *
-    */
+     * Creates the remote Email EJB object
+     *
+     * @return an Email EJB object
+     *
+     * @throws CreateException
+     * @throws RemoteException
+     */
     public Email create() throws CreateException, RemoteException;
 }

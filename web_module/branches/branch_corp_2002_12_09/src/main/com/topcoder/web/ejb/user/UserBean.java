@@ -2,7 +2,6 @@ package com.topcoder.web.ejb.user;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
-
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.naming.Context;
@@ -11,50 +10,58 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 import javax.ejb.EJBException;
 import javax.naming.NamingException;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 
+
 /**
-*
-* @author   George Nassar
-* @version  $Revision$
-*
-*/
-
+ * Bean which modifies User table
+ *
+ * @author George Nassar
+ * @version $Revision$
+ */
 public class UserBean implements SessionBean {
-
-    private SessionContext ctx;
     private static Logger log = Logger.getLogger(UserBean.class);
-    private static final String dataSourceName = "CORP_OLTP";
+    private SessionContext ctx;
 
     //required ejb methods
+    public void ejbActivate() {}
 
-    public void ejbActivate() {
-    }
+    /**
+     *
+     */
+    public void ejbPassivate() {}
 
-    public void ejbPassivate() {
-    }
-
+    /**
+     *
+     */
     public void ejbCreate() {
-
-      //InitContext = new InitialContext(); // from BaseEJB
+        //InitContext = new InitialContext(); // from BaseEJB
     }
 
-    public void ejbRemove() {
-    }
+    /**
+     *
+     */
+    public void ejbRemove() {}
 
+    /**
+     *
+     *
+     */
     public void setSessionContext(SessionContext ctx) {
-
         this.ctx = ctx;
     }
 
     //business methods
 
+    /**
+     *
+     *
+     * @param userId user ID to insert into table
+     */
     public void createUser(long userId) {
-
         log.debug("createUser called...userId: " + userId);
 
         Context ctx = null;
@@ -64,35 +71,67 @@ public class UserBean implements SessionBean {
         long ret = 0;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO user (user_id) VALUES (");
-            query.append(Long.toString(userId));
-            query.append(")");
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows);
 
+            ps = conn.prepareStatement("INSERT INTO user (user_id) " +
+                                       "VALUES (?)");
+            ps.setLong(1, userId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in insert: " +
+                                       rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
             throw new EJBException("SQLException creating user");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating user");
         } catch (Exception e) {
-            throw new EJBException("Exception creating user:\n" + e.getMessage());
+            throw new EJBException("Exception creating user:\n" +
+                                   e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createUser");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createUser");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createUser");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "createUser");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in createUser");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in createUser");
+                }
+            }
         }
     }
 
+    /**
+     *
+     *
+     * @param userId user ID of entry to set
+     * @param firstName user first name to set to
+     */
     public void setFirstName(long userId, String firstName) {
-
-        log.debug("setFirstName called...user_id: " + userId + " first_name: " + firstName);
+        log.debug("setFirstName called...user_id: " + userId +
+                  " first_name: " + firstName);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -100,34 +139,71 @@ public class UserBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE user SET first_name = '" + firstName + "' WHERE user_id = ");
-            query.append(Long.toString(userId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for user_id: " + userId + " first_name: " + firstName);
 
+            ps = conn.prepareStatement("UPDATE user SET first_name = ? " +
+                                       "WHERE user_id = ?");
+            ps.setString(1, firstName);
+            ps.setLong(2, userId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows + " for user_id: " + userId +
+                                       " first_name: " + firstName);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating user_id: " + userId + " first_name: " + firstName);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException updating user_id: " + userId +
+                                   " first_name: " + firstName);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating user first name");
         } catch (Exception e) {
-            throw new EJBException("Exception updating user_id: " + userId + " first_name: " + firstName + "\n" + e.getMessage());
+            throw new EJBException("Exception updating user_id: " + userId +
+                                   " first_name: " + firstName + "\n" +
+                                   e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setFirstName");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setFirstName");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setFirstName");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "setFirstName");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setFirstName");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setFirstName");
+                }
+            }
         }
     }
 
+    /**
+     *
+     *
+     * @param userId user ID of entry to set
+     * @param lastName user last name to set to
+     */
     public void setLastName(long userId, String lastName) {
-
-        log.debug("setLastName called...user_id: " + userId + " last_name: " + lastName);
+        log.debug("setLastName called...user_id: " + userId + " last_name: " +
+                  lastName);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -135,34 +211,71 @@ public class UserBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE user SET last_name = '" + lastName + "' WHERE user_id = ");
-            query.append(Long.toString(userId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for user_id: " + userId + " last_name: " + lastName);
 
+            ps = conn.prepareStatement("UPDATE user SET last_name = ? " +
+                                       "WHERE user_id = ?");
+            ps.setString(1, lastName);
+            ps.setLong(2, userId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows + " for user_id: " + userId +
+                                       " last_name: " + lastName);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating user_id: " + userId + " last_name: " + lastName);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException updating user_id: " + userId +
+                                   " last_name: " + lastName);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating user last name");
         } catch (Exception e) {
-            throw new EJBException("Exception updating user_id: " + userId + " last_name: " + lastName + "\n" + e.getMessage());
+            throw new EJBException("Exception updating user_id: " + userId +
+                                   " last_name: " + lastName + "\n" +
+                                   e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setLastName");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setLastName");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setLastName");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "setLastName");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setLastName");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setLastName");
+                }
+            }
         }
     }
 
+    /**
+     *
+     *
+     * @param userId user ID of entry to set
+     * @param userStatusId user status ID to set to
+     */
     public void setUserStatusId(long userId, long userStatusId) {
-
-        log.debug("setUserStatusId called...user_id: " + userId + " user_status_id: " + userStatusId);
+        log.debug("setUserStatusId called...user_id: " + userId +
+                  " user_status_id: " + userStatusId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -170,33 +283,70 @@ public class UserBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE user SET user_status_id = " + userStatusId + " WHERE user_id = ");
-            query.append(Long.toString(userId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            int rows = ps.executeUpdate();
-            if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for user_id: " + userId + " user_status_id: " + userStatusId);
 
+            ps = conn.prepareStatement("UPDATE user SET user_status_id = ? " +
+                                       "WHERE user_id = ?");
+            ps.setLong(1, userStatusId);
+            ps.setLong(2, userId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows + " for user_id: " + userId +
+                                       " user_status_id: " + userStatusId);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating user_id: " + userId + " user_status_id: " + userStatusId);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException updating user_id: " + userId +
+                                   " user_status_id: " + userStatusId);
         } catch (NamingException e) {
             throw new EJBException("NamingException updating user status ID");
         } catch (Exception e) {
-            throw new EJBException("Exception updating user_id: " + userId + " user_status_id: " + userStatusId + "\n" + e.getMessage());
+            throw new EJBException("Exception updating user_id: " + userId +
+                                   " user_status_id: " + userStatusId + "\n" +
+                                   e.getMessage());
         } finally {
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setUserStatusId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setUserStatusId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setUserStatusId");}}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "setUserStatusId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setUserStatusId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setUserStatusId");
+                }
+            }
         }
     }
 
+    /**
+     *
+     *
+     * @param userId user ID of the entry
+     *
+     * @return a String with the entry's first name
+     */
     public String getFirstName(long userId) {
-
         log.debug("getFirstName called...user_id: " + userId);
 
         Context ctx = null;
@@ -207,35 +357,77 @@ public class UserBean implements SessionBean {
         String ret = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("SELECT first_name FROM user WHERE user_id = ");
-            query.append(Long.toString(userId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            rs = ps.executeQuery();
-            if (rs.next()) ret = rs.getString("first_name");
 
+            ps = conn.prepareStatement("SELECT first_name FROM user " +
+                                       "WHERE user_id = ?");
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getString("first_name");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting first_name for user_id: " + userId);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting first_name for " +
+                                   "user_id: " + userId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting user first name");
         } catch (Exception e) {
-            throw new EJBException("Exception getting first_name for user_id: " + userId + "\n" + e.getMessage());
+            throw new EJBException("Exception getting first_name for " +
+                                   "user_id: " + userId + "\n" +
+                                   e.getMessage());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getFirstName");}}
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getFirstName");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getFirstName");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getFirstName");}}
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getFirstName");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getFirstName");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getFirstName");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getFirstName");
+                }
+            }
         }
-        return(ret);
+
+        return (ret);
     }
 
+    /**
+     *
+     *
+     * @param userId user ID of the entry
+     *
+     * @return a String with the entry's last name
+     */
     public String getLastName(long userId) {
-
         log.debug("getLastName called...user_id: " + userId);
 
         Context ctx = null;
@@ -246,35 +438,77 @@ public class UserBean implements SessionBean {
         String ret = null;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("SELECT last_name FROM user WHERE user_id = ");
-            query.append(Long.toString(userId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            rs = ps.executeQuery();
-            if (rs.next()) ret = rs.getString("last_name");
 
+            ps = conn.prepareStatement("SELECT last_name FROM user " +
+                                       "WHERE user_id = ?");
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getString("last_name");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting last_name for user_id: " + userId);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting last_name for " +
+                                   "user_id: " + userId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting user last name");
         } catch (Exception e) {
-            throw new EJBException("Exception getting last_name for user_id: " + userId + "\n" + e.getMessage());
+            throw new EJBException("Exception getting last_name for " +
+                                   "user_id: " + userId + "\n" +
+                                   e.getMessage());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getLastName");}}
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getLastName");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getLastName");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getLastName");}}
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getLastName");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getLastName");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getLastName");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getLastName");
+                }
+            }
         }
-        return(ret);
+
+        return (ret);
     }
 
+    /**
+     *
+     *
+     * @param userId user ID of the entry
+     *
+     * @return a long with the entry's user status ID
+     */
     public long getUserStatusId(long userId) {
-
         log.debug("getUserStatusId called...user_id: " + userId);
 
         Context ctx = null;
@@ -285,30 +519,66 @@ public class UserBean implements SessionBean {
         long ret = 0;
 
         try {
-            StringBuffer query = new StringBuffer(100);
-            query.append("SELECT user_status_id FROM user WHERE user_id = ");
-            query.append(Long.toString(userId));
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
             conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            rs = ps.executeQuery();
-            if (rs.next()) ret = rs.getLong("user_status_id");
 
+            ps = conn.prepareStatement("SELECT user_status_id FROM user " +
+                                       "WHERE user_id = ?");
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getLong("user_status_id");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting user_status_id for user_id: " + userId);
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting user_status_id for " +
+                                   "user_id: " + userId);
         } catch (NamingException e) {
             throw new EJBException("NamingException getting user status ID");
         } catch (Exception e) {
-            throw new EJBException("Exception getting user_status_id for user_id: " + userId + "\n" + e.getMessage());
+            throw new EJBException("Exception getting user_status_id for " +
+                                   "user_id: " + userId + "\n" +
+                                   e.getMessage());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getUserStatusId");}}
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getUserStatusId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getUserStatusId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getUserStatusId");}}
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getUserStatusId");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getUserStatusId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getUserStatusId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getUserStatusId");
+                }
+            }
         }
-        return(ret);
+
+        return (ret);
     }
 }

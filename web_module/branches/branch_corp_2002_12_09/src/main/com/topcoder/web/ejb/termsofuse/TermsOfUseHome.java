@@ -3,20 +3,21 @@ package com.topcoder.web.ejb.termsofuse;
 import javax.ejb.CreateException;
 import java.rmi.RemoteException;
 
-/**
-*
-* @author   George Nassar
-* @version  $Revision$
-*
-*/
 
+/**
+ * Home interface for Terms Of Use table EJB
+ *
+ * @author George Nassar
+ * @version $Revision$
+ */
 public interface TermsOfUseHome extends javax.ejb.EJBHome {
     /**
-    *
-    * @return
-    * @throws CreateException
-    * @throws RemoteException
-    *
-    */
+     * Creates the remote Terms Of Use EJB object
+     *
+     * @return a TermsOfUse EJB object
+     *
+     * @throws CreateException
+     * @throws RemoteException
+     */
     public TermsOfUse create() throws CreateException, RemoteException;
 }

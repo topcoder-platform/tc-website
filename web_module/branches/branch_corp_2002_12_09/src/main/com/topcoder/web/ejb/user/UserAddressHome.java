@@ -3,20 +3,21 @@ package com.topcoder.web.ejb.user;
 import javax.ejb.CreateException;
 import java.rmi.RemoteException;
 
-/**
-*
-* @author   George Nassar
-* @version  $Revision$
-*
-*/
 
+/**
+ * Home interface for User/Address table EJB
+ *
+ * @author George Nassar
+ * @version $Revision$
+ */
 public interface UserAddressHome extends javax.ejb.EJBHome {
     /**
-    *
-    * @return
-    * @throws CreateException
-    * @throws RemoteException
-    *
-    */
+     * Creates the remote User/Address EJB object
+     *
+     * @return an UserAddress EJB object
+     *
+     * @throws CreateException
+     * @throws RemoteException
+     */
     public UserAddress create() throws CreateException, RemoteException;
 }
