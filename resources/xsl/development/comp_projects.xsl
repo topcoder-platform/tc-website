@@ -107,7 +107,7 @@
                     <td background="/i/steel_bluebv_bg.gif" width="50%" class="statText">Design Projects</td>
                     <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center"># of Inquiries</td>
                     <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center">Payment*</td>
-<!--                    <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center">Level</td>-->
+                    <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center">Level</td>
                     <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center">Submit by</td>
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
                 </tr>
@@ -148,7 +148,7 @@
                             </td>
                             <td class="statText" align="center"><xsl:value-of select="./total_inquiries"/></td>
                             <td class="statText" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
-<!--                            <td class="statText" align="center"><xsl:value-of select="./description"/></td>-->
+                            <td class="statText" align="center"><xsl:value-of select="./description"/></td>
                             <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                             <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                         </tr>
@@ -188,7 +188,7 @@
                     <td background="/i/steel_bluebv_bg.gif" class="statText">Development Projects</td>
                     <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center"># of Inquiries</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Payment*</td>
-<!--                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Level</td>-->
+                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Level</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Submit by</td>
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
                 </tr>
@@ -226,7 +226,7 @@
                             </td>
                             <td class="statText" align="center"><xsl:value-of select="./total_inquiries"/></td>
                             <td class="statText" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
-<!--                            <td class="statText" align="center"><xsl:value-of select="./description"/></td>-->
+                           <td class="statText" align="center"><xsl:value-of select="./description"/></td>
                             <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                             <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                         </tr>
