@@ -1,3 +1,26 @@
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessInt,
+                 com.topcoder.shared.dataAccess.CachedDataAccess,
+                 com.topcoder.common.web.data.report.Query,
+                 java.util.Map,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.common.web.data.report.Constants"%>
+<%
+    String round = request.getParameter("rd");
+    if (round==null) {
+        com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
+                        dataRequest.setContentHandle("most_recent_srm");
+
+                                   DataAccessInt dai = new CachedDataAccess(
+                                            dataRequest.getProperty(Constants.DB_KEY, Query.WAREHOUSE));
+                            Map dataMap = null;
+                            dataMap = dai.getData(dataRequest);
+
+                            ResultSetContainer rsc = (ResultSetContainer)dataMap.get("Most_Recent_SRM");
+        round = rsc.getStringItem(0, "round_id");
+    }
+%>
+
+
 <table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="170">
 	<tr>
 		<td bgcolor="#222222" valign="top"><img border="0" src="/i/clear.gif" height="1" width="6" alt=""></td>
