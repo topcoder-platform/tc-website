@@ -61,7 +61,7 @@ function goTo(selection){
                     successful challenges divided by total challenges.
                   </P>
                   <P CLASS="statText">
-              Note: Based on a minimum of 20 challenges, only includes those coders that have competed in the last 6 monthes.
+              Note: Based on a minimum of 20 challenges, only includes those coders that have competed in the last 6 months.
                   </P>
                   <!-- Stats Intro Begins -->
                   <jsp:include page="qsIntro.jsp" />

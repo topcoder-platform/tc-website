@@ -62,7 +62,7 @@ function goTo(selection){
                     number of correct submissions by the number of total submissions by a member.
                   </P>
                   <P CLASS="statText">
-                    Note: Based on a minimum of 50 submissions, only includes those coders that have competed in the last 6 monthes.
+                    Note: Based on a minimum of 50 submissions, only includes those coders that have competed in the last 6 months.
                   </P>
                   <!-- Stats Intro Begins -->
                   <jsp:include page="qsIntro.jsp" />
