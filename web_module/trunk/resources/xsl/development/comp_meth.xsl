@@ -5,7 +5,7 @@
 	<xsl:import href="../includes/body_top.xsl" />  
 	<xsl:import href="../foot.xsl" />
 	<xsl:import href="../includes/modules/stats_intro.xsl" />  
-  <xsl:import href="../includes/global_left.xsl"/>  
+	<xsl:import href="../includes/global_left.xsl"/>  
 	<xsl:import href="../includes/dev/public_dev_right.xsl" />     
 	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
 	<xsl:template match="/">
@@ -21,6 +21,33 @@
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities." />
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++" />
+
+	<style type="text/css">
+	
+ol {
+	margin-left: 10px;
+	padding-left: 10px;
+	}
+	
+ul {
+	margin-left: 10px;
+	padding-left: 10px;
+	}
+	
+li {
+	margin-left: 0px;
+	padding-bottom: 3px;
+	}
+	
+.topPage {
+	text-align: right;
+	}
+	
+.methNav {
+	color: #F90;
+	}
+	
+	</style>
 
 </head>
 
@@ -56,54 +83,205 @@
 				
 			<table border="0" cellspacing="0" cellpadding="10" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
 				<tr valign="top">
-					<td width="100%" background="/i/steel_darkblue_bg.gif">
-						<table border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
-							<tr valign="top">
-								<td class="statText">
-									<p><strong>There has been significant change to the development of components. All members interested submitting design and 
-									development solutions need to first review the TopCoder Software Component Development Methodology below.</strong></p>
-
-									<h1 class="devSubhead"><strong>TopCoder Software Component Development Methodology</strong></h1>
-
-									<p>Component projects have been redesigned to to be more competitve. Interested members must submit their solution to the 
-									posted project by the project due date. Once all submissions have been received, a review team will select the winning solution. 
-									Software components built through the competition based projects offer the additional benefit of being commercially marketed. 
-									In addition to the initial payment received for providing the winning solution, members can also earn royalties on all sales 
-									of the component through TopCoder Software. The TopCoder Software Component Methodology combines the best of 
-									traditional software development methodologies with the power of community-based, distributed development. This methodology 
-									is designed for low-level base components, not for larger applications.</p>
-
-									<p><strong>Component Design Projects:</strong>
-
-									<ol>
-										<li>TopCoder Software product manager posts a design project on the Development section of the TopCoder website. This posting includes a high-level functional description of the component and a timeline for submissions and project payment. A requirements specification document and the required deliverables for the design proposal will be sent to all members who inquire about the project.</li>
-										<li>Only rated TopCoder members are allowed to inquire about the Design project on the Development section of the TopCoder website.</li>
-										<li>The product manager will grant all eligible members access to an online forum on www.topcodersoftware.com. This forum is used for the designers to ask the product manager questions about the requirements specification. </li>
-										<li>All designers are required to submit their designs to the product manager by the end of the design phase as stated on the project posting. Any designs received after the Initial Submission Due Date will be ignored. </li>
-										<li>The product manager will assemble an architecture review board consisting of 3 TopCoder Software architects to review proposals submitted by the designers.</li>
-										<li>A member of the architecture review board first screens the design documents to verify that the proposal includes all required elements and performs a high-level review of the designs to narrow down to the top 5 component designs.</li>
-										<li>Accepted designs are then reviewed by the architecture board and scored. The architecture board will submit a design scorecard for each design, which may include suggestions for improvements.</li>
-										<li>The member with the winning design will be given additional time to incorporate design suggestions received from the architecture board. The additional time period will be set as a percentage (currently 20%) of the initial design period. For example, a component with a 5 day design period will allow an additional 1 day after the due date for the designer to incorporate the suggestions. If the completed design is submitted on time, the designer is paid the first of two payments for the project as stated in the project posting.</li>
-										<li>The winning designer is required to answer questions regarding the design during the development project. At the completion of the development project the designer will receive their final payment.</li>
-									</ol></p>
-
-									<p><strong>Component Development Projects:</strong>
-
-									<ol>
-										<li>TopCoder Software product manager posts a development project on the Development section of the TopCoder website. This posting includes a high-level functional description of the component, deliverables for the component solution, a timeline for submissions and project payment information. Completed design documents from the design phase will be sent to all members who inquire about the project. </li>
-										<li>Only rated TopCoder members are allowed to inquire about the development project on the Development section of the TopCoder website.</li>
-										<li>The TopCoder product manager will grant all eligible members access to an online forum on www.topcodersoftware.com. This forum is used for the developers to ask questions of the designer and the product manager.</li>
-										<li>All developers are required to submit the component solutions to the product manager by the end of the development phase as stated on the project posting. </li>
-										<li>The product manager will assemble a development review board consisting of 3 TopCoder Software Development Reviewers to review, test and certify solutions submitted by the developers.</li>
-										<li>A member of the Development Review board will screen the submitted solutions to verify that all required elements are included and will perform a high-level review of the designs to narrow down to the top 5 component solutions.</li>
-										<li>The component solutions are then reviewed by the Development Review board and scored. The Development Review board will submit a development scorecard along with any bugs and the corresponding test cases.</li>
-										<li>The developer with the winning solution will be given additional time to fix bugs and incorporate design suggestions from the Development Review board. The additional time period will be set as a percentage (currently 20%) of the initial development period. For example, a component with a 10 day design period will allow an additional 2 days after the due date for the developer to incorporate the suggestions. If the completed solution is submitted on time and passes all regression testing the developer is paid the entire development payment as stated in the development project posting. Also at that time, the designer is paid the final payment for the design contract as detailed in the design project posting.</li>
-									</ol></p>
-								</td>
-							</tr>
-						</table>
-					</td>
+					<td class="statText">
+						<div align="center"><h1 class="devSubhead"><strong>TopCoder Software Component Development Methodology</strong></h1></div></td>
 				</tr>
+
+				<tr valign="top">
+					<td width="100%">
+						<div align="center">
+						<table width="565" border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td rowspan="3"><img src="images/spacer.gif" width="59" height="204" alt=""></td>
+								<td><a class="statText" href="#certification"><img src="images/methodology_02.gif" width="161" height="67" alt="Certification" border="0"></a></td>
+								<td><img src="images/methodology_03.gif" width="118" height="67" alt=""></td>
+								<td><a class="statText" href="#collaboration"><img src="images/methodology_04.gif" width="177" height="67" alt="Collaboration" border="0"></a></td>
+								<td rowspan="3"><img src="images/spacer.gif" width="50" height="204" alt=""></td>
+							</tr>
+						
+							<tr>
+								<td><img src="images/methodology_06.gif" width="161" height="56" alt=""></td>
+								<td><img src="images/methodology_07.gif" width="118" height="56" alt=""></td>
+								<td><img src="images/methodology_08.gif" width="177" height="56" alt=""></td>
+							</tr>
+
+							<tr>
+								<td><a class="statText" href="#development"><img src="images/methodology_09.gif" width="161" height="81" alt="Development" border="0"></a></td>
+								<td><img src="images/methodology_10.gif" width="118" height="81" alt=""></td>
+								<td><a class="statText" href="#design"><img src="images/methodology_11.gif" width="177" height="81" alt="Design" border="0"></a></td>
+							</tr>
+						</table></div></td>
+				</tr>
+
+				<tr valign="top">
+					<td class="statText">
+						<p>The Component Development Methodology combines the best of traditional software development methodologies with the power 
+						of community-based development.  The four stages of the methodology make up one release of a component.  If any one of the 
+						phases does not pass required acceptance that phase of the project is restarted.</p></td>
+				</tr>
+
+<!-- Collaboration begins -->
+				<tr valign="top">
+					<td width="100%" background="/i/steel_darkblue_bg.gif">
+						<table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+							<tr valign="top">
+								<td class="statText" width="98%">
+									<a name="collaboration"><strong>Collaboration</strong></a><span class="methNav">&#160;&#160;&#160;&#160;&#160;<a class="statText" href="#collPart">Participants</a>&#160;::&#160;<a class="statText" href="#collDet">Details</a>&#160;&#160;&#160;</span></td>
+								<td class="statText" width="2%" nowrap="nowrap">
+									<div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+							</tr>
+						</table></td>
+				</tr>
+				
+				<tr valign="top">
+					<td class="statText">
+						<p>Gather component scope by collaborating with customers and topcodersoftware.com members though online 
+						<a class="statText" href="http://www.topcodersoftware.com/pages/c_active_collab.jsp">Collaboration Forums.</a>  For new components this includes a new request for a component, for existing components it is the request for additional functionality.</p>
+									
+						<p><a name="collPart"><strong>Participants</strong></a><br />
+						Product Manager (PM)<br />
+						TopCoder Software Customers<br />
+						TopCoder Software Members</p>
+									
+						<p><a name="collDet"><strong>Details</strong></a><br />
+						<ol>
+							<li>PM moderates <a class="statText" href="http://www.topcodersoftware.com/pages/c_active_collab.jsp">Collaboration Forums</a> on topcodersoftware.com to gather component requirements.</li>
+							<li>The Collaboration Forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post replies to the forums.</li>
+							<li>Once the project scope has been determined, the PM creates a Requirements Specification for the Design Phase of that component.</li>
+							<li>The project is <a class="statText" href="index?t=development&amp;c=comp_projects">posted</a> on the Development Section of topcoder.com, and an email is sent out notifying members of the new development opportunity.  The posting includes the payment and submission deadline for all design submissions.</li>
+							<li>Interested members are required to inquire about projects, at that point all eligible members are granted access to the required project specification and a secure forum to communicate with the PM.</li>
+						</ol></p></td>
+				</tr>
+<!-- Collaboration ends -->
+
+<!-- Design begins -->
+				<tr valign="top">
+					<td width="100%" background="/i/steel_darkblue_bg.gif">
+						<table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+							<tr valign="top">
+								<td class="statText" width="98%">
+									<strong>Architecture and Design</strong><span class="methNav">&#160;&#160;&#160;<a class="statText" href="#desPart">Participants</a>&#160;::&#160;<a class="statText" href="#desDet">Details</a>&#160;::&#160;<a class="statText" href="#desDel">Deliverables</a>&#160;&#160;&#160;</span></td>
+								<td class="statText" width="2%" nowrap="nowrap">
+									<div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+							</tr>
+						</table></td>
+				</tr>
+				
+				<tr valign="top">
+					<td class="statText">
+						<p>Gather component scope by collaborating with customers and topcodersoftware.com members though online 
+						Collaboration Forums.  For new components this includes a new request for a component, for existing components it is 
+						the request for additional functionality.</p>
+									
+						<p><a name="desPart"><strong>Participants</strong></a><br />
+						Product Manager (PM)<br />
+						Customers<br />
+						TopCoder Software Members</p>
+									
+						<p><a name="desDet"><strong>Details</strong></a><br />
+						<ol>
+							<li>PM moderates collaboration forums on topcodersoftware.com to gather component requirements.</li>
+							<li>Collaboration sessions will last a minimum of one week and last as long as the - PM deems necessary to gather the requirements.</li>
+							<li>Each PM will start a minimum of double their component quota of active collaborations per month.</li>
+							<li>The collaboration forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post to the forums.</li>
+							<li>Once a project scope has been determined, the PM creates a Requirements Specification and Project Posting for the design of that component.</li>
+							<li>The project is posted on the Development Section of topcoder.com, and an email is sent out notifying members of the new development opportunity.  The posting includes the payment and submission date for all design submissions.  Interested members are required to inquire about projects, at that point all eligible members are granted access to the required project specification and a secure forum to communicate with the TopCoder Product Manager.</li>
+						</ol></p>
+									
+						<p><a name="desDel"><strong>Deliverables</strong></a><br />
+						<ul>
+							<li>Project overview and functional requirements in the collaboration forum.</li>
+							<li>(PM) Requirements Specification detailing the specific requirements of the component is created and posted to the specification forum.</li>
+							<li>(PM) Project Posting for design project (including: Requirements Specification, timeline, payments and deliverables).</li>
+						</ul></p></td>
+				</tr>
+<!-- Design ends -->
+
+<!-- Development begins -->
+				<tr valign="top">
+					<td width="100%" background="/i/steel_darkblue_bg.gif">
+						<table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+							<tr valign="top">
+								<td class="statText" width="98%">
+									<strong>Development and Testing</strong><span class="methNav">&#160;&#160;&#160;<a class="statText" href="#devPart">Participants</a>&#160;::&#160;<a class="statText" href="#devDet">Details</a>&#160;::&#160;<a class="statText" href="#devDel">Deliverables</a>&#160;&#160;&#160;</span></td>
+								<td class="statText" width="2%" nowrap="nowrap">
+									<div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+							</tr>
+						</table></td>
+				</tr>
+				
+				<tr valign="top">
+					<td class="statText">
+						<p>Gather component scope by collaborating with customers and topcodersoftware.com members though online 
+						Collaboration Forums.  For new components this includes a new request for a component, for existing components it is 
+						the request for additional functionality.</p>
+									
+						<p><a name="devPart"><strong>Participants</strong></a><br />
+						Product Manager (PM)<br />
+						Customers<br />
+						TopCoder Software Members</p>
+									
+						<p><a name="devDet"><strong>Details</strong></a><br />
+						<ol>
+							<li>PM moderates collaboration forums on topcodersoftware.com to gather component requirements.</li>
+							<li>Collaboration sessions will last a minimum of one week and last as long as the - PM deems necessary to gather the requirements.</li>
+							<li>Each PM will start a minimum of double their component quota of active collaborations per month.</li>
+							<li>The collaboration forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post to the forums.</li>
+							<li>Once a project scope has been determined, the PM creates a Requirements Specification and Project Posting for the design of that component.</li>
+							<li>The project is posted on the Development Section of topcoder.com, and an email is sent out notifying members of the new development opportunity.  The posting includes the payment and submission date for all design submissions.  Interested members are required to inquire about projects, at that point all eligible members are granted access to the required project specification and a secure forum to communicate with the TopCoder Product Manager.</li>
+						</ol></p>
+									
+						<p><a name="devDel"><strong>Deliverables</strong></a><br />
+						<ul>
+							<li>Project overview and functional requirements in the collaboration forum.</li>
+							<li>(PM) Requirements Specification detailing the specific requirements of the component is created and posted to the specification forum.</li>
+							<li>(PM) Project Posting for design project (including: Requirements Specification, timeline, payments and deliverables).</li>
+						</ul></p></td>
+				</tr>
+<!-- Development ends -->
+
+<!-- Certification begins -->
+				<tr valign="top">
+					<td width="100%" background="/i/steel_darkblue_bg.gif">
+						<table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+							<tr valign="top">
+								<td class="statText" width="98%">
+									<strong>Certification</strong><span class="methNav">&#160;&#160;&#160;<a class="statText" href="#certPart">Participants</a>&#160;::&#160;<a class="statText" href="#certDet">Details</a>&#160;::&#160;<a class="statText" href="#certDel">Deliverables</a>&#160;&#160;&#160;</span></td>
+								<td class="statText" width="2%" nowrap="nowrap">
+									<div class="topPage"><a class="statText" href="#top">[Top of Page]</a></div></td>
+							</tr>
+						</table></td>
+				</tr>
+				
+				<tr valign="top">
+					<td class="statText">
+						<p>Gather component scope by collaborating with customers and topcodersoftware.com members though online 
+						Collaboration Forums.  For new components this includes a new request for a component, for existing components it is 
+						the request for additional functionality.</p>
+									
+						<p><a name="certPart"><strong>Participants</strong></a><br />
+						Product Manager (PM)<br />
+						Customers<br />
+						TopCoder Software Members</p>
+									
+						<p><a name="certDet"><strong>Details</strong></a><br />
+						<ol>
+							<li>PM moderates collaboration forums on topcodersoftware.com to gather component requirements.</li>
+							<li>Collaboration sessions will last a minimum of one week and last as long as the - PM deems necessary to gather the requirements.</li>
+							<li>Each PM will start a minimum of double their component quota of active collaborations per month.</li>
+							<li>The collaboration forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post to the forums.</li>
+							<li>Once a project scope has been determined, the PM creates a Requirements Specification and Project Posting for the design of that component.</li>
+							<li>The project is posted on the Development Section of topcoder.com, and an email is sent out notifying members of the new development opportunity.  The posting includes the payment and submission date for all design submissions.  Interested members are required to inquire about projects, at that point all eligible members are granted access to the required project specification and a secure forum to communicate with the TopCoder Product Manager.</li>
+						</ol></p>
+									
+						<p><a name="certDel"><strong>Deliverables</strong></a><br />
+						<ul>
+							<li>Project overview and functional requirements in the collaboration forum.</li>
+							<li>(PM) Requirements Specification detailing the specific requirements of the component is created and posted to the specification forum.</li>
+							<li>(PM) Project Posting for design project (including: Requirements Specification, timeline, payments and deliverables).</li>
+						</ul></p></td>
+				</tr>
+<!-- Certification ends -->
 			</table>
 				
 			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
