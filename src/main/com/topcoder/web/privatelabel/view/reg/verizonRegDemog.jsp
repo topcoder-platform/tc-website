@@ -77,12 +77,15 @@
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
                                 </td>
                             </tr>
-            
+
                             <tr>
-                                <td align="right" nowrap>Student/Professional</td>
-                                <td align="left" width="100%" nowrap>
-                                    Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>/>
-                                    Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>/>
+                                <td align="right" nowrap>Status</td>
+                                <td align="left">
+                                    <select name="<%=Constants.CODER_TYPE%>">
+                                      <option value=""></option>
+                                      <option value="1" <%=regInfo.isStudent()?"selected":""%>>Student</option>
+                                      <option value="2" <%=regInfo.isProfessional()?"selected":""%>>Professional</option>
+                                    </select>
                                 </td>
                             </tr>
 
