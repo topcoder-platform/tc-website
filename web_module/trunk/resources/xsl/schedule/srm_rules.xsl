@@ -15,8 +15,6 @@
         <xsl:call-template name="Preload"/>      
         <TITLE>TopCoder :: Schedule</TITLE>
         <xsl:call-template name="CSS"/>      
-        <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
         <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
       </HEAD>
@@ -47,19 +45,11 @@
                 <xsl:with-param name="title">&#160;SRM Official Rules &amp; Qualification</xsl:with-param>
               </xsl:call-template>
 
-  <xsl:variable name="contestId">
-    <xsl:value-of select="/TC/SCHEDULE/ContestId"/>
-  </xsl:variable>
-  <xsl:for-each select="/TC/SCHEDULE/Contests/Contest[ContestId=$contestId]">
-    <xsl:variable name="start_hr">
-      <xsl:value-of select="number(substring(ContestStartTimestamp,12,2))"/>
+    <xsl:variable name="roundId">
+      <xsl:value-of select="/TC/SCHEDULE/RoundId"/>
     </xsl:variable>
-    <xsl:variable name="start_min">
-      <xsl:value-of select="substring(ContestStartTimestamp,15,2)"/>
-    </xsl:variable>
-    <xsl:variable name="am_pm">
-      <xsl:value-of select="substring(ContestStartTimestamp,21,2)"/>
-    </xsl:variable>
+
+
     <table bgcolor = "#ffffff" cellspacing="0" cellpadding="10" border="0" width="619">
       <tr>
         <td><img src="/i/clear.gif" width="100" height="1" /></td>
@@ -70,18 +60,9 @@
         <td colspan="3" class="bodyText">
           <font color="#ff0000">
             <b>
-              <xsl:value-of select="ContestName"/>
+              <xsl:value-of select="/TC/SCHEDULE/Contests/Contest[ContestId=$roundId]/ContestName"/>
               &#160;
-              <xsl:choose>
-                <xsl:when test="ContestId='4155'">05/09/2002<br/></xsl:when>
-                <xsl:when test="ContestId='4160'">05/15/2002<br/></xsl:when>
-                <xsl:when test="ContestId='4165'">05/18/2002<br/></xsl:when>
-                <xsl:when test="ContestId='4170'">05/21/2002<br/></xsl:when>
-                <xsl:when test="ContestId='4175'">05/22/2002<br/></xsl:when>
-                <xsl:otherwise>
-                  <xsl:value-of select="substring(ContestStartTimestamp,0,11)"/><br/>
-                </xsl:otherwise>
-              </xsl:choose>
+              <xsl:value-of select="substring(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/Start,0,11)"/><br/>
               <br/>
               Official Rules and Regulations
             </b>
@@ -107,46 +88,17 @@ Any and all applicable taxes on a prize are the sole responsibility of the prize
             TopCoder members must register for the online tournament. 
               Registration is from
 
-                          <xsl:choose>
-                            <xsl:when test="$contestId='4155'">
-                              7:30 PM to 8:55 PM <xsl:value-of select="ShortDaylight"/>.<br/>
-                              Competition at
-                              9:00 PM <xsl:value-of select="ShortDaylight"/> on
-                            </xsl:when>
-                            <xsl:when test="$contestId='4160'">
-                              7:30 PM to 8:55 PM <xsl:value-of select="ShortDaylight"/>.<br/>
-                              Competition at
-                              9:00 PM <xsl:value-of select="ShortDaylight"/> on
-                            </xsl:when>
-                            <xsl:when test="$contestId='4165'">
-                              11:30 AM to 12:55 PM <xsl:value-of select="ShortDaylight"/>.<br/>
-                              Competition at
-                              1:00 PM <xsl:value-of select="ShortDaylight"/> on
-                            </xsl:when>
-                            <xsl:when test="$contestId='4170'">
-                              7:30 PM to 8:55 PM <xsl:value-of select="ShortDaylight"/>.<br/>
-                              Competition at
-                              9:00 PM <xsl:value-of select="ShortDaylight"/> on
-                            </xsl:when>
-                            <xsl:when test="$contestId='4175'">
-                              7:30 PM to 8:55 PM <xsl:value-of select="ShortDaylight"/>.<br/>
-                              Competition at
-                              9:00 PM <xsl:value-of select="ShortDaylight"/> on
-                            </xsl:when>
 
-                            <xsl:otherwise>
-                            <xsl:value-of select="$start_hr"/>:<xsl:value-of select="$start_min"/>&#160;<xsl:value-of select="$am_pm"/>
-                              to
-                              <xsl:value-of select="number($start_hr)+1"/>:<xsl:value-of select="format-number(number($start_min)+25,'00')"/>&#160;<xsl:value-of select="$am_pm"/>
-                              &#160;<xsl:value-of select="ShortDaylight"/>.<br/>
-                              Competition at
-                              <xsl:value-of select="number($start_hr)+2"/>:<xsl:value-of select="format-number(number($start_min)-30,'00')"/>&#160;<xsl:value-of select="$am_pm"/>
-                              &#160;<xsl:value-of select="ShortDaylight"/> on
-                            </xsl:otherwise>
-                          </xsl:choose>
+              <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartHour"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/StartAMPM"/>
+              to
+<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndHour"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndAMPM"/>
+              &#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndTimeZoneShort"/>.<br/>
+              Competition at
+              <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartHour"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
+              &#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartTimeZoneShort"/> on
 
               <xsl:variable name="startMonth">
-                <xsl:value-of select="substring-before(ContestStartTimestamp,'/')"/>
+                <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartMonthNum"/>
               </xsl:variable>
               <xsl:choose>
                 <xsl:when test="$startMonth='01'">January</xsl:when>
@@ -161,25 +113,10 @@ Any and all applicable taxes on a prize are the sole responsibility of the prize
                 <xsl:when test="$startMonth='10'">October</xsl:when>
                 <xsl:when test="$startMonth='11'">November</xsl:when>
                 <xsl:when test="$startMonth='12'">December</xsl:when>
-              </xsl:choose>
-              &#160;
-              <xsl:choose>
-                <xsl:when test="ContestId='4155'">9, </xsl:when>
-                <xsl:when test="ContestId='4160'">15, </xsl:when>
-                <xsl:when test="ContestId='4165'">18, </xsl:when>
-                <xsl:when test="ContestId='4170'">21, </xsl:when>
-                <xsl:when test="ContestId='4175'">22, </xsl:when>
-                <xsl:otherwise>
-                  <xsl:value-of select="format-number(substring(ContestStartTimestamp,4,2),'##')"/>,
-                </xsl:otherwise>
-              </xsl:choose>
-              <xsl:value-of select="substring(ContestStartTimestamp,7,4)"/>.  
-              To register, login to the Tournament Arena applet, click on the 'Main' menu, and 
+              </xsl:choose>&#160;<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartDay,'##')"/>, <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartYear"/>.  To register, login to the Tournament Arena applet, click on the 'Main' menu, and 
               choose the option for 'Event Registration'.
               TopCoder members from all over the country will be participating
-              in this event, but <b><i>all start times will be communicated as 
-              &#160;<xsl:value-of select="LongDaylight"/>, so contestants in different time zones must 
-              adjust accordingly.</i></b>  
+              in this event, but <b><i>all start times will be communicated as <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartTimeZoneLong"/>, so contestants in different time zones must adjust accordingly.</i></b>  
               All competitors who have registered for the online tournament 
               round will be assigned to a specific tournament room.  
               TopCoder will perform the room assignments prior to the start of 
@@ -187,17 +124,8 @@ Any and all applicable taxes on a prize are the sole responsibility of the prize
               division are placed in a room and the average competitor 
               rating for each room is similar.  
               The Online Round will begin at 
-              <xsl:choose>
-                <xsl:when test="$contestId='4155'">9:00 PM</xsl:when>
-                <xsl:when test="$contestId='4160'">9:00 PM</xsl:when>
-                <xsl:when test="$contestId='4165'">1:00 PM</xsl:when>
-                <xsl:when test="$contestId='4170'">9:00 PM</xsl:when>
-                <xsl:when test="$contestId='4175'">9:00 PM</xsl:when>
-                <xsl:otherwise>
-                  <xsl:value-of select="number($start_hr)+2"/>:<xsl:value-of select="format-number(number($start_min)-30,'00')"/>&#160;<xsl:value-of select="$am_pm"/>
-                </xsl:otherwise>
-              </xsl:choose>
-              &#160;<xsl:value-of select="ShortDaylight"/>.
+              <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartHour"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
+              &#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='2']/StartTimeZoneShort"/>.
             <br />
           </li>
           <br />
@@ -298,46 +226,25 @@ However, prizes will only be paid to members who are at least 18 years of age, m
 
         All competitors must be registered members of TopCoder,
         and must have agreed to the rules on this page by the 
-          <xsl:variable name="startMonth">
-            <xsl:value-of select="substring-before(ContestStartTimestamp,'/')"/>
-          </xsl:variable>
-          <xsl:choose>
-            <xsl:when test="$startMonth='01'">January</xsl:when>
-            <xsl:when test="$startMonth='02'">February</xsl:when>
-            <xsl:when test="$startMonth='03'">March</xsl:when>
-            <xsl:when test="$startMonth='04'">April</xsl:when>
-            <xsl:when test="$startMonth='05'">May</xsl:when>
-            <xsl:when test="$startMonth='06'">June</xsl:when>
-            <xsl:when test="$startMonth='07'">July</xsl:when>
-            <xsl:when test="$startMonth='08'">August</xsl:when>
-            <xsl:when test="$startMonth='09'">September</xsl:when>
-            <xsl:when test="$startMonth='10'">October</xsl:when>
-            <xsl:when test="$startMonth='11'">November</xsl:when>
-            <xsl:when test="$startMonth='12'">December</xsl:when>
-          </xsl:choose>
-          &#160;
-          <xsl:choose>
-            <xsl:when test="ContestId='4155'">9, </xsl:when>
-            <xsl:when test="ContestId='4160'">15, </xsl:when>
-            <xsl:when test="ContestId='4165'">18, </xsl:when>
-            <xsl:when test="ContestId='4170'">21, </xsl:when>
-            <xsl:when test="ContestId='4175'">22, </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="format-number(substring(ContestStartTimestamp,4,2),'##')"/>,
-            </xsl:otherwise>
-          </xsl:choose>
-          <xsl:value-of select="substring(ContestStartTimestamp,7,4)"/>&#160;
-          <xsl:choose>
-            <xsl:when test="$contestId='4155'">8:55 PM</xsl:when>
-            <xsl:when test="$contestId='4160'">8:55 PM</xsl:when>
-            <xsl:when test="$contestId='4165'">12:55 PM</xsl:when>
-            <xsl:when test="$contestId='4170'">8:55 PM</xsl:when>
-            <xsl:when test="$contestId='4175'">8:55 PM</xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="number($start_hr)+1"/>:<xsl:value-of select="format-number(number($start_min)+25,'00')"/>&#160;<xsl:value-of select="$am_pm"/>
-            </xsl:otherwise>
-          </xsl:choose>
-          &#160;<xsl:value-of select="ShortDaylight"/> registration deadline.<br/><br/>
+
+
+              <xsl:variable name="startMonth">
+                <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndMonthNum"/>
+              </xsl:variable>
+              <xsl:choose>
+                <xsl:when test="$startMonth='01'">January</xsl:when>
+                <xsl:when test="$startMonth='02'">February</xsl:when>
+                <xsl:when test="$startMonth='03'">March</xsl:when>
+                <xsl:when test="$startMonth='04'">April</xsl:when>
+                <xsl:when test="$startMonth='05'">May</xsl:when>
+                <xsl:when test="$startMonth='06'">June</xsl:when>
+                <xsl:when test="$startMonth='07'">July</xsl:when>
+                <xsl:when test="$startMonth='08'">August</xsl:when>
+                <xsl:when test="$startMonth='09'">September</xsl:when>
+                <xsl:when test="$startMonth='10'">October</xsl:when>
+                <xsl:when test="$startMonth='11'">November</xsl:when>
+                <xsl:when test="$startMonth='12'">December</xsl:when>
+              </xsl:choose>&#160;<xsl:value-of select="format-number(/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndDay,'##')"/>, <xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndYear"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndHour"/>:<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndMinute"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndAMPM"/>&#160;<xsl:value-of select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]/RoundSegments/RoundSegment[SegmentId='1']/EndTimeZoneShort"/> registration deadline.<br/><br/>
 
 Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
 <br /><br />
@@ -355,8 +262,6 @@ Employees of TopCoder and those involved in the development, production (includi
         </td>
       </tr>
     </table>
-  </xsl:for-each>
-
 
 
             </TD>
