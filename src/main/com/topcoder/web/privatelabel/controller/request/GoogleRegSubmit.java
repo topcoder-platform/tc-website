@@ -9,6 +9,7 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.security.UserPrincipal;
 
 public class GoogleRegSubmit extends FullRegSubmit {
 
@@ -21,7 +22,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
         setIsNextPageInContext(true);
     }
 
-    protected void handleActivation(SimpleRegInfo info) throws TCWebException {
+    protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
         try {
             User user = (User)createEJB(getInitialContext(), User.class);
             StringBuffer buf = new StringBuffer(1000);
@@ -41,7 +42,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
             buf.append("&");
             buf.append(Activate.ACTIVATION_CODE);
             buf.append("=");
-            buf.append(user.getActivationCode(info.getUserId(), db));
+            buf.append(user.getActivationCode(newUser.getId(), db));
 
             mail.setBody(buf.toString());
             mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);

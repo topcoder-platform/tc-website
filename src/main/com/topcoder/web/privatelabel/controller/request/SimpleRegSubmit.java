@@ -59,7 +59,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         setIsNextPageInContext(true);
     }
 
-    protected void commit(SimpleRegInfo regInfo) throws TCWebException {
+    protected UserPrincipal commit(SimpleRegInfo regInfo) throws TCWebException {
         UserTransaction tx = null;
 
         UserPrincipal newUser = null;
@@ -92,6 +92,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
             }
             throw new TCWebException(e);
         }
+        return newUser;
     }
 
     protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
