@@ -288,7 +288,7 @@ Used as: Level 3<BR/>
     </table>
     </blockquote>
 <P>
-190 out of 246 coders who opened Logical, received 0 points.
+190 out of 246 coders who opened RiverHill, received 0 points.
 Reference implementation: <B>ante</B>
 </P>
 
