@@ -20,10 +20,14 @@ public class ResultSetItemTag extends BodyTagSupport {
         this.name = name;
     }
 
+    public void doInitBody() throws JspException {
+        log.debug("doInitBody called...");
+        pageContext.setAttribute(getId(), row.getItem(name));
+    }
+
     public int doStartTag() throws JspException {
         log.debug("doStartTag called...");
-        pageContext.setAttribute(getId(), row.getItem(name));
-        return SKIP_BODY;
+        return (row!=null&&name!=null)?EVAL_BODY_TAG:SKIP_BODY;
     }
 
     public void release() {
