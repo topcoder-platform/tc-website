@@ -18,19 +18,6 @@ public class Login extends Base {
         String password = null;
         long companyId = 0;
 
-        if (hasParameter(Constants.HANDLE)) {
-            handle = getRequest().getParameter(Constants.HANDLE);
-            setDefault(Constants.HANDLE, handle);
-        } else {
-            addError(Constants.HANDLE, "Please enter your login");
-        }
-
-        if (hasParameter(Constants.PASSWORD)) {
-            password = getRequest().getParameter(Constants.PASSWORD);
-        } else {
-            addError(Constants.PASSWORD, "Please enter your password");
-        }
-
         if (hasParameter(Constants.COMPANY_ID)) {
             companyId = Long.parseLong(getRequest().getParameter(Constants.COMPANY_ID));
             setDefault(Constants.COMPANY_ID, new Long(companyId));
@@ -38,33 +25,48 @@ public class Login extends Base {
             throw new NavigationException("Invalid request, missing required parameter.");
         }
 
-        ScreeningLoginResponse response = null;
-        if (hasErrors()) {
-            setNextPage(Constants.PAGE_LOGIN);
-            setIsNextPageInContext(true);
-        } else {
+        if (hasParameter(Constants.HANDLE)) {
+            handle = getRequest().getParameter(Constants.HANDLE);
+            setDefault(Constants.HANDLE, handle);
 
-            ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
-            request.setServerID(Constants.SERVER_ID);
-
-            log.debug("send message");
-            String messageId = send(request);
-            log.debug("sent message " + messageId);
-
-            log.debug(Thread.currentThread().toString());
-            response = (ScreeningLoginResponse)receive(5000, messageId);
-            log.debug("response " + response);
-
-            if (response.isSuccess()) {
-                setNextPage(Constants.PAGE_INDEX);
-                setIsNextPageInContext(true);
-
+            if (hasParameter(Constants.PASSWORD)) {
+                password = getRequest().getParameter(Constants.PASSWORD);
             } else {
-                addError(Constants.HANDLE, response.getMessage());
+                addError(Constants.PASSWORD, "Please enter your password");
+            }
+
+            ScreeningLoginResponse response = null;
+            if (hasErrors()) {
                 setNextPage(Constants.PAGE_LOGIN);
                 setIsNextPageInContext(true);
+            } else {
+
+                ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
+                request.setServerID(Constants.SERVER_ID);
+
+                log.debug("send message");
+                String messageId = send(request);
+                log.debug("sent message " + messageId);
+
+                log.debug(Thread.currentThread().toString());
+                response = (ScreeningLoginResponse)receive(5000, messageId);
+                log.debug("response " + response);
+
+                if (response.isSuccess()) {
+                    setNextPage(Constants.PAGE_INDEX);
+                    setIsNextPageInContext(true);
+
+                } else {
+                    addError(Constants.HANDLE, response.getMessage());
+                    setNextPage(Constants.PAGE_LOGIN);
+                    setIsNextPageInContext(true);
+                }
             }
+        } else {
+            setNextPage(Constants.PAGE_LOGIN);
+            setIsNextPageInContext(true);
         }
+
     }
 
 }
