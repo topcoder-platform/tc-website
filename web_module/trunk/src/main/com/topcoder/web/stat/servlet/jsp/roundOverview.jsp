@@ -218,6 +218,7 @@
   <TR>
     <TD COLSPAN="6" ALIGN="center" CLASS="statText">
 <FORM name="coderRankForm" action="/stat" method="get" onSubmit="
+    var frm = document.coderRankForm;
     if (isNaN(parseInt(frm.er.value))){
       alert(frm.er.value+" is not a valid integer");
       return false;
