@@ -1,12 +1,10 @@
 package com.topcoder.web.query.servlet.jsp.tag;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.query.common.Constants;
 
 import javax.servlet.jsp.JspException;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
 import java.util.TreeMap;
 
 public class DataTypeSelect extends Select {

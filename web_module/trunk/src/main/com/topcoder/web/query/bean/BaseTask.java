@@ -1,17 +1,17 @@
 package com.topcoder.web.query.bean;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.query.common.Authentication;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.LinkBean;
-import com.topcoder.web.query.common.Authentication;
 
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.io.Serializable;
 
 /**
  * @author Greg Paul

@@ -3,7 +3,8 @@ package com.topcoder.web.query.bean;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.*;
+import com.topcoder.web.query.common.AuthenticationException;
+import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.InputBean;
 import com.topcoder.web.query.common.QueryInputBean;
 import com.topcoder.web.query.ejb.QueryServices.*;
@@ -12,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -28,22 +29,24 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
     private String db;
     private ArrayList currentInputList;
     private ArrayList otherInputList;
-
     private long queryId;
-
     /**
      * used when creating a new query input relation, or deleting one.
      * not used for modifying an existing relation
      */
     private long inputId;
-
     private String queryName;
-
     private HashMap attributeQueue;
 
     /* Creates a new LoginTask */
     public ModifyQueryInputTask() {
         super();
+        db = "";
+        currentInputList = null;
+        otherInputList = null;
+        queryId = 0;
+        inputId = 0;
+        queryName = "";
         attributeQueue = new HashMap();
     }
 

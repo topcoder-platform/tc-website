@@ -3,8 +3,8 @@ package com.topcoder.web.query.servlet.jsp.tag;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
-import java.util.List;
 import java.util.Iterator;
+import java.util.List;
 
 public abstract class Select extends TagSupport {
 

@@ -2,7 +2,6 @@ package com.topcoder.web.query.bean;
 
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.Authentication;
 import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
@@ -10,7 +9,6 @@ import com.topcoder.web.query.ejb.QueryServices.CommandGroupHome;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 
 /**
@@ -29,8 +27,9 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
     /* Creates a new LoginTask */
     public ModifyGroupTask() {
         super();
-        setGroupId(0);
-        setGroupDesc("");
+        db = "";
+        groupId = 0;
+        groupDesc = "";
     }
 
 
@@ -93,7 +92,7 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
         }
     }
 
-    private boolean isNewGroup() {
+    public boolean isNewGroup() {
         return getGroupId()==0;
     }
 
