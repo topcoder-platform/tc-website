@@ -79,7 +79,7 @@
 <% if (isHomePage) { %>
         <td class="topNavOn" nowrap>&nbsp;&nbsp;Home&nbsp;&nbsp;</td>
 <% } else { %>
-        <td class="topNav" nowrap>&nbsp;&nbsp;<a href="index.jsp" class="topLink">Home</a>&nbsp;&nbsp;</td>
+        <td class="topNav" nowrap>&nbsp;&nbsp;<a href="/" class="topLink">Home</a>&nbsp;&nbsp;</td>
 <%  } %>
 
         <td class="topNav" nowrap>&nbsp;&nbsp;<a href="/testing/" class="topLink">Testing Application Management Tool</a>&nbsp;&nbsp;</td>
