@@ -27,7 +27,6 @@
 
             <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
 
-<!-- <script> Application Projects begins 
             <A href="/?t=development&amp;c=app_projects"><img src="/i/development/head_app_projects.gif" alt="Application Projects" width="180" height="20" border="0" /></A>
             <table width="180" border="0" cellspacing="1" cellpadding="2" bgcolor="#838383">
                 <tr valign="top">
@@ -44,57 +43,22 @@
                     <td class="devProjectText">
                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
                             <tr>
-                                <td class="devProjectText" colspan="2"><A href="/?&amp;t=development&amp;c=single_sign_on_v10_des"><strong>Single Sign-On (SSO): Design</strong></A><br/>
-                                    Requirements for this project are broken down into two groups:</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="devProjectText">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="2">
-                            <tr>
-                                <td class="devProjectText" colspan="2">SSO Security Server</td>
+                                <td class="devProjectText" colspan="2"><A href="/?&amp;t=development&amp;c=online_gift_card_v10_des"><strong>Online Gift Card Sales</strong></A></td>
                             </tr>
 
                             <tr>
                                 <td class="devProjectWinner">Winning Designer:</td>
-                                <td class="devProjectWinnerMoney">$3,306</td>
+                                <td class="devProjectWinnerMoney">$810.00</td>
                             </tr>
 
                             <tr>
                                 <td class="devProjectSecond">Second Place:</td>
-                                <td class="devProjectSecondMoney">$1,005</td>
+                                <td class="devProjectSecondMoney">$202.50</td>
                             </tr>
                         </table>
                     </td>
                 </tr>
 
-                <tr>
-                    <td class="devProjectText">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="2">
-                            <tr>
-                                <td class="devProjectText" colspan="2">SSO Application Authentication</td>
-                            </tr>
-
-                            <tr>
-                                <td class="devProjectWinner">Winning Designer:</td>
-                                <td class="devProjectWinnerMoney">$2,826</td>
-                            </tr>
-
-                            <tr>
-                                <td class="devProjectSecond">Second Place:</td>
-                                <td class="devProjectSecondMoney">$855</td>
-                            </tr>
-
-                            <tr>
-                                <td class="devProjectInquire">Inquire By:</td>
-                                <td class="devProjectDate">11.04.2003</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
             </table>
 
             <table width="180" border="0" cellspacing="0" cellpadding="0">
@@ -117,7 +81,7 @@
             </table>
 
             <img src="/i/clear.gif" width="1" height="5" alt="" border="0" /><br />
-  </script> -->
+
   
 <!-- Component Design Projects begins -->
             <A href="/?t=development&amp;c=comp_projects#comp_des"><img src="/i/development/head_comp_des_projects.gif" alt="Component Design Projects" width="180" height="20" border="0" /></A>
