@@ -84,7 +84,7 @@
             debug="${debug}"
             >
             <exclude
-                name="com/topcoder/server/listener/nio/channels/spi/java14/*"
+                name="com/topcoder/security/**"
                 unless="jdk1.4+"
                 />
         </javac>
@@ -525,6 +525,7 @@
 
     <!-- hs -->
     <target name="deploy_hs" depends="war_hs,build_hs_ejbs">
+        <antcall target="dev_war_hs"/>
     </target>
 
     <target name="build_hs_ejbs" depends="compile">
@@ -549,7 +550,7 @@
             <param name="unit-class-path" value="com/topcoder/web/ejb/school"/>
         </antcall>
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Rating"/>
+            <param name="unit-jar-name" value="HSRating"/>
             <param name="unit-class-path" value="com/topcoder/web/hs/ejb/rating"/>
         </antcall>
         <antcall target="build-ejb-unit">
