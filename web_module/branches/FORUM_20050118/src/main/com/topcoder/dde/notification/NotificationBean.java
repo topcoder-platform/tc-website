@@ -173,8 +173,8 @@ public class NotificationBean implements SessionBean {
 
         for (Iterator it = prop.entrySet().iterator(); it.hasNext();) {
             Map.Entry entry = (Map.Entry) it.next();
-            xmlDocument.addTag(new ValueTag(entry.getKey(), entry.getValue()));
-            info(entry.getKey()+"="+entry.getValue());
+            xmlDocument.addTag(new ValueTag((String) entry.getKey(), (String) entry.getValue()));
+            info(((String) entry.getKey())+"="+((String) entry.getValue()));
         }
 
 
@@ -196,14 +196,14 @@ public class NotificationBean implements SessionBean {
      *
      * @throws Exception propagate any exceptions
      */
-    static void sendMail(String from, String to, String subject, String messageText) throws Exception {
+    private void sendMail(String from, String to, String subject, String messageText) throws Exception {
         if (!EJBHelper.isTestMode()) {
             TCSEmailMessage message = new TCSEmailMessage();
             message.setFromAddress(from);
             message.setToAddress(to, TCSEmailMessage.TO);
             message.setSubject(subject);
             message.setBody(messageText);
-            LogHelper.log("Sending e-mail to address: " + formatAddress(to));
+            info("Notification sending e-mail to address: " + formatAddress(to));
             EmailEngine.send(message);
         } else {
             info("--mail--");
@@ -235,7 +235,7 @@ public class NotificationBean implements SessionBean {
                 throws XSLTransformerWrapperException, FileNotFoundException {
         String xmlData = xmlDocument.createXML();
         if (EJBHelper.isTestMode()) {
-            LogHelper.log(xmlData);
+            info(xmlData);
         }
         XSLTransformerWrapper xslt = new XSLTransformerWrapper(new FileInputStream(bodyXSL));
         ByteArrayOutputStream out = new ByteArrayOutputStream();
