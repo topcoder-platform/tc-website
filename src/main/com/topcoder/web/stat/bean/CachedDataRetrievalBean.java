@@ -16,6 +16,9 @@ import com.topcoder.server.distCache.CacheClientFactory;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.4  2002/06/13 18:53:51  lbackstrom
+ *           distributed cache
+ *
  *           Revision 1.3  2002/06/13 15:05:18  lbackstrom
  *           distributed cache
  *
@@ -74,7 +77,6 @@ public class CachedDataRetrievalBean implements StatDataAccessInt {
     private long expireTime;
     public CachedDataRetrievalBean()
     {
-        super();
         this(86400000);                 //one day in ms
     }
     public CachedDataRetrievalBean(long expireTime)
@@ -123,7 +125,7 @@ public class CachedDataRetrievalBean implements StatDataAccessInt {
             {
                 try
                 {
-                    client.set(key,map,);
+                    client.set(key,map,expireTime);
                 }
                 catch(Exception e)
                 {
