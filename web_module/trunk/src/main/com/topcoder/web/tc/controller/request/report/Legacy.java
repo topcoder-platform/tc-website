@@ -278,9 +278,14 @@ public class Legacy extends Base {
             ResultSetContainer.ResultSetRow question = demographic_questions.getRow(i);
             List l = new ArrayList();
             int questionId = question.getIntItem("demographic_question_id");
+            Set s = new HashSet();
+            String[] v = request.getParameterValues("demo_"+questionId);
+            if(v!=null){
+                s.addAll(Arrays.asList(v));
+            }
             while(answer.getIntItem("demographic_question_id") == questionId){
                 String text = answer.getStringItem("demographic_answer_text");
-                l.add(new ListSelectTag.Option(answer.getStringItem("demographic_answer_id"), text, ((Set)sel.get("demo_"+questionId)).contains(text)));
+                l.add(new ListSelectTag.Option(answer.getStringItem("demographic_answer_id"), text, s.contains(new Integer(questionId))));
                 if(++j == demographic_answers.getRowCount()){
                     break;
                 }else{
@@ -298,7 +303,7 @@ public class Legacy extends Base {
             int skillType = type.getIntItem("skill_type_id");
             while(skill.getIntItem("skill_type_id") == skillType){
                 String text = skill.getStringItem("skill_desc");
-                l.add(new ListSelectTag.Option(skill.getStringItem("skill_id"), text, ((Set)sel.get("skillset"+skillType)).contains(text)));
+                l.add(new ListSelectTag.Option(skill.getStringItem("skill_id"), text));
                 if(++j == skills.getRowCount()){
                     break;
                 }else{
