@@ -79,6 +79,7 @@ public class ProblemArchive extends Base {
 
             if (filters.size()>0) {
                 rsc = new ResultSetContainer(rsc, (ResultFilter[])filters.toArray(new ResultFilter[0]));
+                result.put("problem_list", rsc);
             }
 
             SortInfo s = new SortInfo();
