@@ -37,6 +37,8 @@ public class BuildCandidateList extends BaseScreeningProcessor {
                         (ResultSetContainer) map.get(Constants.CANDIDATE_LIST_QUERY_KEY);
                 getRequest().setAttribute(Constants.CANDIDATE_LIST_QUERY_KEY, result);
             }
+            
+            getRequest().setAttribute(Constants.USER_ID, String.valueOf(getUser().getId()));
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {

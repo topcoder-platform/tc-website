@@ -49,6 +49,7 @@
                    <td align="center" class="screeningHeader">Begin</td>               
                    <td align="center" class="screeningHeader">End</td>
                    <td align="center" class="screeningHeader">Status</td>
+                   <td align="center" class="screeningHeader">Preference Level</td>
                    <td align="center" class="screeningHeader">Notes</td>                                          
                 </tr>
 
@@ -57,6 +58,7 @@
                 <%
                     int counter = 0;
                     String[] cssClasses = {"screeningCellOdd", "screeningCellEven"};
+                    String[] swfFiles = {"/i/corp/screeningRatingOdd.swf", "/i/corp/screeningRatingEven.swf"};
                 %>
                 
                 <screen:resultSetRowIterator id="row" list="<%=candidateList%>">
@@ -75,6 +77,34 @@
                    <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>"><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
                    <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>"><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:sessionStatus row="<%=row%>" /></td>
+                   <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap>
+                    <object
+                        classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                        codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"                      
+                        width="80"
+                        height="12" 
+                        id="tc_card"
+                        align="middle">
+                        <param name="allowScriptAccess" value="sameDomain" />
+                        <param name="movie"
+                        value="<%=swfFiles[counter % 2]%>?preference=<%=row.getStringItem("preference")%>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<%=row.getStringItem("user_id")%>"/>
+                        <param name="menu" value="false" />
+                        <param name="quality" value="high" />
+                        <param name="bgcolor" value="#ffffff" />
+                        <embed
+                        src="<%=swfFiles[counter % 2]%>?preference=<%=row.getStringItem("preference")%>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<%=row.getStringItem("user_id")%>"
+                        menu="false"
+                        quality="high"
+                        bgcolor="#ffffff"
+                        width="80"
+                        height="12"
+                        name="tc_card"
+                        align="middle"
+                        allowScriptAccess="sameDomain"
+                        type="application/x-shockwave-flash"
+                        pluginspage="http://www.macromedia.com/go/getflashplayer" />
+                        </object>
+                   </td>
                    <td width="10%" align="center" class="<%=cssClasses[counter++ % 2]%>"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><%=hasNotes?"View":"None"%></screen:servletLink></td>
                 </tr>
 
