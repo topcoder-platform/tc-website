@@ -19,6 +19,7 @@ public class PactsHtmlTable {
     private String cellPadding = null;
     private String width = null;
     private String[] rowColor;
+    private String[] columnWidth;
     private String[][] fontSize;
     private boolean[][] isBold;
 
@@ -40,6 +41,7 @@ public class PactsHtmlTable {
 	this.tableData = tableData;
 
 	rowColor = new String[tableData.getNumRows()];
+	columnWidth = new String[tableData.getNumCols()];
 	fontSize = new String[tableData.getNumRows()][tableData.getNumCols()];
 	className = new String[tableData.getNumRows()][tableData.getNumCols()];
 	isBold = new boolean[tableData.getNumRows()][tableData.getNumCols()];
@@ -47,6 +49,7 @@ public class PactsHtmlTable {
 	for(int i=0;i<tableData.getNumRows();i++) { 
 	    rowColor[i] = null; 
 	    for(int j=0;j<tableData.getNumCols();j++) {
+                columnWidth[j] = null;
 		fontSize[i][j] = null;
 		isBold[i][j] = false;
 	    }
@@ -83,9 +86,12 @@ public class PactsHtmlTable {
 	    if(rowColor[row]!=null) { buf.append("bgcolor=\"" + rowColor[row] + "\" "); }
 	    buf.append(">");
 	    for(int col=0;col<tableData.getNumCols();col++) {
-	        buf.append("<td ");
+	        buf.append("<td");
 		if(className!=null && className[row][col]!=null) { 
-		    buf.append("class=\"" + className[row][col] + "\"");
+		    buf.append(" class=\"" + className[row][col] + "\"");
+		}
+		if(columnWidth!=null && columnWidth[col]!=null) { 
+		    buf.append(" width=\"" + columnWidth[col] + "\"");
 		}
 	        buf.append(">");
 		// set anything that applies to this cell
@@ -228,6 +234,21 @@ public class PactsHtmlTable {
 	if((row<0) || (row>=rowColor.length)) { return; }
 	
 	rowColor[row] = color;
+    }
+
+    // added during integration by chuck
+    /**
+     * this class is used to set the width of individual columns.
+     * the most common use would be after setting the table
+     * bgcolor, set the top row to a different color.
+     *
+     * @param width the string that represnets td width attribute in html.
+     */
+    public void setColumnWidth (int col, String width) {
+        //first check if it is oob
+        if((col<0) || (col>=columnWidth.length)) { return; }
+
+        columnWidth[col] = width;
     }
 
     /**
