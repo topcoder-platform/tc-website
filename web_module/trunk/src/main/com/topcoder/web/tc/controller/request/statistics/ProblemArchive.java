@@ -24,6 +24,21 @@ public class ProblemArchive extends Base {
             Request r = new Request();
             r.setContentHandle("problem_archive");
 
+            String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+            if (start.equals(""))
+                start = "1";
+            r.setProperty(DataAccessConstants.START_RANK, start);
+
+            String end = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
+            if (end.equals(""))
+                end = String.valueOf(Constants.PROBLEM_ARCHIVE_SCROLL_SIZE);
+            r.setProperty(DataAccessConstants.END_RANK, end);
+
+            //make sure we like the size they they're searching for
+            if (Integer.parseInt(end)-Integer.parseInt(start)>(Constants.PROBLEM_ARCHIVE_SCROLL_SIZE-1)) {
+                r.setProperty(DataAccessConstants.END_RANK, String.valueOf(Integer.parseInt(start)+Constants.PROBLEM_ARCHIVE_SCROLL_SIZE-1));
+            }
+
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
@@ -36,6 +51,9 @@ public class ProblemArchive extends Base {
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("problem_list");
+
+
+
             SortInfo s = new SortInfo();
             s.addDefault(rsc.getColumnIndex("problem_name"), "asc");
             s.addDefault(rsc.getColumnIndex("contest_name"), "asc");

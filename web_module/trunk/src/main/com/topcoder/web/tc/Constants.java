@@ -93,6 +93,7 @@ public class Constants {
     public static int SRM_SURVEY_QUESTION;
     public static int TOURNAMENT_SURVEY_QUESTION;
     public static int SEARCH_SCROLL_SIZE;
+    public static int PROBLEM_ARCHIVE_SCROLL_SIZE;
     public static String STATISTICS_PATH;
     public static int TCCC04_TERMS_OF_USE_ID;
     public static int UNLOCK_CARD_PREFERENCE_ID;
