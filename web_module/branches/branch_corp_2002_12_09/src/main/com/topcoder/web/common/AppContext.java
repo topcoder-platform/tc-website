@@ -29,10 +29,12 @@ public class AppContext {
     private static Logger log = Logger.getLogger(AppContext.class);
     private static AppContext me = null;
     private Properties appProperties = null;
-    private InitialContext jndiInitialContext = null;
-    private PrincipalMgrRemoteHome principalMgrRemoteHome = null;
+//    private InitialContext jndiInitialContext = null;
+//    private PrincipalMgrRemoteHome principalMgrRemoteHome = null;
     private DatabaseContext databaseContext = null;
     private PersistStore persistStore = null;
+    Hashtable jndiContextEnvironment = null;
+    
 
 	/**
 	 * 
@@ -84,30 +86,36 @@ public class AppContext {
             persistStore = PersistStore.getInstance(dir);
         } 
         
-		Hashtable envir = new Hashtable();
+        jndiContextEnvironment = new Hashtable();
         
         // if these will be nulls then current ejb container will provide own default stuff
         String initialContextFactory = appProperties.getProperty("jndi-initial-context-factory"); 
 		if( initialContextFactory != null ) {
-            envir.put(javax.naming.Context.INITIAL_CONTEXT_FACTORY, initialContextFactory );
+            jndiContextEnvironment.put(
+                javax.naming.Context.INITIAL_CONTEXT_FACTORY,
+                initialContextFactory
+            );
         }
 
         String providerURL = appProperties.getProperty("jndi-provider-url");
         if( providerURL != null ) {
-    		envir.put(javax.naming.Context.PROVIDER_URL, providerURL );
+    		jndiContextEnvironment.put(
+                javax.naming.Context.PROVIDER_URL,
+                providerURL
+            );
         }
-		jndiInitialContext = new InitialContext(envir);
+//		jndiInitialContext = new InitialContext(envir);
 
-        Object  l = jndiInitialContext.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-        principalMgrRemoteHome = (PrincipalMgrRemoteHome)l;
+//        Object  l = jndiInitialContext.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+//        principalMgrRemoteHome = (PrincipalMgrRemoteHome)l;
 	}
 
 	/**
 	 * Returns the jndiInitialContext.
 	 * @return InitialContext
 	 */
-	public InitialContext getJndiInitialContext() {
-		return jndiInitialContext;
+	public InitialContext getJndiInitialContext() throws NamingException {
+		return new InitialContext(jndiContextEnvironment);
 	}
 
     /**
@@ -119,9 +127,8 @@ public class AppContext {
      */    
     public PrincipalMgrRemote getRemotePrincipalManager() throws CreateException, RemoteException, NamingException, FileNotFoundException
     {
-        if(principalMgrRemoteHome == null ) {
-            doInit(null);
-        }
+        Object  l = getJndiInitialContext().lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+        PrincipalMgrRemoteHome principalMgrRemoteHome = (PrincipalMgrRemoteHome)l;
         return principalMgrRemoteHome.create(); 
     }
     
