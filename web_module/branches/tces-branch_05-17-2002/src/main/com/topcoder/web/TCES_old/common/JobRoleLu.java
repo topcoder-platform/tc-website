@@ -105,9 +105,27 @@ public class JobRoleLu {
 		return( obj );
 	}
 
+	/**
+	 * Set the job_role_desc field in the job_role_lu table corresponding to the given key.
+	 * @param job_role_id the table primary key
+	 * @param job_role_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setJobRoleDesc( Integer job_role_id, String job_role_desc ) throws SQLException {
 		putRecord( job_role_id, job_role_desc );
 	}
+
+	/**
+	 * Get the job_role_desc field from the job_role_lu table corresponding to the given key.
+	 * @param job_role_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getJobRoleDesc( Integer job_role_id ) throws SQLException {
 		JobRoleLuObject	obj = null;

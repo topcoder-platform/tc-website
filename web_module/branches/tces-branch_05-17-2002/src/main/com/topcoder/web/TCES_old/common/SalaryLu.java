@@ -105,9 +105,27 @@ public class SalaryLu {
 		return( obj );
 	}
 
+	/**
+	 * Set the salary_desc field in the salary_lu table corresponding to the given key.
+	 * @param salary_id the table primary key
+	 * @param salary_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setSalaryDesc( Integer salary_id, String salary_desc ) throws SQLException {
 		putRecord( salary_id, salary_desc );
 	}
+
+	/**
+	 * Get the salary_desc field from the salary_lu table corresponding to the given key.
+	 * @param salary_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getSalaryDesc( Integer salary_id ) throws SQLException {
 		SalaryLuObject	obj = null;

@@ -105,9 +105,27 @@ public class OrganizationSizeLu {
 		return( obj );
 	}
 
+	/**
+	 * Set the organization_size_desc field in the organization_size_lu table corresponding to the given key.
+	 * @param organization_size_id the table primary key
+	 * @param organization_size_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setOrganizationSizeDesc( Integer organization_size_id, String organization_size_desc ) throws SQLException {
 		putRecord( organization_size_id, organization_size_desc );
 	}
+
+	/**
+	 * Get the organization_size_desc field from the organization_size_lu table corresponding to the given key.
+	 * @param organization_size_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getOrganizationSizeDesc( Integer organization_size_id ) throws SQLException {
 		OrganizationSizeLuObject	obj = null;

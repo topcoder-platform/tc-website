@@ -106,9 +106,27 @@ public class Editor {
 		return( obj );
 	}
 
+	/**
+	 * Set the editor_desc field in the editor table corresponding to the given key.
+	 * @param editor_id the table primary key
+	 * @param editor_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setEditorDesc( Integer editor_id, String editor_desc ) throws SQLException {
 		putRecord( editor_id, editor_desc );
 	}
+
+	/**
+	 * Get the editor_desc field from the editor table corresponding to the given key.
+	 * @param editor_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getEditorDesc( Integer editor_id ) throws SQLException {
 		EditorObject	obj = null;

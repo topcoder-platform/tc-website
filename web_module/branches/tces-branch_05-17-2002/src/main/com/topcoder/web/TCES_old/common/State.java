@@ -105,9 +105,27 @@ public class State {
 		return( obj );
 	}
 
+	/**
+	 * Set the state_name field in the state table corresponding to the given key.
+	 * @param state_code the table primary key
+	 * @param state_name the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setStateName( String state_code, String state_name ) throws SQLException {
 		putRecord( state_code, state_name, null, null );
 	}
+
+	/**
+	 * Get the state_name field from the state table corresponding to the given key.
+	 * @param state_code the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getStateName( String state_code ) throws SQLException {
 		StateObject	obj = null;
@@ -117,9 +135,27 @@ public class State {
 		return( obj.state_name );
 	}
 
+	/**
+	 * Set the region_code field in the state table corresponding to the given key.
+	 * @param state_code the table primary key
+	 * @param region_code the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setRegionCode( String state_code, String region_code ) throws SQLException {
 		putRecord( state_code, null, region_code, null );
 	}
+
+	/**
+	 * Get the region_code field from the state table corresponding to the given key.
+	 * @param state_code the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getRegionCode( String state_code ) throws SQLException {
 		StateObject	obj = null;
@@ -129,9 +165,27 @@ public class State {
 		return( obj.region_code );
 	}
 
+	/**
+	 * Set the demographic_decline field in the state table corresponding to the given key.
+	 * @param state_code the table primary key
+	 * @param demographic_decline the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setDemographicDecline( String state_code, Integer demographic_decline ) throws SQLException {
 		putRecord( state_code, null, null, demographic_decline );
 	}
+
+	/**
+	 * Get the demographic_decline field from the state table corresponding to the given key.
+	 * @param state_code the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getDemographicDecline( String state_code ) throws SQLException {
 		StateObject	obj = null;

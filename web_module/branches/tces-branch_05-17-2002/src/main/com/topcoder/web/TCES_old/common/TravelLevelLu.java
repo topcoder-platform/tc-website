@@ -105,9 +105,27 @@ public class TravelLevelLu {
 		return( obj );
 	}
 
+	/**
+	 * Set the travel_level_desc field in the travel_level_lu table corresponding to the given key.
+	 * @param travel_level_id the table primary key
+	 * @param travel_level_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setTravelLevelDesc( Integer travel_level_id, String travel_level_desc ) throws SQLException {
 		putRecord( travel_level_id, travel_level_desc );
 	}
+
+	/**
+	 * Get the travel_level_desc field from the travel_level_lu table corresponding to the given key.
+	 * @param travel_level_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getTravelLevelDesc( Integer travel_level_id ) throws SQLException {
 		TravelLevelLuObject	obj = null;

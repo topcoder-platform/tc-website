@@ -108,9 +108,27 @@ public class Coder {
 		return( obj );
 	}
 
+	/**
+	 * Set the state_code field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param state_code the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setStateCode( Long coder_id, String state_code ) throws SQLException {
 		putRecord( coder_id, state_code, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the state_code field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getStateCode( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -120,9 +138,27 @@ public class Coder {
 		return( obj.state_code );
 	}
 
+	/**
+	 * Set the country_code field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param country_code the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setCountryCode( Long coder_id, String country_code ) throws SQLException {
 		putRecord( coder_id, null, country_code, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the country_code field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getCountryCode( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -132,9 +168,27 @@ public class Coder {
 		return( obj.country_code );
 	}
 
+	/**
+	 * Set the first_name field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param first_name the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setFirstName( Long coder_id, String first_name ) throws SQLException {
 		putRecord( coder_id, null, null, first_name, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the first_name field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getFirstName( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -144,9 +198,27 @@ public class Coder {
 		return( obj.first_name );
 	}
 
+	/**
+	 * Set the last_name field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param last_name the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setLastName( Long coder_id, String last_name ) throws SQLException {
 		putRecord( coder_id, null, null, null, last_name, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the last_name field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getLastName( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -156,9 +228,27 @@ public class Coder {
 		return( obj.last_name );
 	}
 
+	/**
+	 * Set the home_phone field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param home_phone the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setHomePhone( Long coder_id, String home_phone ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, home_phone, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the home_phone field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getHomePhone( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -168,9 +258,27 @@ public class Coder {
 		return( obj.home_phone );
 	}
 
+	/**
+	 * Set the work_phone field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param work_phone the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setWorkPhone( Long coder_id, String work_phone ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, work_phone, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the work_phone field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getWorkPhone( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -180,9 +288,27 @@ public class Coder {
 		return( obj.work_phone );
 	}
 
+	/**
+	 * Set the address1 field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param address1 the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setAddress1( Long coder_id, String address1 ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, address1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the address1 field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getAddress1( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -192,9 +318,27 @@ public class Coder {
 		return( obj.address1 );
 	}
 
+	/**
+	 * Set the address2 field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param address2 the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setAddress2( Long coder_id, String address2 ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, address2, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the address2 field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getAddress2( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -204,9 +348,27 @@ public class Coder {
 		return( obj.address2 );
 	}
 
+	/**
+	 * Set the city field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param city the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setCity( Long coder_id, String city ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, city, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the city field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getCity( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -216,9 +378,27 @@ public class Coder {
 		return( obj.city );
 	}
 
+	/**
+	 * Set the zip field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param zip the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setZip( Long coder_id, String zip ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, zip, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the zip field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getZip( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -228,9 +408,27 @@ public class Coder {
 		return( obj.zip );
 	}
 
+	/**
+	 * Set the middle_name field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param middle_name the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setMiddleName( Long coder_id, String middle_name ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, middle_name, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the middle_name field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getMiddleName( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -240,9 +438,27 @@ public class Coder {
 		return( obj.middle_name );
 	}
 
+	/**
+	 * Set the activation_code field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param activation_code the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setActivationCode( Long coder_id, String activation_code ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, activation_code, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the activation_code field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getActivationCode( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -252,9 +468,27 @@ public class Coder {
 		return( obj.activation_code );
 	}
 
+	/**
+	 * Set the member_since field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param member_since the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setMemberSince( Long coder_id, Date member_since ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, member_since, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the member_since field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Date getMemberSince( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -264,9 +498,27 @@ public class Coder {
 		return( obj.member_since );
 	}
 
+	/**
+	 * Set the notify field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param notify the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setNotify( Long coder_id, String notify ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, null, notify, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the notify field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getNotify( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -276,9 +528,27 @@ public class Coder {
 		return( obj.notify );
 	}
 
+	/**
+	 * Set the quote field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param quote the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setQuote( Long coder_id, String quote ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, quote, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the quote field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getQuote( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -288,9 +558,27 @@ public class Coder {
 		return( obj.quote );
 	}
 
+	/**
+	 * Set the employer_search field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param employer_search the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setEmployerSearch( Long coder_id, String employer_search ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, employer_search, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the employer_search field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getEmployerSearch( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -300,9 +588,27 @@ public class Coder {
 		return( obj.employer_search );
 	}
 
+	/**
+	 * Set the relocate field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param relocate the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setRelocate( Long coder_id, String relocate ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, relocate, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the relocate field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getRelocate( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -312,9 +618,27 @@ public class Coder {
 		return( obj.relocate );
 	}
 
+	/**
+	 * Set the modify_date field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param modify_date the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setModifyDate( Long coder_id, Date modify_date ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, modify_date, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the modify_date field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Date getModifyDate( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -324,9 +648,27 @@ public class Coder {
 		return( obj.modify_date );
 	}
 
+	/**
+	 * Set the referral_id field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param referral_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setReferralId( Long coder_id, Integer referral_id ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, referral_id, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the referral_id field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getReferralId( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -336,9 +678,27 @@ public class Coder {
 		return( obj.referral_id );
 	}
 
+	/**
+	 * Set the editor_id field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param editor_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setEditorId( Long coder_id, Integer editor_id ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, editor_id, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the editor_id field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getEditorId( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -348,9 +708,27 @@ public class Coder {
 		return( obj.editor_id );
 	}
 
+	/**
+	 * Set the notify_inquiry field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param notify_inquiry the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setNotifyInquiry( Long coder_id, String notify_inquiry ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, notify_inquiry, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the notify_inquiry field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getNotifyInquiry( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -360,9 +738,27 @@ public class Coder {
 		return( obj.notify_inquiry );
 	}
 
+	/**
+	 * Set the referral_user_id field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param referral_user_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setReferralUserId( Long coder_id, Long referral_user_id ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, referral_user_id, null, null, null, null );
 	}
+
+	/**
+	 * Get the referral_user_id field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Long getReferralUserId( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -372,9 +768,27 @@ public class Coder {
 		return( obj.referral_user_id );
 	}
 
+	/**
+	 * Set the language_id field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param language_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setLanguageId( Long coder_id, Integer language_id ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, language_id, null, null, null );
 	}
+
+	/**
+	 * Get the language_id field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getLanguageId( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -384,9 +798,27 @@ public class Coder {
 		return( obj.language_id );
 	}
 
+	/**
+	 * Set the coder_type_id field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param coder_type_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setCoderTypeId( Long coder_id, Integer coder_type_id ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, coder_type_id, null, null );
 	}
+
+	/**
+	 * Get the coder_type_id field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getCoderTypeId( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -396,9 +828,27 @@ public class Coder {
 		return( obj.coder_type_id );
 	}
 
+	/**
+	 * Set the image field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param image the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setImage( Long coder_id, Integer image ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, image, null );
 	}
+
+	/**
+	 * Get the image field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getImage( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -408,9 +858,27 @@ public class Coder {
 		return( obj.image );
 	}
 
+	/**
+	 * Set the date_of_birth field in the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param date_of_birth the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setDateOfBirth( Long coder_id, Date date_of_birth ) throws SQLException {
 		putRecord( coder_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, date_of_birth );
 	}
+
+	/**
+	 * Get the date_of_birth field from the coder table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Date getDateOfBirth( Long coder_id ) throws SQLException {
 		CoderObject	obj = null;
@@ -777,14 +1245,29 @@ public class Coder {
 		return( sb.toString() );
 	}
 
-	public boolean isStudent( Long profileId ) throws SQLException {
-		Integer	type = getCoderTypeId( profileId );
+	/**
+	 * Return whether or not the specified coder is a student.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @author Phil Selby, June 17th, 2002
+	 */
+
+	public boolean isStudent( Long coderId ) throws SQLException {
+		Integer	type = getCoderTypeId( coderId );
 		return( type.intValue() == 1 );
 	}
 
-	public void setIsStudent( Long profileId ) throws SQLException {
-		Integer	type = getCoderTypeId( profileId );
+	/**
+	 * Indicate that the specified coder is a student.
+	 * @param coder_id the table primary key
+	 * @exception SQLException if a database error occurs
+	 * @author Phil Selby, June 17th, 2002
+	 */
+
+	public void setIsStudent( Long coderId ) throws SQLException {
+		Integer	type = getCoderTypeId( coderId );
 		if( type.intValue() != 1 )
-			setCoderTypeId( profileId, new Integer( 1 ) );
+			setCoderTypeId( coderId, new Integer( 1 ) );
 	}
 }

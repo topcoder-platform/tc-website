@@ -3,6 +3,7 @@ package	com.topcoder.web.TCES.ejb;
 import	java.sql.SQLException;
 import	java.rmi.RemoteException;
 import	com.topcoder.web.TCES.common.Lookup;
+import	com.topcoder.web.TCES.common.RecordNotFoundException;
 
 /**
  * This is the remote interface for the Contact class.

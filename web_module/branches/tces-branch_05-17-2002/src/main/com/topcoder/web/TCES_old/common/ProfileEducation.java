@@ -105,9 +105,27 @@ public class ProfileEducation {
 		return( obj );
 	}
 
+	/**
+	 * Set the profile_id field in the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @param profile_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setProfileId( Long education_id, Long profile_id ) throws SQLException {
 		putRecord( education_id, profile_id, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the profile_id field from the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Long getProfileId( Long education_id ) throws SQLException {
 		ProfileEducationObject	obj = null;
@@ -117,9 +135,27 @@ public class ProfileEducation {
 		return( obj.profile_id );
 	}
 
+	/**
+	 * Set the degree_type_id field in the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @param degree_type_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setDegreeTypeId( Long education_id, Integer degree_type_id ) throws SQLException {
 		putRecord( education_id, null, degree_type_id, null, null, null, null );
 	}
+
+	/**
+	 * Get the degree_type_id field from the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getDegreeTypeId( Long education_id ) throws SQLException {
 		ProfileEducationObject	obj = null;
@@ -129,9 +165,27 @@ public class ProfileEducation {
 		return( obj.degree_type_id );
 	}
 
+	/**
+	 * Set the school_id field in the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @param school_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setSchoolId( Long education_id, Long school_id ) throws SQLException {
 		putRecord( education_id, null, null, school_id, null, null, null );
 	}
+
+	/**
+	 * Get the school_id field from the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Long getSchoolId( Long education_id ) throws SQLException {
 		ProfileEducationObject	obj = null;
@@ -141,9 +195,27 @@ public class ProfileEducation {
 		return( obj.school_id );
 	}
 
+	/**
+	 * Set the graduation_year field in the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @param graduation_year the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setGraduationYear( Long education_id, Integer graduation_year ) throws SQLException {
 		putRecord( education_id, null, null, null, graduation_year, null, null );
 	}
+
+	/**
+	 * Get the graduation_year field from the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getGraduationYear( Long education_id ) throws SQLException {
 		ProfileEducationObject	obj = null;
@@ -153,9 +225,27 @@ public class ProfileEducation {
 		return( obj.graduation_year );
 	}
 
+	/**
+	 * Set the graduation_month field in the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @param graduation_month the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setGraduationMonth( Long education_id, Integer graduation_month ) throws SQLException {
 		putRecord( education_id, null, null, null, null, graduation_month, null );
 	}
+
+	/**
+	 * Get the graduation_month field from the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getGraduationMonth( Long education_id ) throws SQLException {
 		ProfileEducationObject	obj = null;
@@ -165,9 +255,27 @@ public class ProfileEducation {
 		return( obj.graduation_month );
 	}
 
+	/**
+	 * Set the gpa_id field in the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @param gpa_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setGpaId( Long education_id, Integer gpa_id ) throws SQLException {
 		putRecord( education_id, null, null, null, null, null, gpa_id );
 	}
+
+	/**
+	 * Get the gpa_id field from the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getGpaId( Long education_id ) throws SQLException {
 		ProfileEducationObject	obj = null;

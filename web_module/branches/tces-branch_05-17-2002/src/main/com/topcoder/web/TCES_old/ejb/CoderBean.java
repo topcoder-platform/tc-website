@@ -786,15 +786,30 @@ public class CoderBean implements javax.ejb.SessionBean {
 		return( sb.toString() );
 	}
 
-	public boolean isStudent( Long profileId ) throws SQLException {
-		Integer	type = getCoderTypeId( profileId );
+	/**
+	 * Return whether or not the specified coder is a student.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @author Phil Selby, June 17th, 2002
+	 */
+
+	public boolean isStudent( Long coderId ) throws SQLException {
+		Integer	type = getCoderTypeId( coderId );
 		return( type.intValue() == 1 );
 	}
 
-	public void setIsStudent( Long profileId ) throws SQLException {
-		Integer	type = getCoderTypeId( profileId );
+	/**
+	 * Indicate that the specified coder is a student.
+	 * @param coder_id the table primary key
+	 * @exception SQLException if a database error occurs
+	 * @author Phil Selby, June 17th, 2002
+	 */
+
+	public void setIsStudent( Long coderId ) throws SQLException {
+		Integer	type = getCoderTypeId( coderId );
 		if( type.intValue() != 1 )
-			setCoderTypeId( profileId, new Integer( 1 ) );
+			setCoderTypeId( coderId, new Integer( 1 ) );
 	}
 
 	private Connection getConnection() throws SQLException {

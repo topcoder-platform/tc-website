@@ -105,9 +105,27 @@ public class TravelTimeLu {
 		return( obj );
 	}
 
+	/**
+	 * Set the travel_time_desc field in the travel_time_lu table corresponding to the given key.
+	 * @param travel_time_id the table primary key
+	 * @param travel_time_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setTravelTimeDesc( Integer travel_time_id, String travel_time_desc ) throws SQLException {
 		putRecord( travel_time_id, travel_time_desc );
 	}
+
+	/**
+	 * Get the travel_time_desc field from the travel_time_lu table corresponding to the given key.
+	 * @param travel_time_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getTravelTimeDesc( Integer travel_time_id ) throws SQLException {
 		TravelTimeLuObject	obj = null;

@@ -106,9 +106,27 @@ public class Language {
 		return( obj );
 	}
 
+	/**
+	 * Set the language_name field in the language table corresponding to the given key.
+	 * @param language_id the table primary key
+	 * @param language_name the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setLanguageName( Integer language_id, String language_name ) throws SQLException {
 		putRecord( language_id, language_name, null, null );
 	}
+
+	/**
+	 * Get the language_name field from the language table corresponding to the given key.
+	 * @param language_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getLanguageName( Integer language_id ) throws SQLException {
 		LanguageObject	obj = null;
@@ -118,9 +136,27 @@ public class Language {
 		return( obj.language_name );
 	}
 
+	/**
+	 * Set the status field in the language table corresponding to the given key.
+	 * @param language_id the table primary key
+	 * @param status the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setStatus( Integer language_id, String status ) throws SQLException {
 		putRecord( language_id, null, status, null );
 	}
+
+	/**
+	 * Get the status field from the language table corresponding to the given key.
+	 * @param language_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getStatus( Integer language_id ) throws SQLException {
 		LanguageObject	obj = null;
@@ -130,9 +166,27 @@ public class Language {
 		return( obj.status );
 	}
 
+	/**
+	 * Set the language_desc field in the language table corresponding to the given key.
+	 * @param language_id the table primary key
+	 * @param language_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setLanguageDesc( Integer language_id, String language_desc ) throws SQLException {
 		putRecord( language_id, null, null, language_desc );
 	}
+
+	/**
+	 * Get the language_desc field from the language table corresponding to the given key.
+	 * @param language_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getLanguageDesc( Integer language_id ) throws SQLException {
 		LanguageObject	obj = null;

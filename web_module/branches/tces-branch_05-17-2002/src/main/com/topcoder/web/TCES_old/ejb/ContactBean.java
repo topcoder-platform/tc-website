@@ -19,6 +19,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.Contact;
 import	com.topcoder.web.TCES.common.Lookup;
+import	com.topcoder.web.TCES.common.RecordNotFoundException;
 
 /**
  * This is the implementation of the Contact class.

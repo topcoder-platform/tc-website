@@ -107,9 +107,27 @@ public class ProfileExperience {
 		return( obj );
 	}
 
+	/**
+	 * Set the date_start field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param date_start the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setDateStart( Long experience_id, Date date_start ) throws SQLException {
 		putRecord( experience_id, date_start, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the date_start field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Date getDateStart( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -119,9 +137,27 @@ public class ProfileExperience {
 		return( obj.date_start );
 	}
 
+	/**
+	 * Set the date_end field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param date_end the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setDateEnd( Long experience_id, Date date_end ) throws SQLException {
 		putRecord( experience_id, null, date_end, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the date_end field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Date getDateEnd( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -131,9 +167,27 @@ public class ProfileExperience {
 		return( obj.date_end );
 	}
 
+	/**
+	 * Set the job_title field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param job_title the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setJobTitle( Long experience_id, String job_title ) throws SQLException {
 		putRecord( experience_id, null, null, job_title, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the job_title field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getJobTitle( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -143,9 +197,27 @@ public class ProfileExperience {
 		return( obj.job_title );
 	}
 
+	/**
+	 * Set the organization_name field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param organization_name the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setOrganizationName( Long experience_id, String organization_name ) throws SQLException {
 		putRecord( experience_id, null, null, null, organization_name, null, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the organization_name field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getOrganizationName( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -155,9 +227,27 @@ public class ProfileExperience {
 		return( obj.organization_name );
 	}
 
+	/**
+	 * Set the organization_url field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param organization_url the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setOrganizationUrl( Long experience_id, String organization_url ) throws SQLException {
 		putRecord( experience_id, null, null, null, null, organization_url, null, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the organization_url field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getOrganizationUrl( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -167,9 +257,27 @@ public class ProfileExperience {
 		return( obj.organization_url );
 	}
 
+	/**
+	 * Set the job_description field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param job_description the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setJobDescription( Long experience_id, String job_description ) throws SQLException {
 		putRecord( experience_id, null, null, null, null, null, job_description, null, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the job_description field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getJobDescription( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -179,9 +287,27 @@ public class ProfileExperience {
 		return( obj.job_description );
 	}
 
+	/**
+	 * Set the profile_id field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param profile_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setProfileId( Long experience_id, Long profile_id ) throws SQLException {
 		putRecord( experience_id, null, null, null, null, null, null, profile_id, null, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the profile_id field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Long getProfileId( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -191,9 +317,27 @@ public class ProfileExperience {
 		return( obj.profile_id );
 	}
 
+	/**
+	 * Set the salary_id field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param salary_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setSalaryId( Long experience_id, Integer salary_id ) throws SQLException {
 		putRecord( experience_id, null, null, null, null, null, null, null, salary_id, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the salary_id field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getSalaryId( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -203,9 +347,27 @@ public class ProfileExperience {
 		return( obj.salary_id );
 	}
 
+	/**
+	 * Set the industry_id field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param industry_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setIndustryId( Long experience_id, Integer industry_id ) throws SQLException {
 		putRecord( experience_id, null, null, null, null, null, null, null, null, industry_id, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the industry_id field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getIndustryId( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -215,9 +377,27 @@ public class ProfileExperience {
 		return( obj.industry_id );
 	}
 
+	/**
+	 * Set the job_role_id field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param job_role_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setJobRoleId( Long experience_id, Integer job_role_id ) throws SQLException {
 		putRecord( experience_id, null, null, null, null, null, null, null, null, null, job_role_id, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the job_role_id field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getJobRoleId( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -227,9 +407,27 @@ public class ProfileExperience {
 		return( obj.job_role_id );
 	}
 
+	/**
+	 * Set the job_type_id field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param job_type_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setJobTypeId( Long experience_id, Integer job_type_id ) throws SQLException {
 		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, job_type_id, null, null, null, null );
 	}
+
+	/**
+	 * Get the job_type_id field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getJobTypeId( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -239,9 +437,27 @@ public class ProfileExperience {
 		return( obj.job_type_id );
 	}
 
+	/**
+	 * Set the organization_size_id field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param organization_size_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setOrganizationSizeId( Long experience_id, Integer organization_size_id ) throws SQLException {
 		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, null, organization_size_id, null, null, null );
 	}
+
+	/**
+	 * Get the organization_size_id field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getOrganizationSizeId( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -251,9 +467,27 @@ public class ProfileExperience {
 		return( obj.organization_size_id );
 	}
 
+	/**
+	 * Set the city field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param city the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setCity( Long experience_id, String city ) throws SQLException {
 		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, null, null, city, null, null );
 	}
+
+	/**
+	 * Get the city field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getCity( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -263,9 +497,27 @@ public class ProfileExperience {
 		return( obj.city );
 	}
 
+	/**
+	 * Set the state_code field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param state_code the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setStateCode( Long experience_id, String state_code ) throws SQLException {
 		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, null, null, null, state_code, null );
 	}
+
+	/**
+	 * Get the state_code field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getStateCode( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;
@@ -275,9 +527,27 @@ public class ProfileExperience {
 		return( obj.state_code );
 	}
 
+	/**
+	 * Set the country_code field in the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @param country_code the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setCountryCode( Long experience_id, String country_code ) throws SQLException {
 		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, country_code );
 	}
+
+	/**
+	 * Get the country_code field from the profile_experience table corresponding to the given key.
+	 * @param experience_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getCountryCode( Long experience_id ) throws SQLException {
 		ProfileExperienceObject	obj = null;

@@ -105,9 +105,27 @@ public class Concentration {
 		return( obj );
 	}
 
+	/**
+	 * Set the concentration_type_id field in the concentration table corresponding to the given key.
+	 * @param concentration_id the table primary key
+	 * @param concentration_type_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setConcentrationTypeId( Long concentration_id, Integer concentration_type_id ) throws SQLException {
 		putRecord( concentration_id, concentration_type_id, null, null );
 	}
+
+	/**
+	 * Get the concentration_type_id field from the concentration table corresponding to the given key.
+	 * @param concentration_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getConcentrationTypeId( Long concentration_id ) throws SQLException {
 		ConcentrationObject	obj = null;
@@ -117,9 +135,27 @@ public class Concentration {
 		return( obj.concentration_type_id );
 	}
 
+	/**
+	 * Set the education_id field in the concentration table corresponding to the given key.
+	 * @param concentration_id the table primary key
+	 * @param education_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setEducationId( Long concentration_id, Long education_id ) throws SQLException {
 		putRecord( concentration_id, null, education_id, null );
 	}
+
+	/**
+	 * Get the education_id field from the concentration table corresponding to the given key.
+	 * @param concentration_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Long getEducationId( Long concentration_id ) throws SQLException {
 		ConcentrationObject	obj = null;
@@ -129,9 +165,27 @@ public class Concentration {
 		return( obj.education_id );
 	}
 
+	/**
+	 * Set the subject_id field in the concentration table corresponding to the given key.
+	 * @param concentration_id the table primary key
+	 * @param subject_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setSubjectId( Long concentration_id, Integer subject_id ) throws SQLException {
 		putRecord( concentration_id, null, null, subject_id );
 	}
+
+	/**
+	 * Get the subject_id field from the concentration table corresponding to the given key.
+	 * @param concentration_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getSubjectId( Long concentration_id ) throws SQLException {
 		ConcentrationObject	obj = null;

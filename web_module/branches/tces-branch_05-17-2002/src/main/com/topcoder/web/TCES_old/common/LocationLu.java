@@ -105,9 +105,27 @@ public class LocationLu {
 		return( obj );
 	}
 
+	/**
+	 * Set the location_desc field in the location_lu table corresponding to the given key.
+	 * @param location_id the table primary key
+	 * @param location_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setLocationDesc( Integer location_id, String location_desc ) throws SQLException {
 		putRecord( location_id, location_desc );
 	}
+
+	/**
+	 * Get the location_desc field from the location_lu table corresponding to the given key.
+	 * @param location_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getLocationDesc( Integer location_id ) throws SQLException {
 		LocationLuObject	obj = null;

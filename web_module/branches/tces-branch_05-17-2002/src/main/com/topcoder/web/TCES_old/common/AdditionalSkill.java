@@ -105,9 +105,27 @@ public class AdditionalSkill {
 		return( obj );
 	}
 
+	/**
+	 * Set the profile_id field in the additional_skill table corresponding to the given key.
+	 * @param additional_skill_id the table primary key
+	 * @param profile_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setProfileId( Long additional_skill_id, Long profile_id ) throws SQLException {
 		putRecord( additional_skill_id, profile_id, null, null );
 	}
+
+	/**
+	 * Get the profile_id field from the additional_skill table corresponding to the given key.
+	 * @param additional_skill_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Long getProfileId( Long additional_skill_id ) throws SQLException {
 		AdditionalSkillObject	obj = null;
@@ -117,9 +135,27 @@ public class AdditionalSkill {
 		return( obj.profile_id );
 	}
 
+	/**
+	 * Set the skill_type field in the additional_skill table corresponding to the given key.
+	 * @param additional_skill_id the table primary key
+	 * @param skill_type the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setSkillType( Long additional_skill_id, String skill_type ) throws SQLException {
 		putRecord( additional_skill_id, null, skill_type, null );
 	}
+
+	/**
+	 * Get the skill_type field from the additional_skill table corresponding to the given key.
+	 * @param additional_skill_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getSkillType( Long additional_skill_id ) throws SQLException {
 		AdditionalSkillObject	obj = null;
@@ -129,9 +165,27 @@ public class AdditionalSkill {
 		return( obj.skill_type );
 	}
 
+	/**
+	 * Set the description field in the additional_skill table corresponding to the given key.
+	 * @param additional_skill_id the table primary key
+	 * @param description the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setDescription( Long additional_skill_id, String description ) throws SQLException {
 		putRecord( additional_skill_id, null, null, description );
 	}
+
+	/**
+	 * Get the description field from the additional_skill table corresponding to the given key.
+	 * @param additional_skill_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getDescription( Long additional_skill_id ) throws SQLException {
 		AdditionalSkillObject	obj = null;

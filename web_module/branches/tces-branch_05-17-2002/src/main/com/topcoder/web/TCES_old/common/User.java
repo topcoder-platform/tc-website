@@ -106,9 +106,27 @@ public class User {
 		return( obj );
 	}
 
+	/**
+	 * Set the handle field in the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @param handle the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setHandle( Long user_id, String handle ) throws SQLException {
 		putRecord( user_id, handle, null, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the handle field from the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getHandle( Long user_id ) throws SQLException {
 		UserObject	obj = null;
@@ -118,9 +136,27 @@ public class User {
 		return( obj.handle );
 	}
 
+	/**
+	 * Set the password field in the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @param password the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setPassword( Long user_id, String password ) throws SQLException {
 		putRecord( user_id, null, password, null, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the password field from the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getPassword( Long user_id ) throws SQLException {
 		UserObject	obj = null;
@@ -130,9 +166,27 @@ public class User {
 		return( obj.password );
 	}
 
+	/**
+	 * Set the status field in the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @param status the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setStatus( Long user_id, String status ) throws SQLException {
 		putRecord( user_id, null, null, status, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the status field from the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getStatus( Long user_id ) throws SQLException {
 		UserObject	obj = null;
@@ -142,9 +196,27 @@ public class User {
 		return( obj.status );
 	}
 
+	/**
+	 * Set the user_type_id field in the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @param user_type_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setUserTypeId( Long user_id, Integer user_type_id ) throws SQLException {
 		putRecord( user_id, null, null, null, user_type_id, null, null, null, null );
 	}
+
+	/**
+	 * Get the user_type_id field from the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getUserTypeId( Long user_id ) throws SQLException {
 		UserObject	obj = null;
@@ -154,9 +226,27 @@ public class User {
 		return( obj.user_type_id );
 	}
 
+	/**
+	 * Set the email field in the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @param email the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setEmail( Long user_id, String email ) throws SQLException {
 		putRecord( user_id, null, null, null, null, email, null, null, null );
 	}
+
+	/**
+	 * Get the email field from the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getEmail( Long user_id ) throws SQLException {
 		UserObject	obj = null;
@@ -166,9 +256,27 @@ public class User {
 		return( obj.email );
 	}
 
+	/**
+	 * Set the logged_in field in the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @param logged_in the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setLoggedIn( Long user_id, String logged_in ) throws SQLException {
 		putRecord( user_id, null, null, null, null, null, logged_in, null, null );
 	}
+
+	/**
+	 * Get the logged_in field from the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getLoggedIn( Long user_id ) throws SQLException {
 		UserObject	obj = null;
@@ -178,9 +286,27 @@ public class User {
 		return( obj.logged_in );
 	}
 
+	/**
+	 * Set the terms field in the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @param terms the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setTerms( Long user_id, String terms ) throws SQLException {
 		putRecord( user_id, null, null, null, null, null, null, terms, null );
 	}
+
+	/**
+	 * Get the terms field from the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getTerms( Long user_id ) throws SQLException {
 		UserObject	obj = null;
@@ -190,9 +316,27 @@ public class User {
 		return( obj.terms );
 	}
 
+	/**
+	 * Set the last_login field in the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @param last_login the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setLastLogin( Long user_id, Date last_login ) throws SQLException {
 		putRecord( user_id, null, null, null, null, null, null, null, last_login );
 	}
+
+	/**
+	 * Get the last_login field from the user table corresponding to the given key.
+	 * @param user_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Date getLastLogin( Long user_id ) throws SQLException {
 		UserObject	obj = null;

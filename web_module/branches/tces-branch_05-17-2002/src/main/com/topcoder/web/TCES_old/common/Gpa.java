@@ -105,9 +105,27 @@ public class Gpa {
 		return( obj );
 	}
 
+	/**
+	 * Set the gpa_type_id field in the gpa table corresponding to the given key.
+	 * @param gpa_id the table primary key
+	 * @param gpa_type_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setGpaTypeId( Integer gpa_id, Integer gpa_type_id ) throws SQLException {
 		putRecord( gpa_id, gpa_type_id, null, null );
 	}
+
+	/**
+	 * Get the gpa_type_id field from the gpa table corresponding to the given key.
+	 * @param gpa_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getGpaTypeId( Integer gpa_id ) throws SQLException {
 		GpaObject	obj = null;
@@ -117,9 +135,27 @@ public class Gpa {
 		return( obj.gpa_type_id );
 	}
 
+	/**
+	 * Set the gpa_desc field in the gpa table corresponding to the given key.
+	 * @param gpa_id the table primary key
+	 * @param gpa_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setGpaDesc( Integer gpa_id, String gpa_desc ) throws SQLException {
 		putRecord( gpa_id, null, gpa_desc, null );
 	}
+
+	/**
+	 * Get the gpa_desc field from the gpa table corresponding to the given key.
+	 * @param gpa_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getGpaDesc( Integer gpa_id ) throws SQLException {
 		GpaObject	obj = null;
@@ -129,9 +165,27 @@ public class Gpa {
 		return( obj.gpa_desc );
 	}
 
+	/**
+	 * Set the gpa_value field in the gpa table corresponding to the given key.
+	 * @param gpa_id the table primary key
+	 * @param gpa_value the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setGpaValue( Integer gpa_id, Integer gpa_value ) throws SQLException {
 		putRecord( gpa_id, null, null, gpa_value );
 	}
+
+	/**
+	 * Get the gpa_value field from the gpa table corresponding to the given key.
+	 * @param gpa_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getGpaValue( Integer gpa_id ) throws SQLException {
 		GpaObject	obj = null;

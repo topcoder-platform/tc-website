@@ -105,9 +105,27 @@ public class IndustryLu {
 		return( obj );
 	}
 
+	/**
+	 * Set the industry_desc field in the industry_lu table corresponding to the given key.
+	 * @param industry_id the table primary key
+	 * @param industry_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setIndustryDesc( Integer industry_id, String industry_desc ) throws SQLException {
 		putRecord( industry_id, industry_desc );
 	}
+
+	/**
+	 * Get the industry_desc field from the industry_lu table corresponding to the given key.
+	 * @param industry_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getIndustryDesc( Integer industry_id ) throws SQLException {
 		IndustryLuObject	obj = null;

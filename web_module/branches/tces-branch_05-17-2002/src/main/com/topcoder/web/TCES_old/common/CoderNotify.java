@@ -105,9 +105,27 @@ public class CoderNotify {
 		return( obj );
 	}
 
+	/**
+	 * Set the notify_id field in the coder_notify table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @param notify_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setNotifyId( Long coder_id, Integer notify_id ) throws SQLException {
 		putRecord( coder_id, notify_id );
 	}
+
+	/**
+	 * Get the notify_id field from the coder_notify table corresponding to the given key.
+	 * @param coder_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getNotifyId( Long coder_id ) throws SQLException {
 		CoderNotifyObject	obj = null;

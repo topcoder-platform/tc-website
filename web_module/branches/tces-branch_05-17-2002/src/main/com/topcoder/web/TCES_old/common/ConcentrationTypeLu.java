@@ -105,9 +105,27 @@ public class ConcentrationTypeLu {
 		return( obj );
 	}
 
+	/**
+	 * Set the concentration_type_desc field in the concentration_type_lu table corresponding to the given key.
+	 * @param concentration_type_id the table primary key
+	 * @param concentration_type_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setConcentrationTypeDesc( Integer concentration_type_id, String concentration_type_desc ) throws SQLException {
 		putRecord( concentration_type_id, concentration_type_desc );
 	}
+
+	/**
+	 * Get the concentration_type_desc field from the concentration_type_lu table corresponding to the given key.
+	 * @param concentration_type_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getConcentrationTypeDesc( Integer concentration_type_id ) throws SQLException {
 		ConcentrationTypeLuObject	obj = null;

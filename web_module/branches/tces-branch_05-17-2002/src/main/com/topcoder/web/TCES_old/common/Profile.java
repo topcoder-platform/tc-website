@@ -106,9 +106,27 @@ public class Profile {
 		return( obj );
 	}
 
+	/**
+	 * Set the date_available field in the profile table corresponding to the given key.
+	 * @param profile_id the table primary key
+	 * @param date_available the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setDateAvailable( Long profile_id, Date date_available ) throws SQLException {
 		putRecord( profile_id, date_available, null, null, null, null );
 	}
+
+	/**
+	 * Get the date_available field from the profile table corresponding to the given key.
+	 * @param profile_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Date getDateAvailable( Long profile_id ) throws SQLException {
 		ProfileObject	obj = null;
@@ -118,9 +136,27 @@ public class Profile {
 		return( obj.date_available );
 	}
 
+	/**
+	 * Set the profile_status_id field in the profile table corresponding to the given key.
+	 * @param profile_id the table primary key
+	 * @param profile_status_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setProfileStatusId( Long profile_id, Integer profile_status_id ) throws SQLException {
 		putRecord( profile_id, null, profile_status_id, null, null, null );
 	}
+
+	/**
+	 * Get the profile_status_id field from the profile table corresponding to the given key.
+	 * @param profile_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getProfileStatusId( Long profile_id ) throws SQLException {
 		ProfileObject	obj = null;
@@ -130,9 +166,27 @@ public class Profile {
 		return( obj.profile_status_id );
 	}
 
+	/**
+	 * Set the preference_travel_level_id field in the profile table corresponding to the given key.
+	 * @param profile_id the table primary key
+	 * @param preference_travel_level_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setPreferenceTravelLevelId( Long profile_id, Integer preference_travel_level_id ) throws SQLException {
 		putRecord( profile_id, null, null, preference_travel_level_id, null, null );
 	}
+
+	/**
+	 * Get the preference_travel_level_id field from the profile table corresponding to the given key.
+	 * @param profile_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getPreferenceTravelLevelId( Long profile_id ) throws SQLException {
 		ProfileObject	obj = null;
@@ -142,9 +196,27 @@ public class Profile {
 		return( obj.preference_travel_level_id );
 	}
 
+	/**
+	 * Set the preference_travel_time_id field in the profile table corresponding to the given key.
+	 * @param profile_id the table primary key
+	 * @param preference_travel_time_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setPreferenceTravelTimeId( Long profile_id, Integer preference_travel_time_id ) throws SQLException {
 		putRecord( profile_id, null, null, null, preference_travel_time_id, null );
 	}
+
+	/**
+	 * Get the preference_travel_time_id field from the profile table corresponding to the given key.
+	 * @param profile_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getPreferenceTravelTimeId( Long profile_id ) throws SQLException {
 		ProfileObject	obj = null;
@@ -154,9 +226,27 @@ public class Profile {
 		return( obj.preference_travel_time_id );
 	}
 
+	/**
+	 * Set the preference_salary_id field in the profile table corresponding to the given key.
+	 * @param profile_id the table primary key
+	 * @param preference_salary_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setPreferenceSalaryId( Long profile_id, Integer preference_salary_id ) throws SQLException {
 		putRecord( profile_id, null, null, null, null, preference_salary_id );
 	}
+
+	/**
+	 * Get the preference_salary_id field from the profile table corresponding to the given key.
+	 * @param profile_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getPreferenceSalaryId( Long profile_id ) throws SQLException {
 		ProfileObject	obj = null;

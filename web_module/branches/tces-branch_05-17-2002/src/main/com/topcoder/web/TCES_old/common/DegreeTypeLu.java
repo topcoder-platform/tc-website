@@ -105,9 +105,27 @@ public class DegreeTypeLu {
 		return( obj );
 	}
 
+	/**
+	 * Set the degree_type_desc field in the degree_type_lu table corresponding to the given key.
+	 * @param degree_type_id the table primary key
+	 * @param degree_type_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setDegreeTypeDesc( Integer degree_type_id, String degree_type_desc ) throws SQLException {
 		putRecord( degree_type_id, degree_type_desc );
 	}
+
+	/**
+	 * Get the degree_type_desc field from the degree_type_lu table corresponding to the given key.
+	 * @param degree_type_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getDegreeTypeDesc( Integer degree_type_id ) throws SQLException {
 		DegreeTypeLuObject	obj = null;

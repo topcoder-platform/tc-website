@@ -106,9 +106,27 @@ public class Skill {
 		return( obj );
 	}
 
+	/**
+	 * Set the skill_type_id field in the skill table corresponding to the given key.
+	 * @param skill_id the table primary key
+	 * @param skill_type_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setSkillTypeId( Integer skill_id, Integer skill_type_id ) throws SQLException {
 		putRecord( skill_id, skill_type_id, null, null, null, null, null );
 	}
+
+	/**
+	 * Get the skill_type_id field from the skill table corresponding to the given key.
+	 * @param skill_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getSkillTypeId( Integer skill_id ) throws SQLException {
 		SkillObject	obj = null;
@@ -118,9 +136,27 @@ public class Skill {
 		return( obj.skill_type_id );
 	}
 
+	/**
+	 * Set the skill_desc field in the skill table corresponding to the given key.
+	 * @param skill_id the table primary key
+	 * @param skill_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setSkillDesc( Integer skill_id, String skill_desc ) throws SQLException {
 		putRecord( skill_id, null, skill_desc, null, null, null, null );
 	}
+
+	/**
+	 * Get the skill_desc field from the skill table corresponding to the given key.
+	 * @param skill_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getSkillDesc( Integer skill_id ) throws SQLException {
 		SkillObject	obj = null;
@@ -130,9 +166,27 @@ public class Skill {
 		return( obj.skill_desc );
 	}
 
+	/**
+	 * Set the skill_order field in the skill table corresponding to the given key.
+	 * @param skill_id the table primary key
+	 * @param skill_order the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setSkillOrder( Integer skill_id, Integer skill_order ) throws SQLException {
 		putRecord( skill_id, null, null, skill_order, null, null, null );
 	}
+
+	/**
+	 * Get the skill_order field from the skill table corresponding to the given key.
+	 * @param skill_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getSkillOrder( Integer skill_id ) throws SQLException {
 		SkillObject	obj = null;
@@ -142,9 +196,27 @@ public class Skill {
 		return( obj.skill_order );
 	}
 
+	/**
+	 * Set the status field in the skill table corresponding to the given key.
+	 * @param skill_id the table primary key
+	 * @param status the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setStatus( Integer skill_id, String status ) throws SQLException {
 		putRecord( skill_id, null, null, null, status, null, null );
 	}
+
+	/**
+	 * Get the status field from the skill table corresponding to the given key.
+	 * @param skill_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getStatus( Integer skill_id ) throws SQLException {
 		SkillObject	obj = null;
@@ -154,9 +226,27 @@ public class Skill {
 		return( obj.status );
 	}
 
+	/**
+	 * Set the modify_date field in the skill table corresponding to the given key.
+	 * @param skill_id the table primary key
+	 * @param modify_date the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setModifyDate( Integer skill_id, Date modify_date ) throws SQLException {
 		putRecord( skill_id, null, null, null, null, modify_date, null );
 	}
+
+	/**
+	 * Get the modify_date field from the skill table corresponding to the given key.
+	 * @param skill_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Date getModifyDate( Integer skill_id ) throws SQLException {
 		SkillObject	obj = null;
@@ -166,9 +256,27 @@ public class Skill {
 		return( obj.modify_date );
 	}
 
+	/**
+	 * Set the profile_id field in the skill table corresponding to the given key.
+	 * @param skill_id the table primary key
+	 * @param profile_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setProfileId( Integer skill_id, Long profile_id ) throws SQLException {
 		putRecord( skill_id, null, null, null, null, null, profile_id );
 	}
+
+	/**
+	 * Get the profile_id field from the skill table corresponding to the given key.
+	 * @param skill_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Long getProfileId( Integer skill_id ) throws SQLException {
 		SkillObject	obj = null;

@@ -105,9 +105,27 @@ public class SkillLevelLu {
 		return( obj );
 	}
 
+	/**
+	 * Set the skill_level_desc field in the skill_level_lu table corresponding to the given key.
+	 * @param skill_level_id the table primary key
+	 * @param skill_level_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setSkillLevelDesc( Integer skill_level_id, String skill_level_desc ) throws SQLException {
 		putRecord( skill_level_id, skill_level_desc );
 	}
+
+	/**
+	 * Get the skill_level_desc field from the skill_level_lu table corresponding to the given key.
+	 * @param skill_level_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getSkillLevelDesc( Integer skill_level_id ) throws SQLException {
 		SkillLevelLuObject	obj = null;

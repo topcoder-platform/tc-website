@@ -107,9 +107,27 @@ public class ProfileSkillXref {
 		return( obj );
 	}
 
+	/**
+	 * Set the skill_level_id field in the profile_skill_xref table corresponding to the given key.
+	 * @param profile_id the table primary key
+	 * @param skill_level_id the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setSkillLevelId( Long profile_id, Integer skill_id, Integer skill_level_id ) throws SQLException {
 		putRecord( profile_id, skill_id, skill_level_id );
 	}
+
+	/**
+	 * Get the skill_level_id field from the profile_skill_xref table corresponding to the given key.
+	 * @param profile_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getSkillLevelId( Long profile_id, Integer skill_id ) throws SQLException {
 		ProfileSkillXrefObject	obj = null;

@@ -105,9 +105,27 @@ public class GpaType {
 		return( obj );
 	}
 
+	/**
+	 * Set the gpa_type_desc field in the gpa_type table corresponding to the given key.
+	 * @param gpa_type_id the table primary key
+	 * @param gpa_type_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setGpaTypeDesc( Integer gpa_type_id, String gpa_type_desc ) throws SQLException {
 		putRecord( gpa_type_id, gpa_type_desc, null );
 	}
+
+	/**
+	 * Get the gpa_type_desc field from the gpa_type table corresponding to the given key.
+	 * @param gpa_type_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getGpaTypeDesc( Integer gpa_type_id ) throws SQLException {
 		GpaTypeObject	obj = null;
@@ -117,9 +135,27 @@ public class GpaType {
 		return( obj.gpa_type_desc );
 	}
 
+	/**
+	 * Set the gpa_type_value field in the gpa_type table corresponding to the given key.
+	 * @param gpa_type_id the table primary key
+	 * @param gpa_type_value the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setGpaTypeValue( Integer gpa_type_id, Integer gpa_type_value ) throws SQLException {
 		putRecord( gpa_type_id, null, gpa_type_value );
 	}
+
+	/**
+	 * Get the gpa_type_value field from the gpa_type table corresponding to the given key.
+	 * @param gpa_type_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public Integer getGpaTypeValue( Integer gpa_type_id ) throws SQLException {
 		GpaTypeObject	obj = null;

@@ -105,9 +105,27 @@ public class ProfileStatusLu {
 		return( obj );
 	}
 
+	/**
+	 * Set the profile_status_desc field in the profile_status_lu table corresponding to the given key.
+	 * @param profile_status_id the table primary key
+	 * @param profile_status_desc the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
 	public void setProfileStatusDesc( Integer profile_status_id, String profile_status_desc ) throws SQLException {
 		putRecord( profile_status_id, profile_status_desc );
 	}
+
+	/**
+	 * Get the profile_status_desc field from the profile_status_lu table corresponding to the given key.
+	 * @param profile_status_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
 
 	public String getProfileStatusDesc( Integer profile_status_id ) throws SQLException {
 		ProfileStatusLuObject	obj = null;
