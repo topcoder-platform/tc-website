@@ -289,7 +289,7 @@ public class MainServlet extends HttpServlet {
                 originatingPage
 //                , resp.getCharacterEncoding() // 1.4
             );
-        fetchRegularPage(req, resp, loginPageDest, true);
+        fetchRegularPage(req, resp, loginPageDest, false);
     }
 
 
