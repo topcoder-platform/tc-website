@@ -26,7 +26,7 @@ public class CoderImageBean extends BaseEJB {
                 dataSource);
     }
 
-    public boolean dislay(long coderId, long imageId, String dataSource) {
+    public boolean display(long coderId, long imageId, String dataSource) {
         try {
             Integer ret = selectInt("coder_image_xref", "display_flag", new String[]{"coder_id", "image_id"},
                     new String[]{String.valueOf(coderId), String.valueOf(imageId)}, dataSource);
