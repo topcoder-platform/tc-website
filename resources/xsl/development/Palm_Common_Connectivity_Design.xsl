@@ -278,7 +278,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">05.10.2004 &#160;&#160;6:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">05.10.2004 &#160;&#160;12:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Start:</td>
