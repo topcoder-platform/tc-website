@@ -33,6 +33,8 @@ public class LoginTask extends BaseTask implements Task, Serializable {
     /* Holds a boolean indicating whether the login task should perform custom redirection */
     private boolean customRedir;
 
+    private HttpSession session;
+
     /* Creates a new LoginTask */
     public LoginTask() {
         super();
@@ -86,30 +88,27 @@ public class LoginTask extends BaseTask implements Task, Serializable {
         return message;
     }
 
+    public void setSession(HttpSession session) {
+        this.session = session;
+    }
+        
+
 	public void servletPreAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
-/*
-        if (request.getParameter(TCESConstants.STEP_PARAM)!=null &&
-            request.getParameter(TCESConstants.STEP_PARAM).equals(TCESConstants.LOGIN_TASK_STEP_AUTH)) {
-*/
-            if (Authentication.getRequestedURL(request.getSession(true)).trim().length()>0) {
-                setNextPage(Authentication.getRequestedURL(request.getSession(true)).trim());
-                customRedir=true;
-                Authentication.resetRequestedURL(request.getSession(true));
-            }
-/*
-        }
-*/
+            setSession(request.getSession(true));
 	}
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
-/*
-        if (request.getParameter(TCESConstants.STEP_PARAM)!=null &&
-            request.getParameter(TCESConstants.STEP_PARAM).equals(TCESConstants.LOGIN_TASK_STEP_AUTH)) {
-*/
-            HttpSession session = request.getSession(true);
+    }
 
-            if (Authentication.isLoggedIn(session) || 
-                Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "")) {
+    public void processStep(String step) throws Exception {
+
+        if (step!=null && step.equals(TCESConstants.LOGIN_TASK_STEP_AUTH)) {
+            if (Authentication.getRequestedURL(session).trim().length()>0) {
+                setNextPage(Authentication.getRequestedURL(session).trim());
+                customRedir=true;
+                Authentication.resetRequestedURL(session);
+            }
+            if (Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "")) {
                 if (!customRedir)
                     setNextPage(TCESConstants.LOGIN_OK_PAGE );
             }
@@ -117,14 +116,13 @@ public class LoginTask extends BaseTask implements Task, Serializable {
                 setMessage(Authentication.getErrorMessage(session));
                 setNextPage(TCESConstants.LOGIN_PAGE );
             }
-/*
+        } else if (Authentication.isLoggedIn(session)) {
+            if (Authentication.getRequestedURL(session).trim().length()>0) {
+                setNextPage(Authentication.getRequestedURL(session).trim());
+                customRedir=true;
+                Authentication.resetRequestedURL(session);
+            }
         }
-*/
-    }
-
-    public void processStep(String step)
-        throws Exception
-    {
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
