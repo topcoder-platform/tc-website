@@ -166,13 +166,14 @@ function getProblemDetail(id) {
                         </A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
-                        <A class=screeningHeader href='?<%=Constants.MODULE_KEY%>=ProblemResult&<%=Constants.PROBLEM_ID%>=<%=row.getStringItem("problem_id")%>&<%=Constants.SESSION_ID%>=<%=row.getStringItem("session_id")%>&<%=Constants.PROBLEM_TYPE_ID%>=<%=row.getStringItem("problem_type_id")%><%--&<%=Constants.ROUND_ID%>=<%=row.getStringItem("session_round_id")%>--%>'>Problem<br/>Results</A>
+                        <A class=screeningHeader href="">
+                           Problem<br/>Results</A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=preference_level&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">Preference<br/>Level</A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
-                        <A class=screeningHeader href="/">Notes</A>
+                        <A class=screeningHeader href="">Notes</A>
                     </td>
                 </tr>
 
