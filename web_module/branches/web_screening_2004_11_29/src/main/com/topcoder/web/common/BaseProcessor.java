@@ -164,7 +164,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected void addError(String key, Object error) {
-        log.debug("adding error on " + key);
+        log.debug("adding error on " + key + " " + error.toString());
         ArrayList errs = (ArrayList) errors.get(key);
         if (errs == null) {
             errs = new ArrayList();
