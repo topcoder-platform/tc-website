@@ -6,10 +6,9 @@
             </table>
 
             <table border="0" cellspacing="0" cellpadding="1" width="180" bgcolor="#990000">
-                <tr valign="middle"><form name="simpleSearchForm" method="get">
+                <tr valign="middle"><form name="simpleSearchForm" method="get" action="/tc">
                     <td class="data" width="2"><img src="/i/clear.gif" width="2" height="1" border="0"/></td>
                     <td class="statTextBig">
-                        <xsl:attribute name="action">http://<xsl:value-of select="/TC/Host"/>/tc</xsl:attribute>
                         <input type="hidden" name="module" value="SimpleSearch" />
                         <input type="text" name="hn" value="Handle:" size="12" maxlength="15" onFocus="javascript: if (document.simpleSearchForm.hn.value=='Handle:') document.simpleSearchForm.hn.value = '';" onBlur="javascript: if (document.simpleSearchForm.hn.value == '') document.simpleSearchForm.hn.value = 'Handle:';" />
                     </td>
