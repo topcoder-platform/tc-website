@@ -28,7 +28,7 @@ public class CacheClientPool {
 
     public synchronized CacheClient getClient() {
         int idx = getNextIndex();
-        log.debug("getting client at index: " + idx);
+        //log.debug("getting client at index: " + idx);
         return cacheClients[idx];
     }
 
