@@ -68,6 +68,12 @@
                             </tr>
                             
                             <tr>
+                                <td valign="middle" class="bodyText" height="14">October 24</td>
+                                <td valign="middle" class="bodyText">Modulator</td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_102403" class="bodyText">Challenging 101</A></td>
+                            </tr>
+                            
+                            <tr>
                                 <td valign="middle" class="bodyText" height="14">September 17</td>
                                 <td valign="middle" class="bodyText">goongas</td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_091703" class="bodyText">A Crash Course in the Java Collections Framework</A></td>

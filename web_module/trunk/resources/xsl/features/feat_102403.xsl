@@ -61,7 +61,7 @@
                         <p><font size="4"><strong>Challenging 101</strong></font><br />
                         Friday, October 24, 2003</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=271144"><strong>Modulator</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=299709"><strong>Modulator</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
 <p><b>Introduction</b><br/>
@@ -83,11 +83,11 @@ darker corners you should now have an arsenal of cases to challenge other people
 <ul>
 <li>Unexpected inputs. Look for obscure cases, and perhaps nonsensical inputs, that are still legal.</li>
 <li>Extreme inputs. These can be in the form of:</li>
-<li><ul>
+<ul>
 <li>Large numbers, which may cause overflow or timeouts</li>
 <li>Small numbers, which may cause precision errors</li>
 <li>Zero is always a special case, as are empty strings and arrays</li>
-</ul></li>
+</ul>
 </ul>
 </p>
 
@@ -108,10 +108,10 @@ so disgusting it produces strong feelings of nausea in the more 'professional' T
 be able to look for them without feeling the need to shower afterwards:
 <ul>
 <li>Loop conditions. If a loop is implemented incorrectly it still may succeed most of the time, and so pass the examples</li>
-<li><ul>
+<ul>
 <li>Is the loop variable correctly initiated, and incremented?</li>
 <li>Is the terminating condition correct? Should that be a &lt; or a &lt;=?</li>
-</ul></li>
+</ul>
 </ul>
 </p>
 
@@ -132,11 +132,11 @@ correctly in all necessary points but one, so look carefully.</li>
 <li>Integer division truncation is not always intentional</li>
 <li>Manually entered data is a classic area for discovering bugs. It is easy to make mistakes when 
 typing in data, and these may only be picked up in rare test cases.</li>
-<li><ul>
+<ul>
 <li>Is one of the strings spelt incorrectly?</li>
 <li>Is the alphabet missing a letter?</li>
 <li>Check lookup tables.</li>
-</ul></li>
+</ul>
 </ul>
 
 <pre>
@@ -175,9 +175,11 @@ perhaps on your solution or a modification of it. Since most of us don't have pl
 intermission is an opportune time to do this testing in anticipation of the potential challenges.</p>
 
 <p><b>The risks</b><br/>
-So you think you've found a challenge. You can now sit smugly quiet until the phase finishes and then write something in the chat like:<br/>
-"JowBlow: I think your 500 fails MWAHAHAHA"<br/>
-Or, you can put your points where you mouth is and challenge it. A word of caution is appropriate though; 
+So you think you've found a challenge. You can now sit smugly quiet until the phase finishes and then write something in the chat like:</p>
+
+<p>"JowBlow: I think your 500 fails MWAHAHAHA"</p>
+
+<p>Or, you can put your points where you mouth is and challenge it. A word of caution is appropriate though; 
 eventually you will be unsuccessful in a challenge, and so you must decide whether you can afford to lose the 
 points. In some situations you may have much to gain and little to lose, and in other cases a successful challenge 
 won't really benefit you at all.</p>
