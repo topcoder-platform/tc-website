@@ -9,6 +9,7 @@
 <head>
 <title>TopCoder | Corporate Services</title>
 
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" />
 <jsp:include page="../includes/css.jsp" />
 
 <script language="JavaScript" type="text/javascript" src="/js/script.js"></script>
@@ -47,7 +48,7 @@
                 <tr>
             </table>
 
-            <form method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>" name="frmUserEdit">
+            <form method="POST" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" name="frmUserEdit">
 
             <table cellspacing="0" cellpadding="3" width="80%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">User Info</td></tr>
