@@ -30,7 +30,7 @@
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
-			<jsp:param name="selectedTab" value=""/>
+			<jsp:param name="selectedTab" value="instructions"/>
 			</jsp:include>
 			</div>
 

@@ -34,14 +34,12 @@
                   <a href="/pl/?&module=GoogleIndia05Reg&cid=8039&eid=2">Registration</a> &nbsp;|&nbsp;
             <% } %>
 
-<%--
-<!-- FAQ tab -->
-            <% if (selectedTab.equals("faq")) {%>
-                 <font color="006633">FAQ</font> &nbsp;|&nbsp;
+<!-- Instructions tab -->
+            <% if (selectedTab.equals("instructions")) {%>
+                 <font color="006633">Instructions</font> &nbsp;|&nbsp; 
             <% } else { %>
-                  <a href="/pl/?&module=Static&d1=gicj05&d2=faq">FAQ</a> &nbsp;|&nbsp;
+                  <a href="/pl/?&module=Static&d1=gicj05&d2=instructions">Instructions</a> &nbsp;|&nbsp; 
             <% } %>
---%>
 
 <%--
 <!-- Advancers tab -->
