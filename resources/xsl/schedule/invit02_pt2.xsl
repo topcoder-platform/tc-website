@@ -60,7 +60,7 @@
 	<BR/><BR/>
 					<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
                     <TR>
-                      <TD COLSPAN="4" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;Online Round #1, Part 2 Seeding</TD>
+                      <TD COLSPAN="4" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;Online Round #1, Part 2 Seeding (Oct. 10th)</TD>
                       <TD COLSPAN="2" ALIGN="right" VALIGN="middle" HEIGHT="18" CLASS="statTextBig"><A HREF="/index?t=schedule&amp;c=invit02_pt1" CLASS="statTextBig">View Part 1 Seeding</A></TD>
                     </TR>
 						<TR>
