@@ -52,7 +52,8 @@
             <p><strong>Website</strong><br/>
 
             <a href="/i/es/paypal/paypal_mockup.gif" class="bodyText" target="_blank">Job Listing Main Page</a><br/>
-            <a href="/?t=tces&amp;c=paypal" class="bodyText" target="_blank">PayPal Main Page</a></p>
+            <a href="/?t=tces&amp;c=paypal" class="bodyText" target="_blank">PayPal Main Page</a>
+            <a href="/?&amp;t=tces&amp;c=paypal_openings&amp;a=secure" class="bodyText" target="_blank">PayPal Job Listing Page</a></p>
 
 
         </td>
