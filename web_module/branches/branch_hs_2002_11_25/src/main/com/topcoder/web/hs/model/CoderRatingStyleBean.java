@@ -31,7 +31,7 @@ public class CoderRatingStyleBean {
      */
     public String getStyle(int i) {
         int p;
-        for(p=0; p<bandLimits.size; p++)
+        for(p=0; p<bandLimits.length; p++)
             if(i < bandLimits[p]) break;
         return bandNames[p];
     }
