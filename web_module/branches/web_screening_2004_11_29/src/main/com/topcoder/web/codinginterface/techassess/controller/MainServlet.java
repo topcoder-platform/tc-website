@@ -2,11 +2,18 @@ package com.topcoder.web.codinginterface.techassess.controller;
 
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.Constants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.NoSuchUserException;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.naming.NamingException;
+import java.rmi.RemoteException;
 
 /**
  * User: dok
@@ -31,6 +38,15 @@ public class MainServlet extends BaseServlet {
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         //todo maybe we check if they have an active session here
         return true;
+    }
+
+
+    protected TCSubject getUser(long id) throws Exception {
+        //todo speed this up, we probably need to cache here
+        TCSubject user = null;
+        PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+        user = pmgr.getUserSubject(id);
+        return user;
     }
 
 
