@@ -21,6 +21,10 @@ public class Constants {
     /* request parameters */
     public static String SURVEY_ID;
 
+    /* pages */
+    public static String SURVEY_RESULTS;
+    public static String SURVEY_VIEW;
+
     private Constants() {
     }
 

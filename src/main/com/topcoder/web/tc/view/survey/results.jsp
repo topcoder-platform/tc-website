@@ -8,11 +8,11 @@
 <title>TopCoder Survey Results</title>
 </head>
 <body>
-    <tc:questionIterator list="<%=questionInfo%>" id="resultRow">
+    <tc:questionIterator list="<%=questionInfo%>" id="question">
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td colspan="2">
-                    <jsp:getProperty name="questionInfo" property="text"/>
+                    <jsp:getProperty name="question" property="text"/>
                 </td>
             </tr>
             <rsc:iterator list="<%=questionInfo.getAnswerInfo()%>" id="answer">

@@ -52,6 +52,8 @@ public class Results extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+        setNextPage(Constants.SURVEY_RESULTS);
+        setIsNextPageInContext(true);
     }
 
 
