@@ -5,6 +5,8 @@ import java.util.Map;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.transaction.UserTransaction;
 
 import com.topcoder.shared.dataAccess.DataAccess;
@@ -25,6 +27,7 @@ import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
 
 import com.topcoder.web.screening.model.ProfileInfo;
+import com.topcoder.web.screening.model.SessionInfo;
 
 public class UpdateProfile extends BaseProfileProcessor {
     public void process() throws Exception {
@@ -135,6 +138,8 @@ public class UpdateProfile extends BaseProfileProcessor {
                 language.createProfileLanguage(sessionProfileId, 
                                                languages[i].intValue());
             }
+
+            updateSessionProfile(sessionProfileId);
         }
         catch(Exception e) {
             ut.rollback();
@@ -147,4 +152,22 @@ public class UpdateProfile extends BaseProfileProcessor {
                     Constants.POPULATE_SESSION_PROCESSOR);
         setNextPageInContext(false);
     }
+
+    /** 
+     * Updates the sessionInfo object if there is one with the newly created
+     * profile id
+     *
+     * @param profileId  THe id of the created candidate
+     */
+    private void updateSessionProfile(long profileId) {
+        HttpServletRequest request = (HttpServletRequest)getRequest();
+        HttpSession session = request.getSession();
+        SessionInfo info = (SessionInfo)
+            session.getAttribute(Constants.SESSION_INFO);
+        if(info != null) {
+            info.setProfileId(String.valueOf(profileId));
+        }
+
+    }
+
 }
