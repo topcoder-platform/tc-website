@@ -53,7 +53,7 @@
             </tr>
             <% if (referralList.isEmpty()) { %>
               <tr>
-                <td class="formHandleOdd">You have no referrals.</td>
+                <td class="formHandleOdd" colspan="2">You have no referrals.</td>
               </tr>
             <% } %>
             <rsc:iterator list="<%=referralList%>" id="info">
