@@ -241,6 +241,9 @@
             <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
           </TR>
           <TR>
+            <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>
+          </TR>
+          <TR>
             <TD CLASS="statText" VALIGN="middle" COLSPAN="4">Time Since Last Competition&#160;
                 <SELECT NAME="MonthsSinceLastComp" SIZE="1">
                     <OPTION VALUE="">None Specified</OPTION>
