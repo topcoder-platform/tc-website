@@ -52,7 +52,11 @@
 
             <table cellspacing="0" cellpadding="0" width="100%" >
                 <tr>
+                <% if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
                     <td colspan=6 align=right class="bodyText">
+                <% } else {%>
+                    <td colspan=7 align=right class="bodyText">
+                <% } %>
                         Viewing Candidate <%=request.getAttribute(DataAccessConstants.START_RANK)%> to <%=request.getAttribute(DataAccessConstants.END_RANK)%> of <%= request.getAttribute(DataAccessConstants.NUMBER_RECORDS)%><br/>
                         <%if(results.croppedDataBefore()) { %>
                             <a href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=<%=request.getAttribute(DataAccessConstants.SORT_COLUMN)%>&<%=DataAccessConstants.START_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.START_RANK))-Constants.SEARCH_SCROLL_SIZE%>&<%=DataAccessConstants.END_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.END_RANK))%>" >&lt;&lt; prev</a>
@@ -94,6 +98,13 @@
                             Status
                         </A>
                    </td>
+                   <% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
+                   <td align="center" class="screeningHeader">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=17">
+                            Resume
+                        </A>
+                   </td>
+                   <% } %>
                    <%--<% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
                    <td align="center" class="screeningHeader">Preference Level</td>
                    <% } %>--%>
@@ -128,6 +139,9 @@
                    <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
                    <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:sessionStatus row="<%=row%>" /></td>
+                   <% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
+                   <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap>><screen:servletLink processor="DownloadResume" param="userId=<screen:resultSetItem row="<%=row%>" name="user_id"/>"> <screen:resultSetItem row="<%=row%>" name="resume_text" /> </screen:servletLink></td>
+                   <% }%>
                    <%--<% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap>
                     <object
