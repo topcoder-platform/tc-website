@@ -1076,6 +1076,16 @@
         <antcall target="war-tc"/>
     </target>
 
+    <target name="package-TCJiveJar" depends="compile">
+        <jar jarfile="${TCJive.jar}">
+            <fileset dir="${classes}/"
+                includes="com/topcoder/web/forums/**/*.class"
+                />
+            <fileset dir="${java}/com/topcoder/web/forums"
+                includes="**/*.jsp"/>
+            />
+        </jar>
+    </target>
 
     <target name="moveQueries" depends="compile">
         <java classname="com.topcoder.utilities.querymover.QueryMover" fork="no">
