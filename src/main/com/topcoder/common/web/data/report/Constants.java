@@ -33,4 +33,5 @@ public class Constants {
   public static String REPORT_MAX_NUM_RATINGS_KEY = "nrx";
   public static String REPORT_MIN_GRAD_YEAR_KEY = "gn";
   public static String REPORT_MAX_GRAD_YEAR_KEY = "gx";
+  public static String REPORT_RELOCATE_KEY = "ais";
 }
