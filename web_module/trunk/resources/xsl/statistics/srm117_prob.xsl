@@ -320,7 +320,7 @@ Cb -&gt; Cb Db Eb Fb Gb Ab Bb Cb
 <TR>
     <TD CLASS="bodyText" >2</TD>
     <TD CLASS="bodyText" >C#</TD>
-    <TD>Db</TD>
+    <TD CLASS="bodyText" >Db</TD>
   </TR>
 <TR>
     <TD CLASS="bodyText" >3</TD>
