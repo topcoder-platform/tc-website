@@ -124,6 +124,7 @@
                     <td class="projectHeaders" align="center">Primary<br/>Reviewer<br/>Payment</td>
                     <td class="projectHeaders" align="center">Reviewer<br/>Payment</td>
                     <td class="projectHeaders" align="center">Submissions</td>
+                    <td class="projectHeaders" align="center">Opens<br/>On</td>
                     <td class="projectHeaders" align="center">Review<br/>Start</td>
                     <td class="projectHeaders" align="center">Review<br/>End</td>
                     <td class="projectHeaders" align="center">Positions<br/>Available</td>
@@ -152,12 +153,17 @@
  <% } %>
  <% if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
   <td class="projectCells"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></td>
- <% } else {%>
+ <% } else { %>
   <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></a></td>
  <% } %>
  <td class="projectCells" align="right">$<tc:beanWrite name="price" property="PrimaryReviewPrice" format="#,###.00"/></td>
  <td class="projectCells" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_passed_screening_count"/></td>
+<% if (((TCTimestampResult) resultRow.getItem("opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
+ <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="opens_on" format="MM.dd.yyyy"/></td>
+ <% } else { %>
+ Open
+ <% } %>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
@@ -189,6 +195,7 @@
                     <td class="projectHeaders" align="center">Primary<br/>Reviewer<br/>Payment</td>
                     <td class="projectHeaders" align="center">Reviewer<br/>Payment</td>
                     <td class="projectHeaders" align="center">Submissions</td>
+                    <td class="projectHeaders" align="center">Opens<br/>On</td>
                     <td class="projectHeaders" align="center">Review<br/>Start</td>
                     <td class="projectHeaders" align="center">Review<br/>End</td>
                     <td class="projectHeaders" align="center">Positions<br/>Available</td>
@@ -221,9 +228,14 @@
  <% } else { %>
   <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></a></td>
  <% } %>
- <td class="projectCells" align="right">$<tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/></td>
- <td class="projectCells" align="right">$<tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/></td>
- <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
+  <td class="projectCells" align="right">$<tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/></td>
+  <td class="projectCells" align="right">$<tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/></td>
+  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
+ % if (((TCTimestampResult) resultRow.getItem("opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
+  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="opens_on" format="MM.dd.yyyy"/></td>
+ <% } else { %>
+  Open
+ <% } %>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
@@ -241,11 +253,12 @@
 
 <% } %>
 <% if (desProjectCount+devProjectCount==0) { %>
-    <br />
-    <p>Sorry there are currently no review positions available.</p>
-    <br />
+            <br />
+            <p>Sorry there are currently no review positions available.</p>
+            <br />
 <% } else { %>
             <br/>
+            <p>Review positions for new projects become open 24 hours after the project starts.</p>
             <p>Please note that custom components do not get added to the catalog and therefore do not have royalties.</p>
             <br/>
 <% } %>

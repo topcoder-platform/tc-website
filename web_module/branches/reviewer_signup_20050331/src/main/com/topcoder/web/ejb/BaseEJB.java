@@ -339,6 +339,54 @@ public abstract class BaseEJB implements SessionBean {
 
         }
     }
+    
+    protected Timestamp selectLatestTimestamp(String tableName, String colName,
+            String[] colNames, String[] colValues, String dataSource) {
+
+        if (colNames.length != colValues.length)
+            throw new IllegalArgumentException("name and value arrays don't have the same number of elements.");
+        else {
+            StringBuffer query = new StringBuffer(200);
+            query.append("select ").append(colName).append(" from ").append(tableName).append(" where ");
+            for (int i = 0; i < colNames.length; i++) {
+                query.append(colNames[i]).append(" = ?");
+                if (colNames.length > 1 && i != colNames.length - 1)
+                    query.append(" and ");
+            }
+            query.append(" order by 1");
+
+            log.debug(query);
+
+            Connection conn = null;
+            PreparedStatement ps = null;
+            InitialContext ctx = null;
+            ResultSet rs = null;
+            try {
+                conn = DBMS.getConnection(dataSource);
+                ps = conn.prepareStatement(query.toString());
+                for (int i = 0; i < colNames.length; i++) {
+                    ps.setString(i + 1, colValues[i]);
+                }
+
+                rs = ps.executeQuery();
+                Timestamp ret = null;
+                if (rs.next()) {
+                    ret = rs.getTimestamp(colName);
+                } else {
+                    throw new RowNotFoundException("no row found for " + query.toString());
+                }
+                return ret;
+            } catch (SQLException e) {
+                DBMS.printSqlException(true, e);
+                throw new EJBException(e.getMessage());
+            } finally {
+                close(rs);
+                close(ps);
+                close(conn);
+                close(ctx);
+            }
+        }
+    }
 
     protected ResultSetContainer selectSet(String tableName, String colNames[], String[] constraintColNames,
                                            String[] constraintColValues, String dataSource) {
