@@ -140,6 +140,16 @@ String currRound = roundID+"";
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
 pageContext.setAttribute("resultSetDates", rsc);
 %>
+<script language="JavaScript">
+<!--
+function goTo(selection){
+  sel = selection.options[selection.selectedIndex].value;
+  if (sel && sel != '#'){
+    window.location=sel;
+  }
+}
+// -->
+</script>
 <!--   <A class="statTextBig" href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></A><BR/>-->
 <!--DATE <BR/>-->
     <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
