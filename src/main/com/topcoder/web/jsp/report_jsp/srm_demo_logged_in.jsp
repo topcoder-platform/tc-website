@@ -32,7 +32,7 @@
 <%boolean even=false;%>
   <rsc:iterator list="<%=rsc%>" id="Row" >
 <tr>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="(expression)"%>' row="<%=Row%>"/></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="(expression)"%>' row="<%=Row%>" format="h:mm a"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="num_logged_in"%>' row="<%=Row%>"/></td>
 </tr><%even=!even;%>
 </rsc:iterator>
