@@ -71,8 +71,8 @@
                                 </xsl:attribute>
     						</a>) 
     						which can be used to obtain design documentation and ask any questions you may have regarding the component design.  Please post your questions at any time and I will respond within 24 hours.  However, any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!
-						</P>
-                        <p>The deadline for submitting a design is <xsl:value-of select="/TC/DEVELOPMENT/date"/> at 11:59 PM EST.  Please submit your design to submissions@topcodersoftware.com  Your submission should consist of a jar file populated with the required documents in /docs and appropriate test cases in /src/java/tests.  Any late submissions will be ignored.  Also, a reminder that this is a competition, and only the winning designer will receive payment.</P>
+						</p>
+                        <p>The deadline for submitting a design is <xsl:value-of select="/TC/DEVELOPMENT/date"/> at 11:59 PM EST.  Please submit your design to submissions@topcodersoftware.com  Your submission should consist of a jar file populated with the required documents in /docs and appropriate test cases in /src/java/tests.  Any late submissions will be ignored.  Also, a reminder that this is a competition, and only the winning designer will receive payment.</p>
 						
 						<p><br /></p>
 					</td>
