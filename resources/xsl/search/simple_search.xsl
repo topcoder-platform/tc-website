@@ -52,12 +52,11 @@
   <TR>
     <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-        <FORM name="simpleSearchForm" METHOD="get">
+      <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/IsResult='true'">
+        <FORM name="simpleSearch" METHOD="get">
           <INPUT TYPE="hidden" NAME="t" VALUE="search"/>
           <INPUT TYPE="hidden" NAME="c" VALUE="simple_search"/>
           <INPUT TYPE="hidden" NAME="Next" VALUE=""/>
-        </FORM>
-      <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/IsResult='true'">
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <xsl:variable name="row">
             <xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/Scroll/Row"/>
@@ -98,8 +97,8 @@
                 <xsl:call-template name="ScrollLinks">
                   <xsl:with-param name="ShowPrev"><xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/Scroll/AllowPrevious"/></xsl:with-param>
                   <xsl:with-param name="ShowNext"><xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/Scroll/AllowNext"/></xsl:with-param>
-                  <xsl:with-param name="PrevLink">javascript:document.simpleSearchForm.Next.value='false';javascript:document.searchForm.submit()</xsl:with-param>
-                  <xsl:with-param name="NextLink">javascript:document.simpleSearchForm.Next.value='true';javascript:document.searchForm.submit()</xsl:with-param>
+                  <xsl:with-param name="PrevLink">javascript:document.simpleSearch.Next.value='false';javascript:document.simpleSearch.submit()</xsl:with-param>
+                  <xsl:with-param name="NextLink">javascript:document.simpleSearch.Next.value='true';javascript:document.simpleSearch.submit()</xsl:with-param>
                 </xsl:call-template>
               </xsl:if>
             </TD>
@@ -150,8 +149,8 @@
               <xsl:call-template name="ScrollLinks">
                 <xsl:with-param name="ShowPrev"><xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/Scroll/AllowPrevious"/></xsl:with-param>
                 <xsl:with-param name="ShowNext"><xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/Scroll/AllowNext"/></xsl:with-param>
-                <xsl:with-param name="PrevLink">javascript:document.simpleSearchForm.Next.value='false';javascript:document.searchForm.submit()</xsl:with-param>
-                <xsl:with-param name="NextLink">javascript:document.simpleSearchForm.Next.value='true';javascript:document.searchForm.submit()</xsl:with-param>
+                <xsl:with-param name="PrevLink">javascript:document.simpleSearch.Next.value='false';javascript:document.simpleSearch.submit()</xsl:with-param>
+                <xsl:with-param name="NextLink">javascript:document.simpleSearch.Next.value='true';javascript:document.simpleSearch.submit()</xsl:with-param>
               </xsl:call-template>
             </xsl:if>
           </TD>
@@ -160,6 +159,7 @@
           <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="16" BORDER="0"/></TD>
         </TR>    
       </TABLE>  
+        </FORM>
     </xsl:if>
 </TD>
 <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
