@@ -38,7 +38,7 @@ public class ProblemInfo extends BaseModel {
     private String overallAccuracy;
     private HashSet algorithmicCategories;
     private HashSet businessCategories;
-    private String roundName;    
+    private String roundName;
 
     public ProblemInfo() {
         algorithmicCategories = new HashSet();
@@ -50,8 +50,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @param val
      */
-    public void setRoundId( Long val )
-    {
+    public void setRoundId(Long val) {
         roundId = val;
     }
 
@@ -60,8 +59,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @return 
      */
-    public Long getRoundId()
-    {
+    public Long getRoundId() {
         return roundId;
     }
 
@@ -70,8 +68,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @param val
      */
-    public void setProblemId( Long val )
-    {
+    public void setProblemId(Long val) {
         problemId = val;
     }
 
@@ -80,8 +77,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @return 
      */
-    public Long getProblemId()
-    {
+    public Long getProblemId() {
         return problemId;
     }
 
@@ -91,8 +87,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @param val
      */
-    public void setProblemName( String val )
-    {
+    public void setProblemName(String val) {
         problemName = val;
     }
 
@@ -101,8 +96,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @return 
      */
-    public String getProblemName()
-    {
+    public String getProblemName() {
         return problemName;
     }
 
@@ -111,8 +105,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @param val
      */
-    public void setDivisionDesc( String val )
-    {
+    public void setDivisionDesc(String val) {
         divisionDesc = val;
     }
 
@@ -121,8 +114,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @return 
      */
-    public String getDivisionDesc()
-    {
+    public String getDivisionDesc() {
         return divisionDesc;
     }
 
@@ -131,8 +123,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @param val
      */
-    public void setDifficultyDesc( String val )
-    {
+    public void setDifficultyDesc(String val) {
         difficultyDesc = val;
     }
 
@@ -141,8 +132,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @return 
      */
-    public String getDifficultyDesc()
-    {
+    public String getDifficultyDesc() {
         return difficultyDesc;
     }
 
@@ -151,8 +141,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @param val
      */
-    public void setCategoryDesc( String val )
-    {
+    public void setCategoryDesc(String val) {
         categoryDesc = val;
     }
 
@@ -161,8 +150,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @return 
      */
-    public String getCategoryDesc()
-    {
+    public String getCategoryDesc() {
         return categoryDesc;
     }
 
@@ -171,8 +159,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @param val
      */
-    public void setProblemStatement( String val )
-    {
+    public void setProblemStatement(String val) {
         problemStatement = val;
     }
 
@@ -181,8 +168,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @return 
      */
-    public String getProblemStatement()
-    {
+    public String getProblemStatement() {
         return problemStatement;
     }
 
@@ -191,8 +177,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @param val
      */
-    public void setSubmissionAccuracy( String val )
-    {
+    public void setSubmissionAccuracy(String val) {
         submissionAccuracy = val;
     }
 
@@ -201,8 +186,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @return 
      */
-    public String getSubmissionAccuracy()
-    {
+    public String getSubmissionAccuracy() {
         return submissionAccuracy;
     }
 
@@ -211,8 +195,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @param val
      */
-    public void setSubmission( String val )
-    {
+    public void setSubmission(String val) {
         submission = val;
     }
 
@@ -221,8 +204,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @return 
      */
-    public String getSubmission()
-    {
+    public String getSubmission() {
         return submission;
     }
 
@@ -231,8 +213,7 @@ public class ProblemInfo extends BaseModel {
      *
      * @param val
      */
-    public void setOverallAccuracy( String val )
-    {
+    public void setOverallAccuracy(String val) {
         overallAccuracy = val;
     }
 
@@ -241,14 +222,13 @@ public class ProblemInfo extends BaseModel {
      *
      * @return 
      */
-    public String getOverallAccuracy()
-    {
+    public String getOverallAccuracy() {
         return overallAccuracy;
     }
 
 
     public void addAlgorithmicCategory(String category) {
-        if(category == null) return;
+        if (category == null) return;
         algorithmicCategories.add(category);
     }
 
@@ -262,10 +242,10 @@ public class ProblemInfo extends BaseModel {
 
     private String buildList(Collection c) {
         StringBuffer buffer = new StringBuffer("");
-        for(Iterator i = c.iterator(); i.hasNext();) {
+        for (Iterator i = c.iterator(); i.hasNext();) {
             buffer.append(i.next());
 
-            if(i.hasNext()) {
+            if (i.hasNext()) {
                 buffer.append(",");
             }
         }
@@ -274,15 +254,15 @@ public class ProblemInfo extends BaseModel {
     }
 
     public void addBusinessCategory(String category) {
-        if(category == null) return;
+        if (category == null) return;
         businessCategories.add(category);
     }
 
     public static ProblemInfo createProblemInfo(User user,
-                                                long roundId, 
-                                                long problemId) 
-        throws Exception {
-            
+                                                long roundId,
+                                                long problemId)
+            throws Exception {
+
         log.debug("Getting problem info for round " + roundId + ", problem " + problemId);
         /* was only used to check permissions for a particular user to a particular problem.
            i don't expect this to change often, so we'll cache it instead
@@ -298,22 +278,22 @@ public class ProblemInfo extends BaseModel {
             nonCached = new DataAccess(ds);
         }
 */
-        if(cached == null) {
+        if (cached == null) {
             InitialContext context = new InitialContext();
             DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(
-                        context.lookup(Constants.DATA_SOURCE),
-                                            DataSource.class);
+                    PortableRemoteObject.narrow(
+                            context.lookup(Constants.DATA_SOURCE),
+                            DataSource.class);
 
             cached = new CachedDataAccess(ds);
         }
 
-        if(dwAccess == null) {
+        if (dwAccess == null) {
             InitialContext context = new InitialContext();
             DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(
-                        context.lookup(Constants.DW_DATA_SOURCE),
-                                       DataSource.class);
+                    PortableRemoteObject.narrow(
+                            context.lookup(Constants.DW_DATA_SOURCE),
+                            DataSource.class);
 
             dwAccess = new CachedDataAccess(ds);
         }
@@ -328,8 +308,8 @@ public class ProblemInfo extends BaseModel {
         /* we'll cached this cuz i don't expect it to change very often */
         Map map = cached.getData(checkAccess);
         ResultSetContainer rsc = (ResultSetContainer)
-                    map.get(Constants.CHECK_ACCESS_QUERY_KEY);
-        if(rsc.size() == 0) {
+                map.get(Constants.CHECK_ACCESS_QUERY_KEY);
+        if (rsc.size() == 0) {
             throw new PermissionDeniedException(user, "user does not have access to round: " + String.valueOf(roundId));
         }
 
@@ -341,19 +321,19 @@ public class ProblemInfo extends BaseModel {
         problemDetail.setProperty("pid", String.valueOf(problemId));
         problemDetail.setProperty("rid", String.valueOf(roundId));
         map = cached.getData(problemDetail);
-        rsc = (ResultSetContainer)map.get(Constants.PROBLEM_INFO_QUERY_KEY);
-        if(rsc.size() == 0) {
+        rsc = (ResultSetContainer) map.get(Constants.PROBLEM_INFO_QUERY_KEY);
+        if (rsc.size() == 0) {
             throw new ScreeningException(
                     "Data error, Problem info query returned no rows");
         }
-        if(rsc.size() > 1) {
+        if (rsc.size() > 1) {
             throw new ScreeningException(
                     "Data error, too many results(" + rsc.size() + ") - uid " + user.getId() + " - roundId " + roundId + " - problemId " + problemId);
         }
 
         ProblemInfo info = new ProblemInfo();
-        ResultSetContainer.ResultSetRow row = 
-            (ResultSetContainer.ResultSetRow)rsc.get(0);
+        ResultSetContainer.ResultSetRow row =
+                (ResultSetContainer.ResultSetRow) rsc.get(0);
         info.setProblemId(new Long(row.getItem("problem_id").toString()));
         info.setRoundId(new Long(row.getItem("round_id").toString()));
         info.setProblemName(row.getItem("name").toString());
@@ -367,17 +347,17 @@ public class ProblemInfo extends BaseModel {
         String divisionId = row.getItem("division_id").toString();
 
         rsc = (ResultSetContainer)
-            map.get(Constants.PROBLEM_ALGORITHMIC_CATEGORY_QUERY_KEY);
-        for(Iterator i = rsc.iterator(); i.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow)i.next();
+                map.get(Constants.PROBLEM_ALGORITHMIC_CATEGORY_QUERY_KEY);
+        for (Iterator i = rsc.iterator(); i.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow) i.next();
             info.addAlgorithmicCategory(
                     row.getItem("category_name").toString());
         }
 
         rsc = (ResultSetContainer)
-            map.get(Constants.PROBLEM_BUSINESS_CATEGORY_QUERY_KEY);
-        for(Iterator i = rsc.iterator(); i.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow)i.next();
+                map.get(Constants.PROBLEM_BUSINESS_CATEGORY_QUERY_KEY);
+        for (Iterator i = rsc.iterator(); i.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow) i.next();
             info.addBusinessCategory(row.getItem("category_name").toString());
         }
 
@@ -389,38 +369,38 @@ public class ProblemInfo extends BaseModel {
         accuracyInfo.setProperty("rd", contestRoundId);
         accuracyInfo.setProperty("dn", divisionId);
         map = dwAccess.getData(accuracyInfo);
-        rsc = (ResultSetContainer)map.get(Constants.ACCURACY_INFO_QUERY_KEY);
+        rsc = (ResultSetContainer) map.get(Constants.ACCURACY_INFO_QUERY_KEY);
 
-        if(rsc.size() == 0) {
+        if (rsc.size() == 0) {
             throw new ScreeningException(
                     "Data error, accuracy info query returned no rows");
         }
-        if(rsc.size() > 1) {
+        if (rsc.size() > 1) {
             throw new ScreeningException(
                     "Data error with accuracy, too many results(" + rsc.size() + ") - uid " + user.getId() + " - roundId " + roundId + " - problemId " + problemId);
         }
 
 
-        row = (ResultSetContainer.ResultSetRow)rsc.get(0);
+        row = (ResultSetContainer.ResultSetRow) rsc.get(0);
         info.setSubmissionAccuracy(row.getItem("submission_accuracy").toString());
         info.setSubmission(row.getItem("submission_percentage").toString());
         info.setOverallAccuracy(row.getItem("overall_accuracy").toString());
 
         return info;
     }
-    
+
     /** Getter for property roundName.
      * @return Value of property roundName.
      */
     public String getRoundName() {
         return this.roundName;
     }
-    
+
     /** Setter for property roundName.
      * @param roundName New value of property roundName.
      */
     public void setRoundName(String roundName) {
         this.roundName = roundName;
     }
-    
+
 }
