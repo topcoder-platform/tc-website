@@ -846,16 +846,16 @@
                  <include name="com/topcoder/web/codinginterface/techassess/**"/>
                  <include name="com/topcoder/web/common/**"/>
              </classes>
-<!--
              <webinf dir="${resources}/taglib">
                  <include name="tc-webtags.tld"/>
+                 <!--
                  <include name="screening.tld"/>
                  <include name="tces-taglib.tld"/>
                  <include name="tc-taglib.tld"/>
                  <include name="rsc-taglib.tld"/>
                  <include name="privatelabel.tld"/>
+                 -->
              </webinf>
--->
 
 
              <fileset dir="${java}/com/topcoder/web/codinginterface/techassess/view">
