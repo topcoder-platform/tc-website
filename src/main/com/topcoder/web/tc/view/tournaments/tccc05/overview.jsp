@@ -42,8 +42,8 @@
 	</td></tr>
 	<tr>
 		<td valign="top">
-            <table width="250" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
-                <tr>
+            <table width="250" height="750" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                <tr >
                     <td class="sidebarTitle">ALGORITHM COMPETITION</td>
                 </tr>
 
@@ -64,6 +64,7 @@
 							<li>Four elimination rounds - January 15, 19, 26, February 2, 2005</li> 
 							<li>Semifinal and Championship rounds - March 2005 </li>
 						</ul>
+						
 					</td>
                 </tr>
 
@@ -84,6 +85,7 @@
 							<li><strong>Champion will receive $20,000</strong></li>
 							<li>Participatory t-shirt, branded with sponsor logos </li>
 						</ul>
+						
 					</td>
                 </tr>
                 
@@ -93,13 +95,13 @@
                     		<li>Any TopCoder member* who is 18 years of age or older and a matriculated full-time student at an accredited college or university can participate</li> 
 							<li>The top 24 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds</li>
 						</ul>
-						*If you're not already a TopCoder member<br/><a href="/reg/index.jsp">click here</a> to register.
+						<p>*If you're not already a TopCoder member<br/><a href="/reg/index.jsp">click here</a> to register.</p>
 					</td>
                 </tr>
             </table>
 		</td>
 		<td>   	
-            <table width="250" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+            <table width="250" height="750" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle">COMPONENT COMPETITION</td>
                 </tr>
@@ -171,7 +173,7 @@
 <!-- Right Column Begins -->
          <td width="170">
             <jsp:include page="../../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+               <jsp:param name="level1" value="tccc05"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->

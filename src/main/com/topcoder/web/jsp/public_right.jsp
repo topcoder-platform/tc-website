@@ -70,6 +70,24 @@ function find(n) {
 
 <!-- 2004 TCO ends -->
 
+
+<!-- 2005 TCCC begins -->
+<% } else if (level1.equals("tccc05")) { %>
+
+			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+
+            <a href="/tc?module=Static&d1=about&d2=student_rep"><img src="/i/promos/student_rep_small.gif" alt="Be a Student Rep" width="170" height="150" border="0" /></a><br />
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
+            <jsp:include page="../calendar.jsp" />
+            
+
+
+            <p><br/></p>
+
+<!-- 2005 TCCC ends -->
+
 <!-- Microsoft begins -->
 <% } else if (level1.equals("microsoft")) { %>
 
