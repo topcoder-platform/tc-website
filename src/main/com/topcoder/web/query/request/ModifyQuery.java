@@ -63,7 +63,7 @@ public class ModifyQuery extends BaseProcessor {
             checkText(getText());
             checkName(getName());
             checkQueryId(getQueryId(), q);
-            if (!super.hasErrors()) {
+            if (!hasErrors()) {
                 if (isNewQuery()) {
                     setQueryId(q.createQuery(getText(), getName(), isRanking()?1:0, getDb()));
                     if (isRanking()) {
@@ -88,7 +88,7 @@ public class ModifyQuery extends BaseProcessor {
 
         }
 
-        super.setNextPage(Constants.MODIFY_QUERY_PAGE);
+        setNextPage(Constants.MODIFY_QUERY_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
@@ -102,7 +102,7 @@ public class ModifyQuery extends BaseProcessor {
             try {
                 setQueryId(Long.parseLong(value));
             } catch (NumberFormatException e) {
-                super.addError(paramName, e);
+                addError(paramName, e);
             }
         } else if (paramName.equalsIgnoreCase(Constants.QUERY_NAME_PARAM)) {
             setName(value);
@@ -112,7 +112,7 @@ public class ModifyQuery extends BaseProcessor {
             try {
                 setColumnIndex(Integer.parseInt(value));
             } catch (NumberFormatException e) {
-                super.addError(paramName, e);
+                addError(paramName, e);
             }
         } else if (paramName.equalsIgnoreCase(Constants.QUERY_TEXT_PARAM)) {
             setText(value);
@@ -121,35 +121,35 @@ public class ModifyQuery extends BaseProcessor {
     }
 
     private void checkName(String name) {
-        if (super.isEmpty(name)) {
-            super.addError(Constants.QUERY_NAME_PARAM, "You must specify a query name");
+        if (isEmpty(name)) {
+            addError(Constants.QUERY_NAME_PARAM, "You must specify a query name");
         } else if (name.length() > 100) {
-            super.addError(Constants.QUERY_NAME_PARAM, "Invalid Query Name, too long");
+            addError(Constants.QUERY_NAME_PARAM, "Invalid Query Name, too long");
         }
     }
 
     private void checkColumnIndex(int columnIndex) {
         if (columnIndex < 1) {
-            super.addError(Constants.COLUMN_INDEX_PARAM, "Invalid column Index, must be greater than 0");
+            addError(Constants.COLUMN_INDEX_PARAM, "Invalid column Index, must be greater than 0");
         } else if (columnIndex > 999) {  //somewhat arbitrary, but i think reasonable
-            super.addError(Constants.COLUMN_INDEX_PARAM, "Invalid column Index, must be less than 1000");
+            addError(Constants.COLUMN_INDEX_PARAM, "Invalid column Index, must be less than 1000");
         }
     }
 
     private void checkText(String text) {
-        if (super.isEmpty(text)) {
-            super.addError(Constants.QUERY_TEXT_PARAM, "No query specified");
+        if (isEmpty(text)) {
+            addError(Constants.QUERY_TEXT_PARAM, "No query specified");
         } else if (!text.trim().toLowerCase().startsWith("select")) {
-            super.addError(Constants.QUERY_TEXT_PARAM, "Invalid query entered");
+            addError(Constants.QUERY_TEXT_PARAM, "Invalid query entered");
         } else if (!(text.toLowerCase().indexOf("from") > -1)) {
-            super.addError(Constants.QUERY_TEXT_PARAM, "Invalid query entered");
+            addError(Constants.QUERY_TEXT_PARAM, "Invalid query entered");
         }
     }
 
     private void checkQueryId(long queryId, Query q) throws Exception {
         if (!isNewQuery()) {
             if (q.getName(queryId, getDb())==null) {
-                super.addError(Constants.QUERY_ID_PARAM, "Invalid query id");
+                addError(Constants.QUERY_ID_PARAM, "Invalid query id");
             }
         }
     }

@@ -20,7 +20,7 @@ public class DBSelection extends BaseProcessor {
     }
 
     protected void businessProcessing() throws Exception {
-        super.setNextPage(Constants.DB_SELECTION_PAGE);
+        setNextPage(Constants.DB_SELECTION_PAGE);
     }
 
 }
