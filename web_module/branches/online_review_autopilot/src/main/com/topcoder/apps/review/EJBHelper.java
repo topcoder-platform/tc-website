@@ -149,7 +149,7 @@ public class EJBHelper {
      *
      * @return true if test mode is set, false otherwise
      */
-    static boolean isTestMode() {
+    public static boolean isTestMode() {
         return EJBHelper.testMode;
     }
 
@@ -162,7 +162,7 @@ public class EJBHelper {
      * @throws RemoteException thrown from the EJB lookup code
      * @throws CreateException thrown from the EJB lookup code
      */
-    static synchronized LoginRemote getLogin() throws NamingException, RemoteException, CreateException {
+    public static synchronized LoginRemote getLogin() throws NamingException, RemoteException, CreateException {
         if (login == null) {
             if (testMode) {
                 try {
@@ -189,7 +189,7 @@ public class EJBHelper {
      * @throws RemoteException thrown from the EJB lookup code
      * @throws CreateException thrown from the EJB lookup code
      */
-    static synchronized PolicyRemote getPolicy() throws NamingException, RemoteException, CreateException {
+    public static synchronized PolicyRemote getPolicy() throws NamingException, RemoteException, CreateException {
         if (policy == null) {
             if (testMode) {
                 try {
@@ -216,7 +216,7 @@ public class EJBHelper {
      * @throws RemoteException thrown from the EJB lookup code
      * @throws CreateException thrown from the EJB lookup code
      */
-    static synchronized PolicyMgrRemote getPolicyMgr() throws NamingException, RemoteException, CreateException {
+    public static synchronized PolicyMgrRemote getPolicyMgr() throws NamingException, RemoteException, CreateException {
         if (policyMgr == null) {
             if (testMode) {
                 try {
@@ -244,7 +244,7 @@ public class EJBHelper {
      * @throws RemoteException thrown from the EJB lookup code
      * @throws CreateException thrown from the EJB lookup code
      */
-    static synchronized PrincipalMgrRemote getPrincipalMgr() throws NamingException, RemoteException, CreateException {
+    public static synchronized PrincipalMgrRemote getPrincipalMgr() throws NamingException, RemoteException, CreateException {
         if (principalMgr == null) {
             if (testMode) {
                 try {
@@ -272,7 +272,7 @@ public class EJBHelper {
      * @throws RemoteException thrown from the EJB lookup code
      * @throws CreateException thrown from the EJB lookup code
      */
-    static synchronized DocumentManagerLocal getDocumentManager() throws NamingException, RemoteException, CreateException {
+    public static synchronized DocumentManagerLocal getDocumentManager() throws NamingException, RemoteException, CreateException {
         if (documentManager == null) {
             if (testMode) {
                 try {
@@ -326,7 +326,7 @@ public class EJBHelper {
      * @throws RemoteException thrown from the EJB lookup code
      * @throws CreateException thrown from the EJB lookup code
      */
-    static synchronized UserManagerLocal getUserManager() throws NamingException, RemoteException, CreateException {
+    public static synchronized UserManagerLocal getUserManager() throws NamingException, RemoteException, CreateException {
         if (userManager == null) {
             if (testMode) {
                 try {
