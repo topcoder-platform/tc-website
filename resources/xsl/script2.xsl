@@ -84,7 +84,7 @@ function changeImages() {
 }
 ]]></SCRIPT>
 
-<script type="text/javascript">
+<script type="text/javascript"><![CDATA[
 function tcTime()
 {
   w=window.open("http://<xsl:value-of select="/TC/Host"/>/contest/time.html","Time","top=2,left=2,width=250,height=50,status=1");
@@ -95,8 +95,6 @@ function arena()
   w=window.open("http://<xsl:value-of select="/TC/Host"/>/contest/arena/launch.html","Launch","top=2,left=2,width=300,height=225,status=1");
   return;
 }
-<![CDATA[
-<!--
 function sponsorLink(spons)
 {
   w=window.open(spons,"Sponsor");
