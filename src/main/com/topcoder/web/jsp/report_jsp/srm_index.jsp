@@ -30,13 +30,21 @@
   <table>
   
   <tr valign="top">
-  <td width="10%"><jsp:include page="srm_nav.jsp" /></td><td><jsp:include page="srm_survey.jsp" /></td>
+  <td width="10%"><jsp:include page="srm_nav.jsp" /></td><td colspan="3"><jsp:include page="srm_survey.jsp" /></td>
   </tr>
   <tr>
-  <td>&nbsp;</td><td><jsp:include page="srm_chooser.jsp" /></td>
+
+  <td>&nbsp;</td><td colspan="3"><jsp:include page="srm_chooser.jsp" /></td>
+  </tr>
+  <tr valign="top">
+  
+  <td>&nbsp;</td>
+  <td><jsp:include page="srm_demographic_participation_by_country.jsp" /></td>
+  <td>&nbsp;</td>
+  <td><jsp:include page="srm_demo_total_part.jsp" /></td>
   </tr>
   </table>
-  
+
  
 
 
