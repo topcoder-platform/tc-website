@@ -74,7 +74,7 @@ public class UpdatePreference extends BaseScreeningProcessor {
         // operation was unsuccessful
         request.setAttribute(SUCCESS_ATTRIBUTE_NAME, "false");
 
-        long uid = Long.parseLong(request.getParameter(Constants.USER_ID));
+        long uid = getUser().getId();
         long cuid = Long.parseLong(request.getParameter(Constants.CANDIDATE_ID));
 
         // Check if the user is granted the permission to access the candidate's info
