@@ -5,7 +5,7 @@
     String selectedTab = request.getParameter("selectedTab")==null?"":request.getParameter("selectedTab");
 %>
 
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<table border="1" cellspacing="0" cellpadding="0" width="100%">
     <tr>
       <td width="49%" align="right"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
 <% if (selectedContest.equals("coding")) {%>
@@ -34,11 +34,11 @@
    </tr>
 </table>
 
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<table border="1" cellspacing="0" cellpadding="0" width="100%" valign="top">
       <tr>
-           <td align="right" width="50%"><img src="/i/tournament/tco03/bracket_left.gif" alt="bracket" width="25" height="19" border="0"/></td>
-           <td align="center"><img src="/i/tournament/tco03/bracket_middle.gif" alt="bracket" width="240" height="19" border="0"/></td>
-           <td align="left" width="50%"><img src="/i/tournament/tco03/bracket_right.gif" alt="bracket" width="25" height="19" border="0"/></td>
+           <td align="right" width="50%" valign="top"><img src="/i/tournament/tco03/bracket_left.gif" alt="bracket" width="25" height="19" border="0"/></td>
+           <td align="center" valign="top"><img src="/i/tournament/tco03/bracket_middle.gif" alt="bracket" width="240" height="19" border="0"/></td>
+           <td align="left" width="50%" valign="top"><img src="/i/tournament/tco03/bracket_right.gif" alt="bracket" width="25" height="19" border="0"/></td>
       </tr>
 </table>
 
