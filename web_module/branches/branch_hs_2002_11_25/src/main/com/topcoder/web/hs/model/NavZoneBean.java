@@ -5,7 +5,7 @@ package com.topcoder.web.hs.model;
  */
 public class NavZoneBean {
 
-  private String zone = null;
+  private String zone =  "null";
 
   public NavZoneBean() { }
 
