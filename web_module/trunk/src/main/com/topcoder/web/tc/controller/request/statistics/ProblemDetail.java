@@ -5,7 +5,6 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 
-import java.util.Map;
 import javax.servlet.http.HttpUtils;
 
 /**

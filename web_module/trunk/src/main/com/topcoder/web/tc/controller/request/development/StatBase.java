@@ -58,7 +58,7 @@ public abstract class StatBase extends Base {
             statProcessing();
 
         } catch (TCWebException e) {
-            throw new TCWebException(e);
+            throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
