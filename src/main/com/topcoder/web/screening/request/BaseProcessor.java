@@ -121,10 +121,13 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
     
     protected DataAccess getDataAccess() throws Exception {
-        return getDataAccess(Constants.DATA_SOURCE);
+        return getDataAccess(Constants.DATA_SOURCE, false);
+    }
+    protected DataAccess getDataAccess(boolean cached) throws Exception {
+        return getDataAccess(Constants.DATA_SOURCE, cached);
     }
     
-    protected DataAccess getDataAccess(String datasource) throws Exception {
+    protected DataAccess getDataAccess(String datasource, boolean cached) throws Exception {
         if(datasource == null) return null;
         InitialContext context = new InitialContext();
         DataSource ds = (DataSource)

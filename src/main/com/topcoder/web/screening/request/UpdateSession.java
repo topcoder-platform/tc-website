@@ -29,9 +29,9 @@ public class UpdateSession extends BaseSessionProcessor {
     public void process() throws Exception {
         synchronized(UpdateSession.class) {
         requireLogin();
-        
+
         updateSessionInfo(); // we need this just in case of session timeout
-        
+
         //validate the info just in case someone tries to skip over
         //setup page and commit no info from confirm page
         if(!validateSessionInfo()) {
@@ -44,12 +44,12 @@ public class UpdateSession extends BaseSessionProcessor {
         InitialContext context = new InitialContext();
         SessionHome sHome = (SessionHome)
             PortableRemoteObject.narrow(
-                    context.lookup(SessionHome.class.getName()), 
+                    context.lookup(SessionHome.class.getName()),
                                    SessionHome.class);
         Session session = sHome.create();
         SessionSegmentHome ssHome = (SessionSegmentHome)
             PortableRemoteObject.narrow(
-                    context.lookup(SessionSegmentHome.class.getName()), 
+                    context.lookup(SessionSegmentHome.class.getName()),
                                    SessionSegmentHome.class);
         SessionSegment segment = ssHome.create();
 
@@ -61,23 +61,23 @@ public class UpdateSession extends BaseSessionProcessor {
         ut.begin();
 
         try {
-        long sessionId = 
-            session.createSession(sessionProfileId, 
-                                  userId, 
-                                  new Timestamp(info.getBeginDate().getTime()), 
-                                  new Timestamp(info.getEndDate().getTime()), 
-                                  info.useRepEmail(), 
-                                  info.useCandidateEmail(), 
+        long sessionId =
+            session.createSession(sessionProfileId,
+                                  userId,
+                                  new Timestamp(info.getBeginDate().getTime()),
+                                  new Timestamp(info.getEndDate().getTime()),
+                                  info.useRepEmail(),
+                                  info.useCandidateEmail(),
                                   requestor.getId());
 
 
         //now get info for segments
         Request dataRequest = new Request();
-        dataRequest.setProperty(DataAccessConstants.COMMAND, 
+        dataRequest.setProperty(DataAccessConstants.COMMAND,
                 Constants.SESSION_SEGMENT_COMMAND);
         dataRequest.setProperty("sid", String.valueOf(sessionId));
 
-        DataAccess access = getDataAccess(Constants.TX_DATA_SOURCE);
+        DataAccess access = getDataAccess();
 
         Map map = access.getData(dataRequest);
 
