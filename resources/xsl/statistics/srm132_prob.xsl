@@ -1,0 +1,409 @@
+<?xml version="1.0"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:import href="../top.xsl"/>
+    <xsl:import href="../script.xsl"/>
+    <xsl:import href="../includes/body_top.xsl"/>
+    <xsl:import href="../foot.xsl"/>
+    <xsl:import href="../includes/modules/srm_results.xsl"/>
+    <xsl:import href="../includes/modules/white_last_srm.xsl"/>
+    <xsl:import href="../includes/modules/quick_stats_pulldown.xsl"/>
+    <xsl:import href="../includes/modules/coder_week2.xsl"/>
+    <xsl:import href="../includes/modules/practice_room.xsl"/>
+    <xsl:import href="../includes/modules/calendar.xsl"/>
+    <xsl:import href="../includes/modules/top_room_wins.xsl"/>
+    <xsl:import href="../includes/global_left.xsl"/>
+    <xsl:import href="../includes/public_right_col.xsl"/>
+    <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
+    <xsl:template match="/">
+        <HTML>
+            <HEAD>
+                <xsl:call-template name="Preload"/>
+                <TITLE>TopCoder :: Statistics</TITLE>
+                <xsl:call-template name="CSS"/>
+                <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
+                <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
+                <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+                <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+            </HEAD>
+            <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+                <xsl:call-template name="Top"/>
+                <!-- Body Begins -->
+                <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
+                    <TR>
+                        <!-- Left Column Begins -->
+                        <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+                            <!-- Left Column Include Begins -->
+                            <!-- Global Seconday Nav Begins -->
+                            <xsl:call-template name="global_left"/>
+                            <!-- Global Seconday Nav Ends -->
+                            <!-- Left Column Include Ends -->
+                        </TD>
+                        <!-- Left Column Ends -->
+                        <!-- Gutter Begins -->
+                        <TD WIDTH="4" BGCOLOR="#FFFFFF" VALIGN="top">
+                            <IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/>
+                        </TD>
+                        <!-- Gutter Ends -->
+
+                        <!-- Body Area -->
+                        <!-- Center Column Begins -->
+                        <TD CLASS="bodyText" WIDTH="100%" bgcolor="#FFFFFF" valign="top">
+                            <xsl:call-template name="BodyTop">
+                                <xsl:with-param name="image1">white</xsl:with-param>
+                                <xsl:with-param name="image">statisticsw</xsl:with-param>
+                                <xsl:with-param name="title">&#160;TC Last Match Editorials</xsl:with-param>
+                            </xsl:call-template>
+                            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+                                <TR>
+                                    <TD BGCOLOR="#FFFFFF" VALIGN="top" WIDTH="11">
+                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/>
+                                    </TD>
+                                    <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%">
+                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
+                                        <BR/>
+                                        <!--body contextual links-->
+                                        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="100%">
+                                            <TR>
+                                                <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top">
+                                                    <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/>
+                                                </TD>
+                                            </TR>
+                                            <TR>
+                                                <TD COLSPAN="2" BGCOLOR="#43515E" VALIGN="top">
+                                                    <IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/>
+                                                </TD>
+                                            </TR>
+                                            <TR>
+                                                <TD VALIGN="top" BGCOLOR="#43515E" CLASS="moduleTitle">&#160; &#160;</TD>
+                                                <TD BGCOLOR="#43515E" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
+                                            </TR>
+                                            <TR>
+                                                <TD COLSPAN="2" VALIGN="top" BGCOLOR="#43515E">
+                                                    <TABLE BORDER="0" WIDTH="100%" CELLSPACING="1" CELLPADDING="" BGCOLOR="#FFFFFF">
+                                                        <TR>
+                                                            <!-- <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="15"><A HREF="/?t=statistics&amp;c=srm104_prob" CLASS="bodyGeneric">&#160;Problem&#160;Set&#160;</A></TD>
+                                                            <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><A HREF="/?t=statistics&amp;c=srm103_rookie" CLASS="bodyGeneric">&#160;Rookie&#160;Review&#160;</A></TD> -->
+                                                            <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
+                                                                <A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyGeneric">&#160;Archive&#160;</A>
+                                                            </TD>
+                                                            <TD VALIGN="middle" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC">
+                                                                <A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">&#160;Comments/Ideas?&#160;</A>
+                                                            </TD>
+                                                        </TR>
+                                                    </TABLE>
+                                                </TD>
+                                            </TR>
+                                        </TABLE>
+                                        <!--end contextual links-->
+                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/>
+                                        <BR/>
+                                        <!--<A HREF="stat?c=round_stats&amp;rd=4165&amp;dn=2" CLASS="bodyGeneric">-->
+
+
+
+<B>Single Round Match 132</B><BR/>Saturday, February 1, 2003 
+<P><B>Problem Set Analysis &amp; Opinion</B></P>
+<P>This afternoon's contest was one of the wackiest in recent memory. Division 2 
+featured a couple of math problems that could lead to issues of double 
+imprecision if solved the wrong way, and a simple dynamic programming problem 
+about binary search trees. Division 1 seemed very simple at first glance, with 
+almost everyone submitting the first two problems. And while the 450 ended up 
+being as simple as it looked, the 300 timed out in a way that was not caught by 
+the examples. As a result, almost everyone submitted the 300 immediately, only 
+to find out during the challenge phase that the examples were less than 
+exhaustive. This allowed InsaneParadox to get a whopping 11 challenges on one 
+problem, probably a new TC record. <BR/></P><A name="Typing"></A><FONT 
+size="+2"><B>Typing</B></FONT><BR/><FONT size="-1">Used as: Division-II, Level 1: 
+<BLOCKQUOTE>
+  <TABLE cellSpacing="2">
+    <TBODY>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Value</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">250</TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Submission Rate</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">192 / 202 (95.50%) </TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Success Rate</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">116 / 192 (60.42%) </TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>High Score</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>anup</B> for 249.33 
+        points </TD></TR></TBODY></TABLE></BLOCKQUOTE></FONT>To find the overall rate, 
+all you have to do is take each individual rate times the associated 
+probability, and add all that up. At the end, divide by 100, since probabilities 
+are always percent/100. 
+<P></P>
+<P>&#160;</P><A name="HardIneq"></A><FONT size="+2"><B>HardIneq</B></FONT><BR/><FONT 
+size="-1">Used as: Division-II, Level 2: 
+<BLOCKQUOTE>
+  <TABLE cellSpacing="2">
+    <TBODY>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Value</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">550</TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Submission Rate</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">164 / 202 (81.19%) </TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Success Rate</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">101 / 164 (61.59%) </TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>High Score</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>anup</B> for 544.28 
+        points </TD></TR></TBODY></TABLE></BLOCKQUOTE></FONT>This problem required a bit 
+of trickery. The task given to you is very simple: Given a formula, find the 
+smallest integer that satisfies it. However, the formula involves large 
+exponents which produce numbers that are so large, they even overflow double, 
+which goes up to around 10^300. So, to make it work, you have to use the log 
+identities given to you as a note:<PRE>log(x^y) = y * log(x)
+log(x*y) = log(x) + log(y)
+</PRE>This allows you to change<BR/><TT>a*(n^k) &lt; k^n</TT> 
+<BR/>into:<BR/><TT>log(a)+k*log(n) &lt; n*log(k)</TT> <BR/>This allows you to 
+evaluate the inequality for all of the values of a and k that could be inputs. 
+<BR/>One thing that one always has to consider when dealing with doubles, is that 
+they are inexact. This suggests that it might be better to replace our 
+inequality with something like: <TT>log(a)+k*log(n) &lt; n*log(k) - 1E-10</TT>, 
+just to be safe. In fact, it turned out that different languages dealt with logs 
+and doubles slightly differently, so C++ solutions required an epsilon, while 
+Java did not. 
+<P></P>
+<P>&#160;</P><A name=" BSTs"></A><FONT size="+2"><B>BSTs</B></FONT><BR/><FONT 
+size="-1">Used as: Division-II, Level 3: 
+<BLOCKQUOTE>
+  <TABLE cellSpacing="2">
+    <TBODY>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Value</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">1000</TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Submission Rate</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">64 / 202 (31.68%) </TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Success Rate</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">54 / 64 (84.38%) </TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>High Score</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>BryanChen</B> for 986.41 
+        points </TD></TR></TBODY></TABLE></BLOCKQUOTE></FONT><FONT size="-1">Used as: 
+Division-I, Level 2: 
+<BLOCKQUOTE>
+  <TABLE cellSpacing="2">
+    <TBODY>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Value</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">450</TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Submission Rate</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">90 / 118 (76.27%) </TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Success Rate</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">87 / 90 (96.67%) </TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>High Score</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>John Dethridge</B> for 
+        444.93 points </TD></TR></TBODY></TABLE></BLOCKQUOTE></FONT>
+<P>Reference Solution: John Dethridge</P>
+<P>Trying to construct all of the BST's and then count them is an approach that 
+would probably work, since there are at most 10 nodes, but it would probably 
+take quite a long time to do. Instead, you should use a little bit of dynamic 
+programming (or catalan number, more on that later). The first thing to notice 
+is that the numbers on the nodes are of no consequence. Furthermore, we can pick 
+the root node in such a way that there are anywhere i nodes in the left subtree, 
+and n-i-1 nodes in the right subtree, where n is the total number of nodes. 
+Since each subtree is itself a BST, we can count the number of BSTs with i 
+nodes, and the number with n-i-1 nodes, and multiply those two numbers together 
+to get the total number of BSTs with a given root. So, we can define a 
+recurrence bst(n) = sum(i = 0 to n-1)(bst(i)*bst(n-i-1)), with a base case of 
+bst(0) = 1. An iterative approach is the quickest way to solve this, which can 
+be seen in John Dethridge's solution. </P>
+<P>This is a fairly well-known problem, and it turns out that it can be solved 
+with a simple closed form solution, called a Catalan 
+number:<TT>C(2n,n)/(n+1)</TT>, where C means stands for choose (C(m,n) = 
+fact(m)/fact(n)/fact(m-n)). It turns out that the number of BSTs with n nodes is 
+exactly equal to the nth Catalan number. For more on Catalan numbers, check out 
+what <A href="http://mathworld.wolfram.com/CatalanNumber.html">MathWorld</A> has 
+to say about them. </P>
+<P>&#160;</P><A name="BigFunc"></A><FONT size="+2"><B>BigFunc</B></FONT><BR/><FONT 
+size="-1">Used as: Division-I, Level 1: 
+<BLOCKQUOTE>
+  <TABLE cellSpacing="2">
+    <TBODY>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Value</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">300</TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Submission Rate</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">115 / 118 (88.97%) </TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Success Rate</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">55 / 115 (47.83%) </TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>High Score</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>RyanPai</B> for 289.09 
+        points </TD></TR></TBODY></TABLE></BLOCKQUOTE></FONT>
+<P>Reference Solution: WishingBone</P>
+<P>This problem appears to be absolutely trivial. So trivial in fact, that one 
+has to wonder about the 300 points assigned to it. Most people looked at it, and 
+right away and coded it up exactly as given. This solution passed the examples, 
+and a number of people submitted for scores of around 299. However, as a result 
+this problem ended up with what was probably the lowest submission accuracy 
+ever. If one spends a couple minutes to look at the recurrence, he or she would 
+realize that it is far from obvious how many recurrences it will take. The moral 
+of the story is that the given examples are not always exhaustive, even on the 
+easy problems. Especially when it is relatively simple to try a few large 
+numbers, as in this case, you should invest the minute or two it will take. That 
+rant over, on the the problem analysis. </P>
+<P>The naive implementation is very close to correct and can easily be fixed to 
+work by using a technique called memoization. To do this, we simply have to 
+cache the results of our recursion, and use the cache if we already know the 
+result. WishingBone's implementation is a good example of how to do this. The 
+idea is that, for a given value of m and n, f always evaluates to the same 
+thing. So, there is no need to reevaluate the function each time. Instead, we 
+save the returned value of f for each input m and n, and then if f gets called 
+again, we just used the saved value. You can do the same thing with g. </P>
+<P>Another way to solve this is iteratively, as seen in Maris's code. The trick 
+to this approach is to realize that f(m,n) depends only on f(m-1,n) and 
+g(m-1,n-1). Similarly g(m,n) depends only on f(m,n) and g(m,n-1). So, if we 
+already know f(m-1,n) and g(m-1,n-1), it is easy to calculate f(m,n). You can do 
+essentially the same thing with g. As a result, the problem can be solved easily 
+with two nested for loops. </P>
+<P>Though no one realized it during the contest, it turns out that f(m,n) = 
+sum(i = 1 to n)i^m. For a proof of this, click <A 
+href="http://www.topcoder.com/contest/problem/BigFunc/proof.pdf">here.</A> 
+</P>
+<P>&#160;</P><A name="PinballLanes"></A><FONT 
+size="+2"><B>PinballLanes</B></FONT><BR/><FONT size="-1">Used as: Division-I, Level 
+3: 
+<BLOCKQUOTE>
+  <TABLE cellSpacing="2">
+    <TBODY>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Value</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">1000</TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Submission Rate</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">25 / 118 (21.19%) </TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>Success Rate</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee">12 / 25 (48.00%) </TD></TR>
+    <TR>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>High Score</B></TD>
+      <TD class="bodyText" style="BACKGROUND: #eee"><B>John Dethridge</B> for 
+        828.78 points </TD></TR></TBODY></TABLE></BLOCKQUOTE></FONT>
+<P>Reference Solution: John Dethridge</P>
+<P>This is a fairly standard dynamic programming problem. There are 2^(number of 
+lanes) possible configurations of lights being on or off. So, what we should do, 
+is initialize an array with 2^lanes elements, and set them all to 0, except for 
+the element representing all off. Then, for each time that the ball goes up and 
+back down, we need to calculate the probabilities that the lights are in each 
+possible configuration. To do this, we can simple look at all possible paths 
+that the ball can take for each configuration. So, we have something that looks 
+like this: <PRE>int state[1&lt;&lt;lanes];
+state[0] = 1;//0 represents all off, and in general, the ith bit represents the ith light.
+foreach(time){
+    int nextState[1&lt;&lt;lanes];
+    foreach(state s){
+        foreach(lane i){
+            foreach(lane j){
+                nextState[s with up and down lanes toggled] += 
+                  state[s]*(probability of rolling down lane j, given it rolled up lane i);
+            }
+        }
+    }
+    state = nextState;
+}
+</PRE>The above code isn't complete. You still have to deal with all of the 
+lights turning on, and then resetting. But it illustrates the basica idea behind 
+the approach. You also have to determine the actual probabilities from the 
+relative probabilities. John Dethridge's code is probably the shortest example 
+of this approach. 
+<P></P>
+
+</P>
+
+                                        <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+                                        By&#160;lbackstrom
+                                        <BR/>
+                                        <DIV CLASS="smallText">
+                                            <I>TopCoder Member</I>
+                                            <BR/>
+                                            <A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A>
+                                        </DIV>
+                                        <BR CLEAR="all"/>
+                                        <P>
+                                            <BR/>
+                                        </P>
+                                    </TD>
+                                    <TD VALIGN="top" WIDTH="10">
+                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/>
+                                    </TD>
+                                </TR>
+                                <TR>
+                                    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%">
+                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/>
+                                    </TD>
+                                </TR>
+                                <TR>
+                                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right">
+                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/>
+                                    </TD>
+                                    <TD VALIGN="top" WIDTH="75">
+                                        <IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/>
+                                    </TD>
+                                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%">
+                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/>
+                                    </TD>
+                                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10">
+                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/>
+                                    </TD>
+                                </TR>
+                                <TR>
+                                    <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF">
+                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/>
+                                    </TD>
+                                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14">
+                                        <IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/>
+                                    </TD>
+                                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%">
+                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/>
+                                    </TD>
+                                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10">
+                                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/>
+                                    </TD>
+                                </TR>
+                            </TABLE>
+                        </TD>
+                        <!-- Center Column Ends -->
+                        <!-- Body Area Ends -->
+
+                        <!-- Gutter -->
+                        <TD WIDTH="4" BGCOLOR="#FFFFFF">
+                            <IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/>
+                        </TD>
+                        <!-- Gutter Ends -->
+                        <!-- Right Column Begins -->
+                        <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top">
+                            <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/>
+                            <BR/>
+                            <!-- <A HREF="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm98"><IMG SRC="/i/motorola_sidebar1.gif" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A>
+                            <A href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm91_room1','Citrix','1','1','680','489')"><img src="/i/citrix_sidebar.jpg" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A><BR/>
+                            <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
+                            <!-- Right Column Include Begins -->
+                            <xsl:call-template name="public_right_col"/>
+                            <!-- Right Column Include Ends -->
+                        </TD>
+                        <!-- Right Column Ends -->
+                        <!-- Gutter -->
+                        <TD WIDTH="10" BGCOLOR="#FFFFFF">
+                            <IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/>
+                        </TD>
+                        <!-- Gutter Ends -->
+                    </TR>
+                </TABLE>
+                <!-- Body Ends -->
+                <xsl:call-template name="Foot"/>
+            </BODY>
+        </HTML>
+    </xsl:template>
+</xsl:stylesheet>
