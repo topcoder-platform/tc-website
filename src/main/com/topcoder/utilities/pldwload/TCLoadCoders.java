@@ -517,7 +517,6 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,r.rating_no_vol ");     // 6
             query.append("  FROM rating r ");
             query.append(" WHERE r.modify_date > ? ");
-            query.append("   AND EXISTS (SELECT 'pops' FROM group_user gu WHERE gu.user_id = r.coder_id AND gu.group_id = 10)");
             query.append("   AND NOT EXISTS ");
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
