@@ -61,8 +61,8 @@
               <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "middle_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%>
               <br/>
               <%= MemberInfo.getItem(0, "address1").toString()%><br/>
-              <%= MemberInfo.getStringItem(0, "address2").length()==0?"":MemberInfo.getStringItem(0, "address2")+"<br/>"%>
-              <%= MemberInfo.getStringItem(0, "address3").length()==0?"":MemberInfo.getStringItem(0, "address3")+"<br/>"%>
+              <%= MemberInfo.getStringItem(0, "address2")==null?"":MemberInfo.getStringItem(0, "address2")+"<br/>"%>
+              <%= MemberInfo.getStringItem(0, "address3")==null?"":MemberInfo.getStringItem(0, "address3")+"<br/>"%>
               <%= MemberInfo.getItem(0, "province").toString()%>
               <%= MemberInfo.getItem(0, "city").toString()%>,
               <%= MemberInfo.getItem(0, "state_code").toString()%>
@@ -70,7 +70,7 @@
               <br/>
               <%= MemberInfo.getItem(0, "country_name").toString()%>
               <br/>
-              <A HREF="mailto:<%=MemberInfo.getItem(0, "email").toString() %>" class="bodyText"><%= MemberInfo.getItem(0, "email").toString() %></A> | <%= MemberInfo.getItem(0, "home_phone").toString()%>
+              <A HREF="mailto:<%=MemberInfo.getStringItem(0, "email")%>" class="bodyText"><%= MemberInfo.getStringItem(0, "email")%></A> | <%= MemberInfo.getStringItem(0, "home_phone")%>
               <br/>
               <B>Interested in:</B> <jsp:getProperty name="MemberProfileTask" property="JobName"/>
               <br/>
