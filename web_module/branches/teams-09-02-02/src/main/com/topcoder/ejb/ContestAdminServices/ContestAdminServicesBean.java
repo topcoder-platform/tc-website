@@ -1247,8 +1247,8 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             query.append(" AND c.component_state_id = cs.component_state_id");
             query.append(" AND cp.problem_id = p.problem_id");
             query.append(" AND cs.component_id = cp.component_id");
-            query.append(" AND ps.status_id = csl.component_status_id");
-            query.append(" AND ps.round_id = ?");
+            query.append(" AND cs.status_id = csl.component_status_id");
+            query.append(" AND cs.round_id = ?");
             query.append(" AND u.user_id = ?");
             query.append(" AND cs.language_id = l.language_id");
             query.append(" AND cs.round_id = rp.round_id");
