@@ -185,7 +185,7 @@ the nearest competitor.
 	<TD CLASS="bodyText" ALIGN="right">96.87%</TD>
 	<TD CLASS="bodyText" ALIGN="right">93.45%</TD>
 	<TD CLASS="bodyText" ALIGN="right">235.21</TD>
-	<TD CLASS="bodyText" ALIGN="center">stimpi<BR/>248.73</TD>
+	<TD CLASS="bodyText" ALIGN="center">stimpil<BR/>248.73</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
