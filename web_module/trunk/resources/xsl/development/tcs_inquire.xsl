@@ -59,9 +59,18 @@
             <FORM name="frmSend" method="POST" action="/">
               <INPUT TYPE="hidden" NAME="t" VALUE="development"/>
               <INPUT TYPE="hidden" NAME="c" VALUE="tcs_send"/>
+              <INPUT TYPE="hidden" NAME="c" VALUE="tcs_send"/>
+              
               <INPUT TYPE="hidden" NAME="comp">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/comp"/></xsl:attribute>
               </INPUT>
+              <INPUT TYPE="hidden" NAME="phase">
+                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/phase"/></xsl:attribute>
+              </INPUT>
+              <INPUT TYPE="hidden" NAME="version">
+                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/version"/></xsl:attribute>
+              </INPUT>
+              
               <INPUT TYPE="hidden" NAME="date">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/date"/></xsl:attribute>
               </INPUT>
