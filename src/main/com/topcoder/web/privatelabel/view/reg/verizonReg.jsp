@@ -62,13 +62,12 @@
 
                         <h2 class="pgTitle">Registration</h2>
 
-                        <p class="bodyText">In order to be eligible to compete in the Verizon Coding Contest, you must be 18 years of age or older,
-                        have completed an undergraduate degree, and be a current resident of Chennai, India.<br />
                         <% if (regInfo.isRegFull()) { %>
-                        Registration is full<br/>
+                            <p class="bodyText">
+                                Registration for the Verizon Coding Challenge is full.  However, you may continue to
+                                provide your information below to be notified of future Verizon coding events.<br/>
+                            </p>
                         <% } %>
-
-                        </p>
 
 
                             <table cellpadding="0" cellspacing="3" class="bodyText" align="center" border="0">
