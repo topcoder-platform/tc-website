@@ -4,10 +4,11 @@ import com.topcoder.shared.netCommon.*;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class SimpleComponent
-        implements Serializable, CustomSerializable{
+        implements Serializable, CustomSerializable {
     int problemID;
     int componentID;
     int componentTypeID;
@@ -17,10 +18,12 @@ public class SimpleComponent
     DataType returnType;
     ArrayList componentDependencies = new ArrayList();
     ArrayList webServiceDependencies = new ArrayList();
-    public SimpleComponent(){}
+
+    public SimpleComponent() {
+    }
+
     public void customWriteObject(CSWriter writer)
-            throws IOException
-    {
+            throws IOException {
         writer.writeString(className);
         writer.writeString(methodName);
         writer.writeObject(returnType);
@@ -32,23 +35,22 @@ public class SimpleComponent
     }
 
     public void customReadObject(CSReader reader)
-            throws IOException
-    {
+            throws IOException {
         Object[] o_paramTypes;
 
         className = reader.readString();
         methodName = reader.readString();
-        returnType = (DataType)reader.readObject();
+        returnType = (DataType) reader.readObject();
         o_paramTypes = reader.readObjectArray();
         componentID = reader.readInt();
         componentTypeID = reader.readInt();
         problemID = reader.readInt();
 
-        if(o_paramTypes == null)
+        if (o_paramTypes == null)
             o_paramTypes = new Object[0];
         paramTypes = new DataType[o_paramTypes.length];
-        for(int i = 0; i < o_paramTypes.length; i++)
-            paramTypes[i] = (DataType)o_paramTypes[i];
+        for (int i = 0; i < o_paramTypes.length; i++)
+            paramTypes[i] = (DataType) o_paramTypes[i];
         webServiceDependencies = reader.readArrayList();
     }
 
@@ -107,17 +109,20 @@ public class SimpleComponent
     public void setReturnType(DataType returnType) {
         this.returnType = returnType;
     }
+
     public static String getCacheKey(int componentID) {
-        return "SimpleProblemComponent."+componentID;
+        return "SimpleProblemComponent." + componentID;
     }
+
     public String getCacheKey() {
-        return "SimpleProblemComponent."+componentID;
+        return "SimpleProblemComponent." + componentID;
     }
+
     /**
      * @param language the languageID
      * @return the return type for the languageID
      */
-    public String getReturnType(int language){
+    public String getReturnType(int language) {
         return returnType.getDescriptor(language);
     }
 //    /**
@@ -162,7 +167,8 @@ public class SimpleComponent
     public void addComponentDependency(int componentID) {
         componentDependencies.add(new Integer(componentID));
     }
-    public String toString(){
+
+    public String toString() {
         StringBuffer ret = new StringBuffer(1000);
         ret.append("(com.topcoder.shared.problem.SimpleComponent) [");
         ret.append("problemID = ");
@@ -175,46 +181,46 @@ public class SimpleComponent
         ret.append(componentTypeID);
         ret.append(", ");
         ret.append("className = ");
-        if(className == null){
+        if (className == null) {
             ret.append("null");
         } else {
             ret.append(className.toString());
         }
         ret.append(", ");
         ret.append("methodName = ");
-        if(methodName == null){
+        if (methodName == null) {
             ret.append("null");
         } else {
             ret.append(methodName.toString());
         }
         ret.append(", ");
         ret.append("paramTypes = ");
-        if(paramTypes == null){
+        if (paramTypes == null) {
             ret.append("null");
         } else {
             ret.append("{");
-            for(int i = 0; i<paramTypes.length;i++){
-                ret.append(paramTypes[i].toString()+",");
+            for (int i = 0; i < paramTypes.length; i++) {
+                ret.append(paramTypes[i].toString() + ",");
             }
             ret.append("}");
         }
         ret.append(", ");
         ret.append("returnType = ");
-        if(returnType == null){
+        if (returnType == null) {
             ret.append("null");
         } else {
             ret.append(returnType.toString());
         }
         ret.append(", ");
         ret.append("componentDependencies = ");
-        if(componentDependencies == null){
+        if (componentDependencies == null) {
             ret.append("null");
         } else {
             ret.append(componentDependencies.toString());
         }
         ret.append(", ");
         ret.append("webServiceDependencies = ");
-        if(webServiceDependencies == null){
+        if (webServiceDependencies == null) {
             ret.append("null");
         } else {
             ret.append(webServiceDependencies.toString());

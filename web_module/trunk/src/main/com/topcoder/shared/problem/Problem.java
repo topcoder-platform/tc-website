@@ -1,139 +1,198 @@
 package com.topcoder.shared.problem;
 
-import java.util.ArrayList;
+import com.topcoder.shared.netCommon.*;
+
 import java.io.*;
-import com.topcoder.shared.netCommon.CSReader;
-import com.topcoder.shared.netCommon.CSWriter;
-import com.topcoder.shared.netCommon.CustomSerializable;
-import com.topcoder.shared.problem.ProblemComponent;
-import com.topcoder.shared.language.Language;
 
 /**
  * This class contains data for a problem.  Each problem consists of a number of
- * components.  The actual program interface data (className, etc.) of each component is 
+ * components.  The actual program interface data (className, etc.) of each component is
  * contained in <code>ProblemComponent</code> objects.  For single-coder contests, each problem
  * has only one component.
  *
- * <code>Note</code>: the deprecated methods on this class are relics for supporting
- * conventional single-coder contests.  Callers of this class are advised to use their
- * replacements on the <code>ProblemComponent</code> class to retrieve the interface data, even
- * for single-coder contests where each problem has only one component.  Those methods
- * will be removed once there is nobody calling them any more.
- *
  * @author Jing Xue
- * @author Hao Kung 
+ * @author Hao Kung
  */
-public class Problem implements Element, Serializable, CustomSerializable 
-{
-  private static final String LEGAL = "This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2002, TopCoder, Inc.  All rights reserved.  ";
+public class Problem extends BaseElement implements Element, Serializable, CustomSerializable {
+    private static final String LEGAL = "This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2002, TopCoder, Inc.  All rights reserved.  ";
 
-  private ProblemComponent[] problemComponents = new ProblemComponent[0];
-  private int problemId = -1;
-  private String name = "";
-  private int problemTypeID = -1;
-  private String problemText = "";
+    private ProblemComponent[] problemComponents = new ProblemComponent[0];
+    private int problemId = -1;
+    private String name = "";
+    private int problemTypeID = -1;
+    private String problemText = "";
 
-  public final String getCacheKey() 
-  {
-    return "Problem."+problemId;
-  }
+    /**
+     * Get the a cache key
+     * @return
+     */
+    public final String getCacheKey() {
+        return "Problem." + problemId;
+    }
 
-  public Problem ()
-  {
-  }
+    /**
+     * Default Constructor
+     */
+    public Problem() {
+    }
 
-  public static String getCacheKey(int problemid) 
-  {
-    return "Problem."+problemid;
-  }
+    /**
+     *
+     * @param problemid
+     * @return
+     */
+    public static String getCacheKey(int problemid) {
+        return "Problem." + problemid;
+    }
 
-  public void customWriteObject(CSWriter writer) throws IOException
-  {
-      writer.writeInt(problemComponents.length);
-      for(int i = 0; i<problemComponents.length;i++)
-        writer.writeObject(problemComponents[i]);
-      writer.writeInt(problemId);
-      writer.writeString(name);
-      writer.writeInt(problemTypeID);
-      writer.writeString(problemText);
-  }
+    /**
+     *
+     * @param writer
+     * @throws IOException
+     */
+    public void customWriteObject(CSWriter writer) throws IOException {
+        writer.writeInt(problemComponents.length);
+        for (int i = 0; i < problemComponents.length; i++)
+            writer.writeObject(problemComponents[i]);
+        writer.writeInt(problemId);
+        writer.writeString(name);
+        writer.writeInt(problemTypeID);
+        writer.writeString(problemText);
+    }
 
-  public void customReadObject(CSReader reader) throws IOException, ObjectStreamException
-  {
-      int count = reader.readInt();
-      problemComponents = new ProblemComponent[count];
-      for(int i = 0; i<count;i++)
-        problemComponents[i] = (ProblemComponent)reader.readObject();
-      problemId = reader.readInt();
-      name = reader.readString();
-      problemTypeID = reader.readInt();
-      problemText = reader.readString();
-  }
+    /**
+     *
+     * @param reader
+     * @throws IOException
+     * @throws ObjectStreamException
+     */
+    public void customReadObject(CSReader reader) throws IOException, ObjectStreamException {
+        int count = reader.readInt();
+        problemComponents = new ProblemComponent[count];
+        for (int i = 0; i < count; i++)
+            problemComponents[i] = (ProblemComponent) reader.readObject();
+        problemId = reader.readInt();
+        name = reader.readString();
+        problemTypeID = reader.readInt();
+        problemText = reader.readString();
+    }
 
+    /**
+     *
+     * @param problemId
+     */
+    public void setProblemId(int problemId) {
+        this.problemId = problemId;
+    }
 
+    /**
+     *
+     * @return
+     */
+    public int getProblemId() {
+        return this.problemId;
+    }
 
-  public void setProblemId(int problemId)
-  {
-      this.problemId = problemId;
-  }
+    /**
+     *
+     * @return
+     */
+    public Object clone() {
+        Problem p = new Problem();
+        p.setProblemId(problemId);
+        p.setProblemText(problemText);
+        p.setProblemComponents(problemComponents);
+        return p;
+    }
 
-  public int getProblemId()
-  {
-      return this.problemId;
-  }
+    /**
+     *
+     * @param name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public Object clone()
-  {
-      Problem p = new Problem();
-      p.setProblemId(problemId);
-      p.setProblemText(problemText);
-      p.setProblemComponents(problemComponents);
-      return p;
-  }
+    /**
+     *
+     * @return
+     */
+    public String getName() {
+        return name;
+    }
 
-  public void setName(String name){
-      this.name = name;
-  }
-  public String getName(){
-      return name;
-  }
+    /**
+     *
+     * @return
+     */
+    public String getProblemText() {
+        return problemText;
+    }
 
-  public String getProblemText() {
-    return problemText;
-  }
+    /**
+     *
+     * @param problemText
+     */
+    public void setProblemText(String problemText) {
+        this.problemText = problemText;
+    }
 
-  public void setProblemText(String problemText) {
-    this.problemText = problemText;
-  }
+    /**
+     *
+     * @return
+     */
+    public ProblemComponent[] getProblemComponents() {
+        return problemComponents;
+    }
 
-  public ProblemComponent[] getProblemComponents() {
-    return problemComponents;
-  }
-  public void setProblemComponents(ProblemComponent[] problemComponents) {
-    this.problemComponents = problemComponents;
-  }
+    /**
+     *
+     * @param problemComponents
+     */
+    public void setProblemComponents(ProblemComponent[] problemComponents) {
+        this.problemComponents = problemComponents;
+    }
 
-  public int getProblemTypeID() {
-    return problemTypeID;
-  }
+    /**
+     *
+     * @return
+     */
+    public int getProblemTypeID() {
+        return problemTypeID;
+    }
 
-  public void setProblemTypeID(int problemTypeID) {
-    this.problemTypeID = problemTypeID;
-  }
-  public ProblemComponent getComponent(int i){
-    if(i>=problemComponents.length)return null;
-    return problemComponents[i];
-  }
-    public String toString(){
+    /**
+     *
+     * @param problemTypeID
+     */
+    public void setProblemTypeID(int problemTypeID) {
+        this.problemTypeID = problemTypeID;
+    }
+
+    /**
+     *
+     * @param i
+     * @return
+     */
+    public ProblemComponent getComponent(int i) {
+        if (i >= problemComponents.length) return null;
+        return problemComponents[i];
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String toString() {
         StringBuffer ret = new StringBuffer(1000);
         ret.append("(com.topcoder.shared.problem.Problem) [");
         ret.append("problemComponents = ");
-        if(problemComponents == null){
+        if (problemComponents == null) {
             ret.append("null");
         } else {
             ret.append("{");
-            for(int i = 0; i<problemComponents.length;i++){
-                ret.append(problemComponents[i].toString()+",");
+            for (int i = 0; i < problemComponents.length; i++) {
+                ret.append(problemComponents[i].toString() + ",");
             }
             ret.append("}");
         }
@@ -142,7 +201,7 @@ public class Problem implements Element, Serializable, CustomSerializable
         ret.append(problemId);
         ret.append(", ");
         ret.append("name = ");
-        if(name == null){
+        if (name == null) {
             ret.append("null");
         } else {
             ret.append(name.toString());
@@ -152,7 +211,7 @@ public class Problem implements Element, Serializable, CustomSerializable
         ret.append(problemTypeID);
         ret.append(", ");
         ret.append("problemText = ");
-        if(problemText == null){
+        if (problemText == null) {
             ret.append("null");
         } else {
             ret.append(problemText.toString());
@@ -162,77 +221,30 @@ public class Problem implements Element, Serializable, CustomSerializable
         return ret.toString();
     }
 
-  public String toHTML(Language language)
-  {
-    StringBuffer html = new StringBuffer("<html><body bgcolor=\"#000000\" text=\"#ffffff\">");
-    if(!problemText.equals(""))
-    {
-      html.append(problemText);
-      html.append("<hr>");
-    }
-    for(int i = 0; i < problemComponents.length ; i++)
-    {
-      html.append(problemComponents[i].toHTML(language));
-      html.append("<hr>");
+    /**
+     *
+     * @return
+     */
+    public String toXML() {
+        StringBuffer xml = new StringBuffer();
+        for (int i=0; i<problemComponents.length; i++) {
+            xml.append(problemComponents[i].toXML());
+        }
+        return xml.toString();
     }
 
-    html.append("<p>");
-    html.append(LEGAL);
-
-    html.append("</body></html>");
-    return html.toString();
-  }
-
-  public String toHTML(Language language, boolean includeHeader)
-  {
-    StringBuffer html = new StringBuffer();
-    if(includeHeader)
-    {
-      html.append("<html><body bgcolor='black' text='white'>");
+    /**
+     * Problem statement is valid if all the components are.
+     *
+     * @return
+     */
+    public boolean isValid() {
+        boolean valid = true;
+        for (int i = 0; i < problemComponents.length; i++) {
+            valid = valid && problemComponents[i].isValid();
+        }
+        return valid;
     }
-    if(!problemText.equals(""))
-    {
-      html.append(ProblemComponent.encodeHTML(problemText));
-      html.append("<hr>");
-    }
-    for(int i = 0; i < problemComponents.length ; i++)
-    {
-      html.append(problemComponents[i].toHTML(language));
-      html.append("<hr>");
-    }
-
-    html.append("<p>");
-    html.append(LEGAL);
-
-    if(includeHeader)
-    {
-      html.append("</body></html>");
-    }
-    return html.toString();
-  }
-
-  public String toXML()
-  {
-    StringBuffer xml = new StringBuffer();
-    return xml.toString();
-  }
-
-    public String toPlainText(Language lang){
-        //the client does its own thing
-        return toHTML(lang);
-    }
-
-
-  /** Problem statement is valid if all the components are.*/
-  public boolean isValid()
-  {
-    boolean valid = true;
-    for(int i = 0; i < problemComponents.length; i++)
-    {
-      valid = valid && problemComponents[i].isValid();
-    }
-    return valid;
-  }
 }
 
 

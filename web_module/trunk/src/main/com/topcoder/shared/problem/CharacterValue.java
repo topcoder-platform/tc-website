@@ -7,64 +7,55 @@ import java.io.IOException;
 import java.io.ObjectStreamException;
 
 public class CharacterValue
-    extends DataValue
-{
+        extends DataValue {
     private char value;
 
-    public CharacterValue()
-    {
+    public CharacterValue() {
     }
 
-    public CharacterValue(char value)
-    {
+    public CharacterValue(char value) {
         this.value = value;
     }
 
     public void parse(DataValueReader reader, DataType type)
-        throws IOException, DataValueParseException
-    {
+            throws IOException, DataValueParseException {
         reader.expect('\'', true);
 
         int i = reader.read(true);
 
-        switch((char)i) {
+        switch ((char) i) {
             case '\'':
                 reader.exception("Missing character");
             case '\\':
-                value = (char)reader.read(true);
+                value = (char) reader.read(true);
                 break;
             default:
-                value = (char)i;
+                value = (char) i;
         }
         reader.expect('\'', true);
     }
 
     public void customWriteObject(CSWriter writer)
-        throws IOException
-    {
-        writer.writeInt((int)value);
+            throws IOException {
+        writer.writeInt((int) value);
     }
 
     public void customReadObject(CSReader reader)
-        throws IOException, ObjectStreamException
-    {
-        value = (char)reader.readInt();
+            throws IOException, ObjectStreamException {
+        value = (char) reader.readInt();
     }
 
-    public String encode()
-    {
-        if(value == '\\' || value == '\'')
+    public String encode() {
+        if (value == '\\' || value == '\'')
             return "'\\" + value + "'";
         return "'" + value + "'";
     }
 
-    public char getChar()
-    {
+    public char getChar() {
         return value;
     }
 
-    public Object getValue()
-    {
-      return new Character(value);
+    public Object getValue() {
+        return new Character(value);
     }
 }

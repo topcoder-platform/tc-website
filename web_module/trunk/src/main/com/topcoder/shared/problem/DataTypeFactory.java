@@ -1,7 +1,7 @@
 package com.topcoder.shared.problem;
 
-import java.util.HashMap;
 import java.util.Collection;
+import java.util.HashMap;
 
 /**
  * This class implements a global database of known data types.  Ideally it would be populated
@@ -11,8 +11,7 @@ import java.util.Collection;
  * @author Logan Hanks
  * @see DataType
  */
-public class DataTypeFactory
-{
+public class DataTypeFactory {
     static private HashMap types = new HashMap();
 
     /**
@@ -22,34 +21,31 @@ public class DataTypeFactory
      * @throws InvalidTypeException
      */
     static public DataType getDataType(String description)
-        throws InvalidTypeException
-    {
-        DataType type = (DataType)types.get(description);
+            throws InvalidTypeException {
+        DataType type = (DataType) types.get(description);
 
-        if(type == null)
+        if (type == null)
             throw new InvalidTypeException(description);
         return type.cloneDataType();
     }
 
-  static public DataType getDataType(int typeID)
-      throws InvalidTypeException
-  {
-      DataType type = (DataType)types.get(new Integer(typeID));
+    static public DataType getDataType(int typeID)
+            throws InvalidTypeException {
+        DataType type = (DataType) types.get(new Integer(typeID));
 
-      if(type == null)
-          throw new InvalidTypeException(new String(""+typeID));
-      return type.cloneDataType();
-  }
-    static void registerDataType(DataType type)
-    {
-        if(types.containsKey(type.getDescription()))
+        if (type == null)
+            throw new InvalidTypeException(new String("" + typeID));
+        return type.cloneDataType();
+    }
+
+    static void registerDataType(DataType type) {
+        if (types.containsKey(type.getDescription()))
             return;
         types.put(type.getDescription(), type.cloneDataType());
         types.put(new Integer(type.getID()), type.cloneDataType());
     }
 
-    static public Collection getDataTypes()
-    {
+    static public Collection getDataTypes() {
         return types.values();
     }
 }

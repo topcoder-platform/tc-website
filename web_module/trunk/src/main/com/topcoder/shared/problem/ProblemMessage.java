@@ -1,14 +1,9 @@
 package com.topcoder.shared.problem;
 
-import com.topcoder.shared.netCommon.CustomSerializable;
-import com.topcoder.shared.netCommon.CSReader;
-import com.topcoder.shared.netCommon.CSWriter;
-
+import com.topcoder.shared.netCommon.*;
 import org.apache.log4j.Category;
 
-import java.io.IOException;
-import java.io.ObjectStreamException;
-import java.io.Serializable;
+import java.io.*;
 
 /**
  * This is a utility class for representing messages generate during problem statement
@@ -18,8 +13,7 @@ import java.io.Serializable;
  * @see com.topcoder.server.common.problem.ProblemStatementFactory
  */
 public class ProblemMessage
-    implements Serializable, Cloneable, CustomSerializable
-{
+        implements Serializable, Cloneable, CustomSerializable {
     /** Specified that a message's level is ``warning'' */
     static public short WARNING = 0;
 
@@ -34,8 +28,7 @@ public class ProblemMessage
     private int column;
     private String message;
 
-    public ProblemMessage()
-    {
+    public ProblemMessage() {
     }
 
     /** Constructs a message with a known location.
@@ -47,9 +40,8 @@ public class ProblemMessage
      * @param column    The number of the column within the line to which the message corresponds.  Columns are
      *                  counted starting at <code>1</code>.
      */
-    public ProblemMessage(int type, String message, int line, int column)
-    {
-        if(message == null)
+    public ProblemMessage(int type, String message, int line, int column) {
+        if (message == null)
             message = "";
         this.type = type;
         this.message = message;
@@ -62,9 +54,8 @@ public class ProblemMessage
      * @param type      One of <code>WARNING</code>, <code>ERROR</code>, or <code>FATAL_ERROR</code>
      * @param message   The content of the message
      */
-    public ProblemMessage(int type, String message)
-    {
-        if(message == null)
+    public ProblemMessage(int type, String message) {
+        if (message == null)
             message = "";
         this.type = type;
         this.message = message;
@@ -76,8 +67,7 @@ public class ProblemMessage
      *
      * @return The type of the message
      */
-    public int getType()
-    {
+    public int getType() {
         return type;
     }
 
@@ -86,8 +76,7 @@ public class ProblemMessage
      *
      * @return Either <code>0</code> if the line is unknown, or else a value greater than <code>0</code>.
      */
-    public int getLine()
-    {
+    public int getLine() {
         return line;
     }
 
@@ -96,22 +85,19 @@ public class ProblemMessage
      *
      * @return Either <code>0</code> if the column is unknown, or else a value greater than <code>0</code>.
      */
-    public int getColumn()
-    {
+    public int getColumn() {
         return column;
     }
 
     /**
      * Returns the content of the message.
      */
-    public String getMessage()
-    {
+    public String getMessage() {
         return message;
     }
 
     public void customWriteObject(CSWriter writer)
-        throws IOException
-    {
+            throws IOException {
         writer.writeInt(type);
         writer.writeInt(line);
         writer.writeInt(column);
@@ -119,8 +105,7 @@ public class ProblemMessage
     }
 
     public void customReadObject(CSReader reader)
-        throws IOException, ObjectStreamException
-    {
+            throws IOException, ObjectStreamException {
         type = reader.readInt();
         line = reader.readInt();
         column = reader.readInt();
@@ -132,31 +117,29 @@ public class ProblemMessage
      *
      * @param trace A <code>log4j.Category</code> (probably should be a <code>Logger</code> instead)
      */
-    public void log(Category trace)
-    {
+    public void log(Category trace) {
         String text = toString();
 
-        if(type == WARNING)
+        if (type == WARNING)
             trace.warn(text);
-        else if(type == ERROR)
+        else if (type == ERROR)
             trace.error(text);
-        else if(type == FATAL_ERROR)
+        else if (type == FATAL_ERROR)
             trace.fatal(text);
     }
 
     /**
      * Converts the message and all information associated with it to a human-readable string.
      */
-    public String toString()
-    {
+    public String toString() {
         StringBuffer buf = new StringBuffer(message.length() + 32);
 
-        if(line != 0) {
+        if (line != 0) {
             buf.append("Line ");
             buf.append(line);
             buf.append(": ");
         }
-        if(column != 0) {
+        if (column != 0) {
             buf.append("Column ");
             buf.append(column);
             buf.append(": ");

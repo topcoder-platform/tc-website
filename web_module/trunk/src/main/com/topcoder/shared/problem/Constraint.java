@@ -17,29 +17,23 @@ import java.io.ObjectStreamException;
  * @see com.topcoder.server.common.problem.ConstraintFactory
  * @author Logan Hanks
  */
-abstract public class Constraint
-    implements Element
-{
+abstract public class Constraint extends BaseElement implements Element {
     private String param;
 
-    public Constraint()
-    {
+    public Constraint() {
     }
 
-    public Constraint(String param)
-    {
+    public Constraint(String param) {
         this.param = param;
     }
 
     public void customWriteObject(CSWriter writer)
-        throws IOException
-    {
+            throws IOException {
         writer.writeString(param);
     }
 
     public void customReadObject(CSReader reader)
-        throws IOException, ObjectStreamException
-    {
+            throws IOException, ObjectStreamException {
         param = reader.readString();
     }
 }

@@ -12,7 +12,7 @@ import com.topcoder.shared.problem.DataType;
  * @see     Language
  */
 public class CStyleLanguage
-    extends Language
+    extends BaseLanguage
 {
     public CStyleLanguage()
     {
