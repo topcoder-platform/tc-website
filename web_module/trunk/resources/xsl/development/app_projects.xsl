@@ -76,7 +76,7 @@
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=email_tool_enhancements">Email Tool Enhancements</a></td>
                     <td class="formTextOdd" align="center">$1,290</td>
                     <td class="formTextOdd" align="center">$420</td>
-                    <td class="formTextOdd" align="center">10.20.2003</td>
+                    <td class="formTextOdd" align="center">closed</td>
                 </tr>
 
              </table>
@@ -86,11 +86,6 @@
             <table border="0" cellspacing="0" cellpadding="5" width="100%">
                 <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="4"><font size="3"><strong>Open Application Development Projects</strong></font></td></tr>
 
-                <!--
-                <tr valign="top">
-                    <td align="center" colspan="4" class="formTextOdd">No New Projects Available</td>
-                </tr>
-                -->
 
 
                 <tr valign="middle">
@@ -100,11 +95,16 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Inquire By</td>
                 </tr>
 
+                <!--
+                <tr valign="top">
+                    <td align="center" colspan="4" class="formTextOdd">No New Projects Available</td>
+                </tr>
+                -->
                 <tr valign="top">
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements_dev">Admin Tool Enhancements</a></td>
                     <td class="bodyText" align="center">$2,200</td>
                     <td class="bodyText" align="center">$665</td>
-                    <td class="bodyText" align="center">10.20.2003</td>
+                    <td class="bodyText" align="center">closed</td>
                 </tr>
 
 

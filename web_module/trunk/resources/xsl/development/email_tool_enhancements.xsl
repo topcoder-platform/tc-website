@@ -209,13 +209,10 @@
                                         </p>
                                         <p>
                                             <strong>
-                                                <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Email%20Tool%20Enhancements">Inquire for the Application Project</a> to get selected as a designer and to obtain the information necessary to submit a solution &gt;&gt;
+                                                <!--<a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group1">Inquire for the Group 1 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.-->
+                                                Inquiry is closed.
                                             </strong>
-                                        </p>
-                                        <p>
-                                            <!--To submit a solution, email your submissions to
-                                            <a href="mailto:submissions@topcodersoftware.com" class="bodyText">submissions@topcodersoftware.com</a>.
-                                            -->
+
                                         </p>
                                         <p>
                                             <br/>
