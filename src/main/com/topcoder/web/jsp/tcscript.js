@@ -46,7 +46,9 @@ function sponsorLinkWindow(spons,nam,top,lef,wid,hei) {
 }
 
 function openWin(url, name, w, h) {
-    win = window.open(url, name, "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+    var left = Math.round((screen.availWidth - w)/2);
+    var top = Math.round((screen.availHeight-h)/2);
+    win = window.open(url, name, "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h",left="+left=",top="top);
     win.location.href = url;
     win.focus();
 }
