@@ -31,14 +31,14 @@ public class ResumeServicesBean extends BaseEJB {
             "SELECT " +
             "   r.file AS file, " +
             "   r.file_name AS file_name, " +
-            "   ftl.file_type_desc AS file_type" +
+            "   ftl.file_type_desc AS file_type " +
             "FROM " +
             "   resume r " +
             "JOIN " +
             "   file_type_lu ftl " +
             "   ON ftl.file_type_id = r.file_type_id " +
-            "WHERE" +
-            "    coder_id=?";
+            "WHERE " +
+            "    coder_id = ?";
 
     public Resume getResume(int userID) throws RemoteException{
         log.debug("ejb:ResumeServices:getResume("+userID+") called...");

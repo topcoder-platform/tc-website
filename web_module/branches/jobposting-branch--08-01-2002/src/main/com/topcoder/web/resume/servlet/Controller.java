@@ -43,45 +43,49 @@ public class Controller
         HttpSession session = null;
         try {
             log.debug("In com.topcoder.web.resume.servlet.Controller.service()");
-//            if (request.getContentType() != null && request.getContentType().indexOf(MULTIPART_FORM_DATA) >= 0) {
-                FileUpload fu = new FileUpload(request, false);
-                String taskName = fu.getParameter(TASK);
-                log.debug(taskName);
-                if (taskName == null || !isWord(taskName)) {
-                    log.debug(TASK + " not found in request. - "+taskName);
-                    forwardToError(request, response, new Exception(TASK + " not found in request."));
-                    return;
-                }
-                session = request.getSession();
-                ResumeTask task = null;
-                Class taskClass = null;
-                try {
-                    taskClass = Class.forName(TASK_PACKAGE + "." + taskName);
-                } catch (ClassNotFoundException e) {
-                    log.error(e.getMessage());
-                    forwardToError(request, response, e);
-                    return;
-                }
-                log.debug("about to make task: "+taskName);
-                Enumeration enum = request.getSession().getAttributeNames();
-                while(enum.hasMoreElements()){
-                    String name = enum.nextElement().toString();
-                    log.debug(name+" - "+request.getSession().getAttribute(name));
-                }
-                try {
-                    task = (ResumeTask) taskClass.getConstructor(new Class[]{FileUpload.class}).newInstance(new Object[]{fu});
-                    log.debug("about to process task: "+taskName);
-                    User user = getUser(request.getSession());
-                    log.debug(user+"");
-                    task.setUser(user);
-                    task.process();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    forwardToError(request, response, e);
-                    return;
-                }
-                task.getNextPage(request,response);
-//            }
+            FileUpload fu = null;
+            String taskName = null;
+            if (request.getContentType() != null && request.getContentType().indexOf(MULTIPART_FORM_DATA) >= 0) {
+                fu = new FileUpload(request, false);
+                taskName = fu.getParameter(TASK);
+            }else{
+                taskName = request.getParameter(TASK);
+            }
+            log.debug(taskName);
+            if (taskName == null || !isWord(taskName)) {
+                log.debug(TASK + " not found in request. - "+taskName);
+                forwardToError(request, response, new Exception(TASK + " not found in request."));
+                return;
+            }
+            session = request.getSession();
+            ResumeTask task = null;
+            Class taskClass = null;
+            try {
+                taskClass = Class.forName(TASK_PACKAGE + "." + taskName);
+            } catch (ClassNotFoundException e) {
+                log.error(e.getMessage());
+                forwardToError(request, response, e);
+                return;
+            }
+            log.debug("about to make task: "+taskName);
+            Enumeration enum = request.getSession().getAttributeNames();
+            while(enum.hasMoreElements()){
+                String name = enum.nextElement().toString();
+                log.debug(name+" - "+request.getSession().getAttribute(name));
+            }
+            try {
+                task = (ResumeTask) taskClass.getConstructor(new Class[]{FileUpload.class}).newInstance(new Object[]{fu});
+                log.debug("about to process task: "+taskName);
+                User user = getUser(request.getSession());
+                log.debug(user+"");
+                task.setUser(user);
+                task.process();
+            } catch (Exception e) {
+                e.printStackTrace();
+                forwardToError(request, response, e);
+                return;
+            }
+            task.getNextPage(request,response);
         } catch (ServletException se) {
             throw se;
         } catch (Exception e) {
