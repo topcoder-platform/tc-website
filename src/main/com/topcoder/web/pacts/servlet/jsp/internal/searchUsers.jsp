@@ -66,13 +66,13 @@
    out.println("              <input type=\"radio\" name=\""+PactsConstants.IS_OWED_MONEY+"\" value=\"\" checked>Don't"); %>
               Care</td>
           </tr>
-<%
-   out.println("        <script language=\"javascript\"> ");
-   out.println(" <!-- ");
-   out.println("        document.searchForm."+PactsConstants.HANDLE+".focus();   ");
-   out.println("  -->");
-   out.println(" </script>");
- %>
+
+   <script language="javascript">
+   <!--
+   document.searchForm.<%=PactsConstants.HANDLE %>.focus();
+   -->
+   </script>
+
         </table>
         <p><br>
         <input type="submit" value="Submit" name="B1"><input type="reset" value="Reset" name="B2">
