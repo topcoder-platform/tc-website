@@ -61,7 +61,7 @@
                 <B>AFFIDAVIT</B> - must be postmarked on or before Oct. 28, 2002:<BR/><BR/>
                 <xsl:choose>
                   <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
-                    We do not have an affidavit on file.  Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.  This affidavit must notarized and returned to us at the address below.
+                    We do not have a notarized affidavit from you on file.  Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.  This affidavit must notarized and returned to us at the address below.
                   </xsl:when>
                   <xsl:otherwise>
                     Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.  Please read the affidavit, sign it and return it to us at the address below.
@@ -106,6 +106,7 @@
                 <BR/>
               </li>
               <li>
+                <B>HEADSHOT</B> - must be emailed by 12:00PM EST on Monday, Oct. 28th:<BR/><BR/>
                 <xsl:choose>
                   <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
                     We do not have your headshot on file.  Click below to submit your headshot.<BR/><BR/>
@@ -129,7 +130,7 @@
             <BR/>
             <B>
             Reminder, you will not receive any prize money unless all five items above are completed 
-            by Monday, October 28th at Noon EST.  Any items that need to be mailed via the postal 
+            by Monday, October 28th at 12:00PM EST.  Any items that need to be mailed via the postal 
             service must be postmarked by this date.
             </B>
           </P>
