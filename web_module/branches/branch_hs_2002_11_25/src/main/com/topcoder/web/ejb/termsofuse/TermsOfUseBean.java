@@ -63,7 +63,7 @@ public class TermsOfUseBean implements SessionBean {
       query.append("INTO terms_of_use (terms_of_use_id) ");
       query.append("VALUES (?)");
     
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,terms_of_use_id);
 
@@ -77,10 +77,6 @@ public class TermsOfUseBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -113,14 +109,12 @@ public class TermsOfUseBean implements SessionBean {
 
     try {
 
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT terms_of_use_type_id ");
       query.append("FROM terms_of_use ");
       query.append("WHERE terms_of_use_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_terms_of_use_id);
 
@@ -137,10 +131,6 @@ public class TermsOfUseBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -172,14 +162,12 @@ public class TermsOfUseBean implements SessionBean {
 
     try {
 
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE terms_of_use ");
       query.append("SET terms_of_use_type_id=? ");
       query.append("WHERE terms_of_use_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_terms_of_use_type_id);
       ps.setLong(2,_terms_of_use_id);
@@ -194,10 +182,6 @@ public class TermsOfUseBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -229,14 +213,12 @@ public class TermsOfUseBean implements SessionBean {
 
     try {
 
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT text ");
       query.append("FROM terms_of_use ");
       query.append("WHERE terms_of_use_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_terms_of_use_id);
 
@@ -253,10 +235,6 @@ public class TermsOfUseBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -287,14 +265,12 @@ public class TermsOfUseBean implements SessionBean {
 
     try {
 
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE terms_of_use ");
       query.append("SET text=? ");
       query.append("WHERE terms_of_use_id=?");
 
-      con=ds.getConnection();
+      con=DBMS.getHighSchoolConnection();
       ps=con.prepareStatement(query.toString());
       ps.setString(1,_text);
       ps.setLong(2,_terms_of_use_id);
@@ -309,10 +285,6 @@ public class TermsOfUseBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
