@@ -135,8 +135,8 @@
 <%-- Right Column --%>
 		<td class=homeRightCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
-			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=overview"><img src="/i/home/promos/tccc05_LG.gif" border=0 /></A></td></tr>
-			<tr><td class=homeSmallPromo><A href="/i/tournament/tco04/onsite_movies/tomekfinal.mov"><img src="/i/home/promos/tco04Movies_SM.gif" border=0 /></A></td></tr>
+			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/home/promos/tccc05_LG.gif" border=0 /></A></td></tr>
+			<tr><td class=homeSmallPromo><A href="/i/tournament/tco04/onsite_movies/snapNtomek.mov"><img src="/i/home/promos/tco04_snaptomek.jpg" border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
@@ -160,12 +160,12 @@
 			<tr>
 				<td class=homeArrow>&#160;</td>
 				<td class=homeText><br/>
+				TopCoder&#174; Announces Yahoo! as Title Sponsor for 2005 TCCC <A href="/?&t=news_events&c=pr_12_20_04">...more</A><br/>[December 20]<br/><br/>
 				Top coders seek bigger prize than cash <A href="/?&t=news_events&c=art_12_03_04">...more</A><br/>[December 3 - SCMP]<br/><br/>
 				Champions Announced In 2004 TopCoder&#174; Open Sponsored by Microsoft&#174; <A href="/?&t=news_events&c=pr_11_15_04">...more</A><br/>[November 15]<br/><br/>
 				Brain teasers help Google recruit workers <A href="/i/pressroom/cnn_110404.pdf">...more</A><br/>[November 4 - CNN]<br/><br/>
 				Finalists for 2004 TopCoder Open Sponsored by Microsoft&#174; <A href="/?&t=news_events&c=pr_11_01_04">...more</A><br/>[November 1]<br/><br/>
 				Google's creative search for elite programmers <A href="/?&t=news_events&c=art_10_25_04">...more</A><br/>[October 25 - Associated Press]<br/><br/>
-				Google holds coding contest <A href="/?&t=news_events&c=art_10_19_04">...more</A><br/>[October 19 - SJ Mercury]<br/><br/>
 				</td>
 			</tr>
 		</table>

@@ -34,7 +34,7 @@
                     March 10 & 11 at the Santa Clara Marriott in Santa Clara, CA, USA</li>
                 <li><strong>Free Competition</strong><br /></li>
                 <li><strong>Open to all eligible college students over the age of 18.</strong></li>
-                <li><strong>Go to the <a href="/tc">member homepage</a> to view your registration information.</strong></li>
+                <li><strong>Login to the <a href="/tc">member homepage</a> to view your registration information.</strong></li>
             </ul>
             
             <p>See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_rules">rules and regulations</A> for more details.</p>
