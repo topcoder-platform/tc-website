@@ -68,9 +68,13 @@
 
                         <p><strong>How to get started:</strong></p>
                                     <ol>
-                                        <li><a href="mailto:mluce@topcoder.com?subject=TopCoder Student Reps">Contact us</a>  that you're willing to take the position for your campus.</li>
+                                        <li><a href="mailto:mluce@topcoder.com?subject=TopCoder Student Reps">Contact us</a>  if you're willing to take the position for your campus.</li>
                                         <li>Include your mailing address in the e-mail.  This will be the address where the posters are sent.</li>
                                         <li>Include how many posters you want - they come in packages of 10.</li>
+                                        <li>Include the name of the college/university you will be representing.</li>
+                                        <li>Include your TopCoder handle.</li>
+Ê
+
                                     </ol>
                        <p>There can only be one Rep at each school. Positions will be filled on a first come, first served basis, so act fast!</p>
                 
