@@ -60,6 +60,11 @@ public class Controller
                     return;
                 }
                 log.debug("about to make task: "+taskName);
+                Enumeration enum = request.getSession().getAttributeNames();
+                while(enum.hasMoreElements()){
+                    String name = enum.nextElement().toString();
+                    log.debug(name+" - "+request.getSession().getAttribute(name));
+                }
                 try {
                     task = (ResumeTask) taskClass.getConstructor(new Class[]{FileUpload.class}).newInstance(new Object[]{fu});
                     log.debug("about to process task: "+taskName);
@@ -129,7 +134,6 @@ public class Controller
 
     User getUser(HttpSession session) {
         log.debug(session+"");
-        log.debug(session.getServletContext().getRealPath()+"");
         if (session != null) {
             Object navigation = session.getAttribute(NAVIGATION);
             if (navigation instanceof Navigation) {
