@@ -157,7 +157,7 @@ Requirements: Java programming experience, including usage of JSP and EJB, HTTP-
 </P>
 
 <P>
-<B>Finalize Software Architecture and Design - Complete July 16, 2002</B>
+<B>Finalize Software Architecture and Design - Complete July 16, 2002</B><BR/>
 The purpose of Specification phase is to finalize the system design, test cases and deliverable dates.  All designs should be submitted into CVS.
 </P>
 
