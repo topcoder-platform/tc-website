@@ -40,7 +40,7 @@ public class ServerMonitorBot {
                                         "--header=Host: www.topcoder.com",
                                         "--timeout=30",
                                         "-t1",
-                                        "--spider"};
+                                        ""};
 
                 Process p = r.exec(callAndArgs);
                 p.waitFor();
