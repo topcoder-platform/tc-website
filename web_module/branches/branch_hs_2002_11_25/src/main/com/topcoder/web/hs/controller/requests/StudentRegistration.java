@@ -48,7 +48,7 @@ public class StudentRegistration extends Base {
       StudentRegistrationBean srb=new StudentRegistrationBean();
       populateStudentRegistrationBean(srb);
 
-      request.setAttribute("STUDENT",srb);
+      request.setAttribute("student",srb);
 
       setNextPage(REGISTRATION_BASE+REGISTRATION_PAGE);
       setIsNextPageInContext(true);
