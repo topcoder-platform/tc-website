@@ -91,6 +91,9 @@ public abstract class Base extends BaseProcessor {
         return companyId;
     }
 
+    protected Object getDefault(String key ) {
+        return defaults.get(key);
+    }
 
     protected void clearSessionErrors(String messageId) {
         getRequest().getSession().removeAttribute(ERRORS_KEY + messageId);
