@@ -149,7 +149,14 @@
                             <tr> 
                                 <td id="calendar">19</td>
                                 <td id="calendar">20</td>
-                                <td id="calendar">21</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">21</span><br />
+                                    <strong>Match 168</strong><br />
+                                    Register: 5:00&#160;PM<br />
+                                    Compete: 8:00&#160;PM<br />
+                                    Sponsor: <A href="/?t=tces&amp;c=index">Nvidia</A><br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?RoundId=4645&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarTCO03">
                                     <span id="calendarTCO03Date">22</span><br />
                                     <strong>2003 TCO</strong><br />
@@ -159,14 +166,7 @@
                                     <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">23</span><br />
-                                    <strong>Match 168</strong><br />
-                                    Register: 5:00&#160;PM<br />
-                                    Compete: 8:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tces&amp;c=index">Nvidia</A><br />
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4645&amp;t=schedule&amp;c=srm">Details</A></td>
+                                <td id="calendar">23</td>
                                 <td id="calendar">24</td>
                                 <td id="calendar">25</td>
                             </tr>
