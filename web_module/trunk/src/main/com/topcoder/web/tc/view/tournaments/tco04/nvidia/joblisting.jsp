@@ -23,7 +23,7 @@
 				<tr>
 					<td class="bodyText">
                     <A href="http://www.nvidia.com/page/home" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_banner.gif" alt="NVIDA" width="510" height="100" border="0" /></A>
-                    <p class=pageTitle>Positions Available</p>
+                    <p class=pageTitle>NVIDIA Positions Available</p>
 					<ul>
 						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=arch_eng">Architecture Engineer</a></li>
 						<li><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=3d_toolsarch">3D Tools Architect</a></li>
