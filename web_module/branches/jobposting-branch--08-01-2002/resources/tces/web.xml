@@ -22,18 +22,10 @@
   </init-param>
 
   <init-param>
-    <param-name>login_page</param-name>
-    <param-value>login.jsp</param-value>
+    <param-name>tces_package</param-name>
+    <param-value>com.topcoder.web.tces.bean</param-value>
     <description>
-      The TCES login page.
-    </description>
-  </init-param>
-
-  <init-param>
-    <param-name>main_page</param-name>
-    <param-value>main.jsp</param-value>
-    <description>
-      The company's main page
+      Package path to the TCES classes
     </description>
   </init-param>
 
@@ -45,25 +37,305 @@
     </description>
   </init-param>
 
+  <init-param>
+    <param-name>auth_failed_page</param-name>
+    <param-value>/tces?task=LoginTask</param-value>
+    <description>
+      URI to the page for a failed authentication
+    </description>
+  </init-param>
 
+  <init-param>
+    <param-name>login_page</param-name>
+    <param-value>/login.jsp</param-value>
+    <description>
+      URI to the login JSP
+    </description>
+  </init-param>
 
+  <init-param>
+    <param-name>login_ok_page</param-name>
+    <param-value>/tces?task=MainTask&st=v</param-value>
+    <description>
+      URI to the successful login page
+    </description>
+  </init-param>
 
+  <init-param>
+    <param-name>main_page</param-name>
+    <param-value>/main.jsp</param-value>
+    <description>
+      URI to the TCES main page JSP
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>main_godetail_page</param-name>
+    <param-value>/tces?task=CampaignDetailTask</param-value>
+    <description>
+      URI to the campaign detail page
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>campaign_detail_page</param-name>
+    <param-value>/campaign_detail.jsp</param-value>
+    <description>
+      URI to the campaign Detail JSP
+    </description>
+  </init-param>
+
+  <init-param>
+   <param-name>position_interest_page</param-name>
+   <param-value>/position_interest.jsp.jsp</param-value>
+    <description>
+      URI to the position interest JSP
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>campaign_interest_page</param-name>
+    <param-value>/campaign_interest.jsp</param-value>
+    <description>
+      URI to the campaign interest JSP
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>demographic_page</param-name>
+    <param-value>/demographic_info.jsp</param-value>
+    <description>
+      URI to the demographic JSP
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>member_profile_page</param-name>
+    <param-value>/member_profile.jsp</param-value>
+    <description>
+      URI to the member profile JSP
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>coder_demographics_page</param-name>
+    <param-value>/coder_demographics.jsp</param-value>
+    <description>
+      URI to the coder demographics JSP
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>competition_history_page</param-name>
+    <param-value>/competition_history.jsp</param-value>
+    <description>
+      URI to the competition history JSP
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>competition_statistics_page</param-name>
+    <param-value>/competition_statistics.jsp</param-value>
+    <description>
+      URI to the competition statistics JSP
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>problem_submissions_page</param-name>
+    <param-value>/problem_submissions.jsp</param-value>
+    <description>
+      URI to the problem submissions JSP
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>problem_statistics_page</param-name>
+    <param-value>/problem_statistics.jsp</param-value>
+    <description>
+      URI to the problem statistics JSP
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>problem_statement_page</param-name>
+    <param-value>/problem_statement.jsp</param-value>
+    <description>
+      URI to the problem statement JSP
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>member_interest_page</param-name>
+    <param-value>/member_interest.jsp</param-value>
+    <description>
+      URI to the member interest JSP
+    </description>
+  </init-param>
+  
+  
+  
+
+  <init-param>
+    <param-name>login_task</param-name>
+    <param-value>LoginTask</param-value>
+    <description>
+      Name of the task class handling login
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>login_task_step_view</param-name>
+    <param-value>v</param-value>
+    <description>
+      Idenitifier for the view step of the login task 
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>login_task_step_auth</param-name>
+    <param-value>a</param-value>
+    <description>
+      Idenitifier for the view step of the login task
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>main_task</param-name>
+    <param-value>MainTask</param-value>
+    <description>
+      Name of the main task class
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>campaign_detail_task</param-name>
+    <param-value>CampaignDetailTask</param-value>
+    <description>
+      Name of the campaign detail task class
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>campaign_interest_task</param-name>
+    <param-value>CampaignInterestTask</param-value>
+    <description>
+      Name of the campaign interest task class
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>position_interest_task</param-name>
+    <param-value>PositionInterestTask</param-value>
+    <description>
+      Name of the position interest task class
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>demographic_task</param-name>
+    <param-value>DemographicTask</param-value>
+    <description>
+      Name of the demographic task class
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>member_profile_task</param-name>
+    <param-value>MemberProfileTask</param-value>
+    <description>
+      Name of the member profile task class
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>coder_demographics_task</param-name>
+    <param-value>CoderDemographicsTask</param-value>
+    <description>
+      Name of the coder demographics task class
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>competition_history_task</param-name>
+    <param-value>CompetitionHistoryTask</param-value>
+    <description>
+      Name of the competition history task class
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>competition_statistics_task</param-name>
+    <param-value>CompetitionStatisticsTask</param-value>
+    <description>
+      Name of the competition statistics task class
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>problem_submissions_task</param-name>
+    <param-value>ProblemSubmissionsTask</param-value>
+    <description>
+      Name of the problem submissions task class
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>problem_statistics_task</param-name>
+    <param-value>ProblemStatisticsTask</param-value>
+    <description>
+      Name of the problem statistics task class
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>problem_statement_task</param-name>
+    <param-value>ProblemStatementTask</param-value>
+    <description>
+      Name of the problem statement task class
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>member_interest_task</param-name>
+    <param-value>MemberInterestTask</param-value>
+    <description>
+      Name of the member interest task class
+    </description>
+  </init-param>
+  
+  
+  <init-param>
+    <param-name>sort_order_asc</param-name>
+    <param-value>a</param-value>
+    <description>
+      Identifier for ascending sort order.
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>sort_order_des</param-name>
+    <param-value>d</param-value>
+    <description>
+      Identifier for descending sort order.
+    </description>
+  </init-param>
+  
+  
+ 
+  <init-param>
+    <param-name>task_param</param-name>
+    <param-value>task</param-value>
+    <description>
+      The key for the task parameter of a request.
+    </description>
+  </init-param> 
   <init-param>
     <param-name>step_param</param-name>
     <param-value>st</param-value>
     <description>
       The key for the step parameter of a request.
     </description>
-  </init-param>
-  
+  </init-param> 
   <init-param>
-    <param-name>job_id_param</param-name>
-    <param-value>job_id</param-value>
+    <param-name>sort_param</param-name>
+    <param-value>sort</param-value>
     <description>
-      The key for the job_id parameter of a request.
+      The key for the sort parameter of a request.
     </description>
   </init-param>
-
+  <init-param>
+    <param-name>sort_order_param</param-name>
+    <param-value>so</param-value>
+    <description>
+      The key for the sort order parameter of a request.
+    </description>
+  </init-param>  
   <init-param>
     <param-name>user_id_param</param-name>
     <param-value>user_id</param-value>
@@ -71,7 +343,6 @@
       The key for the user_id parameter of a request.
     </description>
   </init-param>
-
   <init-param>
     <param-name>handle_param</param-name>
     <param-value>Handle</param-value>
@@ -79,7 +350,6 @@
       The key for the handle parameter of a request.
     </description>
   </init-param>
-
   <init-param>
     <param-name>password_param</param-name>
     <param-value>Password</param-value>
@@ -87,16 +357,70 @@
       The key for the password parameter of a request.
     </description>
   </init-param>
-
-
   <init-param>
-    <param-name>msg_attr_key</param-name>
-    <param-value>message</param-value>
+    <param-name>campaign_id_param</param-name>
+    <param-value>cid</param-value>
     <description>
-      The key for the message attribute of a request.
+      The key for the campaign id parameter of a request.
     </description>
   </init-param>
-  
+  <init-param>
+    <param-name>job_id_param</param-name>
+    <param-value>job_id</param-value>
+    <description>
+      The key for the job_id parameter of a request.
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>member_id_param</param-name>
+    <param-value>mid</param-value>
+    <description>
+      The key for the member id parameter of a request.
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>round_id_param</param-name>
+    <param-value>rd</param-value>
+    <description>
+      The key for the round id parameter of a request.
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>problem_id_param</param-name>
+    <param-value>pid</param-value>
+    <description>
+      The key for the problem id parameter of a request.
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>pro_coder_type</param-name>
+    <param-value>2</param-value>
+    <description> 
+      The constant value representing a professional coder within the coder_type_lu enumeration
+    </description> 
+  </init-param>
+  <init-param>
+    <param-name>student_coder_type</param-name>
+    <param-value>1</param-value>
+    <description>
+      The constant value representing a student coder within the coder_type_lu enumeration
+    </description>
+  </init-param>
+  <init-param>
+    <param-name>problem_status_open</param-name>
+    <param-value>120</param-value>
+    <description> 
+      The constant value representing an open problem within the problem_status_lu enumeration
+    </description> 
+  </init-param>
+  <init-param>
+    <param-name>problem_status_compiled</param-name>
+    <param-value>121</param-value>
+    <description>
+      The constant value representing a compiled problem within the problem_status_lu enumeration
+    </description>
+  </init-param>  
 </servlet>
 
 <servlet-mapping>
