@@ -227,9 +227,9 @@ lang_tot_succ = Long.parseLong(rsc4.getItem(i,"lev1_succ").toString()) + Long.pa
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="lev3_subs"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="lev3_succ"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%=getPercentage(rsc4,i,"lev3_subs",i,"lev3_succ")%></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= tot_subs %></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= tot_succ %></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= getPercent(tot_subs, tot_succ) %></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= lang_tot_subs %></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= lang_tot_succ %></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= getPercent(lang_tot_subs, lang_tot_succ) %></td>
 </tr>
 <%even=!even;
 tot_lev1_subs = tot_lev1_subs + Long.parseLong(rsc4.getItem(i,"lev1_subs").toString());
@@ -270,9 +270,9 @@ i++;
 <tr>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" >&nbsp;</td>
   <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Easy&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc2,0,"(count)",0,"lev1_subs")%></strong></td>
-  <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Medium&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc2,0,"(count)",0,"lev2_subs")%></strong></td>
+  <td colspan="3" class="srmTableBlue" ><strong>Medium&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc2,0,"(count)",0,"lev2_subs")%></strong></td>
   <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Difficult&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc2,0,"(count)",0,"lev3_subs")%></strong></td>
-  <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" >&nbsp;</td>
+  <td colspan="3" class="srmTableBlue" >&nbsp;</td>
 
 </tr>
  <tr>
@@ -298,6 +298,8 @@ tot_lev2_subs = 0;
 tot_lev2_succ = 0;
 tot_lev3_subs = 0;
 tot_lev3_succ = 0;
+tot_subs = 0;
+tot_succ = 0;
 %>
   <rsc:iterator list="<%=rsc5%>" id="Row" >
 <% 
@@ -320,9 +322,9 @@ lang_tot_succ = Long.parseLong(rsc5.getItem(i,"lev1_succ").toString()) + Long.pa
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="lev3_subs"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="lev3_succ"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%=getPercentage(rsc5,i,"lev3_subs",i,"lev3_succ")%></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= tot_subs %></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= tot_succ %></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= getPercent(tot_subs, tot_succ) %></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= lang_tot_subs %></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= lang_tot_succ %></td>
+  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%= getPercent(lang_tot_subs, lang_tot_succ) %></td>
 </tr>
 <%even=!even;
 tot_lev1_subs = tot_lev1_subs + Long.parseLong(rsc5.getItem(i,"lev1_subs").toString());
