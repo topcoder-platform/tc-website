@@ -90,7 +90,8 @@ title for the position description and requirements.
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <P>       
        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_archeng01_intern&amp;a=secure" CLASS="bodyText">ARCHITECT INTERN/CO-OP</A></B><BR/><BR/>  
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platarcheng01_intern&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECT INTERN/CO-OP</A></B><BR/><BR/></P> 
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platarcheng01_intern&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECT INTERN/CO-OP</A></B><BR/><BR/>
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_netsofteng01_intern&amp;a=secure" CLASS="bodyText">NETWORKING SOFTWARE INTERN/CO-OP</A></B><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/><IMG SRC="/i/header_new.gif" WIDTH="46" HEIGHT="20" ALT="" VALIGN="bottom" BORDER="0"/><BR/><BR/></P>        
     </TD>
   </TR>
 </TABLE> 
