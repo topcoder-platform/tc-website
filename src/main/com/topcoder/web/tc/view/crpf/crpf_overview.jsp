@@ -38,9 +38,12 @@
                </jsp:include>
 
 <!--CRPF Header-->
-                <div align="center">
-                    <A href="/tc/?&module=Static&d1=crpf&d2=index"><img src="/i/tournament/crpf03/crpf_banner.gif" width="601" height="152" border="0"  vspace="15"/></A>
-                </div>
+               <table align="center">
+                  <tr>
+                     <td><A href="/tc/?&module=Static&d1=crpf&d2=index"><img src="/i/tournament/crpf03/crpf_banner.gif" width="505" height="152" border="0"  vspace="15"/></A></td>
+                  </tr>
+               </table>
+
                
 <!-- Tab bar links-->
 <jsp:include page="crpfLinks.jsp" >
