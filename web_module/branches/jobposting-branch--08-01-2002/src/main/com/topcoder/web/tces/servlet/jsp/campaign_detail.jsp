@@ -49,8 +49,13 @@
            <jsp:param name="title" value="<%=CampaignDetailTask.getCompanyName()%>"/>
         </jsp:include>
         <P ALIGN="center">
-          <A HREF="<%="/tces/tces?"+TCESConstants.TASK_PARAM+"="+TCESConstants.MAIN_TASK+"&"+TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID"/>" class="statText">Main</A>
-        </P> 
+          <tces:trailIterator id="trailItem" trailList="<%=CampaignDetailTask.getTrail()%>">
+            <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="statText"><jsp:getProperty name="trailItem" property="name"/></A>
+          </tces:trailIterator>
+        </P>
+
+
+
         <P ALIGN="center">
           <B>
             <jsp:getProperty name="CampaignDetailTask" property="CompanyName"/>
