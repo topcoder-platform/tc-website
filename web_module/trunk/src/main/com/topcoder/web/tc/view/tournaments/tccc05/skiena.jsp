@@ -22,6 +22,13 @@
 		<div class="bodySpacer">
             
          <p class="bigTitle">Steven Skiena, PhD</p>
+<A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=skienaReview">Steven Skiena's TCCC05 Review</A><br>
+Listen to Steven Skiena's presentation from the TCCC05: 
+<A href="/i/tournament/tccc05/onsite_movies/skiena1.mov">Part 1</A>&#160;|&#160;
+<A href="/i/tournament/tccc05/onsite_movies/skiena1.mov">Part 2</A>&#160;|&#160;
+<A href="/i/tournament/tccc05/onsite_movies/skiena1.mov">Part 3</A>&#160;|&#160;
+<A href="/i/tournament/tccc05/onsite_movies/skiena1.mov">Part 4</A>
+<br><br>
 
          <center><a href="http://www.amazon.com/exec/obidos/ASIN/0387001638/ref=nosim/thealgorithmrepo"><img src="/i/tournament/tccc05/skiena1.jpg" border=0 /></a>
          <img src="/i/tournament/tccc05/skiena2.jpg" border=0 />
