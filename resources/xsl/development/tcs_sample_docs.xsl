@@ -16,7 +16,7 @@
 
     <xsl:call-template name="Preload"/>      
 
-<title>TopCoder | Development</title>
+<title>Component Documentation and Sample Submissions for TopCoder Software Development</title>
 
     <xsl:call-template name="CSS"/>      
 
@@ -52,26 +52,22 @@
                 <xsl:call-template name="BodyTop">
                     <xsl:with-param name="image1">white</xsl:with-param>
                     <xsl:with-param name="image">development</xsl:with-param>
-                    <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
+                    <xsl:with-param name="title">&#160;Component Documentation and Sample Submissions</xsl:with-param>
                 </xsl:call-template>
                 
                 <table border="0" cellspacing="0" cellpadding="10" width="100%">
                     <tr valign="top">
                         <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br />
                             
-                            <h2 class="devSubhead"><strong>Documentation and Sample Submissions</strong></h2>
-    
                             <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                                <tr valign="middle"><td bgcolor="#666666" class="registerNav" height="18" colspan="3">&#160;Component Documentation</td></tr>
+                                <tr valign="middle"><td bgcolor="#666666" class="registerNav" height="18" colspan="3">Component Documentation</td></tr>
                                 
                                 <tr valign="middle">
-                                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="45%" height="18">&#160;Description&#160;</td>
-                                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="5%" height="18"><img src="/i/clear.gif" alt="" height="1" width="5" border="0" /></td>
-                                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="50%" height="18">Modified&#160;&#160;&#160;&#160;&#160; Download File&#160;</td>
+                                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="49%" height="18">Description</td>
+                                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="5" height="18"><img src="/i/clear.gif" alt="" height="1" width="5" border="0" /></td>
+                                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="49%" height="18">Modified&#160;&#160;&#160;&#160;&#160; Download File&#160;</td>
                                 </tr>
                             
-                                <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
-                                
                                 <tr valign="middle">
                                     <td class="bodyText" valign="top"><strong>TopCoder Software Development Environment</strong><br />
                                     The TopCoder Software Development Environment is intended to facilitate the component design and 
@@ -294,14 +290,13 @@
                 </tr>
             </table>
             
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><td colspan="4" valign="top" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>     
-            </table>
+            <p><br/></p>
+            
         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter begins -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0" /></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="5" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
