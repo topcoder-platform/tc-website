@@ -614,8 +614,8 @@ SELECT com.company_name
 java com.topcoder.utilities.QueryLoader "OLTP" 1001 "TCES_Campaign_List" 0 0 "
 SELECT c.campaign_id
      , c.campaign_name
-     , c.start_date
-     , c.end_date
+     , TO_CHAR(c.start_date, '%m/%d/%iY') as start_date
+     , TO_CHAR(c.end_date, '%m/%d/%iY') as end_date
      , co.company_id
      , co.company_name
   FROM contact con
@@ -662,26 +662,28 @@ SELECT j.job_id,
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1005 "TCES_Campaign_Hit_List" 0 0 "
-SELECT c.coder_id,
-       jh.job_id,
-       u.handle,
-       r.rating,
-       (CASE WHEN c.state_code = 'ZZ' THEN '' ELSE c.state_code END) as state_code,
-       country.country_name AS country_code,
-       ct.coder_type_desc,
-       (CASE WHEN c.coder_type_id = 1 THEN cs.school_name
-             ELSE 'N/A' END) AS school_name,
-       j.job_desc,
-       jh.timestamp
-  FROM user u,
-       rating r,
-       job j,
-       job_hit jh,
-       coder_type ct,
-       campaign_job_xref cjx,
-       country,
-       coder c,
-       OUTER current_school cs
+SELECT c.coder_id
+     , jh.job_id
+     , u.handle
+     , r.rating
+     , (CASE WHEN c.state_code = 'ZZ' THEN '' ELSE c.state_code END) as state_code
+     , (CASE WHEN NVL(c.state_code, '') = '' THEN 'ZZ' ELSE c.state_code END) as state_code_sort 
+     , country.country_name AS country
+     , ct.coder_type_desc
+     , (CASE WHEN c.coder_type_id = 1 THEN cs.school_name
+             ELSE 'N/A' END) AS school_name
+     , (CASE WHEN NVL(cs.school_name, '') = '' THEN 'zzzzzz' ELSE cs.school_name END) as school_name_sort
+     , j.job_desc
+     , TO_CHAR(jh.timestamp, '%m/%d/%iY') as hit_date
+  FROM user u
+     , rating r
+     , job j
+     , job_hit jh
+     , coder_type ct
+     , country
+     , coder c
+     , OUTER current_school cs
+     , campaign_job_xref cjx
  WHERE cjx.campaign_id = @cid@
    AND cjx.status_id = 1
    AND j.job_id = cjx.job_id
@@ -692,7 +694,7 @@ SELECT c.coder_id,
    AND cs.coder_id = c.coder_id
    AND ct.coder_type_id = c.coder_type_id
    AND country.country_code = c.country_code
- ORDER BY jh.timestamp DESC
+ ORDER BY hit_date DESC
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1006 "TCES_Position_Name" 0 0 "
@@ -702,31 +704,54 @@ SELECT j.job_desc
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1007 "TCES_Position_Hit_List" 0 0 "
-SELECT c.coder_id,
-       jh.job_id,
-       u.handle,
-       r.rating,
-       (CASE WHEN c.state_code = 'ZZ' THEN '' ELSE c.state_code END) as state_code,
-       country.country_name AS country_code,
-       ct.coder_type_desc,
-       (CASE WHEN c.coder_type_id = 1 THEN cs.school_name
-             ELSE 'N/A' END) AS school_name,
-       jh.timestamp
-  FROM user u,
-       rating r,
-       job_hit jh,
-       coder_type ct,
-       country,
-       coder c,
-       OUTER current_school cs
- WHERE jh.job_id = @jid@
+SELECT c.coder_id
+     , jh.job_id
+     , u.handle
+     , r.rating
+     , (CASE WHEN c.state_code = 'ZZ' THEN '' ELSE c.state_code END) as state_code
+     , (CASE WHEN NVL(c.state_code, '') = '' THEN 'ZZ' ELSE c.state_code END) as state_code_sort 
+     , country.country_name AS country_code
+     , ct.coder_type_desc
+     , (CASE WHEN c.coder_type_id = 1 THEN cs.school_name
+             ELSE 'N/A' END) AS school_name
+     , (CASE WHEN NVL(cs.school_name, '') = '' THEN 'zzzzzz' ELSE cs.school_name END) as school_name_sort
+     , (CASE WHEN NVL(c.state_code, '') = '' THEN 'ZZ' ELSE c.state_code END) as state_code_sort 
+     , TO_CHAR(jh.timestamp, '%m/%d/%iY') as hit_date
+     , (CASE WHEN c.coder_type_id = 1 THEN cs.gpa || '/' || cs.gpa_scale
+             ELSE 'N/A' END) as gpa
+     , (CASE WHEN c.coder_type_id = 1 AND NVL(cs.gpa_scale, 0) <> 0 
+             THEN cs.gpa/cs.gpa_scale ELSE 0 END) as gpa_sort 
+     , da2.demographic_answer_text AS grad_month
+     , da1.demographic_answer_text AS grad_year
+     , NVL(da1.demographic_answer_text, 'zzzzz') as grad_year_sort
+     , (SELECT count(*)
+          FROM resume r
+         WHERE r.coder_id = c.coder_id) as has_resume
+  FROM user u
+     , rating r
+     , job_hit jh
+     , coder_type ct
+     , country
+     , coder c
+     , OUTER current_school cs
+     , OUTER (demographic_response dr1, OUTER demographic_answer da1)
+     , OUTER (demographic_response dr2, OUTER demographic_answer da2)
+ WHERE jh.job_id = @jid@ 
    AND u.user_id = jh.user_id
    AND r.coder_id = jh.user_id
    AND c.coder_id = jh.user_id
    AND cs.coder_id = c.coder_id
    AND ct.coder_type_id = c.coder_type_id
    AND country.country_code = c.country_code
- ORDER BY jh.timestamp DESC
+   AND dr1.coder_id = c.coder_id
+   AND dr1.demographic_question_id = 18
+   AND dr1.demographic_answer_id = da1.demographic_answer_id
+   AND dr1.demographic_question_id = da1.demographic_question_id
+   AND dr2.coder_id = c.coder_id
+   AND dr2.demographic_question_id = 23
+   AND dr2.demographic_answer_id = da2.demographic_answer_id
+   AND dr2.demographic_question_id = da2.demographic_question_id
+ ORDER BY hit_date DESC
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1008 "TCES_Campaign_Coders_By_Type" 0 0 "
@@ -936,6 +961,7 @@ SELECT c.coder_id
             AND dr1.demographic_question_id = 18
             AND dr1.demographic_answer_id = da1.demographic_answer_id
             AND dr1.demographic_question_id = da1.demographic_question_id) AS grad_year
+     ,u.handle
   FROM country cy
      , user u
      , coder_type ct
