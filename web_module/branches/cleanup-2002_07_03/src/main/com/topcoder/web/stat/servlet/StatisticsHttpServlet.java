@@ -4,14 +4,16 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 import java.util.*;
-import com.topcoder.web.stat.bean.*;
-import com.topcoder.web.stat.common.*;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.*;
 import org.w3c.dom.*;
 import org.apache.xerces.parsers.*;
 import org.xml.sax.*;
 import javax.xml.parsers.*;
+import com.topcoder.web.stat.bean.*;
+import com.topcoder.web.stat.common.*;
+import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.*;
 
 
 public class StatisticsHttpServlet extends HttpServlet{
@@ -21,7 +23,6 @@ public class StatisticsHttpServlet extends HttpServlet{
   private static final String LOGGED_IN_ONLY = "1";
   private static final String ACCESS_MAP_KEY = "ACCESSCTRL";
   private Properties mProp = new Properties();
-  private static String dataClass = "com.topcoder.web.stat.bean.CachedDataRetrievalBean";
 
   /**
      * This method returns the associated properties object
@@ -117,11 +118,11 @@ public class StatisticsHttpServlet extends HttpServlet{
       // the next line works for Servlet 2.3
       // Map map = request.getParameterMap();
 
-      StatRequestBean srb = new StatRequestBean(map);
+      Request dataRequest = new Request(map);
 
       ServletContext sctx = this.getServletContext();
       Map accessMap = (Map)this.getServletContext().getAttribute(ACCESS_MAP_KEY);
-      String accessLevel = (String)accessMap.get(srb.getContentHandle());
+      String accessLevel = (String)accessMap.get(dataRequest.getContentHandle());
       Navigation nav = (Navigation)request.getSession().getAttribute("navigation");
       if (nav==null) nav = new Navigation();
 
@@ -129,11 +130,11 @@ public class StatisticsHttpServlet extends HttpServlet{
         if (nav.getLoggedIn())
           com.topcoder.common.web.util.Data.loadUser(nav);
         if (nav.getUser() == null)
-          Log.msg("[*** stats *** " + srb.getContentHandle() + " ***  ***]");
-        else Log.msg("[*** stats *** " + srb.getContentHandle() + " *** " + nav.getUser().getHandle() + " ***]");
+          Log.msg("[*** stats *** " + dataRequest.getContentHandle() + " ***  ***]");
+        else Log.msg("[*** stats *** " + dataRequest.getContentHandle() + " *** " + nav.getUser().getHandle() + " ***]");
      
         //hoke so that we can reload the properties file on the fly 
-        if (srb.getContentHandle().equals("reload")) {
+        if (dataRequest.getContentHandle().equals("reload")) {
           this.reload(sctx);
           return;
         }
@@ -144,12 +145,12 @@ public class StatisticsHttpServlet extends HttpServlet{
                                 "You must log in to view this portion of the site.&errorURL=http://" +
                                 request.getServerName() + "/stat?" + replace(sQueryString));
         }
-        request.setAttribute("REQUEST_BEAN", srb);
-        StatDataAccessInt dai = (StatDataAccessInt)ObjFactory.create(dataClass);
-        Map dataMap = dai.getData(srb);
+        request.setAttribute("REQUEST_BEAN", dataRequest);
+        DataAccessInt dai = new DWCachedDataAccess();
+        Map dataMap = dai.getData(dataRequest);
         request.setAttribute("QUERY_RESPONSE", dataMap);
         Map mpage = (Map) sctx.getAttribute("PAGECTRL");
-        sctx.getRequestDispatcher((String)mpage.get(srb.getContentHandle())).forward(request,response);
+        sctx.getRequestDispatcher((String)mpage.get(dataRequest.getContentHandle())).forward(request,response);
       } catch (Exception e) {
         e.printStackTrace();
         sctx.getRequestDispatcher(sctx.getAttribute("GLOBAL_ERROR").toString()).forward(request,response);

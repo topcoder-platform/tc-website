@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 public class CorporateContact
   implements Serializable, Base, QueryCriteria {

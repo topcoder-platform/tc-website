@@ -10,7 +10,7 @@ import javax.jms.JMSException;
 import com.topcoder.common.*;
 import com.topcoder.web.common.*;
 import com.topcoder.web.pacts.common.*;
-import com.topcoder.server.messaging.*;
+import com.topcoder.shared.messaging.*;
 import org.apache.log4j.*;
 
 /**

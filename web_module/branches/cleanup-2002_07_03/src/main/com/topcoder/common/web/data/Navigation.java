@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import javax.naming.*;
 
 import com.topcoder.common.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.ejb.UserServices.*;

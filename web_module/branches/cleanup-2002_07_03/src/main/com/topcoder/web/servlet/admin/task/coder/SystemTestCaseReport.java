@@ -12,8 +12,9 @@
   import com.topcoder.web.servlet.admin.*;
   import com.topcoder.common.*;
   import com.topcoder.common.web.data.*;
-  import com.topcoder.common.web.xml.*;
+  import com.topcoder.shared.docGen.xml.*;
   import com.topcoder.common.web.error.*;
+  import com.topcoder.common.web.xml.HTMLRenderer;
   import com.topcoder.common.web.util.*;
   import com.topcoder.ejb.ContestAdminServices.*;
   import com.topcoder.ejb.AuthenticationServices.*;
@@ -33,7 +34,7 @@
 
     ///////////////////////////////////////////////////////////////////////////////////
     public static String process ( HttpServletRequest request, HttpServletResponse response,
-      RenderHTML renderer, Navigation nav, XMLDocument document )
+      HTMLRenderer renderer, Navigation nav, XMLDocument document )
       throws NavigationException {
     //////////////////////////////////////////////////////////////////////////////////
     
@@ -77,7 +78,7 @@
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getSystemTestCaseReportList (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getSystemTestCaseReportList (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects )
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
@@ -163,7 +164,7 @@
 
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getCoderList (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getCoderList (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects)
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
@@ -234,7 +235,7 @@
 
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getProblemList (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getProblemList (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects)
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
@@ -301,7 +302,7 @@
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static void removeSystemTestResult (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static void removeSystemTestResult (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects)
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
@@ -339,7 +340,7 @@
 
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getRoundMenuScreen (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getRoundMenuScreen (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects
      )
      //,Contest contest)

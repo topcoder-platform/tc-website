@@ -4,7 +4,7 @@ import com.topcoder.ejb.DataCache.*;
 import java.util.*;
 import javax.naming.*;
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.Log;
 
 

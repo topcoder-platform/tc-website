@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 import java.sql.Date;
 import com.topcoder.common.web.data.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
 public final class Round implements Serializable, Base {

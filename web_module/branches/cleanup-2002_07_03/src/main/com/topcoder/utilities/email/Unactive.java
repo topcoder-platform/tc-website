@@ -7,7 +7,7 @@ import com.topcoder.common.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.*;
 import java.text.DateFormat;
-import com.topcoder.server.util.TCResourceBundle;
+import com.topcoder.shared.util.TCResourceBundle;
 
 public class Unactive
 {

@@ -6,7 +6,7 @@ import java.io.Serializable;
 import javax.naming.*;
 
 import com.topcoder.common.web.data.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 public class MemberSearch implements Base, Serializable {
 

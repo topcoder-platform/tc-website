@@ -12,7 +12,8 @@
   import com.topcoder.common.*;
   import com.topcoder.common.web.data.*;
   import com.topcoder.common.web.error.*;
-  import com.topcoder.common.web.xml.*;
+  import com.topcoder.common.web.xml.HTMLRenderer;
+  import com.topcoder.shared.docGen.xml.*;
   import com.topcoder.common.web.util.*;
   import com.topcoder.common.web.data.Navigation;
   import com.topcoder.web.servlet.admin.*;
@@ -26,7 +27,7 @@
 
     ///////////////////////////////////////////////////////////////////////////////////
     public static String process ( HttpServletRequest request, HttpServletResponse response,
-      RenderHTML renderer, Navigation nav, XMLDocument document )
+      HTMLRenderer renderer, Navigation nav, XMLDocument document )
       throws NavigationException {
     //////////////////////////////////////////////////////////////////////////////////
     
@@ -52,7 +53,7 @@
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getRounds (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getRounds (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag compilationTag)
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
@@ -98,7 +99,7 @@
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getCoders (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getCoders (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag compilationTag)
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
@@ -147,7 +148,7 @@
 
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getCompilations (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getCompilations (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag compilationTag)
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////

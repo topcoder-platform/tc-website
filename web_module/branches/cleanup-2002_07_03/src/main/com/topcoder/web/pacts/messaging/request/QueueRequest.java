@@ -8,7 +8,7 @@ package com.topcoder.web.pacts.messaging.request;
 
 import javax.naming.*;
 import javax.jms.*;
-import com.topcoder.server.messaging.QueueMessageReceiver;
+import com.topcoder.shared.messaging.QueueMessageReceiver;
 import com.topcoder.web.pacts.messaging.handler.*;
 import com.topcoder.web.pacts.common.*;
 import com.topcoder.common.*;

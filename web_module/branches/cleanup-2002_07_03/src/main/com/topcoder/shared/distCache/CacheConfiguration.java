@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import java.rmi.registry.Registry;
-import com.topcoder.server.util.TCResourceBundle;
+import com.topcoder.shared.util.TCResourceBundle;
 
 public class CacheConfiguration 
 {

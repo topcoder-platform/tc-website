@@ -2,8 +2,8 @@ package com.topcoder.common.web.data;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import com.topcoder.common.web.xml.RecordTag;
-import com.topcoder.common.web.xml.ValueTag;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.ValueTag;
 
 public class Problem implements Serializable {
 

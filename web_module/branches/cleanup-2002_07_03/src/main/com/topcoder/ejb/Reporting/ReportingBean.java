@@ -11,7 +11,7 @@ import com.topcoder.ejb.BaseEJB;
 import com.topcoder.common.*;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.data.report.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
 ///////////////////////////////////////////////

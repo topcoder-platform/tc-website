@@ -2,9 +2,10 @@ package com.topcoder.common.web.util;
 
 import java.util.*;
 import com.topcoder.common.web.data.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.error.*;
+import com.topcoder.common.web.xml.WebPage;
 import com.topcoder.ejb.UserServices.*;
 import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.common.*;

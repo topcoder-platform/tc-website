@@ -6,7 +6,7 @@ import java.sql.*;
 import com.topcoder.common.*;
 import java.text.DateFormat;
 import java.text.*;
-import com.topcoder.server.util.TCResourceBundle;
+import com.topcoder.shared.util.TCResourceBundle;
 
 public class WriterReport {
 

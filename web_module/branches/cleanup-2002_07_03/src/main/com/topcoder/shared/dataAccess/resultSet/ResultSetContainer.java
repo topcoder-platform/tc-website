@@ -7,6 +7,7 @@ import java.math.*;
 import org.apache.log4j.*;
 import com.topcoder.shared.dataAccess.StringUtilities;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.docGen.xml.*;
 
 
 /**
@@ -1209,5 +1210,40 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
 	sbReturn.setLength(sbReturn.length() - 1);
 	return sbReturn.toString();
     }	
+
+    /**
+     * Returns a RecordTag that will allow us to get XML for 
+     * this ResultSetContainer
+     * @return The data contained in this result set within a <tt>RecordTag</tt>
+     */
+    public RecordTag getTag(String rootName, String rowName) throws Exception {
+      RecordTag result = null;
+      result = new RecordTag(rootName);
+      ResultSetRow row = null;
+      RecordTag rowRecord = null;
+      try {
+        for (int k=0; k<data.size(); k++) {
+          row = (ResultSetRow)data.get(k);
+          rowRecord = new RecordTag(rowName); 
+          for (int i=0;i<this.getColumnCount();i++) {
+            rowRecord.addTag(new ValueTag(this.getColumnName(i), row.getItem(i).toString()));
+          }
+          result.addTag(rowRecord);
+        }
+      } catch (Exception e) {
+        e.printStackTrace();
+        throw e;
+      }
+      return result;
+    } 
+    
+    /*
+     * Returns a RecordTag that will allow us to get XML for 
+     * this ResultSetContainer
+     * @return The data contained in this result set within a <tt>RecordTag</tt>
+     */ 
+    public RecordTag getTag() throws Exception {
+      return getTag("ResultSet", "ResultRow");
+    }
 }
 

@@ -7,7 +7,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import com.topcoder.common.*;
 import com.topcoder.common.web.data.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.error.*;
 import com.topcoder.common.web.util.*;
@@ -19,7 +20,7 @@ import com.topcoder.web.servlet.admin.task.Home;
 public final class TC extends HttpServlet {
 
 
-  private              RenderHTML renderer         = null;
+  private              HTMLRenderer renderer         = null;
   private static final boolean    VERBOSE          = false;
   private static final int        MAX_REPLACEMENTS = 100;
 
@@ -30,7 +31,7 @@ public final class TC extends HttpServlet {
     ////////////////////////////////////////////////////////
     Log.msg(VERBOSE, "SERVLET INIT CALLED");
     ////////////////////////////////////////////////////////
-    if (renderer == null) { renderer = new RenderHTML(); }
+    if (renderer == null) { renderer = new HTMLRenderer(); }
     super.init(config);
   }
 

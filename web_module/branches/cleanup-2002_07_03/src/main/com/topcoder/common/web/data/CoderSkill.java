@@ -2,7 +2,7 @@ package com.topcoder.common.web.data;
 
 import java.io.Serializable;
 import java.util.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
 public final class CoderSkill 

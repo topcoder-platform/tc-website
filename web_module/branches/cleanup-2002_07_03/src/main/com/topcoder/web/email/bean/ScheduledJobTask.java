@@ -7,11 +7,9 @@ import javax.servlet.http.*;
 import javax.naming.*;
 
 import com.topcoder.web.email.servlet.*;
-import com.topcoder.web.stat.ejb.Statistics.*;
-import com.topcoder.web.stat.ejb.*;
-import com.topcoder.web.stat.common.*;
 import com.topcoder.server.ejb.EmailServices.*;
 import org.apache.log4j.Category;
+import com.topcoder.shared.dataAccess.resultSet.*;
 
 /**
  * ScheduledJobTask.java

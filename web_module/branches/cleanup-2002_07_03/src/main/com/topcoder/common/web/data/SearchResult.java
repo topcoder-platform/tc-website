@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 import java.io.Serializable;
 import java.text.*;
 
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 public class SearchResult implements Serializable, Base {
   

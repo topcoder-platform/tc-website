@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import java.util.*;
 import com.topcoder.common.*;
 import com.topcoder.common.web.data.report.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 public interface Reporting extends EJBObject {
 

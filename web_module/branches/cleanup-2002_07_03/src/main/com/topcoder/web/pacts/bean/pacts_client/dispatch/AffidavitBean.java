@@ -13,7 +13,7 @@ import java.util.*;
 import java.text.*;
 import com.topcoder.web.pacts.common.*;
 import com.topcoder.web.pacts.bean.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
 import org.apache.log4j.Category;

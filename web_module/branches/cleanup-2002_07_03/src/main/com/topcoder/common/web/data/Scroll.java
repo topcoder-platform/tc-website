@@ -2,7 +2,7 @@ package com.topcoder.common.web.data;
 
 import java.util.*;
 import java.io.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
 //////////////////////////////////////////////////////

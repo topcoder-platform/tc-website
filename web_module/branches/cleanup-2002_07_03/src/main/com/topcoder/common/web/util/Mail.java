@@ -4,11 +4,11 @@ import javax.jms.*;
 import java.util.*;
 import java.io.*;
 import javax.naming.*;
-import com.topcoder.server.messaging.*;
+import com.topcoder.shared.messaging.*;
 import com.topcoder.ejb.Util.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.*;
 import com.topcoder.utilities.email.*;
 

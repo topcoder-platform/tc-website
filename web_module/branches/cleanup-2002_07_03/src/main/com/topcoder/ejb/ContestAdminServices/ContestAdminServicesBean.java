@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import com.topcoder.common.*;
 import com.topcoder.common.web.data.*; 
-import com.topcoder.server.messaging.*;
+import com.topcoder.shared.messaging.*;
 import com.topcoder.ejb.AuthenticationServices.*;
 import org.apache.log4j.*;
 

@@ -2,7 +2,7 @@ package com.topcoder.common.web.data;
 
 import java.util.ArrayList;
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.error.*;
 
 public final class SystemTestCaseReport implements Serializable, Base {

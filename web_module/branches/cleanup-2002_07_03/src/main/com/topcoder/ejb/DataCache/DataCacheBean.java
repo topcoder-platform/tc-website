@@ -11,7 +11,6 @@ import com.topcoder.ejb.BaseEJB;
 import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.common.*;
 import com.topcoder.common.web.constant.*;
-import com.topcoder.common.web.xml.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.data.stat.coder.*;
@@ -23,8 +22,6 @@ public class DataCacheBean extends BaseEJB {
 ////////////////////////////////////////////
 
   private static final boolean VERBOSE = false;
-
-  private static RenderHTML renderer = new RenderHTML();
 
   private static ArrayList notifications;
   private static ArrayList rounds;
@@ -235,65 +232,6 @@ public class DataCacheBean extends BaseEJB {
       if ( rs != null ) { try { rs.close(); } catch ( Exception ignore ) {} }
       if ( ps != null ) { try { ps.close(); } catch ( Exception ignore ) {} }
     }
-  }
-
-
-
-
-
-
-
-
-  /*********************************************************************************************
-  * resetXSL()
-  * reset the XSLCache int the renderer for this server, return the server ip bytes
-  * so the client knows which server it just reset the cache on.
-  * @author Steve Burrows
-  * @return an array of the bytes of the server ip address.
-  * @throws TCException
-  *********************************************************************************************
-  */
-  //////////////////////////////////////////////////////////
-  public byte[] resetXSL() throws TCException {
-  //////////////////////////////////////////////////////////
-    byte[] result = null;
-    try {
-      InetAddress localHost = InetAddress.getLocalHost();
-      result = localHost.getAddress();
-      renderer.refresh();
-    } catch (Exception e) {
-      e.printStackTrace();
-      throw new TCException (
-        "ejb.DataCacheBean:resetXSL:ERROR:"+e.getMessage()
-      );
-    }
-    return result;
-  }
-
-  /*********************************************************************************************
-  * resetXSL( String xsldocURLString )
-  * reset the XSLCache for a document int the renderer for this server, return the server ip bytes
-  * so the client knows which server it just reset the cache on.
-  * @author Steve Burrows
-  * @return an array of the bytes of the server ip address.
-  * @throws TCException
-  *********************************************************************************************
-  */
-  //////////////////////////////////////////////////////////
-  public byte[] resetXSL( String xsldocURLString ) throws TCException {
-  //////////////////////////////////////////////////////////
-    byte[] result = null;
-    try {
-      InetAddress localHost = InetAddress.getLocalHost();
-      result = localHost.getAddress();
-      renderer.refresh ( xsldocURLString );
-    } catch (Exception e) {
-      e.printStackTrace();
-      throw new TCException (
-        "ejb.DataCacheBean:resetXSL(String):ERROR:"+e.getMessage()
-      );
-    }
-    return result;
   }
 
 

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.text.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.constant.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 public final class Coder implements Serializable, Base, Comparable {
 

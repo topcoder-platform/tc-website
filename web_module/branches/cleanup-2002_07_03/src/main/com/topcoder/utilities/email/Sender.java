@@ -11,7 +11,7 @@ import com.topcoder.common.web.error.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.*;
-import com.topcoder.server.messaging.*;
+import com.topcoder.shared.messaging.*;
 
 
 public class Sender extends Thread {

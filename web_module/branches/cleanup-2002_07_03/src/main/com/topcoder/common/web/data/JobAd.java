@@ -4,7 +4,7 @@ import java.util.*;
 import java.io.Serializable;
 import com.topcoder.common.web.util.*;
 import com.topcoder.common.web.constant.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
 public class JobAd implements Comparable, Serializable, Base {

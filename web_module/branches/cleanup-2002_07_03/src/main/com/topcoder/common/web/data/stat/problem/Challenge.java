@@ -3,7 +3,7 @@ package com.topcoder.common.web.data.stat.problem;
 import java.io.Serializable;
 import java.util.*;
 import java.sql.Date;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.data.Base;
 
 public final class Challenge implements Serializable, Base {

@@ -10,9 +10,6 @@ import javax.servlet.http.*;
 
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
-import com.topcoder.web.stat.ejb.Statistics.*;
-import com.topcoder.web.stat.ejb.*;
-import com.topcoder.web.stat.common.*;
 import org.apache.log4j.Category;
 
 /**
