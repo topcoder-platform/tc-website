@@ -13,7 +13,7 @@ import com.topcoder.web.hs.common.*;
 public class Error extends Base {
 
     /** Override this to avoid all the auth stuff. */
-    protected void baseProcessing() throws Exception {
+    protected void doAuth() throws Exception {
     }
 
     protected void businessProcessing() throws Exception {

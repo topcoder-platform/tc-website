@@ -21,13 +21,6 @@ public class Constants {
    * init parameters in the given ServletConfig.
    */
     public static void init(ServletConfig sc) {
-        System.out.println("dumping all servlet init parameters:");
-        java.util.Enumeration en = sc.getInitParameterNames();
-        while(en.hasMoreElements()) {
-            String n = (String)en.nextElement();
-            String s = sc.getInitParameter(n);
-            System.out.println(n+" = "+s);
-        }
         Field[] f = Constants.class.getFields();
         for(int i=0; i<f.length; i++)
             try {

@@ -1,5 +1,7 @@
 <!--Left Navigation Include Begins-->
 
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+
 <jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
 <jsp:useBean id="NavZone" class="com.topcoder.web.hs.model.NavZoneBean" scope="request" />
 
