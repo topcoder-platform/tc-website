@@ -31,7 +31,7 @@
 		<A HREF="/index?t=schedule&amp;c=invit02_sched" CLASS="statTextBig">Schedule</A></TD>
 		<TD WIDTH="30%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig">
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_rules_overview'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rules_about'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rules_overview'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='invit02_rules_scoring'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='invit02_rules_conditions'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='invit02_rules_prizes'">orangebv_bg</xsl:when>
