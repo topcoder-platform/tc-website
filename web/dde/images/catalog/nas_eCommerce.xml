@@ -19,7 +19,7 @@
 		<component name='Credit Card Validation' ID=''/>
 		<component name='Data Access Interface' ID=''/>
 		<component name='Data Grouping' ID=''/>
-		<component name='Data Validation' ID=''/>
+		<component name='Data Validation' ID='http://software.topcoder.com/catalog/c_component.jsp?comp=8536620&ver=1'/>
 		<component name='Document Generator' ID=''/>
 		<component name='Email Engine' ID=''/>
 		<component name='Encryption' ID=''/>
@@ -41,8 +41,8 @@
 	<compDiagram>
 		<appFunction name='Online Checkout' desc=''>
 			<component name='Address Book' details='http://software.topcoder.com/catalog/c_component.jsp?comp=8603710&ver=1' desc='The address book component allows for the creation and management of multiple address books and addresses for a specific entity. Books and addresses can be created, deleted or renamed. Any book can be set as the primary address book. Multiple addresses can be added to multiple address books.&lt;br&gt;&lt;br&gt;A user may create a profile on a website containing an address book. This user will then be able to create and edit all of their addresses and address book information online. Another example includes setting up a business as a contact with multiple addresses one for billing and one for shipping.'/>
-			<component name='Data Validation' details='' desc=''/>
-			<component name='Object Formatter' details='' desc=''/>
+			<component name='Data Validation' details='http://software.topcoder.com/catalog/c_component.jsp?comp=8536620&ver=1' desc='The Data Validation component analyses objects to verify that the content meets defined rules. Object content is different for each class and is defined by each class specific DataValidation handler. For example, an Integer handler could validate that the object passed in is in fact an integer and falls within a specified range. In addition, data can be validated across object types.&lt;br&gt;&lt;br&gt;The Data Validation component can be used to facilitate server side data validation for web-based applications. The component can be used to validate that input parameters, which are all represented as strings, are of the correct type, length and within a specified range.'/>
+			<component name='Object Formatter' details='' desc='The Object Formatter component provides a generic API for formatting .NET objects. This component can be used to centralize data formatting within an application, group of applications or organization instead of having each "tier" of the application define its own formatting methods.'/>
 			<component name='Timer' details='' desc=''/>
 		</appFunction>
 		<appFunction name='Product Browsing' desc=''>
