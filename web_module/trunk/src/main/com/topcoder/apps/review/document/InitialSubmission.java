@@ -100,10 +100,10 @@ public class InitialSubmission extends AbstractSubmission implements Serializabl
     }
     
     public void setAdvancedToReview(boolean advancedToReview) {
-        if(this.advancedToReview != advancedToReview) {
+        //if(this.advancedToReview != advancedToReview) {
             this.advancedToReview = advancedToReview;
             this.dirtyFlag = true;
-        }
+        //}
     }
 
     /**
