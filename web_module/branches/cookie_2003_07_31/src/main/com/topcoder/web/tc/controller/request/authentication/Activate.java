@@ -36,6 +36,7 @@ public class Activate extends Base {
                 if (status==Constants.UNACTIVE_STATUS.charAt(0)) {
                     user.setStatus(userId, Constants.ACTIVE_STATUS.charAt(0), DBMS.OLTP_DATASOURCE_NAME);
                     setNextPage(Constants.ACTIVATE);
+                    setIsNextPageInContext(true);
                 } else if (status == Constants.ACTIVE_STATUS.charAt(0)) {
                     throw new NavigationException("Account has already been activated.");
                 } else {
