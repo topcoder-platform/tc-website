@@ -68,7 +68,7 @@
 
             <p class="bodyText"><br/></p>
 
-            <p class="bodyText">Where <b><i>X</i></b> is the fraction of a school�s rating
+            <p class="bodyText">Where <b><i>X</i></b> is the fraction of a school's rating
             that will be based on the top <b><i>K</i></b> coders within that school.</p>
 
             <p class="bodyText"></p>
