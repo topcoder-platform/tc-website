@@ -202,18 +202,15 @@ public class DbQuery implements Query {
         query.append(" SELECT distinct jiveMessageWord.messageID");
         query.append(" FROM jiveMessageWord");
         query.append(" ,jiveMessage");
-        if (forum!=null)
-            query.append(" ,jiveThread jt");
+        query.append(" ,jiveThread jt");
         if (queryString != null) {
             for (int i = 0; i < keywords.length; i++) {
                 query.append(", jiveMessageWord jmw" + i + ", jiveWord jw" + i);
             }
         }
         query.append(" WHERE 1=1");
-        if (forum!=null) {
-            query.append(" and jt.threadid = jiveMessage.threadid");
-            query.append(" and jt.forumid = " + forum.getID());
-        }
+        query.append(" and jt.threadid = jiveMessage.threadid");
+        query.append(" and jt.forumid = " + forum.getID());
         query.append(" and jiveMessageWord.messageID=jiveMessage.messageID");
         if (queryString != null) {
             for (int i = 0; i < keywords.length; i++) {
