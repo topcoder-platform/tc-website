@@ -5,7 +5,7 @@
 	<xsl:import href="../includes/body_top.xsl" />  
 	<xsl:import href="../foot.xsl" />
 	<xsl:import href="../includes/modules/stats_intro.xsl" />  
-	<xsl:import href="../includes/dev/dev_comp_left.xsl" /> 
+	<xsl:import href="../includes/dev/public_dev_left.xsl" /> 
 	<xsl:import href="../includes/dev/public_dev_right.xsl" />     
 	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
 	<xsl:template match="/">
@@ -31,7 +31,7 @@
 	<tr valign="top">
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC">
-			<xsl:call-template name="dev_comp_left" />
+			<xsl:call-template name="public_dev_left" />
 	  	</td>
 <!-- Left Column Ends -->
 
@@ -59,7 +59,7 @@
 					<td class="statText" colspan="2">The TopCoder Development area lists all open and in-progress projects at TopCoder that involve the use of the TopCoder member base. Projects are classified as Component Design, <a class="statText" href="/index?t=development&amp;c=comp_dev_projects">Component Development</a> or <a class="statText" href="/index?t=development&amp;c=app_projects">Application projects</a>.</td>
 				</tr>
 
-				<tr><td class="statText" colspan="2"><strong>Open Component Design Projects</strong></td></tr>
+				<tr><td class="statText" colspan="2"><h1 class="devSubhead">Open Component Design Projects</h1></td></tr>
 				
 <!--				<tr valign="top">
 					<td class="statText">
@@ -72,41 +72,29 @@
 				<tr valign="top">
 					<td class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=email_validator_design">Email Address Validator</a><br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=xxx">Project 1</a><br/>
+						Posted: 11.21.2002<br/>
+						Submission Deadline: xx.xx.2002<br/>
+						</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=email_validator_design">Email Address Verifier</a><br/>
 						Posted: 11.14.2002<br/>
 						Submission Deadline: 11.27.2002<br/>
-						</p>   
-
-						<p>
-						Project: <a href="/index?t=development&amp;c=object_formatter" class="statText">Object Formatter</a><br/>
-						Posted: 11.8.2002<br/>
-						Submission Deadline: 11.21.2002<br/>
-						</p>   
-
-						<p>
-						Project: <a href="/index?t=development&amp;c=api_compare" class="statText">API Comparator</a><br/>
-						Posted: 11.8.2002<br/>
-						Submission Deadline: 11.19.2002<br/>
 						</p>   
 					</td>
 
 					<td class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=simple_cache">Simple Cache</a><br/>
-						Posted: 11.14.2002<br/>
-						Submission Deadline: 11.27.2002<br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=xxx">Project 2</a><br/>
+						Posted: 11.21.2002<br/>
+						Submission Deadline: xx.xx.2002<br/>
 						</p>   
 
 						<p>
-						Project: <a href="/index?t=development&amp;c=unique_key" class="statText">Unique Key Generator</a><br/>
-						Posted: 11.8.2002<br/>
-						Submission Deadline: 11.21.2002<br/>
-						</p>
-
-						<p>
-						Project: <a href="/index?t=development&amp;c=ip_filter" class="statText">IP Filter</a><br/>
-						Posted: 11.8.2002<br/>
-						Submission Deadline: 11.19.2002<br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=simple_cache">Simple Cache</a><br/>
+						Posted: 11.14.2002<br/>
+						Submission Deadline: 11.27.2002<br/>
 						</p>   
 					</td>
 				</tr>

@@ -5,7 +5,7 @@
 	<xsl:import href="../includes/body_top.xsl" />  
 	<xsl:import href="../foot.xsl" />
 	<xsl:import href="../includes/modules/stats_intro.xsl" />  
-	<xsl:import href="../includes/dev/dev_comp_left.xsl" /> 
+	<xsl:import href="../includes/dev/public_dev_left.xsl" /> 
 	<xsl:import href="../includes/dev/public_dev_right.xsl" />     
 	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
 	<xsl:template match="/">
@@ -31,7 +31,7 @@
 	<tr valign="top">
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC">
-			<xsl:call-template name="dev_comp_left" />
+			<xsl:call-template name="public_dev_left" />
 	  	</td>
 <!-- Left Column Ends -->
 
@@ -61,9 +61,9 @@
 							<tr valign="top">
 								<td class="statText">
 									<p><strong>There has been significant change to the development of components. All members interested submitting design and 
-									development solutions need to first review the TopCoder Software Component Development Methodology below .</strong></p>
+									development solutions need to first review the TopCoder Software Component Development Methodology below.</strong></p>
 
-									<p><strong>All Component Projects:</strong></p>
+									<h1 class="devSubhead"><strong>TopCoder Software Component Development Methodology</strong></h1>
 
 									<p>Component projects have been redesigned to to be more competitve. Interested members must submit their solution to the 
 									posted project by the project due date. Once all submissions have been received, a review team will select the winning solution. 
