@@ -1117,15 +1117,13 @@ public class TCLoadAggregate extends TCLoad {
                 psSel2.setInt(1, round_id);
                 psSel2.setInt(2, division_id);
                 rs2 = psSel2.executeQuery();
-
+                
                 while (rs2.next()) {
                     int coder_id = rs2.getInt(1);
                     float final_points = rs2.getFloat(2);
-                    float coder_pstddev = 0.0f;
-                    if (!(pstddev==Float.NaN ||
-                        pstddev==Float.NEGATIVE_INFINITY ||
-                        pstddev==Float.POSITIVE_INFINITY))
-                        coder_pstddev = ((final_points - avgpts) / pstddev);
+                    float coder_pstddev = ((final_points - avgpts) / pstddev);
+                    if (Float.isInfinite(coder_pstddev)||Float.isNaN(coder_pstddev))
+                        coder_pstddev = 0;
 
                     psUpd.clearParameters();
                     psUpd.setFloat(1, coder_pstddev); // point_standard_deviation
