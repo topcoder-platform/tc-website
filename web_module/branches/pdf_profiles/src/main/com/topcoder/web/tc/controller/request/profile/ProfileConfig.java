@@ -30,8 +30,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.util.ArrayList;
 import java.util.Map;
-
-import com.meterware.httpunit.*;
 /**
  *
  * @author rfairfax
