@@ -89,7 +89,6 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected void send(ScreeningBaseRequest m) throws TCWebException, ServerBusyException {
-        log.debug("sync: " + m.isSynchronous());
         if (m.isSynchronous()) {
             log.debug("lock it up, it's a syncronous request");
             lock();
