@@ -53,13 +53,13 @@
                             <tr valign="top">
                                 <td width="23%" class="statTextBig">12:00pm - 12:30pm</td>
                                 <td width="37%" class="statTextBig">Competitors arrival and registration</td>
-                                <td width="40%" class="statTextBig">Homer Babbage Library (2nd floor)</td>
+                                <td width="40%" class="statTextBig">Homer Babbidge Library (2nd floor)</td>
                             </tr>
                                 
                             <tr valign="top">
                                 <td class="statTextBig">1:00pm - 3:00pm</td>
                                 <td class="statTextBig">Championship Match</td>
-                                <td class="statTextBig">Homer Babbage Library (2nd floor)</td>
+                                <td class="statTextBig">Homer Babbidge Library (2nd floor)</td>
                             </tr>
                                 
                             <tr valign="top">
