@@ -682,6 +682,8 @@
 
             <zipfileset dir="${java}/com/topcoder/web/corp/request/jsp/" includes="prim-reg.jsp" prefix="reg" />
             <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="error.jsp" prefix="" />
+			<zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="index.jsp" prefix="" />
+
 <!--
             <zipfileset dir="${java}/com/topcoder/web/corp/jsp">
                 <include name="**/*.jpg"/>
