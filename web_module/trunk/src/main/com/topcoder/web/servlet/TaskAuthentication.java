@@ -150,6 +150,7 @@ public final class TaskAuthentication {
             if (loginURL.equals("")) {
                 loginURL = Conversion.checkNull(request.getParameter("errorURL"));
             }
+            log.debug("after login go to " + loginURL);
 
             String handle = Conversion.checkNull(request.getParameter("Handle"));
             String password = Conversion.checkNull(request.getParameter("Password"));
