@@ -26,6 +26,7 @@
          <td width="100%" align="center" colspan="3">
             <object 
             type="application/x-shockwave-flash"
+            codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
             data="/i/events/google2003/google.swf"
             width="100%"
             height="80"
@@ -33,6 +34,7 @@
             <param name="movie" value="/i/events/google2003/google.swf" />
             <param name="quality" value="high" />
             <param name="salign" value="t">
+            <EMBED src="google.swf" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
             </object><br/>
       </td>
         <td width="176" valign="top" colspan="2" bgcolor="#B8B8B8"><img src="/i/events/google2003/pbtc_gray.gif" width="176" height="77" border="0"/></td>
@@ -43,12 +45,14 @@
             <object 
             type="application/x-shockwave-flash"
             data="/i/events/google2003/googletabs.swf"
+            codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
             width="100%"
             height="150"
             border="0">           
             <param name="movie" value="/i/events/google2003/googletabs.swf" />
             <param name="quality" value="high" />
             <param name="salign" value="t">
+            <EMBED src="google.swf" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
             </object><br/>
         </td>
      </tr>
