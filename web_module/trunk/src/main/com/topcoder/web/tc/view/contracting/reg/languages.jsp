@@ -115,10 +115,6 @@ return false;
                      <%c++;%>
                 </tr>
                 </tc:skillIterator>
-	        <tr>
-	            <td class=formTextEven valign=top>JavaScript</td>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
-	        </tr>
 			<tr>
 	            <td class=bodyText valign=middle>Additional Comments:</td>
 				<td class=bodyText colspan=11>
