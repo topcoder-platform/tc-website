@@ -56,6 +56,12 @@ public class Constants {
     public static String DC_REG_STUDENT_SUCCESS_PAGE;
     public static String DC_REG_PRO_SUCCESS_PAGE;
     public static String DC_ACTIVATION_PAGE;
+    
+    public static String BROOKS_REG_PAGE;
+    public static String BROOKS_REG_DEMOG_PAGE;
+    public static String BROOKS_REG_CONFIRM_PAGE;
+    public static String BROOKS_REG_SUCCESS_PAGE;
+    public static String BROOKS_ACTIVATION_PAGE;
 
     //main reg parameters
     public static String HANDLE;
