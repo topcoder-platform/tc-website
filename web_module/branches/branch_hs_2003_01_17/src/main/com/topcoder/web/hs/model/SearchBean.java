@@ -129,4 +129,9 @@ public class SearchBean {
   public void setHasNext(boolean _has_next) {
     has_next=_has_next;
   }
+
+  public boolean hasMemberList() {
+    return(member_list!=null);
+  }
 };
+
