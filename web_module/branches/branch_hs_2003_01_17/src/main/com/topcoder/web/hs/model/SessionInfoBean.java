@@ -80,7 +80,7 @@ public class SessionInfoBean implements Serializable {
             Data.initializeDataTypes();
 
             Map qm = new TreeMap();
-            qm.put("cr", ""+userid);
+            qm.put("cr", Long.toString(userid));
             qm.put(DataAccessConstants.COMMAND, "SessionInfoBean");
             Request dataRequest = new Request(qm);
             DataAccessInt dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
