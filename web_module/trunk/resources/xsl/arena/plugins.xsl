@@ -69,6 +69,19 @@
                         <hr width="100%" noshade="noshade" color="#666666" />
 
                         <p class="statText">
+                        Plugin Name: <strong>ExampleBuilder</strong><br />
+                        Description: A plugin to parse the problem statement.<br />
+                        Author: kyky<br />
+                        Date: 04/02/2004<br />
+                        <a href="/contest/classes/ExampleBuilder/ExampleBuilder.html" class="statText">Documentation</a><br />
+                        Version: 2.01<br />
+                        EntryPoint: tc_plugin.ExampleBuilder<br />
+                        ClassPath: CodeProcessor.jar; FileEdit.jar; ExampleBuilder.jar<br />
+                        <a href="/contest/classes/ExampleBuilder/ExampleBuilder.jar" class="statText">PopsPack.jar Plugin</a></p>
+
+                        <hr width="100%" noshade="noshade" color="#666666" />
+
+                        <p class="statText">
                         Plugin Name: <strong>PopsPack</strong><br />
                         Description: Adding a new dimension to the applet.<br />
                         Author: Pops<br />
@@ -96,21 +109,6 @@
 
                         <hr width="100%" noshade="noshade" color="#666666" />
                     
-                        <p class="statText">
-                        Plugin Name: <strong>ProblemParser</strong><br />
-                        Description: A plugin to parse the problem statement.<br />
-                        Author: kyky<br />
-                        Date: 09/10/2002<br />
-                        <a href="/contest/classes/ProblemParser/ProblemParser.html" class="statText">Documentation</a><br />
-                        <a href="/contest/classes/ProblemParser/ReleaseNotes.html" class="statText">Release Notes</a><br />
-                        Version: 2.00<br />
-                        <a href="/contest/classes/ProblemParser/ProblemParser.zip" class="statText">Source code</a><br />
-                        EntryPoint: codeprocessor.EntryPoint (case sensitive)<br />
-                        ClassPath: CodeProcessor.jar; FileEdit.jar; ProblemParser.jar<br />
-                        <a href="/contest/classes/ProblemParser/ProblemParser.jar" class="statText">ProblemParser.jar Plugin</a></p>
-
-                        <hr width="100%" noshade="noshade" color="#666666" />
-                        
                         <p class="statText">
                         Plugin Name: <strong>CodeProcessor</strong><br />
                         Description: Plugin that will allow you to write pre/post processing source code scripts for use with other editor plugins<br />
