@@ -175,12 +175,15 @@
                         <p><br /></p>
 
 <!-- Register at TCS -->
+
+                        <xsl:if test="/TC/DEVELOPMENT/tco='t'">
                            <p><strong>View the <A target="_blank">
                                         <xsl:attribute name="href">
                                             <xsl:value-of select="concat('http://software.topcoder.com/catalog/document?id=', $docId)"/>
                                         </xsl:attribute>
                                         Requirement Specification</A> for this component project</strong>
                             </p>
+</xsl:if>
 
                            <p><strong><A>
                                     <xsl:attribute name="href">
