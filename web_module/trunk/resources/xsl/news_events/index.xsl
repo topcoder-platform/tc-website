@@ -10,134 +10,184 @@
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
-    <HTML>
-      <HEAD>
+    <html>
+      <head>
         <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Press Room</TITLE>
+        <title>TopCoder :: Press Room</title>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
-        <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-        <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-      </HEAD>
-      <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+        <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+        <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+      </head>
+      <body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
         <xsl:call-template name="Top"/>
 <!-- Body Begins -->
-<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
-	<TR>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
     <!-- Left Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-<!-- Left Column Include Begins -->	
-    <!-- Global Seconday Nav Begins -->	
+        <td width="170" bgcolor="#CCCCCC">
         <xsl:call-template name="global_left"/>
-	<!-- Global Seconday Nav Ends -->	
-<!-- Left Column Include Ends -->    		
-	  	</TD>
-	<!-- Left Column Ends -->
-	<!-- Gutter Begins -->
-		<TD WIDTH="4" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
+        </td>
+    <!-- Left Column Ends -->
+
+    <!-- Gutter Begins -->
+        <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
     <!-- Gutter Ends -->
 
-<!-- Body Area -->
-	<!-- Center Column Begins -->	
-		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
-<xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">white</xsl:with-param>
-  <xsl:with-param name="image">press_room</xsl:with-param>
-  <xsl:with-param name="title">&#160;</xsl:with-param>
-</xsl:call-template>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-				<TR>
-					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>          
-					<TABLE WIDTH="100%" BORDER="0" CELLPADDING="2" CELLSPACING="0" BGCOLOR="#FFFFFF">
-		<!-- <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR> -->
-						
-						<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Press Releases <!--Archive--> - 2002</TD></TR>
-						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
-		<!-- <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;05.28.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.globe.com/dailyglobe2/126/business/Tournaments_become_latest_high_tech_recruiting_tool+.shtml" TARGET="_blank" CLASS="bodyText">Tournaments Become Latest High-tech Recruiting Tool</A></TD></TR> -->
-        <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;11.11.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_11_11_02" CLASS="bodyText">TopCoder Announces 16 Finalists in 2002 TopCoder Invitational Programming Tournament</A></TD></TR>
-        <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;10.30.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_10_30_02" CLASS="bodyText">TopCoder Competitions Expand to High Schools</A></TD></TR>
-        <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;10.28.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_10_28_02" CLASS="bodyText">TopCoder Announces Field for the 2002 TopCoder Invitational Programming Tournament</A></TD></TR>
-        <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;10.22.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_10_22_02" CLASS="bodyText">TopCoder Expands to Include Employment Services</A></TD></TR>      
-        <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;08.13.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_08_13_02" CLASS="bodyText">Sun Microsystems and TopCoder Host SunNetwork(SM) Coding Challenge</A></TD></TR>        
-        <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;05.28.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_05_28_02" CLASS="bodyText">TopCoder Adds China, New Zealand and Ireland To Its Developer Community</A></TD></TR>
-<!-- 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_drdobbs2" CLASS="bodyText">And the winner is...</A></TD></TR>
-		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.30.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.stanforddaily.com/tempo?page=content&amp;id=8146&amp;repository=0001_article" CLASS="bodyText" TARGET="_blank">Wright Sweeps Most Recent TopCoder Championship</A></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.22.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.admin.mtu.edu/urel/breaking/2002/codewin.html" CLASS="bodyText" TARGET="_blank">Michigan Tech Student Wins $5,000 in TopCoder Competition</A></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.20.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://ADTmag.com/article.asp?id=6296" CLASS="bodyText" TARGET="_blank">Student Wins $100K in Collegiate Programming Challenge</A></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.20.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://boston.internet.com/news/article/0,,2001_1013931,00.html" CLASS="bodyText" TARGET="_blank">College Code King Crowned</A></TD></TR>	-->	
-		
-<!-- 				<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.11.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_04_11_02" CLASS="bodyText">Student seeks top computer title</A></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.11.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_04_11_02b" CLASS="bodyText">BHS grad has shot at winning $100,000 in computer contest</A></TD></TR>		
-<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.10.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_contratimes" CLASS="bodyText">Computer wiz takes on high on-line stakes</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.10.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_04_10_02" CLASS="bodyText">CS Major Competes for $100K</A></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.08.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_stanforddaily4" CLASS="bodyText">Students advance to TopCoders finals</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.08.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_04_08_02" CLASS="bodyText">Extra credit</A></TD></TR> -->		
-<!-- 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.06.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_marietta" CLASS="bodyText">Georgia Tech computer science major to compete in TopCoder . . .</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.05.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_dnvrbizjrnl2" CLASS="bodyText">Coder wins big in contests</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.01.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_clevplain" CLASS="bodyText">Digital Playground</A></TD></TR> -->
-						<TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;03.25.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_03_25_02" CLASS="bodyText">TopCoder Announces Sixteen Finalists for $150,000 Sun Microsystems and TopCoder Collegiate Challenge</A></TD></TR>											
-						<TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;03.05.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_03_05_02" CLASS="bodyText">TopCoder Reaches 10,000 Members Milestone</A></TD></TR>						
-						<TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;02.19.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_02_19_02" CLASS="bodyText">TopCoder Announces Field for the 2002 Sun Microsystems and TopCoder Collegiate Challenge Programming Tournament</A></TD></TR>          
-						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;01.28.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_01_28_02" CLASS="bodyText">TopCoder Adds the United Kingdom To Its Developer Community</A></TD></TR>						
-						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
-						
-						<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Press Releases <!--Archive--> - 2001</TD></TR> 
-						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>                 
-						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;12.10.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_12_10_01" CLASS="bodyText">Sun Sponsoring 2002 Collegiate Challenge</A></TD></TR>           
-						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;11.06.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_11_06_01" CLASS="bodyText">Houston Native Jon McAlister Wins $250,000 TopCoder Invitational</A></TD></TR>
-						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;10.15.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_10_15_01" CLASS="bodyText">TopCoder Announces Sixteen Finalists For $250,000 Invitational Tournament</A></TD></TR> 
-						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;09.24.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_09_24_01" CLASS="bodyText">Foxwoods to Host $250,000 TopCoder Invitational Tournament</A></TD></TR>
-						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.07.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_06_07_01" CLASS="bodyText">Jason Woolever Wins 2001 TopCoder Collegiate Challenge</A></TD></TR> 
-						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.29.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_05_29_01" CLASS="bodyText">TopCoder Addresses Demand for Elite Programmers with Coding Competitions</A></TD></TR>                 
-						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.22.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_05_22_01" CLASS="bodyText">Sixteen Collegiate Programmers to Compete for Coveted "TopCoder" Title</A></TD></TR>                 
-						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.24.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_04_24_01" CLASS="bodyText">TopCoder Names Jack Hughes Chairman of the Board</A></TD></TR>                                                      
-						<!-- <TR><TD COLSPAN="2" CLASS="bodyText"><BR/><BR/>Please direct media related questions to:<BR/><A HREF="mailto:gherchen@topcoder.com" CLASS="bodyText">George Herchenroether, VP of Marketing</A></TD></TR> -->
-					</TABLE>
-<P><BR/></P>
-					</TD>
-					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
-	<!-- Center Column Ends -->
+    <!-- Center Column Begins -->    
+        <td class="bodyText" width="100%">
+            <xsl:call-template name="BodyTop">
+                <xsl:with-param name="image1">white</xsl:with-param>
+                <xsl:with-param name="image">press_room</xsl:with-param>
+                <xsl:with-param name="title">Press Releases</xsl:with-param>
+            </xsl:call-template>
+            
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="top">
+                    <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
+                    <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="10" border="0"/><br />          
+                        <table width="100%" border="0" cellpadding="3" cellspacing="0">
+
+<!-- 2003 Press Releases -->
+                            <tr valign="middle"><td class="statTextBig" colspan="2" background="/i/steel_gray_bg.gif">Press Releases - 2003</td></tr>
+                            
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">03.13.03</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_03_13_03">Sun Microsystems and TopCoder Highlight Field for 2003 Collegiate Challenge Programming Tournament</a></td>
+                            </tr>
+                            
+                            <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+                        
+<!-- 2002 Press Releases -->
+                            <tr valign="middle"><td class="statTextBig" colspan="2" background="/i/steel_gray_bg.gif">Press Releases - 2002</td></tr>
+                            
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">11.11.02</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_11_11_02">TopCoder Announces 16 Finalists in 2002 TopCoder Invitational Programming Tournament</a></td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">10.30.02</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_10_30_02">TopCoder Competitions Expand to High Schools</a></td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">10.28.02</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_10_28_02">TopCoder Announces Field for the 2002 TopCoder Invitational Programming Tournament</a></td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">10.22.02</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_10_22_02">TopCoder Expands to Include Employment Services</a></td>
+                            </tr>
+      
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">08.13.02</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_08_13_02">Sun Microsystems and TopCoder Host SunNetwork(SM) Coding Challenge</a></td>
+                            </tr>
+        
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">05.28.02</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_05_28_02">TopCoder Adds China, New Zealand and Ireland To Its Developer Community</a></td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">03.25.02</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_03_25_02">TopCoder Announces Sixteen Finalists for $150,000 Sun Microsystems and TopCoder Collegiate Challenge</a></td>
+                            </tr>
+                                            
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">03.05.02</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_03_05_02">TopCoder Reaches 10,000 Members Milestone</a></td>
+                            </tr>
+                        
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">02.19.02</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_02_19_02">TopCoder Announces Field for the 2002 Sun Microsystems and TopCoder Collegiate Challenge Programming Tournament</a></td>
+                            </tr>
+          
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">01.28.02</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_01_28_02">TopCoder Adds the United Kingdom To Its Developer Community</a></td>
+                            </tr>
+                        
+                            <tr valign="middle">
+                                <td class="bodyText" colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+                        
+<!-- 2001 Press Releases -->
+                            <tr valign="middle"><td class="statTextBig" colspan="2" background="/i/steel_gray_bg.gif" height="18">&#160;Press Releases - 2001</td></tr> 
+
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">12.10.01</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_12_10_01">Sun Sponsoring 2002 Collegiate Challenge</a></td>
+                            </tr>
+           
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">11.06.01</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_11_06_01">Houston Native Jon McAlister Wins $250,000 TopCoder Invitational</a></td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">10.15.01</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_10_15_01">TopCoder Announces Sixteen Finalists For $250,000 Invitational Tournament</a></td>
+                            </tr>
+ 
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">09.24.01</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_09_24_01">Foxwoods to Host $250,000 TopCoder Invitational Tournament</a></td>
+                            </tr>
+
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">06.07.01</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_06_07_01">Jason Woolever Wins 2001 TopCoder Collegiate Challenge</a></td>
+                            </tr>
+ 
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">05.29.01</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_05_29_01">TopCoder Addresses Demand for Elite Programmers with Coding Competitions</a></td>
+                            </tr>
+                 
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">05.22.01</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_05_22_01">Sixteen Collegiate Programmers to Compete for Coveted "TopCoder" Title</a></td>
+                            </tr>
+                 
+                            <tr valign="middle">
+                                <td class="bodyText" valign="top">04.24.01</td>
+                                <td class="bodyText"><a href="/index?t=news_events&amp;c=pr_04_24_01">TopCoder Names Jack Hughes Chairman of the Board</a></td>
+                            </tr>
+                        </table>
+
+                        <p><br/></p>
+                    
+                    </td>
+                    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                </tr>
+                <tr><td colspan="3" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>       
+             </table>
+        </td>
+    <!-- Center Column Ends -->
 <!-- Body Area Ends -->
 
-	<!-- Gutter -->
-		<TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
+    <!-- Gutter -->
+        <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
     <!-- Gutter Ends -->
-	<!-- Right Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
+    <!-- Right Column Begins -->
+        <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
 <!-- Right Column Include Begins --> 
         <xsl:call-template name="public_right_col"/>       
 <!-- Right Column Include Ends -->        
-        </TD>
-	<!-- Right Column Ends -->
-	<!-- Gutter -->
-		<TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+        </td>
+    <!-- Right Column Ends -->
+    <!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
     <!-- Gutter Ends -->
-	</TR>
-</TABLE>
+    </tr>
+</table>
 <!-- Body Ends -->
         <xsl:call-template name="Foot"/>
-      </BODY>
-    </HTML>
+      </body>
+    </html>
   </xsl:template>
 </xsl:stylesheet>

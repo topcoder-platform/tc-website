@@ -50,12 +50,9 @@
                 <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR>
                 <TR>
                     <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-                    <TD CLASS="bodyText" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-                        <div align="center">
-                        <p><strong>Sun Microsystems and TopCoder Highlight Field for 2003 Collegiate Challenge Programming Tournament</strong></p>
-                        
-                        <p>Students Across the Globe Vie for Share of $100,000 in Java[tm] and C++ Programming Tournament</p>
-                        </div>
+                    <TD CLASS="bodyText" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="400" HEIGHT="1" BORDER="0"/><br />
+                        <div align="center"><strong>Sun Microsystems and TopCoder Highlight Field for 2003 Collegiate Challenge Programming Tournament</strong><br />
+                        Students Across the Globe Vie for Share of $100,000 in Java[tm] and C++ Programming Tournament</div>
 
                         <p><strong>SANTA CLARA, Calif.  and GLASTONBURY, CT.&#151;March, 13, 2003&#151;</strong>Sun Microsystems, Inc. and 
                         TopCoder, Inc., a company committed to identifying and promoting computer programming talent through competition, today 
@@ -67,7 +64,7 @@
                         Development Engineering, Sun Microsystems, Inc.  "This type of collegiate competition enables students to sharpen their 
                         Java programming skills and enhance their opportunities for employment when they graduate."</p>
 
-                        <p>The 2003 Sun Microsystems and TopCoder Collegiate Challenge brings together the world’s highest-rated college-level Java 
+                        <p>The 2003 Sun Microsystems and TopCoder Collegiate Challenge brings together the world's highest-rated college-level Java 
                         and C++ computer programmers and members of the TopCoder community.  The programmers are ranked based upon their 
                         performance during weekly online competitions and the top ranked members are then invited to participate in four online 
                         elimination rounds of regional competition.  The winner of each region will be named Regional Champion on March 24, awarded 
@@ -79,9 +76,9 @@
                         around the world.  CalTech had the strongest representation with six programmers, followed by the Massachusetts Institute of 
                         Technology, Duke University, Stanford University and Georgia Tech, each with three programmers. </p>
 
-                        <p>Eight semifinalists from previous tournaments are still competing in this year’s Collegiate Challenge.  Among them is Daniel 
+                        <p>Eight semifinalists from previous tournaments are still competing in this year's Collegiate Challenge.  Among them is Daniel 
                         Wright of Stanford University.  This returning Collegiate Challenge champion chose to use Java technology to secure his 
-                        $100,000 purse in 2002.  Also competing in this year’s challenge is former finalist David Arthur from Duke University. </p>
+                        $100,000 purse in 2002.  Also competing in this year's challenge is former finalist David Arthur from Duke University. </p>
 
                         <p>"Each year a new class of graduates enters the IT workforce," said TopCoder Chairman and founder, Jack Hughes.  "TopCoder 
                         competitions enable technology companies and recruiters to identify and objectively assess candidates through testing and rating 
