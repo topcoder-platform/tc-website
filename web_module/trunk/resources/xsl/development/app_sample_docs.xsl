@@ -89,7 +89,7 @@
                                         Application Specification Document is completed by a TopCoder project presented to
                                         designers at the start of the design phase.
                                     </td>
-
+                                    <td></td>
                                     <td class="bodyText" valign="top">
                                         <br/>
                                         <table border="0" cellspacing="0" cellpadding="0">
@@ -105,7 +105,11 @@
                                         </table>
                                     </td>
                                 </tr>
-
+                                <tr>
+                                    <td colspan="3">
+                                        <hr width="100%" size="1px" color="666666"/>
+                                    </td>
+                                </tr>
                                 <tr valign="middle">
                                     <td class="bodyText" valign="top">
                                         <strong>Application Design Deliverables</strong>
@@ -225,6 +229,11 @@
                                             </tr>
 
                                         </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <hr width="100%" size="1px" color="666666"/>
                                     </td>
                                 </tr>
                                 <tr valign="middle">
