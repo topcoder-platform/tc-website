@@ -102,14 +102,12 @@ public class Login extends FullLogin {
 
         }
         if (!getAuthentication().getUser().isAnonymous()) {
-            log.error("LOGIN SUCCESSFUL");
             User user = (User) createEJB(getInitialContext(), User.class);
             char status = user.getStatus(getUser().getId(), db);
-            log.error("STATUS = " + status);
             if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
-                log.error("SEARCH GOOD");
                 Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-                ret = coder.exists(getAuthentication().getActiveUser().getId(), db);
+                //ret = coder.exists(getAuthentication().getActiveUser().getId(), db);
+                ret = true;
             }
         }
         return ret;
@@ -126,7 +124,6 @@ public class Login extends FullLogin {
         long userId = getAuthentication().getActiveUser().getId();
 
         if (hasCompanyAccount) {
-            log.error("HERE");
             info = getCommonInfo(userId, db);
 
             Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
