@@ -299,6 +299,27 @@ if (!rsc.isEmpty()) {
                                 <TD COLSPAN="4" HEIGHT="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                             </TR>
 <%-- Development Statistics ends --%>
+
+<%-- Reliability begins --%>
+                            <TR>
+                                <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="4" CLASS="registerNav" HEIGHT="18">&#160;&#160;Component Statistics</TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD CLASS="statText" >&#160;&#160;Reliability Rating:</TD>
+                                <TD CLASS="statText" ALIGN="right"><rsc:item set="<%=rsc%>" name="reliability" ifNull="100%" format="##0.##%"/></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                            </TR>
+
+                            <TR>
+                                <TD COLSPAN="4" HEIGHT="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                            </TR>
+<%-- Reliability Statistics ends --%>
                             <TR>
                                 <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="4" CLASS="registerNav" HEIGHT="18">&#160;&#160;Earnings</TD>
                             </TR>
