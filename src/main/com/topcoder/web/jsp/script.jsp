@@ -47,7 +47,7 @@ function sponsorLinkWindow(spons,nam,top,lef,wid,hei)
 }
 function infoWindow(url) {
   var width = 300
-  var height = 200
+  var height = 300
   var left = (screen.availWidth - width) / 2;
   var top = (screen.availHeight-height)/2;
   OpenWin=this.open(url,"Info",
