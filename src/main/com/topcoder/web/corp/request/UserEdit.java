@@ -97,12 +97,14 @@ public class UserEdit extends BaseProcessor {
         // form is valid - store it
         icEJB = null;
         Transaction tx = null;
+        String oldPass = null;
         try {
             mgr = Util.getPrincipalManager();
 
             // transaction boundary
             tx = Util.beginTransaction();
 
+            oldPass = mgr.getPassword(secTok.targetUser.getId());
             if (secTok.createNew) {
                 secTok.targetUser = createUserPrincipal();
                 targetUserID = secTok.targetUser.getId();
@@ -115,7 +117,7 @@ public class UserEdit extends BaseProcessor {
 
             tx.commit();
         } catch (Exception exc) {
-            rollbackHelper(tx, secTok.createNew);
+            rollbackHelper(tx, secTok.createNew, oldPass);
             throw exc;
         } finally {
             Util.closeIC(icEJB);
@@ -515,7 +517,7 @@ public class UserEdit extends BaseProcessor {
      *
      * @param tx
      */
-    private final void rollbackHelper(Transaction tx, boolean removeSecurityUser) {
+    private final void rollbackHelper(Transaction tx, boolean removeSecurityUser, String oldPassword) {
         if (tx != null) {
             log.error("rolling transaction back " + tx);
             try {
@@ -528,14 +530,17 @@ public class UserEdit extends BaseProcessor {
         if (secTok.targetUser != null) {
             // security user creation is performed by the remote component
             // (thus, outside of transaction scope) so we have remove it
-            // by hands
+            // by hand
             try {
                 if (removeSecurityUser) {
                     secTok.man.removeUser(secTok.targetUser, secTok.requestor);
+                } else {
+                    //reset their password
+                    Util.getPrincipalManager().editPassword(secTok.targetUser, oldPassword, secTok.requestor);
                 }
             } catch (Exception ignore) {
                 ignore.printStackTrace();
-                log.error("tx.roolback(): removing of security user has failed");
+                log.error("tx.roolback(): removing/restoring of security user has failed");
             }
         }
     }
