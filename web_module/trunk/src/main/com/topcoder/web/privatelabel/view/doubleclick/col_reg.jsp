@@ -26,8 +26,7 @@
 		<td class="dc_bodyText">
          <p class="pageTitle">Registration</p>
 
-            <p>Registration for the Verizon Coding Challenge opens at 7:00AM IST on Monday, October 27th.</p>                        <p>
-
+            <p>Registration for the DoubleClick Coding Challenge opens at 9:00AM EST on Monday, February 9th.</p>
 
 		</td>
 	</tr>
