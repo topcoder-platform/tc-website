@@ -134,9 +134,6 @@
                         <p><strong>Second Place Developer</strong><br />
                            Total Payment - <xsl:value-of select="format-number(number($numericPayment)*.5, $dollarFormat)"/><br/>
                         </p>
-                        <p><strong>Third Place Developer</strong><br />
-                           Total Payment - <xsl:value-of select="format-number(number($numericPayment)*.25, $dollarFormat)"/><br/>
-                        </p>
 <!-- Definition of Completion -->
                         <p><sup>*</sup>Completion of the project is defined as follows:</p>
 
