@@ -15,15 +15,15 @@ import java.util.Enumeration;
  *
  */
 
-public class QueryListTask extends BaseProcessor {
+public class QueryList extends BaseProcessor {
 
-    private static Logger log = Logger.getLogger(QueryListTask.class);
+    private static Logger log = Logger.getLogger(QueryList.class);
 
     private ResultSetContainer queryList;
     private String db;
 
-    /* Creates a new LoginTask */
-    public QueryListTask() {
+    /* Creates a new Login */
+    public QueryList() {
         super();
         db = "";
     }

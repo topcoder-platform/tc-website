@@ -15,16 +15,16 @@ import java.util.Enumeration;
  *
  */
 
-public class ModifyGroupTask extends BaseProcessor {
+public class ModifyGroup extends BaseProcessor {
 
-    private static Logger log = Logger.getLogger(ModifyGroupTask.class);
+    private static Logger log = Logger.getLogger(ModifyGroup.class);
 
     private String db;
     private int groupId;
     private String groupDesc;
 
-    /* Creates a new LoginTask */
-    public ModifyGroupTask() {
+    /* Creates a new Login */
+    public ModifyGroup() {
         super();
         db = "";
         groupId = 0;

@@ -18,9 +18,9 @@ import java.util.Enumeration;
  *
  */
 
-public class QueryDetailTask extends BaseProcessor {
+public class QueryDetail extends BaseProcessor {
 
-    private static Logger log = Logger.getLogger(QueryDetailTask.class);
+    private static Logger log = Logger.getLogger(QueryDetail.class);
 
     private String db;
     private String queryText;
@@ -30,8 +30,8 @@ public class QueryDetailTask extends BaseProcessor {
     private ResultSetContainer inputList;
     private int queryId;
 
-    /* Creates a new LoginTask */
-    public QueryDetailTask() {
+    /* Creates a new Login */
+    public QueryDetail() {
         super();
     }
 

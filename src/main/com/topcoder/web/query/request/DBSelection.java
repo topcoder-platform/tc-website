@@ -10,12 +10,12 @@ import com.topcoder.web.common.BaseProcessor;
  *
  */
 
-public class DBSelectionTask extends BaseProcessor {
+public class DBSelection extends BaseProcessor {
 
-    private static Logger log = Logger.getLogger(DBSelectionTask.class);
+    private static Logger log = Logger.getLogger(DBSelection.class);
 
-    /* Creates a new LoginTask */
-    public DBSelectionTask() {
+    /* Creates a new Login */
+    public DBSelection() {
         super();
     }
 

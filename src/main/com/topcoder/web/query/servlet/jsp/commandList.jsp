@@ -2,10 +2,10 @@
   language="java"
   errorPage="errorPage.jsp"
   import= "com.topcoder.web.query.common.*,
-          com.topcoder.web.query.bean.task.*"
+           com.topcoder.web.query.request.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
-<jsp:useBean id="CommandListTask" scope="request" class="com.topcoder.web.query.bean.task.CommandListTask" />
+<jsp:useBean id="CommandListTask" scope="request" class="com.topcoder.web.query.request.CommandListTask" />
 <jsp:useBean id="SessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
