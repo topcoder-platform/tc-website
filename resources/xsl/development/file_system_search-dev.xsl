@@ -57,18 +57,18 @@
 					<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
 <!-- Title -->
-						<h1 class="devSubhead"><strong><<<COMPONENT_NAME>>>: Development</strong></h1>
+						<h1 class="devSubhead"><strong>File System Search: Development</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>: Development&amp;comp=<<<COMPONENT_ID>>>" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File System Search: Development&amp;comp=3304435" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						<<<OVERVIEW>>>
+						Search a file-system by filename, directory name or contents of a file. This search component allows developers to add comprehensive file-system search capabilities to applications.
 						</p>
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
-						Component Development Project: Provide a complete development solution for the <<<COMPONENT_NAME>>> component.<br />
+						Component Development Project: Provide a complete development solution for the File System Search component.<br />
 						Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 						If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -81,7 +81,7 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=<<<COMPONENT_ID>>>">documentation</a> for this project is available on the TopCoder Software web site.</p>
+						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3304435">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br />
@@ -91,7 +91,7 @@
 						<p><strong>Developer</strong><br />
 						Royalty Percentage - 25%</p>
 							
-						<p>Total Payment - $<<<TOTAL_PAYMENT>>></p>
+						<p>Total Payment - $168.00</p>
 
 <!-- Definition of Completion -->
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
@@ -117,15 +117,15 @@
 						<p><strong>Time Line</strong><br/>
 						All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 							
-						<p>Component Posting: <<<POSTING_DATE>>><br/>
-						Initial Submission Due Date: <<<INITIAL_DUE_DATE>>><br/>
-						Winner Announced: <<<WINNER_DATE>>><br/>
-						Final Submission Due Date: <<<FINAL_SUBMISSION_DATE>>></p>
+						<p>Component Posting: 1.23.2003<br/>
+						Initial Submission Due Date: 2.6.2003<br/>
+						Winner Announced: 2.19.2003<br/>
+						Final Submission Due Date: 2.24.2003</p>
 
 <!-- Register at TCS -->
 						<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>: Development&amp;comp=<<<COMPONENT_ID>>>" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File System Search: Development&amp;comp=3304435" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
