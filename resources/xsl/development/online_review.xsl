@@ -72,9 +72,8 @@
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
-						Application Design Project: Provide a complete design for the Online Review application.   Please review the <a>TopCoder Software Application Development Methodology before you submit a solution. 
-
-                            </p>
+						Application Design Project: Provide a complete design for the Online Review application.   Please review the TopCoder Software Application Development Methodology before you submit a solution. 
+                        </p>
                             
 <!-- Technologies -->
 						<p><strong>Technologies</strong></p>
@@ -88,7 +87,7 @@
 						All documentation for this project is available on the TopCoder web site.</p>
 
 <!-- Payment -->
-						<p><strong>Payment</strong><br />
+						<p><strong>Payment</strong><br /></p>
                             <p>TopCoder will compensate the member with the winning solution as well as the runner-up. In order to be paid, both the winning submission and the runner up must pass screening and receive a review score above the minimum score.</p>
                             Compensation for the winning solution is distributed in two installments.<br />
                             First Payment: When the winning solution is submitted and review board suggestions are integrated.<br />
@@ -135,7 +134,8 @@
 						Winner Announced: 3.19.2003<br/>
 						Updated Submission Due Date: 4.22.2003<br/>
 						Estimated Development End Date: 6.19.2003<br/>
-
+                        </p>
+                        
 
 <!-- Register at TCS -->
 						   <p>
