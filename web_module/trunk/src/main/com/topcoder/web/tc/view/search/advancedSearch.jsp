@@ -189,7 +189,7 @@
 
                     <tr>
                         <td colspan="2" class="statText" align="center">
-                            <A href="javascript:submitSearch()"><xsl:attribute name="CLASS">statText</xsl:attribute>[ Submit ]</A><br /><br />
+                            <A href="javascript:submitSearch()" class="statText">[ Submit ]</A><br /><br />
                         </td>
                     </tr>
                 </form>
