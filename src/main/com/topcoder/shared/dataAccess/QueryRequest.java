@@ -203,12 +203,12 @@ public class QueryRequest implements RequestInt {
                     sb.append(me.getValue().hashCode());  //it's a whole query, so use the hashcode to save space
                     sb.append("|");
                 }
+            } else {
+                sb.append(me.getKey().toString());
+                sb.append("=");
+                sb.append(me.getValue().toString());
+                sb.append("|");
             }
-
-            sb.append(me.getKey().toString());
-            sb.append("=");
-            sb.append(me.getValue().toString());
-            sb.append("|");
         }
         return sb.toString();
     }
