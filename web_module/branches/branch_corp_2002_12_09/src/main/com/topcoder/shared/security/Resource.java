@@ -10,20 +10,20 @@ package com.topcoder.shared.security;
  */
 public interface Resource {
     
-    /**
-     * Action resource describing new user creation in same group as action
-     * issuer.
-     */
-    public static final String RC_CREATE_NEW_USER_IN_GROUP = "create new user";
-    
-    /**
-     * Action resource describing modification of users in same group as
-     * issuer has.
-     */
-    public static final String RC_MODIFY_USER_IN_GROUP = "modify user";
+//    /**
+//     * Action resource describing new user creation in same group as action
+//     * issuer.
+//     */
+//    public static final String RC_CREATE_NEW_USER_IN_GROUP = "create new user";
+//    
+//    /**
+//     * Action resource describing modification of users in same group as
+//     * issuer has.
+//     */
+//    public static final String RC_MODIFY_USER_IN_GROUP = "modify user";
 
     /**
-     * 
+     * Return name of the restricted rights resource 
      * @return String
      */
     String getName();

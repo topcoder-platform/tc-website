@@ -18,17 +18,17 @@ public interface Authorization {
      * 
      * @return boolean
      */
-    boolean hasPermission();
+    boolean hasPermission(Resource r);
     
-    /**
-     * 
-     * @param u
-     */
-    void setUser(User u);
-    
-    /**
-     * 
-     * @param r
-     */
-    void setResource(Resource r);
+//    /**
+//     * 
+//     * @param u
+//     */
+//    void setUser(User u);
+//    
+//    /**
+//     * 
+//     * @param r
+//     */
+//    void setResource(Resource r);
 }
