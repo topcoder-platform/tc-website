@@ -10,6 +10,7 @@ package com.topcoder.web.ejb.preferencelevel;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.corp.common.DuplicatePreferenceLevelException;
 import com.topcoder.web.corp.common.NoSuchPreferenceLevelException;
+import com.topcoder.web.common.RowNotFoundException;
 
 import javax.ejb.EJBException;
 
@@ -198,7 +199,11 @@ public class PreferenceLevelBean extends BaseEJB {
         String[] constraintColumns = new String[] {COMPANY_ID, USER_ID};
         String[] constraintValues = new String[] {String.valueOf(companyId), String.valueOf(userId)};
 
-        Integer level = selectInt(PREFERENCE_TABLE, LEVEL, constraintColumns, constraintValues, dataSource);
+        Integer level = null;
+
+        try {
+            level = selectInt(PREFERENCE_TABLE, LEVEL, constraintColumns, constraintValues, dataSource);
+        } catch(RowNotFoundException e) {}
 
         return level != null;
     }
