@@ -19,7 +19,8 @@ public class JobPostingServicesBean extends BaseEJB {
     private static Logger log = Logger.getLogger(JobPostingServicesBean.class);
 
     /**
-     * Given a user
+     * Given a user id, job id, and hit type, first checks if this user has already
+     * "hit" this job, if so do nothing, else insert a row.
      * @param userId the user who clicked
      * @param jobId the particular job
      * @param hitTypeId the type of hit
@@ -27,7 +28,7 @@ public class JobPostingServicesBean extends BaseEJB {
      * or if there was an issue with query execution.
      */
     public void addJobHit(int userId, int jobId, int hitTypeId) throws RemoteException {
-        log.debug("addJobHit called");
+        log.debug("addJobHit called...");
         StringBuffer query = null;
         Connection conn = null;
         PreparedStatement ps = null;
@@ -76,5 +77,42 @@ public class JobPostingServicesBean extends BaseEJB {
 
     }
 
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
+    public String getLink(int jobId) throws RemoteException {
+        log.debug("getLink called...");
+        StringBuffer query = null;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String ret = null;
 
+        query = new StringBuffer();
+        query.append(" SELECT link");
+        query.append(" FROM job");
+        query.append(" WHERE job_id = ?");
+
+        try {
+            conn = DBMS.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setInt(1, jobId);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                ret = rs.getString("link");
+            } else {
+                ret = "";
+            }
+        } catch (SQLException se) {
+            DBMS.printSqlException(true, se);
+            throw new RemoteException("JobPostingServicesBean.getLink(int):ERROR: " + se);
+        } catch (Exception e) {
+            throw new RemoteException(e.getMessage());
+        }
+        return ret;
+    }
 }

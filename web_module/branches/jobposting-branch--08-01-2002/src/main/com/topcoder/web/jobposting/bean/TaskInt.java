@@ -23,6 +23,10 @@ public interface TaskInt {
 
     String getNextPage();
 
+    void setNextPageInternal(boolean nextPageInternal);
+
+    boolean getNextPageInternal();
+
     void servletPreAction(HttpServletRequest request, HttpServletResponse response)
             throws Exception;
 

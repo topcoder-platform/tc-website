@@ -69,9 +69,19 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
                                 " hit type: " + Constants.JOB_POSTING_ID);
                     }
                 }
+                setNextPage(Constants.PROFILE_PAGE);
+                setNextPageInternal(true);
             } else {
                 try {
                     jpServices.addJobHit(userId, jobId, hitType);
+                    if (hitType==Constants.CLICK_THRU_ID) {
+                        setNextPage(jpServices.getLink(jobId));
+                        setNextPageInternal(false);
+                    } else {
+                        // don't know where to go with this...needs to change...
+                        setNextPage(Constants.ERROR_PAGE);
+                        setNextPageInternal(true);
+                    }
                 } catch (Exception e) {
                     throw new Exception("failed to add job hit for user: " + userId +
                             " job: " + jobId +

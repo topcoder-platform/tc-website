@@ -1,13 +1,9 @@
 package com.topcoder.web.jobposting.servlet;
 
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.web.tces.common.*;
-import com.topcoder.web.tces.ejb.TCESServices.TCESServices;
-import com.topcoder.web.tces.ejb.TCESServices.TCESServicesHome;
-import com.topcoder.web.tces.bean.*;
+import com.topcoder.web.jobposting.common.Constants;
+import com.topcoder.web.jobposting.bean.TaskInt;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
@@ -30,7 +26,7 @@ public class Controller extends HttpServlet {
      * @throws ServletException
      */
     public void init() throws ServletException {
-        TCESConstants.init(getServletConfig());
+        Constants.init(getServletConfig());
     }
 
     /**
@@ -52,8 +48,8 @@ public class Controller extends HttpServlet {
         log.debug("in doPost");
 
 //        String command = request.getParameter(DataAccessConstants.COMMAND);
-        String taskName = request.getParameter(TCESConstants.TASK_PARAM);
-        String taskStepName = request.getParameter(TCESConstants.STEP_PARAM);
+        String taskName = request.getParameter(Constants.TASK_PARAM);
+        String taskStepName = request.getParameter(Constants.STEP_PARAM);
 
         try {
             log.debug("INCONTROLLER - " + ((Integer) request.getSession(true).getAttribute("user_id")).toString());
@@ -69,10 +65,10 @@ public class Controller extends HttpServlet {
 
             if (taskName != null && taskName.trim().length() > 0) {
                 // process a task
-                Task task = null;
+                TaskInt task = null;
                 Class taskClass = null;
-                taskClass = Class.forName(TCESConstants.TCES_PACKAGE + "." + taskName);
-                task = (Task) taskClass.newInstance();
+                taskClass = Class.forName(Constants.JOB_POSTING_PACKAGE + "." + taskName);
+                task = (TaskInt) taskClass.newInstance();
                 task.setInitialContext(ctx);
 
                 Enumeration parameterNames = request.getParameterNames();
@@ -94,18 +90,16 @@ public class Controller extends HttpServlet {
 
                 log.debug(task.getNextPage());
 
-                getServletContext().getRequestDispatcher(response.encodeURL(task.getNextPage())).forward(request, response);
-
+                if (task.getNextPageInternal()) {
+                    getServletContext().getRequestDispatcher(
+                            response.encodeURL(task.getNextPage())).forward(request, response);
+                } else {
+                    response.sendRedirect(response.encodeURL(task.getNextPage()));
+                }
             }
-/*
-            else if (command != null && command.trim().length() > 0) {
-                // process command (old code)
-                processCommand(command,request,response);
-            }
-*/
             else {
                 forwardToErrorPage(request, response,
-                        new Exception("missing " + TCESConstants.TASK_PARAM + " parameter in request"));
+                        new Exception("missing " + Constants.TASK_PARAM + " parameter in request"));
             }
         } catch (ClassNotFoundException cnfex) {
             log.debug("Unable to dispatch task! " + cnfex.getMessage());
@@ -117,65 +111,6 @@ public class Controller extends HttpServlet {
         }
     }
 
-/*
-    public void processCommand(String command, HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException
-    {
-        InitialContext ctx = null;
-
-        if (command.equals("job_posting") || command.equals("click_thru")) {
-            String tempJobId = request.getParameter(TCESConstants.JOB_ID_PARAM);
-            String tempUserId = request.getParameter(TCESConstants.USER_ID_PARAM);
-            int jobId = -1;
-            int userId = -1;
-            int hitTypeId = -1;
-
-            if (command.equals("job_posting")) {
-                hitTypeId = TCESConstants.JOB_POSTING_ID;
-            } else {
-                hitTypeId = TCESConstants.CLICK_THRU_ID;
-            }
-            if (tempJobId == null || tempJobId.trim().equals("")) {
-                forwardToErrorPage(request, response,
-                        new Exception("missing " + TCESConstants.JOB_ID_PARAM + " parameter " +
-                        " in request"));
-                return;
-            } else if (tempUserId == null || tempUserId.trim().equals("")) {
-                forwardToErrorPage(request, response,
-                        new Exception("missing " + TCESConstants.USER_ID_PARAM + " parameter " +
-                        " in request"));
-                return;
-            } else {
-                try {
-                    jobId = Integer.parseInt(tempJobId);
-                } catch (NumberFormatException nfe) {
-                    forwardToErrorPage(request, response, nfe);
-                    return;
-                }
-                try {
-                    userId = Integer.parseInt(tempUserId);
-                } catch (NumberFormatException nfe) {
-                    forwardToErrorPage(request, response, nfe);
-                    return;
-                }
-            }
-
-            try {
-                ctx = (InitialContext) TCContext.getInitial();
-                TCESServicesHome tcesHome = (TCESServicesHome)
-                        ctx.lookup(ApplicationServer.TCES_SERVICES);
-                TCESServices tcesServices = tcesHome.create();
-                tcesServices.addJobHit(userId, jobId, hitTypeId);
-            } catch (Exception ex) {
-                forwardToErrorPage(request, response, ex);
-            }
-        } else {
-            forwardToErrorPage(request, response,
-                    new Exception("Don't recognize command: " + command));
-            return;
-        }
-    }
-*/
     private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,
                                     Throwable exception) throws ServletException, IOException {
 
@@ -185,7 +120,7 @@ public class Controller extends HttpServlet {
            one within this web application
          */
         getServletContext().getContext("/").getRequestDispatcher(
-                response.encodeURL(TCESConstants.ERROR_PAGE)).forward(request, response);
+                response.encodeURL(Constants.ERROR_PAGE)).forward(request, response);
     }
 }
 

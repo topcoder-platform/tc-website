@@ -21,10 +21,12 @@ public abstract class BaseTask implements TaskInt {
 
     private InitialContext ctx;
     private String nextPage;
+    private boolean nextPageInternal;
 
     public BaseTask() {
         setInitialContext(null);
         setNextPage(null);
+        setNextPageInternal(true);
     }
 
     public abstract void processStep(String step) throws Exception;
@@ -43,6 +45,14 @@ public abstract class BaseTask implements TaskInt {
 
     public String getNextPage() {
         return nextPage;
+    }
+
+    public void setNextPageInternal(boolean nextPageInternal) {
+        this.nextPageInternal = nextPageInternal;
+    }
+
+    public boolean getNextPageInternal() {
+        return this.nextPageInternal;
     }
 
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
