@@ -58,7 +58,7 @@
 							
 							<h1 class="devSubhead"><strong>File Diff: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Diff: Design&amp;comp=4202855" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Diff: Design&amp;comp=4202855&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
 							Compare the contents of two text files, outputting the differences. The File Diff component compares the contents of File A with File B, outputting the changes necessary to convert File A to File B. There are a series of options to ignore changes in white spaces, blank lines, case as well as an option to output only the differences between the two files.
@@ -117,15 +117,15 @@
 							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
 
-							<p>Component Posting: 1.16.2003<br/>
-							Initial Submission Due Date: 1.22.2003<br/>
-							Winner Announced: 1.23.2003<br/>
-							Final Submission Due Date: 2.3.2003<br/>
-                            Estimated Development End Date: 3.10.2003</p>
+						<p>Component Posting: 1.30.2003<br/>
+						Initial Submission Due Date: 2.5.2003<br/>
+						Winner Announced: 2.13.2003<br/>
+						Final Submission Due Date: 2.17.2003<br/>
+						Estimated Development End Date: 3.26.2003</p>
 
 							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Diff: Design&amp;comp=4202855" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Diff: Design&amp;comp=4202855&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
