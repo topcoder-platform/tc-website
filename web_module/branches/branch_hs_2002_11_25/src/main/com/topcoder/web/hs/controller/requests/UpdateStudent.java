@@ -114,7 +114,7 @@ public class UpdateStudent extends Base {
       request.setAttribute("form_errors",errors);
 
       if (RegistrationHelper.isValidStudent(errors,srb)) {
-        RegistrationHelper.createStudent(srb);
+        RegistrationHelper.updateStudent(srb);
         setNextPage(HOME_PAGE);
       }
       else {
