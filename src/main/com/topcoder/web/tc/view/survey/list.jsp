@@ -45,7 +45,7 @@
             <table border="0" cellpadding="5" cellspacing="0"width="100%">
                <tr><td class="header">Archive</td></tr>
             </table>
-            <img src="/i/clear.gif" width="400" height="10" border="0"><br>
+            <img src="/i/clear.gif" width="400" height="10" border="0"><br> 
 
             <table border="0" cellpadding="5" cellspacing="0" class="bodyText" width="500" align="center">
             <% boolean even = false; %>

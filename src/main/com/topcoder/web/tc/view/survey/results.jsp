@@ -128,7 +128,7 @@
                         <td align="right">
                            <rsc:item row="<%=answer%>" name="percentage" format="#.##"/>%
                         </td>
-                        <td bgcolor="#FFFFFF" width="200">
+                        <td bgcolor="#FFFFFF" valign="middle" nowrap>
                             <p align="center">
 
                             <SCRIPT LANGUAGE="JavaScript">
@@ -142,7 +142,7 @@
                                document.write('</object>');
                             }
                             else {
-                               document.write('<a href="http://www.macromedia.com/go/getflashplayer">no flash</a>');
+                               document.write('<a href="http://www.macromedia.com/go/getflashplayer">get flash</a>');
                             }
                             // -->
                             </SCRIPT>
@@ -152,6 +152,7 @@
                      <% even = !even; %>
                   </rsc:iterator>
                   </table>
+                  <p><br/></p>
              </tc:questionIterator>
          </td>
 <!-- Center Column Ends -->
