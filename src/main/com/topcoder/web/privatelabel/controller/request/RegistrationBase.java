@@ -39,10 +39,12 @@ abstract class RegistrationBase extends BaseProcessor {
     protected final void businessProcessing() throws TCWebException {
         try {
             p = new SessionPersistor(getRequest().getSession(true));
+            //gotta do this here just in case makeRegInfo() needs the database
+            long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
+            db = getCompanyDb(companyId);
+
             regInfo = makeRegInfo();
             p.setObject(Constants.REGISTRATION_INFO, regInfo);
-            db = getCompanyDb(regInfo.getCompanyId());
-            log.debug("working with db: " + db);
             registrationProcessing();
         } catch (Exception e) {
             throw new TCWebException(e);
