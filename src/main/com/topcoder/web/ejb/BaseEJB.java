@@ -239,7 +239,7 @@ public abstract class BaseEJB implements SessionBean {
                 return ret;
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
-                throw(new EJBException(e.getMessage()));
+                throw new EJBException(e.getMessage());
             } finally {
                 close(rs);
                 close(ps);
