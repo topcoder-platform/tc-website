@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.22.05<br>12:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_02_22_05">Semifinalists Announced for 2005 TCCC Sponsored by Yahoo!&#174;</A></span><br><br>
+      TopCoder today announced the 31 International onsite semifinalists who have advanced to the Championship rounds of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/?&t=news_events&c=pr_02_22_05">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.22.05<br>9:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle">TCCC05 <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_bracket">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_bracket">Development</A> finalists</span><br><br>
       The Design and Development finalists have been announced.  Take a look at who is going to compete next month in California.

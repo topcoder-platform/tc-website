@@ -156,12 +156,12 @@
          <tr>
             <td class=homeArrow>&#160;</td>
             <td class=homeText><br/>
+            Semifinalists Announced for 2005 TCCC Sponsored by Yahoo!&#174;<A href="/?&t=news_events&c=pr_02_22_05"> ...more</A><br/>[February 22]<br/><br/>
             NVIDIA Corporation Returns as Premier Sponsor of 2005 TopCoder&#174; Collegiate Challenge<A href="/?&t=news_events&c=pr_02_16_05"> ...more</A><br/>[February 16]<br/><br/>
             TopCoder Software&#153; Opens Access to Reusable Java&#153; and .NET&#153; Component Catalogs<A href="/?&t=news_events&c=pr_02_15_05"> ...more</A><br/>[February 15]<br/><br/>
             Google Code Jam Comes to India<A href="/?&t=news_events&c=pr_02_09_05"> ...more</A><br/>[February 9]<br/><br/>
             TC Community Surpasses 50,000 Worldwide Nears 10,000 Rated Member Mark<A href="/?&t=news_events&c=pr_02_07_05"> ...more</A><br/>[February 7]<br/><br/>
             Software Taming Gene Data Pool<A href="http://www.wired.com/news/medtech/0,1286,66458,00.html?tw=wn_tophead_1" target="_blank"> ...more</A><br/>[February 2 - Wired]<br/><br/>
-            DE-CODER: The kings of coding<A href="/?&t=news_events&c=art_02_01_05"> ...more</A><br/>[February 1 - ADT]<br/><br/>
             </td>
          </tr>
       </table>
