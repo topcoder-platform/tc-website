@@ -46,9 +46,7 @@ function jobTask(step)
 		</email:templateName>
 		</td>
 		<td class="bodyText">
-		<a href="javascript:jobTask('<%=EmailConstants.SCHEDULEDJOB_CHOOSE_TEMPLATE_EDIT%>');"
-			onMouseOver="window.status='Choose template'; return true;"
-			onMouseOut="window.status=''; return true;">
+		<a href="javascript:jobTask('<%=EmailConstants.SCHEDULEDJOB_CHOOSE_TEMPLATE_EDIT%>');">
 		[change]</a>
 		</td>
 		<tr>
@@ -75,14 +73,10 @@ function jobTask(step)
 		</td>
 <% } %>
 		<td valign="top" class="bodyText">
-		<a href="javascript:jobTask('<%=EmailConstants.SCHEDULEDJOB_CHOOSE_LIST_EDIT%>');"
-			onMouseOver="window.status='Choose template'; return true;"
-			onMouseOut="window.status=''; return true;">
+		<a href="javascript:jobTask('<%=EmailConstants.SCHEDULEDJOB_CHOOSE_LIST_EDIT%>');">
 		[choose mailing list]</a>
 		&nbsp;
-		<a href="javascript:jobTask('<%=EmailConstants.SCHEDULEDJOB_CHOOSE_QUERY_EDIT%>');"
-			onMouseOver="window.status='Choose template'; return true;"
-			onMouseOut="window.status=''; return true;">
+		<a href="javascript:jobTask('<%=EmailConstants.SCHEDULEDJOB_CHOOSE_QUERY_EDIT%>');">
 		[choose predefined query]</a>
 		</td>
 

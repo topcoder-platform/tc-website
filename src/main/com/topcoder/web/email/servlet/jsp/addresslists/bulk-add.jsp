@@ -41,15 +41,11 @@
 
 </form>
 <p>
-<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_SHOW_ADD_MEMBER%>', '');"
-	onMouseOver="window.status='Switch to individual entry mode'; return true;"
-	onMouseOut="window.status=''; return true;">
+<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_SHOW_ADD_MEMBER%>', '');">
 [individual entry mode]
 </a>
 <p>
-<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_LIST%>', '');"
-		onMouseOver="window.status='Done'; return true;"
-		onMouseOut="window.status=''; return true;">
+<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_LIST%>', '');">
 [done]</a>
 <p>
 <hr/>

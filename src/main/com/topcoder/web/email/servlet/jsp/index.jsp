@@ -22,21 +22,15 @@
 	<input type="hidden" name="<%=EmailConstants.STEP%>">
 </form>
 
-<a href="javascript:menuSubmit('<%=EmailConstants.EMAILTEMPLATE_TASK%>', '<%=EmailConstants.TEMPLATE_LIST%>');"
-		onMouseOver="window.status='Email tasks'; return true;"
-		onMouseOut="window.status=''; return true;">
+<a href="javascript:menuSubmit('<%=EmailConstants.EMAILTEMPLATE_TASK%>', '<%=EmailConstants.TEMPLATE_LIST%>');">
 E-mail Templates</a>
 
 <p>
-<a href="javascript:menuSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_LIST%>');"
-		onMouseOver="window.status='Address list tasks'; return true;"
-		onMouseOut="window.status=''; return true;">
+<a href="javascript:menuSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_LIST%>');">
 Mailing Lists</a>
 
 <p>
-<a href="javascript:menuSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_LIST%>');"
-		onMouseOver="window.status='Scheduled job tasks'; return true;"
-		onMouseOut="window.status=''; return true;">
+<a href="javascript:menuSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_LIST%>');">
 Scheduled Jobs</a>
 
 <p>

@@ -29,9 +29,7 @@
 <!--	<input type="submit" value="go"> -->
 </form>
 <p>
-<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_CREATE%>', '');"
-		onMouseOver="window.status='New address list'; return true;"
-		onMouseOut="window.status=''; return true;">
+<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_CREATE%>', '');">
 [create new mailing list]</a>
 <p>
 
@@ -53,17 +51,13 @@
 <email:addressListIterator id="idname" group="<%=(String) request.getAttribute(EmailConstants.GROUP)%>">
 	<tr bgcolor="<%=colors[(row++)%colors.length]%>">
 
-	<td width=80%>
-	<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_EDIT%>', '<%=idname.getId()%>');"
-		onMouseOver="window.status='Edit address list'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<td width="80%">
+	<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_EDIT%>', '<%=idname.getId()%>');">
 	<%=idname.getName()%></a>
 	</td>
 
 	<td>
-	<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_DELETE%>', '<%=idname.getId()%>');"
-		onMouseOver="window.status='Delete address list'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_DELETE%>', '<%=idname.getId()%>');">
 	[delete]</a>
 
 
@@ -74,9 +68,7 @@
 </table>
 
 <p>
-<a href="javascript:taskSubmit('<%=EmailConstants.HOME_TASK%>', '', '');"
-		onMouseOver="window.status='Main menu'; return true;"
-		onMouseOut="window.status=''; return true;">
+<a href="javascript:taskSubmit('<%=EmailConstants.HOME_TASK%>', '', '');">
 [back to main menu]</a>
 <p>
 <jsp:include page="../footer.jsp" />

@@ -59,9 +59,7 @@ function detail(detailId) {
 	<email:scheduledJobLogIterator id="logEntry" logList="<%=(List) request.getAttribute(EmailConstants.LOG)%>">
 		<tr>
 		<td class="bodyText">
-		<a href="javascript:detail('<%=logEntry.getDetailId()%>');"
-			onMouseOver="window.status='View data'; return true;"
-			onMouseOut="window.status=''; return true;">
+		<a href="javascript:detail('<%=logEntry.getDetailId()%>');">
 			<%=logEntry.getDetailStatus()%>
 		</a>
 		</td>
@@ -72,9 +70,7 @@ function detail(detailId) {
 	</table>
 <p>
 <% if (String.valueOf(request.getAttribute(EmailConstants.PREV)).equals("1")) { %>
-	<a href="javascript:scroll('<%=(sr-(er-sr))%>', '<%=sr%>');"
-		onMouseOver="window.status='Previous screen'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:scroll('<%=(sr-(er-sr))%>', '<%=sr%>');">
 	[&lt;&lt; Prev]
 
 
@@ -82,10 +78,7 @@ function detail(detailId) {
 <% } %>
 &nbsp;
 <% if (String.valueOf(request.getAttribute(EmailConstants.NEXT)).equals("1")) { %>
-	<a href="javascript:scroll('<%=er%>', '<%=(er+(er-sr))%>');"
-		onMouseOver="window.status='Next screen'; return true;"
-
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:scroll('<%=er%>', '<%=(er+(er-sr))%>');">
 	[Next &gt;&gt;]
 	</a>
 <% } %>

@@ -29,9 +29,7 @@
 </form>
 </p>
 <p class="bodyText">
-<a href="javascript:taskSubmit('<%=EmailConstants.EMAILTEMPLATE_TASK%>', '<%=EmailConstants.TEMPLATE_CREATE%>', '');"
-		onMouseOver="window.status='New template'; return true;"
-		onMouseOut="window.status=''; return true;">
+<a href="javascript:taskSubmit('<%=EmailConstants.EMAILTEMPLATE_TASK%>', '<%=EmailConstants.TEMPLATE_CREATE%>', '');">
 [create new message template]</a>
 </p>
 
@@ -55,17 +53,13 @@
 	<tr bgcolor="<%=colors[(row++)%colors.length]%>">
 
 	<td width=80% class="bodyText">
-	<a href="javascript:taskSubmit('<%=EmailConstants.EMAILTEMPLATE_TASK%>', '<%=EmailConstants.TEMPLATE_EDIT%>', '<%=idname.getId()%>');"
-		onMouseOver="window.status='Edit template'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:taskSubmit('<%=EmailConstants.EMAILTEMPLATE_TASK%>', '<%=EmailConstants.TEMPLATE_EDIT%>', '<%=idname.getId()%>');">
 
 	<%=idname.getName()%></a>
 	</td>
 
 	<td class="bodyText">
-	<a href="javascript:taskSubmit('<%=EmailConstants.EMAILTEMPLATE_TASK%>', '<%=EmailConstants.TEMPLATE_DELETE%>', '<%=idname.getId()%>');"
-		onMouseOver="window.status='Delete template'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:taskSubmit('<%=EmailConstants.EMAILTEMPLATE_TASK%>', '<%=EmailConstants.TEMPLATE_DELETE%>', '<%=idname.getId()%>');">
 	[delete]</a>
 	</td>
 
@@ -78,9 +72,7 @@
 
 
 
-<a href="javascript:taskSubmit('<%=EmailConstants.HOME_TASK%>', '', '');"
-		onMouseOver="window.status='Main menu'; return true;"
-		onMouseOut="window.status=''; return true;">
+<a href="javascript:taskSubmit('<%=EmailConstants.HOME_TASK%>', '', '');">
 [back to main menu]</a>
 </p>
 <jsp:include page="../footer.jsp" />

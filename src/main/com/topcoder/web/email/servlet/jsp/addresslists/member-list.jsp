@@ -22,16 +22,12 @@
 	</td>
 
 	<td valign="top" class="bodyText">
-	<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_EDIT_MEMBER%>', '<%=memberID%>');"
-		onMouseOver="window.status='Edit member'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_EDIT_MEMBER%>', '<%=memberID%>');">
 	[edit]</a>
 	</td>
 
 	<td valign="top" class="bodyText">
-	<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_DELETE_MEMBER%>', '<%=memberID%>');"
-		onMouseOver="window.status='Delete member'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:taskSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_DELETE_MEMBER%>', '<%=memberID%>');">
 	[delete]</a>
 </td>
 
