@@ -979,3 +979,341 @@ SELECT c.handle, p.class_name, p.method_name, ps.status_desc, ps.submission_text
    AND rr.round_id > 4100
  ORDER BY p.class_name
 "
+
+java com.topcoder.utilities.QueryLoader "DW" 1000 "TCES_Coder_Stats" 0 0 "
+SELECT r.rating
+     , r.highest_rating
+     , r.lowest_rating
+     , cr.percentile
+     , r.num_ratings
+     , cal.date AS last_rated_event
+     , (CASE r.num_competitions
+        WHEN 0 THEN 0.0
+        ELSE cps.final_points / r.num_competitions
+        END) AS avg_final_points
+     , cps.problems_presented AS total_presented
+     , cps.problems_submitted AS total_submitted
+     , (CASE WHEN cps.problems_presented = 0 THEN 0.0
+             ELSE cps.problems_submitted / cps.problems_presented
+             END) AS total_submit_percent
+     , cps.problems_correct AS correct
+     , (CASE WHEN cps.problems_submitted = 0 THEN 0.0
+             ELSE cps.problems_correct / cps.problems_submitted * 100
+             END) AS total_submission_accuracy
+     , (CASE WHEN cps.problems_presented = 0 THEN 0.0
+             ELSE cps.problems_correct / cps.problems_presented * 100
+             END) AS total_overall_accuracy
+     , (CASE WHEN cps.problems_submitted = 0 THEN 0.0
+             ELSE cps.submission_points / cps.problems_submitted
+             END) AS avg_submission_points
+     , (CASE WHEN cps.problems_submitted = 0 THEN 0.0
+             ELSE cps.final_points / cps.problems_submitted
+             END) AS avg_final_points
+     , (SELECT (CASE WHEN SUM(cl.problems_submitted) = 0 THEN 0.0
+                     ELSE SUM(cl.avg_time_elapsed * cl.problems_submitted) / SUM(cl.problems_submitted)
+                     END)
+          FROM coder_level cl
+         WHERE cl.coder_id = r.coder_id) AS avg_time_elapsed
+  FROM calendar cal
+     , round rd
+     , rating r
+     , coder_rank cr
+     , coder_problem_summary cps
+ WHERE cal.calendar_id = rd.calendar_id
+   AND rd.round_id = r.last_rated_round_id
+   AND r.coder_id = cr.coder_id
+   AND cps.coder_id = r.coder_id
+   AND (r.coder_id = @mid@)
+   AND (cr.coder_rank_type_id = 1)
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 1001 "TCES_Coder_Stats_by_Level" 0 0 "
+SELECT cl.level_id
+     , llu.level_desc
+     , SUM(cl.problems_presented) AS presented
+     , SUM(cl.problems_submitted) AS submitted
+     , (CASE WHEN SUM(cl.problems_presented) = 0 THEN 0.0
+             ELSE SUM(cl.problems_submitted) / SUM(cl.problems_presented) * 100
+             END) AS submit_percent
+     , SUM(cl.problems_correct) AS correct
+     , (CASE WHEN SUM(cl.problems_submitted) = 0 THEN 0.0
+             ELSE SUM(cl.problems_correct) / SUM(cl.problems_submitted) * 100
+             END) AS submission_accuracy
+     , (CASE WHEN SUM(cl.problems_presented) = 0 THEN 0.0
+             ELSE SUM(cl.problems_correct) / SUM(cl.problems_presented) * 100
+             END) AS overall_accuracy
+     , (CASE WHEN SUM(cl.problems_submitted) = 0 THEN 0.0
+             ELSE SUM(cl.submission_points) / SUM(cl.problems_submitted)
+             END) AS avg_submission_points
+     , (CASE WHEN SUM(cl.problems_submitted) = 0 THEN 0.0
+             ELSE SUM(cl.final_points) / SUM(cl.problems_submitted)
+             END) AS avg_final_points
+     , (CASE WHEN SUM(cl.problems_submitted) = 0 THEN 0.0
+             ELSE SUM(cl.avg_time_elapsed * cl.problems_submitted) / SUM(cl.problems_submitted)
+             END) AS avg_time_elapsed
+  FROM coder_level cl
+     , level_lu llu
+ WHERE cl.level_id = llu.level_id
+   AND (cl.coder_id = @mid@)
+ GROUP BY cl.level_id, llu.level_desc
+ ORDER BY cl.level_id
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 1002 "TCES_Coder_Stats_by_Language" 0 0 "
+SELECT cp.language_id
+     , llu.language_name
+     , COUNT(cp.problem_id) AS submitted
+     , (CASE WHEN cps.problems_submitted = 0 THEN 0.0
+             ELSE COUNT(cp.problem_id) / cps.problems_submitted * 100
+             END) AS submit_percent
+     , SUM(CASE WHEN cp.final_points > 0.0 THEN 1 ELSE 0 END) AS num_correct
+     , (CASE WHEN cps.problems_submitted = 0 THEN 0.0
+             ELSE SUM(CASE WHEN cp.final_points > 0.0 THEN 1 
+                             ELSE 0 END) / cps.problems_submitted * 100
+             END) AS submission_accuracy
+     , AVG(cp.submission_points) AS avg_submission_points
+     , AVG(cp.time_elapsed) AS avg_submit_time
+  FROM coder_problem cp
+     , language_lu llu
+     , coder_problem_summary cps
+ WHERE cp.language_id = llu.language_id
+   AND cp.coder_id = cps.coder_id
+   AND (cp.coder_id = @mid@)
+   AND (cp.submission_points > 0.0)
+ GROUP BY cp.language_id
+     , llu.language_name
+     , cps.problems_submitted
+ ORDER BY cp.language_id
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 1003 "TCES_Problem_Submissions" 0 0 "
+SELECT cal.date
+     , c.name
+     , cp.level_desc
+     , dlu.division_desc
+     , cp.final_points
+     , langlu.language_name
+     , cp.end_status_text
+     , cp.round_id
+     , cp.problem_id
+  FROM coder_problem cp
+     , round r
+     , contest c
+     , division_lu dlu
+     , language_lu langlu
+     , calendar cal
+ WHERE cp.round_id = r.round_id
+   AND r.contest_id = c.contest_id
+   AND cp.division_id = dlu.division_id
+   AND cp.language_id = langlu.language_id
+   AND r.calendar_id = cal.calendar_id
+   AND (cp.coder_id = @mid@)
+   AND (cp.submission_points > 0.0)
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 1004 "TCES_Competition_History" 0 0 "
+SELECT cal.date
+     , r.name
+     , dlu.division_desc
+     , rr.final_points
+     , rd.average_points
+     , rr.old_rating
+     , rr.new_rating
+  FROM room_result rr
+     , round r
+     , calendar cal
+     , division_lu dlu
+     , round_division rd
+ WHERE rr.round_id = r.round_id
+   AND r.calendar_id = cal.calendar_id
+   AND rr.division_id = dlu.division_id
+   AND rr.round_id = rd.round_id
+   AND rr.division_id = rd.division_id
+   AND (rr.coder_id = @mid@)
+ ORDER BY cal.date
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 1005 "TCES_Coder_Comp_Stats" 0 0 "
+SELECT contest.name AS contest_name
+     , dlu.division_desc
+     , rd.average_points AS overall_avg_points
+     , rd.point_standard_deviation AS overall_std_dev
+     , rd.problems_submitted AS overall_problems_submitted
+     , (CASE WHEN rd.problems_submitted = 0 THEN 0.0
+             ELSE rd.problems_correct / rd.problems_submitted * 100
+             END) AS overall_submission_accuracy
+     , rr.final_points
+     , rr.point_standard_deviation
+     , rr.problems_submitted
+     , rr.problems_correct
+     , rd.problems_presented AS overall_problems_presented
+     , (CASE WHEN rd.problems_presented = 0 THEN 0.0
+             ELSE rd.problems_submitted / rd.problems_presented * 100
+             END) AS overall_submit_percent
+     , (CASE WHEN rd.problems_presented = 0 THEN 0.0
+             ELSE rd.problems_correct / rd.problems_presented * 100
+             END) AS overall_accuracy
+     , (SELECT (CASE WHEN rd.problems_submitted = 0 THEN 0.0
+                     ELSE SUM(rp.submission_points) / rd.problems_submitted
+                     END)
+          FROM round_problem rp
+         WHERE rp.round_id = rr.round_id
+           AND rp.division_id = rr.division_id) AS overall_submission_points_per_problem
+     , (SELECT AVG(rp.average_points)
+          FROM round_problem rp
+         WHERE rp.round_id = rr.round_id
+           AND rp.division_id = rr.division_id) AS overall_final_points_per_problem
+     , (SELECT AVG(rp.avg_time_elapsed)
+          FROM round_problem rp
+         WHERE rp.round_id = rr.round_id
+           AND rp.division_id = rr.division_id) AS overall_time_per_problem
+  FROM room_result rr
+     , division_lu dlu
+     , round_division rd
+     , round
+     , contest
+ WHERE rr.division_id = dlu.division_id
+   AND rr.round_id = rd.round_id
+   AND rr.division_id = rd.division_id
+   AND rd.round_id = round.round_id
+   AND round.contest_id = contest.contest_id
+   AND (rr.coder_id = @mid@)
+   AND (rr.round_id = @rd@)
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 1006 "TCES_Coder_Comp_Stats_by_Level" 0 0 "
+SELECT cp.problem_id
+     , cp.level_desc
+     , cp.end_status_text
+     , cp.final_points
+     , cp.time_elapsed
+     , langlu.language_name
+  FROM coder_problem cp
+     , language_lu langlu
+ WHERE cp.language_id = langlu.language_id
+   AND (cp.coder_id = @mid@)
+   AND (cp.round_id = @rd@)
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 1007 "TCES_Overall_Comp_Stats_by_Level" 0 0 "
+SELECT rp.level_id
+     , rp.level_desc
+     , rp.problems_presented
+     , rp.problems_submitted
+     , rp.problems_correct
+     , rp.submission_points
+     , rp.average_points
+     , rp.avg_time_elapsed
+  FROM round_problem rp
+     , room_result rr
+ WHERE rp.round_id = rr.round_id
+   AND rp.division_id = rr.division_id
+   AND (rp.round_id = @rd@)
+   AND (rr.coder_id = @mid@)
+ ORDER BY rp.level_id
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 1008 "TCES_Coder_Problem_Stats" 0 0 "
+SELECT p.class_name
+     , dlu.division_desc
+     , p.level_desc
+     , rp.problems_presented
+     , rp.problems_submitted
+     , (CASE WHEN rp.problems_presented = 0 THEN 0.0
+             ELSE rp.problems_submitted / rp.problems_presented * 100
+             END) AS submit_percent
+     , rp.problems_correct
+     , (CASE WHEN rp.problems_submitted = 0 THEN 0.0
+             ELSE rp.problems_correct / rp.problems_submitted * 100
+             END) AS submission_accuracy
+     , (CASE WHEN rp.problems_presented = 0 THEN 0.0
+             ELSE rp.problems_correct / rp.problems_presented * 100
+             END) AS overall_accuracy
+     , (CASE WHEN rp.problems_submitted = 0 THEN 0.0
+             ELSE rp.submission_points / rp.problems_submitted
+             END) AS avg_submission_points
+     , rp.average_points
+     , rp.avg_time_elapsed
+     , cp.end_status_text
+     , cp.time_elapsed
+     , cp.final_points
+     , ps.submission_text
+  FROM coder_problem cp
+     , division_lu dlu
+     , problem p
+     , round_problem rp
+     , OUTER problem_submission ps
+ WHERE ps.coder_id = cp.coder_id
+   AND ps.problem_id = cp.problem_id
+   AND ps.round_id = cp.round_id
+   AND cp.division_id = dlu.division_id
+   AND cp.problem_id = p.problem_id
+   AND cp.round_id = p.round_id
+   AND cp.division_id = p.division_id
+   AND cp.round_id = rp.round_id
+   AND cp.problem_id = rp.problem_id
+   AND cp.division_id = rp.division_id
+   AND (cp.coder_id = @mid@)
+   AND (cp.problem_id = @pm@)
+   AND ps.submission_number= (SELECT MAX(submission_number)
+                                FROM problem_submission ps1
+                               WHERE ps.coder_id = ps1.coder_id
+                                 AND ps.problem_id = ps1.problem_id
+                                 AND ps.round_id = ps1.round_id)
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 1009 "TCES_Problem_Stats_by_Language" 0 0 "
+SELECT llu.language_id
+     , llu.language_name
+     , rp.problems_presented
+     , COUNT(cp.coder_id) AS submitted
+     , (CASE WHEN rp.problems_presented = 0 THEN 0.0
+             ELSE COUNT(cp.coder_id) / rp.problems_presented * 100
+             END) AS submit_percent
+     , SUM(CASE WHEN cp.final_points > 0.0 THEN 1 ELSE 0 END) AS correct
+     , (CASE WHEN COUNT(cp.coder_id) = 0 THEN 0.0
+             ELSE SUM(CASE WHEN cp.final_points > 0.0 THEN 1 ELSE 0 END) / COUNT(cp.coder_id) * 100
+             END) AS submission_accuracy
+     , (CASE WHEN rp.problems_presented = 0 THEN 0.0
+             ELSE SUM(CASE WHEN cp.final_points > 0.0 THEN 1 ELSE 0 END) / rp.problems_presented * 100
+             END) AS overall_accuracy
+     , AVG(cp.submission_points) AS avg_submission_points
+     , AVG(cp.final_points) AS avg_final_points
+     , AVG(cp.time_elapsed) AS avg_time_elapsed
+  FROM coder_problem maincp
+     , coder_problem cp
+     , language_lu llu
+     , round_problem rp
+ WHERE maincp.round_id = cp.round_id
+   AND maincp.division_id = cp.division_id
+   AND maincp.problem_id = cp.problem_id
+   AND cp.language_id = llu.language_id
+   AND maincp.round_id = rp.round_id
+   AND maincp.problem_id = rp.problem_id
+   AND maincp.division_id = rp.division_id
+   AND (maincp.coder_id = @mid@)
+   AND (maincp.problem_id = @pm@)
+   AND (cp.submission_points > 0.0)
+ GROUP BY llu.language_id, rp.problems_presented, llu.language_name
+ ORDER BY llu.language_id
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 1010 "TCES_Problem_Statement" 0 0 "
+SELECT c.name AS contest_name
+     , dlu.division_desc
+     , p.class_name
+     , p.problem_text
+  FROM problem p
+     , round r
+     , contest c
+     , division_lu dlu
+     , coder_problem cp
+ WHERE p.round_id = r.round_id
+   AND r.contest_id = c.contest_id
+   AND p.division_id = dlu.division_id
+   AND cp.round_id = p.round_id
+   AND cp.division_id = p.division_id
+   AND cp.problem_id = p.problem_id
+   AND (cp.problem_id = @pm@)
+   AND (cp.coder_id = @mid@)
+"
