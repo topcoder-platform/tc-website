@@ -69,7 +69,7 @@
             <table border="0" cellpadding="0" cellspacing="10" width="530">
                 <tr>
                     <td align="left" colspan="3">
-                        <a href="/applications/index.jsp"><img src="images/promos/promo_home_A.gif" alt="Over 30,000 developers are competing to build your next application" width="530" height="76" border="0" /><br/>
+                        <a href="/applications/index.jsp"><img src="images/promos/promo_home_A.gif" alt="" width="530" height="76" border="0" /><br/>
                         <img src="images/promos/promo_home_B.jpg" alt="" width="530" height="217" border="0" /></a><br/>
                         <img src="/images/clear.gif" alt="" width="10" height="10" border="0" /><br/>
                         <strong>Using our member base of thousands of highly-skilled developers from all over the world, our competition-based 
