@@ -822,7 +822,7 @@ public class TCLoadRank extends TCLoad {
 
 
     private List getCurrentCoderSchoolRatings(long schoolId, boolean activeOnly) throws Exception {
-        log.debug("getCurrentCoderScoolRatings called...");
+        log.debug("getCurrentCoderSchoolRatings called...");
         StringBuffer query = null;
         PreparedStatement psSel = null;
         ResultSet rs = null;
