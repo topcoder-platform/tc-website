@@ -8,9 +8,6 @@
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/news_events/public_news_left.xsl"/>
   <xsl:import href="../includes/public_right_col.xsl"/>
-  <xsl:import href="../includes/modules/tco03_head.xsl"/>
-  <xsl:import href="../includes/modules/tco03_links.xsl"/>
-  <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>
   <xsl:import href="../includes/global_left.xsl"/>
   <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
@@ -54,7 +51,7 @@
          <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"/><br />
 
 <!-- TCO Head Begins -->
-         
+
                <table align="center">
                   <tr>
                      <td align="center"><img src="/i/events/crpf03/crpf_congrats.gif" width="450" height="62" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"/><br/>
