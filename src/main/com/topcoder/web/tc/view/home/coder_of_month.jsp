@@ -24,9 +24,7 @@
      <tr>
         <td class="formHandleEven">SRM 201</td>
         <td class="formHandleEven" align="right">1709</td>
-        <%--
-        <td rowspan="5" align="center" valign="middle"><img src="/i/m/Zis_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
-        --%>
+        <td rowspan="5" align="center" valign="middle"><img src="/i/m/Savior_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
     </tr>
     <tr>
         <td class="formHandleEven">SRM 200</td>
