@@ -100,7 +100,7 @@
                               </TD>                  
                             </TR>                     
                         </tces:mapIterator>
-
+<%--
                         <TR>
                           <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
                         </TR>                
@@ -122,6 +122,7 @@
                               </TD>                  
                             </TR>                     
                         </tces:mapIterator>
+--%>
 
 
                         <%
@@ -212,6 +213,8 @@
                             </TR>                     
                         </tces:mapIterator>
 
+<%--
+
                         <TR>
                           <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
                         </TR>                
@@ -233,6 +236,7 @@
                               </TD>                  
                             </TR>                     
                         </tces:mapIterator>
+--%>
 
 
                         <%
