@@ -1935,7 +1935,7 @@ public class Registration
                 msgText.append(" both sections without any spaces between them.\n\n");
                 msgText.append("You may utilize your activated TopCoder handle and password ");
                 msgText.append("in order to access your member home page on TopCoder’s web site ");
-                msgText.append("(www.topcoder.com <http://www.topcoder.com>).  Your handle and");
+                msgText.append("(<http://www.topcoder.com>).  Your handle and");
                 msgText.append(" password will also provide you with access to the TopCoder ");
                 msgText.append("Competition Arena, where you can practice, chat, and compete ");
                 msgText.append("in rated events.\n\n\n");
@@ -1962,7 +1962,7 @@ public class Registration
                 msgText.append("a problem set that was actually used in a previous rated event.  ");
                 msgText.append("In addition, participating in a practice room is a very similar ");
                 msgText.append("experience to competing in an actual rated event.  The practice ");
-                msgText.append("rooms are available around the clock.\n\n");
+                msgText.append("rooms are always available.\n\n");
                 msgText.append("You can download and run the TopCoder Competition Arena Applet from here:\n");
                 msgText.append("http://www.topcoder.com/?&t=schedule&c=practice_room\n\n");
                 msgText.append("We also suggest that you read up on the rules and competition process ");
