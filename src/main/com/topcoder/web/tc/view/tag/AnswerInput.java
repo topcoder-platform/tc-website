@@ -55,9 +55,11 @@ public class AnswerInput extends BaseTag {
                to make it accessible from the jsp and evaluate, otherwise, skip the body
              */
             if (pageContext.getAttribute(getId())==null) {
+                log.debug("evaluating");
                 pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
                 return EVAL_BODY_TAG;
             } else {
+                log.debug("not evaluating");
                 return wrapItUp();
             }
         } else if (answers!=null && answers.hasNext()) {
