@@ -145,12 +145,12 @@ All competitors who have qualified for an online round will be assigned to a spe
 <tr>
 <td width="216" valign="top" style='width:216.15pt;border:solid windowtext .5pt;
   background:#0C0C0C;padding:0in 5.4pt 0in 5.4pt'>
-<p class="statText"><b>Round of Competition<o:p></o:p></b></p>
+<p class="statText"><b>Round of Competition</b></p>
 </td>
 <td width="215" valign="top" style='width:214.85pt;border:solid windowtext .5pt;
   border-left:none;mso-border-left-alt:solid windowtext .5pt;background:#0C0C0C;
   padding:0in 5.4pt 0in 5.4pt'>
-<p class="statText"><b>Date and Time *<o:p></o:p></b></p>
+<p class="statText"><b>Date and Time *</b></p>
 </td>
 </tr>
 <tr>
@@ -313,12 +313,12 @@ TopCoder will determine the room assignments for the Semifinal rooms prior to th
 <tr>
 <td width="216" valign="top" style='width:216.15pt;border:solid windowtext .5pt;
   background:#0C0C0C;padding:0in 5.4pt 0in 5.4pt'>
-<p class="statText"><b>Round of Competition<o:p></o:p></b></p>
+<p class="statText"><b>Round of Competition</b></p>
 </td>
 <td width="215" valign="top" style='width:214.85pt;border:solid windowtext .5pt;
   border-left:none;mso-border-left-alt:solid windowtext .5pt;background:#0C0C0C;
   padding:0in 5.4pt 0in 5.4pt'>
-<p class="statText"><b>Date and Time<o:p></o:p></b></p>
+<p class="statText"><b>Date and Time</b></p>
 </td>
 </tr>
 <tr>
