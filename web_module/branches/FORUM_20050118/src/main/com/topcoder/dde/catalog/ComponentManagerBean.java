@@ -932,7 +932,9 @@ public class ComponentManagerBean
                         levelId);
 
                 if (newForum >= 0) {
+
                     log.debug("New forum created, adding PM to notification.");
+log.debug("projectId="+projectId);
                     Project project = pt.getProjectById(projectId, requestor);
 
                     NotificationHome notificationHome = (NotificationHome)
