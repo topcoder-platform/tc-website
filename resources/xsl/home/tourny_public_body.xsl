@@ -313,27 +313,31 @@ Wednesday, October 16, 2002<BR/><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;lbackstrom<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
+    By&#160;ZorbaTHut<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Single Round Match 116</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>2002 TopCoder Invitational Round 2</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm116_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=invit02_r2_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>
-	  <P>
-Srm 116 had an unusual mix of problems. The lower level problems were simple and easy in 
-contrast to the upper level. In fact, no one solved all 3 Division-I problems. 
-<B>John Dethridge</B> made an appearance and won by over 150 points with 1039.72 due to an 
-impressive level 3 score and 150 points of challenges. One of Top Coder's newest red 
-members, <B>uglyfool</B>, got a total of 5 successful challenges. The second highest score went 
-to <B>Yarin</B> at 853.25 who managed to get the easy and the hard problems correct. In third 
-was <B>ZorbaThut</B>, who was able to hit his target, barely making it with a post-contest rating of 3000...
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm116_prob</xsl:attribute>get&#160;analysis</A>
+	  
+<P>
+Second round of the 2002 Invitational. An uncommonly easy Level One problem,
+coupled with an extremely long and bug-prone Level Two problem, led to a
+large number of people passing or failing based solely on their Level One
+solution. Luckily, only 499 competitors were eligable, and only 435 showed
+up, but competition was deadly.
+</P>
+
+<P>
+It's only going to get nastier...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=invit02_r2_prob</xsl:attribute>get&#160;analysis</A>
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
