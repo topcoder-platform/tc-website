@@ -143,7 +143,7 @@ function getProblemDetail(id) {
                         </A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=state_province&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=state&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">
                             State/<br/>Province
                         </A>
                     </td>
@@ -197,7 +197,7 @@ function getProblemDetail(id) {
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>'>
-                        <%=row.getStringItem("state_province")%>
+                        <%=row.getStringItem("state")%>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
