@@ -194,7 +194,7 @@ function getProblemDetail(id) {
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
-                        <%=JSPUtils.timeFormat(row.getLongItem("total_time"))%>
+                        <%=JSPUtils.timeFormat(row.getStringItem("total_time"))%>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
