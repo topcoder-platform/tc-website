@@ -647,7 +647,7 @@ public final class TaskDevelopment {
         ratingRequest.setProperty("uid", String.valueOf(userId));
         ratingRequest.setProperty("ph", String.valueOf(phase));
         ResultSetContainer ratingRsc = (ResultSetContainer) dAccess.getData(ratingRequest).get("rating_info");
-        boolean rated = ratingRsc.getIntItem(0, "num_ratings")>0;
+        boolean rated = !ratingRsc.isEmpty()&&ratingRsc.getIntItem(0, "num_ratings")>0;
 
         boolean ret = false;
         if (rated && ratedCount>=Constants.MAX_RATED_INQUIRIES) {
