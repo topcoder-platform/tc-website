@@ -13,7 +13,7 @@
                         <TD BACKGROUND="/i/orangebv_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">M</FONT></TD>
                         <TD BACKGROUND="/i/orangebv_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">T</FONT></TD>
                         <TD BACKGROUND="/i/orangebv_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">W</FONT></TD>
-                          <TD BACKGROUND="/i/orangebv_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">T</FONT></TD>
+                        <TD BACKGROUND="/i/orangebv_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">T</FONT></TD>
                         <TD BACKGROUND="/i/orangebv_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">F</FONT></TD>
                         <TD BACKGROUND="/i/orangebv_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">S</FONT></TD>
                       </TR>
@@ -27,20 +27,10 @@
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">1</TD>
                       </TR>
                       <TR> 
-                          <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">2</TD>
-                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">
-                          <A CLASS="smallText">
-                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;round_stats&amp;rd=4190</xsl:attribute>
-                            3
-                          </A>
-                        </TD>
+                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">2</TD>
+                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;round_stats&amp;rd=4190</xsl:attribute>3</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">4</TD>
-                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">
-                          <A CLASS="smallText">
-                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;round_stats&amp;rd=4195</xsl:attribute>
-                            5
-                          </A>
-                        </TD>
+                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;round_stats&amp;rd=4195</xsl:attribute>5</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">6</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">7</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">8</TD>
@@ -48,18 +38,8 @@
                       <TR> 
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">9</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">10</TD>
-                        <TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center">
-                          <A CLASS="smallText">
-                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4200&amp;t=schedule&amp;c=srm</xsl:attribute>
-                            11
-                          </A>
-                        </TD>
-                        <TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center">
-                          <A CLASS="smallText">
-                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4205&amp;t=schedule&amp;c=srm</xsl:attribute>
-                            12
-                          </A>
-                        </TD>
+                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;round_stats&amp;rd=4200</xsl:attribute>11</A></TD>
+                        <TD BGCOLOR="#666666" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4205&amp;t=schedule&amp;c=srm</xsl:attribute>12</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">13</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">14</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">15</TD>
@@ -68,38 +48,18 @@
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">16</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">17</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">18</TD>
-                        <TD BGCOLOR="#000033" BACKGROUND="" CLASS="smallText" ALIGN="center">
-                          <A CLASS="smallText">
-                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4210&amp;t=schedule&amp;c=srm</xsl:attribute>
-                            19
-                          </A>
-                        </TD>
-                        <TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center">
-                          <A CLASS="smallText">
-                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4215&amp;t=schedule&amp;c=srm</xsl:attribute>
-                            20
-                          </A>
-                        </TD>
+                        <TD BGCOLOR="#000033" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4210&amp;t=schedule&amp;c=srm</xsl:attribute>19</A></TD>
+                        <TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4215&amp;t=schedule&amp;c=srm</xsl:attribute>20</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">21</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">22</TD>
                       </TR>
                       <TR> 
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">23</TD>
-                        <TD BGCOLOR="#000033" BACKGROUND="" CLASS="smallText" ALIGN="center">
-                          <A CLASS="smallFoot">
-                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4220&amp;t=schedule&amp;c=srm</xsl:attribute>
-                            24
-                          </A>
-                        </TD>
+                        <TD BGCOLOR="#000033" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4220&amp;t=schedule&amp;c=srm</xsl:attribute>24</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">25</TD>
-                        <TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center">
-                          <A CLASS="smallText">
-                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4225&amp;t=schedule&amp;c=srm</xsl:attribute>
-                            26
-                          </A>
-                        </TD>
+                        <TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4225&amp;t=schedule&amp;c=srm</xsl:attribute>26</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">27</TD>
-                          <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">28</TD>
+                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">28</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">29</TD>
                       </TR>
                       <TR> 
@@ -108,7 +68,7 @@
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
-                          <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
+                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                       </TR>                     
             </TABLE>
