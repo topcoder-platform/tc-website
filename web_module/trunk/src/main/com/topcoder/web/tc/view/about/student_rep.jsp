@@ -19,8 +19,7 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../../includes/global_left.jsp">
-                <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="tournaments"/>
+                <jsp:param name="level1" value="home"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -33,8 +32,7 @@
 <td class="bodyText" align="center">
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/i/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td class="normal"><img src="/i/headComponents.gif" alt="Components" width="545" height="32" border="0" /></td></tr>
-                <tr><td align="center"><img src="/i/header_look_under_hood.gif" alt="Look under the hood. Kick the tires." width="442" height="53" border="0" /></td></tr>
+                <tr><td align="center"><img src="/i/about/student_rep_header.gif" alt="Represent TopCoder on your College Campus." width="545" height="32" border="0" /></td></tr>
     </table>
 
     <table width="545" border="0" cellpadding="0" cellspacing="0">
@@ -66,7 +64,7 @@
                         send a $50 gift certificate to be used at the TopCoder Online Store, which will feature exclusive TopCoder apparel.</p>
                         
                         <p>If you are interested in being a Student Rep, here's what you need to do:</br>
-                            1.  Contact us that you're willing to take the position for your campus.</br>
+                            1.  <a href="mailto:mluce@topcoder.com?subject=TopCoder Student Reps">Contact us</a> that you're willing to take the position for your campus.</br>
                             2.  Include your mailing address in the e-mail.  This will be the address where the posters are sent.</br>
                             3.  Include how many posters you want - they come in packages of 10.</p>
                     </td>
@@ -78,36 +76,28 @@
 
                             <tr valign="top">
                                 <td class="sidebarText">
-                                    <p>TopCoder Components are built using the TopCoder Software Component Development Methodology. The <a href="/components/methodology.jsp">methodology</a> 
-                                    requires that all components have the following consistent and standard deliverables:</p>
+                                    <p>The 2004 TopCoder Collegiate Challenge is on the way! We are looking for student reps to help increase 
+                                    the number of participants in the 2004 TCCC from your school. To help you achieve that goal, 
+                                    TopCoder will provide you with posters to hang around campus. </p>
 
-                                    <strong>Documentation:</strong>
+                                    <strong>If you get at least one student to register:</strong>
                                     <ul>
-                                        <li>Component Specification</li>
-                                        <li>Use Case Diagrams</li>
-                                        <li>Class Diagrams</li>
-                                        <li>Sequence Diagrams</li>
+                                        <li>You will recieve a Limited Edition 2004 TopCoder Collegiate Challenge Student Rep t-shirt</li>
                                     </ul>
                          
-                                    <strong>Test Suite:</strong>
+                                    <strong>If you get 30 students to register:</strong>
                                     <ul>
-                                        <li>Unit Test Cases</li>
-                                        <li>Accuracy Test Cases</li>
-                                        <li>Failure Test Cases</li>
-                                        <li>Stress Test Cases</li>
+                                        <li>You will recieve a $50 gift certificate to be used at the TopCoder Online Store, which will feature exclusive TopCoder apparel</li>
                                     </ul>
 
-                                    <strong>Source:</strong>
+                                    <strong>How to get started:</strong>
                                     <ul>
-                                        <li>Documented Source Code</li>
-                                        <li>Documented Test Suite Source Code</li>
+                                        <li><a href="mailto:mluce@topcoder.com?subject=TopCoder Student Reps">Contact us</a>  that you're willing to take the position for your campus.</li>
+                                        <li>Include your mailing address in the e-mail.  This will be the address where the posters are sent.</li>
+                                        <li>Include how many posters you want - they come in packages of 10.<li>
                                     </ul>
 
-                                    <strong>Build Environment:</strong>
-                                    <ul>
-                                        <li>Build script for compiling, testing and deploying</li>
-                                        <li>Common directory structure for component source, libraries, documentation, test suite reports and configuration files</li>
-                                    </ul>
+                                    
                                 </td>
                             </tr>
                         </table>
