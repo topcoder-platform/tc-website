@@ -4,10 +4,44 @@
   <xsl:param name="selectedContest"></xsl:param>
   <xsl:param name="selectedTab"></xsl:param>
 
+            <table border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+<xsl:choose>
+   <xsl:when test="$selectedContest='coding'">
+                    <td width="50%" align="center">
+                        <img src="/i/tournament/tco03/coding_start.gif" alt="Coding Start" width="219" height="15" border="0" vspace="5"/><br/>
+                        <A href="/index?t=tournaments&amp;c=tco03_overview"><img src="/i/tournament/tco03/coding_tab_on.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></A>
+                    </td>
+                    <td width="50%" align="center">
+                        <img src="/i/tournament/tco03/component_start.gif" alt="Component Start" width="222" height="15" border="0" vspace="5"/><br/>
+                        <A href="/index?t=tournaments&amp;c=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_off.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></A>
+                    </td>
+    </xsl:when>
+    <xsl:when test="$selectedContest='component'">
+                    <td width="50%" align="center">
+                        <img src="/i/tournament/tco03/coding_start.gif" alt="Coding Start" width="219" height="15" border="0" vspace="5"/><br/>
+                        <A href="/index?t=tournaments&amp;c=tco03_overview"><img src="/i/tournament/tco03/coding_tab_off.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></A>
+                    </td>
+                    <td width="50%" align="center">
+                        <img src="/i/tournament/tco03/component_start.gif" alt="Component Start" width="222" height="15" border="0" vspace="5"/><br/>
+                        <A href="/index?t=tournaments&amp;c=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></A>
+                    </td>
+    </xsl:when>
+</xsl:choose>
+                </tr>
+                
+                <tr>
+                    <td align="center" colspan="2">
+                        <img src="/i/tournament/tco03/bracket_left.gif" alt="bracket" width="25" height="19" border="0" vspace="0"/>
+                        <img src="/i/tournament/tco03/bracket_middle.gif" alt="bracket" width="240" height="19" border="0" vspace="0"/>
+                        <img src="/i/tournament/tco03/bracket_right.gif" alt="bracket" width="25" height="19" border="0" vspace="0"/>
+                    </td>
+                </tr>
+            </table>
+
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
                     <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
-
 
 <!-- Coding Tabs-->
 <xsl:choose>
