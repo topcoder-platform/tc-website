@@ -21,6 +21,7 @@ public class IndexResponse extends Base {
             /* we'll just send it right off to the index page.  It has frames that
              * make servlet requests and those processors will take care of business logic
              */
+            loadSessionDefaultsIntoRequest(getRequest().getParameter(Constants.MESSAGE_ID), false);
             getRequest().setAttribute(Constants.PROBLEM_SETS, getDefault(Constants.PROBLEM_SETS));
             setNextPage(Constants.PAGE_INDEX);
             setIsNextPageInContext(true);
