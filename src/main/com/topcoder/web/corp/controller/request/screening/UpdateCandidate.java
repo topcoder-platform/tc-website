@@ -133,9 +133,9 @@ public class UpdateCandidate extends BaseProcessor {
                         Coder coder = cHome.create();
                         coder.createCoder(userId, createCoderStatusId);
 
-                        long emailId = email.createEmail(userId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                        email.setAddress(emailId, info.getUserName(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-                        email.setPrimaryEmailId(userId, emailId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+                        long emailId = email.createEmail(userId, DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME, DBMS.SCREENING_OLTP_DATASOURCE_NAME);
+                        email.setAddress(emailId, info.getUserName(), DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME);
+                        email.setPrimaryEmailId(userId, emailId, DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME);
                     }
 
                     DataAccessInt access = Util.getDataAccess();

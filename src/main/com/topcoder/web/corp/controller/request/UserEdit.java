@@ -228,14 +228,14 @@ public class UserEdit extends BaseProcessor {
 
         // email for user
         Email emailTable = ((EmailHome) ic.lookup(EmailHome.EJB_REF_NAME)).create();
-        long emailID = emailTable.getPrimaryEmailId(targetUserID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-        email = emailTable.getAddress(emailID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+        long emailID = emailTable.getPrimaryEmailId(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+        email = emailTable.getAddress(emailID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         email2 = email;
 
         // phone
         Phone phoneTable = ((PhoneHome) ic.lookup(PhoneHome.EJB_REF_NAME)).create();
-        long phoneID = phoneTable.getPrimaryPhoneId(targetUserID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-        phone = phoneTable.getNumber(phoneID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+        long phoneID = phoneTable.getPrimaryPhoneId(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+        phone = phoneTable.getNumber(phoneID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
     }
 
     /**
@@ -633,15 +633,15 @@ public class UserEdit extends BaseProcessor {
                 ).create();
         long phoneID = -1;
         if (!createNew) {
-            phoneID = phoneTable.getPrimaryPhoneId(targetUserID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            phoneID = phoneTable.getPrimaryPhoneId(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         }
         if (phoneID <= 0) {
-            phoneID = phoneTable.createPhone(targetUserID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-            phoneTable.setPrimaryPhoneId(targetUserID, phoneID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            phoneID = phoneTable.createPhone(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME, DBMS.CORP_OLTP_DATASOURCE_NAME);
+            phoneTable.setPrimaryPhoneId(targetUserID, phoneID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         }
-        phoneTable.setNumber(phoneID, phone, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+        phoneTable.setNumber(phoneID, phone, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         if (createNew) {
-            phoneTable.setPhoneTypeId(phoneID, 1, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME); // *HARDCODED*
+            phoneTable.setPhoneTypeId(phoneID, 1, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME); // *HARDCODED*
         }
 
         // setup email for user
@@ -650,15 +650,15 @@ public class UserEdit extends BaseProcessor {
                 ).create();
         long emailID = -1;
         if (!createNew) {
-            emailID = emailTable.getPrimaryEmailId(targetUserID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            emailID = emailTable.getPrimaryEmailId(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         }
         if (emailID <= 0) {
-            emailID = emailTable.createEmail(targetUserID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-            emailTable.setPrimaryEmailId(targetUserID, emailID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            emailID = emailTable.createEmail(targetUserID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME, DBMS.CORP_OLTP_DATASOURCE_NAME);
+            emailTable.setPrimaryEmailId(targetUserID, emailID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         }
-        emailTable.setAddress(emailID, email, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+        emailTable.setAddress(emailID, email, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
         if (createNew) {
-            emailTable.setEmailTypeId(emailID, 1, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME); // *HARDCODED*
+            emailTable.setEmailTypeId(emailID, 1, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME); // *HARDCODED*
         }
     }
 
