@@ -3,7 +3,9 @@
   import="java.util.*,
           java.text.*,
           com.coolservlets.forum.*,
-          com.coolservlets.forum.util.*"
+          com.coolservlets.forum.util.*,
+          com.coolservlets.forum.database.DbQuery,
+          com.coolservlets.forum.database.DbForumFactory"
   errorPage="errorPage.jsp"
 %>
 
@@ -93,6 +95,7 @@
 
   int forumID = ParamUtils.getIntParameter(request,"forum",-1);
 
+
 %>
 
      
@@ -146,19 +149,20 @@
 
   Query query = null;
 
-  if( doSearch && queryText!=null && forumID>0 ) {
+  if( doSearch && queryText!=null) {
 
-    
 
-    ForumFactory forumFactory = ForumFactory.getInstance(authToken);
+      ForumFactory forumFactory = ForumFactory.getInstance(authToken);
 
-    Forum forum = forumFactory.getForum(forumID);
-
-    query = forum.createQuery();
-
-    query.setQueryString(queryText);
-
-    searchResults = query.execute();
+      if (forumID > 0) {
+          Forum forum = forumFactory.getForum(forumID);
+          query = forum.createQuery();
+          query.setQueryString(queryText);
+      } else {
+          //hack for seaching all forums
+          query = new DbQuery((DbForumFactory)forumFactory);
+      }
+      searchResults = query.execute();
 
   }
 
