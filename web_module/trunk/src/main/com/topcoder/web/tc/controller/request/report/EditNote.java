@@ -4,6 +4,7 @@ import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.user.UserNote;
+import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.note.Note;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
@@ -28,46 +29,24 @@ public class EditNote extends Base {
         }
 
         String nId = getRequest().getParameter(Constants.NOTE_ID);
-        String noteText = getRequest().getParameter(Constants.NOTE_TEXT);
 
         try {
 
             Note note = (Note)createEJB(getInitialContext(), Note.class);
+            User user = (User)createEJB(getInitialContext(), User.class);
 
-            if (StringUtils.checkNull(nId).equals("")) {
-                if (StringUtils.checkNull(noteText).equals("")) {
-                    addError(Constants.NOTE_TEXT, "Missing note text");
-                }
-                UserNote userNote = (UserNote)createEJB(getInitialContext(), UserNote.class);
+            getRequest().setAttribute(Constants.HANDLE,
+                    user.getHandle(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));
+            getRequest().setAttribute(Constants.USER_ID, userId);
 
-                UserTransaction uTx = null;
-
-                try {
-                    uTx = Transaction.get();
-                    uTx.begin();
-                    long noteId = note.createNote(noteText, getUser().getId(), Constants.INTERNAL_NOTE_TYPE_ID,
-                            DBMS.JTS_OLTP_DATASOURCE_NAME, DBMS.OLTP_DATASOURCE_NAME);
-                    userNote.createUserNote(getUser().getId(), noteId, DBMS.JTS_OLTP_DATASOURCE_NAME);
-
-                    uTx.commit();
-                } catch (Exception e) {
-                    try {
-                        if (uTx != null && uTx.getStatus() == Status.STATUS_ACTIVE) {
-                            uTx.rollback();
-                        }
-                    } catch (Exception te) {
-                        throw new TCWebException(e);
-                    }
-                    throw new TCWebException(e);
-                }
-
-
-            } else {
-                note.setText(Long.parseLong(nId), noteText, DBMS.OLTP_DATASOURCE_NAME);
+            if (!StringUtils.checkNull(nId).equals("")) {
+                getRequest().setAttribute(Constants.NOTE_TEXT,
+                        note.getText(Long.parseLong(nId), DBMS.OLTP_DATASOURCE_NAME));
+                getRequest().setAttribute(Constants.NOTE_ID, nId);
             }
 
-            setNextPage("?module=ViewNotes&"+Constants.USER_ID+"="+userId);
-            setIsNextPageInContext(false);
+            setNextPage(Constants.NOTE_EDIT);
+            setIsNextPageInContext(true);
 
         } catch (TCWebException e) {
             throw e;
