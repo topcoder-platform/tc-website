@@ -65,6 +65,7 @@ public class Constants {
     public static String LANGUAGES;
     public static String PROBLEM_SETS;
     public static String PROBLEMS;
+    public static String PROBLEM;
 
     //other
     public static int TEST_SET_A_ID;
