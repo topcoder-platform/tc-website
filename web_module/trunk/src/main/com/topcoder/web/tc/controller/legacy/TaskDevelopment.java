@@ -738,7 +738,7 @@ public final class TaskDevelopment {
         r.setContentHandle("reviewer_check");
         r.setProperty("pj", String.valueOf(projectId));
         r.setProperty("uid", String.valueOf(userId));
-        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("component_inquiry");
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("reviewer_check");
         return rsc.isEmpty();
     }
 
