@@ -163,7 +163,13 @@
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
                                 <td id="calendar">16</td>
-                                <td id="calendar">17</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">17</span><br />
+                                    <strong><font color="#3366cc">G</font><font color="#cc0000">o</font><font color="#ffcc00">o</font><font color="#3366cc">g</font><font color="#339933">l</font><font color="#cc0000">e</font> Code Jam</strong><br />
+                                    Qualification Round Starts<br />
+                                    8:00 AM<br/>
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/pl/?&amp;module=Static&amp;d1=google&amp;d2=google_sched">Details</A></td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">18</span><br />
                                     <strong>Match 167</strong><br />
@@ -176,14 +182,28 @@
                             
                             <tr> 
                                 <td id="calendar">19</td>
-                                <td id="calendarTCO03">
-                                    <span id="calendarTCO03Date">20</span><br />
-                                    <strong>2003 TCO: Development</strong><br />
-                                    Online Round #2<br />
-                                    Deadline: 11:59&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
+
+                                <td id="calendar">
+                                    <span id="calendar">20</span><br />
+                                    <table width="100%" cellspacing="1" cellpadding="3">
+                                       <tr>
+                                       <td id="calendarTCO03">
+                                          <strong>2003 TCO: Development</strong><br />
+                                          Online Round #2<br />
+                                          Deadline: 11:59&#160;PM<br />
+                                          <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                          <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td></tr>
+                                    </table>
+                                    <table width="100%" cellspacing="1" cellpadding="3">
+                                       <tr>
+                                       <td id="calendarSRM">
+                                          <strong><font color="#3366cc">G</font><font color="#cc0000">o</font><font color="#ffcc00">o</font><font color="#3366cc">g</font><font color="#339933">l</font><font color="#cc0000">e</font> Code Jam</strong><br />
+                                          Qualification Round Ends<br />
+                                          8:00 AM<br/>
+                                          <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                          <A href="/pl/?&amp;module=Static&amp;d1=google&amp;d2=google_sched">Details</A></td></tr>
+                                    </table></td>
+
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">21</span><br />
                                     <strong>Match 168</strong><br />
@@ -209,13 +229,27 @@
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendar">23</td>
-                                <td id="calendar">24</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">24</span><br />
+                                    <strong><font color="#3366cc">G</font><font color="#cc0000">o</font><font color="#ffcc00">o</font><font color="#3366cc">g</font><font color="#339933">l</font><font color="#cc0000">e</font> Code Jam</strong><br />
+                                    Online Round 1<br />
+                                    Login by: 8:55&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/pl/?&amp;module=Static&amp;d1=google&amp;d2=google_sched">Details</A></td>
                                 <td id="calendar">25</td>
                             </tr>
                             
                             <tr> 
                                 <td id="calendar">26</td>
-                                <td id="calendar">27</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">27</span><br />
+                                    <strong><font color="#3366cc">G</font><font color="#cc0000">o</font><font color="#ffcc00">o</font><font color="#3366cc">g</font><font color="#339933">l</font><font color="#cc0000">e</font> Code Jam</strong><br />
+                                    Online Round 2<br />
+                                    Login by: 8:55&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/pl/?&amp;module=Static&amp;d1=google&amp;d2=google_sched">Details</A></td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">28</span><br />
                                     <strong>Match 169</strong><br />
