@@ -432,13 +432,13 @@ public class Registration
             }
             if (coderType.equals(CODER_TYPE_STUDENT))
             {
-                if ( schoolStateChanged && !isNumber(this.school) )
+                if ( schoolStateChanged && !isNumber(this.school) && country.equals(USA) )
                 {
                     Log.msg ( VERBOSE, "school State HAS changed..." );
                     addError(SCHOOL,"Please select your school.");
                     schoolStateChanged = false;
                 }
-                if (!isNumber(this.school)) 
+                if (!isNumber(this.school) && country.equals(USA) ) 
                 {
                   Log.msg ( VERBOSE, "this.school is not a number =>"+this.school );
                   addError(SCHOOL,"Please select your school.");
@@ -1724,7 +1724,10 @@ public class Registration
         if (this.coderType.equals(CODER_TYPE_STUDENT))
         {
             School currentSchool = coder.getCurrentSchool();
-            if ( currentSchool.getName().equals("") )  //&& isRegister() )
+            ////////////////////////////////////////////////////////////////////////////////////////////
+            // SB -- added country.equals(USA) to fix problem with foreign student changing their school
+            ////////////////////////////////////////////////////////////////////////////////////////////
+            if ( currentSchool.getName().equals("") && country.equals(USA) )  //&& isRegister() )
             {
                 currentSchool.setModified("A");
             }
