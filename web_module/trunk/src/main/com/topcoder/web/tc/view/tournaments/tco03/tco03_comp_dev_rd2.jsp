@@ -98,8 +98,8 @@
                 <tr valign="middle">
                     <td class="formHandleEven" align="center">4</td>
                     <td class="formHandleEven" align="left"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=266149">akhil_bansal</a></td>
-                    <td class="formHandleEven" align="right">86.13</td>
-                    <td class="formHandleEven" align="right">82.52,89.74</td>
+                    <td class="formHandleEven" align="right">86.29</td>
+                    <td class="formHandleEven" align="right">82.52,90.05</td>
                     <td class="formHandleEven" align="right">$144.00</td>
                 </tr>
 
@@ -205,7 +205,7 @@
                     <td class="formHandleOdd" align="center"></td>
                     <td class="formHandleOdd" align="center">2</td>
                     <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=266149">akhil_bansal</a></td>
-                    <td class="formHandleOdd" align="right">89.74</td>
+                    <td class="formHandleOdd" align="right">90.05</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven"></td>
