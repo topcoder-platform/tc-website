@@ -63,6 +63,23 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<!-- DoubleClick Announcement -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_02_02_04"><img src="/i/pressroom/dccc.gif" alt="DoubleClick" width="135" height="100" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_02_02_04">TopCoder Announces DoubleClick 2004 Coding Challenge</A></strong></font><br />
+                        Having self-administered coding competitions for its employees for the last two years, DoubleClick is now 
+                        turning to TopCoder to expand this year's competition to include external applicants. The DoubleClick 2004 
+                        Coding Challenge is open to all DoubleClick employees worldwide. As an added dimension this year, DoubleClick 
+                        is also opening the contest to students at two local universities - Columbia and NYU.<span class="prHead"> [February 2]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- Computer World  -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
