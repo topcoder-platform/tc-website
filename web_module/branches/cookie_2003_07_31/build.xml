@@ -927,10 +927,7 @@
 
     <target name="deploy-tc" depends="compile">
         <antcall target="build_ejbs"/>
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="ProblemRatingServices"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/ProblemRatingServices"/>
-        </antcall>
+        <antcall target="package-EJB-ProblemRatingServicesBean"/>
         <antcall target="package-EJB-SurveyBean"/>
         <antcall target="war-tc"/>
     </target>
