@@ -65,7 +65,7 @@
                             </div>
 
 <p><span class="bodySubtitle">Teams</span><br/>
-Each team must consist of at least two named TopCoder members.  Each team may employ the use of more than two team members, however the final prize payments will be equally split between the two named team members and paid out to each.
+Each team must consist of at least one named TopCoder members.  Each team may employ the use of more than one team members, however the final prize payments will be equally split between the named team member(s) and paid out to each.
 <br/><br/>
 <span class="bodySubtitle">Scope</span><br/>
 The teams application competition necessitates that each team move from initial specification, to application design, all the way through to a completed, tested implementation of the application design.
@@ -81,7 +81,7 @@ Various phases and deliverables have been identified primarily to allow TopCoder
 <br/><br/>
 <blockquote>
 <b>Registration</b><br/>
-During the registration phase, each team will sign up to work on the named application project.  A single TopCoder member will need to sign up for the project and provide the handle of their teammate in the notes section of the application registration.  If a TopCoder member would like to participate in a team but does not know of a specific teammate, you should register for the application project and indicate in the notes section that you are looking for another member to team up with on the application project.  TopCoder will attempt to form teams from the "singles", and will email each created team with contact information for each member on the team.
+During the registration phase, each team will sign up to work on the named application project.  A single TopCoder member will need to sign up for the project and provide the handle of their teammate in the notes section of the application registration.  If a TopCoder member would like to participate in a team but does not know of a specific teammate, you should register for the application project and indicate in the notes section that you are looking for another member to team up with on the application project.  TopCoder will attempt to form teams from the "singles", and will email each created team with contact information for each member on the team.  If you would like to compete alone, you may do so.
 <br/><br/>
 <b>Proposal</b><br/>
 Upon registering for the application projects, each team will be given access to the requirements specification, high level use cases, activity diagrams, component diagrams, and the test plan for the application project.  They will then begin work on creating a proposal for the application design.  Each submitted proposal should consist of the design specification and the use case diagrams.  At the conclusion of the proposal phase TopCoder will perform basic screening on each proposal to ensure that it meets the requirements of the specific application project.   Based on the submitted proposals, TopCoder will then choose two teams to participate in the application project competition.
