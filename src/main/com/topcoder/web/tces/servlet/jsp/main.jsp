@@ -1,6 +1,6 @@
 <%@  page
   language="java"
-  errorPage="/errorPage.jsp"
+  errorPage="errorPage.jsp"
   import="java.util.*,
           com.topcoder.web.tces.common.*,
           com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
@@ -41,7 +41,7 @@
 <!-- Center Column Begins -->
         <TD class="statText" width="100%" align="center"><br>
                     
-            <jsp:include page="/body_top.jsp" >
+            <jsp:include page="body_top.jsp" >
                 <jsp:param name="image" value="tces" />
                 <jsp:param name="image1" value="steelblue" />
                 <jsp:param name="title" value="<%=MainTask.getCompanyName()%>" />

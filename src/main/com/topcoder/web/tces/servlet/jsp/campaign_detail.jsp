@@ -1,6 +1,6 @@
 <%@  page 
   language="java"
-  errorPage="/errorPage.jsp"
+  errorPage="errorPage.jsp"
   import="java.util.*,
           com.topcoder.web.tces.common.*,
           com.topcoder.web.tces.bean.*" %>
@@ -45,7 +45,7 @@
         <td class="stattext" width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
         
 <!-- Page Tab begins -->
-            <jsp:include page="/body_top.jsp" >  
+            <jsp:include page="body_top.jsp" >
                 <jsp:param name="image" value="tces" />  
                 <jsp:param name="image1" value="steelblue" />  
                 <jsp:param name="title" value="<%=CampaignDetailTask.getCompanyName()%>" />
