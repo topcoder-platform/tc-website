@@ -58,8 +58,9 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_hard_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>      
+<DIV ALIGN="CENTER"><a href="/?&amp;t=tces&amp;c=nvidia"><IMG SRC="/i/es/nvidia/intern_hard_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></a></DIV>      
 
+               <p><b>At NVIDIA, the sky's the limit! Visualize your future...We do.</b></p>
                 <p>We are reinventing the visual experience beyond the bleeding-edge with the best hardware and software innovation.  The culture promotes 
                         and inspires our driven team of world-class engineers and developers to be at the top of their game...and to have fun along the way!  We are shaping 
                         the world of tomorrow...today.  Are you ready?</p>
@@ -103,7 +104,6 @@
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText"> 
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_hardeng_chip_intern&amp;a=secure" CLASS="bodyText">HARDWARE ENGINEER - ASIC &#40;CHIPSET&#41;</A></B><BR/> <BR/>  
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_appeng2_intern&amp;a=secure" CLASS="bodyText">APPLICATIONS ENGINEER</A></B><BR/><BR/>
-                            <B><A HREF="/?&amp;t=tces&amp;c=nvidia_dfteng_intern&amp;a=secure" CLASS="bodyText">DFT ENGINEER</A></B><BR/><BR/>
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_plat_arch_intern&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECTURE INTERN&#42;</A></B><BR/><BR/> 
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_analog_mix_eng_intern&amp;a=secure" CLASS="bodyText">ANALOG/MIXED-SIGNAL DESIGN ENGINEER - WIRELESS</A></B><BR/><BR/>     
         <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_siginteng&amp;a=secure" CLASS="bodyText">SIGNAL INTEGRITY ENGINEER</A></B><BR/>
@@ -122,19 +122,6 @@
     </TD>
   </TR>
 </TABLE>
-
-<p>As an New College Grad at NVIDIA, your career starts faster than the speed of light!  You will be working side by side with some of the world's best engineers, 
-                        and you will have an opportunity of a lifetime to make your mark in history.  Where your career will go...only you can tell!</p>
-            
-                        <p>As an intern&#47; co-op at NVIDIA, you will be empowered to show what you can do.  You are a valuable member of our team and play a critical role in the development 
-                        of our latest products.  Your success will be determined by your technical strength and undisputed proactive attitude.</p>
-            
-                        <p>If you are highly motivated and passionate about winning, check out the possibilities waiting for you.</p>
-            
-                        <p>At NVIDIA, the sky's the limit! Visualize your future...We do.</p>
-
-                        <p><strong>YOUR FUTURE BEGINS HERE...</strong></p>
-                        
 <!--end contextual links-->
           
           

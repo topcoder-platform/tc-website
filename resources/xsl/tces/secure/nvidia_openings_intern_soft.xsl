@@ -60,6 +60,7 @@
 
 <DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_soft_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10"/></DIV>     
 
+               <p><b>At NVIDIA, the sky's the limit! Visualize your future...We do.</b></p>
                 <p>We are reinventing the visual experience beyond the bleeding-edge with the best hardware and software innovation.  The culture promotes 
                         and inspires our driven team of world-class engineers and developers to be at the top of their game...and to have fun along the way!  We are shaping 
                         the world of tomorrow...today.  Are you ready?</p>
@@ -83,7 +84,7 @@
        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng02_intern&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER</A></B><BR/><BR/>
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_gra_archeng_intern&amp;a=secure" CLASS="bodyText">GRAPHICS ARCHITECTURE ENGINEER</A></B><BR/><BR/>
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3d_softeng_intern&amp;a=secure" CLASS="bodyText">3D GRAPHICS APPLICATION SOFTWARE ENGINEER</A></B><BR/><BR/>
-                            <B><A HREF="/?&amp;t=tces&amp;c=nvidia_cad_eng_intern&amp;a=secure" CLASS="bodyText">CAD ENGINEER&#42; </A></B><BR/><BR/>&#42; Intern&#47; Co-op Position Only<BR/>
+                            <B><A HREF="/?&amp;t=tces&amp;c=nvidia_web_softeng_intern&amp;a=secure" CLASS="bodyText">WEB SOFTWARE ENGINEER</A></B><BR/><BR/>   
          <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_diageng&amp;a=secure" CLASS="bodyText">DIAGNOSTIC ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_peranaeng_intern&amp;a=secure" CLASS="bodyText">PERFORMANCE ANALYSIS ENGINEER INTERN/CO-OP</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_videobioseng&amp;a=secure" CLASS="bodyText">VIDEO BIOS ENGINEER</A></B><BR/>
@@ -102,7 +103,6 @@
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_stm_softeng_intern&amp;a=secure" CLASS="bodyText">SYSTEMS SOFTWARE ENGINEER</A></B><BR/> <BR/>  
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_perfor_softeng_intern&amp;a=secure" CLASS="bodyText">PERFORMANCE ANALYSIS SOFTWARE ENGINEER</A></B><BR/><BR/>
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_qa_softeng_intern&amp;a=secure" CLASS="bodyText">SOFTWARE QA ENGINEER</A></B><BR/><BR/>
-                            <B><A HREF="/?&amp;t=tces&amp;c=nvidia_web_softeng_intern&amp;a=secure" CLASS="bodyText">WEB SOFTWARE ENGINEER</A></B><BR/><BR/>   
         <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_siginteng&amp;a=secure" CLASS="bodyText">SIGNAL INTEGRITY ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_packdesigner&amp;a=secure" CLASS="bodyText">PACKAGE DESIGNER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_srdesigneng&amp;a=secure" CLASS="bodyText">SENIOR DESIGN ENGINEER</A></B><BR/>
@@ -120,21 +120,6 @@
   </TR>
 </TABLE>
 
-<p>As an New College Grad at NVIDIA, your career starts faster than the speed of light!  You will be working side by side with some of the world's best engineers, 
-                        and you will have an opportunity of a lifetime to make your mark in history.  Where your career will go...only you can tell!</p>
-            
-                        <p>As an intern&#47; co-op at NVIDIA, you will be empowered to show what you can do.  You are a valuable member of our team and play a critical role in the development 
-                        of our latest products.  Your success will be determined by your technical strength and undisputed proactive attitude.</p>
-            
-                        <p>If you are highly motivated and passionate about winning, check out the possibilities waiting for you.</p>
-            
-                        <p>At NVIDIA, the sky's the limit! Visualize your future...We do.</p>
-
-                        <p><strong>YOUR FUTURE BEGINS HERE...</strong></p>
-                        
-<!--end contextual links-->
-          
-          
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>
