@@ -10,10 +10,10 @@
 <jsp:setProperty name="Registration" property="code" />
 <jsp:setProperty name="Registration" property="process" value="doItNowBaby" />
 
-<P class="statText">
+<p class="statText">
 Activation page<br>
 Result:<br>
-</P>
+</p>
 
 <span class="errorText">
 <jsp:getProperty name="Registration" property="CodeError" />
