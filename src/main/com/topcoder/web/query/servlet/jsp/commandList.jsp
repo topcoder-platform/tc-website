@@ -28,7 +28,10 @@
       <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
       <td class="statText" width="100%" bgcolor="#000000" valign="top">
         <table width="60%" border="0" cellpadding="0" cellspacing="0">
-          <tr><td class="statTextBig" colspan="4"><%=Constants.COMMAND_LIST_NAME%></td></tr>
+          <tr>
+            <td class="statTextBig" colspan="2"><%=Constants.COMMAND_LIST_NAME%></td>
+            <td colspan="2"><query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" class="dropdown" list="<%=CommandList.getCommandGroupList()%>" selectedValue='<%=""+CommandList.getCommandGroupId()%>' defaultValue="0" defaultText="All Groups"/></td>
+          </tr>
           <tr>
             <td class="statText" ALIGN="right" colspan="2">DB:&#160;</td>
             <td class="statText" ALIGN="left" colspan="2">
