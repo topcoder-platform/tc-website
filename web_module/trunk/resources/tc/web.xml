@@ -91,6 +91,11 @@
             <description></description>
         </init-param>
         <init-param>
+            <param-name>problem_rating_question_info</param-name>
+            <param-value>/problem_rating/question_info.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
             <param-name>highest_rating</param-name>
             <param-value>/statistics/highestRating.jsp</param-value>
             <description></description>
