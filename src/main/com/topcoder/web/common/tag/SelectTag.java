@@ -17,7 +17,7 @@ public abstract class SelectTag extends BaseTag {
     private String topValue = null;
     private String topText = null;
 
-    public void set useTopValue(String s){
+    public void setUseTopValue(String s){
         useTopValue = "true".equalsIgnoreCase(s);
     }
     public void setTopValue(String topValue) {
