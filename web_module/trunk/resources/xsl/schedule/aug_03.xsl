@@ -51,7 +51,7 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">schedule</xsl:with-param>
-                <xsl:with-param name="title">Monthly View - August 2003</xsl:with-param>
+                <xsl:with-param name="title">August 2003</xsl:with-param>
             </xsl:call-template>			
             
             <table border="0" cellspacing="10" cellpadding="0" width="100%">

@@ -93,9 +93,25 @@
                             <tr> 
                                 <td id="calendar">5</td>
                                 <td id="calendar">6</td>
-                                <td id="calendar">7</td>
+                                <td id="calendarTCO03">
+                                    <span id="calendarTCO03Date">7</span><br />
+                                    <strong>2003 TCO</strong><br />
+                                    Qualification Round #1<br />
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
                                 <td id="calendar">8</td>
-                                <td id="calendar">9</td>
+                                <td id="calendarTCO03">
+                                    <span id="calendarTCO03Date">9</span><br />
+                                    <strong>2003 TCO</strong><br />
+                                    Qualification Round #2<br />
+                                    Register: 7:00&#160;PM<br />
+                                    Compete: 10:00&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
                                 <td id="calendar">10</td>
                                 <td id="calendar">11
                                 &#160;<br />
@@ -109,7 +125,15 @@
                                 <td id="calendar">12</td>
                                 <td id="calendar">13</td>
                                 <td id="calendar">14</td>
-                                <td id="calendar">15</td>
+                                <td id="calendarTCO03">
+                                    <span id="calendarTCO03Date">15</span><br />
+                                    <strong>2003 TCO</strong><br />
+                                    Online Round #1<br />
+                                    Login by: 9:20&#160;PM<br />
+                                    Compete: 9:30&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
                                 <td id="calendar">16</td>
                                 <td id="calendar">17</td>
                                 <td id="calendarSRM">
@@ -126,7 +150,15 @@
                                 <td id="calendar">19</td>
                                 <td id="calendar">20</td>
                                 <td id="calendar">21</td>
-                                <td id="calendar">22</td>
+                                <td id="calendarTCO03">
+                                    <span id="calendarTCO03Date">22</span><br />
+                                    <strong>2003 TCO</strong><br />
+                                    Online Round #2<br />
+                                    Login by: 9:20&#160;PM<br />
+                                    Compete: 9:30&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">23</span><br />
                                     <strong>Match 168</strong><br />
@@ -150,7 +182,15 @@
                                     <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4650&amp;t=schedule&amp;c=srm">Details</A></td>
-                                <td id="calendar">29</td>
+                                <td id="calendarTCO03">
+                                    <span id="calendarTCO03Date">29</span><br />
+                                    <strong>2003 TCO</strong><br />
+                                    Online Round #3<br />
+                                    Login by: 9:20&#160;PM<br />
+                                    Compete: 9:30&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
                                 <td id="calendar">30</td>
                                 <td id="calendar">31</td>
                                 <td id="calendarBlank">
