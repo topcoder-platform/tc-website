@@ -1179,35 +1179,40 @@ public final class ReportServlet extends HttpServlet {
 
     private static final Integer PRO_REG_INFO_ID = new Integer(16);
     private static final String PRO_REG_INFO_TITLE = "Professional Registration Information";
-    private static final int[] PRO_REG_INFO_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
-    private static final String[] PRO_REG_INFO_HEADINGS = {"Status", "Handle", "First", "Last", "Email", "Date Registered", "City", "State", "Country", "Company"};
+    private static final int[] PRO_REG_INFO_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, };
+    private static final String[] PRO_REG_INFO_HEADINGS = {"Status", "Company", "Title", "First", "Last", "Email", "Handle", "City", "State", "Country", "Date Registered"};
     private static final String PRO_REG_INFO =
-            " SELECT status" +
-            " ,handle" +
-            " ,first_name" +
-            " ,last_name" +
-            " ,email" +
-            " ,DATE(member_since) as date_registered" +
-            " ,city" +
-            " ,state_code" +
-            " ,country_name" +
-            " ,(SELECT dr.demographic_response" +
-            " FROM demographic_response dr " +
-            " WHERE dr.coder_id = u.user_id " +
-            " AND dr.demographic_question_id = 15) as company" +
-            " FROM user u" +
-            " ,coder c" +
-            " ,country co" +
-            " WHERE u.user_id = c.coder_id" +
-            " AND c.coder_type_id = 2" +
-            " AND DATE(member_since) >= today-7" +
-            " AND handle NOT LIKE 'guest%'" +
-            " AND co.country_code = c.country_code" +
-            " AND LOWER(u.email) NOT LIKE '%topcoder.com'" +
-            " AND u.user_id NOT IN (SELECT g.user_id " +
-            " FROM group_user g " +
-            " WHERE g.group_id = 13)" +
+            " SELECT status "+
+            "  ,(SELECT dr.demographic_response "+
+             " FROM demographic_response dr "+
+             " WHERE dr.coder_id = u.user_id "+
+            " AND dr.demographic_question_id = 15) as company "+
+             " ,(SELECT dr.demographic_response "+
+             " FROM demographic_response dr "+
+             " WHERE dr.coder_id = u.user_id "+
+             " AND dr.demographic_question_id = 8) as title "+
+             " ,first_name "+
+             " ,last_name "+
+             " ,email "+
+             " ,handle "+
+             " ,city "+
+             " ,state_code "+
+             " ,country_name "+
+             " ,DATE(member_since) as date_registered "+
+            " FROM user u "+
+             " ,coder c "+
+             " ,country co "+
+             " WHERE u.user_id = c.coder_id "+
+             " AND c.coder_type_id = 2 "+
+             " AND DATE(member_since) >= today-7 "+
+             " AND handle NOT LIKE 'guest%' "+
+             " AND co.country_code = c.country_code "+
+             " AND LOWER(u.email) NOT LIKE '%topcoder.com' "+
+             " AND u.user_id NOT IN (SELECT g.user_id "+
+             " FROM group_user g "+
+             " WHERE g.group_id = 13) "+
             " ORDER BY 6 DESC";
+
 
     private static final Integer STUDENT_REG_INFO_ID = new Integer(17);
     private static final String STUDENT_REG_INFO_TITLE = "Student Registration Information";
