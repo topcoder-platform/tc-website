@@ -104,7 +104,7 @@ public class UserEdit extends BaseProcessor {
             mgr = Util.getPrincipalManager();
 
             // transaction boundary
-            tx = Util.beginTransaction();
+//            tx = Util.beginTransaction();
 
             secCtx = (InitialContext) TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                     ApplicationServer.SECURITY_PROVIDER_URL);
@@ -124,7 +124,7 @@ log.debug(o.toString());
             storeUserDataIntoDB(icEJB);
 
             secTx.commit();
-            tx.commit();
+//            tx.commit();
         } catch (Exception exc) {
             //rollbackHelper(tx);
             try {
@@ -133,7 +133,7 @@ log.debug(o.toString());
                 e.printStackTrace();
             }
             try {
-                tx.rollback();
+//                tx.rollback();
             } catch (Exception e) {
                 e.printStackTrace();
             }
