@@ -15,6 +15,20 @@
 
 <body>
 
+<!-- TCO Header -->
+<a name="top_page"></a>
+            <object 
+            type="application/x-shockwave-flash"
+            data="/i/tournament/vcc03/vcc03.swf"
+            width="100%"
+            height="125"
+            border="0">           
+            <param name="movie" value="/i/tournament/vcc03/vcc03_still.swf" />
+            <param name="quality" value="high" />
+            <param name="salign" value="t">
+            </object>
+
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 
@@ -24,9 +38,7 @@
 
 <!-- Left Column Begins-->
          <td>
-         <p><img src="/i/clear.gif" width="180" height="60" border="0"/><br />
-         <a href="/" ><img src="/i/tournament/vcc03/vcc03_left.gif" width="180" height="74" border="0"/></a><br />
-         <img src="/i/clear.gif" width="180" height="60" border="0"/><br />
+         <p><img src="/i/clear.gif" width="180" height="10" border="0"/><br />
          <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
          <img src="/i/clear.gif" width="180" height="40" border="0"/>
          </p>
@@ -39,17 +51,7 @@
 
 <!-- Center Column Begins -->  
         <td class="bodyText" width="100%">
-<!-- TCO Header -->
-   <p><br /></p>
-   <div align="center"><object 
-      type="application/x-shockwave-flash"
-      data="/i/tournament/vcc03/vcc03.swf"
-      width="500"
-      height="120">
-   <param name="movie" value="/i/tournament/vcc03/vcc03.swf" />
-   </object></div>
-   <p><br /></p>
-   
+
 <!-- Tab bar links-->
 <jsp:include page="verizonLinks.jsp" >
    <jsp:param name="selectedTab" value="overview"/>
