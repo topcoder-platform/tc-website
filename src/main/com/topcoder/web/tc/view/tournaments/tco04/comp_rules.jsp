@@ -326,7 +326,7 @@
             eligible component by the submission due date.  Submissions will be scored by the TopCoder Review Boards and will 
             be subject to final review and appeal in the same manner as standard component design and development submissions.  
             Scoring of each submission by the TopCoder Review Boards is based on the criteria outlined in the 
-            <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=devReviewSample">Development Review Scorecard</a> 
+            <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=devScoreSheet">Development Review Scorecard</a> 
             for the Development Contest or the criteria outlined in the 
             <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=desReviewSample">Design Review Scorecard</a> for the 
             Design Contest.  <strong>SUBMISSIONS MUST BE RECEIVED DURING EACH ROUND'S SUBMISSION TIMELINE TO BE CONSIDERED A 
