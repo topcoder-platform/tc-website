@@ -56,7 +56,7 @@
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
 
         <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">&#160;<B>April</B></TD></TR>
-        <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.04.03</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;2003 TCCC Finals - <A HREF="/index?t=tournaments&amp;c=tccc03_champprob" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>
+        <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.05.03</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;2003 TCCC Finals - <A HREF="/index?t=tournaments&amp;c=tccc03_champprob" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>
         <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.04.03</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;2003 TCCC Semifinals - <A HREF="/index?t=tournaments&amp;c=tccc03_semiprob4" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>
         <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.04.03</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;2003 TCCC Semifinals - <A HREF="/index?t=tournaments&amp;c=tccc03_semiprob3" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>
         <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.04.03</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;2003 TCCC Semifinals - <A HREF="/index?t=tournaments&amp;c=tccc03_semiprob2" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>
