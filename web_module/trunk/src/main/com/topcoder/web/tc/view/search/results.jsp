@@ -5,9 +5,9 @@
 <jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 <% ResultSetContainer results = memberSearch.getResults();%>
           <a name="data"/>
-          <table  border="0" cellspacing="0" cellpadding="5" width="510" align="center" class="formFrame">
+          <table  border="0" cellspacing="0" cellpadding="5" width="510" align="center" class="bodyText">
               <tr valign="middle">
-                  <td colspan="6" class="searchHeaders">Search Results:
+                  <td colspan="6" class="bodyText">Search Results:
                           &#160;&#160;<jsp:getProperty name="memberSearch" property="start"/>
                           to
                           <jsp:getProperty name="memberSearch" property="end"/>
@@ -15,13 +15,9 @@
                           <jsp:getProperty name="memberSearch" property="total"/>
                   </td>
               </tr>
+        </table>
 
-              <tr valign="middle">
-                  <td class="searchHeaders" colspan="6" align="center">
-                    <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bodyText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bodyText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-                  </td>
-              </tr>
+          <table  border="0" cellspacing="0" cellpadding="5" width="510" align="center" class="formFrame">
               <tr>
                   <td class="searchHeaders" valign="middle" width="20%">Handle</td>
                   <td class="searchHeaders" valign="middle" align="right" width="15%">Rating</td>
@@ -45,8 +41,11 @@
               </tr>
               <%even=!even;%>
               </rsc:iterator>
+        </table>
+
+          <table  border="0" cellspacing="0" cellpadding="5" width="510" align="center" class="bodyText">
               <tr valign="middle">
-                  <td class="searchHeaders" colspan="6" align="center">
+                  <td class="bodyText" colspan="6" align="center">
                     <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bodyText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
                     | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bodyText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                   </td>
