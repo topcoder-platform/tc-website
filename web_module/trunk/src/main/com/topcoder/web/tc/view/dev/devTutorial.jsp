@@ -26,7 +26,7 @@
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="support"/>
-                <jsp:param name="level3" value="compDocumentation"/>
+                <jsp:param name="level3" value="devTutorial"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -191,9 +191,7 @@
 			<span class=bodySubtitle>Registration</span>
 			<p>To participate in any development contest, you must first register with TopCoder 
 				Software. Registration not only allows you to submit design and 
-				development solutions, but also allows you to compete in TopCoder competitions 
-				and get in touch with employers via the TopCoder Employment Service.  To 
-				register, follow this <a href="/reg/index.jsp" target="_blank">link</a>.</p>
+				development solutions, but also allows you to compete in TopCoder algorithm competitions. To register, follow this <a href="/reg/index.jsp" target="_blank">link</a>.</p>
 			<h2><A name="#sectionII"></A>II. Picking A Project</h2>
 			<p>Picking a project is the first step to a winning development submission.  
 				You can quickly find open development projects at <a href="/?t=development&amp;c=comp_projects" target="_blank">
@@ -842,9 +840,9 @@
 				Each language is a bit different for testing purposes.</p>
 			<ul>
 				<li>
-					<a href="http://www.desult.com/tcs/unit-csharp.html">Writing C# Unit Tests</a>
+					<a href="/tc?module=Static&amp;d1=dev&amp;d2=devUnitTestsCSharp">Writing C# Unit Tests</a>
 				</li><li>
-					<a href="http://www.desult.com/tcs/unit-java.html">Writing Java Unit Tests</a></li></ul>
+					<a href="/tc?module=Static&amp;d1=dev&amp;d2=devUnitTestsJava">Writing Java Unit Tests</a></li></ul>
 			<span class=bodySubtitle>Unit Testing Tips</span>
 			<p>It can be very tempting to simply aggregate all of your unit tests into one 
 				function.  However, this greatly reduces the utility of your tests.  
