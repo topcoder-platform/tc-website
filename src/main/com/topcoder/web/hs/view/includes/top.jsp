@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
 
 <% if(SessionInfo.isLoggedIn()) { %>
     <% if (isGuidePage) { %>
-        <td class="rednavOn" nowrap>Competition Guide</td>
+        <td class="rednavOn" nowrap><a href="?module=Static&d1=tour&d2=mem_tour" class="rednavLink">Competition Guide</a></td>
     <% } else { %>
         <td class="rednav" nowrap><a href="?module=Static&d1=tour&d2=mem_tour" class="rednavLink">Competition Guide</a></td>
     <%  } %>
