@@ -104,6 +104,14 @@
                       <TR>
                         <TD COLSPAN="3" ALIGN="center" class="bodyText">
                             <BR/>All times are Eastern Time unless otherwise noted<BR/><BR/>
+
+                            <xsl:choose>
+                            <xsl:when test="$roundId=4660">
+                                <b>Win an Intel&#174; Centrino&#153; mobile technology-based notebook computer</b><br/><br/>
+                           </xsl:when>
+                                </xsl:choose>
+
+
                         </TD>
                 </TR>
                       
@@ -124,7 +132,7 @@
                     </TD>
                 </TR>
 
-                 <xsl:choose>
+                        <xsl:choose>
                  <xsl:when test="$roundId&lt;4230">
                       <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
                         <xsl:choose>
@@ -148,7 +156,7 @@
                       <LI>Members will be emailed the match results (opt-in)</LI>
                       </UL>
                       The match will feature a mixed programming language format.  For each individual problem, the coder will have the option of using either Java, C++, Microsoft&#174; Visual C#&#174; .NET or Microsoft&#174; Visual Basic&#174; .NET to code the solution.  Syntactical knowledge of all four languages will be helpful during the challenge phase of each round of competition.<BR/><BR/>
-                      <B>Divisions and Ironman Room Assignments:</B><UL>
+                      <B>Divisions and Room Assignments:</B><UL>
             <LI>Members rated 1200 or better compete in Division-I</LI>
             <LI>Members rated 1199 or lower compete in Division-II</LI>
             <LI>Members not yet rated compete in Division-II</LI>
@@ -185,7 +193,7 @@
                       <LI>Members will be emailed prior to the match with date and time (opt-in)</LI>
                       </UL>
                       The match will feature a mixed programming language format.  For each individual problem, the coder will have the option of using either Java, C++, Microsoft&#174; Visual C#&#174; .NET or Microsoft&#174; Visual Basic&#174; .NET to code the solution.  Syntactical knowledge of all four languages will be helpful during the challenge phase of each round of competition.<BR/><BR/>
-                      <B>Divisions and Ironman Room Assignments:</B>
+                      <B>Divisions and Room Assignments:</B>
             <UL>
             <LI>Members rated 1200 or better compete in Division-I</LI>
             <LI>Members rated 1199 or lower compete in Division-II</LI>
