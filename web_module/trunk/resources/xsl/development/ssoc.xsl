@@ -62,7 +62,7 @@
 </P>
 
 <P>
-TopCoder Software is looking to create a set of single sign on (SSO) components that will enable customers to create an architecture that supports SSO for both new and existing applications.  We want to explore SSO for both web applications and desktop applications, including third party packages such as SAP, Peoplesoft, etc.  These may require two different approaches for SSO given the added requirements to launch an application on a client machine as opposed to launching applications in a web environment.  The SSO design should allow new applications to be plugged in and will need to sit on top of an LDAP server. 
+TopCoder Software is looking to create a set of single sign on (SSO) components that will enable customers to create an architecture that supports SSO for both new and existing applications.  We want to explore SSO for both web applications and desktop applications, including third party packages such as SAP, Peoplesoft, etc.  These may require two different approaches for SSO given the added requirements to launch an application on a client machine as opposed to launching applications in a web environment.  The SSO design should allow new applications to be 'plugged in' and will need to sit on top of an LDAP server. 
 </P>
 
 <P>
