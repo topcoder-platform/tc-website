@@ -3,6 +3,7 @@ package com.topcoder.web.codinginterface.techassess.controller.request;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.messaging.QueueMessageSender;
@@ -59,11 +60,11 @@ public abstract class Base extends BaseProcessor {
         getRequest().getSession().setAttribute(Constants.SESSION_ID, new Long(sessionId));
     }
 
-    public long getSessionId() {
+    public long getSessionId() throws TCWebException {
         if (sessionId < 0) {
             Long temp = (Long) getRequest().getSession().getAttribute(Constants.SESSION_ID);
             if (temp == null)
-                throw new RuntimeException("session id has not be set");
+                throw new TCWebException("session id has not be set");
             else {
                 sessionId = temp.longValue();
             }
@@ -76,11 +77,11 @@ public abstract class Base extends BaseProcessor {
         getRequest().getSession().setAttribute(Constants.COMPANY_ID, new Long(companyId));
     }
 
-    public long getCompanyId() {
+    public long getCompanyId() throws TCWebException {
         if (companyId < 0) {
             Long temp = (Long) getRequest().getSession().getAttribute(Constants.COMPANY_ID);
             if (temp == null)
-                throw new RuntimeException("company id has not be set");
+                throw new TCWebException("company id has not be set");
             else {
                 companyId = temp.longValue();
             }
