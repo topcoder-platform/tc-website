@@ -1,6 +1,7 @@
 package com.topcoder.web.common;
 
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Cookie;
 import java.util.Enumeration;
 
 public interface TCRequest {
@@ -16,4 +17,5 @@ public interface TCRequest {
     HttpSession getSession();
     HttpSession getSession(boolean create);
     String getServerName();
+    Cookie[] getCookies();
 }
