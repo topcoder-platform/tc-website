@@ -23,7 +23,7 @@
 		<td class="dc_headerPic">
 	      <div align="center"><img src="/i/events/doubleclick/image6.gif" border="0" width="163" height="180"/><br/>
 	      <img src="/i/clear.gif" border="0" width="1" height="10"/><br/>
-	      <A href="/pl/?module=DCReg&cid=2998&eid=1"><img src="/i/events/doubleclick/registernow.gif" border="0" width="142" height="29"/></A></div>
+	      </div>
 	  	</td>
 		<td class="dc_bodyText">
          <p class="pageTitle">Are you the best collegiate programmer in New York City?</p>
