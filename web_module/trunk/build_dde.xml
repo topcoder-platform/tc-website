@@ -44,7 +44,6 @@
     <property name="ddeforumdir" value="${packagedir}/forum" />
     <property name="notificationdir" value="${packagedir}/notification" />
     <property name="wrapperdir" value="${packagedir}/sql/wrapper" />
-    <property name="ddeservletdir" value="${packagedir}/servlet" />
     <property name="ddeutildir" value="${packagedir}/util" />
     <property name="ddesubmissiondir" value="${packagedir}/submission" />
     <property name="userdir" value="${packagedir}/user" />
@@ -73,8 +72,6 @@
     <property name="ddeforum.jar" value="${dist.jars.dir}/ddeforum.jar"/>
     <property name="notification.src.dir" value="${src.package.dir}/notification"/>
     <property name="notification.jar" value="${dist.jars.dir}/notification.jar"/>
-    <property name="ddeservlet.src.dir" value="${src.package.dir}/servlet"/>
-    <property name="ddeservlet.jar" value="${dist.jars.dir}/ddeservlet.jar"/>
     <property name="ddesubmission.src.dir" value="${src.package.dir}/submission"/>
     <property name="ddesubmission.jar" value="${dist.jars.dir}/ddesubmission.jar"/>
     <property name="dde.war" value="${dist.jars.dir}/dde.war"/>
@@ -251,12 +248,6 @@
             <metainf dir="${notification.src.dir}" includes="*.xml"/>
         </jar>
 
-        <jar    jarfile="${ddeservlet.jar}"
-                basedir="${build_classdir}"
-                includes="${ddeservletdir}/**,${ddeutildir}/**">
-            <metainf dir="${ddeservlet.src.dir}" includes="*.xml"/>
-        </jar>
-
         <jar    jarfile="${ddesubmission.jar}"
                 basedir="${build_classdir}"
                 includes="${ddesubmissiondir}/**">
@@ -274,11 +265,17 @@
               todir="${webdir}/WEB-INF/classes/com/topcoder/dde/util/"/>
         <copy file="${emailaddressvalidator.jar}" todir="${dist.jars.dir}"/>
         <war warfile="${dde.war}" webxml="web.xml">
-            <lib dir="${dist.jars.dir}" includes="ddeservlet.jar,email_address_validator.jar"/>
+            <lib dir="${dist.jars.dir}" includes="email_address_validator.jar"/>
             <fileset dir="${webdir}/dde">
                 <exclude name="CVS/**/*"/>
                 <exclude name="online_review/**/*"/>
             </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/dde/servlets/**"/>
+                <include name="com/topcoder/dde/util/**"/>
+                <include name="com/topcoder/shared/**/*.class"/>
+                <include name="com/topcoder/web/common/**/*.class"/>
+            </classes>
         </war>
 
         <copy file="${review-persistence.jar}" todir="${dist.jars.dir}"/>
@@ -305,7 +302,6 @@
     <target name="make-ear" unless="with-tests" depends="package">
         <ear earfile="${dde.ear}" appxml="./application.xml">
             <fileset dir="${dist.jars.dir}">
-                <exclude name="ddeservlet.jar"/>
                 <exclude name="email_address_validator.jar"/>
                 <include name="*.jar"/>
                 <include name="*.war"/>
@@ -470,7 +466,6 @@
     <target name="make-ear-test" if="with-tests" depends="package-test">
         <ear earfile="${dde.ear}" appxml="${javatests}/${packagedir}/application.xml">
             <fileset dir="${dist.jars.dir}">
-                <exclude name="ddeservlet.jar"/>
                 <include name="*.jar"/>
                 <include name="*.war"/>
                 <include name="*.sar"/>
