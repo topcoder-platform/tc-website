@@ -55,101 +55,85 @@
 
             <table border="0" cellspacing="0" cellpadding="3" width="500" align="center" class="formFrame">
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="25%" align="left">Handle</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="25%" align="left">Coach</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="center">Average Score*</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="30%" align="center">Round Scores</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left">Handle</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left">Coach</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="60%" align="right">Average Score</td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="formHandleEven" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=251989">AdamSelene</a></td>
                     <td class="formHandleEven" align="left"></td>
-                    <td class="formHandleEven" align="center">pending</td>
-                    <td class="formHandleEven" align="center">pending</td>
+                    <td class="formHandleEven" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
                     <td class="formHandleOdd" align="left"></td>
-                    <td class="formHandleOdd" align="center">pending</td>
-                    <td class="formHandleOdd" align="center">pending</td>
+                    <td class="formHandleOdd" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
                     <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
-                    <td class="formHandleEven" align="center">pending</td>
-                    <td class="formHandleEven" align="center">pending</td>
+                    <td class="formHandleEven" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=260578">danno</a></td>
                     <td class="formHandleOdd" align="left"></td>
-                    <td class="formHandleOdd" align="center">pending</td>
-                    <td class="formHandleOdd" align="center">pending</td>
+                    <td class="formHandleOdd" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=251832">dark_lord</a></td>
                     <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
-                    <td class="formHandleEven" align="center">pending</td>
-                    <td class="formHandleEven" align="center">pending</td>
+                    <td class="formHandleEven" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=8347440">gagik</a></td>
                     <td class="formHandleOdd" align="left"></td>
-                    <td class="formHandleOdd" align="center">pending</td>
-                    <td class="formHandleOdd" align="center">pending</td>
+                    <td class="formHandleOdd" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=8349097">hauser</a></td>
                     <td class="formHandleEven" align="left"></td>
-                    <td class="formHandleEven" align="center">pending</td>
-                    <td class="formHandleEven" align="center">pending</td>
+                    <td class="formHandleEven" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=7436876">mastergaurav</a></td>
                     <td class="formHandleOdd" align="left"></td>
-                    <td class="formHandleOdd" align="center">pending</td>
-                    <td class="formHandleOdd" align="center">pending</td>
+                    <td class="formHandleOdd" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
                     <td class="formHandleEven" align="left"></td>
-                    <td class="formHandleEven" align="center">pending</td>
-                    <td class="formHandleEven" align="center">pending</td>
+                    <td class="formHandleEven" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=289251">ragnabot</a></td>
                     <td class="formHandleOdd" align="left"></td>
-                    <td class="formHandleOdd" align="center">pending</td>
-                    <td class="formHandleOdd" align="center">pending</td>
+                    <td class="formHandleOdd" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=7463987">ShindouHikaru</a></td>
                     <td class="formHandleEven" align="left"></td>
-                    <td class="formHandleEven" align="center">pending</td>
-                    <td class="formHandleEven" align="center">pending</td>
+                    <td class="formHandleEven" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
-                    <td class="formHandleOdd" align="center">pending</td>
-                    <td class="formHandleOdd" align="center">pending</td>
+                    <td class="formHandleOdd" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
                     <td class="formHandleEven" align="left"></td>
-                    <td class="formHandleEven" align="center">pending</td>
-                    <td class="formHandleEven" align="center">pending</td>
+                    <td class="formHandleEven" align="right">pending</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309786">Yi_Zhang</a></td>
                     <td class="formHandleOdd" align="left"></td>
-                    <td class="formHandleOdd" align="center">pending</td>
-                    <td class="formHandleOdd" align="center">pending</td>
+                    <td class="formHandleOdd" align="right">pending</td>
                 </tr>
 
 <%--
 					<tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="4">*the average of the two highest scores, including at least one level II score</td></tr>
 --%>
-
             </table>
 
            <br/><br/>
@@ -227,7 +211,7 @@
                     <td class="formHandleEven" align="center">&#160;</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6707859" class="statText" target="_blank">Matrix Math Library</a></td>
+                    <td class="formHandleOdd"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=6707859" class="statText" target="_blank">Matrix Math Library</a></td>
                     <td class="formHandleOdd" align="center">4</td>
                     <td class="formHandleOdd" align="center">pending</td>
                     <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
@@ -259,7 +243,7 @@
                     <td class="formHandleEven" align="center">&#160;</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6601794" class="statText" target="_blank">String Distance</a></td>
+                    <td class="formHandleOdd"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=6601794" class="statText" target="_blank">String Distance</a></td>
                     <td class="formHandleOdd" align="center">4</td>
                     <td class="formHandleOdd" align="center">pending</td>
                     <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
@@ -291,7 +275,7 @@
                     <td class="formHandleEven" align="center">&#160;</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=8403457" class="statText" target="_blank">Sort Utility</a></td>
+                    <td class="formHandleOdd"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=8403457" class="statText" target="_blank">Sort Utility</a></td>
                     <td class="formHandleOdd" align="center">2</td>
                     <td class="formHandleOdd" align="center">pending</td>
                     <td class="formHandleOdd"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=251989">AdamSelene</a></td>
