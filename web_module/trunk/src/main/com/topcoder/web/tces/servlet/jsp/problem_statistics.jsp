@@ -15,7 +15,7 @@ function openWnd(pageUrl) {
   var left = (screen.availWidth - width) / 2;
   var top = 0;
   OpenWin=this.open(pageUrl,"CtrlWindow",
-            "toolbar=yes,menubar=yes,location=yes,scrollbars=yes,resizable=yes"
+            "toolbar=no,menubar=no,location=yes,scrollbars=yes,resizable=yes"
             + ",width=" + width + ",height=" + height
             + ",left=" + left + ",top=" + top);
 }
