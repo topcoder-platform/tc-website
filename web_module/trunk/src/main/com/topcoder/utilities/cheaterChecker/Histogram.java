@@ -16,6 +16,7 @@ public class Histogram {
     }
 
     public Histogram(List l) {
+        this();
         for(Iterator it = l.iterator(); it.hasNext();) {
             add(it.next());
         }
