@@ -442,13 +442,16 @@
     </target>
     <target name="war.jobPosting" depends="compile">
         <war warfile="${war.dir}/${jobPosting.war.name}" webxml="${resources}/jobPosting/web.xml">
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="errorPage.jsp"/>
+            </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/jobPosting/common/*"/>
                 <include name="com/topcoder/web/jobPosting/servlet/*"/>
-                <include name="com/topcoder/web/jsp/errorPage.jsp"/>
             </classes>
         </war>
     </target>
+
 
 </project>
 
