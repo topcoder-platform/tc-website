@@ -695,6 +695,8 @@ public class Registration
               log.debug ( "NOTIFICATION SET: " + name.substring(NOTIFY_PREFIX.length()) + "=" + value);
             }
             else return false;
+            log.debug("XXX sun confirm again: " + this.sunConfirm);
+            log.debug("XXX sun confirm again: " + getSunConfirm());
         }
         else if (isStep(STEP_2))
         {
