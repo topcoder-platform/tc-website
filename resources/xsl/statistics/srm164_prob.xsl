@@ -86,7 +86,7 @@ The Problems
 
 <font size="+2"> 
 <b>Justifier</b>
-</font><A href="javascript:infoWindow('/')"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+</font><A href="Javascript:openProblemRating(1757)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -150,7 +150,7 @@ The best way to do this problem is in two parts.  First, find the length of the 
 
 <font size="+2"> 
 <b>PartySeats</b> 
-</font><A href="javascript:infoWindow('/')"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+</font><A href="Javascript:openProblemRating(1854)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -244,7 +244,7 @@ Now, on to the arranging.  As you are counting the number of boys and girls arou
 
 <font size="+2"> 
 <b>WhatSort</b> 
-</font><A href="javascript:infoWindow('/')"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+</font><A href="Javascript:openProblemRating(1856)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -390,7 +390,7 @@ Granted, going to all the trouble to make it recursive is probably a bit overkil
 
 <font size="+2"> 
 <b>UserId</b> 
-</font><A href="javascript:infoWindow('/')"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+</font><A href="Javascript:openProblemRating(1754)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -441,7 +441,7 @@ Most of the time, if your code passes all of the examples on the easy problem, i
 
 <font size="+2"> 
 <b>DesertWind</b> 
-</font><A href="javascript:infoWindow('/')"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
+</font><A href="Javascript:openProblemRating(1570)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 

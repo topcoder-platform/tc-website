@@ -83,7 +83,8 @@ stumped by the 1000-pointer.  It was <b>Dumitru</b>'s high score on this problem
 
 <H1> 
 The Problems 
-</H1></p><font size="+2"><b>DiskSpace</b></font><br /> 
+</H1></p><font size="+2"><b>DiskSpace</b>
+</font><A href="Javascript:openProblemRating(1777)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level One: <blockquote><table cellspacing="2"><tr><td style="background: #eee;" class="bodyText"><b>Value</b></td><td style="background: #eee;" class="bodyText"> 
       250 
     </td></tr><tr><td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td><td style="background: #eee;" class="bodyText"> 
@@ -113,7 +114,8 @@ public class DiskSpace {
 		return answer;
 	}
 }
-</pre><font size="+2"><b>BombSweeper</b></font><br /> 
+</pre><font size="+2"><b>BombSweeper</b>
+</font><A href="Javascript:openProblemRating(1778)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2"><tr><td style="background: #eee;" class="bodyText"><b>Value</b></td><td style="background: #eee;" class="bodyText"> 
       600 
     </td></tr><tr><td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td><td style="background: #eee;" class="bodyText"> 
@@ -146,7 +148,8 @@ bool isBomb(vector &lt;string&gt; board, int row, int col) {
    else
       return board[row][col] == 'B';
 }
-</pre><p>Once you have both numbers, executing the formula is simple arithmetic - but make sure to multiply by 100, to yield a percentage.</p><font size="+2"><b>WordParts</b></font><br /> 
+</pre><p>Once you have both numbers, executing the formula is simple arithmetic - but make sure to multiply by 100, to yield a percentage.</p><font size="+2"><b>WordParts</b>
+</font><A href="Javascript:openProblemRating(1361)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2"><tr><td style="background: #eee;" class="bodyText"><b>Value</b></td><td style="background: #eee;" class="bodyText"> 
       1000 
     </td></tr><tr><td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td><td style="background: #eee;" class="bodyText"> 
@@ -194,7 +197,8 @@ allowed 8 seconds.  Memoization ensures that the function will never have to do 
 dictionary as a possibility at each position; you cannot simply look for the longest prefix/suffix present in the compound word and break 
 the word up accordingly.  To understand why, consider the example given in the problem statement where <b>original</b> = "BAAABA" 
 and <b>compound</b> = "BAAABAAA".  The correct answer is 2 ("BAAA", "BAAA"), but the greedy algorithm will incorrectly return 3 
-("BAAABA", "A", "A"), as it tries to use the largest dictionary word possible at the beginning.</p><font size="+2"><b>SmartElevator</b></font><br /> 
+("BAAABA", "A", "A"), as it tries to use the largest dictionary word possible at the beginning.</p><font size="+2"><b>SmartElevator</b>
+</font><A href="Javascript:openProblemRating(1788)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2"><tr><td style="background: #eee;" class="bodyText"><b>Value</b></td><td style="background: #eee;" class="bodyText"> 
       550 
     </td></tr><tr><td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td><td style="background: #eee;" class="bodyText"> 
@@ -236,7 +240,8 @@ int timeWaiting(int[] passengerState, int currentFloor, int currentTime) {
 	   set answer = completionTime
    return answer
 }
-</pre><font size="+2"><b>PathFinding</b></font><br /> 
+</pre><font size="+2"><b>PathFinding</b>
+</font><A href="Javascript:openProblemRating(1110)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"><tr><td style="background: #eee;" class="bodyText"><b>Value</b></td><td style="background: #eee;" class="bodyText"> 
       900 
     </td></tr><tr><td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td><td style="background: #eee;" class="bodyText"> 

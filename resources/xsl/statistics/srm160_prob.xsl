@@ -87,7 +87,7 @@ The Problems
 
 <font size="+2"> 
 <b>Substitute</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1333)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -137,7 +137,7 @@ The simplest way to solve this problem was to look at each character in the code
 
 <font size="+2"> 
 <b>Intersect</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1356)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -194,7 +194,7 @@ To do this, we simply set lx = max(lx, minx), and hx = min(hx,maxx), and similar
 
 <font size="+2"> 
 <b>Quilting</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1608)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -314,7 +314,7 @@ Then, all thats left is to trim your big 2-D char array down to a String[], whic
 
 <font size="+2"> 
 <b>Iditarod</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1647)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -364,7 +364,7 @@ Clearly very few people had trouble with this problem, since over 90% of competi
 
 <font size="+2"> 
 <b>Permutation</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1135)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 

@@ -96,7 +96,7 @@ The Problems
 
 <font size="+2"> 
 <b>GuessTheNumber</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1790)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -163,7 +163,7 @@ if there are two middle numbers, as wanted.
 
 <font size="+2"> 
 <b>Salary</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1786)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -295,7 +295,7 @@ wouldn't make this mistake since that's not what the problem was about.
 
 <font size="+2"> 
 <b>HourGlass</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1787)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -411,7 +411,7 @@ This method was successfully used by <b>mwaisdn</b> in the SRM.
 
 <font size="+2"> 
 <b>Table</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1781)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -527,7 +527,7 @@ and so on
 
 <font size="+2"> 
 <b>Posters</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1684)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 

@@ -89,7 +89,7 @@ The Problems
 </p> 
 <font size="+2"> 
 <b>StreetParking</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1753)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -157,7 +157,7 @@ This problem was relatively easy if you simply followed instructions from the pr
 
 <font size="+2"> 
 <b>Sets</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1685)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -223,7 +223,7 @@ This problem dealt with sets and three of their most common operations: union, i
 
 <font size="+2"> 
 <b>ThePriceIsRight</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1784)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -350,7 +350,7 @@ j&lt;i and prices[j] &lt; prices[i].</i></p>
 </p> 
 <font size="+2"> 
 <b>FryingHamburgers</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1517)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -418,7 +418,7 @@ return (<b>hamburgers</b>/<b>panSize</b>+1)*10-5.
  
 <font size="+2"> 
 <b>PointsOnAxis</b> 
-</font><br /> 
+</font><A href="Javascript:openProblemRating(1670)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
