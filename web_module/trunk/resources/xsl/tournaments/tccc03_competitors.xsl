@@ -86,89 +86,35 @@
 
                         <tr valign="top">
                             <td align="left" class="statText">
-                                bmetz&#160;&#40;1199&#41;<br />
-                                statusquo&#160;&#40;1198&#41;<br />
-                                flip_da_bits&#160;&#40;1198&#41;<br />
-                                Cycom&#160;&#40;1198&#41;<br />
-                                wernsing&#160;&#40;1197&#41;<br />
-                                mpapadop&#160;&#40;1196&#41;<br />
-                                ankur&#160;&#40;1196&#41;<br />
-                                CrazyFox&#160;&#40;1196&#41;<br />
-                                kot&#160;&#40;1196&#41;<br />
-                                jaytula&#160;&#40;1196&#41;<br />
-                                bmetz&#160;&#40;1199&#41;<br />
-                                statusquo&#160;&#40;1198&#41;<br />
-                                flip_da_bits&#160;&#40;1198&#41;<br />
-                                Cycom&#160;&#40;1198&#41;<br />
-                                wernsing&#160;&#40;1197&#41;<br />
-                                mpapadop&#160;&#40;1196&#41;<br />
-                                ankur&#160;&#40;1196&#41;<br />
-                                CrazyFox&#160;&#40;1196&#41;<br />
-                                kot&#160;&#40;1196&#41;<br />
-                                jaytula&#160;&#40;1196&#41;<br />
-                                bmetz&#160;&#40;1199&#41;<br />
-                                statusquo&#160;&#40;1198&#41;<br />
-                                flip_da_bits&#160;&#40;1198&#41;<br />
-                                Cycom&#160;&#40;1198&#41;<br />
-                                wernsing&#160;&#40;1197&#41;<br />
-                                mpapadop&#160;&#40;1196&#41;<br />
-                                ankur&#160;&#40;1196&#41;<br />
-                                CrazyFox&#160;&#40;1196&#41;<br />
-                                kot&#160;&#40;1196&#41;<br />
-                                jaytula&#160;&#40;1196&#41;<br />
-                                bmetz&#160;&#40;1199&#41;<br />
-                                statusquo&#160;&#40;1198&#41;<br />
-                                flip_da_bits&#160;&#40;1198&#41;<br />
-                                Cycom&#160;&#40;1198&#41;<br />
-                                wernsing&#160;&#40;1197&#41;<br />
-                                mpapadop&#160;&#40;1196&#41;<br />
-                                ankur&#160;&#40;1196&#41;<br />
-                                CrazyFox&#160;&#40;1196&#41;<br />
-                                kot&#160;&#40;1196&#41;<br />
-                                jaytula&#160;&#40;1196&#41;<br />
+                                <xsl:for-each select="/TC/TOURNAMENTS/N_Competitors/Competitor">
+                                <a>
+                                    <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="CLASS">statText</xsl:attribute>
+                                    <font>
+                                      <xsl:attribute name="color">
+                                        <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                                      </xsl:attribute>
+                                      <xsl:value-of select="handle"/>
+                                    </font>
+                                  </a>
+                                  <br />
+                                </xsl:for-each>
                             </td>
 
                             <td align="left" class="statText">
-                                bmetz&#160;&#40;1199&#41;<br />
-                                statusquo&#160;&#40;1198&#41;<br />
-                                flip_da_bits&#160;&#40;1198&#41;<br />
-                                Cycom&#160;&#40;1198&#41;<br />
-                                wernsing&#160;&#40;1197&#41;<br />
-                                mpapadop&#160;&#40;1196&#41;<br />
-                                ankur&#160;&#40;1196&#41;<br />
-                                CrazyFox&#160;&#40;1196&#41;<br />
-                                kot&#160;&#40;1196&#41;<br />
-                                jaytula&#160;&#40;1196&#41;<br />
-                                bmetz&#160;&#40;1199&#41;<br />
-                                statusquo&#160;&#40;1198&#41;<br />
-                                flip_da_bits&#160;&#40;1198&#41;<br />
-                                Cycom&#160;&#40;1198&#41;<br />
-                                wernsing&#160;&#40;1197&#41;<br />
-                                mpapadop&#160;&#40;1196&#41;<br />
-                                ankur&#160;&#40;1196&#41;<br />
-                                CrazyFox&#160;&#40;1196&#41;<br />
-                                kot&#160;&#40;1196&#41;<br />
-                                jaytula&#160;&#40;1196&#41;<br />
-                                bmetz&#160;&#40;1199&#41;<br />
-                                statusquo&#160;&#40;1198&#41;<br />
-                                flip_da_bits&#160;&#40;1198&#41;<br />
-                                Cycom&#160;&#40;1198&#41;<br />
-                                wernsing&#160;&#40;1197&#41;<br />
-                                mpapadop&#160;&#40;1196&#41;<br />
-                                ankur&#160;&#40;1196&#41;<br />
-                                CrazyFox&#160;&#40;1196&#41;<br />
-                                kot&#160;&#40;1196&#41;<br />
-                                jaytula&#160;&#40;1196&#41;<br />
-                                bmetz&#160;&#40;1199&#41;<br />
-                                statusquo&#160;&#40;1198&#41;<br />
-                                flip_da_bits&#160;&#40;1198&#41;<br />
-                                Cycom&#160;&#40;1198&#41;<br />
-                                wernsing&#160;&#40;1197&#41;<br />
-                                mpapadop&#160;&#40;1196&#41;<br />
-                                ankur&#160;&#40;1196&#41;<br />
-                                CrazyFox&#160;&#40;1196&#41;<br />
-                                kot&#160;&#40;1196&#41;<br />
-                                jaytula&#160;&#40;1196&#41;<br />
+                                <xsl:for-each select="/TC/TOURNAMENTS/STH_Competitors/Competitor">
+                                <a>
+                                    <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="CLASS">statText</xsl:attribute>
+                                    <font>
+                                      <xsl:attribute name="color">
+                                        <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                                      </xsl:attribute>
+                                      <xsl:value-of select="handle"/>
+                                    </font>
+                                  </a>
+                                  <br />
+                                </xsl:for-each>
                             </td>
 
                             <td align="left" class="statText">
