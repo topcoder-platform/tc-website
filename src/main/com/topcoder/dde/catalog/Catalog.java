@@ -151,7 +151,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * the catalog, or if the summary information cannot be retrieved
      */
     public ComponentSummary getComponent(long componentId)
-        throws RemoteException, CatalogException;
+        throws RemoteException, CatalogException, NamingException, SQLException;
 
     /**
      * Returns the detailed information for the current version of the specified
