@@ -113,12 +113,12 @@
     <tr>
       <td>Last Rated Event</td>
       <td>&#160;&#160;&#160;</td>
-      <td><rsc:item name="last_rated_event" row="<%=p%>" ifNull="Never Competed"/></td>
+      <td><rsc:item name="last_rated_event" row="<%=p%>" ifNull="Never Competed" format="MM/dd/yyyy hh:mm a"/></td>
     </tr>
     <tr>
       <td>Referral Type</td>
       <td>&#160;&#160;&#160;</td>
-      <td><rsc:item name="referral_desc" row="<%=p%>"/><%=p.getItem("referral_info")==null ? "" : ", "+p.getItem("referral_info").toString()%></td>
+      <td><rsc:item name="referral_desc" row="<%=p%>"/><%=p.getItem("referral_info").equals("") ? "" : ", "+p.getItem("referral_info").toString()%></td>
     </tr>
     <tr>
       <td>Status</td>
