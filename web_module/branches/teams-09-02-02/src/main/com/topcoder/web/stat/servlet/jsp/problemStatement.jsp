@@ -45,7 +45,11 @@ String sProblemText = resultRow_0!=null?resultRow_0.getItem("problem_text").toSt
 
 // jeddie 09/05/02 - put problem text into a Reader, create default language, and use ProblemComponentRenderer
 StringReader reader = new StringReader(sProblemText);
-ProblemComponent problem = new ProblemComponentFactory().buildFromXML(reader, true);
+ProblemComponent arrProblemComponent[1];
+arrProblemComponent[0] = new ProblemComponentFactory().buildFromXML(reader, true);
+Problem problem = new Problem();
+problem.setProblemComponents(arrProblemComponent);
+
 
 /* jeddie 09/05/02 - Don't need to make problem-text readable since we're using the ProblemComponentRenderer
 //here is where we make the problem-text readable
@@ -106,7 +110,7 @@ while (strtok.hasMoreTokens()){
               		<% 
                             // jeddie 09/05/02
                             // stBuffer.toString()
-                            out.println(problem.toHTML(JavaLanguage.JAVA_LANGUAGE));
+                            out.println(problem.toHTML(JavaLanguage.JAVA_LANGUAGE, false));
                         %>
                    </TD>
                  </TR>
