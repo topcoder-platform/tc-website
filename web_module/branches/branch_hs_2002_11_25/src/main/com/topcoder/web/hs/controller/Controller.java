@@ -68,7 +68,7 @@ public final class Controller extends HttpServlet {
         /* things are extremely broken, make one last attempt to get an error message to the logs and browser */
         } catch(Exception e) {
             e.printStackTrace();
-            response.setStatus(500);  //@@@ this doesnt seem to work
+            response.setStatus(500);
             PrintWriter out = response.getWriter();
             out.println("<html><head><title>Internal Error</title></head>");
             out.println("Exception encountered:<br><pre>");
