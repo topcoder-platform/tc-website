@@ -16,7 +16,8 @@
    <property name="resources"   value="resources" />
    <property name="images"      value="images" />
    <property name="mpsqas.jar"  value="${bin}/MPSQASApplet.jar"/>
-   <property name="Jive.jar"  value="${bin}/Jive.jar"/>
+   <property name="Jive.jar"    value="${bin}/Jive.jar"/>
+   <property name="wl_jvmargs"  value="-Dweblogic.home=${WL_HOME}"  />
    <property environment="env"/>
 
    <property name="deprecation"   value="false" />
@@ -58,6 +59,7 @@
             />
       </javac>
    </target>
+
 
    <target name="run" depends="package">
    </target>
@@ -107,5 +109,63 @@
            />
        </jar>
    </target>
+
+
+
+
+<target name="package-EJB-ContestAdminServicesBean" depends="compile,init-ContestAdminServicesBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-ContestAdminServicesBean-properties" >
+       <property name="bean.dir"          value="ContestAdminServices" />
+        <property name="bean.jar.name"     value="ContestAdminServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+   <target name="initGenericBean" >
+      <delete dir="${bean.build.dir}"/>
+      <delete dir="${bean.class.dir}/*.class" />
+      <mkdir  dir="${bean.build.dir}"/>
+      <mkdir  dir="${bean.meta-inf.dir}"/>
+   </target>
+
+   <target name="package-EJB-GenericBean" depends="initGenericBean">
+
+      <echo message="bean.src.dir ${bean.src.dir} "/>
+      <echo message="bean.build.dir ${bean.build.dir} "/>
+      <echo message="bean.meta-inf.dir ${bean.meta-inf.dir} "/>
+      <echo message="Ant build of ${bean.jar.name} ."/>
+      <copy todir="${bean.meta-inf.dir}">
+         <fileset dir="${bean.src.dir}" >
+                 <include name="*.xml" />
+         </fileset>
+      </copy>
+
+      <javac
+             srcdir="${bean.src.dir}"
+             destdir="${bean.build.dir}"
+             classpathref="class.path"
+             deprecation="${deprecation}"
+             debug="${debug}"
+            >
+      </javac>
+
+      <jar jarfile="${bean.build.dir}/${bean.jar.name}"
+             basedir="${bean.build.dir}"
+             compress="true"
+             excludes="*.jar"
+      />
+
+      <java classname="weblogic.ejbc" fork="yes" classpathref="class.path">
+          <sysproperty value="-compiler" key="javac" />
+          <sysproperty value="-classpath" key="${class.path}" />
+          <arg line="${bean.build.dir}/${bean.jar.name} ${ejb_jars}/${bean.jar.name}" />
+      </java>
+      <echo message="Ant build of ${bean.jar.name} EJB completed successfully."/>
+
+   </target>
+
 
 </project>
