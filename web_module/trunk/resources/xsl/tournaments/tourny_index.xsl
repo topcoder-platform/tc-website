@@ -18,7 +18,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>TopCoder | Tournaments</title>
+<title>Upcoming and Past Computer Programming Tournaments at TopCoder</title>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
@@ -39,112 +39,158 @@
     <tr valign="top">
 
 <!-- Left Column Begins -->
-        <td width="170" bgcolor="#CCCCCC" valign="top">
+        <td width="180" valign="top">
             <xsl:call-template name="global_left"/>
         </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-            <td width="6"><img src="/i/clear.gif" width="6" height="26" border="0"/></td>
+            <td width="15"><img src="/i/clear.gif" width="15" height="5" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
         <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 
             <xsl:call-template name="BodyTop">
-                <xsl:with-param name="image1">steelblue</xsl:with-param>
-                <xsl:with-param name="image">tournaments_blue</xsl:with-param>
+                <xsl:with-param name="image1"> </xsl:with-param>
+                <xsl:with-param name="image">tournaments_white</xsl:with-param>
                 <xsl:with-param name="title">&#160;</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="7" bgcolor="#001B35" width="100%">
+
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
+
+<!-- Upcoming Events begins -->
+            <table width="100%" border="0" cellpadding="4" cellspacing="0">
+                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Upcoming Events</font></td></tr>
+            </table>
+                
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="100%">
-                        <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                            <tr><td colspan="2"><img src="/i/clear.gif" width="6" height="1" border="0"/></td></tr>
+                    <td width="274"><A href="/?t=tournaments&amp;c=tco03_overview"><img src="/i/tournament/photo_tco03.jpg" alt="2003 TCO" width="274" height="134" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong>2003 TopCoder Open</strong></font><br />
+                        December 4-5<br />
+                        Mohegan Sun Casino and Resort<br />
+                        Uncasville, Connecticut</p>
                         
-                            <tr>
-                                <td width="50%" align="left" class="statTextBig" background="/i/steel_bluebv_bg.gif">Collegiate Challenge Tournaments</td>
-                                <td width="50%" align="left" class="statTextBig" background="/i/steel_bluebv_bg.gif">Invitational Tournaments</td>
-                            </tr>
-                            
-                            <tr><td colspan="2"><img src="/i/clear.gif" width="6" height="1" border="0"/></td></tr>
+                        <p><font color="#CC0000"><strong>Qualification rounds start online October 7</strong></font></p>
                         
-                        <tr valign="top">
-                            <td align="left" class="statText">
-                                Date: April, 2003<br/>
-                                Location: University Park Hotel @ MIT<br/>
-                                Cambridge, MA<br/>
-                                Sponsor: Sun Microsystems<br/>
-                                Total Purse: $100,000<br/>
-                                <a href="/index?t=tournaments&amp;c=tccc03_champ" class="statTextBig">Summary</a></td>
-                                
-                            <td align="left" class="statText" valign="top">
-                                Date: November, 2003<br/>
-                                Location: TBD<br/>
-                                <!-- Sponsor: TBD<br /> -->
-                                Total Purse: TBD<br/>
-                                <!-- <a href="/index?t=tournaments&amp;c=invit03_champ" class="statTextBig">Summary</a> --></td>
-                        </tr>                        
-                        
-                        <tr><td colspan="2"><img src="/i/clear.gif" width="6" height="1" border="0"/></td></tr>
-                        
-                        <tr valign="top">
-                            <td align="left" class="statText" valign="top">
-                                Date: April, 2002<br/>
-                                Location: University Park Hotel @ MIT<br/>
-                                Cambridge, MA<br/>
-                                Sponsor: Sun Microsystems<br/>
-                                Total Purse: $150,000<br/>
-                                <a href="/index?t=tournaments&amp;c=2002tccc_champ" class="statTextBig">Summary</a></td>
-                            
-                            <td align="left" class="statText" valign="top">
-                                Date: November, 2002<br/>
-                                Location: Mohegan Sun Casino<br/>
-                                Uncasville, CT<br/>
-                                <!-- Sponsor: TBD<BR/> -->
-                                Total Purse: $150,000<br/>
-                                <a href="/index?t=tournaments&amp;c=invit02_champ" class="statTextBig">Summary</a></td>
-                            </tr>                        
-                        
-                            <tr><td colspan="2"><img src="/i/clear.gif" width="6" height="1" border="0"/></td></tr>
-                        
-                            <tr valign="top">
-                                <td align="left" class="statText" valign="top">
-                                    Date: June, 2001<br/>
-                                    Location: San Francisco Hilton and Towers<br/>
-                                    San Francisco, CA<br/>
-                                    Total Purse: $250,000<br/>
-                                    <a href="/index?t=tournaments&amp;c=tourny_tccc_01" class="statTextBig">Summary</a></td>
-                            
-                                <td align="left" class="statText" valign="top">
-                                    Date: November, 2001<br/>
-                                    Location: Foxwoods Resort Casino<br/>
-                                    Mashantucket, CT<br/>
-                                    Total Purse: $250,000<br/>
-                                    <a href="/index?t=tournaments&amp;c=tourny_tci_01" class="statTextBig">Summary</a></td>
-                            </tr>
-                            
-                            <tr><td colspan="2"><img src="/i/clear.gif" width="6" height="1" border="0"/></td></tr>
-                        
-                            <tr><td colspan="2" align="left"><a href="mailto:sponsorships@topcoder.com" class="statText">Interested in sponsoring a TopCoder tournament?</a></td></tr>
-                        </table>
-                    
-                        <p><br/></p>
-                    
+                        <p><A href="/?t=tournaments&amp;c=tco03_overview">Official Rules and Regulations</A></p><br />
                     </td>
                 </tr>
             </table>
+<!-- Upcoming Events ends -->
+
+<!-- Past Events begins -->
+            <table width="100%" border="0" cellpadding="4" cellspacing="0">
+                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Past Events</font></td></tr>
+            </table>
+            
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+                
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/index?t=tournaments&amp;c=tccc03_champ"><img src="/i/tournament/photo_tccc03.jpg" alt="2003 TCCC" width="274" height="134" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><A href="/index?t=tournaments&amp;c=tccc03_champ"><img src="/i/tournament/logo_tccc03.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></A>
+                        <font size="3"><strong>2003 Sun Microsystems&#153; and TopCoder Collegiate Challenge</strong></font><br />
+                        April 4-5<br />
+                        University Park Hotel @ MIT<br/>
+                        Cambridge, Massachusetts<br />
+                        <A href="/index?t=tournaments&amp;c=tccc03_champ">Summary</A></p>
+                    </td>
+                </tr>
+            </table>
+
+                <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/index?t=tournaments&amp;c=invit02_champ"><img src="/i/tournament/photo_tci02.jpg" alt="2002 TCI" width="274" height="134" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><A href="/index?t=tournaments&amp;c=invit02_champ"><img src="/i/tournament/logo_tci02.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></A>
+                        <font size="3"><strong>2002 TopCoder Invitational</strong></font><br />
+                        November 22-23<br />
+                        Mohegan Sun Casino and Resort<br />
+                        Uncasville, Connecticut<br />
+                        <A href="/index?t=tournaments&amp;c=invit02_champ">Summary</A></p>
+                    </td>
+                </tr>
+            </table>
+
+                <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/index?t=tournaments&amp;c=2002tccc_champ"><img src="/i/tournament/photo_tccc02.jpg" alt="2002 TCCC" width="274" height="134" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><A href="/index?t=tournaments&amp;c=2002tccc_champ"><img src="/i/tournament/logo_tccc02.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></A>
+                        <font size="3"><strong>2002 Sun Microsystems&#153; and TopCoder Collegiate Challenge</strong></font><br />
+                        April 19-20<br />
+                        University Park Hotel @ MIT<br/>
+                        Cambridge, Massachusetts<br />
+                        <A href="/index?t=tournaments&amp;c=2002tccc_champ">Summary</A></p>
+                    </td>
+                </tr>
+            </table>
+
+                <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/index?t=tournaments&amp;c=tourny_tci_01"><img src="/i/tournament/photo_tci01.jpg" alt="2001 TCI" width="274" height="134" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong>2001 TopCoder Invitational</strong></font><br />
+                        November 2-3<br />
+                        Foxwoods Resort Casino<br />
+                        Mashantucket, Connecticut<br />
+                        <A href="/index?t=tournaments&amp;c=tourny_tci_01">Summary</A></p>
+                    </td>
+                </tr>
+            </table>
+
+                <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/index?t=tournaments&amp;c=tourny_tccc_01"><img src="/i/tournament/photo_tccc01.jpg" alt="2001 TCCC" width="274" height="134" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong>2001 TopCoder Collegiate Challenge</strong></font><br />
+                        June 5-7<br />
+                        San Francisco Hilton and Towers<br/>
+                        San Francisco, California<br />
+                        <A href="/index?t=tournaments&amp;c=tourny_tccc_01">Summary</A></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+            <div align="center"><A href="mailto:sponsorships@topcoder.com">Sponsor a TopCoder tournament</A></div>
+                    
+            <p><br/></p>
+
         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
-            <xsl:call-template name="public_right_col"/>       
+        <td width="170">
+            <xsl:call-template name="public_right_col">
+                <xsl:with-param name="sectionName">tourny</xsl:with-param>
+            </xsl:call-template>
         </td>
 <!-- Right Column Ends -->
 
