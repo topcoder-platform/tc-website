@@ -3,20 +3,24 @@ package com.topcoder.web.servlet;
 import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.error.NavigationException;
-import com.topcoder.common.web.util.*;
+import com.topcoder.common.web.util.Cache;
+import com.topcoder.common.web.util.Conversion;
+import com.topcoder.common.web.util.Data;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.ejb.DataCache.DataCache;
-import com.topcoder.shared.docGen.xml.*;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.docGen.xml.XMLDocument;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.naming.Context;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -45,7 +49,7 @@ public final class TaskSchedule {
             String sortDir = request.getParameter("sdir");
             if (!roundids.equals("")) {
                 ctx = TCContext.getInitial();
-                dai = new CachedDataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                 dataRequest = new Request();
                 dataRequest.setContentHandle("tourney_advancers");
                 dataRequest.setProperty("rds", roundids.trim());
@@ -62,7 +66,7 @@ public final class TaskSchedule {
             String command = Conversion.checkNull(request.getParameter("c"));
             if (command.equals("srm")) {
                 ctx = TCContext.getInitial();
-                dai = new CachedDataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                 dataRequest = new Request();
                 dataRequest.setContentHandle("schedule_srms");
                 dataRequest.setProperty("rd", roundId.trim());
@@ -70,10 +74,10 @@ public final class TaskSchedule {
                 rsc = (ResultSetContainer) resultMap.get("Schedule_SRMS");
                 schedTag.addTag(rsc.getTag("Round", "Details"));
             } else {
-              ArrayList rounds = dcHome.getRounds();
-              if (rounds != null && rounds.size() > 0) {
-                  schedTag.addTag(RecordTag.getListXML("Rounds", rounds));
-              }
+                ArrayList rounds = dcHome.getRounds();
+                if (rounds != null && rounds.size() > 0) {
+                    schedTag.addTag(RecordTag.getListXML("Rounds", rounds));
+                }
             }
 
             ArrayList contests = dcHome.getAdContests();

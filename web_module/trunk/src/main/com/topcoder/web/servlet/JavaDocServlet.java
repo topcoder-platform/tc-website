@@ -1,14 +1,20 @@
 package com.topcoder.web.servlet;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
+import com.topcoder.ejb.JavaDocServices.JavaDocServices;
+import com.topcoder.ejb.JavaDocServices.JavaDocServicesHome;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.ejb.JavaDocServices.*;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
 import javax.naming.InitialContext;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 /**
  * A servlet to get java docs from the ProblemServicesBean.
@@ -35,12 +41,12 @@ public final class JavaDocServlet extends HttpServlet {
     private void getServices() {
         try {
             log.info("JavaDocServlet getting JavaDocServices...");
-            InitialContext ctx = (InitialContext)TCContext.getInitial();
+            InitialContext ctx = (InitialContext) TCContext.getInitial();
             JavaDocServicesHome home =
-                (JavaDocServicesHome) ctx.lookup(ApplicationServer.JAVA_DOC_SERVICES);
+                    (JavaDocServicesHome) ctx.lookup(ApplicationServer.JAVA_DOC_SERVICES);
             services = home.create();
             log.info("...successful");
-        } catch(Exception e) {
+        } catch (Exception e) {
             log.error("Error getting JavaDocServices:", e);
         }
     }
@@ -60,9 +66,9 @@ public final class JavaDocServlet extends HttpServlet {
     public void process(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        if(services == null) {
+        if (services == null) {
             getServices();
-            if(services == null) {
+            if (services == null) {
                 forwardToErrorPage(request, response, null, "Cannot get JavaDocServices bean.");
                 return;
             }
@@ -75,7 +81,7 @@ public final class JavaDocServlet extends HttpServlet {
         String handle = request.getParameter(HANDLE);
         log.info("webServiceName = " + webServiceName + ", path = " + path + ", password = " + password + ", handle = " + handle);
 
-        if(webServiceName == null) {
+        if (webServiceName == null) {
             forwardToErrorPage(request, response, null, "A webServiceName property must be set.");
             return;
         }
@@ -84,11 +90,11 @@ public final class JavaDocServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Object obj = session.getAttribute(webServiceName);
         boolean showPage = false;
-        if(obj == null) {
+        if (obj == null) {
             log.info("Not logged in.");
             //the user is not logged in
 
-            if(password == null || handle == null) {
+            if (password == null || handle == null) {
                 //the user has not yet tried to login
                 log.info("Hasn't tried to log in.");
                 writeLoginHtml(out, webServiceName);
@@ -100,13 +106,13 @@ public final class JavaDocServlet extends HttpServlet {
 
                 try {
                     error = services.authenticateUserForWebService(handle, password, webServiceName);
-                } catch(Exception e) {
+                } catch (Exception e) {
                     log.error("Error authenticating " + handle);
                     forwardToErrorPage(request, response, e, "Error using JavaDocServices to authenticate user.");
                     return;
                 }
 
-                if(error.length() != 0) {
+                if (error.length() != 0) {
                     log.info("Invalid login: " + error);
                     //invalid login
                     writeLoginHtmlWithError(out, webServiceName, error);
@@ -122,21 +128,21 @@ public final class JavaDocServlet extends HttpServlet {
             showPage = true;
         }
 
-        if(showPage) {
+        if (showPage) {
             //the user is logged in, get the file specified by path
             log.info("Showing page.");
 
             String requestPath = path;
-            //fill in the path if there isn't one 
-            if(path == null || path.length() == 0) {
+            //fill in the path if there isn't one
+            if (path == null || path.length() == 0) {
                 requestPath = "index.html";
             }
             //take off the #page link for the request
-            if(path != null && path.indexOf("#") != -1) {
+            if (path != null && path.indexOf("#") != -1) {
                 requestPath = path.substring(0, path.indexOf("#"));
-            } 
+            }
             //get rid of '.' and '/' starting the path
-            while(requestPath.startsWith(".") || requestPath.startsWith("/")) {
+            while (requestPath.startsWith(".") || requestPath.startsWith("/")) {
                 requestPath = requestPath.substring(1);
             }
 
@@ -144,7 +150,7 @@ public final class JavaDocServlet extends HttpServlet {
 
             try {
                 file = services.getFile(webServiceName, requestPath);
-            } catch(Exception e) {
+            } catch (Exception e) {
                 log.error("Error getting " + path + " for " + webServiceName);
                 forwardToErrorPage(request, response, e, "Error using JavaDocServices to get file.");
                 return;
@@ -152,8 +158,8 @@ public final class JavaDocServlet extends HttpServlet {
             log.info("file = " + file);
 
             //fix the links in the file to start with "javadocs?webServiceName=name&"
-              file = HTMLLinkChanger.prependToAllAddresses(SERVLET_NAME + "?" + 
-                        WEB_SERVICE_NAME + "=" + webServiceName + "&path=", file);
+            file = HTMLLinkChanger.prependToAllAddresses(SERVLET_NAME + "?" +
+                    WEB_SERVICE_NAME + "=" + webServiceName + "&path=", file);
             out.append(file);
         }
 
@@ -171,17 +177,17 @@ public final class JavaDocServlet extends HttpServlet {
                 "<HTML><HEAD><TITLE>Log in to view the java docs.</TITLE></HEAD>" +
                 "<BODY><H1>Java Doc Viewer Login</H1>");
 
-        if(error.length() > 0) {
+        if (error.length() > 0) {
             out.append(
-                "<HR><FONT COLOR=\"red\">Login Error: " + error + "</FONT><HR>");
+                    "<HR><FONT COLOR=\"red\">Login Error: " + error + "</FONT><HR>");
         }
 
         out.append(
                 "Please login to view the java docs for " + webServiceName + ".<P>" +
-                "<FORM NAME=\"login_form\" METHOD=\"post\" ACTION=\"" + SERVLET_NAME + "?" + WEB_SERVICE_NAME + "="+webServiceName+"\">" +
+                "<FORM NAME=\"login_form\" METHOD=\"post\" ACTION=\"" + SERVLET_NAME + "?" + WEB_SERVICE_NAME + "=" + webServiceName + "\">" +
                 "Handle: <INPUT TYPE=\"text\" NAME=\"" + HANDLE + "\" SIZE=\"15\"<BR>" +
                 "Password: <INPUT TYPE=\"password\" NAME=\"" + PASSWORD + "\" SIZE=\"15\"<BR>" +
-                "<INPUT TYPE=\"submit\" NAME=\"login_button\" VALUE=\"Login\"><BR>" + 
+                "<INPUT TYPE=\"submit\" NAME=\"login_button\" VALUE=\"Login\"><BR>" +
                 "</FORM></BODY></HTML>");
     }
 

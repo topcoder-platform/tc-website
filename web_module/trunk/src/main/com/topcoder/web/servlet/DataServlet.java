@@ -1,15 +1,23 @@
 package com.topcoder.web.servlet;
 
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpUtils;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
@@ -61,8 +69,8 @@ public class DataServlet extends HttpServlet {
 
         try {
             if (isAuthenticated(request, response)) {
-                dai = new DataAccess((javax.sql.DataSource) 
-                    TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
+                dai = new DataAccess((javax.sql.DataSource)
+                        TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
                 dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
                 resultMap = dai.getData(dataRequest);
                 // if the request is for an xml file, then go through all the result sets in the map
@@ -104,7 +112,7 @@ public class DataServlet extends HttpServlet {
 
         try {
 
-            command = request.getParameter("c") == null?"":request.getParameter("c");
+            command = request.getParameter("c") == null ? "" : request.getParameter("c");
             nav = (Navigation) request.getSession().getAttribute("navigation");
             if (nav == null || !nav.getLoggedIn())
                 response.sendRedirect("http://" + request.getServerName() +
@@ -117,7 +125,7 @@ public class DataServlet extends HttpServlet {
                 log.info("[*** data *** " + command + " *** " + nav.getUser().getHandle() + " ***]");
 
                 dai = new DataAccess((javax.sql.DataSource)
-                    TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+                        TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
                 dataRequest = new Request();
                 dataRequest.setContentHandle("authenticate_data_user");
                 dataRequest.setProperty("cr", "" + nav.getUserId());

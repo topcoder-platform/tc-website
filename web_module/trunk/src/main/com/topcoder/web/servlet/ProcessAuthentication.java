@@ -3,7 +3,9 @@ package com.topcoder.web.servlet;
 import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
-import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.bean.Registration;
 

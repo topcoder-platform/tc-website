@@ -9,11 +9,16 @@ import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.servlet.admin.task.Home;
-import com.topcoder.web.servlet.admin.task.coder.*;
+import com.topcoder.web.servlet.admin.task.coder.Challenge;
+import com.topcoder.web.servlet.admin.task.coder.Compilation;
+import com.topcoder.web.servlet.admin.task.coder.SystemTestCaseReport;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -240,13 +245,13 @@ public final class TC extends HttpServlet {
             document.addTag(
                     new ValueTag(
                             "AdminURL"
-                            ,"/admin" 
+                            , "/admin"
                     )
             );
             document.addTag(
                     new ValueTag(
                             "Host"
-                            ,request.getServerName()
+                            , request.getServerName()
                     )
             );
         } catch (Exception e) {

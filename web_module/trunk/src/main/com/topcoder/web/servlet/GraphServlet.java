@@ -16,13 +16,18 @@ import org.faceless.graph.formatter.NullFormatter;
 import org.faceless.graph.math.DataCurve;
 import org.faceless.graph.output.PNGOutput;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpUtils;
 import java.awt.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -220,7 +225,7 @@ public final class GraphServlet extends HttpServlet {
         Iterator it = null;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("School_Membership");
 
@@ -270,7 +275,7 @@ public final class GraphServlet extends HttpServlet {
         Iterator it = null;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
             dataRequest.setProperty("ct", "2");   //Professional
             dataRequest.setProperty("dq", "5");   //What's your primary interest in tc
             resultMap = dai.getData(dataRequest);
@@ -322,7 +327,7 @@ public final class GraphServlet extends HttpServlet {
         final double minPercentage = .05;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
             dataRequest.setProperty("ct", "2");   //Professional
             dataRequest.setProperty("dq", "7");   //What Industry are you in
             resultMap = dai.getData(dataRequest);
@@ -397,7 +402,7 @@ public final class GraphServlet extends HttpServlet {
         Iterator it = null;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
             dataRequest.setProperty("ct", "1");   //Student
             dataRequest.setProperty("dq", "5");   //What's your primary interest in tc
             resultMap = dai.getData(dataRequest);
@@ -449,7 +454,7 @@ public final class GraphServlet extends HttpServlet {
         final double minPercentage = .05;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
             dataRequest.setProperty("ct", "2");   //Professional
             dataRequest.setProperty("dq", "8");   //What's your job title
             resultMap = dai.getData(dataRequest);
@@ -526,7 +531,7 @@ public final class GraphServlet extends HttpServlet {
         final double minPercentage = .05;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
             dataRequest.setProperty("ct", "2");   //Professional
             dataRequest.setProperty("dq", "12");  //What's your area of interest
             resultMap = dai.getData(dataRequest);
@@ -602,7 +607,7 @@ public final class GraphServlet extends HttpServlet {
         final double minPercentage = .05;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
             dataRequest.setProperty("ct", "2");   //Professional
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Referral_Graph");
@@ -678,7 +683,7 @@ public final class GraphServlet extends HttpServlet {
         final double minPercentage = .05;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
             dataRequest.setProperty("ct", "1");   //Student
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Referral_Graph");
@@ -761,7 +766,7 @@ public final class GraphServlet extends HttpServlet {
 
         try {
 
-            dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
+            dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Rating_History_Graph");
 
@@ -821,7 +826,7 @@ public final class GraphServlet extends HttpServlet {
         ResultSetContainer.ResultSetRow rsr = null;
 
         try {
-            dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
+            dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Rating_Distribution_Graph");
 
@@ -885,7 +890,7 @@ public final class GraphServlet extends HttpServlet {
         ResultSetContainer.ResultSetRow rsr = null;
 
         try {
-            dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
+            dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Rating_Distribution_Graph");
 
@@ -948,7 +953,7 @@ public final class GraphServlet extends HttpServlet {
         ResultSetContainer.ResultSetRow rsr = null;
 
         try {
-            dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
+            dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Problem_Distribution_Graph");
             ResultSetContainer info = (ResultSetContainer) resultMap.get("Problem_Distribution_Info");
@@ -972,25 +977,25 @@ public final class GraphServlet extends HttpServlet {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 double points = new Double(rsr.getItem("points").toString()).doubleValue();
                 problemName = rsr.getItem("name").toString();
-                g.optionTitle("Problem Distribution :: "+problemName);
-                int columns = rsc.getColumnCount()-2;
-                double pointsPerBucket = (points*.7)/columns;
-                double start = points*.3;
+                g.optionTitle("Problem Distribution :: " + problemName);
+                int columns = rsc.getColumnCount() - 2;
+                double pointsPerBucket = (points * .7) / columns;
+                double start = points * .3;
                 for (int i = 0; i < columns; i++) {
-                    String columnName = df.format(start+pointsPerBucket*i) + " - " + df.format(start+pointsPerBucket*(i+1));
+                    String columnName = df.format(start + pointsPerBucket * i) + " - " + df.format(start + pointsPerBucket * (i + 1));
                     g.set(columnName,
                             ((java.math.BigInteger) ((TCBigIntegerResult) rsr.getItem(i)).getResultData()).doubleValue());
                     g.setColor(columnName, MAROON);
                 }
             }
             it = info.iterator();
-            while(it.hasNext()){
+            while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 int opened = Integer.parseInt(rsr.getItem("opened").toString());
                 int challenged = Integer.parseInt(rsr.getItem("challenged").toString());
                 int passed = Integer.parseInt(rsr.getItem("passed").toString());
                 int failed = Integer.parseInt(rsr.getItem("failed").toString());
-                g.optionSubTitle((opened+challenged+failed)+" out of "+(opened+challenged+failed+passed)+" coders who opened "+problemName+", received 0 points.");
+                g.optionSubTitle((opened + challenged + failed) + " out of " + (opened + challenged + failed + passed) + " coders who opened " + problemName + ", received 0 points.");
             }
             baos = new ByteArrayOutputStream();
             PNGOutput out = new PNGOutput(600, 400, Color.black, baos);

@@ -5,17 +5,19 @@ import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.docGen.xml.RecordTag;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.XMLDocument;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 
+import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.naming.Context;
 import java.util.Map;
 
 
@@ -56,7 +58,7 @@ public final class TaskStatic {
         String requestTask = null;
         String requestCommand = null;
         String requestOther = null;
-        String requestAccess= null;
+        String requestAccess = null;
         String xsldocURLString = null;
         Request dataRequest = null;
         DataAccessInt dai = null;
@@ -101,7 +103,7 @@ public final class TaskStatic {
         }
         try {
             ctx = TCContext.getInitial();
-            dai = new CachedDataAccess((javax.sql.DataSource)ctx.lookup(DBMS.DW_DATASOURCE_NAME));
+            dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
             RecordTag homeTag = new RecordTag("HOME");
             dataRequest = new Request();
             dataRequest.setContentHandle("school_avg_rating");
@@ -131,7 +133,7 @@ public final class TaskStatic {
     }
 
     private static boolean isLegal(String s) {
-        for (int i=0; i<s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
             if ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_".indexOf(ch) < 0) {
                 return false;

@@ -10,9 +10,14 @@ import com.topcoder.ejb.AuthenticationServices.User;
 import com.topcoder.ejb.CoderStatistics.CoderStatistics;
 import com.topcoder.ejb.CoderStatistics.CoderStatisticsHome;
 import com.topcoder.ejb.DataCache.DataCache;
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
@@ -21,7 +26,9 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Map;
 
 public final class TaskHome {
 
@@ -77,7 +84,7 @@ public final class TaskHome {
             document.addTag(homeTag);
             try {
                 ctx = TCContext.getInitial();
-                dai = new CachedDataAccess((javax.sql.DataSource)ctx.lookup(DBMS.DW_DATASOURCE_NAME));
+                dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
                 CoderStatisticsHome home = (CoderStatisticsHome) ctx.lookup(ApplicationServer.CODER_STATISTICS);
                 CoderStatistics temp = home.create();
                 if (nav.getLoggedIn()) {
@@ -117,10 +124,10 @@ public final class TaskHome {
 
                     dataRequest = new Request();
                     dataRequest.setContentHandle("invitational_info");
-                    dataRequest.setProperty("cr", ""+nav.getUserId());
+                    dataRequest.setProperty("cr", "" + nav.getUserId());
                     dataRequest.setProperty("rd", "4320");
                     dataRequest.setProperty("cd", "4320");
-                    transDai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                    transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                     resultMap = transDai.getData(dataRequest);
                     RecordTag invitationalInfo = new RecordTag("InvitationalInfo");
                     rsc = (ResultSetContainer) resultMap.get("Invitational_Eligibility");

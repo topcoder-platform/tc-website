@@ -7,10 +7,18 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpUtils;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *  A servlet to generate reports.
@@ -63,7 +71,7 @@ public final class ReportServlet extends HttpServlet {
             } else if (task.equals(Constants.NEW_REPORT_KEY)) {
                 Request dataRequest = null;
                 dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
-                if (dataRequest.getContentHandle()==null || dataRequest.getContentHandle().equals("")) {
+                if (dataRequest.getContentHandle() == null || dataRequest.getContentHandle().equals("")) {
                     response_addr = Constants.NEW_REPORT_HOME_ADDR;
                 } else {
                     DataAccessInt dai = new DataAccess((javax.sql.DataSource)
@@ -281,7 +289,7 @@ public final class ReportServlet extends HttpServlet {
         RequestInt dataRequest = null;
         Map resultMap = null;
 
-        dai = new DataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
         dataRequest = new Request(parseQueryString(request));
         resultMap = dai.getData(dataRequest);
         request.setAttribute(Constants.REPORT_PROFILE_DETAIL_KEY, resultMap);
@@ -298,7 +306,7 @@ public final class ReportServlet extends HttpServlet {
         qr.addQuery("Country_List", COUNTRY_QUERY);
         qr.addQuery("Relocate_Answers", RELOCATE_QUERY);
         qr.addQuery("Profile_List", getProfileListQuery(parseQueryString(request), false));
-        dai = new QueryDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        dai = new QueryDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
         resultMap = dai.getData(qr);
         request.setAttribute(Constants.REPORT_PROFILE_LIST_KEY, resultMap);
 
@@ -339,8 +347,10 @@ public final class ReportServlet extends HttpServlet {
         lastName = (String) request.get(Constants.REPORT_LAST_NAME_KEY);
         relocate = (String) request.get(Constants.REPORT_RELOCATE_KEY);
 
-        if (minGradYear == null && maxGradYear != null) minGradYear = "0";  //default it
-        else if (maxGradYear == null && minGradYear != null) maxGradYear = "100000";  //default it
+        if (minGradYear == null && maxGradYear != null)
+            minGradYear = "0";  //default it
+        else if (maxGradYear == null && minGradYear != null)
+            maxGradYear = "100000";  //default it
         else if (maxGradYear == null && minGradYear == null) hasGradYear = false;
 
         query = new StringBuffer();
@@ -474,7 +484,7 @@ public final class ReportServlet extends HttpServlet {
             qr.addQuery("Country_List", COUNTRY_QUERY);
             qr.addQuery("Relocate_Answers", RELOCATE_QUERY);
             qr.addQuery("Profile_List", getProfileListQuery(new HashMap(), true));
-            dai = new QueryDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new QueryDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
             resultMap = dai.getData(qr);
             request.setAttribute(Constants.REPORT_PROFILE_LIST_MENU_KEY, resultMap);
         } catch (Exception e) {
@@ -1219,8 +1229,8 @@ public final class ReportServlet extends HttpServlet {
     private static final String[] INVITATIONAL_INFO_HEADINGS = {"total_registered", "top_1024_registered"};
     private static final String INVITATIONAL_INFO =
             " select" +
-              " x.all" +
-              " ,y.top_1024" +
+            " x.all" +
+            " ,y.top_1024" +
             " from" +
             " table(multiset(" +
             " select" +
@@ -1273,14 +1283,6 @@ public final class ReportServlet extends HttpServlet {
             "AND uc.country_code = c.country_code" +
             "AND uc.email_address not like '%topcoder.com'" +
             "AND lower(last_name) not in ('tanacea', 'corsello')";
-
-
-
-
-
-
-
-
 
 
     private static final String STATE_QUERY =
