@@ -2,6 +2,7 @@ package com.topcoder.common.web.data.report;
 
 import com.topcoder.ejb.Reporting.Reporting;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 
@@ -17,9 +18,9 @@ public class Query implements Serializable {
     private String db;
 
     private static final char PLACE_HOLDER = '?';
-    public static final String TRANSACTIONAL = "OLTP";
-    public static final String WAREHOUSE = "DW";
-    public static final String TCS_CATALOG = "TCS_CATALOG";
+    public static final String TRANSACTIONAL = DBMS.OLTP_DATASOURCE_NAME;
+    public static final String WAREHOUSE = DBMS.DW_DATASOURCE_NAME;
+    public static final String TCS_CATALOG = DBMS.TCS_OLTP_DATASOURCE_NAME;
 
     public Query() {
         query = new StringBuffer();
