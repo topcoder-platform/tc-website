@@ -132,14 +132,14 @@
 			The 500 participants in Round 1 will receive a "Google India Code Jam 2005, Powered by TopCoder" t-shirt. The top five scorers in the Championship Round will receive the following cash prizes:
 			<br/><br/>
 			<div class=indented>
-			      <b>1st Place - 250,000 INR</b><br/>
-			      2nd Place - 175,000 INR<br/>
+			      <b>1st Place - 300,000 INR</b><br/>
+			      2nd Place - 200,000 INR<br/>
 			      3rd Place - 125,000 INR<br/>
-			      4th Place - 85,000 INR<br/>
-			      5th Place - 45,000 INR<br/>
+			      4th Place - 75,000 INR<br/>
+			      5th Place - 50,000 INR<br/>
 			</div>
 			<br/>
-			Those finalists not finishing as one of the top five scorers in the Championship Round will share 320,000 INR.
+			Those finalists not finishing as one of the top five scorers in the Championship Round will share 850,000 INR.
 
 			<br/><br/>
 			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
