@@ -37,13 +37,6 @@
     <property name="webdir" value="web" />
     <property name="examplesdir" value="${webdir}/examples" />
 
-<!--
-    <property name="javadocdir" value="${builddir}/javadoc" />
-    <property name="examplesdir" value="${webdir}/examples" />
-    <property name="configdir" value="${examplesdir}/config" />
-    <property name="distdir" value="${builddir}/dist" />
-    <property name="utildir" value="com/topcoder/util" />    lib/TCSUtil.jar
- -->
     <property name="informixinitdir" value="com/topcoder/util/informixinit" />
     <property name="catalogdir" value="${packagedir}/catalog" />
     <property name="admindir" value="${packagedir}/admin" />
@@ -55,20 +48,11 @@
     <property name="ddesubmissiondir" value="${packagedir}/submission" />
     <property name="userdir" value="${packagedir}/user" />
     <property name="emailenginedir" value="com/topcoder/message/email" />
-<!--
-    <property name="configmgrdir" value="${utildir}/config" />
--->
     <property name="debug" value="on" />
     <property name="verbose" value="yes" />
-<!--
-    <property name="configfile" value="${packagedir}/${configfilename}" />
--->
-    <!-- Name for .jar and .war files -->
+
     <property name="libname" value="${distfilename}" />
 
-    <!--
-    <property name="component.jar" value="${build_distdir}/${libname}.jar"/>
-    -->
     <property name="dist.jars.dir" value="${build_distdir}/jars"/>
     <property name="src.package.dir" value="${javamain}/${packagedir}"/>
     <property name="persistencelayer.src.dir" value="${src.package.dir}/persistencelayer"/>
@@ -95,8 +79,6 @@
     <property name="dde.war" value="${dist.jars.dir}/dde.war"/>
     <property name="dde.ear" value="${build_distdir}/dde.ear"/>
     <property name="allTests.jar" value="${dist.jars.dir}/allTests.jar"/>
-<!--    <property name="idgenTests.jar" value="../Id_Generator/build/dist/jars/idgenTests.jar" />
--->
     <property name="jdbc.jar" value="${jardir}/ifxjdbc.jar"/>
     <property name="junitejb.jar" value="${jardir}/junitejb.jar" />
 
@@ -173,9 +155,6 @@
 
         <pathelement location="${upload.jar}"/>
         <pathelement location="${onlinereview.jars.dir}/persistence.jar"/>
-<!--
-        <pathelement location="jars/OnlineReviewClient.jar"/>
--->
         <pathelement location="${base_exception.jar}"/>
     </path>
 
@@ -184,23 +163,11 @@
         <pathelement location="${build_testclassdir}"/>
         <pathelement location="${junit.jar}"/>
         <pathelement location="${junitejb.jar}"/>
-
-        <!--<pathelement location="${libdir}/tcs/forum_persistence_layer.jar"/>-->
-
     </path>
 
     <path id="runtime.classpath">
         <path refid="test.build.classpath"/>
         <pathelement location="${jdbc.jar}"/>
-<!--
-        <fileset dir="${tcs.jboss.lib.dir}">
-            <include name="jnp-client.jar"/>
-            <include name="jnet.jar"/>
-            <include name="jboss-client.jar"/>
-            <include name="jbosssx-client.jar"/>
-            <include name="jboss-common-client.jar"/>
-        </fileset>
--->
     </path>
 
     <target name="compile">
@@ -216,104 +183,12 @@
         </javac>
     </target>
 
-    <target name="compile-tests" if="with-tests" depends="compile">
-        <mkdir dir="${build_testclassdir}" />
-        <javac srcdir="${javatests}" destdir="${build_testclassdir}" debug="${debug}"
-               includes="**/*.java"
-               excludes="${packagedir}/persistencelayer/testbean/*.java">
-            <classpath refid="test.build.classpath" />
-        </javac>
-    </target>
-
-    <target name="compile-devtests" depends="compile">
-        <javac
-            srcdir="${javatests}"
-            destdir="${build_classdir}"
-            debug="${debug}"
-            includes="${packagedir}/persistencelayer/testbean/*.java"
-            >
-            <classpath refid="test.build.classpath"/>
-        </javac>
-    </target>
-
-    <target name="qatest-pl">
-        <property name="testclass" value="${package}.persistencelayer.test.AllPersistenceLayerTests" />
-        <java fork="yes" classname="junit.textui.TestRunner">
-            <arg value="${testclass}" />
-            <classpath refid="runtime.classpath"/>
-        </java>
-    </target>
-
-    <target name="qatest-catalog">
-        <property name="testclass" value="${package}.catalog.test.AllCatalogTests" />
-        <java fork="yes" classname="junit.textui.TestRunner">
-            <arg value="${testclass}" />
-            <classpath refid="runtime.classpath"/>
-        </java>
-    </target>
-
-    <target name="qatest-user">
-        <property name="testclass" value="${package}.user.test.AllUserTests" />
-        <java fork="yes" classname="junit.textui.TestRunner">
-            <arg value="${testclass}" />
-            <classpath refid="runtime.classpath"/>
-        </java>
-    </target>
-
-    <target name="qatest-forum">
-        <property name="testclass" value="${package}.forum.test.AllForumTests" />
-        <java fork="yes" classname="junit.textui.TestRunner">
-            <arg value="${testclass}" />
-            <classpath refid="runtime.classpath"/>
-        </java>
-    </target>
-
-    <target name="qatest-admin">
-        <property name="testclass" value="${package}.admin.test.AllAdminTests" />
-        <java fork="yes" classname="junit.textui.TestRunner">
-            <arg value="${testclass}" />
-            <classpath refid="runtime.classpath"/>
-        </java>
-    </target>
-
-    <target name="test" depends="compile,compile-tests">
-        <!--
-        <java  fork="yes" classname="junit.swingui.TestRunner">
-            <arg value="${package}.AllTests"/>
-            <classpath>
-                <pathelement location="${classdir}"/>
-                <pathelement path="${java.class.path}"/>
-            </classpath>
-        </java>
-        -->
-        <junit
-            fork="true"
-            haltonerror="true"
-            >
-            <classpath refid="runtime.classpath"/>
-            <batchtest>
-                <formatter type="plain" usefile="false"/>
-                <fileset dir="${javatests}">
-                    <include name="**/*UserManagerTest*"/>
-                </fileset>
-            </batchtest>
-        </junit>
-    </target>
 
     <target name="package" depends="compile">
         <mkdir dir="${dist.jars.dir}"/>
-        <!--
-        <mkdir dir="${distdir}/${packagedir}" />
-        <copy file="${configdir}/${configfile}" todir="${distdir}/${packagedir}" />
-        <jar jarfile="${component.jar}" basedir="${classdir}">
-        </jar>
-        -->
-
         <copy file="${idgenerator.jar}" todir="${dist.jars.dir}"/>
-        <!--<copy file="${libdir}/tcs/forum_persistence_layer.jar" todir="${dist.jars.dir}"/>-->
         <copy file="${forum.jar}" todir="${dist.jars.dir}"/>
         <copy file="${tcsutil.jar}" todir="${dist.jars.dir}"/>
-<!--        <copy file="jars/OnlineReviewClient.jar" todir="${dist.jars.dir}"/>-->
 
         <jar
             jarfile="${ddePersistenceLayer.jar}"
@@ -407,73 +282,6 @@
         <copy file="${math_matrix.jar}" todir="${dist.jars.dir}"/>
     </target>
 
-    <target name="package-devtests" depends="compile-devtests">
-        <mkdir dir="${dist.jars.dir}"/>
-        <copy file="${idgenerator.jar}" todir="${dist.jars.dir}"/>
-        <!--<copy file="${forum_persistence_layer.jar}" todir="${dist.jars.dir}"/>-->
-        <jar
-            jarfile="${ddePersistenceLayer.jar}"
-            basedir="${build_classdir}"
-            includes="${packagedir}/persistencelayer/**"
-            manifest="${persistencelayer.src.dir}/MANIFEST.MF"
-            >
-            <metainf dir="${javatests}/${packagedir}/persistencelayer/testbean" includes="*.xml"/>
-        </jar>
-    </target>
-
-    <target name="package-test" if="with-tests" depends="package,compile-tests">
-        <jar
-            jarfile="${ddePersistenceLayer.jar}"
-            update="true"
-            basedir="${build_testbuild_classdir}"
-          >
-            <!-- <metainf dir="${javatests}/${packagedir}/persistencelayer" includes="*.xml"/> -->
-        </jar>
-        <jar
-            jarfile="${user.jar}"
-            basedir="${build_testclassdir}"
-            update="true"
-            includes="${userdir}/**/*.class"
-            >
-            <metainf dir="${javatests}/${packagedir}/user" includes="*.xml"/>
-        </jar>
-
-        <copy file="${junit.jar}" todir="${dist.jars.dir}" />
-        <copy file="${junitejb.jar}" todir="${dist.jars.dir}" />
-
-    </target>
-
-    <target name="developertest" depends="compile">
-        <mkdir dir="${build_testclassdir}"/>
-        <javac srcdir="${javatests}" destdir="${build_testclassdir}" debug="${debug}" includes="${userdir}/UserManagerTest*">
-            <classpath refid="test.build.classpath" />
-        </javac>
-        <junit
-            fork="true"
-            haltonerror="true"
-            >
-            <classpath refid="runtime.classpath"/>
-            <batchtest>
-                <formatter type="plain" usefile="false"/>
-                <fileset dir="${javatests}">
-                    <include name="**/User*"/>
-                </fileset>
-            </batchtest>
-        </junit>
-    </target>
-
-<!--
-    <target name="make-war" depends="package">
-        <war warfile="${dde.war}" webxml="web.xml">
-            <lib dir="${dist.jars.dir}" includes="ddeservlet.jar"/>
-            <fileset dir="${webdir}">
-                <exclude name="CVS/**/*"/>
-                <exclude name="doc/**/*"/>
-                <exclude name="examples/**/*"/>
-            </fileset>
-        </war>
-    </target>
--->
 
     <target name="make-ear" unless="with-tests" depends="package">
         <ear earfile="${dde.ear}" appxml="./application.xml">
@@ -488,27 +296,9 @@
         </ear>
     </target>
 
-    <target name="make-ear-test" if="with-tests" depends="package-test">
-        <ear earfile="${dde.ear}" appxml="${javatests}/${packagedir}/application.xml">
-            <fileset dir="${dist.jars.dir}">
-                <exclude name="ddeservlet.jar"/>
-                <include name="*.jar"/>
-                <include name="*.war"/>
-                <include name="*.sar"/>
-                <include name="lib/*.jar"/>
-            </fileset>
-        </ear>
-    </target>
 
     <target name="dist" depends="make-ear,make-ear-test" />
 
-    <target name="dev-dist" depends="package-devtests">
-        <ear
-            earfile="${dde.ear}"
-            appxml="${javatests}/${packagedir}/persistencelayer/testbean/application.xml"
-            basedir="${dist.jars.dir}"
-        />
-    </target>
 
     <target name="doc">
         <mkdir dir="${javadocdir}" />
@@ -527,13 +317,9 @@
         <delete verbose="${verbose}" quiet="true">
             <fileset dir="." includes="**/*~" defaultexcludes="no" />
         </delete>
-        <!--<delete file="config.war" quiet="true"/>-->
     </target>
 
     <target name="deploy" depends="dist">
-        <!-- <copy file="${jdbc.jar}" todir="${jboss.lib.dir}"/> -->
-        <!-- <copy file="${xerces.jar}" todir="${jboss.lib.dir}"/> -->
-        <!-- <copy file="${junit.jar}" todir="${jboss.lib.dir}"/> -->
         <copy file="${configdir}/jboss/informix-service.xml" todir="${jboss.deploy.dir}"/>
         <copy file="${configdir}/jboss/log4j.xml" todir="${jboss.default.dir}/conf"/>
         <mkdir dir="${jboss.conf.dir}/${security.dir}"/>
@@ -571,19 +357,7 @@
     </target>
 
 
-    <target name="dev-deploy" depends="dev-dist">
-        <copy file="${dde.ear}" todir="${jboss.deploy.dir}"/>
-    </target>
-
     <target name="main" depends="deploy">
-    </target>
-
-    <target name="fooClient">
-        <java
-            classname="com.topcoder.dde.persistencelayer.testbean.DDEFooClient"
-            classpathref="runtime.classpath"
-            fork="true"
-        />
     </target>
 
     <target name="build-wrapper" depends="compile">
@@ -592,87 +366,172 @@
                 includes="${wrapperdir}/**" />
     </target>
 
-    <target name="sql">
-        <sql
-            driver="com.informix.jdbc.IfxDriver"
-            url="jdbc:informix-sqli://65.112.118.208:1526/dde_test1:INFORMIXSERVER=tc_memeber_dev_tcp"
-            userid="coder"
-            password="altec"
-            print="true"
-            classpathref="runtime.classpath"
-            >
-            SELECT * FROM comp_catalog;
-            SELECT * FROM comp_keywords;
-            SELECT * FROM comp_versions;
-            SELECT * FROM comp_examples;
-            SELECT * FROM comp_dependencies;
-            SELECT * FROM comp_technology;
-            SELECT * FROM comp_documentation;
-            SELECT * FROM categories;
-            SELECT * FROM comp_categories;
-            SELECT * FROM comp_forum_xref;
-            SELECT * FROM roles;
-            SELECT * FROM contact_type;
-            SELECT * FROM forum_threads;
-            SELECT * FROM comp_reviews;
-            SELECT * FROM user_role;
-            SELECT * FROM user_contact;
-            SELECT * FROM forum_posts;
-            SELECT * FROM forum_topics;
-            SELECT * FROM forum_master;
-            SELECT * FROM doc_forum_xref;
-            SELECT * FROM forum_attachment;
-            SELECT * FROM user_member;
-            SELECT * FROM user_customer;
-            SELECT * FROM forum_template;
-            SELECT * FROM forum_template_tpc;
 
-            SELECT * FROM user_technologies;
-            SELECT * FROM technology_types;
-            SELECT * FROM price_tiers;
-            SELECT * FROM company_size;
-            SELECT * FROM country_codes;
-            SELECT * FROM security_user;
-            SELECT * FROM license_level;
-            SELECT * FROM comp_download;
-            SELECT * FROM download_tracking;
 
-            SELECT * FROM user_master;
-            SELECT * FROM doc_types;
-            SELECT * FROM status;
-            SELECT * FROM forum_status;
-            SELECT * FROM phase;
 
-            SELECT * FROM key_generation;
-        </sql>
-        <!--
-        DELETE FROM comp_catalog;
-        DELETE FROM user_technologies;
-        DELETE FROM technology_types;
 
-        INSERT INTO technology_types VALUES (0, 'TechnologyTypes Name 0', 'TechnologyTypes Description 0', 0);
-        INSERT INTO technology_types VALUES (1, 'TechnologyTypes Name 1', 'TechnologyTypes Description 1', 0);
-        INSERT INTO user_technologies VALUES (0, 0, 0, 1200, 4);
-        INSERT INTO user_technologies VALUES (1, 1, 0, 1300, 2);
-        INSERT INTO user_technologies (user_tech_id, rating, months, technology_type_id, login_id) VALUES (2900046, 1300, 2, NULL, NULL);
-
-        SELECT * FROM security_user;
-        INSERT INTO key_generation VALUES ('main_sequence', 560);
-        INSERT INTO user_customer VALUES (0, NULL, 'John', 'Smith', 'Foo', '123 ABC St', 'SomeCity', '12345-6789', NULL, 1, 2, 3, 't', 't', 't', 't', NULL, NULL, CURRENT);
-        DELETE FROM comp_versions;
-        DELETE FROM comp_catalog;
-        DELETE FROM phase;
-        DELETE FROM status;
-        -->
-        <!--
-        INSERT INTO status VALUES (1, 'ACTIVE');
-        INSERT INTO status VALUES (201, 'PENDINGACTIVATION');
-        INSERT INTO country_codes VALUES (0, 'USA');
-        INSERT INTO company_size VALUES (1, '1-20');
-        INSERT INTO price_tiers VALUES (0, 20);
-        INSERT INTO technology_types VALUES (1, 'dummy1', 'dummy for testing', 1);
-        INSERT INTO technology_types VALUES (2, 'dummy2', 'dummy for testing', 1);
-        -->
+    <!-- ******************************************************************************-->
+    <!-- ******************************* TESTS ****************************************-->
+    <!-- ******************************************************************************-->
+    <target name="compile-tests" if="with-tests" depends="compile">
+        <mkdir dir="${build_testclassdir}" />
+        <javac srcdir="${javatests}" destdir="${build_testclassdir}" debug="${debug}"
+               includes="**/*.java"
+               excludes="${packagedir}/persistencelayer/testbean/*.java">
+            <classpath refid="test.build.classpath" />
+        </javac>
     </target>
+
+    <target name="compile-devtests" depends="compile">
+        <javac
+            srcdir="${javatests}"
+            destdir="${build_classdir}"
+            debug="${debug}"
+            includes="${packagedir}/persistencelayer/testbean/*.java"
+            >
+            <classpath refid="test.build.classpath"/>
+        </javac>
+    </target>
+
+    <target name="qatest-pl">
+        <property name="testclass" value="${package}.persistencelayer.test.AllPersistenceLayerTests" />
+        <java fork="yes" classname="junit.textui.TestRunner">
+            <arg value="${testclass}" />
+            <classpath refid="runtime.classpath"/>
+        </java>
+    </target>
+
+    <target name="qatest-catalog">
+        <property name="testclass" value="${package}.catalog.test.AllCatalogTests" />
+        <java fork="yes" classname="junit.textui.TestRunner">
+            <arg value="${testclass}" />
+            <classpath refid="runtime.classpath"/>
+        </java>
+    </target>
+
+    <target name="qatest-user">
+        <property name="testclass" value="${package}.user.test.AllUserTests" />
+        <java fork="yes" classname="junit.textui.TestRunner">
+            <arg value="${testclass}" />
+            <classpath refid="runtime.classpath"/>
+        </java>
+    </target>
+
+    <target name="qatest-forum">
+        <property name="testclass" value="${package}.forum.test.AllForumTests" />
+        <java fork="yes" classname="junit.textui.TestRunner">
+            <arg value="${testclass}" />
+            <classpath refid="runtime.classpath"/>
+        </java>
+    </target>
+
+    <target name="qatest-admin">
+        <property name="testclass" value="${package}.admin.test.AllAdminTests" />
+        <java fork="yes" classname="junit.textui.TestRunner">
+            <arg value="${testclass}" />
+            <classpath refid="runtime.classpath"/>
+        </java>
+    </target>
+
+    <target name="test" depends="compile,compile-tests">
+        <junit
+            fork="true"
+            haltonerror="true"
+            >
+            <classpath refid="runtime.classpath"/>
+            <batchtest>
+                <formatter type="plain" usefile="false"/>
+                <fileset dir="${javatests}">
+                    <include name="**/*UserManagerTest*"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="make-ear-test" if="with-tests" depends="package-test">
+        <ear earfile="${dde.ear}" appxml="${javatests}/${packagedir}/application.xml">
+            <fileset dir="${dist.jars.dir}">
+                <exclude name="ddeservlet.jar"/>
+                <include name="*.jar"/>
+                <include name="*.war"/>
+                <include name="*.sar"/>
+                <include name="lib/*.jar"/>
+            </fileset>
+        </ear>
+    </target>
+    <target name="package-devtests" depends="compile-devtests">
+        <mkdir dir="${dist.jars.dir}"/>
+        <copy file="${idgenerator.jar}" todir="${dist.jars.dir}"/>
+        <jar
+            jarfile="${ddePersistenceLayer.jar}"
+            basedir="${build_classdir}"
+            includes="${packagedir}/persistencelayer/**"
+            manifest="${persistencelayer.src.dir}/MANIFEST.MF"
+            >
+            <metainf dir="${javatests}/${packagedir}/persistencelayer/testbean" includes="*.xml"/>
+        </jar>
+    </target>
+
+    <target name="package-test" if="with-tests" depends="package,compile-tests">
+        <jar
+            jarfile="${ddePersistenceLayer.jar}"
+            update="true"
+            basedir="${build_testbuild_classdir}"
+          >
+        </jar>
+        <jar
+            jarfile="${user.jar}"
+            basedir="${build_testclassdir}"
+            update="true"
+            includes="${userdir}/**/*.class"
+            >
+            <metainf dir="${javatests}/${packagedir}/user" includes="*.xml"/>
+        </jar>
+
+        <copy file="${junit.jar}" todir="${dist.jars.dir}" />
+        <copy file="${junitejb.jar}" todir="${dist.jars.dir}" />
+
+    </target>
+    <target name="developertest" depends="compile">
+        <mkdir dir="${build_testclassdir}"/>
+        <javac srcdir="${javatests}" destdir="${build_testclassdir}" debug="${debug}" includes="${userdir}/UserManagerTest*">
+            <classpath refid="test.build.classpath" />
+        </javac>
+        <junit
+            fork="true"
+            haltonerror="true"
+            >
+            <classpath refid="runtime.classpath"/>
+            <batchtest>
+                <formatter type="plain" usefile="false"/>
+                <fileset dir="${javatests}">
+                    <include name="**/User*"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="dev-dist" depends="package-devtests">
+        <ear
+            earfile="${dde.ear}"
+            appxml="${javatests}/${packagedir}/persistencelayer/testbean/application.xml"
+            basedir="${dist.jars.dir}"
+        />
+    </target>
+    <!-- ******************************************************************************-->
+    <!-- ******************************* END TESTS ************************************-->
+    <!-- ******************************************************************************-->
+
+
+
+
+
+
+
+
+
+
+
+
 
 </project>
