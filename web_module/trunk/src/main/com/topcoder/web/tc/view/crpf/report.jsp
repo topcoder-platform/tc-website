@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.stat.bean.CoderRatingStyleBean"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
@@ -14,7 +15,10 @@
                     <rsc:item row="<%=info%>" name="rank"/>
                 </td>
                 <td>
-                    <rsc:item row="<%=info%>" name="handle"/>
+                    <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<%=new CoderRatingStyleBean().getStyle(info.getIntItem("rating"))%>"><rsc:item row="<%=info%>" name="handle"/></a><
+                </td>
+                <td>
+                    <rsc:item row="<%=info%>" name="rating"/>
                 </td>
                 <td>
                     $<rsc:item row="<%=info%>" name="amount" format="#.##"/>
