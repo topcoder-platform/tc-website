@@ -151,8 +151,8 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_tccc05
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="overview"/>
-<jsp:param name="tabLev2" value="join_us"/>
-<jsp:param name="tabLev3" value="showdown"/>
+<jsp:param name="tabLev2" value="specshow"/>
+<jsp:param name="tabLev3" value=""/>
 </jsp:include>
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
