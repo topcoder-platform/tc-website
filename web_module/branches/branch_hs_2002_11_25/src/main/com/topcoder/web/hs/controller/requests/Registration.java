@@ -16,7 +16,7 @@ import javax.servlet.*;
  */
 public class Registration extends Base {
 
-  private final static String HS_REG_BASE="/hs/registration/";
+  private final static String REG_BASE="/registration/";
 
   private final static String REG_PAGE="registration.jsp";
 
