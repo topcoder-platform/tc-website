@@ -77,6 +77,11 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
             "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" + 
             TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
             TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
+            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MEMBER_PROFILE_TASK + "&" + 
+            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
+            TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.JOB_ID_PARAM + 
+            "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
         setTrail(a);
 
     }
