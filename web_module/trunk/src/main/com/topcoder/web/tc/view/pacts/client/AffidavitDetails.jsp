@@ -34,13 +34,12 @@ function goTo(selection){
 
         <jsp:include page="../../page_title.jsp" >
             <jsp:param name="image" value="pact_s"/>
-            <jsp:param name="title" value="Affidavit Detail"/>
+            <jsp:param name="title" value="Affidavit Details"/>
         </jsp:include>
 
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
          	<TR>
-         		<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-         		<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+         		<TD CLASS="affidavitText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
 
 
