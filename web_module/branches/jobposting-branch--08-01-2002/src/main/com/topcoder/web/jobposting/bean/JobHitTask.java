@@ -78,7 +78,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         setMajor("");
         setGradYear("");
         setGradMonth("");
-        setDemographics(null);
+        setDemographics(new HashMap());
         setHasResume(false);
     }
 
