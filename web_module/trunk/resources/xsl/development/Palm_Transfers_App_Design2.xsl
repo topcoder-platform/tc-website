@@ -160,15 +160,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$1,200.00</td>
+                                                            <td class="bodyText" align="right">$2,800.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$900.00</td>
+                                                            <td class="bodyText" align="right">$2,100.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$300.00</td>
+                                                            <td class="bodyText" align="right">$700.00</td>
                                                         </tr>
                                                     </table>
 
@@ -178,7 +178,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$400.00</td>
+                                                            <td class="bodyText" align="right">$700.00</td>
                                                         </tr>
                                                     </table>
 
@@ -205,7 +205,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$2,239.00</td>
+                                                            <td class="bodyText" align="right">$4,139.00</td>
                                                         </tr>
                                                     </table>
 
@@ -323,9 +323,8 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        <!--Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Transfers%20Application">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
-                                                        -->
-                                                        Closed
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Transfers%20Receiving%20Application">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
+                                                        Once you have registered for the project you will be given more information on the project including the requirements specification, prototype and other additional information.  After viewing this information, you will have 12 hours to accept the position.
                                                     </p>
                                                 </td>
                                             </tr>
