@@ -60,6 +60,7 @@ public class XSLTransformerCache {
                 java.io.File file = new java.io.File(cacheKey);
                 if (!file.exists()) throw new Exception("Unable to find file " + cacheKey + ".");
                 result = new XSLTransformerWrapper(file);
+                log.debug("adding " + cacheKey + " to cache.");
                 cache.put(cacheKey, result);
             }
         } catch (Exception e) {
