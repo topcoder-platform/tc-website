@@ -103,9 +103,12 @@
                   </table>
 
                <tc:questionIterator list="<%=questionInfo%>" id="question">
-                  <table width="510" border="0" cellpadding="3" cellspacing="0" class="bodyText">
+                  <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
                      <tr>
-                        <td colspan="4" class="bodySubtitle">
+                        <td class="bodySubtitle" valign="top">
+                           <img src="/i/es/nvidia/survey_logo.gif" alt="survey logo" width="100" height="70" align="left" border="0"/>
+                        </td>
+                        <td colspan="3" class="bodySubtitle" valign="top" width="100%">
                            <jsp:getProperty name="question" property="text"/><br/><br/>
                         </td>
                      </tr>
@@ -127,7 +130,7 @@
                         <td align="right">
                            <rsc:item row="<%=answer%>" name="percentage" format="0.00"/>%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
-                        <td bgcolor="#FFFFFF" valign="middle" nowrap>
+                        <td bgcolor="#FFFFFF" valign="top" nowrap>
                             <p align="center">
 
                             <SCRIPT LANGUAGE="JavaScript">
