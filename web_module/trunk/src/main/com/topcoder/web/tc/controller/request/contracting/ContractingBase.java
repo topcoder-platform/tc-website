@@ -19,7 +19,7 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.*;
 
 import java.util.Enumeration;
 import java.util.Iterator;
@@ -29,6 +29,11 @@ import com.topcoder.web.tc.model.ContractingInfo;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.servlet.request.*;
 
+import com.topcoder.web.ejb.user.UserPreference;
+import com.topcoder.web.ejb.coderskill.CoderSkill;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
 /**
  *
  * @author  rfairfax
@@ -292,6 +297,51 @@ abstract public class ContractingBase extends BaseProcessor {
         
         info.setUserID(getUser().getId());
         
+        InitialContext ctx = TCContext.getInitial();
+        UserPreference prefbean = (UserPreference)createEJB(ctx, UserPreference.class);
+
+        //load pref group list, then preferences in group
+        Request r = new Request();
+        r.setContentHandle("preference_groups");
+
+        ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("preference_groups");
+        for(int i = 0; i < rsc.size(); i++) {
+            ResultSetContainer rscPrefs = prefbean.getPreferencesByGroup(info.getUserID(), rsc.getIntItem(i, "preference_group_id"),DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            for(int j = 0; j < rscPrefs.size(); j++) {
+                info.setEdit(true);
+                info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "preference_value_id"));
+                log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "preference_value_id"));
+            }
+        }
+        
+        if(!info.isEdit())
+            return info;
+        
+        //load skills
+        CoderSkill skillbean = (CoderSkill)createEJB(ctx, CoderSkill.class);
+        
+        r = new Request();
+        r.setContentHandle("skill_types");
+
+        rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_types");
+        for(int i = 0; i < rsc.size(); i++) {
+            ResultSetContainer rscSkills = skillbean.getSkillsByType(info.getUserID(), rsc.getIntItem(i, "skill_type_id"),DBMS.OLTP_DATASOURCE_NAME);
+            for(int j = 0; j < rscSkills.size(); j++) {
+                info.setSkill(rscSkills.getStringItem(j, "skill_id"), rscSkills.getStringItem(j, "ranking"));
+                log.debug("SET SKILL " + rscSkills.getStringItem(j, "skill_id") + " TO " + rscSkills.getStringItem(j, "ranking"));
+            }
+        }
+        
+        //notes
+        r = new Request();
+        r.setContentHandle("contracting_user_notes");
+
+        rsc = (ResultSetContainer)getDataAccess().getData(r).get("contracting_user_notes");
+        for(int i = 0; i < rsc.size(); i++) {
+            info.setNote(rsc.getStringItem(i, "note_id"), rsc.getStringItem(i, "text"));
+            log.debug("SET NOTE " + rsc.getStringItem(i, "note_id") + " TO " + rsc.getStringItem(i, "text"));
+        }
+
         return info;
     }
     
