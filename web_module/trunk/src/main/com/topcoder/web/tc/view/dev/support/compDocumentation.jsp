@@ -97,6 +97,14 @@
 					<A href="/tc?module=Static&d1=dev&d2=support&d3=diag_javaUseCase">Java Use Case Diagram</A>
 					</td>
 				</tr>
+				<tr>
+					<td class="projectCells" valign=top>
+					<strong>Poseidon C# Template</strong><br/>
+					You can use this template to facilitate the creation of new C# designs in Poseidon 2.x Community Edition.  It contains all of the most common C# data types.  You may have to disable the Java profile in your Poseidon settings for this template to work properly.
+					</td>
+					<td class="projectCells" valign="top" align="center">08.25.2004</td>
+					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/dotnetFramework.zuml">Template</A></td>
+				</tr>
 			</table>
 			
 			<br/><br/>
@@ -115,7 +123,7 @@
 					<strong>TopCoder Software Component Tutorials</strong><br/>
 					The TopCoder Software Development Tutorial provides detailed information on developing components using the TopCoder Software process.  This tutorial was written by review board member AdamSelene.
 					</td>
-					<td class="projectCells" valign="top" align="center">08.12.04</td>
+					<td class="projectCells" valign="top" align="center">08.12.2004</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial">Component Development Tutorial</A></td>
 				</tr>
                 <tr>
