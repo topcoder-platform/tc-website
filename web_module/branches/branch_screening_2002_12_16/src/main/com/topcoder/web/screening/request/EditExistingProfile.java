@@ -26,6 +26,7 @@ public class EditExistingProfile extends BaseProfileProcessor {
     }
 
     public void process() throws Exception {
+        requireLogin();
         ServletRequest request = getRequest();
 
         String profileId = request.getParameter(Constants.PROFILE_ID);
@@ -46,7 +47,7 @@ public class EditExistingProfile extends BaseProfileProcessor {
         info.setProfileId(new Long(profileId));
         profileLookup.setProperty("spid", profileId);
         profileLookup.setProperty("uid", 
-                String.valueOf(getAuthentication().getActiveUser().getId()));
+                String.valueOf(getAuthentication().getUser().getId()));
         Map map = dAccess.getData(profileLookup);
         if(map != null) {
             ResultSetContainer rsc = (ResultSetContainer)

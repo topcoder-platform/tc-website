@@ -2,7 +2,6 @@ package com.topcoder.web.ejb.user;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import java.rmi.RemoteException;
 import java.sql.*;
 import javax.ejb.*;
 import javax.naming.*;
@@ -42,7 +41,7 @@ public class UserBean implements SessionBean {
         ctx = _ctx;
     }
 
-    public void createUser(long userId, String handle, char status) throws RemoteException, EJBException {
+    public void createUser(long userId, String handle, char status) throws EJBException {
         PreparedStatement ps = null;
         Connection conn = null;
         try {
@@ -60,12 +59,12 @@ public class UserBean implements SessionBean {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new RemoteException("Wrong number of rows inserted into 'user'. " +
+                throw(new EJBException("Wrong number of rows inserted into 'user'. " +
                         "Inserted " + rc + ", should have inserted 1."));
             }
         } catch (SQLException _sqle) {
             _sqle.printStackTrace();
-            throw(new RemoteException(_sqle.getMessage()));
+            throw(new EJBException(_sqle.getMessage()));
         } finally {
             if (ps != null) {
                 try {
@@ -85,7 +84,7 @@ public class UserBean implements SessionBean {
     }
 
     public void setFirstName(long _user_id, String _first_name)
-            throws RemoteException, EJBException {
+            throws EJBException {
         PreparedStatement ps = null;
         Connection conn = null;
         try {
@@ -102,12 +101,12 @@ public class UserBean implements SessionBean {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new RemoteException("Wrong number of rows updated in 'user'. " +
+                throw(new EJBException("Wrong number of rows updated in 'user'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
             _sqle.printStackTrace();
-            throw(new RemoteException(_sqle.getMessage()));
+            throw(new EJBException(_sqle.getMessage()));
         } finally {
             if (ps != null) {
                 try {
@@ -127,7 +126,7 @@ public class UserBean implements SessionBean {
     }
 
     public void setLastName(long _user_id, String _last_name)
-            throws RemoteException, EJBException {
+            throws EJBException {
         PreparedStatement ps = null;
         Connection conn = null;
         try {
@@ -144,12 +143,12 @@ public class UserBean implements SessionBean {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new RemoteException("Wrong number of rows updated in 'user'. " +
+                throw(new EJBException("Wrong number of rows updated in 'user'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
             _sqle.printStackTrace();
-            throw(new RemoteException(_sqle.getMessage()));
+            throw(new EJBException(_sqle.getMessage()));
         } finally {
             if (ps != null) {
                 try {
@@ -169,7 +168,7 @@ public class UserBean implements SessionBean {
     }
 
     public void setUserStatusId(long _user_id, long _user_status_id)
-            throws RemoteException, EJBException {
+            throws EJBException {
         PreparedStatement ps = null;
         Connection conn = null;
         try {
@@ -186,12 +185,12 @@ public class UserBean implements SessionBean {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new RemoteException("Wrong number of rows updated in 'user'. " +
+                throw(new EJBException("Wrong number of rows updated in 'user'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
             _sqle.printStackTrace();
-            throw(new RemoteException(_sqle.getMessage()));
+            throw(new EJBException(_sqle.getMessage()));
         } finally {
             if (ps != null) {
                 try {
@@ -210,7 +209,7 @@ public class UserBean implements SessionBean {
         }
     }
 
-    public String getFirstName(long _user_id) throws RemoteException, EJBException {
+    public String getFirstName(long _user_id) throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -232,12 +231,12 @@ public class UserBean implements SessionBean {
             if (rs.next()) {
                 first_name = rs.getString(1);
             } else {
-                throw(new RemoteException("No rows found when selecting from 'user' " +
+                throw(new EJBException("No rows found when selecting from 'user' " +
                         "with user_id=" + _user_id + "."));
             }
         } catch (SQLException _sqle) {
             _sqle.printStackTrace();
-            throw(new RemoteException(_sqle.getMessage()));
+            throw(new EJBException(_sqle.getMessage()));
         } finally {
             if (rs != null) {
                 try {
@@ -264,7 +263,7 @@ public class UserBean implements SessionBean {
         return first_name;
     }
 
-    public String getLastName(long _user_id) throws RemoteException, EJBException {
+    public String getLastName(long _user_id) throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -286,12 +285,12 @@ public class UserBean implements SessionBean {
             if (rs.next()) {
                 last_name = rs.getString(1);
             } else {
-                throw(new RemoteException("No rows found when selecting from 'user' " +
+                throw(new EJBException("No rows found when selecting from 'user' " +
                         "with user_id=" + _user_id + "."));
             }
         } catch (SQLException _sqle) {
             _sqle.printStackTrace();
-            throw(new RemoteException(_sqle.getMessage()));
+            throw(new EJBException(_sqle.getMessage()));
         } finally {
             if (rs != null) {
                 try {
@@ -318,7 +317,7 @@ public class UserBean implements SessionBean {
         return last_name;
     }
 
-    public long getUserStatusId(long _user_id) throws RemoteException, EJBException {
+    public long getUserStatusId(long _user_id) throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -340,12 +339,12 @@ public class UserBean implements SessionBean {
             if (rs.next()) {
                 user_status_id = rs.getLong(1);
             } else {
-                throw(new RemoteException("No rows found when selecting from 'user' " +
+                throw(new EJBException("No rows found when selecting from 'user' " +
                         "with user_id=" + _user_id + "."));
             }
         } catch (SQLException _sqle) {
             _sqle.printStackTrace();
-            throw(new RemoteException(_sqle.getMessage()));
+            throw(new EJBException(_sqle.getMessage()));
         } finally {
             if (rs != null) {
                 try {
@@ -370,5 +369,54 @@ public class UserBean implements SessionBean {
             }
         }
         return user_status_id;
+    }
+
+    public boolean userExists(long userId) throws EJBException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+
+        boolean userExists = false;
+
+        try {
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT 'X' ");
+            query.append("FROM user ");
+            query.append("WHERE user_id=?");
+
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+            userExists =  rs.next();
+        } catch (SQLException _sqle) {
+            throw(new EJBException(_sqle.getMessage()));
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+        }
+
+        return userExists;
     }
 };

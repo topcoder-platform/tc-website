@@ -40,16 +40,23 @@
 <FORM>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
            <TR>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><PRE>
-<strong>FROM:</strong><jsp:getProperty name="emailInfo" property="repAddress" /><%
+              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><%
 if(emailInfo.getSessionInfo() != null) {
-if(emailInfo.getSessionInfo().useCandidateEmail()) { %>
-<strong>TO:</strong><jsp:getProperty name="emailInfo" property="candidateAddress" /><%
-} 
-if(emailInfo.getSessionInfo().useRepEmail()) { %>
-<strong>TO:</strong><jsp:getProperty name="emailInfo" property="repAddress" /><%
-}
+%>The following will be sent to <%
+    if(emailInfo.getSessionInfo().useCandidateEmail() && emailInfo.getSessionInfo.useRepEmail()) { 
+    %> <jsp:getProperty name="emailInfo" property="candidateAddress" /> and <jsp:getProperty name="emailInfo" property="repAddress" /><%
+    } 
+    else if(emailInfo.getSessionInfo().useCandidateEmail()) {
+    %> <jsp:getProperty name="emailInfo" property="candidateAddress" /><%
+    }
+    else if(emailInfo.getSessionInfo().useRepEmail()) { 
+    %> <jsp:getProperty name="emailInfo" property="repAddress" /><%
+    }
 }%>
+              </TD>
+           </TR>
+           <TR>
+              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><PRE>
 <strong>Subject:</strong> <jsp:getProperty name="emailInfo" property="subject" />
 <jsp:getProperty name="emailInfo" property="msgText" />
 </PRE></TD>

@@ -232,19 +232,26 @@ public class EmailInfo extends BaseModel {
     }
 
     public void sendEmail() throws Exception {
-        TCSEmailMessage mail = new TCSEmailMessage();
-        mail.setSubject(getSubject());
-        mail.setBody(getMsgText());
+        String subject = getSubject();
+        String text = getMsgText();
         if(sessionInfo.useCandidateEmail()) {
+            TCSEmailMessage mail = new TCSEmailMessage();
+            mail.setSubject(subject);
+            mail.setBody(text);
             mail.addToAddress(candidateAddress, TCSEmailMessage.TO);
+            mail.setFromAddress(repAddress);
+            EmailEngine.send(mail);
         }
 
         if(sessionInfo.useRepEmail()) {
+            TCSEmailMessage mail = new TCSEmailMessage();
+            mail.setSubject(subject);
+            mail.setBody(text);
             mail.addToAddress(repAddress, TCSEmailMessage.TO);
+            mail.setFromAddress(repAddress);
+            EmailEngine.send(mail);
         }
 
-        mail.setFromAddress(repAddress);
-        EmailEngine.send(mail);
     }
 
     public static EmailInfo createEmailInfo(SessionInfo info, User repInfo) 

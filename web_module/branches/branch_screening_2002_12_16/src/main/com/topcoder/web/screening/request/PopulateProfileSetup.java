@@ -42,10 +42,11 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
     }
 
     public void process() throws Exception {
+        requireLogin();
         request = getRequest();
         
         //check to see if they are logged in
-        User user = getAuthentication().getActiveUser();
+        User user = getAuthentication().getUser();
 
         DataAccess dAccess = getDataAccess();
 

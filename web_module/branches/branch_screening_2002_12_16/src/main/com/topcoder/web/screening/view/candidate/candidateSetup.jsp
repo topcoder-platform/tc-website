@@ -52,6 +52,7 @@ function back() {
            <TR>
               <TD></TD><TD colspan="2" class="errorText" align="left" valign="middle"><screen:errors name="emailAddress" /></TD>
            </TR>
+           <% if (!candidateInfo.isNew()) { %>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><strong>Password</strong>&#160;&#160;</TD>
               <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">&#160;<jsp:getProperty name="candidateInfo" property="password" /></TD>
@@ -60,6 +61,7 @@ function back() {
            <TR>
               <TD></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
            </TR>
+           <% } %>
             <TR>
               <TD COLSPAN="2"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR> 

@@ -121,13 +121,20 @@ public class UpdateCandidate extends BaseProcessor
             PortableRemoteObject.narrow(
                 context.lookup(UserHome.class.getName()), UserHome.class);
         User user = uHome.create();
-        user.createUser(userId, info.getEmailAddress(), 'A');
 
-        CoderHome cHome = (CoderHome)
-            PortableRemoteObject.narrow(
-                context.lookup(CoderHome.class.getName()), CoderHome.class);
-        Coder coder = cHome.create();
-        coder.createCoder(userId, createCoderStatusId);
+        if(!user.userExists(userId)) {
+            user.createUser(userId, info.getEmailAddress(), 'A');
+
+            CoderHome cHome = (CoderHome)
+                PortableRemoteObject.narrow(
+                    context.lookup(CoderHome.class.getName()), CoderHome.class);
+            Coder coder = cHome.create();
+            coder.createCoder(userId, createCoderStatusId);
+
+            long emailId = email.createEmail(userId);
+            email.setAddress(emailId, userId, info.getEmailAddress());
+            email.setPrimary(emailId, userId, true);
+        }
 
         DataAccess access = getDataAccess();
         Request dataRequest = new Request();
@@ -152,10 +159,6 @@ public class UpdateCandidate extends BaseProcessor
                                CompanyCandidateHome.class);
         CompanyCandidate candidate = ccHome.create();
         candidate.createCompanyCandidate(companyId, userId);
-
-        long emailId = email.createEmail(userId);
-        email.setAddress(emailId, userId, info.getEmailAddress());
-        email.setPrimary(emailId, userId, true);
 
         updateSessionCandidate(userId);
         }

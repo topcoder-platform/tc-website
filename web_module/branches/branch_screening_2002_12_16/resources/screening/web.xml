@@ -713,7 +713,7 @@
 
   <init-param>
     <param-name>debug_flag</param-name>
-    <param-value>true</param-value>
+    <param-value>false</param-value>
     <description></description>
   </init-param>
 

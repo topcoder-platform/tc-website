@@ -7,6 +7,7 @@ import com.topcoder.web.screening.model.ProfileInfo;
 
 public class RemoveProfileProblem extends BaseProfileProcessor {
     public void process() throws Exception {
+        requireLogin();
         ServletRequest request = getRequest();
         ProfileInfo info = buildProfileInfo(request);
 

@@ -73,7 +73,7 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
                         Constants.PROFILE_CHECK_NAME_QUERY_KEY);
                 dRequest.setProperty("tpname", info.getProfileName());
                 dRequest.setProperty("uid", 
-                   String.valueOf(getAuthentication().getActiveUser().getId()));
+                   String.valueOf(getAuthentication().getUser().getId()));
                 DataAccess dataAccess = getDataAccess();
                 Map map = dataAccess.getData(dRequest);
 

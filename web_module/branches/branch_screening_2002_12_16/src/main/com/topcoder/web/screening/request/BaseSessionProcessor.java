@@ -94,7 +94,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
                     Constants.SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY);
             dRequest.setProperty("cid", info.getCandidateId());
             dRequest.setProperty("uid", 
-               String.valueOf(getAuthentication().getActiveUser().getId()));
+               String.valueOf(getAuthentication().getUser().getId()));
             dRequest.setProperty("start", sdf.format(info.getBeginDate()));
             dRequest.setProperty("end", sdf.format(info.getEndDate()));
             DataAccess dataAccess = getDataAccess();

@@ -18,6 +18,7 @@ import com.topcoder.web.screening.model.ProfileInfo;
 
 public class CreateProfile extends BaseSessionProcessor {
     public void process() throws Exception {
+        requireLogin();
         updateSessionInfo();
 
         ServletRequest request = getRequest();

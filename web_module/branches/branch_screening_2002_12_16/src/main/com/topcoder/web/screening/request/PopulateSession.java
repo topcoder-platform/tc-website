@@ -12,11 +12,12 @@ import com.topcoder.web.screening.model.SessionInfo;
 
 public class PopulateSession extends BaseSessionProcessor {
     public void process() throws Exception {
+        requireLogin();
         Request sessionInfo = new Request();
         sessionInfo.setProperty(DataAccessConstants.COMMAND,
                 Constants.SESSION_LOOKUP_COMMAND);
         sessionInfo.setProperty("uid", 
-                String.valueOf(getAuthentication().getActiveUser().getId()));
+                String.valueOf(getAuthentication().getUser().getId()));
 
         DataAccess access = getDataAccess();
 

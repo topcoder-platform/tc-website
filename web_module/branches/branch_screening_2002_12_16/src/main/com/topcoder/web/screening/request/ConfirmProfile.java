@@ -7,6 +7,7 @@ import com.topcoder.web.screening.common.Constants;
 
 public class ConfirmProfile extends PopulateProfileSetup {
     public void process() throws Exception {
+        requireLogin();
         super.process();
         
         //validate the info
