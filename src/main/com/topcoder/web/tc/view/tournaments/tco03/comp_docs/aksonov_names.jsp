@@ -392,7 +392,6 @@
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1030/ServerTest.java" target="_blank">Server Test.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1030/SocketAddress.java" target="_blank">Socket Address.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1030/SocketAddressTest.java" target="_blank">Socket Address Test.java</a></td></tr>
-                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1030/TEST-com.topcoder.util.cache.distributed.AllTests.xml" target="_blank">TEST-com topcoder util cache distributed AllTests.xml</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1030/UnitTests.java" target="_blank">Unit Tests.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1030/VoteDownListEntry.java" target="_blank">Vote Down List Entry.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1030/VoteDownListEntryTest.java" target="_blank">Vote Down List Entry Test.java</a></td></tr>
@@ -456,7 +455,6 @@
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1100/ServerTest.java" target="_blank">Server Test.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1100/SocketAddress.java" target="_blank">Socket Address.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1100/SocketAddressTest.java" target="_blank">Socket Address Test.java</a></td></tr>
-                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1100/TEST-com.topcoder.util.cache.distributed.AllTests.xml" target="_blank">TEST-com topcoder util cache distributed AllTests.xml</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1100/UnitTests.java" target="_blank">Unit Tests.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1100/VoteDownListEntry.java" target="_blank">Vote Down List Entry.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1100/VoteDownListEntryTest.java" target="_blank">Vote Down List Entry Test.java</a></td></tr>
@@ -521,7 +519,6 @@
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1130/ServerTest.java" target="_blank">Server Test.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1130/SocketAddress.java" target="_blank">Socket Address.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1130/SocketAddressTest.java" target="_blank">Socket Address Test.java</a></td></tr>
-                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1130/TEST-com.topcoder.util.cache.distributed.AllTests.xml" target="_blank">TEST-com topcoder util cache distributed AllTests.xml</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1130/UnitTests.java" target="_blank">Unit Tests.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1130/VoteDownListEntry.java" target="_blank">Vote Down List Entry.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/1130/VoteDownListEntryTest.java" target="_blank">Vote Down List Entry Test.java</a></td></tr>
@@ -585,7 +582,6 @@
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/ServerTest.java" target="_blank">Server Test.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/SocketAddress.java" target="_blank">Socket Address.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/SocketAddressTest.java" target="_blank">Socket Address Test.java</a></td></tr>
-                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/TEST-com.topcoder.util.cache.distributed.AllTests.xml" target="_blank">TEST-com topcoder util cache distributed AllTests.xml</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/UnitTests.java" target="_blank">Unit Tests.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/VoteDownListEntry.java" target="_blank">Vote Down List Entry.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/VoteDownListEntryTest.java" target="_blank">Vote Down List Entry Test.java</a></td></tr>

@@ -35,8 +35,15 @@
 
 <!-- round4 -->
             <% if (selectedRound.equals("semi")) {%>
-                 Semifinals 
+                 Semifinals&nbsp;|&nbsp;
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_semi">Semifinals</a> 
+                  <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_semi">Semifinals</a>&nbsp;|&nbsp; 
+            <% } %>
+
+<!-- round4 -->
+            <% if (selectedRound.equals("finals")) {%>
+                 Finals 
+            <% } else { %>
+                  <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_finals">Finals</a> 
             <% } %>
 </font>

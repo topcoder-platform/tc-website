@@ -30,7 +30,7 @@
                     <td class="<%=tab.equals("details")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=tco03_bracket&trans=true" class="topLink">Details</a></td>
                     <td class="<%=tab.equals("qualification")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_qualification" class="topLink">Qualification</a></td>
                     <td class="<%=tab.equals("bracket")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_bracket_interact#bracket" class="topLink">Bracket</a></td>
-                    <td class="<%=tab.equals("radeye")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_semi" target="_blank" class="topLink">radeye's Odds</a></td>
+                    <td class="<%=tab.equals("radeye")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_finals" target="_blank" class="topLink">radeye's Odds</a></td>
                     <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>
