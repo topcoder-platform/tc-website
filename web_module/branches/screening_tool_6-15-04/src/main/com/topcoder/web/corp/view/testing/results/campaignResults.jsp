@@ -130,7 +130,7 @@ function getProblemDetail(id) {
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=country_name&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">Country</A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=coder_type_desc&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">Type</A>
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=coder_type&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">Type</A>
                     </td>
                     <td class="screeningHeader" width="10%">
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=job_desc&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">Position</A>
@@ -179,7 +179,7 @@ function getProblemDetail(id) {
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
-                        <%=row.getStringItem("coder_type_desc")%>
+                        <%=row.getStringItem("coder_type")%>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>'>
