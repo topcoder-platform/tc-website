@@ -33,27 +33,26 @@
   <tr valign="top">
 
 <!-- Left Column Begins -->
-    <td width="170" bgcolor="#CCCCCC" valign="top">
-        <xsl:call-template name="global_left"/>
-      </td>
+        <td width="170" bgcolor="#CCCCCC" valign="top">
+            <xsl:call-template name="global_left"/>
+        </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
         <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Body Area -->
-  <!-- Center Column Begins -->  
+<!-- Center Column Begins -->  
         <td class="bodyText" width="100%">
-<xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">white</xsl:with-param>
-  <xsl:with-param name="image">jobs</xsl:with-param>
-  <xsl:with-param name="title">TopCoder Employment Services</xsl:with-param>
-</xsl:call-template>
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
+            <xsl:call-template name="BodyTop">
+                <xsl:with-param name="image1">white</xsl:with-param>
+                <xsl:with-param name="image">jobs</xsl:with-param>
+                <xsl:with-param name="title">TopCoder Employment Services</xsl:with-param>
+            </xsl:call-template>
+            
+            <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr valign="top">
-                    <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
-                    <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="11" border="0"/><br/><br/>
+                    <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/>
                         <p>TopCoder Employment Services [TCES] is pleased to announce its Candidate Recruiting Program. We are actively 
                         soliciting top companies who are looking to hire software engineers and developers. These companies value programming 
                         talent and are interested in hiring TopCoder members. All TopCoder members can choose to be notified via email of new 
@@ -67,11 +66,12 @@
                         or <a href="/?&amp;t=schedule&amp;c=index" class="bodyText">click here</a> for a complete list of upcoming Single 
                         Round Matches.</p>
 
-                        <table border="0" cellspacing="0" cellpadding="3" bgcolor="#FFFFFF" width="100%">
-                            <tr valign="middle"><td colspan="3" bgcolor="#43515E" class="statText"><strong>Employers</strong></td></tr>
+                        <table border="0" cellspacing="0" cellpadding="3" width="100%">
+                            <tr valign="middle"><td bgcolor="#43515E" class="statText"><strong>Employers</strong></td></tr>
                         </table>
 
-                        <table border="0" cellspacing="5" cellpadding="0" bgcolor="#FFFFFF" width="100%">
+                        <table border="0" cellspacing="5" cellpadding="0" width="100%">
+
 <!-- Vertex begins  ### Vertex's contract has expired 3/31/03 ###
     <tr>
     <td valign="middle" class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=vertex"><img src="/i/es/vertex/vertex_logo.gif" width="76" height="52" alt="" border="0" vspace="10"/></a></td>
@@ -202,14 +202,10 @@ IMLP puts information management careers on the fast track. Program graduates ar
                         <p><br /></p>
                     
                     </td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                 </tr>
-                
-                <tr><td colspan="3" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>       
             </table>
         </td>
-    <!-- Center Column Ends -->
-<!-- Body Area Ends -->
+<!-- Center Column Ends -->
 
 <!-- Gutter -->
         <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
@@ -227,8 +223,11 @@ IMLP puts information management careers on the fast track. Program graduates ar
     </tr>
 </table>
 
-        <xsl:call-template name="Foot"/>
-      </body>
-    </html>
+<xsl:call-template name="Foot"/>
+
+</body>
+
+</html>
+
   </xsl:template>
 </xsl:stylesheet>
