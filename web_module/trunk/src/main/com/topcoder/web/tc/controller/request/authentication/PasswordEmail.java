@@ -70,10 +70,11 @@ public class PasswordEmail extends Base {
 
     private static String clean(String string) {
         log.debug("in " + string);
-        StringBuffer ret = new StringBuffer(string.length()+1);
-        StringTokenizer st = new StringTokenizer(string, "\'");
-        while(st.hasMoreTokens()) {
-            ret.append(st.nextToken()).append("'").append("'");
+        StringBuffer ret = new StringBuffer(string.length()+10);
+        for (int i=0; i<string.length(); i++) {
+            if (string.charAt(i)=='\'') {
+                ret.append("''");
+            } else ret.append(string.charAt(i));
         }
         log.debug("out " + ret.toString());
         return ret.toString();
