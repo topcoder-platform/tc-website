@@ -80,8 +80,7 @@
                                             <a href="#payment">Payment</a> |
                                             <a href="#eligibility">Eligibility</a> |
                                             <a href="#timeline">Timeline</a> |
-                                            <a target="_new" href="/i/development/downloads/GiftCardApplicationSpec_v10.pdf">Requirement Specification</a> |
-                                            Inquire
+                                            <a target="_new" href="/i/development/downloads/GiftCardApplicationSpec_v10.pdf">Requirement Specification</a>
                                         </p>
 
                                         <!-- Overview -->
@@ -189,7 +188,7 @@
                                             <br/>
                                             Development Reviewer - $189.00
                                             <br/><br/>
-                                            Total - $622.00
+                                            Total - $1,768.00
                                         </p>
                                         <p></p>
                                         <p>
@@ -218,7 +217,7 @@
                                             <br/>
                                             Development Reviewer - $126.00
                                             <br/><br/>
-                                            Total - $433.00
+                                            Total - $891.00
                                         </p>
                                         <!-- Definition of Completion -->
 

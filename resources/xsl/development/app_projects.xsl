@@ -142,9 +142,6 @@
                     <td class="formTextOdd" align="center">closed</td>
                 </tr>
                 
-                </tr>
-
-
                 <!--
                 <tr valign="top">
                     <td class="bodyText"><a href="?&amp;t=development&amp;c=online_review_dev-bl">Online Review Business Logic</a></td>
