@@ -75,17 +75,17 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 		<TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 		<TD WIDTH="70%" BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">TOURNAMENT LINKS:</TD> 
 		
-		<TD WIDTH="30%" BGCOLOR="#FFFFFF" VALIGN="middle" ALIGN="right" CLASS="moduleTitle"><A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyText">-&#160;Brackets</A>&#160;&#160;</TD>
+		<TD WIDTH="30%" BGCOLOR="#FFFFFF" VALIGN="middle" ALIGN="right" CLASS="moduleTitle"><A HREF="/index?t=tournament&amp;c=2002tccc_breakdown" CLASS="bodyText">-&#160;Brackets</A>&#160;&#160;</TD>
 	</TR>                    
 	<TR>
     	<TD COLSPAN="3" VALIGN="top" BGCOLOR="#999999" WIDTH="100%" NOWRAP="0">
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>					
 			<TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Championship:</B><BR/>
-			 &#160;<A HREF="/index?t=statistics&amp;c=2002tccc_chmp" CLASS="bodyText">Summary</A> | 
-			 <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob" CLASS="bodyText">Problems</A> | 			
-			 <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob#log" CLASS="bodyText">Chrono Log</A> | 
-			 <A HREF="/index?t=statistics&amp;c=2002tccc_chmp#photo" CLASS="bodyText">Photos</A> | 
+			 &#160;<A HREF="/index?t=tournament&amp;c=2002tccc_chmp" CLASS="bodyText">Summary</A> | 
+			 <A HREF="/index?t=tournament&amp;c=2002tccc_chmpprob" CLASS="bodyText">Problems</A> | 			
+			 <A HREF="/index?t=tournament&amp;c=2002tccc_chmpprob#log" CLASS="bodyText">Chrono Log</A> | 
+			 <A HREF="/index?t=tournament&amp;c=2002tccc_chmp#photo" CLASS="bodyText">Photos</A> | 
 			 <A CLASS="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register Today!</A> |
 			 <A HREF="/index" CLASS="bodyText">TopCoder Home</A>
 			</TD>									
@@ -98,7 +98,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 <BR CLEAR="all"/>       
           <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
             <!-- <TR>
-              <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
+              <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=tournament&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
             </TR> -->          
             <TR>
               <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Championship Summary</TD>
@@ -126,27 +126,27 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
   <TR>  
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
 <P>
-<!-- <FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Room 4 - Go <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>!</B></FONT><BR/> 
+<!-- <FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Room 4 - Go <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>!</B></FONT><BR/> 
 <I>3 from the West and 1 from the Midwest Advance to the Finals.</I><BR/><BR/> -->
 <BR/>
 Saturday, April 20, 2002<BR/>
 By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
 </P>
-<!-- <A HREF="/index?t=statistics&amp;c=2002tccc_cind#" CLASS="bodyGeneric"></A>
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#" CLASS="bodyGeneric"></A>
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#" CLASS="bodyGeneric"></A>
+<!-- <A HREF="/index?t=tournament&amp;c=2002tccc_cind#" CLASS="bodyGeneric"></A>
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#" CLASS="bodyGeneric"></A>
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#" CLASS="bodyGeneric"></A>
 <IMG SRC="/i/2002tccc/tourney_photo2.jpg" ALT="" WIDTH="200" HEIGHT="450" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
 <IMG SRC="/i/2002tccc/coder_quote2.gif" ALT="" WIDTH="140" HEIGHT="140" ALIGN="right" HSPACE="10" VSPACE="3" BORDER="0"/>
-<A HREF="/index?t=statistics&amp;c=2002tccc_cind#<A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>" CLASS="bodyGeneric"><A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A></A>
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>" CLASS="bodyGeneric"><A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A></A>
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#<A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>" CLASS="bodyGeneric"><A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A></A>
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A>
+<A HREF="/index?t=tournament&amp;c=2002tccc_cind#<A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>" CLASS="bodyGeneric"><A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A></A>
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>" CLASS="bodyGeneric"><A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A></A>
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#<A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>" CLASS="bodyGeneric"><A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A></A>
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A>
  -->
 
 
 <P>
-Three times happened to be the charm for <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>.  After advancing to the semifinals in the 2001 
-Collegiate Challenge and the 2001 Invitational, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> finally came out on top and won the 2002 
+Three times happened to be the charm for <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>.  After advancing to the semifinals in the 2001 
+Collegiate Challenge and the 2001 Invitational, <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> finally came out on top and won the 2002 
 <IMG SRC="/i/2002tccc/coder_quote6.gif" ALT="" WIDTH="140" HEIGHT="140" ALIGN="right" HSPACE="10" VSPACE="3" BORDER="0"/>
 Sun Microsystems and TopCoder Collegiate Challenge on Saturday, April 20, at the University Park Hotel @ MIT.
 </P>
@@ -158,21 +158,21 @@ three TopCoder major tournament champions.
 </P>
 
 <P>
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>, the number two-ranked TopCoder member, started the championship match off by opening
- the Level Two problem, while <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> all tackled the Level One problem. <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> 
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>, the number two-ranked TopCoder member, started the championship match off by opening
+ the Level Two problem, while <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>, <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, and <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> all tackled the Level One problem. <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> 
  
- was the first to submit his code and earned 228.56 points.  <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> finished shortly 
- thereafter, gaining 227.96 and 223.09, respectively.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> all headed for 
+ was the first to submit his code and earned 228.56 points.  <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> and <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> finished shortly 
+ thereafter, gaining 227.96 and 223.09, respectively.  <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>, <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> and <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> all headed for 
  the Level Two problem next.
 </P>
 
 <P>
-Meanwhile, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> took a good amount of time on the Level Two problem, shocking most
+Meanwhile, <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> took a good amount of time on the Level Two problem, shocking most
  spectators, who were expecting a top score.  "The Level Two problem was very technical," 
- said <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>.  "I had to be careful because it was easy to make an error."  <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> 
+ said <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>.  "I had to be careful because it was easy to make an error."  <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> 
  finally submitted the Level Two problem for 274.20 points, and opened the Level 
  Three problem.  When asked about his strategy for opening the Level Two problem 
- first, and then going for the Level Three problem, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> responded, "Even if 
+ first, and then going for the Level Three problem, <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> responded, "Even if 
  it took a little longer to code, the Level Two and Three problems are worth more
   points, so I figured I could outscore the coders who attempted to code the Level
    One and Two problems in succession." 
@@ -182,36 +182,36 @@ Meanwhile, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bod
 As the minutes passed the room became more animated as spectators watching soon
  realized the difficulty of the problems that the competitors had been presented 
  
- with. Twenty-seven minutes into the match, <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> abandoned his attempt at the 
- Level Two problem and moved on to the Level Three problem.  <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> did exactly the same soon after. 
+ with. Twenty-seven minutes into the match, <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> abandoned his attempt at the 
+ Level Two problem and moved on to the Level Three problem.  <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> did exactly the same soon after. 
 </P>
 
 <P>
-Eighteen minutes into his effort on Level Three problem, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> made the decision 
+Eighteen minutes into his effort on Level Three problem, <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> made the decision 
 to move on to the Level One problem in an effort to secure points, as none of the other
  coders had yet to submit on either the Level Two or Three.
 </P>
 
 <P>
-After a brief effort, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> submitted on the Level One problem for 219.05 points. 
- As the "Coding Phase" ended, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> lead with 493.25 points.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> was second 
- with 228.56, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> was third with 227.95, while <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> was fourth with 223.09.
+After a brief effort, <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> submitted on the Level One problem for 219.05 points. 
+ As the "Coding Phase" ended, <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> lead with 493.25 points.  <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> was second 
+ with 228.56, <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> was third with 227.95, while <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> was fourth with 223.09.
 </P>
 
 <P>
-<A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> kicked off the "Challenge Phase" with a successful challenge of the Level 
-One submission of <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>.  Those additional 50 points gave <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> a total of 278.56 
-points.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> then tried to break the Level One and Two codes of <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>.  If 
+<A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> kicked off the "Challenge Phase" with a successful challenge of the Level 
+One submission of <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>.  Those additional 50 points gave <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> a total of 278.56 
+points.  <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> then tried to break the Level One and Two codes of <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>.  If 
 he has been successful with either challenge, he would have won the championship. 
- To his dismay and the delight of <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>, however, he was unable to, and after 
- everyone's remaining code passed the system test, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> was declared the winner
-  with 493.25 final points.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> finished second with 278.56 points, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> was 
-  third with 227.96, while <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> finished fourth.  
+ To his dismay and the delight of <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>, however, he was unable to, and after 
+ everyone's remaining code passed the system test, <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> was declared the winner
+  with 493.25 final points.  <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> finished second with 278.56 points, <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> was 
+  third with 227.96, while <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> finished fourth.  
 </P>
 
 <P>
 "It's really nice to win after making the semifinals in last year's Collegiate 
-Challenge and Invitational," said <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>.  "My adrenaline was flowing, and I
+Challenge and Invitational," said <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>.  "My adrenaline was flowing, and I
  really got absorbed in the problems.  I was able to block out all of the spectator 
  activity, and finally submit code without any bugs in it.  Bugs in my code have cost
   me in past major tournaments."
@@ -309,7 +309,7 @@ Challenge and Invitational," said <A HREF="/index?t=statistics&amp;c=2002tccc_fa
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
+<!-- <A HREF="/index?t=tournament&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
 <!-- Right Column Include Begins -->        
         <xsl:call-template name="public_right_col"/>        
 <!-- Right Column Include Ends -->        
