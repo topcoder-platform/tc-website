@@ -32,6 +32,12 @@ List industryList = (List)request.getAttribute("industrySkills");
 				<td align=left><p><a href="/report?t=new_report&c=placement_people&db=OLTP"><< back to placement registrants report</a></p></td>
 
             </tr>
+            <tr>
+				<td align=center><p><a href="/stat?c=member_profile&cr=<jsp:getProperty name="contractingInfo" property="userId" />">View Member Profile</a></p></td>
+
+            </tr>
+            <tr><td><br/></td></tr>
+            <tr><td><p><b>Placment information for <%=request.getAttribute(Constants.HANDLE)%></b></p></td></tr>
             <tr><td><br/></td></tr>
             <tr>
 				<td align=center><p><a href="/stat?c=member_profile&cr=<jsp:getProperty name="contractingInfo" property="userId" />">View Member Profile</a></p></td>
