@@ -36,7 +36,6 @@ public class HTMLRenderer {
             return baos.toString();
 
         } catch (Exception e) {
-            e.printStackTrace();
             throw new TCException("ejb.HTMLRenderer.HTMLRendererBean:render:ERROR:\n" + e);
         }
     }
