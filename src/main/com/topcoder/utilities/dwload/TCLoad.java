@@ -69,7 +69,7 @@ public abstract class TCLoad {
      * This method must be overridden by derived classes. It is called
      * to perform whatever load that class represents.
      */
-    public abstract boolean performLoad();
+    public abstract void performLoad() throws Exception;
 
     /**
      * This method must be overridden by derived classes. It is called

@@ -128,7 +128,7 @@ public class TCLoadUtility {
             sErrorMsg.setLength(0);
             sErrorMsg.append("Load of XML file failed:\n");
             sErrorMsg.append(ex.getMessage());
-            fatal_error();
+            fatal_error(ex);
         }
     }
 
@@ -202,7 +202,7 @@ public class TCLoadUtility {
             sErrorMsg.append(loadclass);
             sErrorMsg.append(". Cannot continue.\n");
             sErrorMsg.append(ex.getMessage());
-            fatal_error();
+            fatal_error(ex);
         }
 
         Object ob = null;
@@ -216,7 +216,7 @@ public class TCLoadUtility {
             sErrorMsg.append(loadclass);
             sErrorMsg.append(". Cannot continue.\n");
             sErrorMsg.append(ex.getMessage());
-            fatal_error();
+            fatal_error(ex);
         }
 
         if (!(ob instanceof TCLoad)) {
@@ -341,6 +341,13 @@ public class TCLoadUtility {
     private static void fatal_error() {
         log.error("*******************************************");
         log.error("FAILURE: " + sErrorMsg.toString());
+        log.error("*******************************************");
+        System.exit(-1);
+    }
+
+    private static void fatal_error(Exception e) {
+        log.error("*******************************************");
+        log.error("FAILURE: ", e);
         log.error("*******************************************");
         System.exit(-1);
     }
