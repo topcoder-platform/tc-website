@@ -56,6 +56,9 @@
 <logic:equal name="project" property="catalog" value=".NET">
                                 <img src="images/dotnetSm.gif" alt="" border="0">
 </logic:equal>
+<logic:equal name="project" property="catalog" value="Application">
+                                <img src="images/appSm.gif" alt="" border="0">
+</logic:equal>
                                 </td>
                                 <td class="forumText"><img src="images/clear.gif" alt="" width="5" height="5" border="0"/></td>
                                 <td nowrap class="forumText">
