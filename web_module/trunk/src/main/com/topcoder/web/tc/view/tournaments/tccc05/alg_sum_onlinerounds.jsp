@@ -21,7 +21,15 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=bigTitle>2004 TopCoder Open - Overview</p>
+        <p class="bigTitle">Online Rounds</p>
+
+<table width="400" class="formFrame" cellspacing="2" cellpadding="6" align="left">
+<tr><td class="sidebarTitle" colspan="2">Problem Set Analyses</td></tr> 
+<tr><td class="sidebarText">&#160;01.15.05</td><td class="sidebarText" nowrap="0">&#160;TCCC05 - Online Round 1 - <a href="/index?t=statistics&amp;c=tccc05_online_rd_1">Problem Set &amp; Analysis</a></td></tr>
+<tr><td class="sidebarText">&#160;01.19.05</td><td class="sidebarText" nowrap="0">&#160;TCCC05 - Online Round 2 - <a href="/index?t=statistics&amp;c=tccc05_online_rd_2">Problem Set &amp; Analysis</a></td></tr>
+<tr><td class="sidebarText">&#160;01.26.05</td><td class="sidebarText" nowrap="0">&#160;TCCC05 - Online Round 3 - <a href="/index?t=statistics&amp;c=tccc05_online_rd_3">Problem Set &amp; Analysis</a></td></tr>
+<tr><td class="sidebarText">&#160;02.02.05</td><td class="sidebarText" nowrap="0">&#160;TCCC05 - Online Round 4 - <a href="/index?t=statistics&amp;c=tccc05_online_rd_4">Problem Set &amp; Analysis</a></td></tr>
+</table>
 
         </div>
 		</td>
