@@ -63,38 +63,73 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                  
-<!-- BWO Google article -->
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top">
-                    <td width="274"><A href="http://www.businessweek.com/technology/cnet/stories/5078400.htm" target="_blank"><img src="/i/pressroom/bwo_logo.gif" alt="bwo_logo" width="135" height="25" border="0" /></A></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="http://www.businessweek.com/technology/cnet/stories/5078400.htm" target="_blank">Google seeking a few good code jockeys</A></strong></font><br />
-                        "Google, one of the most aggressive staff recruiters in Silicon Valley, is putting on a programming contest worth up to $10,000 and a possible career at the search company. <span class="prHead">[September 24]</span></p>
-                    </td>
-                </tr>
-            </table>
-
-            <hr width="100%" size="1" noshade="noshade" />
-
 <!-- NVIDIA TCO-->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_09_22_03"><img src="/i/pressroom/nvidia_badge.gif" alt="nvidia" width="135" height="117" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_09_22_03">NVIDIA Signs On To Sponsor 2003 TopCoder Open</A></strong></font><br />
-                        "TopCoder, Inc., the leader in on-line programming competition, skills assessment and competitive software development, today announced NVIDIA as a premier sponsor for its 
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_09_22_03">NVIDIA To Sponsor 2003 TopCoder Open</A></strong></font><br />
+                        TopCoder, Inc., the leader in on-line programming competition, skills assessment and competitive software development, today announced NVIDIA as a premier sponsor for its 
                         2003 TopCoder Open.  NVIDIA is seeking exceptional candidates for their open programming positions while continuing to increase exposure of the NVIDIA suite of graphics cards. <span class="prHead">[September 22]</span></p>
 
                         <table border="0" cellpadding="0" cellspacing="0">
                             <tr valign="middle">
                                 <td class="prOtherPubs">AS SEEN ON:</td>
                                 <td><A href="http://finance.lycos.com/qc/news/story.aspx?symbols=PRNEWS:100&amp;story=35762282" target="_blank"><img src="/i/pressroom/lycos_logo_sm.gif" alt="Lycos" width="59" height="20" hspace="3" border="0" /></A></td>
-                                <td><A href="http://finance.canada.com/bin/story?StoryId=Cp25ZWbWbtLLnmtm0&amp;Topic=PR_Newswire&amp;Type=&amp;Heading=News%20from%20PR%20Newswire&amp;BC=PR%20Newswire" target="_blank"><img src="/i/pressroom/canada_dotcom_logo_sm.gif" alt="Canada.com" width="140" height="27" hspace="3" border="0" /></A></td>
+                                <td><A href="http://finance.canada.com/bin/story?StoryId=Cp25ZWbWbtLLnmtm0&amp;Topic=PR_Newswire&amp;Type=&amp;Heading=News%20from%20PR%20Newswire&amp;BC=PR%20Newswire" target="_blank"><img src="/i/pressroom/canada_newswire_logo_sm.gif" alt="Canada.com" width="102" height="20" hspace="3" border="0" /></A></td>
                             </tr>
                          </table>
 
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- BWO Google article -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href=" http://msn-cnet.com.com/2100-1032_3-5078400.html" target="_blank"><img src="/i/pressroom/cnet_news_logo.gif" alt="bwo_logo" width="135" height="36" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href=" http://msn-cnet.com.com/2100-1032_3-5078400.html" target="_blank">Google seeking a few good code jockeys</A></strong></font><br />
+                        Google, one of the most aggressive staff recruiters in Silicon Valley, is putting on a programming contest worth up to $10,000 and a possible career at the search company. <span class="prHead">[September 17]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- SD Times Article - Battle Royal for Jobs -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://www.sdtimes.com/cols/industrywatch_078.htm" target="_blank"><img src="/i/pressroom/sd_times_logo.gif" alt="SD Times" width="135" height="44" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.sdtimes.com/cols/industrywatch_078.htm" target="_blank">TopCoder Software Thrives on Competition</A></strong></font><br />
+                        TopCoder Inc., the company that sponsors programming competitions at trade shows, has spun off TopCoder Software as a vehicle for selling software created by the best of the competitors. 
+
+                        <span class="prHead">[September 15]</span></p>
+                        
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- SD Times Article - Battle Royal for Jobs -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://www.informationweek.com/story/showArticle.jhtml?articleID=14704726" target="_blank"><img src="/i/pressroom/info_week_logo.gif" alt="Info Week" width="135" height="20" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.informationweek.com/story/showArticle.jhtml?articleID=14704726" target="_blank">In-House Innovation</A></strong></font><br />
+                        Custom code is alive and well and serving a vital role at many companies. Proprietary software, crafted by engineers who are close to a company's inner workings and systems, 
+                        continues to be the secret sauce that gives many businesses an edge.
+
+                        <span class="prHead">[September 15]</span></p>
+                        
                     </td>
                 </tr>
             </table>
