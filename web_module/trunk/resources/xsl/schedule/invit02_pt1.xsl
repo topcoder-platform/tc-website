@@ -72,9 +72,10 @@
 							<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_champ" CLASS="statTextBig"></A>Champ</TD>												
 						</TR>
                     </TABLE><BR/>
+<A HREF="/index?t=schedule&amp;c=invit02_pt1_adv" CLASS="statText">View Part 1 Advancers</A><BR/><BR/>                    
 					<TABLE WIDTH="100%" BORDER="0" CELLPADDING="1" CELLSPACING="0" ALIGN="center">
 						<TR>
-							<TD ALIGN="left" VALIGN="top" CLASS="statText">
+							<TD ALIGN="left" VALIGN="top" CLASS="statText">						
 [ucf]entity<BR/>
 [UoM]Icenine<BR/>
 acebruin<BR/>
