@@ -1,7 +1,7 @@
 package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.constant.TCServlet;
-import com.topcoder.common.web.error.NavigationException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
