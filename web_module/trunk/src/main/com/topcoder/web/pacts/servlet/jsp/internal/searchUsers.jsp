@@ -20,7 +20,7 @@
 <table border="1" cellpadding="5" cellspacing="0">
   <tr>
     <td align="center">
-<% out.println("      <form method=\"GET\" action=\""+PactsConstants.INTERNAL_SERVLET_URL+"\">"); %>
+<% out.println("      <form name=\"searchForm\" method=\"GET\" action=\""+PactsConstants.INTERNAL_SERVLET_URL+"\">"); %>
         <table border="0" cellpadding="5" cellspacing="0">
           <tr>
             <td>Handle:</td>
@@ -66,11 +66,20 @@
    out.println("              <input type=\"radio\" name=\""+PactsConstants.IS_OWED_MONEY+"\" value=\"\" checked>Don't"); %>
               Care</td>
           </tr>
+<%
+   out.println("        <script language=\"javascript\"> ");
+   out.println(" <!-- ");
+   out.println("        document.searchForm."+PactsConstants.HANDLE+".focus();   ");
+   out.println("  -->");
+   out.println(" </script>");
+ %>
         </table>
         <p><br>
         <input type="submit" value="Submit" name="B1"><input type="reset" value="Reset" name="B2">
         </p>
 <% out.println("        <input type=\"hidden\" name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.USER_CMD+"\"><input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\""+PactsConstants.LIST_TASK+"\">"); %>
+
+
       </form>
     </td>
   </tr>
