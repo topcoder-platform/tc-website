@@ -128,8 +128,8 @@
                                                         <strong>Technical Architecture Requirements</strong>
                                                     </p>
                                                     <ul class="noSpList">
-                                                        <li>MVC</li>
-                                                        <li>J2EE</li>
+                                                        <li>Palm OS 3.5.2</li>
+                                                        <li>C++</li>
                                                     </ul>
 
                                                     <!-- Payment -->
