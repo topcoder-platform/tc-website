@@ -791,7 +791,7 @@ public class DocumentManagerBean implements SessionBean {
             if (!(Common.isRole(scorecard.getProject(), requestorId, Role.ID_REVIEWER) &&
                         scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS)) {
 */
-            if (!(Common.isRole(scorecard.getProject(), requestorId, Role.ID_REVIEWER) &&
+                if (!(Common.isRole(scorecard.getProject(), requestorId, Role.ID_REVIEWER) &&
                         scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS_RESPONSE)) {
 
                     String infoMsg = "DM.saveScorecard():\n" +

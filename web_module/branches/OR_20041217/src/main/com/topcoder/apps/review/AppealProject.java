@@ -94,21 +94,33 @@ public class AppealProject implements Model {
                 Appeal appeal = appealData.getAppeals()[0];
 
                 // check permission
+/*
+// by cucu
                 if (!PermissionHelper.isAdmin(user) &&
                         !PermissionHelper.hasReviewPermission(user, userProjectInfo) &&
                         !PermissionHelper.hasSubmitPermission(user, userProjectInfo)) {
                     return new FailureResult("You cannot save appeals for this project");
                 }
+*/
 
                 // check project phase
 /* by cucu
                 if (project.getCurrentPhase().getId() != Phase.ID_APPEALS) {
 */
 
-                if ((project.getCurrentPhase().getId() != Phase.ID_APPEALS) &&
-                    (project.getCurrentPhase().getId() != Phase.ID_APPEALS_RESPONSE)) {
-                    return new FailureResult("You can appeal only during the appeal phase");
+                // check permission
+                if (user.getId() == appeal.getAppealer().getId()) {
+                    if (project.getCurrentPhase().getId() != Phase.ID_APPEALS) {
+                        return new FailureResult("You can appeal only during the appeal phase");
+                    }
+                } else if (user.getId() == appeal.getReviewer().getId() ) {
+                    if (project.getCurrentPhase().getId() != Phase.ID_APPEALS_RESPONSE) {
+                        return new FailureResult("You can reply appeals only during the appeal response phase");
+                    }
+                } else if (!PermissionHelper.isAdmin(user)) {
+                    return new FailureResult("You cannot save appeals for this project");
                 }
+
 
                 if (appeal.getReviewer().getId() == user.getId() ||
                         PermissionHelper.isAdmin(user)) {
