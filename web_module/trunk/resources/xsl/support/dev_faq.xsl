@@ -53,19 +53,101 @@
                     <td class="bodyText" width="100%">
                         <IMG src="/i/clear.gif" width="10" height="5" alt="" border="0" /><br />
                         
-                        <p class="bodySubtitle">This text makes up Subtitle 1</p><!-- Use subtitles only if necessary to break up many questions into categories -->
+                        <p class="bodySubtitle">Component Submissions</p><!-- Use subtitles only if necessary to break up many questions into categories -->
                         
-                        <p><A href="#1" class="bodyText">What would be the best way to word Question 1?</A></p>
+                        <p><A href="#1" class="bodyText">I've inquired. What's next?</A></p>
                                 
-                        <p><A href="#2" class="bodyText">How about Question 2?</A></p>
+                        <p><A href="#2" class="bodyText">How do I go about doing a design?</A></p>
                             
-                        <p><A href="#3" class="bodyText">Maybe you'll think of something for Question 3?</A></p>
-
-                        <p class="bodySubtitle">This text makes up Subtitle 2</p><!-- Use subtitles only if necessary to break up many questions into categories -->
+                        <p><A href="#3" class="bodyText">Can other TopCoder components be used in my design?</A></p>
                         
-                        <p><A href="#4" class="bodyText">Certainly you can figure out how to word Question 4?</A></p>
+                        <p><A href="#3" class="bodyText">Can 3rd party components be used in my design?</A></p>
+                        
+                        <p><A href="#3" class="bodyText">What software do I need to get started?</A></p>
+                        
+                        <p><A href="#3" class="bodyText">What are unit test cases?</A></p>
+                        
+                        <p><A href="#3" class="bodyText">Do I have to use Poseidon? Can't I just submit images of my diagrams?</A></p>
+                        
+                        <p><A href="#3" class="bodyText">How are submissions scored?</A></p>
+                        
+                        <p><A href="#3" class="bodyText">I would like to help define component requirements, how can I do so?</A></p>
+                        
+                        <p><A href="#3" class="bodyText">Are there examle submissions?</A></p>
+                        
+                        <p><A href="#3" class="bodyText">Are there example unit tests?</A></p>
 
-                        <p><A href="#5" class="bodyText">Fifth times' the charm for Question 5?</A></p>
+                        <p class="bodySubtitle">Architecture Review Board</p><!-- Use subtitles only if necessary to break up many questions into categories -->
+                        
+                        <p><A href="#4" class="bodyText">Are board members able to submit design or development submissions as a regular developer?</A></p>
+
+                        <p><A href="#5" class="bodyText">Is there a screening process for members that are invited to the board?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">With what frequency do I need to review designs (i.e. one review per-week, per-month, etc.)?</A></p>
+
+                        <p><A href="#5" class="bodyText">Are all review board members eligible to be primary reviewers?</A></p>
+
+                        <p><A href="#5" class="bodyText">What does the primary reviewer do in addition to a regular reviewer's responsibilities?</A></p>
+
+                        <p><A href="#5" class="bodyText">Can I belong to both architecture and design review boards, or may I only commit to one?</A></p>
+
+                        <p><A href="#5" class="bodyText">Can you provide me with any more details on compensation and time commitment?</A></p>
+
+                        <p><A href="#5" class="bodyText">Who chooses which components I will review?</A></p>
+
+                        <p><A href="#5" class="bodyText">Am I able to review more than 4 per quarter if I wish?</A></p>
+
+                        <p><A href="#5" class="bodyText">How many designs are expected per component that I will review?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">The first requirement is a winning design or development submission. Does this means I have to submit a design or development that wins before I can be on the board?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">Will there be opportunities for me to add my creativity to a Component design?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">How much time will I have from the moment I receive materials until the component review deadline?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">Is all work done by e-mail or are there also chats and conference calls required? </A></p>
+                        
+                        <p><A href="#5" class="bodyText">What kind of third-party software is required for this?  Do I need to install any specific platform, compiler, etc?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">Am I allowed to submit for a development project if I was on the review board for the design project of the same component?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">Are winning designers allowed to submit for development projects to implement their component designs?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">If I am on the Architecture Review Board for a component project and no designs pass the review stage, am I allowed to submit a design for the project when it is re-posted?</A></p>
+                        
+                        <p class="bodySubtitle">Architecture Review Board</p><!-- Use subtitles only if necessary to break up many questions into categories -->
+                        
+                        <p><A href="#5" class="bodyText">Are board members allowed to submit development solutions as a regular developer? </A></p>
+                        
+                        <p><A href="#5" class="bodyText">Is there a screening process for members that are invited to the Development Review Board?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">With what frequency do I need to review development submissions (i.e. one review per-week, per-month, etc.)?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">Are all review board members eligible to be primary reviewers?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">What does the primary reviewer do in addition to a regular reviewer's responsibilities?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">Can you provide me with any more details on compensation and time commitment?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">Who chooses which components I will review?</A></p>
+
+                        <p><A href="#5" class="bodyText">How many designs are expected per component that I will review?</A></p>
+
+                        <p><A href="#5" class="bodyText">The first requirement is a winning design or development submission. Does this means I have to submit a design or development that wins before I can be on the board?</A></p>
+
+                        <p><A href="#5" class="bodyText">Will there be opportunities for me to add my creativity to a component development solution?</A></p>
+
+                        <p><A href="#5" class="bodyText">How much time would I have from the moment I receive materials until the deadline?</A></p>
+
+                        <p><A href="#5" class="bodyText">Is all work done by e-mail or are there also chats and conference calls required?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">Am I allowed to submit for a development project if I am on the review board for the component?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">Am I allowed to be on the development review board for a component design that I submitted?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">If I am on the Development Review Board for a component project and no solutions pass the review stage, am I allowed to submit a solution for the project when it is re-posted?</A></p>
+                        
+                        <p><A href="#5" class="bodyText">In the second review phase, are reviewers assigned a specific aspect of testing or do we volunteer for a section?</A></p>
 
                         <p><strong>More Questions? </strong><A href="/?t=contacts&amp;c=index" class="bodyText"><strong>Contact Us</strong></A></p>
                       
