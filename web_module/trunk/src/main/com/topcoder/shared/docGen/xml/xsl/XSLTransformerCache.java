@@ -3,8 +3,10 @@ package com.topcoder.shared.docGen.xml.xsl;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.distCache.CacheClientPool;
 import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 /**
  * XSLTransformerCache.java
@@ -60,14 +62,14 @@ public class XSLTransformerCache {
         XSLTransformerWrapper result = null;
         try {
             if (fileName == null) throw new Exception("The fileName can not be null.");
-            result = (XSLTransformerWrapper) CacheClientPool.getPool().getClient().get(CACHE_PREFIX+fileName);
+//            result = (XSLTransformerWrapper) CacheClientPool.getPool().getClient().get(CACHE_PREFIX+fileName);
             if (result==null) {
                 java.io.File file = new java.io.File(fileName);
                 if (!file.exists()) throw new Exception("Unable to find file " + fileName + ".");
                 result = new XSLTransformerWrapper(file);
                 log.debug("adding " + fileName + " to cache.");
-                CacheClientPool.getPool().getClient().set(CACHE_PREFIX+fileName, result, DEFAULT_EXPIRE_TIME);
-                log.debug("cache size is now: " + CacheClientPool.getPool().getClient().size());
+//                CacheClientPool.getPool().getClient().set(CACHE_PREFIX+fileName, result, DEFAULT_EXPIRE_TIME);
+//                log.debug("cache size is now: " + CacheClientPool.getPool().getClient().size());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -102,9 +104,18 @@ public class XSLTransformerCache {
      * Remove all XSLTransformerWrapper instances from the cache.
      */
     public void clear() throws Exception {
+        String tempKey = null;
+        Object o = null;
         try {
             long size = CacheClientPool.getPool().getClient().size();
-            CacheClientPool.getPool().getClient().clearCache();
+            ArrayList list = CacheClientPool.getPool().getClient().getKeys();
+            for (int i = 0; i < list.size(); i++) {
+                tempKey = (String) list.get(i);
+                if (tempKey.startsWith(CACHE_PREFIX)) {
+                    o = CacheClientPool.getPool().getClient().remove(tempKey);
+                }
+            }
+
             log.info("XSL cache cleared.  " + size + " --> " + CacheClientPool.getPool().getClient().size());
         } catch (RemoteException e) {
             throw new Exception(""+e);
