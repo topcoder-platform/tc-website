@@ -88,7 +88,7 @@ function openWnd(pageUrl) {
 			</table>
 
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
-				<tr><td class=screeningTitle colspan=10>Submission Statistics: <%= ProblemStatisticsTask.getStatistic("class_name") %></td></tr>
+				<tr><td class=screeningTitle colspan=10>Overall Submission Statistics: <%= ProblemStatisticsTask.getStatistic("class_name") %></td></tr>
                 <TR>
                   <TD class="screeningHeader"><b>Language</b></TD>
                   <TD class="screeningHeader" align=center>Presented</TD>
