@@ -138,7 +138,7 @@ public class Authentication implements Serializable {
         if (auth==null)
             return "";
         else
-            return auth.requestedURL;
+            return (auth.requestedURL==null?"":auth.requestedURL);
     }
 
     private void setUserId(int userId) {
