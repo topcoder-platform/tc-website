@@ -6,6 +6,7 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.corp.Util;
+import com.topcoder.web.corp.Constants;
 
 /**
  * class to process a log in request.  it will take at least the following
@@ -135,7 +136,7 @@ public class Login extends BaseProcessor {
                         KEY_USER_PASS,
                         "Combination of handle/password entered is invalid"
                 );
-                nextPage = la.destination;
+                nextPage = Constants.LOGIN_PAGE;
                 pageInContext = true;
                 return;
             }
