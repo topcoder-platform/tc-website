@@ -670,7 +670,9 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 <!-- TCS Promo Begins -->
             <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
             <a href="?t=development&amp;c=index"><img src="/i/header_software_development.gif" alt="Software Development" width="244" height="20" border="0" /></a><br />
-            <a href="/?t=development&amp;c=bonus_contest_0303"><img src="/i/development/tcs_congrats_winner.gif" alt="Congratulations to pops, our $2000 Component Design Contest Winner" border="0" width="244" height="144" /></a><br />
+
+            <a href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_promo.gif" alt="Component Design Contest 2: $6000 total prizes" border="0" width="244" height="133" /></a><br />
+<!-- Comment out until contest is under way
             <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
             <a href="/?t=development&amp;c=bonus_contest_0303"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></a><br />
 
@@ -682,7 +684,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                     <td width="39%" class="statText" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Avg. Score</td>
                     <td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0" /></td>
                 </tr>
-              
+                
                 <tr valign="top">
                     <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                 </tr>
@@ -719,6 +721,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
                 </tr>
                 
+                
                 <tr valign="top">
                     <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                 </tr>
@@ -748,30 +751,30 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                 </tr>
 
                 <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
                     <td class="statText"></td>
                     <td class="statText"></td>
                     <td class="statText" align="right"><a class="statText" href="/?t=development&amp;c=bonus_contest_0303">View all</a></td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
                 </tr>
 
                 <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="10" border="0"/></td>
-                    <td width="25%"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
-                    <td width="30%"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
-                    <td width="25%"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="10" border="0"/></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="10" border="0" /></td>
+                    <td width="25%"><img src="/i/clear.gif" width="1" height="10" border="0" /></td>
+                    <td width="30%"><img src="/i/clear.gif" width="1" height="10" border="0" /></td>
+                    <td width="25%"><img src="/i/clear.gif" width="1" height="10" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="10" border="0" /></td>
                 </tr>
             </table>
 
            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#333333">
                 <tr><td height="20" class="moduleTitle"><a href="?t=development&amp;c=comp_projects"><img src="/i/tcs_contest_promo_bottom.gif" alt="Win $2000" width="244" height="22" border="0" /></a></td></tr>
             </table>
- <!-- Bonus Contest Ends -->
+ Bonus Contest Ends
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr><td><img src="/i/clear.gif" alt="" width="1" height="6" border="0"/></td></tr>
-            </table>
+                <tr><td><img src="/i/clear.gif" alt="" width="1" height="6" border="0" /></td></tr>
+            </table>  -->
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" bgcolor="#001935">
                 <tr><td height="17" class="moduleTitle" bgcolor="#333333"><img src="/i/module_labels_10_coders.gif" alt="Competition Leaders" width="244" height="20" border="0"/></td></tr>
