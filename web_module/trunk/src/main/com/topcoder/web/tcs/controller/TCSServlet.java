@@ -46,7 +46,7 @@ public class TCSServlet extends BaseServlet {
         request.getSession().setAttribute("nav_redirect_msg", "In order to continue, you must provide your user name " +
                 "and password.");
 
-        fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, false);
+        fetchRegularPage(request, response, LOGIN_SERVLET, false);
     }
 
 
