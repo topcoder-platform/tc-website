@@ -10,6 +10,10 @@
 <body>
 <tc-webtag:useBean id="problemSets" name="<%=Constants.PROBLEM_SETS%>" type="java.util.ArrayList" scope="page" />
 
+<% System.out.println("sets: " + problemSets);
+    System.out.println("sets1: " + session.getAttribute(Constants.PROBLEM_SETS));
+    %>
+
 <table class=bodyCenter cellspacing=0 cellpadding=0>
    <tr>
       <td align=center>
