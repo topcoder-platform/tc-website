@@ -7,7 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Contracting</title>
+<title>TopCoder Placement Registration</title>
 
 <jsp:include page="../../../script.jsp" />
 
