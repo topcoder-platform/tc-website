@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="quick_stats_pulldown">
-    <form name="selectform">
-      <select name="quickstat" size="1" class="dropdown" onchange="goTo(this)">
+    <tr><form name="selectform"><td class="quickstatText">
+        <select name="quickstat" size="1" class="dropdown" onchange="goTo(this)">
         <OPTION value="SELECTED"> Select a Stat: </OPTION>
         <OPTION value="alltimewin">&#160;All-Time Wins</OPTION>
         <OPTION value="winningdebuts">&#160;Winning Debuts</OPTION>
@@ -13,6 +13,6 @@
         <OPTION value="submissionaccuracy">&#160;Submission Accuracy</OPTION>
         <OPTION value="challengesuccess">&#160;Challenge Success</OPTION>
       </select>
-    </form>
+        </td></form></tr>
   </xsl:template>
 </xsl:stylesheet>
