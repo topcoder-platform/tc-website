@@ -23,10 +23,9 @@
  <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="10"border="0"><br>
                       <form name="searchForm" method="get">
                           <jsp:include page="searchForm.jsp"/>
-                          <br/>
-                          <jsp:include page="resultsForm.jsp"/>
                       </form>
-        </td> 
+<P><BR/></P>
+</td> 
 
 
 <!-- Center Column Ends -->

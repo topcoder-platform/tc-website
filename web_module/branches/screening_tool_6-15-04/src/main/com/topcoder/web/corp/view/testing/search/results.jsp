@@ -26,7 +26,8 @@
                           <br/>
                           <jsp:include page="resultsForm.jsp"/>
                       </form>
-        </td> 
+<P><BR/></P>
+</td> 
 
 
 <!-- Center Column Ends -->

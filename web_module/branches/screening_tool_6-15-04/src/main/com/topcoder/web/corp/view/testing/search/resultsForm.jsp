@@ -1,70 +1,114 @@
-                <table border="0" cellspacing="0" cellpadding="0" align="center" width="510">
-                    <tr valign="top">
-                        <td>
-                            <table border="0" cellspacing="0" cellpadding="10" width="100%">
-                                <tr>
-                                <td class="bodyText">
-                                Enter search criteria below then click the Search button. Search results matching the criteria
-                                selections will be returned. Click on a Handle to view information about the Coder.
-                                </td>
-                                </tr>
-                             </table>
-                          </tr>
-                       </td>
-                </table>
+        <table  border="0" cellspacing="0" cellpadding="5" width="600" align="center" class="bodyText">
+              <tr valign="middle">
+                  <td colspan="6" class="bodyText" align=center>Search Results:##to##of##
+                  </td>
+              </tr>
+        </table>
 
-                <table border="0" cellspacing="0" cellpadding="0" align="center" width="510" class="formFrame">
-                    <tr valign="top">
-                        <td colspan="2">
-                            <table border="0" cellspacing="0" cellpadding="10" width="100%">
-                                <tr><td class="searchHeaders">Member Search: Search by handle, rating, state or country.</td></tr>
+          <table  border="0" cellspacing="0" cellpadding="5" width="600" align="center" class="screeningFrame">
+              <tr>
+                  <td class="screeningHeader" valign="middle" width="50%">Name</td>
+                  <td class="screeningHeader" valign="middle">Email</td>
+                  <td class="screeningHeader" valign="middle" align=center>State /<br/>Province</td>
+                  <td class="screeningHeader" valign="middle" align=center>Country</td>
+                  <td class="screeningHeader" valign="middle" align=center>Type</td>
+                  <td class="screeningHeader" valign="middle" align=center>Position</td>
+                  <td class="screeningHeader" valign="middle" align=center>Problem</td>
+                  <td class="screeningHeader" valign="middle" align=center>Date</td>
+                  <td class="screeningHeader" valign="middle" align=center>Time</td>
+                  <td class="screeningHeader" valign="middle" align=center>Preference<br/>Level</td>
+                  <td class="screeningHeader" valign="middle" align=center>Notes</td>
+                  <td class="screeningHeader" valign="middle" align=center>Results</td>
+              </tr>
 
-                                <tr>
-                                    <td class="bodyText">
-                                        An underscore ( _ ) = one character space<br/>
-                                        A percent sign ( % ) = any number of character spaces
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
+              <tr>
+                  <td class="screeningCellOdd" nowrap=nowrap><A href="">John Doe</A></td>
+                  <td class="screeningCellOdd"><A href="">jdoe@topcoder.com</A></td>
+                  <td class="screeningCellOdd" align=center>CT</td>
+                  <td class="screeningCellOdd" align=center>USA</td>
+                  <td class="screeningCellOdd" align=center>Pro</td>
+                  <td class="screeningCellOdd" align=center>Architect</td>
+                  <td class="screeningCellOdd" align=center><A href="">Rain</A></td>
+                  <td class="screeningCellOdd" align=center>01/01/04</td>
+                  <td class="screeningCellOdd" align=center>00:40.20</td>
+                  <td class="screeningCellOdd" align=center>
+                    <object
+                    classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                    codebase="http://fpdownload.macromedia.com"
+                    document.write('/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+                    width="80"
+                    height="12"
+                    id="tc_card"
+                    align="middle">');
+                    <param name="allowScriptAccess" value="sameDomain" />');
+                    <param name="movie"
+                    value="/i/corp/screeningRatingOdd.swf"/>');
+                    <param name="menu" value="false" />');
+                    <param name="quality" value="high" />');
+                    <param name="bgcolor" value="#ffffff" />');
+                    <embed
+                    src="/i/corp/screeningRatingOdd.swf"
+                    menu="false"
+                    quality="high"
+                    bgcolor="#ffffff"
+                    width="80"
+                    height="12"
+                    name="tc_card"
+                    align="middle"
+                    allowScriptAccess="sameDomain"
+                    type="application/x-shockwave-flash"
+                    pluginspage="http://www.macromedia.com/go/getflashplayer" />
+                    </object>
+                  </td>
+                  <td class="screeningCellOdd" align=center><A href="">view</A></td>
+                  <td class="screeningCellOdd" align=center><A href="">view</A></td>
+              </tr>
+              <tr>
+                  <td class="screeningCellEven" nowrap=nowrap><A href="">John Doe</A></td>
+                  <td class="screeningCellEven"><A href="">jdoe@topcoder.com</A></td>
+                  <td class="screeningCellEven" align=center>CT</td>
+                  <td class="screeningCellEven" align=center>USA</td>
+                  <td class="screeningCellEven" align=center>Pro</td>
+                  <td class="screeningCellEven" align=center>Architect</td>
+                  <td class="screeningCellEven" align=center><A href="">Rain</A></td>
+                  <td class="screeningCellEven" align=center>01/01/04</td>
+                  <td class="screeningCellEven" align=center>00:40.20</td>
+                  <td class="screeningCellEven" align=center>
+                    <object
+                    classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                    codebase="http://fpdownload.macromedia.com"
+                    document.write('/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+                    width="80"
+                    height="12"
+                    id="tc_card"
+                    align="middle">');
+                    <param name="allowScriptAccess" value="sameDomain" />');
+                    <param name="movie"
+                    value="/i/corp/screeningRatingEven.swf"/>');
+                    <param name="menu" value="false" />');
+                    <param name="quality" value="high" />');
+                    <param name="bgcolor" value="#ffffff" />');
+                    <embed
+                    src="/i/corp/screeningRatingEven.swf"
+                    menu="false"
+                    quality="high"
+                    bgcolor="#ffffff"
+                    width="80"
+                    height="12"
+                    name="tc_card"
+                    align="middle"
+                    allowScriptAccess="sameDomain"
+                    type="application/x-shockwave-flash"
+                    pluginspage="http://www.macromedia.com/go/getflashplayer" />
+                    </object>
+                  </td>
+                  <td class="screeningCellEven" align=center><A href="">view</A></td>
+                  <td class="screeningCellEven" align=center><A href="">view</A></td>
+              </tr>
+        </table>
 
-                    <tr valign="top">
-                        <td width="100%" align="center">
-                            <table border="0" cellspacing="5" cellpadding="0">
-                                <tr>
-                                    <td class="bodyText" width="50%">First Name:</td>
-                                    <td class="bodyText" width="50%">
-<%-- FIRST NAME TEXT BOX--%>
-                                    </td>
-                                </tr>
-
-                                <tr><td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
-
-                                <tr>
-                                    <td class="bodyText">Last Name:</td>
-                                    <td class="bodyText">
-<%-- LAST NAME TEXT BOX--%>
-                                    </td>
-                                </tr>
-
-                                <tr><td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
-
-                                <tr>
-                                    <td class="bodyText">Email Address:</td>
-                                    <td class="bodyText">
-<%-- EMAIL ADDRESS TEXT BOX--%>
-                                    </td>
-                                </tr>
-
-                                <tr><td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
-                            </table>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" class="bodyText" align="center">
-                            <A href="javascript:document.searchForm.submit()" class="bodyText"><img src="/i/search.gif" width="60" height="18" border="0"/></A><br /><br />
-                        </td>
-                    </tr>
-                </table>
+          <table  border="0" cellspacing="0" cellpadding="0" width="600" align="center" class="screeningFrameNB">
+              <tr valign="middle">
+                  <td class="screeningCellOdd" align="center"><A href="">prev</a>&#160;&#160;|&#160;&#160;<A href="">next</A></td>
+              </tr>
+          </table>

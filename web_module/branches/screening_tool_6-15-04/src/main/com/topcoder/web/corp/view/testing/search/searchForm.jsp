@@ -1,11 +1,11 @@
-                <table border="0" cellspacing="0" cellpadding="0" align="center" width="510">
+                <table border="0" cellspacing="0" cellpadding="0" align="center" width="600">
                     <tr valign="top">
                         <td>
                             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                                 <tr>
                                 <td class="bodyText">
                                 Enter search criteria below then click the Search button. Search results matching the criteria
-                                selections will be returned. Click on a Handle to view information about the Coder.
+                                selections will be returned. Click on a name to view information about the Coder.
                                 </td>
                                 </tr>
                              </table>
@@ -13,14 +13,14 @@
                        </td>
                 </table>
 
-                <table border="0" cellspacing="0" cellpadding="0" align="center" width="510" class="formFrame">
+                <table border="0" cellspacing="0" cellpadding="0" align="center" width="600" class="screeningFrame">
                     <tr valign="top">
                         <td colspan="2">
                             <table border="0" cellspacing="0" cellpadding="10" width="100%">
-                                <tr><td class="searchHeaders">Member Search: Search by handle, rating, state or country.</td></tr>
+                                <tr><td class="screeningHeader">Member Search: Search by first name, last name, and email address.</td></tr>
 
                                 <tr>
-                                    <td class="bodyText">
+                                    <td class="screeningCellOdd" colspan=2 align=center>
                                         An underscore ( _ ) = one character space<br/>
                                         A percent sign ( % ) = any number of character spaces
                                     </td>
@@ -31,10 +31,10 @@
 
                     <tr valign="top">
                         <td width="100%" align="center">
-                            <table border="0" cellspacing="5" cellpadding="0">
+                            <table border="0" cellspacing="0" cellpadding="0" width=100%">
                                 <tr>
-                                    <td class="bodyText" width="50%">First Name:</td>
-                                    <td class="bodyText" width="50%">
+                                    <td class="screeningCellEven" width="25%" align=right>First Name:</td>
+                                    <td class="screeningCellEven" width="75%">
 <%-- FIRST NAME TEXT BOX--%>
                                     </td>
                                 </tr>
@@ -42,8 +42,8 @@
                                 <tr><td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
 
                                 <tr>
-                                    <td class="bodyText">Last Name:</td>
-                                    <td class="bodyText">
+                                    <td class="screeningCellOdd" align=right>Last Name:</td>
+                                    <td class="screeningCellOdd">
 <%-- LAST NAME TEXT BOX--%>
                                     </td>
                                 </tr>
@@ -51,20 +51,18 @@
                                 <tr><td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
 
                                 <tr>
-                                    <td class="bodyText">Email Address:</td>
-                                    <td class="bodyText">
+                                    <td class="screeningCellEven" align=right>Email Address:</td>
+                                    <td class="screeningCellEven">
 <%-- EMAIL ADDRESS TEXT BOX--%>
                                     </td>
                                 </tr>
-
-                                <tr><td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
                             </table>
                         </td>
                     </tr>
 
                     <tr>
-                        <td colspan="2" class="bodyText" align="center">
-                            <A href="javascript:document.searchForm.submit()" class="bodyText"><img src="/i/search.gif" width="60" height="18" border="0"/></A><br /><br />
+                        <td colspan="2" class="screeningCellEven" align="center">
+                            <A href="javascript:document.searchForm.submit()" class="bodyText"><img src="/i/search.gif" width="60" height="18" border="0"/></A>
                         </td>
                     </tr>
                 </table>
