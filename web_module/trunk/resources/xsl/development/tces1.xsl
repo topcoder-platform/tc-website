@@ -53,21 +53,21 @@
                                     <FORM method="POST" name="frmInquire" ACTION="/">
                                         <INPUT VALUE="development" NAME="t" TYPE="hidden"/><INPUT VALUE="inquire" NAME="c" TYPE="hidden"/><INPUT VALUE="" NAME="Project" TYPE="hidden"/><INPUT VALUE="" NAME="To" TYPE="hidden"/>
                                     </FORM>
-                                    <b>TCES Extension Project 1</b>
+                                    <b>TCES Extension Project Part One</b>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='TCES Extension 1';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <a href="Javascript:document.frmInquire.Project.value='TCES Extension Part One';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
                                     <BR/>
                                     <BR/>
                                     <b>Preface</b>
                                     <BR/>
                                     <BR/>            
-The TCES extension project 1 will put in a place a system that will allow members to provide TCES representatives with information about themselves. 
+The TCES extension project part one will put in a place a system that will allow members to provide TCES representatives with information about themselves. 
                                     <BR/>
                                     <BR/>
                                     <b>Overview</b>
                                     <BR/>
                                     <BR/>
-There will be a total of 5 people assigned to the project with positions available for development, an architect and quality assurance.  Each development assignment will undergo 4 phases.  Phase 1 is getting up to speed on the project.  Reading through requirements, documentation and providing any insight as to what the over all project will entail.  The first phase will also be used for developers to get acclimated to the development servers and source code control environments.  Phase 2 is the design phase.  In the design phase the team as a whole will discuss the over all project goals and objectives and come up the different designs for each specific component.  Phase 3 is the development.  This phase is where all of the development will take place.  The final phase is the quality assurance and bug fixes phase.
+There will be a total of five people assigned to the project with positions available for an architect, development and quality assurance.  Each development assignment will undergo four phases.  Phase one is getting up to speed on the project.  Reading through requirements, documentation and providing any insight as to what the over all project will entail.  The first phase will also be used for developers to get acclimated to the development servers and source code control environments.  Phase two is the design phase.  In the design phase the team as a whole will discuss the over all project goals and objectives and come up the different designs for each specific component.  Phase three is the development phase, and the final phase addresses quality assurance and bug fixes.
                                     <BR/>
                                     <BR/>
 TopCoder strongly feels that the developers have a very big role when it comes to coming up with requirements for a development project.  As a member of this team you are expected to contribute to the design and implementation of various components even if you will not be working on the directly.  TopCoder also mandates that developers provide feedback and give ideas as to how the system should run from an operations standpoint.  Keep in mind you will ultimately be the end user of this system.
@@ -85,13 +85,13 @@ The component team will consist of four rated TopCoder Members.
                                     <b>Architect</b>
                                     <BR/>
                                     <BR/>
-The architect will be responsible for the design of software and test cases that meet all requirements as defined in the requirements documentation and as described by the product manager. The architect will design the solution such that component reuse is maximized. The architect will be responsible for testing the functionality of the component, reviewing the deliverables (source code, documentation, schema, etc.) and giving final approval to the Product Manager that the component satisfies the requirements and is implemented correctly. 
+The architect will be responsible for the design of software and test cases that meet all requirements as defined in the requirements documentation and as described by the project manager. The architect will design the solution such that component reuse is maximized. The architect will be responsible for testing the functionality of the component, reviewing the deliverables (source code, documentation, schema, etc.) and giving final approval to the project manager that the component satisfies the requirements and is implemented correctly. 
                                     <BR/>
                                     <BR/>
                                     <b>Developer</b>
                                     <BR/>
                                     <BR/>
-The developer will be responsible for developing a solution that meets all requirements detailed in this specification and as specified by the product manager. The developer's responsibility will begin on the project start date and extend through to Production Deployment. The majority of the workload will occur between the project Start Date and completion of Beta Testing. Continued support and component modifications may be required through deployment. 
+The developer will be responsible for developing a solution that meets all requirements detailed in this specification and as specified by the project manager. The developer's responsibility will begin on the project start date and extend through to Production Deployment. The majority of the workload will occur between the project Start Date and completion of Beta Testing. Continued support and component modifications may be required through deployment. 
                                     <BR/>
                                     <BR/>
                                     <b>QA Developer</b>
@@ -107,15 +107,16 @@ The QA Developer is responsible for testing the completed component. Tests shoul
                                     <BR/>
 Development Tasks
 <ul>
-<li>Automated email to newly rated members ? this will involve setting up a scheduled job in our mass email system.</li>
-<li>Skills self-assessment area ? these pages will allow members to rate their competency on various technologies.</li>
-<li>General Information area ? these pages will allow members to enter general information about what they are looking for (salary, travel, location etc.).</li>
-<li>Resume creation area ? members will be allowed to compose a resume.</li>
+<li>Automated email to newly rated members - this will involve setting up a scheduled job in our mass email system.</li>
+<li>Skills self-assessment area - these pages will allow members to rate their competency on various technologies.</li>
+<li>General Information area - these pages will allow members to enter general information about what they are looking for (salary, travel, location etc.).</li>
+<li>Resume creation area - members will be allowed to compose a resume.</li>
+<li>Resume upload - members will be allowed to upload a resume in a number of formats.</li>
 </ul>
 Staffing
 <ul>
 <li>Two members will be assigned to work on the front end.  They will write the JSP, servlet and JavaBean code.</li>
-<li>One member will be assigned to work on the back end.  The will write the necessary EJB code, queries, and setup the automated email.</li>
+<li>One member will be assigned to work on the back end.  They will write the necessary EJB code, queries, and setup the automated email.</li>
 <li>One member will fill the role of project architect.</li>
 <li>One member will fill the QA role.</li>
 </ul>
@@ -154,11 +155,11 @@ Staffing
                                     <BR/>
                                     <BR/>            
 You must be a rated TopCoder member, meeting all of the membership requirements and fit into one of the following categories:<BR/>
-                                    <ol>
+                                    <ul>
                                         <li>A US Citizen.</li>
                                         <li>A Lawful Permanent Resident of the US (i.e., a Green Card holder).</li>
                                         <li>Currently lawfully residing in the US with valid employment authorization to act as an independent contractor.</li>
-                                    </ol>
+                                    </ul>
                                     <b>Time Line</b>
                                     <BR/>
                                     <BR/>            
