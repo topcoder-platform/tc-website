@@ -67,10 +67,10 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=art_10_19_04"><img src="/i/pressroom/ap_logo.gif" alt="AP" border="0" /></A></td>
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=art_10_25_04"><img src="/i/pressroom/ap_logo.gif" alt="AP" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=art_10_19_04"></A></strong></font><br />
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=art_10_25_04">Google's creative search for elite programmers</A></strong></font><br />
 						Some people like to play tennis or golf to blow off steam after a hard day. Bolek Szewcyzk likes to pound out line after line after line of code on his computer, solving complex problems or just exulting in the art of creation.<span class="prHead">[October 19 - SJ Mercury]</span></p>
                     </td>
                 </tr>
