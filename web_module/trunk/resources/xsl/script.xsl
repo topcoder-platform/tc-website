@@ -228,53 +228,7 @@ function goTo(selection)
   {
     window.location = "/index?t=about_tc&c=spons_report_prof";
   } 
-  
-
-  //schedule
-  else if (sel == "jan_02")
-  {
-    window.location = "/index?t=schedule&c=jan_02";
-  }
-  else if (sel == "feb_02")
-  {  
-    window.location = "/index?t=schedule&c=feb_02";
-  } 
-  else if (sel == "mar_02")
-  {
-    window.location = "/index?t=schedule&c=mar_02";
-  } 
-  else if (sel == "apr_02")
-  {
-    window.location = "/index?t=schedule&c=apr_02";
-  }  
-  else if (sel == "may_02")
-  {
-    window.location = "/index?t=schedule&c=may_02";
-  }  
-  else if (sel == "june_02")
-  {
-    window.location = "/index?t=schedule&c=june_02";
-  }  
-  else if (sel == "july_02")
-  {
-    window.location = "/index?t=schedule&c=july_02";
-  } 
-  else if (sel == "aug_02")
-  {
-    window.location = "/index?t=schedule&c=aug_02";
-  } 
-  else if (sel == "sept_02")
-  {
-    window.location = "/index?t=schedule&c=sept_02";  
-  } 
-  else if (sel == "oct_02")
-  {
-    window.location = "/index?t=schedule&c=oct_02";  
-  } 
-  else if (sel == "nov_02")
-  {
-    window.location = "/index?t=schedule&c=nov_02";  
-  }  
+   
   
   
 
