@@ -173,22 +173,34 @@
 				if( Catalog.JAVA_CATALOG == forum.getRootCategory( ) )
 				{
 				%>
-                                <img src="/images/javaSm.gif" width="33" height="17" alt="Java Catalogue" border="0" />
+                                <img src="/images/javaSm.gif" width="33" height="17" alt="Java Catalog" border="0" />
 				<%
 				}
 				else if( Catalog.NET_CATALOG == forum.getRootCategory( ) )
 				{
 				%>
-                                <img src="/images/netSm.gif" width="33" height="17" alt=".NET Catalogue" border="0" />
+                                <img src="/images/netSm.gif" width="33" height="17" alt=".NET Catalog" border="0" />
 				<%
 				}
 				else if( Catalog.FLASH_CATALOG == forum.getRootCategory( ) )
 				{
 				%>
-                                <img src="/images/flashSm.gif" width="33" height="17" alt=".NET Catalogue" border="0" />
+                                <img src="/images/flashSm.gif" width="33" height="17" alt=".NET Catalog" border="0" />
 				<%
 				}
+                                else if( Catalog.JAVA_CUSTOM_CATALOG == forum.getRootCategory( ) )
+                                {
 				%>
+				<img src="/images/javaCustomSm.gif" width="33" height="17" alt="Java Custom Catalog" border="0" />
+				<%
+				}
+                                else if( Catalog.NET_CUSTOM_CATALOG == forum.getRootCategory( ) )
+                                {
+				%>
+				<img src="/images/netCustomSm.gif" width="33" height="17" alt=".NET Custom Catalog" border="0" />
+				<%
+                                }
+                                %>
 				</td>
                                 <td><img src="/images/spacer.gif" alt="" width="5" height="17" border="0" /></td>
                                 <td width="165" class="forumText"><a href="c_forum.jsp?f=<%=forum.getForumId()%>"><strong><%=forum.getName()%></strong><!-- version&nbsp;<%=forum.getVersionText()%> --></a><br />

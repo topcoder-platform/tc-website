@@ -34,10 +34,14 @@
     Category java = null;
     Category net = null;
     Category flash = null;
+    Category javaCustom = null;
+    Category netCustom = null;
     for (int i = 0; i < baseCategories.length; i++) {
         if (baseCategories[i].getId() == Catalog.NET_CATALOG) net = baseCategories[i];
         if (baseCategories[i].getId() == Catalog.JAVA_CATALOG) java = baseCategories[i];
         if (baseCategories[i].getId() == Catalog.FLASH_CATALOG) flash = baseCategories[i];
+        if (baseCategories[i].getId() == Catalog.JAVA_CUSTOM_CATALOG) javaCustom = baseCategories[i];
+        if (baseCategories[i].getId() == Catalog.NET_CUSTOM_CATALOG) netCustom = baseCategories[i];
     }
 
     long[] catalogs;
@@ -222,6 +226,8 @@
             if (java.getId() == summary.getRootCategory()) refCatalog = 0;
             else if (net.getId() == summary.getRootCategory()) refCatalog = 1;
             else if (flash.getId() == summary.getRootCategory()) refCatalog = 2;
+            else if (javaCustom.getId() == summary.getRootCategory()) refCatalog = 3;
+            else if (netCustom.getId() == summary.getRootCategory()) refCatalog = 4;
 %>
                 <tr valign="top">
                     <td class="forumText<%=oddeven%>">
@@ -237,6 +243,10 @@
                             %><img src="/images/netSm.gif" alt="" width="33" height="17" border="0" /><%
                         } else if (refCatalog == 2) {
                             %><img src="/images/flashSm.gif" alt="" width="33" height="17" border="0" /><%
+                        } else if (refCatalog == 3) {
+                            %><img src="/images/javaCustomSm.gif" alt="" width="33" height="17" border="0" /><%
+                        } else if (refCatalog == 4) {
+                            %><img src="/images/netCustomSm.gif" alt="" width="33" height="17" border="0" /><%
                         }
                             %></td>
                                 <td width="5" class="forumText"><img src="/images/clear.gif" alt="" width="5" height="5" border="0"/></td>
