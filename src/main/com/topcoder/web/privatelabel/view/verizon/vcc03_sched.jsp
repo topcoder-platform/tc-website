@@ -1,0 +1,152 @@
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
+<%@ page import="com.topcoder.web.privatelabel.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TopCoder | Private Label Registration</title>
+
+<SCRIPT type="text/javascript">
+if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
+  // Linux Stylesheets
+  document.write('<link type="text/css" rel="stylesheet" href="/css/corpStyle_linux.css"/>');
+} else {
+  // NonLinux Stylesheets
+  document.write('<link type="text/css" rel="stylesheet" href="/css/corpStyle.css"/>');
+}
+</SCRIPT>
+
+<jsp:include page="../script.jsp" />
+
+</head>
+
+<body>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
+<!-- Gutter Ends -->
+
+<!-- Left Column Begins-->
+         <td>
+         <p><img src="/i/clear.gif" width="180" height="60" border="0"/><br />
+         <a href="/" ><img src="/i/tournament/vcc03/vcc03_left.gif" width="180" height="74" border="0"/></a><br />
+         <img src="/i/clear.gif" width="180" height="60" border="0"/><br />
+         <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
+         <img src="/i/clear.gif" width="180" height="40" border="0"/>
+         </p>
+         </td>         
+<!-- Left Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+<!-- Center Column Begins -->
+        <td class="bodyText" width="100%">
+<!-- TCO Header -->
+   <p><br /></p>
+   <div align="center"><img src="/i/tournament/vcc03/vcc03.gif" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
+   <p><br /></p>
+
+<!-- Tab bar links-->
+<jsp:include page="verizonLinks.jsp" >
+   <jsp:param name="selectedTab" value="schedule"/>
+</jsp:include>
+<!-- Tab bar sub links-->
+
+            <blockquote>
+            <h2>Schedule</h2>
+            
+<!-- Qualification Description begins -->
+            <p><strong>Qualification Spots</strong> - Verizon will choose all qualifying members for the 500 available spots.  These 
+            members will then compete in Online Elimination Round 1</p>
+<!-- Qualification Description Ends -->
+
+<!-- Online Elimination Rounds begins -->
+            <A name="online"></A><p><span class="bodySubtitle">Online Elimination Rounds</span><br />
+            A total of 500 TopCoder members will compete in Online Round #1 of the VCC.  Each room winner and the next highest 
+            scorers in each round will advance.</p>
+            
+            <a name="sched"></a>
+            <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
+                <tr>
+                    <td class="sidebarTitle" width="25%">Round</td>
+                    <td class="sidebarTitle" width="35%">Date and Time - Chennai Time</td>
+                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
+                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Round #1</td>
+                    <td class="sidebarText">
+                        Wednesday, August 20th<br />
+                        Sign In: 6:00 PM - 8:55 PM<br />
+                        START: 9:00 PM<br />
+                    </td>
+                    <td class="sidebarText" align="center">500</td>
+                    <td class="sidebarText" align="center">250</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Round #2</td>
+                    <td class="sidebarText">
+                        Monday, August 25th<br />
+                        START: 9:30 PM<br />
+                    </td>
+                    <td class="sidebarText" align="center">250</td>
+                    <td class="sidebarText" align="center">25</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Round #3 - Championship Round</td>
+                    <td class="sidebarText">
+                        Friday, August 29th<br />
+                        START: 9:30 PM<br />
+                    </td>
+                    <td class="sidebarText" align="center">25</td>
+                    <td class="sidebarText" align="center">4 Prize  Winners</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText" colspan="4">
+                        *NOTE: In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.
+                    </td>
+                </tr>
+            </table>
+            
+
+<!-- Online Elimination Rounds ends -->
+
+            </blockquote>
+
+            <p><br/></p>
+            
+        </td>
+<!-- Center Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+  <!-- Right Column Begins -->
+  <!-- Right Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+    </tr>
+</table>
+
+<!-- Footer Begins -->
+<!-- Footer Ends -->
+
+</body>
+</html>
+
