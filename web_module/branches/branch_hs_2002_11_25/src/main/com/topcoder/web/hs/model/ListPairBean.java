@@ -4,32 +4,32 @@ import java.io.*;
 
 public class ListPairBean implements Serializable {
 
-  private String value=null;
+  private Object value=null;
 
-  private String text=null;
+  private Object text=null;
 
   public ListPairBean() {
     /* do nothing */
   }
 
-  public ListPairBean(String _value,String _text) {
+  public ListPairBean(Object _value,Object _text) {
     value=_value;
     text=_text;
   }
 
-  public String getValue() {
+  public Object getValue() {
     return(value);
   }
 
-  public void setValue(String _value) {
+  public void setValue(Object _value) {
     value=_value;
   }
 
-  public String getText() {
+  public Object getText() {
     return(text);
   }
 
-  public void setText(String _text) {
+  public void setText(Object _text) {
     text=_text;
   }
 };
