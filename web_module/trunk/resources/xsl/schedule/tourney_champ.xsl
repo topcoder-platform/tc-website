@@ -7,7 +7,7 @@
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/modules/tournament_invit02_links.xsl"/>  
-  <xsl:import href="../includes/schedule/public_schedule_left.xsl"/> 
+  <xsl:import href="../includes/modules/invit02_rule_links.xsl"/> 
   <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
@@ -15,7 +15,7 @@
     <HTML>
       <HEAD>
         <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Schedule</TITLE>
+        <TITLE>TopCoder :: Tournaments</TITLE>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
@@ -55,14 +55,16 @@
   <TR>
     <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+<xsl:call-template name="tournament_invit02_links"/>
+<BR/>
     <!-- Coder of the Week Pulldown Begins -->        
-        <xsl:call-template name="tournament_invit02_links"/>
+        <xsl:call-template name="invit02_rule_links"/>
   <!-- Coder of the Week Pulldown Ends -->
   <BR/><BR/>
           <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
             <TR>
                <TD COLSPAN="4" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">
-               2002 TopCoder Inv Semifinal
+               2002 TopCoder Invitational Champion
                <!--
                &#160;&#160;<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/contest_name"/>
                &#160;<xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/round_name"/>-->
@@ -96,8 +98,8 @@
           </TABLE>
 <BR/>
           <P class="statText">
-            The following competitors have advanced from the Semifinal to the Championship.
-         </P>
+            Congratulations to the TopCoder 2002 Invitational Champion.
+          </P>
 
           <TABLE WIDTH="100%" BORDER="0" CELLPADDING="1" CELLSPACING="1" ALIGN="center">
             <TR>
@@ -116,35 +118,11 @@
             </TR>
               <TR>
                 <TD CLASS="statText">
-                    <A HREF="/stat?c=member_profile&amp;cr=272072" CLASS="coderTextRed">SnapDragon</A>
-                  </TD>
-                <TD CLASS="statText" ALIGN="right">1140.23</TD>
-                <TD CLASS="statText" ALIGN="center">1</TD>
-                <TD CLASS="statText" ALIGN="center">Room 1</TD>
-              </TR> 
-              <TR>
-                <TD CLASS="statText">
-                    <A HREF="/stat?c=member_profile&amp;cr=262936" CLASS="coderTextRed">dgarthur</A>
-                  </TD>
-                <TD CLASS="statText" ALIGN="right">1009.82</TD>
-                <TD CLASS="statText" ALIGN="center">16</TD>
-                <TD CLASS="statText" ALIGN="center">Room 2</TD>
-              </TR>
-              <TR>
-                <TD CLASS="statText">
-                    <A HREF="/stat?c=member_profile&amp;cr=264949" CLASS="coderTextRed">moira</A>
-                  </TD>
-                <TD CLASS="statText" ALIGN="right">487.01</TD>
-                <TD CLASS="statText" ALIGN="center">59</TD>
-                <TD CLASS="statText" ALIGN="center">Room 3</TD>
-              </TR>
-              <TR>
-                <TD CLASS="statText">
                     <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>
                   </TD>
-                <TD CLASS="statText" ALIGN="right">502.94</TD>
-                <TD CLASS="statText" ALIGN="center">4</TD>
-                <TD CLASS="statText" ALIGN="center">Room 4</TD>
+                <TD CLASS="statText" ALIGN="right">766.53</TD>
+                <TD CLASS="statText" ALIGN="center">1</TD>
+                <TD CLASS="statText" ALIGN="center">Room 1</TD>
               </TR>
           </TABLE><BR/>
             <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
