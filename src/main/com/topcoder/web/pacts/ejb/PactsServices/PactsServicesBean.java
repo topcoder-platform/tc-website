@@ -272,7 +272,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps = null;
         }
     }
-    
+
     /*****************************************************
      * Object retrieval functions
      *****************************************************/
@@ -1802,7 +1802,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
             setLockTimeout(c);
-            
+
             long affidavitId = makeAffidavitPayment(c, a, affidavitText, p);
 
             c.commit();
@@ -3523,7 +3523,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             setLockTimeout(c);
-            
+
             ResultSetContainer rsc = runSelectQuery(c, checkNotarized.toString(), false);
             int notarizedCount = Integer.parseInt(rsc.getItem(0,0).toString());
 
@@ -3713,6 +3713,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     name.append(" " + middleName.charAt(0));
                     middleInitial = "" + middleName.charAt(0);
                 }
+
                 if (lastName.length()>0)
                     name.append(" " + lastName);
                 String coderName = name.toString();
@@ -3753,14 +3754,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String address2 = rsc.getItem(i, "address2").toString();
                 String email = rsc.getItem(i, "email").toString();
                 String userId = rsc.getItem(i, "user_id").toString();
-                String dueDate = rsc.getItem(i, "date_due").toString();
-
+                String dueDate = rsc.getItem(i, "date_due").toString().equals("00/00/0000") ?  currentDate : rsc.getItem(i, "date_due").toString();
+                      vendors.append("!VEND,NAME,PRINTAS,ADDR1,ADDR2,ADDR3,ADDR4,ADDR5,VTYPE,CONT1,EMAIL,SALUTATION,FIRSTNAME,MIDINIT,LASTNAME\n");
                 // Add the vendor line if necessary
                 if (!codersPrinted.contains(userId)) {
                     codersPrinted.add(userId);
                     vendors.append("VEND," + shroud(coderName) + "," + shroud(coderName) + ",");
-                    vendors.append(shroud(address1) + "," + shroud(address2) + "," + shroud(cityLine));
-                    vendors.append("," + shroud(country) + ",," + vendorType + "," + shroud(coderName) + ",");
+                    vendors.append(shroud(coderName) + "," + shroud(address1) + "," + shroud(address2) + "," + shroud(cityLine));
+                    vendors.append("," + shroud(country) + "," + vendorType + "," + shroud(coderName) + ",");
                     vendors.append(shroud(email) + ",," + shroud(firstName) + "," + shroud(middleInitial));
                     vendors.append("," + shroud(lastName) + "\n");
                 }
@@ -3905,6 +3906,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (existingAffidavits > 0) {
                 throw new IllegalUpdateException("Data already generated for round " + roundId + "!");
             }
+
 
             // Make sure the round exists; in the process, get the name and due date.
             StringBuffer checkExists = new StringBuffer(300);
