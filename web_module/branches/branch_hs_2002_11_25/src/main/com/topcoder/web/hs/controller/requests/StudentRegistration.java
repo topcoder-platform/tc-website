@@ -94,6 +94,7 @@ public class StudentRegistration extends Base {
 
       if (RegistrationHelper.isValidStudent(errors,srb)) {
         RegistrationHelper.createStudent(srb);
+        RegistrationHelper.populateStudentCoachCount(srb);
         setNextPage(REGISTRATION_BASE+THANK_YOU_PAGE);
       }
       else {
