@@ -66,8 +66,8 @@ public class UploadResume extends Base {
     private String getDb() throws Exception {
 
         long companyId;
-        if (file.getParameter("compid")!=null) {
-            companyId = Long.parseLong(file.getParameter("compid"));
+        if (file.getParameter(Constants.COMPANY_ID)!=null) {
+            companyId = Long.parseLong(file.getParameter(Constants.COMPANY_ID));
         } else {
             throw new Exception("Company id missing from request");
         }
