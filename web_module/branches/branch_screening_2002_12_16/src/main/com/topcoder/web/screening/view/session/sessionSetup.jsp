@@ -103,7 +103,7 @@ function submitSession() {
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Month&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
+              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
               <select name="beginMonth">
                 <option value="1">January</option>
                 <option value="2">February</option>
@@ -119,10 +119,11 @@ function submitSession() {
                 <option value="12">December</option>
               </select>
               </TD>
+              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="beginMonth" /></TD>
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Day&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
+              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
               <select name="beginDay">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -157,10 +158,11 @@ function submitSession() {
                 <option value="31">31</option>
               </select>
               </TD>
+              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="beginDay" /></TD>
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Year&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
+              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
               <select name="beginYear">
                 <option>2003</option>
                 <option>2004</option>
@@ -171,10 +173,11 @@ function submitSession() {
                 <option>2009</option>
               </select>
               </TD>
+              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="beginYear" /></TD>
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Hour&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
+              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
               <select name="beginHour">
                 <option value="0">12AM</option>
                 <option value="1">1AM</option>
@@ -202,6 +205,7 @@ function submitSession() {
                 <option value="23">11PM</option>
               </select>
               </TD>
+              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="beginHour" /></TD>
            </TR>
            <TR>
               <TD COLSPAN="3"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
@@ -211,7 +215,7 @@ function submitSession() {
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Month&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
+              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
               <select name="endMonth">
                 <option value="1">January</option>
                 <option value="2">February</option>
@@ -227,10 +231,11 @@ function submitSession() {
                 <option value="12">December</option>
               </select>
               </TD>
+              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="endMonth" /></TD>
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Day&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
+              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
               <select name="endDay">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -265,10 +270,11 @@ function submitSession() {
                 <option value="31">31</option>
               </select>
               </TD>
+              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="endDay" /></TD>
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Year&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
+              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
               <select name ="endYear">
                 <option>2003</option>
                 <option>2004</option>
@@ -279,6 +285,7 @@ function submitSession() {
                 <option>2009</option>
               </select>
               </TD>
+              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="endYear" /></TD>
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Hour&#160;</TD>
@@ -310,9 +317,7 @@ function submitSession() {
                 <option value="23">11PM</option>
               </select>
               </TD>
-           </TR>
-           <TR>
-              <TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD><TD COLSPAN="2" class="errorText" align="left" valign="middle"></TD>
+              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="endHour" /></TD>
            </TR>
          </TABLE>
 
