@@ -68,7 +68,7 @@ String htmlEncode(String s){
           <%=htmlEncode(rsc.getTag(key,"ResultRow").getXML(2))%>
 <%      } else if (displayType.equals("")) {
 %>
-        <%=htmlEncode(rsc.toString("\n", "      "))%>
+        <%=htmlEncode(rsc.toString("\n", ","))%>
 <%      }
 %>
 <BR/>
