@@ -156,7 +156,7 @@
                 <B>Estimation Algorithm:</B>
                 <BR/>
                                     <BR/>
-Taking the difference of each submitter's performance is also a normal 
+Taking the difference of each coder's performance is also a normal 
 distribution.  A positive value would then indicate a win and a negative 
 value would indicate a loss.  The percentage chance that a player wins, 
 therefore, uses the standard normal cumulative disribution as follows:
