@@ -104,7 +104,7 @@ document.sessionConfirmForm.submit();
                     <td colspan="3" width="100%" align="center">
                         <table border="0" cellspacing="10" cellpadding="0">
                             <tr>
-                                <input type="HIDDEN" name="candidateEmail" value="<jsp:getProperty name="testSessionInfo" property="candidateEmail" />" >
+                                <input type="HIDDEN" name="candidateEmailInfo" value="<jsp:getProperty name="testSessionInfo" property="candidateEmail" />" >
                                 <td colspan="3" class="testTableOdd">Invite candidate to Testing Application:&#160;<strong><jsp:getProperty name="testSessionInfo" property="candidateEmail" /></strong></td>
                             </tr>
                 
