@@ -46,7 +46,7 @@
 <!-- Tab bar links-->
 <jsp:include page="usdc_links.jsp" >
    <jsp:param name="selectedTab" value="results"/>
-   <jsp:param name="selectedTab2" value="design"/>
+   <jsp:param name="selectedTab2" value="<%=request.getParameter("ph")==112?"design":"development"%>"/>
 </jsp:include>
 <%=request.getParameter("ph")%>
                         <br/>
