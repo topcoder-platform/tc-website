@@ -53,67 +53,64 @@
                         
                         <p>This page should present you with a button to start the competition arena applet.</p>
                         
-                        <p>NOTE: If a red button to "Load Competition Arena" does <strong>not</strong> appear below, you may not have the 
-                        appropriate Plug-in software installed.</p>
+                        <p><strong>NOTE:</strong> If a red button to "Load Testing Environment" does <strong>not</strong> appear below, you may not have the 
+                        appropriate Plug-in software installed. 
                         
-                        <p>
                         <script type="text/javascript">
                             function getReq(){u='/?t=support&amp;c=software_req';window.open(u);close();}
                         </script>
-                        <a href="Javascript:getReq()">Get more information</a>
-                    </td>
-                </tr>
+                        <a href="Javascript:getReq()">Get more information</a></p>
+                        
+                        <div align="center">
+                        <p>
+                        <%
+                            String host = request.getParameter("host");
+                            if ((host==null) || host.equals("")) host="corporate.topcoder.com";
 
-                <tr>
-                    <td class="bodyText">
+                            String port = request.getParameter("port");
+                            if ((port==null) || port.equals("")) port="8001";
 
-        <%
-            String host = request.getParameter("host");
-            if ((host==null) || host.equals("")) host="corporate.topcoder.com";
+                            String tunnel = request.getParameter("tunnel");
+                            if ((tunnel==null) || tunnel.equals("")) tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=screening&port=8001";
 
-            String port = request.getParameter("port");
-            if ((port==null) || port.equals("")) port="8001";
+                            String companyID = request.getParameter("company");
+                            if ((companyID==null) || companyID.equals("")) companyID="1";
+                        %>
 
-            String tunnel = request.getParameter("tunnel");
-            if ((tunnel==null) || tunnel.equals("")) tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=screening&port=8001";
+                        <OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" width="239" height="26" name="LaunchApplet" align="middle" vspace="0" hspace="0" codebase="http://java.sun.com/products/plugin/autodl/jinstall-1_4-windows-i586.cab#Version=1,4,0,0">
+                        <PARAM name="type" value="application/x-java-applet;version=1.4" >
+                        <PARAM name="code" value="com.topcoder.client.screening.tool.view.screeningClient.LaunchApplet.class" >
+                        <PARAM name="codebase" value="/contest/classes">
+                        <PARAM name="name" value="LaunchApplet" >
+                        <PARAM name="archive" value="ScreeningClient.jar" >
+                        <PARAM name="scriptable" value="false" >
+                        <PARAM name="HOST" value="<%=host%>">
+                        <PARAM name="PORT" value="<%=port%>">
+                        <PARAM name="TUNNEL" value="<%=tunnel%>">
+                        <PARAM name="COMPANYID" value="<%=companyID%>">
 
-            String companyID = request.getParameter("company");
-            if ((companyID==null) || companyID.equals("")) companyID="1";
-
-        %>
-
-            <OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" width="239" height="26" name="LaunchApplet" align="middle" vspace="0" hspace="0" codebase="http://java.sun.com/products/plugin/autodl/jinstall-1_4-windows-i586.cab#Version=1,4,0,0">
-            <PARAM name="type" value="application/x-java-applet;version=1.4" >
-            <PARAM name="code" value="com.topcoder.client.screening.tool.view.screeningClient.LaunchApplet.class" >
-            <PARAM name="codebase" value="/contest/classes">
-            <PARAM name="name" value="LaunchApplet" >
-            <PARAM name="archive" value="ScreeningClient.jar" >
-            <PARAM name="scriptable" value="false" >
-            <PARAM name="HOST" value="<%=host%>">
-            <PARAM name="PORT" value="<%=port%>">
-            <PARAM name="TUNNEL" value="<%=tunnel%>">
-            <PARAM name="COMPANYID" value="<%=companyID%>">
-
-            <EMBED type="application/x-java-applet;version=1.3"
-           code="com.topcoder.client.screening.tool.view.screeningClient.LaunchApplet.class"
-           codebase="/contest/classes"
-           name="LaunchApplet"
-           archive="ScreeningClient.jar"
-           HOST="<%=host%>"
-           PORT="<%=port%>"
-           TUNNEL="<%=tunnel%>"
-           COMPANYID="<%=companyID%>"
-           width="239"
-           height="26"
-           align="middle"
-           vspace="0"
-           hspace="0"
-           scriptable="false"
-           pluginspage="http://java.sun.com/j2se/1.3/jre/index.html">
-            <NOEMBED>
-            </NOEMBED>
-            </OBJECT><br>
-                        <strong>You may minimize this browser window, but do not close it.</strong>Doing so will close the applet.
+                        <EMBED type="application/x-java-applet;version=1.3"
+                        code="com.topcoder.client.screening.tool.view.screeningClient.LaunchApplet.class"
+                        codebase="/contest/classes"
+                        name="LaunchApplet"
+                        archive="ScreeningClient.jar"
+                        HOST="<%=host%>"
+                        PORT="<%=port%>"
+                        TUNNEL="<%=tunnel%>"
+                        COMPANYID="<%=companyID%>"
+                        width="239"
+                        height="26"
+                        align="middle"
+                        vspace="0"
+                        hspace="0"
+                        scriptable="false"
+                        pluginspage="http://java.sun.com/j2se/1.3/jre/index.html">
+                        <NOEMBED>
+                        </NOEMBED>
+                        </OBJECT></p>
+                        </div>
+                        
+                        <p><strong>You may minimize this browser window, but do not close it.</strong>Doing so will close the applet.</p>
                     </td>
                 </tr>
             </table>
