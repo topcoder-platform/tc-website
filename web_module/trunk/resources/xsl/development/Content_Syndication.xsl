@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>XML Import Design Project at TopCoder</title>
+                <title>Content Syndication Design Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@
                                         <!-- Title -->
                                         <table cellspacing="0" class="formFrame" align="center" width="530">
                                             <tr>
-                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - XML Import</td>
+                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - Content Syndication</td>
                                             </tr>
                                             <tr>
                                                 <td class="projectHeaders" align="left">Overview</td>
@@ -86,25 +86,40 @@
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        Today importing XML files is an extremely manual and intensive process for employees.  
-                                                        The goal of this system will be to automate as much of the importing as possible.  The 
-                                                        client utilizes a third party system to manage their library of books and magazines.  
-                                                        This system does not support importing standard XML files for books and magazines.  
-                                                        This project will convert the standard XML to the third party specific format and will 
-                                                        then import the files into the system.
+                                                        Today content syndication is an extremely manual and intensive process for employees.
+                                                        The goal of this system will be to automate as much of the content syndication project 
+                                                        as possible.  Automating this project will remove the majority of the manual intervention 
+                                                        needed to distribute content.  Users will select content for syndication through an 
+                                                        interactive front end for “ordering” content.  The selected content will then be converted 
+                                                        to the customer specific XML format and transported using the a Content Syndication server.
+                                                        Additionally, reporting and historical tracking will be built into the system.  Users will 
+                                                        be able to track who has been sent what content and when the content was sent.  
                                                         <br/>
                                                         <br/>
+                                                        From an architecture standpoint, the new system will be developed in Java instead of 
+                                                        Microsoft technologies.  Although, some integration points with the existing system 
+                                                        will be developed in Microsoft VB/ASP technologies.  By building the system externally 
+                                                        from the internal system, all dependencies on the current system will be removed, 
+                                                        facilitating a potential upgrade to a new digital rights management system.  
+                                                        <br/>
+                                                        <br/>
+                                                        
                                                     </p>
                                                     <p class="noSpListTitle">
                                                         <strong>Objectives</strong>
                                                     </p>
                                                     <ul class="noSpList">
-                                                        <li>Import files into the system without manual intervention..</li>
+                                                        <li>Remove manual steps in producing content for syndication.</li>
+                                                        <li>Deliver the ability to select multiple articles for syndication.</li>
+                                                        <li>Provide a mechanism to create configurable XML for delivery to syndication partners.</li>
+                                                        <li>Feed the application server customized XML for each syndication partner.</li>
+                                                        <li>Remove sent files from application server queue.</li>
+                                                        <li>Link the internal databases once syndication occurs.</li>
                                                     </ul>
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
-                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/XML_Import.pdf">Business Requirement Specification</a> for this application project.
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/CS-Generic.pdf">Business Requirement Specification</a> for this application project.
                                                     </p>
                                                     <!-- Technologies -->
                                                     <p class="noSpListTitle">
@@ -115,6 +130,8 @@
                                                         <li>Java</li>
                                                         <li>XML</li>
                                                         <li>XSL/XSLT</li>
+                                                        <li>ASP</li>
+                                                        <li>VBScript</li>
                                                     </ul>
 
                                                     <!-- Payment -->
@@ -304,7 +321,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=XML%20Import%20Design">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Content%20Syndication%20Design">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
