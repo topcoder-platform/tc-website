@@ -146,7 +146,7 @@
 <%-- Footer --%>
     <tr><td class="homeFooter" colspan=7>
             <A href="/" class="footerLinks">Home</A>&#160;&#160;|&#160;&#160;
-            <A href="/" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
+            <A href="/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=news_events&c=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=contacts&c=index" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=about_tc&c=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
