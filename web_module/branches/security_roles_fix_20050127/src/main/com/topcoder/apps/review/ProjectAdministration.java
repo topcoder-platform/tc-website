@@ -733,8 +733,8 @@ public class ProjectAdministration implements Model {
 
                             // remove the generic View Project permission
                             String roleName = oldProject.getName() + " " + oldProject.getVersion() + " " +
-                                    oldProject.getProjectType().getName() + " " + "View Project";
-                            rolePrincipal = getRolePrincipal(roleName, user.getTCSubject(), newProject.getId());
+                                    oldProject.getProjectType().getName() + " " + "View Project " + oldProject.getId();
+                            rolePrincipal = getRolePrincipal(roleName, user.getTCSubject());
                             principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
                             LogHelper.log(userPrincipal.getName() + " has lost role " + rolePrincipal.getName());
                         }
@@ -759,8 +759,8 @@ public class ProjectAdministration implements Model {
 
                                 // add the generic View Project permission
                                 String roleName = oldProject.getName() + " " + oldProject.getVersion() + " " +
-                                        oldProject.getProjectType().getName() + " " + "View Project";
-                                rolePrincipal = getRolePrincipal(roleName, user.getTCSubject(), newProject.getId());
+                                        oldProject.getProjectType().getName() + " " + "View Project " + newProject.getId();
+                                rolePrincipal = getRolePrincipal(roleName, user.getTCSubject());
                                 // unassign and assign in case the user already had the role
                                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
                                 principalMgr.assignRole(userPrincipal, rolePrincipal, user.getTCSubject());
@@ -768,7 +768,7 @@ public class ProjectAdministration implements Model {
 
                                 // add the forum permission
                                 roleName = "ForumUser " + oldProject.getForumId();
-                                rolePrincipal = getRolePrincipal(roleName, user.getTCSubject(), newProject.getId());
+                                rolePrincipal = getRolePrincipal(roleName, user.getTCSubject());
                                 // unassign and assign in case the user already had the role
                                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
                                 principalMgr.assignRole(userPrincipal, rolePrincipal, user.getTCSubject());
@@ -897,17 +897,17 @@ public class ProjectAdministration implements Model {
     private RolePrincipal getRolePrincipal(UserRole userRole, Project project, TCSubject requestor, long projectId) throws Exception {
         String prefix = getRolePrefix(project);
         if (userRole == null) {
-            return getRolePrincipal(prefix + "Submit Final Fix", requestor, projectId);
+            return getRolePrincipal(prefix + "Submit Final Fix " + projectId, requestor);
         } else if (RoleHelper.isSubmitter(userRole)) {
-            return getRolePrincipal(prefix + "Submit", requestor, projectId);
+            return getRolePrincipal(prefix + "Submit " + projectId, requestor);
         } else if (RoleHelper.isScreener(userRole)) {
-            return getRolePrincipal(prefix + "Screen", requestor, projectId);
+            return getRolePrincipal(prefix + "Screen " + projectId, requestor);
         } else if (RoleHelper.isReviewer(userRole)) {
-            return getRolePrincipal(prefix + "Review", requestor, projectId);
+            return getRolePrincipal(prefix + "Review " + projectId, requestor);
         } else if (RoleHelper.isAggregator(userRole)) {
-            return getRolePrincipal(prefix + "Aggregation", requestor, projectId);
+            return getRolePrincipal(prefix + "Aggregation " + projectId, requestor);
         } else if (RoleHelper.isFinalReviewer(userRole)) {
-            return getRolePrincipal(prefix + "Final Review", requestor, projectId);
+            return getRolePrincipal(prefix + "Final Review " + projectId, requestor);
         }
         return null;
     }
@@ -927,8 +927,7 @@ public class ProjectAdministration implements Model {
      *
      * @exception Exception remoting and EJB related
      */
-    private RolePrincipal getRolePrincipal(String roleName, TCSubject requestor, long projectId) throws Exception {
-        roleName = roleName + " " + projectId;
+    private RolePrincipal getRolePrincipal(String roleName, TCSubject requestor) throws Exception {
         RolePrincipal result = (RolePrincipal) rolesCache.get(roleName);
         if (result == null) {
             PrincipalMgrRemote principalMgr = EJBHelper.getPrincipalMgr();
