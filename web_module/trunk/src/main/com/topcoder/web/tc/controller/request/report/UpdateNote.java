@@ -66,7 +66,7 @@ public class UpdateNote extends Base {
                         uTx.begin();
                         long noteId = Long.parseLong(nId);
                         note.removeNote(noteId, DBMS.JTS_OLTP_DATASOURCE_NAME);
-                        userNote.removeUserNote(Long.parseLong(userId), noteId, DBMS.JTS_OLTP_DATASOURCE_NAME));
+                        userNote.removeUserNote(Long.parseLong(userId), noteId, DBMS.JTS_OLTP_DATASOURCE_NAME);
                         uTx.commit();
                     } catch (Exception e) {
                         try {
