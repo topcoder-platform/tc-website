@@ -6,8 +6,8 @@
 %>
 
 <%
-   DataCache dcHome = com.topcoder.common.web.util.Cache.get();
    Navigation nav = (Navigation) session.getAttribute ( "navigation" );
+   if ( nav == null ) nav = new Navigation();
 %>
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
