@@ -60,7 +60,7 @@
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#30" CLASS="bodyText">Who can participate in TopCoder tournaments?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#35" CLASS="bodyText">Why does TopCoder only allow citizens of certain countries to receive prize money for events that pay prizes?</A></TD></TR>
+                        <TR><TD><A HREF="#35" CLASS="bodyText">Can TopCoder members from countries other than the United States win prize money in TopCoder tournaments?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                        
                         <TR><TD><A HREF="#40" CLASS="bodyText">Who are the creators of the "TopCoder" site?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
@@ -175,28 +175,8 @@
                         <TR><TD CLASS="bodyText">Anyone can be a member of TopCoder.  Some tournaments are open to all programmers; others are for specific groups. For instance, the TopCoder 2001 Collegiate Challenge Tournament is targeted very specifically towards residents of the United States who are matriculated full-time at an accredited American college or university. The details of each tournament will outline the elegibility requirements.</TD></TR>
                         <TR><TD CLASS="bodyText" VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
-                        <TR><TD CLASS="bodyText"><A NAME="35"><B>Why does TopCoder only allow citizens of certain countries to receive prize money for events that pay prizes?</B></A></TD></TR>
-                        <TR><TD CLASS="bodyText">TopCoder is currently permitted to distribute prize money for our
-competitions in the following countries:  Australia, Canada (excluding
-Quebec), China, India, Ireland, New Zealand, the United Kingdom, and the United States,
-including the U.S. territories of Guam, Puerto Rico, and the U.S. Virgin
-Islands.  In order to include additional countries, TopCoder must first
-perform a thorough review of the gaming laws in each country to
-determine whether our contests would be considered lawful.  This review
-would include an evaluation of whether our contests would be considered
-a lottery, since we award cash prizes.  It is, as we know, a skills
-contest, however we must review the subtle details of the laws to ensure
-our contests comply with each country's laws.  TopCoder engages a local
-law firm in each country to perform the review, and they report to us
-their findings and opinion as to whether our contests comply with local
-laws.  Their report also includes an affidavit that contest winners must
-execute, as the language in the affidavits varies by country.
-<BR/><BR/>
-TopCoder evaluates the opportunities to open up our competitions to
-other countries based on the representation in our member base.  We must
-also consider language barriers in non-English speaking countries as a
-possible hindrance to performing this process efficiently and
-cost-effectively.</TD></TR>
+                        <TR><TD CLASS="bodyText"><A NAME="35"><B>Can TopCoder members from countries other than the United States win prize money in TopCoder tournaments?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">Prizes in TopCoder tournaments will be paid to those winning members from all countries, except where prohibited by applicable law.  If you are unsure whether you are lawfully permitted to win a cash prize in a skills contest, you should consult an attorney regarding applicable laws.  In addition, you should consult with an accountant and/or tax expert regarding any applicable tax consequences on your winnings.  TopCoder tournaments are void in the Quebec province of Canada, and elsewhere where prohibited by applicable law.  Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan or Syria.</TD></TR>
                         <TR><TD CLASS="bodyText" VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                        
                         <TR><TD CLASS="bodyText"><A NAME="40"><B>Who are the creators of the "TopCoder" site?</B></A></TD></TR>
