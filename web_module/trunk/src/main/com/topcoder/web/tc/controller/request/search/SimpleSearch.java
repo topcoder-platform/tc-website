@@ -4,6 +4,7 @@ import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.MemberSearch;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
@@ -59,13 +60,13 @@ public class SimpleSearch extends Base {
     protected MemberSearch buildMemberSearch() throws Exception {
         MemberSearch ret = new MemberSearch();
 
-        String start = getRequest().getParameter(DataAccessConstants.START_RANK);
-        if (start == null)
+        String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+        if (start.equals(""))
             ret.setStart(new Integer(1));
         else ret.setStart(new Integer(start));
 
-        String end = getRequest().getParameter(DataAccessConstants.END_RANK);
-        if (end == null)
+        String end = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
+        if (end.equals(""))
             ret.setEnd(new Integer(Constants.SEARCH_SCROLL_SIZE));
         else ret.setEnd(new Integer(end));
 
@@ -74,28 +75,28 @@ public class SimpleSearch extends Base {
             ret.setEnd(new Integer(ret.getStart().intValue()+(Constants.SEARCH_SCROLL_SIZE-1)));
         }
 
-        String handle = getRequest().getParameter(Constants.HANDLE);
-        if (handle != null)
+        String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
+        if (!handle.equals(""))
             ret.setHandle(handle);
 
-        String stateCode = getRequest().getParameter(Constants.STATE_CODE);
-        if (stateCode != null)
+        String stateCode = StringUtils.checkNull(getRequest().getParameter(Constants.STATE_CODE);
+        if (!stateCode.equals(""))
             ret.setStateCode(stateCode);
 
-        String minRating = getRequest().getParameter(Constants.MIN_RATING);
-        if (minRating != null)
+        String minRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_RATING);
+        if (!minRating.equals(""))
             ret.setMinRating(new Integer(minRating));
 
-        String maxRating = getRequest().getParameter(Constants.MAX_RATING);
-        if (maxRating != null)
+        String maxRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_RATING);
+        if (!maxRating.equals(""))
             ret.setMaxRating(new Integer(maxRating));
 
-        String minNumRatings = getRequest().getParameter(Constants.MIN_NUM_RATINGS);
-        if (minNumRatings != null)
+        String minNumRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_NUM_RATINGS);
+        if (!minNumRatings.equals(""))
             ret.setMinNumRatings(new Integer(minNumRatings));
 
-        String maxNumRatings = getRequest().getParameter(Constants.MAX_NUM_RATINGS);
-        if (maxNumRatings != null)
+        String maxNumRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_NUM_RATINGS);
+        if (!maxNumRatings.equals(""))
             ret.setMaxNumRatings(new Integer(maxNumRatings));
 
         ret.setStateList(getStateList());
