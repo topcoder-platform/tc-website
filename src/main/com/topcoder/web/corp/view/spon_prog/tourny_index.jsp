@@ -47,11 +47,11 @@
                     <td class="bodyText" width="99%">
                         <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
-                        <h2 class="corpHead">Tournaments</h2>
+                        <h2 class="corpHead">Tournament Package</h2>
 
                         <table cellpadding="10" cellspacing="0" border="0" align="right">
                         <tr><td><table border="0" cellpadding="6" cellspacing="0" class="sidebarBox">
-                            <tr><td class="sidebarTitle">TOURNAMENT LINKS:</td></tr>
+                            <tr><td class="sidebarTitle">TOURNAMENT PACKAGE LINKS:</td></tr>
                             
                             <tr valign="top">
                                 <td class="sidebarText">
@@ -59,9 +59,10 @@
                                     <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_web">Web site coverage</a><br />
                                     <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_applet">Applet coverage</a><br />
                                     <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_email">Email distribution</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_mktg">Tournament marketing</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_onsite">On-site arena</a><br />
+                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_media">Media Coverage</a><br />
+                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_on-site">On-site arena</a><br />
                                     <a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_pr">Public relations</a><br />
+                                    <a href="/i/srm_3pgr.pdf">Download Overview (PDF)</a><br />
                                 </td>
                             </tr>
                         </table></td></tr>
@@ -77,8 +78,8 @@
                             <li>Regional Quarter-Finals - conducted online</li>
                             <li>Regional Finals - conducted online</li>
                             <li>Regional Championship - conducted online</li>
-                            <li>Semifinals - conducted onsite</li>
-                            <li>Championship - conducted onsite</li>
+                            <li>Semifinals - conducted on-site</li>
+                            <li>Championship - conducted on-site</li>
                         </ul>
                     
                         <p>A tournament sponsorship package includes:</p>
@@ -103,8 +104,8 @@
                             to the attention of members, prospective members, media, and more. All of which are co-branded with the 
                             tournament sponsor.</li><br/>
                             
-                            <li><a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_onsite">Onsite Arena</a><br/>
-                            The onsite arena offers several points of co-branding for a sponsor including physical displays/signage, 
+                            <li><a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_on-site">on-site Arena</a><br/>
+                            The on-site arena offers several points of co-branding for a sponsor including physical displays/signage, 
                             space for a sponsor booth, and video promotion.</li><br/>
                             
                             <li><a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_pr">Public Relations</a><br/>
