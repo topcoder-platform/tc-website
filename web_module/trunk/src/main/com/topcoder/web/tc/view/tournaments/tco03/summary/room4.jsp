@@ -123,7 +123,7 @@ first with 1017.54, while tjq was in second with 956.92.
 </p>
 
 <p>
-Everyone gathered 'round the scoreboard and waited with baited breath as systests were run.  First, the results of the
+Everyone gathered 'round the scoreboard and waited with bated breath as systests were run.  First, the results of the
 250 came up, showing that NGBronson failed, while the other coders all passed.  Next, the hourglasses spun, and a big red
 X appeared next to tjq's name, indicating that, despite the resubmission, his 500 still had some problems.  However, the
 loss wasn't that great, since the resubmission had given him a low score.  Finally, after what seemed an eternity,
