@@ -695,8 +695,6 @@ public class Registration
               log.debug ( "NOTIFICATION SET: " + name.substring(NOTIFY_PREFIX.length()) + "=" + value);
             }
             else return false;
-            log.debug("XXX sun confirm again: " + this.sunConfirm);
-            log.debug("XXX sun confirm again: " + getSunConfirm());
         }
         else if (isStep(STEP_2))
         {
@@ -815,9 +813,7 @@ public class Registration
     }
 
     public void setSunConfirm(String value) {
-        log.debug("setSunConfirm to " + value);
-        this.sunConfirm = checkNull(sunConfirm);
-        log.debug("setSunConfirm set to " + this.sunConfirm);
+        this.sunConfirm = checkNull(value);
     }
 
     public void setTerms(String value)
@@ -1838,7 +1834,6 @@ public class Registration
         for (int i=0; i<a.size(); i++) {
           CoderConfirmation c = (CoderConfirmation)a.get(i);
           if (c.getContestId() == SUN_CONTEST_ID) {
-            log.debug("XXX we found it, updated sun confirm code to " + getSunConfirm());
             c.setModified("U");
             c.setCode(getSunConfirm());
             found = true;
@@ -1847,12 +1842,9 @@ public class Registration
         if (!found) {
           CoderConfirmation c = new CoderConfirmation();
           c.setCode(getSunConfirm());
-          log.debug("XXX getSunConfirm: " + getSunConfirm());
-          log.debug("XXX getCode: " + c.getCode());
           c.setContestId(SUN_CONTEST_ID);
           c.setModified("A");
           try {
-            log.debug("XXX sun confirm\n" + c.getXML().getXML(2));
           } catch (Exception e) { e.printStackTrace();}
           a.add(c);
         }
