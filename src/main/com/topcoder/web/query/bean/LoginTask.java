@@ -28,6 +28,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
 
     private HttpSession session;
     private String redirectPage;
+    private boolean displayOnly;
 
     /* Creates a new LoginTask */
     public LoginTask() {
@@ -35,17 +36,19 @@ public class LoginTask extends BaseTask implements Task, Serializable {
         setHandleInput("");
         setPasswordInput("");
         setRedirectPage("");
+        displayOnly = false;
     }
 
 	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         session = request.getSession(true);
         super.setAuthentication(Authentication.getAuthentication(session));
+        displayOnly=request.getQueryString()==null;
     }
 
     public void process(String step) throws Exception {
 
-        if (getHandleInput().length()==0||getPasswordInput().length()==0) {
+        if (displayOnly) {
             setNextPage(Constants.LOGIN_PAGE);
         } else {
             if (!super.getAuthentication().isLoggedIn())
