@@ -162,6 +162,16 @@ public class MainServlet extends HttpServlet {
             }
             fetchRegularPage(request, response, destination, forward);
         }
+        catch(NotAuthorizedException nae) {
+              /* If the user is anonymous and tries to access a static 
+                 directory they are not authorized to access, send them to 
+                 the login page.
+              */
+              log.debug("user anonymous unauthorized to access static resource"
+                        + ", forwarding to login page.");
+              fetchLoginPage(request,response);
+              return;
+        }
         catch(Exception e) {
             log.error("exception during request processing ["
                 +processorName+"]", e
@@ -266,6 +276,9 @@ public class MainServlet extends HttpServlet {
         if( req.getQueryString() != null ) {
             originatingPage += "?"+req.getQueryString();
         }
+
+        log.debug("fetchLoginPage request, orginatingPage = "+originatingPage);
+
         String destParam = 
             com.topcoder.web.corp.request.Login.KEY_DESTINATION_PAGE;
         String loginPage = servletConfig.getInitParameter(
