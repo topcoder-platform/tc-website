@@ -8,13 +8,14 @@ package com.topcoder.security;
  */
 
 //currently not used
+
 public class InvalidPrincipalException extends GeneralSecurityException {
-    
+
     /**
      * Class constructor
      */
     public InvalidPrincipalException() {
-	super();
+        super();
     }
 
     /**
@@ -24,6 +25,6 @@ public class InvalidPrincipalException extends GeneralSecurityException {
      *                specified message that describes the exception
      */
     public InvalidPrincipalException(String message) {
-	super(message);
+        super(message);
     }
 }

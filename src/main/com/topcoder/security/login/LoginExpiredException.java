@@ -13,7 +13,7 @@ public class LoginExpiredException extends GeneralSecurityException {
      * Class constructor
      */
     public LoginExpiredException() {
-	super();
+        super();
     }
 
     /**
@@ -23,7 +23,7 @@ public class LoginExpiredException extends GeneralSecurityException {
      *                specified message that describes the exception
      */
     public LoginExpiredException(String message) {
-	super(message);
+        super(message);
     }
 
 }

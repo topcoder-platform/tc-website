@@ -1,28 +1,27 @@
 package com.topcoder.security;
 
+import com.topcoder.util.config.ConfigManager;
+import com.topcoder.util.config.ConfigManagerException;
+import com.topcoder.util.config.ConfigManagerInterface;
+import org.apache.log4j.Logger;
+
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.sql.*;
-import java.security.cert.Certificate;
-import java.security.KeyStore;
 import java.security.Key;
+import java.security.KeyStore;
 import java.security.Security;
+import java.security.cert.Certificate;
 import java.util.Enumeration;
 import java.util.Vector;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
-import com.topcoder.util.config.*;
-import org.apache.log4j.Logger;
-import org.apache.log4j.BasicConfigurator;
 
-import java.security.MessageDigest;
-import javax.crypto.KeyGenerator;
- 
 /**
  * A bunch of static methods used in various com.topcoder.security (and subpackage)
  * classes.  They do things like execute queries in the database and encoding
- * and decoding passwords (so plain text passwords aren't stored in the db).  Requires 
+ * and decoding passwords (so plain text passwords aren't stored in the db).  Requires
  * ConfigManager properties file.
  *
  * The methods in this class are only intended to be used by classes within
@@ -32,27 +31,28 @@ import javax.crypto.KeyGenerator;
  */
 public class Util implements ConfigManagerInterface {
 
-    private static String PROPERTIES_NAMESPACE="com.topcoder.security.Util";
-    private static String PROPERTIES_FORMAT=ConfigManager.CONFIG_PROPERTIES_FORMAT;
+    private static String PROPERTIES_NAMESPACE = "com.topcoder.security.Util";
+    private static String PROPERTIES_FORMAT = ConfigManager.CONFIG_PROPERTIES_FORMAT;
     private static Logger logger = Logger.getLogger(Util.class);
     private static String base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
     //Supplies encryption provider
     static {
-         Security.addProvider(new com.sun.crypto.provider.SunJCE());
+        Security.addProvider(new com.sun.crypto.provider.SunJCE());
     }
-    
+
     /**
      * @return The ConfigManager for this namespace
      */
-    public static ConfigManager getConfigManager() 
-        throws ConfigManagerException {
-        
+    public static ConfigManager getConfigManager()
+            throws ConfigManagerException {
+
         //logger.debug("in getConfigManager");
         ConfigManager cm = ConfigManager.getInstance();
         //logger.debug("got ConfigManager");
         try {
             if (cm.existsNamespace(PROPERTIES_NAMESPACE)) {
-            	//logger.debug("getConfigManager if");
+                //logger.debug("getConfigManager if");
                 cm.refresh(PROPERTIES_NAMESPACE);
             } else {
                 //logger.debug("getConfigManager else");
@@ -65,16 +65,16 @@ public class Util implements ConfigManagerInterface {
         logger.debug("getConfigManager - got cm");
         return cm;
     }
-    
+
     /**
      * Get the particular property from the config manager
-     * 
+     *
      * @param property
      * @return The string property value
      */
-    public static String getProperty(String property) 
-        throws GeneralSecurityException { 
-        
+    public static String getProperty(String property)
+            throws GeneralSecurityException {
+
         logger.debug("Util - getProperty");
         try {
             ConfigManager cm = getConfigManager();
@@ -84,13 +84,13 @@ public class Util implements ConfigManagerInterface {
             throw new GeneralSecurityException("" + e);
         }
     }
-    
+
     /**
      * Part of <code>ConfigManagerInterface</code>
      *
      * @return current namespace
      */
-    public String getNamespace(){
+    public String getNamespace() {
         return PROPERTIES_NAMESPACE;
     }
 
@@ -99,9 +99,8 @@ public class Util implements ConfigManagerInterface {
      *
      * @return all known property keys in this namespace
      */
-    public Enumeration getConfigPropNames()
-    {
-        Vector propNames=new Vector();
+    public Enumeration getConfigPropNames() {
+        Vector propNames = new Vector();
         propNames.add("keystore");
         propNames.add("kspassword");
         propNames.add("keystring");
@@ -111,16 +110,16 @@ public class Util implements ConfigManagerInterface {
     /**
      * Gets the key tied to the given alias.  If the key does not already
      * exist, create and store it.  The alias is used to look up the key
-     * in the keystore.  The location of the keystore is dependent on 
+     * in the keystore.  The location of the keystore is dependent on
      * configuration settings in this class's .properties file.
      *
-     * @param alias Used to store and lookup a particular key within a 
+     * @param alias Used to store and lookup a particular key within a
      *              keystore
      * @return Returns a Key
      */
-    private static Key loadKey(String alias) 
-        throws ConfigManagerException, GeneralSecurityException {
-        
+    private static Key loadKey(String alias)
+            throws ConfigManagerException, GeneralSecurityException {
+
         KeyStore ks;
         Key key;
         logger.debug("Util - loadKey");
@@ -152,18 +151,18 @@ public class Util implements ConfigManagerInterface {
     }
 
     /**
-     * Store a KeyStore.  This is called if a new key has to be created and 
-     * stored.  The location of the keystore is dependent on 
+     * Store a KeyStore.  This is called if a new key has to be created and
+     * stored.  The location of the keystore is dependent on
      * configuration settings in this class's .properties file.  Uses the
      * Blowfish algorithm and its default initialization to generate a key.
      *
      * @param ks
-     * @param alias Used to store and lookup a particular key within a 
+     * @param alias Used to store and lookup a particular key within a
      *              keystore
      */
-    private static Key storeKeyStore(KeyStore ks, String alias) 
-        throws ConfigManagerException, GeneralSecurityException {
-        
+    private static Key storeKeyStore(KeyStore ks, String alias)
+            throws ConfigManagerException, GeneralSecurityException {
+
         logger.debug("in storeKeyStore");
         ConfigManager cm = getConfigManager();
         String keyStoreFileName = getProperty("keystore");
@@ -174,7 +173,7 @@ public class Util implements ConfigManagerInterface {
             Key skey = kgen.generateKey();
             byte[] raw = skey.getEncoded();
             SecretKeySpec skeySpec = new SecretKeySpec(raw, "Blowfish");
-            
+
             //logger.debug("storeKeyStore key");
             Certificate[] chain = new Certificate[0];
             //logger.debug("in storeKeyStore try");
@@ -189,9 +188,9 @@ public class Util implements ConfigManagerInterface {
             throw new GeneralSecurityException("Password encryption error in com.topcoder.security.Util.storeKeyStore: " + e.getMessage());
         }
     }
-    
+
     /**
-     * Depending on cipherMode, encrypt or decrypt password using the key 
+     * Depending on cipherMode, encrypt or decrypt password using the key
      * retrieved or created with alias
      *
      * @param password
@@ -199,9 +198,9 @@ public class Util implements ConfigManagerInterface {
      * @param cipherMode
      * @return Returns the encrypted or decrypted password string
      */
-    private static byte[] encdec(byte[] passwd, String alias, int cipherMode) 
-        throws ConfigManagerException, GeneralSecurityException {
-        
+    private static byte[] encdec(byte[] passwd, String alias, int cipherMode)
+            throws ConfigManagerException, GeneralSecurityException {
+
         logger.debug("in encdec");
         Key key = loadKey(alias);
         //logger.debug("encdec - got key");
@@ -217,28 +216,28 @@ public class Util implements ConfigManagerInterface {
             //logger.debug("encdec - doFinal");
             //logger.debug("encPasswd.length: " + encPasswd.length);
             return encPasswd;
-       } catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             throw new GeneralSecurityException("Password encrption error in com.topcoder.security.Util.encdec: " + e.getMessage());
         }
     }
-    
+
     /**
-     * Encrypt the password using the key tied to alias.  After being 
-     * encrypted with a Blowfish key. the encrypted byte array is then 
+     * Encrypt the password using the key tied to alias.  After being
+     * encrypted with a Blowfish key. the encrypted byte array is then
      * encoded with a base 64 encoding, resulting in the String that is
      * returned.
-     * 
+     *
      * @param password
      * @param alias Used to look up a particular key within a keystore.  The
      *              location of the keystore is specified in a configuration
      *              file.
      * @return the encrypted and encoded password
      */
-    public static String encodePassword(String password, String alias) 
-        throws GeneralSecurityException {
+    public static String encodePassword(String password, String alias)
+            throws GeneralSecurityException {
         logger.debug("in encodePassword");
-        
+
         byte[] passwd = password.getBytes();
         try {
             byte[] encPasswd = encdec(passwd, alias, Cipher.ENCRYPT_MODE);
@@ -247,21 +246,21 @@ public class Util implements ConfigManagerInterface {
             throw new GeneralSecurityException("ConfigManagerException in com.topcoder.security.Util.encodePassword: " + e.getMessage());
         }
     }
-    
+
     /**
      * Decrypt the password using the key tied to alias.  Takes a password
      * that has been ecrypted and encoded, uses base 64 decoding to return
      * an ecypted byte array.  That byte array is then decrypted using a
      * Blowfish key into the original string.
-     * 
+     *
      * @param password base 64 encoded String.
      * @param alias Used to look up a particular key within a keystore.  The
      *              location of the keystore is specified in a configuration
      *              file.
      * @return the decypted password
      */
-    public static String decodePassword(String password, String alias) 
-        throws GeneralSecurityException {
+    public static String decodePassword(String password, String alias)
+            throws GeneralSecurityException {
 
         //byte[] passwd = decode(trimExtra(password));
         byte[] passwd = decode64(password);
@@ -275,7 +274,7 @@ public class Util implements ConfigManagerInterface {
     }
 
     /**
-     * Decode a string that was encoded using a base 64 encoding into its 
+     * Decode a string that was encoded using a base 64 encoding into its
      * original bytes.
      *
      * @param s The String to be decoded
@@ -294,7 +293,7 @@ public class Util implements ConfigManagerInterface {
             int value = (c == (int) '=') ? -2 : ((c <= 255) ? base64.indexOf(c) : -1);
             if (value == -2) {
                 value = 0;
-                dummies ++;
+                dummies++;
             }
             if (value != -1) {
                 if (cycle == 0) {
@@ -324,7 +323,7 @@ public class Util implements ConfigManagerInterface {
         }
         return b;
     }
-       
+
     /**
      * Encode a byte array into a String using base 64 encoding.
      *
@@ -335,10 +334,10 @@ public class Util implements ConfigManagerInterface {
 
         int outputlength = ((b.length + 2) / 3) * 4;
         StringBuffer sb = new StringBuffer(outputlength);
-        
+
         int len = (b.length / 3) * 3;
         int leftover = b.length - len;
-        
+
         for (int i = 0; i < len; i += 3) {
             //get next three bytes in unsigned form lined up
             int combined = b[i] & 0xff;
@@ -346,7 +345,7 @@ public class Util implements ConfigManagerInterface {
             combined |= b[i + 1] & 0xff;
             combined <<= 8;
             combined |= b[i + 2] & 0xff;
-            
+
             //break those 24 bits into 4 groups of 6 bits
             int c3 = combined & 0x3f;
             combined >>>= 6;
@@ -363,14 +362,14 @@ public class Util implements ConfigManagerInterface {
             sb.append(base64.charAt(c3));
         }
         if (leftover == 1) {
-            sb.append(encode64(new byte[] {b[len], 0, 0}
-                             ).substring(0,2));
+            sb.append(encode64(new byte[]{b[len], 0, 0}
+            ).substring(0, 2));
             sb.append("==");
         } else if (leftover == 2) {
-            sb.append(encode64(new byte[] {b[len], b[len+1], 0}
-                            ).substring(0,3));
+            sb.append(encode64(new byte[]{b[len], b[len + 1], 0}
+            ).substring(0, 3));
             sb.append("=");
-        }     
+        }
         return sb.toString();
     }
 }

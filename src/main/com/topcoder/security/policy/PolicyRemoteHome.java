@@ -1,9 +1,8 @@
 package com.topcoder.security.policy;
 
-import java.rmi.RemoteException;
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
-import com.topcoder.security.GeneralSecurityException;
+import java.rmi.RemoteException;
 
 /**
  * The Session EJB is a proxy to the Policy object. This should be used by EJB clients.
@@ -13,9 +12,9 @@ import com.topcoder.security.GeneralSecurityException;
  */
 public interface PolicyRemoteHome extends javax.ejb.EJBHome {
 
-    public static final String EJB_REF_NAME="security/Policy";
+    public static final String EJB_REF_NAME = "security/Policy";
 
     public PolicyRemote create()
-        throws RemoteException, CreateException, EJBException;
+            throws RemoteException, CreateException, EJBException;
 
 }

@@ -8,8 +8,9 @@ package com.topcoder.security;
  */
 
 //currently not used
+
 public class NoSuchGroupException extends GeneralSecurityException {
-    
+
     /**
      * Class constructor
      */

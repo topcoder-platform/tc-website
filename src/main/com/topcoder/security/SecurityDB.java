@@ -13,6 +13,7 @@ public class SecurityDB {
     public static final int maxGroupnameLength = 254;
     public static final int maxRolenameLength = 254;
 
-    private SecurityDB() {}
+    private SecurityDB() {
+    }
 
 }

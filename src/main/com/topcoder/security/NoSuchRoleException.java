@@ -8,8 +8,9 @@ package com.topcoder.security;
  */
 
 //currently not used
+
 public class NoSuchRoleException extends GeneralSecurityException {
-    
+
     /**
      * Class constructor
      */
@@ -24,6 +25,6 @@ public class NoSuchRoleException extends GeneralSecurityException {
      *                specified message that describes the exception
      */
     public NoSuchRoleException(String message) {
-        super(message); 
+        super(message);
     }
 }

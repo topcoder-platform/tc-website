@@ -1,14 +1,16 @@
 package com.topcoder.security;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
- * TCSubject represents all of the principals that can be used to resolve 
- * permissions.  For the purposes of this application, only roles will be used to 
- * resolve permissions. When the user logs into the application, the TCSubject 
- * should be populated with all roles that the user is associated with. That will 
- * include role assignments to the user and to any user groups that the user is a 
+ * TCSubject represents all of the principals that can be used to resolve
+ * permissions.  For the purposes of this application, only roles will be used to
+ * resolve permissions. When the user logs into the application, the TCSubject
+ * should be populated with all roles that the user is associated with. That will
+ * include role assignments to the user and to any user groups that the user is a
  * member.
  *
  * @author Heather Van Aelst
@@ -20,7 +22,7 @@ public class TCSubject implements Serializable {
     private long userid;
 
     /**
-     * Construct a TCSubject.  This represents a user's set of roles.  
+     * Construct a TCSubject.  This represents a user's set of roles.
      *
      * @param principals The list of principals that represent this user's roles.
      *                   principals can be null, but it can not contain null as an
@@ -54,9 +56,9 @@ public class TCSubject implements Serializable {
 
     /**
      * @return Returns a Set of the principals (RolePrincipals) that represent
-     *         this user's roles. 
+     *         this user's roles.
      */
-    public synchronized Set getPrincipals () {
+    public synchronized Set getPrincipals() {
         Set copy = new HashSet();
         Iterator iterator = principals.iterator();
         while (iterator.hasNext()) {
@@ -70,12 +72,12 @@ public class TCSubject implements Serializable {
       If so, why not just call admin.assignRole?  Should this call admin.assignRole?
     */
     /**
-     * Add a principal.  
+     * Add a principal.
      *
      * @param principal TCPrincipal to add to this TCSubject's principals.  Can not
      *                  be null.
      */
-    public synchronized void addPrincipal (TCPrincipal principal) {
+    public synchronized void addPrincipal(TCPrincipal principal) {
         if (principal == null) {
             throw new IllegalArgumentException("can not add a null principal");
         }
@@ -83,12 +85,12 @@ public class TCSubject implements Serializable {
     }
 
     /**
-     * Remove a principal.  
+     * Remove a principal.
      *
      * @param principal TCPrincipal to remove from this TCSubject's principals.  Can
      *                  not be null.
      */
-    public synchronized void removePrincipal (TCPrincipal principal) {
+    public synchronized void removePrincipal(TCPrincipal principal) {
         if (principal == null) {
             throw new IllegalArgumentException("can not remove a null principal");
         }
@@ -100,15 +102,16 @@ public class TCSubject implements Serializable {
      *
      * @return Return's this user's id (login_id)
      */
-    public long getUserId () {
+    public long getUserId() {
         return userid;
     }
+
     /**
      * Set the userid
      *
      * @param userid the user's new id
      */
-    public void setUserId (long userid) {
+    public void setUserId(long userid) {
         this.userid = userid;
     }
 

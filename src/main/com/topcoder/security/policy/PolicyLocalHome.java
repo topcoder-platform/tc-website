@@ -1,8 +1,7 @@
 package com.topcoder.security.policy;
 
-import javax.ejb.EJBException;
 import javax.ejb.CreateException;
-import com.topcoder.security.GeneralSecurityException;
+import javax.ejb.EJBException;
 
 /**
  * The Session EJB is a proxy to the Policy object. This should be used by EJB clients.
@@ -12,7 +11,7 @@ import com.topcoder.security.GeneralSecurityException;
  */
 public interface PolicyLocalHome extends javax.ejb.EJBLocalHome {
 
-    public static final String EJB_REF_NAME="java:comp/env/ejb/security/PolicyEJB";
+    public static final String EJB_REF_NAME = "java:comp/env/ejb/security/PolicyEJB";
 
     public PolicyLocal create() throws EJBException, CreateException;
 
