@@ -116,7 +116,7 @@
                                             <h2>Intel<sup>&#174;</sup> Centrino&#153; Mobile Technology-based Tablet PC Quick Specs</h2>
                                         </td>
                                         <td align="left" valign="middle">
-                                            <img src="/i/tournament/tco04/intel_tablet.jpg" width="216" height="167" border="0">
+                                            <img src="/i/tournament/tco04/intel_tablet.jpg" width="216" height="167" border="0"/>
                                         </td>
                                     </tr>
                                     </table>
