@@ -50,10 +50,16 @@
 				<TR>
 					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
-					  Starting in February 2002, TopCoder will donate $500 of the total prize purse of each Single Round Match to one of the charities listed below. At the conclusion of each match, TopCoder will randomly select a room number.  The winner of that room will choose the charity to receive the donation.<BR/><BR/>
+					  <P>
+On Occasion, TopCoder will allow the substitution of prize money (during an event with a cash payment) with a charitable donation for any
+					  members who are not eligible to receive prizes. The follow list of charities, based on the list of America's Top 100 Charities posted at worth.com,
+					  are the charities to which TopCoder will allow donations in these circumstances.
+</P>
+
+					  <!-- Starting in February 2002, TopCoder will donate $500 of the total prize purse of each Single Round Match to one of the charities listed below. At the conclusion of each match, TopCoder will randomly select a room number.  The winner of that room will choose the charity to receive the donation.<BR/><BR/>
 					  In the event of a tie in the room chosen, each winner will choose a charity.  The $500 will be split equally amongst the charities selected.<BR/><BR/>
 					  In the event that there are no positive point finishers in the room, TopCoder will randomly select another room.<BR/><BR/>
-					  Based on the list of America's Top 100 Charities posted at Worth.com<UL>
+					  Based on the list of America's Top 100 Charities posted at Worth.com --><UL>
 						<LI><A HREF="http://www.accion.org" CLASS="bodyText">ACCION</A></LI>
 						<LI><A HREF="http://www.alz.org" CLASS="bodyText">ALZHEIMER'S ASSOCIATION</A></LI>
 						<LI><A HREF="http://www.cancer.org" CLASS="bodyText">AMERICAN CANCER SOCIETY</A></LI>

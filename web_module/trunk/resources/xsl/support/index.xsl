@@ -60,7 +60,7 @@
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#30" CLASS="bodyText">Who can participate in TopCoder tournaments?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#35" CLASS="bodyText">Why doesn't TopCoder allow citizens of all countries to participate in TopCoder competitions for prize money?</A></TD></TR>
+                        <TR><TD><A HREF="#35" CLASS="bodyText">Why does TopCoder only allow citizens of certain countries to receive prize money for events that pay prizes?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                        
                         <TR><TD><A HREF="#40" CLASS="bodyText">Who are the creators of the "TopCoder" site?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
@@ -74,7 +74,7 @@
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#67" CLASS="bodyText">Who owns the source code that I write during tournaments?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#70" CLASS="bodyText">Who's supplying the prizes?</A></TD></TR>
+                        <TR><TD><A HREF="#70" CLASS="bodyText">Who supplies the prizes for TopCoder events that pay prizes?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#80" CLASS="bodyText">How does the rating system work?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
@@ -149,7 +149,7 @@
                         <TR><TD CLASS="bodyText">Anyone can be a member of TopCoder.  Some tournaments are open to all programmers; others are for specific groups. For instance, the TopCoder 2001 Collegiate Challenge Tournament is targeted very specifically towards residents of the United States who are matriculated full-time at an accredited American college or university. The details of each tournament will outline the elegibility requirements.</TD></TR>
                         <TR><TD CLASS="bodyText" VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
-                        <TR><TD CLASS="bodyText"><A NAME="35"><B>Why doesn't TopCoder allow citizens of all countries to participate in TopCoder competitions for prize money?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText"><A NAME="35"><B>Why does TopCoder only allow citizens of certain countries to receive prize money for events that pay prizes?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">TopCoder is currently permitted to distribute prize money for our
 competitions in the following countries:  Australia, Canada (excluding
 Quebec), China, India, Ireland, New Zealand, the United Kingdom, and the United States,
@@ -203,7 +203,7 @@ cost-effectively.</TD></TR>
                         <TR><TD CLASS="bodyText">The coder.  Our Terms of Use agreement basically specifies that the coder who submits any source code to TopCoder owns the code.  We simply require that we can display the source code for the normal course of the tournaments.  The actual source code is viewable during certain parts of the competition to competitors and spectators. You can read the complete Terms of Use agreement <A HREF="/?c=terms" CLASS="bodyText">here</A>.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
-                        <TR><TD CLASS="bodyText"><A NAME="70"><B>Who's supplying the prizes?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText"><A NAME="70"><B>Who supplies the prizes for TopCoder events that pay prizes?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">At first the tournaments will be sponsored exclusively by TopCoder, Inc. Future tournaments will be jointly or exclusively sponsored by companies interested in supporting programmers and promoting themselves (as employers) or their products.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
