@@ -65,7 +65,21 @@ public class LoginCommand implements TCESCommand, Serializable {
 					 	  	   InitialContext ctx,
 					 	  	   ServletContext servCtx)  throws Exception
 	{
-/*
+		if (isStepView) {
+			viewLogin(request,response,ctx,servCtx);
+			return;
+		}
+
+		if (isStepAuth) {
+			viewAuth(request,response,ctx,servCtx);
+			return;
+		}
+	}
+
+
+	public void viewAuth(HttpServletRequest request, HttpServletResponse response,
+					 	  	   InitialContext ctx, ServletContext servCtx)  throws Exception
+	{
         String handle = request.getParameter(TCESConstants.HANDLE_PARAM);
         String password = request.getParameter(TCESConstants.PASSWORD_PARAM);
 
@@ -110,17 +124,14 @@ public class LoginCommand implements TCESCommand, Serializable {
 		}
 
 		HttpSession session = request.getSession(true);
-		Navigation nav = setupSession(request, response, session);
+		session.setAttribute( "user_id", new Integer(TCData.getTCInt(rRow,"user_id")) );
+		request.setAttribute("LoginCommand",this);
+	}
 
-		UserServicesHome userServicesHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-		UserServices userServicesEJB = (UserServices) userServicesHome.findByPrimaryKey(TCData.getTCInteger(rRow,"user_id"));
-		user = userServicesEJB.getUser();
-
-		nav.setUserId(user.getUserId());
-		nav.setUser(user);
-		nav.setLoggedIn(true);
-
-		request.setAttribute(TCESConstants.MSG_ATTR_KEY,new String("Login OK!"));*/
+	public void viewLogin(HttpServletRequest request, HttpServletResponse response,
+					 	  	   InitialContext ctx, ServletContext servCtx)  throws Exception
+	{
+		if (log!=null) log.debug("LoginCommand: forwarding to login page...");
 
 		servCtx.getContext("/").getRequestDispatcher(
 			response.encodeURL("/es/login.jsp")).forward(request, response);
