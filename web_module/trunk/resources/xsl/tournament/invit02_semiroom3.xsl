@@ -77,7 +77,7 @@
             </TR>                                             
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
-<P><IMG SRC="/i/2002tccc/tourney_photo2.jpg" ALT="" WIDTH="200" HEIGHT="450" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
+<P><IMG SRC="/i/tournament/invit02/tourney_photo2.jpg" ALT="" WIDTH="200" HEIGHT="450" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
 <FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Title goes here</B></FONT><BR/>
 <I>Well rested derkuci advances to finals.</I><BR/><BR/>
 Friday, April 19, 2002<BR/>
@@ -118,38 +118,38 @@ eleifend option congue nihil imperdiet doming id quod mazim placerat facer possi
             </TR>                                             
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center">
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR101.jpg');"><IMG SRC="/i/2002tccc/SFR101_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR102.jpg');"><IMG SRC="/i/2002tccc/SFR102_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR103.jpg');"><IMG SRC="/i/2002tccc/SFR103_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR104.jpg');"><IMG SRC="/i/2002tccc/SFR104_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR105.jpg');"><IMG SRC="/i/2002tccc/SFR105_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR101.jpg');"><IMG SRC="/i/tournament/invit02/SFR101_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR102.jpg');"><IMG SRC="/i/tournament/invit02/SFR102_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR103.jpg');"><IMG SRC="/i/tournament/invit02/SFR103_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR104.jpg');"><IMG SRC="/i/tournament/invit02/SFR104_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR105.jpg');"><IMG SRC="/i/tournament/invit02/SFR105_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
               </TD>
             </TR>
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="#000000">
 	<TR>
-		<TD><IMG SRC="/i/2002tccc/SFR101.jpg" NAME="bigVersion" WIDTH="432" HEIGHT="288" BORDER="0"/></TD>
+		<TD><IMG SRC="/i/tournament/invit02/SFR101.jpg" NAME="bigVersion" WIDTH="432" HEIGHT="288" BORDER="0"/></TD>
 	</TR>
 </TABLE>
               <BR/></TD>
             </TR>            
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center">
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR106.jpg');"><IMG SRC="/i/2002tccc/SFR106_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR107.jpg');"><IMG SRC="/i/2002tccc/SFR107_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR108.jpg');"><IMG SRC="/i/2002tccc/SFR108_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR107.jpg');"><IMG SRC="/i/2002tccc/SFR107_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR108.jpg');"><IMG SRC="/i/2002tccc/SFR108_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>              
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR106.jpg');"><IMG SRC="/i/tournament/invit02/SFR106_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR107.jpg');"><IMG SRC="/i/tournament/invit02/SFR107_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR108.jpg');"><IMG SRC="/i/tournament/invit02/SFR108_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR107.jpg');"><IMG SRC="/i/tournament/invit02/SFR107_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR108.jpg');"><IMG SRC="/i/tournament/invit02/SFR108_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>              
               </TD>
             </TR>
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center">
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR101.jpg');"><IMG SRC="/i/2002tccc/SFR101_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR102.jpg');"><IMG SRC="/i/2002tccc/SFR102_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR103.jpg');"><IMG SRC="/i/2002tccc/SFR103_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR104.jpg');"><IMG SRC="/i/2002tccc/SFR104_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
-<A HREF="Javascript:void changeImage('bigVersion', '/i/2002tccc/SFR105.jpg');"><IMG SRC="/i/2002tccc/SFR105_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR101.jpg');"><IMG SRC="/i/tournament/invit02/SFR101_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR102.jpg');"><IMG SRC="/i/tournament/invit02/SFR102_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR103.jpg');"><IMG SRC="/i/tournament/invit02/SFR103_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR104.jpg');"><IMG SRC="/i/tournament/invit02/SFR104_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>
+<A HREF="Javascript:void changeImage('bigVersion', '/i/tournament/invit02/SFR105.jpg');"><IMG SRC="/i/tournament/invit02/SFR105_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="4" HSPACE="4" BORDER="0"/></A>             
               </TD>
             </TR>              
           </TABLE>
