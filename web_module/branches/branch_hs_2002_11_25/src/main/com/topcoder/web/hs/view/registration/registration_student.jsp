@@ -164,7 +164,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Re-type Email&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="confirm_email" VALUE="<jsp:getProperty name="student" property="Email"/>" SIZE="30" MAXLENGTH="100"></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="confirm_email" VALUE="<jsp:getProperty name="student" property="ConfirmEmail"/>" SIZE="30" MAXLENGTH="100"></TD>
   </TR>
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">&nbsp;</TD>
