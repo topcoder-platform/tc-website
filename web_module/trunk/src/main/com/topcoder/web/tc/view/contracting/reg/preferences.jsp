@@ -79,7 +79,7 @@ return false;
 		
 		<FORM ACTION="/tc" METHOD=POST onSubmit="" enctype="multipart/form-data" name="frmPref">
 		<input type="hidden" name="module" value="ContractingLanguages"/>
-		<input type="hidden" name="dataToLoad" value="preferences" />
+		<input type="hidden" name="previouspage" value="preferences" />
 		
 		<tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
                     <span class=bodySubtitle><%=prefGroup.getName()%></span>
@@ -88,6 +88,13 @@ return false;
                         <%String[] cssClasses = new String[] {"formTextEven", "formTextOdd" };
                           int i = 0;%>
                         <tc:preferenceIterator id="pref" list="<%=prefGroup.getPrefs()%>">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.PREFERENCE_PREFIX + pref.getID()%>">
+                            <tr>
+                                <td width="100%" align=center class=<%=cssClasses[i % 2]%>>
+                                    <%=err%>
+                                </td>
+                            </tr>
+                        </tc-webtag:errorIterator>
                         <tr>
                                 <%if(pref.getType() == Constants.PREFERENCE_MULTIPLE_ANSWER) { %>
 				<td width="100%" class=<%=cssClasses[i % 2]%>><%=pref.getText()%>:</td>
