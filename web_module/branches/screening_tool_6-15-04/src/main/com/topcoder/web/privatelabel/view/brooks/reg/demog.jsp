@@ -51,7 +51,8 @@
                                 <td class="brRegTableQuestion">
                                 <%if(question.isRequired()) {%><span class="brErrorText">*</span><%}%>
                                     <%=question.getText()%>
-                                <%if(question.getId() == Constants.QUESTION_AREAS_OF_INTEREST) { %> (Choose up to 3) <% } %>
+                                <%if(question.getId() == Constants.QUESTION_AREAS_OF_INTEREST) { %> (Choose up to 3) <br>
+                                To select multiple items hold down the Control key and click on each item.<% } %>
                                 </td>
                                 <td class="brRegTableAnswer">
                                     <pl:demographicInput question="<%=question%>"/>
