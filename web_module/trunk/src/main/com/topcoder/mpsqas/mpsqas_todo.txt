@@ -15,6 +15,8 @@
 
 *********** ADDITIONAL FUNCTIONALITY ***************
 
+- do the colors for peoples handles
+
 - separate proposal and submission, add statement preview
 
 - allow me to select multiple rows from the different tables and hit <ctrl>+c so that i can copy the info
