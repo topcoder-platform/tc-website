@@ -23,7 +23,7 @@ public final class StringUtils {
     public static final String ALPHABET_DIGITS_EN = "0123456789";
     public static final String ALPHABET_ZIPCODE_EN = "0123456789-";
 
-    public static final String ALPHABET_PUNCTUATION_EN = "-,.";
+    public static final String ALPHABET_PUNCTUATION_EN = "-,._";
 
     public static final String ALPHABET_ALPHA_PUNCT_EN =
             ALPHABET_ALPHA_EN +
@@ -47,7 +47,7 @@ public final class StringUtils {
 
     public static final String ALPHABET_HEX_UPPER = "0123456789ABCDEF";
     public static final String ALPHABET_PHONE_NUMBER = " -0123456789()+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.";
-    public static final String ALPHABET_USERNAME_EN = ALPHABET_ALPHA_NUM_EN;
+    public static final String ALPHABET_USERNAME_EN = ALPHABET_ALPHA_NUM_EN+"!";
 
     /**
      * Checks if string has all its characters in alphabet given.
