@@ -5,16 +5,17 @@
   <xsl:import href="modules/my_stats.xsl"/>
   <!-- <xsl:import href="../includes/modules/module_login.xsl"/> -->   
   <xsl:template name="public_right_col">
-                <xsl:choose>
+  <xsl:call-template name="calendar"/>  
+                <!-- <xsl:choose>
                   <xsl:when test="/TC/LoggedIn='true'">
                      <xsl:call-template name="my_stats"/>
                      <xsl:call-template name="calendar"/>
                   </xsl:when>                  
                   <xsl:otherwise>
-                     <!-- <xsl:call-template name="module_login"/>
-                     <xsl:call-template name="practice_room"/> -->
+                     <xsl:call-template name="module_login"/>
+                     
                      <xsl:call-template name="calendar"/>
                   </xsl:otherwise>
-                </xsl:choose> 
+                </xsl:choose>  -->
   </xsl:template>
 </xsl:stylesheet>

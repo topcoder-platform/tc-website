@@ -3,7 +3,7 @@
   <xsl:template name="TopMenu">
     <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
       <TR>
-        <!-- <TD CLASS="registerNav" WIDTH="15" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD> -->
+        <!-- <TD HEIGHT="21" BGCOLOR="#000000" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/></TD> -->
         <TD CLASS="registerNav" WIDTH="114" HEIGHT="21" BACKGROUND="/i/steel_gray_bg.gif">
           <xsl:choose>
             <xsl:when test="/TC/LoggedIn='true'">
@@ -34,18 +34,15 @@
             </IMG>
           </A>                  
           <A onMouseOver="changeImages('image2', 'image2on')" onMouseOut="changeImages('image2', 'image2off')" TARGET="_parent">
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>
-            <IMG NAME="image2" ALT="Schedule" WIDTH="69" HEIGHT="21" BORDER="0">
-              <xsl:attribute name="SRC">/i/menu_sched_<xsl:choose><xsl:when test="/TC/Task='schedule'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
+            <IMG NAME="image2" ALT="TCES" WIDTH="187" HEIGHT="21" BORDER="0">
+              <xsl:attribute name="SRC">/i/menu_tces_<xsl:choose><xsl:when test="/TC/Task='tces'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             </IMG>
           </A>         
-          <A onMouseOver="changeImages('image4', 'image4on')" onMouseOut="changeImages('image4', 'image4off')" TARGET="_parent">
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute>
-            <IMG NAME="image4" ALT="Statistics" WIDTH="69" HEIGHT="21" BORDER="0">
-              <xsl:attribute name="SRC">/i/menu_stats_<xsl:choose><xsl:when test="/TC/Task='statistics'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-            </IMG>
+          <A HREF="http://www.topcodersoftware.com" onMouseOver="changeImages('image4', 'image4on')" onMouseOut="changeImages('image4', 'image4off')" TARGET="_blank">
+            <IMG SRC="/i/menu_tcs_off.gif" NAME="image4" ALT="TCS" WIDTH="128" HEIGHT="21" BORDER="0"/>
           </A>
-          <A onMouseOver="changeImages('image5', 'image5on')" onMouseOut="changeImages('image5', 'image5off')" TARGET="_parent">
+          <!-- <A onMouseOver="changeImages('image5', 'image5on')" onMouseOut="changeImages('image5', 'image5off')" TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/index.jsp</xsl:attribute>
             <IMG NAME="image5" SRC="/i/menu_rounds_off.gif" ALT="Round Tables" WIDTH="90" HEIGHT="21" BORDER="0"/>
           </A>          
@@ -66,7 +63,7 @@
             <IMG NAME="image9" ALT="Support/FAQs" WIDTH="90" HEIGHT="21" BORDER="0">
               <xsl:attribute name="SRC">/i/menu_support_<xsl:choose><xsl:when test="/TC/Task='support'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             </IMG>
-          </A>
+          </A> -->
         </TD>
         <!-- <TD WIDTH="5" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000" ALIGN="right">
           <IMG SRC="/i/top_bar_right.gif" WIDTH="5" HEIGHT="21" BORDER="0"/>

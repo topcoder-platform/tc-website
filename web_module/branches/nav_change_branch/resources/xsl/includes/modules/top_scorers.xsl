@@ -3,15 +3,15 @@
   <xsl:template name="top_scorers">    
     <xsl:param name="division"></xsl:param>
     <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-        <TR>
-          <!--<TD COLSPAN="8"><IMG SRC="/i/label_room_winners.gif" HEIGHT="17" WIDTH="166" BORDER="0"/></TD>-->
+       <!-- <TR>
+          <TD COLSPAN="8"><IMG SRC="/i/label_room_winners.gif" HEIGHT="17" WIDTH="166" BORDER="0"/></TD>
           <TD COLSPAN="8"><IMG SRC="/i/clear.gif" HEIGHT="17" WIDTH="166" BORDER="0"/></TD>
         </TR>        
         <TR>
           <TD BGCOLOR="#FFFFFF" COLSPAN="8" WIDTH="100%"><IMG HEIGHT="1" WIDTH="1" SRC="/i/clear.gif"/></TD>
-        </TR>        
+        </TR> -->       
         <TR>
-          <TD COLSPAN="8"><IMG HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"/></TD>
+          <TD COLSPAN="8"><IMG HEIGHT="17" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
         <TR>
           <xsl:choose>

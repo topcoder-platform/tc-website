@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:template name="calendar">
-            <TABLE BGCOLOR="#333333" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+  <xsl:template name="calendar_apr02">
+            <TABLE BGCOLOR="#333333" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="170" BORDER="0" CELLSPACING="0" CELLPADDING="1">
 				<TR> 
          			<TD VALIGN="top">
             			<TABLE WIDTH="100%" BORDER="0" CELLSPACING="1" CELLPADDING="0">
@@ -51,12 +51,12 @@
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/stat?c=round_stats&amp;rd=4135" CLASS="smallText">24</A></TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">25</TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">26</TD>
-                				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?ContestId=4136&amp;t=schedule&amp;c=srm" CLASS="smallText">27</A></TD>
+                				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/stat?c=round_stats&amp;rd=4136" CLASS="smallText">27</A></TD>
               				</TR>
               				<TR> 
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">28</TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">29</TD>
-                				<TD BGCOLOR="#666666" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?ContestId=4140&amp;t=schedule&amp;c=srm" CLASS="smallFoot">30</A></TD>
+                				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/stat?c=round_stats&amp;rd=4140" CLASS="smallText">30</A></TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                	 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
@@ -74,9 +74,9 @@
 						</TABLE>
 			  		</TD>
 				</TR>
-				<TR> 
+				<!-- <TR> 
           			<TD BGCOLOR="#CCCCCC" BACKGROUND="" HEIGHT="15" ALIGN="right" CLASS="smallText"><SPAN CLASS="smallText">More <A HREF="/index?t=schedule&amp;c=index" CLASS="smallText">2002 match dates</A></SPAN></TD>
-        		</TR>
+        		</TR> -->
 			</TABLE>
   </xsl:template>
 </xsl:stylesheet>

@@ -6,7 +6,7 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/schedule/public_schedule_left.xsl"/> 
+  <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
@@ -31,7 +31,7 @@
             <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
               <!-- Left Column Include Begins -->  
               <!-- Global Seconday Nav Begins -->  
-              <xsl:call-template name="public_schedule_left"/>
+              <xsl:call-template name="global_left"/>
               <!-- Global Seconday Nav Ends -->      
               <!-- Left Column Include Ends -->          
             </TD>
@@ -150,29 +150,6 @@
                               </xsl:when>
                               <xsl:when test="RoundId='4290'">
                                 <IMG SRC="/i/es/apex/apex_srm.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
-                                <TR BGCOLOR="#CCCCCC">
-                                  <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Date</B></TD>
-                                  <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Registration</B></TD>
-                                  <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Start</B></TD>
-                                </TR>
-                                <TR BGCOLOR="#666666">
-                                  <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                                  <b> <xsl:value-of select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,0,11)"/><br/> </b>
-                                  </TD>
-                                  <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                                    <B>
-                                      <xsl:value-of select="format-number(RoundSegments/RoundSegment[SegmentId='1']/StartHour,'##')"/>:<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartMinute"/>&#160;<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartAMPM"/>
-                                    </B>
-                                  </TD>
-                                  <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                                    <B>
-                                      <xsl:value-of select="format-number(RoundSegments/RoundSegment[SegmentId='2']/StartHour,'##')"/>:<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
-                                    </B>
-                                  </TD>
-                                </TR>
-                              </xsl:when>
-                              <xsl:when test="RoundId='4330'">
-                                <IMG SRC="/i/es/ge/srm_banner_ge.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
                                 <TR BGCOLOR="#CCCCCC">
                                   <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Date</B></TD>
                                   <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Registration</B></TD>

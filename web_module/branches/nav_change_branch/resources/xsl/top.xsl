@@ -17,7 +17,7 @@
         <TD WIDTH="206" BGCOLOR="#000000">
           <A TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=home&amp;c=public_home</xsl:attribute>
-            <IMG SRC="/i/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="10"/>
+            <IMG SRC="/i/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="13"/>
           </A>
         </TD>
         <TD WIDTH="20" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" HSPACE="15"/></TD>
@@ -26,16 +26,20 @@
             <TR>
 <!--
           	  <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><A TARGET="_blank" HREF="http://www.topcodersoftware.com"><IMG SRC="/i/tcs_button.gif" ALT="" WIDTH="144" HEIGHT="17" BORDER="0"/></A></TD>            
--->
 
-          	  <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><A TARGET="_blank" HREF="http://www.topcodersoftware.com"><IMG SRC="/i/tcs_button.gif" ALT="" WIDTH="144" HEIGHT="17" BORDER="0"/></A><A TARGET="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute><IMG SRC="/i/tces_button.gif" ALT="" WIDTH="81" HEIGHT="17" BORDER="0"/></A></TD>
-              <!-- <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif" CLASS="time" NOWRAP="0"></TD> -->
+
+          	  <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><A TARGET="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute><IMG SRC="/i/tces_button.gif" ALT="" WIDTH="102" HEIGHT="17" BORDER="0"/></A></TD>
+-->              <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif" CLASS="time" NOWRAP="0"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" HSPACE="15"/></TD>
               <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif" CLASS="time" NOWRAP="0"><SPAN CLASS="registerToday">&#160;&#160;&#160;&#160;Current Member Count</SPAN>&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/></TD>
               <TD VALIGN="middle" BGCOLOR="#43515E" WIDTH="100%" BACKGROUND="/i/steel_gray_bg.gif" ALIGN="right" CLASS="globalNavSmall" NOWRAP="0">
-                <A TARGET="_parent" CLASS="globalNavSmall">
+                <!-- <A TARGET="_parent" CLASS="globalNavSmall">
                   <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>
                   About [TC]
                 </A>&#160;&#160;&#160;:&#160;&#160;&#160;
+                <A TARGET="_parent" CLASS="globalNavSmall">
+                  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute>
+                  Press Room
+                </A>&#160;&#160;&#160;:&#160;&#160;&#160; -->                
                 <xsl:choose>
                   <xsl:when test="/TC/LoggedIn='true'">
                     <A TARGET="_parent" CLASS="globalNavSmall">
@@ -50,11 +54,11 @@
                     </A>
                   </xsl:otherwise>
                 </xsl:choose>&#160;&#160;&#160;:&#160;&#160;&#160;
-                <A TARGET="_parent" CLASS="globalNavSmall">
+                <!-- <A TARGET="_parent" CLASS="globalNavSmall">
                   <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>
                   Contacts
                 </A>
-                &#160;&#160;&#160;:&#160;&#160;&#160;
+                &#160;&#160;&#160;:&#160;&#160;&#160; -->
                 <A TARGET="_parent" CLASS="globalNavSmall">
                   <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>
                   Home

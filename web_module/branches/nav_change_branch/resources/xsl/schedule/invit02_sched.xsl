@@ -7,7 +7,7 @@
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/modules/invit02_links.xsl"/>  
-  <xsl:import href="../includes/schedule/public_schedule_left.xsl"/> 
+  <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
@@ -34,7 +34,7 @@
             <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
               <!-- Left Column Include Begins -->  
               <!-- Global Seconday Nav Begins -->  
-              <xsl:call-template name="public_schedule_left"/>
+              <xsl:call-template name="global_left"/>
               <!-- Global Seconday Nav Ends -->      
               <!-- Left Column Include Ends -->          
             </TD>
@@ -69,8 +69,8 @@
                       <TD HEIGHT="18" ALIGN="left" WIDTH="30%" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #1<BR/>
                       </TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4324" CLASS="statTextBig">Advancers</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4325" CLASS="statTextBig">Advancers</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -116,7 +116,7 @@
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #2<BR/>
                       </TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4335" CLASS="statTextBig">Advancers</A></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
                     </TR>                    
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>

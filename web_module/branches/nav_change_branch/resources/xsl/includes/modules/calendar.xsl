@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="calendar">
-            <TABLE BGCOLOR="#333333" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+            <TABLE BGCOLOR="#000000" WIDTH="170" BORDER="0" CELLSPACING="0" CELLPADDING="0">
         <TR> 
-               <TD VALIGN="top">
+               <TD VALIGN="top" BGCOLOR="#333333">
                   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="1" CELLPADDING="0">
-              <TR> 
-                      <TD BGCOLOR="#333333" BACKGROUND="" CLASS="moduleTitle" COLSPAN="7" HEIGHT="17" VALIGN="middle"><IMG SRC="/i/module_labels_oct_date.gif" ALT="October Dates" WIDTH="166" HEIGHT="17" BORDER="0"/></TD>
-                   </TR>
+                      <TR> 
+                        <TD BGCOLOR="#333333" COLSPAN="7" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" NOWRAP="0">&#160;&#160;&#160;Month View: OCTOBER</TD>
+                      </TR>
                       <TR BGCOLOR="#CC6600"> 
                         <TD BACKGROUND="/i/orangebv_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">S</FONT></TD>
                         <TD BACKGROUND="/i/orangebv_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">M</FONT></TD>
@@ -29,24 +29,24 @@
                       <TR> 
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">6</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">7</TD>
-                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="smallText">8</A></TD>
+                        <TD BGCOLOR="#990000" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="smallFoot">8</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">9</TD>
-                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="smallText">10</A></TD>
+                        <TD BGCOLOR="#990000" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="smallFoot">10</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">11</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">12</TD>
                       </TR>
                       <TR> 
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">13</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">14</TD>
-                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/stat?c=round_stats&amp;rd=4330" CLASS="smallText">15</A></TD>
-                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="smallText">16</A></TD>
+                        <TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?ContestId=4330&amp;t=schedule&amp;c=srm" CLASS="smallText">15</A></TD>
+                        <TD BGCOLOR="#990000" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="smallFoot">16</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">17</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">18</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">19</TD>
                       </TR>
                       <TR> 
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">20</TD>
-                        <TD BGCOLOR="#666666" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?ContestId=4340&amp;t=schedule&amp;c=srm" CLASS="smallFoot">21</A></TD>
+                        <TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?ContestId=4340&amp;t=schedule&amp;c=srm" CLASS="smallText">21</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">22</TD>
                         <TD BGCOLOR="#990000" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="smallFoot">23</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">24</TD>
@@ -75,11 +75,11 @@
             </TD>
         </TR>
         <TR> 
-                <TD BGCOLOR="#CCCCCC" BACKGROUND="" HEIGHT="15" ALIGN="right" CLASS="smallText">
-                  <SPAN CLASS="smallText">More 
-                    <A CLASS="smallText">
+                <TD BGCOLOR="#333333" BACKGROUND="" HEIGHT="15" ALIGN="right" CLASS="smallFoot">
+                  <SPAN CLASS="smallFoot">More 
+                    <A CLASS="smallFoot">
                       <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>
-                      2002 match dates
+                      2002 match dates&#160;&#160;
                     </A>
                   </SPAN>
                 </TD>
