@@ -125,7 +125,7 @@
                           <rsc:item row="<%=answer%>" name="count"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
                         <td align="right">
-                           <rsc:item row="<%=answer%>" name="percentage" format="#.##"/>%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           <rsc:item row="<%=answer%>" name="percentage" format="0.00"/>%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
                         <td bgcolor="#FFFFFF" valign="middle" nowrap>
                             <p align="center">
