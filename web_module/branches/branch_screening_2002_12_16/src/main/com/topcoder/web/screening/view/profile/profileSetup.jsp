@@ -32,7 +32,7 @@ function submitAdd() {
 }
 
 function submitRemove(id) {
-    document.profileSetupForm.testSetBRemove.value = "" + id;
+    document.profileSetupForm.testSetBRemove.value = id;
     document.profileSetupForm.rp.value = "<%=Constants.PROFILE_REMOVE_PROBLEM_PROCESSOR%>";
     document.profileSetupForm.submit();
     return;
@@ -162,7 +162,7 @@ function submitConfirm() {
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="difficultyDesc" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="businessCategoryList" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="algorithmicCategoryList" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<A HREF="JavaScript:submitRemove(<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>)" CLASS="bodyText">Remove</A></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<A HREF="JavaScript:submitRemove('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" CLASS="bodyText">Remove</A></TD>
 	        </TR>
             </screen:listIterator>
            <TR>
