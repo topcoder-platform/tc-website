@@ -143,7 +143,7 @@
             buf.append("document.write(");
             buf.append("'<img src=\"/i/clear.gif\" height=\"1\" width=\"'+");
             buf.append("Math.round((");
-            buf.append(150-Math.round((float)147/((float)(indentation-1)/50+1))).append("/100)*(screen.availWidth-180)))'\"/>'");
+            buf.append(150-Math.round((float)147/((float)(indentation-1)/50+1))).append("/100)*(screen.availWidth-180)))+'\"/>'");
             buf.append("</SCRIPT>");
             buf.append("</td>");
             buf.append("<td colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"5\" /></td>");
