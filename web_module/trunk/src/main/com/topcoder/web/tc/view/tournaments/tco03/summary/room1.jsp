@@ -58,7 +58,6 @@
             <h2>Room 1</h2>
 
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
-            
             Thursday, December 4, 2003</p>
 
             <p>Text <strong>handle</strong> text, text, text.</p>
