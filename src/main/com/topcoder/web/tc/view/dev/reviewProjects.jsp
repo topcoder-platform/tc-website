@@ -41,9 +41,9 @@
         <td width="100%" align="center" class="bodyText">
         <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="development"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Components"/>  
+           <jsp:param name="image" value="development"/>
+           <jsp:param name="image1" value="white"/>
+           <jsp:param name="title" value="Components"/>
         </jsp:include>
 
             <p><h2 align="left">Review opportunities currently available!</h2></p>
@@ -93,7 +93,7 @@
            </table>
 
             <br/>
-            
+
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
                     <td class="projectTitles" colspan="8">Open Components</td>
@@ -116,6 +116,8 @@
                             <td class="projectCells" align="center"><img src="/i/development/netSm.gif"/></td>
                         <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
                             <td class="projectCells" align="center"><img src="/i/development/smJava.gif"/></td>
+                        <% } else if ((resultRow.getLongItem("category_id"))==Constants.FLASH_CATALOG_ID) { %>
+                            <td class="projectCells" align="center"><img src="/i/development/smFlash.gif"/></td>
                         <% } else { %>
                             <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
                         <% } %>
