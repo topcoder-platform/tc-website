@@ -32,6 +32,7 @@
 		<tr>
 		<td><b>User</b></td>
 		<td><b>Name</b></td>
+		<td><b>Status</b></td>
 		</tr>
 <%
   		for (int n = 0; n < taxFormList.length; n++) {
@@ -55,7 +56,9 @@
 			out.print(taxFormList[n]._id+"&");
 			out.print(PactsConstants.USER_ID+"=");
 			out.print(taxFormList[n]._user._id);
-			out.print("\">"+taxFormList[n]._name+"</a></td><tr>\n");
+			out.print("\">"+taxFormList[n]._name+"</a></td>\n");
+
+			out.print("<td>" + taxFormList[n]._status + "</td></tr>\n");
 		}
 	}
 %>

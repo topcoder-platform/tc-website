@@ -3632,7 +3632,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String state_code = rsc.getItem(i, "state_code").toString();
                 String zip = rsc.getItem(i, "zip").toString();
                 StringBuffer address = new StringBuffer();
-                address.append("city");
+                address.append(city);
                 if (state_code.length()>0)
                     address.append(", " + state_code);
                 if (zip.length()>0)

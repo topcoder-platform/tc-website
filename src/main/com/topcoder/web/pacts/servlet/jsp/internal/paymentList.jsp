@@ -21,6 +21,7 @@
 		out.println("no list!!!<br>");
 		paymentList = new PaymentHeader[0];
 	}
+	double total_net = 0;
 %>
 
 <h1>PACTS</h1>
@@ -70,6 +71,8 @@
 			out.print(paymentList[n]._id);
 			out.print("\">"+paymentList[n]._description+"</a></td>\n");
 
+			total_net += paymentList[n]._recentNetAmount;
+
 			out.print("<td>"+paymentList[n]._recentNetAmount+"</td>\n");
 			out.print("<td>"+paymentList[n]._type+"</td>\n");
 			out.print("<td>"+paymentList[n]._recentStatus+"</td>\n");
@@ -82,6 +85,8 @@
 %>
 
 </table>
+
+<b>Total Net Amount: <% out.print(total_net); %></b>
 
 <table>
 <%
