@@ -63,9 +63,20 @@
 
                <blockquote>
 
-        <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+        <table width="500" border="0" cellpadding="0" cellspacing="0" align="center">
+            <rsc:iterator list="<%=donationTotal%>" id="info">
+            <tr class="bodyText" valign="top">
+                <td nowrap>
+                  Total funds raised to date:
+                </td>
+                <td align="center" valign="top">
+                    $<rsc:item row="<%=info%>" name="amount" format="0.00"/>
+                    <p><br /></p>
+                </td>
+            </tr>
+            </rsc:iterator>
             <tr class="bodyText">
-                <td align="center">
+                <td align="left">
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="5" />">Rank</a>
                 </td>
                 <td>
@@ -74,13 +85,13 @@
                 <td>
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="2"/>">Rating</a>
                 </td>
-                <td align="right">
+                <td align="right" width="100%">
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="1"/>">Total Donation</a>
                 </td>
             </tr>
             <rsc:iterator list="<%=donationInfo%>" id="info">
                 <tr>
-                    <td class="tourney_subnav" align="center">
+                    <td class="tourney_subnav" align="left">
                         <rsc:item row="<%=info%>" name="rank" />
                     </td>
                     <td class="tourney_subnav" >
@@ -95,16 +106,6 @@
                 </tr>
             </rsc:iterator>
 
-            <rsc:iterator list="<%=donationTotal%>" id="info">
-            <tr>
-                <td colspan="3">
-                  Total:
-                </td>
-                <td>
-                    $<rsc:item row="<%=info%>" name="amount" format="0.00"/>
-                </td>
-            </tr>
-            </rsc:iterator>
         </table>
          </blockquote>
 <!-- Center Column Ends -->
