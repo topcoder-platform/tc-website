@@ -113,7 +113,7 @@
                     <TD BACKGROUND="/i/next_srm_bg.gif" VALIGN="top"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/mystats_icon.gif" BORDER="0"/></TD>
                     <TD BACKGROUND="/i/next_srm_bg.gif" CLASS="statText" VALIGN="top">
                       <A HREF="" CLASS="statText">
-                         <xsl:attribute name="HREF">/?ContestId=<xsl:value-of select="ContestId"/>&amp;t=schedule&amp;c=srm</xsl:attribute>
+                         <xsl:attribute name="HREF">/?RoundId=<xsl:value-of select="ContestId"/>&amp;t=schedule&amp;c=srm</xsl:attribute>
                          <b>
                            <xsl:value-of select="substring(ContestStartTimestamp,0,11)"/><br/>
                            <xsl:value-of select="ContestName"/>

@@ -57,8 +57,8 @@
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">26</TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">27</TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">28</TD>
-                				<TD BGCOLOR="#000033" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?ContestId=4180&amp;t=schedule&amp;c=srm" CLASS="smallFoot">29</A></TD>
-                				<TD BGCOLOR="#CC0000" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?ContestId=4185&amp;t=schedule&amp;c=srm" CLASS="smallFoot">30</A></TD>
+                				<TD BGCOLOR="#000033" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?RoundId=4180&amp;t=schedule&amp;c=srm" CLASS="smallFoot">29</A></TD>
+                				<TD BGCOLOR="#CC0000" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?RoundId=4185&amp;t=schedule&amp;c=srm" CLASS="smallFoot">30</A></TD>
                	 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">31</TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
               				</TR>

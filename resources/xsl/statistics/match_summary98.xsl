@@ -69,9 +69,9 @@
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                        
             <TR>
-				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4210&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 97</A></TD>						
-				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4210&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Wednesday, June 19</A></TD>
-				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4210&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">7:30pm EDT (registration)</A></TD>
+				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?RoundId=4210&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 97</A></TD>						
+				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?RoundId=4210&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Wednesday, June 19</A></TD>
+				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?RoundId=4210&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">7:30pm EDT (registration)</A></TD>
             </TR>           
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="22" BORDER="0"/></TD>
