@@ -14,7 +14,7 @@
    </tr>
    <tr>
       <td class=tabBar><a href="/mockup/directions.jsp"><img src="/i/corp/screening/mainTab.gif" alt=""/></a></td>
-      <td class=tabBar><a href="/mockup/help.jsp"><img src="/i/corp/screening/helpTab.gif" alt=""/></a></td>
+      <td class=tabBar><a href="?module=Static&d1=help&d2=index"><img src="/i/corp/screening/helpTab.gif" alt=""/></a></td>
       <td class=tabBar><a href="/mockup/login.jsp"><img src="/i/corp/screening/logoutTab.gif" alt=""/></a></td>
    </tr>
 </table>
