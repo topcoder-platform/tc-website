@@ -329,12 +329,6 @@ public class TransactionServlet extends HttpServlet {
                 log.error("Can't complete CC Tx", e);
                 response.setStatus(HttpServletResponse.SC_ACCEPTED);
             }
-            try {
-                removeTransaction(request);
-            } catch (Exception e) {
-                log.error("failed to remove transaction");
-                e.printStackTrace();
-            }
         } else {
             throw new ServletException("post-op " + op + " not supported");
         }
@@ -352,11 +346,11 @@ public class TransactionServlet extends HttpServlet {
             throws Exception {
         TransactionInfo txInfo = getTransaction(request);
         if (txInfo == null) {
-            sendEmail("there is no transaction in progress for the user", auth);
+            sendEmail("There was an error when a user attempted to make a purchase.", auth);
             throw new Exception("there is no transaction in progress");
         }
         if (!isSucessfulTransaction(request)) {
-            sendEmail("Rejected by VeriSign [return code: " + getReturnCode(request) +
+            sendEmail("Purchase rejected by VeriSign [return code: " + getReturnCode(request) +
                     " response message: " + getResponseMessage(request)+ "]", auth);
             throw new Exception("Rejected by VeriSign [return code: " + getReturnCode(request) +
                     " response message: " + getResponseMessage(request)+ "]");
@@ -364,6 +358,12 @@ public class TransactionServlet extends HttpServlet {
         if (txInfo.getTcExc() != null) {
             // was not able to store tx info in the DB
             throw new Exception(txInfo.getTcExc());
+        }
+        try {
+            removeTransaction(request);
+        } catch (Exception e) {
+            log.error("failed to remove transaction");
+            e.printStackTrace();
         }
         //TODO generate a way to handle the case when a transaction fails, should probably be a new operation
         return txInfo.getUserBackPage() == null ? defaultPageSuccess : txInfo.getUserBackPage();
