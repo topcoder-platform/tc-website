@@ -48,11 +48,11 @@ public class ViewProblemSet extends Base {
             ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse)receive(5000);
 
             ScreeningProblemSet[] problemSets= response.getProblemSets();
-            List problems = null;
+            ScreeningProblemSet problems = null;
             for (int i=0; i<problemSets.length; i++) {
                 if (problemSets[i].getType().intValue()==problemType) {
                     //ok, we found the set, now we need to get the actual problems
-                    problems = Arrays.asList(problemSets[i].getProblemLabels());
+                    problems = problemSets[i];
 
                     //figure out where to go next if they click continue
                     if (i<problemSets.length-1) {
@@ -69,7 +69,8 @@ public class ViewProblemSet extends Base {
                     }
                 }
             }
-            log.debug("there are " + problems.size() + " problems");
+            if (problems!=null)
+                log.debug("there are " + problems.getProblemLabels().length + " problems");
 
             setDefault(Constants.PROBLEMS, problems);
             setDefault(Constants.PROBLEM_TYPE_ID, new Integer(problemType));
