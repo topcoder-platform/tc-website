@@ -12,7 +12,6 @@
     <tr><td width="100%" class="footer">
             <A class="footerLinks"><xsl:attribute name="HREF">/</xsl:attribute>Home</A>&#160;&#160;|&#160;&#160;
             <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=about&amp;d2=index</xsl:attribute>About TopCoder</A>&#160;&#160;|&#160;&#160;
-            <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ReviewBoard&amp;ph=112</xsl:attribute>Review Boards</A>&#160;&#160;|&#160;&#160;
             <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute>Press Room</A>&#160;&#160;|&#160;&#160;
             <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>Contact Us</A>&#160;&#160;|&#160;&#160;
             <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=about&amp;d2=privacy</xsl:attribute>Privacy</A>&#160;&#160;|&#160;&#160;
@@ -21,11 +20,9 @@
 
 <!-- Member Sites Begins -->
     <tr><td width="100%" class="footer">
-            <A class="footerLinks"><xsl:attribute name="HREF">>/</xsl:attribute>Competition</A>&#160;&#160;|&#160;&#160;
-            <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=index</xsl:attribute>Development</A>&#160;&#160;|&#160;&#160;
-            <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/></xsl:attribute>Software</A>&#160;&#160;|&#160;&#160;
-            <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=tces_home</xsl:attribute>Employment Services</A>&#160;&#160;|&#160;&#160;
-            <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=index</xsl:attribute>Marketing Services</A></td></tr>
+            <A class="footerLinks"><xsl:attribute name="HREF">/tc</xsl:attribute>Developer Center</A>&#160;&#160;|&#160;&#160;
+            <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/corp/?module=Static&amp;d1=corp&amp;d2=index</xsl:attribute>Corporate Services</A></td></tr>
+
 <!-- Member Sites Ends -->
 
     <tr><td height="4" class="footerStripe"><img src="/i/corp/clear.gif" width="10" height="4" border="0"/></td></tr>
