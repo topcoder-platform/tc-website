@@ -12,6 +12,9 @@
 </head>
 <body align="center">
 
+
+<jsp:include page="../script.jsp" />
+
 <jsp:include page="links.jsp" >
    <jsp:param name="tabLev1" value="internal"/>
    <jsp:param name="tabLev2" value="arena"/>
