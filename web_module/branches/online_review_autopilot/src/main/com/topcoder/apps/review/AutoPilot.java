@@ -19,6 +19,56 @@ import com.topcoder.message.email.TCSEmailMessage;
  */
 public class AutoPilot {
     
+    public static ResultData finalReviewEmail(FinalReviewData data) {
+        try {
+            //setup user info
+            TCSubject subject = new TCSubject(100129);
+            subject.addPrincipal(new RolePrincipal("Administrator", 1));
+
+            UserManagerLocal userManager = EJBHelper.getUserManager();
+            DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
+            ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
+
+            SecurityEnabledUser user = userManager.getUser(subject);
+
+            Project project = projectTracker.getProject(data.getProject(), user.getTCSubject());
+            
+            if(!project.getAutoPilot()) return new SuccessResult();
+
+            //lookup pm
+            String email = "";
+            UserRole[] participants = project.getParticipants(); 
+            for(int i = 0; i < participants.length;i++) {
+                if( participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER ) { 
+                    email = participants[i].getUser().getEmail();
+                }
+            }
+
+            if(email.equals("")) {
+                return new FailureResult("Cannot locate PM for Auto Pilot");
+            }
+
+            //override, change me
+            email = "rfairfax@topcoder.com";
+
+
+            //check if nothing passed, send email
+
+            StringBuffer mail = new StringBuffer();
+            mail.append("The following project: \n\n");
+            mail.append(project.getName());
+            mail.append("\n\nhas completed final review");
+
+            sendMail("autopilot@topcoder.com", email, "AutoPilot: Final Review Notification", mail.toString());
+
+
+        } catch(Exception e) {
+            return new FailureResult(e.toString());
+        }
+        
+        return new SuccessResult();
+    }
+    
     public static ResultData finalFixes(SolutionData data) {
         try {
             //setup user info
