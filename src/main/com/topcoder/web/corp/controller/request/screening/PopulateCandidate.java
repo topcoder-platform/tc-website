@@ -106,13 +106,11 @@ public class PopulateCandidate extends BaseScreeningProcessor {
 
 
                 try {
-
                     Contact contact = (Contact)createEJB(getInitialContext(), Contact.class);
-
                     PreferenceLevel pl = (PreferenceLevel)createEJB(getInitialContext(), PreferenceLevel.class);
                     try {
-                        info.setPreference(pl.getLevel(Constants.DATA_SOURCE,contact.
-                                getCompanyId(getUser().getId(), Constants.DATA_SOURCE), getUser().getId()));
+                        info.setPreference(pl.getLevel(Constants.DATA_SOURCE,
+                                contact.getCompanyId(getUser().getId(), Constants.DATA_SOURCE), userId));
                     } catch (NoSuchPreferenceLevelException e) {
                         info.setPreference(0);
                     }
