@@ -76,14 +76,14 @@ function openWin(url, name, w, h) {
                             <tr class="bodyText">
                            <td valign="top" width="1%"><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" /> </td>
                              <td valign="top" width="34%">
-                                    <p>Intel&#174; Centrino&#153; mobile technology-based notebook!  View Specs. </p>
+                                    <p>Intel&#174; Centrino&#153; mobile technology-based notebook! <A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_specs','comp',545,655);">View Specs.</A></p>
                                     <p>Register Now! Use promottiion code TCO2003.</p></td>
           
                              <td valign="top" width="65%">
                              
                                 <p><img src="/i/sponsor/intel_ids/IDL-logo-square.gif" width="120" height="80" align="left" />One-year 
                                 subscription to the Intel&#174; Developer Library.  A year's worth of  free access to the most relevant technical books 
-                                available. Read More.</p>
+                                available. <A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_library','comp',545,655);">Read More.</A></p>
                                 
                                 <p>Register Now! Use promotion code TCO2003.</p>
                              </td>
