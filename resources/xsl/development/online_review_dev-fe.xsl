@@ -73,7 +73,7 @@
 The front-end development will be implemented using the MVC framework.  The deliverable must be a fully functional front-end implementing the provided HTML mockups and API design.  The developer must implement stub classes for all front-end APIs, which imitate the HTML mockups (i.e. the test data for the stub classes is provided in the HTML mockup screens).
 						</p>
 						<p>
-All development project teams are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.
+All developers are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.
 						</p>
 
 <!-- Project Type -->
@@ -86,17 +86,17 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 						<p><strong>Technologies</strong></p>
 						<ul>
 					        <li>Java 1.4</li>
-					        <li>Struts</li>
+					        <li>Apache Struts</li>
 						</ul>
 
 						<p><strong>Documentation</strong><br/>
-						Documentation for this project is provided in the <a class="statText" href="/i/development/downloads/Online_Review_Design.jar">Online Review Design Distribution</a>.
+						Documentation for this project is provided in the <a class="statText" href="/i/development/downloads/Online_Review_Design.jar">Online Review Design Distribution</a>.  The front-end developer is responsible for all classes highlighted in green.
 						</p>
 
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br />
-			    TopCoder will compensate first and second place submitters. The development payment will be distributed at the completion of the project review period.  The integration payment will be distributed at the completion of the project integration period<sup>*</sup>.  In addition, developers selected for this project will be granted access to the TopCoder Software Component Catalog for the duration of the project.
+			    TopCoder will compensate the eligible first and second place submitters. The development payment will be distributed at the completion of the project review period.  The integration payment will be distributed at the completion of the project integration period<sup>*</sup>.  In addition, developers selected for this project will be granted access to the TopCoder Software Component Catalog for the duration of the project.
 			    </p>
 
 							
@@ -113,7 +113,7 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 <!-- Definition of Completion -->
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
 				<p>
-				The Initial Submission has been delivered by the Initial Submission Date.  The Submission has been reviewed by the board and if required changes have been re-submitted by the developer. Development payment is conditional on receiving a minimum score of fifty (50) by the Development Review Board.  The Integration Payment will be paid out following the Integration Submission Date.  The Integration Payment is conditional on acceptance of the fully functional application by the TopCoder Application Manager.
+				The Initial Submission has been delivered by the Initial Submission date.  The Submission has been reviewed by the board and if required changes have been re-submitted by the developer. Development payment is conditional on receiving a minimum review score of fifty (50) by the Development Review Board.  The Integration Payment is conditional upon acceptance of the fully functional application by the TopCoder Application Manager.
 				</p>
 
 
@@ -130,11 +130,14 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 
 <!-- Time Line -->
 						<p><strong>Time Line</strong><br/>
-						All inquiries must be received by 12 PM EST on the Inquiry Deadline.  <bold>Two (2) developers will be selected</bold> from the pool of members who have inquired by the deadline.  Inquiring for a project does not guarantee selection.  The two (2) developers selected will be contracted to submit solutions by the Initial Submission date. Selected members who fail to submit by the deadline or which earn less than fifty (50) points on the review may be suspended from TopCoder Software submissions for six (6) weeks following the submission date.  Developers will have access to an online newsgroup, where all questions submitted prior to 6PM EDT on the Initial Submission date will be answered. Following review from the board, the winning member is given until the Review Fixes Submission date to modify their submission.  Following completion of the development project, the winning developer is required to support their submission and participate in the integration of the application.
+						All inquiries must be received by 12 PM EST on the Inquiry Deadline.  <bold>Only two (2) developers will be selected</bold> from the pool of members who have inquired by the Inquiry Deadline.  Selection will be made based upon a combination of a developers rating and their experience in TopCoder Software.  Inquiring for a project does not guarantee selection.
+						</p>
+						<p>
+						The two (2) developers selected will be contracted to submit solutions by the Initial Submission date. Selected members who fail to submit a solution by the initial submission deadline or which earn a review score of less than fifty (50) points may be suspended from TopCoder Software submissions for six (6) weeks following the submission date.  Developers will have access to an online newsgroup, where all questions submitted prior to 6PM EDT on the Initial Submission date will be answered. Following development review, the winning member is given until the Review Fixes Submission date to modify their submission.  Following completion of the development project, the winning developer is required to support their submission and participate in the integration of the application.
 						</p>
 
 						<p>
-						Posting Date: 5.20.2003<br/>
+						Posting: 5.20.2003<br/>
 						Inquiry Deadline: 5.27.2003<br/>
 						Developers Announced: 5.27.2003<br/>
 						Initial Submission: 6.16.2003<br/>
@@ -146,7 +149,7 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 
 <!-- Register at TCS -->
 						   <p>
-						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review%20Front%20End">Inquire for the project</a></strong> to be selected as one of the two (2) developers for this project.  Each development submission receiving a score of fifty (50) or greater will receive the minimum development payment.  
+						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review%20Front%20End">Inquire for the project</a></strong> to be selected as one of the two (2) developers that will be contacted.  Each development submission receiving a review score of fifty (50) points or greater will receive the minimum development payment.  
 						</p>
 						
                             <p>
