@@ -74,7 +74,7 @@ room, just as they would be in a real competition. To actually practice you must
 	</TR>	
 	<TR>
         <TD VALIGN="top" CLASS="smallText">&#160;</TD>
-		<TD VALIGN="top" CLASS="smallText">&#183;</TD><TD VALIGN="top" CLASS="smallText">knowledge of the Java and/or C++ programming languages</TD>
+		<TD VALIGN="top" CLASS="smallText">&#183;</TD><TD VALIGN="top" CLASS="smallText">knowledge of the Java or C++ or C# programming languages</TD>
 	</TR>
 	<TR>
 		<TD VALIGN="top" CLASS="smallText">&#160;</TD>
