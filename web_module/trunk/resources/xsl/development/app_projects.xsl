@@ -159,7 +159,7 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Content_Syndication_ASP_Dev">Content Syndication: ASP</a>
                                     </td>
-                                    <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$250 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">6/25/2004 9:00 AM</td>
                                 </tr>
@@ -167,7 +167,7 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Content_Syndication_Java_Dev">Content Syndication: Java</a>
                                     </td>
-                                    <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$250 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">6/25/2004 9:00 AM</td>
                                 </tr>
