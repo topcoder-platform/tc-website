@@ -119,7 +119,11 @@ document.write( '&lt;/object&gt; ');
 }
 // --&gt;
 &lt;/SCRIPT&gt;
+</pre>
 
+<p>This last part assures you that if the user on your site is not using a Flash-enabled browser, an appropriate image will take its place.</p>
+
+<pre class="cardCode">
 &lt;SCRIPT language="JavaScript"&gt;
 &lt;!--
 if (!MM_FlashCanPlay){
@@ -131,7 +135,6 @@ document.write( '&lt;img src="http://www.topcoder.com/i/card/noFlash.gif" border
 &lt;/SCRIPT&gt;
 </pre>
 
-            This last part assures you that if the user on your site is not using a Flash-enabled browser, an appropriate image will take its place.
             </li>
             </ol>
             
