@@ -109,7 +109,7 @@ public class ResponseBean extends BaseEJB {
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE demographic_response set demographic_response = ? WHERE coder_id = ? AND demographic_question_id = ?");
-            ps.setBytes(1, DBMS.serializeTextString(text));
+            ps.setString(1, text);
             ps.setLong(2, userId);
             ps.setLong(3, questionId);
 
