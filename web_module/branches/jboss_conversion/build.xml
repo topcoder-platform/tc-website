@@ -1114,6 +1114,9 @@
              <webinf dir="${struts.dir}">
                  <include name="*.tld"/>
              </webinf>
+             <metainf dir="${resources}/tc">
+                 <include name="jboss-web.xml"/>
+             </metainf>
              <lib dir="${struts.dir}">
                  <include name="*.jar"/>
              </lib>
