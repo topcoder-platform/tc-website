@@ -3,76 +3,80 @@
 <%@ page import="com.topcoder.web.screening.common.Constants,
                  com.topcoder.web.common.StringUtils" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
-<HTML>
-<HEAD>
-<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
-<jsp:include page="/script.jsp"/>
-</HEAD>
+<html>
+<head>
+<title>Topcoder | Testing Application Management Tool</title>
+
+<jsp:include page="/script.jsp" />
+
+</head>
 
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
 
-<BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<jsp:include page="/includes/top.jsp"/>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-   <TR>
-    <!-- Left Column Begins -->
-      <TD WIDTH="22" VALIGN="top" BGCOLOR="#000000">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <jsp:include page="/includes/left.jsp"/>
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
-      <!-- Left Column Ends -->
-      <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<h1 class="testHead">Note List</h1>                  
+<body>
 
-<FORM>
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">           
-           <TR>
-              <TD COLSPAN="3" ALIGN="center"><screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666">&#160;<B>Notes</B></TD>
-              <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666">&#160;<B>Author</B></TD>
-              <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666" HEIGHT="15">&#160;<B>Date Created</B></TD>
-           </TR>
-           <% { boolean even = true; %>
-              <screen:resultSetRowIterator id="row" list="<%=candidateInfo.getNoteList()%>">
-                 <TR>
-                    <TD CLASS="bodyText" VALIGN="top" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><%=StringUtils.htmlEncode((String)row.getItem("text").getResultData())%></TD>
-                    <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<screen:resultSetItem row="<%=row%>" name="created_by" />&#160;&#160;</TD>
-                    <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<B><screen:resultSetItem row="<%=row%>" name="create_date" /></B>&#160;&#160;</TD>
-                 </TR>
-                 <% even = !even; %>
-              </screen:resultSetRowIterator>
-           <% } %>
-           <TR>
-              <TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>                    
-           <TR>
-              <TD COLSPAN="3" ALIGN="center" HEIGHT="15"><screen:servletLink processor="NoteCreate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText">Add</screen:servletLink></TD>
-           </TR>           
-         </TABLE>                        
-</FORM>         
-<P><BR/></P>   
-     </TD>
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-   </TR>
-</TABLE>
-  <!-- Body Ends -->
+<!-- Header begins -->
+<jsp:include page="/includes/top.jsp" />
+<!-- Header ends -->
 
-  <jsp:include page="/includes/foot.jsp"/>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
 
-</BODY>
-</HTML>
+<!-- gutter begins -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- gutter ends -->
+
+<!-- Middle column begins -->
+        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="top">
+                    <td class="bodyText">
+                        <h1 class="testHead">Note List</h1>                  
+                    </td>
+                </tr>
+            </table>
+            
+            <table cellspacing="1" cellpadding="3" width="100%">
+                <tr><form><td class="bodyText" align="center"><screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink></td></tr>
+            </table>
+            
+            <table cellspacing="0" cellpadding="3" width="100%" class="testFrame">
+                <tr>
+                    <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666">&#160;<B>Notes</B></TD>
+                    <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666">&#160;<B>Author</B></TD>
+                    <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666" HEIGHT="15">&#160;<B>Date Created</B></TD>
+                </tr>
+                
+                <% { boolean even = true; %>
+                <screen:resultSetRowIterator id="row" list="<%=candidateInfo.getNoteList()%>">
+                <TR>
+                    <td <% if(even){ %>class="testTableEven"<% } %><% } else %>class="testTableOdd"><%=StringUtils.htmlEncode((String)row.getItem("text").getResultData())%></td>
+                    <td align="center" <% if(even){ %>class="testTableEven"<% } else %>class="testTableOdd"<% } %>><screen:resultSetItem row="<%=row%>" name="created_by" /></td>
+                    <td align="center" <% if(even){ %>class="testTableEven"<% } else %>class="testTableOdd"<% } %>><strong><screen:resultSetItem row="<%=row%>" name="create_date" /></strong></td>
+                </TR>
+                <% even = !even; %>
+                </screen:resultSetRowIterator>
+                <% } %>
+            </table>
+
+            <table border="0" cellspacing="10" cellpadding="0" width="70%">
+                 <tr>
+                    <td><div align="center"><p class="button"><screen:servletLink processor="NoteCreate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="button">Add</screen:servletLink></p></div></td>
+                </form></tr>
+            </table>
+                     
+            <p><br></p>
+        </td>
+<!-- Middle Column ends -->
+
+<!-- Gutter -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
+
+    </tr>
+</table>
+
+  <jsp:include page="/includes/foot.jsp" />
+
+</body>
+</html>
