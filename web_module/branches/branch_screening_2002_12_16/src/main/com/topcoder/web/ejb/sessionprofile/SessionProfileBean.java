@@ -62,7 +62,7 @@ public class SessionProfileBean extends BaseEJB {
             query.append("INSERT INTO session_profile (session_profile_id, ");
             query.append("session_profile_desc, session_round_id, ");
             query.append("modify_date, create_date, company_id) ");
-            query.append("VALUES(?,?,?,?,?,?) ");
+            query.append("VALUES(?,?,?,CURRENT,CURRENT,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -73,7 +73,7 @@ public class SessionProfileBean extends BaseEJB {
             pstmt.setLong(1, sessionId);
             pstmt.setString(2, desc);
             pstmt.setLong(3, sessionRoundId);
-            pstmt.setLong(6, companyId);
+            pstmt.setLong(4, companyId);
 
             pstmt.executeUpdate();
 
