@@ -16,7 +16,7 @@
       <td class=tabBarEnd align=right rowspan=2><img src="/i/corp/screening/tabBarEnd.gif" alt=""/></td>
    </tr>
    <tr>
-      <td class=tabBar><a href="/mockup/directions.jsp"><img src="/i/corp/screening/mainTab.gif" alt=""/></a></td>
+      <td class=tabBar><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_INDEX%>"><img src="/i/corp/screening/mainTab.gif" alt=""/></a></td>
       <td class=tabBar><a href="/mockup/help.jsp"><img src="/i/corp/screening/helpTab.gif" alt=""/></a></td>
       <td class=tabBar><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_LOGOUT%>"><img src="/i/corp/screening/logoutTab.gif" alt=""/></a></td>
    </tr>
