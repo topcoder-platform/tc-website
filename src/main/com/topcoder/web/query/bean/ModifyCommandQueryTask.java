@@ -212,6 +212,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
         QueryBean qb = null;
         for ( ; it.hasNext(); ) {
             rsr = (ResultSetContainer.ResultSetRow)it.next();
+            qb = new QueryBean();
             qb.setQueryId(Long.parseLong(rsr.getItem("query_id").toString()));
             qb.setName(rsr.getItem("name").toString());
             /* no need to send the text to the client at this time... */
