@@ -10,7 +10,7 @@
 
 <body class="compFiles">
 
-            <table border="0" cellspacing="0" cellpadding="0" width="170">
+            <table border="0" cellspacing="0" cellpadding="0" width="180">
                <tr><td class="compDocsTabOff"><a href="#">TCOSample.bmp</a></td></tr>
                <tr><td class="compDocsTabOff"><a href="#">Load Estimator Design Screening Scorecard.zip</a></td></tr>
                <tr><td class="compDocsTabOn">Timer_Class_Diagram.gif</td></tr>

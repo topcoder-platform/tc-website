@@ -1,15 +1,48 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<html class="compDocs">
 <head>
     <title>2003 TopCoder Open sponsored by Intel&#174; - Component Finals - Pops</title>
+    <jsp:include page="../../../script.jsp" />
 </head>
 
-<frameset rows="30, 99%" border="0">
-    <frame src="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=times" name="times" marginheight="0" marginwidth="0" scrolling="auto">
-    <frameset cols="170, 99%" border="0">
-        <frame src="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial" name="names" marginheight="0" marginwidth="0" scrolling="auto">
-        <frame src="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial_doc1" name="docs" marginheight="0" marginwidth="0" scrolling="auto">
-    </frameset>
-</frameset>
+<body class="compDocs">
+
+<h2>2003 TCO Component Finals - Pops</h2>
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr valign="top">
+        <td colspan="3">
+            <jsp:include page="times.jsp">
+                <jsp:param name="time" value="initial" />
+            </jsp:include>
+        </td>
+    </tr>
+    
+    <tr valign="top">
+        <td width="180">
+            <jsp:include page="pops_initial.jsp">
+                <jsp:param name="name" value="doc1" />
+            </jsp:include>
+        </td>
+        
+        <td width="99%">
+            <jsp:include page="pops_initial_doc1.jsp">
+                <jsp:param name="name" value="doc1" />
+            </jsp:include>
+        </td>
+
+        <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
+    </tr>
+
+    <tr valign="top">
+        <td colspan="3">
+            <jsp:include page="times.jsp">
+                <jsp:param name="time" value="initial" />
+            </jsp:include>
+        </td>
+    </tr>
+</table>
+
+</body>
 </html>
