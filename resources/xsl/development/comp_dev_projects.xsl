@@ -5,7 +5,7 @@
 	<xsl:import href="../includes/body_top.xsl" />  
 	<xsl:import href="../foot.xsl" />
 	<xsl:import href="../includes/modules/stats_intro.xsl" />  
-	<xsl:import href="../includes/dev/dev_comp_left.xsl" /> 
+	<xsl:import href="../includes/dev/public_dev_left.xsl" /> 
 	<xsl:import href="../includes/dev/public_dev_right.xsl" />     
 	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
 	<xsl:template match="/">
@@ -31,7 +31,7 @@
 	<tr valign="top">
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC">
-			<xsl:call-template name="dev_comp_left" />
+			<xsl:call-template name="public_dev_left" />
 	  	</td>
 <!-- Left Column Ends -->
 
@@ -59,7 +59,7 @@
 					<td class="statText" colspan="2">The TopCoder Development area lists all open and in-progress projects at TopCoder that involve the use of the TopCoder member base. Projects are classified as <a class="statText" href="/index?t=development&amp;c=comp_des_projects">Component Design</a>, Component Development or <a class="statText" href="/index?t=development&amp;c=app_projects">Application projects</a>.</td>
 				</tr>
 
-				<tr><td class="statText" colspan="2"><strong>Open Component Development Projects</strong></td></tr>
+				<tr><td class="statText" colspan="2"><h1 class="devSubhead">Open Component Development Projects</h1></td></tr>
 				
 <!--				<tr valign="top">
 					<td class="statText">
@@ -72,6 +72,12 @@
 				<tr valign="top">
 					<td class="statText" width="50%">
 						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=timer_dev">Timer</a><br/>
+						Posted: 11.21.2002<br/>
+						Submission Deadline: 12.06.2002<br/>
+						</p>   
+
+						<p>
 						Project: <a class="statText" href="/index?t=development&amp;c=email_engine_dev">Email Engine Enhancements</a><br/>
 						Posted: 11.14.2002<br/>
 						Submission Deadline: 11.29.2002<br/>
@@ -79,6 +85,12 @@
 					</td>
 
 					<td class="statText" width="50%">
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=unit_test_gen_dev">Unit Test Generator</a><br/>
+						Posted: 11.21.2002<br/>
+						Submission Deadline: 12.06.2002<br/>
+						</p>   
+
 						<p>
 						Project: <a class="statText" href="/index?t=development&amp;c=log_interface_dev">Logging Wrapper</a><br/>
 						Posted: 11.14.2002<br/>

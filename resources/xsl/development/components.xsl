@@ -5,7 +5,7 @@
 	<xsl:import href="../includes/body_top.xsl" />  
 	<xsl:import href="../foot.xsl" />
 	<xsl:import href="../includes/modules/stats_intro.xsl" />  
-	<xsl:import href="../includes/dev/dev_comp_left.xsl" /> 
+	<xsl:import href="../includes/dev/public_dev_left.xsl" /> 
 	<xsl:import href="../includes/dev/public_dev_right.xsl" />     
 	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
 	<xsl:template match="/">
@@ -31,7 +31,7 @@
 	<tr valign="top">
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC">
-			<xsl:call-template name="dev_comp_left" />
+			<xsl:call-template name="public_dev_left" />
 	  	</td>
 <!-- Left Column Ends -->
 
@@ -81,8 +81,8 @@
 
 							<tr valign="top">
 								<td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><img src="/i/m/nophoto_dev.gif" alt="" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
-								<td class="statText" width="60%">Developer Level:</td>
-								<td class="statText" align="right" width="15%">II</td>
+								<td class="statText" width="65%">Developer Level:</td>
+								<td class="statText" align="right" width="10%">II</td>
 								<td class="statText" width="25%"></td>
 							</tr>
 
@@ -118,7 +118,7 @@
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" colspan="4">
 						<table border="0" cellspacing="0" cellpadding="5" width="100%">
-							<tr><td class="statText"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300028" class="statText"><strong>Timer component</strong></a><br />
+							<tr><td class="statText"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300028" class="statText"><strong>Timer</strong></a><br />
 									The Timer component allows for "stopwatch" type functionality to be integrated into existing and new software. For more details, check out the <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300028" class="statText">Timer component</a> at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.</td></tr>
 						</table></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -136,7 +136,7 @@
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" colspan="4">
 						<table border="0" cellspacing="0" cellpadding="5" width="100%">
-							<tr><td class="statText">"Good, simple design. This would be very easy to implement and maintain." &#151;<a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278595"><strong>seaniswise</strong></a></td></tr>
+							<tr><td class="statText">"Good, simple design. This would be very easy to implement and maintain." &#151;<a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278595">seaniswise</a></td></tr>
 						</table></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
@@ -162,7 +162,7 @@
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="coderTextYellow" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow">srowen</a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="coderTextYellow" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><strong>srowen</strong></a></td>
 					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300028" class="statText">Timer Design</a></td>
 					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">84.23</td>
 					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$180.00</td>
@@ -171,7 +171,7 @@
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="coderTextGreen" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=285960" class="coderTextGreen">jkang</a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="coderTextGreen" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=285960" class="coderTextGreen"><strong>jkang</strong></a></td>
 					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2100060" class="statText">Unit Test Generator Design</a></td>
 					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">82.40</td>
 					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$150.00</td>

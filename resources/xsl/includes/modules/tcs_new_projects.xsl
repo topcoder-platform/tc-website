@@ -6,24 +6,25 @@
 				
 				<tr><td colspan="4" background="" height="10"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
 				
+<!-- NEW Component Design Projects begins -->
 				<tr valign="middle"><td height="28"><img src="/i/development/head_new_comp_design.gif" alt="NEW Component Design Projects" width="244" height="28" border="0" /></td></tr>
 				
 				<tr valign="top">
 					<td bgcolor="#000000"> 
 						<table width="244" cellspacing="0" cellpadding="0" border="0" bgcolor="#000000">                
-							<tr valign="top">
-								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Project<br />Title</td>
-								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submission<br />Deadline</td>
-								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							<tr valign="middle">
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Project Title</td>
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
 							</tr>
 							
 							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=email_validator_design">Email Address Validator</a></td>
-								<td background="" class="statText" align="center">11.27.2002</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=xxx">New Project 1</a></td>
+								<td background="" class="statText" align="center">xx.xx.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 							
@@ -31,8 +32,8 @@
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=simple_cache">Simple Cache</a></td>
-								<td background="" class="statText" align="center">11.27.2002</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=xxx">New Project 2</a></td>
+								<td background="" class="statText" align="center">xx.xx.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 
@@ -48,25 +49,27 @@
 						</table>
 					</td>
 				</tr>
+<!-- NEW Component Design Projects ends -->
 
+<!-- NEW Component Development Projects begins -->
 				<tr valign="middle"><td height="28"><img src="/i/development/head_new_comp_dev.gif" alt="NEW Component Dev Projects" width="244" height="28" border="0" /></td></tr>
 
 				<tr valign="top">
 					<td bgcolor="#000000"> 
 						<table width="244" cellspacing="0" cellpadding="0" border="0" bgcolor="#000000">                
-							<tr valign="top">
-								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Project<br />Title</td>
-								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submission<br />Deadline</td>
-								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							<tr valign="middle">
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Project Title</td>
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
 							</tr>
 							
 							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=email_engine_dev">Email Engine Enhancements</a></td>
-								<td background="" class="statText" align="center">11.29.2002</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=timer_dev">Timer</a></td>
+								<td background="" class="statText" align="center">12.06.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 							
@@ -74,8 +77,8 @@
 
 							<tr>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=log_interface_dev">Logging Wrapper</a></td>
-								<td background="" class="statText" align="center">11.29.2002</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=unit_test_gen_dev">Unit Test Generator</a></td>
+								<td background="" class="statText" align="center">12.06.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 
@@ -91,17 +94,19 @@
 						</table>
 					</td>
 				</tr>
+<!-- NEW Component Development Projects ends -->
 
+<!-- NEW Application Projects begins -->
 				<tr valign="middle"><td height="28"><img src="/i/development/head_new_app.gif" alt="NEW Application Projects" width="244" height="28" border="0" /></td></tr>
 
 				<tr valign="top">
 					<td bgcolor="#000000"> 
 						<table width="244" cellspacing="0" cellpadding="0" border="0" bgcolor="#000000">                
-							<tr valign="top">
-								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Project<br />Title</td>
-								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Inquiry<br />Deadline</td>
-								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							<tr valign="middle">
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Project Title</td>
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Inquire by</td>
+								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
 							</tr>
 							
 							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
@@ -133,13 +138,14 @@
 						</table>
 					</td>
 				</tr>
+<!-- NEW Application Projects ends -->
 			</table>
 
 			<table width="244" border="0" cellspacing="0" cellpadding="5" bgcolor="#000000"> 
 				<tr valign="top">
 					<td width="100%" bgcolor="#000000"> 
 						<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#003366">                
-							<tr valign="top"><td width="100%" background="/i/steel_blue_bg.gif" bgcolor="#003366" class="statTextSmall">The methodologies for Component Development have changed. Please read them before submitting a <a class="statTextSmall" href="/index?t=development&amp;c=comp_des_meth">Component Design</a> or <a class="statTextSmall" href="/index?t=development&amp;c=comp_dev_meth">Component Development</a> Solution.</td></tr>
+							<tr valign="top"><td width="100%" background="/i/steel_blue_bg.gif" bgcolor="#003366" class="statTextSmall">The <a class="statTextSmall" href="/index?t=development&amp;c=comp_meth">methodology</a> for Component Development has changed. Please read it before submitting a Component Design or Component Development Solution.</td></tr>
 						</table>
 					</td>
 				</tr>

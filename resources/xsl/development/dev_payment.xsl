@@ -44,7 +44,7 @@
 			<xsl:call-template name="BodyTop">
 			<xsl:with-param name="image1">steelblue</xsl:with-param>
 			<xsl:with-param name="image">development</xsl:with-param>
-			<xsl:with-param name="title">&#160;Application Development</xsl:with-param>
+			<xsl:with-param name="title">&#160;Payment Requirements</xsl:with-param>
 			</xsl:call-template>
 			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr valign="top">
@@ -54,39 +54,35 @@
 				</tr>
 			</table>
 				
-			<table border="0" cellspacing="5" cellpadding="5" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
-				<tr>
-					<td class="statText" colspan="2">The TopCoder Development area lists all open and in-progress projects at TopCoder that involve the use of the TopCoder member base. Projects are classified as <a class="statText" href="/index?t=development&amp;c=comp_des_projects">Component Design</a>, <a class="statText" href="/index?t=development&amp;c=comp_dev_projects">Component Development</a> or Application projects.</td>
-				</tr>
-
-				<tr><td class="statText" colspan="2"><h1 class="devSubhead">Open Application Projects</h1></td></tr>
-				
-				<!-- <tr valign="top">
-					<td class="statText" colspan="2">
-						<p>
-						Check here next week for an exciting new project!<br/>
-						</p>   
-					</td>
-				</tr> -->
-							
+			<table border="0" cellspacing="0" cellpadding="10" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
 				<tr valign="top">
-					<td class="statText" width="50%">
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=tchs">TopCoder High School</a><br/>
-						Posted: 11.18.2002<br/>
-						Inquiry Deadline: 11.22.2002<br/>
-						</p>   
-                        <P><BR/></P>
+					<td width="100%" background="/i/steel_darkblue_bg.gif">
+						<table border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+							<tr valign="top">
+								<td class="statText">
+									<p><strong>TopCoder Development Project Payment Requirements</strong></p>
+									
+									<p>You must meet the following requirements in order for TopCoder to pay you:
+                      					
+                      					<ul>
+                      						<li><strong>Valid member profile information.</strong><br />
+											We will mail checks to the address in your TopCoder profile, so please make sure that this information is current.<br /><br /></li>
+										<li><strong>One completed tax form on file with TopCoder.</strong><br />
+											<a class="statText" href="/?t=support&amp;c=form_faq">TopCoder FAQ regarding these forms >></a><br /><br />
+											The <strong>W-9 form</strong> should be filled out by all U.S. Citizens, including U.S resident aliens.<br />
+											<a class="statText" href="/contest/iw9.pdf">Click here for W-9 form instructions >></a><br />
+											<a class="statText" href="/contest/fw9.pdf">Click here for the W-9 form >></a><br /><br />
+											The <strong>W-8BEN form</strong> should be filled out by all non-U.S. Citizens.<br />
+											<a class="statText" href="/contest/iw8ben.pdf">Click here for W-8BEN form instructions >></a><br />
+											<a class="statText" href="/contest/fw8ben.pdf">Click here for the W-8BEN form >></a></li>
+									</ul>
+                        
+									Mailing address for forms and affidavits:&#160;&#160;TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033</p>
+								</td>
+							</tr>
+						</table>
 					</td>
-
-					<td class="statText" width="50%">&#160;
-						<!-- <p>
-						Project: <a class="statText" href="/index?t=development&amp;c=simple_cache">Simple Cache</a><br/>
-						Posted: 11.14.2002<br/>
-						Submission Deadline: 11.27.2002<br/>
-						</p> -->     
-					</td>
-				</tr>										
+				</tr>
 			</table>
 				
 			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">

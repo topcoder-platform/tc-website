@@ -5,7 +5,7 @@
 	<xsl:import href="../includes/body_top.xsl" />  
 	<xsl:import href="../foot.xsl" />
 	<xsl:import href="../includes/modules/stats_intro.xsl" />  
-	<xsl:import href="../includes/dev/dev_app_left.xsl" /> 
+	<xsl:import href="../includes/dev/public_dev_left.xsl" /> 
 	<xsl:import href="../includes/dev/public_dev_right.xsl" />     
 	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
 	<xsl:template match="/">
@@ -31,7 +31,7 @@
 	<tr valign="top">
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC">
-			<xsl:call-template name="dev_app_left" />
+			<xsl:call-template name="public_dev_left" />
 	  	</td>
 <!-- Left Column Ends -->
 
@@ -44,7 +44,7 @@
 			<xsl:call-template name="BodyTop">
 			<xsl:with-param name="image1">steelblue</xsl:with-param>
 			<xsl:with-param name="image">development</xsl:with-param>
-			<xsl:with-param name="title">&#160;Application Projects</xsl:with-param>
+			<xsl:with-param name="title">&#160;Application Development</xsl:with-param>
 			</xsl:call-template>
 			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr valign="top">
@@ -60,7 +60,7 @@
 						<table border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
 							<tr valign="top">
 								<td class="statText">
-									<p><strong>Application Project Methodology</strong></p>
+									<h1 class="devSubhead"><strong>TopCoder Software Application Project Methodology</strong></h1>
 
 									<p>Application projects require that interested members submit an inquiry by the Posting End Date. At this time, TopCoder 
 									will notify the members selected to participate on the project team. Participants will be chosen based upon TopCoder rating, 
