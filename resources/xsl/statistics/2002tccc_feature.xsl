@@ -54,7 +54,7 @@
     <TD CLASS="statTextBig" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
     <!-- Global Seconday Nav Begins -->        
-        <xsl:call-template name="2002tccc_seminav"/>
+        <xsl:call-template name="seminav"/>
   <!-- Global Seconday Nav Ends --> 
 <BR CLEAR="all"/>         
           
