@@ -10,6 +10,7 @@
 </HEAD>
 
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <body onLoad="document.note.<%=Constants.NOTE_TEXT%>.focus()">
 
@@ -34,7 +35,7 @@
                 </tr>
             </table>
 
-            <screen:form name='note' method='POST' action='<%=Constants.CONTROLLER_URL%>'>
+            <screen:form name='note' method='POST' action='<%=sessionInfo.getServletPath()%>'>
             <INPUT type="hidden" name='<%=Constants.MODULE_KEY%>' value='NoteCreate'/>
             <INPUT type="hidden" name='<%=Constants.FIRST_ATTEMPT%>' value='false'/>
             <INPUT type="hidden" name='<%=Constants.CANDIDATE_ID%>' value='<%=candidateInfo.getUserId()%>'/>

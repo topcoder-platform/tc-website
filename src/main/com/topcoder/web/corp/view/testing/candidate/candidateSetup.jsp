@@ -16,6 +16,7 @@ function back() {
 //--></SCRIPT>
 </HEAD>
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <% if (candidateInfo.isNew()) { %>
   <body onLoad="document.candidateSetupForm.emailAddress.focus()">
 <% } else { %>
@@ -57,7 +58,7 @@ function back() {
             </table>
 
              <table border="0" cellspacing="0" cellpadding="0" width="50%">
-                <tr><screen:form name="candidateSetupForm" action="<%= Constants.CONTROLLER_URL %>" method="GET">
+                <tr><screen:form name="candidateSetupForm" action="<%=sessionInfo.getServletPath()%>" method="GET">
                     <INPUT type="hidden" name="<%=Constants.MODULE_KEY%>" value="UpdateCandidate" />
                     <INPUT type="hidden" name="referrer" value="<jsp:getProperty name="candidateInfo" property="referrer" />" />
                     <td width="100%"><img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"></td>

@@ -15,7 +15,6 @@ public class Constants
     //Controller Servlet Constants
     public static String VALID_CHAR_LIST;
     public static String VALID_PASS_CHAR_LIST;
-    public static String CONTROLLER_URL;
     public static String DEFAULT_PAGE;
 
     //URL Parameter constants

@@ -7,6 +7,7 @@
 <title>Topcoder | Testing Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <script type="text/javascript" language="Javascript">
 <!--
@@ -26,7 +27,7 @@ function showEmail() {
     if(document.sessionSetupForm.repEmail.checked) {
         rEmail = "YES";
     }
-    <% String url = Constants.CONTROLLER_URL + "?" + Constants.MODULE_KEY + "=PreviewEmail"; %>
+    <% String url = sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=PreviewEmail"; %>
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.CANDIDATE_ID%>='+ cid + "&<%=Constants.REP_EMAIL%>=" + rEmail + "&<%=Constants.CANDIDATE_EMAIL%>=" + cEmail,name,cmd);
     return;
   }
@@ -86,7 +87,7 @@ function submitSession() {
 
             <jsp:useBean id="testSessionInfo" type="com.topcoder.web.corp.model.TestSessionInfo" scope="session" />
             
-            <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
+            <screen:form name="sessionSetupForm" action="<%=sessionInfo.getServletPath()%>" method="GET">
             <input type="HIDDEN" name="<%=Constants.MODULE_KEY%>" value="" >
 
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">

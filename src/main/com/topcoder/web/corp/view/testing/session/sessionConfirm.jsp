@@ -28,6 +28,7 @@ document.sessionConfirmForm.submit();
 <!-- Header begins -->
 <jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
@@ -51,7 +52,7 @@ document.sessionConfirmForm.submit();
 
             <jsp:useBean id="testSessionInfo" type="com.topcoder.web.corp.model.TestSessionInfo" scope="session" />
                         
-            <screen:form name="sessionConfirmForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
+            <screen:form name="sessionConfirmForm" action="<%=sessionInfo.getServletPath()%>" method="GET">
             <input type="HIDDEN" name="<%=Constants.MODULE_KEY%>" value="" >
                         
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">

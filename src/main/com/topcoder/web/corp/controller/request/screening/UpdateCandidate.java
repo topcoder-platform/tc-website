@@ -12,9 +12,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.common.security.PrincipalMgrException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
 import com.topcoder.web.ejb.user.User;
@@ -336,7 +334,7 @@ public class UpdateCandidate extends BaseProcessor {
             referrer = Constants.UC_DEFAULT_FORWARD_PROCESSOR;
         }
 
-        setNextPage(Constants.CONTROLLER_URL + "?" +
+        setNextPage(((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
                 Constants.MODULE_KEY + "=" + referrer);
         //redirect because we are done
         setIsNextPageInContext(false);

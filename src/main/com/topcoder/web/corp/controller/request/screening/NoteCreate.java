@@ -14,9 +14,7 @@ import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.PermissionDeniedException;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.CandidateInfo;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 import com.topcoder.common.web.error.NavigationException;
 
 import javax.naming.InitialContext;
@@ -105,7 +103,7 @@ public class NoteCreate extends BaseProcessor {
             throw(new TCWebException(e));
         }
 
-        setNextPage(Constants.CONTROLLER_URL + '?' +
+        setNextPage(((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + '?' +
                 Constants.MODULE_KEY + '=' + "PopulateCandidate" + '&' +
                 Constants.CANDIDATE_ID + '=' + candId);
         setIsNextPageInContext(false);
