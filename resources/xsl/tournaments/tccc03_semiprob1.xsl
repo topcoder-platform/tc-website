@@ -60,7 +60,7 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">steelgray</xsl:with-param>
                 <xsl:with-param name="image">tournaments_gray</xsl:with-param>
-                <xsl:with-param name="title">Room 1: Problems &amp; Play-by-play</xsl:with-param>
+                <xsl:with-param name="title">Room 1: Problems</xsl:with-param>
             </xsl:call-template>
 
             <xsl:call-template name="tccc03_links">

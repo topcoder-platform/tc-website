@@ -60,7 +60,7 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">steelgray</xsl:with-param>
                 <xsl:with-param name="image">tournaments_gray</xsl:with-param>
-                <xsl:with-param name="title">Room 3: Problems &amp; Play-by-play</xsl:with-param>
+                <xsl:with-param name="title">Room 3: Problems</xsl:with-param>
             </xsl:call-template>
 
             <xsl:call-template name="tccc03_links">
@@ -76,147 +76,138 @@
                     <td width="10%" class="bodyText">
                         <p>Friday, April 4, 2002</p>
                         
-                        <h2>RoadTrip<br />
-                        <font size="-1">Used as: Level 1</font></h2>
+                        <p><b>Problem Summary</b></p>
+            <p>
+            This was a fun problem set. It had dynamic programming and memoization, with a small amount of graph theory 
+            thrown in. The easy problem was straightforward dynamic programming, the medium involved determining 
+            whether two small graphs were isomorphic, while the hard involved exploiting memoization to reduce 
+            the amount of time required to simulate all the possibilities. 
+       		</p>
+			<font size="+2"><b>ZigZag</b></font><br />
+   			 Used as: Level 1:
+   			<blockquote>
+   			<table cellspacing="2" cellpadding="2">
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Value</b></td>
+			<td style="background: #eee;" class="bodyText">300</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
+			<td style="background: #eee;" class="bodyText">4/4 (100%)</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
+			<td style="background: #eee;" class="bodyText">3/4 (75%)</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
+			<td style="background: #eee;" class="bodyText"><b>sjelkjd</b> for 281.30 points</td>
+			</tr>
+			</table>
+			</blockquote>
+			<p>
+			The solution to this problem is a somewhat obvious application of dynamic programming. Suppose for each 
+			position in the sequence, we know the length of the longest subsequence of the sequence that starts at 
+			that position where the first difference is positive, as well as the length of the same where the first 
+			difference is negative. Then it is easy to insert a value at the beginning of the sequence and solve the 
+			same problem for a sequence starting with this new value, using the information we already know.</p>
+			<p>Initially, we know the solution for the last pair of values in the sequence. The length of the longest 
+			subsequence where the difference is either positive or negative will be 2 (while for the other sign it 
+			will be 0). We then work backwards from the third to last value in the sequence.</p>
+			<p>For each value, we determine the maximum subsequence length we'd get if we skip the values between the 
+			current value and each following value. Depending on whether the difference between the current value and 
+			the value we're skipping to is positive or negative, we look at the appropriate maximum length for 
+			subsequences starting at the value we're skipping to and add 1. Once we try skipping to all values 
+			following our current value, we can take the maximum for each sign.</p> 
+			<p>Once we work all the way to the beginning of the sequence, we then look over all signs for all values, 
+			pick the maximum value and return it.</p> 
+			
+			<font size="+2"><b>Criminal</b></font><br />
+   			 Used as: Level 2:
+   			<blockquote>
+   			<table cellspacing="2" cellpadding="2">
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Value</b></td>
+			<td style="background: #eee;" class="bodyText">550</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
+			<td style="background: #eee;" class="bodyText">3/4 (75%)</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
+			<td style="background: #eee;" class="bodyText">3/3 (100%)</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
+			<td style="background: #eee;" class="bodyText"><b>bstanescu</b> for 423.90 points</td>
+			</tr>
+			</table>
+			</blockquote>
+			<p>This problem is basically a graph isomorphism problem. We begin by building two graphs, one for the 
+			database and one for the field data. This is straight forward, as each element in these input arrays 
+			describes an edge in the resulting graph. We then have to determine whether or not these graphs are 
+			isomorphic, and, if so, determine the maximum possible number of aliases.</p>
+			<p>Since we're limited to 8 vertices in each graph, we can use a crude approach. First, of course, 
+			we should verify that the two graphs have the same number of vertices (else they cannot be isomorphic). 
+			Then, we fix the ordering of the vertices of one graph and permute through each possible ordering of 
+			vertices of the second graph. For each possible ordering, we can compare respective vertices from both 
+			graphs and see if they both have the same number of edges all going to the same vertices. If so, then 
+			we have found one way in which the two graphs can be said to be isomorphic.</p>
+			<p>Since it's possible that multiple orderings of the vertices of the second graph could yield the same 
+			configuration as the first graph, we must iterate through them all. For each one that yields the same 
+			configuration, we must count the number of aliases. This is just a count of the number of respective 
+			vertices that have different labels. We store the maximum number of aliases and return it when we have 
+			iterated through all orderings.</p> 
+			
+			<font size="+2"><b>TimeSlicing</b></font><br />
+   			 Used as: Level 3:
+   			<blockquote>
+   			<table cellspacing="2" cellpadding="2">
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Value</b></td>
+			<td style="background: #eee;" class="bodyText">1000</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
+			<td style="background: #eee;" class="bodyText">3/4 (75%)</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
+			<td style="background: #eee;" class="bodyText">3/3 (100%)</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
+			<td style="background: #eee;" class="bodyText"><b>sjelkjd</b> for 874.63 points</td>
+			</tr>
+			</table>
+			</blockquote>
+			<p>If you visualize all the possible ways to schedule two processes, you'll see that each schedule is a 
+			path through a directed acyclic graph (DAG). Each vertex of this graph represents a state, consisting 
+			of how long each process has waited in combination with how much time each process has accrued.</p> 
+			<p>Much like the TicTacToe problem from last round, this is a memoization problem. We walk the graph as 
+			we generate it, keeping track of vertices we have visited. Anytime we revisit a vertex, we already 
+			know the number of successful paths we will obtain through this vertex, and so we will never simulate 
+			duplicate suffixes of schedules. </p>
+			<p>The description of a state has 4 parts, so we will have a 4-dimensional array. The indices into this 
+			array will be the components of the state: current wait time for process A; current wait time for process 
+			B; time accrued by process A; and time accrued by process B. Since A gets the first slice, our initial 
+			state is (0, 1, 1, 0). We call our recursive function with these parameters, and it will give us the answer.</p>
+			<p>The first thing this recursive function does is check the memoization table, to see if an answer for the 
+			given input parameters has already been computed. If so, it returns it. Otherwise it will have to compute 
+			it. To compute it, we first determine if the state is valid or not. It is invalid if any of the components 
+			of the state exceed their maximum values (too much time waiting or too much time accrued). If this is the 
+			case, the function returns 0. Next, we determine if the state is a final, successful state or not. This is 
+			any valid state where the accrued time for both processes is the number of time slices needed by each. If 
+			this is the case, we return 1.</p>
+			<p>Otherwise, we must traverse all the edges from this current state. There can be at most two, one 
+			representing A being scheduled next, the other representing B being scheduled next. We recursively 
+			call the function on the two possible states derived from the current state, and return the sum of 
+			the return values. </p>
 
-                        <h4>Implementation</h4>
+
+
                         
-                        <p>This problem is strongly reminiscent of the programming language <a href="http://www.catseye.mb.ca/esoteric/befunge/" target="_blank">BeFunge</a>.
-                        In a sense, this problem calls for the implementation of an evaluator for a very simplified version
-                        of the language.  The program is the two-dimensional character array given as input, and the commands
-                        are either no-ops (the dots) or turns (left, right, or 180 degrees).  Input to the program would be
-                        a starting location and a direction, and the output would be the number of locations visited at least once.
-                        The problem then just calls for evaluating the input program for all possible
-                        inputs, and returning the maximal output.  You must also detect infinite loops, and terminate any program
-                        that enters one.</p>
-
-                        <p>The easiest method for handling motion and turns is by specifying an array of position offsets to
-                        represent movement in each direction.  For example:</p>
-
-<pre>
-    int[][] dxy = {
-        { 0, 1 },   // east
-        { -1, 0 },  // north
-        { 0, -1 },  // west
-        { 1, 0 },   // south
-    }
-</pre>
-                        <p>Each row in this array represents movement in a particular direction, and the rows are ordered
-                        such that the row following represents a left turn and the row preceding represents a right turn.
-                        The first column is the row offset, and the second column is the column offset.  Thus <tt>{0, 1}</tt>
-                        represents no change in row and a positive change in column, which corresponds to eastward movement.
-                        To turn left, then, one just adds <tt>1</tt> to the current direction and then takes that value
-                        mod <tt>4</tt> (so, a left turn when the direction is <tt>3</tt> yields <tt>0</tt>).  A right turn
-                        consists of subtracting <tt>1</tt>, but the modulus operator doesn't work the same way for negative
-                        numbers.  It is easier to add <tt>3</tt> instead (since <tt>3</tt> and <tt>-1</tt> are congruent modulo <tt>4</tt>).
-                        This method is useful for many, many grid traversal problems.</p>
-
-                        <p>Now all that is left is detection of infinite loops.  An infinite loop will only occur if you
-                        revisit a previously visited location and leave it in the same direction that you have left it before.
-                        Thus, maintain a three-dimensional boolean array, where the indices represent row, column, and direction.
-                        When you leave a location, check the appropriate element in the array.  If it is true, you have entered
-                        an infinite loop, and might as well terminate the program, as no new locations will ever be visited.
-                        Otherwise, set the appropriate element in the array to true and continue evaluation.</p>
-
-                        <p>Simply evaluate the program for all possible locations and directions, and count how many locations are
-                        visited.  Then just return the maximum.</p>
-
-                        <p>&#160;</p>
-                        
-                        <a name="GraphPaths"></a><h2>GraphPaths<br />
-                        <font size="-1">Used as: Level 2</font></h2>
-    
-                        <h4>Implementation</h4>
-    
-                        <p>It's clear from the examples that simply iterating paths is not the answer, as there
-                        can be up to 2<sup>63</sup> paths that one must count.  Instead we must count the paths
-                        without iterating them.  In fact, a dynamic programming solution is called for.</p>
-
-                        <p>Suppose that we know the number of paths of length <tt>a</tt> between all pairs of vertices,
-                        as well as the number of paths of length <tt>b</tt>.
-                        Can we use this information to compute the number of paths of length <tt>a + b</tt> for all pairs?
-                        We can, and it's actually quite easy.  If there exist <tt>m</tt> paths of length <tt>a</tt> from
-                        vertex <tt>i</tt> to vertex <tt>j</tt>, and there exist <tt>n</tt> paths of length <tt>b</tt>
-                        from vertex <tt>j</tt> to vertex <tt>k</tt>, then there must be <tt>m * n</tt> paths of length
-                        <tt>a + b</tt> from vertex <tt>i</tt> to vertex <tt>k</tt>.  Thus with three nested <tt>for</tt>
-                        loops, one can easily generate a matrix giving number of paths of a particular length from similar
-                        matrices for smaller lengths.</p>
-
-                        <p>Now we can see how to solve this problem in time that is proportional to the logarithm of
-                        the given length.  Simply look at the binary representation of the length.  The binary representation
-                        is a way of decomposing a value into a sum of powers of <tt>2</tt>.  So, all we have to do is
-                        compute the number of paths between all pairs of vertices for all lengths that are powers of <tt>2</tt>
-                        (up to a certain point).</p>
-                        
-                        <p>For this, we again use the method described above.  If we know the number of paths of length <tt>a</tt>,
-                        we can compute the number of paths of length <tt>a + a</tt>.  So, we build a three-dimensional array,
-                        <tt>paths</tt>, where <tt>paths[x][i][j]</tt> gives the number of paths of length <tt>2<sup>x</sup></tt> from vertex
-                        <tt>i</tt> to vertex <tt>j</tt>.  The range of the first index needs to be <tt>0..30</tt> (since
-                        the base-2 logarithm of the maximum length we will be given is less than 31).  We initialize <tt>paths[0]</tt>
-                        to be all zeros, except where an edge exists from <tt>i</tt> to <tt>j</tt>.  If there is an edge from
-                        <tt>i</tt> to <tt>j</tt>, then <tt>paths[0][i][j] = 1</tt>.</p>
-
-                        <p>We then successively build <tt>paths[1]</tt> through <tt>paths[30]</tt>.  Since we're going to have
-                        to repeat this process later on to obtain the answer for our given length, it is a good idea to
-                        develop this process as a function, which takes two two-dimensional matrices (representing the number of
-                        paths between all pairs for two different lengths) and returns a two-dimensional matrix (representing
-                        the number of paths between all pairs for the sum of the two input lengths).  Then, to build
-                        <tt>paths[n]</tt>, we simply pass two references to <tt>paths[n - 1]</tt> to this function.
-                        The function also has to handle overflow detection.  Basically, before increasing any value, verify that
-                        the amount it is going to be increased by is less than the difference between the maximum value and its
-                        current value.  If so, replace it with <tt>-1</tt>.</p>
-    
-                        <p>Once we build <tt>paths</tt>, we are ready to compute the answer.  We initialize a two-dimensional
-                        <tt>sum</tt> to all zeros, and then set <tt>sum[i][i] = 1</tt> for all vertices <tt>i</tt>.  This
-                        represents the number of paths of length 0.  We then iterate through the bits of <tt>length</tt>.
-                        If bit <tt>i</tt> is <tt>1</tt>, then we pass <tt>sum</tt> and <tt>paths[i]</tt> to the function
-                        we implemented above and replace <tt>sum</tt> with its return value.  After we've done this for all
-                        the bits of <tt>length</tt>, we have our answer for all pairs of vertices.  We simply look up the
-                        value at the location specified by the input parameters and return it.</p>
-                        
-                        <p>&#160;</p>
-                        
-                        <a name="HigherMaze"></a><h2>HigherMaze<br />
-                        <font size="-1">Used as: Level 3</font></h2>
-    
-                        <h4>Implementation</h4>
-                        
-                        <p>This is just a suped up version of a typical breadth-first-search problem, something which should pose
-                        little challenge to competitors that have made it to the semi-finals.  The most interesting aspect of
-                        this problem is the input, part of which specifies parameters to a pseudo-random number generator which
-                        is used to populate the graph before the search is performed.  This might make testing and challenging
-                        more difficult, but the problem statement explicitly specifies how to code the generator, so it should
-                        not pose much difficulty as far as coding goes.</p>
-
-                        <p>There are at most <tt>20<sup>5</sup> = 3200000</tt> locations in the graph.  There's no problem with storing
-                        information for all of these in memory.  The general process of a breadth-first search is then as follows.</p>
-
-                        <p>The primary data structure for a breadth-first search is a priority queue.  The values that are stored in
-                        the priority queue are tuples.  Each such tuple represents a location and a cost for reaching that location.
-                        Thus the priority queue is initially populated with the starting location with a cost of zero.</p>
-
-                        <p>Each value that we pull from the queue represents a location we can reach (and the minimal cost of reaching
-                        that location).  For each location we reach, we generate the locations of all its neighbors (which may include
-                        neighbors reached directly through wormholes) and compute the costs
-                        for reaching each of these locations by passing through the current location.  That is, we compute the cost
-                        of travelling from the current location to a neighbor, and add that cost to the cost of reaching the current
-                        location.  We then construct a tuple for associating each of the neighboring locations with the computed cost
-                        for each, and add them to the priority queue.</p>
-
-                        <p>Usually, for efficiency, we would not not add a tuple to the
-                        queue if there has already been added to the queue a tuple for the same location with a lower cost.
-                        However, we are dealing with a graph where edges may have negative weights, so this practice would be
-                        erroneous.</p>
-
-                        <p>This is all standard fare, and all of the contestants have probably solved this problem for two, three, or even
-                        four dimensions (I recall an ACM ICPC problem a few years ago that was four-dimensional).  This is just
-                        a generalization of the same problem.  Generalizing the solution is trivial, except for the matter of iterating
-                        neighbors.  Writing code to generate neighbors of an arbitrary location in <i>n</i> dimensions is trivial if
-                        <i>n</i> is constant for your program, but it's slightly harder to generalize for any <i>n</i>.  This consists
-                        of generating all <i>n</i>-element arrays where the values of each element can be either <tt>-1</tt>, <tt>0</tt>,
-                        or <tt>1</tt>, and this could easily be done in a simple recursive function.  Generating locations of asteroids
-                        in the manner prescribed should probably be done in the same manner.</p>
-
 
                         <img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left"/>
                         By <a href="/stat?c=member_profile&amp;cr=112902" class="bodyText"><strong>Logan</strong></a><br/>
@@ -228,22 +219,7 @@
                     </td>
                 </tr>                  
 
-                <tr><td height="1"><img src="/i/clear.gif" alt="" width="10" height="3" border="0"/></td></tr>
-                <tr><td class="tourney_subnav"><strong>Semifinal Room 3 Play-by-play</strong></td></tr>
-                <tr>
-                    <td valign="top" class="bodyText">
-                        <p><strong>CODING PHASE</strong><br/>
-                        8:00:02 AM - malpt opens the Level One problem<br/>
-                        8:00:04 AM - ambrose opens the Level One problem<br/>
-                        8:00:05 AM - SnapDragon opens the Level One problem<br/>
-                        8:00:07 AM - kyky opens the Level One problem<br/>
-                        8:10:02 AM - SnapDragon submits the Level One problem for 268.59 points (final submission)<br/>
-                        9:15:36 AM - SnapDragon submits the Level Three problem for 521.09 points (final submission)</p>
-
-                        <p><strong>CHALLENGE PHASE</strong><br/>
-                        9:38:16 AM - SnapDragon challenges ambrose on the Level Two problem successfully</p>
-                    </td>
-                </tr>            
+                 
             </table>
 
             <p><br/></p>
