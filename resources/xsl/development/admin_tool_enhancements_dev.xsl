@@ -266,22 +266,22 @@
                                                     <b/>Application Project Posting:
                                                 </td>
                                                 <td class="sidebarText" align="right">
-                                                    <b/>9.22.2003
+                                                    <b/>10.10.2003
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="sidebarText">Member Selection:</td>
-                                                <td class="sidebarText" align="right">9.30.2003</td>
+                                                <td class="sidebarText" align="right">10.16.2003</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Member Acceptance:</td>
-                                                <td class="sidebarText" align="right">10.2.2003</td>
+                                                <td class="sidebarText" align="right">10.20.2003</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Development Start:</td>
-                                                <td class="sidebarText" align="right">10.06.2003</td>
+                                                <td class="sidebarText" align="right">10.22.2003</td>
                                             </tr>
 
                                             <tr>
@@ -293,7 +293,7 @@
                                                     <br/>
                                                     &#160;&#160;&#160;Documentation
                                                 </td>
-                                                <td class="sidebarText" valign="top" align="right">10.10.2003</td>
+                                                <td class="sidebarText" valign="top" align="right">10.28.2003</td>
                                             </tr>
 
                                             <tr>
@@ -305,7 +305,7 @@
                                                     <br/>
                                                     &#160;&#160;&#160;Documentation
                                                 </td>
-                                                <td class="sidebarText" valign="top" align="right">10.21.2003</td>
+                                                <td class="sidebarText" valign="top" align="right">11.06.2003</td>
                                             </tr>
 
                                             <tr>
@@ -317,33 +317,32 @@
                                                     <br/>
                                                     &#160;&#160;&#160;Documentation
                                                 </td>
-                                                <td class="sidebarText" valign="top" align="right">10.29.2003</td>
+                                                <td class="sidebarText" valign="top" align="right">11.14.2003</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Winner Announced:</td>
-                                                <td class="sidebarText" align="right">11.3.2003</td>
+                                                <td class="sidebarText" align="right">11.19.2003</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Updated Submission Due Date:</td>
-                                                <td class="sidebarText" align="right">11.7.2003</td>
+                                                <td class="sidebarText" align="right">11.26.2003</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Integration Start:</td>
-                                                <td class="sidebarText" align="right">11.12.2003</td>
+                                                <td class="sidebarText" align="right">11.28.2003</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">QA Start:</td>
-                                                <td class="sidebarText" align="right">11.24.2003</td>
+                                                <td class="sidebarText" align="right">12.10.2003</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Acceptance:</td>
-                                                <td class="sidebarText" align="right">12.3.2003</td>
-                                            </tr>
+                                                <td class="sidebarText" align="right">12.19.2003</td>                                            </tr>
                                         </table>
 
                                         <!-- Register at TCS -->
