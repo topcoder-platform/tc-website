@@ -70,8 +70,8 @@
                 var arr = "";
                 
                 for(var i = 0; i < getLength("document.frmTesting", "listBox.options") ; i++) {
-                    var val = getOption("document.frmTesting", "listBox", i).value;
-                    alert(getOption("document.frmTesting", "listBox", i));
+                    var val = getOption("document.frmTesting", "listBox", i).text;
+                    alert(val);
                     val = replace(val, "\\", "\\\\");
                     val = replace(val, "\"", "\\\"");
                     arr = arr + "\"" + val + "\",";
