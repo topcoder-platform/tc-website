@@ -917,9 +917,7 @@ public class EmailJobBean extends BaseEJB {
                     throw new Exception("No records returned");
                 }
             }
-            byte[] bytes = rs.getBytes(1);
-            if (bytes != null)
-                ret = new String(bytes);
+            ret = rs.getString(1);
             rs.close();
         } catch (Exception dberr) {
             String err = "Failed to get data for job " + jobId;
