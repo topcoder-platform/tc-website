@@ -22,13 +22,13 @@
     </tr>
 
     <tr>
-        <td class="formHandleEven" nowrap="nowrap">TCCC<br/>Round #1</td>
+        <td class="formHandleEven" nowrap="nowrap">TCCC Rd 1</td>
         <td class="formHandleEven" align="right">1615</td>
         <td rowspan="5" align="center" valign="middle"><img src="/i/m/GustavoBR_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
     </tr>
 
     <tr>
-        <td class="formHandleEven">TCCC<br/>Qualification</td>
+        <td class="formHandleEven">TCCC Qual</td>
         <td class="formHandleEven" align="right">1481</td>
     </tr>
     <tr>
