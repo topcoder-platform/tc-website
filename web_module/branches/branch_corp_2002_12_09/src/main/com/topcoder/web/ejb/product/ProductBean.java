@@ -74,9 +74,9 @@ public class ProductBean implements SessionBean {
             ret = IdGenerator.nextId("PRODUCT_SEQ");
 
             StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO product (product_id, cost, create_date, modify_date) VALUES (");
+            query.append("INSERT INTO product (product_id, cost) VALUES (");
             query.append(Long.toString(ret) + "," + Float.toString(cost));
-            query.append(",'now','now')");
+            query.append(")");
 
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
@@ -188,7 +188,7 @@ public class ProductBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE product SET product_desc = '" + productDesc + "', modify_date = 'now' WHERE product_id = ");
+            query.append("UPDATE product SET product_desc = '" + productDesc + "' WHERE product_id = ");
             query.append(Long.toString(productId));
 
             ctx = new InitialContext();
@@ -223,7 +223,7 @@ public class ProductBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE product SET cost = " + cost + ", modify_date = 'now' WHERE product_id = ");
+            query.append("UPDATE product SET cost = " + cost + " WHERE product_id = ");
             query.append(Long.toString(productId));
 
             ctx = new InitialContext();

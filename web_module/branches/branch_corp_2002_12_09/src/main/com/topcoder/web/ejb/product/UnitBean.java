@@ -64,10 +64,10 @@ public class UnitBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO unit (product_id, unit_type_id, num_units, create_date, modify_date) VALUES (");
+            query.append("INSERT INTO unit (product_id, unit_type_id, num_units) VALUES (");
             query.append(Long.toString(productId) + "," + Long.toString(unitTypeId) + ",");
             query.append(Integer.toString(numUnits));
-            query.append(",'now','now')");
+            query.append(")");
 
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
@@ -141,7 +141,7 @@ public class UnitBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE unit SET num_units = " + numUnits + ", modify_date = 'now' WHERE product_id = ");
+            query.append("UPDATE unit SET num_units = " + numUnits + " WHERE product_id = ");
             query.append(Long.toString(productId));
             query.append(" AND unit_type_id = ");
             query.append(Long.toString(unitTypeId));

@@ -75,9 +75,9 @@ public class PurchaseBean implements SessionBean {
             ret = IdGenerator.nextId("PURCHASE_SEQ");
 
             StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO purchase (purchase_id, company_id, product_id, contact_id, create_date, modify_date) VALUES (");
+            query.append("INSERT INTO purchase (purchase_id, company_id, product_id, contact_id) VALUES (");
             query.append(Long.toString(ret) + "," + Long.toString(companyId) + "," + Long.toString(productId) + "," + Long.toString(contactId));
-            query.append(",'now','now')");
+            query.append(")");
 
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
@@ -111,7 +111,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE purchase SET company_id = " + companyId + ", modify_date = 'now' WHERE purchase_id = ");
+            query.append("UPDATE purchase SET company_id = " + companyId + " WHERE purchase_id = ");
             query.append(Long.toString(purchaseId));
 
             ctx = new InitialContext();
@@ -146,7 +146,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE purchase SET product_id = " + productId + ", modify_date = 'now' WHERE purchase_id = ");
+            query.append("UPDATE purchase SET product_id = " + productId + " WHERE purchase_id = ");
             query.append(Long.toString(purchaseId));
 
             ctx = new InitialContext();
@@ -181,7 +181,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE purchase SET contact_id = " + contactId + ", modify_date = 'now' WHERE purchase_id = ");
+            query.append("UPDATE purchase SET contact_id = " + contactId + " WHERE purchase_id = ");
             query.append(Long.toString(purchaseId));
 
             ctx = new InitialContext();
@@ -216,7 +216,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE purchase SET start_date = {d '" + startDate + "'}, modify_date = 'now' WHERE purchase_id = ");
+            query.append("UPDATE purchase SET start_date = {d '" + startDate + "'} WHERE purchase_id = ");
             query.append(Long.toString(purchaseId));
 
             ctx = new InitialContext();
@@ -251,7 +251,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE purchase SET end_date = {d '" + endDate + "', modify_date = 'now' WHERE purchase_id = ");
+            query.append("UPDATE purchase SET end_date = {d '" + endDate + "'} WHERE purchase_id = ");
             query.append(Long.toString(purchaseId));
 
             ctx = new InitialContext();
