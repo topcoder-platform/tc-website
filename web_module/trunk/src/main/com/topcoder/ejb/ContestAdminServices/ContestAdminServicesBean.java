@@ -34,67 +34,10 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
   private static final int CHALLENGE_SUCCEEDED = 140;
   private static final int SYSTEM_TEST_FAILED = 160;
   private static final int SYSTEM_TEST_SUCCEEDED = 150;
-  private static final int NULLIFIED = -1;
+  private static final int STATUS_NORMAL     = 90;
+  private static final int STATUS_OVERTURNED = 91;
+  private static final int STATUS_NULLIFIED  = 92;
 
-
-
-  /**
-   *****************************************************************************************
-   *  method: getContestCoderCount
-   *  input:  int contestId
-   *  output: int coderCount
-   *  Author: Steven M. Burrows
-   *  Created: February 22, 2001
-   *  Last Modified: 
-   *  Modified By: 
-   *  Reason: 
-   *
-   *  Description:  This method will return a count of coders qualifying for a
-   *                tournament.
-   *****************************************************************************************
-   **/
-/*
-  /////////////////////////////////////////////////////////////////////
-  public int getContestCoderCount(int contestId) throws RemoteException {
-  /////////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "Contest: getContestCoderCount() called ... ");
-    int result = 0;
-    java.sql.Connection conn = null;
-    PreparedStatement ps = null;
-    ResultSet rs = null;
-    StringBuffer query = new StringBuffer(120);
-    query.append( " SELECT "                           );
-    query.append(    "COUNT(1)"                        );
-    query.append( " FROM "                             );
-    query.append(    "contest_coders"                  );
-    query.append( " WHERE "                            );
-    query.append(    "contest_id = ?"                  );
-    query.append(   " AND terms = 'Y'"                 );
-    query.append(   " AND contest_coder_status = 'S'"  );
-    try {
-      conn = DBMS.getConnection();
-      ps = conn.prepareStatement( query.toString() ) ;
-      ps.setInt(1, contestId);
-      rs = ps.executeQuery();
-      if (rs.next()) {
-        result = rs.getInt(1);
-      }
-    } catch (Exception e) {
-      throw new RemoteException ("Contest:getContestCoderCount:query: Error:\n"+e);
-    } finally {
-      try {
-        if (rs != null) rs.close();
-      } catch (Exception Ignore) { }
-      try {
-        if (ps != null) ps.close();
-      } catch (Exception Ignore) { }
-      try {
-        if (conn != null) conn.close();
-      } catch (Exception Ignore) { }
-    }
-    return result;
-  }
-*/
 
   /*****************************************************************************************
   * Saves a contest.
@@ -465,42 +408,6 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     Group group = null;
 
     StringBuffer queryContestInfo = new StringBuffer();
-    if ( DBMS.DB == DBMS.POSTGRES ) {
-      queryContestInfo.append( " SELECT c.contest_id, c.contest_name, c.contest_start, " ).
-                       append(        " c.contest_end, c.status, s.subject_id, s.subject_name, ").
-                       append(        " g.group_id, g.group_desc, c.ad_text, c.ad_start, c.ad_end, ").
-                       append(        " date_part('second', contest_start)::varchar::int as startsecond, ").
-                       append(        " date_part('minute', contest_start)::varchar::int as startminute, "). 
-                       append(        " date_part('hour', contest_start)::varchar::int as starthour, ").
-                       append(        " date_part('day', contest_start)::varchar::int as startday, ").
-                       append(        " date_part('month', contest_start)::varchar::int as startmonth, ").
-                       append(        " date_part('year', contest_start)::varchar::int as startyear, ").
-                       append(        " date_part('second', contest_end)::varchar::int as endsecond, ").
-                       append(        " date_part('minute', contest_end)::varchar::int as endminute, ").
-                       append(        " date_part('hour', contest_end)::varchar::int as endhour, ").
-                       append(        " date_part('day', contest_end)::varchar::int as endday, ").
-                       append(        " date_part('month', contest_end)::varchar::int as endmonth, ").
-                       append(        " date_part('year', contest_end)::varchar::int as endyear, ").
-                       append(        " date_part('second', ad_start)::varchar::int as adstartsecond, ").
-                       append(        " date_part('minute', ad_start)::varchar::int as adstartminute, ").
-                       append(        " date_part('hour', ad_start)::varchar::int as adstarthour, ").
-                       append(        " date_part('day', ad_start)::varchar::int as adstartday, ").
-                       append(        " date_part('month', ad_start)::varchar::int as adstartmonth, ").
-                       append(        " date_part('year', ad_start)::varchar::int as adstartyear, ").
-                       append(        " date_part('second', ad_end)::varchar::int as adendsecond, ").
-                       append(        " date_part('minute', ad_end)::varchar::int as adendminute, ").
-                       append(        " date_part('hour', ad_end)::varchar::int as adendhour, ").
-                       append(        " date_part('day', ad_end)::varchar::int as adendday, ").
-                       append(        " date_part('month', ad_end)::varchar::int as adendmonth, ").
-                       append(        " date_part('year', ad_end)::varchar::int as adendyear ").
-                       append( " FROM groups g, subjects s, contest c ").
-                       append( " WHERE g.group_id = c.group_id AND ").
-                       append(      "  s.subject_id = c.subject_id AND ").
-                       append(      "  (c.status = 'A' OR c.status = 'P') ").
-                       append( " ORDER BY c.contest_id ");
-
-    }
-    else if ( DBMS.DB == DBMS.INFORMIX ) { 
       queryContestInfo.append( " SELECT c.contest_id, c.name, c.start_date, " ).
                        append(        " c.end_date, c.status, l.language_id, l.language_name, ").
                        append(        " g.group_id, g.group_desc, c.ad_text, c.ad_start, c.ad_end, ").
@@ -533,7 +440,6 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
                        append(      "  l.language_id = c.language_id AND ").
                        append(      "  (c.status = 'A' OR c.status = 'P') ").
                        append( " ORDER BY c.contest_id ");
-    }
     try {
       conn = DBMS.getConnection();
       ps = conn.prepareStatement( queryContestInfo.toString() ) ;
@@ -800,7 +706,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     ***************************************************************************************
     **/
     public ArrayList getRoundList() throws RemoteException {
-      if(VERBOSE) Log.msg("Contest.getRoundList() called ... ");
+      log.info("Contest.getRoundList() called ... ");
       return getRoundList(0);
     }
 
@@ -814,7 +720,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     ***************************************************************************************
     **/
     public ArrayList getRoundList(int contest_id) throws RemoteException {
-      if(VERBOSE) Log.msg("Contest.getRoundList(contest_id) called ... ");
+      log.info("Contest.getRoundList(contest_id) called ... ");
 
       ArrayList rounds = new ArrayList();
       Round roundAttr = null;
@@ -824,12 +730,14 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
       ResultSet rs = null;
 
        StringBuffer txtGetRounds = new StringBuffer();
-       txtGetRounds.append(" SELECT round_id, name ").
-                    append(" FROM round " );
+       txtGetRounds.append(" SELECT r.round_id, r.name , rs.start_time, c.name ")
+                   .append(" FROM round r, round_segment rs, contest c " )
+                   .append(" WHERE r.round_id = rs.round_id and rs.segment_id = 1 ")
+                   .append(" and r.contest_id = c.contest_id ");
           if (contest_id != 0) {
-                    txtGetRounds.append(" WHERE contest_id = ? ");
+                    txtGetRounds.append(" and  r.contest_id = ? and  c.contest_id = ? ");
           }
-                    txtGetRounds.append(" ORDER BY round_id ");
+                    txtGetRounds.append(" ORDER BY r.round_id desc ");
 
 
        try {
@@ -845,14 +753,15 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
          while (rs.next()) {
             roundAttr = new Round(contest_id);
             roundAttr.setRoundId(rs.getInt(1));
-            roundAttr.setRoundDesc(rs.getString(2));
+            roundAttr.setContestName(rs.getString(4));
+            roundAttr.setRoundName(rs.getString(2));
             roundAttr.setContestId(contest_id);
             rounds.add(roundAttr);
          }
 
        }
        catch (SQLException e) {
-         e.printStackTrace();
+         DBMS.printSqlException(true, e);
        }
        finally {
          try {
@@ -883,7 +792,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
   /////////////////////////////////////////////////////////////////////
   public void removeSystemTestResult(int roundId, int coderId, int problemId, int testCaseId) throws RemoteException {
   /////////////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "Contest: removeSystemTestResult(roundId, coderId, problemId, testCaseId) called ... ");
+    log.info("Contest: removeSystemTestResult(roundId, coderId, problemId, testCaseId) called ... ");
     int result = 0;
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
@@ -925,7 +834,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
   /////////////////////////////////////////////////////////////////////
   public void nullifyChallenge(int challengeId) throws RemoteException {
   /////////////////////////////////////////////////////////////////////
-    log.debug("Contest: nullifyChallenge (int challengeId ["+challengeId+"]) called ... ");
+    log.info("Contest: nullifyChallenge (int challengeId ["+challengeId+"]) called ... ");
     int result = 0;
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
@@ -947,7 +856,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     .append(" where round_id =  ? and coder_id = ? ");
   
     StringBuffer queryUpdateChallenge = new StringBuffer(200);
-    queryUpdateChallenge.append(" update challenge set succeeded = ? where ")
+    queryUpdateChallenge.append(" update challenge set status_id = ? where ")
     .append(" round_id =  ? and problem_id = ? and defendant_id = ? and challenger_id = ? and challenge_id = ? ");
   
     try 
@@ -955,9 +864,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
        try  
        {
            conn = DBMS.getConnection();
-       log.debug("after DBMS.java");
            conn.setAutoCommit(false);
-       log.debug("after setAutocommit");
            ps = conn.prepareStatement( queryGetChallengeInfo.toString() ) ;
            ps.setInt(1, challengeId);
            rs = ps.executeQuery();
@@ -1032,7 +939,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
        try 
        {     
           ps = conn.prepareStatement ( queryUpdateChallenge.toString() );
-          ps.setInt  (1, NULLIFIED); 
+          ps.setInt  (1, STATUS_NULLIFIED); 
           ps.setInt  (2, roundId); 
           ps.setInt  (3, problemId); 
           ps.setInt  (4, defendantId); 
@@ -1070,7 +977,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     ***************************************************************************************
     **/
     public ArrayList getSystemTestCaseReportList(int round_id, int filter ) throws RemoteException {
-      if(VERBOSE) Log.msg("Contest.getSystemTestResultList(round_id, filter) called ... ");
+      log.info("Contest.getSystemTestResultList(round_id["+round_id+"] filter["+filter+"] ) called ... ");
 
        ArrayList systemTestCaseReportList = new ArrayList();
        SystemTestCaseReport systemTestCaseReportAttr = null;
@@ -1112,10 +1019,6 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
 
        try {
          conn = DBMS.getConnection();
-         if ( DBMS.DB == DBMS.POSTGRES ) {
-             conn.setAutoCommit(false);
-         }
-
          ps = conn.prepareStatement(txtGetSystemTestResult.toString());
          ps.setInt(1, round_id);
 
@@ -1174,13 +1077,14 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     * Retrieves all challenges, for a given round, and corresponding characteristics from the
     * challenge table
     *
+    * @author - jason n. evans
     * @param - round_id - int that uniquely identifies a round
     * @exception RemoteException
     * @return ArrayList of Challenge
     ***************************************************************************************
     **/
-    public ArrayList getChallengeList(int round_id, int filter) throws RemoteException {
-      if(VERBOSE) Log.msg("Contest.getChallengeList(round_id, filter) called ... ");
+    public ArrayList getChallengeList(int round_id, int constraintId, int filter, int constraintType) throws RemoteException {
+      log.info("Contest.getChallengeList(round_id["+round_id+"] constraintId ["+constraintId+"] filter["+filter+"] constraintType["+constraintType+"]) called ... ");
 
       ArrayList challenges = new ArrayList();
       Challenge challengeAttr = null;
@@ -1192,41 +1096,58 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
       ResultSet rs = null;
 
        StringBuffer txtGetChallenges = new StringBuffer();
-       txtGetChallenges.append(" SELECT c.round_id, r.room_id, c.challenge_id, c.challenger_id, ");
-       txtGetChallenges.append(" c.defendant_id, c.problem_id, d.data_type_desc, p.class_name, c.succeeded, ");
-       txtGetChallenges.append(" c.submit_time, p.method_name, c.args, c.message, c.expected, ");
-       txtGetChallenges.append(" c.received, c.challenger_points, c.defendant_points, ");
-       txtGetChallenges.append(" u1.handle, u2.handle, r.name ");
-       txtGetChallenges.append(" FROM challenge c, room_result rs, user u1, user u2, room r, problem p, data_type d ");
-       txtGetChallenges.append(" WHERE c.round_id  = ?  ");
-       txtGetChallenges.append("   and c.round_id = rs.round_id ");
-       txtGetChallenges.append("   and c.challenger_id = rs.coder_id ");
-       txtGetChallenges.append("   and c.challenger_id = u1.user_id ");
-       txtGetChallenges.append("   and c.defendant_id = u2.user_id ");
-       txtGetChallenges.append("   and rs.room_id = r.room_id ");
-       txtGetChallenges.append("   and c.problem_id = p.problem_id ");
-       txtGetChallenges.append("   and p.result_type_id = d.data_type_id ");
+       txtGetChallenges.append(" SELECT c.round_id, r.room_id, c.challenge_id, c.challenger_id, ")
+       .append(" c.defendant_id, c.problem_id, d.data_type_desc, p.class_name, c.succeeded, ")
+       .append(" c.submit_time, p.method_name, c.args, c.message, c.expected, ")
+       .append(" c.received, c.challenger_points, c.defendant_points, ")
+       .append(" u1.handle, u2.handle, r.name, st.status_desc, c.status_id ")
+       .append(" FROM challenge c, room_result rs, user u1, user u2, room r, problem p, data_type d ")
+       .append(" , status_lu st ")
+       .append(" WHERE c.round_id  = ?  ")
+       .append("   and c.round_id = rs.round_id ")
+       .append("   and c.challenger_id = rs.coder_id ")
+       .append("   and c.challenger_id = u1.user_id ")
+       .append("   and c.defendant_id = u2.user_id ")
+       .append("   and rs.room_id = r.room_id ")
+       .append("   and c.problem_id = p.problem_id ")
+       .append("   and p.result_type_id = d.data_type_id ")
+       .append("   and c.status_id = st.status_id ");
+       switch (constraintType) {
+         case 1 :
+            txtGetChallenges.append("  and r.room_id = "+ constraintId);
+         break;
+         case 2 :
+            txtGetChallenges.append("  and p.problem_id = "+ constraintId);
+         break;
+         case 3 :
+            txtGetChallenges.append("  and c.challenger_id = "+ constraintId);
+         break;
+       }
+      
 
        switch (filter) {
-         case -1 :
-            txtGetChallenges.append("  and c.succeeded = -1");
+         case STATUS_NORMAL :
+            txtGetChallenges.append("  and c.status_id = "+ STATUS_NORMAL);
+         break;
+         case STATUS_OVERTURNED :
+            txtGetChallenges.append("  and c.status_id = "+ STATUS_OVERTURNED);
+         break;
+         case STATUS_NULLIFIED :
+            txtGetChallenges.append("  and c.status_id = "+STATUS_NULLIFIED);
          break;
          case 0 :
             txtGetChallenges.append("  and c.succeeded = 0");
-         break;
-         case 1 :
-            txtGetChallenges.append("  and c.succeeded = 1");
-         break;
+          break;
+          case 1 :
+             txtGetChallenges.append("  and c.succeeded = 1");
+          break;
        }
-
+ 
        txtGetChallenges.append(" ORDER BY r.room_id, c.problem_id, c.challenge_id ");
 
        try {
          conn = DBMS.getConnection();
-         if ( DBMS.DB == DBMS.POSTGRES ) {
-             conn.setAutoCommit(false);
-         }
-
+         log.debug("txtGetChallenges: " + txtGetChallenges.toString());
          ps = conn.prepareStatement(txtGetChallenges.toString());
          ps.setInt(1, round_id);
 
@@ -1255,6 +1176,8 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
             challengeAttr.setDefendantPoints          (rs.getFloat (17));
             challengeAttr.setChalHandle               (rs.getString(18));
             challengeAttr.setDefHandle                (rs.getString(19));
+            challengeAttr.setStatusId                 (rs.getInt   ("status_id"));
+            challengeAttr.setStatusDesc               (rs.getString("status_desc"));
             roomAttr.setRoomDesc                      (rs.getString(20));
             challengeAttr.setProblem                  (problemAttr);
             challengeAttr.setRoom                     (roomAttr);
@@ -1281,133 +1204,6 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
 
     }
  
-    /*****************************************************************************************
-    * Retrieves all round segments and corresponding characteristics from the
-    * ROUND_SEGMENTS table for a contest round
-    *
-    * @param - round_id - int that uniquely identifies a Round
-    * @param - contest_id - int that uniquely identifies a Contest
-    * @exception RemoteException
-    * @return ArrayList of RoundSegment
-    *****************************************************************************************
-    **/
-	/*
-    public ArrayList getRoundSegments(int round_id, int contest_id) throws RemoteException {
-      if(VERBOSE) Log.msg("Contest.getRoundSegements(round_id, contest) called ... ");
-
-      ArrayList roundSegments = new ArrayList();
-      RoundSegment roundSegAttr = null;
-
-      java.sql.Connection conn = null;
-      PreparedStatement ps = null;
-      ResultSet rs = null;
-
-      StringBuffer txtGetRoundSegments = new StringBuffer();
-      if ( DBMS.DB == DBMS.POSTGRES ) {
-      txtGetRoundSegments.append( " SELECT rs.round_type, rs.status, rs.start_time, " ).
-                       append(        " rs.end_time, rs.int_end_time ").
-                       append(        " date_part('second', start_time)::varchar::int as startsecond, ").
-                       append(        " date_part('minute', start_time)::varchar::int as startminute, "). 
-                       append(        " date_part('hour', start_time)::varchar::int as starthour, ").
-                       append(        " date_part('day', start_time)::varchar::int as startday, ").
-                       append(        " date_part('month', start_time)::varchar::int as startmonth, ").
-                       append(        " date_part('year', start_time)::varchar::int as startyear, ").
-                       append(        " date_part('second', end_time)::varchar::int as endsecond, ").
-                       append(        " date_part('minute', end_time)::varchar::int as endminute, ").
-                       append(        " date_part('hour', end_time)::varchar::int as endhour, ").
-                       append(        " date_part('day', end_time)::varchar::int as endday, ").
-                       append(        " date_part('month', end_time)::varchar::int as endmonth, ").
-                       append(        " date_part('year', end_time)::varchar::int as endyear, ").
-                       append(        " date_part('second', int_end_time)::varchar::int as intendsecond, ").
-                       append(        " date_part('minute', int_end_time)::varchar::int as intendtminute, ").
-                       append(        " date_part('hour', int_end_time)::varchar::int as intendhour, ").
-                       append(        " date_part('day', int_end_time)::varchar::int as intendday, ").
-                       append(        " date_part('month', int_end_time)::varchar::int as intendmonth, ").
-                       append(        " date_part('year', int_end_time)::varchar::int as intendyear, ").
-                       append( " FROM round_segments ").
-                       append( " WHERE round_id = ? AND contest_id = ? ").
-                       append( "  ORDER BY round_type ");
-
-       }
-       if ( DBMS.DB == DBMS.INFORMIX ) {
-       txtGetRoundSegments.append(" SELECT segment_id, status, start_time, ").
-                    append("   end_time, intermission_end_time, ").
-                    append("   EXTEND(start_time, SECOND TO SECOND)::varchar(2)::int as startsecond, ").
-                    append("   EXTEND(start_time, MINUTE TO MINUTE)::varchar(2)::int as startminute, ").
-                    append("   EXTEND(start_time, HOUR TO HOUR)::varchar(2)::int as starthour, ").
-                    append("   DAY(start_time)::varchar(2)::int as startday, ").
-                    append("   MONTH(start_time)::varchar(2)::int as startmonth, ").
-                    append("   YEAR(start_time)::varchar(4)::int as startyear, ").
-                    append("   EXTEND(end_time, SECOND TO SECOND)::varchar(2)::int as endsecond, ").
-                    append("   EXTEND(end_time, MINUTE TO MINUTE)::varchar(2)::int as endminute, ").
-                    append("   EXTEND(end_time, HOUR TO HOUR)::varchar(2)::int as endhour, ").
-                    append("   DAY(end_time)::varchar(2)::int as endday, ").
-                    append("   MONTH(end_time)::varchar(2)::int as endmonth, ").
-                    append("   YEAR(end_time)::varchar(4)::int as endyear, ").
-                    append("   EXTEND(int_end_time, SECOND TO SECOND)::varchar(2)::int as intendsecond, ").
-                    append("   EXTEND(int_end_time, MINUTE TO MINUTE)::varchar(2)::int as intendtminute, ").
-                    append("   EXTEND(int_end_time, HOUR TO HOUR)::varchar(2)::int as intendhour, ").
-                    append("   DAY(int_end_time)::varchar(2)::int as intendday, ").
-                    append("   MONTH(int_end_time)::varchar(2)::int as intendmonth, ").
-                    append("   YEAR(int_end_time)::varchar(4)::int as intendyear ").
-                    append(" FROM round_segment " ).
-                    append(" WHERE round_id = ? AND contest_id = ? ").
-                    append(" ORDER BY segment_id ");
-       }
-
-       try {
-         conn = DBMS.getConnection();
-
-         ps = conn.prepareStatement(txtGetRoundSegments.toString());
-         ps.setInt(1, round_id);
-         ps.setInt(2, contest_id);
-
-         rs = ps.executeQuery();
-
-         while (rs.next()) {
-            roundSegAttr = new RoundSegment(contest_id, round_id);
-            roundSegAttr.setRoundType            ( rs.getString(1) );
-            roundSegAttr.setStatus               ( rs.getString(2) );
-            roundSegAttr.setStartTimestamp       ( rs.getTimestamp(3) );
-            roundSegAttr.setEndTimestamp         ( rs.getTimestamp(4) );
-            roundSegAttr.setIntEndTimestamp      ( rs.getTimestamp(5) );
-            roundSegAttr.setStartSecond          ( rs.getInt   (6) );
-            roundSegAttr.setStartMinute          ( rs.getInt   (7) );
-            roundSegAttr.setStartHour            ( rs.getInt   (8) );
-            roundSegAttr.setStartDay             ( rs.getInt   (9) );
-            roundSegAttr.setStartMonthNum        ( rs.getInt   (10) );
-            roundSegAttr.setStartYear            ( rs.getInt   (11) );
-            roundSegAttr.setEndSecond            ( rs.getInt   (12) );
-            roundSegAttr.setEndMinute            ( rs.getInt   (13) );
-            roundSegAttr.setEndHour              ( rs.getInt   (14) );
-            roundSegAttr.setEndDay               ( rs.getInt   (15) );
-            roundSegAttr.setEndMonthNum          ( rs.getInt   (16) );
-            roundSegAttr.setEndYear              ( rs.getInt   (17) );
-            roundSegAttr.setIntEndSecond         ( rs.getInt   (18) );
-            roundSegAttr.setIntEndMinute         ( rs.getInt   (19) );
-            roundSegAttr.setIntEndHour           ( rs.getInt   (20) );
-            roundSegAttr.setIntEndDay            ( rs.getInt   (21) );
-            roundSegAttr.setIntEndMonthNum       ( rs.getInt   (22) );
-            roundSegAttr.setIntEndYear           ( rs.getInt   (23) );
-
-            roundSegments.add(roundSegAttr);
-         }
-
-       }
-       catch (SQLException e) {
-         e.printStackTrace();
-       }
-       finally {
-         try {
-           if (ps != null) ps.close();
-           if (conn != null) conn.close();
-         } catch (Exception ignore) { }
-       }
-
-       return roundSegments;
-
-    }
-    */
 	
     /*****************************************************************************************
     * Retrieves all round problem_ids from the
@@ -1420,7 +1216,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     *****************************************************************************************
     **/
     public ArrayList getRoundProblems(int round_id, int contest_id) throws RemoteException {
-      if(VERBOSE) Log.msg("Contest.getRoundProblems(round_id, contest) called ... ");
+      log.info("Contest.getRoundProblems(round_id["+round_id+"] contest["+contest_id+"]) called ... ");
 
       ArrayList roundProblems = new ArrayList();
 
@@ -1429,17 +1225,10 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
       ResultSet rs = null;
 
        StringBuffer txtGetRoundProblems = new StringBuffer();
-       if(DBMS.DB == DBMS.POSTGRES) {
-         txtGetRoundProblems.append(" SELECT problem_id ").
-                             append(" FROM   round_problems " ).
-                             append(" WHERE  round_id = ? AND contest_id = ? ").
-                             append(" ORDER  BY round_id ");
-       }
-       else {
-         txtGetRoundProblems.append(" SELECT problem_id ").
+       txtGetRoundProblems.append(" SELECT problem_id ").
                              append(" FROM   round_problem " ).
                              append(" WHERE  round_id = ? ").
-                             append(" ORDER  BY round_id ");       }
+                             append(" ORDER  BY round_id ");       
 
        try {
          conn = DBMS.getConnection();
@@ -1463,6 +1252,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
        finally {
          try {
            if (ps != null) ps.close();
+           if (rs != null) rs.close();
            if (conn != null) conn.close();
          } catch (Exception ignore) { }
        }
@@ -1493,13 +1283,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
 
       try {
         conn = DBMS.getConnection();
-
-        if(DBMS.DB == DBMS.POSTGRES) {
-          sqlStr.append("SELECT subject_id, subject_name, active_ind FROM subjects ");
-        }
-        else {
-          sqlStr.append("SELECT language_id, language_name, status FROM language ");
-        }
+        sqlStr.append("SELECT language_id, language_name, status FROM language ");
 
         ps = conn.prepareStatement(sqlStr.toString());
         rs = ps.executeQuery();
@@ -1751,7 +1535,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
       Log.msg(VERBOSE, "ejb.ContestAdminBean.getRounds called...");
 
       ArrayList result = new ArrayList();
-      com.topcoder.common.web.data.admin.Round round = null;
+      Round round = null;
       ResultSet rs = null;
       PreparedStatement ps = null;
       java.sql.Connection conn = null;
@@ -1769,7 +1553,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
         ps = conn.prepareStatement(query.toString());
         rs = ps.executeQuery();
         while (rs.next()) {
-          round = new com.topcoder.common.web.data.admin.Round();
+          round = new Round();
           round.setRoundId(rs.getInt(1));
           round.setContestName(rs.getString(2));
           round.setRoundName(rs.getString(3));
@@ -1917,113 +1701,49 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     }
 
 
-   /*****************************************************************************************
-    * Retrieves all challenges, for a given round, and corresponding characteristics from the
-    * challenge table
-    *
-    * @param - round_id - int that uniquely identifies a round
-    * @exception RemoteException
-    * @return ArrayList of Challenge
-    ***************************************************************************************
-    **/
-    public ArrayList getChallengeList(int roundId, int roomId, int filter) throws RemoteException {
-      if(VERBOSE) Log.msg("Contest.getChallengeList(roundId, filter) called ... ");
 
-      ArrayList challenges = new ArrayList();
-      Challenge challengeAttr = null;
-      Problem problemAttr = null;
-      Room roomAttr = null;
+    public ArrayList getCoderList(int roundId) throws RemoteException {
+      log.info("Contest.getCoderList(roundId["+roundId+"]) called ... ");
+
+      ArrayList coders = new ArrayList();
+      SystemTestCaseReport sysAttr = null;
 
       java.sql.Connection conn = null;
       PreparedStatement ps = null;
       ResultSet rs = null;
 
-       StringBuffer txtGetChallenges = new StringBuffer();
-       txtGetChallenges.append(" SELECT c.round_id, r.room_id, c.challenge_id, c.challenger_id, ");
-       txtGetChallenges.append(" c.defendant_id, c.problem_id, ");
-       txtGetChallenges.append(" d.data_type_desc, ");
-       txtGetChallenges.append(" p.class_name, c.succeeded, ");
-       txtGetChallenges.append(" c.submit_time, p.method_name, c.args, c.message, c.expected, ");
-       txtGetChallenges.append(" c.received, c.challenger_points, c.defendant_points, ");
-       txtGetChallenges.append(" u1.handle, u2.handle, r.name ");
-       txtGetChallenges.append(" FROM challenge c, room_result rs, user u1, user u2, room r, problem p, data_type d");
-       txtGetChallenges.append(" WHERE c.round_id  = ?  ");
-       txtGetChallenges.append("   and c.round_id = rs.round_id ");
-       txtGetChallenges.append("   and r.room_id = ?  ");
-       txtGetChallenges.append("   and c.challenger_id = rs.coder_id ");
-       txtGetChallenges.append("   and c.challenger_id = u1.user_id ");
-       txtGetChallenges.append("   and c.defendant_id = u2.user_id ");
-       txtGetChallenges.append("   and rs.room_id = r.room_id ");
-       txtGetChallenges.append("   and c.problem_id = p.problem_id ");
-       txtGetChallenges.append("   and p.result_type_id = d.data_type_id");
+       StringBuffer txtGetCoders = new StringBuffer();
+         txtGetCoders.append(" SELECT coder_id, handle, lower(handle) as u2 from room_result, user where round_id = ? ");
+         txtGetCoders.append(" and coder_id = user_id ORDER BY u2 ");
 
-       switch (filter) {
-         case -1 :
-            txtGetChallenges.append("  and c.succeeded = -1");
-         break;
-         case 0 :
-            txtGetChallenges.append("  and c.succeeded = 0");
-         break;
-         case 1 :
-            txtGetChallenges.append("  and c.succeeded = 1");
-         break;
-      }
-       txtGetChallenges.append(" ORDER BY r.room_id, c.problem_id, c.challenge_id ");
-      try {
+       try {
          conn = DBMS.getConnection();
 
-         ps = conn.prepareStatement(txtGetChallenges.toString());
+         ps = conn.prepareStatement(txtGetCoders.toString());
          ps.setInt(1, roundId);
-         ps.setInt(2, roomId);
 
          rs = ps.executeQuery();
 
          while (rs.next()) {
-            challengeAttr = new Challenge();
-            problemAttr   = new Problem();
-            roomAttr      = new Room();
-            challengeAttr.setRoundId                  (rs.getInt    (1));
-            roomAttr.setRoomId                        (rs.getInt    (2));
-            challengeAttr.setChallengeId              (rs.getInt    (3));
-            challengeAttr.setChallengerId             (rs.getInt    (4));
-            challengeAttr.setDefendantId              (rs.getInt    (5));
-            problemAttr.setProblemId                  (rs.getInt    (6));
-            challengeAttr.setResultValueType          (rs.getString (7));
-            problemAttr.setClassName                  (rs.getString (8));
-            challengeAttr.setSucceeded                (rs.getInt    (9));
-            challengeAttr.setSubmitTime               (rs.getLong  (10));
-            problemAttr.setMethodName                 (rs.getString(11));
-            challengeAttr.setArgs((ArrayList)DBMS.getBlobObject(rs,12));
-            challengeAttr.setMessage                  (rs.getString(13));
-            challengeAttr.setExpectedResult(DBMS.getBlobObject(rs,14));
-            challengeAttr.setResultValue(DBMS.getBlobObject(rs,15));
-            challengeAttr.setChallengerPoints         (rs.getFloat (16));
-            challengeAttr.setDefendantPoints          (rs.getFloat (17));
-            challengeAttr.setChalHandle               (rs.getString(18));
-            challengeAttr.setDefHandle                (rs.getString(19));
-            roomAttr.setRoomDesc                      (rs.getString(20));
-            challengeAttr.setProblem                  (problemAttr);
-            challengeAttr.setRoom                     (roomAttr);
-            challenges.add(challengeAttr);
+            sysAttr = new SystemTestCaseReport();
+            sysAttr.setCoderId(rs.getInt(1));
+            sysAttr.setHandle(rs.getString(2));
+            coders.add(sysAttr);
          }
 
        }
        catch (SQLException e) {
          e.printStackTrace();
        }
-       catch (Exception ex) {
-         ex.printStackTrace();
-       }
        finally {
          try {
+           if (rs != null) {  rs.close(); rs = null; }
            if (ps != null) { ps.close(); ps = null; }
-         } catch (Exception ignore) { ignore.printStackTrace(); }
-         try {
-           if (conn != null) {  conn.setAutoCommit(true); conn.close(); conn = null; }
+           if (conn != null) { conn.close(); conn = null; }
          } catch (Exception ignore) { ignore.printStackTrace(); }
        }
 
-       return challenges;
+       return coders;
 
     }
 
@@ -2038,14 +1758,8 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
       ResultSet rs = null;
 
        StringBuffer txtGetCoders = new StringBuffer();
-       if(DBMS.DB == DBMS.POSTGRES) {
-         txtGetCoders.append(" SELECT coder_id, user_name from coder_compilations, users where round_id = ? and problem_id = ? and ");
-         txtGetCoders.append(" coder_id = user_id ORDER BY lower(user_name) ");
-       }
-       else if(DBMS.DB == DBMS.INFORMIX) {
          txtGetCoders.append(" SELECT coder_id, handle, lower(handle) as u2 from problem_state, user where round_id = ? and problem_id = ? and ");
          txtGetCoders.append(" coder_id = user_id ORDER BY u2 ");
-       }
 
        try {
          conn = DBMS.getConnection();
@@ -2080,9 +1794,8 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     }
 
 
-
     public ArrayList getProblemList(int round_id) throws RemoteException {
-      if(VERBOSE) Log.msg("Contest.getProblemList(round_id) called ... ");
+      log.info("Contest.getProblemList(round_id{"+round_id+"]) called ... ");
 
       ArrayList problems = new ArrayList();
       Problem problemAttr = null;
@@ -2092,18 +1805,11 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
       ResultSet rs = null;
 
        StringBuffer txtGetProblems = new StringBuffer();
-       if(DBMS.DB == DBMS.POSTGRES) {
-         txtGetProblems.append(" SELECT p.problem_id, p.class_name, d.difficulty_desc , r.round_id ");
-         txtGetProblems.append(" from round_problems r, problems p, difficulty_levels d where d.difficulty_level_id = p.difficulty_level_id ");
-         txtGetProblems.append(" and r.round_id = ? and r.problem_id = p.problem_id ");
-         txtGetProblems.append(" ORDER BY p.problem_id ");
-       }
-       else if(DBMS.DB == DBMS.INFORMIX) {
-         txtGetProblems.append(" SELECT p.problem_id, p.class_name, d.difficulty_desc, r.round_id  ");
-         txtGetProblems.append(" from round_problem r, problem p, difficulty d where d.difficulty_id = p.difficulty_id ");
-         txtGetProblems.append(" and r.round_id = ?  and r.problem_id = p.problem_id ");
-         txtGetProblems.append(" ORDER BY p.problem_id ");
-       }
+       txtGetProblems.append(" SELECT p.problem_id, p.class_name, d.difficulty_desc, r.round_id, r.division_id, dv.division_desc  ")
+       .append(" , p.method_name from round_problem r, problem p, difficulty d , division dv where d.difficulty_id = r.difficulty_id ")
+       .append(" and r.round_id = ?  and r.problem_id = p.problem_id and r.division_id = dv.division_id ")
+       .append(" group by p.problem_id, p.class_name, d.difficulty_desc, r.round_id, r.division_id, dv.division_desc, p.method_name ")
+       .append(" ORDER BY p.problem_id ");
 
 
        try {
@@ -2118,8 +1824,11 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
             problemAttr = new Problem();
             problemAttr.setProblemId(rs.getInt(1));
             problemAttr.setClassName(rs.getString(2));
+            problemAttr.setMethodName(rs.getString("method_name"));
             problemAttr.setDifficulty(rs.getString(3));
             problemAttr.setRoundId(rs.getInt(4));
+            problemAttr.setDivisionId(rs.getInt("division_id"));
+            problemAttr.setDivisionDesc(rs.getString("division_desc"));
             problems.add(problemAttr);
          }
 
@@ -2203,10 +1912,6 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
 
        try {
          conn = DBMS.getConnection();
-         if ( DBMS.DB == DBMS.POSTGRES ) {
-             conn.setAutoCommit(false);
-         }
-
          ps = conn.prepareStatement(txtGetSystemTestResult.toString());
          ps.setInt(1, coderId);
          ps.setInt(2, roundId);
