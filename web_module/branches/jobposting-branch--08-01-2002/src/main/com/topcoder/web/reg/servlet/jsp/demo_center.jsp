@@ -219,8 +219,8 @@ function lookupText(qId){
     <td colspan="2" class="statText" align="left" valign="middle">
       <SELECT NAME="<%=Registration.GPA_SCALE%>" SIZE="3" MULTIPLE="false">
         <OPTION value=""></OPTION>
-        <OPTION value="4.00"<%=Float.parseFloat(Registration.getGpaScale())==4?" selected=\"true\"":""%>>4</OPTION>
-        <OPTION value="5.00"<%=Float.parseFloat(Registration.getGpaScale())==5?" selected=\"true\"":""%>>5</OPTION>
+        <OPTION value="4.00"<%=!Registration.getGpaScale().equals("")&&Float.parseFloat(Registration.getGpaScale())==4?" selected=\"true\"":""%>>4</OPTION>
+        <OPTION value="5.00"<%=!Registration.getGpaScale().equals("")&&Float.parseFloat(Registration.getGpaScale())==5?" selected=\"true\"":""%>>5</OPTION>
       </SELECT>
     </td>
   </tr>
