@@ -60,51 +60,35 @@
 					<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
 						<TR><TD VALIGN="middle" COLSPAN="3" HEIGHT="16" CLASS="statText"><BR/>
 						<DIV CLASS="statTextBig">Onsite Semifinal and Championship Rounds</DIV><BR/>
-						The sixteen (16) advancers from the online Regional rounds will participate in the Semifinal rounds of the 2002 Sun Microsystems and TopCoder Collegiate Challenge 
-						being held on April 19th, 2002.  Each contestant and one (1) guest of his/her choice will travel to the onsite competition to be held in Cambridge, MA.  All contestants 
-						must arrive at the University Park Hotel @ MIT in Cambridge, MA no later than 4:00pm EST on Thursday, April 18, 2002.<BR/><BR/>
-						TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in a manner such that the average competitor rating 
-						(as of February 14, 2002) for each room will be similar.  All those who compete in the Semifinal and Championship rounds will be competing for a range of prizes up to and 
-						including the Grand Prize.  If a contestant is unable to attend the onsite Semifinal and Championship rounds, he/she will forfeit his/her eligibility to receive a prize, and 
-						his/her spot in the competition will be given to the next highest overall scorer from the final online Regional round.  The dates and times of the onsite Semifinal and 
-						Championship rounds are as follows: <BR/><BR/>
-						<DIV ALIGN="center"><TABLE WIDTH="75%" BORDER="1" CELLPADDING="6" CELLSPACING="0">
-						<TR>
-							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Round of Competition</TD>
-							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Date</TD>
-						</TR>	
-						<TR>
-							<TD WIDTH="50%" ALIGN="left" VALIGN="top" BGCOLOR="#666666"><FONT FACE="arial, helvetica, sans-serif" SIZE="1" COLOR="#ffffff"><UL>
-							<LI>Semifinal Room #1</LI><BR/>
-							<LI>Semifinal Room #2</LI><BR/>
-							<LI>Semifinal Room #3</LI><BR/>
-							<LI>Semifinal Room #4</LI><BR/>
-							<LI>Championship Round</LI>
-							</UL>
-							</FONT></TD>
-							<TD WIDTH="50%" ALIGN="left" VALIGN="top" BGCOLOR="#666666"><FONT FACE="arial, helvetica, sans-serif" SIZE="1" COLOR="#ffffff">
-							April 19, 2002 at 8:00am EST<BR/><BR/>	
-							April 19, 2002 at 11:00am EST<BR/><BR/>
-							April 19, 2002 at 3:00pm EST<BR/><BR/>
-							April 19, 2002 at 6:00pm EST<BR/><BR/>
-							April 20, 2002 at 1:00pm EST<BR/>
-							</FONT></TD>
-						</TR>	
-						</TABLE></DIV><BR/>
-						In the Semifinal Round, each competitor will compete in one of four (4) rooms of four (4) coders each.  The winner in each room will advance to the Championship round.<BR/><BR/>
-						<B>PLEASE NOTE:</B> Due to the structure of the tournament, the coders competing in Semifinal Room #2 will be sequestered for the duration of Semifinal Room #1, and coders 
-						competing in Semifinal Room #4 will be sequestered for the duration of Semifinal Room #3.  Therefore, the coders seeded in Semifinal Room #2 are required to be at the 
-						University Park Hotel prior to the start of Semifinal Room #1 competition, and coders seeded in the Semifinal Room #4 competition are required to be at the University Park Hotel prior to the start of 
-						the Semifinal Room #3 competition.   If the competitors are not present when required, he/she will be disqualified and will not be allowed to compete.  More details regarding sequestering 
-						will be provided to the 16 semifinalists when those competitors are identified.<BR/><BR/>
-						<B>The Championship Round</B> will be a single match of four (4) coders.  The winner of this round will be crowned the Sun Microsystems and TopCoder Collegiate Challenge Champion and will be awarded 
-						the tournament Grand Prize.<BR/><BR/>
-						First, second, third and fourth place in the Championship round are determined by comparing the total points of each coder, with the highest point 
-						value placing first.  The winner of the Championship Round will be the coder with the highest point total for the round.  In the event of a tie in the Semifinal and/or 
-						Championship rounds, the tie will be resolved in the following manner (in order):<UL>
-						<LI>Total points acquired (higher is better) in the 2002 Collegiate Challenge to date</LI><BR/>
-						<LI>If a tie still remains, then by rating (higher is better) as of February 14, 2002</LI></UL><BR/>
-						<DIV ALIGN="center" CLASS="statTextBig">Visit <A HREF="http://www.sun.com" CLASS="statTextBig">Sun Microsystems</A> - exlcusive sponsor of the 2002 TopCoder Collegiate Challenge</DIV><BR/>
+						<P>The sixteen (16) advancers from Online Round #4 will travel to Mohegan Sun on Thursday, November 21st to compete in the Semifinal round of the 
+						tournament being held on Friday, November 22nd. All contestants must arrive at Mohegan Sun no later than 4:00 PM on Thursday, November 21st. If a 
+						contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive a prize, and his/her spot in the tournament 
+						will be given to the next highest overall scorer from Online Round #4.</P> 
+						
+						<P>TopCoder will provide travel arrangements for each competitor and a guest of his/her choice, up to a cost of $1,000 per person. (That is, if a 
+						contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.) 
+						In addition, TopCoder will also provide travel arrangements to and from the airport to the Mohegan Sun Casino and accommodations and certain 
+						meals for each contestant and his/her guest. All other expenses are the responsibility of the contestant and his/her guest.</P> 
+						
+						<P>TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in a manner such that the 
+						average competitor rating (as of October 1st) for each room will be similar. The dates and times of the onsite Semifinal and Championship rounds 
+						are as follows:</P>
+						
+						<TABLE STYLE="border-collapse:collapse;  border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt" CELLPADDING="0" CELLSPACING="0" BORDER="1"><TR><TD STYLE="width:216.15pt;border:solid windowtext .5pt;   background:#0C0C0C;padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="216"><P CLASS="statText"><B>Round of Competition</B></P></TD><TD STYLE="width:214.85pt;border:solid windowtext .5pt;   border-left:none;mso-border-left-alt:solid windowtext .5pt;background:#0C0C0C;   padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="215"><P CLASS="statText"><B>Date and Time</B></P></TD></TR><TR><TD STYLE="width:216.15pt;border:solid windowtext .5pt;   border-top:none;mso-border-top-alt:solid windowtext .5pt;background:#8C8C8C;   padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="216"><P CLASS="statText">Semifinal Room #1</P></TD><TD STYLE="width:214.85pt;border-top:none;border-left:   none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;   background:#8C8C8C;padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="215"><P CLASS="statText">Friday, November 22<SUP>nd</SUP>, 8:00 AM</P></TD></TR><TR><TD STYLE="width:216.15pt;border:solid windowtext .5pt;   border-top:none;mso-border-top-alt:solid windowtext .5pt;background:#8C8C8C;   padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="216"><P CLASS="statText">Semifinal Room #2</P></TD><TD STYLE="width:214.85pt;border-top:none;border-left:   none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;   background:#8C8C8C;padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="215"><P CLASS="statText">Friday, November 22<SUP>nd</SUP>, 11:00 AM</P></TD></TR><TR><TD STYLE="width:216.15pt;border:solid windowtext .5pt;   border-top:none;mso-border-top-alt:solid windowtext .5pt;background:#8C8C8C;   padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="216"><P CLASS="statText">Semifinal Room #3</P></TD><TD STYLE="width:214.85pt;border-top:none;border-left:   none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;   background:#8C8C8C;padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="215"><P CLASS="statText">Friday, November 22<SUP>nd</SUP>, 3:00 PM</P></TD></TR><TR><TD STYLE="width:216.15pt;border:solid windowtext .5pt;   border-top:none;mso-border-top-alt:solid windowtext .5pt;background:#8C8C8C;   padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="216"><P CLASS="statText">Semifinal Room #4</P></TD><TD STYLE="width:214.85pt;border-top:none;border-left:   none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;   background:#8C8C8C;padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="215"><P CLASS="statText">Friday, November 22<SUP>nd</SUP>, 6:00 PM</P></TD></TR><TR><TD STYLE="width:216.15pt;border:solid windowtext .5pt;   border-top:none;mso-border-top-alt:solid windowtext .5pt;background:#8C8C8C;   padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="216"></TD><TD STYLE="width:214.85pt;border-top:none;border-left:   none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;   background:#8C8C8C;padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="215"></TD></TR><TR><TD STYLE="width:216.15pt;border:solid windowtext .5pt;   border-top:none;mso-border-top-alt:solid windowtext .5pt;background:#8C8C8C;   padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="216" CLASS="statText"><B>Championship Round</B></TD><TD STYLE="width:214.85pt;border-top:none;border-left:   none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;   background:#8C8C8C;padding:0in 5.4pt 0in 5.4pt" VALIGN="top" WIDTH="215" CLASS="statText"><B>Saturday, November 23<SUP>rd</SUP>, 11:00 AM</B></TD></TR></TABLE>
+						<P>The Semifinal Round will consist of four (4) rooms of four (4) coders each. The winner in each room will advance to the Championship Round.</P> 
+						
+						<P>The Championship Round will be a single round of four (4) coders. First, second, third and fourth place in the Championship round are determined 
+						by comparing the total points of each coder, with the highest point value placing first. The winner of the Championship Round will be the coder 
+						with the highest point total for the round. In the event of a tie in the Semifinal and/or Championship rounds, the tie will be resolved in the 
+						following manner (in order):</P> 
+						
+						<UL>
+						<LI>Total points acquired (higher is better) during the 2002 TopCoder Invitational to date</LI>
+						<LI>If a tie still remains, then by rating (higher is better) as of October 1st</LI>
+						<UL>
+							<LI>If a tie still remains in the Semifinal round, then all tied coders will advance to the Championship Round</LI>
+							<LI>If a tie still remains in the Championship round, then the prize money will be distributed equally amongst the tied coders</LI>
+						</UL></UL>
 						</TD>
 						</TR>
 					</TABLE>
