@@ -20,11 +20,21 @@ public class Preference implements Serializable {
     private String text;
     private ArrayList options;
     private int type;
+    private int id;
     
     public Preference() {
         text = "";
         options = new ArrayList();
         type = 0;
+        id = 0;
+    }
+    
+    public int getID() {
+        return id;
+    }
+    
+    public void setID(int id) {
+        this.id = id;
     }
     
     public void addPrefValue(PreferenceValue pv) {

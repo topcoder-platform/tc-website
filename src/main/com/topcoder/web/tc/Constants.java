@@ -145,8 +145,9 @@ public class Constants {
     public static String CONTRACTING_INFO;
     public static String CONTRACTING_PREFERENCES_PAGE;
     
-    public static int PREFERENCE_SINGLE_SELECT;
-    public static int PREFERENCE_MULTIPLE_SELECT;
+    public static int PREFERENCE_SINGLE_ANSWER;
+    public static int PREFERENCE_MULTIPLE_ANSWER;
+    public static String PREFERENCE_PREFIX; 
 
 
     static {

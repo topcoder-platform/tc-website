@@ -48,9 +48,10 @@ public class Preferences extends ContractingBase {
                 
                 pref.setText(rscPref.getStringItem(j, "preference_desc"));
                 pref.setType(rscPref.getIntItem(j, "preference_type_id"));
+                pref.setID(rscPref.getIntItem(j, "preference_id"));
                 
                 //load answers if type == multi select
-                if(pref.getType() == Constants.PREFERENCE_MULTIPLE_SELECT) {
+                if(pref.getType() == Constants.PREFERENCE_MULTIPLE_ANSWER) {
                     Request rval = new Request();
                     rval.setContentHandle("preference_values");
                     rval.setProperty("prid", String.valueOf(rscPref.getIntItem(j, "preference_id")));
