@@ -1,14 +1,12 @@
-
-
 <html>
 
 <head>
 
-<xsl:call-template name="Preload"/>      
+
 
 <title>Intel is a proud sponsor of TopCoder Coding Competitions</title>
 
-<xsl:call-template name="CSS"/>      
+
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -78,9 +76,6 @@
                 </tr>
             </table>
         </td>
-<!-- Center Column Ends -->
-
-
 
 </body>
 
