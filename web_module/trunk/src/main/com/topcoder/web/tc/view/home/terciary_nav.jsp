@@ -7,7 +7,7 @@
                         <a href="#matchDates">Schedule</a> | 
                         <a href="#memberSurveys">Surveys</a> | 
                         <a href="#algoArena">Algorithm Arena</a> | 
-                        <a href="#codersPOV">Coders POV</a> | 
+                        <a href="#codersPOV">Coder's POV</a> | 
                         <a href="#feature">Feature</a> | 
                         <a href="#pressRoom">Press Room</a></td>
                 </tr>
