@@ -8,23 +8,23 @@ public interface School extends EJBObject {
 
   public long createSchool() throws EJBException, RemoteException;
 
-  public String getSchoolDivisionCode(long _school_id)
+    public String getSchoolDivisionCode(long schoolId)
                                            throws EJBException, RemoteException;
 
-  public String getFullName(long _school_id)
+    public String getFullName(long schoolId)
                                            throws EJBException, RemoteException;
 
-  public String getShortName(long _school_id)
+    public String getShortName(long schoolId)
                                            throws EJBException, RemoteException;
 
-  public void setSchoolDivisionCode(long _school_id,
-                                    String _school_division_code)
+    public void setSchoolDivisionCode(long schoolId,
+                                    String schoolDivisionCode)
                                            throws EJBException, RemoteException;
 
-  public void setFullName(long _school_id,String _full_name)
+    public void setFullName(long schoolId, String fullName)
                                            throws EJBException, RemoteException;
 
-  public void setShortName(long _school_id,String _short_name)
+    public void setShortName(long schoolId, String shortName)
                                            throws EJBException, RemoteException;
 
 };

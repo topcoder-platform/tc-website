@@ -41,8 +41,8 @@ public class EmailBean implements SessionBean {
         /* do nothing */
     }
 
-    public void setSessionContext(SessionContext _ctx) {
-        ctx = _ctx;
+    public void setSessionContext(SessionContext ctx) {
+        this.ctx = ctx;
     }
 
     public long createEmail(long userId) throws EJBException, RemoteException {
