@@ -5,6 +5,7 @@
    <property name="war.dir"       value="${build}/wars" />
    <property name="email.war.name"      value="email"/>
    <property name="query.war.name"      value="query"/>
+   <property name="hs.war.name"      value="hs"/>
    <property name="ejb_jars"      value="${build}/ejb_jars" />
    <property name="classes"       value="${build}/classes" />
    <property name="testclasses"   value="${build}/testcases" />
@@ -681,12 +682,37 @@
         <mkdir  dir="${war.dir}"/>
         <antcall target="war_email"/>
         <antcall target="war_query"/>
+        <antcall target="war_hs"/>
     </target>
 
     <target name="dev_wars" depends="compile">
         <antcall target="dev_war_query"/>
+        <antcall target="dev_war_hs"/>
         <antcall target="dev_war_email"/>
     </target>
+
+
+    <target name="dev_war_hs" depends="compile">
+      <delete dir="${tc_cluster}/${hs.war.name}"/>
+      <mkdir dir="${tc_cluster}/${hs.war.name}"/>
+      <copy todir="${tc_cluster}/${hs.war.name}">
+        <fileset dir="${java}/com/topcoder/web/hs/view">
+          <include name="**/*.jsp"/>
+        </fileset>
+      </copy>
+      <copy todir="${tc_cluster}/${hs.war.name}/WEB-INF">
+        <fileset dir="${resources}/${hs.war.name}">
+          <include name="*.tld"/>
+          <include name="*.xml"/>
+        </fileset>
+      </copy>
+      <copy todir="${tc_cluster}/${hs.war.name}/classes">
+        <fileset dir="${classes}">
+          <include name="com/topcoder/web/hs/**"/>
+        </fileset>
+      </copy>
+    </target>
+
          
     <target name="dev_war_query" depends="compile">
       <delete dir="${tc_cluster}/${query.war.name}"/>
@@ -758,6 +784,22 @@
             <webinf dir="${resources}/query">
                 <include name="query-taglib.tld"/>
             </webinf>
+        </war>
+    </target>
+
+    <target name="war_hs" depends="compile">
+        <war warfile="${war.dir}/${hs.war.name}.war" webxml="${resources}/hs/web.xml">
+            <fileset dir="${java}/com/topcoder/web/hs/view">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/hs/**"/>
+            </classes>
+<!--
+            <webinf dir="${resources}/hs">
+                <include name="hs-taglib.tld"/>
+            </webinf>
+-->
         </war>
     </target>
 
