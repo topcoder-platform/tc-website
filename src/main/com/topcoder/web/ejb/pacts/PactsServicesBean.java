@@ -24,7 +24,7 @@ import java.util.*;
  */
 
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
-    private static Logger log = Logger.getLogger(PactsServicesBean.class);
+    private static final Logger log = Logger.getLogger(PactsServicesBean.class);
     private static QueueMessageSender pactsMsgSender = null;
 
     // Initialize the message queue
@@ -295,7 +295,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         throw new Exception("String " + booleanString + " could not be converted to boolean type");
     }
 
-    private void setLockTimeout(Connection c) throws SQLException {
+    private void setLockTimeout(Connection c) {
         PreparedStatement ps = null;
         try {
             ps = c.prepareStatement("SET LOCK MODE TO WAIT " + LOCK_TIMEOUT_VALUE);
@@ -352,7 +352,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw new NoObjectFoundException("No affidavit found with ID " + affidavitId);
             }
             HashMap hm = new HashMap();
-            long userId = Long.parseLong(rsc.getItem(0, "user_id").toString());
             hm.put(AFFIDAVIT_HEADER_LIST, rsc);
 
             // Get affidavit details
@@ -1078,7 +1077,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of all status codes.
      *
-     * @param   objectType The object type
      * @return  The list of status codes
      * @throws  SQLException If there is some problem retrieving the data
      */
@@ -2444,7 +2442,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Adds a user tax form.
      *
-     * @param   ut The user tax form to add.
+     * @param   t The user tax form to add.
      * @throws  SQLException If there is some problem updating the data
      */
     public void addUserTaxForm(TaxForm t) throws SQLException {
@@ -2521,7 +2519,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throws SQLException {
         Connection c = null;
         PreparedStatement ps = null;
-        int rowsModified = 0;
         try {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
@@ -2654,7 +2651,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param   affidavitId The ID of the affidavit to affirm.
      * @param   finalText The finalized affidavit text
-     * @param   coderBirthCode The birth date of the coder
+     * @param   coderBirthDate The birth date of the coder
      * @throws  IllegalUpdateException If the affidavit has expired or has already
      * been affirmed.
      * @throws  NoObjectFoundException If the specified affidavit does not exist.
@@ -3472,7 +3469,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * should only be called by the Pacts message handler upon receipt of a message
      * passed in by the <tt>batchUpdatePaymentStatus</tt> function.
      *
-     * @param   paymentId[] The payments to update
+     * @param   paymentId The payments to update
      * @param   statusId The new status
      * @throws  SQLException If there is some other problem updating the data
      */
@@ -3528,7 +3525,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * upon receipt of the message, will call the function <tt>doBatchUpdatePaymentStatus()</tt>
      * which performs the modifications.
      *
-     * @param   paymentId[] The payments to update
+     * @param   paymentId The payments to update
      * @param   statusId The new status
      * @param   userId The ID of the user submitting the request
      * @throws  IllegalUpdateException If the user is attempting to update the status to Printed or Paid
@@ -3571,13 +3568,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * reprint request.  Its purpose is to ensure that payments don't get printed
      * multiple times without good reason.
      *
-     * @param   paymentId[] The payments to mark as reviewed.
+     * @param   paymentId The payments to mark as reviewed.
      * @throws  NoObjectFoundException If any payment does not exist
      * @throws  IllegalUpdateException If any payment has not been printed
      * @throws  SQLException If there is some other problem updating the data
      */
     public void reviewPayments(long paymentId[])
-            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
+            throws NoObjectFoundException, IllegalUpdateException, SQLException {
         Connection c = null;
 
         try {
@@ -3626,7 +3623,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * will throw an IllegalUpdateException if it finds any of the given payments has already
      * been paid or lacks a detail record with the status of "Printed".
      *
-     * @param   paymentId[] The payments to update
+     * @param   paymentId The payments to update
      * @throws  NoObjectFoundException If any payment does not exist
      * @throws  IllegalUpdateException If any payment could not be marked as paid
      * @throws  SQLException If there is some other problem updating the data
