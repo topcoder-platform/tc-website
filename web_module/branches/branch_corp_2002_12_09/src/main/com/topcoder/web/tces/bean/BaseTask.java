@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.StringTokenizer;
 import java.util.List;
 
+import com.topcoder.shared.security.User;
 import com.topcoder.web.common.security.WebAuthentication;
 
 

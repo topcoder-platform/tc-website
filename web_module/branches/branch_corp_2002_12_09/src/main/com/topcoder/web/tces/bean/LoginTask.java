@@ -124,7 +124,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
             User possibleUser = new SimpleUser(handle, passw);
 
             try {
-                authToken.login(possibleUser);
+                getAuthenticityToken().login(possibleUser);
                 log.debug("TCES: user "+possibleUser.getUserName()+" has logged in");
                 if (!customRedir) {
                     setNextPage(TCESConstants.LOGIN_OK_PAGE);
@@ -134,7 +134,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
                 setMessage("Username and/or password are incorrect");
                 setNextPage(TCESConstants.LOGIN_PAGE);
             }
-        } else if (authToken.isLoggedIn()) {
+        } else if (isUserLoggedIn()) {
             if (checkNextPage != null && checkNextPage.length() > 0) {
                 setNextPage(checkNextPage);
                 customRedir=true;
