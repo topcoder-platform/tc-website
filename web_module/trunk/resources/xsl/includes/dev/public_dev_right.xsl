@@ -132,7 +132,7 @@
 <!-- Component Design Projects begins -->
             <A href="/index?t=tournaments&amp;c=tco03_comp_overview"><img src="/i/development/tco_sidebar_top.gif" alt="2003 TCO Component Contest" width="238" height="61" border="0" /></A>
 
-            <A href="/index?t=development&amp;c=comp_projects#tco_des"><img src="/i/development/tco_sidebar_round2_des.gif" alt="Round 2: Design" width="238" height="47" border="0" /></A>
+            <A href="/index?t=development&amp;c=comp_projects#tco_des"><img src="/i/development/tco_sidebar_round2_des.gif" alt="Round 3: Design" width="238" height="47" border="0" /></A>
 
             <table width="238" border="0" cellspacing="0" cellpadding="0" bgcolor="#999999">
                 <tr valign="middle">
@@ -204,7 +204,7 @@
                        <table border="0" cellspacing="3" cellpadding="0">
                            <tr valign="middle">
                                <td width="99%" class="statText">
-                             Round 2 of the Design TCO begins on 10/9/2003
+                             Round 3 of the Design TCO begins on 11/6/2003
                                </td>
                                <td width="1%" class="statText" align="center"></td>
                            </tr>
@@ -230,7 +230,7 @@
             </table>
 <!-- Component Design Projects ends -->
 
-            <A href="/index?t=development&amp;c=comp_projects#tco_dev"><img src="/i/development/tco_sidebar_round2_dev.gif" alt="Round 2: Development" width="238" height="63" border="0" /></A>
+            <A href="/index?t=development&amp;c=comp_projects#tco_dev"><img src="/i/development/tco_sidebar_round2_dev.gif" alt="Round 3: Development" width="238" height="63" border="0" /></A>
 
 <!-- Component Development Projects begins -->
             <table width="238" border="0" cellspacing="0" cellpadding="0" bgcolor="#999999">
@@ -300,7 +300,7 @@
                        <table border="0" cellspacing="3" cellpadding="0">
                            <tr valign="middle">
                                <td width="99%" class="statText">
-                             Round 2 of the Development TCO begins on 10/7/2003
+                             Round 3 of the Development TCO begins on 11/6/2003
                                </td>
                                <td width="1%" class="statText" align="center"></td>
                            </tr>
