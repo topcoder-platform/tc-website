@@ -143,25 +143,25 @@ function submitSession() {
                 <tr>
                     <td class="testTableSubtitleOdd">Month</td>
                     <td class="testTableOdd"><screen:month name="beginMonth" selected="<%=testSessionInfo.getBeginMonth()%>" /></td>
-                    <td class="errorTextOdd"><screen:errors name="beginMonth" /></TD>
+                    <td class="errorTextOdd"><screen:errors id="err" name="beginMonth" ><%=err%></screen:errors></TD>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleEven">Day</td>
                     <td class="testTableEven"><screen:day name="beginDay" selected="<%=testSessionInfo.getBeginDay()%>" /></td>
-                    <td class="errorTextEven"><screen:errors name="beginDay" /></td>
+                    <td class="errorTextEven"><screen:errors id="err" name="beginDay" ><%=err%></screen:errors></td>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleOdd">Year</td>
                     <td class="testTableOdd"><screen:year name="beginYear" selected="<%=testSessionInfo.getBeginYear()%>" /></td>
-                    <td class="errorTextOdd"><screen:errors name="beginYear" /></td>
+                    <td class="errorTextOdd"><screen:errors id="err" name="beginYear" ><%=err%></screen:errors></td>
                 </tr>
 
                 <tr>
                     <td class="testTableSubtitleEven">Hour</td>
                     <td class="testTableEven"><screen:hour name="beginHour" selected="<%=testSessionInfo.getBeginHour()%>" /></td>
-                    <td class="errorTextEven"><screen:errors name="beginHour" /></td>
+                    <td class="errorTextEven"><screen:errors id="err" name="beginHour" ><%=err%></screen:errors></td>
                 </tr>
 
                 <tr>
@@ -177,30 +177,30 @@ function submitSession() {
                 <tr>
                     <td class="testTableSubtitleOdd">Month</td>
                     <td class="testTableOdd"><screen:month name="endMonth" selected="<%=testSessionInfo.getEndMonth()%>" /></td>
-                    <td class="errorTextOdd"><screen:errors name="endMonth" /></td>
+                    <td class="errorTextOdd"><screen:errors id="err" name="endMonth" ><%=err%></screen:errors></td>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleEven">Day</td>
                     <td class="testTableEven"><screen:day name="endDay" selected="<%=testSessionInfo.getEndDay()%>" /></td>
-                    <td class="errorTextEven"><screen:errors name="endDay" /></td>
+                    <td class="errorTextEven"><screen:errors id="err" name="endDay" ><%=err%></screen:errors></td>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleOdd">Year</td>
                     <td class="testTableOdd"><screen:year name="endYear" selected="<%=testSessionInfo.getEndYear()%>" /></td>
-                    <td class="errorTextOdd"><screen:errors name="endYear" /></td>
+                    <td class="errorTextOdd"><screen:errors id="err" name="endYear" ><%=err%></screen:errors></td>
                 </tr>
 
                 <tr>
                     <td class="testTableSubtitleEven">Hour</td>
                     <td class="testTableEven"><screen:hour name="endHour" selected="<%=testSessionInfo.getEndHour()%>" /></td>
-                    <td class="errorTextEven"><screen:errors name="endHour" /></td>
+                    <td class="errorTextEven"><screen:errors id="err" name="endHour" ><%=err%></screen:errors></td>
                 </tr>
 
                 <tr>
                     <td><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td>
-                    <td colspan="2" class="errortextOdd"><screen:errors name="dateCompare" /></td>
+                    <td colspan="2" class="errortextOdd"><screen:errors id="err" name="dateCompare" ><%=err%></screen:errors></td>
                 </tr>
 
                 <tr>

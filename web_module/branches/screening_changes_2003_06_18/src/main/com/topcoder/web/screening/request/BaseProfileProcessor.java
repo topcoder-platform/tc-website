@@ -113,19 +113,18 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
         boolean success = true;
         ProfileInfo info = (ProfileInfo)
                 getRequest().getAttribute(Constants.PROFILE_INFO);
-        HashMap errorMap = new HashMap(5);
 
         if (info != null) {
             if (info.getProfileName() == null ||
                     info.getProfileName().trim().equals("")) {
                 success = false;
-                errorMap.put(Constants.PROFILE_NAME,
+                addError(Constants.PROFILE_NAME,
                         "Profile Name must be set");
             }
 
             if (info.getLanguage().length == 0) {
                 success = false;
-                errorMap.put(Constants.LANGUAGE,
+                addError(Constants.LANGUAGE,
                         "At least one language must be selected");
             }
 
@@ -143,15 +142,11 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
                         map.get(Constants.PROFILE_CHECK_NAME_QUERY_KEY);
                 if (rsc.size() > 0) {
                     success = false;
-                    errorMap.put(Constants.PROFILE_NAME,
+                    addError(Constants.PROFILE_NAME,
                             "This profile name is already in use for your company");
                 }
             }
 
-        }
-
-        if (!success) {
-            getRequest().setAttribute(Constants.ERRORS, errorMap);
         }
 
         return success;

@@ -33,7 +33,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.transaction.UserTransaction;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -186,23 +185,22 @@ public class UpdateCandidate extends BaseProcessor
     private boolean buildInfo(ServletRequest request, CandidateInfo info)
         throws Exception {
         String uId = request.getParameter(Constants.CANDIDATE_ID);
-        HashMap errorMap = new HashMap(2);
         info.setReferrer(request.getParameter(Constants.REFERRER));
         boolean success = true;
         if(uId != null) {
             //we're not doing updates so this is an error
             //info.setUserId(new Long(uId));
             success = false;
-            errorMap.put(Constants.CANDIDATE_ID, "Cannot update candidates");
+            addError(Constants.CANDIDATE_ID, "Cannot update candidates");
         }
 
         String email = request.getParameter(Constants.EMAIL_ADDRESS);
         if(email == null) {
             success = false;
-            errorMap.put(Constants.EMAIL_ADDRESS, "Email is not set.");
+            addError(Constants.EMAIL_ADDRESS, "Email is not set.");
         } else {
             email = email.trim();
-            success = validateEmail(errorMap, email);
+            success = validateEmail(email);
             info.setUserName(email);
         }
 
@@ -219,7 +217,7 @@ public class UpdateCandidate extends BaseProcessor
             ResultSetContainer rsc = (ResultSetContainer)
                 map.get(Constants.CHECK_COMPANY_USER_QUERY_KEY);
             if(rsc.size() > 0) {
-                errorMap.put(Constants.EMAIL_ADDRESS,
+                addError(Constants.EMAIL_ADDRESS,
                     "Email Address already in use as handle for your company.");
                 success = false;
             }
@@ -228,9 +226,6 @@ public class UpdateCandidate extends BaseProcessor
             }
         }
 
-        if(!success) {
-            request.setAttribute(Constants.ERRORS, errorMap);
-        }
         return success;
     }
 
@@ -241,7 +236,7 @@ public class UpdateCandidate extends BaseProcessor
      * @throws Exception Thrown if the string is invalid.  The exception
      *                   holds the information that specifies what was invalid.
      */
-    private boolean validateEmail(HashMap errorMap, String email)
+    private boolean validateEmail(String email)
         throws Exception {
         StringBuffer errorString = new StringBuffer();
         boolean valid = true;
@@ -274,7 +269,7 @@ public class UpdateCandidate extends BaseProcessor
         if(!valid) {
             errorString.append("Use 'joe@topcoder.com' format");
 
-            errorMap.put(Constants.EMAIL_ADDRESS, errorString.toString());
+            addError(Constants.EMAIL_ADDRESS, errorString.toString());
         }
 
         return valid;
@@ -317,7 +312,7 @@ public class UpdateCandidate extends BaseProcessor
      * @param candidateId  THe id of the created candidate
      */
     private void updateSessionCandidate(long candidateId) {
-        HttpServletRequest request = (HttpServletRequest)getRequest();
+        HttpServletRequest request = getRequest();
         HttpSession session = request.getSession();
         TestSessionInfo info = (TestSessionInfo)
             session.getAttribute(Constants.SESSION_INFO);

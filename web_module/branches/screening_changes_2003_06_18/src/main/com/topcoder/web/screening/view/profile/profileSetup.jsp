@@ -102,7 +102,7 @@ function submitConfirm() {
                 <tr>
                     <td class="testTableSubtitleOdd">Name</td>
                     <td class="testTableOdd"><input type="text" name="profileName" value ="<jsp:getProperty name="profile" property="profileName" />" size="30" maxlength="100"></td>
-                    <td class="errorTextOdd"><screen:errors name="profileName" /></td>
+                    <td class="errorTextOdd"><screen:errors id="err" name="profileName" ><%=err%></screen:errors></td>
                 </tr>
 
                 <tr>
@@ -181,7 +181,7 @@ function submitConfirm() {
 
                 <tr>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <td colspan="5" class="errorTextOdd"><screen:errors name="testSetB" /></td>
+                    <td colspan="5" class="errorTextOdd"><screen:errors id="err" name="testSetB" ><%=err%></screen:errors></td>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
             
@@ -227,7 +227,7 @@ function submitConfirm() {
                 
                 <tr>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <td colspan="5" class="errorTextOdd"><screen:errors name="language" /></td>
+                    <td colspan="5" class="errorTextOdd"><screen:errors id="err" name="language" ><%=err%></screen:errors></td>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
             </table>
