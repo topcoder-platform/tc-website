@@ -19,6 +19,7 @@ public class CandidateInfo extends BaseModel {
     private String password;
     private Long userId;
     private String referrer;
+    private int preference;
 
     /** Holds value of property noteList. */
     private ResultSetContainer noteList;
@@ -27,6 +28,7 @@ public class CandidateInfo extends BaseModel {
         userName = "";
         password = "";
         referrer = "";
+        preference = 0;
     }
 
     /**
@@ -36,6 +38,14 @@ public class CandidateInfo extends BaseModel {
      */
     public void setUserName( String val ) {
         userName = val;
+    }
+    
+    public void setPreference(int p) {
+        preference = p;
+    }
+    
+    public int getPreference() {
+        return preference;
     }
 
     /**

@@ -89,6 +89,7 @@ public class TestResults extends BaseScreeningProcessor {
             cinfo = new CandidateInfo();
             cinfo.setUserName(result.getItem(0, "handle").toString());
             cinfo.setUserId(Long.valueOf(result.getItem(0, "user_id").toString()));
+            cinfo.setPreference(result.getIntItem(0, "preference_level"));
             getRequest().setAttribute("candidateInfo", cinfo);
 
             tinfo.setSessionId(Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)));
@@ -141,6 +142,7 @@ public class TestResults extends BaseScreeningProcessor {
             }
             pinfo.setTestSetBList(problemSetBList);
             getRequest().setAttribute("profileInfo", pinfo);
+            getRequest().setAttribute(Constants.USER_ID, String.valueOf(getUser().getId()));
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
