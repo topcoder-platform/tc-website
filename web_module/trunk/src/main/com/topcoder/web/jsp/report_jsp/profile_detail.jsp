@@ -5,8 +5,10 @@
 --%>
 <%@  page 
   language="java"
+  errorPage="/errorPage.jsp"
   import="java.util.*,
-          com.topcoder.common.web.data.report.*"
+          com.topcoder.common.web.data.report.*,
+          com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
 
@@ -18,22 +20,22 @@
   <body>
 <%
     Map m = null;
-    ResultSetContainer profile = null;
-    m = (Map)request.getAttribute(Constants.REPORT_PROFILE_KEY);
+    ResultSetContainer container = null;
+    ResultSetContainer.ResultSetRow p = null;
+    m = (Map)request.getAttribute(Constants.REPORT_PROFILE_DETAIL_KEY);
     if (m!=null) {
+      container = (ResultSetContainer)m.get("Profile_Detail");
+      p = container.getRow(0);
 %>
   <table cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td colspan="3"><font size="+2"><center><b><%=p.getHandle()%></b></center></font></td>
+      <td colspan="3"><font size="+2"><center><b><%=p.getItem("handle").toString()%></b></center></font></td>
     </tr>
     <tr>
-      <td colspan="3"><center><b><%=p.getUserId()%></b></center></td>
+      <td colspan="3"><center><b><%=p.getItem("user_id").toString()%></b></center></td>
     </tr>
     <tr>
       <td><br/></td>
-    </tr>
-    <tr>
-      <td colspan="3"><center>&lt;A HREF="/stat?c=member_profile&amp;amp;cr=<%=p.getUserId()%>" CLASS="<%=className%>"&gt;<%=p.getHandle()%>&lt;/A&gt;</center></td>
     </tr>
     <tr>
       <td><br/></td>
@@ -41,82 +43,82 @@
     <tr>
       <td>Last Rated Event</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getLastRatedEvent().length()>0 ? p.getLastRatedEvent() : "Never Competed"%></td>
+      <td><%=p.getItem("last_rated_event").toString().length()>0 ? p.getItem("last_rated_event").toString():"Never Competed"%></td>
     </tr>
     <tr>
       <td>Referral Type</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getReferralType() + (p.getReferralInfo().length()>0 ? ", "+p.getReferralInfo() : "")%></td>
+      <td><%=p.getItem("referral_desc").toString() + (p.getItem("referral_type").toString().length()>0 ? ", "+p.getItem("referral_type").toString():"")%></td>
     </tr>
     <tr>
       <td>Competition Notification</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getNotify()%></td>
+      <td><%=p.getItem("notify").toString()%></td>
     </tr>
     <tr>
       <td>Status</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getStatus()%></td>
+      <td><%=p.getItem("user_status_desc").toString()%></td>
     </tr>
     <tr><td><br/></td></tr>
     <br/><br/>
     <tr>
       <td>First Name</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getFirstName()%></td>
+      <td><%=p.getItem("first_name").toString()%></td>
     </tr>
     <tr>
       <td>Last Name</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getLastName()%></td>
+      <td><%=p.getItem("last_name").toString()%></td>
     </tr>
     <tr>
       <td>Email Address</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getEmail()%></td>
+      <td><%=p.getItem("email").toString()%></td>
     </tr>
     <tr><td><br/></td></tr>
     <tr>
       <td>Rating</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getRating()%></td>
+      <td><%=p.getItem("rating").toString()%></td>
     </tr>
     <tr>
       <td>Events</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getNumRatings()%></td>
+      <td><%=p.getItem("num_ratings").toString()%></td>
     </tr>
     <tr>
       <td>Member Since</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getMemberSince()%></td>
+      <td><%=p.getItem("member_since").toString()%></td>
     </tr>
     <tr><td><br/></td></tr>
     <tr>
       <td valign="top">Street Address</td>
       <td>&#160;&#160;&#160;</td>
       <td>
-        <%=p.getAddress1()%>
+        <%=p.getItem("address1").toString()%>
 <%
-    if (p.getAddress2().length() > 0)
+    if (p.getItem("address2").toString().length() > 0)
 %>
-        <br/><%=p.getAddress2()%><br/>
-        <%=p.getCity()%>, <%=p.getState()%> <%=p.getZip()%>
+        <br/><%=p.getItem("address2").toString()%><br/>
+        <%=p.getItem("city").toString()%>, <%=p.getItem("state_code").toString()%> <%=p.getItem("zip").toString()%>
       </td>
     </tr>
     <tr><td><br/></td></tr>
     <tr>
       <td>Home Phone</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getHomePhone()%></td>
+      <td><%=p.getItem("home_phone").toString()%></td>
     </tr>
 <%
-    if (p.getWorkPhone().length() > 0) {
+    if (p.getItem("work_phone").toString().length() > 0) {
 %>
     <tr>
       <td>Work Phone</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getWorkPhone()%></td>
+      <td><%=p.getItem("work_phone").toString()%></td>
     </tr>
 <%
     }
@@ -124,7 +126,7 @@
     <tr>
       <td>Coder Type</td>
       <td>&#160;&#160;&#160;</td>
-      <td><%=p.getCoderType()%></td>
+      <td><%=p.getItem("coder_type_desc").toString()%></td>
     </tr>
   </table>
 <%
