@@ -18,6 +18,7 @@ public class TCESConstants {
     public static String POSITION_INTEREST_PAGE = "/position_interest.jsp";
     public static String CAMPAIGN_INTEREST_PAGE = "/campaign_interest.jsp";
     public static String DEMOGRAPHIC_PAGE = "/demographic_info.jsp";
+    public static String MEMBER_PROFILE_PAGE = "/member_profile.jsp";
 
     public static String LOGIN_TASK = "LoginTask";
     public static String LOGIN_TASK_STEP_VIEW = "v";
@@ -35,7 +36,7 @@ public class TCESConstants {
     public static String HANDLE_PARAM = null;
     public static String PASSWORD_PARAM = null;
     public static String CAMPAIGN_ID_PARAM = "cid";
-    public static String POSITION_ID_PARAM = "jid";
+    public static String JOB_ID_PARAM = "jid";
 
     public static String MSG_ATTR_KEY = null;
     public static String COMPANY_NAME_ATTR_KEY = "CompanyName";
@@ -43,6 +44,23 @@ public class TCESConstants {
     public static String DEMOGRAPHIC_REFERRAL_KEY = "referral";
     public static String DEMOGRAPHIC_NOTIFY_KEY = "notify";
     public static String DEMOGRAPHIC_INFO_KEY = "info";
+    public static String MEM_INFO_HANDLE_KEY = "handle";
+    public static String MEM_INFO_FULLNAME_KEY = "fullname";
+    public static String MEM_INFO_FULLADDR_KEY = "fulladdress";
+    public static String MEM_INFO_CONTACT_KEY = "contact";
+    public static String MEM_INFO_MEMTYPE_KEY = "membertype";
+    public static String MEM_INFO_SCHOOLNAME_KEY = "schoolname";
+    public static String MEM_INFO_DEGREE_KEY = "degree";
+    public static String MEM_INFO_MAJOR_KEY = "major";
+    public static String MEM_INFO_GRADDATE_KEY = "graddate";
+    public static String MEM_INFO_DEGREE_KEY = "degree";
+    public static String MEM_RATING_CURRENT_KEY = "current";
+    public static String MEM_RATING_HIGH_KEY = "high";
+    public static String MEM_RATING_LOW_KEY = "low";
+    public static String MEM_RATING_PCTILE_KEY = "percentile";
+    public static String MEM_RATING_NUMEVENTS_KEY = "numberofevents";
+    public static String MEM_RATING_MOSTRECENT_KEY = "mostrecent";
+    public static String MEM_RATING_AVGPOINTS_KEY = "avgpoints";
 
     public static int PRO_CODER_TYPE  = 2;
     public static int STUDENT_CODER_TYPE = 1;

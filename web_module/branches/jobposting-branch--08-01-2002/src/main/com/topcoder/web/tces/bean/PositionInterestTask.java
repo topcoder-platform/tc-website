@@ -197,7 +197,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
 
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.POSITION_ID_PARAM))
+        if (paramName.equalsIgnoreCase(TCESConstants.JOB_ID_PARAM))
             setJobID(Integer.parseInt(value));
     }
 

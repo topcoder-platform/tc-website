@@ -27,7 +27,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
     private static Logger log = Logger.getLogger(DemographicTask.class);
 
     private int campaignID;
-    private int positionID;
+    private int jobID;
     private String companyName;
     private String campaignName;
     private String positionName;
@@ -44,7 +44,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
         uid=-1;
 
-        setPositionID(-1);
+        setJobID(-1);
         setCampaignID(-1);
     }
 
@@ -104,12 +104,12 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
         this.campaignID = campaignID;
     }
 
-    public int getPositionID() {
-        return positionID;
+    public int getJobID() {
+        return jobID;
     }
 
-    public void setPositionID(int positionID) {
-        this.positionID = positionID;
+    public void setJobID(int jobID) {
+        this.jobID = jobID;
     }
 
     public String getCompanyName() {
@@ -147,7 +147,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
         Map resultMap = null;
         DataAccessInt dai = null;
 
-        if (getPositionID()>=0) {
+        if (getJobID()>=0) {
             // Position Demographics
             dataRequest.setContentHandle("tces_position_demographics");
         }
@@ -160,9 +160,9 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                         TCESConstants.STUDENT_CODER_TYPE };
 
         for (int typeI=0;typeI<types.length;typeI++) {
-            if (getPositionID()>=0) {
+            if (getJobID()>=0) {
                 // Position Demographics
-                dataRequest.setProperty("jid", Integer.toString(getPositionID()) );
+                dataRequest.setProperty("jid", Integer.toString(getJobID()) );
             }
 
             dataRequest.setProperty("uid", Integer.toString(uid) );
@@ -175,14 +175,14 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
             setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
 
-            if (getPositionID()>=0) {
+            if (getJobID()>=0) {
                 rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
                 ResultSetContainer.ResultSetRow posNameRow = rsc.getRow(0);
                 setPositionName( posNameRow.getItem("job_desc").toString() );
             }
 
 
-            rsc = (getPositionID()>=0)?
+            rsc = (getJobID()>=0)?
                        (ResultSetContainer) resultMap.get("TCES_Position_Coders_By_Type")
                       : (ResultSetContainer) resultMap.get("TCES_Campaign_Coders_By_Type");
             ResultSetContainer.ResultSetRow coderCountRow = rsc.getRow(0);
@@ -193,7 +193,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
             HashMap demoInfoMap = new HashMap();
 
-            rsc = (getPositionID()>=0)?
+            rsc = (getJobID()>=0)?
                         (ResultSetContainer) resultMap.get("TCES_Position_Referral_Responses")
                        : (ResultSetContainer) resultMap.get("TCES_Campaign_Referral_Responses");
             ResultSetContainer.ResultSetRow refRspRow = null;
@@ -212,7 +212,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             }
             demoInfoMap.put( TCESConstants.DEMOGRAPHIC_REFERRAL_KEY , referralMapList );
 
-            rsc = (getPositionID()>=0) ?
+            rsc = (getJobID()>=0) ?
                         (ResultSetContainer) resultMap.get("TCES_Position_Notify_Responses")
                       :  (ResultSetContainer) resultMap.get("TCES_Campaign_Notify_Responses");
             ResultSetContainer.ResultSetRow notifyRow = null;
@@ -224,14 +224,15 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 double pct =
                     (((Long)notifyRow.getItem("resp_count").getResultData())).doubleValue() / ((double) getStudentCoderCount());
 
-                notifyItem.put("response", notifyRow.getItem("response").toString() );
+                notifyItem.put("title", notifyRow.getItem("response").toString() );
+                notifyItem.put("count", notifyRow.getItem("resp_count").toString() );
                 notifyItem.put("percent", Double.toString(pct)+"%");
 
                 notifyMapList.add(notifyItem);
             }
             demoInfoMap.put( TCESConstants.DEMOGRAPHIC_NOTIFY_KEY , notifyMapList );
 
-            rsc = (getPositionID()>=0) ?
+            rsc = (getJobID()>=0) ?
                         (ResultSetContainer) resultMap.get("TCES_Position_Demographic_Responses")
                       :  (ResultSetContainer) resultMap.get("TCES_Campaign_Demographic_Responses");
             ResultSetContainer.ResultSetRow demoInfoRow = null;
@@ -252,8 +253,8 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
                 HashMap respItem = new HashMap();
 
-                respItem.put("response", demoInfoRow.getItem("response").toString() );
-                respItem.put("resp_count", demoInfoRow.getItem("resp_count").toString() );
+                respItem.put("title", demoInfoRow.getItem("response").toString() );
+                respItem.put("count", demoInfoRow.getItem("resp_count").toString() );
                 respItem.put("percent", Double.toString(pct)+"%");
 
                 respList.add(respItem);
@@ -272,13 +273,13 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                                  "does not belong to uid="+Integer.toString(uid) );
         }
 
-        if (getPositionID()>=0) {
+        if (getJobID()>=0) {
             // Position Demographics
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Position_Access");
             if (rsc.getRowCount() == 0) {
                 throw new Exception (" cid="+Integer.toString(getCampaignID())+
-                                     " pid="+Integer.toString(getPositionID())+
+                                     " pid="+Integer.toString(getJobID())+
                                      " does not belong to uid="+Integer.toString(uid) );
             }
         }
@@ -293,8 +294,8 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.POSITION_ID_PARAM))
-            setPositionID(Integer.parseInt(value));
+        if (paramName.equalsIgnoreCase(TCESConstants.JOB_ID_PARAM))
+            setJobID(Integer.parseInt(value));
     }
 
 }
