@@ -152,6 +152,10 @@ public class Constants {
 
     public static String VALID_PASS_CHAR_LIST;
 
+    static {
+        initialize();
+    }
+    
     private Constants() {
     }
 
