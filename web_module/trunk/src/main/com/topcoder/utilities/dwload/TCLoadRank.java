@@ -88,6 +88,7 @@ public class TCLoadRank extends TCLoad {
             loadCountryRatingRank(OVERALL_RATING_RANK_TYPE_ID);
             loadStateRatingRank(OVERALL_RATING_RANK_TYPE_ID);
             loadSchoolRatingRank(OVERALL_RATING_RANK_TYPE_ID);
+
             loadCountryRatingRank(ACTIVE_RATING_RANK_TYPE_ID);
             loadStateRatingRank(ACTIVE_RATING_RANK_TYPE_ID);
             loadSchoolRatingRank(ACTIVE_RATING_RANK_TYPE_ID);
@@ -280,6 +281,7 @@ public class TCLoadRank extends TCLoad {
             query = new StringBuffer(100);
             query.append( " DELETE");
             query.append(   " FROM country_coder_rank");
+            query.append(  " WHERE coder_rank_type_id = " + rankType);
             psDel = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -371,6 +373,7 @@ public class TCLoadRank extends TCLoad {
             query = new StringBuffer(100);
             query.append( " DELETE");
             query.append(   " FROM state_coder_rank");
+            query.append(  " WHERE coder_rank_type_id = " + rankType);
             psDel = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -462,6 +465,7 @@ public class TCLoadRank extends TCLoad {
             query = new StringBuffer(100);
             query.append( " DELETE");
             query.append(   " FROM school_coder_rank");
+            query.append(  " WHERE coder_rank_type_id = " + rankType);
             psDel = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
