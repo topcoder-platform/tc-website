@@ -64,9 +64,6 @@
                         </table>
                         
                         <br/>
-                        
-                        <p align=center><A href="/tc?module=Static&d1=dev&d2=usdc_contest_det">back to Contest Details</A></p>
-                    
 
         <p><br/></p>
 
