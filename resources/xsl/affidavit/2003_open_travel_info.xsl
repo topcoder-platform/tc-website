@@ -66,7 +66,7 @@
         <p>
         <CENTER>
             2003 TopCoder Open<BR/>
-            December 3 –5, 2003<BR/><BR/><BR/>
+            December 3 - 5, 2003<BR/><BR/><BR/>
             <H1>Travel Information</H1>
         </CENTER>
         <BR/><BR/> <BR/><BR/>
