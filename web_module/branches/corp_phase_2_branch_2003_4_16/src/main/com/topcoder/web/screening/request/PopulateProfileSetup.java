@@ -56,10 +56,11 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
             request.setAttribute(Constants.PROFILE_INFO, info);
         }
 
+        Map map = null;
         if (!info.isNew()) {
             //get Problem Set
             profileProblemSet.setProperty("uid", String.valueOf(user.getId()));
-            Map map = getDataAccess(true).getData(profileProblemSet);
+            map = getDataAccess(true).getData(profileProblemSet);
             if(map != null) {
                 info.setProblemSetList((ResultSetContainer)
                     map.get(Constants.PROFILE_PROBLEM_SET_QUERY_KEY));
