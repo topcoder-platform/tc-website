@@ -75,21 +75,21 @@
                         <p><strong>Overview of the Contest:</strong><br/>
                         The 2003 Verizon Coding Challenge is being offered by Verizon Communications ("Verizon") and TopCoder, Inc. ("TopCoder"). 
                         Verizon is using the results of the Contest to identify possible employees for their Chennai VDSI center.  The Contest will take place 
-                        between October 22 and November 7, 2003.  It begins with a 6-day online registration, after which up to 500 eligible individuals 
+                        between October 27 and November 7, 2003.  It begins with a 6-day online registration, after which up to 500 eligible individuals 
                         will be invited to compete in the Contest. The Contest consists of two (2) online elimination rounds and one (1) onsite final round.  
                         All participants who compete in Round #1 will receive a Verizon Coding Challenge t-shirt.  In addition, Verizon will award 110,000 
                         INR (Indian Rupees) in cash prizes to the top 4 finalists in the Contest.</p>
                         
                         <p><strong>Eligibility:</strong><br/>
                         The Verizon Coding Challenge is open only to citizens and lawful permanent residents of India residing in Chennai who are 18 years of age
-                         or older. In addition, contestants must have an undergraduate degree and be employed in a technical profession as of October 22.</p>
+                         or older. In addition, contestants must have an undergraduate degree and be employed in a technical profession as of October 27.</p>
 
                         <p>Employees of Verizon and TopCoder, and those involved in the development, production, implementation and distribution of this Contest 
                         and their advertising or promotional agencies, parent companies, agents, directors, subsidiaries or affiliates, or immediate family members 
                         of such persons, are ineligible to enter the Contest.</p>
                         
                         <p><strong>Registration:</strong><br/>
-                        Registration will open on October 22, 2003 and will close on October 30, 2003.  Registration is unlimited, however only the first 500 eligible 
+                        Registration will open on October 27, 2003 and will close on October 30, 2003.  Registration is unlimited, however only the first 500 eligible 
                         individuals to register and activate their registration will be invited to compete.  Official invitations to eligible contestants will be emailed on 
                         October 31, 2003.  Individuals are permitted to register only once for the Contest.</p>
                         
@@ -144,7 +144,7 @@
                       <p><strong>Scoring and Advancing During Online Rounds</strong><br/>
                         After each round of competition, the top scorers will be identified and will advance to the next round.  Coder advancement in 
                         all rounds is determined by comparing the total point values from all three phases of the round (see Competition Round Structure) 
-                        for each coder. In order to advance, a coder must finish each round with a greater-than-zero (i.e. point total. The structure of the 
+                        for each coder. In order to advance, a coder must finish each round with a greater-than-zero (i.e, positive) point total. The structure of the 
                         online rounds is as follows:</p>
                         
                         <p><strong>Round #1</strong>
@@ -158,8 +158,8 @@
                         competitors with a positive point total will advance.</li></ul></p>
                
                           <p><strong>Round #3</strong>
-                        <ul><li>Up to 25 coders will compete in the Championship Round being held onsite at Verizon’s Chennai facility.  Each finalist 
-                        is responsible for arriving at Verizon’s facility to compete.</li></ul></p>
+                        <ul><li>Up to 25 coders will compete in the Championship Round being held onsite at Verizon's Chennai facility.  Each finalist 
+                        is responsible for arriving at Verizon's facility to compete.</li></ul></p>
             
                         <p><strong>NOTE:</strong>  In the event of a tie for any advancing position, the tie will be resolved in the following manner:</p>
                         <ul>
@@ -175,7 +175,7 @@
                         
                         <p><strong>Competition Round Structure</strong><br/>
                         Each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. 
-                        (Note: the format of these competition rounds is similar to the format of the Single Round Matches.)</p>
+                        (Note: the format of these competition rounds is similar to the format of TopCoder's Single Round Matches.)</p>
             
                         <ul>
                             <li><strong>The Coding Phase</strong> is a timed event lasting 75 minutes where all contestants are presented with the same 
@@ -197,11 +197,11 @@
                         </ul>
 
                         <p><strong>Onsite Championship Round</strong><br/>
-                        The 25 advancers from Round #2 must travel to Verizon's Chennai VDSI facility to compete in the Championship round of the Contest. 
+                        The 25 advancers from Round #2 must travel to Verizon's Chennai VDSI facility to compete in the Championship Round of the Contest. 
                         Each finalist will be notified via email that he/she has advanced to the onsite final. Each finalist must confirm his/her attendance in 
                         the Championship Round by Wednesday, November 5th at 9:00pm Eastern Time.  If a contestant does not confirm his/her attendance in 
                         the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the Contest will be given to 
-                        the next highest scorer from Round 2.  All finalists must arrive at Verizon's Chennai VDSI offices no later than 5:00pm India Time on 
+                        the next highest scorer from Round #2.  All finalists must arrive at Verizon's Chennai VDSI offices no later than 5:00pm India Time on 
                         Friday, November 7, 2003.  If a contestant who has confirmed his/her attendance in the Championship Round does not arrive at Verizon's 
                         offices by this time, he/she will forfeit eligibility to receive any prize. If a contestant is unable to attend the onsite rounds, he/she will 
                         forfeit eligibility to receive a prize, and his/her spot in the Contest will be given to the next highest scorer from Round #2.</p>
@@ -209,16 +209,16 @@
                         <p>Verizon and TopCoder will NOT provide travel arrangements for each finalist.  All expenses to attend the onsite finals are the 
                         responsibility of the finalist.</p>
 
-                        <p>TopCoder will determine the room assignments for the Championship Round prior to the start of the Championship round. </p>
+                        <p>TopCoder will determine the room assignments for the Championship Round prior to the start of the Championship Round. </p>
             
-                        <p>The Championship Round will be a single round of 25 coders. First, second, third and fourth place in the Championship round 
+                        <p>The Championship Round will be a single round of 25 coders. First, second, third and fourth place in the Championship Round 
                         are determined by comparing the total points of each coder, with the highest point value placing first. The winner of the Championship 
-                        Round will be the coder with the highest point total for the round. In the event of a tie in the Championship rounds, the tie will be 
+                        Round will be the coder with the highest point total for the round. In the event of a tie in the Championship Round, the tie will be 
                         resolved in the following manner (in order):</p>
                         
                         <ul>
                             <li>Total points acquired (higher is better) during Rounds #1 and #2</li>
-                            <li>If a tie still remains in the Championship round, then the prize money will be distributed equally amongst the tied coders</li>
+                            <li>If a tie still remains in the Championship Round, then the prize money will be distributed equally amongst the tied coders</li>
                         </ul>
                         
                         <p><a name="prizes"><br/></a></p>
@@ -231,14 +231,25 @@
                         Prizes will be distributed as follows:</p>
             
                         <table border="0" cellpadding="5" cellspacing="2" class="sidebarBox" align="center">
+   
                             <tr>
                                 <td width="50%" class="sidebarTitle">Competitor(s)</td>
                                 <td width="50%" class="sidebarTitle" align="right">Prize</td>
                             </tr>
-
+                            
                             <tr>
-                                <td width="50%" class="sidebarText">Up to 500 competitors who compete in Round #1</td>
-                                <td width="50%" class="sidebarText" align="right">Verizon Coding Challenge t-shirt</td>
+                                <td width="50%" class="sidebarText"><strong>1st place finisher* - Tournament&nbsp;Champion</strong></td>
+                                <td width="50%" class="sidebarText" align="right"><strong>50,000 INR</strong></td>
+                            </tr>
+                            
+                            <tr>
+                                <td width="50%" class="sidebarText">2nd place finisher* in the Championship&nbsp;Round</td>
+                                <td width="50%" class="sidebarText" align="right">30,000 INR</td>
+                            </tr>
+                            
+                            <tr>
+                                <td width="50%" class="sidebarText">3rd place finisher* in the Championship&nbsp;Round</td>
+                                <td width="50%" class="sidebarText" align="right">20,000 INR</td>
                             </tr>
 
                             <tr>
@@ -247,19 +258,10 @@
                             </tr>
 
                             <tr>
-                                <td width="50%" class="sidebarText">3rd place finisher* in the Championship&nbsp;Round</td>
-                                <td width="50%" class="sidebarText" align="right">20,000 INR</td>
+                                <td width="50%" class="sidebarText">Up to 500 competitors who compete in Round #1</td>
+                                <td width="50%" class="sidebarText" align="right">Verizon Coding Challenge t-shirt</td>
                             </tr>
 
-                            <tr>
-                                <td width="50%" class="sidebarText">2nd place finisher* in the Championship&nbsp;Round</td>
-                                <td width="50%" class="sidebarText" align="right">30,000 INR</td>
-                            </tr>
-
-                            <tr>
-                                <td width="50%" class="sidebarText"><strong>1st place finisher* - Tournament&nbsp;Champion</strong></td>
-                                <td width="50%" class="sidebarText" align="right"><strong>50,000 INR</strong></td>
-                            </tr>
 
                             <tr>
                                 <td colspan="2" class="sidebarText"><strong>* Prize will be awarded at the conclusion of the Championship Round. 
@@ -313,7 +315,7 @@
                     advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from 
                     and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, 
                     directly or indirectly, from or arising out of participation in this Contest, or participation in any Contest -related activity, or the receipt, use or misuse of a 
-                    prize. Verizon and TopCoder specifically disclaims all liability associated with, and makes no warranties with regard to any prize given.</p>
+                    prize. Verizon and TopCoder specifically disclaim all liability associated with, and make no warranties with regard to any prize given.</p>
 
                     <p>In addition, all prizewinners agree to cooperate with Verizon and TopCoder's publicity efforts, without any compensation. This includes the agreement to use their 
                     name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or 

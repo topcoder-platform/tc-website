@@ -12,7 +12,7 @@
                         <img alt="" src="/images/spacer.gif" height="3" width="138"><br/>
 
                         <table border="0" cellspacing="5" cellpadding="0" width="138" class="formFrame">
-                            <tr><td class="subBodyCopy">Registraton Starts<br/><strong>October 22nd</strong></td></tr>
+                            <tr><td class="subBodyCopy">Registraton Starts<br/><strong>October 27th</strong></td></tr>
 
                             <tr><td class="subBodyCopy">Round 1 - Online<br/><strong>October 31st</strong></td></tr>
 
