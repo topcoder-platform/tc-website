@@ -31,5 +31,10 @@ public class ChkBoxTag extends BaseTag {
     public void setValue(String value) {
         this.value = value;
     }
+
+    public void setValue(boolean value) {
+        this.value = new Boolean(value).toString();
+    }
+
 }
 
