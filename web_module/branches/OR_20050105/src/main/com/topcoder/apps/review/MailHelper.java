@@ -86,19 +86,24 @@ class MailHelper {
         xmlDocument.addTag(new ValueTag("PROJECT_NAME", project.getName()));
         xmlDocument.addTag(new ValueTag("SCORE", formatNumber(score)));
         xmlDocument.addTag(new ValueTag("PLACE", getPlaceString(place)));
-        PhaseInstance[] phases = project.getTimeline();
-        for (int i = 0; i < phases.length; i++) {
-            if (phases[i].getPhase().getId() == Phase.ID_FINAL_FIXES) {
-                xmlDocument.addTag(new ValueTag("DEADLINE", formatDate(phases[i].getEndDate())));
+
+
+
+        if (place == PLACE_SCREENING_FAIL) {
+            PhaseInstance[] phases = project.getTimeline();
+            for (int i = 0; i < phases.length; i++) {
+                if (phases[i].getPhase().getId() == Phase.ID_FINAL_FIXES) {
+                    xmlDocument.addTag(new ValueTag("DEADLINE", formatDate(phases[i].getEndDate())));
+                }
             }
-        }
-        UserRole[] roles = project.getParticipants();
-        for (int i = 0; i < roles.length; i++) {
-            if (roles[i].getUser().equals(to) && roles[i].getRole().getId() == Role.ID_DESIGNER_DEVELOPER) {
-                float payment = roles[i].getPaymentInfo().getPayment();
-                xmlDocument.addTag(new ValueTag("INITIAL_PAYMENT", formatNumber(payment * .75)));
-                xmlDocument.addTag(new ValueTag("REMAINING_PAYMENT", formatNumber(payment * .25)));
-                xmlDocument.addTag(new ValueTag("TOTAL_PAYMENT", formatNumber(payment)));
+            UserRole[] roles = project.getParticipants();
+            for (int i = 0; i < roles.length; i++) {
+                if (roles[i].getUser().equals(to) && roles[i].getRole().getId() == Role.ID_DESIGNER_DEVELOPER) {
+                    float payment = roles[i].getPaymentInfo().getPayment();
+                    xmlDocument.addTag(new ValueTag("INITIAL_PAYMENT", formatNumber(payment * .75)));
+                    xmlDocument.addTag(new ValueTag("REMAINING_PAYMENT", formatNumber(payment * .25)));
+                    xmlDocument.addTag(new ValueTag("TOTAL_PAYMENT", formatNumber(payment)));
+                }
             }
         }
 
