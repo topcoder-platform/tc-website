@@ -177,11 +177,11 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$750.00</td>
+                                                            <td class="bodyText" align="right">$700.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$550.00</td>
+                                                            <td class="bodyText" align="right">$500.00</td>
                                                         </tr>
                                                     </table>
 
