@@ -34,7 +34,17 @@
                            <td class="sidebarTitle" width="30%">Score</td>
                         </tr>
 
-<tr><td class="sidebarText"></td><td class="sidebarText" nowrap></td><td class="sidebarText"></td></tr>
+<tr><td class="sidebarText">bober</td><td class="sidebarText" nowrap>Student Main Competition</td><td class="sidebarText">1693.25</td></tr>
+<tr><td class="sidebarText">jyl227</td><td class="sidebarText" nowrap>Student Main Competition</td><td class="sidebarText">1648.41</td></tr>
+<tr><td class="sidebarText">LLCoolJay</td><td class="sidebarText" nowrap>Student Main Competition</td><td class="sidebarText">1435.54</td></tr>
+<tr><td class="sidebarText">cbnyc</td><td class="sidebarText" nowrap>Student Main Competition</td><td class="sidebarText">1250.46</td></tr>
+<tr><td class="sidebarText">dr_awesome</td><td class="sidebarText" nowrap>Student Main Competition</td><td class="sidebarText">1170.43</td></tr>
+<tr><td class="sidebarText">ad490</td><td class="sidebarText" nowrap>Student Main Competition</td><td class="sidebarText">821.76</td></tr>
+<tr><td class="sidebarText">nme</td><td class="sidebarText" nowrap>Student Main Competition</td><td class="sidebarText">658.46</td></tr>
+<tr><td class="sidebarText">avocado</td><td class="sidebarText" nowrap>Student Main Competition</td><td class="sidebarText">606.32</td></tr>
+<tr><td class="sidebarText">kebrahim</td><td class="sidebarText" nowrap>Student Main Competition</td><td class="sidebarText">441.23</td></tr>
+<tr><td class="sidebarText">ajt2001</td><td class="sidebarText" nowrap>Student Main Competition</td><td class="sidebarText">438.94</td></tr>
+
 
                      </table>
 
