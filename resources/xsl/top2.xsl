@@ -27,11 +27,34 @@
           	  <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/top_back_tab.gif" ALT="" WIDTH="19" HEIGHT="17" BORDER="0"/></TD>
               <TD VALIGN="middle" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif" CLASS="time" NOWRAP="0"><SPAN CLASS="registerToday">&#160;&#160;&#160;&#160;Current Member Count</SPAN>&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/></TD>
               <TD VALIGN="middle" BGCOLOR="#43515E" WIDTH="100%" BACKGROUND="/i/steel_gray_bg.gif" ALIGN="right" CLASS="globalNavSmall" NOWRAP="0">
-                <A TARGET="_parent" HREF="/?t=about_tc&amp;c=index" CLASS="globalNavSmall">About [TC]</A>&#160;&#160;&#160;:&#160;&#160;&#160;
+                <A TARGET="_parent" CLASS="globalNavSmall">
+                  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>
+                  About [TC]
+                </A>
+                &#160;&#160;&#160;:&#160;&#160;&#160;
                 <xsl:choose>
-                  <xsl:when test="/TC/LoggedIn='true'"><A TARGET="_parent" HREF="/index?t=authentication&amp;c=submit_logout" CLASS="globalNavSmall">Logout</A></xsl:when>
-                  <xsl:otherwise><A TARGET="_parent" HREF="/index?t=authentication&amp;c=login" CLASS="globalNavSmall">Login</A></xsl:otherwise>
-                </xsl:choose>&#160;&#160;&#160;:&#160;&#160;&#160;<A TARGET="_parent" HREF="/?t=contacts&amp;c=index" CLASS="globalNavSmall">Contacts</A><!-- &#160;&#160;&#160;:&#160;&#160;&#160;<A TARGET="_parent" HREF="/index?t=support&amp;c=general_faq" CLASS="globalNavSmall">Support/FAQs</A> -->&#160;&#160;&#160;:&#160;&#160;&#160;<A TARGET="_parent" HREF="/?t=index" CLASS="globalNavSmall">Home</A>
+                  <xsl:when test="/TC/LoggedIn='true'">
+                    <A TARGET="_parent" CLASS="globalNavSmall">
+                      <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=submit_logout</xsl:attribute>
+                      Logout
+                    </A>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <A TARGET="_parent" CLASS="globalNavSmall">
+                      <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>
+                      Login
+                    </A>
+                  </xsl:otherwise>
+                </xsl:choose>&#160;&#160;&#160;:&#160;&#160;&#160;
+                <A TARGET="_parent" CLASS="globalNavSmall">
+                  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>
+                  Contacts
+                </A>
+                &#160;&#160;&#160;:&#160;&#160;&#160;
+                <A TARGET="_parent" CLASS="globalNavSmall">
+                  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>
+                  Home
+                </A>
               </TD>
               <TD WIDTH="50" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0" VSPACE="8"/></TD>
             </TR>

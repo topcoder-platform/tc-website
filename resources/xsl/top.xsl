@@ -45,7 +45,8 @@
                     </A>
                   </xsl:otherwise>
                 </xsl:choose>&#160;&#160;&#160;:&#160;&#160;&#160;
-                <A TARGET="_parent" HREF="/?t=contacts&amp;c=index" CLASS="globalNavSmall">
+                <A TARGET="_parent" CLASS="globalNavSmall">
+                  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>
                   Contacts
                 </A>
                 &#160;&#160;&#160;:&#160;&#160;&#160;
