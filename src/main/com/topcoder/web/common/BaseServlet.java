@@ -229,7 +229,7 @@ public abstract class BaseServlet extends HttpServlet {
         } else if (e instanceof NavigationException) {
             request.setAttribute(MESSAGE_KEY, e.getMessage());
         } else {
-            request.setAttribute(MESSAGE_KEY, "An eror has occurred when attempting to processor you request.");
+            request.setAttribute(MESSAGE_KEY, "An error has occurred when attempting to process your request.");
         }
         request.setAttribute("exception", e);
         fetchRegularPage(request, response, ERROR_PAGE, true);
