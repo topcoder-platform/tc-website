@@ -13,7 +13,7 @@
     Map m = (Map)request.getAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY);
     ResultSetContainer results = (ResultSetContainer)m.get("results");
     List headers = (List)request.getAttribute("column_headers");
-    Enumeration e = request.getParameterNames();
+    Iterator it = request.getParameterNames().iterator();
 %>
 
 
@@ -42,9 +42,9 @@
     </rsc:iterator>
     </table>
     <form name="revise" action="tc" method="get">
-        <logic:iterate name="<%=e%>" id="key">
-            <logic:iterate name="<%=Arrays.asList(request.getParameterValues(key))%>" id="val">
-                <input type="hidden" name="<%=e%>" value="<%=val%>">
+        <logic:iterate name="it" id="key">
+            <logic:iterate collection="<%=Arrays.asList(request.getParameterValues(key.toString()))%>" id="val">
+                <input type="hidden" name="<%=key%>" value="<%=val%>">
             </logic:iterate>
         </logic:iterate>
     </form>
