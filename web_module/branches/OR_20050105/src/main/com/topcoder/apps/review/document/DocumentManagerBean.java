@@ -2874,10 +2874,10 @@ public class DocumentManagerBean implements SessionBean {
                     boolean isApproved = rs.getBoolean (4);
                     String comments = rs.getString (5);
                     finalReview = new FinalReview(finalReviewId, null, aggWorksheet, isCompleted, requestor.getUserId(),
-                            reviewVersionId, isApproved, comments);
+                            reviewVersionId, new Boolean(isApproved), comments);
                 } else {
                     finalReview = new FinalReview(-1, null, aggWorksheet,
-                            false, requestor.getUserId(), -1, false, null);
+                            false, requestor.getUserId(), -1, null, null);
                 }
             } else {
                 ps = conn.prepareStatement(
@@ -2927,7 +2927,7 @@ public class DocumentManagerBean implements SessionBean {
                 if (fixItemList.size() > 0) {
                     FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
                     finalReview = new FinalReview(finalReviewId, fixItemArr, aggWorksheet, isCompleted, requestor.getUserId(),
-                            reviewVersionId, isApproved, comments);
+                            reviewVersionId, new Boolean(isApproved), comments);
                 } else {
                     if (Common.isRole(project, requestor.getUserId(), Role.ID_FINAL_REVIEWER) &&
                             project.getCurrentPhase().getId() == Phase.ID_FINAL_REVIEW) {
@@ -2947,7 +2947,7 @@ public class DocumentManagerBean implements SessionBean {
                         }
                         FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
                         finalReview = new FinalReview(-1, fixItemArr, aggWorksheet,
-                                isCompleted, requestor.getUserId(), -1, isApproved, comments);
+                                isCompleted, requestor.getUserId(), -1, new Boolean(isApproved), comments);
                     }
                 }
             }

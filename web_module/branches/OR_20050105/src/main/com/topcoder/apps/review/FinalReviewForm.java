@@ -39,11 +39,6 @@ public class FinalReviewForm extends AggregationWorksheetForm {
 
 
     /**
-     * The approved status: "true", "false" or null
-     */
-    private String approvedStatus = null;
-
-    /**
      * Wheter the comments textarea value is valid or not
      */
     private boolean commentsValid = true;
@@ -111,7 +106,13 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      * @return "true" if the final review is approved, "false" in not approved, or null if unknown
      */
     public String getApproved() {
-        return approvedStatus;
+        if (finalReview == null) {
+            return null;
+        }
+        if (finalReview.isApproved() == null) {
+            return null;
+        }
+        return finalReview.isApproved().toString();
         //return finalReview.isApproved() ? "true" : "false";
     }
 
@@ -123,9 +124,9 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      * @param isApproved Whether this review is approved.
      */
     public void setApproved(String approved) {
-        approvedStatus = approved;
+        finalReview.setApproved(new Boolean(approved));
 
-        if (finalReview != null) {
+/*        if (finalReview != null) {
             if (approved.equals("true"))  {
                 finalReview.setApproved(true);
             } else if (approved.equals("false")) {
@@ -134,8 +135,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
                 approvedStatus = null;
             }
         }
-
-        //finalReview.setApproved(isApproved.equals("true"));
+*/
     }
 
     /**

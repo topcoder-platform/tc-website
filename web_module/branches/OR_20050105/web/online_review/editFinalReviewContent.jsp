@@ -143,11 +143,20 @@
     </logic:equal>
 </logic:iterate>
 
+		<table width="100%" border="0" cellpadding="3" cellspacing="1" align="center" class="forumBkgd">
+			<tr>
+				<td class="grayBkgnd" colspan="6">
+				    Overall</td>
+
+			</tr>
+		</table>
+
             <table width="100%" border="0" cellpadding="3" cellspacing="1" align="center" class="forumBkgd">
 				<tr>
 					<td class="forumText" colspan="6">
 					    <p class='scorecardQuestion'>Comments for the final fixes</p></td>
 				</tr>
+				
 				<logic:equal name="finalReviewForm" property="commentsValid" value="false">
 					<tr>
 						<td colspan="6" width="100%" class="errorText">
