@@ -28,7 +28,7 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-         <td class="cardCell" WIDTH="100%">
+         <td class="cardCell" WIDTH="100%" align="center">
 
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="cards"/>  
@@ -36,18 +36,34 @@
            <jsp:param name="title" value="Downloads"/>  
         </jsp:include>
 
-         <div class="bodyText">
+         <div class="cardBody">
+         
+         <p>This is a preview of what your card will look like. It will always accurately portray your algorithm, design, and development statistics. Before you can post your TopCoder Member Card to your site you will have to "unlock" it by clicking the link below.</p>
 
-        <table cellpadding="0" cellspacing="6" border="0" class="bodyText" align="center">
-            <tr valign="middle">
-                <td class="bodyText" align="center" width="70%"><img src="/i/card/badge1_300x100.gif" border="0"/></td>
-                <td class="bodyText" align="left" width="30%"><a href="/i/card/badge1_150x50.gif">150px X 50px</a><br/><a href="/i/card/badge1_300x100.gif">300px X 100px</a><br/><a href="/i/card/badge1_450x150.gif">450px X 150px</a></td>
+        <table cellpadding="0" cellspacing="15" border="0" class="bodyText" align="center">
+            <tr>
+                <td valign="middle" align="right" width="5%">1.</td>
+                <td valign="middle" align="center" width="70%"><img src="/i/card/badge1_300x100.gif" border="0"/></td>
+                <td valign="middle" align="left" width="25%"><a href="/i/card/badge1_150x50.gif">150px X 50px</a><br/><a href="/i/card/badge1_300x100.gif">300px X 100px</a><br/><a href="/i/card/badge1_450x150.gif">450px X 150px</a></td>
             </tr>
-            <tr valign="middle">
-                <td class="bodyText" align="center"><img src="/i/card/badge2_300x100.gif" border="0"/></td>
-                <td class="bodyText" align="left"><a href="/i/card/badge2_150x50.gif">150px X 50px</a><br/><a href="/i/card/badge2_300x100.gif">300px X 100px</a><br/><a href="/i/card/badge2_450x150.gif">450px X 150px</a></td>
+            <tr>
+                <td class="bodyText" valign="middle" align="right">2.</td>
+                <td class="bodyText" valign="middle" align="center"><img src="/i/card/badge2_300x100.gif" border="0"/></td>
+                <td class="bodyText" valign="middle" align="left"><a href="/i/card/badge2_150x50.gif">150px X 50px</a><br/><a href="/i/card/badge2_300x100.gif">300px X 100px</a><br/><a href="/i/card/badge2_450x150.gif">450px X 150px</a></td>
+            </tr>
+            <tr>
+                <td class="bodyText" valign="middle" align="right">3.</td>
+                <td class="bodyText" valign="middle" align="center"><img src="/i/card/badge3_300x40.gif" border="0"/></td>
+                <td class="bodyText" valign="middle" align="left"><a href="/i/card/badge3_300x40.gif">300px X 40px</a></td>
+            </tr>
+            <tr>
+                <td class="bodyText" valign="middle" align="right">4.</td>
+                <td class="bodyText" valign="middle" align="center"><img src="/i/card/badge4_300x40.gif" border="0"/></td>
+                <td class="bodyText" valign="middle" align="left"><a href="/i/card/badge4_300x40.gif">300px X 40px</a></td>
             </tr>
          </table>
+
+        <p><a href="/tc?module=Static&d1=card&d2=description">Back to description</a></p>
 
          </div>
          <p><br/></p>
