@@ -1843,7 +1843,7 @@ public class ProjectTrackerBean implements SessionBean {
                 RolePrincipal rp;
                 long roleId;
 
-                String roleName = prefix + "View Project";
+                String roleName = prefix + "View Project " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1857,7 +1857,7 @@ public class ProjectTrackerBean implements SessionBean {
                 // Assign View Project to pm
                 principalMgr.assignRole(userPrincipal, rp, requestor);
 
-                roleName = prefix + "Submit";
+                roleName = prefix + "Submit "  + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1868,7 +1868,7 @@ public class ProjectTrackerBean implements SessionBean {
                 pc.addPermission(new SubmitPermission(projectId));
                 policyMgr.addPermissions(rp, pc, requestor);
 
-                roleName = prefix + "Screen";
+                roleName = prefix + "Screen "  + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1879,7 +1879,7 @@ public class ProjectTrackerBean implements SessionBean {
                 pc.addPermission(new ScreenPermission(projectId));
                 policyMgr.addPermissions(rp, pc, requestor);
 
-                roleName = prefix + "Review";
+                roleName = prefix + "Review " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1890,7 +1890,7 @@ public class ProjectTrackerBean implements SessionBean {
                 pc.addPermission(new ReviewPermission(projectId));
                 policyMgr.addPermissions(rp, pc, requestor);
 
-                roleName = prefix + "Aggregation";
+                roleName = prefix + "Aggregation " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1901,7 +1901,7 @@ public class ProjectTrackerBean implements SessionBean {
                 pc.addPermission(new AggregationPermission(projectId));
                 policyMgr.addPermissions(rp, pc, requestor);
 
-                roleName = prefix + "Submit Final Fix";
+                roleName = prefix + "Submit Final Fix " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -1912,7 +1912,7 @@ public class ProjectTrackerBean implements SessionBean {
                 pc.addPermission(new SubmitFinalFixPermission(projectId));
                 policyMgr.addPermissions(rp, pc, requestor);
 
-                roleName = prefix + "Final Review";
+                roleName = prefix + "Final Review " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId != -1) {
                     rp = principalMgr.getRole(roleId);
@@ -2194,7 +2194,7 @@ public class ProjectTrackerBean implements SessionBean {
             try {
                 UserPrincipal userPrincipal = principalMgr.getUser(userId);
 
-                String roleName = prefix + "View Project";
+                String roleName = prefix + "View Project " + projectId;
                 long roleId = getRoleId(roleName);
                 if (roleId == -1) {
                     throw new RuntimeException("Can't find roleName: " + roleName);
@@ -2203,7 +2203,7 @@ public class ProjectTrackerBean implements SessionBean {
                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, requestor);
                 principalMgr.assignRole(userPrincipal, rolePrincipal, requestor);
 
-                roleName = prefix + "Submit";
+                roleName = prefix + "Submit " + projectId;
                 roleId = getRoleId(roleName);
                 if (roleId == -1) {
                     throw new RuntimeException("Can't find roleName: " + roleName);
