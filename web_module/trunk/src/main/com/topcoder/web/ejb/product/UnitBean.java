@@ -94,7 +94,7 @@ public class UnitBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT unit_desc FROM unit " +
@@ -135,7 +135,7 @@ public class UnitBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT unit_type_id FROM unit " +
