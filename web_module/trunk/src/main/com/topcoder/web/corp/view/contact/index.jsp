@@ -38,30 +38,29 @@
 
 <!-- Center Column begins -->
         <td width="100%" valign="top"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-            <table border="0" width="100%">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td class="bodyText" width="100%">
                         <h1 class="testHead">Contact Us</h1>
                         <p>TopCoder is dedicated to servicing members, partnering companies, the media and anyone else interested in what 
                         TopCoder is about. Please contact the appropriate individuals below for more information or assistance.</p>
                         
-                        <p><strong>Please direct general questions or concerns to</strong></p>
-
-                        <p>TopCoder, Inc.<br>
+                        <p><strong>General questions and concerns</strong><br>
+                        TopCoder, Inc.<br>
                         703 Hebron Avenue <br>
                         Glastonbury, CT 06033 USA<br>
                         phone: 860.633.5540 <br>
                         fax: 860.657.4276 <br>
                         email: <a href="mailto:service@topcoder.com">TopCoder General Inbox</a></p>
 
-                        <p><strong><a href="mailto:mlydon@topcoder.com">NEED TECH SUPPORT?</a></strong></p>
+                        <p><strong><a href="mailto:mlydon@topcoder.com">NEED TECH SUPPORT?</a></strong><br><br></p>
                     </td>
                 </tr>
             </table>
 
-            <table border="0" width="100%">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td class="bodyText" width="100%">
+                    <td class="bodyText" width="49%">
                         <p><strong>Sponsorships and Private Label Events</strong><br>
                         Drew Vaughn, VP of Sales <br>
                         Corporate Office <br>
@@ -72,7 +71,9 @@
                         email: <a href="mailto:dvaughn@topcoder.com">TopCoder Sponsorships</a></p>
                     </td>
 
-                    <td class="bodyText" width="100%">
+                    <td class="bodyText" width="10"><img src="/i/clear.gif" width="10" height="1"></td>
+
+                    <td class="bodyText" width="49%">
                         <p><strong>Recruiting and Candidate Testing</strong><br>
                         Paul Moriarty, Director of Employment Services <br>
                         Corporate Office <br>
@@ -80,7 +81,7 @@
                         Glastonbury, CT 06033<br> 
                         phone: 860.633.5540 <br>
                         fax: 860.657.4276 <br>
-                        email: <p><a href="mailto:tces@topcoder.com">TopCoder Employment Services</a></p>
+                        email: <a href="mailto:tces@topcoder.com">TopCoder Employment Services</a></p>
                     </td>
                 </tr>
             </table>
