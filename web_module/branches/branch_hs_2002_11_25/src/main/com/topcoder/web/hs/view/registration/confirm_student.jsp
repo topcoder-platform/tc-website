@@ -144,7 +144,7 @@
  </TABLE>
  <SCRIPT type="text/javascript">
   function backStudent() {
-   document.regForm.cmd="";
+   document.regForm.cmd.value="";
    document.regForm.submit();
   }
   function confirmStudent() {
