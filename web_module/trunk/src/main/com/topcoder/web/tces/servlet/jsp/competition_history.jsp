@@ -13,7 +13,6 @@
 <HTML>
   <HEAD>
     <TITLE>TopCoder | Recruiting Reports</TITLE>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/corpStyle.css">
     <jsp:include page="script.jsp"/>
   </HEAD>
   <body>
