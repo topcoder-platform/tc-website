@@ -48,4 +48,12 @@
         </caching-descriptor>
         <jndi-name>com.topcoder.web.ejb.user.UserNoteHome</jndi-name>
     </weblogic-enterprise-bean>
+    <weblogic-enterprise-bean>
+        <ejb-name>UserPreference</ejb-name>
+        <caching-descriptor>
+            <max-beans-in-free-pool>20</max-beans-in-free-pool>
+            <initial-beans-in-free-pool>0</initial-beans-in-free-pool>
+        </caching-descriptor>
+        <jndi-name>com.topcoder.web.ejb.user.UserPreferenceHome</jndi-name>
+    </weblogic-enterprise-bean>
 </weblogic-ejb-jar>
