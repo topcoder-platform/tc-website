@@ -194,13 +194,11 @@ public abstract class Base extends BaseProcessor {
         out.println("            <table cellspacing=0 cellpadding=0 class=tabTable>");
         out.println("               <tr>");
         out.println("                  <td class=logoBox rowspan=2><img src=\"/i/corp/screening/clientLogo.gif\" alt=\"\"/></td>");
-        out.println("                  <td class=titleBar colspan=4><img src=\"/i/corp/screening/pbtcLogo.gif\" alt=\"\"/></td>");
+        out.println("                  <td class=titleBar><img src=\"/i/corp/screening/pbtcLogo.gif\" alt=\"\"/></td>");
         out.println("                  <td class=tabBarEnd align=right rowspan=2><img src=\"/i/corp/screening/tabBarEnd.gif\" alt=\"\"/></td>");
         out.println("               </tr>");
         out.println("               <tr>");
-        out.println("                  <td class=tabBar><a href=\"/mockup/directions.jsp\"><img src=\"/i/corp/screening/mainTab.gif\" alt=\"\"/></a></td>");
-        out.println("                  <td class=tabBar><a href=\"/mockup/help.jsp\"><img src=\"/i/corp/screening/helpTab.gif\" alt=\"\"/></a></td>");
-        out.println("                  <td class=tabBar><a href=\"/mockup/login.jsp\"><img src=\"/i/corp/screening/logoutTab.gif\" alt=\"\"/></a></td>");
+        out.println("                  <td class=tabBar></td>");
         out.println("               </tr>");
         out.println("            </table>");
         out.println("            <table cellspacing=0 cellpadding=0 class=timeTable>");
