@@ -37,8 +37,8 @@ public abstract class Base extends BaseProcessor {
                     designSum+=row.getDoubleItem("price");
                 }
             }
-            devSum*=1.75;
-            designSum*=1.75;
+            devSum*=1.75d;
+            designSum*=1.75d;
 
             getRequest().setAttribute("DevSum", new Double(devSum));
             getRequest().setAttribute("DesignSum", new Double(designSum));
