@@ -78,6 +78,15 @@ final class UserDb {
                have to do manual insert because you can't force the id in the common db
                through the security component.
              */
+
+            String password = null;
+            try {
+                password = encodePassword(user.getPassword());
+            } catch (Exception e) {
+                e.printStackTrace();
+                password = "encrypt failed";
+            }
+
             query = new StringBuffer(100);
             query.append(" INSERT INTO security_user");
             query.append(       " (login_id, user_id, password)");
@@ -85,7 +94,7 @@ final class UserDb {
             ps1 = conn.prepareStatement(query.toString());
             ps1.setLong(1, user.getUserId());
             ps1.setString(2, user.getHandle());
-            ps1.setString(3, encodePassword(user.getPassword()));
+            ps1.setString(3, password);
             regVal = ps1.executeUpdate();
             if (regVal != 1) {
                 throw new TCException("ejb.User.UserDb:insertUser():did not update security user record:\n");
@@ -157,15 +166,24 @@ final class UserDb {
                 }
 
                 /* update their user name manually, cuz security user doesn't allow it */
+                String password = null;
+                try {
+                    password = encodePassword(user.getPassword());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 query = new StringBuffer(100);
                 query.append(" UPDATE security_user");
                 query.append(   " SET user_id = ?");
-                query.append(    " , password = ?");
+                if (password !=null)
+                    query.append(    "  , password = ?");
                 query.append( " WHERE login_id = ?");
                 ps1 = conn.prepareStatement(query.toString());
                 ps1.setString(1, user.getHandle());
-                ps1.setString(2, encodePassword(user.getPassword()));
-                ps1.setLong(3, user.getUserId());
+                if (password != null)
+                    ps1.setString(2, password);
+                ps1.setLong(password!=null?3:2, user.getUserId());
                 regVal = ps1.executeUpdate();
                 if (regVal != 1) {
                     throw new TCException("ejb.User.UserDb:updateUser():did not update security user record:\n");
