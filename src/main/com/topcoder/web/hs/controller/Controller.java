@@ -1,6 +1,7 @@
 package com.topcoder.web.hs.controller;
 
 import java.io.*;
+import java.lang.reflect.Method;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import com.topcoder.shared.security.*;
@@ -65,7 +66,7 @@ public class Controller extends HttpServlet {
             loginfo.append(" **** ");
             loginfo.append(request.getMethod());
             loginfo.append(" ");
-            loginfo.append(HttpUtils.getRequestURL(request));
+            loginfo.append(HttpUtils.getRequestURL(request).toString());
             loginfo.append(qtail);
             loginfo.append(" ****]");
             log.info(loginfo);
