@@ -83,9 +83,11 @@
 
                     <table cellspacing=0 cellpadding=0 border=0 class=codingButtons>
                        <tr>
+<%--
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonResize.gif" alt="" /></a></td>
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonFind.gif" alt="" /></a></td>
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonGoTo.gif" alt="" /></a></td>
+--%>
                           <td><a href="JavaScript:doSubmit('<%=Constants.RP_SAVE%>')"><img src="/i/corp/screening/buttonSave.gif" alt="" /></a></td>
                           <td><a href="JavaScript:doSubmit('<%=Constants.RP_COMPILE%>')"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
                           <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
