@@ -131,6 +131,18 @@
              <exclude name="com/topcoder/web/common/tag/**"/>
          </javac>
      </target>
+     <target name="compile_or" depends="">
+         <echo message="java.vm.version=${java.vm.version}"/>
+         <javac srcdir="${java}"
+             destdir="${classes}"
+             classpathref="class.path"
+             debug="${debug}"
+             deprecation="${deprecation}">
+             <include name="com/topcoder/apps/review/**"/>
+             <include name="com/topcoder/dde/util/ApplicationServer.java" />
+             <include name="com/topcoder/dde/util/Cookies.java" />
+         </javac>
+     </target>
 
 
      <target name="compile_techassess" depends="init">
@@ -209,6 +221,28 @@
              <metainf dir="${java}/com/topcoder/dde/user" includes="*.xml"/>
          </jar>
      </target>
+     <target name="package-EJB-DDEPersistence" depends="compile_dde">
+         <jar jarfile="${ejb_jars}/ddepersistence.jar" manifest="${java}/com/topcoder/dde/persistencelayer/MANIFEST.MF">
+             <zipfileset dir="${classes}" includes="com/topcoder/dde/persistencelayer/**/*.class"/>
+             <metainf dir="${java}/com/topcoder/dde/persistencelayer" includes="*.xml"/>
+         </jar>
+     </target>
+     <target name="package-EJB-ORPersistence" depends="compile_or">
+         <jar jarfile="${ejb_jars}/orpersistence.jar">
+             <zipfileset dir="${classes}" includes="com/topcoder/apps/review/projecttracker/**"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/apps/review/document/**"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/apps/review/ConcurrentModificationException.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/apps/review/GeneralSecurityException.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/apps/review/IncorrectProjectStateException.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/apps/review/persistence/**"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/apps/review/security/*Permission.class"/>
+             <metainf dir="${java}/com/topcoder/apps/review/projecttracker" includes="*.xml"/>
+             <manifest>
+                 <attribute name="Class-Path" value="base_exception.jar configuration_manager.jar xerces.jar logging_wrapper.jar simple_cache.jar refreshable_cache.jar tcsUtil.jar object_formatter.jar security.jar idgenerator.jar"/>
+             </manifest>
+         </jar>
+     </target>
+
 
      <target name="package-EJB-FileConversionBean" depends="compile">
          <jar jarfile="${ejb_jars}/FileConversion.jar">
@@ -1197,10 +1231,12 @@
          <antcall target="package-EJB-CoderSkillBean"/>
          <antcall target="package-EJB-ComponentRegistrationServicesBean"/>
          <antcall target="package-EJB-DataCacheBean"/>
+         <antcall target="package-EJB-DDEPersistence"/>
          <antcall target="package-EJB-EmailBean"/>
          <antcall target="package-EJB-FileConversionBean"/>
          <antcall target="package-EJB-JavaDocServicesBean"/>
          <antcall target="package-EJB-JobPostingServicesBean"/>
+         <antcall target="package-EJB-ORPersistence"/>
          <antcall target="package-EJB-PactsServicesBean"/>
          <antcall target="package-EJB-PasswordBean"/>
          <antcall target="package-EJB-PhoneBean"/>
@@ -1213,6 +1249,7 @@
          <antcall target="package-EJB-SoftwareUser"/>
          <antcall target="package-EJB-SurveyBean"/>
          <antcall target="package-EJB-UserBean"/>
+
          <!--
                   <antcall target="package-EJB-UserEvent"/>
          -->
@@ -1228,10 +1265,12 @@
                  <include name="CoderSkill.jar"/>
                  <include name="ComponentRegistration.jar"/>
                  <include name="DataCache.jar"/>
+                 <include name="ddepersistence.jar"/>
                  <include name="Email.jar"/>
                  <include name="FileConversion.jar"/>
                  <include name="JavaDocServices.jar"/>
                  <include name="JobPostingServices.jar"/>
+                 <include name="orpersistence.jar"/>
                  <include name="PactsServices.jar"/>
                  <include name="Password.jar"/>
                  <include name="Phone.jar"/>
