@@ -21,7 +21,7 @@
                 <a class="<%=tl2.equals("schedule")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick&d2=col_schedule">Schedule</a>
             </td>
             <td align="center" class="<%=tl2.equals("registration")?"dc_subnav_on":"dc_subnav"%>">
-                <a class="<%=tl2.equals("registration")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?module=DCReg&cid=2998&eid=1">Registration</a>
+                <a class="<%=tl2.equals("registration")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick&d2=col_reg">Registration</a>
             </td>
             <td align="center" class="<%=tl2.equals("rules")?"dc_subnav_on":"dc_subnav"%>">
                 <a class="<%=tl2.equals("rules")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick&d2=col_rules">Rules</a>
@@ -54,7 +54,7 @@
                 <a class="<%=tl2.equals("schedule")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick&d2=int_schedule">Schedule</a>
             </td>
             <td align="center" class="<%=tl2.equals("registration")?"dc_subnav_on":"dc_subnav"%>">
-                <a class="<%=tl2.equals("registration")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?module=DCReg&cid=2998&eid=2">Registration</a>
+                <a class="<%=tl2.equals("registration")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick&d2=int_reg">Registration</a>
             </td>
             <td align="center" class="<%=tl2.equals("rules")?"dc_subnav_on":"dc_subnav"%>">
                 <a class="<%=tl2.equals("rules")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick&d2=int_rules">Rules</a>
