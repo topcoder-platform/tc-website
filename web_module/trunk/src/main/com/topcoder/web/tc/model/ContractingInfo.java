@@ -43,7 +43,7 @@ public class ContractingInfo implements Serializable {
     }
     
     public Iterator getSkillNames() {
-        return skills.ketSet().iterator();
+        return skills.keySet().iterator();
     }
     
     public boolean isEdit() {
