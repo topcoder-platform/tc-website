@@ -451,7 +451,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>textColor</name>
+            <name>class</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
