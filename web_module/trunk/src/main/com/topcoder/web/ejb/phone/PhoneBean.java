@@ -277,7 +277,7 @@ public class PhoneBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT phone_id FROM phone " +
-                    "WHERE user_id = ? AND primary = 1");
+                    "WHERE user_id = ? AND primary_ind = 1");
             ps.setLong(1, userId);
             rs = ps.executeQuery();
 
@@ -316,14 +316,14 @@ public class PhoneBean extends BaseEJB {
         try {
             conn = DBMS.getConnection(dataSource);
 
-            ps = conn.prepareStatement("UPDATE phone SET primary = 0 " +
+            ps = conn.prepareStatement("UPDATE phone SET primary_ind = 0 " +
                     "WHERE user_id = ?");
 
             ps.setLong(1, userId);
 
             int rows = ps.executeUpdate();
 
-            ps = conn.prepareStatement("UPDATE phone SET primary = 1 " +
+            ps = conn.prepareStatement("UPDATE phone SET primary_ind = 1 " +
                     "WHERE user_id = ? AND phone_id = ?");
 
             ps.setLong(1, userId);
@@ -368,7 +368,7 @@ public class PhoneBean extends BaseEJB {
         try {
             conn = DBMS.getConnection(dataSource);
 
-            ps = conn.prepareStatement("SELECT primary FROM phone " +
+            ps = conn.prepareStatement("SELECT primary_ind FROM phone " +
                     "WHERE user_id = ? AND phone_id = ?");
             ps.setLong(1, userId);
             ps.setLong(2, phoneId);
@@ -376,7 +376,7 @@ public class PhoneBean extends BaseEJB {
             rs = ps.executeQuery();
 
             if (rs.next())
-                ret = rs.getInt("primary");
+                ret = rs.getInt("primary_ind");
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException checking primary phone_id");

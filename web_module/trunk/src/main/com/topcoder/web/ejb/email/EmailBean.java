@@ -77,7 +77,7 @@ public class EmailBean extends BaseEJB {
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE email ");
-            query.append("SET primary=0 ");
+            query.append("SET primary_ind=0 ");
             query.append("WHERE user_id=?");
 
             conn = DBMS.getConnection(dataSource);
@@ -93,7 +93,7 @@ public class EmailBean extends BaseEJB {
 
             query = new StringBuffer(1024);
             query.append("UPDATE email ");
-            query.append("SET primary=1 ");
+            query.append("SET primary_ind=1 ");
             query.append("WHERE user_id=? AND email_id=?");
 
             ps = conn.prepareStatement(query.toString());
@@ -129,7 +129,7 @@ public class EmailBean extends BaseEJB {
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT email_id ");
             query.append("FROM email ");
-            query.append("WHERE user_id=? AND primary=1");
+            query.append("WHERE user_id=? AND primary_ind=1");
 
             conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());

@@ -313,7 +313,7 @@ public class TCLoadCoders extends TCLoad {
             query.append("      ,user_school_xref x ");
             query.append(" WHERE c.coder_id = u.user_id ");
             query.append("   AND e.user_id = u.user_id ");
-            query.append("   AND e.primary = 1 ");
+            query.append("   AND e.primary_ind = 1 ");
             query.append("   AND x.user_id = u.user_id ");
             query.append("   AND x.school_id = s.school_id ");
             query.append("   AND x.current_ind = 1 ");
