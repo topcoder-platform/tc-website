@@ -71,7 +71,7 @@
         <TR> 
                 <TD BGCOLOR="#CCCCCC" HEIGHT="15" ALIGN="right" CLASS="smallText">
                   <SPAN CLASS="smallText">More 
-                    <A HREF="?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">
+                    <A HREF="?module=Static&d1=schedule&d2=sched_february_2003" CLASS="smallText">
                       2003 match dates
                     </A>
                   </SPAN>
