@@ -102,13 +102,14 @@ function goTo(selection){
 
 	PactsHtmlTable table = new PactsHtmlTable(tableData);
 	table.setBgcolor("\"#001935\"");
-	table.setCellSpacing("1");
+	table.setCellSpacing("2");
 	table.setCellPadding("2");
 	table.setBorder("0");
-	table.setColumnWidth(0, "40%");
-	table.setColumnWidth(1, "20%");
-	table.setColumnWidth(2, "20%");
-	table.setColumnWidth(3, "20%");				
+	table.setWidth("100%");	
+	table.setColumnWidth(0, "35%");
+	table.setColumnWidth(1, "30%");
+	table.setColumnWidth(2, "25%");
+	table.setColumnWidth(3, "10%");				
 	table.setRowColor(0,"\"#093158\"");	
 	table.setClassName("statText");
 	table.setRowBold(0,true);	

@@ -43,7 +43,7 @@ function goTo(selection){
 	<TR>
 		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-
+<BR/>
 <!-- <jsp:include page="MemberHeader.jsp" flush="true" /> -->
 <%@ page import="com.topcoder.web.pacts.common.*" %>
 
@@ -72,7 +72,7 @@ function goTo(selection){
 	    	href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.CONTRACT_TASK, 
-	            PactsConstants.CONTRACT_HISTORY_CMD, str);
+	            PactsConstants.CONTRACT_HISTORY_CMD, str, "statText");
 		out.print(href);
 	}
 	out.print("</p>");
@@ -100,7 +100,7 @@ function goTo(selection){
 	    href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.CONTRACT_TASK, 
-	            PactsConstants.CONTRACT_DETAILS_CMD, str);
+	            PactsConstants.CONTRACT_DETAILS_CMD, str, "statText");
 	    tableData.setElement(i,0,href);
 	    
 	    // creation date
@@ -119,19 +119,24 @@ function goTo(selection){
 	    href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.CONTRACT_TASK, 
-	            PactsConstants.CONTRACT_PAYMENT_SUMMARY_CMD, str);
+	            PactsConstants.CONTRACT_PAYMENT_SUMMARY_CMD, str, "statText");
 	    tableData.setElement(i,3,href);
 	    
 	}	
 
 	PactsHtmlTable table = new PactsHtmlTable(tableData);
-	table.setBgcolor("\"#FFFFFF\"");
-	table.setCellSpacing("0");
-	table.setCellPadding("3");
-	table.setBorder("1");
-	table.setRowColor(0,"\"#C0C0C0\"");	
-	table.setFontSize("0");
-	table.setRowBold(0,true);
+	table.setBgcolor("\"#001935\"");
+	table.setCellSpacing("1");
+	table.setCellPadding("2");
+	table.setBorder("0");
+	table.setWidth("100%");
+	table.setColumnWidth(0, "25%");
+	table.setColumnWidth(1, "25%");
+	table.setColumnWidth(2, "25%");
+	table.setColumnWidth(3, "25%");				
+	table.setRowColor(0,"\"#093158\"");	
+	table.setClassName("statText");
+	table.setRowBold(0,true);	
 	out.print(table.getHtml());
     }
 %>
