@@ -34,7 +34,7 @@ function submitEnter(e) {
      return false;
     } else return true;
   }
-</SCRIPT
+</SCRIPT>
 
 </head>
 

@@ -186,6 +186,12 @@
             <description></description>
         </init-param>
 
+        <init-param>
+            <param-name>PasswordEmail</param-name>
+            <param-value>authentication.PasswordEmail</param-value>
+            <description></description>
+        </init-param>
+
 
         <!-- request parameters -->
         <init-param>
