@@ -80,6 +80,8 @@
                             <tr valign="top">
                                 <td class="sidebarText">Round #1</td>
                                 <td class="sidebarText" nowrap="nowrap">
+                                Friday, October 31st <br />
+                                 COMPETE: 7:00 PM<br />
                                 </td>
                                 <td class="sidebarText" align="center">500</td>
                                 <td class="sidebarText" align="center">250</td>
