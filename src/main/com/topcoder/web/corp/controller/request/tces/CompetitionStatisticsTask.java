@@ -13,6 +13,7 @@ import com.topcoder.web.corp.common.JSPUtils;
 import com.topcoder.web.corp.common.TCESAuthenticationException;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.corp.controller.request.tces.BaseTask;
+import com.topcoder.security.NotAuthorizedException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -138,7 +139,7 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
         if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-            throw new TCESAuthenticationException("mid=" + Integer.toString(getMemberID()) +
+            throw new NotAuthorizedException("mid=" + Integer.toString(getMemberID()) +
                     " jid=" + Integer.toString(getJobID()) +
                     " cid=" + Integer.toString(getCampaignID()) +
                     " does not belong to uid=" + Long.toString(uid));
@@ -146,7 +147,7 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
 
         if (isRestrictedCampaign(getCampaignID())) {
             if (!getRoundIds(getCampaignID()).contains(new Long(getRoundID()))) {
-                throw new TCESAuthenticationException(" cid=" + Integer.toString(getCampaignID()) +
+                throw new NotAuthorizedException(" cid=" + Integer.toString(getCampaignID()) +
                         " rd=" + getRoundID() +
                         " does not belong to uid=" + Long.toString(uid));
             }

@@ -9,6 +9,7 @@ import com.topcoder.web.corp.common.JSPUtils;
 import com.topcoder.web.corp.common.TCESAuthenticationException;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.corp.controller.request.tces.BaseTask;
+import com.topcoder.security.NotAuthorizedException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -346,7 +347,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         // verify that campaign/job/tces user have access to this members's info.
         ResultSetContainer oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Verify_Member_Access");
         if (oltpRSC.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
-            throw new TCESAuthenticationException(" mid=" + Integer.toString(getMemberID())
+            throw new NotAuthorizedException(" mid=" + Integer.toString(getMemberID())
                     + " jid=" + Integer.toString(getJobID())
                     + " cid=" + Integer.toString(getCampaignID())
                     + "does not belong to uid=" + Long.toString(uid));
