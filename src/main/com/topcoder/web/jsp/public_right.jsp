@@ -40,7 +40,7 @@ function find(n) {
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />	
             
-            <A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_becomesponsor"><img src="/i/promos/sponsor_tccc04.gif" alt="Become a Sponsor for the TCCC04" width="170" height="150" border="0" /></A><br/>
+            <A href="/i/downloads/tccc04_program.pdf"><img src="/i/promos/tccc04_program.gif" alt="TCCC04 Program" width="170" height="150" border="0" /></A><br/>
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
