@@ -24,6 +24,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+// qq borrar!!
+import com.topcoder.util.log.Level;
+import com.topcoder.util.log.Log;
+import com.topcoder.util.log.LogException;
+import com.topcoder.util.log.LogFactory;
+
 /**
  * <p>
  * Form bean for the project editing page and admin project detail page.
@@ -33,6 +39,20 @@ import java.util.Set;
  * @version 1.0
  */
 public final class ProjectForm extends ReviewForm {
+
+// qq borrar!!
+private Log log = null;
+    protected void log(Level level, java.lang.Object message) {
+        try {
+            if (log == null) {
+                log = LogFactory.getInstance().getLog("com.topcoder.apps.review");
+            }
+            log.log(level, message);
+        } catch (LogException e) {
+        }
+    }
+// qq end borrar
+
 
     // --------------------------------------------------- Instance Variables
 
@@ -120,6 +140,11 @@ public final class ProjectForm extends ReviewForm {
      * The start dates.
      */
     private String[] startDates = null;
+
+    /**
+     * The start dates when the timeline is edited.
+     */
+    private String[] forcedStartDates = null;
 
     /**
      * The end dates.
@@ -387,6 +412,41 @@ public final class ProjectForm extends ReviewForm {
             }
         }
     }
+
+    /**
+     * Return the specified phase's start time.
+     *
+     * @param index The index of phase.
+     * @return the specified phase's start time.
+     */
+    public String getForcedPhaseStart(int index) {
+        return forcedStartDates[index];
+    }
+
+    /**
+     * Set the specified phase's start time.
+     *
+     * @param index The index of phase.
+     * @param start The new phase's start time.
+     */
+    public void setForcedPhaseStart(int index, String start) {
+        if (project != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT);
+            SimpleDateFormat sdf2 = new SimpleDateFormat(Constants.DATE_FORMAT2);
+
+            forcedStartDates[index] = adjustStartDates[index]? "" : start.trim();
+            /*PhaseInstance phase = project.getTimeline()[index];
+
+            startDates[index] = start.trim();
+            if (start.indexOf(".") >= 0) {
+                phase.setStartDate(sdf.parse(start.trim(), new ParsePosition(0)));
+            } else {
+                phase.setStartDate(sdf2.parse(start.trim(), new ParsePosition(0)));
+            }*/
+        }
+    }
+
+
 
     /**
      * Return the name of specified role.
@@ -830,8 +890,8 @@ public final class ProjectForm extends ReviewForm {
      * @param index The index of phase.
      * @return true if it must adjust its start date to the end date of the previous phase.
      */
-    public boolean getAdjustStartDate(int index) {
-        return adjustStartDates[index];
+    public String getAdjustStartDate(int index) {
+        return Boolean.toString(adjustStartDates[index]);
     }
 
     /**
@@ -840,8 +900,12 @@ public final class ProjectForm extends ReviewForm {
      * @param index The index of phase.
      * @param adjust true if it must adjust its start date to the end date of the previous phase.
      */
-    public void getAdjustStartDate(int index, boolean adjust) {
-        adjustStartDates[index] = adjust;
+    public void setAdjustStartDate(int index, String adjust) {
+        adjustStartDates[index] = Boolean.getBoolean(adjust);
+
+        if (adjustStartDates[index]) {
+            forcedStartDates[index] = "";
+        }
     }
 
 
@@ -890,7 +954,7 @@ public final class ProjectForm extends ReviewForm {
         boolean checkPayments = false;
         boolean checkProjectData = false;
 
-
+log(Level.INFO, "currentEdition=" + currentEdition);
         if ("timeline".equals(currentEdition)) {
             // the user edited the timeline
 
@@ -917,7 +981,9 @@ public final class ProjectForm extends ReviewForm {
                 checkProjectData = true;
             }
         }
-
+log(Level.INFO, "checkTimeline="+checkTimeline);
+log(Level.INFO, "checkPayments="+checkPayments);
+log(Level.INFO, "checkProjectData="+checkProjectData);
 
 
         if (checkTimeline)  {
@@ -1043,6 +1109,7 @@ public final class ProjectForm extends ReviewForm {
         participantsValid = new boolean[project.getParticipants().length];
         participantsHandle = new String[project.getParticipants().length];
         startDates = new String[project.getTimeline().length];
+        forcedStartDates = new String[project.getTimeline().length];
         endDates = new String[project.getTimeline().length];
         phaseLengths = new int[project.getTimeline().length];
         adjustStartDates = new boolean[project.getTimeline().length];
@@ -1093,8 +1160,11 @@ public final class ProjectForm extends ReviewForm {
      */
     public void timeLineFromProject(Project project)
     {
+        log(Level.INFO, "timeLineFromProject");
+
         for (int i = 0; i < project.getTimeline().length; i++) {
-            if (project.getTimeline()[i].getStartDate() == null) {
+log(Level.INFO, project.getTimeline()[i].getStartDate());
+        if (project.getTimeline()[i].getStartDate() == null) {
                 startDates[i] = null;
             } else {
                 startDates[i] = dateFormatter.format(project.getTimeline()[i].getStartDate());

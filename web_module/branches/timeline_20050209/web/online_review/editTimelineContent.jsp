@@ -106,12 +106,12 @@
 			    <table border="0" width="100%">
 				    <tr>
 					<td width="50%" align="left">
-		                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="true" />
+		                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="true" onclick='<%="phaseStart["+pIdx+"]"%>.value=""'/>
 						When previous phase ends
 					</td>
 					<td width="50%">
 			                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="false" />
-			                        <html:text property='<%="phaseStart["+pIdx+"]"%>' size="20" />
+			                        <html:text property='<%="forcedPhaseStart["+pIdx+"]"%>' size="20" onkeydown='<%="adjustStartDate["+pIdx+"]"%>[1].checked=true' />
 					</td>
 				    </tr>
 			    </table>
@@ -135,13 +135,13 @@
                	 	<input type="hidden" name="action" value=""/>
                	 	<html:hidden property="currentEdition" value="timeline"/>
 			<td>
-			    <input type="button" value="Apply Changes" onclick="action.value='store'; submit()" />
+			    <input type="button" value="Apply Changes" class="submitButton" onClick="action.value='store'; submit()" />
 			</td>
 			<td>
-			    <input type="button" value="Refresh" onclick="action.value='refresh'; submit()" />
+			    <input type="button" value="Refresh" class="submitButton" onClick="action.value='refresh'; submit()" />
 			</td>
 			<td>
-			    <input type="button" value="Cancel" onclick="action.value='cancel'; submit()" />
+			    <input type="button" value="Cancel" class="submitButton" onClick="action.value='cancel'; submit()" />
 			</td>
 			           
 		</tr>

@@ -92,10 +92,10 @@ ResultData result = new SuccessResult();
                 ((ProjectForm) form).timeLineFromProject(pr.getProject());
                 request.getSession().setAttribute(mapping.getAttribute(), form);
 
+                forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
+                forwards.addForward(mapping.findForward("cancel"));
             }
 
-            forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
-            forwards.addForward(mapping.findForward("cancel"));
         }
 
 
