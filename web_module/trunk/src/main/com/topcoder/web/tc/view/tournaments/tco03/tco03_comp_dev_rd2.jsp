@@ -134,33 +134,33 @@
 
                 <tr valign="middle">
                     <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154579">Altrag</a></td>
-                    <td class="formHandleOdd" align="right">81.62</td>
-                    <td class="formHandleOdd" align="right">81.62</td>
-                    <td class="formHandleOdd" align="right">$240.00</td>
+                    <td class="formHandleOdd" align="left"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=154307">holmana</a></td>
+                    <td class="formHandleOdd" align="right">97.42</td>
+                    <td class="formHandleOdd" align="right">97.42</td>
+                    <td class="formHandleOdd" align="right">$192.00</td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="formHandleEven" align="center">2</td>
-                    <td class="formHandleEven" align="left"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=154307">holmana</a></td>
-                    <td class="formHandleEven" align="right">97.42</td>
+                    <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289251">ragnabot</a></td>
                     <td class="formHandleEven" align="right">92.31</td>
-                    <td class="formHandleEven" align="right">$192.00</td>
+                    <td class="formHandleEven" align="right">92.31</td>
+                    <td class="formHandleEven" align="right">$48.00</td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="formHandleOdd" align="center">3</td>
-                    <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289251">ragnabot</a></td>
-                    <td class="formHandleOdd" align="right">92.31</td>
-                    <td class="formHandleOdd" align="right">92.31</td>
-                    <td class="formHandleOdd" align="right">$48.00</td>
+                    <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299904">mishagam</a></td>
+                    <td class="formHandleOdd" align="right">84.04</td>
+                    <td class="formHandleOdd" align="right">84.04</td>
+                    <td class="formHandleOdd" align="right">$240.00</td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="formHandleEven" align="center">4</td>
-                    <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299904">mishagam</a></td>
-                    <td class="formHandleEven" align="right">84.04</td>
-                    <td class="formHandleEven" align="right">84.04</td>
+                    <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154579">Altrag</a></td>
+                    <td class="formHandleEven" align="right">81.62</td>
+                    <td class="formHandleEven" align="right">81.62</td>
                     <td class="formHandleEven" align="right">$240.00</td>
                 </tr>
 

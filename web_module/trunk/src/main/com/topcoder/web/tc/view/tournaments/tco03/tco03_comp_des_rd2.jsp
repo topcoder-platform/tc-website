@@ -50,11 +50,9 @@
             <div align="right" class="bodyText"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_des_rd1">Round 1</A>&#160;&#160;|&#160;&#160;Round 2</div>
             <br/>
 
-                  <p>Design was just as enthralling as development.  Pops took the lead early with two superb submissions that gave 
-                  him a round score of 93.92 which was hard to beat.  However, aksonov scratched and clawed his way through appeals 
-                  and brought his overall up to 94.82, making him the round leader.  Unfortunately, due to contest rules we will not 
-                  see Pops and aksonov go head to head since aksonov will be competing in the development contest where he had an even 
-                  higher average score!</p>
+                  <p>
+                  The Design competition was a nail-biter.  Pops took the lead early with two superb submissions that gave him a round score of 93.92 which was hard to beat.  However, aksonov scratched and clawed his way through appeals and brought his overall up to 94.82, making him the round leader.  Unfortunately, due to contest rules we will not see Pops and aksonov go head to head since aksonov will be competing in the development contest where he had an even higher average score!  Congratulations to Tomson, who will be taking on Pops in the finals instead.
+                  </p>
             
             <br/><br/>
 
