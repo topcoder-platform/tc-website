@@ -19,6 +19,7 @@
                   <A href="<%=begin+Constants.COMMAND_LIST_TASK+end%>" class="statText"><%=Constants.COMMAND_LIST_NAME%></A>
               </td>
             </TR>
+            <tr><td><img src="/i/clear.gif" width="4" height="8"></td></TR>
             <tr>
               <td class="statText">
                   <A href="<%=begin+Constants.QUERY_LIST_TASK+end%>" class="statText"><%=Constants.QUERY_LIST_NAME%></A>
