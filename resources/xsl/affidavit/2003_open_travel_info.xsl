@@ -65,44 +65,44 @@
 
         <p>
         <CENTER>
-            2003 Sun Microsystems and <BR/>
-            TopCoder Collegiate Challenge<BR/>
-            April 4 - 5, 2003<BR/><BR/><BR/>
+            2003 TopCoder Open<BR/>
+            December 3 –5, 2003<BR/><BR/><BR/>
             <H1>Travel Information</H1>
         </CENTER>
         <BR/><BR/> <BR/><BR/>
         <B><U>HOTEL INFORMATION:</U></B><BR/>
         <BR/>
-          University Park Hotel @ MIT<BR/>
-          20 Sidney Street<BR/>
-          Cambridge, MA 02139<BR/>
-          Phone: (617) 577-0200<BR/>
+          Mohegan Sun Casino<BR/>
+          Mohegan Sun Boulevard<BR/>
+          Uncasville, CT<BR/>
+          Phone: (888) 226-7711<BR/>
+          <a href="http://www.mohegansun.com">www.mohegansun.com</a><BR/>
         <BR/>
-          A room will be confirmed for your arrival on April 3rd and departure on April 6th.   The check-in time is
-          3:00pm and check-out time is 12:00noon.  If you have any special requests, please indicate them on the
-          registration form. The cost of your sleeping room and applicable taxes will be charged to the TopCoder
-          master account.  You will be required to provide a credit card upon check-in for any incidentals.<BR/>
+          A room will be confirmed for your arrival on December 3rd and departure on December 6th.   The check-in
+            time is 4:00pm and check-out time is 11:00am.  If you have any special requests, please indicate
+            them on the registration form. The cost of your sleeping room and applicable taxes will be charged to
+            the TopCoder master account.  You will be required to provide a credit card upon check-in for any
+            incidentals.  <BR/>
         <BR/>
         <B><U>AIRLINE INFORMATION:</U></B><BR/>
         <BR/>
-          TopCoder will secure airline reservations based upon your registration information and email a
-          suggested travel itinerary to you.  Travel arrangements need to be finalized no later than Monday,
-          March 17th.  Please be advised that once airlines tickets are confirmed, any changes are subject to
-          penalty fees at your own expense.<BR/>
+          TopCoder will secure airline reservations based upon your registration information and email a travel
+            itinerary to you.  Travel arrangements need to be finalized no later than <strong>Wednesday, November 12th</strong>.
+            Please be advised that once airlines tickets are confirmed, any changes are subject to penalty fees
+            at your own expense.<BR/>
         <BR/>
         <B><U>AIRPORT TRANSPORTATION:</U></B><BR/>
         <BR/>
-          TopCoder will provide round trip transportation to and from the University Park Hotel @ MIT and Boston/Logan
-          airport. More information will be provided prior to the event. <B><U>Please plan for your arrival into Boston/Logan
-          airport by 4:00pm on April 3rd.</U></B><BR/>
+            TopCoder will provide round trip transportation to and from the Mohegan Sun Casino and the airport.
+            More information will be provided prior to the event. <strong><u>Please plan for your arrival  by 4:00pm
+            on December 3rd.</u></strong><BR/>
         <BR/>
         <BR/>
         <BR/>
         <CENTER>
-          <H1>Registration Form</H1>
+          <H1>Travel Form</H1>
           <BR/>
           <BR/>
-          <FONT color="#FF0000"><U><B>REGISTRATION DEADLINE:</B></U>  March 17, 2003</FONT>
         </CENTER>
         </p>
 
@@ -111,7 +111,7 @@
     <FORM name="questForm" method="POST" action="/">
         <INPUT TYPE="hidden" NAME="t" VALUE="affidavit"/>
         <INPUT TYPE="hidden" NAME="c" VALUE="2003_collegiate_submit_info"/>
-            <TR><TD COLSPAN="2"><U><B>CONTACT INFORMATION:</B></U><BR/></TD></TR>
+            <TR><TD COLSPAN="2"><U><B>COMPETITOR INFORMATION:</B></U><BR/></TD></TR>
 
             <TR>
                 <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="First Name"/>First Name: </TD>
@@ -210,21 +210,6 @@
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q17" VALUE="TV"/>TV:</TD>
               <TD align="left"><INPUT TYPE="text" NAME="a17" size="50"/></TD>
-            </TR>
-
-            <BR/>
-            <TR><TD COLSPAN="2"><U><B>Miscellaneous:</B></U></TD></TR>
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q18" VALUE="Shirt size"/>Shirt size:</TD>
-              <TD align="left">
-                  <SELECT name="a18">
-                      <OPTION value="S">S</OPTION>
-                      <OPTION value="M">M</OPTION>
-                      <OPTION value="L">L</OPTION>
-                      <OPTION value="XL">XL</OPTION>
-                      <OPTION value="XXL">XXL</OPTION>
-                  </SELECT>
-              </TD>
             </TR>
 
             <BR/>
