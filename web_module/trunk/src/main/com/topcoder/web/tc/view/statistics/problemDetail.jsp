@@ -110,6 +110,22 @@
                <td class="statText"><rsc:item name="open_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></TD>
              </rsc:iterator>
            </tr>
+           <tr>
+             <td class="statText">
+               Submission Percentage
+             </td>
+             <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
+               <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></TD>
+             </rsc:iterator>
+           </tr>
+           <tr>
+             <td class="statText">
+               Overall Accuracy
+             </td>
+             <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
+               <td class="statText"><rsc:item name="overall_accuracy" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></TD>
+             </rsc:iterator>
+           </tr>
          <table>
 
 
@@ -135,15 +151,6 @@
                    </rsc:iterator>
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td class="statText"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></TD>
-                   </rsc:iterator>
-                 </tr>
-                 <tr>
-                   <td class="statText">Submission Percentage</TD>
-                   <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></TD>
-                   </rsc:iterator>
-                   <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-                     <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></TD>
                    </rsc:iterator>
                  </tr>
                  <tr>
@@ -259,15 +266,6 @@
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
                      <td class="statText"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></td>
-                   </rsc:iterator>
-                 </tr>
-                 <tr>
-                   <td class="statText">Submission Percentage</td>
-                   <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></td>
-                   </rsc:iterator>
-                   <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td class="statText"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></td>
                    </rsc:iterator>
                  </tr>
                  <tr>
