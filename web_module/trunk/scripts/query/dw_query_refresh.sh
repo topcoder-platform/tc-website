@@ -979,3 +979,52 @@ SELECT c.handle, p.class_name, p.method_name, ps.status_desc, ps.submission_text
    AND rr.round_id > 4100
  ORDER BY p.class_name
 "
+
+
+java com.topcoder.utilities.QueryLoader "DW" 53 "High_Scorers" 0 0 "
+SELECT
+  c.handle,
+  r.name,
+  rr.final_points,
+  rd.round_id,
+  rr.division_id
+FROM
+  coder c,
+  room r,
+  room_result rr,
+  round rd
+WHERE
+  rr.round_id = rd.round_id and
+  c.coder_id = rr.coder_id and
+  c.status = 'A' and
+  r.room_id = rr.room_id and
+  rd.round_id = @rd@
+ORDER by division_id, final_points desc
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 54 "Round_Percentages" 0 0 "
+select
+  d.division_desc,
+  p.level_id,
+  min(l.level_desc),
+  p.class_name,
+  sum(case when submission_points > 0 then 1 else 0 end),
+  sum(case when final_points > 0 then 1 else 0 end),
+  sum(final_points),
+  min(d.division_id)
+from
+  division_lu d,
+  level_lu l,
+  problem p,
+  coder_problem cp,
+  round rd
+where
+  cp.round_id = rd.round_id and
+  cp.problem_id = p.problem_id and
+  p.level_id = l.level_id and
+  cp.division_id = d.division_id and
+  cp.division_id = p.division_id and
+  rd.round_id = @rd@
+group by 1,2,4
+order by 8, 2
+"
