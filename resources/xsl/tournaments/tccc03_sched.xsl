@@ -282,11 +282,11 @@
                     </tr>
                     
                     <tr valign="middle">
-                      <td align="right" class="tourney_subhead2">Advancers</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
-                      <td align="center" class="tourney_subhead2">&#160;</td>
+                      <td align="right" class="tourney_subhead2">Finalists</td>
+                      <td align="center" class="tourney_subhead2"><a class="statText" href="/stat?c=round_stats&amp;rd=4491">View</a></td>
+                      <td align="center" class="tourney_subhead2"><a class="statText" href="/stat?c=round_stats&amp;rd=4492">View</a></td>
+                      <td align="center" class="tourney_subhead2"><a class="statText" href="/stat?c=round_stats&amp;rd=4493">View</a></td>
+                      <td align="center" class="tourney_subhead2"><a class="statText" href="/stat?c=round_stats&amp;rd=4494">View</a></td>
                     </tr>
                     
                     <tr valign="middle">
@@ -295,7 +295,6 @@
                       <td align="center" class="statText">1</td>
                       <td align="center" class="statText">1</td>
                       <td align="center" class="statText">1</td>
-                      <td align="center" class="statText">&#160;</td>
                     </tr>
                     
                     <tr valign="middle">
@@ -321,6 +320,16 @@
                     </tr>
                     
                     <tr valign="middle">
+                      <td align="right" class="tourney_subhead2">Champion</td>
+                      <td align="center" colspan="4" class="tourney_subhead2"><!--<a class="coderTextRed" href="/stat?c=member_profile&amp;cr=262936">dgarthur</a>--><a class="statText" href="/stat?c=round_stats&amp;rd=4497">View</a></td>
+                    </tr>
+                    
+                    <tr valign="middle">
+                      <td align="right" class="statText">Room Winners</td>
+                      <td align="center" class="statText" colspan="4">1</td>
+                    </tr>
+                    
+                    <tr valign="middle">
                       <td align="right" class="tourney_subhead2">Date</td>
                       <td align="center" colspan="4" class="tourney_subhead2">Sat, Apr 5, 1pm EST*</td>
                     </tr>
@@ -329,10 +338,6 @@
                     
                     <tr> <td colspan="5"><img src="/i/clear.gif" alt="" width="1" height="20" border="0"/></td></tr>
                     
-                    <tr valign="middle">
-                      <td align="left" class="statTextBig" background="/i/orangebv_bg.gif"><strong>Tournament Champion</strong></td>
-                      <td colspan="4" class="tourney_subhead1">&#160;</td>
-                    </tr>
                     </table>
                         <p><br /></p>
                     </td>
