@@ -31,7 +31,7 @@
                 </tr>
 
                 <tr>
-                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tccc04/comp_files/adic/ClassDiagram1.gif" alt="" width="1953" height="1205" border="0"></div></td>
+                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tccc04/comp_docs/adic/diagrams/Catalog_Class_Diagram_Discount_Implementations.gif" alt="" border="0"></div></td>
                     <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
                 </tr>
 

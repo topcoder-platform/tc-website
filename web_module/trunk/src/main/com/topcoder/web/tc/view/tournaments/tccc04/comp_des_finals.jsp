@@ -73,7 +73,7 @@ function openWin(url, name) {
                 </tr>
                 <tr>
                   <td class="advCell" align="left">Design rating:</td>
-                  <td class="advCell" align="right">1690&#160;&#160;</td>
+                  <td class="advCell" align="right">1634&#160;&#160;</td>
                   <td class="advCell" align="right">1384&#160;&#160;</td>
                   <td class="advCell" align="right">1353&#160;&#160;</td>
                 </tr>
@@ -85,15 +85,15 @@ function openWin(url, name) {
                 </tr>
                 <tr>  
                   <td class="advCell" align="left">Initial score:</td>
-                  <td class="advCell" align="right">92.63&#160;&#160;</td>
-                  <td class="advCell" align="right">86.87&#160;&#160;</td>
-                  <td class="advCell" align="right">92.63&#160;&#160;</td>
+                  <td class="advCell" align="right">83.29&#160;&#160;</td>
+                  <td class="advCell" align="right">78.99&#160;&#160;</td>
+                  <td class="advCell" align="right">81.08&#160;&#160;</td>
                 </tr>
                 <tr>  
                   <td class="advCell" align="left" bgcolor="#FFCC00"><b>Final score:</b></td>
-                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>92.24&#160;&#160;</b></td>
-                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>86.65&#160;&#160;</b></td>
-                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>92.24&#160;&#160;</b></td>
+                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>pending&#160;&#160;</b></td>
+                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>pending&#160;&#160;</b></td>
+                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>pending&#160;&#160;</b></td>
                 </tr>
                <tr>
                   <td class="advHeader"><strong>Submissions:</td>

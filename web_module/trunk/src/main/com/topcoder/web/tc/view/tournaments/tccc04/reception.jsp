@@ -45,16 +45,25 @@
 
             <img src="/i/clear.gif" width="1" height="10" border="0"/><br/>
             <div class="leadPhoto">
-            <img src="/i/tournament/tccc04/reception/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-            <span class="leadPhotoCaption">caption<br/><br/> </span>
+            <span class="bodyText" align="center"><p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=photos">See more photos!</a></p></span>
+            <img src="/i/tournament/tccc04/onsite_photos/reception.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
+            <span class="leadPhotoCaption">Competitors and spectators enjoying the reception<br/><br/> </span>
             </div>
             
             <h2>Opening Night Reception</h2>
 
-            <p>by somedude, <em>TopCoder Staff</em><br />
-            Wednesday, April 4, 2004</p>
+            <p>by lbackstrom, <em>TopCoder Staff</em><br />
+            Wednesday, April 14, 2004</p>
 
-            <p>Writeup</p>
+            <p>
+            Tonight, TopCoder kicked off what promises to be its biggest and best event ever. 30 TopCoders, representing 16 different countries, spent the evening getting to know one another at the opening reception in the stylish Park Plaza hotel.  These coders are the best of the best, having survived an extremely competitive month of online rounds, in which over 95% of coders were eliminated.
+            </p>
+            <p>
+            Newcomers to the prestiguous onsite round used the time to their advantage, grilling competitors who have been here before about the format and strategies of the onsite event.  But, for the most part, the competitors relaxed and tried to forget about the extreme 75 minutes of furious coding that they must undertake tomorrow.  Popular topics of discussion included the recent ACM competition and the ImagineCup, two other competitions in which TopCoders did well.  Competitors also recounted humorous anecdotes from prior competitions, the crowd favorite of which was related to Floyd's algorithm.  And of course, it wouldn't be a coding competition if there wasn't talk about algorithms.  In addition, representatives from sponsors Yahoo! and NVIDIA were present, chatting with members and handing out goodies.
+            </p>
+            <p>
+            The next two days promise to be exciting -- the top designer and developer will be decided and the final four algorithm coders will advance and vie for the $25,000 grand prize.  Congratulations to all the coders who have made it so far, and good luck to everyone in the upcoming events.
+            </p>
             
 
          <p><br/></p>
