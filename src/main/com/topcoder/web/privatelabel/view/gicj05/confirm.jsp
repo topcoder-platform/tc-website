@@ -82,15 +82,6 @@
 
             <tr>
                 <td align="right" nowrap>
-                    Middle Initial
-                </td>
-                <td align="left">
-                    <jsp:getProperty name="regInfo" property="MiddleName"/>
-                </td>
-            </tr>
-
-            <tr>
-                <td align="right" nowrap>
                     Last Name
                 </td>
                 <td align="left">
@@ -160,18 +151,10 @@
                     <jsp:getProperty name="regInfo" property="Province"/>
                 </td>
             </tr>
-            <tr>
-                <td align="right" nowrap>
-                    State
-                </td>
-                <td align="left">
-                    <jsp:getProperty name="regInfo" property="StateName"/>
-                </td>
-            </tr>
 
             <tr>
                 <td align="right" nowrap>
-                    Zip Code
+                    PIN/Zip Code
                 </td>
                 <td align="left">
                     <jsp:getProperty name="regInfo" property="Zip"/>
