@@ -131,8 +131,8 @@ function submitEnter(e) {
 
                      <tr>
                         <td><p><br /></p>
-                              <p><a href="http://www.topcoder.com"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
-                              <font size="-1">This tournament is brought to you by Google Inc. (<a href="http://www.google.com">http://www.google.com</a>) 2400 Bayshore Parkway, Mountain View, CA 94043 and powered by TopCoder, Inc. (<a href="http://www.topcoder.com">http://www.topcoder.com</a>) 703 Hebron Avenue, Glastonbury, CT 06033.
+                              <p><a href="/"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
+                              <font size="-1">This tournament is brought to you by Google Inc. (<a href="http://www.google.com">http://www.google.com</a>) 2400 Bayshore Parkway, Mountain View, CA 94043 and powered by TopCoder, Inc. (<a href="/">http://www.topcoder.com</a>) 703 Hebron Avenue, Glastonbury, CT 06033.
                               </font></p>
                         </td>
                      </tr>
@@ -149,7 +149,7 @@ function submitEnter(e) {
 <small> &copy;2003 Google -
 <a href="http://www.google.com/">Home</a> -
 <a href="http://www.google.com/about.html">All About Google</a> -
-<a href="http://www.topcoder.com/?t=about_tc&c=index">About TopCoder</a> -
+<a href="//?t=about_tc&c=index">About TopCoder</a> -
 <a href="http://www.google.com/jobs/">We're Hiring</a>
 </small>
 </p>
