@@ -80,7 +80,7 @@
 							<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
 							<tr valign="top">
-								<td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=299180" class="coderTextGreen"><img src="/i/m/nophoto_dev.jpg" alt="" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
+								<td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=299180" class="coderTextGreen"><img src="/i/m/nophoto_dev.gif" alt="" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
 								<td class="statText" width="65%">Developer Level:</td>
 								<td class="statText" align="right" width="10%">I</td>
 								<td class="statText" width="25%"></td>
@@ -94,8 +94,8 @@
 
 							<tr valign="top">
 								<td class="statText">Rating:</td>
-								<td class="statText" align="right">1282</td>
-								<td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=271917" class="statText">[ ratings history ]</a></td>
+								<td class="statText" align="right">974</td>
+								<td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=299180" class="statText">[ ratings history ]</a></td>
 							</tr>
 
 							<tr valign="top">
@@ -136,7 +136,7 @@
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" colspan="4">
 						<table border="0" cellspacing="0" cellpadding="5" width="100%">
-							<tr><td class="statText">&ldquo;Right approach.  Also, nice touch in including Javadocs.&rdquo;<a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271008">&#160;&#151;ilya</a></td></tr>
+							<tr><td class="statText">"Right approach.  Also, nice touch in including Javadocs."<a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271008">&#160;&#151;ilya</a></td></tr>
 						</table></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
@@ -171,10 +171,10 @@
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="coderTextGreen" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><strong>srowen</strong></a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><strong>srowen</strong></a> **</td>
 					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2800280" class="statText">IP Filter:&#160;Design</a></td>
 					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">88.17</td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$390.00&dagger;</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$390.00</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
@@ -182,7 +182,7 @@
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statTextSmall" height="18" colspan="4">&#160;&#160;* Total Earnings for all Component Projects (before royalties)&#160;&#160;&dagger;Our first 2x winner!</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statTextSmall" height="18" colspan="4">&#160;&#160;* Total Earnings for all Component Projects (before royalties)&#160;&#160;** Our first 2x winner!</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
