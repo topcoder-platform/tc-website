@@ -124,7 +124,7 @@
                                     <strong>Match 174</strong><br />
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_intel">Intel</A><br />
+                                    Sponsor: <A href="/?t=sponsor&amp;c=intel_ids">Intel</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4675&amp;t=schedule&amp;c=srm">Details</A></td>
                             </tr>
