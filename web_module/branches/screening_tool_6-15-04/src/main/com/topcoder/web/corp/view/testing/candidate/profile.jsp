@@ -26,7 +26,7 @@
                 <tr valign="top">
                     <td class="bodyText"> 
                         
-                        <p class=testHead><A href="/">Candidate List</A> - Candidate Info</p>
+                        <p class=testHead>Candidate Info</p>
 
                     </td>
                 </tr>
@@ -89,6 +89,10 @@
                         <tr>
                             <td class="screeningCell" align=right>Country:</td>
                             <td class="screeningCell">United States</td>
+                        </tr>
+                        <tr>
+                            <td class="screeningCell" align=right>Preference Level:</td>
+                            <td class="screeningCell">Flash</td>
                         </tr>
                     </table>
                     </td>
