@@ -17,8 +17,8 @@ import java.util.*;
 import java.io.IOException;
 
 /**
- * User: dok
- * Date: Dec 10, 2004
+ * @author  Josh Bloch
+ * @version  $Revision$ $Date$
  */
 public abstract class Base extends BaseProcessor {
 
@@ -43,7 +43,6 @@ public abstract class Base extends BaseProcessor {
     protected User getUser() {
         if (user == null)
             user = getAuthentication().getUser();
-        log.debug("user: " + user.getUserName());
         return user;
     }
 
