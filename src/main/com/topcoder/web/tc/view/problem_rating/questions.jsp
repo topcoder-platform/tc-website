@@ -31,7 +31,7 @@
                         String sel = "";
                         if(String.valueOf(i).equals(request.getParaeter("q"+qid))){
                             sel = " selected";
-                        {
+                        }
                 %>
             <td>
                         <input type="radio" name="q<%= qid %>" value="<%= i %>" <%= sel %>>
