@@ -6,7 +6,7 @@
 %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%    
-	ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");
+        ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -36,42 +36,42 @@
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Account Administration - User List</B></FONT><BR/>
 <P>
-		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P>
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width="100%">
-	<TR>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>&#160;Handle</B></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>First Name</B></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>Last Name</B></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>&#160;</B></TD>		
-	</TR>
+        <TR>
+                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>&#160;Handle</B></TD>
+                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>First Name</B></TD>
+                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>Last Name</B></TD>
+                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>&#160;</B></TD>             
+        </TR>
 
-	<% /* Setup variables used for row alternating background colors */
-		boolean isGreyBGCOLOR = true; 
-		String bgColor = new String();
-	%>
+        <% /* Setup variables used for row alternating background colors */
+                boolean isGreyBGCOLOR = true; 
+                String bgColor = new String();
+        %>
 
-	<tc-webtag:iterator list="<%=rsc%>" id="resultRow" >
-	<% 
-		bgColor = isGreyBGCOLOR ? "#CCCCCC" : "#FFFFFF";
-		isGreyBGCOLOR = !isGreyBGCOLOR; // change BGCOLOR for next row.
-	%>
-	  <TR>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">&#160;
-			<tc-webtag:item row="<%=resultRow%>" name="handle"/></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
-			<tc-webtag:item row="<%=resultRow%>" name="first_name"/></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
-			<tc-webtag:item row="<%=resultRow%>" name="last_name"/></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>"> <A HREF="<%=appContext%>/?module=create-edit&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>		
-	  </TR>
-	</tc-webtag:iterator>
+        <tc-webtag:iterator list="<%=rsc%>" id="resultRow" >
+        <% 
+                bgColor = isGreyBGCOLOR ? "#CCCCCC" : "#FFFFFF";
+                isGreyBGCOLOR = !isGreyBGCOLOR; // change BGCOLOR for next row.
+        %>
+          <TR>
+                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">&#160;
+                        <tc-webtag:item row="<%=resultRow%>" name="handle"/></TD>
+                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
+                        <tc-webtag:item row="<%=resultRow%>" name="first_name"/></TD>
+                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
+                        <tc-webtag:item row="<%=resultRow%>" name="last_name"/></TD>
+                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>"> <A HREF="<%=appContext%>/?module=UserEdit&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>          
+          </TR>
+        </tc-webtag:iterator>
 
-	<TR>
-		<TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=appContext%>/?module=create-edit" CLASS="bodyText">Add</A></TD>		
-	</TR>				
+        <TR>
+                <TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=appContext%>/?module=UserEdit" CLASS="bodyText">Add</A></TD>         
+        </TR>                           
 </TABLE>
 <P><BR/></P>    
      </TD>

@@ -49,7 +49,7 @@
                         <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="74" BORDER="0"/></TD>
                         <TD WIDTH="100%" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="74" BORDER="0"/></TD>
                         <TD CLASS="time" ALIGN="right" VALIGN="middle" WIDTH="190" BGCOLOR="#000000">&#160;
-                           <FORM NAME="frmMiniLogin" METHOD="POST" onSubmit="<%=appContext%>/">
+                           <FORM NAME="frmMiniLogin" METHOD="POST" action="<%=appContext%>/?module=Login">
 <% if( auth.getUser().isAnonymous() ) {  // no logged user
  %>
                               <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
@@ -65,7 +65,6 @@
                                     <TD CLASS="statTextBig" VALIGN="top">&#160;&#160;<A HREF="javascript:document.frmMiniLogin.submit();" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Login &gt;</FONT></A></TD>
                                  </TR>
                               </TABLE>
-                              <INPUT NAME="module" TYPE="hidden" VALUE="Login"/>
                               <INPUT NAME="<%=Login.KEY_LOGINMODE%>" TYPE="hidden" VALUE="1"/>
 <% }
    else {

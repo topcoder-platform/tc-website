@@ -7,6 +7,7 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.shared.util.DBMS;
 
+import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
