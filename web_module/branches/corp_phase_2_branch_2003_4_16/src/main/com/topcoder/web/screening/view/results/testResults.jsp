@@ -85,8 +85,8 @@ function getProblemDetail(id) {
 	        </tr>
 	    </table>
 
+   <% if(testResultsInfo.isSessionComplete()) { %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
-                <% if(testResultsInfo.isSessionComplete()) { %>
 	        <tr>
 		       <td colspan="8" class="testHeadSmall">Test Set A Results:</td>
 	        </tr>
@@ -128,12 +128,7 @@ function getProblemDetail(id) {
 
             <p><br></p>
 
-            <table cellspacing="1" cellpadding="3" width="100%">
-	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="30"></TD>
-	        </TR>
 <% } // isSessionComplete %>
-	        </TABLE>
 
 <% if(testResultsInfo.isSessionComplete()) { %>
 	        <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">

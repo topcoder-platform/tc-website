@@ -8,22 +8,6 @@
 
 <jsp:include page="../includes/script.jsp" />
 
-<script type="text/javascript" language="Javascript">
-<!--
-function getProblemDetail(id) {
-    var width = screen.availWidth * 2 / 3;
-    var height = screen.availHeight / 2;
-    var left = (screen.availWidth - width) / 2;
-    var top = 0;
-    var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
-    var name="problemDetail";
-    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PopulateProblemDetail"; %>
-    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
-    return;
-  }
-// -->
-</script>
-
 </head>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.screening.model.SessionInfo" />
@@ -57,8 +41,7 @@ function getProblemDetail(id) {
             <table cellspacing="1" cellpadding="0" width="100%" border="0">
                 <tr>
                     <td class="bodyText">
-                        <% String params = Constants.CANDIDATE_ID + '=' + candidateInfo.getUserId() + "&referrer=TestResults";%>
-                        <strong>Candidate:</strong> <screen:servletLink processor="PopulateCandidate" param="<%=params%>"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink>
+                        <strong>Candidate:</strong> <jsp:getProperty name="candidateInfo" property="userName"/>
                        </td>
 	        </tr>
 
@@ -85,10 +68,10 @@ function getProblemDetail(id) {
 	        </tr>
 	    </table>
 
+    <% if(testResultsInfo.isSessionComplete()) { %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
-                <% if(testResultsInfo.isSessionComplete()) { %>
 	        <tr>
-		       <td colspan="8" class="testHeadSmall">Test Set A Results:</td>
+		       <td colspan="7" class="testHeadSmall">Test Set A Results:</td>
 	        </tr>
 
 	        <tr>
@@ -99,28 +82,20 @@ function getProblemDetail(id) {
 		       <td width="15%" align="center" class="testFormHeader">Test Failed</td>
 		       <td width="15%" align="center" class="testFormHeader">% Test Passed</td>
 		       <td width="15%" align="center" class="testFormHeader">Time</td>
-		       <td width="15%" align="center" class="testFormHeader">&#160;</td>
                 </tr>
 
                 <% boolean even = true; %>
                 <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetAResults()%>">
-                    <%
-                        String color = even ? "bgcolor='#EEEEEE'" : "";
-                        String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' +
-                        Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
-                        Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
-                        Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
-                     %>
+                    <% String color = even ? "bgcolor='#EEEEEE'" : ""; %>
 
                 <tr>
-		       <td class="bodyText" <%= color %>>&#160;<a href="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" class="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></a></td>
+		       <td class="bodyText" <%= color %>>&#160;<screen:resultSetItem row="<%=row%>" name="problem_name" /></td>
 		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="language_name" /></td>
 		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="status_desc" /></td>
 		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></td>
 		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="num_failed" /></td>
 		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</td>
 		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="elapsed" /></td>
-		       <td align="center" class="bodyText" <%= color %>><screen:servletLink processor="ProblemResult" param="<%=prparam%>" >Details</screen:servletLink></td>
                 </tr>
                 <% even = !even; %>
                 </screen:resultSetRowIterator>
@@ -128,12 +103,7 @@ function getProblemDetail(id) {
 
             <p><br></p>
 
-            <table cellspacing="1" cellpadding="3" width="100%">
-	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="30"></TD>
-	        </TR>
 <% } // isSessionComplete %>
-	        </TABLE>
 
 <% if(testResultsInfo.isSessionComplete()) { %>
 	        <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
@@ -181,13 +151,13 @@ function getProblemDetail(id) {
     <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="30"></TD>
+		       <TD COLSPAN="7"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="30"></TD>
 	        </TR>
 	        <TR>
-		       <TD COLSPAN="8" VALIGN="top" CLASS="bodyTextBold"><B>Test Set B Results:</B></TD>
+		       <TD COLSPAN="7" VALIGN="top" CLASS="bodyTextBold"><B>Test Set B Results:</B></TD>
 	        </TR>
 	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1"></TD>
+		       <TD COLSPAN="7"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1"></TD>
 	        </TR>
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Problem</B></TD>
@@ -197,32 +167,24 @@ function getProblemDetail(id) {
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Test Failed</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>% Test Passed</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Time</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666">&#160;</TD>
 	        </TR>
                 <% { boolean even = true; %>
                    <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetBResults()%>">
-                     <%
-                           String color = even ? "BGCOLOR='#CCCCCC'" : "";
-                           String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' +
-                                            Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
-                                            Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
-                                            Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
-                     %>
+                     <% String color = even ? "BGCOLOR='#CCCCCC'" : ""; %>
 	             <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <%= color %>>&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
+		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <%= color %>>&#160;<screen:resultSetItem row="<%=row%>" name="problem_name" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="language_name" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="status_desc" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</TD>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:servletLink processor="ProblemResult" param="<%=prparam%>" styleClass="bodyText">Details</screen:servletLink></TD>
 	             </TR>
                      <% even = !even; %>
                    </screen:resultSetRowIterator>
                 <% } %>
 	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="30"></TD>
+		       <TD COLSPAN="7"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="30"></TD>
 	        </TR>
 	        </TABLE>
     <% } // getProblemSetBCount() > 0 %>
@@ -252,7 +214,7 @@ function getProblemDetail(id) {
            </TR>
             <screen:problemInfoIterator id="problem" list="<%=profileInfo.getTestSetAList()%>">
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<screen:beanWrite name='problem' property='roundId' />,<screen:beanWrite name='problem' property='problemId' />')" CLASS="bodyText"><screen:beanWrite name='problem' property='problemName' /></A></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='problemName' /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='divisionDesc' /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='difficultyDesc' /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>
@@ -284,7 +246,7 @@ function getProblemDetail(id) {
            </TR>
             <screen:problemInfoIterator id="problem" list="<%=profileInfo.getTestSetBList()%>">
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<screen:beanWrite name='problem' property='roundId' />,<screen:beanWrite name='problem' property='problemId' />')" CLASS="bodyText"><screen:beanWrite name='problem' property='problemName' /></A></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='problemName' /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='divisionDesc' /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='difficultyDesc' /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>
