@@ -230,6 +230,7 @@
             <% List solutionA = (List)request.getAttribute("problemSolutionAList");
                List solutionB = (List)request.getAttribute("problemSolutionBList");
                List statementsA = profileInfo.getTestSetAList();
+       if (statementsA==null) System.out.println("fuckin null!!!!");
                List statementsB = profileInfo.getTestSetBList();
                ProblemInfo problem = null;
                SubmissionInfo solution = null; %>
