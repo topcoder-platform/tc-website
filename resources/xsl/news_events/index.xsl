@@ -63,6 +63,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<!-- NVIDIA TCCC-->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_03_08_04"><img src="/i/pressroom/nvidia_badge.gif" alt="nvidia" width="135" height="117" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_03_08_04">NVIDIA Sponsors 2004 TopCoder Collegiate Challenge</A></strong></font><br />
+                        "NVIDIA truly believes that the TopCoder arena fosters an unparalleled competitive spirit among the most brilliant programmers in the world. We are proud to be a part of this initiative again," said Daniel Rohrer, Manager of DirectX Graphics.  "Our corporate culture encourages innovation and excellence and the TopCoder competition model is a perfect complement to that philosophy." <span class="prHead">[March 8]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- Fortune  -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
