@@ -29,7 +29,9 @@
 
 <table width=100% border=0 cellpadding=0 cellspacing=0 align=center>
 	<TR valign="top">
-		<td width="50%">&#160;</td>
+		<td width="50%">
+		<jsp:include page="left.jsp" />
+		</td>
 <!-- Center Column Begins -->
         <td class=recruitingBody>
 			<img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
@@ -100,13 +102,7 @@
 
         </td>
 <!-- Center Column Ends -->
-				<td class=homeRightPromos width="50%">
-				<table width="170" border=0 cellpadding=0 cellspacing=0 align=right>
-					<tr><td><img src="/i/corp/featClientsHead.gif" border=0 /></td></tr>
-					<tr><td class=homeClientPromo><A href="http://software.topcoder.com/customers/index.jsp"><img src="/i/corp/promos/praxairNrodale.gif" border=0 /></A></td></tr>
-					<tr><td><A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><img src="/i/es/animated_emp_promo.gif" border=0 /></A></td></tr>
-				</table>
-				</td>
+		<td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
     </tr>
 </table>
 

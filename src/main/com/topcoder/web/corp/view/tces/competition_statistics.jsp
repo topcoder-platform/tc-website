@@ -191,10 +191,10 @@
 			</TABLE>
 			<p align=left><br/></P>
 			</TD>
-		<td width="50%">&#160;</td>
+<!-- Body Ends -->
+		<td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
 	</TR>
 </TABLE>
-<!-- Body Ends -->
 <!-- Footer begins -->
 <jsp:include page="../foot.jsp" />
 <!-- Footer ends -->

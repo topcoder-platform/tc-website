@@ -493,10 +493,10 @@
 
                   <P><br/></P>
 		    </TD>
-		<td width="50%">&#160;</td>
+  <!-- Center Column Ends -->
+		<td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
   		</TR>
 </TABLE>
-  <!-- Center Column Ends -->
 
 <!-- Footer begins -->
 <jsp:include page="../foot.jsp" />
