@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>2003 TopCoder Open - Computer Programming Tournament - Rules - Prizes</title>
+<title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Rules - Prizes</title>
 
 <xsl:call-template name="CSS"/>
 
@@ -108,7 +108,7 @@
 
                 <tr>
                     <td width="50%" class="sidebarText">500 competitors who compete in Online Round #1</td>
-                    <td width="50%" class="sidebarText" align="right">Limited edition 2003 TopCoder Open t-shirt</td>
+                    <td width="50%" class="sidebarText" align="right">Limited edition 2003 TopCoder Open sponsored by Intel&#174;  t-shirt</td>
                 </tr>
 
                 <tr>

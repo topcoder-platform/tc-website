@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>2003 TopCoder Open - Computer Programming Tournament - Rules - Overview</title>
+<title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Rules - Overview</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -97,7 +97,7 @@
             
             <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
 
-            <p>The 2003 TopCoder Open (Coding Tournament) will take place between October 7th and December 5th, 2003.  It will consist of two (2) online 
+            <p>The 2003 TopCoder Open sponsored by Intel&#174;  sponsored by Intel&#174;  (Coding Tournament) will take place between October 7th and December 5th, 2003.  It will consist of two (2) online 
             qualification rounds, four (4) online elimination rounds and two (2) onsite final rounds, being the Semifinal and Championship rounds.  
             The prize purse for this tournament is $100,000 in cash.  Up to 500 competitors will receive a prize just for competing in Online 
             Round #1, and up to 200 eligible competitors will receive cash prizes.  The top 16 finishers in the online rounds will advance to 

@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>2003 TopCoder Open - Computer Programming Tournament - Rules - Conditions</title>
+<title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Rules - Conditions</title>
 
 <xsl:call-template name="CSS"/>
 
@@ -113,7 +113,7 @@
             <ul>
                 <li>Affidavit of Eligibility and Liability and Publicity Release (must be notarized unless you already have a
                 notarized affidavit on file with TopCoder)</li>
-                <li>Competitor questionnaire&#151;the questions and responses will be published in the 2003 TopCoder Open
+                <li>Competitor questionnaire&#151;the questions and responses will be published in the 2003 TopCoder Open sponsored by Intel&#174; 
                 Program</li>
                 <li>Travel form&#151;provides TopCoder with the appropriate travel information in the event you advance to
                 the onsite tournament rounds</li>

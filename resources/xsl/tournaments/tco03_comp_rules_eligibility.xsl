@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>2003 TopCoder Open - Computer Programming Tournament - Rules - Eligibility</title>
+<title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Rules - Eligibility</title>
 
 <xsl:call-template name="CSS"/>
 
@@ -101,7 +101,7 @@
             </p>
 
             <p>
-            Those members who are eligible to compete in both the Coding Tournament of the 2003 TopCoder Open and in the Component Tournament will be
+            Those members who are eligible to compete in both the Coding Tournament of the 2003 TopCoder Open sponsored by Intel&#174;  and in the Component Tournament will be
             permitted to participate in both.  In addition, members will be allowed to compete in both the design and development elements
             of the Component Tournament.  However, if one member participates in Online Round #1 of both the design and development contest AND qualifies
             as one of the advancers in each, then the member will only be permitted to advance in one of the contests (either design or development).  The following criteria

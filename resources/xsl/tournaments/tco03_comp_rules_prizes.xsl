@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>2003 TopCoder Open - Computer Programming Tournament - Rules - Prizes</title>
+<title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Rules - Prizes</title>
 
 <xsl:call-template name="CSS"/>
 
@@ -57,7 +57,7 @@
 
 <!-- TCO Header
              <div align="center">
-            <img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open" width="550" height="160" border="0" vspace="15" usemap="#tco_links" />
+            <img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open sponsored by Intel&#174; " width="550" height="160" border="0" vspace="15" usemap="#tco_links" />
             <map name="tco_links">
             <area shape="rect" coords="30,100,220,155" href="/index?t=tournaments&amp;c=tco03_overview" />
             <area shape="rect" coords="355,100,545,155" href="/index?t=tournaments&amp;c=tco03_comp_overview" />

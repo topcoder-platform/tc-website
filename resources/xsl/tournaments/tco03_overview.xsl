@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>2003 TopCoder Open - Computer Programming Tournament - Overview</title>
+<title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Overview</title>
 
 <xsl:call-template name="CSS"/>
 
