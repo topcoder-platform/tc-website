@@ -144,7 +144,7 @@ public class ReviewProjectDetail extends Base {
 
     private ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int phaseId,
                                            int levelId, long userId, String handle, boolean primary,
-                                           long projectId, int reviewerTypeId) {
+                                           long projectId, int reviewerTypeId) throws Exception {
         ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, phaseId, levelId, projectId, reviewerTypeId);
         ret.setHandle(handle);
         ret.setPrimary(primary);
@@ -153,9 +153,23 @@ public class ReviewProjectDetail extends Base {
     }
 
     private ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int phaseId,
-                                           int levelId, long projectId, int reviewerTypeId) {
-        //we'll always assume all submission gets through screening
-        ReviewBoardApplication ret = new ReviewBoardApplication(phaseId, levelId, numSubmissions, numSubmissions);
+                                           int levelId, long projectId, int reviewerTypeId) throws Exception {
+        //figure out if we have default money values for the reviewers
+        Request r = new Request();
+        r.setContentHandle("review_board_payments");
+        r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
+        r.setProperty(Constants.PHASE_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
+        Map results = getDataAccess().getData(r);
+        ResultSetContainer detail = (ResultSetContainer) results.get("review_board_payments");
+
+        ReviewBoardApplication ret = null;
+        if (detail.isEmpty()) {
+            //we'll always assume all submission gets through screening
+            ret = new ReviewBoardApplication(phaseId, levelId, numSubmissions, numSubmissions);
+        } else {
+            ret = new ReviewBoardApplication(detail.getFloatItem(0, "primary_amount"), detail.getFloatItem(0, "amount"));
+        }
+
         ret.setProjectId(projectId);
         ret.setReviewerType(reviewerType);
         ret.setReviewerTypeId(reviewerTypeId);

@@ -14,22 +14,19 @@ public class ReviewBoardApplication {
     private String reviewerType = "";
     private int reviewerTypeId = 0;
 
-    private int phaseId = 0;
-    private int levelId = 0;
-    private int submissionCount = 0;
-    private int submissionsPassedScreening = 0;
     private SoftwareComponent component = null;
 
-    private ReviewBoardApplication() {
+    protected ReviewBoardApplication() {
     }
 
     public ReviewBoardApplication(int phaseId, int level, int submissionCount, int submissionsPassedScreening) {
-        this.phaseId = phaseId;
-        this.levelId = level;
-        this.submissionCount = submissionCount;
-        this.submissionsPassedScreening = submissionsPassedScreening;
-        this.component = new SoftwareComponent(level, submissionCount, submissionsPassedScreening, phaseId);
+        this.component = new DefaultPriceComponent(level, submissionCount, submissionsPassedScreening, phaseId);
     }
+
+    public ReviewBoardApplication(float primaryReviewerPrice, float reviewerPrice) {
+        this.component = new CustomPriceComponent(primaryReviewerPrice, reviewerPrice);
+    }
+
 
     public long getUserId() {
         return userId;
@@ -71,22 +68,6 @@ public class ReviewBoardApplication {
         this.reviewerType = reviewerType;
     }
 
-    public int getPhaseId() {
-        return phaseId;
-    }
-
-    public int getLevelId() {
-        return levelId;
-    }
-
-    public int getSubmissionCount() {
-        return submissionCount;
-    }
-
-    public int getSubmissionsPassedScreening() {
-        return submissionsPassedScreening;
-    }
-
     public int getReviewerTypeId() {
         return reviewerTypeId;
     }
@@ -102,14 +83,14 @@ public class ReviewBoardApplication {
 
     public float getReviewPrice() {
         if (primary) {
-            return component.getPrimaryReviewCost();
+            return component.getPrimaryReviewPrice();
         } else {
-            return component.getReviewCost();
+            return component.getReviewPrice();
         }
     }
 
     public float getPrice() {
-        return component.getCost();
+        return component.getPrice();
     }
 
 }
