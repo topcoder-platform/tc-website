@@ -119,7 +119,7 @@
 
             <xsl:variable name="numericPayment" select="translate(/TC/DEVELOPMENT/payment,'$','')" />  
             <xsl:variable name="numericFirstPayment" select="translate(/TC/DEVELOPMENT/first_payment,'$','')" />  
-            <xsl:variable name="numericSecondPayment" select="translate(/TC/DEVELOPMENT/second_payment,'$,'')" />  
+            <xsl:variable name="numericSecondPayment" select="translate(/TC/DEVELOPMENT/second_payment,'$','')" />  
 
                         <xsl:variable name="dollarFormat" select="'$###,###.00'" />
                             
