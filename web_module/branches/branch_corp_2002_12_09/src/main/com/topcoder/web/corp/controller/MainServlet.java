@@ -146,8 +146,11 @@ public class MainServlet extends HttpServlet {
 
         try {
 
-            // set main page in web.xml as homePage Attribute for Static Processor
+            // set main page in web.xml as homePage for Static Processor
             request.setAttribute("homePage",dest);
+            // set login page in web.xml as loginPage for Static Processor
+            request.setAttribute("loginPage", 
+                    servletConfig.getInitParameter(PFX_PAGE + KEY_LOGINPAGE));
             processorModule.setRequest(request);
             processorModule.setAuthToken(authToken);
             processorModule.process();

@@ -37,48 +37,26 @@ public class Static extends BaseProcessor {
      *  @throws Exception 
      */
     void businessProcessing() throws Exception {
+        log.debug("Static request = "+
         nextPage = requestProcessor();
         log.debug("Static processor nextPage = "+nextPage);
 
         if (!havePermission()) { 
-             log.debug(
-                 "user [id="+authToken.getActiveUser().getId()+"] does not " +
-                 "have enough permissions to access: " + nextPage
-             );
-            /* Controller should catch NotAuthorizedException and forward
-               to login page if user is anonymous and send to permission 
-               error page if user is logged in but not authorized.  */
-            throw new NotAuthorizedException("Not enough permissions to access"
-                + " static page: " + nextPage);
-        }
-    }
-
-
-    /**
-     * method to check that user has permissions to access static page 
-     * 
-     * @return boolean - true if user has permissions to access static page
-     * @throws Exception 
-     */ 
-     private boolean havePermission() throws Exception {
-    
-        int lastSlashIndex = nextPage.lastIndexOf("/");
-        String staticPageDirectory = nextPage.substring(0,lastSlashIndex);
-        if (!staticPageDirectory.equals("")) { 
-            TCSubject tcUser
-                = Util.retrieveTCSubject(authToken.getActiveUser().getId());
-            Authorization authorization = new TCESAuthorization(tcUser);
-
-            boolean allowedToRun = authorization.hasPermission(
-                new SimpleResource(staticPageDirectory)
-            ); 
-            if(! allowedToRun ) {
-                return false;
+            log.debug(
+                "user [id="+authToken.getActiveUser().getId()+"] does not " +
+                "have enough permissions to access: " + nextPage
+            );
+            if (authToken.getActiveUser().isAnonymous()) {
+                /* If the user is anonymous and tries to access a page
+                   they are not authorized to access, send them to the 
+                   login page.
+                */
+                log.debug("user anonymous unauthorized to access static page, " +
+                          "sending to the login page.");
+                nextPage = getLoginPage();
             }
         }
-        return true;
-     }
-
+    }
 
     /**
      * method for processesing a page request and checking to make sure it 
@@ -120,6 +98,50 @@ public class Static extends BaseProcessor {
         }
         ret.append(".jsp");
         return ret.toString();
+    }
+
+    /**
+     * method to check that user has permissions to access static page 
+     * 
+     * @return boolean - true if user has permissions to access static page
+     * @throws Exception 
+     */ 
+     private boolean havePermission() throws Exception {
+        int lastSlashIndex = nextPage.lastIndexOf("/");
+        String staticPageDirectory = nextPage.substring(0,lastSlashIndex);
+        if (!staticPageDirectory.equals("")) { 
+            TCSubject tcUser
+                = Util.retrieveTCSubject(authToken.getActiveUser().getId());
+            Authorization authorization = new TCESAuthorization(tcUser);
+
+            boolean allowedToRun = authorization.hasPermission(
+                new SimpleResource(staticPageDirectory)
+            ); 
+            if(! allowedToRun ) {
+                return false;
+            }
+        }
+        return true;
+     }
+
+    /**
+     * private method for returning link to login page for anonymous users
+     * who try and access unauthorized pages.
+     *
+     * @return String containing loginPage for user to go to next.
+     */
+    private String getLoginPage() {
+        String originatingPage = request.getRequestURI();
+        if( request.getQueryString() != null ) {
+            originatingPage += "?"+request.getQueryString();
+        }
+
+        String destParam = 
+            com.topcoder.web.corp.request.Login.KEY_DESTINATION_PAGE;
+        String loginPage = (String)request.getAttribute("loginPage"); 
+
+        return loginPage + "&" + destParam + "=" +
+            java.net.URLEncoder.encode(originatingPage);
     }
 
    /** If parameter is valid return -1, otherwise returns the index 
