@@ -57,21 +57,11 @@
                         
                         <div align="center">
                         
-                        <table border="0" cellpadding="0" cellspacing="2">
-                            <tr valign="top">
-                                <td class="bodyText" width="259"><img src="/i/title_3_month_program.gif" alt="3 Month Program - 15 Job Postings" width="259" height="60" border="0"></td>
-                            </tr>
-                            
-                            <tr valign="top">
-                                <td class="bodyText" width="259"><a href="<%=request.getContextPath()+"/Tx/?&"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&pid=1"%>"><img src="/i/button_select.gif" alt="Select" width="78" height="29" border="0" align="right"></a><span class="testHeadSmall">$5,000</span>&#160;&#160;Initial Price</td>
-                            </tr>
-                            
-                            <tr valign="top">
-                                <td class="bodyText" width="259">Additional postings can be added for only <strong>$150 each.</strong></td>
-                            </tr>
-                        </table><br>
+                        <img src="/i/title_3_month_program.gif" alt="3 Month Program - $5,000" width="286" height="167" border="0"><br>
                         
-                        <img src="/i/verisign_m.gif" alt="Payment Services by Verisign" width="103" height="43" border="0" vspace="20"></div>
+                        <img src="/i/verisign_m.gif" alt="Payment Services by Verisign" width="103" height="43" border="0" vspace="20">
+                        
+                        </div>
 
                         <p><br></p>
                     </td>

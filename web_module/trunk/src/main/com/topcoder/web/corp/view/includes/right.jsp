@@ -15,7 +15,7 @@
                         <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=pricing" target="_parent" class="corpLeft"><img src="/i/buy_now.gif" alt="Buy Now" width="170" height="50" border="0" class="corpRight"></a><br>
                         <a href="/testing/"><img src="/i/promo_launch_test_mgmt.gif" alt="Launch Testing Management Tool" width="170" height="129" border="0" class="corpRight"></a><br>
     <% } %>
-                        <a href="mailto:tces@topcoder.com?subject=Question about the TopCoder Testing Program"><img src="/i/promo_contact_tces.gif" alt="Contact TCES" width="170" height="81" border="0" class="corpRight"></a><br>
+                        <a href="mailto:tces@topcoder.com"><img src="/i/promo_contact_tces.gif" alt="Contact TCES" width="170" height="76" border="0" class="corpRight"></a><br>
 <% } %>
 <!-- Candidate Testing ends -->
 
@@ -23,9 +23,9 @@
 <% if (level1.equals("recruiting")) { %>
     <% if ((level2.equals("overview")) || (level2.equals("reporting"))) { %>
                         <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=recruiting&d3=pricing" target="_parent" class="corpLeft"><img src="/i/buy_now.gif" alt="Buy Now" width="170" height="50" border="0" class="corpRight"></a><br>
-                        <a href="/tces/?task=MainTask"><img src="/i/promo_launch_recr_report.gif" alt="Recruiting Reporting Tool" width="170" height="129" border="0" class="corpRight"></a><br>
+                        <a href="/tces/?task=MainTask"><img src="/i/promo_launch_report_tool.gif" alt="Recruiting Report Tool" width="170" height="136" border="0" class="corpRight"></a><br>
     <% } %>
-                        <a href="mailto:tces@topcoder.com?subject=Question about the TopCoder Recruiting Program"><img src="/i/promo_contact_tces.gif" alt="Contact TCES" width="170" height="81" border="0" class="corpRight"></a><br>
+                        <a href="mailto:tces@topcoder.com"><img src="/i/promo_contact_tces.gif" alt="Contact TCES" width="170" height="76" border="0" class="corpRight"></a><br>
 <% } %>
 <!-- Recruiting ends -->
 

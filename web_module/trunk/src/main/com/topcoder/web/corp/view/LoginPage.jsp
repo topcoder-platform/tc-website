@@ -111,6 +111,15 @@
 <!-- Gutter -->
         <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
+
+<!-- Right Column Begins -->
+        <td width="170"><img src="/i/clear.gif" width="170" height="1" alt="" border="0"></td>
+<!-- Left Column Ends -->
+
+<!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
+
     </tr>
 </table>
 
