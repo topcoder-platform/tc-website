@@ -9,6 +9,7 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.naming.Context;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.lang.reflect.Method;
@@ -229,6 +230,17 @@ public abstract class BaseProcessor implements RequestProcessor {
         Method createmethod = remotehome.getClass().getMethod("create", null);
         return createmethod.invoke(remotehome, null);
     }
+
+    public static void close(Context ctx) {
+        if (ctx!=null) {
+            try {
+                ctx.close();
+            } catch (Exception e) {
+                log.error("couldn't close context");
+            }
+        }
+    }
+
 
 }
 
