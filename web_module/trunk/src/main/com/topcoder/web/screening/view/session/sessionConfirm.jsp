@@ -38,13 +38,11 @@ document.sessionConfirmForm.submit();
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Create a New Session</B></FONT>
-<BR><BR>
-<FONT SIZE="3" COLOR="#000000"><B>Set up Session Confirmation</B></FONT>
-<P>
-               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
-</P><BR>
+<h1 class="testHead">Create a New Session</h1>
+<h1 class="testHead"><FONT COLOR="#000000">Session Confirmation</FONT></h1>
+
+<P>Review the information below for correctness.  If the information is correct, click "Submit".  If changes need to be made, click "Edit" 
+to return to the previous page.  Click "Cancel" if you do not wish to set up this session.</P><BR>
 <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
 <screen:form name="sessionConfirmForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
          <input type="HIDDEN" name="rp" value="" >
@@ -65,7 +63,7 @@ document.sessionConfirmForm.submit();
               <TD COLSPAN="4" ><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
-              <TD BGCOLOR="#CCCCCC" COLSPAN="4" CLASS="bodyText" ALIGN="left" VALIGN="middle" HEIGHT="15">&#160;<B>Session</B></TD>
+              <TD BGCOLOR="#CCCCCC" COLSPAN="4" CLASS="bodyText" ALIGN="left" VALIGN="middle" HEIGHT="20">&#160;<B>Session</B></TD>
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" HEIGHT="15"><b>Profile:</b>&#160;</TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>

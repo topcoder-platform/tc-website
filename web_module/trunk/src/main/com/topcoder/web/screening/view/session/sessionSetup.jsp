@@ -63,19 +63,22 @@ function submitSession() {
       <TD VALIGN="top"><img src="/i/ev/clear.gif" width="10" height="1" /></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Create a New Session</B></FONT>
-<P>
-           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-           ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
-</P><BR>
+        <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><br />
+            <h1 class="testHead">Create a New Session</h1>
+            <p>Here you will create a Test Profile and assign candidate(s) to it by following these steps:</p>
+            <ol>
+                <li>Select a Test Profile. If you wish to create a new Test Profile, click "Create a New Test Profile".</li>
+                <li>Select a candidate to assign to the Test Profile.  If you wish to add a new candidate, click "Add a Candidate".</li>
+                <li>Set the timeframe for when the candidate can access the Testing Application. Be sure to allow at least a 3-hour during which the candidate can participate.</li>
+            </ol>
+           
 <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
 <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
         <input type="HIDDEN" name="rp" value="" >
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
-           <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Test Profile</b>&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
+         <TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
+           <TR VALIGN="middle">
+              <TD CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC" nowrap="nowrap"><strong>Test Profile</strong>&#160;</TD>
+              <TD CLASS="bodyText" ALIGN="left">
               <select name ="profileId">
                 <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
                 <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
@@ -86,11 +89,14 @@ function submitSession() {
                 </screen:resultSetRowIterator>
               </select>
               </TD>
-              <TD CLASS="bodyText" VALIGN="middle">&#160;<a name="profile" /><a href="JavaScript:submitProfile()">Create a New Test Profile</a></TD>
+              <TD CLASS="bodyText" nowrap="nowrap">&#160;<a name="profile" /><a href="JavaScript:submitProfile()">Create a New Test Profile</a></TD>
            </TR>
            <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Candidate</b>&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
+              <TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD><TD COLSPAN="2" class="errorText" align="left" valign="middle"></TD>
+           </TR>
+           <TR VALIGN="middle">
+              <TD CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC" nowrap="nowrap"><strong>Candidate</strong>&#160;</TD>
+              <TD CLASS="bodyText" ALIGN="left">
               <select name="cid">
                 <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getCandidateList()%>">
                 <% if(sessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
@@ -101,13 +107,13 @@ function submitSession() {
                 </screen:resultSetRowIterator>
               </select>
               </TD>
-              <TD CLASS="bodyText" VALIGN="middle">&#160;<a name="candidate" /><a href="JavaScript:submitCandidate()">Add a Candidate</a></TD>
+              <TD CLASS="bodyText" nowrap="nowrap">&#160;<a name="candidate" /><a href="JavaScript:submitCandidate()">Add a Candidate</a></TD>
            </TR>
            <TR>
               <TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD><TD COLSPAN="2" class="errorText" align="left" valign="middle"></TD>
            </TR>
            <TR>
-              <TD COLSPAN="3" CLASS="bodyText" HEIGHT="15" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Begin Time</b></TD>
+              <TD COLSPAN="3" CLASS="bodyText" HEIGHT="20" VALIGN="middle" BGCOLOR="#CCCCCC" nowrap="nowrap">&#160;<strong>Begin Time</strong></TD>
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Month&#160;</TD>
@@ -141,7 +147,7 @@ function submitSession() {
               <TD COLSPAN="3"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
            <TR>
-              <TD COLSPAN="3" CLASS="bodyText" HEIGHT="15" VALIGN="middle" BGCOLOR="#CCCCCC"><b>End Time</b></TD>
+              <TD COLSPAN="3" CLASS="bodyText" HEIGHT="20" VALIGN="middle" BGCOLOR="#CCCCCC" nowrap="nowrap">&#160;<strong>End Time</strong></TD>
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Month&#160;</TD>
