@@ -142,9 +142,21 @@ public class CampaignResults extends BaseScreeningProcessor {
                     + campaignId + ", company : " + companyId);
             }
 
-            // Save the campaign results to request for further rendering by the campaign results JSP
+            // Get the campaign results to be rendered by the campaign results JSP
             result = (ResultSetContainer) map.get(Constants.CAMPAIGN_RESULTS_LIST);
+
+            // Check if the results list should be sorted
+            String sortBy = request.getParameter(Constants.SORT_BY);
+            if (sortBy != null) {
+                result.sortByColumn(sortBy, true);
+            }
+
+            // Save the campaign results to request for further rendering by the campaign results JSP
             request.setAttribute(Constants.CAMPAIGN_RESULTS_LIST, result);
+
+            // Check if there was a parameter for page start index
+            String startIndex = request.getParameter(Constants.PAGE_START_INDEX);
+            request.setAttribute(Constants.PAGE_START_INDEX, startIndex);
 
             // Redirect the user to campaign results JSP
             log.info("Forwarding the request to " + Constants.CAMPAIGN_RESULTS_PAGE);

@@ -111,9 +111,21 @@ public class PositionResults extends BaseScreeningProcessor {
                         + ", company : " + companyId + ", campaign : " + campaignId);
             }
 
-            // Save the position results to request for further rendering by the position results JSP
+            // Get the position results to be rendered by the position results JSP
             result = (ResultSetContainer) map.get(Constants.POSITION_RESULTS_LIST);
+
+            // Check if the results list should be sorted
+            String sortBy = request.getParameter(Constants.SORT_BY);
+            if (sortBy != null) {
+                result.sortByColumn(sortBy, true);
+            }
+
+            // Save the position results to request for further rendering by the position results JSP
             request.setAttribute(Constants.POSITION_RESULTS_LIST, result);
+
+            // Check if there was a parameter for page start index
+            String startIndex = request.getParameter(Constants.PAGE_START_INDEX);
+            request.setAttribute(Constants.PAGE_START_INDEX, startIndex);
 
             // Forward the request to postion results JSP
             setNextPage(Constants.POSITION_RESULTS_PAGE);
