@@ -82,13 +82,15 @@
                    </td>
                 </tr>
 
+                <%boolean even = false;%>
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
-                    <tr class="advancers_list">
-                       <td class="advancers_list" align="right"><rsc:item name="seed" row="<%=resultRow%>"/></td>
-                       <td class="advancers_list" align="left"><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
-                       <td class="advancers_list" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
-                       <td class="advancers_list" align="right"><rsc:item name="points" row="<%=resultRow%>"/></td>
+                    <tr class="<%=even?"formTextEven":"formTextOdd"%>">
+                       <td class="<%=even?"formTextEven":"formTextOdd"%>" align="right"><rsc:item name="seed" row="<%=resultRow%>"/></td>
+                       <td class="<%=even?"formTextEven":"formTextOdd"%>" align="left"><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
+                       <td class="<%=even?"formTextEven":"formTextOdd"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+                       <td class="<%=even?"formTextEven":"formTextOdd"%>" align="right"><rsc:item name="points" row="<%=resultRow%>"/></td>
                    </tr>
+                   <%even=!even;%>
                 </rsc:iterator>
 
 
