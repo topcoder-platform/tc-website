@@ -14,13 +14,13 @@
   }
 %>
 
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-  <TR>
-    <TD VALIGN="top" WIDTH="11" ALIGN="right"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="<%=image1%>"/></TD>
-    <TD VALIGN="top" WIDTH="75" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_<%=image%>.gif" ALT="<%=image%>"/></TD>
-    <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR>&#160;<SPAN CLASS="bodySubhead">&#160;&#160;<%=Conversion.checkNull(request.getParameter("title"))%>&#160;&#160;</SPAN></TD>
-    <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"/></TD>
-  </TR>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+  <tr valign="bottom">
+    <td valign="top" width="11"><img width="11" height="26" border="0" src="/i/spacer.gif"/></td>
+    <td valign="top" width="75" align="left"><img width="180" height="26" border="0" src="/i/header_<%=image%>.gif" alt="<%=image%>"/></td>
+    <td class="bodyTextBold" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><span class="bodySubhead"><%=Conversion.checkNull(request.getParameter("title"))%></span></td>
+    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="26" border="0"/></td>
+  </tr>
 
-</TABLE>
+</table>
 
