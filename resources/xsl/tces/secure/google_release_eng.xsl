@@ -70,26 +70,25 @@
 
                            <A href="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A><BR/>       
 
-<p><B>Engineering Tools</B><br/>
+<p><B>Release Engineer</B><br/>
 Position available in Mountain View, CA.</p>
 
-<p>Google is looking for an experienced software engineer to help build the tools we use to ensure the quality of our software. 
-You should have a strong understanding and appreciation of good software development processes. You will be working closely 
-with different project teams to improve our tools for unit testing, regression testing, and problem isolation. Here's an 
-excellent opportunity for you to use your talents to help us develop, test, and maintain quality products that improve the web 
-experience for millions of users.</p>
+<p>Would you like to be part of one of Google's key software development efforts? This is your opportunity to leverage your deep technical interest and your skill at easily understanding complex systems. In this position, you will be responsible for Release Engineering of our monetization software. Your activities will include reviewing critical new and changed software, tracking and auditing change histories, investigating problems and debugging code, initiating and monitoring unit, regression and user/system level tests, and compiling and up-integrating submitted code into a release branch in our source control system. </p>
 
-<p><B>Requirements</B></p>
+<p><b>Requirements:</b></p>
 <ul>
-<li>3+ years of development experience</li>
-<li>Excellent Python or C++ programming skills</li>
-<li>Excellent Unix/Linux and shell scripting skills</li>
-<li>Perl and Java a plus</li>
-<li>Excellent communication skills</li>
-<li>BSCS or MSCS</li>
+<li>BS in Computer Science or other technical field</li>
+<li>5+ years experience in software engineering/release engineering/software</li>
+<li>5+ quality engineering/software quality assurance</li>
+<li>Extensive knowledge of Unix/Linux</li>
+<li>Excellent knowledge of C++ and Java a must, Python a plus</li>
+<li>Experience in database design and using SQL</li>
+<li>Strong familiarity with software configuration management systems/source code version control systems</li>
+<li>Ability to work well with developers, test engineers, and non-engineering personnel</li>
+<li>Strong organizational and communication skills, both verbal and written</li>
 </ul>
 	
-<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=140&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=142&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
 <br/><br/>
                            
 
