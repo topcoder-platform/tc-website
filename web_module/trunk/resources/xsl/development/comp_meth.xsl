@@ -170,7 +170,7 @@ A.methNav:active {
 				<tr valign="top">
 					<td class="statText">
 						<p>Gather component scope by collaborating with customers and TopCoder members through online 
-						<a class="statText" href="http://www.topcodersoftware.com/pages/c_active_collab.jsp">Collaboration Forums.</a>  For new components this 
+						<a class="statText" href="http://www.topcodersoftware.com/pages/c_active_collab.jsp">Customer Forums.</a>  For new components this 
 						is a new request for a component. For existing components it is a request for additional functionality.</p>
 									
 						<p><strong>Participants</strong><br />
@@ -180,10 +180,10 @@ A.methNav:active {
 									
 						<p><strong>Details</strong><br />
 						<ol>
-							<li>PM moderates <a class="statText" href="http://www.topcodersoftware.com/pages/c_active_collab.jsp">Collaboration Forums</a> on 
+							<li>PM moderates <a class="statText" href="http://www.topcodersoftware.com/pages/c_active_collab.jsp">Customer Forums</a> on 
 							topcodersoftware.com to gather component requirements.</li>
 							
-							<li>The Collaboration Forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post replies 
+							<li>The Customer Forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post messages 
 							to the forums.</li>
 							
 							<li>Once the project scope has been determined, the PM creates a Requirements Specification for the Design Phase of that component.</li>
@@ -193,7 +193,7 @@ A.methNav:active {
 							submission deadline for all design submissions.</li>
 							
 							<li>Eligible rated TopCoder members who inquire about Design Projects are granted secure access to the Project Specification and Project 
-							Deliverable documents in the online Specification Forums.</li>
+							Deliverable documents in the online Development Forums.</li>
 						</ol></p></td>
 				</tr>
 <!-- Collaboration ends -->
