@@ -9,11 +9,11 @@ import com.topcoder.shared.util.logging.Logger;
 public class DefaultPriceComponent implements SoftwareComponent{
     private static Logger log = Logger.getLogger(DefaultPriceComponent.class);
 
-    private final static float[] DESIGN_PRICE_LOOKUP = {0f, 105f, 210f};
-    private final static float[] DEV_PRICE_LOOKUP = {0f, 96f, 144f};
+    private final static float[] DESIGN_PRICE_LOOKUP = {0f, 700f, 700f};
+    private final static float[] DEV_PRICE_LOOKUP = {0f, 500f, 500f};
 
-    private final static float DEV_REVIEW_RATE = 25f;
-    private final static float DESIGN_REVIEW_RATE = 30f;
+    private final static float DEV_REVIEW_RATE = 35f;
+    private final static float DESIGN_REVIEW_RATE = 50f;
 
     protected int phaseId;
     protected int level;
@@ -117,11 +117,13 @@ public class DefaultPriceComponent implements SoftwareComponent{
      * @return
      */
     private float getDevCoreReviewCost() {
-        float reviewCost = (float)level * (float)submissionsPassedScreening*DEV_REVIEW_RATE;
+        float reviewCost = (float)(level + 1) * (float)submissionsPassedScreening*DEV_REVIEW_RATE;
         float startupCost = DEV_REVIEW_RATE * 2; //120 minutes to "start up"
+        float testCaseCost = DEV_REVIEW_RATE * 5; // 5 hours to write test cases
         debug("reviewCost " + reviewCost);
         debug("startupCost " + startupCost);
-        return reviewCost + startupCost;
+        debug("testCaseCost " + testCaseCost);
+        return reviewCost + startupCost + testCaseCost;
     }
 
     /**
@@ -157,7 +159,7 @@ public class DefaultPriceComponent implements SoftwareComponent{
     }
 
     private float getDesignScreeningCost() {
-        float screeningCost = (1f / 2f) * (float)submissionCount * DESIGN_REVIEW_RATE;  //30 minutes per submission
+        float screeningCost = 0.75f * (float)submissionCount * DESIGN_REVIEW_RATE;  //45 minutes per submission
         return screeningCost;
     }
 
@@ -178,8 +180,8 @@ public class DefaultPriceComponent implements SoftwareComponent{
      * @return
      */
     private float getCoreDesignReviewCost() {
-        float reviewCost = (float)level * (float)submissionsPassedScreening*DESIGN_REVIEW_RATE;
-        float startupCost = DESIGN_REVIEW_RATE; //60 minutes to "start up"
+        float reviewCost = (float)(level + 2) * (float)submissionsPassedScreening*DESIGN_REVIEW_RATE;
+        float startupCost = 2.0f * DESIGN_REVIEW_RATE; //120 minutes to "start up"
         debug("reviewCost " + reviewCost);
         debug("startupCost " + startupCost);
         return reviewCost + startupCost;
