@@ -12,6 +12,9 @@
 <tc-webtag:useBean id="prob" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.problem.Problem" toScope="page" property="problem"/>
 <tc-webtag:useBean id="lang" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.language.Language" toScope="page" property="language"/>
 
+<%
+    System.out.println("class: " + lang.getClass().getName());
+%>
 
 <tc-webtag:problemStatement problem="prob" language="lang"/>
 
