@@ -47,15 +47,28 @@
         <td class="promoText" width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="15">
 
-                  <tr><td align="center"><A href="http://www.northface.edu" target="_blank"><img src="/i/tournament/tco03/sponsors/northface_logo.gif" alt="Northface" width="450" height="75" border="0" /></A><br/>
+                  <tr><td align="center"><A href="http://www.northface.edu" target="_blank"><img src="/i/sponser/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A><br/>
                         <hr width="100%" size="1" noshade="0"/>
                         </td></tr>
                             
                 <tr valign="top">
                     <td class="promoText" width="99%">
-                        <p><strong><A href="http://www.northface.edu" target="_blank">Northface University</A> is establishing the finest university in the world for software developers.</strong> 
+                        <p><A href="http://www.northface.edu" target="_blank">Northface University</A> is establishing the finest university in the world for software developers. 
                         Our educational programs focus on the latest advancements in modeling, business rules, data management and systems integration. The courses are  fast-paced, utilize leading edge technologies 
                         and reinforce best practice skills for the implementation of real-world projects.</p>
+                        </td>
+                        
+                        <td rowspan="5">
+                        <img src="/i/sponser/northface/northface_vertical_graphic.gif" alt="Northface" width="148" height="492" border="0" />
+                        </td></tr>
+                        
+                        <tr valign="top"> <td align="left">
+                        <img src="/i/sponser/northface/northface_title_1.gif" alt="Northface" width="360" height="42" border="0" />
+                        </td></tr>
+                        
+                        
+                        
+                        
 
                         <p><A href="http://www.northface.edu" target="_blank">Northface University's</A> students are mentored by some of the most well-respected thought leaders in the software industry. The Northface University programs 
                         provide:</p>
