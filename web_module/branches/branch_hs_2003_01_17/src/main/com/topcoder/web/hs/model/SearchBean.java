@@ -16,9 +16,9 @@ public class SearchBean {
 
   private Long school_id=null;
 
-  private Integer min_rating=null;
+  private String min_rating=null;
 
-  private Integer max_rating=null;
+  private String max_rating=null;
 
   private List state_list=null;
 
@@ -68,19 +68,19 @@ public class SearchBean {
     school_id=_school_id;
   }
 
-  public Integer getMinRating() {
+  public String getMinRating() {
     return(min_rating);
   }
 
-  public void setMinRating(Integer _min_rating) {
+  public void setMinRating(String _min_rating) {
     min_rating=_min_rating;
   }
 
-  public Integer getMaxRating() {
+  public String getMaxRating() {
     return(max_rating);
   }
 
-  public void setMaxRating(Integer _max_rating) {
+  public void setMaxRating(String _max_rating) {
     max_rating=_max_rating;
   }
 
