@@ -191,12 +191,16 @@ to this material. By posting, uploading or otherwise sending any source code to 
 site, you grant (or warrant that the owner of such rights has expressly
 granted) us a perpetual, royalty-free, irrevocable, non-exclusive right and
 license to use,  reproduce and publish such code into any form, medium or
-technology.<br/><br/>
+technology, including the right, at TopCoder's sole discretion, to distribute 
+such code to be published by third-parties.
+<br/><br/>
 With respect to any other material posted, uploaded or otherwise sent, you
 grant (or warrant that the owner of such rights has expressly granted) us
 the same license as pertains to source code with the additional license to
 modify, adapt, translate, create derivative works from, and distribute such
-materials or incorporate such materials into any form, medium or technology.
+materials or incorporate such materials into any form, medium or technology, 
+including the right, at TopCoder's sole discretion, to distribute such materials to 
+be published by third-parties.
 <br/><br/>
 You waive any and all moral rights, including, without limitation, any rights arising under Chapter 7 of the Copyright and Related Rights 
 Act 2000 applicable to European Union residents, and all rights of a similar nature in any jurisdiction in any material, including source 
