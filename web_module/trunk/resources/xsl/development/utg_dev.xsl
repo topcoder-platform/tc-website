@@ -134,8 +134,8 @@ You must be a rated TopCoder member, at least 18 years of age, meeting all of th
 </P>
 <P>
 Component Posting: 11/21/2002<BR/>
-Initial Submission Due Date: 12/2/2002<BR/>
-Final Submission Due Date: 12/16/2002<BR/>
+Initial Submission Due Date: 12/5/2002<BR/>
+Final Submission Due Date: 12/20/2002<BR/>
 
 <BR/>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.
 </P>
