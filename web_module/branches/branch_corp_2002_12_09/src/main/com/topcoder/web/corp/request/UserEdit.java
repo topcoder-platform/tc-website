@@ -574,7 +574,7 @@ public class UserEdit extends BaseProcessor {
      * @throws GeneralSecurityException
      * @throws MisconfigurationException
      */
-    private final UserPrincipal createUserPrincipal()
+    protected UserPrincipal createUserPrincipal()
     throws RemoteException, GeneralSecurityException, MisconfigurationException
     {
         UserPrincipal securityUser = null;

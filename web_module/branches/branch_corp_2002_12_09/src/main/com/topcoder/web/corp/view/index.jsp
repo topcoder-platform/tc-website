@@ -46,7 +46,7 @@
                        Dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
                        tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam, q
-                      <A HREF="#" CLASS="bodyText">Learn More &gt;</A>                 
+                      <A HREF="/tces/tces?task=MainTask" CLASS="bodyText">Learn More &gt;</A>                 
                        </TD>
                 </TR>
                 <TR>

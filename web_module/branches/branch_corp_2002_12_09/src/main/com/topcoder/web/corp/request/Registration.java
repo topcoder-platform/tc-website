@@ -1,6 +1,7 @@
 package com.topcoder.web.corp.request;
 
 import java.rmi.RemoteException;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.ejb.CreateException;
@@ -10,6 +11,8 @@ import javax.sql.DataSource;
 
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.NotAuthorizedException;
+import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -19,6 +22,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
+import com.topcoder.web.corp.controller.MisconfigurationException;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.address.AddressHome;
 import com.topcoder.web.ejb.company.Company;
@@ -402,4 +406,30 @@ public final class Registration extends UserEdit {
             country      = addrTable.getCountryCode(addrID);
         }
     }
+    
+    
+    /**
+     * Also assigns account admin role 
+     */
+    protected UserPrincipal createUserPrincipal()
+        throws RemoteException, GeneralSecurityException, MisconfigurationException {
+        UserPrincipal ret = super.createUserPrincipal();
+        
+        // because it is primary person, grant 'Account Admin' role
+        Iterator roles = secTok.man.getRoles(secTok.requestor).iterator();
+        RolePrincipal role = null;
+        while( roles.hasNext() ) {
+            role = (RolePrincipal)roles.next();
+            if( role.getName().equalsIgnoreCase(Constants.CORP_ADMIN_ROLE) ) {
+                break;
+            }
+        }
+        if( role == null ) {
+            throw new MisconfigurationException("Account Admin role was not found");
+        }
+        secTok.man.assignRole(ret, role, secTok.requestor);
+        log.debug("Assigned Account Admin role"); 
+        return ret;
+    }
+
 }
