@@ -44,7 +44,7 @@
 
         <div class="plmtBody">
 		<div align=center>
-		<img src="/i/corp/clear.gif" border=1 width=500 height=100/>
+		<img src="/i/corp/promos/placementBanner.jpg" border=0/>
 		</div>
 
 		<p>
