@@ -51,7 +51,7 @@ final class UserDb {
         query.append(" )");
         query.append(" VALUES (?,?,?,?,?,?,?,?)");
         try {
-            conn = DBMS.getTransConnection();
+            conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
             insertSecureObject(conn, user);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, user.getUserId());
@@ -163,7 +163,7 @@ final class UserDb {
         PreparedStatement ps1 = null;
         Connection conn = null;
         try {
-            conn = DBMS.getTransConnection();
+            conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
             if (user.getModified().equals("U")) {
                 StringBuffer query = new StringBuffer(150);
                 /**************************************************************/
@@ -359,7 +359,7 @@ final class UserDb {
         /**************************************************************/
         String query = "UPDATE user SET status='I' WHERE user_id=?";
         try {
-            conn = DBMS.getTransConnection();
+            conn = DBMS.getConnection(DBMS.JTS_OLTP_DATASOURCE_NAME);
             ps = conn.prepareStatement(query);
             ps.setInt(1, userId);
             int regVal = ps.executeUpdate();

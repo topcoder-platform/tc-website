@@ -242,26 +242,22 @@ public class Controller
 
     User getUser(HttpSession session) throws Exception {
         if (session != null) {
-            Object navigation = session.getAttribute(NAVIGATION);
+            Navigation navigation = (Navigation)session.getAttribute(NAVIGATION);
             if (navigation == null) {
                 log.debug("navigation object was null");
                 navigation = new Navigation();
                 session.setAttribute(NAVIGATION, navigation);
             }
             log.debug("navigation is serializable: " + ((Navigation) navigation).userIsSerializable());
-            if (navigation instanceof Navigation) {
 //                ((Navigation) navigation).makeUserSerializable();
-                Data.loadUser((Navigation) navigation);
-                User user = ((Navigation) navigation).getUser();
+                Data.loadUser(navigation);
+                User user = (navigation).getUser();
                 log.debug("loaded user " + user.getUserId());
                 if (user.getUserId() == 0) {
                     log.debug("returning a null user");
                     return null;
                 }
                 return user;
-            } else {
-                log.debug("WTF navigation object is not the right class");
-            }
         }
         return null;
     }
