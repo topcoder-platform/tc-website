@@ -263,8 +263,8 @@ public class ProblemInfo extends BaseModel {
                                                 long roundId,
                                                 long problemId) throws Exception
     {
-        createProblemInfo(user, roundId, problemId, false);
-    
+        return createProblemInfo(user, roundId, problemId, false);
+        
     }
 
     public static ProblemInfo createProblemInfo(User user,

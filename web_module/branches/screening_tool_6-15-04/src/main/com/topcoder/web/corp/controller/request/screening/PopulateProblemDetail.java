@@ -5,6 +5,7 @@ import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.model.ProblemInfo;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.shared.util.logging.Logger;
 
 public class PopulateProblemDetail extends BaseScreeningProcessor {
     
