@@ -23,11 +23,11 @@
     ResultSetContainer skills = (ResultSetContainer)m.get("skills");
     Map skillNames = new HashMap();
     boolean revise = "on".equals(request.getParameter("revise"));
-    Set states = new HashSet(); 
+    Set state = new HashSet(); 
     Set country = new HashSet(); 
     Set coo= new HashSet(); 
     sa = request.getParameterValues("states");
-    if(sa!=null)states.addAll(Arrays.asList(sa));
+    if(sa!=null)state.addAll(Arrays.asList(sa));
     sa = request.getParameterValues("country");
     if(sa!=null)country.addAll(Arrays.asList(sa));
     sa = request.getParameterValues("countryoforigin");
@@ -117,7 +117,7 @@
       <tr><td>Company: <input type="text" name="company" size="15" value="<%=request.getParameter("company")%>"></td></tr>
       <tr><td>State: <select name="states" multiple size=5>
         <rsc:iterator list="<%=states%>" id="resultRow">
-          <option value="<rsc:item name="state_code" row="<%=resultRow%>"/>"<%=states.contains(resultRow.getStringItem("state_code")) ? " selected" : ""%><rsc:item name="state_code" row="<%=resultRow%>"/></option>
+          <option value="<rsc:item name="state_code" row="<%=resultRow%>"/>"<%=state.contains(resultRow.getStringItem("state_code")) ? " selected" : ""%><rsc:item name="state_code" row="<%=resultRow%>"/></option>
         </rsc:iterator>
         </select>
         <a href="JavaScript:deselect('states')">Deselect</a>
