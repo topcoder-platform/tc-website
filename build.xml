@@ -18,7 +18,6 @@
    <property name="testjava"      value="${src.dir}/testcases" />
    <property name="resources"     value="resources" />
    <property name="images"        value="images" />
-   <property name="mpsqas.jar"    value="${bin}/MPSQASApplet.jar"/>
    <property name="Jive.jar"      value="${bin}/Jive.jar"/>
    <property name="wl_jvmargs"    value="-Dweblogic.home=${WL_HOME}"  />
    <property name="servlets"      value="${build}/servlets" />
@@ -173,7 +172,7 @@
    <target name="package" depends="jars">
    </target>
 
-   <target name="jars" depends="package-mpsqasApplat,package-Jive">
+   <target name="jars" depends="package-Jive">
    </target>
 
 
@@ -199,18 +198,9 @@
         <antcall target="run"/>
     </target>
 
-	<target name="package-mpsqasApplat" depends="compile">
-       <jar jarfile="${mpsqas.jar}" >
-	       <fileset dir="${classes}/"
-                includes="com/topcoder/mpsqas/**,com/topcoder/common/**"
-				excludes="com/topcoder/common/web/**"
-           />
-       </jar>
-   </target>
-
    <target name="package-Jive" depends="compile">
        <jar jarfile="${Jive.jar}" >
-	       <fileset dir="${classes}/"
+         <fileset dir="${classes}/"
                 includes="com/coolservlets/**"
            />
        </jar>
