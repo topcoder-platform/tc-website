@@ -98,7 +98,6 @@
 <!-- Statistics begins -->
         <xsl:when test="/TC/Task='statistics'">
             <xsl:call-template name="left_nav_top_row" />
-            
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
@@ -170,7 +169,6 @@
 <!-- Advanced Member Search begins -->
         <xsl:when test="/TC/Task='search'">
             <xsl:call-template name="left_nav_top_row" />
-            
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
