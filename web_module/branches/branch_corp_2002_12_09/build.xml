@@ -6,7 +6,7 @@
     <property name="corp.war.name" value="corp"/>
     <property name="email.war.name" value="email"/>
     <property name="query.war.name" value="query"/>
-	<property name="tces.war.name" value="tces"/>
+        <property name="tces.war.name" value="tces"/>
     <property name="ejb_jars" value="${build}/ejb_jars"/>
     <property name="classes" value="${build}/classes"/>
     <property name="testclasses" value="${build}/testcases"/>
@@ -580,13 +580,8 @@
                 <exclude name="**/*Bean.class"/>
                 <exclude name="**/*Impl.class"/>
             </classes>
-<!--
-            <classes dir="${resources}/${corp.war.name}">
-                <include name="*.properties"/>
-            </classes>
--->
             <!-- libraries to be included in servlet classpath -->
-            <!--
+<!--
             <lib dir="${jars.dir}">
             </lib>
 -->
@@ -633,9 +628,9 @@
             </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/tces/**"/>
-				<include name="com/topcoder/web/common/**"/>
-				<include name="com/topcoder/shared/**"/>
-				<exclude name="**/*Bean.class"/>
+                                <include name="com/topcoder/web/common/**"/>
+                                <include name="com/topcoder/shared/**"/>
+                                <exclude name="**/*Bean.class"/>
                 <exclude name="**/*Impl.class"/>
             </classes>
             <webinf dir="${resources}/${tces.war.name}">
