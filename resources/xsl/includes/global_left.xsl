@@ -1077,7 +1077,7 @@
 </xsl:template>
 
 <xsl:template name="jobs_row">
-                <tr><td id="leftNavTitle" >Job Listings:</td></tr>
+                <tr><td id="leftNavTitle" >Job Listing:</td></tr>
 </xsl:template>
 
 <xsl:template name="development_row">
@@ -1117,7 +1117,7 @@
 </xsl:template>
 
 <xsl:template name="listings_row">
-                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=tces&amp;c=index</xsl:attribute>Job Listings</A></td></tr>
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=tces&amp;c=index</xsl:attribute>Job Listing</A></td></tr>
 </xsl:template>
 
 <xsl:template name="rules_row">
