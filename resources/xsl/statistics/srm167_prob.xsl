@@ -340,14 +340,14 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   </tr> 
 </table></blockquote> 
 
-- <p>
+<p>
   In my entire topcoder career, this is the first time I've seen a 750. Surprisingly, 31 people got it right (not including myself), and there were many scores over 500. As it turns out, this problem is one of those "oh, darn, if only I'd thought of that" problems. That's right, a simple property of the problem makes it very easy to comprehend a solution. The property is, given a list of numbers that starts at one value, and ends at another, the minimum sum of all the adjacent differences is acheived by sorting the points that are not on the end in either increasing or decreasing order. After they are sorted, the only two values which are important in the sorted list are the minimum and maximum. So, the minimum answer for a range of numbers with end values of A and B, minimum value L, and maximum value H is (in java): 
   <br /> 
   <br /> 
   <pre>H - L + Math.min(Math.abs(A - L) + Math.abs(B - H), Math.abs(B - L) + Math.abs(A - H));</pre> 
   <br /> 
   Now there is the question of which side of the head coach to put the team players on. As it turns out, if you sort the list of ALL the players (without the coaches), the minimum return value can be acheived if you split the players at the median. However, if there are an odd number of players, you have to experiment with putting the middle guy on either side of the head coach. All in all, you have 4 independent variables, each of which can be one of two values, which gives you 16 tests to do. The variables are: 
-- <ol>
+<ol>
   <li>left side sort ascending or descending (handled by the min statement above)</li> 
   <li>right side sorted ascending or descending (handled by the min statement above)</li> 
   <li>middle player on left or right</li> 
