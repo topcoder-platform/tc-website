@@ -28,7 +28,7 @@
         }else{
             document.revise['sort'].sort = 1;
         }
-        document.revise['order'].value = i;
+        document.revise['order'].value = i+1;
         document.revise.submit();
     }
     function revise(){
@@ -45,7 +45,7 @@
     <tr>
     <tc:counter min="0" max="<%=results.getColumnCount()-1%>" id="i">
         <td>
-            <a href="JavaScript:sort('<%=i+1%>')">
+            <a href="JavaScript:sort('<%=i%>')">
                 <%=headers.get(Integer.parseInt(i))%>
             </a>
         </td>
