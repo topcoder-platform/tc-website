@@ -51,10 +51,17 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <td class="bodyText">
+         <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"/><br />
 
 <!-- TCO Head Begins -->
-<xsl:call-template name="tco03_head"/>
+         
+               <table align="center">
+                  <tr>
+                     <td align="center"><img src="/i/events/crpf03/crpf_congrats.gif" width="450" height="62" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"/><br/>
+                     <A href="/tc?&amp;module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_overview"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"/></A><br/>
+                     <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
+                  </tr>
+               </table>
 <!-- TCO Head Ends -->
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
