@@ -101,8 +101,8 @@ Members will also collect royalties on the revenue generated from the sale of th
 </P>
 <P>
 Total Payment - $150.00<BR/>
-First Deliverable - $112.00<BR/>
-Project Completion - $37.00<BR/>
+First Deliverable - $112.50<BR/>
+Project Completion - $37.50<BR/>
 </P>
 
 <P>
