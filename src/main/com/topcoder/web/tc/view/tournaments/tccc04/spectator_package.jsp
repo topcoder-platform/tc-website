@@ -44,18 +44,18 @@
 </jsp:include>
 
    
-                <h2>Join the excitement onsite!</h2>
+                <h2><img src="/i/tournament/tccc04/spectator_images.jpg" width="285" height="392" border="0" align="right">Join the excitement onsite!</h2>
 
-                <p><img src="/i/tournament/tccc04/spectator_images.jpg" width="285" height="392" border="0" align="right"><span class="bodySubtitle">Would you like to see the 2004 Collegiate Challenge finals in-person?</span><br/>
+                <p><span class="bodySubtitle">Would you like to see the 2004 Collegiate Challenge finals in-person?</span><br/>
                 TopCoder is now offering a special discounted spectator package for our members.</p>
             
                 <p><span class="bodySubtitle">What does the package include?</span><br/>
                 <ul>
-                <li><b>See the action live and in-person:</b> Attendence to all the onsite rounds of competition.</li>
-                <li><b>Learn tricks of the trade from the experts:</b> attendance at all onsite events (sponsor and member presentations)</li>
-                <li><b>Stay at a great hotel:</b> 2 nights hotel accomodations at the Boston Park Plaza Hotel.</li>
-                <li><b>Hang-out and dine with the semifinalists:</b> All meals are included.</li>
-                <li><b>Take home TopCoder collectables:</b> Program, T-shirt and other goodies from the event.</li>
+                <li><b>See the action live and in-person -</b> Attendence to all the onsite rounds of competition.</li>
+                <li><b>Learn tricks of the trade from the experts -</b> Attendance at all onsite events (sponsor and member presentations)</li>
+                <li><b>Stay at a great hotel -</b> 2 nights hotel accomodations at the Boston Park Plaza Hotel.</li>
+                <li><b>Hang-out and dine with the semifinalists -</b> All meals are included.</li>
+                <li><b>Take home TopCoder collectables -</b> Program, T-shirt and other goodies from the event.</li> 
                 </ul>
             
             
