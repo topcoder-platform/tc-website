@@ -19,12 +19,12 @@ public class View extends SurveyData {
     }
 
     protected List makeAnswerInfo(long surveyId, long questionId) throws Exception {
-        Request responseRequest = new Request();
+        Request req = new Request();
         DataAccessInt dataAccess = getDataAccess();
-        responseRequest.setContentHandle("survey_responses");
-        responseRequest.setProperty("sid", String.valueOf(surveyId));
-        responseRequest.setProperty("qid", String.valueOf(questionId));
-        ResultSetContainer rsc = (ResultSetContainer)dataAccess.getData(responseRequest).get("response_info");
+        req.setContentHandle("answers");
+        req.setProperty("sid", String.valueOf(surveyId));
+        req.setProperty("qid", String.valueOf(questionId));
+        ResultSetContainer rsc = (ResultSetContainer)dataAccess.getData(req).get("answer_info");
         List ret = null;
         if (rsc==null) {
             ret = new ArrayList();
@@ -36,7 +36,7 @@ public class View extends SurveyData {
                 a = new Answer();
                 a.setId(row.getLongItem("answer_id"));
                 a.setQuestionId(row.getLongItem("question_id"));
-                a.setSort(row.getIntItem("sort"));
+                a.setSort(row.getIntItem("sort_order"));
                 a.setText(row.getStringItem("answer_text"));
                 ret.add(a);
             }
