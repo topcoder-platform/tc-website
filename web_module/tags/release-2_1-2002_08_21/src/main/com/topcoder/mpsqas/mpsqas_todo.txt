@@ -1,0 +1,234 @@
+  SERVER SIDE BUGS
+  ----------------
+  - kill Matrxi2d, it's an old bad class, we shouldn't use it anymore.
+  - queries should not use > or < for selecting problems by status, should use an
+    in clause.  
+  - be sure correct problem are being set to "Used" status when wrapping up a 
+    contest
+  - fix bug where one person gets logged off when it should be another (related 
+    to Matrix2D)
+  - pull chat, no one uses it, why bother with it
+  - problem doesn't show in problem preview pane
+  - main problem room, method name = class name
+
+  CLIENT SIDE BUGS
+  ----------------
+  - problem statement doesn't show in problem preview pane
+  - main problem room, method name = class name
+  - move "all solutions always agree" message to after the test results
+  - be sure mpsqas supports all the types the contest applet does (int, String, 
+    boolean, long, double, char, string[], int[])
+  - don't compress multiple consecutive spaces into 1 in the output screen.
+  - pull chat, no one uses it, why both with it
+
+
+  NEW DEVELOPMENT
+  ---------------
+  - use the new mail system instead of jms and the old objects.
+    - documents on the new mail system are being finalized, I'll give them 
+      when i get them.
+
+  - XML problem statement.
+    - system generated definition section
+    - system generated examples section
+      - the interface to add test cases should allow the writer to "check" the test 
+        case as an example. it would then provide the writer with a text area to 
+        he could explain the example more fully.  this text is optional.
+    - we provide them with what sections are available depending on problem type.  
+      they then select one to work on, and create it.  this will be the problem 
+      development area.
+    - create a problem preview area.  this will parse out the XML problem statement
+      that is stored in the DB and present it.  we'll give the parser for this to 
+      the contest applet so they can do the same.
+    - allow small conversions like, the long data type in java becomes long long for 
+      c++.  this should not be a simple find/replace because then we can't have 
+      words like "along" in the statement.  should be kind of generic tagged 
+      element that the writer can add to the statement.  the parser would take
+      flags to determine how to show this "tagged element"
+    - test case XML will need to handle all the data types we need.
+
+
+  - support team problems.
+    - the problem will be set up as a kind of hierarchy.  so the writer will have 
+      a main class and then "subclasses".  the "tech lead" on the team will assign
+      his coders to work on different classes.  so we need to develop something 
+      so that the writer can write the main class and all the "subclasses". 
+      the writer will also have to write whatever web services the problem needs.  
+      we'll have to work closely with the web service team to determine how things 
+      will interface.  MPSQAS will have to allow the writer to write his main class, 
+      the "subclasses" and the web services and be able to test each of them.  we 
+      will need test cases for both the main class (to determine how the team did) 
+      and for the "subclasses" to see how the individual coders did.  
+ 
+      note: when referring to "subclasses", I don't mean that in the true sense 
+      of the word, just that the main class will be calling the "subclasses", not 
+      that they are part of the main class.
+
+      MPSQAS will need a way to associate these "sub problems" to the main problem.  
+      all the testing and compiling will be handled by another team, we'll just 
+      have to get a hold of their interfaces and wrap up the writer source code
+      and send it off to be compiled/tested.
+
+      SUMMARY
+      -------
+        - create problem
+        - create n web services associated with problem
+        - create n sub problems
+        - create n test cases for each sub problem
+        - create n test cases for main problem
+
+
+  NICE TO HAVE
+  ------------
+
+    QUICKIES
+    --------
+    - allow me to go from the User Information screen directly to a problem
+    - past contests lists
+    - allow for multi-select in tables and the ability to copy those rows
+    - filter lists of problems (probably check boxes at the top), possibly this
+      should be a local written preferences file that would allow one to set 
+      what one wants to see on each of the pages that would make sense to have
+      filtering.
+    - move to ApplicationServer.properties, DBMS.properties etc. files
+
+
+  - sign-up screen for contests.  allow people to sign-up to write or test
+  - allow for import/export of the entire test case section to a text file.  
+  - when sending email, there should be a list of all recipients, i should be able to 
+    select who actually gets the email, in an effort to avoid constant spamming.
+  - improve correspondence - more like an email client
+    - consider making it a tree structure, or fail that... 
+      one should be able to right-click a correspondence and choose respond which 
+      would include the original's text.  exclude some to avoid spamming.
+    - new correspondence should open a little window so that you can still work around
+      in MPSQAS while being in the process of creating a correspondence.  in fact, you
+      should be able to open a bunch of correspondences at the same time.
+  - allow admins to add notes for people
+  - allow admins to add notes for problems
+  - include some versioning for the problem which would require a comment, also,
+    display this "version" somewhere in the problem display.
+  - only those with the current contract can do work.  allow admin to set flags.
+  - allow admin to enter how much money they should get for their work.
+  - a tabbed or split pane for the writers/testers to separate problems their
+    testing from those they're writing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*****************************************************************
+OLD STUFF BELOW, IGNORE FOR NOW
+*****************************************************************
+
+
+
+*********** BUGS *************
+- sucessful should be successful
+
+- it doesn't appear that test all runs checkData if the status of the problem is proposal approved, but has not yet been submitted.
+
+- no problem preview pane
+ 
+- main problem room, method name = class name
+
+- move "all solutions always agree" to after the results
+ 
+- fix it so that it doesn't blow up the log every now and then
+
+- fix it so that one person can't log someone else off
+
+*********** ADDITIONAL FUNCTIONALITY ***************
+
+- do the colors for peoples handles
+
+- allow me to select multiple rows from the different tables and hit <ctrl>+c so that i can copy the info
+
+- add a flag for writers and testers who have signed the respective contract
+
+- the ability to filter out stuff in problem lists.  i think checkboxes at the top or something would do it.. one check box for each status of a problem, the checked ones are the ones you see, default, everything except used.
+
+- Make it so users can request when they would like to test / write
+
+- I think it would be nice if writers could see the list of problems with the status used...that way they could check if there ideas are to close to something that has been used.  Also, it would allow them to say "hey, that's my problem" so they all wouldn't have your name on them :)
+
+
+
+- Problem Statement search tool, put class name, method name, problem statement contents.
+
+- In addition to upcoming contests, i would like a past contests menu.  it should show me who wrote and tested, and then i can double click to get more info.
+
+- on the contest information screen, it's lists the writers and testers.  since they're each associated with individual problems, i think this should be clear here...which problems they worked on.
+
+- mass email.  i would like to be able to send an email to a group of mpsqas users.  we can discuss if mpsqas is the right place for this.  now, i have to solicit testers for upcoming contests via regular email...
+
+- delete a problem...doesn't really delete anything, just sets a display flag.
+
+- notes.  could be associated with a problem or a user.
+
+- compose message for a particular person associated with problem. i don't need to spam the tester all the time...
+
+- sys tests to check checkData - ask for further info
+
+
+***************** BUGS THAT APPEAR FIXED - CAN'T REPRODUCE ******************************
+
+- If I reject a problem proposal and they resubmit, It should still be a problem proposal, not a submission proposal.
+
+- It seems to update too many problems to used after a contest.
+
+***************** FIXED BUGS **************************
+
+- Chat bug, if you type a really long line, it screws up the window
+
+- We've got to kill that redundancy, the submitted_by column in the problem table.  That info should just be in the problem user table.  
+
+- need a message of what's going on if someone tries to propose a problem and i have not accepted their request to be a writer. 
+
+- can't seem to change the arguments or return of a problem
+
+- not really a bug, but could we make the user name NOT case sensitive on log in
+
+- doesn't seem to update problem_user.amount when one changes the difficulty of the problem
+
+***************** ADDED FUNCTIONALITY **************************
+
+- Iron man proposing and scheduling
+
+- A central area for what has happened recently.  It would get me to recent correspondence quickly...the "Foyer"
+
+- I would like to be able to set the primary solution in the admin part of a contest... in case the writer's solution is bad.  The admin should always get the primary solution as "theirs". 
