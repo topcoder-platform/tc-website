@@ -31,8 +31,8 @@
 
 <%-- uncomment this when SS starts --%>
 <%--
---%>
 		<p align=right><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=ss_leaderboard_website">view the leaderboard</A>
+--%>
 <%-- uncomment this when SS photos are up --%>
 <%--
 		&#160;&#160;/&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos">photos</A>
