@@ -8,11 +8,16 @@ import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.common.web.util.Data;
 
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
+
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Enumeration;
+
 
 /**
  * The servlet to handle job posting http requests.
@@ -80,6 +85,14 @@ public class Controller extends HttpServlet {
                 }
 
                 task.setServletPath(request.getContextPath() + request.getServletPath());
+
+//---------
+                /* Code for initializing WebAuthentication tokens in each task */
+                SessionPersistor persistor = SessionPersistor.getInstance(request);
+                WebAuthentication authToken;
+                authToken = new BasicAuthentication(persistor, request, response); 
+                task.setAuthToken(authToken);
+//----------
 
                 task.servletPreAction(request, response);
 

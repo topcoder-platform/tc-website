@@ -10,10 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.StringTokenizer;
 import java.util.List;
 
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.shared.security.User;
+
+
 /**
  * A basic implementation of Task.
  * @author bigjake <kitz@mit.edu>
- *
+ * @author revisions for porting corp security: swif0ne <dancohn1@yahoo.com>
+ * @version 1.1
  */
 
 public abstract class BaseTask implements Task {
@@ -27,6 +32,11 @@ public abstract class BaseTask implements Task {
     private String nextPage;
     private List trail;
     private String servletPath;
+
+
+    /* Authentication for getting current user or logging in/out a user */
+    private WebAuthentication authToken = null;
+
 
     /* Makes a new BaseTask */
     public BaseTask() {
@@ -80,6 +90,29 @@ public abstract class BaseTask implements Task {
     }
 
     public abstract void setAttributes(String paramName, String paramValues[]);
+
+//----------
+    /**
+     * For request being proccessed returns user's authenticity token. Anonymous
+     * users (Guests) are authentic always forever by definition however
+     * there is not the way to get them logged in neither via cookies nor via
+     * login page.
+     *
+     * @return BasicAuthentication
+     */
+    protected WebAuthentication getAuthenticityToken() {
+        return authToken; 
+    }
+    
+    /**
+     * Just stores given authentification object for later use 
+     * @param auth WebAuthentication to store in authToken
+     */
+    public void setAuthToken(WebAuthentication auth) {
+        authToken = auth;
+    }
+//----------
+
 
     /** Retreives and parses a date from a ResultSetRow
      * @param row Row from which the date should be retreived

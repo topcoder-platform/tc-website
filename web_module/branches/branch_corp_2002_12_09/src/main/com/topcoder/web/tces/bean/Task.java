@@ -5,10 +5,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+import com.topcoder.web.common.security.WebAuthentication;
+
 /**
  * A base interface for task processors called by the TCES controller.
  * @author bigjake <kitz@mit.edu>
- *
+ * 
  */
 
 public interface Task {
@@ -38,6 +40,15 @@ public interface Task {
      * @return Value of property nextPage
      */
     String getNextPage();
+
+//----------
+    /**
+     * Sets up authentication token for current http session.
+     * 
+     * @param auth
+     */
+    void setAuthToken(WebAuthentication auth);
+//----------
 
     /** Performs pre-task processing operations on the request and response from the Controller
      * @param request HttpServletRequest from a Controller
