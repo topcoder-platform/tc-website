@@ -10,11 +10,11 @@
 <script type="text/javascript"><![CDATA[
 function timer(last) {
   var d = document;
-  var stuff = [['/i/tournament/tco03/promo_sm_revelation.gif', '/?t=tournaments&amp;c=tco03_revelation'], ['/i/tournament/tco03/promo_sm_northface.gif', '/?t=tournaments&amp;c=tco03_northface']];
+  var stuff = [['/i/tournament/tco03/promo_sm_revelation.gif', '/?t=tournaments&c=tco03_revelation'], ['/i/tournament/tco03/promo_sm_northface.gif', '/?t=tournaments&c=tco03_northface']];
   curr = (last+1)%stuff.length;
   document.changerImg.src=stuff[curr][0];
   find('changerHref').href=stuff[curr][1];
-  setTimeout("timer(curr)", 2000);
+  setTimeout("timer(curr)", 5000);
 }
 function find(n) {
   var s = document.anchors;
@@ -22,6 +22,8 @@ function find(n) {
     if (s[i].name==n) return s[i];
   }
 }
+
+timer(1);
 ]]></script>
 
 
