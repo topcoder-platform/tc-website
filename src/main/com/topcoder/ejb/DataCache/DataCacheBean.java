@@ -2316,6 +2316,12 @@ public class DataCacheBean extends BaseEJB {
                 } catch (Exception ignore) {
                 }
             }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                }
+            }
         }
         return result;
     }

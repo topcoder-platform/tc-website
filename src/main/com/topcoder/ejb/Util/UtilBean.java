@@ -70,8 +70,26 @@ public class UtilBean extends BaseEJB {
             throw new RemoteException("UtilBean.addResponse(int, int, int):ERROR: " + se);
         } catch (Exception e) {
             throw new RemoteException(e.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception ignore) {
+                log.error("rs   close problem");
+            }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.error("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.error("conn close problem");
+            }
+            rs = null;
+            ps = null;
+            conn = null;
         }
-
     }
 
 
