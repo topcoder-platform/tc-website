@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 
             <table width="100%" bgcolor="#7D7D7D" cellspacing="0" cellpadding="0" border="0">
-                <tr><td class="statText" nowrap="nowrap">&nbsp;December</td></tr>
+                <tr><td id="calendarMonth">December</td></tr>
                 
                 <tr> 
                     <td valign="top">
