@@ -148,15 +148,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$2,106.00</td>
+                                                            <td class="bodyText" align="right">$2,346.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$1,263.60</td>
+                                                            <td class="bodyText" align="right">$1,407.60</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$842.40</td>
+                                                            <td class="bodyText" align="right">$938.40</td>
                                                         </tr>
                                                     </table>
 
@@ -166,7 +166,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$675.00</td>
+                                                            <td class="bodyText" align="right">$750.00</td>
                                                         </tr>
                                                     </table>
 
@@ -176,15 +176,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Primary Design Reviewer -</td>
-                                                            <td class="bodyText" align="right">$538.00</td>
+                                                            <td class="bodyText" align="right">$583.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Reviewer -</td>
-                                                            <td class="bodyText" align="right">$478.00</td>
+                                                            <td class="bodyText" align="right">$523.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Reviewer - </td>
-                                                            <td class="bodyText" align="right">$478.00</td>
+                                                            <td class="bodyText" align="right">$523.00</td>
                                                         </tr>
                                                     </table>
 
@@ -193,7 +193,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$3,645.00</td>
+                                                            <td class="bodyText" align="right">$4,725.00</td>
                                                         </tr>
                                                     </table>
                                                     
@@ -206,15 +206,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$2,250.00</td>
+                                                            <td class="bodyText" align="right">$2,442.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$1,350.00</td>
+                                                            <td class="bodyText" align="right">$1,465.20</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$900.00</td>
+                                                            <td class="bodyText" align="right">$976.80</td>
                                                         </tr>
                                                     </table>
 
@@ -224,7 +224,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$720.00</td>
+                                                            <td class="bodyText" align="right">$780.00</td>
                                                         </tr>
                                                     </table>
 
@@ -234,15 +234,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Primary Design Reviewer -</td>
-                                                            <td class="bodyText" align="right">$565.00</td>
+                                                            <td class="bodyText" align="right">$601.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Reviewer -</td>
-                                                            <td class="bodyText" align="right">$505.00</td>
+                                                            <td class="bodyText" align="right">$541.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Reviewer - </td>
-                                                            <td class="bodyText" align="right">$505.00</td>
+                                                            <td class="bodyText" align="right">$541.00</td>
                                                         </tr>
                                                     </table>
 
@@ -251,7 +251,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$4,545.00</td>
+                                                            <td class="bodyText" align="right">$4,905.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">&#160;</td>
@@ -259,7 +259,7 @@
                                                         </tr> 
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Project Total - </td>
-                                                            <td class="bodyText" align="right">$8,190.00</td>
+                                                            <td class="bodyText" align="right">$9,630.00</td>
                                                         </tr>                                                        
                                                     </table>                                                    
 
@@ -316,47 +316,47 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Selection:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.09.2004</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.11.2004</td>
-                                                        </tr>                                                        
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Design Start:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">07.12.2004</td>
                                                         </tr>
                                                         <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.13.2004</td>
+                                                        </tr>                                                        
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Design Start:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.13.2004</td>
+                                                        </tr>
+                                                        <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.19.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.21.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Reviewer Screening Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.20.2004</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Design Reviews Due:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">07.22.2004</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Appeals Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap">Design Reviews Due:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">07.24.2004</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Appeal Responses Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.25.2004</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
+                                                            <td class="bodyText" nowrap="nowrap">Appeals Due:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">07.26.2004</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Final Fixes Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap">Appeal Responses Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.27.2004</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">07.28.2004</td>
                                                         </tr>
                                                         <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Final Fixes Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.30.2004</td>
+                                                        </tr>
+                                                        <tr>
                                                             <td class="bodyText" nowrap="nowrap">Final Review Due, Design Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.29.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.31.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Estimated Development End Date:</td>
