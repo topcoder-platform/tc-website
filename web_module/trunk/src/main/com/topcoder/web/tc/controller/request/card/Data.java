@@ -2,6 +2,10 @@ package com.topcoder.web.tc.controller.request.card;
 
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.sax.SAXTransformerFactory;
@@ -32,29 +36,48 @@ public class Data extends Base {
             serializer.setOutputProperty(OutputKeys.INDENT,"yes");
             hd.setResult(streamResult);
             hd.startDocument();
-            AttributesImpl atts = new AttributesImpl();
 
-            hd.startElement("","","memberStats",atts);
 
-            addElement(hd, "handle", "schveiguy", atts);
-            addElement(hd, "photo", "http://www.topcoder.com/i/m/schveiguy_big.jpg", atts);
-            addElement(hd, "algorithmRating", "2344", atts);
-            addElement(hd, "algorithmRatingMax", "3605", atts);
-            addElement(hd, "rank", "50", atts);
-            addElement(hd, "percentile", "95", atts);
-            addElement(hd, "memberSince", "03.25.02", atts);
-            addElement(hd, "lastMatchDate", "12.30.03", atts);
-            addElement(hd, "bestDvi1", "470", atts);
-            addElement(hd, "bestDiv2", "350", atts);
-            addElement(hd, "competitions", "46", atts);
-            addElement(hd, "designRating", "1559", atts);
-            addElement(hd, "developmentRating", "0", atts);
+            String coderId = StringUtils.checkNull(getRequest().getParameter("cr"));
+            if (coderId.equals("")) {
+                throw new TCWebException("Coder id parameter not included in request");
+            }
 
-            hd.startElement("","", "algorithmRatingDistribution", atts);
-            for (int i=0; i<20; i++) {
-                atts = new AttributesImpl();
-                atts.addAttribute("", "", "name", "CDATA", String.valueOf(i*100));
-                addElement(hd, "bucket", String.valueOf(1000), atts);
+            Request profileRequest = new Request();
+            profileRequest.setContentHandle("card_profile_info");
+            profileRequest.setProperty("cr", coderId);
+
+            Request distRequest = new Request();
+            distRequest.setContentHandle("rating_distribution_graph");
+
+            ResultSetContainer profileRsc =
+                    (ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(distRequest).get("card_profile_info");
+
+            ResultSetContainer distRsc =
+                    (ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(distRequest).get("Rating_Distribution_Graph");
+
+
+            AttributesImpl emptyAtts = new AttributesImpl();
+
+            hd.startElement("","","memberStats",emptyAtts);
+
+            addElement(hd, "handle", profileRsc.getStringItem(0, "handle"), emptyAtts);
+            addElement(hd, "photo", profileRsc.getStringItem(0, "image_path"), emptyAtts);
+            addElement(hd, "algorithmRating", profileRsc.getStringItem(0, "algorithm_rating"), emptyAtts);
+            addElement(hd, "algorithmRatingMax", profileRsc.getStringItem(0, "highest_rating"), emptyAtts);
+            addElement(hd, "rank", profileRsc.getStringItem(0, "rank"), emptyAtts);
+            addElement(hd, "percentile", profileRsc.getStringItem(0, "percentile"), emptyAtts);
+            addElement(hd, "memberSince", profileRsc.getStringItem(0, "member_since"), emptyAtts);
+            addElement(hd, "lastMatchDate", profileRsc.getStringItem(0, "last_match"), emptyAtts);
+            addElement(hd, "bestDvi1", profileRsc.getStringItem(0, "best_div1"), emptyAtts);
+            addElement(hd, "bestDiv2", profileRsc.getStringItem(0, "best_div2"), emptyAtts);
+            addElement(hd, "competitions", profileRsc.getStringItem(0, "num_competitions"), emptyAtts);
+            addElement(hd, "designRating", profileRsc.getStringItem(0, "design_rating"), emptyAtts);
+            addElement(hd, "developmentRating", profileRsc.getStringItem(0, "development_rating"), emptyAtts);
+
+            hd.startElement("","", "algorithmRatingDistribution", emptyAtts);
+            for (int i=0; i<distRsc.getColumnCount(); i++) {
+                addElement(hd, "bucket", distRsc.getStringItem(0, i), emptyAtts);
             }
             hd.endElement("", "", "algorithmRatingDistribution");
 
