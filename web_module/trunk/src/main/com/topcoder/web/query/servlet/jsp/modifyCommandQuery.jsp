@@ -85,7 +85,7 @@
            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandQueryTask%>" key="<%=Constants.QUERY_ID_PARAM%>"/></TD></TR>
            <TR>
              <TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">
-               <query:querySelect name="<%=Constants.QUERY_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandQueryTask.getOtherQueryList()%>" size="10" multiple="false"/>
+               <query:querySelect name="<%=Constants.QUERY_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandQueryTask.getOtherQueryList()%>" size="30" multiple="false"/>
              </TD>
            </TR>
            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
