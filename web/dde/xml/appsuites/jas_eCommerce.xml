@@ -5,28 +5,28 @@
 	<overview>This application suite has been compiled from TopCoder&#39;s Catalog of re-useable Java components with the focus on delivering the building blocks of an enterprise eCommerce website.   The suite includes the essentials for providing security for both data and users through the industry standard encryption techniques.  The manipulation of data for both order capture and catalog presentation as well as the configuration features required to administer a dynamic website.  Customer communication components provide the priority based tracking of issues, email notification ability and mass email campaign capabilities.&lt;br/&gt;&lt;br/&gt;This suite has been used by TopCoder to deliver applications to our customers.  Each component is developed with the same engineering discipline found in TopCoder&#39;s Competitive Development Methodology.  The consistency and rigor put into all software developed at TopCoder starts from each building block within our catalog.&lt;br/&gt;&lt;br/&gt;If you are interested in learning more about purchasing a subscription to access TopCoder&#39;s components or to learn about TopCoder&#39;s Application Development Services, we can be reached at &lt;A href="mailto:sales@topcodersoftware.com"&gt;sales@topcodersoftware.com&lt;A&gt;.</overview>
 	<functionality>&lt;li&gt;Online Checkout&lt;/li&gt;&lt;li&gt;Product Browsing&lt;/li&gt;&lt;li&gt;Security&lt;/li&gt;&lt;li&gt;Order Processing&lt;/li&gt;&lt;li&gt;Administration&lt;/li&gt;&lt;li&gt;Customer Communication&lt;/li&gt;</functionality>
 	<sampleApp>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/highLevelUseCase.jpg'>High Level Use Case Diagram</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity1.jpg'>Activity Diagram 1</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity2.jpg'>Activity Diagram 2</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity3.jpg'>Activity Diagram 3</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity4.jpg'>Activity Diagram 4</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity5.jpg'>Activity Diagram 5</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity6.jpg'>Activity Diagram 6</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity7.jpg'>Activity Diagram 7</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/architecture.jpg'>Architecture</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/component.jpg'>Component Diagram</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/useCase.jpg'>Use Case Diagram</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/classDiag1.jpg'>Class Diagram 1</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/classDiag2.jpg'>Class Diagram 2</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/classDiag3.jpg'>Class Diagram 3</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/classDiag4.jpg'>Class Diagram 4</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/seqDiag1.jpg'>Sequence Diagram 1</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/seqDiag2.jpg'>Sequence Diagram 2</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/seqDiag3.jpg'>Sequence Diagram 3</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/seqDiag4.jpg'>Sequence Diagram 4</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/seqDiag5.jpg'>Sequence Diagram 5</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/seqDiag6.jpg'>Sequence Diagram 6</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/seqDiag7.jpg'>Sequence Diagram 7</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/highLevelUseCase.jpg'>High Level Use Case Diagram</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/activity1.jpg'>Activity Diagram 1</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/activity2.jpg'>Activity Diagram 2</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/activity3.jpg'>Activity Diagram 3</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/activity4.jpg'>Activity Diagram 4</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/activity5.jpg'>Activity Diagram 5</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/activity6.jpg'>Activity Diagram 6</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/activity7.jpg'>Activity Diagram 7</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/architecture.jpg'>Architecture</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/component.jpg'>Component Diagram</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/useCase.jpg'>Use Case Diagram</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/classDiag1.jpg'>Class Diagram 1</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/classDiag2.jpg'>Class Diagram 2</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/classDiag3.jpg'>Class Diagram 3</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/classDiag4.jpg'>Class Diagram 4</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/seqDiag1.jpg'>Sequence Diagram 1</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/seqDiag2.jpg'>Sequence Diagram 2</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/seqDiag3.jpg'>Sequence Diagram 3</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/seqDiag4.jpg'>Sequence Diagram 4</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/seqDiag5.jpg'>Sequence Diagram 5</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/seqDiag6.jpg'>Sequence Diagram 6</doc>
+		<doc file='http://software.topcoder.com/images/catalog/appsuites/ecommerce/seqDiag7.jpg'>Sequence Diagram 7</doc>
 	</sampleApp>
 	<caseStudy file='http://www.topcoder.com/i/downloads/Gift_Card_Case_Study.pdf'/>
 	<componentList>
