@@ -134,7 +134,7 @@
         <td align="center" class="lightBkgnd">
             <table border="0" cellpadding="0" cellspacing="4">
                 <tr>
-               	 	<html:hidden name="action" value="edit"/>
+               	 	<html:hidden name="actionQQ_BORRAME" value="edit"/>
                	 	<html:hidden name="timelineAction" value=""/>
                	 	<html:hidden property="currentEdition " value="timeline"/>
 			<td>

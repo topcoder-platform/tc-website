@@ -914,19 +914,19 @@ public final class ProjectForm extends ReviewForm {
         boolean checkProjectData = false;
 
 
-        String actionTimeline = request.getParameter("actionTimeline") ;
-        if (actionTimeline != null) {
+        String timelineAction = request.getParameter("timelineAction") ;
+        if (timelineAction != null) {
             // the user edited the timeline
 
-            if (Constants.ACTION_STORE.equals(actionTimeline)) {
+            if (Constants.ACTION_STORE.equals(timelineAction)) {
                 checkTimeline = true;
             }
 
-            if (Constants.ACTION_REFRESH.equals(actionTimeline)) {
+            if (Constants.ACTION_REFRESH.equals(timelineAction)) {
                 checkTimeline = true;
             }
 
-            if (Constants.ACTION_LOAD.equals(actionTimeline)) {
+            if (Constants.ACTION_LOAD.equals(timelineAction)) {
                 checkPayments = true;
             }
 
