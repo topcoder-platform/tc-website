@@ -22,6 +22,23 @@
         <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
         <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
 
+<style>
+<!--
+p.Code, li.Code, div.Code
+	{mso-style-name:Code;
+	mso-style-link:"Code Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+-->
+</style>
+
       </head>
 
       <body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
@@ -69,7 +86,7 @@ When competing in the arena, while it is important to be able to code a solution
 <br/><br/>
 The sentinel is a technique in programming where one avoids the checking of corner cases by placing a physical boundary around calculated values. The best way to explain it is through thought experiment: Picture yourself looking down a long narrow hallway that acted as a bridge across a bottomless pit. Walking down this hallway is maybe constrictive but rather simple, and with walls and a ceiling blocking all vision of the pit you wouldn't feel any fear of falling. Now, remove the walls and the ceiling. Even though you have more freedom to move about, and you are less constricted to move, it's not so easy to convince yourself that you could move faster that you did before the walls and extra floor was removed. The walls in this experiment are the sentinels; they make it easier for you to move about by restricting your movement. A sentinel is a collection of values in a data structure that make it easier for your code to avoid boundary checks by giving it walls to lean against; this sacrifice of space is made to increase the dependability of code.
 <br/><br/>
-Our first example illustrates the concept. The problem is that you are given an int[] values and you need to determine how many elements in the array are greater than one of its neighbors. Let's also say for completeness that values can only have between 1 and 50 elements inclusive and that every value is between 1 and 109 inclusive. A first attempt at code would look like this:
+Our first example illustrates the concept. The problem is that you are given an <span class="code">int[] values</span> and you need to determine how many elements in the array are greater than one of its neighbors. Let's also say for completeness that values can only have between 1 and 50 elements inclusive and that every value is between 1 and 10<sup>9</sup> inclusive. A first attempt at code would look like this:
 <br/><br/>
 
 <pre>
@@ -108,11 +125,11 @@ return count;
 }
 </pre>
 
-Not only is this approach simpler but it is much safer code. First look at step A. This is the creation of more space, for you need this extra space to place your walls. Then look at step B. This is the creation of the walls, where the rest of the values are recopied with the values in the original array. The most important part about this step is that the solution with the sentinels in place would be the exact same solution without the sentinels. In this case, the leftover Integer.MAX_VALUEs act as walls in our search for lesser neighbors. Now for the active part of the code, look at step C. This is where we lean against the walls. Notice the lack of border checks. this is what we were looking for. We took three different corner cases and treated them all with the same case. It's a lot easier to verify your solution when you only have to check one case instead of three. While this may be a contrived example, the following examples will show the power of the sentinel.
+Not only is this approach simpler but it is much safer code. First look at step A. This is the creation of more space, for you need this extra space to place your walls. Then look at step B. This is the creation of the walls, where the rest of the values are recopied with the values in the original array. The most important part about this step is that the solution with the sentinels in place would be the exact same solution without the sentinels. In this case, the leftover <span class="code">Integer.MAX_VALUE</span>s act as walls in our search for lesser neighbors. Now for the active part of the code, look at step C. This is where we lean against the walls. Notice the lack of border checks. this is what we were looking for. We took three different corner cases and treated them all with the same case. It's a lot easier to verify your solution when you only have to check one case instead of three. While this may be a contrived example, the following examples will show the power of the sentinel.
 <br/><br/>
-The second example may not seem so obvious, but that is due to having to open your mind to the sentinel technique. Keep in mind that your walls need not be special values; they only need to be values that allow the code to lean against them in order to arrive at a solution. An example of this type of sentinel is when you're asked to look for a pattern x in a string y that represents not a line of letters but rather a circle of letters. One would obviously like to use available string search routines in some form, but most languages don't provide a construct for this kind of search. Three common approaches to this problem are to 1) rotate the letters and check each time for the pattern, 2) to look for partial substring matches in the beginning and look for the corresponding match in the back, and 3) to write your own naive matcher and ditch the prewritten routines entirely. All of these pass up the elegant move (y+y).indexOf(x). This is yet again a use of sentinels; notice that the creation of space is automatic in the string concatenation, the walls are formed by the boundaries of the new string, the new structure gives the exact same result, and the indexOf method has no problems leaning against the newly-formed walls. Problem solved: elegantly, safely, and with lots of time to spare. Many successful coders made good use of this in the 2002 TCO Online Round 2 to get stellar scores in the 250.
+The second example may not seem so obvious, but that is due to having to open your mind to the sentinel technique. Keep in mind that your walls need not be special values; they only need to be values that allow the code to lean against them in order to arrive at a solution. An example of this type of sentinel is when you're asked to look for a pattern x in a string y that represents not a line of letters but rather a circle of letters. One would obviously like to use available string search routines in some form, but most languages don't provide a construct for this kind of search. Three common approaches to this problem are to 1) rotate the letters and check each time for the pattern, 2) to look for partial substring matches in the beginning and look for the corresponding match in the back, and 3) to write your own naive matcher and ditch the prewritten routines entirely. All of these pass up the elegant move <span class="code">(y+y).indexOf(x)</span>. This is yet again a use of sentinels; notice that the creation of space is automatic in the string concatenation, the walls are formed by the boundaries of the new string, the new structure gives the exact same result, and the <span class="code">indexOf</span> method has no problems leaning against the newly-formed walls. Problem solved: elegantly, safely, and with lots of time to spare. Many successful coders made good use of this in the 2002 TCO Online Round 2 to get stellar scores in the 250.
 <br/><br/>
-Another great place to use a sentinel is in a map problem. In most map problems, you'll be given a String[] that represents the map, with each character representing either an element of terrain or a wall. Just like in our first example, in map problems you'll have to look at the set of neighbors of a square of the map, and if you are at the edge or worse at a corner this set can become unwieldy. Sentinels can help in this situation. Assume that you cannot walk off the edge of the map, and that your String[] map uses Xs as wall characters. Then the following bit of code may help:
+Another great place to use a sentinel is in a map problem. In most map problems, you'll be given a <span class="code">String[]</span> that represents the map, with each character representing either an element of terrain or a wall. Just like in our first example, in map problems you'll have to look at the set of neighbors of a square of the map, and if you are at the edge or worse at a corner this set can become unwieldy. Sentinels can help in this situation. Assume that you cannot walk off the edge of the map, and that your <span class="code">String[]</span> map uses Xs as wall characters. Then the following bit of code may help:
 <br/><br/>
 
 <pre>
