@@ -71,7 +71,7 @@ public class DokkahBlade {
 
   }
   private boolean found(String text, String term) {
-    if (text.toLowerCase().indexOf(term.toLowerCase())>-1) return true;
+    if (text!=null && text.toLowerCase().indexOf(term.toLowerCase())>-1) return true;
     else return false;
   }
 
