@@ -91,7 +91,7 @@ abstract class FullRegBase extends SimpleRegBase {
      * @return
      * @throws Exception
      */
-    static Map getQuestions(String db) throws Exception {
+    protected static Map getQuestions(String db) throws Exception {
         Request r = new Request();
         r.setContentHandle("demographic_question_list");
         Map qMap = getDataAccess(db, true).getData(r);
