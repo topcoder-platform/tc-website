@@ -104,7 +104,7 @@
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">28</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">29</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">30</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"  BACKGROUND="/i/calendar_tourny_bg.gif"><FONT COLOR="#FF0000"><B>31</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>2002 Invitational Tournament<BR/>Regional Quarter-Finals</B></SPAN><BR/>Register: 7:30&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4270&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>31</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 109</B></SPAN><BR/>Register: 7:30&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4270&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
                 <TD WIDTH="97" ALIGN="center" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
                 <TD WIDTH="97" ALIGN="center" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
                 <TD WIDTH="97" ALIGN="center" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
