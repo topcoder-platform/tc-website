@@ -41,8 +41,8 @@ public class Home extends Base {
             dataRequest.setContentHandle("public_home_data");
             dataRequest.setProperty("sr", "1");
             dataRequest.setProperty("er", "10");   // just get the top 10
-            getRequest().setAttribute("Top_Ranked_Div_1",
-                    dwDai.getData(dataRequest).get("Top_Ranked_Div_1"));
+//            getRequest().setAttribute("Top_Ranked_Div_1",
+//                    dwDai.getData(dataRequest).get("Top_Ranked_Div_1"));
             getRequest().setAttribute("School_Avg_Rating",
                     dwDai.getData(dataRequest).get("School_Avg_Rating"));
             getRequest().setAttribute("Country_Avg_Rating",
