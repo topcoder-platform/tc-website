@@ -29,6 +29,7 @@ public final class ProcessAuthentication {
 
     static boolean authenticate(Authentication credentials, String handle,
                                 String password) throws Exception {
+        log.debug("logging in " + handle + "/" + password);
         boolean result = false;
         credentials.setHandle(handle);
         credentials.setPassword(password);
