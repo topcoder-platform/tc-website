@@ -46,7 +46,7 @@ public abstract class Base implements RequestProcessor {
     }
 
     /** subclasses may override this to demand a login this session */
-    protected void getAuthUser() {
+    protected User getAuthUser() {
         return auth.getActiveUser();
     }
 

@@ -16,7 +16,7 @@ String itemind = "<IMG SRC=\"/i/hs/nav_arrow_right.gif\" WIDTH=\"10\" HEIGHT=\"1
 // indent titles of open submenus with this
 String openind = "<IMG SRC=\"/i/hs/nav_arrow_bottom.gif\" WIDTH=\"10\" HEIGHT=\"10\" ALT=\"\" BORDER=\"0\">";
 // indent submenu items with this
-String subind = "<IMG SRC=\"/i/hs/11x9.gif\" WIDTH=\"11\" HEIGHT=\"9\" ALT=\"\" BORDER=\"0\">";
+String subind = "<IMG SRC=\"/i/hs/11x9.gif\" WIDTH=\"10\" HEIGHT=\"10\" ALT=\"\" BORDER=\"0\">";
 
 // spacer between items on the root menu
 String rootsep = "<TR><TD HEIGHT=\"1\" BGCOLOR=\"#333333\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
