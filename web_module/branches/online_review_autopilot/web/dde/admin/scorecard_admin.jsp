@@ -142,7 +142,7 @@ for (int idx=0; idx<scorecards.length; idx++) {
   if (sc.getStatus() == 1) statusButton = "Inactivate";
   
   String defaultButton = "Clear Default";
-  if (sc.getStatus() == 1) statusButton = "Make Default";
+  if (sc.isDefault()) defaultButton = "Make Default";
 %>
   <tr>
     <td><a href="/admin/scorecard.jsp?sid=<%=sc.getId()%>"><%=sc.getName()%></a></td>
