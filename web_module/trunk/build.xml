@@ -954,7 +954,7 @@
         <antcall target="package-EJB-CoderBean"/>
         <antcall target="package-EJB-ProblemRatingBean"/>
         <antcall target="package-EJB-SurveyBean"/>
-        <antcall target="package-EJB-RBoardApplication"/>
+        <antcall target="package-EJB-RBoard"/>
         <antcall target="war-tc"/>
     </target>
 
