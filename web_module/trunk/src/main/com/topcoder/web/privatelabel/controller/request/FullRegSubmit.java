@@ -61,12 +61,11 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
         for (Iterator it = ((FullRegInfo)regInfo).getResponses().iterator(); it.hasNext();) {
             r = (DemographicResponse) it.next();
             q = (DemographicQuestion) questions.get(new Long(r.getQuestionId()));
-            response.createResponse(ret.getId(), r.getQuestionId(), transDb);
             if (q.getAnswerType()==DemographicQuestion.SINGLE_SELECT ||
                     q.getAnswerType()==DemographicQuestion.MULTIPLE_SELECT ) {
-                response.setAnswerId(ret.getId(), r.getQuestionId(), r.getAnswerId(), transDb);
+                response.createResponse(ret.getId(), r.getQuestionId(), r.getAnswerId(), transDb);
             } else {
-                response.setResponseText(ret.getId(), r.getQuestionId(), r.getText(), transDb);
+                response.createResponse(ret.getId(), r.getQuestionId(), r.getText(), transDb);
             }
             //if this is the "what school did you go to" question, add a record to the current school table for TCES
             if (q.getId()==Constants.SCHOOL_QUESTION && ((FullRegInfo)regInfo).isStudent()) {
@@ -75,7 +74,6 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
                 long schoolId = s.createSchool(transDb, db);
                 s.setFullName(schoolId, r.getText(), transDb);
                 cs.createCurrentSchool(ret.getId(), r.getText(), schoolId, transDb);
-
             }
         }
 
