@@ -418,60 +418,8 @@ Collegiate Challenge on Saturday April 20, at the University Park Hotel @ MIT in
   </TR>  
 </TABLE>  
 
+<!-- Last SRM Begins --> 
 
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
-  <TR>  
-    <TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>    
-  </TR>  
-  <TR>  
-    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" COLSPAN="9" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
-  </TR> 
-  <TR>  
-    <TD VALIGN="top" COLSPAN="11" ALIGN="center"><IMG SRC="/i/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></TD>    
-  </TR>       
-  <TR>
-    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="30%" ALIGN="left" CLASS="bodyText">
-<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Friday, April 19th:</B></FONT><BR/>
-- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom1" CLASS="bodyGeneric">Semifinal Room 1</A><BR/>
-- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom2" CLASS="bodyGeneric">Semifinal Room 2</A><BR/>
-- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom3" CLASS="bodyGeneric">Semifinal Room 3</A><BR/>
-- <A HREF="/index?t=statistics&amp;c=2002tccc_semiroom4" CLASS="bodyGeneric">Semifinal Room 4</A><BR/> 
-- <A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyGeneric">Bracket Update</A><BR/> 
-<!-- - <A HREF="/index?t=statistics&amp;c=2002tccc_photos" CLASS="bodyGeneric"></A>Photos<BR/> -->
-    </TD>
-    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="35%" ALIGN="left" CLASS="bodyText">
-<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Saturday, April 20th:</B></FONT><BR/>
-- <A HREF="/index?t=statistics&amp;c=2002tccc_champ" CLASS="bodyGeneric">Championship</A><BR/>
-<!-- - <A HREF="/index?t=statistics&amp;c=2002tccc_sunnotes" CLASS="bodyGeneric"></A>Sun Presentation Notes<BR/> --> 
-- <A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyGeneric">Bracket Update</A><BR/> 
-- <A HREF="/index?t=statistics&amp;c=2002tccc_champ#photo" CLASS="bodyGeneric">Photos</A><BR/>
-    </TD>
-    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="35%" ALIGN="left" CLASS="bodyText">
-<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Overall:</B></FONT><BR/>
-- <A HREF="/index?t=statistics&amp;c=2002tccc_favs" CLASS="bodyGeneric">Favorites</A><BR/> 
-- <A HREF="/index?t=statistics&amp;c=2002tccc_cind" CLASS="bodyGeneric">Cinderellas</A><BR/>
-- <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon" CLASS="bodyGeneric">Keep your eye on...</A><BR/> 
-- <A HREF="/index?t=statistics&amp;c=coderprofile_sun" CLASS="bodyGeneric">Java.Sun.Com Coder Profile</A><BR/>
-- <A HREF="/index?t=statistics&amp;c=2002tccc_reception" CLASS="bodyGeneric">Opening Ceremonies</A><BR/>
-    </TD>
-    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-
-  <TR>  
-    <TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD>   
-  </TR>   
-</TABLE>       
-     
-    <!-- Last SRM Begins --> 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR>
     <TD VALIGN="middle" BGCOLOR="#FFFFFF" WIDTH="184"><A HREF="/index?t=statistics&amp;c=match_summary"><IMG SRC="/i/label_srm_summary.gif" ALT="Last Match Summary" WIDTH="184" HEIGHT="26" HSPACE="5" BORDER="0" ALIGN="left"/></A></TD>
@@ -529,16 +477,15 @@ Collegiate Challenge on Saturday April 20, at the University Park Hotel @ MIT in
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText">
-    <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>    
+    <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>    
     </TD>
-    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
-<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Single Round Match 80</B></FONT><BR/>
-Monday, April 15, 2002<BR/>
-By&#160;lbackstrom,<I>TopCoder Member</I><BR/>
-<A HREF="/?t=statistics&amp;c=srm80_room1" CLASS="bodyGeneric">Room One Review</A> | 
-<A HREF="/?t=statistics&amp;c=srm80_rookie" CLASS="bodyGeneric">Rookie Review</A> | 
-<A HREF="/?t=statistics&amp;c=srm80_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A><BR/>
-    </TD>
+    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
+    <B>Single Round Match 83</B></FONT><BR/>
+	Saturday, April 27, 2002<BR/>
+	By&#160;ZorbaTHut,<I>TopCoder Member</I><BR/>
+	<A HREF="/?t=statistics&amp;c=srm83_room1" CLASS="bodyGeneric">Room One Review</A> | 
+	<A HREF="/?t=statistics&amp;c=srm83_rookie" CLASS="bodyGeneric">Rookie Review</A> | 
+	<A HREF="/?t=statistics&amp;c=srm83_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A><BR/></TD>
      <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>   
   </TR>
 
@@ -614,7 +561,7 @@ TopCoder works with companies to connect them with top-rated developers. Read mo
     </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
-<A HREF="/i/sun_redir.html" target="_blank"><IMG SRC="/i/sun_promo2.gif" ALT="" WIDTH="244" HEIGHT="161" BORDER="0"/></A><BR/>
+<A HREF="/index?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/promo_teams.gif" ALT="" WIDTH="244" HEIGHT="81" BORDER="0"/></A><BR/><A HREF="/index?t=jobs&amp;c=index"><IMG SRC="/i/promo_jobs.gif" ALT="" WIDTH="244" HEIGHT="80" BORDER="0"/></A><BR/><BR/>
 <!-- <A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/teams_banner.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A><BR/>
 <A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/jobs_banner2.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A> -->
 <xsl:call-template name="my_stats"/>
