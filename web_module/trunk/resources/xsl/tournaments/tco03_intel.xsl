@@ -85,8 +85,8 @@
                             			</tr>
                             			
                             			<tr>
+                            				
                             				<td align ="left">
-                            						
                             						<table>
                             								<tr>
                             									<td valign="top" ><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
@@ -94,17 +94,13 @@
                             									mobile-technology-based notebook! <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>View Specs</strong> </a>.
                             										<br/><br/><strong><a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">Register Now!</a> Use promotion code TCO2003. </strong></p></td>
                             								</tr>
-                            								<tr><td><img src="/i/spacer.gif" height="13" width="13"/></td></tr>
-                            						</table>
-                            						
-                            					</td>
-                            				</tr>
                             								
-                            						</tr>
-                            				</table>
-                            			</td>
-                            		
-                            		
+                            								<tr>
+                            									<td><img src="/i/spacer.gif" height="13" width="13"/></td>
+                            								</tr>
+                            									</table>
+                            						
+                            						
                             		</tr> 
                             	</table>
                             </td>
