@@ -7,16 +7,15 @@ public class CacheServerMain
     static Category log = Category.getInstance("com.server.topcoder.distCache");
     
     public static void main(String[] args) {
-        CacheServer server = new CacheServer();
         String file = null;
         // log.debug("CACHE STARTING");
-
+        int mode;
         for (int i=0; i<args.length; i++) {
             if (args[i].equals("-primary")) {
-                server.setMode(CacheServer.MODE_PRIMARY);
+                mode = CacheServer.MODE_PRIMARY;
 
             } else if (args[i].equals("-secondary")) {
-                server.setMode(CacheServer.MODE_SECONDARY);
+                mode = CacheServer.MODE_SECONDARY;
 
             } else if(file==null)
             {
@@ -32,6 +31,8 @@ public class CacheServerMain
             System.err.println(file);
             CacheConfiguration.setResourceFile(file);
         }
+        CacheServer server = new CacheServer();
+        server.setMode(mode);
         server.startCache();
     }
 
