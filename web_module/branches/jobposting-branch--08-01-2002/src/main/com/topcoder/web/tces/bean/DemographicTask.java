@@ -149,12 +149,11 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
         if (getPositionID()>=0) {
             // Position Demographics
-            dataRequest.setContentHandle("tces_campaign_demographics");
+            dataRequest.setContentHandle("tces_position_demographics");
         }
         else {
             // Campaign Demographics
-            dataRequest.setContentHandle("tces_position_demographics");
-            dataRequest.setProperty("jid", Integer.toString(getPositionID()) );
+            dataRequest.setContentHandle("tces_campaign_demographics");
         }
 
         int types[] = { TCESConstants.PRO_CODER_TYPE,
@@ -163,7 +162,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
         for (int typeI=0;typeI<types.length;typeI++) {
             if (getPositionID()>=0) {
                 // Position Demographics
-                dataRequest.setProperty("pid", Integer.toString(getPositionID()) );
+                dataRequest.setProperty("jid", Integer.toString(getPositionID()) );
             }
 
             dataRequest.setProperty("uid", Integer.toString(uid) );
