@@ -236,7 +236,7 @@
    </target>
 
 
-   <target name="mockSite" depends="compile">
+   <target name="mocksite" depends="compile">
 
       <property name="mockservlets"  value="com/topcoder/web/hs/controller" />
       <mkdir dir="${servlets}/${mockservlets}" />
@@ -247,10 +247,10 @@
          </fileset>
       </copy>
 
-      <mkdir dir="${mock.trgt}" /> 
-
       <property name="mock.trgt"     value="${tc_cluster}/hs" />
       <property name="mock.src"      value="${web}/hs/view" />
+
+      <mkdir dir="${mock.trgt}" /> 
 
       <copy todir="${mock.trgt}/WEB-INF">
          <fileset dir="${resources}/hs">
