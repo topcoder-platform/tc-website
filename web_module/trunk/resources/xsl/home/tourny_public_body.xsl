@@ -229,7 +229,7 @@ Wednesday, August 21, 2002<BR/><BR/>
           </TR>
           <TR><TD COLSPAN="5" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>          
           <TR>
-             <TD VALIGN="middle" ROWSPAN="4" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0">&#160;<B>Div-II</B></TD>
+             <TD VALIGN="middle" ROWSPAN="2" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0">&#160;<B>Div-II</B></TD>
              <TD VALIGN="middle" HEIGHT="16" CLASS="bodyText">&#160;&#160;Best:</TD> 
              <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;centipede80</TD>
              <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">217</TD>
@@ -237,21 +237,9 @@ Wednesday, August 21, 2002<BR/><BR/>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;sphere</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;sphere<BR/>&#160;&#160;datakix<BR/>&#160;&#160;daily10</TD>
              <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-259</TD>
              <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 12</TD>
-          </TR>                                
-          <TR>
-             <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;datakix</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-259</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 7</TD>
-          </TR>                                
-          <TR>
-             <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;daily10</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-259</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 8</TD>
           </TR>                                
        </TABLE>
     </TD>
