@@ -102,8 +102,8 @@
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">10</span><br />
                                     <strong>Match 207</strong><br />
-                                    Register: 7:00&#160;PM<br />
-                                    Compete: 10:00&#160;PM<br />
+                                    Register: 10:00&#160;AM<br />
+                                    Compete: 1:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=5853&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">11</td>
