@@ -5,15 +5,15 @@
   <xsl:import href="public_body.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
-    <HTML>
-      <HEAD>
+    <html>
+      <head>
         <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder Home</TITLE>
+        <title>TopCoder Home</title>
         <xsl:call-template name="CSS"/>      
-        <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-        <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-      </HEAD>
-      <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+        <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+        <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+      </head>
+      <body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
         <xsl:call-template name="Top"/>
         <xsl:choose>
           <xsl:when test="/TC/LoggedIn='true'">
@@ -24,50 +24,53 @@
           </xsl:otherwise>
         </xsl:choose>
     <!-- Footer Include Begins -->
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-  <TR>
-    <TD BGCOLOR="#666666" WIDTH="160"><IMG SRC="/i/clear.gif" WIDTH="160" HEIGHT="1" BORDER="0"/></TD>
-      <TD BGCOLOR="#666666" WIDTH="10"><IMG SRC="/i/footer_top_angle.gif" WIDTH="10" HEIGHT="10" BORDER="0"/></TD>
-        <TD BGCOLOR="#CCCCCC" WIDTH="100%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    </TR>
-</TABLE>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#666666">
-  <TR>
-    <TD COLSPAN="2" HEIGHT="15" BACKGROUND="/i/footer_graphic_tile.gif" ALIGN="left"><IMG SRC="/i/footer_graphic.gif" WIDTH="710" HEIGHT="16" BORDER="0"/></TD>
-  </TR>
-  <TR>
-    <TD WIDTH="20" VALIGN="top" BGCOLOR="#666666" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="20" HEIGHT="1" BORDER="0"/></TD>
-    <TD WIDTH="100%" VALIGN="top" ALIGN="left" BGCOLOR="#666666" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
-    <SPAN CLASS="smallFoot">
-      <A CLASS="smallFoot">
-        <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
-        register
-      </A>&#160;&#160;::&#160;&#160;
-      <A CLASS="smallFoot">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>
-        about [TC]
-      </A>&#160;&#160;::&#160;&#160;
-      <A CLASS="smallFoot">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>
-        contacts
-      </A>&#160;&#160;::&#160;&#160;
-      <A CLASS="smallFoot">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=privacy</xsl:attribute>
-        privacy
-      </A>&#160;&#160;::&#160;&#160;
-      <A CLASS="smallFoot">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=terms</xsl:attribute>
-        terms
-      </A>&#160;&#160;::&#160;&#160;
-      <A CLASS="smallFoot">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=home&amp;c=public_home</xsl:attribute>
-        [TC] home
-      </A>
-    </SPAN><BR/><SPAN CLASS="smallText">Copyright &#169; 2003, TopCoder, Inc. All rights reserved.</SPAN><BR/><BR/><BR/></TD>
-  </TR>
-</TABLE>    
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td bgcolor="#666666" width="160"><img src="/i/clear.gif" width="160" height="1" border="0"/></td>
+      <td bgcolor="#666666" width="10"><img src="/i/footer_top_angle.gif" width="10" height="10" border="0"/></td>
+        <td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+    </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#666666">
+  <tr>
+    <td colspan="2" height="15" background="/i/footer_graphic_tile.gif" align="left"><img src="/i/footer_graphic.gif" width="710" height="16" border="0"/></td>
+  </tr>
+  <tr>
+    <td width="20" valign="top" bgcolor="#43515E" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" width="20" height="1" border="0"/></td>
+    <td width="100%" valign="top" align="left" bgcolor="#43515E" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" width="1" height="5" border="0"/><br/>
+      <span class="smallFoot">
+        <a class="smallFoot" target="_parent">
+          <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
+          register
+        </a>&#160;&#160;|&#160;&#160;
+        <a class="smallFoot" target="_parent">
+          <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>
+          about [TC]
+        </a>&#160;&#160;|&#160;&#160;
+        <a class="smallFoot" target="_parent">
+          <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>
+          contacts
+        </a>&#160;&#160;|&#160;&#160;
+        <a class="smallFoot" target="_parent">
+          <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=privacy</xsl:attribute>
+          privacy
+        </a>&#160;&#160;|&#160;&#160;
+        <a class="smallFoot" target="_parent">
+          <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=terms</xsl:attribute>
+          terms
+        </a>&#160;&#160;|&#160;&#160;
+        <a class="smallFoot" target="_parent">
+          <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>
+          [TC] home
+        </a>
+      </span><br/><br/>
+      <span class="smallFoot">Copyright &#169; 2003, TopCoder, Inc. All rights reserved.</span>
+      <br/><br/><br/>
+    </td>
+  </tr>
+</table>    
     <!-- Footer Include Ends -->
-      </BODY>
-    </HTML>
+      </body>
+    </html>
   </xsl:template>
 </xsl:stylesheet>
