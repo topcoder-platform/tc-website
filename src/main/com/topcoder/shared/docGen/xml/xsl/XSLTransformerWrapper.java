@@ -5,6 +5,13 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.*;
 
+import javax.xml.transform.SourceLocator;
+import javax.xml.transform.TransformerException;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
+import org.apache.xml.utils.SAXSourceLocator;
+import org.apache.xml.utils.WrappedRuntimeException;
+
 /**
  * XSLTransformerWrapper.java
  *
@@ -57,7 +64,14 @@ public class XSLTransformerWrapper {
 
             this.transformer = transformerFactory.newTransformer(xslSource);
         } catch (TransformerConfigurationException e) {
-            throw e;
+            //killing most of the stack trace cuz it's just too much
+            //and not very informative.
+            SourceLocator s = getRootSourceLocator(e);
+            throw new Exception(e.getMessage() + 
+                    "\n column  : " + s.getColumnNumber() +
+                    "\n line    : " + s.getLineNumber() + 
+                    "\n publicid: " + s.getPublicId() + 
+                    "\n systemid: " + s.getSystemId());
         }
     }
 
@@ -98,6 +112,37 @@ public class XSLTransformerWrapper {
         } catch (TransformerException e) {
             throw e;
         }
+    }
+
+
+
+    private SourceLocator getRootSourceLocator(Throwable exception) {
+      SourceLocator locator = null;
+      Throwable cause = exception;
+        
+      // Try to find the locator closest to the cause.
+      do {
+        if(cause instanceof SAXParseException) {
+          locator = new SAXSourceLocator((SAXParseException)cause);
+        }
+        else if (cause instanceof TransformerException) {
+          SourceLocator causeLocator = 
+                        ((TransformerException)cause).getLocator();
+          if(null != causeLocator)
+            locator = causeLocator;
+        }
+        if(cause instanceof TransformerException)
+          cause = ((TransformerException)cause).getCause();
+        else if(cause instanceof WrappedRuntimeException)
+          cause = ((WrappedRuntimeException)cause).getException();
+        else if(cause instanceof SAXException)
+          cause = ((SAXException)cause).getException();
+        else
+          cause = null;
+      }
+      while(null != cause);
+            
+      return locator;
     }
 
 
