@@ -512,12 +512,19 @@
                     <td width="20%" class="statText" align="center" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Submissions</td>
                     <td width="39%" class="statText" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Avg. Score</td>
                 </tr>
-              
+               
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="right">98.75</td>
+                </tr>
+                
+                <tr valign="top">
+                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=304697">ozzie</a></td>
+                    <td class="statText" align="center">1</td>
+                    <td class="statText" align="right">90.83</td>
                 </tr>
                 
                 <tr valign="top">
@@ -541,14 +548,7 @@
                     <td class="statText" align="right">87.31</td>
                 </tr>
 
-                <tr valign="top">
-                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=294570">Saxophonist</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="right">74.78</td>
-                </tr>
-
-
+                
                 <tr valign="top">
                     <td width="25%" colspan="4"><img src="/i/clear.gif" width="1" height="3" border="0" /></td>
                 </tr>
