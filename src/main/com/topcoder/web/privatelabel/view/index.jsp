@@ -39,13 +39,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
 
-<!-- Upcoming Tournaments begins -->
+<!-- Upcoming Tournaments begins 
 
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="header">Upcoming Private Label Events</td></tr>
             </table>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>-->
+
+<!-- Past Tournaments begins -->
+            <table width="100%" border="0" cellpadding="4" cellspacing="0">
+                <tr><td class="header">Past Private Label Events</td></tr>
+            </table>
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=google04&d2=overview" target="_blank"><img src="/i/events/google2004/indexLogo.gif" alt="2003 GECC" width="274" height="66" border="0" /></A></td>
@@ -62,13 +70,8 @@
                 </tr>
             </table>
 
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-
-<!-- Past Tournaments begins -->
-            <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="header">Past Private Label Events</td></tr>
-            </table>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+                <hr width="100%" size="1" noshade="noshade" />
+                
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=javaone04&d2=javaone_overview" target="_blank"><img src="/i/events/2004javaone_logo.gif" alt="2004 JavaOne" width="274" height="66" border="0" /></A></td>
