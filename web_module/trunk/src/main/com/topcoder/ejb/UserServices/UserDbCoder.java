@@ -169,6 +169,7 @@ final class UserDbCoder {
             DBMS.printSqlException(true, sqe);
             throw new TCException(sqe.getMessage());
         } catch (Exception ex) {
+            ex.printStackTrace();
             if (demogError) {
                 demographicResponses = coder.getDemographicResponses();
                 XMLDocument err = new XMLDocument("DEMOG_ERROR_FULL_LIST");
