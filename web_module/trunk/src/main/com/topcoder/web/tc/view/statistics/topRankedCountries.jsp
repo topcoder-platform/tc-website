@@ -53,7 +53,7 @@
                  </TR>
                  <TR>
                    <TD CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
-                     In order for a country to be ranked, it must have at least 5 rated members.
+                     In order for a country to be ranked, it must have at least 10 rated members.
                    </TD>
                  </TR>
                  <TR>
