@@ -67,6 +67,10 @@ public class Constants {
     public static String SIMPLE_REG_MAIN;
     public static String SIMPLE_REG_CONFIRM;
     public static String SIMPLE_REG_SUBMIT;
+    public static String FULL_REG_MAIN;
+    public static String FULL_REG_DEMOG;
+    public static String FULL_REG_CONFIRM;
+    public static String FULL_REG_SUBMIT;
 
     //DB's
     public static String REGISTRATION_DB;
