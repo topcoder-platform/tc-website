@@ -704,10 +704,10 @@
                 <include name="includes/modules/simpleSearch.jsp"/>
             </fileset>
             <classes dir="${classes}">
-                <include name="com/topcoder/shared"/>
-                <include name="com/topcoder/common"/>
-                <include name="com/topcoder/web/common/" />
-                <include name="com/topcoder/web/tc/" />
+                <include name="com/topcoder/shared/**/*.class"/>
+                <include name="com/topcoder/common/**/*.class"/>
+                <include name="com/topcoder/web/common/**/*.class" />
+                <include name="com/topcoder/web/tc/**/*.class" />
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc.tld"/>
