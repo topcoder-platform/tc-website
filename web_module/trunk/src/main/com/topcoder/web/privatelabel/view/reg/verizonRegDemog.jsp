@@ -17,6 +17,20 @@
 </head>
 <body>
 
+<!-- TCO Header -->
+<a name="top_page"></a>
+            <object 
+            type="application/x-shockwave-flash"
+            data="/i/tournament/vcc03/vcc03_still.swf"
+            width="100%"
+            height="125"
+            border="0">           
+            <param name="movie" value="/i/tournament/vcc03/vcc03_still.swf" />
+            <param name="quality" value="high" />
+            <param name="salign" value="t">
+            </object>
+
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 
@@ -26,35 +40,29 @@
 
 <!-- Left Column Begins-->
          <td>
-         <p><img src="/i/clear.gif" width="180" height="60" border="0"/><br />
-         <a href="/" ><img src="/i/tournament/vcc03/vcc03_left.gif" width="180" height="74" border="0"/></a><br />
-         <img src="/i/clear.gif" width="180" height="60" border="0"/><br />
+         <p><img src="/i/clear.gif" width="180" height="10" border="0"/><br />
          <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
          <img src="/i/clear.gif" width="180" height="40" border="0"/>
          </p>
-         </td>
+         </td>         
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->
+<!-- Center Column Begins -->  
         <td class="bodyText" width="100%">
-<!-- TCO Header -->
-   <p><br /></p>
-   <div align="center"><img src="/i/tournament/vcc03/vcc03.gif" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
-   <p><br /></p>
 
 <!-- Tab bar links-->
 <jsp:include page="/verizon/verizonLinks.jsp" >
-   <jsp:param name="selectedTab" value="rules"/>
+   <jsp:param name="selectedTab" value="register_now"/>
 </jsp:include>
 <!-- Tab bar sub links-->
 <jsp:include page="/verizon/verizonSublinks.jsp" >
-   <jsp:param name="selectedList" value="rules"/>
-   <jsp:param name="selectedTab" value="registration"/>
-</jsp:include>
+   <jsp:param name="selectedList" value="register_now"/>
+   <jsp:param name="selectedTab" value=""/>
+</jsp:include>   
 
       <blockquote>
       <table cellpadding="1" cellspacing="3" class="bodyText">
@@ -66,6 +74,13 @@
                 <td colspan="2">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
+            </tr>
+            <tr>
+               <td>
+               </td>
+               <td align="left" class="bodyTitle">
+                  Registration<br /><br />
+               </td>
             </tr>
             <tr>
                 <td align="right">
@@ -94,9 +109,11 @@
             </pl:questionIterator>
 
             <tr>
-               <td colspan="2" align="center">
+               <td>
+               </td>
+               <td align="left">
                   <p><br /></p>
-                  <p align="center"><a href="javascript: document.regForm.submit();" class="button" align="center">Submit</a></p>
+                  <p><a href="javascript: document.regForm.submit();" class="button" align="center">Submit</a></p>
                   <p><br /></p>
                </td>
             </tr>
@@ -104,6 +121,20 @@
          </table>
       </blockquote>
    </td>
+<!-- Center Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" alt="" border="0" /></td>
+<!-- Gutter Ends -->
+
+<!-- Right Column Begins -->
+<!-- Right Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/>
+        </td>
+<!-- Gutter Ends -->
+   
 </tr>
 </table>
 
