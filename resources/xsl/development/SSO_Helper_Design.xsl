@@ -105,9 +105,10 @@
                                                         <strong>Technical Architecture Requirements</strong>
                                                     </p>
                                                     <ul class="noSpList">
-                                                        <li>.NET 1.1</li>
-                                                        <li>C#</li>
-                                                        <li>MicroSoft SQL Server 2000</li>
+                                                        <li>C++</li>
+                                                        <li>Java 1.3</li>
+                                                        <li>Windows 2000</li>
+                                                        <li>WebSphere 5.0</li>
                                                     </ul>
 
                                                     <!-- Payment -->
