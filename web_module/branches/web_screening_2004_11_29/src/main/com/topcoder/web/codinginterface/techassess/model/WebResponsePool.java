@@ -30,7 +30,7 @@ public class WebResponsePool extends ResponsePool {
 
             if (responseMap.containsKey(correlationId)) {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(10000);
                 } catch (InterruptedException e) {
 
                 }
@@ -38,7 +38,8 @@ public class WebResponsePool extends ResponsePool {
             } else {
                 try {
                     response.getWriter().print("X");
-                    Thread.sleep(1000);
+                    int i=0;
+                    while (i==0) {}
                     wait(waitTime);
                 } catch (InterruptedException e) {
                     //ignore
