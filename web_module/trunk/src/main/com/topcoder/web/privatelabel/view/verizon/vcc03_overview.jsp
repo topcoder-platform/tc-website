@@ -23,7 +23,7 @@ else{if (is_nav){
 		style+="ns6"
 	else
 		style+="ns4"}}
-var finalstyle = '<link rel="stylesheet" type="text/css" href="/css/vcc_' + style + '.css">'
+var finalstyle = '<link rel="stylesheet" type="text/css" href="/css/verizon/vcc_' + style + '.css">'
 document.write(finalstyle);
 </script>
 </head>
