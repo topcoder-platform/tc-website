@@ -117,13 +117,13 @@ To make this vision a reality, Google is looking for exceptional people who like
           all</b> web pages within minutes of when they change or they
 			are created.</li></p>
  <p><li>Efficiently and rapidly searching our full index of more than 2 billion web pages 
-          more than 150 million times per day (i.e. more than three thousand queries 
+          more than 150 million times per day (i.e., more than three thousand queries 
           per second at peak traffic times), plus providing search over our archives 
           of <a href="http://groups.google.com" class="bodyText">20 years of Usenet data (700M+ 
           messages)</a> and <a href="http://images.google.com" class="bodyText">320M+ images</a>.</li></p>
  <p><li>Harnessing the computational resources of our more than 10,000
 			    computers to 
-          solve large-scale problems (e.g. not just indexing documents
+          solve large-scale problems (e.g., not just indexing documents
 			    but experimenting with 
           new ranking algorithms, running machine learning algorithms on terabytes 
           of data, etc.)</li></p>
@@ -149,9 +149,7 @@ To make this vision a reality, Google is looking for exceptional people who like
           within the data that we have. Our spelling correction system is a good 
           example (<a href="http://google.com/search?q=spehl+korector" class="bodyText">spehl 
           korector</a>? <a href="http://google.com/search?q=phonitick+spewling" class="bodyText">phonitick 
-          spewling</a>? who needs a <a href="http://google.com/search?q=dictniary" class="bodyText">dictniary</a>?). 
-          People searching for <a href="britney.html" class="bodyText">Britney Spears</a> have 
-          clearly found it useful on many occasions. </li>
+          spewling</a>? who needs a <a href="http://google.com/search?q=dictniary" class="bodyText">dictniary</a>?). </li>
 <p><li> In the future, we'd like to improve our search quality by applying 
           machine-learning, artificial intelligence and information retrieval 
           techniques to problems such as: 
