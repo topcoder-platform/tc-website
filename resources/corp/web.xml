@@ -90,7 +90,7 @@
 
         <init-param>
             <param-name>page-welcome</param-name>
-            <param-value>tces_home.jsp</param-value>
+            <param-value>index.jsp</param-value>
             <description>all unresolved requests will go here</description>
         </init-param>
         <init-param>
@@ -514,43 +514,43 @@
             <param-value>/errorPage.jsp</param-value>
             <description>where to forward for errors</description>
         </init-param>
-        
+
         <init-param>
             <param-name>first_name</param-name>
             <param-value>firstName</param-value>
             <description></description>
         </init-param>
-        
+
         <init-param>
             <param-name>city</param-name>
             <param-value>city</param-value>
             <description></description>
         </init-param>
-        
+
         <init-param>
             <param-name>demog_prefix</param-name>
             <param-value>demog_</param-value>
             <description></description>
         </init-param>
-        
+
         <init-param>
             <param-name>area_of_interest_id</param-name>
             <param-value>10</param-value>
             <description></description>
         </init-param>
-        
+
         <init-param>
             <param-name>degree_id</param-name>
             <param-value>4</param-value>
             <description></description>
         </init-param>
-        
+
         <init-param>
             <param-name>last_name</param-name>
             <param-value>lastName</param-value>
             <description></description>
         </init-param>
-        
+
         <init-param>
             <param-name>email_address</param-name>
             <param-value>emailAddress</param-value>
@@ -570,19 +570,19 @@
             <param-value>abcdefghijkmnopqrstuvwxyz23456789ABCDEFGHJKLMNPQRSTUVWXYZ_</param-value>
             <description></description>
         </init-param>
-        
+
         <init-param>
             <param-name>search_scroll_size</param-name>
             <param-value>20</param-value>
             <description></description>
         </init-param>
-        
+
         <init-param>
             <param-name>student</param-name>
             <param-value>1</param-value>
             <description></description>
         </init-param>
-        
+
         <init-param>
             <param-name>professional</param-name>
             <param-value>2</param-value>
@@ -594,7 +594,7 @@
             <param-value>/testing/home.jsp</param-value>
             <description></description>
         </init-param>
-        
+
         <init-param>
             <param-name>demographics_page</param-name>
             <param-value>/testing/results/demographics.jsp</param-value>
@@ -605,7 +605,7 @@
             <param-value>/testing/search/search.jsp</param-value>
             <description>where to forward for searching</description>
         </init-param>
-        
+
         <init-param>
             <param-name>search_results_page</param-name>
             <param-value>/testing/search/results.jsp</param-value>
@@ -812,7 +812,7 @@
             <param-value>candidateProfileInfo</param-value>
             <description>the name of a command to be used to get the candidate's profile data</description>
         </init-param>
-        
+
         <init-param>
             <param-name>candidate_address_info</param-name>
             <param-value>candidateAddressInfo</param-value>
@@ -836,7 +836,7 @@
             <param-value>candidateProblemInfo</param-value>
             <description>the name of a query to be used to get the details for candidate's solutions for testing problems</description>
         </init-param>
-        
+
         <init-param>
             <param-name>candidate_preference_info</param-name>
             <param-value>candidatePreferenceInfo</param-value>
@@ -1329,19 +1329,19 @@
             <param-value>testSessionInfo</param-value>
             <description></description>
         </init-param>
-        
+
         <init-param>
             <param-name>usage_type</param-name>
             <param-value>companyUsageType</param-value>
             <description></description>
         </init-param>
-        
+
         <init-param>
             <param-name>usage_type_testing</param-name>
             <param-value>1</param-value>
             <description></description>
         </init-param>
-        
+
         <init-param>
             <param-name>usage_type_screening</param-name>
             <param-value>2</param-value>
