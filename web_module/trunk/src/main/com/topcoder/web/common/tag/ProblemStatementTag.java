@@ -29,6 +29,7 @@ public class ProblemStatementTag extends TagSupport {
      * @param val
      */
     public void setClass(String val) {
+        tdClass = val;
     }
 
     /**
