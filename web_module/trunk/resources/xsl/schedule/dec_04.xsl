@@ -96,7 +96,7 @@
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=0000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=5867&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">2</td>
                                 <td id="calendar">3</td>
                                 <td id="calendar">4</td>
@@ -110,7 +110,7 @@
                                     Register: 5:00&#160;PM<br />
                                     Compete: 8:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=0000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=5868&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">7</td>
                                 <td id="calendar">8</td>
                                 <td id="calendar">9</td>
@@ -131,7 +131,7 @@
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=0000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=5869&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                             </tr>
                             
                             <tr> 
@@ -144,7 +144,7 @@
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=0000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=5870&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">23</td>
                                 <td id="calendar">24</td>
                                 <td id="calendar">25</td>
@@ -159,7 +159,7 @@
                                     Register: 5:00&#160;PM<br />
                                     Compete: 8:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=0000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=5871&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">29</td>
                                 <td id="calendar">30</td>
                                 <td id="calendar">31</td>
