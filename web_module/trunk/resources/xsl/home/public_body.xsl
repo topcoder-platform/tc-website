@@ -59,7 +59,7 @@
 <!-- TCCC03 Championship begins-->
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr><td height="1"><img src="/i/clear.gif" alt="" width="10" height="3" border="0"/></td></tr>
-                <tr><td class="tourney_subnav"><strong>Championship Summary</strong></td></tr>
+                <tr><td class="tourney_subnav"><font size="3"><strong>Championship Summary</strong></font></td></tr>
                 <tr valign="top">
                     <td width="99%" class="bodyText">
                         <table border="0" cellspacing="5" cellpadding="0" align="right" width="200">
@@ -151,7 +151,7 @@
             <table border="0" cellspacing="0" cellpadding="3" width="100%">            
                 <tr><td valign="middle"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/><a name="photo"></a></td></tr>          
             
-                <tr><td class="tourney_subnav"><strong>Championship Photos</strong></td></tr>
+                <tr><td class="tourney_subnav"><font size="3"><strong>Championship Photos</strong></font></td></tr>
 
                 <tr>
                     <td class="bodyText" align="center">
@@ -195,6 +195,8 @@
                         <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_19.jpg');"><img src="/i/tournament/tccc03/champ_19_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
                     </td>
                 </tr>
+
+                <tr><td><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
             </table>
 <!-- TCCC03 Championship ends -->            
             
@@ -297,63 +299,71 @@
             </table>
  End of Point of View -->
 
-<!--            <hr width="100%" size="1px" color="43515E" />
+<!--            <hr width="100%" size="1px" color="43515E" />  -->
 
- Feature
-            <table border="0" cellspacing="1" cellpadding="0" width="100%">
+<!-- Feature -->
+            <table width="100%" border="0" cellspacing="0" cellpadding="3">                     
+                <tr valign="middle">
+                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Feature</font></td>
+                    <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/?t=features&amp;c=index" class="bodyText"><strong>View All</strong></a></td>
+                </tr>
+            </table>
+
+            <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr>
                     <td valign="top" width="55" align="left" class="bodyText">
                         <a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a></td>
-                    <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
+                    
+                    <td valign="top" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0" /></td>
+                    
                     <td valign="top" width="100%" align="left" class="bodyText">
-                        <p><a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_031703</xsl:attribute>
-                        <img src="/i/label_feature_title.gif" alt="Component-Based Development: TopCoder Style" width="400" height="30" border="0" /></a><br />
-                        Monday, March 17, 2003</p>
+                        <p><a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_040803</xsl:attribute><font size="4"><strong>TopCoder Competitions vs. The Real World</strong></font></a><br />
+                        Tuesday, April 8, 2003</p>
 
-                        <p>By&#160;<strong>srowen</strong><br />
+                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=303718"><strong>nicomp</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
-                        <p>There is programming, and there is software development. You, dear TopCoder member, demonstrate weekly that you 
-                        can solve well-stated programming puzzles quickly.</p>
-                        
-                        <p>Yet solutions to real-world problems require more: deciding *what* puzzles must be solved, describing them thoroughly, 
-                        developing solutions that are open to change, and verifying those solutions: design, documentation and testing. 
-                        Together with the actual programming, these make up the software development process...
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_031703</xsl:attribute>&gt;&#160;full&#160;story</a>
-                        </p>
+                        <p>Reality Television has become extremely popular. TV networks combine groups of 'average' people, place them under 
+                        modest duress, and film the proceedings. Of course the stress of surviving on a jungle island or selecting a beau from 
+                        50 attractive strangers pales in comparison to cranking out the 1000 point problem in the last 15 minutes of an SRM.
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_040803</xsl:attribute><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
+
+                <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
             </table>
- Feature ends -->
+<!-- Feature ends -->
 
-            <hr width="100%" size="1px" color="43515E" />
-
+<!-- Press Room Highlights Include -->
             <xsl:call-template name="tc_updates"/>
 
-            <hr width="100%" size="1px" color="43515E" />
-
+<!-- Java Web Start Include -->
             <xsl:call-template name="arena"/>
 
-            <hr width="100%" size="1px" color="43515E" />
-
 <!-- TC special promo -->
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="top">
-                    <td width="50%" align="left" class="bodyText"><font size="2" color="#000000" face="Arial, Helvetica, Sans-serif"><strong>Sponsorships</strong></font><br />TopCoder offers sponsorship programs for the weekly
-                        <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_srm</xsl:attribute>Single Round Matches</a> as well as for
-                        <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_tourny</xsl:attribute>Tournaments</a>. Read more about our
-                        <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_target</xsl:attribute>sponsorship programs</a>.<br /></td>
-                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                    <td width="50%" align="left" class="bodyText"><font size="2" color="#000000" face="Arial, Helvetica, Sans-serif"><strong>Employment Services</strong></font><br />TopCoder works with companies to connect them with top-rated developers. Read more about our
-                        <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>employment services</a>.<br /></td>
+                    <td class="statTextLarge" bgcolor="#999999" width="49%"><font size="3">Sponsorships</font></td>
+                    <td class="statTextLarge" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
+                    <td class="statTextLarge" bgcolor="#999999" width="49%"><font size="3">Employment Services</font></td>
+                </tr>
+                    
+                <tr valign="top">
+                    <td width="50%" align="left" class="bodyText">
+                        TopCoder offers sponsorship programs for the weekly <a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_srm</xsl:attribute>Single Round Matches</a> 
+                        as well as for <a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_tourny</xsl:attribute>Tournaments</a>. Read 
+                        more about our <a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_target</xsl:attribute>sponsorship programs</a>.<br />
+                    </td>
+
+                    <td class="statTextLarge" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
+
+                    <td width="50%" align="left" class="bodyText">
+                        TopCoder works with companies to connect them with top-rated developers. Read more about our <a class="bodyText">
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>employment services</a>.<br />
+                    </td>
                 </tr>
 
-                <tr><td colspan="5"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
+                <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
             </table>
         </td>
   <!-- Center Column Ends -->
