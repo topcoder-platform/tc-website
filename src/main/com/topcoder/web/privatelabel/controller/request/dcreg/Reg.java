@@ -3,6 +3,7 @@ package com.topcoder.web.privatelabel.controller.request.dcreg;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.VerizonRegInfo;
 import com.topcoder.web.privatelabel.controller.request.FullReg;
 import com.topcoder.web.common.TCWebException;
 
@@ -38,8 +39,13 @@ public class Reg extends FullReg {
             throw new TCWebException("hmm, we got an event id that does not map to a coder type");
         }
 
+        if (!hasError(Constants.COUNTRY_CODE)) {
+            if (ret.getCountryCode()==null || ret.getCountryCode().length()==0)
+                ret.setCountryCode("840");
+        }
 
         return ret;
     }
+
 
 }
