@@ -95,6 +95,7 @@ INSERT INTO command_query_xref VALUES(28, 52, 1);
 INSERT INTO command_query_xref VALUES(29, 51, 1);
 INSERT INTO command_query_xref VALUES(30, 53, 1);
 INSERT INTO command_query_xref VALUES(30, 54, 2);
+INSERT INTO command_query_xref VALUES(30, 2, 3);
 INSERT INTO command_query_xref VALUES(31, 55, 1);
 INSERT INTO command_query_xref VALUES(31, 56, 2);
 INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES(32,57,1);
