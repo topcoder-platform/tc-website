@@ -91,7 +91,7 @@ public class RatingImageTag extends TagSupport {
             if(bCSSOverride) {
                 output.append(cssclass);
             } else {
-                output.append(getRatingCSS(maxRating(rsc.getIntItem(0, "algorithm_rating"),
+                output.append(getRatingCSS(max(rsc.getIntItem(0, "algorithm_rating"),
                                                     rsc.getIntItem(0, "design_rating"),
                                                     rsc.getIntItem(0, "development_rating"))));
             }
@@ -153,7 +153,7 @@ public class RatingImageTag extends TagSupport {
         return "";
     }
 
-    private int maxRating(int a, int b, int c) {
+    private int max(int a, int b, int c) {
         return max(max(a,b),c);
     }
 
