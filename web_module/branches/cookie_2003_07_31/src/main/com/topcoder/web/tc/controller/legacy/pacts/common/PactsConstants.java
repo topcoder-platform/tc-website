@@ -285,7 +285,7 @@ public interface PactsConstants {
 
     // servlet and jsps
     public static final String INTERNAL_JSP_DIR = "/pacts/internal";
-    public static final String MEMBER_JSP_DIR = "/pacts/client/";
+    public static final String MEMBER_JSP_DIR = "/pacts/client";
     public static final String MEMBER_SERVLET_URL = "PactsMemberServlet";
 
     public static final String INTERNAL_SERVLET_URL = "/PactsInternalServlet";
