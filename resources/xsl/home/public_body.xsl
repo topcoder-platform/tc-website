@@ -131,6 +131,24 @@
             <xsl:call-template name="srm_sponsor"/>
 <!--SRM Sponsor Ends-->
 
+<!-- TCO-Intel notebook sweepstakes Starts -->
+    <script type="text/javascript"><![CDATA[
+    function openWin(url, name, w, h) {
+        win = window.open(url, 'biowin', "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+        win.location.href = url;
+        win.focus();
+    }
+    ]]></script>
+
+            <IMG src="/i/promos/tco_intel_notebook_right.gif" width="242" height="119" border="0" alt="" usemap="#tco_intel_map" /><br />
+            <map name="tco_intel_map">
+                <area shape="poly" alt="Win a notebook computer" coords="158,0, 158,119, 21,119, 0,98, 0,0" href="/?t=tournaments&amp;c=tco03_intel" target="_top" />
+                <area shape="rect" alt="View Specs" coords="158,0,241,118" href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_specs','comp',545,655);" />
+            </map>
+
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
+<!-- TCO-Intel notebook sweepstakes Ends -->
+
 <!-- Coder of the Month Begins -->
             <xsl:call-template name="coder_of_month"/>
 <!-- Coder of the Month Ends -->
