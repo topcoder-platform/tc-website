@@ -90,30 +90,27 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
-        resp.setContentType("text/html");
-        resp.flushBuffer();
+        notAllowed(req, resp);
     }
 
     protected void doHead(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
-        resp.setContentType("text/html");
-        resp.flushBuffer();
-    }
-
-    protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
-        resp.setContentType("text/html");
-        resp.flushBuffer();
+        notAllowed(req, resp);
     }
 
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
-        resp.setContentType("text/html");
-        resp.flushBuffer();
+        notAllowed(req, resp);
     }
 
-    protected void doTrace(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getMethod().equals("GET")) doGet(req, resp);
+        else if (req.getMethod().equals("POST")) doPost(req, resp);
+        else if (req.getMethod().equals("DELETE")) doDelete(req, resp);
+        else if (req.getMethod().equals("HEAD")) doHead(req, resp);
+        else if (req.getMethod().equals("PUT")) doPut(req, resp);
+        else notAllowed(req, resp);
+    }
+
+    protected void notAllowed(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
         resp.setContentType("text/html");
         resp.flushBuffer();
