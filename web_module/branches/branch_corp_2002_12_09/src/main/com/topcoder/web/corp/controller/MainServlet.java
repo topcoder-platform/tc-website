@@ -151,16 +151,7 @@ public class MainServlet extends HttpServlet {
 
             processorModule.setRequest(request);
             processorModule.setAuthToken(authToken);
-            try {
-                processorModule.process();
-            } catch (NotAuthorizedException nae) {
-                if (authToken.getActiveUser().isAnonymous()) {
-                    log.debug("user anonymous unauthorized to access static "
-                              + "resource, forwarding to login page.");
-                    fetchLoginPage(request,response);
-                    return;
-                }
-            }
+            processorModule.process();
             boolean forward = processorModule.isNextPageInContext();
             String destination = processorModule.getNextPage();
             if( destination != null ) {
