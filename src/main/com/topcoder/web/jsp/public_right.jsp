@@ -40,24 +40,24 @@ function find(n) {
 <!-- 2004 TCO begins -->
 <% } else if (level1.equals("tco04")) { %>
 
-			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
-			
-			<img src="/i/tournament/tco04/right_header.gif" alt="Great Opportunities are Available from our Sponsors" width="170" height="65" border="0" /><br />
+         <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+         
+         <img src="/i/tournament/tco04/right_header.gif" alt="Great Opportunities are Available from our Sponsors" width="170" height="65" border="0" /><br />
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
             <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft"><img src="/i/tournament/tco04/microsoft_right.jpg" alt="Microsoft" width="170" height="90" border="0" /></a><br />
-			
-			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+         
+         <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
             <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia"><img src="/i/tournament/tco04/nvidia_right.jpg" alt="NVIDIA" width="170" height="80" border="0" /></a><br />
-			
-			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+         
+         <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-		    <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=intel"><img src="/i/tournament/tco04/intel_right.jpg" alt="Intel Developer Services" width="170" height="80" border="0" /></a><br />
-			
-			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-			
+          <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=intel"><img src="/i/tournament/tco04/intel_right.jpg" alt="Intel Developer Services" width="170" height="80" border="0" /></a><br />
+         
+         <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+         
             <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo"><img src="/i/tournament/tco04/yahoo_right.gif" alt="Yahoo!" width="170" height="80" border="0" /></a><br />
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
@@ -74,11 +74,13 @@ function find(n) {
 <!-- 2005 TCCC begins -->
 <% } else if (level1.equals("tccc05")) { %>
 
-			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
-
-            <jsp:include page="../calendar.jsp" />
+            <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+         
+            <a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=motorola"><img src="/i/tournament/tccc05/motorola_right.gif" alt="Motorola" border="0" /></a><br />
             
-
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
+            <jsp:include page="../calendar.jsp" />
 
             <p><br/></p>
 
@@ -87,9 +89,9 @@ function find(n) {
 <!-- Microsoft begins -->
 <% } else if (level1.equals("microsoft")) { %>
 
-			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
-			
-			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft&d4=joblisting"><img src="/i/tournament/tco04/mc_animated.gif" alt="Jobs at Microsoft" width="170" height="90" border="0" /></a><br />    
+         <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+         
+         <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft&d4=joblisting"><img src="/i/tournament/tco04/mc_animated.gif" alt="Jobs at Microsoft" width="170" height="90" border="0" /></a><br />    
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
@@ -100,17 +102,32 @@ function find(n) {
 
 <!-- Microsoft ends -->
 
+<!-- Motorola begins -->
+<% } else if (level1.equals("motorola")) { %>
+
+            <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+         
+            <a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=motorola"><img src="/i/tournament/tccc05/motorola_right.gif" alt="Motorola" border="0" /></a><br />
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
+            <jsp:include page="../calendar.jsp" />
+            
+            <p><br/></p>
+
+<!-- Motorola ends -->
+
 <!-- NVIDIA begins -->
 <% } else if (level1.equals("nvidia")) { %>
 
-			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
-			
-			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=joblisting"><img src="/i/tournament/tco04/nvidia_jobs.gif" alt="NVIDIA" width="170" height="80" border="0" /></a><br />
-			
-			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+         <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+         
+         <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=joblisting"><img src="/i/tournament/tco04/nvidia_jobs.gif" alt="NVIDIA" width="170" height="80" border="0" /></a><br />
+         
+         <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
             <jsp:include page="../calendar.jsp" />
-          	
+             
             <p><br/></p>
 
 <!-- NVIDIA ends -->
@@ -118,11 +135,11 @@ function find(n) {
 <!-- Intel begins -->
 <% } else if (level1.equals("intel")) { %>
 
-			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
-			
-			 <a href="/?RoundId=5856&t=schedule&c=srm"><img src="/i/tournament/tco04/intel_opportunities.jpg" alt="Intel Opportunities" width="170" height="80" border="0" /></a><br />
-			
-			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+         <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+         
+          <a href="/?RoundId=5856&t=schedule&c=srm"><img src="/i/tournament/tco04/intel_opportunities.jpg" alt="Intel Opportunities" width="170" height="80" border="0" /></a><br />
+         
+         <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
             <jsp:include page="../calendar.jsp" />
             
@@ -133,11 +150,11 @@ function find(n) {
 <!-- Yahoo begins -->
 <% } else if (level1.equals("yahoo")) { %>
 
-			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
-			
-			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=joblisting"><img src="/i/tournament/tco04/yahoo_jobs.gif" alt="Yahoo Job Opportunities" width="170" height="80" border="0" /></a><br />
-			
-			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+         <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+         
+         <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=joblisting"><img src="/i/tournament/tco04/yahoo_jobs.gif" alt="Yahoo Job Opportunities" width="170" height="80" border="0" /></a><br />
+         
+         <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
             <jsp:include page="../calendar.jsp" />
             
