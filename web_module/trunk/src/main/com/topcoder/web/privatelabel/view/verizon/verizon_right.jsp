@@ -12,15 +12,15 @@
                         <img alt="" src="/images/spacer.gif" height="3" width="138"><br/>
 
                         <table border="0" cellspacing="5" cellpadding="0" width="138" class="formFrame">
-                            <tr><td class="subBodyCopy">Registraton Starts<br/><strong>October 27th</strong><br/><strong>7:00 AM - IST</strong></td></tr>
+                            <tr><td class="subBodyCopy">Registraton Starts<br/><strong>October 27th</strong><br/><strong>7:00am - IST</strong></td></tr>
                             
-                            <tr><td class="subBodyCopy">Registraton Ends<br/><strong>October 30th</strong><br/><strong>10:00 PM - IST</strong></td></tr>
+                            <tr><td class="subBodyCopy">Registraton Ends<br/><strong>October 30th</strong><br/><strong>10:00pm - IST</strong></td></tr>
 
-                            <tr><td class="subBodyCopy">Round #1 - Online<br/><strong>October 31st</strong><br/><strong>Register: 5:30 PM - 6:55 PM IST</strong><br/><strong>Compete: 7:00 PM - IST</strong></td></tr>
+                            <tr><td class="subBodyCopy">Round #1 - Online<br/><strong>October 31st</strong><br/>Register: <br/>5:30pm - 6:55pm - IST<br/><strong>Compete: 7:00pm - IST</strong></td></tr>
                             
-                            <tr><td class="subBodyCopy">Round #2 - Online<br/><strong>November 3rd</strong><br/><strong>Compete: 7:00 PM - IST</strong></td></tr>
+                            <tr><td class="subBodyCopy">Round #2 - Online<br/><strong>November 3rd</strong><br/><strong>Compete: 7:00pm - IST</strong></td></tr>
 
-                            <tr><td class="subBodyCopy">Championship Round<br/><span class="smallText">Live at the Verizon Chennai Facility</span><br/><strong>November 7th</strong><br/><strong>Compete: 6:00 PM - IST</strong></td></tr>
+                            <tr><td class="subBodyCopy">Championship Round<br/><span class="smallText">Live at the Verizon Chennai Facility</span><br/><strong>November 7th</strong><br/><strong>Compete: 6:00pm - IST</strong></td></tr>
                         </table>
 
                         <img alt="" src="/images/spacer.gif" height="6" width="138"><br/>
