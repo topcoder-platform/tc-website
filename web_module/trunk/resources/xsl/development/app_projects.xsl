@@ -89,6 +89,14 @@
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
 
+                                <tr valign="middle">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Seat_Service_Data_Classes_Design">Palm Stock Count Application Development</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,050 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$09.07.2004 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                </tr>
 
                             </table>
 
