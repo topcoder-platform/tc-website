@@ -1125,7 +1125,9 @@
          <antcall target="package-EJB-SearchBean"/>
          <antcall target="package-EJB-SurveyBean"/>
          <antcall target="package-EJB-UserBean"/>
+<!--
          <antcall target="package-EJB-UserEvent"/>
+-->
          <antcall target="package-EJB-UserServicesBean"/>
          <antcall target="package-EJB-UtilBean"/>
 
@@ -1147,7 +1149,9 @@
                  <include name="Search.jar"/>
                  <include name="Survey.jar"/>
                  <include name="User.jar"/>
+<!--
                  <include name="UserEvent.jar"/>
+-->
                  <include name="UserServices.jar"/>
                  <include name="Util.jar"/>
              </fileset>
