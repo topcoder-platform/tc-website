@@ -1,0 +1,107 @@
+package com.topcoder.web.ejb.fileconversion;
+
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
+import javax.naming.Context;
+import java.rmi.RemoteException;
+
+import java.io.*;
+
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.file.convert.*;
+
+/**
+ * The EJB class which handles database access routines for screening
+ * admin services.
+ *
+ * @author   1mahesh
+ * @version  1.01, 12/31/2002
+ */
+
+public class FileConversionBean implements SessionBean {
+
+    private static final Logger log = Logger.getLogger(FileConversionBean.class);
+
+    /**
+     * This method is required by the EJB Specification
+     *
+     */
+    public void ejbActivate() {
+
+    }
+
+
+    /**
+     * This method is required by the EJB Specification
+     *
+     */
+    public void ejbPassivate() {
+
+    }
+
+
+    /**
+     * This method is required by the EJB Specification.
+     * Used to get the context ... for dynamic connection pools.
+     *
+     */
+    public void ejbCreate() throws CreateException {
+    }
+
+    /**
+     * This method is required by the EJB Specification
+     *
+     */
+    public void ejbRemove() {
+    }
+
+
+    /**
+     * Sets the transient SessionContext.
+     * Sets the transient Properties.
+     *
+     */
+    public void setSessionContext(SessionContext ctx) {
+    }
+
+
+    public byte[] convertDoc(byte[] file) throws RemoteException
+    {
+        // get an instance of the converter
+        ConversionClient client = Conversion.getNewClient();
+        
+        ConversionFormatDescriptor inFormat = client.getInputFormat("doc");
+        ConversionFormatDescriptor outFormat = client.getOutputFormat(inFormat.getType(), "pdf");
+        ConversionInputSource input = new ConversionInputSource(new ByteArrayInputStream(file), inFormat.getType());
+
+        // start the conversion
+        try {
+            String claimKey = client.convertAsync(input, outFormat.getType());
+            // do something else for a while
+            boolean done = false;
+            int status = 0;
+            while (!done) {
+              status = client.getStatus(claimKey);
+              if (status != ConversionConstants.STATUS_CONVERSION_PENDING) done = true;
+            }
+            if (status == ConversionConstants.STATUS_CONVERSION_FINISHED) {
+              InputStream finishedFile = client.claim(claimKey);
+              
+              byte[] b = new byte[finishedFile.available()];
+              finishedFile.read(b);
+              finishedFile.close();
+              
+              return b;
+            }
+          } catch (ConversionException ce) {
+            // something went wrong
+          } catch (IOException io) {
+              //io exception
+              io.printStackTrace();
+          }
+        
+        return new byte[0];
+    }
+}

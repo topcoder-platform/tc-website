@@ -56,6 +56,8 @@
         <pathelement location="${jars.dir}/tcs/catalog.jar"/>
         <pathelement location="${jars.dir}/tcs/user.jar"/>
 
+	<!-- file conversion component -->
+	<pathelement location="${jars.dir}/fileconvert.jar"/>
     </path>
 
     <target name="init">
@@ -145,6 +147,20 @@
             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
         </jar>
     </target>
+    
+    <target name="package-EJB-FileConversionBean" depends="compile">
+        <!--<antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="FileConversion"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/fileconversion"/>
+        </antcall>-->
+        <jar jarfile="${ejb_jars}/FileConversion.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+	    <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/fileconversion/**"/>
+	    <metainf dir="${java}/com/topcoder/web/ejb/fileconversion" includes="*.xml"/>
+        </jar>
+    </target>
+    
 
     <target name="package-EJB-JobPostingServicesBean" depends="compile">
         <antcall target="build-ejb-unit">
