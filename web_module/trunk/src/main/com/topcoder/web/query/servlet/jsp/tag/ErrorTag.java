@@ -11,7 +11,7 @@ public class ErrorTag extends TagSupport  {
     private RequestProcessor task;
     private String key;
 
-    public void set(RequestProcessor task) {
+    public void setTask(RequestProcessor task) {
         this.task = task;
     }
 
