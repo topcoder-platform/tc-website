@@ -496,9 +496,9 @@ from
 where
   u.user_id = r.coder_id and
   c.coder_id = r.coder_id and
-  rating = 0 and
+  rating > 0 and
   u.status = 'A' and
-  num_ratings = 0 and
+  num_ratings = 1 and
   lower(email) not like '%topcoder.com' and
   handle not like 'guest%' and
   country_code in ('036','124','372','356','826','840','156','554') and
@@ -545,7 +545,7 @@ where
   rating > 0 and
   u.status = 'A' and
   num_ratings > 2 and
-  date(last_rated_event) < '03/30/2002' and
+  date(last_rated_event) < mdy(3,30,2002) and
   lower(email) not like '%topcoder.com' and
   handle not like 'guest%' and
   country_code in ('036','124','372','356','826','840','156','554') and
@@ -570,7 +570,7 @@ where
   rating > 0 and
   u.status = 'A' and
   num_ratings > 2 and
-  date(last_rated_event) >= '04/01/2002' and
+  date(last_rated_event) >= mdy(4,1,2002) and
   lower(email) not like '%topcoder.com' and
   handle not like 'guest%' and
   country_code in ('036','124','372','356','826','840','156','554') and
@@ -580,6 +580,7 @@ order by 1
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 82 "Invitational Group 6" 0 0 "
+
 select
   LOWER(u.email) AS email_address,
   u.handle,
@@ -594,7 +595,7 @@ where
   rating > 0 and
   u.status = 'A' and
   num_ratings > 2 and
-  date(last_rated_event) >= '04/01/2002' and
+  date(last_rated_event) >= mdy(4,1,2002) and
   lower(email) not like '%topcoder.com' and
   handle not like 'guest%' and
   country_code in ('036','124','372','356','826','840','156','554') and
