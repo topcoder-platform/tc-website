@@ -203,6 +203,7 @@ INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES (10
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES (1002, "jid", 1001, "TCES Job ID");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES (1003, "mid", 1001, "TCES Member ID");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES (1100, "hn", 1005, "User Handle");
+INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(43,"cd",1001,"Contest ID");
 
 
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(50,"N",null,18,1);
@@ -277,4 +278,5 @@ INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1099, "N", null, 1001, 2);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1100, "N", null, 1100, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (84, "N", null, 3, 1);
-INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (86, "N", null, 3, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (86, "N", null, 23, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (86, "N", null, 43, 1);

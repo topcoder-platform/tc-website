@@ -1102,6 +1102,8 @@ java com.topcoder.utilities.QueryLoader "OLTP" 86 "Is_Registered" 0 0 "
 SELECT count(*) AS is_registered
   FROM invite_list
  WHERE coder_id = @cr@
+   AND round_id = @rd@
+   AND contest_id = @cd@
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 87 "IMLP Targeted School List" 0 0 "
