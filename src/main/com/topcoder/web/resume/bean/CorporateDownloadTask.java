@@ -43,7 +43,7 @@ public class CorporateDownloadTask extends ResumeTask{
 
        
         Request oltpDataRequest = new Request();
-        oltpDataRequest.setContentHandle("TCES_Verify_Member_Access");
+        oltpDataRequest.setContentHandle("tces_verify_member_access");
         oltpDataRequest.setProperty("uid", Integer.toString(getUserId()));
         oltpDataRequest.setProperty("jid", Integer.toString(getJobId()));
         oltpDataRequest.setProperty("cid", Integer.toString(getCampaignId()));
