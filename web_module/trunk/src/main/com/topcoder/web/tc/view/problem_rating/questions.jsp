@@ -31,7 +31,8 @@
             </td>
             <tc:counter min="1" max="10" inc="1">
             <td>
-                        <input type="radio" name="<jsp:getProperty name="quest" property="ID"/>" value="<%= counter %>">
+                <% boolean checked = counter.equals(request.getParameter("q"+quest.getID())); %>
+                <input type="radio" name="q<jsp:getProperty name="quest" property="ID"/>" value="<%= counter %>" <%=checked?"CHECKED":""%>>
             </td>
             </tc:counter>
         </tr>
