@@ -165,7 +165,7 @@ function checkInputs(){
                     <% } else { %>
 
                         <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=400,height=200,status=0');" class="statTextBig">Upload</a>
-                        to  a resume.
+                        your resume.
 
                     <% } %>
 
