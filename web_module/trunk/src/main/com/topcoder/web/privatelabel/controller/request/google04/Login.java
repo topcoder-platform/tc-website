@@ -234,6 +234,10 @@ public class Login extends FullLogin {
             }
         }
         //returning null if they don't have an account in either system
+	if(info == null)
+	{
+		addError(Constants.HANDLE, "Invalid Login");		
+	}
         return info;
 
     }
