@@ -10,6 +10,7 @@ import com.topcoder.security.TCSubject;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletConfig;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,12 +26,13 @@ import java.util.*;
 public class Controller extends BaseServlet {
     private static Logger log = Logger.getLogger(Controller.class);
 
+
     /**
      * Initializes the servlet.
-     * @throws ServletException
+     * @throws javax.servlet.ServletException
      */
-    public void init() throws ServletException {
-        super.init(getServletConfig());
+    public synchronized void init(ServletConfig config) throws ServletException {
+        super.init(config);
         Constants.init(getServletConfig());
     }
 
