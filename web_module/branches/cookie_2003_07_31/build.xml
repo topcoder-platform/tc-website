@@ -200,7 +200,7 @@
             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/docGen/xml/TagRenderer.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/docGen/xml/*.class"/>
         </jar>
     </target>
 
