@@ -1,6 +1,9 @@
 <%@  page language="java"  %>
-  
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<jsp:useBean id="memberList" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <html>
 
