@@ -28,7 +28,7 @@
         <td width="170" bgcolor="#CCCCCC">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="sponsorship"/>
-                <jsp:param name="level2" value="srm_web"/> 
+                <jsp:param name="level2" value="tourny_index"/> 
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -47,26 +47,31 @@
                     <td class="bodyText" width="99%">
                         <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
-                        <h2 class="corpHead">SRM Package - Applet Coverage</h2>
+                        <h2 class="corpHead">Tournament - Applet Coverage</h2>
 
                         <table cellpadding="10" cellspacing="0" border="0" align="right">
                         <tr><td><table border="0" cellpadding="6" cellspacing="0" class="sidebarBox">
-                            <tr><td class="sidebarTitle" >SRM PACKAGE LINKS:</td></tr>
+                            <tr><td class="sidebarTitle">TOURNAMENT PACKAGE LINKS:</td></tr>
                             
                             <tr valign="top">
                                 <td class="sidebarText">
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_index">SRM Overview</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_web">Web site coverage</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournament Overview</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_web">Web site coverage</a><br />
                                     <strong>Applet coverage</strong><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_email">Email distribution</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_email">Email distribution</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_media">Media Coverage</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_on-site">On-site arena</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_pr">Public relations</a><br />
+                                    <a href="/i/srm_3pgr.pdf">Download Overview (PDF)</a><br />
                                 </td>
                             </tr>
                         </table></td></tr>
                         </table>
                         
-                        <p>The Arena Applet is where the action takes place. Coders square off against each other in "rooms" based upon their 
-                        current rating. A sample of how a sponsor is presented in the applet is shown below and on the following sample pages.</p>
-                    
+                        <p>The Arena Applet is where the action takes place. Coders square off against each other in "rooms" based 
+                        upon their current rating. A sample of how a sponsor is presented in the applet is shown below and on the 
+                        following sample pages.</p>
+                        
                         <ul>
                             <li><strong>Lobby</strong> - entry way and chat area for both competitors and spectators 
                             <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=applet_l">View large sample</a></nobr></li>
@@ -82,13 +87,13 @@
                     
                         <p><strong>Note</strong> - TopCoder Marketing will produce all necessary graphics &#40;working with a sponsor's internal marketing team 
                         or agency of record&#41; needed for the medium.</p>
-                        
-                        <p><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">What is in a Tournament Package?</a></p>
+                    
+                        <p><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">What is in an SRM Package?</a></p>
 
                         <p><br/></p>
                     </td>
 
-<!-- Gutter -->
+<!-- Gutter Begins -->
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 

@@ -28,7 +28,7 @@
         <td width="170" bgcolor="#CCCCCC">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="sponsorship"/>
-                <jsp:param name="level2" value="srm_web"/> 
+                <jsp:param name="level2" value="tourny_index"/> 
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -47,64 +47,81 @@
                     <td class="bodyText" width="99%">
                         <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
-                        <h2 class="corpHead">SRM Package - Web Site Coverage</h2>
+                        <h2 class="corpHead">Tournament - Web Site Coverage</h2>
 
                         <table cellpadding="10" cellspacing="0" border="0" align="right">
                         <tr><td><table border="0" cellpadding="6" cellspacing="0" class="sidebarBox">
-                            <tr><td class="sidebarTitle" >SRM PACKAGE LINKS:</td></tr>
+                            <tr><td class="sidebarTitle">TOURNAMENT PACKAGE LINKS:</td></tr>
                             
                             <tr valign="top">
                                 <td class="sidebarText">
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_index">SRM Overview</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournament Overview</a><br />
                                     <strong>Web site coverage</strong><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">Applet coverage</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_email">Email distribution</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_applet">Applet coverage</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_email">Email distribution</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_media">Media Coverage</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_on-site">On-site arena</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_pr">Public relations</a><br />
+                                    <a href="/i/srm_3pgr.pdf">Download Overview (PDF)</a><br />
                                 </td>
                             </tr>
                         </table></td></tr>
                         </table>
                         
-                        <p>TopCoder.com is the primary medium for introducing prospective members to the concept of weekly programming 
-                        competitions. Additionally, the site serves the membership with a "trading card" mentality where every member has 
-                        a complete set of statistics accompanying their profile.</p>
+                        <p>TopCoder.com is the primary medium for introducing prospective members to the concept of weekly 
+                        programming competitions. Additionally, the site serves the membership with a "trading card" mentality 
+                        where every member has a complete set of statistics accompanying their profile.</p>
                         
-                        <p>Please note, membership information is viewable to a certain extent on the public side of the site. Rating and earning 
-                        history, match performance, code submissions, challenges, and more are available only to registered members.</p>
+                        <p>Please note, membership information is viewable to a certain extent on the public side of the site. 
+                        History, earnings, match performance, code submissions, challenges, and more are available to registered 
+                        and participating members.</p>
                         
-                        <p>The following page placements are included in the SRM Sponsorship Package (red blocks indicate sponsor area):</p>
-                        
+                        <p>The following page placements are included in the Tournament Sponsorship Package (red blocks indicate sponsor area):<ul>
+
                         <div align="center">
                         <table width="75%" border="0" cellpadding="0" cellspacing="0">
                             <tr valign="top">
                                 <td width="33%" align="center">
                                     <p><img src="/i/publichome.gif" alt="" width="135" height="205" border="0"/></p>
-                                    <p><img src="/i/statsindex.gif" alt="" width="135" height="205" border="0"/></p>
-                                    <p><img src="/i/matchsummary.gif" alt="" width="135" height="205" border="0"/></p>
-                                </td>
-                        
-                                <td width="33%" align="center">
-                                    <p><img src="/i/memberhome.gif" alt="" width="135" height="205" border="0"/></p>
-                                    <p><img src="/i/calendar.gif" alt="" width="135" height="205" border="0"/></p>
-                                    <p><img src="/i/matchresults.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/registration.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/calendar.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/schedule.gif" alt="" width="135" height="205" border="0"/></p>
                                 </td>
                                 
-                                <td width="33%" align="center">
-                                    <p><img src="/i/registration.gif" alt="" width="135" height="205" border="0"/></p>
-                                    <p><img src="/i/matchoverview.gif" alt="" width="135" height="205" border="0"/></p>
+                                <td width="33%" align="center" valign="top">
+                                     <p><img src="/i/memberhome.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/statsindex.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/matchsummary.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/matchresults.gif" alt="" width="135" height="205" border="0"/></p>
+                                </td>
+                                
+                                <td width="33%" align="center" valign="top">
+                                     <p><img src="/i/sponsor.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/tournyoverview.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/regionsample.gif" alt="" width="135" height="205" border="0"/></p>
+                                     <p><img src="/i/regions.gif" alt="" width="135" height="205" border="0"/></p>
                                 </td>
                             </tr>
                         </table>
                         </div>
                         
+                        <p>Additional pages not shown:</p>
+                        
+                        <ul>
+                            <li>Semifinal schedule with coder and room listing</li>
+                            <li>Championship schedule with coder listing</li>
+                            <li>Tournament Gallery</li>
+                        </ul>
+                        
                         <p><strong>Note</strong> - TopCoder marketing will work with a sponsor's internal or external creative team to develop all 
                         graphics necessary for the web site at no additional cost to sponsors.</p>
                         
-                        <p><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">What is in a Tournament Package?</a></p>
+                        <p><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">What is in an SRM Package?</a></p>
 
                         <p><br/></p>
                     </td>
 
-<!-- Gutter -->
+<!-- Gutter Begins -->
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
