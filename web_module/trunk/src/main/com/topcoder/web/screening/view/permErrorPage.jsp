@@ -47,7 +47,7 @@ You do not have permission to access the requested resource.
 }
     exception.printStackTrace();
    %>
-   <DIV CLASS="header"><%=message==null?"Navigation Error":message%></DIV>
+<%--   <DIV CLASS="header"><%=message==null?"Navigation Error":message%></DIV>--%>
  </TD>
  <TD BGCOLOR="#CCCCCC" WIDTH="10"><img border="0" height="1" width="10" src="/i/ev/clear.gif" /></TD>
  <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="170"><img border="0" height="1" width="170" src="/i/ev/clear.gif" /><BR></TD>
