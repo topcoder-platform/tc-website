@@ -34,7 +34,7 @@
 <p>
 <hr>
 
-<jsp:include="member-list.jsp" />
+<jsp:include page="member-list.jsp" />
 
 <p>
 

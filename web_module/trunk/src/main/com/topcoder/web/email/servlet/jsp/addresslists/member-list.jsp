@@ -10,6 +10,7 @@
 
 <table border=0 cellpadding=2 cellspacing=0>
 <email:memberIDIterator id="memberID" addressListID="<%=AddressList.getId()%>">
+<% System.out.println("yep");%>
 	<tr bgcolor="<%=colors[(row++)%colors.length]%>">
 
 	<td valign="top" class="bodyText">
