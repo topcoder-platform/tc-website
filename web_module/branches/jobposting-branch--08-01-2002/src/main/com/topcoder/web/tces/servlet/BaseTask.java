@@ -53,7 +53,9 @@ log.debug("next page -> "+nextPage);
         return nextPage;
     }
 
-    public void servletAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response) {
+    public void servletAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response)
+    	throws Exception;
+    {
     }
 
     public abstract void setAttributes(String paramName, String paramValues[]);

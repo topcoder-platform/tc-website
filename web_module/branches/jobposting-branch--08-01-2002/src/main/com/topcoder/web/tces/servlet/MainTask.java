@@ -17,91 +17,62 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Processes the "login" command.
+ * Processes the "main" command.
  * @author bigjake <kitz@mit.edu>
  *
  */
 
-public class LoginTask extends BaseTask implements Task, Serializable {
+public class MainTask extends BaseTask implements Task, Serializable {
 
-    private static Logger log = Logger.getLogger(LoginTask.class);
+    private static Logger log = Logger.getLogger(MainTask.class);
 
-    private String handleInput;
-    private String passwordInput;
-    private String message;
-    private int userIdAuthenticated;
+	private String companyName;
 
-    public LoginTask() {
+    public MainTask() {
         super();
-        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.LOGIN_PAGE);
-        setUserIdAuthenticated(-1);
+        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.MAIN_PAGE);
     }
 
-    private void setUserIdAuthenticated(int userIdAuthenticated) {
-        this.userIdAuthenticated=userIdAuthenticated;
-    }
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
 
-    private int getUserIdAuthenticated() {
-        return userIdAuthenticated;
-    }
+	public String getCompanyName() {
+		return companyName;
+	}
 
-    public void setHandleInput(String handleInput) {
-log.debug("Setting HandleInput to "+handleInput);
-        this.handleInput=handleInput;
-    }
-
-    public String getHandleInput() {
-log.debug("getting handleinput "+handleInput);
-        return handleInput;
-    }
-
-    public void setPasswordInput(String passwordInput) {
-        this.passwordInput=passwordInput;
-    }
-
-    public String getPasswordInput() {
-        return passwordInput;
-    }
-
-    public void setMessage(String message) {
-        this.message=message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void servletAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response) {
+    public void servletAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response)
+    	throws Exception
+    {
         HttpSession session = request.getSession(true);
 
-        if (userIdAuthenticated>0) {
-            session.setAttribute("user_id", null);  // record the user as not being logged-in.
-        }
-        else {
-            session.setAttribute("user_id", new Integer(userIdAuthenticated));
-        }
+		Integer userId = session.getAttribute("user_id");
+		if (userId == null || (userId.getIntValue()>0) ) {
+			log.debug("User not authenticated for access to ES main page.");
+			throw new Exception("User not authenticated for access to ES main page.");
+		}
     }
 
     public void processStep(String step)
         throws Exception
     {
         if (step == null) {
-            viewLogin();
+            viewMain();
             return;
         }
-        else if (step.equals(TCESConstants.LOGIN_TASK_STEP_VIEW)) {
-            viewLogin();
-            return;
-        }
-        else if (step.equals(TCESConstants.LOGIN_TASK_STEP_AUTH)) {
-            doAuth();
-            return;
-        }
+        else if (step.equalsIgnoreCase(TCESConstants.MAIN_TASK_STEP_GOCAMPAIGN)) {
+			doGoCampaign();
+			return;
+		}
+		else if (step.equalsIgnoreCase(TCESConstants.MAIN_TASK_STEP_VIEW)) {
+			viewMain();
+			return;
+		}
     }
 
-    private void doAuth() throws Exception
+    private void doGoCampaign() throws Exception
     {
-        Request dataRequest = new Request();
+/*        Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_user_and_pw");
         dataRequest.setProperty("hn", getHandleInput() );
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
@@ -141,13 +112,14 @@ log.debug("getting handleinput "+handleInput);
 
         setMessage("Login OK!");
         setNextPage(TCESConstants.JSP_ROOT + TCESConstants.LOGIN_PAGE);
+        */
     }
 
 
 
-    private void viewLogin() throws Exception
+    private void viewMain() throws Exception
     {
-        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.LOGIN_PAGE);
+        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.MAIN_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
@@ -156,10 +128,11 @@ log.debug("getting handleinput "+handleInput);
 
 log.debug("setting param "+paramName+" = "+value);
 
-        if (paramName.equalsIgnoreCase(TCESConstants.HANDLE_PARAM))
+/*        if (paramName.equalsIgnoreCase(TCESConstants.HANDLE_PARAM))
             setHandleInput(value);
         else if (paramName.equalsIgnoreCase(TCESConstants.PASSWORD_PARAM))
             setPasswordInput(value);
+*/
 
     }
 
