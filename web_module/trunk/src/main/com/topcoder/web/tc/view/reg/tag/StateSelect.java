@@ -20,7 +20,7 @@ public class StateSelect
     }
 
     void init() {
-        NOT_IN_US = getState("ZZ", "Not In US");
+        NOT_IN_US = getState("", "Not In US");
         //SEPARATOR = getState("", "-----------------------");
     }
 
