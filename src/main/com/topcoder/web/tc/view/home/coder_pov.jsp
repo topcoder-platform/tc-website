@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
+                        <img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,16 +19,17 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm190_prob">SRM 190 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Tuesday, April 6, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm191_prob">SRM 191 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Saturday, April 24, 2004</p>
 
                         <p>
-The last match before the TCCC may not have been the warm-up that competitors were looking for, 
-as division 1 had one of the hardest sets in recent memory -- only 10 competitors solved more than 1 
-problem.  Of those, tomek, bladerunner and Klinck were the only coders to solve all 3 problems, taking 
-1<sup>st</sup>, 2<sup>nd</sup> and 3<sup>rd</sup>, respectively.
+Pity poor <b>SnapDragon</b>'s thumbs.  After brutalizing the first-time 
+writer's problems in a mere 25 minutes, he had nothing to do but twiddle
+them for the next 65 minutes, before he was finally able to challenge
+yet another hapless victim.  And how demoralizing must it have been for
+third-place finisher <b>Klinck</b>?
 
-<a href="/?t=statistics&amp;c=srm190_prob" class="bodyText"><strong>full&#160;story</strong></a>
+<a href="/?t=statistics&amp;c=srm191_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
