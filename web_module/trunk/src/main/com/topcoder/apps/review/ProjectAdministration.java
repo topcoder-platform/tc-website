@@ -549,8 +549,8 @@ public class ProjectAdministration implements Model {
                     User rev = (User) it.next();
                     // after the review phase do not send mails to losers (non-winners)
                     PhaseManager phaseManager = (PhaseManager) Common.getFromCache("PhaseManager");
-                    if (newProject.getCurrentPhase().getOrder() > phaseManager.getPhase(Phase.ID_REVIEW).getOrder()
-                                && RoleHelper.isSubmitterOnly(rev, newProject)
+                    if (newProject.getCurrentPhase().getOrder() > phaseManager.getPhase(Phase.ID_APPEALS).getOrder()
+                                && RoleHelper.isSubmitterOnly(rev, newProject) 
                                 && !rev.equals(newProject.getWinner())) {
                         LogHelper.log("Not sending mail to submitter " + rev.getHandle()
                                     + " because the phase is past review and he is not a winner");
