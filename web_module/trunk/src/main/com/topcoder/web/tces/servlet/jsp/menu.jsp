@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@  page
 contentType="text/html"
 %>
@@ -9,7 +10,7 @@ contentType="text/html"
         <td width="1" class="testTop">&#160;</td>
         <td class="testTop" nowrap><a href="../?module=Static&d1=corp&d2=recruiting&d3=index" class="topLink">TopCoder Recruiting</a></td>
         <td width="1" class="testTop">&#160;</td>
-        <td class="testTop" nowrap><a href="http://www.topcoder.com/?&t=tces&c=index" class="topLink">TopCoder Job Postings</a></td>
+        <td class="testTop" nowrap><a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=tces&c=index" class="topLink">TopCoder Job Postings</a></td>
         <td class="testTop" width="49%">&#160;</td>
    </tr>
 </table>

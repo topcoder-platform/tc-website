@@ -1,6 +1,7 @@
 package com.topcoder.web.hs.controller.requests;
 
 import com.topcoder.web.hs.common.*;
+import com.topcoder.web.common.TCWebException;
 
 /**
  * A RequestProcessor which selects a front page depending on whether the session is logged in.
@@ -9,7 +10,7 @@ import com.topcoder.web.hs.common.*;
  */
 public class Home extends Base {
 
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
 
         String path;
         if(info.isGuest())  // in case we have a named user who is only in the guest group

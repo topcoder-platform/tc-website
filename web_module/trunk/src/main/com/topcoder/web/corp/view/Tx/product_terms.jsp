@@ -52,7 +52,7 @@
             <jsp:useBean id="TransactionInfo" scope="request" class="com.topcoder.web.corp.model.TransactionInfo" />
                 <tr valign="middle"><td class="bodyText"><strong>Customer Terms and Conditions ("Customer Terms")</strong></td></tr>
                 <tr valign="middle"><td class="bodyText"><tc-webtag:textArea name="<%=Constants.KEY_TERMS%>" text="<%=TransactionInfo.getTerms()%>" rows="10" cols="80" readOnly="true" class="bodyText"/></td></tr>
-                <tr valign="middle"><td class="errorForm"><tc-webtag:errorIterator id="err" refname="<%=Constants.KEY_AGREE_TO_TERMS%>"><%=err%></tc-webtag:errorIterator></td></tr>
+                <tr valign="middle"><td class="errorForm"><tc-webtag:errorIterator id="err" name="<%=Constants.KEY_AGREE_TO_TERMS%>"><%=err%></tc-webtag:errorIterator></td></tr>
                 <tr valign="middle"><td class="bodyText">I Agree to the Terms and Conditions stated above&#160;<tc-webtag:chkBox name="<%=Constants.KEY_AGREE_TO_TERMS%>" value="<%=TransactionInfo.hasAgreed()%>"/></td></tr>
                 <tr valign="middle"><td align="center">
                         <input type="hidden" name="<%=TransactionServlet.KEY_OPERATION%>" value="<%=TransactionServlet.OP_TX_BEGIN%>"/>

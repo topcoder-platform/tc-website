@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page errorPage="../errorPage.jsp" %>
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <html>
@@ -17,19 +16,19 @@ function getProblemDetail(id) {
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
-    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PopulateProblemDetail"; %>
+    <% String url = Constants.CONTROLLER_URL + "?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
     return;
   }
 
 function submitEdit() {
-    document.profileConfirmForm.rp.value = "<%=Constants.POPULATE_PROFILE_PROCESSOR%>";
+    document.profileConfirmForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.POPULATE_PROFILE_PROCESSOR%>";
     document.profileConfirmForm.submit();
     return;
 }
 
 function submitUpdate() {
-    document.profileConfirmForm.rp.value = "<%=Constants.UPDATE_PROFILE_PROCESSOR%>";
+    document.profileConfirmForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.UPDATE_PROFILE_PROCESSOR%>";
     document.profileConfirmForm.submit();
     return;
 }
@@ -67,7 +66,7 @@ function submitUpdate() {
             
              <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr><screen:form name="profileConfirmForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
-                    <INPUT TYPE="HIDDEN" NAME="rp" VALUE="" >
+                    <INPUT TYPE="HIDDEN" NAME="<%=Constants.MODULE_KEY%>" VALUE="" >
                     <% if(!profile.isNew()) { %>
                         <INPUT TYPE="HIDDEN" NAME="profileId" VALUE="<jsp:getProperty name="profile" property="profileId" />" >
                     <% } %>
@@ -87,21 +86,27 @@ function submitUpdate() {
 
                 <tr>
                     <td class="testTableSubtitleEven"><strong>Problem Set:</strong></td>
-                <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><% 
-                if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) { 
+                <% if (profile.hasTestSetA()) { %>
+                <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><%
+                if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) {
                     %><INPUT type="HIDDEN" name="testSetA" value="<screen:resultSetItem row="<%=row%>" name="round_id" />" >
-                    <td class="testTableEven"><screen:resultSetItem row="<%=row%>" name="name" /></td><% 
+                    <td class="testTableEven"><screen:resultSetItem row="<%=row%>" name="name" /></td><%
                 } %>
                 </screen:resultSetRowIterator>
+                <% } else { %>
+                  <INPUT type="HIDDEN" name="testSetA" value="<%=Constants.NO_TEST_SET_A%>" >
+                  <td class="testTableEven">No Test Set A</td>
+                <% } %>
                     <td class="errorTextEven">&#160;</td>
                 </tr>
             </table>
-            
+
              <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr><td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
             </table>
- 
+
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
+              <% if (profile.hasTestSetA()) {%>
                 <tr><td class="testTableTitle" colspan="6">Test Set A</td></tr>
 
                 <tr>
@@ -127,7 +132,8 @@ function submitUpdate() {
                 </screen:listIterator>
 
                 <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
-            
+              <% } %>
+              <% if (!profile.getTestSetBList().isEmpty()) { %>
                 <tr><td class="testTableTitle" colspan="6">Test Set B</td></tr>
 
                 <tr>
@@ -154,6 +160,7 @@ function submitUpdate() {
                 </screen:listIterator>
 
                 <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td></tr>
+                <% } %>
 
                 <tr>
                     <td class="testTableTitle" colspan="6">Available Languages</td>

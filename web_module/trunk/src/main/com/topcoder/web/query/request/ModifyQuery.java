@@ -5,6 +5,7 @@ import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Query;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.Enumeration;
 
@@ -36,64 +37,71 @@ public class ModifyQuery extends BaseProcessor {
     }
 
 
-	protected void baseProcessing() throws Exception {
-        Enumeration parameterNames = request.getParameterNames();
+    protected void baseProcessing() throws TCWebException {
+        super.baseProcessing();
+        Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
         }
- 	}
+    }
 
-    protected void businessProcessing() throws Exception {
-        String step = request.getParameter(Constants.STEP_PARAM);
-        Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
+    protected void businessProcessing() throws TCWebException {
+        String step = getRequest().getParameter(Constants.STEP_PARAM);
+        try {
+            Query q = (Query) Util.createEJB(getInitialContext(), Query.class);
 
 
-        if (step!=null && step.equals(Constants.SAVE_STEP)) {
-            if (isRanking()) {
-                checkColumnIndex(getColumnIndex());
-            } else {
-                setColumnIndex(q.getColumnIndex(getQueryId(), getDb()));
-            }
-            checkText(getText());
-            checkName(getName());
-            checkQueryId(getQueryId(), q);
-            if (!hasErrors()) {
-                if (isNewQuery()) {
-                    setQueryId(q.createQuery(getText(), getName(), isRanking()?1:0, getDb()));
-                    if (isRanking()) {
-                        q.setColumnIndex(getQueryId(), getColumnIndex(), getDb());
-                    }
+            if (step != null && step.equals(Constants.SAVE_STEP)) {
+                if (isRanking()) {
+                    checkColumnIndex(getColumnIndex());
                 } else {
-                    if (isRanking()) {
-                        q.setColumnIndex(getQueryId(), getColumnIndex(), getDb());
-                    }
-                    q.setText(getQueryId(), getText(), getDb());
-                    q.setName(getQueryId(), getName(), getDb());
-                    q.setRanking(getQueryId(), isRanking()?1:0, getDb());
+                    setColumnIndex(q.getColumnIndex(getQueryId(), getDb()));
                 }
-            }
-        } else {
-            if (!isNewQuery()) {
-                setColumnIndex(q.getColumnIndex(getQueryId(), getDb()));
-                setText(q.getText(getQueryId(), getDb()));
-                setName(q.getName(getQueryId(), getDb()));
-                setRanking(q.getRanking(getQueryId(), getDb())==1?true:false);
-            }
+                checkText(getText());
+                checkName(getName());
+                checkQueryId(getQueryId(), q);
+                if (!hasErrors()) {
+                    if (isNewQuery()) {
+                        setQueryId(q.createQuery(getText(), getName(), isRanking() ? 1 : 0, getDb()));
+                        if (isRanking()) {
+                            q.setColumnIndex(getQueryId(), getColumnIndex(), getDb());
+                        }
+                    } else {
+                        if (isRanking()) {
+                            q.setColumnIndex(getQueryId(), getColumnIndex(), getDb());
+                        }
+                        q.setText(getQueryId(), getText(), getDb());
+                        q.setName(getQueryId(), getName(), getDb());
+                        q.setRanking(getQueryId(), isRanking() ? 1 : 0, getDb());
+                    }
+                }
+            } else {
+                if (!isNewQuery()) {
+                    setColumnIndex(q.getColumnIndex(getQueryId(), getDb()));
+                    setText(q.getText(getQueryId(), getDb()));
+                    setName(q.getName(getQueryId(), getDb()));
+                    setRanking(q.getRanking(getQueryId(), getDb()) == 1 ? true : false);
+                }
 
+            }
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
         }
 
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".") + 1), this);
         setNextPage(Constants.MODIFY_QUERY_PAGE);
         setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
         log.debug("setAttributes called...param: " + paramName + " value: " + value);
 
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM)) {
@@ -148,14 +156,14 @@ public class ModifyQuery extends BaseProcessor {
 
     private void checkQueryId(long queryId, Query q) throws Exception {
         if (!isNewQuery()) {
-            if (q.getName(queryId, getDb())==null) {
+            if (q.getName(queryId, getDb()) == null) {
                 addError(Constants.QUERY_ID_PARAM, "Invalid query id");
             }
         }
     }
 
     public boolean isNewQuery() {
-        return getQueryId()==0;
+        return getQueryId() == 0;
     }
 
     public String getDb() {

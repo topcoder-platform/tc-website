@@ -100,7 +100,7 @@ public class TextInputTag extends BaseTag {
 
     /**
      * Sets the editable.
-     * @param editable The editable to set
+     * @param edit The editable to set
      */
     public void setEditable(String edit) {
         editable = edit.equalsIgnoreCase("true");

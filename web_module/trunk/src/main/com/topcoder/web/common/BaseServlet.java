@@ -4,6 +4,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.security.Resource;
 import com.topcoder.web.common.security.*;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
@@ -23,13 +24,15 @@ import java.util.Set;
  * @author Greg Paul
  */
 public abstract class BaseServlet extends HttpServlet {
-    private static String ERROR_PAGE = null;
-    private static String MODULE = null;
-    private static String PATH = null;
-    private static String DEFAULT_PROCESSOR = null;
-    private static String LOGIN_PROCESSOR = null;
+    private String ERROR_PAGE = null;
+    private String MODULE = null;
+    private String PATH = null;
+    private String DEFAULT_PROCESSOR = null;
+    private String LOGIN_PROCESSOR = null;
+    private String LOGIN_SERVLET = null;
     public static final String MESSAGE_KEY = "message";
     public static final String NEXT_PAGE_KEY = "nextpage";
+    public static final String SESSION_INFO_KEY = "sessionInfo";
 
     private static Logger log = Logger.getLogger(BaseServlet.class);
 
@@ -44,6 +47,12 @@ public abstract class BaseServlet extends HttpServlet {
         PATH = config.getInitParameter("processor_path");
         DEFAULT_PROCESSOR = config.getInitParameter("default_processor");
         LOGIN_PROCESSOR = config.getInitParameter("login_processor");
+        try {
+            LOGIN_SERVLET = config.getInitParameter("login_servlet");
+        } catch (Exception e) {
+            //ignore and set it to be null as default
+            LOGIN_SERVLET = null;
+        }
         StringBuffer buf = new StringBuffer(200);
         buf.append("Servlet Initialized with the following:\n");
         buf.append(" ERROR_PAGE = ");
@@ -60,20 +69,22 @@ public abstract class BaseServlet extends HttpServlet {
         buf.append("\n");
         buf.append(" LOGIN_PROCESSOR = ");
         buf.append(LOGIN_PROCESSOR);
+        buf.append("\n");
+        buf.append(" LOGIN_SERVLET = ");
+        buf.append(LOGIN_SERVLET);
         log.info(buf);
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         RequestProcessor rp = null;
         WebAuthentication authentication = null;
-        Authorization authorization = null;
         SessionInfo info = null;
 
         try {
@@ -82,8 +93,7 @@ public abstract class BaseServlet extends HttpServlet {
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
             info = createSessionInfo(request, authentication, user.getPrincipals());
-            request.setAttribute("SessionInformation", info);
-            authorization = createAuthorization(authentication.getActiveUser());
+            request.setAttribute(SESSION_INFO_KEY, info);
 
             StringBuffer loginfo = new StringBuffer(100);
             loginfo.append("[**** ");
@@ -99,9 +109,9 @@ public abstract class BaseServlet extends HttpServlet {
 
             try {
                 try {
-                    String cmd = StringUtils.checkNull(request.getParameter(MODULE));
+                    String cmd = StringUtils.checkNull((String) request.getAttribute(MODULE));
                     if (cmd.equals(""))
-                        cmd = StringUtils.checkNull((String) request.getAttribute(MODULE));
+                        cmd = StringUtils.checkNull(request.getParameter(MODULE));
                     if (cmd.equals(""))
                         cmd = DEFAULT_PROCESSOR;
                     if (!isLegalCommand(cmd))
@@ -109,11 +119,10 @@ public abstract class BaseServlet extends HttpServlet {
 
                     String processorName = PATH + (PATH.endsWith(".")?"":".") + cmd;
 
-                    //TODO add init parameter to turn off security check
                     log.debug("creating request processor for " + processorName);
                     try {
                         SimpleResource resource = new SimpleResource(processorName);
-                        if (authorization.hasPermission(resource)) {
+                        if (hasPermission(authentication, resource)) {
                             rp = callProcess(processorName, request, authentication);
                         } else {
                             throw new PermissionException(authentication.getActiveUser(), resource);
@@ -122,19 +131,19 @@ public abstract class BaseServlet extends HttpServlet {
                         throw new NavigationException(e);
                     }
                 } catch (PermissionException pe) {
-                    if (pe.getUser() != null && !pe.getUser().isAnonymous()) {
-                        log.info("already logged in, rethrowing");
-                        throw pe;
-                    } else {
+                    log.debug("caught PermissionException");
+                    if (authentication.getUser().isAnonymous()) {
                         /* forward to the login page, with a message and a way back */
                         request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
                                 "and password.");
                         request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
 
                         request.setAttribute(MODULE, LOGIN_PROCESSOR);
-                        /* forward to self */
-                        fetchRegularPage(request, response, info.getServletPath(), true);
+                        fetchRegularPage(request, response, LOGIN_SERVLET==null?info.getServletPath():LOGIN_SERVLET, true);
                         return;
+                    } else {
+                        log.info("already logged in, rethrowing");
+                        throw pe;
                     }
                 }
                 fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
@@ -216,6 +225,7 @@ public abstract class BaseServlet extends HttpServlet {
         if (s.equals("")) return false;
         char[] c = s.toCharArray();
         for (int i = 0; i < c.length; i++)
+            //TODO make an init param?
             if (0 > "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_".indexOf(c[i]))
                 return false;
         return true;
@@ -233,6 +243,10 @@ public abstract class BaseServlet extends HttpServlet {
         }
         request.setAttribute("exception", e);
         fetchRegularPage(request, response, ERROR_PAGE, true);
+    }
+
+    protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
+        return createAuthorization(auth.getActiveUser()).hasPermission(r);
     }
 
 }

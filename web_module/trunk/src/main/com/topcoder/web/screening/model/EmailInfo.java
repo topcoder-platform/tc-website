@@ -14,6 +14,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.common.StringUtils;
@@ -23,7 +24,7 @@ import com.topcoder.web.screening.common.ScreeningException;
 public class EmailInfo extends BaseModel {
     private static DataAccess access;
 
-    private SessionInfo sessionInfo;
+    private TestSessionInfo sessionInfo;
     private String subject;
     private String repSubject;
     private String candidateAddress;
@@ -35,6 +36,7 @@ public class EmailInfo extends BaseModel {
     private String repAddress;
 
     private static final String REP_FROM_ADDRESS = "tct@topcoder.com";
+    private static Logger log = Logger.getLogger(EmailInfo.class);
 
     public EmailInfo() {
         subject = "Example Email";
@@ -51,7 +53,7 @@ public class EmailInfo extends BaseModel {
      *
      * @param val
      */
-    public void setSessionInfo( SessionInfo val ) {
+    public void setSessionInfo( TestSessionInfo val ) {
         sessionInfo = val;
     }
 
@@ -60,7 +62,7 @@ public class EmailInfo extends BaseModel {
      *
      * @return
      */
-    public SessionInfo getSessionInfo() {
+    public TestSessionInfo getSessionInfo() {
         return sessionInfo;
     }
 
@@ -307,6 +309,7 @@ public class EmailInfo extends BaseModel {
 
     public void sendEmail() throws Exception {
         if(sessionInfo.useCandidateEmail()) {
+            log.debug("send candidate emali to: " + candidateAddress);
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject(getSubject());
             mail.setBody(getMsgText());
@@ -316,6 +319,7 @@ public class EmailInfo extends BaseModel {
         }
 
         if(sessionInfo.useRepEmail()) {
+            log.debug("send rep emali to: " + repAddress);
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject(getRepSubject());
             mail.setBody(getRepMsgText());
@@ -326,7 +330,7 @@ public class EmailInfo extends BaseModel {
 
     }
 
-    public static EmailInfo createEmailInfo(SessionInfo info, User repInfo)
+    public static EmailInfo createEmailInfo(TestSessionInfo info, User repInfo)
         throws Exception {
         EmailInfo emailInfo = new EmailInfo();
         emailInfo.setSessionInfo(info);

@@ -16,7 +16,7 @@ import java.sql.SQLException;
  * an long sequence id for any sequence name in the Screening Database
  *
  * @author Fred Wang (fred@fredwang.com)
- * @version $Revision$ 
+ * @version $Revision$
  * Dec 23, 2002 6:44:37 PM
  */
 public class IdGeneratorClient {
@@ -36,30 +36,28 @@ public class IdGeneratorClient {
      * or other error retrieving the sequence id.
      */
 
-    public static long getSeqId ( String seqName ) {
+    public static long getSeqId(String seqName) {
         log.debug("getSeqId called");
         long retVal = -1;
         try {
             ctx = new InitialContext();
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(),
-                                (DataSource)ctx.lookup(dataSourceName),
-                                "sequence_object",
-                                "name",
-                                "current_value",
-                                9999999999L,
-                                1,
-                                true);
+                        (DataSource) ctx.lookup(dataSourceName),
+                        "sequence_object",
+                        "name",
+                        "current_value",
+                        9999999999L,
+                        1,
+                        true);
             }
             retVal = IdGenerator.nextId(seqName);
             //System.out.println("retVal = " + retVal);
-        }
-        catch (NamingException e) {
+        } catch (NamingException e) {
             log.debug("NamingException occured within getSeqId" + e.toString());
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             log.debug("SQLException occured within getSeqId" + e.toString());
-            DBMS.printSqlException(true,e);
+            DBMS.printSqlException(true, e);
         }
         return retVal;
     }

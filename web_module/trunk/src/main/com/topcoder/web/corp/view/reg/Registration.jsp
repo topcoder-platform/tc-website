@@ -58,7 +58,7 @@
 <!-- FIRST NAME -->
                 <tr>
                     <td colspan="2" class="errorTextOdd">
-                        <tc-webtag:errorIterator id="err" refname="first-name"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="first-name"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -70,7 +70,7 @@
 <!-- LAST NAME -->
                 <tr>
                     <td colspan="2" class="errorTextEven">
-                        <tc-webtag:errorIterator id="err" refname="last-name"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="last-name"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -82,7 +82,7 @@
 <!-- TITLE -->
                 <tr>
                     <td colspan="2" class="errorTextOdd">
-                        <tc-webtag:errorIterator id="err" refname="title"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="title"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -96,7 +96,7 @@
                 
                 <tr>
                     <td colspan="2" class="errorTextEven">
-                        <tc-webtag:errorIterator id="err" refname="prim-company-name"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="prim-company-name"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -108,7 +108,7 @@
 <!-- ADDR LINE1 -->
                 <tr>
                     <td colspan="2" class="errorTextOdd">
-                        <tc-webtag:errorIterator id="err" refname="prim-company-address-1"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="prim-company-address-1"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -120,7 +120,7 @@
 <!-- ADDR LINE2 -->
                 <tr>
                     <td colspan="2" class="errorTextOdd">
-                        <tc-webtag:errorIterator id="err" refname="prim-company-address-2"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="prim-company-address-2"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -132,7 +132,7 @@
 <!-- CITY -->
                 <tr>
                     <td colspan="2" class="errorTextEven">
-                        <tc-webtag:errorIterator id="err" refname="prim-company-city"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="prim-company-city"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -144,7 +144,7 @@
 <!-- STATE/PROVINCE -->
                 <tr>
                     <td colspan="2" class="errorTextOdd">
-                        <tc-webtag:errorIterator id="err" refname="prim-company-state"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="prim-company-state"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -159,7 +159,7 @@
 <!-- ZIP CODE -->
                 <tr>
                     <td colspan="2" class="errorTextEven">
-                        <tc-webtag:errorIterator id="err" refname="prim-company-zip"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="prim-company-zip"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -171,7 +171,7 @@
 <!-- COUNTRY -->
                 <tr>
                     <td colspan="2" class="errorTextOdd">
-                        <tc-webtag:errorIterator id="err" refname="prim-company-country"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="prim-company-country"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
 
@@ -186,7 +186,7 @@
 <!-- PHONE -->
                 <tr>
                     <td colspan="2" class="errorTextEven">
-                        <tc-webtag:errorIterator id="err" refname="phone"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="phone"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -211,7 +211,7 @@
 <!-- USER NAME -->
                 <tr>
                     <td colspan="2" class="errorTextOdd">
-                        <tc-webtag:errorIterator id="err" refname="username"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="username"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -223,7 +223,7 @@
 <!-- PASSWORD -->
                 <tr>
                     <td colspan="2" class="errorTextEven">
-                        <tc-webtag:errorIterator id="err" refname="password"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="password"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -240,7 +240,7 @@
 <!-- PASSWORD VERIFICATION -->
                 <tr>
                     <td colspan="2" class="errorTextEven">
-                        <tc-webtag:errorIterator id="err" refname="password-once-more"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="password-once-more"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -252,7 +252,7 @@
 <!-- EMAIL -->
                 <tr>
                     <td colspan="2" class="errorTextOdd">
-                        <tc-webtag:errorIterator id="err" refname="email"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="email"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -264,7 +264,7 @@
 <!-- EMAIL VERIFICATION -->
                 <tr>
                     <td colspan="2" class="errorTextOdd">
-                        <tc-webtag:errorIterator id="err" refname="email-once-more"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="email-once-more"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 
@@ -285,7 +285,7 @@
 
                 <tr>
                     <td colspan="2" class="errorTextOdd">
-                        <tc-webtag:errorIterator id="err" refname="<%=Constants.KEY_AGREE_TO_TERMS%>"><%=err%><br></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.KEY_AGREE_TO_TERMS%>"><%=err%><br></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page errorPage="../errorPage.jsp" %>
 <%@ page import="com.topcoder.web.screening.common.Constants,
-                 com.topcoder.web.common.StringUtils" %>
+                 com.topcoder.web.common.StringUtils,
+                 com.topcoder.web.common.BaseServlet" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
@@ -58,7 +58,7 @@ function back() {
 
              <table border="0" cellspacing="0" cellpadding="0" width="50%">
                 <tr><screen:form name="candidateSetupForm" action="<%= Constants.CONTROLLER_URL %>" method="GET">
-                    <INPUT type="hidden" name="rp" value="UpdateCandidate" />
+                    <INPUT type="hidden" name="<%=Constants.MODULE_KEY%>" value="UpdateCandidate" />
                     <INPUT type="hidden" name="referrer" value="<jsp:getProperty name="candidateInfo" property="referrer" />" />
                     <td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td>
                 </tr>
@@ -76,7 +76,7 @@ function back() {
                         <% } else { %>
                     <td class="testTableOdd"><jsp:getProperty name="candidateInfo" property="userName" /></td>
                         <% } %>
-                    <td class="errorTextOdd"><screen:errors name="emailAddress" /></td>
+                    <td class="errorTextOdd"><screen:errors id="err" name="emailAddress" ><%=err%></screen:errors></td>
                 </tr>
                 
                     <% if (!candidateInfo.isNew()) { %>

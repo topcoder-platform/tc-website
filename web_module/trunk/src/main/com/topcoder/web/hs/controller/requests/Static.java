@@ -11,24 +11,30 @@ import com.topcoder.web.hs.common.*;
  */
 public class Static extends Base {
 
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
 
         String path = "";
         nav.setDepth(0);
-        for(int i=1; ; i++) {
-            String p = request.getParameter("d"+i);
-            if(p==null) break;
-            if(!Constants.isLegal(p)) throw new NavigationException("disallowed path component: "+p);
-            path += "/"+p;
-            nav.setFolder(i-1, p);
+        for (int i = 1; ; i++) {
+            String p = getRequest().getParameter("d" + i);
+            if (p == null) break;
+            if (!Constants.isLegal(p)) throw new NavigationException("disallowed path component: " + p);
+            path += "/" + p;
+            nav.setFolder(i - 1, p);
         }
-        if(path.equals("")) throw new NavigationException("path must have at least one component");
+        if (path.length() == 0) throw new NavigationException("path must have at least one component");
         path += ".jsp";
 
         /* check whether the path is allowed for this type of user */
         Resource r = new PathResource(path);
-        if(!hsa.hasPermission(r))
-            throw new PermissionException(user, r);
+        try {
+            if (!hsa.hasPermission(r))
+                throw new PermissionException(user, r);
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
+        }
 
         setNextPage(path);
         setIsNextPageInContext(true);

@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
  * @version $Revision$
  * Dec 19, 2002 11:33:27 PM
  */
-public interface UserNote extends EJBObject{
+public interface UserNote extends EJBObject {
 
     /**
      *

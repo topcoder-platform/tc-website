@@ -1,5 +1,7 @@
 package com.topcoder.web.hs.controller.requests;
 
+import com.topcoder.web.common.TCWebException;
+
 /**
  * A RequestProcessor used to log out the user from the current session.
  *
@@ -7,8 +9,8 @@ package com.topcoder.web.hs.controller.requests;
  */
 public class Logout extends Base {
 
-    protected void businessProcessing() throws Exception {
-        auth.logout();
+    protected void businessProcessing() throws TCWebException {
+        getAuthentication().logout();
 
         /* back to the front page */
         setNextPage("");

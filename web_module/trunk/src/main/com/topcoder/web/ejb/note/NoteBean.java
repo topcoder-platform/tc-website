@@ -1,6 +1,6 @@
 package com.topcoder.web.ejb.note;
 
-import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
@@ -10,7 +10,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import javax.ejb.EJBException;
-import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -19,14 +18,14 @@ import java.sql.ResultSet;
 /**
  *
  * @author Fred Wang (silentmobius)
- * @version $Revision$ 
+ * @version $Revision$
  * Jan 1, 2003 12:59:41 AM
  */
 public class NoteBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(NoteBean.class);
-    private static final String dsName = "java:comp/env/datasource";
-    private static final String transDsName = "java:comp/env/jts_datasource";
+    private static final String DATA_SOURCE = "java:comp/env/datasource_name";
+    private static final String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
     /**
      *
@@ -34,17 +33,17 @@ public class NoteBean extends BaseEJB {
      * @param submittedBy
      * @param noteTypeId
      * @return note id
-     * @throws RemoteException
+     * @throws EJBException
      */
     public long createNote(String text,
                            long submittedBy,
                            int noteTypeId)
-            throws RemoteException {
+            throws EJBException {
         log.debug("createNote called. text: " + text
-            + " submittedBy: " + submittedBy + "noteTypeId: " + noteTypeId);
+                + " submittedBy: " + submittedBy + "noteTypeId: " + noteTypeId);
 
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         Connection conn = null;
         DataSource ds = null;
         long noteId = 0;
@@ -56,30 +55,30 @@ public class NoteBean extends BaseEJB {
             query.append("VALUES(?,?,?,?) ");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(transDsName);
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
-            pstmt = conn.prepareStatement(query.toString());
+            ps = conn.prepareStatement(query.toString());
 
             noteId = IdGeneratorClient.getSeqId("NOTE_SEQ");
 
-            pstmt.setLong(1,noteId);
-            pstmt.setBytes(2,text.getBytes());
-            pstmt.setLong(3,submittedBy);
-            pstmt.setInt(4,noteTypeId);
+            ps.setLong(1, noteId);
+            ps.setBytes(2, text.getBytes());
+            ps.setLong(3, submittedBy);
+            ps.setInt(4, noteTypeId);
 
-            pstmt.executeUpdate();
+            ps.executeUpdate();
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in createNote noteId: " + noteId + " text: " + text);
         } catch (NamingException e) {
             throw new EJBException("NamingException in createNote noteId: " + noteId + " text: " + text);
         } catch (Exception e) {
             throw new EJBException("Exception in createNote noteId: " + noteId + " text: " + text);
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createNote");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createNote");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createNote");}}
+            close(ps);
+            close(conn);
+            close(ctx);
         }
         return noteId;
     }
@@ -88,15 +87,15 @@ public class NoteBean extends BaseEJB {
      *
      * @param noteId
      * @param text
-     * @throws RemoteException
+     * @throws EJBException
      */
     public void setText(long noteId, String text)
-            throws RemoteException {
+            throws EJBException {
         log.debug("setText called. noteId: "
-                 + noteId + " text: " + text);
+                + noteId + " text: " + text);
 
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         Connection conn = null;
         DataSource ds = null;
 
@@ -105,26 +104,26 @@ public class NoteBean extends BaseEJB {
             query.append("UPDATE note set text = ? where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(transDsName);
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
-            pstmt = conn.prepareStatement(query.toString());
+            ps = conn.prepareStatement(query.toString());
 
-            pstmt.setBytes(1, text.getBytes());
-            pstmt.setLong(2, noteId);
+            ps.setBytes(1, text.getBytes());
+            ps.setLong(2, noteId);
 
-            pstmt.executeUpdate();
+            ps.executeUpdate();
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setText noteId: " + noteId + " text: " + text);
         } catch (NamingException e) {
             throw new EJBException("NamingException in setText noteId: " + noteId + " text: " + text);
         } catch (Exception e) {
             throw new EJBException("Exception in setText noteId: " + noteId + " text: " + text);
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setText");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setText");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setText");}}
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -132,15 +131,15 @@ public class NoteBean extends BaseEJB {
      *
      * @param noteId
      * @param submittedBy
-     * @throws RemoteException
+     * @throws EJBException
      */
     public void setSubmittedBy(long noteId, long submittedBy)
-            throws RemoteException {
+            throws EJBException {
         log.debug("setSubmittedBy called. noteId: "
-                 + noteId + " submittedBy: " + submittedBy);
+                + noteId + " submittedBy: " + submittedBy);
 
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         Connection conn = null;
         DataSource ds = null;
 
@@ -149,26 +148,26 @@ public class NoteBean extends BaseEJB {
             query.append("UPDATE note set submitted_by = ? where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(transDsName);
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
-            pstmt = conn.prepareStatement(query.toString());
+            ps = conn.prepareStatement(query.toString());
 
-            pstmt.setLong(1, submittedBy);
-            pstmt.setLong(2, noteId);
+            ps.setLong(1, submittedBy);
+            ps.setLong(2, noteId);
 
-            pstmt.executeUpdate();
+            ps.executeUpdate();
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setSubmittedBy noteId: " + noteId + " submittedBy: " + submittedBy);
         } catch (NamingException e) {
             throw new EJBException("NamingException in setSubmittedBy noteId: " + noteId + " submittedBy: " + submittedBy);
         } catch (Exception e) {
             throw new EJBException("Exception in setSubmittedBy noteId: " + noteId + " submittedBy: " + submittedBy);
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setSubmittedBy");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setSubmittedBy");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setSubmittedBy");}}
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -176,15 +175,15 @@ public class NoteBean extends BaseEJB {
      *
      * @param noteId
      * @param noteTypeId
-     * @throws RemoteException
+     * @throws EJBException
      */
     public void setNoteTypeId(long noteId, int noteTypeId)
-            throws RemoteException {
+            throws EJBException {
         log.debug("setNoteTypeId called. noteId: "
-                 + noteId + " noteTypeId: " + noteTypeId);
+                + noteId + " noteTypeId: " + noteTypeId);
 
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         Connection conn = null;
         DataSource ds = null;
 
@@ -193,26 +192,26 @@ public class NoteBean extends BaseEJB {
             query.append("UPDATE note set note_type_id = ? where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(transDsName);
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
-            pstmt = conn.prepareStatement(query.toString());
+            ps = conn.prepareStatement(query.toString());
 
-            pstmt.setLong(1, noteTypeId);
-            pstmt.setLong(2, noteId);
+            ps.setLong(1, noteTypeId);
+            ps.setLong(2, noteId);
 
-            pstmt.executeUpdate();
+            ps.executeUpdate();
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in setNoteTypeId noteId: " + noteId + " noteTypeId: " + noteTypeId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in setNoteTypeId noteId: " + noteId + " noteTypeId: " + noteTypeId);
         } catch (Exception e) {
             throw new EJBException("Exception in setNoteTypeId noteId: " + noteId + " noteTypeId: " + noteTypeId);
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setNoteTypeId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setNoteTypeId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setNoteTypeId");}}
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -220,14 +219,14 @@ public class NoteBean extends BaseEJB {
      *
      * @param noteId
      * @return note text
-     * @throws RemoteException
+     * @throws EJBException
      */
     public String getText(long noteId)
-            throws RemoteException {
+            throws EJBException {
         log.debug("getText called. noteId: " + noteId);
 
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
         DataSource ds = null;
@@ -238,29 +237,29 @@ public class NoteBean extends BaseEJB {
             query.append("SELECT text from note where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
-            pstmt = conn.prepareStatement(query.toString());
-            pstmt.setLong(1, noteId);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, noteId);
 
-            rs = pstmt.executeQuery();
-            if ( rs.next() ) {
+            rs = ps.executeQuery();
+            if (rs.next()) {
                 text = rs.getString(1);
             }
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getText noteId: " + noteId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getText noteId: " + noteId);
         } catch (Exception e) {
             throw new EJBException("Exception in getText noteId: " + noteId);
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getText");}}
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getText");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getText");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getText");}}
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return text;
@@ -270,14 +269,14 @@ public class NoteBean extends BaseEJB {
      *
      * @param noteId
      * @return submitter user id
-     * @throws RemoteException
+     * @throws EJBException
      */
     public long getSubmittedBy(long noteId)
-            throws RemoteException {
+            throws EJBException {
         log.debug("getSubmittedBy called. noteId: " + noteId);
 
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
         DataSource ds = null;
@@ -288,29 +287,29 @@ public class NoteBean extends BaseEJB {
             query.append("SELECT submitted_by from note where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
-            pstmt = conn.prepareStatement(query.toString());
-            pstmt.setLong(1, noteId);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, noteId);
 
-            rs = pstmt.executeQuery();
-            if ( rs.next() ) {
+            rs = ps.executeQuery();
+            if (rs.next()) {
                 submittedBy = rs.getLong(1);
             }
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getSubmittedBy noteId: " + noteId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getSubmittedBy noteId: " + noteId);
         } catch (Exception e) {
             throw new EJBException("Exception in getSubmittedBy noteId: " + noteId);
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getSubmittedBy");}}
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getSubmittedBy");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getSubmittedBy");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getSubmittedBy");}}
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return submittedBy;
@@ -320,14 +319,14 @@ public class NoteBean extends BaseEJB {
      *
      * @param noteId
      * @return note type id
-     * @throws RemoteException
+     * @throws EJBException
      */
     public int getNoteTypeId(long noteId)
-            throws RemoteException {
+            throws EJBException {
         log.debug("getNoteTypeId called. noteId: " + noteId);
 
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
         DataSource ds = null;
@@ -338,29 +337,29 @@ public class NoteBean extends BaseEJB {
             query.append("SELECT note_type_id from note where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
-            pstmt = conn.prepareStatement(query.toString());
-            pstmt.setLong(1, noteId);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, noteId);
 
-            rs = pstmt.executeQuery();
-            if ( rs.next() ) {
+            rs = ps.executeQuery();
+            if (rs.next()) {
                 noteTypeId = rs.getInt(1);
             }
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getNoteTypeId noteId: " + noteId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getNoteTypeId noteId: " + noteId);
         } catch (Exception e) {
             throw new EJBException("Exception in getNoteTypeId noteId: " + noteId);
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getNoteTypeId");}}
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getNoteTypeId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getNoteTypeId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getNoteTypeId");}}
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return noteTypeId;
@@ -370,14 +369,14 @@ public class NoteBean extends BaseEJB {
      *
      * @param noteId
      * @return Note Type Description
-     * @throws RemoteException
+     * @throws EJBException
      */
     public String getNoteTypeDesc(long noteId)
-            throws RemoteException {
+            throws EJBException {
         log.debug("getNoteTypeDesc called. noteId: " + noteId);
 
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
         DataSource ds = null;
@@ -388,29 +387,29 @@ public class NoteBean extends BaseEJB {
             query.append("SELECT note_type_desc from note where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
-            pstmt = conn.prepareStatement(query.toString());
-            pstmt.setLong(1, noteId);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, noteId);
 
-            rs = pstmt.executeQuery();
-            if ( rs.next() ) {
+            rs = ps.executeQuery();
+            if (rs.next()) {
                 noteTypeDesc = rs.getString(1);
             }
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getNoteTypeDesc noteId: " + noteId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getNoteTypeDesc noteId: " + noteId);
         } catch (Exception e) {
             throw new EJBException("Exception in getNoteTypeDesc noteId: " + noteId);
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getNoteTypeDesc");}}
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getNoteTypeDesc");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getNoteTypeDesc");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getNoteTypeDesc");}}
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return noteTypeDesc;

@@ -9,7 +9,9 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.controller.MisconfigurationException;
@@ -65,7 +67,7 @@ public final class Registration extends UserEdit {
      *
      */
     public Registration() {
-        pageInContext = true;
+        setIsNextPageInContext(true);
         formPage = Constants.REGISTRATION_PAGE_RETRY;
         successPage = Constants.REGISTRATION_PAGE_SUCCESS;
     }
@@ -74,16 +76,16 @@ public final class Registration extends UserEdit {
      * @see com.topcoder.web.corp.request.UserEdit#getFormFields()
      */
     protected boolean getFormFields() throws Exception {
-        company = request.getParameter(KEY_COMPANY);
-        title = request.getParameter(KEY_TITLE);
-        compAddress = request.getParameter(KEY_ADDRLINE);
-        compAddress2 = request.getParameter(KEY_ADDRLINE2);
-        city = request.getParameter(KEY_CITY);
-        state = request.getParameter(KEY_STATE);
-        zip = request.getParameter(KEY_ZIP);
-        country = request.getParameter(KEY_COUNTRY);
+        company = getRequest().getParameter(KEY_COMPANY);
+        title = getRequest().getParameter(KEY_TITLE);
+        compAddress = getRequest().getParameter(KEY_ADDRLINE);
+        compAddress2 = getRequest().getParameter(KEY_ADDRLINE2);
+        city = getRequest().getParameter(KEY_CITY);
+        state = getRequest().getParameter(KEY_STATE);
+        zip = getRequest().getParameter(KEY_ZIP);
+        country = getRequest().getParameter(KEY_COUNTRY);
 
-        agree = "on".equalsIgnoreCase(request.getParameter(Constants.KEY_AGREE_TO_TERMS));
+        agree = "on".equalsIgnoreCase(getRequest().getParameter(Constants.KEY_AGREE_TO_TERMS));
         return super.getFormFields();
     }
 
@@ -99,7 +101,7 @@ public final class Registration extends UserEdit {
     protected boolean loadUserData() throws Exception {
         InitialContext icEJB = null;
         PrincipalMgrRemote mgr = Util.getPrincipalManager();
-        if (!"POST".equalsIgnoreCase(request.getMethod())) {
+        if (!"POST".equalsIgnoreCase(getRequest().getMethod())) {
             if (!secTok.createNew) {
                 try {
                     password = mgr.getPassword(targetUserID);
@@ -112,7 +114,7 @@ public final class Registration extends UserEdit {
                 }
             }
             setFormFieldsDefaults();
-            nextPage = formPage;
+            setNextPage(formPage);
             return true;
         }
         return false;
@@ -122,15 +124,15 @@ public final class Registration extends UserEdit {
      * @see com.topcoder.web.corp.request.UserEdit#setFormFieldsDefaults()
      */
     protected void setFormFieldsDefaults() throws Exception {
-        setFormFieldDefault(KEY_COMPANY, company);
-        setFormFieldDefault(KEY_TITLE, title);
-        setFormFieldDefault(KEY_ADDRLINE, compAddress);
-        setFormFieldDefault(KEY_ADDRLINE2, compAddress2);
-        setFormFieldDefault(KEY_CITY, city);
-        setFormFieldDefault(KEY_STATE, state);
-        setFormFieldDefault(KEY_ZIP, zip);
-        setFormFieldDefault(KEY_COUNTRY, country);
-        request.setAttribute("ext-fields-editable", "" + isExtFieldsEditable());
+        setDefault(KEY_COMPANY, company);
+        setDefault(KEY_TITLE, title);
+        setDefault(KEY_ADDRLINE, compAddress);
+        setDefault(KEY_ADDRLINE2, compAddress2);
+        setDefault(KEY_CITY, city);
+        setDefault(KEY_STATE, state);
+        setDefault(KEY_ZIP, zip);
+        setDefault(KEY_COUNTRY, country);
+        getRequest().setAttribute("ext-fields-editable", "" + isExtFieldsEditable());
 
         Request dataRequest = new Request();
         InitialContext ic = null;
@@ -141,21 +143,21 @@ public final class Registration extends UserEdit {
             dataRequest.setContentHandle("cmd-states-list");
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("State_List");
-            request.setAttribute("rsc-states-list", rsc);
+            getRequest().setAttribute("rsc-states-list", rsc);
 
             dataRequest.setContentHandle("cmd-countries-list");
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Country_List");
-            request.setAttribute("rsc-countries-list", rsc);
+            getRequest().setAttribute("rsc-countries-list", rsc);
 
             TermsOfUse terms = ((TermsOfUseHome)ic.lookup("corp:"+TermsOfUseHome.EJB_REF_NAME)).create();
-            setFormFieldDefault(Constants.KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID));
+            setDefault(Constants.KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID));
 
             UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
             if (userTerms.hasTermsOfUse(getAuthentication().getUser().getId(), Constants.CORP_SITE_TERMS_ID)) {
-                setFormFieldDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.TRUE.toString());
+                setDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.TRUE.toString());
             } else {
-                setFormFieldDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.FALSE.toString());
+                setDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.FALSE.toString());
             }
 
         } finally {
@@ -243,7 +245,7 @@ public final class Registration extends UserEdit {
 
     private boolean checkTerms(boolean agree) {
         if (!agree) {
-            markFormFieldAsInvalid(Constants.KEY_AGREE_TO_TERMS, "You must agree to terms in order to register.");
+            addError(Constants.KEY_AGREE_TO_TERMS, "You must agree to terms in order to register.");
         }
         return agree;
     }
@@ -252,15 +254,17 @@ public final class Registration extends UserEdit {
     /**
      */
     protected void verifyAllowed()
-            throws NotAuthorizedException, Exception {
+            throws PermissionException, Exception {
         com.topcoder.shared.security.User loggedInUser = getAuthentication().getUser();
-        com.topcoder.shared.security.User knownUser = getAuthentication().getActiveUser();
+        com.topcoder.shared.security.User knownUser = getUser();
 
 
         if (secTok.createNew) {
             if (!knownUser.isAnonymous()) {
                 if (loggedInUser.isAnonymous()) {
-                    throw new NotAuthorizedException("You must be logged on, in order to continue");
+                    throw new PermissionException(knownUser,
+                            new ClassResource(this.getClass()), new Exception("You must be logged on, in order to access your account."));
+
                 } else {
                     targetUserID = loggedInUser.getId();
                     secTok.createNew = false;
@@ -269,7 +273,8 @@ public final class Registration extends UserEdit {
             }
         } else {
             if (loggedInUser.isAnonymous()) {
-                throw new NotAuthorizedException("You must be logged on, in order to continue");
+                throw new PermissionException(knownUser,
+                        new ClassResource(this.getClass()), new Exception("You must be logged on, in order to access your account."));
             }
         }
     }
@@ -324,7 +329,7 @@ public final class Registration extends UserEdit {
         } finally {
             Util.closeIC(ic);
             if (techProblems) {
-                markFormFieldAsInvalid(
+                addError(
                         key,
                         "Some technical problems prevent further processing. Try again later"
                 );
@@ -332,7 +337,7 @@ public final class Registration extends UserEdit {
             }
         }
         if (!success) {
-            markFormFieldAsInvalid(key, message);
+            addError(key, message);
         }
         return success;
     }

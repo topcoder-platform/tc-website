@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page errorPage="../errorPage.jsp" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <html>
@@ -11,12 +10,12 @@
 <script type="text/javascript" language="Javascript">
 <!--
 function submitEdit() {
-document.sessionConfirmForm.rp.value = "<%=Constants.POPULATE_SESSION_PROCESSOR%>";
+document.sessionConfirmForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.POPULATE_SESSION_PROCESSOR%>";
 document.sessionConfirmForm.submit();
 }
 
 function submitUpdate() {
-document.sessionConfirmForm.rp.value = "<%=Constants.UPDATE_SESSION_PROCESSOR%>";
+document.sessionConfirmForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.UPDATE_SESSION_PROCESSOR%>";
 document.sessionConfirmForm.submit();
 }
 // -->
@@ -50,18 +49,18 @@ document.sessionConfirmForm.submit();
                 </tr>
             </table>
 
-            <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
+            <jsp:useBean id="testSessionInfo" type="com.topcoder.web.screening.model.TestSessionInfo" scope="session" />
                         
             <screen:form name="sessionConfirmForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
-            <input type="HIDDEN" name="rp" value="" >
+            <input type="HIDDEN" name="<%=Constants.MODULE_KEY%>" value="" >
                         
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Session</td></tr>
 
                 <tr>
                     <td class="testTableSubtitleOdd">Candidate:</td>
-                        <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getCandidateList()%>">
-                        <% if(sessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
+                        <screen:resultSetRowIterator id="row" list="<%=testSessionInfo.getCandidateList()%>">
+                        <% if(testSessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
                         <input type="HIDDEN" name="cid" value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" >
                     <td class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="handle" /></td>
                         <% } %>
@@ -71,8 +70,8 @@ document.sessionConfirmForm.submit();
                 
                 <tr>
                     <td class="testTableSubtitleEven">Profile:</td>
-                        <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
-                        <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
+                        <screen:resultSetRowIterator id="row" list="<%=testSessionInfo.getProfileList()%>">
+                        <% if(testSessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
                         <input type="HIDDEN" name="profileId" value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" >
                     <td class="testTableEven"><screen:resultSetItem row="<%=row%>" name="name" /></td>
                         <% } %>
@@ -82,21 +81,21 @@ document.sessionConfirmForm.submit();
                 
                 <tr>
                     <td class="testTableSubtitleOdd">Begin:</td>
-                        <input type="HIDDEN" name="beginMonth" value="<jsp:getProperty name="sessionInfo" property="beginMonth" />" >
-                        <input type="HIDDEN" name="beginDay" value="<jsp:getProperty name="sessionInfo" property="beginDay" />" >
-                        <input type="HIDDEN" name="beginYear" value="<jsp:getProperty name="sessionInfo" property="beginYear" />" >
-                        <input type="HIDDEN" name="beginHour" value="<jsp:getProperty name="sessionInfo" property="beginHour" />" >
-                    <td class="testTableOdd"><screen:beanWrite name="sessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm aa" /></td>
+                        <input type="HIDDEN" name="beginMonth" value="<jsp:getProperty name="testSessionInfo" property="beginMonth" />" >
+                        <input type="HIDDEN" name="beginDay" value="<jsp:getProperty name="testSessionInfo" property="beginDay" />" >
+                        <input type="HIDDEN" name="beginYear" value="<jsp:getProperty name="testSessionInfo" property="beginYear" />" >
+                        <input type="HIDDEN" name="beginHour" value="<jsp:getProperty name="testSessionInfo" property="beginHour" />" >
+                    <td class="testTableOdd"><screen:beanWrite name="testSessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm aa" /></td>
                     <td class="errorTextOdd">&#160;</td>
                 </tr>
            
                 <tr>
                     <td class="testTableSubtitleEven">End:</td>
-                        <input type="HIDDEN" name="endMonth" value="<jsp:getProperty name="sessionInfo" property="endMonth" />" >
-                        <input type="HIDDEN" name="endDay" value="<jsp:getProperty name="sessionInfo" property="endDay" />" >
-                        <input type="HIDDEN" name="endYear" value="<jsp:getProperty name="sessionInfo" property="endYear" />" >
-                        <input type="HIDDEN" name="endHour" value="<jsp:getProperty name="sessionInfo" property="endHour" />" >
-                    <td class="testTableEven"><screen:beanWrite name="sessionInfo" property="endDate" format="MM/dd/yyyy hh:mm aa" /></td>
+                        <input type="HIDDEN" name="endMonth" value="<jsp:getProperty name="testSessionInfo" property="endMonth" />" >
+                        <input type="HIDDEN" name="endDay" value="<jsp:getProperty name="testSessionInfo" property="endDay" />" >
+                        <input type="HIDDEN" name="endYear" value="<jsp:getProperty name="testSessionInfo" property="endYear" />" >
+                        <input type="HIDDEN" name="endHour" value="<jsp:getProperty name="testSessionInfo" property="endHour" />" >
+                    <td class="testTableEven"><screen:beanWrite name="testSessionInfo" property="endDate" format="MM/dd/yyyy hh:mm aa" /></td>
                     <td class="errorTextEven">&#160;</td>
                 </tr>  
 
@@ -104,13 +103,13 @@ document.sessionConfirmForm.submit();
                     <td colspan="3" width="100%" align="center">
                         <table border="0" cellspacing="10" cellpadding="0">
                             <tr>
-                                <input type="HIDDEN" name="candidateEmail" value="<jsp:getProperty name="sessionInfo" property="candidateEmail" />" >
-                                <td colspan="3" class="testTableOdd">Invite candidate to Testing Application:&#160;<strong><jsp:getProperty name="sessionInfo" property="candidateEmail" /></strong></td>
+                                <input type="HIDDEN" name="candidateEmail" value="<jsp:getProperty name="testSessionInfo" property="candidateEmail" />" >
+                                <td colspan="3" class="testTableOdd">Invite candidate to Testing Application:&#160;<strong><jsp:getProperty name="testSessionInfo" property="candidateEmail" /></strong></td>
                             </tr>
                 
                             <tr>
-                                <input type="HIDDEN" name="repEmail" value="<jsp:getProperty name="sessionInfo" property="repEmail" />" >
-                                <td colspan="3" class="testTableOdd">Send me email reminder:&#160;<strong><jsp:getProperty name="sessionInfo" property="repEmail" /></strong></td>
+                                <input type="HIDDEN" name="repEmail" value="<jsp:getProperty name="testSessionInfo" property="repEmail" />" >
+                                <td colspan="3" class="testTableOdd">Send me email reminder:&#160;<strong><jsp:getProperty name="testSessionInfo" property="repEmail" /></strong></td>
                             </tr>
                         </table>
                     </td>

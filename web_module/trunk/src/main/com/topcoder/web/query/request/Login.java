@@ -5,6 +5,7 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 /**
  * @author Greg Paul
@@ -17,11 +18,11 @@ public class Login extends BaseProcessor {
     private static Logger log = Logger.getLogger(Login.class);
 
 
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
 
         /* may be null */
-        String username = request.getParameter(Constants.HANDLE_PARAM);
-        String password = request.getParameter(Constants.PASSWORD_PARAM);
+        String username = getRequest().getParameter(Constants.HANDLE_PARAM);
+        String password = getRequest().getParameter(Constants.PASSWORD_PARAM);
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
@@ -29,14 +30,14 @@ public class Login extends BaseProcessor {
 
             password = checkNull(password);
             if (username.equals("") || password.equals("")) {
-                request.setAttribute("message", "You must enter a username and a password.");
+                getRequest().setAttribute("message", "You must enter a username and a password.");
             } else {
                 try {
 
-                    auth.login(new SimpleUser(0, username, password));
+                    getAuthentication().login(new SimpleUser(0, username, password));
 
                     /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
-                    String dest = checkNull(request.getParameter("nextpage"));
+                    String dest = checkNull(getRequest().getParameter("nextpage"));
                     setNextPage(dest);
                     setIsNextPageInContext(false);
                     return;
@@ -44,14 +45,14 @@ public class Login extends BaseProcessor {
                 } catch (LoginException e) {
 
                     /* the login failed, so tell them what happened */
-                    request.setAttribute("message", e.getMessage());
+                    getRequest().setAttribute("message", e.getMessage());
                 }
             }
 
             /* whatever was wrong with the submission, make sure they are logged out */
-            auth.logout();
+            getAuthentication().logout();
         }
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
         setNextPage(Constants.LOGIN_PAGE);
         setIsNextPageInContext(true);
     }

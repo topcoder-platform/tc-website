@@ -7,10 +7,13 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.ProfileInfo;
 import com.topcoder.web.screening.model.ProblemInfo;
 import com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome;
 import com.topcoder.web.ejb.sessionprofile.SessionProfileProblem;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.StringUtils;
 
 import javax.servlet.ServletRequest;
 import javax.rmi.PortableRemoteObject;
@@ -33,8 +36,8 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
             info.setProfileName(name);
         }
 
-        String testSetA = request.getParameter(Constants.TEST_SET_A);
-        if (testSetA != null) {
+        String testSetA = StringUtils.checkNull(request.getParameter(Constants.TEST_SET_A));
+        if (!testSetA.equals("")) {
             info.setTestSetA(testSetA);
         }
 
@@ -53,7 +56,7 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
         List ret = new ArrayList();
 
 
-        Map map = getDataAccess().getData(profileTestSetA);
+        Map map = Util.getDataAccess().getData(profileTestSetA);
 
         if (map != null) {
             ResultSetContainer rsc = (ResultSetContainer)
@@ -97,7 +100,7 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
         Request profileLanguage = new Request();
         profileLanguage.setProperty(DataAccessConstants.COMMAND,
                 Constants.PROFILE_LANGUAGE_QUERY_KEY);
-        Map map = getDataAccess(true).getData(profileLanguage);
+        Map map = Util.getDataAccess(true).getData(profileLanguage);
         ResultSetContainer ret = null;
         if(map != null) {
             ret = (ResultSetContainer) map.get(Constants.PROFILE_LANGUAGE_QUERY_KEY);
@@ -109,25 +112,34 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
 
     protected boolean validateProfileInfo() throws Exception {
         boolean success = true;
-        ServletRequest request = getRequest();
         ProfileInfo info = (ProfileInfo)
-                request.getAttribute(Constants.PROFILE_INFO);
-        HashMap errorMap = new HashMap(5);
+                getRequest().getAttribute(Constants.PROFILE_INFO);
 
         if (info != null) {
             if (info.getProfileName() == null ||
                     info.getProfileName().trim().equals("")) {
                 success = false;
-                errorMap.put(Constants.PROFILE_NAME,
+                log.debug("Profile Name must be set");
+                addError(Constants.PROFILE_NAME,
                         "Profile Name must be set");
             }
 
             if (info.getLanguage().length == 0) {
                 success = false;
-                errorMap.put(Constants.LANGUAGE,
+                log.debug("At least one language must be selected");
+                addError(Constants.LANGUAGE,
                         "At least one language must be selected");
             }
 
+            if (!info.hasTestSetA()) {
+                if (info.getTestSetB()==null || info.getTestSetB().length==0) {
+                    success = false;
+                    log.debug("If you do not select a Test Set A, you must select at least one problem for Test Set B.");
+                    addError(Constants.TEST_SET_B,
+                            "If you do not select a Test Set A, you must select at least one problem for Test Set B.");
+                }
+
+            }
             if (success) {
                 Request dRequest = new Request();
                 dRequest.setProperty(DataAccessConstants.COMMAND,
@@ -135,22 +147,19 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
                 dRequest.setProperty("tpname", info.getProfileName());
                 dRequest.setProperty("uid",
                         String.valueOf(getAuthentication().getUser().getId()));
-                DataAccessInt dataAccess = getDataAccess();
+                DataAccessInt dataAccess = Util.getDataAccess();
                 Map map = dataAccess.getData(dRequest);
 
                 ResultSetContainer rsc = (ResultSetContainer)
                         map.get(Constants.PROFILE_CHECK_NAME_QUERY_KEY);
                 if (rsc.size() > 0) {
                     success = false;
-                    errorMap.put(Constants.PROFILE_NAME,
+                    log.debug("This profile name is already in use for your company");
+                    addError(Constants.PROFILE_NAME,
                             "This profile name is already in use for your company");
                 }
             }
 
-        }
-
-        if (!success) {
-            request.setAttribute(Constants.ERRORS, errorMap);
         }
 
         return success;

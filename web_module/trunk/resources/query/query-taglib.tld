@@ -11,8 +11,8 @@
 
     <tag>
         <name>listIterator</name>
-        <tagclass>com.topcoder.web.query.servlet.jsp.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.query.servlet.jsp.tag.ListIteratorTagInfo</teiclass>
+        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
+        <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>
         <bodycontent>JSP</bodycontent>
         <info>
             Tag to iterate through a List
@@ -31,7 +31,7 @@
 
     <tag>
         <name>queryInputIterator</name>
-        <tagclass>com.topcoder.web.query.servlet.jsp.tag.ListIteratorTag</tagclass>
+        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
         <teiclass>com.topcoder.web.query.servlet.jsp.tag.QueryInputIteratorTagInfo</teiclass>
         <bodycontent>JSP</bodycontent>
         <info>
@@ -51,7 +51,7 @@
 
     <tag>
         <name>queryIterator</name>
-        <tagclass>com.topcoder.web.query.servlet.jsp.tag.ListIteratorTag</tagclass>
+        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
         <teiclass>com.topcoder.web.query.servlet.jsp.tag.QueryIteratorTagInfo</teiclass>
         <bodycontent>JSP</bodycontent>
         <info>
@@ -71,7 +71,7 @@
 
     <tag>
         <name>DBIterator</name>
-        <tagclass>com.topcoder.web.query.servlet.jsp.tag.ListIteratorTag</tagclass>
+        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
         <teiclass>com.topcoder.web.query.servlet.jsp.tag.DBIteratorTagInfo</teiclass>
         <bodycontent>JSP</bodycontent>
         <info>
@@ -91,7 +91,7 @@
 
     <tag>
         <name>resultSetRowIterator</name>
-        <tagclass>com.topcoder.web.query.servlet.jsp.tag.ListIteratorTag</tagclass>
+        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
         <teiclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetRowIteratorTagInfo</teiclass>
         <bodycontent>JSP</bodycontent>
         <info>
@@ -111,7 +111,7 @@
 
     <tag>
         <name>commandQueryIterator</name>
-        <tagclass>com.topcoder.web.query.servlet.jsp.tag.ListIteratorTag</tagclass>
+        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
         <teiclass>com.topcoder.web.query.servlet.jsp.tag.CommandQueryIteratorTagInfo</teiclass>
         <bodycontent>JSP</bodycontent>
         <info>
@@ -150,18 +150,19 @@
 
     <tag>
         <name>error</name>
-        <tagclass>com.topcoder.web.query.servlet.jsp.tag.ErrorTag</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tagclass>com.topcoder.web.common.tag.ErrorIteratorTag</tagclass>
+        <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>
+        <bodycontent>JSP</bodycontent>
         <info>
-            Tag to get an error associated with a key
+            Tag to get an errors associated with a key
         </info>
         <attribute>
-            <name>task</name>
+            <name>id</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>key</name>
+            <name>name</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>

@@ -8,6 +8,7 @@ import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.bean.QueryBean;
 import com.topcoder.web.query.ejb.QueryServices.*;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.*;
 
@@ -45,55 +46,62 @@ public class ModifyCommandQuery extends BaseProcessor {
     }
 
 
-	protected void baseProcessing() throws Exception {
-        Enumeration parameterNames = request.getParameterNames();
+    protected void baseProcessing() throws TCWebException {
+        super.baseProcessing();
+        Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
         }
- 	}
+    }
 
-    protected void businessProcessing() throws Exception {
-        String step = request.getParameter(Constants.STEP_PARAM);
-        CommandQuery cq = (CommandQuery)Util.createEJB(getInitialContext(), CommandQuery.class);
-        Command c = (Command)Util.createEJB(getInitialContext(), Command.class);
-        Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
+    protected void businessProcessing() throws TCWebException {
+        String step = getRequest().getParameter(Constants.STEP_PARAM);
+        try {
+            CommandQuery cq = (CommandQuery) Util.createEJB(getInitialContext(), CommandQuery.class);
+            Command c = (Command) Util.createEJB(getInitialContext(), Command.class);
+            Query q = (Query) Util.createEJB(getInitialContext(), Query.class);
 
-        setCommandDesc(c.getCommandDesc(getCommandId(), getDb()));
+            setCommandDesc(c.getCommandDesc(getCommandId(), getDb()));
 
-        processAttributeQueue();
+            processAttributeQueue();
 
-        checkCommandId(getCommandId(), c);
-        if (step!=null && step.equals(Constants.SAVE_STEP)) {
-            CommandQueryBean cqb = null;
-            checkSortOrder(getCurrentQueryList());
-            if (!hasErrors()) {
-                for (int j=0; j<getCurrentQueryList().size(); j++) {
-                    cqb = (CommandQueryBean)getCurrentQueryList().get(j);
-                    cq.setSortOrder(cqb.getCommandId(), cqb.getQueryId(), cqb.getSortOrder(), getDb());
+            checkCommandId(getCommandId(), c);
+            if (step != null && step.equals(Constants.SAVE_STEP)) {
+                CommandQueryBean cqb = null;
+                checkSortOrder(getCurrentQueryList());
+                if (!hasErrors()) {
+                    for (int j = 0; j < getCurrentQueryList().size(); j++) {
+                        cqb = (CommandQueryBean) getCurrentQueryList().get(j);
+                        cq.setSortOrder(cqb.getCommandId(), cqb.getQueryId(), cqb.getSortOrder(), getDb());
+                    }
                 }
+            } else if (step != null && step.equals(Constants.NEW_STEP)) {
+                checkQueryIds(getCurrentQueryList(), q);
+                cq.createCommandQuery(getCommandId(), getQueryId(), getDb());
+            } else if (step != null && step.equals(Constants.REMOVE_STEP)) {
+                checkQueryIds(getCurrentQueryList(), q);
+                cq.removeCommandQuery(getCommandId(), getQueryId(), getDb());
             }
-        } else if (step!=null && step.equals(Constants.NEW_STEP)) {
-            checkQueryIds(getCurrentQueryList(), q);
-            cq.createCommandQuery(getCommandId(), getQueryId(), getDb());
-        } else if (step!=null && step.equals(Constants.REMOVE_STEP)) {
-            checkQueryIds(getCurrentQueryList(), q);
-            cq.removeCommandQuery(getCommandId(), getQueryId(), getDb());
+            setCurrentQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
+            setOtherQueryList(q.getAllQueries(false, getDb()));
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
         }
-        setCurrentQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
-        setOtherQueryList(q.getAllQueries(false, getDb()));
 
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".") + 1), this);
         setNextPage(Constants.MODIFY_COMMAND_QUERY_PAGE);
         setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
         log.debug("setAttributes called...param: " + paramName + " value: " + value);
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM)) {
             setDb(value);
@@ -124,8 +132,8 @@ public class ModifyCommandQuery extends BaseProcessor {
         String value = null;
         Map.Entry me = null;
 
-        for (Iterator it = attributeQueue.entrySet().iterator(); it.hasNext(); ) {
-            me = (Map.Entry)it.next();
+        for (Iterator it = attributeQueue.entrySet().iterator(); it.hasNext();) {
+            me = (Map.Entry) it.next();
             paramName = me.getKey().toString();
             value = me.getValue().toString();
             if (paramName.startsWith(Constants.SORT_ORDER_PARAM)) {
@@ -142,17 +150,17 @@ public class ModifyCommandQuery extends BaseProcessor {
     }
 
     private void checkCommandId(long commandId, Command c) throws Exception {
-        if (c.getCommandDesc(commandId, getDb())==null) {
+        if (c.getCommandDesc(commandId, getDb()) == null) {
             addError(Constants.COMMAND_ID_PARAM, "Invalid Command");
         }
     }
 
     private void checkQueryIds(List list, Query q) throws Exception {
         long queryId = 0;
-        for(int i=0; i<list.size(); i++) {
-            queryId = ((CommandQueryBean)list.get(i)).getQueryId();
-            if (q.getName(queryId, getDb())==null) {
-                addError(Constants.QUERY_ID_PARAM+queryId, "Invalid query id");
+        for (int i = 0; i < list.size(); i++) {
+            queryId = ((CommandQueryBean) list.get(i)).getQueryId();
+            if (q.getName(queryId, getDb()) == null) {
+                addError(Constants.QUERY_ID_PARAM + queryId, "Invalid query id");
             }
         }
     }
@@ -168,37 +176,36 @@ public class ModifyCommandQuery extends BaseProcessor {
         CommandQueryBean next = null;
         Collections.sort(list, new Comparator() {
             public int compare(Object o1, Object o2) {
-                return (new Integer(((CommandQueryBean)o1).getSortOrder()).compareTo(
-                        new Integer(((CommandQueryBean)o2).getSortOrder())));
+                return (new Integer(((CommandQueryBean) o1).getSortOrder()).compareTo(
+                        new Integer(((CommandQueryBean) o2).getSortOrder())));
             }
         });
         boolean found = false;
-        for(int i=0; i<list.size()-1 && !found; i++) {
-            curr = (CommandQueryBean)list.get(i);
-            next = (CommandQueryBean)list.get(i+1);
+        for (int i = 0; i < list.size() - 1 && !found; i++) {
+            curr = (CommandQueryBean) list.get(i);
+            next = (CommandQueryBean) list.get(i + 1);
             found = curr.getSortOrder() == next.getSortOrder();
             if (found) {
-                addError(Constants.SORT_ORDER_PARAM+curr.getQueryId(), "No two sort order entries may be the same");
+                addError(Constants.SORT_ORDER_PARAM + curr.getQueryId(), "No two sort order entries may be the same");
             } else {
                 if (curr.getSortOrder() == 0) {
                     found = true;
-                    addError(Constants.SORT_ORDER_PARAM+curr.getQueryId(), "You must fill in a sort order");
+                    addError(Constants.SORT_ORDER_PARAM + curr.getQueryId(), "You must fill in a sort order");
                 } else if (next.getSortOrder() == 0) {
                     found = true;
-                    addError(Constants.SORT_ORDER_PARAM+next.getQueryId(), "You must fill in a sort order");
+                    addError(Constants.SORT_ORDER_PARAM + next.getQueryId(), "You must fill in a sort order");
                 } else if (curr.getSortOrder() > 999) {
                     found = true;
-                    addError(Constants.SORT_ORDER_PARAM+curr.getQueryId(), "Invalid sortorder specified");
+                    addError(Constants.SORT_ORDER_PARAM + curr.getQueryId(), "Invalid sortorder specified");
                 } else if (next.getSortOrder() > 999) {
                     found = true;
-                    addError(Constants.SORT_ORDER_PARAM+next.getQueryId(), "Invalid sort order specified");
+                    addError(Constants.SORT_ORDER_PARAM + next.getQueryId(), "Invalid sort order specified");
                 }
 
 
             }
         }
     }
-
 
 
     /**
@@ -214,9 +221,9 @@ public class ModifyCommandQuery extends BaseProcessor {
     private CommandQueryBean getCommandQuery(ArrayList list, long id) {
         CommandQueryBean temp = null;
         boolean found = false;
-        for (int i=0; i<list.size() && !found; i++) {
-            found = ((CommandQueryBean)list.get(i)).getQueryId()==id;
-            if (found) temp = ((CommandQueryBean)list.get(i));
+        for (int i = 0; i < list.size() && !found; i++) {
+            found = ((CommandQueryBean) list.get(i)).getQueryId() == id;
+            if (found) temp = ((CommandQueryBean) list.get(i));
         }
         return temp;
     }
@@ -242,8 +249,8 @@ public class ModifyCommandQuery extends BaseProcessor {
         ResultSetContainer.ResultSetRow rsr = null;
         ArrayList list = new ArrayList(currentQueryList.size());
         CommandQueryBean cqb = null;
-        for ( ; it.hasNext(); ) {
-            rsr = (ResultSetContainer.ResultSetRow)it.next();
+        for (; it.hasNext();) {
+            rsr = (ResultSetContainer.ResultSetRow) it.next();
             cqb = new CommandQueryBean();
             cqb.setCommandId(Long.parseLong(rsr.getItem("command_id").toString()));
             cqb.setQueryId(Long.parseLong(rsr.getItem("query_id").toString()));
@@ -253,7 +260,6 @@ public class ModifyCommandQuery extends BaseProcessor {
         }
         setCurrentQueryList(list);
     }
-
 
 
     /**
@@ -267,8 +273,8 @@ public class ModifyCommandQuery extends BaseProcessor {
         ResultSetContainer.ResultSetRow rsr = null;
         ArrayList list = new ArrayList(otherQueryList.size());
         QueryBean qb = null;
-        for ( ; it.hasNext(); ) {
-            rsr = (ResultSetContainer.ResultSetRow)it.next();
+        for (; it.hasNext();) {
+            rsr = (ResultSetContainer.ResultSetRow) it.next();
             qb = new QueryBean();
             qb.setQueryId(Long.parseLong(rsr.getItem("query_id").toString()));
             qb.setName(rsr.getItem("name").toString());
@@ -277,7 +283,7 @@ public class ModifyCommandQuery extends BaseProcessor {
             qb.setRanking(rsr.getItem("ranking").toString().equals("1"));
             qb.setColumnIndex(Integer.parseInt(rsr.getItem("column_index").toString()));
             // if this input is not associated with this query already, add it to the OtherInputList
-            if (getCommandQuery(getCurrentQueryList(), qb.getQueryId())==null) {
+            if (getCommandQuery(getCurrentQueryList(), qb.getQueryId()) == null) {
                 list.add(qb);
             }
         }
@@ -291,8 +297,8 @@ public class ModifyCommandQuery extends BaseProcessor {
      * @throws Exception
      */
     public ArrayList getCurrentQueryList() throws Exception {
-        if (currentQueryList==null) {
-            CommandQuery cq = (CommandQuery)Util.createEJB(getInitialContext(), CommandQuery.class);
+        if (currentQueryList == null) {
+            CommandQuery cq = (CommandQuery) Util.createEJB(getInitialContext(), CommandQuery.class);
             setCurrentQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
         }
         return currentQueryList;

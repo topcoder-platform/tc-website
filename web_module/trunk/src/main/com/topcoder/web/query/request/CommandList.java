@@ -7,6 +7,7 @@ import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Command;
 import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.Enumeration;
 
@@ -28,33 +29,40 @@ public class CommandList extends BaseProcessor {
     public CommandList() {
         super();
         db = "";
-        commandGroupId=0;
+        commandGroupId = 0;
     }
 
-	protected void baseProcessing() throws Exception {
-        Enumeration parameterNames = request.getParameterNames();
+    protected void baseProcessing() throws TCWebException {
+        super.baseProcessing();
+        Enumeration parameterNames = getRequest().getParameterNames();
         log.debug("baseProcessng called: " + parameterNames.toString());
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
         }
- 	}
+    }
 
-    protected void businessProcessing() throws Exception {
-        Command c = (Command)Util.createEJB(getInitialContext(), Command.class);
-        CommandGroup cg = (CommandGroup)Util.createEJB(getInitialContext(), CommandGroup.class);
+    protected void businessProcessing() throws TCWebException {
+        try {
+            Command c = (Command) Util.createEJB(getInitialContext(), Command.class);
+            CommandGroup cg = (CommandGroup) Util.createEJB(getInitialContext(), CommandGroup.class);
 
-        if (getCommandGroupId()>0) {
-            setCommandList(c.getCommandList(getDb(), getCommandGroupId()));
-        } else {
-            setCommandList(c.getCommandList(getDb()));
+            if (getCommandGroupId() > 0) {
+                setCommandList(c.getCommandList(getDb(), getCommandGroupId()));
+            } else {
+                setCommandList(c.getCommandList(getDb()));
+            }
+            setCommandGroupList(cg.getAllCommandGroups(getDb()));
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
         }
-        setCommandGroupList(cg.getAllCommandGroups(getDb()));
 
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".") + 1), this);
         setNextPage(Constants.COMMAND_LIST_PAGE);
         setIsNextPageInContext(true);
     }
@@ -62,7 +70,7 @@ public class CommandList extends BaseProcessor {
     public void setAttributes(String paramName, String paramValues[]) {
         log.debug("set attrbutes called " + paramName + " " + paramValues[0]);
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
 
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM))
             setDb(value);

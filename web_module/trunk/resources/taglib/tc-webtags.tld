@@ -17,26 +17,32 @@
         <attribute>
             <name>value</name>
             <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
             <name>size</name>
             <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
             <name>passw</name>
             <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
             <name>maxlength</name>
             <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
             <name>class</name>
             <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
             <name>onKeyPress</name>
             <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
             <name>editable</name>
@@ -108,7 +114,7 @@
         <tagclass>com.topcoder.web.common.tag.ErrorIteratorTag</tagclass>
         <teiclass>com.topcoder.web.common.tag.IteratorTagInfo</teiclass>
         <attribute>
-            <name>refName</name>
+            <name>name</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>

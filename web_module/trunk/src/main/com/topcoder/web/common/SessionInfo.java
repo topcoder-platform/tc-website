@@ -1,6 +1,8 @@
 package com.topcoder.web.common;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.web.common.security.WebAuthentication;
 
@@ -70,7 +72,7 @@ public class SessionInfo {
     }
 
     public boolean isAnonymous() {
-        return group == 'G';
+        return userid == SimpleUser.createGuest().getId();
     }
 
     public boolean isAdmin() {

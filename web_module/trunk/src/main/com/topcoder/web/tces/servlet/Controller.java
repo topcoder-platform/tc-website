@@ -13,8 +13,8 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.corp.Util;
-import com.topcoder.web.corp.model.SessionInfo;
-import com.topcoder.web.corp.request.Login;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.tces.bean.Task;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.web.tces.common.TCESConstants;
@@ -27,7 +27,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpUtils;
 import java.io.IOException;
 import java.util.Enumeration;
-import java.util.Set;
 
 
 /**
@@ -111,10 +110,8 @@ public class Controller extends HttpServlet {
                 );
                 Authorization authorize = new TCSAuthorization(tcUser);
 
-                info = new SessionInfo();
-                request.setAttribute("SessionInfo", info);
-                Set groups = ((TCSAuthorization)authorize).getGroups();
-                info.setAll(authToken.getActiveUser(), groups);
+                info = new SessionInfo(request, authToken, tcUser.getPrincipals());
+                request.setAttribute(BaseServlet.SESSION_INFO_KEY, info);
 
                 Resource taskResource = new SimpleResource(taskClassName);
                 Task task = null;
@@ -158,7 +155,7 @@ public class Controller extends HttpServlet {
                 } catch (TCESAuthenticationException authex) {
                     request.setAttribute("message", "In order to continue, you must provide your user name " +
                             "and password, even if you’ve logged in already.");
-                    request.setAttribute(Login.KEY_DESTINATION_PAGE,
+                    request.setAttribute(BaseServlet.NEXT_PAGE_KEY,
                             HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
                     request.setAttribute(com.topcoder.web.corp.Constants.KEY_MODULE, "Login");
                     boolean forward = true;

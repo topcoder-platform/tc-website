@@ -6,21 +6,27 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public abstract class BaseProcessor implements RequestProcessor {
 
     protected static Logger log = Logger.getLogger(BaseProcessor.class);
     /* set by the creator */
-    protected ServletRequest request;
-    protected WebAuthentication auth;
+    private HttpServletRequest request;
+    private WebAuthentication auth;
 
     private InitialContext ctx;
     private HashMap errors;
+    private HashMap defaults;
+
+    private User user;
+
+    public static final String ERRORS_KEY = "processor_errors";
+    public static final String DEFAULTS_KEY = "processor_defaults";
 
     /* return values */
     private String nextPage = "";
@@ -29,9 +35,10 @@ public abstract class BaseProcessor implements RequestProcessor {
     public BaseProcessor() {
         log.debug("constructing " + this.getClass().getName());
         errors = new HashMap();
+        defaults = new HashMap();
     }
 
-    public void setRequest(ServletRequest request) {
+    public void setRequest(HttpServletRequest request) {
         this.request = request;
     }
 
@@ -40,11 +47,17 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     /**
-     *  subclasses may override this to demand a login this session
-     * @return
+     * Return the identified user.  We do it here so that we can
+     * "cache" the user for the life of the processor and not
+     * continuously retrieve it.  subclasses may override this
+     * to demand a login this session etc.
+     *
+     * @return the user
      */
     protected User getUser() {
-        return auth.getActiveUser();
+        if (user==null)
+            user=auth.getActiveUser();
+        return user;
     }
 
     /**
@@ -64,13 +77,15 @@ public abstract class BaseProcessor implements RequestProcessor {
      * Some things we want to do for most subclassed request processors.
      * Override this to disable auth setup and adding default beans.
      */
-    protected void baseProcessing() throws Exception {
+    protected void baseProcessing() throws TCWebException {
+        getRequest().setAttribute(ERRORS_KEY, errors);
+        getRequest().setAttribute(DEFAULTS_KEY, defaults);
     }
 
     /**
      * Subclasses should do their work by implementing this method.
      */
-    abstract protected void businessProcessing() throws Exception;
+    abstract protected void businessProcessing() throws TCWebException;
 
     /**
      * This is final to discourage overriding it.  Instead subclasses should implement businessProcessing().
@@ -106,7 +121,7 @@ public abstract class BaseProcessor implements RequestProcessor {
      */
     protected void setNextPage(String page) {
         if (page == null || page.equals(""))
-            page = ((HttpServletRequest) request).getContextPath() + ((HttpServletRequest) request).getServletPath();
+            page = request.getContextPath() + request.getServletPath();
         nextPage = page;
     }
 
@@ -142,14 +157,17 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected void addError(String key, Object error) {
-        if (!hasError(key)) {
-            errors.put(key, error);
+        ArrayList errs = (ArrayList) errors.get(key);
+        if (errs == null) {
+            errs = new ArrayList();
+            errors.put(key, errs);
         }
+        errs.add(error);
     }
 
-    public String getError(String key) {
+    public Object getError(String key) {
         if (errors.containsKey(key) && errors.get(key) != null) {
-            return errors.get(key).toString();
+            return errors.get(key);
         }
         return "";
     }
@@ -172,8 +190,11 @@ public abstract class BaseProcessor implements RequestProcessor {
         return !errors.isEmpty();
     }
 
-    /* some utility methods */
+    protected void setDefault(String key, Object o) {
+        defaults.put(key, o);
+    }
 
+    /* some utility methods */
     protected boolean isEmpty(String s) {
         return !(s != null && s.trim().length() > 0);
     }
@@ -182,5 +203,12 @@ public abstract class BaseProcessor implements RequestProcessor {
         return s == null ? "" : s;
     }
 
+    public WebAuthentication getAuthentication() {
+        return auth;
+    }
+
+    public HttpServletRequest getRequest() {
+        return request;
+    }
 }
 

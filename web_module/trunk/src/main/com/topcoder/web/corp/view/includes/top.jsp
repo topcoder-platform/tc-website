@@ -7,7 +7,7 @@
                  com.topcoder.web.corp.model.SessionInfo,
                  com.topcoder.shared.util.ApplicationServer"
          autoFlush="false" %>
-<jsp:usebean id="SessionInfo" class="com.topcoder.web.corp.model.SessionInfo" scope="request" />
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%
    boolean isHomePage = "true".equals(request.getParameter("isHomePage"));
@@ -20,12 +20,12 @@
     <tr valign="middle">
         <td class="login" width="99%">&nbsp;</td>
         <td class="login" nowrap>
-    <% if (SessionInfo.isGuest()) {  // no logged user %>
+    <% if (sessionInfo.isAnonymous()) {  // no logged user %>
             <strong>You are not logged in.</strong>
 &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=LoginPage" class="loginLinks" target="_parent">Login</a>
 &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">Register</a>
     <% } else { %>
-            <strong>Hello, <jsp:getProperty name="SessionInfo" property="Handle" />.</strong>
+            <strong>Hello, <jsp:getProperty name="sessionInfo" property="Handle" />.</strong>
 &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="loginLinks" target="_parent">Logout</a>
 &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">Update Profile</a>
     <% } %>

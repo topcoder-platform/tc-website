@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page errorPage="../errorPage.jsp" %>
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
@@ -36,7 +35,7 @@
             </table>
 
             <screen:form name='note' method='POST' action='<%=Constants.CONTROLLER_URL%>'>
-            <INPUT type="hidden" name='<%=Constants.REQUEST_PROCESSOR%>' value='NoteCreate'/>
+            <INPUT type="hidden" name='<%=Constants.MODULE_KEY%>' value='NoteCreate'/>
             <INPUT type="hidden" name='<%=Constants.FIRST_ATTEMPT%>' value='false'/>
             <INPUT type="hidden" name='<%=Constants.CANDIDATE_ID%>' value='<%=candidateInfo.getUserId()%>'/>
             

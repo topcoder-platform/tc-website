@@ -7,13 +7,14 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.screening.common.Constants;
-import com.topcoder.web.screening.model.SessionInfo;
+import com.topcoder.web.screening.common.Util;
+import com.topcoder.web.screening.model.TestSessionInfo;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
 import java.util.Map;
 
 public abstract class BaseSessionProcessor extends BaseProcessor {
@@ -21,13 +22,13 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
     private static int BEGIN = 0;
     private static int END = 1;
 
-    protected SessionInfo getSessionInfo() {
-        HttpServletRequest request = (HttpServletRequest)getRequest();
+    protected TestSessionInfo getSessionInfo() {
+        HttpServletRequest request = getRequest();
         HttpSession session = request.getSession();
-        SessionInfo info = (SessionInfo)
+        TestSessionInfo info = (TestSessionInfo)
             session.getAttribute(Constants.SESSION_INFO);
         if(info == null) {
-            info = new SessionInfo();
+            info = new TestSessionInfo();
             session.setAttribute(Constants.SESSION_INFO, info);
         }
 
@@ -35,14 +36,14 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
     }
 
     protected void clearSessionInfo() {
-        HttpServletRequest request = (HttpServletRequest)getRequest();
+        HttpServletRequest request = getRequest();
         HttpSession session = request.getSession();
         session.removeAttribute(Constants.SESSION_INFO);
 
     }
 
     protected void updateSessionInfo() {
-        SessionInfo info = getSessionInfo();
+        TestSessionInfo info = getSessionInfo();
 
         ServletRequest request = getRequest();
         info.setProfileId(request.getParameter(Constants.PROFILE_ID));
@@ -60,19 +61,16 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
     }
 
     protected boolean validateSessionInfo() throws Exception {
-        SessionInfo info = getSessionInfo();
-        HashMap errorMap = new HashMap(10);
+        TestSessionInfo info = getSessionInfo();
 
         boolean beginSuccess =
             validateDate(BEGIN,
-                         errorMap,
                          info.getBeginMonth(),
                          info.getBeginDay(),
                          info.getBeginYear());
 
         boolean endSuccess =
             validateDate(END,
-                         errorMap,
                          info.getEndMonth(),
                          info.getEndDay(),
                          info.getEndYear());
@@ -80,7 +78,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
         boolean success = (beginSuccess && endSuccess);
 
         if(info.getBeginDate().compareTo(info.getEndDate()) >= 0) {
-            errorMap.put("dateCompare",
+            addError("dateCompare",
                     "Begin Time must be earlier than End Time");
             success = false;
         }
@@ -98,7 +96,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
             dRequest.setProperty("start", sdf.format(info.getBeginDate()));
             dRequest.setProperty("end", sdf.format(info.getEndDate()));
             log.debug("request: " + dRequest.toString());
-            DataAccessInt dataAccess = getDataAccess();
+            DataAccessInt dataAccess = Util.getDataAccess();
             Map map = dataAccess.getData(dRequest);
 
             //first check to see if it is a dupe
@@ -106,7 +104,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
                 map.get(Constants.SESSION_DUPE_CHECK_QUERY_KEY);
             if(rsc.size() > 0) {
                 success = false;
-                errorMap.put("dateCompare", "This session already exists.");
+                addError("dateCompare", "This session already exists.");
             }
             else {
                 //if not a dupe check to see if it violates time window
@@ -114,21 +112,16 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
                     map.get(Constants.SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY);
                 if(rsc.size() > 0) {
                     success = false;
-                    errorMap.put("dateCompare",
+                    addError("dateCompare",
                         "The candidate is already scheduled during selected time period");
                 }
             }
-        }
-
-        if(!success) {
-            getRequest().setAttribute(Constants.ERRORS, errorMap);
         }
 
         return success;
     }
 
     protected boolean validateDate(int type,
-                                   HashMap errorMap,
                                    String month,
                                    String day,
                                    String year) {
@@ -142,17 +135,17 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
 
         if(month == null) {
             success = false;
-            errorMap.put(monthKey, "Month must be set");
+            addError(monthKey, "Month must be set");
         }
 
         if(day == null) {
             success = false;
-            errorMap.put(dayKey, "Day must be set");
+            addError(dayKey, "Day must be set");
         }
 
         if(year == null) {
             success = false;
-            errorMap.put(yearKey, "Year must be set");
+            addError(yearKey, "Year must be set");
         }
 
         if(success) {
@@ -171,7 +164,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
                 case 2:
                     if(dayInt == 30 || dayInt == 31) {
                         success = false;
-                        errorMap.put(dayKey, "Invalid day with given month");
+                        addError(dayKey, "Invalid day with given month");
                     }
 
                     int yearInt = Integer.parseInt(year);
@@ -181,7 +174,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
                        !((yearInt % 4 == 0) &&
                            ((yearInt % 100 != 0) || (yearInt % 400 == 0)))) {
                         success = false;
-                        errorMap.put(dayKey, "Given year is not a leap year");
+                        addError(dayKey, "Given year is not a leap year");
                     }
                     break;
 
@@ -191,7 +184,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
                 case 11:
                     if(dayInt == 31) {
                         success = false;
-                        errorMap.put(dayKey, "Invalid day with given month");
+                        addError(dayKey, "Invalid day with given month");
                     }
                     break;
             }

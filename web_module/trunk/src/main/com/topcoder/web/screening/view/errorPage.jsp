@@ -1,11 +1,12 @@
 <%@ page language="java" isErrorPage="true" %>
-<%@ page import="com.topcoder.web.screening.common.Constants"%>
+<%@ page import="com.topcoder.web.screening.common.Constants,
+                 com.topcoder.web.common.BaseServlet"%>
 <%@ taglib uri="/WEB-INF/screening.tld" prefix="screen" %>
 <% if(request.getAttribute("Exception") != null)
    {
        exception = (Throwable)request.getAttribute("Exception");
    }
-   String message = (String)request.getAttribute("message");
+   String message = (String)request.getAttribute(BaseServlet.MESSAGE_KEY);
  %>
 <html>
 <head>
@@ -42,10 +43,13 @@
             <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr>
                     <td width="100%" class="bodyText"><br>
-                        <% if(exception != null && Constants.DEBUG.equals("true")) {
-                            exception.printStackTrace(new java.io.PrintWriter(out));
-                        }
+                        <% if(exception != null) {
+                            if (Constants.DEBUG.equals("true")) {
+                              exception.printStackTrace(new java.io.PrintWriter(out));
+                            } else {
                              exception.printStackTrace();
+                            }
+                        }
                         %>
                         <div class="header"><%=message==null?"Navigation Error":message%></div>
                     </td>

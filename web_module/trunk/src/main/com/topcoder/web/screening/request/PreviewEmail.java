@@ -2,16 +2,17 @@ package com.topcoder.web.screening.request;
 
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.EmailInfo;
-import com.topcoder.web.screening.model.SessionInfo;
+import com.topcoder.web.screening.model.TestSessionInfo;
+import com.topcoder.web.common.TCWebException;
 
 import javax.servlet.ServletRequest;
 
 public class PreviewEmail extends BaseSessionProcessor {
-    public void process() throws Exception {
+    protected void businessProcessing() throws TCWebException {
         ServletRequest request = getRequest();
         EmailInfo info = null;
         try {
-            SessionInfo sInfo = getSessionInfo();
+            TestSessionInfo sInfo = getSessionInfo();
 
             //these three values should be passed in
             sInfo.setCandidateId(request.getParameter(Constants.CANDIDATE_ID));
@@ -19,7 +20,7 @@ public class PreviewEmail extends BaseSessionProcessor {
                     request.getParameter(Constants.CANDIDATE_EMAIL));
             sInfo.setRepEmail(request.getParameter(Constants.REP_EMAIL));
             info = 
-                EmailInfo.createEmailInfo(sInfo, getAuthentication().getActiveUser());
+                EmailInfo.createEmailInfo(sInfo, getUser());
         }
         catch(Exception e) {
             updateSessionInfo();
@@ -30,6 +31,6 @@ public class PreviewEmail extends BaseSessionProcessor {
         request.setAttribute(Constants.EMAIL_INFO, info);
 
         setNextPage(Constants.PREVIEW_EMAIL_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 }
