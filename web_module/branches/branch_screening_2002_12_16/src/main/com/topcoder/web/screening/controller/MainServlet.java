@@ -14,6 +14,7 @@ import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.ScreeningException;
 
 /**
  * This class handles all incoming requests.
@@ -128,8 +129,14 @@ public class MainServlet extends HttpServlet {
                             boolean forward)
                      throws ServletException, IOException {
         if (forward) {
-            getServletContext().getRequestDispatcher(
-                    response.encodeURL(page)).forward(request, response);
+            javax.servlet.RequestDispatcher disp =
+                getServletContext().getRequestDispatcher(response.encodeURL(page));
+            if(disp == null){
+                disp = getServletContext().getRequestDispatcher(Constants.ERROR_PAGE);
+                request.setAttribute("Exception",
+                    new ScreeningException("Resource '" + page + "' not found."));
+            }
+            disp.forward(request, response);
         } 
         else {
             String redirectPage = null;

@@ -18,7 +18,7 @@ public class Login extends BaseProcessor {
     static String REDIRECT_PARAM = "redir";
     static String MESSAGE_PARAM = "msg";
     static String FIRSTVISIT_PARAM = "firstVisit";
-    static String LOGIN_DEFAULT_URL = "/screening/screening";
+    static String LOGIN_DEFAULT_URL = "/screening";
     
     /** Implements the processing step.
      * @throws Exception
