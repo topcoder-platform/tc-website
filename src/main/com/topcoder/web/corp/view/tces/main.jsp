@@ -5,6 +5,7 @@
           com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
           com.topcoder.web.corp.controller.request.tces.*,
           com.topcoder.web.corp.common.TCESConstants" %>
+<%@ page autoFlush="true"%>
 
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
 
