@@ -49,19 +49,12 @@ public class ResumeLoader {
 
         //read file
         FileInputStream fis = new FileInputStream(fileName);
-        ArrayList a = new ArrayList(fis.available());
-        int avail = 0;
-        while ((avail = fis.read()) > -1) {
-            a.add(new Byte((byte)avail));
-        }
-        byte[] b = new byte[a.size()];
-        for (int i=b.length;--i>0;) {
-            b[i]=((Byte)a.get(i)).byteValue();
-        }
+        byte[] barr = new byte[fis.available()];
+        fis.read(barr);
 
         //insert record
         ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(TCContext.getInitial(), ResumeServices.class);
-        resumeServices.putResume(coderId, fileType, fileName, b, dataSource);
+        resumeServices.putResume(coderId, fileType, fileName, barr, dataSource);
 
 
 
