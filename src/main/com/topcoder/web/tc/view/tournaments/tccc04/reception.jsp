@@ -38,31 +38,23 @@
 
 <!-- Tab bar links-->
 <jsp:include page="tccc04links.jsp" >
-   <jsp:param name="tabLev1" value="algorithm"/>
-   <jsp:param name="tabLev2" value="summary"/>
-   <jsp:param name="tabLev3" value="room1"/>
+   <jsp:param name="tabLev1" value="overview"/>
+   <jsp:param name="tabLev2" value="onsite_events"/>
+   <jsp:param name="tabLev3" value="reception"/>
 </jsp:include>
+            <img src="/i/clear.gif" width="1" height="10" border="0"/><br/>
 
-            <p class="terciary">
-                <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_room1">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;Problem Analysis
-            </p>
-            
             <div class="leadPhoto">
-            <img src="/i/tournament/tccc04/room1/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-            <span class="leadPhotoCaption">photo caption<br/><br/></span>
+            <img src="/i/tournament/tccc04/reception/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
+            <span class="leadPhotoCaption">caption<br/><br/> </span>
             </div>
             
-            <h2>Problem Set Analysis &amp; Opinion</h2>
+            <h2>Opening Night Reception</h2>
 
-            <a href="/stat?c=member_profile&cr=273217"><img src="/i/m/somedude_mug.gif" alt="" width="55" height="61" border="0" align="left" /></a>
-            <p>by <a href="/stat?c=member_profile&cr=000000">somedude</a>, <br/>
-            <em>TopCoder Member</em><br />
-            Thursday, April 14, 2004<br/><br/></p>
+            <p>by somedude, <em>TopCoder Staff</em><br />
+            Wednesday, April 4, 2004</p>
 
-            <h3>ProblemName<br/>
-            <span class="bodyText">Used as: Division 1 - Level 1:</span></h3>
-                                    
-            <p>solution</p>
+            <p>Writeup</p>
             
 
          <p><br/></p>
