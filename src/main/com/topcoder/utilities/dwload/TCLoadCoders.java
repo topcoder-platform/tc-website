@@ -1033,6 +1033,9 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,i.file_name ");         // 2
             query.append("       ,i.image_type_id ");     // 3
             query.append("       ,i.path_id ");           // 4
+            query.append("       ,i.link ");
+            query.append("       ,i.height ");
+            query.append("       ,i.width ");
             query.append("  FROM image i ");
             query.append(" WHERE i.modify_date > ?");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
@@ -1044,13 +1047,16 @@ public class TCLoadCoders extends TCLoad {
             query.append("      (image_id ");               // 1
             query.append("       ,file_name ");             // 2
             query.append("       ,image_type_id ");         // 3
-            query.append("       ,path_id) ");              // 4
+            query.append("       ,path_id ");              // 4
+            query.append("       ,link ");              // 5
+            query.append("       ,height ");              // 6
+            query.append("       ,width) ");              // 7
             query.append("VALUES (");
-            query.append("?,?,?,?)");  // 4 values
+            query.append("?,?,?,?,?,?,?)");  // 4 values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append("UPDATE image SET file_name=?, image_type_id=?, path_id=? WHERE image_id = ?");
+            query.append("UPDATE image SET file_name=?, image_type_id=?, path_id=?, link=?, height=?, width=? WHERE image_id = ?");
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             rs = executeQuery(psSel, "loadImage");
@@ -1059,18 +1065,24 @@ public class TCLoadCoders extends TCLoad {
                 int image_id = rs.getInt(1);
 
                 psIns.setInt(1, image_id);
-                psIns.setString(2, rs.getString(2));
-                psIns.setInt(3, rs.getInt(3));
-                psIns.setInt(4, rs.getInt(4));
+                psIns.setString(2, rs.getString("file_name"));
+                psIns.setInt(3, rs.getInt("image_type_id"));
+                psIns.setInt(4, rs.getInt("path_id"));
+                psIns.setString(5, rs.getString("link"));
+                psIns.setInt(6, rs.getInt("height"));
+                psIns.setInt(7, rs.getInt("width"));
 
                 try {
                     retVal = psIns.executeUpdate();
                 } catch (Exception e) {
                     // the insert failed, so try an update
-                    psUpd.setString(1, rs.getString(2));
-                    psUpd.setInt(2, rs.getInt(3));
-                    psUpd.setInt(3, rs.getInt(4));
-                    psUpd.setInt(4, image_id);
+                    psUpd.setString(1, rs.getString("file_name"));
+                    psUpd.setInt(2, rs.getInt("image_type_id"));
+                    psUpd.setInt(3, rs.getInt("path_id"));
+                    psUpd.setString(4, rs.getString("link"));
+                    psUpd.setInt(5, rs.getInt("height"));
+                    psUpd.setInt(6, rs.getInt("width"));
+                    psUpd.setInt(7, image_id);
                     retVal = psUpd.executeUpdate();
                 }
 
