@@ -39,7 +39,7 @@
 <!-- Tab bar links-->
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="algorithm"/>
-   <jsp:param name="tabLev2" value="something"/>
+   <jsp:param name="tabLev2" value="summary"/>
    <jsp:param name="tabLev3" value="room1"/>
 </jsp:include>
 
