@@ -160,10 +160,10 @@ public class NotificationBean implements SessionBean {
 // qq ver            throw new InvalidEditException("SQL Exception: " + e.getMessage());
         } catch (Exception e) {
             info("error in createEvent: " + e.toString());
+            id = -1;
         } finally {
             Common.close(conn);
             Common.close(ps);
-            id = -1;
         }
 
         return id;
