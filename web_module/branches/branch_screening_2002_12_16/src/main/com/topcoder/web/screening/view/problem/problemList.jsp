@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page errorPage="/errorPage.jsp" %>
-<%@ page import="com.topcoder.web.screening.common.Constants" %>
+<%@ page errorPage="/errorPage.jsp"
+         import="com.topcoder.web.screening.common.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
@@ -43,7 +44,7 @@ function getProblemDetail(url,wd,ht) {
 </P><BR>
 <FORM>
                    
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">	        
+        <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">	        
 	        <TR>
 		       <TD COLSPAN="3" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;</B></TD>
 		       <TD COLSPAN="3" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Submission %</B></TD>		       		       
@@ -58,173 +59,28 @@ function getProblemDetail(url,wd,ht) {
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Sub. %</B></TD>		       		       		       		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Category</B></TD>		       
 	        </TR>          
-           <TR>
-              <TD COLSPAN="7" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<B>Problem Set 1</B></TD>
-           </TR>
-                      	        
+        <jsp:useBean id='problemList' type='java.util.List' scope='request' />
+        <screen:nestedListIterator id="subSet" list="<%=problemList%>">
+            <% ResultSetContainer.ResultSetRow firstRow = (ResultSetContainer.ResultSetRow)subSet.get(0); %>
+            <TR>
+                <TD COLSPAN="7" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<B><screen:resultSetItem row="<%=firstRow%>" name="round_name" /></B></TD>
+            </TR>
+            <screen:resultSetRowIterator id="row" list="<%= subSet %>">
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 1</TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="division_desc" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="difficulty_level" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       		       		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
 	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 2</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>	        	        	        
-           <TR>
-              <TD COLSPAN="7"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="7" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<B>Problem Set 2</B></TD>
-           </TR>                      	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 1</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 2</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>           
-           <TR>
-              <TD COLSPAN="7"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>           
-           <TR>
-              <TD COLSPAN="7" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<B>Problem Set 3</B></TD>
-           </TR>                     	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 1</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 2</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>
-           <TR>
-              <TD COLSPAN="7"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="7" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<B>Problem Set 4</B></TD>
-           </TR>                      	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 1</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 2</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>
-           <TR>
-              <TD COLSPAN="7"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="7" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<B>Problem Set 5</B></TD>
-           </TR>                      	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 1</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 2</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;50%</TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       
-	        </TR>	        	                   
-           <TR>
-              <TD COLSPAN="7"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="30" BORDER="0"></TD>
-           </TR>           	        	        	        
-         </TABLE>                 
+            </screen:resultSetRowIterator>
+            <TR>
+                <TD COLSPAN="7"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+            </TR>
+        </screen:nestedListIterator>
+        </TABLE>                 
 </FORM>         
 <P><BR/></P>    
      </TD>
