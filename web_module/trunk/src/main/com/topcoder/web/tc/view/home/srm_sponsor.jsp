@@ -1,5 +1,6 @@
 <%--
 <a href="/?t=tces&c=index"><img src="/i/es/paypal/srm_promo_home.gif" alt="" width="170" height="100" border="0"></a>
+--%>
 <table border=0 class=bodyText cellspacing=0 cellpadding=0 width=170>
     <tr>
         <td class=bigRed colspan=3 align=center>SRM Schedule Changes</td>
@@ -35,4 +36,3 @@
         <td>1:00pm</td>
     </tr>
 </table>
---%>
