@@ -106,6 +106,17 @@
         </attribute>
     </tag>
 
+   <tag>
+        <name>ratingImage</name>
+        <tagclass>com.topcoder.web.common.tag.RatingImageTag</tagclass>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+
     <tag>
         <name>sort</name>
         <tagclass>com.topcoder.web.common.tag.SortTag</tagclass>
