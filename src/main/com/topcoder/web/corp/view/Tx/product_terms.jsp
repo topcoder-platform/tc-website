@@ -33,10 +33,14 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" WIDTH="100%" valign="top"><IMG SRC="/i/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Terms Of Use</B></FONT><BR>
+<FONT SIZE="3" COLOR="#666666"><B>Customer Terms</B></FONT><BR>
 <P>
-                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
+
+As a TopCoder Customer, you must agree to the Customer Terms below.  Please read the Customer Terms, and click "I Agree to the Customer Terms and Conditions stated above" to finalize your purchase.  If you do not agree to these Customer Terms and Conditions, click <A HREF="/" CLASS="bodyText">here</A> to go back.<BR/><BR/>
+
+
+Customer Terms and Conditions ("Customer Terms")<BR/><BR/>
+
 </P><BR>
 <FORM action="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TX_BEGIN%>" method="POST" name="frmTerms">
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
