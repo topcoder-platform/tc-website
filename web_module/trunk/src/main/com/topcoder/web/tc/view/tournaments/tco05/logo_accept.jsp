@@ -49,21 +49,19 @@
             <div class="logoBox"><img src="/i/tournament/tco05/logo_logo.gif" alt="TCO05 Logo Contest" border="0"/></div>
             <div align="center">
    			<jsp:include page="logo_links.jsp" >
-   			<jsp:param name="selectedTab" value="overview"/>
+   			<jsp:param name="selectedTab" value="submit"/>
    			</jsp:include>
             </div>
 
             <br><br>
-            <span class="bodySubtitle">Design the face of the TCO05</span><br>
-            At this year's TopCoder Open we are adding yet another competition into the mix.  This time, we will be offering any member a chance to win $1000 by designing the tournament logo for the TCO05!
+            <span class="bodySubtitle">Logo submission</span><br>
+            Please read through the following terms and then click "Accept" when you're done.
             <br><br>
-            TopCoder would like to give any member the opportunity to put their creativity to the test and come up with the logo design that we'll be using to brand this year's TCO.  That includes our website, t-shirts, the stage at the onsite finals, and anywhere else that the TCO might show up.  So here is your chance to express what TopCoder tournaments mean to you, by designing the face of this year's TopCoder Open.
+            <div align="center"><form name="terms">
+            <textarea name="bigbox" rows="15" cols="60" readonly>Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here Terms go here </textarea>
             <br><br>
-            <b>Not a TopCoder member yet?</b><br>
-            <A href="/Registration">Register here</A>
-            <br><br>
-            <b>Ready to submit your design?</b><br>
-            <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_accept">Submit now</A>
+            <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_submit"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
+            </form></div>
          </div>
 
          <p><br/></p>
