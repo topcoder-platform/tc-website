@@ -73,7 +73,7 @@
 
 
                 <tr valign="top">
-                    <td class="formTextOdd" colspan="4"><a href="?&amp;t=development&amp;c=single_sign_on_v10_des">Single Sign-On (SSO) v1.0</a></td>
+                    <td class="formTextOdd" colspan="4"><a href="?&amp;t=development&amp;c=single_sign_on_v10_des">Single Sign-On (SSO)</a></td>
                  </tr>
                 <tr valign="top">
                     <td class="formTextOdd">&#160;&#160;&#160;&#160;Security Server</td>

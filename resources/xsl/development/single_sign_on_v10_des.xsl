@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>Single Sign-On v1.0 Application Design Project at TopCoder</title>
+                <title>Single Sign-On Application Design Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
@@ -53,7 +53,7 @@
 
                             <xsl:call-template name="BodyTop">
                                 <xsl:with-param name="image1">white</xsl:with-param>
-                                <xsl:with-param name="image">design</xsl:with-param>
+                                <xsl:with-param name="image">development</xsl:with-param>
                                 <xsl:with-param name="title">&#160;Application Development</xsl:with-param>
                             </xsl:call-template>
 
@@ -68,7 +68,7 @@
                                         <br/>
 
                                         <!-- Title -->
-                                        <h1 class="devSubhead">Single Sign-On v1.0 Application: Design</h1>
+                                        <h1 class="devSubhead">Single Sign-On Application: Design</h1>
 
                                         <p class="smallText">&#160;&#160;&#160;&#160;
                                             <a href="#overview">Overview</a> |
@@ -133,7 +133,7 @@
                                                 <a name="payment">Payment</a>
                                             </strong>
                                             <br/>
-                                             For each design project, TopCoder will compensate the member with the winning solution as well as the second place designer. In order to be paid, both the winning submission and the second place designer must pass screening and receive a review score above the minimum score of 50.
+                                             For each design project, TopCoder will compensate the member with the winning solution as well as the second place designer. In order to be paid, the submission must pass screening and receive a review score above the minimum score of 50.
                                              <br/><br/>
                                              Compensation for the winning solution is distributed in two installments.
                                              <br/><br/>
@@ -217,7 +217,7 @@
 
                                         <ul>
                                             <li>The Submission has been selected by the board as the winning submission.</li>
-                                            <li>Acceptance of the application design by the Design Review Board.</li>
+                                            <li>Final fixes accepted by the design review board.</li>
                                             <li>Application launch into production environment.</li>
                                         </ul>
 
@@ -308,17 +308,17 @@
 
                                             <tr>
                                                 <td class="sidebarText">Winner Announced:</td>
-                                                <td class="sidebarText" align="right">12.08.2003</td>
+                                                <td class="sidebarText" align="right">12.09.2003</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Updated Submission Due Date:</td>
-                                                <td class="sidebarText" align="right">12.12.2003</td>
+                                                <td class="sidebarText" align="right">12.16.2003</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Design Complete:</td>
-                                                <td class="sidebarText" align="right">12.16.2003</td>
+                                                <td class="sidebarText" align="right">12.17.2003</td>
                                             </tr>
 
                                             <tr>
