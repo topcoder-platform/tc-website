@@ -8,13 +8,13 @@
           <xsl:choose>
             <xsl:when test="/TC/LoggedIn='true'">
               <A CLASS="registerNav" TARGET="_parent">
-                <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/?&amp;t=reg&amp;<xsl:value-of select="/TC/UserId"/></xsl:attribute>
+                <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp<xsl:value-of select="/TC/UserId"/></xsl:attribute>
                 <IMG SRC="/i/menu_profile_on.gif" ALT="Update Profile" WIDTH="114" HEIGHT="21" BORDER="0"/>
               </A>
             </xsl:when>
             <xsl:otherwise>
               <A CLASS="registerNav" TARGET="_parent">
-                <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/?&amp;t=reg</xsl:attribute>
+                <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
                 <IMG SRC="/i/menu_reg_off.gif" ALT="Register" WIDTH="114" HEIGHT="21" BORDER="0"/>
               </A>
             </xsl:otherwise>
@@ -30,12 +30,12 @@
               <xsl:attribute name="SRC">/i/menu_sched_<xsl:choose><xsl:when test="/TC/Task='schedule'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             </IMG>
           </A>
-          <A onMouseOver="changeImages('image3', 'image3on')" onMouseOut="changeImages('image3', 'image3off')" TARGET="_parent">
+          <!-- <A onMouseOver="changeImages('image3', 'image3on')" onMouseOut="changeImages('image3', 'image3off')" TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_teams</xsl:attribute>
             <IMG NAME="image3" ALT="Teams" WIDTH="49" HEIGHT="21" BORDER="0">
               <xsl:attribute name="SRC">/i/menu_teams_<xsl:choose><xsl:when test="/TC/Task='about_tc'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             </IMG>
-          </A>          
+          </A> -->         
           <A onMouseOver="changeImages('image4', 'image4on')" onMouseOut="changeImages('image4', 'image4off')" TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=index</xsl:attribute>
             <IMG NAME="image4" ALT="Statistics" WIDTH="69" HEIGHT="21" BORDER="0">
@@ -43,7 +43,7 @@
             </IMG>
           </A>
           <A onMouseOver="changeImages('image5', 'image5on')" onMouseOut="changeImages('image5', 'image5off')" TARGET="_parent">
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=rtables</xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/index.jsp</xsl:attribute>
             <IMG NAME="image5" SRC="/i/menu_rounds_off.gif" ALT="Round Tables" WIDTH="90" HEIGHT="21" BORDER="0"/>
           </A>          
           <A onMouseOver="changeImages('image6', 'image6on')" onMouseOut="changeImages('image6', 'image6off')" TARGET="_parent">
