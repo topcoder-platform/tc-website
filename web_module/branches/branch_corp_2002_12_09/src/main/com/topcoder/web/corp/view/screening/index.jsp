@@ -27,7 +27,7 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<table><tr><td>
+<table border="0" width="100%"><tr><td>
 <FONT SIZE="3" COLOR="#666666"><B>Candidate Evaluation Application</B></FONT><BR/>
 <P>
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
@@ -57,7 +57,7 @@ Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu
 <P><BR/></P>
 </td></tr>
 <tr><td>
-             <form method="POST" action="<%=request.getContextPath()%>Tx/?op=begin">
+             <form method="POST" action="<%=request.getContextPath()%>/Tx/?op=begin">
        <input type="hidden" name="back-to" value="/"/>
        <table>
          <tr><td>Product ID</td><td><input type="text" name="prod-id" value="1"/></td></tr>
