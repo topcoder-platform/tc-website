@@ -24,7 +24,7 @@ public class Reg extends FullReg {
         setNextPage(Constants.AMAZON_REG_PAGE);
         setIsNextPageInContext(true);
     }
-    
+/*    
     protected void registrationProcessing() throws TCWebException {
         try {
             if (getAuthentication().getUser().isAnonymous()) {
@@ -48,7 +48,7 @@ public class Reg extends FullReg {
             throw new TCWebException(e);
         }
     }
-
+*/
     /**
      * we're really just lookin to add the population of the coder type
      * @return
