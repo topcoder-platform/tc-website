@@ -384,71 +384,9 @@
                                             total area, dividing by 3, and then adding 1 for the remaining square block.
                                         </p>
                                         <p>&#160;</p>
-                                        <font size="-1">
-                                            Used as: Division-I, Level 1:
-                                            <blockquote>
-                                                <table cellspacing="2">
-                                                    <tr>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>Value</b>
-                                                        </td>
-                                                        <td style="background: #eee;" class="bodyText">250</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>Submission Rate</b>
-                                                        </td>
-                                                        <td style="background: #eee;" class="bodyText">82
-                                                            /
-                                                            89
-                                                            (92.13%)
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>Success Rate</b>
-                                                        </td>
-                                                        <td style="background: #eee;" class="bodyText">73
-                                                            /
-                                                            82
-                                                            (89.02%)
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>High Score</b>
-                                                        </td>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>John Dethridge</b> for
-                                                            244.78 points
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </blockquote>
-                                        </font>
-                                        <h4>Implementation</h4>
-                                        <p>
-                                            The first step is to precompute all of the relevant primes.  The largest prime that will be useful will be the
-                                            largest prime that is smaller than the upper bound of our input, which is
-                                            <tt>2000</tt>.  A simple algorithm
-                                            for computing primes is
-                                            <tt>O(n
-                                                <sup>2</sup>)
-                                            </tt>, which is sufficient for computing primes in the range of
-                                            <tt>2..2000</tt>.  One such method, which is very easy to implement, is known as the
-                                            <a href="http://planetmath.org/encyclopedia/SieveOfEratosthenes.html" class="bodyText" target="_blank">sieve of Eratosthenes</a>.  See the
-                                            preceding link for a description of this method.
-                                        </p>
-                                        <p>
-                                            Once the primes are known, we can then iterate through all pairs of primes whose sum is less than the input value.
-                                            Whenever we have selected two primes, we can check if the difference between the input value and the sum of the two primes
-                                            is also prime.  If so, we have a possible solution.  We compare this to our best solution so far by looking at the product
-                                            of the three primes, and if it is better we save it.
-                                        </p>
-                                        <p>&#160;</p>
-                                        <a name="Proleolytic"></a>
+                                        <a name="RedChart"></a>
                                         <font size="+2">
-                                            <b>Proleolytic</b>
+                                            <b>RedChart</b>
                                         </font>
                                         <br/>
                                         <font size="-1">
@@ -459,26 +397,26 @@
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Value</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">450</td>
+                                                        <td style="background: #eee;" class="bodyText">500</td>
                                                     </tr>
                                                     <tr>
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Submission Rate</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">58
+                                                        <td style="background: #eee;" class="bodyText">121
                                                             /
-                                                            89
-                                                            (65.17%)
+                                                            136
+                                                            (88.97%)
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Success Rate</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">42
+                                                        <td style="background: #eee;" class="bodyText">73
                                                             /
-                                                            58
-                                                            (72.41%)
+                                                            121
+                                                            (60.33%)
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -486,42 +424,26 @@
                                                             <b>High Score</b>
                                                         </td>
                                                         <td style="background: #eee;" class="bodyText">
-                                                            <b>vorthys</b> for
-                                                            411.34 points
+                                                            <b>SnapDragon</b> for
+                                                            480.25 points
                                                         </td>
                                                     </tr>
                                                 </table>
                                             </blockquote>
                                         </font>
+                                        <P> Reference Solution: brett1479 in the practice room</P>
                                         <h4>Implementation</h4>
                                         <p>
-                                            The solution to this problem is a depth-first traversal of all the ways in which the protein can be
-                                            split up by the available enzymes.  Thus a typical implementation will define a recursive function
-                                            that takes a portion of the protein, applies every possible enzyme and,
-                                            for each enzyme, recursively calls itself on each of the fragments of protein that result from the
-                                            splitting.
-                                        </p>
-                                        <p>
-                                            The splitting can be done by walking the string.  Initialize a variable
-                                            <tt>begin</tt> to 0, representing
-                                            the index
-                                            <i>after</i> the last character of the previous split.  Thus, the first character of the next
-                                            protein fragment will always be at index
-                                            <tt>begin</tt>.  Then iterate through the protein.  For each
-                                            character we encounter that is in the enzyme we are applying, we split the string.  We get a protein
-                                            fragment by taking the substring from
-                                            <tt>begin</tt> to the current index (not including the character
-                                            at the current index).  We add this fragment to the set of fragments we've generated, then recursively
-                                            split it up with all possible enzymes as well.  Then we move on to the next index, setting
-                                            <tt>begin</tt> to the
-                                            value of that index.
-                                        </p>
-                                        <p>
-                                            For each recursive call to the splitting function, we do the above for each enzyme.  When the top-level
-                                            call to this recursive function finally returns, we will have built a set containing all the possible
-                                            protein fragments that could be generated with the given enzymes, and return its size.  Note that if
-                                            you maintain this set in such a way that the original protein gets added, you should subtract one from
-                                            the size.
+                                            In this problem, coders were asked to find the minimum size chart containing
+                                            rating information for a bunch of "red" ranked TopCoder competitors.  If a
+                                            coder is red for a period of time, the chart must contain a contiguous bar
+                                            from the column designating the start of this period, to the column designating
+                                            the end.  Since no overlap may occur, if multiple competitors are red
+                                            simultaneously, multiple rows must be used.  Arranging these bars such that the
+                                            fewest number of rows is used solves the problem.  To accomplish this, we sort
+                                            the ranges by starting competition numbers and loop through them in ascending
+                                            order.  When processing each item, if one of the rows we have already used is
+                                            free we can place the bar in that row.  Otherwise we must allocate a new row.
                                         </p>
                                         <p>&#160;</p>
                                         <a name="GPS"></a>
