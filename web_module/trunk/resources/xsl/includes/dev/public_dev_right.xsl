@@ -49,7 +49,7 @@
                             </tr>
 
                             <tr>
-                                <td class="devProjectWinner">Group 1</td>
+                                <td class="devProjectWinner">Site Development</td>
                                 <td class="devProjectWinnerMoney"></td>
                             </tr>
                             <tr>
@@ -62,7 +62,7 @@
                                 <td class="devProjectSecondMoney2">$313.00</td>
                             </tr>
                             <tr>
-                                <td class="devProjectWinner2">Group 2</td>
+                                <td class="devProjectWinner2">Supporting Operations</td>
                                 <td class="devProjectWinnerMoney2"></td>
                             </tr>                            
                             <tr>
