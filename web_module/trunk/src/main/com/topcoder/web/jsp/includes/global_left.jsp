@@ -118,7 +118,7 @@
                         <tr><td id="<%=level2.equals("referrals")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=ViewReferrals">Referrals</A></td></tr>
                         <tr><td id="<%=level2.equals("card")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=card&d2=description">Cards / Badges</A></td></tr>
                         <tr><td id="<%=level2.equals("employmentOpps")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=contracting&d2=index">Employment Opportunities</A></td></tr>
-                    <% } %>
+                        <tr><td id="<%=level2.equals("pacts")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/PactsMemberServlet?t=affidavit&c=affidavit_history">Affidavits</A></td></tr>                    <% } %>
                 <% } %>
 <%-- Schedule begins --%>
                 <tr><td id="<%=level1.equals("schedule")?"leftNavOn":"leftNav"%>"><a href="/?&t=schedule&c=index" class="<%=level1.equals("schedule")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level1.equals("schedule")?"bottom":"right"%>.gif" alt="" border="0"/>Schedule</a></td></tr>
