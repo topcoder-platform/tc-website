@@ -36,8 +36,8 @@
 	   <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
 	   <BR>
 	   </TD>
-	   <TR>
-	   <TD COLSPAN="3">
+	   <TR><TD COLSPAN="2"></TD>
+		<TD>
 
 	   <DIV CLASS="header">
 
