@@ -101,8 +101,8 @@ DATE<BR/>
       <TR>
         <%for(int j = 0; j<divisions;j++){%>
             <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="bodyText">&#160;<%= coders[j][i] %></TD>
-            <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%= score[j][i] %> &#160;&#160;</TD>
-            <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText">&#160;<%= room[j][i] %></TD>
+            <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%= scores[j][i] %> &#160;&#160;</TD>
+            <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText">&#160;<%= rooms[j][i] %></TD>
   <%    }%>
       </TR>
   <%}%>
