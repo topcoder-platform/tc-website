@@ -65,7 +65,8 @@
                 <tr valign="middle">
 
                     <td background="/i/steel_bluebv_bg.gif" class="statText">Application Design Projects</td>
-                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Payment*</td>
+                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">First Place</td>
+                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Second Place</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Specification Submission Due Date</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Design Submission Due Date</td>
                     
@@ -80,7 +81,8 @@
                         <a class="statText" href="/index?t=development&amp;c=online_review&amp;t=app">Online Review</a>
                     </td>
                     <td background="" class="statText" align="center">$1,500.00</td>
-                    <td background="" class="statText" align="center">2.5.2003</td>
+                    <td background="" class="statText" align="center">$225.00</td>
+                    <td background="" class="statText" align="center">3.5.2003</td>
                     <td background="" class="statText" align="center">3.10.2003</td>
                 </tr>
 
