@@ -10,6 +10,9 @@ import com.topcoder.web.tc.model.ContractingInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.*;
+
 import com.topcoder.web.tc.model.PreferenceGroup;
 
 import java.util.*;
@@ -22,21 +25,20 @@ public class Preferences extends ContractingBase {
         //load preference groups
         ArrayList groups = new ArrayList();
         
-        //TESTING CODE
-        PreferenceGroup grp = new PreferenceGroup();
+        Request r = new Request();
+        r.setContentHandle("preference_groups");
         
-        grp.setName("test 2");
-        grp.setSortOrder(2);
-        
-        groups.add(grp);
-        
-        grp = new PreferenceGroup();
-        
-        grp.setName("test 1");
-        grp.setSortOrder(1);
-        
-        groups.add(grp);
-        //END TESTING CODE
+        ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("preference_groups");
+        for(int i = 0; i < rsc.size(); i++) {
+            PreferenceGroup grp = new PreferenceGroup();
+            
+            grp.setName(rsc.getStringItem(i, "preference_group_desc"));
+            grp.setSortOrder(rsc.getIntItem(i, "sort_order"));
+            
+            //load preferences here
+            
+            groups.add(grp);
+        }
         
         //sort groups by sort order
         Collections.sort(groups); 
