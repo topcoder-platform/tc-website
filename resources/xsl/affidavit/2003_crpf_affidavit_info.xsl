@@ -65,32 +65,31 @@
                         <p><strong>Please read all instructions carefully before proceeding.</strong></p>
 
                         <p>
-                            Congratulations on your performance in the Component Tournament of the 2003 TopCoder Open Sponsored by Intel&#174;!
-                            By advancing to the onsite finals, you are eligible for a prize, however we must receive the documents
-                            below for you to collect your prize. IF WE DO NOT RECEIVE ALL OF THE
-                            APPROPRIATE ITEMS BELOW BY MIDNIGHT, EASTERN TIME, WEDNESDAY, NOVEMBER 12th, YOU
-                            WILL FORFEIT YOUR PRIZE.  If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.
+                            Congratulations!  You are one of ten TopCoder members to win a grand prize in the
+                            2003 TopCoder Charity Challenge, Sponsored by AT&amp;T, Benefiting the Christopher Reeve Paralysis Foundation.
+                            <br/>
+                            <br/>
+                            In order to receive your grand prize, please complete the follwoing steps.  Please note that each
+                            item must be completed by 12:00 PM (noon) EST Monday, November 17th to receive your prize.  This is to
+                            ensure we have enough time to make all travel arrangements, reserve hotel rooms, and confirm
+                            your attendance at "A Magical Evening."  If you do not complete the following items by
+                            12:00 PM (noon) EST on Monday, November 17th, then you will forfeit your prize.  If
+                            you have any questions please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.
                         </p>
 
                             <ol>
                                 <li>
-                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before Midnight, Eastern Time, Wednesday, November 12th.</p>
+                                <p><strong>AFFIDAVIT</strong> - please complete sign and fax to 860.659.4276 and mail originl
+                                    to TopCoder at the address below.  Faxes must be received by Midnight, EST, Monday, November 17th.</p>
                                 <p>
-                                <xsl:choose>
-                                    <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
-                                        We do not have a notarized affidavit from you on file. View a <a href="/?&amp;t=affidavit&amp;c=2003_crpf_affidavit">
-                                        printable version</a> of your affidavit.  This affidavit must be notarized and returned to us at the address below.
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        View a <a href="/?&amp;t=affidavit&amp;c=2003_crpf_affidavit">printable version</a> of your affidavit.  Please read
-                                        the affidavit, sign it and return it to us at the address below.  Note that you do not have to have this affidavit
-                                        notarized because we already have a notorized affidavit on file for you.
-                                    </xsl:otherwise>
-                                </xsl:choose>
+                                    View a <a href="/?&amp;t=affidavit&amp;c=2003_crpf_affidavit">printable version</a> of your affidavit.
+                                    Please read the affidavit, sign it and return it to us at the address below.  Note that you do not
+                                    have to have this affidavit notarized.
                                 </p>
                                 </li>
                                 <li>
-                                <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276) or postmarked on or before Midnight, Eastern Time, Wednesday, November 12th:</p>
+                                <p><strong>TAX FORM</strong> - please complete, sign and fax to (860.657.4276) and mail original to
+                                    TopCoder at address below.  Fax must be received by Midnight, EST, Monday, November 17th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) via fax or mail to the address below.  If you don't know the form
@@ -110,13 +109,13 @@
                                 </xsl:choose>
                                 </li>
                                 <li>
-                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by Midnight, Eastern Time, Wednesday, November 12th:</p>
+                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by Midnight, EST, Monday, November 17th:</p>
 
                                 <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_crpf_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
                                 </li>
 
                                 <li>
-                                <p><strong>HEAD SHOT</strong> - must be emailed by Midnight, Eastern Time, November, November 12th:</p>
+                                <p><strong>HEAD SHOT</strong> - must be emailed by Midnight EST, November 17th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
                                         <p>We do not have your headshot on file.  Click below to submit your headshot.</p>
@@ -136,7 +135,7 @@
                             Glastonbury, CT 06033
                         </div>
 
-                        <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by Midnight, Eastern Time, Wednesday, November 12th.  Any
+                        <p><strong>Reminder, you will forfeit your grand prize if all necessary items above are not completed by Midnight, EST, Monday, November 17th.  Any
                         items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
                         <p>If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.</p>
