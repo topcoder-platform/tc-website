@@ -19,7 +19,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
  */
 
 public class GenerateRoundPayments {
-    private void generatePayments(long roundId, boolean makeChanges) {
+    public void generatePayments(long roundId, boolean makeChanges) {
         try {
             DataInterfaceBean d = new DataInterfaceBean();
             int pairsInserted = d.generateRoundPayments(roundId, makeChanges);
