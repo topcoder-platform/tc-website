@@ -184,23 +184,6 @@ if (!rsc.isEmpty()) {
                   <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
                 </TR>
                 <TR>
-                  <TD CLASS="statText">Component Earnings:</TD>
-                  <TD CLASS="statText" ALIGN="right">$<bean:write format="0.00" name="resultRow" property='<%= "item[" + 28 /*"component earnings"*/ + "].resultData" %>'/></TD>
-                  <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD CLASS="statText" ALIGN="left">
-          <A HREF="/stat?c=component_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ component history ]</A>
-          </TD>
-                </TR>
-                <TR>
-                  <TD CLASS="statText">Number of Components:</TD>
-                  <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 29 /* number of components */ + "]" %>'/></TD>
-                  <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD CLASS="statText" ALIGN="left">&#160;</TD>
-                </TR>
-                <TR>
-                  <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
-                </TR>
-                <TR>
                   <TD CLASS="statText">Average Points per Contest:</TD>
                   <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /*"avg final pts"*/ + "].resultData" %>'/></TD>
                   <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -232,6 +215,23 @@ if (!rsc.isEmpty()) {
                     <TD COLSPAN="5" CLASS="statText">* Some or all of these earnings have been donated to charity.</TD>
                   </TR>
                 <% } %>
+                <TR>
+                  <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
+                </TR>
+                <TR>
+                  <TD CLASS="statText">Component Earnings:</TD>
+                  <TD CLASS="statText" ALIGN="right">$<bean:write format="0.00" name="resultRow" property='<%= "item[" + 28 /*"component earnings"*/ + "].resultData" %>'/></TD>
+                  <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD CLASS="statText" ALIGN="left">
+          <A HREF="/stat?c=component_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ component history ]</A>
+          </TD>
+                </TR>
+                <TR>
+                  <TD CLASS="statText">Number of Components:</TD>
+                  <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 29 /* number of components */ + "]" %>'/></TD>
+                  <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                </TR>
                 <TR>
                   <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD>
                 </TR>
