@@ -82,7 +82,7 @@
       <br/>
       <br/>
       <br/>
-      <a href=<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_HOME_ADDR%>>Additional Reports<a><br/><br/>
+      <a href=<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>>Additional Reports<a><br/><br/>
 
 <%
      if (Security.getCurrentUser().toString().equals("report")) {
