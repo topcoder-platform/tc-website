@@ -70,31 +70,31 @@
 						</TR>
 						<TR>
 							<TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">Stanford University</TD>
-							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=member_profile&amp;Coder_Id=260752" CLASS="coderTextRed">dmwright</A></TD>
+							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/stat?&amp;c=member_profile&amp;cr=260752" CLASS="coderTextRed">dmwright</A></TD>
 							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">3</TD>
 							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><SPAN CLASS="coderTextRed">2890</SPAN></TD>
 						</TR>
 						<TR>
 							<TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">University of Michigan Ann Arbor</TD>
-							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=member_profile&amp;Coder_Id=260752" CLASS="coderTextYellow">ColinMacLeod</A></TD>
+							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/stat?&amp;c=member_profile&amp;cr=260752" CLASS="coderTextYellow">ColinMacLeod</A></TD>
 							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">80</TD>
 							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><SPAN CLASS="coderTextYellow">1680</SPAN></TD>
 						</TR>
 						<TR>
 							<TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">Virginia Polytechnic Institute</TD>
-							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=member_profile&amp;Coder_Id=260752" CLASS="coderTextBlue">Joel</A></TD>
+							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/stat?&amp;c=member_profile&amp;cr=260752" CLASS="coderTextBlue">Joel</A></TD>
 							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">64</TD>
 							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><SPAN CLASS="coderTextBlue">1497</SPAN></TD>
 						</TR>
 						<TR>
 							<TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">University of Central Florida</TD>
-							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=member_profile&amp;Coder_Id=260752" CLASS="coderTextGreen">bmetz</A></TD>
+							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/stat?&amp;c=member_profile&amp;cr=260752" CLASS="coderTextGreen">bmetz</A></TD>
 							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">110</TD>
 							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><SPAN CLASS="coderTextGreen">1199</SPAN></TD>
 						</TR>
 						<TR>
 							<TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">The Holy Christmas Chapel Learning Institute of America</TD>
-							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=member_profile&amp;Coder_Id=260752" CLASS="coderTextGray">gherchen</A></TD>
+							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/stat?&amp;c=member_profile&amp;cr=260752" CLASS="coderTextGray">gherchen</A></TD>
 							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">128</TD>
 							<TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><SPAN CLASS="coderTextGray">0001</SPAN></TD>
 						</TR>

@@ -79,49 +79,49 @@
 						</TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">Stanford University</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=member_profile&amp;Coder_Id=114443" CLASS="coderTextRed">jonmac</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/stat?&amp;c=member_profile&amp;cr=114443" CLASS="coderTextRed">jonmac</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">1</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2856</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">Stanford University</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=member_profile&amp;Coder_Id=114853" CLASS="coderTextRed">dmwright</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/stat?&amp;c=member_profile&amp;cr=114853" CLASS="coderTextRed">dmwright</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2620</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">University of California Berkeley</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=member_profile&amp;Coder_Id=120816" CLASS="coderTextRed">malpt</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/stat?&amp;c=member_profile&amp;cr=120816" CLASS="coderTextRed">malpt</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">4</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2569</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">Stanford University</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=member_profile&amp;Coder_Id=153902" CLASS="coderTextRed">evd</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/stat?&amp;c=member_profile&amp;cr=153902" CLASS="coderTextRed">evd</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">5</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2540</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">California Institute of Technology</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=member_profile&amp;Coder_Id=157974" CLASS="coderTextRed">bigg_nate</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/stat?&amp;c=member_profile&amp;cr=157974" CLASS="coderTextRed">bigg_nate</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">6</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2383</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">California Institute of Technology</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=member_profile&amp;Coder_Id=113178" CLASS="coderTextRed">po</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/stat?&amp;c=member_profile&amp;cr=113178" CLASS="coderTextRed">po</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">8</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2258</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">California Institute of Technology</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=member_profile&amp;Coder_Id=262935" CLASS="coderTextRed">derkuci</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/stat?&amp;c=member_profile&amp;cr=262935" CLASS="coderTextRed">derkuci</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">13</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2294</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">Stanford University</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=member_profile&amp;Coder_Id=264869" CLASS="coderTextYellow">ante</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/stat?&amp;c=member_profile&amp;cr=264869" CLASS="coderTextYellow">ante</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">16</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2079</TD>
 </TR>
