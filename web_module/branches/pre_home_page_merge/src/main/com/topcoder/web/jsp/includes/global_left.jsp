@@ -72,6 +72,7 @@
                         <tr><td id="<%=level2.equals("profile")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/Registration">Update My Profile</A></td></tr>
                         <tr><td id="<%=level2.equals("referrals")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=ViewReferrals">Referrals</A></td></tr>
                         <tr><td id="<%=level2.equals("card")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=card&d2=description">Cards / Badges</A></td></tr>
+                        <tr><td id="<%=level2.equals("employmentOpps")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=contracting&d2=index">Employment Opportunities</A></td></tr>
                     <% } %>
                 <% } %>
                 <tr><td id="<%=level2.equals("rTables")?"leftNavOn":"leftNav"%>"><a href="/rtables/viewForum.jsp?forum=205768&mc=916" class="<%=level2.equals("rTables")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("rTables")?"bottom":"right"%>.gif" alt="" border="0"/>TC Developer Round Tables</a></td></tr>
@@ -122,6 +123,7 @@
                         <tr><td id="<%=level2.equals("profile")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/Registration">Update My Profile</A></td></tr>
                         <tr><td id="<%=level2.equals("referrals")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=ViewReferrals">Referrals</A></td></tr>
                         <tr><td id="<%=level2.equals("card")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=card&d2=description">Cards / Badges</A></td></tr>
+                        <tr><td id="<%=level2.equals("employmentOpps")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=contracting&d2=index">Employment Opportunities</A></td></tr>
                     <% } %>
                 <% } %>
 <%-- Schedule begins --%>
@@ -269,13 +271,7 @@
 
     <% if (level1.equals("home")) { %>
 
-			<table border="0" cellspacing="0" cellpadding="0" width="100%">
-    			<tr><td><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp" target="_top"><img src="/i/promos/featured_clients.gif" width="180" height="167" border="0"></A></td></tr>
-				<tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
-			</table>
-
             <jsp:include page="../../home/coder_of_month.jsp" />
     <% } %>
 
             <div align="center"><img src="/i/logo_ghosted_bracket.gif" width="160" height="77" alt="[ TopCoder ]" vspace="10" border="0"/></div><br /><br />
-

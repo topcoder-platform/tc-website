@@ -50,6 +50,7 @@
     <property name="ddeforumdir" value="${packagedir}/forum" />
     <property name="wrapperdir" value="${packagedir}/sql/wrapper" />
     <property name="ddeservletdir" value="${packagedir}/servlet" />
+    <property name="ddeutildir" value="${packagedir}/util" />
     <property name="ddesubmissiondir" value="${packagedir}/submission" />
     <property name="userdir" value="${packagedir}/user" />
     <property name="emailenginedir" value="com/topcoder/message/email" />
@@ -347,7 +348,7 @@
 
         <jar    jarfile="${ddeservlet.jar}"
                 basedir="${build_classdir}"
-                includes="${ddeservletdir}/**">
+                includes="${ddeservletdir}/**,${ddeutildir}/**">
             <metainf dir="${ddeservlet.src.dir}" includes="*.xml"/>
         </jar>
 

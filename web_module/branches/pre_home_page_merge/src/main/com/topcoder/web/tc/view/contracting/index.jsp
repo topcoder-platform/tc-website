@@ -4,7 +4,7 @@
 <head>
 <title>TopCoder Contract</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 <SCRIPT TYPE="text/javascript">
 <!--
@@ -28,7 +28,7 @@ return false;
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -36,9 +36,9 @@ return false;
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="my_home"/>
-                <jsp:param name="level2" value="index"/>
+                <jsp:param name="level2" value="employmentOpps"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -47,24 +47,18 @@ return false;
         <td class="cardCell" width="100%" align="center">
 
         <div class="myTCBody">
-        <jsp:include page="../page_title.jsp" >
-            <jsp:param name="image" value="contract"/>
-            <jsp:param name="title" value=""/>
-        </jsp:include>
+		<br/>
+		<div align=center>
+		<A href="/tc?module=ContractingPreferences"><img src="/i/empOppsBanner.jpg" border=0/></A>
+		</div>
 
-		<span valign=top>
-		<table align=right border=0 cellpadding=0 cellspacing=0>
-			<tr>
-				<td><img src="/i/clear.gif" border=1 width=160 height=90/></td>
-			</tr>
-		</table>
-		</span>
-
-		Welcome to TopCoder Opportunities, your source for programming contract work.  TopCoder Opportunities offers members the ability to sign up for freelance projects that fit their schedule as well as their experience.
+		<p>
+		Welcome to TopCoder Employment Opportunities, your source for full time and contract programming work. In today's world, all major artists and professional athletes are represented by agents who find them the best opportunities.  Finally, the time has come for top programmers of the world reap the same benefits.  
 		<br/><br/>
-		Registering <a href="/tc?module=ContractingPreferences">here</a> is the first step.  You can give us your availability and rate your experience with a variety of programming languages or database platforms.
+		We are aggressively seeking out companies that have a strong need for the level of talent that only TopCoder members can provide.  TopCoder does all of the leg work for you - we find the companies, look for the right positions and when we find a match, we present you with the opportunity. Only after you confirm your interest in a particular position will TopCoder pass on your information to the appropriate hiring manager.  Before you even talk to the company's representative, TopCoder will make sure your salary requirements, job requirements, and relocation requests are met.  Best of all, TopCoder provides this service for full time and contract work, at no cost to you.
 		<br/><br/>
-		<a href="/tc?module=ContractingPreferences">Sign up today</a>
+		Registering <a href="/tc?module=ContractingPreferences">here</a> is the first step. Give us your salary and travel requirements and rate your experience with a variety of programming languages, database platforms and relevant Industry experience.  Then, let TopCoder work for you!
+		</p>
 
         </div>
         <p><br/></p>
@@ -73,7 +67,7 @@ return false;
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -85,7 +79,7 @@ return false;
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

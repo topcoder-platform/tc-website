@@ -48,7 +48,7 @@ return false;
         <td width="180">
             <jsp:include page="../../../includes/global_left.jsp">
                 <jsp:param name="level1" value="my_home"/>
-                <jsp:param name="level2" value="index"/>
+                <jsp:param name="level2" value="employmentOpps"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -58,7 +58,7 @@ return false;
         <div class="myTCBody">
 
         <jsp:include page="../../page_title.jsp" >
-            <jsp:param name="image" value="contract"/>
+            <jsp:param name="image" value="employmentOpps"/>
             <jsp:param name="title" value="Registration"/>
         </jsp:include>
 
@@ -81,7 +81,6 @@ return false;
 				<td class=oppDesc width="100%" valign=top>
 				<span class=bodySubtitle>Preferences</span>
 				<br/><br/>
-				This is a description paragraph with some instructions and some details about the questions asked.
 				</td>
 				<td valign=top>
 				<jsp:include page="breadcrumb.jsp" >
@@ -125,6 +124,7 @@ return false;
                     <br/><br/>
 
 		</tc:preferenceGroupIterator>
+		<p align=center class=bodyText><b>Please check to make sure that your contact information is up-to-date in your profile.</b></p>
 		
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
 			<tr>
@@ -141,7 +141,6 @@ return false;
 		</FORM>
 
         </div>
-		<p align=center class=bodyText><b>Please check to make sure that your information is up-to-date.</b></p>
         <p><br/></p>
         </td>
 <!-- Center Column Ends -->

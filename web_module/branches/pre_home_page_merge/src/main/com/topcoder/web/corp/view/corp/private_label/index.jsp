@@ -43,7 +43,7 @@
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
-                        <h1 class="testHead">Private Label Events</h1>
+                        <h1 class="testHead">Sourcing</h1>
 
                         <p>TopCoder has the ability to customize a competition to help our clients reach their goals and objectives. We 
                         have executed hundreds of competitions and are uniquely qualified to handle the necessary details to effectively 

@@ -66,7 +66,7 @@ public class Registration
     public static final String PAGE_3 = PATH + "confirm.jsp";
     public static final String PAGE_4 = PATH + "activate.jsp";
     public static final String PAGE_5A = PATH + "mail_sent.jsp";
-    public static final String PAGE_5B = PROTOCOL + "://" + HOST;
+    public static final String PAGE_5B = PROTOCOL + "://" + HOST +"/tc";
     //public static final String PAGE_5 = "/";
 
     // step 1 attributes
