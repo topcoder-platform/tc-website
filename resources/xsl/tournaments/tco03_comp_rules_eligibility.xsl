@@ -104,7 +104,7 @@
             <li>The member will advance to the contest in which he/she was seeded higher (i.e. lower seed #)</li>
             <li>If the member's seed is the same in each competition, then the member will advance to the contest in which he/she achieved a higher average score</li>
             <li>If the member's average score is the same in both contests, then the member will advance to the contest in which he/she achieved a higher score for his/her level 2 component</li>
-            <li>If the member's level 2 component score is the same for both contests, then TopCoder will assign the member of one of the contests</li>
+            <li>If the member's level 2 component score is the same for both contests, then TopCoder will assign the member to one of the contests</li>
             </ul>
             
             <p>
