@@ -123,7 +123,7 @@ public class Submit extends FullRegSubmit {
             buf.append("/gicj05 and clicking on the Competition Arena tab.\n\n");
 
             buf.append("COMPETING IN THE QUALIFICATION ROUND\n");
-            buf.append("You may participate in the Qualification Round at any time between Saturday, February 26 at 12:00PM (Noon) IST and Sunday, February 27 at 12:00PM (Noon) IST.  You will have up to one hour to solve two problems. It is recommended that you utilize the practice area prior to participating in the Qualification Round.\n\n");
+            buf.append("You may participate in the Qualification Round at any time 9:00AM IST and 9:00PM IST on Sunday, February 27.  You will have up to one hour to solve two problems. It is recommended that you utilize the practice area prior to participating in the Qualification Round.\n\n");
 
             buf.append("LAUNCHING THE ARENA\n");
             buf.append("You can launch and login to the Competition Arena at the appropriate time by navigating to ");
