@@ -50,7 +50,7 @@
                             <strong>Where:</strong> the University Park Hotel @ MIT in Cambridge, MA<br />
                             <strong>Total Purse:</strong> $100,000</p>
 
-                            <p><font color="#CC0000"><strong>200 TopCoder Members will win money!</strong></font><br />
+                            <p><strong>All members of TopCoder and their guests are welcome to attend the onsite rounds on April 4th and 5th</strong><br />
                             <a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>Get more information</a><br />
                             <img src="/i/clear.gif" alt="" width="1" height="5" border="0" /></p>
                         </td>
