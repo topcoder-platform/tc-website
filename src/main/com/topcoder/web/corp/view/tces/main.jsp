@@ -29,8 +29,9 @@
 
 <table width="100%" border=0 CELLPADDING="0" CELLSPACING="0">
     <TR valign="top">
+	<td width="50%">&#160;</td>
 <!-- Center Column Begins -->
-        <td width="100%" align="center">
+        <td class=recruitingBody align="center">
 			<img src="/i/corp/clear.gif" width="400" height="11" alt="" border=0><br>
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
                 <tr valign="top">
@@ -99,6 +100,13 @@
 
         </td>
 <!-- Center Column Ends -->
+				<td class=homeRightPromos width="50%">
+				<table width="170" border=0 cellpadding=0 cellspacing=0 align=right>
+					<tr><td><img src="/i/corp/featClientsHead.gif" border=0 /></td></tr>
+					<tr><td class=homeClientPromo><A href="http://software.topcoder.com/customers/index.jsp"><img src="/i/corp/promos/praxairNrodale.gif" border=0 /></A></td></tr>
+					<tr><td><A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><img src="/i/es/animated_emp_promo.gif" border=0 /></A></td></tr>
+				</table>
+				</td>
     </tr>
 </table>
 

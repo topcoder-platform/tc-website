@@ -64,6 +64,22 @@
 						<% } %>
 						<br/><br/>
 					</td>
+                    <td class=bodyText>
+					<% if (MemberProfileTask.getIsRanked()) { %>
+						<B>Current Rating:</B> <%=MemberStats.getItem(0, "rating").toString()%><br/>
+						<B>Current Ranking:</B> <%=MemberStats.getItem(0, "rank").toString()%><br/>
+						<B>Rating Percentile:</B> <%=MemberStats.getItem(0, "percentile").toString()%><br/>
+						<B>Number of Ratings:</B> <%=MemberStats.getItem(0, "num_ratings").toString()%><br/>
+						<B>Highest Rating:</B> <%=MemberStats.getItem(0, "highest_rating").toString()%><br/>
+						<B>Lowest Rating:</B> <%=MemberStats.getItem(0, "lowest_rating").toString()%><br/>
+						<B>Most Recent Rated Event:</B> <%=MemberStats.getItem(0, "last_rated_event").toString()%>
+					<% } else { %>
+						<b>Not rated</b>
+					<% } %>
+					<br/><br/>
+	                </td>
+                </tr>
+               <tr valign=top>
 					<td width="50%" class="bodyText">
 						<B>Member Type:</B> <%=MemberInfo.getItem(0, "coder_type_desc").toString()%> <br/>
 						<B>TopCoder Member Since:</B> <%=MemberInfo.getItem(0, "member_since_date").toString()%><br/>
@@ -79,22 +95,6 @@
 						<%=MemberInfo.getItem(0, "grad_year").toString()%>
 						<% } %>
 						<br/><br/>
-	                </td>
-                </tr>
-               <tr valign=top>
-                    <td class=bodyText>
-					<% if (MemberProfileTask.getIsRanked()) { %>
-						<B>Current Rating:</B> <%=MemberStats.getItem(0, "rating").toString()%><br/>
-						<B>Current Ranking:</B> <%=MemberStats.getItem(0, "rank").toString()%><br/>
-						<B>Rating Percentile:</B> <%=MemberStats.getItem(0, "percentile").toString()%><br/>
-						<B>Number of Ratings:</B> <%=MemberStats.getItem(0, "num_ratings").toString()%><br/>
-						<B>Highest Rating:</B> <%=MemberStats.getItem(0, "highest_rating").toString()%><br/>
-						<B>Lowest Rating:</B> <%=MemberStats.getItem(0, "lowest_rating").toString()%><br/>
-						<B>Most Recent Rated Event:</B> <%=MemberStats.getItem(0, "last_rated_event").toString()%>
-					<% } else { %>
-						<b>Not rated</b>
-					<% } %>
-					<br/><br/>
 	                </td>
                     <td class=bodyText>
                         <strong>Interested in:</strong> <jsp:getProperty name="MemberProfileTask" property="JobName"/>
