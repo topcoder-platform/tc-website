@@ -399,6 +399,12 @@ public final class TaskDevelopment {
                     long phase = Long.parseLong(request.getParameter("phase"));
                     long componentId = Long.parseLong(request.getParameter("comp"));
                     if (!isProjectLockedOut(componentId, version, phase)) {
+
+
+                        log.debug("component status " + getComponentManager(componentId, version).getComponentInfo().getStatus());
+
+
+
                         long userId;
                         devTag.addTag(new ValueTag("Project", project));
 
