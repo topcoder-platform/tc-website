@@ -192,15 +192,14 @@
                     		<td class="bodyText" bgcolor="#FFFFFF" width="80%">
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=9899637&ver=1" target="blank">Data Access Socket Server</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=2804393&ver=2" target="blank">Email Address Validator 1.1</A><br/>
-                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8357861&ver=3" target="blank">SAML Schema 1.1</A><br/>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8357861&ver=3" target="blank">SAML Schema 1.01</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8594269&ver=1" target="blank">Status Tracker</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8540094&ver=1" target="blank">Address Book</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8566897&ver=1" target="blank">Catalog</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7338805&ver=2" target="blank">Chart Rendering Engine 1.1</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8595304&ver=1" target="blank">LDAP SDK Interface</A><br/>
                     			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=2300015&ver=3" target="blank">Logging Wrapper 1.2</A><br/>
-                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8593287&ver=1" target="blank">MultiMap</A><br/>
-                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=600215&ver=2" target="blank">Security Manager 1.1</A>
+                    			<A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8593287&ver=1" target="blank">MultiMap</A>
                     		</td>
                 		</tr>
 					</table>
@@ -293,7 +292,7 @@
 			</tr>
 			<tr>
 			<td><img src="/i/clear.gif" alt="" width="20" height="1" border="0"/></td>
-			<td colspan="5" class="bodyText"><strong>If a component is missing, please request a component on <A href="http://software.topcoder.com/components/request.jsp" target="blank">software.topcoder.com.</A></strong></td></tr>
+			<td colspan="5" class="bodyText"><strong>Don't see the component you need? Please request it on <A href="http://software.topcoder.com/components/request.jsp" target="blank">software.topcoder.com.</A></strong></td></tr>
 						</tr>
 			<tr><td colspan="6"><img src="/i/clear.gif" width="1" height="5" border="0"/></td></tr>
 			<tr>
