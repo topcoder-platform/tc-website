@@ -151,6 +151,7 @@ public class CampaignResults extends BaseScreeningProcessor {
             String sortBy = request.getParameter(Constants.SORT_BY);
             if (sortBy != null) {
                 result.sortByColumn(sortBy, true);
+                request.setAttribute(Constants.SORT_BY, sortBy);
             }
 
             // Save the campaign results to request for further rendering by the campaign results JSP

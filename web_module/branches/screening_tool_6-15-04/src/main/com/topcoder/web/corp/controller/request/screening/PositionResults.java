@@ -119,6 +119,7 @@ public class PositionResults extends BaseScreeningProcessor {
             String sortBy = request.getParameter(Constants.SORT_BY);
             if (sortBy != null) {
                 result.sortByColumn(sortBy, true);
+                request.setAttribute(Constants.SORT_BY, sortBy);
             }
 
             // Save the position results to request for further rendering by the position results JSP
