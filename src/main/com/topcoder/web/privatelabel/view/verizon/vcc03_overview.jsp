@@ -13,7 +13,7 @@
 
 </head>
 
-<body bgcolor="#000000">
+<body>
 <table  width="100%" border="0" cellspacing="0" cellpadding="0" class="bodyText">
 
    <tr>
@@ -65,7 +65,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column -->
-      <td class="bodyText">
+      <td class="bodyText" valign="top">
             <img src="/i/clear.gif" width="100%" height="10" border="0"/><br />
             <h2>The Best of the Best</h2>
             
