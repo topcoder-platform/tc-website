@@ -404,6 +404,20 @@ Founder and Chairman, TopCoder, Inc.
 
 
 
+  <tr valign="middle">
+    <td colspan="4" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Confirmation Code</td>
+  </tr>
+  <tr valign="middle">
+    <td colspan="4" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td>
+  </tr>  
+  <tr align="right" valign="middle">
+    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Sun Confirmation Code&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+    <td colpsan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.SUN_CONFIRMATION%>" value ="<jsp:getProperty name="Registration" property="SunConfirm" />" size="30" maxlength="100"></td>
+  </tr>
+
+
+
+
 <% if (Registration.isRegister()) { %>
   <tr valign="middle">
     <td colspan="4" class="statText" valign="middle">&nbsp;</td>
