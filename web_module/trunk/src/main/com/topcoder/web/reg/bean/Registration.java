@@ -91,6 +91,7 @@ public class Registration
     public static final String CODER_TYPE_STUDENT = "1";
     public static final String CODER_TYPE_PROFESSIONAL = "2";
     public static final int PASSWORD_MIN_LENGTH = 7;
+    public static final int PASSWORD_MAX_LENGTH = 15;
     public static final char MASK_CHAR = '*';
     public static final String CHECKBOX_YES = "on"; 
     //public static final String ACTIVATION_URL = PROTOCOL+"://"+HOST+PAGE_4;
@@ -406,6 +407,7 @@ public class Registration
 
             if (isEmpty(this.password)) addError(PASSWORD,"Please enter your password.");
             else if (this.password.length()<PASSWORD_MIN_LENGTH) addError(PASSWORD,"Please make sure your password is at least "+PASSWORD_MIN_LENGTH+" characters long.");
+            else if (this.password.length()>PASSWORD_MAX_LENGTH) addError(PASSWORD,"Please make sure your password is at most "+PASSWORD_MAX_LENGTH+" characters long.");
             else if (isEmpty(this.confirmPassword)) addError(CONFIRM_PASSWORD,"Please re-type your password.");
             else if (!this.confirmPassword.equals(this.password)) addError(CONFIRM_PASSWORD,"Your re-typed password does not match your password.");
             
