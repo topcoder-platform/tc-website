@@ -63,7 +63,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
                     Transaction.rollback(tx);
                 }
             } catch (Exception ex) {
-                throw new TCWebException(ex);
+                //not much we can do, and i need the next try block to execute
+                ex.printStackTrace();
             }
             try {
                 //since we don't have a transaction spanning the security
