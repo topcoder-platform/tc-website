@@ -142,7 +142,7 @@ public class SoftwareComponent {
         float startupCost = DEV_REVIEW_RATE / 2; //30 minutes to "start up"
         debug("reviewCost " + reviewCost);
         debug("startupCost " + startupCost);
-        return reviewCost + startupCost;
+        return Math.round(reviewCost + startupCost);
     }
 
     /**
@@ -209,7 +209,7 @@ public class SoftwareComponent {
         float startupCost = (1f/2f) * DESIGN_REVIEW_RATE; //30 minutes to "start up"
         debug("reviewCost " + reviewCost);
         debug("startupCost " + startupCost);
-        return reviewCost + startupCost;
+        return Math.round(reviewCost + startupCost);
     }
 
 
