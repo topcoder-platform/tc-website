@@ -42,7 +42,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-            <td class="bodyText" width="100%">
+            <td class="bodyText" width="99%">
 
             <div align="center">
             <table border="0" cellpadding="0" cellspacing="0" width="534">
@@ -71,12 +71,12 @@
                 </tr>
             </table><br/>
             
-            </div>
-
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+<!--Component Development begins -->
+            <table border="0" cellspacing="0" cellpadding="0" width="534">
                 <tr valign="top">
                     <td class="bodyText">
-                        <p><font size="3"><strong>Software Components</strong></font><br/>
+                        <p align="left"><font size="3"><strong>Software Components</strong></font><br/>
+                        <A href="/?t=development&amp;c=components"><img src="/i/development/graphic_components.gif" alt="" width="165" height="95" border="0"  align="right" /></A>
                         If you're a rated TopCoder member, you can submit design and development <A href="/?t=development&amp;c=components">solutions</A> for these projects. You will be 
                         paid cash for each winning solution you submit.  Every solution becomes part of a TopCoder Software <A href="http://software.topcoder.com/catalog/c_showroom.jsp">Catalog,</A> now 
                         available for sale online. For every commercial sale of a catalog, TopCoder will pay the members who designed and 
@@ -84,17 +84,18 @@
                         
                         <p><A href="/?t=development&amp;c=comp_meth">Learn more</A> about the TopCoder Software Component Methodology</p>
                     </td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                    <td width="10"><A href="/?t=development&amp;c=components"><img src="/i/development/graphic_components.gif" alt="" width="165" height="95" border="0" /></A></td>
                 </tr>
             </table>
+<!--Component Development ends -->
             
-            <hr width="100%" size="1px" noshade="noshade"/>
+            <hr width="534" size="1px" noshade="noshade"/>
             
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+<!--Application Development begins -->
+            <table border="0" cellspacing="0" cellpadding="0" width="534">
                 <tr valign="top">
                     <td class="bodyText">
-                        <p><font size="3"><strong>Application Development</strong></font><br/>
+                        <p align="left"><font size="3"><strong>Application Development</strong></font><br/>
+                        <A href="/?t=development&amp;c=app_projects"><img src="/i/development/graphic_applications.gif" alt="" width="165" height="95" border="0" align="right" /></A>
                         Rated members with a winning track record of Software Component solutions attain Level II TopCoder Developer 
                         status, and become eligible for TopCoder Application Development teams. As part of a team, you will customize 
                         and integrate components for specific applications, both internal to TopCoder and for commercial sale. These 
@@ -103,25 +104,28 @@
                         
                         <p><A href="/?t=development&amp;c=app_meth">Learn more</A> about the TopCoder Software Application Methodology</p>
                     </td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                    <td width="10"><A href="/?t=development&amp;c=app_projects"><img src="/i/development/graphic_applications.gif" alt="" width="165" height="95" border="0" /></A></td>
                 </tr>
             </table>
+<!--Application Development ends -->
             
-            <hr width="100%" size="1px" noshade="noshade"/>
+            <hr width="534" size="1px" noshade="noshade"/>
             
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+<!-- Subscribe to catalog begins -->
+            <table border="0" cellspacing="0" cellpadding="0" width="534">
                 <tr valign="top">
                     <td class="bodyText">
-                        <p><A href="http://software.topcoder.com/components/subscriptions.jsp">Subscribe</A> to a TopCoder Software Component Catalog. 
+                        <p align="left"><A href="http://software.topcoder.com/components/subscriptions.jsp">Subscribe</A> to a TopCoder Software Component Catalog. 
                         Learn more about components by downloading exclusive documentation. Now available at introductory pricing for as little as $12.95 a month.</p>
                     </td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                     <td width="10"><A href="http://software.topcoder.com/components/subscriptions.jsp"><img src="/i/development/buy_now.gif" alt="Buy Now" width="170" height="50" border="0" /></A></td>
                 </tr>
             </table>
+<!-- Subscribe to catalog ends -->
             
-            <hr width="100%" size="1px" noshade="noshade"/>
+            <hr width="534" size="1px" noshade="noshade"/>
+
+            </div>
 
             <p><br/></p>
             
