@@ -27,30 +27,45 @@ public class Search extends BaseScreeningProcessor {
     
     protected void screeningProcessing() throws com.topcoder.web.common.TCWebException {
         
-        SearchModel sm = getSearchModel();
-        
-        setDefault(Constants.FIRST_NAME, sm.getFirstName());
-        setDefault(Constants.LAST_NAME, sm.getLastName());
-        setDefault(Constants.EMAIL_ADDRESS, sm.getEmailAddress());
-               
-        setNextPage(Constants.SEARCH_PAGE);
-        setIsNextPageInContext(true); 
+        try {
+
+            SearchModel sm = getSearchModel();
+
+            setDefault(Constants.FIRST_NAME, sm.getFirstName());
+            setDefault(Constants.LAST_NAME, sm.getLastName());
+            setDefault(Constants.EMAIL_ADDRESS, sm.getEmailAddress());
+
+            setNextPage(Constants.SEARCH_PAGE);
+            setIsNextPageInContext(true); 
+        }
+        catch(Exception e)
+        {
+            throw new com.topcoder.web.common.TCWebException(e);
+        }
     }
     
-    private SearchModel getSearchModel() {
-        SearchModel ret = new SearchModel();
+    private SearchModel getSearchModel() throws Exception {
+        try {
+
+            SearchModel ret = new SearchModel();
+
+            ret.setFirstName(StringUtils.checkNull(getRequest().getParameter(Constants.FIRST_NAME)));
+            ret.setLastName(StringUtils.checkNull(getRequest().getParameter(Constants.LAST_NAME)));
+            ret.setEmailAddress(StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL_ADDRESS)));
+
+            //load demographic info
+
+            List l = getQuestionList();
+            Collections.sort(l);
+
+            ret.setQuestions(l);
         
-        ret.setFirstName(StringUtils.checkNull(getRequest().getParameter(Constants.FIRST_NAME)));
-        ret.setLastName(StringUtils.checkNull(getRequest().getParameter(Constants.LAST_NAME)));
-        ret.setEmailAddress(StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL_ADDRESS)));
-        
-        //load demographic info
-        List l = getQuestionList();
-        Collections.sort(l);
-        
-        ret.setQuestions(l);
-        
-        return ret;
+            return ret;
+        }
+        catch(Exception e)
+        {
+            throw e;
+        }
     }
     
     protected final List getQuestionList() throws Exception {
