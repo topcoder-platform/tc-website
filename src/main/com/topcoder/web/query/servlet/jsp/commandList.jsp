@@ -31,7 +31,6 @@
 
             <TR><TD>
              <A HREF="<jsp:getProperty name="CommandListTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandListTask" property="Db"/>" class="statText">
-<%System.out.println("XXX : " + command);%>
                 blah
 <%--                <%=commandDesc%>  --%>
               </A>
