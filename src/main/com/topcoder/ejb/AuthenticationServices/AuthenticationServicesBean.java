@@ -45,7 +45,7 @@ public class AuthenticationServicesBean extends BaseEJB {
         ResultSet rs = null;
         int check = 0;
         /*************************************************************************************/
-        String query = "SELECT 1 FROM user WHERE UPPER(handle)=UPPER(?)";
+        String query = "SELECT 1 FROM user WHERE handle_lower=lower(?)";
         /*************************************************************************************/
         javax.naming.Context ctx = null;
         try {
