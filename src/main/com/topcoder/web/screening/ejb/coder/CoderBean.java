@@ -2,6 +2,7 @@ package com.topcoder.web.screening.ejb.coder;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -55,6 +56,7 @@ public class CoderBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException creating Coder coderId: " + coderId + "coderStatusId: " + coderStatusId);
         } catch (NamingException e) {
             throw new EJBException("NamingException creating Coder coderId: " + coderId + "coderStatusId: " + coderStatusId);
@@ -100,6 +102,7 @@ public class CoderBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in setMemberSince coderId: " + coderId + " memberSince: " + memberSince);
         } catch (NamingException e) {
             throw new EJBException("NamingException in setMemberSince coderId: " + coderId + " memberSince: " + memberSince);
@@ -143,6 +146,7 @@ public class CoderBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in setCoderStatusId coderId: " + coderId + " coderStatusId: " + coderStatusId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in setCoderStatusId coderId: " + coderId + " coderStatusId: " + coderStatusId);
@@ -192,6 +196,7 @@ public class CoderBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getMemberSince coderId: " + coderId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getMemberSince coderId: " + coderId);
@@ -243,6 +248,7 @@ public class CoderBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getCoderStatusId coderId: " + coderId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getCoderStatusId coderId: " + coderId);
@@ -298,6 +304,7 @@ public class CoderBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getCoderStatusDesc coderId: " + coderId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getCoderStatusDesc coderId: " + coderId);
