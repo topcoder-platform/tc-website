@@ -103,6 +103,7 @@ public class TestResults extends BaseScreeningProcessor {
             Map percents = new HashMap();
             for(int i = 0; i < tinfo.getProblemSetBCount(); i++)
             {
+                dAccess = Util.getDataAccess();
                 //get percentile info
                 Request dr2 = new Request();
                 dr2.setContentHandle("candidate_percentile");
