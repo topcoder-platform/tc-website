@@ -24,7 +24,7 @@ public interface User extends EJBObject {
 
     public String getLastName(long userId) throws EJBException, RemoteException;
 
-    public char  getStatus(long userId)
+    public char getStatus(long userId)
             throws EJBException, RemoteException;
 
     public boolean userExists(long userId) throws RemoteException, EJBException;
