@@ -84,8 +84,7 @@
                         <p>Only the projects below are designated as TCCC projects.
                         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_comp_description">Click here</A>
                         for the rules and more information about the 2004 TCCC Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCCC.</p>
-                       Be the first submitter for any TCCC project and earn yourself the multiplier.  Now from the
-                       Project Submission page you can view who has inquired, submitted and who has the multiplier!
+                       Be the first submitter for ANY project and earn yourself the multiplier.  Click the "details" link for any project to see who inquired, who submitted, and who got the multiplier!
                        <br/><br/>
                     </td>
                 </tr>
@@ -95,7 +94,7 @@
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
 
-<!-- TCO Design Begins -->
+<!-- TCCC Design Begins -->
                 <tr>
                     <td colspan="9" class="tccc04SubNav"><a name="design"></a>2004 TopCoder Collegiate Challenge Component Design Projects</td>
                 </tr>
@@ -159,7 +158,7 @@
                                 <xsl:attribute name="href">
                                      <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
                                 </xsl:attribute>
-                                     <img src="/i/development/multiplier.gif" width="23" height="21" alt="" border="0"/>
+                                     <img src="/i/development/multiplierLGray.gif" width="23" height="21" alt="" border="0"/>
                              </a>
                     </xsl:if>
                     </td>
@@ -173,27 +172,17 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($designtco)">
                         <tr valign="top">
-                            <td class="projectCells" colspan="9"><strong>The second round of the 2004 TCCC Component Design Competition begins on 2/17/2004</strong></td>
+                            <td class="projectCells" colspan="9">The second round of the 2004 TCCC Component Design Competition begins on 2/17/2004</td>
                         </tr>
                 </xsl:if>
-<!--
-                <tr>
-                    <td class="bodyText" colspan="9"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
-                </tr>
--->
+           </table>
+<!-- TCCC Design Ends -->
 
-                <tr>
-                    <td class="projectCells" colspan="9">
-                    	<p>*Total Payment (before royalties)</p>
-                    	<p><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=comp_des_rd1">View</A> TCCC04 project submitters.</p>
-                    </td>
-                </tr>
+            <p class="bodyText" align="center"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=comp_des_rd1">View</A> TCCC04 Design project submitters!</p>
+            <br/>
 
-                <tr><td colspan="9" class="projectCells"><A name="tco_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
-<!-- TCO Design Ends -->
-
-
-<!-- TCO Development Begins -->
+<!-- TCCC Development Begins -->
+            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
                     <td class="tccc04SubNav" colspan="9">2004 TopCoder Collegiate Challenge Component Development Projects</td>
                 </tr>
@@ -210,6 +199,9 @@
                     <td class="projectHeaders" align="center">Details</td>
                 </tr>
 
+                <xsl:variable name="priceFormat" select="'$###,###.00'" />
+                <xsl:variable name="design-phase" select="'112'" />
+                <xsl:variable name="dev-phase" select="'113'" />
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
                     <xsl:if test="./phase_id=$dev-phase and ./status_id=303">
                         <xsl:variable name="initial_submission">
@@ -252,7 +244,7 @@
                                 <xsl:attribute name="href">
                                      <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
                                 </xsl:attribute>
-                              <img src="/i/development/multiplier.gif" width="23" height="21" alt="" border="0"/>
+                              <img src="/i/development/multiplierLGray.gif" width="23" height="21" alt="" border="0"/>
                              </a>
                     </xsl:if>
                     </td>
@@ -263,46 +255,23 @@
                     </xsl:if>
                 </xsl:for-each>
 
-                <xsl:variable name="devtco" select="//TC/DEVELOPMENT/projects/project[phase_id=$dev-phase
-                                                    and status_id=303]"/>
-                <xsl:if test="not($devtco)">
+                <xsl:variable name="devTCCC" select="//TC/DEVELOPMENT/projects/project[phase_id=$dev-phase and status_id=303]"/>
+                <xsl:if test="not($devTCCC)">
                         <tr valign="top">
-                            <td class="projectCells" colspan="9"><strong>The first round of the 2004 TCCC Component Development Competition begins on 2/17/2004</strong></td>
+                            <td class="projectCells" colspan="9">The first round of the 2004 TCCC Component Development Competition begins on 2/17/2004</td>
                         </tr>
                 </xsl:if>
-<!--
-                <tr>
-                    <td class="bodyText" colspan="9"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
-                </tr>
--->
-                <tr>
-                    <td class="projectCells" colspan="9">*Total Payment (before royalties) </td>
-                </tr>
+            </table>
+<!-- TCCC Development Ends -->
 
-                <tr><td colspan="9" class="projectCells"><A name="comp_des"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
-<!-- TCO Development Ends -->
+            <br/><br/>
 
 <!-- Open Component Design Projects begins -->
 
-<!--                <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr> -->
-                <tr>
-                    <xsl:variable name="priceFormat" select="'$###,###.00'" />
-                    <td class="projectCells" colspan="9">
-                        <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(/TC/DEVELOPMENT/Project/Total/total, $priceFormat)"/></span>
-                        in payments to the winning designers and developers. Send us your solutions today so you can start collecting your share.</p>
-                    </td>
-                </tr>
-
+            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
                     <td class="projectTitles" colspan="9">Component Design Projects</td>
                 </tr>
-
-<!--                <tr valign="top">
-                    <td class="bodyText">
-                        <p>There are no Open Component Design postings.</p>
-                    </td>
-                </tr>  -->
-
                 <tr valign="middle">
                     <td width="15%" class="projectHeaders">Design Projects</td>
                     <td class="projectHeaders" align="center">Catalog</td>
@@ -356,14 +325,14 @@
                             </td>
                             <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
+                            <td class="projectCells" align="center" nowrap="0"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
                     <td class="projectCells" align="center">
                     <xsl:if test="./total_submissions &gt; 0">
                              <a>
                                 <xsl:attribute name="href">
                                      <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
                                 </xsl:attribute>
-                              <img src="/i/development/multiplier.gif" width="23" height="21" alt="" border="0"/>
+                              <img src="/i/development/multiplierLGray.gif" width="23" height="21" alt="" border="0"/>
                              </a>
                     </xsl:if>
                     </td>
@@ -373,21 +342,14 @@
                         </tr>
                     </xsl:if>
                 </xsl:for-each>
-
-                <tr>
-                    <td class="projectCells" colspan="9">*Total Payment (before royalties) </td>
-                </tr>
-
-                <tr><td colspan="9" class="projectCells"><A name="comp_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
+            </table>
 <!-- Open Component Design Projects ends -->
+    
+            <br/><br/>
 
 <!-- Open Component Development Projects begins -->
 
-<!--                <tr valign="top">
-                    <td class="bodyText">
-                        <p>There are no Open Component Development postings.</p></td>
-                </tr>  -->
-
+            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
                     <td class="projectTitles" colspan="9">Component Development Projects</td>
                 </tr>
@@ -404,6 +366,9 @@
                     <td class="projectHeaders" align="center">Details</td>
                 </tr>
 
+                <xsl:variable name="priceFormat" select="'$###,###.00'" />
+                <xsl:variable name="design-phase" select="'112'" />
+                <xsl:variable name="dev-phase" select="'113'" />
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
                     <xsl:if test="./phase_id=$dev-phase and ./status_id!=303">
                         <xsl:variable name="initial_submission">
@@ -439,14 +404,14 @@
                             </td>
                             <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
+                            <td class="projectCells" align="center" nowrap="0"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
                     <td class="projectCells" align="center">
                     <xsl:if test="./total_submissions &gt; 0">
                              <a>
                                 <xsl:attribute name="href">
                                      <xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/>
                                 </xsl:attribute>
-                              <img src="/i/development/multiplier.gif" width="23" height="21" alt="" border="0"/>
+                              <img src="/i/development/multiplierLGray.gif" width="23" height="21" alt="" border="0"/>
                              </a>
                     </xsl:if>
                     </td>
@@ -456,10 +421,6 @@
                         </tr>
                     </xsl:if>
                 </xsl:for-each>
-
-                <tr>
-                    <td class="projectCells" colspan="9">*Total Payment (before royalties)</td>
-                </tr>
             </table>
 
             <p>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A>
