@@ -85,12 +85,15 @@ public class LoginTask extends BaseTask implements Task, Serializable {
     public void processStep(String step)
         throws Exception
     {
-        if (step.equals(TCESConstants.LOGIN_TASK_STEP_VIEW)) {
+        if (step == null) {
             viewLogin();
             return;
         }
-
-        if (step.equals(TCESConstants.LOGIN_TASK_STEP_AUTH)) {
+        else if (step.equals(TCESConstants.LOGIN_TASK_STEP_VIEW)) {
+            viewLogin();
+            return;
+        }
+        else if (step.equals(TCESConstants.LOGIN_TASK_STEP_AUTH)) {
             doAuth();
             return;
         }

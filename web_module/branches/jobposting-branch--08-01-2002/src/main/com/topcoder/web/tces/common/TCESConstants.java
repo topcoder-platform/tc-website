@@ -7,7 +7,7 @@ public class TCESConstants {
 
     // jsp-related
     public static String JSP_ROOT = null;
-    public static String TCES_PACKAGE = "com.topcoder.web.tces";
+    public static String TCES_PACKAGE = "com.topcoder.web.tces.servlet";
     public static String ERROR_PAGE = null;
     public static String LOGIN_PAGE = null;
     public static String MAIN_PAGE = null;

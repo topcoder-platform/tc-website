@@ -15,7 +15,7 @@
 
   <init-param>
     <param-name>jsp_root</param-name>
-    <param-value>/es/</param-value>
+    <param-value>/tces/tces/</param-value>
     <description>
       The directory holding JSP pages for TCES module.
     </description>
