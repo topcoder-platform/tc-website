@@ -79,7 +79,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">07.27.2004</td>
+                                    <td class="projectCells" align="right">Closed</td>
                                 </tr>	
                                 
 				                <tr valign="top">

@@ -310,8 +310,7 @@ A TopCoder client has existing infrastructure and software to support certain in
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Stock%20Count%20Application%20Design">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
-                                                        Once you have registered for the project you will be given more information on the project including the requirements specification and other additional information.  After viewing this information, you will have 12 hours to accept the position.
+                                                        Closed
                                                     </p>
                                                 </td>
                                             </tr>
