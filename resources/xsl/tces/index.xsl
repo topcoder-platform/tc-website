@@ -44,34 +44,32 @@
 
 <!-- Center Column Begins -->  
         <td class="bodyText" width="100%">
- <table border="0" cellspacing="10" cellpadding="0" width="100%">
+            <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText" width="100%"> 
                     
-                                <div align="center"><img src="/i/es/header_looking_for.gif" alt="" width="510" height="68" border="0"/></div>
+                        <div align="center"><img src="/i/es/header_looking_for.gif" alt="" width="510" height="68" border="0"/></div>
                        
-                                <p> <A href="stat?c=member_profile&#38;cr=151144"> <img src="/i/es/quote_member.gif" alt="" width="246" height="235" border="0" align="right"/></A>
-                                <img src="/i/clear.gif" width="4" height="30" border="0"/><br/>
-                                Our clients are interested in hiring and retaining the industry's top talent. They all believe that their most valuable asset is their 
-                                employees. And, like us, they understand the value of making hiring decisions based on an objective measure of coding skill.</p>
+                        <p><A href="stat?c=member_profile&#38;cr=151144"><img src="/i/es/quote_member.gif" alt="Member quote" width="230" height="194" border="0" align="right" /></A>
+                        <img src="/i/clear.gif" width="4" height="16" border="0"/><br/>
+                        Our clients are interested in hiring and retaining the industry's top talent. They all believe that their most valuable asset is their 
+                        employees. And, like us, they understand the value of making hiring decisions based on an objective measure of coding skill.</p>
 
-                                <p>Only rated members can apply for jobs posted by TCES. This allows companies to differentiate coders 
-                                who otherwise look the same on paper. Non-rated members wishing to obtain a rating should review the competition calendar 
-                                for the <a class="bodyText"><xsl:attribute name="HREF">/?&amp;t=schedule&amp;c=srm&amp;RoundId=<xsl:value-of select="/TC/TCES/NextSRM/Info/round_id"/></xsl:attribute>next Single Round Match</a> 
-                                or <a href="/?&amp;t=schedule&amp;c=index" class="bodyText">click here</a> for a complete list of upcoming Single 
-                                Round Matches.</p> 
-                            </td>
-                    </tr>
+                        <p>Only rated members can apply for jobs posted by TCES. This allows companies to differentiate coders 
+                        who otherwise look the same on paper. Non-rated members wishing to obtain a rating should review the competition calendar 
+                        for the <a class="bodyText"><xsl:attribute name="HREF">/?&amp;t=schedule&amp;c=srm&amp;RoundId=<xsl:value-of select="/TC/TCES/NextSRM/Info/round_id"/></xsl:attribute>next Single Round Match</a> 
+                        or <a href="/?&amp;t=schedule&amp;c=index" class="bodyText">click here</a> for a complete list of upcoming Single 
+                        Round Matches.</p> 
+                    </td>
+                </tr>
                             
-<tr valign="top">
-    <td class="bodayText" width="100">
+                <tr valign="top">
+                    <td class="bodayText" width="100">
                         <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                            <tr valign="middle"><td bgcolor="#43515E" class="statText">Employers</td></tr>
+                            <tr valign="middle"><td bgcolor="#999999" class="statText"><font size="3"><strong>Employers</strong></font></td></tr>
                         </table>
 
                         <table border="0" cellspacing="5" cellpadding="0" width="100%">
-
-
 <!-- AlphaSimplex begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=alphasimplex" target="_top"><img src="/i/es/alphasimplex/alphasimplex_logo.gif" width="150" height="57" alt="AlphaSimplex" border="0" /></a></td>
