@@ -880,7 +880,6 @@
             <param name="unit-jar-name" value="Survey"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/survey"/>
         </antcall>
-
         <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
             <fileset dir="${java}/com/topcoder/web/tc/view">
                 <include name="**/*.jsp"/>
@@ -906,6 +905,12 @@
                 <include name="rsc-taglib.tld"/>
                 <include name="tc-webtags.tld"/>
             </webinf>
+            <webinf dir="${struts.dir}">
+                <include name="*.tld"/>
+            </webinf>
+            <lib dir="${struts.dir}">
+                <include name="*.jar"/>
+            </lib>
         </war>
         <unwar src="${war.dir}/tc.war" dest="${public_html}/tc/" overwrite="yes"/>
         <delete dir="${public_html}/tc/META-INF"/>
