@@ -76,7 +76,7 @@
                         Events like this one bring out the best solutions from the best developers, and those are the type of developers we want," 
                         said Mike Ruane, President and CEO of Revelation Software.</p>
 
-                        <p>About TopCoder, Inc.<br />
+                        <p><span class="bodySubTitle">About TopCoder, Inc.</span><br />
                         TopCoder, Inc. organizes and hosts online and onsite programming competitions for a global community of members.  TopCoder 
                         members extend across all professional and collegiate levels.  The attraction of competition and the associated rewards create 
                         a powerful community of programmers.  Corporate partners access this member base for employment, software development 
