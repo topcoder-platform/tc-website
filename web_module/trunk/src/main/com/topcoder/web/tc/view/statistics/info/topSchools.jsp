@@ -19,7 +19,7 @@
       <tr>
          <td>
             <p class="bodyText">
-                This list represents those US universities with the highest average rated coders who have competed within the last 6 monthes.
+                This list represents those US universities with the highest average rated coders that have competed within the last 6 monthes.
             </p>
          </td>
       </tr>
