@@ -98,7 +98,7 @@
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=260911"><img src="/i/m/amitc_mug.gif" alt="amitc" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=260911"><strong>amitc</strong></a> has served as failure, accuracy, and stress tester for numerous projects since joining the review board.  He has already earned over $550 as a review board member!
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=260911"><strong>amitc</strong></a> is currently pursuing his undergraduate degree in Computer Science from SVCE. He has won many regional programming contests and enjoys finding bugs in software. He enjoys being part of the review board as it presents him an opportunity to examine some of the finest solutions from all over the world. 
                         </p>                       
                      </td>
                 </tr>
