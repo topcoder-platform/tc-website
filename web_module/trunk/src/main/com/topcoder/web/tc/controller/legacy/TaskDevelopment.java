@@ -453,6 +453,12 @@ else if (command.equals("send")) {
                         long ph = Long.parseLong(phase);
                         long projId = Long.parseLong(request.getParameter("projectId"));
                         
+                        if(ph == 112) {
+                            rating = getDesignRating(nav.getSessionInfo().getUserId());
+                        } else {
+                            rating = getDevRating(nav.getSessionInfo().getUserId());
+                        }
+                        
                         //get fancy new ejb
                         InitialContext ctx = TCContext.getInitial();
                         
@@ -806,6 +812,34 @@ else if (command.equals("send")) {
         r.setProperty("uid", String.valueOf(userId));
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("component_suspension");
         return !rsc.isEmpty();
+    }
+    
+    static int getDesignRating(long userId) throws Exception {
+        DataAccessInt dAccess = new DataAccess(DBMS.DW_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("member_profile");
+        r.setProperty("uid", String.valueOf(userId));
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("Coder_Data");
+        if(rsc.getItem(0, "design_rating").getResultData() == null)
+        {
+            return 0;
+        } else {
+            return rsc.getIntItem(0, "design_rating");
+        }
+    }
+    
+    static int getDevRating(long userId) throws Exception {
+        DataAccessInt dAccess = new DataAccess(DBMS.DW_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("member_profile");
+        r.setProperty("uid", String.valueOf(userId));
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("Coder_Data");
+        if(rsc.getItem(0, "development_rating").getResultData() == null)
+        {
+            return 0;
+        } else {
+            return rsc.getIntItem(0, "development_rating");
+        }
     }
 
     static ComponentManager getComponentManager(long componentId) {
