@@ -1,5 +1,7 @@
 package com.topcoder.utilities.cheaterChecker;
 
+import com.topcoder.shared.util.logging.Logger;
+
 /**
  * @author  dok
  * @version  $Revision$ $Date$
@@ -8,6 +10,7 @@ package com.topcoder.utilities.cheaterChecker;
 public class User {
     private long userId = 0;
     private String handle = null;
+    private static Logger log = Logger.getLogger(User.class);
 
     public User() {
 
@@ -34,6 +37,7 @@ public class User {
     }
 
     public boolean equals(Object o) {
+        log.debug("equals " + o);
         return ((User)o).getUserId()==userId;
     }
 

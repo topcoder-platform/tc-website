@@ -1,5 +1,7 @@
 package com.topcoder.utilities.cheaterChecker;
 
+import com.topcoder.shared.util.logging.Logger;
+
 import java.util.*;
 
 /**
@@ -9,6 +11,7 @@ import java.util.*;
  */
 public class Histogram {
 
+    private static Logger log = Logger.getLogger(Histogram.class);
     private HashMap histogram = null;
 
     public Histogram() {
@@ -25,9 +28,11 @@ public class Histogram {
     public void add(Object o) {
         Integer count = null;
         if (histogram.containsKey(o)) {
+            log.debug("found " + o);
             count = (Integer)histogram.get(o);
             histogram.put(o, new Integer(count.intValue()+1));
         } else {
+            log.debug("not found " + o);
             histogram.put(o, new Integer(1));
         }
     }
