@@ -66,17 +66,16 @@
         </tr>
                 <tr>
           <td valign="top" width="1"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>                
-<!--
                     <td VALIGN="top" COLSPAN="2" bgcolor="#000000" class="statText">
-                     &#160;&#160;<B>Eligibility Information for the 2003 TopCoder Collegiate Challenge</B><BR/>
+                     <img src="/i/clear.gif" alt="" width="3" height="60" border="0" align="left"/>
+                     <B>Eligibility Information for the 2003 TopCoder Collegiate Challenge</B><BR/>
                      <xsl:for-each select="/TC/HOME/CollegiateInfo/reasons/reason">
-                     &#160;&#160;<xsl:value-of select="reason_text"/><BR/>  
+                     <xsl:value-of select="reason_text"/><BR/>  
                      </xsl:for-each>
                      <xsl:if test="/TC/HOME/CollegiateInfo/showLink='true'"><BR/>
-                     &#160;&#160;Click <A HREF="/TourneyReg?&amp;rd=4462&amp;cd=4462" class="statText">here</A> to register.
+                     Click <A HREF="/TourneyReg?&amp;rd=4462&amp;cd=4462" class="statText">here</A> to register.<BR/>
                      </xsl:if><BR/>
                    </td>
--->
           <td valign="top" width="1"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>                  
                 </tr>        
       </table>    
