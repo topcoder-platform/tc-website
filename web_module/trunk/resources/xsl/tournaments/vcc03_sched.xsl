@@ -34,17 +34,15 @@
     <xsl:value-of select="/TC/SCHEDULE/ContestId"/>
 </xsl:variable>
 
-<!-- Top Begins -->
+<!-- Top Begins 
 <xsl:call-template name="Top"/>
-<!-- Top Ends -->
+Top Ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
 <!-- Left Column Begins -->
-        <td width="180">
-              <xsl:call-template name="global_left"/>
-        </td>
+         <td><img src="/i/tournament/vcc03/vcc03_left.gif" width="140" height="140" border="0"/></td>         
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
@@ -147,11 +145,7 @@
 <!-- Gutter Ends -->
 
   <!-- Right Column Begins -->
-        <td width="170">
-            <xsl:call-template name="public_right_col">
-                <xsl:with-param name="sectionName">tourny</xsl:with-param>
-            </xsl:call-template>
-        </td>
+         <td><img src="/i/tournament/vcc03/vcc03_right.gif" width="140" height="400" border="0"/></td>         
   <!-- Right Column Ends -->
 
 <!-- Gutter Begins -->
