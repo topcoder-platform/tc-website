@@ -35,32 +35,32 @@
                         </tr>
 
 
-<tr><td class="sidebarText">ab2301</td><td class="sidebarText">Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
-<tr><td class="sidebarText">ajt2001</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">156.21</td></tr>
-<tr><td class="sidebarText">alcioun</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">0.00</td></tr>
-<tr><td class="sidebarText">aranis</td><td class="sidebarText">Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
-<tr><td class="sidebarText">avocado</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">99.10</td></tr>
-<tr><td class="sidebarText">bober</td><td class="sidebarText">Qualification Problem 2</td><td class="sidebarText">110.07</td></tr>
-<tr><td class="sidebarText">csun</td><td class="sidebarText">Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
-<tr><td class="sidebarText">dr_awesome</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">116.89</td></tr>
-<tr><td class="sidebarText">Ferille</td><td class="sidebarText">Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
-<tr><td class="sidebarText">jinhofied</td><td class="sidebarText">Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
-<tr><td class="sidebarText">jkladflkhhe999</td><td class="sidebarText">Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
-<tr><td class="sidebarText">jl1176</td><td class="sidebarText">Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
-<tr><td class="sidebarText">jyl227</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">177.40</td></tr>
-<tr><td class="sidebarText">leeways</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">0.00</td></tr>
-<tr><td class="sidebarText">LLCoolJay</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">201.48</td></tr>
-<tr><td class="sidebarText">nme</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">181.85</td></tr>
-<tr><td class="sidebarText">nobody2</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">125.02</td></tr>
-<tr><td class="sidebarText">Nonsensical</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">99.28</td></tr>
-<tr><td class="sidebarText">polish</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">128.13</td></tr>
-<tr><td class="sidebarText">rbakhru2</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">140.51</td></tr>
-<tr><td class="sidebarText">rs731</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">0.00</td></tr>
-<tr><td class="sidebarText">spiro</td><td class="sidebarText">Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
-<tr><td class="sidebarText">superalbert</td><td class="sidebarText">Qualification Problem 2</td><td class="sidebarText">118.95</td></tr>
-<tr><td class="sidebarText">wordfox</td><td class="sidebarText">Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
-<tr><td class="sidebarText">yajin</td><td class="sidebarText">Qualification Problem 1</td><td class="sidebarText">126.55</td></tr>
-<tr><td class="sidebarText">youngster68</td><td class="sidebarText">Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
+<tr><td class="sidebarText">ab2301</td><td class="sidebarText" nowrap>Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
+<tr><td class="sidebarText">ajt2001</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">156.21</td></tr>
+<tr><td class="sidebarText">alcioun</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">0.00</td></tr>
+<tr><td class="sidebarText">aranis</td><td class="sidebarText" nowrap>Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
+<tr><td class="sidebarText">avocado</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">99.10</td></tr>
+<tr><td class="sidebarText">bober</td><td class="sidebarText" nowrap>Qualification Problem 2</td><td class="sidebarText">110.07</td></tr>
+<tr><td class="sidebarText">csun</td><td class="sidebarText" nowrap>Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
+<tr><td class="sidebarText">dr_awesome</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">116.89</td></tr>
+<tr><td class="sidebarText">Ferille</td><td class="sidebarText" nowrap>Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
+<tr><td class="sidebarText">jinhofied</td><td class="sidebarText" nowrap>Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
+<tr><td class="sidebarText">jkladflkhhe999</td><td class="sidebarText" nowrap>Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
+<tr><td class="sidebarText">jl1176</td><td class="sidebarText" nowrap>Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
+<tr><td class="sidebarText">jyl227</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">177.40</td></tr>
+<tr><td class="sidebarText">leeways</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">0.00</td></tr>
+<tr><td class="sidebarText">LLCoolJay</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">201.48</td></tr>
+<tr><td class="sidebarText">nme</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">181.85</td></tr>
+<tr><td class="sidebarText">nobody2</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">125.02</td></tr>
+<tr><td class="sidebarText">Nonsensical</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">99.28</td></tr>
+<tr><td class="sidebarText">polish</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">128.13</td></tr>
+<tr><td class="sidebarText">rbakhru2</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">140.51</td></tr>
+<tr><td class="sidebarText">rs731</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">0.00</td></tr>
+<tr><td class="sidebarText">spiro</td><td class="sidebarText" nowrap>Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
+<tr><td class="sidebarText">superalbert</td><td class="sidebarText" nowrap>Qualification Problem 2</td><td class="sidebarText">118.95</td></tr>
+<tr><td class="sidebarText">wordfox</td><td class="sidebarText" nowrap>Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
+<tr><td class="sidebarText">yajin</td><td class="sidebarText" nowrap>Qualification Problem 1</td><td class="sidebarText">126.55</td></tr>
+<tr><td class="sidebarText">youngster68</td><td class="sidebarText" nowrap>Qualification Problem 2</td><td class="sidebarText">0.00</td></tr>
 
                      </table>
 
