@@ -23,6 +23,7 @@ package com.topcoder.utilities.hsdwload;
  * @author Christopher Hopkins [TCid: darkstalker] (chrism_hopkins@yahoo.com)
  * @version $Revision$
  */
+
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
@@ -33,17 +34,33 @@ public class TCLoadCoders extends TCLoad {
     private static Logger log = Logger.getLogger(TCLoadCoders.class);
     protected java.sql.Timestamp fStartTime = null;
     protected java.sql.Timestamp fLastLogTime = null;
+    private int STUDENT_GROUP_ID = 1800001;
     private int CODER_LOG_TYPE = 2;
 
 
     public TCLoadCoders() {
         DEBUG = false;
+        USAGE_MESSAGE = new String(
+                "TCLoadCoders parameters - defaults in ():\n" +
+                "  [-studentgroup number] : id for the student group             (1800001)\n");
     }
 
     /**
      * This method is passed any parameters passed to this load
      */
     public boolean setParameters(Hashtable params) {
+        Integer tmp;
+
+        try {
+            tmp = retrieveIntParam("studentgroup", params, true, true);
+            if (tmp != null) {
+                STUDENT_GROUP_ID = tmp.intValue();
+                log.info("New studentgroup id is " + STUDENT_GROUP_ID);
+            }
+        } catch (Exception ex) {
+            setReasonFailed(ex.getMessage());
+            return false;
+        }
         return true;
     }
 
@@ -83,6 +100,7 @@ public class TCLoadCoders extends TCLoad {
         }
     }
 
+
     private void getLastUpdateTime() throws Exception {
         Statement stmt = null;
         ResultSet rs = null;
@@ -117,7 +135,6 @@ public class TCLoadCoders extends TCLoad {
     }
 
 
-
     private void loadState() throws Exception {
         int count = 0;
         int retVal = 0;
@@ -130,9 +147,9 @@ public class TCLoadCoders extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT s.state_code ");
-            query.append(      " ,s.state_name ");
-            query.append(      " ,s.region_code ");
-            query.append( " FROM state s ");
+            query.append(" ,s.state_name ");
+            query.append(" ,s.region_code ");
+            query.append(" FROM state s ");
             query.append(" WHERE s.modify_date > ?");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setTimestamp(1, fLastLogTime);
@@ -199,9 +216,9 @@ public class TCLoadCoders extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT c.country_code ");
-            query.append(      " ,c.country_name ");
-            query.append(      " ,c.participating ");
-            query.append( " FROM country c ");
+            query.append(" ,c.country_name ");
+            query.append(" ,c.participating ");
+            query.append(" FROM country c ");
             query.append(" WHERE c.modify_date > ?");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setTimestamp(1, fLastLogTime);
@@ -256,8 +273,6 @@ public class TCLoadCoders extends TCLoad {
     }
 
 
-
-
     /**
      * This method loads the 'coder' table of the data warehouse. It holds
      * information on a particular coder like address, real name, handle, etc.
@@ -276,7 +291,7 @@ public class TCLoadCoders extends TCLoad {
 
         try {
             // Our select statement
-            query=new StringBuffer(1024);
+            query = new StringBuffer(1024);
             query.append("SELECT c.coder_id ");                  // 1
             query.append("      ,s.state_code ");                // 2
             query.append("      ,c.country_code ");              // 3
@@ -303,16 +318,11 @@ public class TCLoadCoders extends TCLoad {
             query.append("   AND x.school_id = s.school_id ");
             query.append("   AND x.current_ind = 1 ");
             query.append("   AND c.modify_date > ? ");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = c.coder_id ");
-            query.append("           AND gu.group_id = 13)");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = c.coder_id ");
-            query.append("           AND gu.group_id = 14)");
+            query.append("   AND EXISTS ");
+            query.append("     (SELECT 'dok' ");
+            query.append("        FROM user_group_xref ugx");
+            query.append("       WHERE ugx.login_id = c.coder_id");
+            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             // Our insert statement
@@ -362,12 +372,12 @@ public class TCLoadCoders extends TCLoad {
             query.append("SELECT 'pops' ");
             query.append("  FROM coder ");
             query.append(" WHERE coder_id = ?");
-            psSel2=prepareStatement(query.toString(), TARGET_DB);
+            psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
             // The first thing we do is delete the old record prior to
             // inserting the new record. We don't care if this fails or not.
             psSel.setTimestamp(1, fLastLogTime);
-            rs=executeQuery(psSel, "loadCoder");
+            rs = executeQuery(psSel, "loadCoder");
 
             while (rs.next()) {
                 int coder_id = rs.getInt(1);
@@ -398,10 +408,10 @@ public class TCLoadCoders extends TCLoad {
                     retVal = psUpd.executeUpdate();
                     count = count + retVal;
                     if (retVal != 1) {
-                        throw(new SQLException("TCLoadCoders: Update for "+
-                                               "coder_id "+coder_id+
-                                               " modified "+retVal+" rows, "+
-                                               "not one."));
+                        throw(new SQLException("TCLoadCoders: Update for " +
+                                "coder_id " + coder_id +
+                                " modified " + retVal + " rows, " +
+                                "not one."));
                     }
                 } else {
                     psIns.clearParameters();
@@ -424,10 +434,10 @@ public class TCLoadCoders extends TCLoad {
                     retVal = psIns.executeUpdate();
                     count = count + retVal;
                     if (retVal != 1) {
-                        throw(new SQLException("TCLoadCoders: Insert for "+
-                                               "coder_id "+coder_id+
-                                               " modified "+retVal+" rows, "+
-                                               "not one."));
+                        throw(new SQLException("TCLoadCoders: Insert for " +
+                                "coder_id " + coder_id +
+                                " modified " + retVal + " rows, " +
+                                "not one."));
                     }
                 }
 
@@ -476,16 +486,11 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,r.rating_no_vol ");     // 6
             query.append("  FROM rating r ");
             query.append(" WHERE r.modify_date > ? ");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = r.coder_id ");
-            query.append("           AND gu.group_id = 13)");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = r.coder_id ");
-            query.append("           AND gu.group_id = 14)");
+            query.append("   AND EXISTS ");
+            query.append("     (SELECT 'dok' ");
+            query.append("        FROM user_group_xref ugx");
+            query.append("       WHERE ugx.login_id = r.coder_id");
+            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             query = new StringBuffer(1024);
@@ -895,7 +900,7 @@ public class TCLoadCoders extends TCLoad {
             query.append("SELECT 'pops' ");
             query.append("  FROM school ");
             query.append(" WHERE school_id = ?");
-            psSel2=prepareStatement(query.toString(), TARGET_DB);
+            psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
             rs = executeQuery(psSel, "loadSchool");
 
@@ -903,7 +908,7 @@ public class TCLoadCoders extends TCLoad {
                 int school_id = rs.getInt("school_id");
                 psSel2.clearParameters();
                 psSel2.setInt(1, school_id);
-                rs2=psSel2.executeQuery();
+                rs2 = psSel2.executeQuery();
 
                 if (rs2.next()) {
                     psUpd.setString(1, rs.getString(2));
@@ -925,10 +930,10 @@ public class TCLoadCoders extends TCLoad {
 
                 count = count + retVal;
                 if (retVal != 1) {
-                    throw(new SQLException("TCLoadCoder: Load school for "+
-                                           "school "+school_id+
-                                           " modified "+retVal+" rows, not "+
-                                           "one."));
+                    throw(new SQLException("TCLoadCoder: Load school for " +
+                            "school " + school_id +
+                            " modified " + retVal + " rows, not " +
+                            "one."));
                 }
 
                 printLoadProgress(count, "school");
