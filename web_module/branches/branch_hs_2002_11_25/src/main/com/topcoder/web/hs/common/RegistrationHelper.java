@@ -281,7 +281,7 @@ public class RegistrationHelper {
     _srb.setTermsOfUse(tou.getText(TERMS_OF_USE_ID));
   }
 
-  public static void populateStudentCoachCount(StudentRegistrationBean _srb)
+  public static void populateSchoolCoachCount(StudentRegistrationBean _srb)
                                                               throws Exception {
 
     Context ctx=TCContext.getInitial();
@@ -304,7 +304,7 @@ public class RegistrationHelper {
       throw(new Exception(BAD_COACH_COUNT));
     }
     rsr=(ResultSetContainer.ResultSetRow)iterator.next();
-    _srb.setSchoolCoachCount((Long)rsr.getItem("count").getResultData());
+    _srb.setSchoolCoachCount((Long)rsr.getItem("coach_count").getResultData());
   }
 
   public static boolean isValidStudent(Map _errors,
