@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:template name="tco03_sublinks">
+  <xsl:param name="selectedList"></xsl:param>
   <xsl:param name="selectedTab"></xsl:param>
 
 <xsl:choose>
-    <xsl:when test="$selectedTab='summary'">
+    <xsl:when test="$selectedList='summary'">
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tourney_subnav">
                 <tr>
                     <td class="tourney_subnav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -19,14 +20,55 @@
             </table>
     </xsl:when>
 
-    <xsl:when test="$selectedTab='rules'">
+    <xsl:when test="$selectedList='rules'">
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tourney_subnav">
                 <tr>
                     <td class="tourney_subnav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_overview" class="statTextBig">Overview</a></td>
-                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_eligibility" class="statTextBig">Eligibility</a></td>
-                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_conditions" class="statTextBig">Conditions of Participation</a></td>
-                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_prizes" class="statTextBig">Prizes</a></td>
+                <xsl:choose>
+                <xsl:when test="$selectedTab='overview'">
+                    <td class="tourney_subnav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_overview" class="topLink">Overview</a></td>
+                </xsl:when>
+                <xsl:otherwise>
+                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_overview" class="topLink">Overview</a></td>
+                </xsl:otherwise>
+                </xsl:choose>
+
+                <xsl:choose>
+                <xsl:when test="$selectedTab='eligibility'">
+                    <td class="tourney_subnav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_eligibility" class="topLink">Eligibility</a></td>
+                </xsl:when>
+                <xsl:otherwise>
+                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_eligibility" class="topLink">Eligibility</a></td>
+                </xsl:otherwise>
+                </xsl:choose>
+
+                <xsl:choose>
+                <xsl:when test="$selectedTab='conditions'">
+                    <td class="tourney_subnav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_conditions" class="topLink">Conditions of Participation</a></td>
+                </xsl:when>
+                <xsl:otherwise>
+                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_conditions" class="topLink">Conditions of Participation</a></td>
+                </xsl:otherwise>
+                </xsl:choose>
+
+                <xsl:choose>
+                <xsl:when test="$selectedTab='structure'">
+                    <td class="tourney_subnav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_structure" class="topLink">Structure</a></td>
+                </xsl:when>
+                <xsl:otherwise>
+                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_structure" class="topLink">Structure</a></td>
+                </xsl:otherwise>
+                </xsl:choose>
+
+                <xsl:choose>
+                <xsl:when test="$selectedTab='prizes'">
+                    <td class="tourney_subnav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_prizes" class="topLink">Prizes</a></td>
+                </xsl:when>
+                <xsl:otherwise>
+                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_prizes" class="topLink">Prizes</a></td>
+                </xsl:otherwise>
+                </xsl:choose>
+
                     <td class="statTextBig" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>
