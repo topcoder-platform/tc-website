@@ -53,7 +53,7 @@ public class Confirm  extends ContractingBase {
                     int type =rscPref.getIntItem(j, "preference_type_id");
                     int id = rscPref.getIntItem(j, "preference_id");
 
-                    if(type != Constants.PREFERENCE_SINGLE_ANSWER && info.getPreference(String.valueOf(id)) != null) {
+                    if(type == Constants.PREFERENCE_MULTIPLE_ANSWER && info.getPreference(String.valueOf(id)) != null) {
                         //look up answer
                         String answer = "";
 
@@ -71,6 +71,12 @@ public class Confirm  extends ContractingBase {
 
                         }
 
+                        ContractingResponse rsp = new ContractingResponse();
+                        rsp.setName(text);
+                        rsp.setVal(info.getPreference(String.valueOf(id)));
+
+                        g.addResponse(rsp);
+                    } else if(type == Constants.PREFERENCE_TEXT_ANSWER && info.getPreference(String.valueOf(id)) != null) {
                         ContractingResponse rsp = new ContractingResponse();
                         rsp.setName(text);
                         rsp.setVal(answer);
