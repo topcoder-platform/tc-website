@@ -22,7 +22,7 @@ public class TCCC05Results extends StatBase {
     }
     
     String getPageName() {
-        return "/tournaments/tco04/comp_results.jsp";
+        return "/tournaments/tccc05/comp_results.jsp";
     }
     
     void statProcessing() throws com.topcoder.web.common.TCWebException {
