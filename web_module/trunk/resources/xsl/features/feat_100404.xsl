@@ -187,9 +187,9 @@ In the table given below I have listed some of the various possible solutions fo
 <p>
 Can, Chord, Pastry and Viceroy provide significant levels of fault tolerance in the face of node failure. Digital signature schemes are limited by the lifetime and security of public/private keys.
 <br/><br/>
-Intel proposes Trutella, a solution to Man in the Middle attack. Here, a malicious node answers all incoming requests for information with "Yes, I've got that" and then floods the poor requester with garbage, in essence creating a denial-of-service attack.
+Intel&#174; proposes Trutella, a solution to Man in the Middle attack. Here, a malicious node answers all incoming requests for information with "Yes, I've got that" and then floods the poor requester with garbage, in essence creating a denial-of-service attack.
 <br/><br/>
-Intel solution "Trutella," is a combination of Gnutella and hardware that conforms to the Trusted Computing Platform Alliance (TCPA) for encryption. TCPA -- originally formed by Compaq, HP, IBM, Intel and Microsoft -- now has over 145 companies as participating members, including Broadcom and Philips Semiconductors. The group has dedicated itself to developing a specification for a trusted computing platform.
+Intel&#174; solution "Trutella," is a combination of Gnutella and hardware that conforms to the Trusted Computing Platform Alliance (TCPA) for encryption. TCPA -- originally formed by Compaq, HP, IBM, Intel&#174; and Microsoft -- now has over 145 companies as participating members, including Broadcom and Philips Semiconductors. The group has dedicated itself to developing a specification for a trusted computing platform.
 <br/><br/>
 One approach is to use a Peer-to-Peer Trusted Library that allows software developers to add the element of 'trust' to their peer-to-peer applications. It provides support for digital certificates, peer authentication, secure storage, public key encryption, digital signatures, digital envelopes, and symmetric key encryption. The library also provides simple support for networking and some operating system primitives, such as threads and locks. Applications built with the library are portable to both Win32 and Linux.
 <br/><br/>
