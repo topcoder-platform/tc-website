@@ -559,13 +559,28 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     // sortByColumn() function
     private class DataRowComparator implements Comparator {
         int columnToCompare;
+        int secondaryColumn;
         boolean sortAscending;
+        boolean sortSecondaryAscending;
 
         public DataRowComparator(int i, boolean ascending) {
             if (!isValidColumn(i))
                 throw new IllegalArgumentException("Column index " + i + " out of bounds");
             columnToCompare = i;
+            secondaryColumn = -1;
             sortAscending = ascending;
+            sortSecondaryAscending = true;
+        }
+    
+        public DataRowComparator(int i, int j, boolean ascending, boolean secondaryAscending) {
+            if (!isValidColumn(i))
+                throw new IllegalArgumentException("Column index " + i + " out of bounds");
+            if (!isValidColumn(j))
+                throw new IllegalArgumentException("Column index " + j + " out of bounds");
+            columnToCompare = i;
+            secondaryColumn = j;
+            sortAscending = ascending;
+            sortSecondaryAscending = secondaryAscending;
         }
 
         public int compare(Object o1, Object o2) {
@@ -573,10 +588,23 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
             ResultSetRow rsr2 = (ResultSetRow) o2;
             TCResultItem ri1 = (TCResultItem) rsr1.getItem(columnToCompare);
             TCResultItem ri2 = (TCResultItem) rsr2.getItem(columnToCompare);
-            if (sortAscending)
-                return ri1.compareTo(ri2);
-            else
-                return -ri1.compareTo(ri2);
+            int temp = ri1.compareTo(ri2);
+            if (temp==0) {
+                ri1 = (TCResultItem) rsr1.getItem(secondaryColumn);
+                ri2 = (TCResultItem) rsr2.getItem(secondaryColumn);
+                temp = ri1.compareTo(ri2);
+                if (sortSecondaryAscending) {
+                    return temp;
+                } else {
+                    return -temp;
+                }
+            } else {
+                if (sortAscending) {
+                    return temp;
+                } else {
+                    return -temp;
+                }
+            }
         }
     }
 
