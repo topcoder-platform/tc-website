@@ -21,7 +21,7 @@
 
                     <td  width="99%" class="bodyText"  valign="top">
                         <p><a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_122203</xsl:attribute><font size="4"><strong>Not Round, Not a Table</strong></font></a><br />
-                        Monday, October 24, 2003</p>
+                        Monday, October 22, 2003</p>
 
                         <p>
 
