@@ -44,6 +44,7 @@
         <pathelement location="${jars.dir}/xalan-j_2_4_0/bin/xalan.jar"/>
         <pathelement location="${jars.dir}/xalan-j_2_4_0/bin/xercesImpl.jar"/>
         <pathelement location="${jars.dir}/xalan-j_2_4_0/bin/xml-apis.jar"/>
+        <pathelement location="${jars.dir}/jivebase.jar"/>
 
         <!-- TCS Components -->
         <pathelement location="${jars.dir}/configmanager2.jar"/>
