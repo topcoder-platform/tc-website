@@ -10,7 +10,7 @@
 <jsp:include page="../script.jsp"/>
 </SCRIPT>
 </head>
-<body bgcolor="#001B35">
+<body background="/i/steel_bluebv_bg.gif">
 <center><h3><font color="#FFFFFF"><%= request.getAttribute("problemName") %></font></h3></center>
 <tc-webtag:errorIterator id="err" name="problemRating"><%=err%><br/></tc-webtag:errorIterator>
 <form name="ratings" action="/tc/" method="GET">
