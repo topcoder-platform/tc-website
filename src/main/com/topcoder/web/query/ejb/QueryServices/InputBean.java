@@ -19,7 +19,7 @@ import java.sql.*;
  */
 public class InputBean extends BaseEJB {
 
-    private static Logger log = Logger.getLogger(QueryAuthenticationBean.class);
+    private static Logger log = Logger.getLogger(InputBean.class);
     private String dataSourceName;
 
     public void createInput(String inputCode, int dataTypeId, String inputDesc)
