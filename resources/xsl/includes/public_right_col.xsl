@@ -5,10 +5,10 @@
   <xsl:import href="modules/my_stats.xsl"/>
   <!-- <xsl:import href="../includes/modules/module_login.xsl"/> -->   
   <xsl:template name="public_right_col">
-  <IMG ALT="" WIDTH="1" HEIGHT="3" SRC="/i/clear.gif" BORDER="0"/><BR/>
+  <img alt="" width="1" height="3" src="/i/clear.gif" border="0"/><br/>
   <xsl:call-template name="calendar"/>
-  <A HREF="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><IMG SRC="/i/tces_sidebar.gif" ALT="" WIDTH="171" HEIGHT="95" VSPACE="5" BORDER="0"/></A> 
-  <A HREF="/?&amp;t=tces&amp;c=index"><IMG SRC="/i/tces_quote_sm.gif" ALT="" WIDTH="170" HEIGHT="200" BORDER="0"/></A>
+  <a href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><img src="/i/tces_sidebar.gif" alt="" width="171" height="95" vspace="5" border="0"/></a> 
+  <a href="/?&amp;t=tces&amp;c=index"><img src="/i/tces_quote_sm.gif" alt="Only rated members can apply for jobs" width="170" height="159" border="0" /></a>
                 <!-- <xsl:choose>
                   <xsl:when test="/TC/LoggedIn='true'">
                      <xsl:call-template name="my_stats"/>
