@@ -73,7 +73,7 @@
 The front-end development will be implemented using the MVC framework.  The deliverable must be a fully functional front-end implementing the provided HTML mockups and API design.  The developer must implement stub classes for all front-end APIs, which imitate the HTML mockups (i.e. the test data for the stub classes is provided in the HTML mockup screens).
 						</p>
 						<p>
-All developers are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp" target="NEW">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.
+All developers are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/catalog/c_showroom.jsp" target="NEW">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.
 						</p>
 
 <!-- Project Type -->

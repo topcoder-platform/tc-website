@@ -112,7 +112,7 @@
                             <td class="statText" >                            
                                 <a class="statText" target="_new">
                                     <xsl:attribute name="href"> 
-                                        <xsl:value-of select="concat('http://software.topcoder.com/pages/c_component.jsp?comp=', ./component_id)"/>
+                                        <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
                                         version <xsl:value-of select="./version"/>
@@ -155,7 +155,7 @@
                             <td class="statText" >                            
                                 <a class="statText" target="_new">
                                     <xsl:attribute name="href"> 
-                                        <xsl:value-of select="concat('http://software.topcoder.com/pages/c_component.jsp?comp=', ./component_id)"/>
+                                        <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
                                         version <xsl:value-of select="./version"/>

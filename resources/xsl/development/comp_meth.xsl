@@ -167,7 +167,7 @@ A.methNav:active {
                 <tr valign="top">
                     <td class="statText">
                         <p>Gather component scope by collaborating with customers and TopCoder members through online 
-                        <a class="statText" href="http://software.topcoder.com/pages/c_active_collab.jsp">Customer Forums.</a>  For new components this 
+                        <a class="statText" href="http://software.topcoder.com/forum/c_active_collab.jsp">Customer Forums.</a>  For new components this 
                         is a new request for a component. For existing components it is a request for additional functionality.</p>
                                     
                         <p><strong>Participants</strong><br />
@@ -177,7 +177,7 @@ A.methNav:active {
                                     
                         <p><strong>Details</strong><br />
                         <ol>
-                            <li>PM moderates <a class="statText" href="http://software.topcoder.com/pages/c_active_collab.jsp">Customer Forums</a> on 
+                            <li>PM moderates <a class="statText" href="http://software.topcoder.com/forum/c_active_collab.jsp">Customer Forums</a> on 
                             topcodersoftware.com to gather component requirements.</li>
                             
                             <li>The Customer Forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post messages 

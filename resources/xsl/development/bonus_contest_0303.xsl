@@ -82,7 +82,7 @@
                 
                             <tr valign="top">
                                 <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=6508770" target="_blank">Bag Collection</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=6508770" target="_blank">Bag Collection</a></td>
                                 <td class="statText" align="center">3</td>
                                 <td class="statText" align="center">95.14</td>
                                 <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
@@ -90,7 +90,7 @@
 
                             <tr valign="top">
                                 <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=3304122" target="_blank">Chat Server</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=3304122" target="_blank">Chat Server</a></td>
                                 <td class="statText" align="center">1</td>
                                 <td class="statText" align="center">95.00</td>
                                 <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
@@ -98,7 +98,7 @@
 
                             <tr valign="top">
                                 <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=6402357" target="_blank">Class Discovery</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=6402357" target="_blank">Class Discovery</a></td>
                                 <td class="statText" align="center">1</td>
                                 <td class="statText" align="center">93.77</td>
                                 <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
@@ -106,7 +106,7 @@
 
                             <tr valign="top">
                                 <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=4201389" target="_blank">Heartbeat</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=4201389" target="_blank">Heartbeat</a></td>
                                 <td class="statText" align="center">1</td>
                                 <td class="statText" align="center">85.39</td>
                                 <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
@@ -114,7 +114,7 @@
 
                             <tr valign="top">
                                 <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=3300871" target="_blank">URL Loader</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=3300871" target="_blank">URL Loader</a></td>
                                 <td class="statText" align="center">2</td>
                                 <td class="statText" align="center">96.13</td>
                                 <td width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>

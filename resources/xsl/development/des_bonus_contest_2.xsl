@@ -84,41 +84,41 @@
 
                             <tr valign="top">
                                 <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=7220216" target="_blank">Test Values - 89.08</a></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=7263251" target="_blank">Chart Data Structure - 93.78</a></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=7220261" target="_blank">Number Translation - 98.75</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=7220216" target="_blank">Test Values - 89.08</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263251" target="_blank">Chart Data Structure - 93.78</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=7220261" target="_blank">Number Translation - 98.75</a></td>
                                 <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
                             </tr>
 
                             <tr valign="top">
                                 <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=7220290" target="_blank">Data Validation - 88.88</a></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=5800426" target="_blank">JNDI Context Utility - 91.50</a></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=7289752" target="_blank">Complex Number - 92.18</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=7220290" target="_blank">Data Validation - 88.88</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=5800426" target="_blank">JNDI Context Utility - 91.50</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=7289752" target="_blank">Complex Number - 92.18</a></td>
                                 <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
                             </tr>
 
                             <tr valign="top">
                                 <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=5800878" target="_blank">Standard Class - 94.09</a></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=500004" target="_blank">Config Manager - 89.52</a></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=7323105" target="_blank">Asynchronous Wrapper - 85.77</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=5800878" target="_blank">Standard Class - 94.09</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=500004" target="_blank">Config Manager - 89.52</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=7323105" target="_blank">Asynchronous Wrapper - 85.77</a></td>
                                 <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
                             </tr>
 
                             <tr valign="top">
                                 <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=7311989" target="_blank">Priority Queue - 92.18</a></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=7311989" target="_blank">Priority Queue - 89.75</a></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=7323082" target="_blank">Generic Event Manager - 91.74</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=7311989" target="_blank">Priority Queue - 92.18</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=7311989" target="_blank">Priority Queue - 89.75</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=7323082" target="_blank">Generic Event Manager - 91.74</a></td>
                                 <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
                             </tr>
 
                             <tr valign="top">
                                 <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=7263800" target="_blank">Thread Pool - 91.81</a></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=7339417" target="_blank">Synchronous Wrapper - 88.85</a></td>
-                                <td class="statText"><a class="statText" href="http://software.topcoder.com/pages/c_component.jsp?comp=7339417" target="_blank">Synchronous Wrapper - 77.35</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263800" target="_blank">Thread Pool - 91.81</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=7339417" target="_blank">Synchronous Wrapper - 88.85</a></td>
+                                <td class="statText"><a class="statText" href="http://software.topcoder.com/catalog/c_component.jsp?comp=7339417" target="_blank">Synchronous Wrapper - 77.35</a></td>
                                 <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="4" height="1" border="0" /></td>
                             </tr>
 
