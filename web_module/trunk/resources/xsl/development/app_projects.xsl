@@ -60,26 +60,9 @@
 				</tr>
 
 				<tr><td class="statText" colspan="2"><h1 class="devSubhead">Open Application Projects</h1></td></tr>
-                <!--				
-				<tr valign="top">
-					<td class="statText" colspan="2">
-						<p>
-						Check here next week for an exciting new project!<br/>
-						</p> 
-						<P><BR/></P>  
-					</td>
-				</tr>
-					-->		
-                <tr>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" colspan="3"><a name="design"></a><h1 class="devSubhead">Open Application Design Projects</h1></td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
 
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
                 <tr valign="middle">
-                    <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
 
                     <td background="/i/steel_bluebv_bg.gif" class="statText">Application Design Projects</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Payment*</td>
@@ -90,7 +73,6 @@
 				
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
                 <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     
 
                     <td background="" class="statText">
