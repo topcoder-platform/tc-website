@@ -88,8 +88,7 @@
                 <tr>
                     <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
                     <td class="statText" colspan="9">
-                        <p>Project dates are subject to change. In the case of a date changes this page will be updated.  If you have specific 
-                        questions about any projects, email <a href="mailto:service@topcodersoftware.com" class="statText">service@topcodersoftware.com</a>.</p> 
+                        <p>This page will be updated when a project date changes.  If you have specific questions about any projects, email <a href="mailto:service@topcodersoftware.com" class="statText">service@topcodersoftware.com</a>.</p> 
 						<p>Note that project winners will not be announced until after the Review Complete date.</p>
                     </td>
                         <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
