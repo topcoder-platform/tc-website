@@ -309,12 +309,14 @@
 			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             &#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=components</xsl:attribute>&#160;&#160;This Week's Component<br/>&#160;&#160;&#160;&#160;&#160;Project Winners</a></td><td valign="top" class="statText" bgcolor="#333333">&#160;</td></tr>
             <xsl:call-template name="div_line_row"/>
+
             <tr><td valign="top" class="statText" bgcolor="#333333">&#160;</td><td valign="middle" height="15" class="statText" bgcolor="#333333">
             <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
 			<xsl:when test="/TC/Command='comp_projects'">graybv_lite_bg</xsl:when>
 			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             &#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=comp_projects</xsl:attribute>&#160;&#160;Open Component Projects</a></td><td valign="top" class="statText" bgcolor="#333333">&#160;</td></tr>
             <xsl:call-template name="div_line_row"/>
+
             <tr><td valign="top" class="statText" bgcolor="#333333">&#160;</td><td valign="middle" height="15" class="statText" bgcolor="#333333">
             <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
 			<xsl:when test="/TC/Command='comp_meth'">graybv_lite_bg</xsl:when>
@@ -334,6 +336,17 @@
 			</tr>
 			<xsl:call-template name="div_line_row"/> 
 
+<!-- Component Documentation and Samples -->
+			<tr>
+				<td valign="top" class="statText" bgcolor="#333333">&#160;</td>
+				<td valign="middle" height="15" class="statText" bgcolor="#333333">
+					<xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+					<xsl:when test="/TC/Command='bonus_contest_0303'">graybv_lite_bg</xsl:when>
+					<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+				&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=bonus_contest_0303</xsl:attribute>&#160;&#160;Component Design Contest</a></td>
+				<td valign="top" class="statText" bgcolor="#333333">&#160;</td>
+			</tr>
+			<xsl:call-template name="div_line_row"/> 
                                    
             <tr> 
               <td valign="top" bgcolor="#333333"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
