@@ -70,29 +70,25 @@ Keep in mind, TopCoder is paying significant money for these projects, and we ex
 Project: <A HREF="/index?t=development&amp;c=pdf_conversion" CLASS="statText">PDF Conversion Design</A><BR/>
 Start Date: Apr 16, 2002<BR/>
 Length: 1 week<BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: Apr 12, 2002 12:00 PM EDT<BR/>
+Member Selection: Closed<BR/>
 </P>
 <P>
 Project: <A HREF="/index?t=development&amp;c=calendar" CLASS="statText">Calendar Component</A><BR/>
 Start Date: Apr 16, 2002<BR/>
 Length: 2 weeks<BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: Apr 12, 2002 12:00 PM EDT<BR/>
+Member Selection: Closed<BR/>
 </P>
 <P>
 Project: <A HREF="/index?t=development&amp;c=file_upload" CLASS="statText">File Upload Component</A><BR/>
 Start Date: Apr 16, 2002<BR/>
 Length: 3.5 weeks<BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: Apr 12, 2002 12:00 PM EDT<BR/>
+Member Selection: Closed<BR/>
 </P>
 <P>
 Project: <A HREF="/index?t=development&amp;c=web_services_proto" CLASS="statText">Web Services Proof of Concept</A><BR/>
 Start Date: Apr 16, 2002<BR/>
 Length: 2 weeks<BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: Apr 12, 2002 12:00 PM EDT<BR/>
+Member Selection: Closed<BR/>
 </P>
 
 <P>
