@@ -87,7 +87,7 @@
                 <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="design"></a><font size="3"><strong>Component Design Project Status</strong></font></td></tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Catalog</td>
+                    <td background="/i/graybv_bg.gif" width="35" class="statTextLarge" align="center">Catalog</td>
                     <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Design Projects</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Designer</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Design<br />Rating</td>
@@ -99,7 +99,16 @@
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project"> 
                     <xsl:if test="./phase=$design-phase">
                         <tr>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./root_category_id"/></td>
+                            <td class="formTextOdd" align="center">
+                            <xsl:choose>
+                               <xsl:when test="./root_category_id = 5801776">
+                                  <img src="/i/development/smJava.gif"/>
+                               </xsl:when>
+                               <xsl:otherwise>
+                                  <img src="/i/development/netSm.gif"/>
+                               </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
                             <td class="formTextOdd" >                            
                                 <a target="_new">
                                     <xsl:attribute name="href"> 
@@ -113,7 +122,7 @@
                             <td class="formTextOdd" align="center"><xsl:value-of select="./user_id"/></td>
                             <td class="formTextOdd" align="center">
                             <xsl:choose>
-                                <xsl:when test="./submission_date != ''"> 
+                                <xsl:when test="./rating != ''"> 
                                    <xsl:value-of select="./rating"/>
                                 </xsl:when>
                                 <xsl:otherwise>
@@ -126,6 +135,9 @@
                             <xsl:choose>
                                 <xsl:when test="./submission_date != ''"> 
                                     <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="submission_date"/></xsl:call-template>
+                                    <xsl:if test="./submission_date = ./min_sub_date">
+                                        MULTIPLIER 
+        			    </xsl:if>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     -
@@ -143,7 +155,7 @@
                 <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="development"></a><font size="3"><strong>Component Development Project Status</strong></font></td></tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Catalog</td>
+                    <td background="/i/graybv_bg.gif" width ="10%" class="statTextLarge" align="center">Catalog</td>
                     <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Development Projects</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Developer</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Developer<br />Rating</td>
@@ -154,7 +166,17 @@
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project"> 
                     <xsl:if test="./phase=$dev-phase">
                         <tr>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./root_category_id"/></td>
+                            <td class="formTextOdd" align="center">
+                            <xsl:choose>
+                               <xsl:when test="./root_category_id = 5801776">
+                                  <img src="/i/development/smJava.gif"/>
+                               </xsl:when>
+                               <xsl:otherwise>
+                                  <img src="/i/development/netSm.gif"/>
+                               </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
+
                             <td class="formTextOdd" >                            
                                 <a target="_new">
                                     <xsl:attribute name="href"> 
@@ -166,12 +188,24 @@
                                 </a>
                             </td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./user_id"/></td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./rating"/></td>
+                            <td class="formTextOdd" align="center">
+                            <xsl:choose>
+                                <xsl:when test="./rating != ''"> 
+                                   <xsl:value-of select="./rating"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                   Not Rated 	
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
                             <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="inquiry_date"/></xsl:call-template></td>
                             <td class="formTextOdd" align="center">
                             <xsl:choose>
                                 <xsl:when test="./submission_date != ''"> 
                                     <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="submission_date"/></xsl:call-template>
+                                    <xsl:if test="./submission_date = ./min_sub_date">
+                                        MULTIPLIER 
+        			    </xsl:if>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     -
