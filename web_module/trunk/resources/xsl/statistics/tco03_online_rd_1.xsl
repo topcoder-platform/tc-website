@@ -22,7 +22,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>2003 TopCoder Open sponsored by Intel&#174; sponsored by Intel&#174; - Online Round 1 Summary</title>
+<title>2003 TopCoder Open sponsored by Intel&#174; - Online Round 1 Summary</title>
 
 <xsl:call-template name="CSS"/>
 
