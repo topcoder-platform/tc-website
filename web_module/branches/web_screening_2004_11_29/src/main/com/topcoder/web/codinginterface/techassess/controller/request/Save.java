@@ -42,7 +42,7 @@ public class Save extends Base {
             }
 
             if (hasParameter(Constants.LANGUAGE_ID)) {
-                log.debug("language: " + getRequest().getParameter(Constants.LANGUAGE_ID));
+                //log.debug("language: " + getRequest().getParameter(Constants.LANGUAGE_ID));
                 languageId = Integer.parseInt(getRequest().getParameter(Constants.LANGUAGE_ID).trim());
             } else {
                 throw new NavigationException("Invalid Request, missing parameter");
@@ -51,7 +51,7 @@ public class Save extends Base {
             if (hasParameter(Constants.CODE))
                 code = getRequest().getParameter(Constants.CODE);
 
-            log.debug("language: " + languageId);
+            //log.debug("language: " + languageId);
 
             ScreeningSaveRequest request = new ScreeningSaveRequest(componentId, problemTypeId, languageId, code);
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
