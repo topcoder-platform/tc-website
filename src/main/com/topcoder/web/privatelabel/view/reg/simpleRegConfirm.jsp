@@ -2,7 +2,7 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="registrationInfo" class="com.topcoder.web.privatelabel.model.RegistrationInfo" scope="request" />
+<jsp:usebean id="registrationInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -12,7 +12,7 @@
 <body>
     <table cellpadding="1" cellspacing="3">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
-            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.REGISTRATION_SUBMIT%>"/>
+            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.SIMPLE_REGISTRATION_SUBMIT%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="registrationInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.HANDLE%>" value="<jsp:getProperty name="registrationInfo" property="Handle"/>"/>
             <input type="hidden" name="<%=Constants.LAST_NAME%>" value="<jsp:getProperty name="registrationInfo" property="FirstName"/>"/>

@@ -297,7 +297,7 @@ public class ModifyCommandQuery extends BaseProcessor {
      */
     public ArrayList getCurrentQueryList() throws Exception {
         if (currentQueryList == null) {
-            CommandQuery cq = (CommandQuery) Util.createEJB(getInitialContext(), CommandQuery.class);
+            CommandQuery cq = (CommandQuery) createEJB(getInitialContext(), CommandQuery.class);
             setCurrentQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
         }
         return currentQueryList;
