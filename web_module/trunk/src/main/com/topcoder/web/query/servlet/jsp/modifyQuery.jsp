@@ -68,7 +68,7 @@
             </TR>
            <TR>
               <TD CLASS="statText" ALIGN="left" COLSPAN="2">Query Text:<BR/>
-                <textarea cols="80" rows="30" name="<%=Constants.QUERY_TEXT_PARAM%>"><jsp:getProperty name="ModifyQueryTask" property="Text"/></textarea>
+                <TEXTAREA COLS="80" ROWS="30" WRAP="off" NAME="<%=Constants.QUERY_TEXT_PARAM%>"><jsp:getProperty name="ModifyQueryTask" property="Text"/></TEXTAREA>
               </TD>
             </TR>
             <TR>
