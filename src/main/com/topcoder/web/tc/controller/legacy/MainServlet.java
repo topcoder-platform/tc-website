@@ -239,8 +239,8 @@ public final class MainServlet extends HttpServlet {
             }
             //************************ static  ************************
             else if (requestTask.equals("") || requestCommand.equals("")) {
+                getServletContext().getRequestDispatcher(response.encodeURL("/tc")).forward(request, response);
 //                response.sendRedirect(response.encodeRedirectURL("http://" + request.getServerName() + "/tc"));
-                response.sendRedirect(response.encodeRedirectURL("/tc"));
                 return;
             }
             else {
