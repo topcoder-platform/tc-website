@@ -12,8 +12,8 @@ public class ProblemResults {
     private static final String usage = "usage: ProblemResults <round_id> <file_name>";
     private static final String colDelim = "|";
     private static final String rowDelim = "\n";
-    private static final int FAILED = 150;
-    private static final int PASSED = 160;
+    private static final int FAILED = 160;
+    private static final int PASSED = 150;
 
     public static void main(String[] args) {
         int round = -1;
@@ -40,14 +40,22 @@ public class ProblemResults {
         try {
             qr = new QueryRequest();
             qr.addQuery("PassedData", getQuery(PASSED, round));
-            qr.addQuery("Failedata", getQuery(FAILED, round));
+            qr.addQuery("FailedData", getQuery(FAILED, round));
             dai = new QueryDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
             resultMap = dai.getData(qr);
             ResultSetContainer mapRsc = (ResultSetContainer)resultMap.get("PassedData");
+            System.out.println("************************************************************************************");
+            System.out.println("********************************PASSED**********************************************");
+            System.out.println("************************************************************************************");
+            System.out.println(mapRsc.toString(rowDelim, colDelim));
+            System.out.println("************************************************************************************");
+            System.out.println("********************************FAILED**********************************************");
+            System.out.println("************************************************************************************");
             PrintWriter writer = new PrintWriter(new FileOutputStream(fileName));
             writer.print(mapRsc.toString(rowDelim, colDelim));
             mapRsc = (ResultSetContainer)resultMap.get("FailedData");
             writer.print(mapRsc.toString(rowDelim, colDelim));
+            System.out.println(mapRsc.toString(rowDelim, colDelim));
 
         } catch (Exception e) {
             e.printStackTrace();
