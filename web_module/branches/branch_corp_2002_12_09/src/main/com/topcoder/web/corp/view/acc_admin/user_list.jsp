@@ -51,12 +51,12 @@
 	<tc-webtag:iterator id="resultRow" collection="<%=rsc%>">
 	  <TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">&#160;
-			<jsp:getProperty name="resultRow" row="user_id"/></TD>
+			<jsp:getProperty name="resultRow" property="user_id"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			<jsp:getProperty name="resultRow" row="first_name"/></TD>
+			<jsp:getProperty name="resultRow" property="first_name"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			<jsp:getProperty name="resultRow" row="last_name"/></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"> <A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<jsp:getProperty name="resultRow" row="user_id"/>" CLASS="bodyText">Edit</A></TD>		
+			<jsp:getProperty name="resultRow" property="last_name"/></TD>
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"> <A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<jsp:getProperty name="resultRow" property="user_id"/>" CLASS="bodyText">Edit</A></TD>		
 	  </TR>
 	</tc-webtag:iterator>
 
