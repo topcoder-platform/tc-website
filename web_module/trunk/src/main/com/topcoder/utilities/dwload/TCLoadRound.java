@@ -228,6 +228,7 @@ public class TCLoadRound extends TCLoad {
                 a.add(new String("DELETE FROM problem WHERE round_id = ?"));
                 a.add(new String("UPDATE rating SET first_rated_round_id = null WHERE first_rated_round_id = ?"));
                 a.add(new String("UPDATE rating SET last_rated_round_id = null WHERE last_rated_round_id = ?"));
+                a.add(new String("DELETE FROM rating_history WHERE round_id = ?"));
 
             } else {
                 a.add(new String("DELETE FROM coder_level WHERE coder_id IN (SELECT coder_id FROM room_result WHERE attended = 'Y' AND round_id = ?)"));
@@ -244,7 +245,7 @@ public class TCLoadRound extends TCLoad {
                 a.add(new String("DELETE FROM problem WHERE round_id = ?"));
                 a.add(new String("UPDATE rating SET first_rated_round_id = null WHERE first_rated_round_id = ?"));
                 a.add(new String("UPDATE rating SET last_rated_round_id = null WHERE last_rated_round_id = ?"));
-
+                a.add(new String("DELETE FROM rating_history WHERE round_id = ?"));
             }
 
             int count = 0;
