@@ -10,7 +10,8 @@
   if ( image1.equals("steelblue") ) {
     image1 = "/i/steelblue_top_left1.gif";
   } else {
-    image1 = "/i/table_top_left1.gif";
+    //image1 = "/i/table_top_left1.gif";
+      image1 = "/i/clear.gif";
   }
 %>
 
