@@ -10,7 +10,7 @@
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Header -->
 	<tr>
-		<td colspan=5>
+		<td colspan=7>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
 				<td class=homeTopBar><A href="/" class="loginLinks">About TopCoder</A></td>
@@ -27,11 +27,13 @@
 
 <!-- Banners -->
 	<tr>
+		<td width="50%" rowspan=2>&#160;</td>
 		<td class=homeLeftBan><img src="/i/home/tab_developercenter.gif" border=0 /></td>
-		<td class=homeGutter width="50%">&#160;</td>
+		<td class=homeGutter>&#160;</td>
 		<td class=homeCentBan><img src="/i/home/tab_corporateservices.gif" border=0 /></td>
-		<td class=homeGutter width="50%">&#160;</td>
+		<td class=homeGutter>&#160;</td>
 		<td class=homeRightBan><img src="/i/home/tab_newsevents.gif" border=0 /></td>
+		<td width="50%" rowspan=2>&#160;</td>
 	</tr>
 
 <!-- Body -->
@@ -166,7 +168,7 @@
 
 
 <!-- Footer -->
-    <tr><td class="homeFooter" colspan=5>
+    <tr><td class="homeFooter" colspan=7>
             <A href="/" class="footerLinks">Home</A>&#160;&#160;|&#160;&#160;
             <A href="/" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=news_events&c=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
@@ -177,7 +179,7 @@
             <A href="/" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
             <A href="/" class="footerLinks">Corporate Services</A>
 
-    <tr><td width="100%" class="copyright" colspan=5>Copyright &#169; 2001-2004, TopCoder, Inc. All rights reserved.</td></tr>
+    <tr><td width="100%" class="copyright" colspan=7>Copyright &#169; 2001-2004, TopCoder, Inc. All rights reserved.</td></tr>
 </table>
 
 
