@@ -30,20 +30,20 @@ public class Search extends Base {
   private final static String INVALID_STATE_SCHOOL="Invalid school/state "+
                                                    "combination";
 
-  private final static String NEGATIVE_MIN_RATING="Ensure that Min Rating is "+
-                                                  "not negative";
+  private final static String NEGATIVE_MIN_RATING="Ensure Min Rating "+
+                                                  "non-negative";
   
-  private final static String INVALID_MIN_RATING="Please enter a valid number "+
-                                                 "for Min Rating";
+  private final static String INVALID_MIN_RATING="Invalid number for Min "+
+                                                 "Rating";
 
-  private final static String NEGATIVE_MAX_RATING="Ensure that Max Rating is "+
-                                                  "not negative";
+  private final static String NEGATIVE_MAX_RATING="Ensure Max Rating "+
+                                                  "non-negative";
   
-  private final static String INVALID_MAX_RATING="Please enter a valid number "+
-                                                 "for Max Rating";
+  private final static String INVALID_MAX_RATING="Invalid number for Max "+
+                                                 "Rating";
 
-  private final static String INVALID_MIN_MAX="Ensure the Max Rating is not "+
-                                              "less than the Min Rating";
+  private final static String INVALID_MIN_MAX="Max Rating less than Min "+
+                                              "Rating";
 
   private final static Logger log=Logger.getLogger(Search.class);
 
