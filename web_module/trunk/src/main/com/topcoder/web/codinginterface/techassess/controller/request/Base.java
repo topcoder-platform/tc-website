@@ -16,10 +16,12 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ImageInfo;
 import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
+import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.*;
 
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
@@ -84,11 +86,19 @@ public abstract class Base extends BaseProcessor {
         return user;
     }
 
-    protected void send(Message m) {
-        /*todo if it becomes a problem, we may want to change
-         *the behavior so that we don't wait indefinately
-         */
-        this.messageId = sender.sendMessageGetID(new HashMap(), m);
+    protected void send(Message m) throws TCWebException {
+        HttpSession session = getRequest().getSession();
+        if (session.getAttribute(Constants.SERVER_BUSY + getSessionId()) == null) {
+            synchronized (session) {
+                /*todo if it becomes a problem, we may want to change
+                 *the behavior so that we don't wait indefinately
+                 */
+                this.messageId = sender.sendMessageGetID(new HashMap(), m);
+                session.setAttribute(Constants.SERVER_BUSY + getSessionId(), "");
+            }
+        } else {
+            throw new ServerBusyException();
+        }
 
     }
 
