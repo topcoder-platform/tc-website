@@ -76,8 +76,8 @@ public class ReviewBoardApplication {
         this.reviewerTypeId = reviewerTypeId;
     }
 
-    public void getPhaseId() {
-        component.getPhaseId();
+    public int getPhaseId() {
+        return component.getPhaseId();
     }
 
 
