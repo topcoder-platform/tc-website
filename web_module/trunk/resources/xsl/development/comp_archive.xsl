@@ -32,7 +32,7 @@
 <head>
     <xsl:call-template name="Preload" />
 
- <title>TopCoder | Development</title>
+ <title>Component Project Status for TopCoder Software Development</title>
 
     <xsl:call-template name="CSS" />
 
@@ -84,9 +84,7 @@
 
 <!-- Component Design Projects begin -->
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr>
-                    <td class="bodyText" colspan="6"><a name="design"></a><h1 class="devSubhead">Component Design Project Status</h1></td>
-                </tr>
+                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="design"></a><font size="3"><strong>Component Design Project Status</strong></font></td></tr>
 
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Design Projects</td>
@@ -120,13 +118,11 @@
                     </xsl:if>
                 </xsl:for-each> 
 
-                <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+                <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
 <!-- Component Design Projects ends -->
 
 <!-- Component Dev Projects begin -->
-                 <tr>
-                    <td class="bodyText" colspan="6"><a name="design"></a><h1 class="devSubhead">Component Development Project Status</h1></td>
-                </tr>
+                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="development"></a><font size="3"><strong>Component Development Project Status</strong></font></td></tr>
 
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Development Projects</td>
