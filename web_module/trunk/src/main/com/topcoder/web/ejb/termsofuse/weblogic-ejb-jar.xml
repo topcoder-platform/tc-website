@@ -18,6 +18,6 @@
                 <jndi-name>JTS_DS</jndi-name>
             </resource-description>
         </reference-descriptor>
-        <jndi-name>corp:com.topcoder.web.ejb.termsofuse.TermsOfUseHome</jndi-name>
+        <jndi-name>com.topcoder.web.ejb.termsofuse.TermsOfUseHome</jndi-name>
     </weblogic-enterprise-bean>
 </weblogic-ejb-jar>
