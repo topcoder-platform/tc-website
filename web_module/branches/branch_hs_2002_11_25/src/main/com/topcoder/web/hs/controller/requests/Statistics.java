@@ -19,6 +19,12 @@ public class Statistics extends Base {
 
     protected void businessProcessing() throws Exception {
 
+        String cmd = request.getParameter(DataAccessConstants.COMMAND);
+
+        /* we do this here so that if the query fails, we still keep our place in the menus */
+        nav.setFolder(0, "stats");
+        nav.setFolder(1, cmd);
+
         Data.initializeDataTypes();
         request.setAttribute("CODER_COLORS", new CoderRatingStyleBean());
 
@@ -30,16 +36,11 @@ public class Statistics extends Base {
         Map dataMap = dai.getData(dataRequest);
         request.setAttribute("QUERY_RESPONSE", dataMap);
 
-        String cmd = request.getParameter(DataAccessConstants.COMMAND);
-
-        nav.setFolder(0, "stats");
-        nav.setFolder(1, cmd);
-
         setNextPage("/stats/"+cmd+".jsp");
         setIsNextPageInContext(true);
     }
 
-    /** This exists as a request method, but only in 2.3 or later of the servlet API. */
+    /** This exists as a request method, but only in version 2.3 or later of the servlet API. */
     private static Map getParameterMap(ServletRequest r) {
         Map m = new HashMap();
         Enumeration e = r.getParameterNames();

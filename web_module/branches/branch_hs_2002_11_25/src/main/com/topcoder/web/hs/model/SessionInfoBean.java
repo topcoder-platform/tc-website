@@ -8,7 +8,7 @@ import java.io.*;
 public class SessionInfoBean implements Serializable {
 
   private String handle = null;
-  private int userid = -1;
+  private int userid = -1;  //@@@ should be long
   /** group may be:
    * 'G' guest
    * 'S' student

@@ -30,8 +30,8 @@ public class Login extends Base {
             }
         }
 
-        /* either we weren't processing a login request yet, or it failed */
-        nav.setFolder(null);
+        /* we may have been forwarded here and failed, so make sure we reflect the page contents in the menus */
+        nav.setFolder("login");
 
         setNextPage(Constants.login_form);
         setIsNextPageInContext(true);
