@@ -483,13 +483,13 @@ public class Registration
                 }
                
                 if ((!isEmpty(this.gpa) && !isNumber(this.gpa, true)) ||
-                       (isEmpty(this.gpa) && !isEmpty(this.gpaScale))) {
-                    log.debug("bad gpa entered: " + this.gpa);
+                       (isEmpty(this.gpa) && !isEmpty(this.gpaScale)) ||
+                       (!isEmpty(this.gpa) && !isNumber(this.gpa, true) && Float.parseFloat(this.gpa)<0) {
                     addError(GPA, "Please enter a valid GPA.");
                 }
                 if ((!isEmpty(this.gpaScale) && !isNumber(this.gpaScale, true)) ||
-                       (!isEmpty(this.gpa) && isEmpty(this.gpaScale))) {
-                    log.debug("bad gpa scale entered: " + this.gpaScale);
+                       (!isEmpty(this.gpa) && isEmpty(this.gpaScale)) {
+                       (!isEmpty(this.gpaScale) && !isNumber(this.gpaScale, true) && Float.parseFloat(this.gpaScale)<0) {
                     addError(GPA_SCALE, "Please enter a valid GPA Scale.");
                 }
                 if (!isEmpty(this.gpa) && isNumber(this.gpa, true) && 
@@ -1649,8 +1649,12 @@ public class Registration
             currentSchool.setUserId(coder.getCoderId());
             currentSchool.setSchoolId(schoolId);
             currentSchool.setName(getSchoolName(schoolId));
-            currentSchool.setGpa(Float.parseFloat(this.gpa));
-            currentSchool.setGpaScale(Float.parseFloat(this.gpaScale));
+            if (!this.gpa.equals("")) {
+                currentSchool.setGpa(Float.parseFloat(this.gpa));
+            }
+            if (!this.gpaScale.equals("")) {
+                currentSchool.setGpaScale(Float.parseFloat(this.gpaScale));
+            }
         }
 
 /*
