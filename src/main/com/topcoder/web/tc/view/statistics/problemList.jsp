@@ -7,7 +7,9 @@
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("problem_list"); %>
+<% ResultSetContainer levels = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("levels"); %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <script language="JavaScript"><!--
   function next() {
@@ -67,6 +69,71 @@
                <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
                <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
                <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
+               <table border="0" cellspacing="0" cellpadding="2" bgcolor="#001B35" width="100%">
+                <tr>
+                    <td colspan="2" class="errorText" align="center">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.CLASS_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="center" class="stateText">Class Name</td>
+                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15"/><td>
+                 </tr>
+                <tr>
+                    <td colspan="2" class="errorText" align="center">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.MIN_DIV1_SUCCESS%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="center" class="stateText">Minimum Division I Success Rate</td>
+                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV1_SUCCESS%>"  size="15" maxlength="15"/><td>
+                 </tr>
+                <tr>
+                    <td colspan="2" class="errorText" align="center">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.MAX_DIV1_SUCCESS%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="center" class="stateText">Maximum Division I Success Rate</td>
+                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV1_SUCCESS%>"  size="15" maxlength="15"/><td>
+                 </tr>
+                <tr>
+                    <td colspan="2" class="errorText" align="center">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.MIN_DIV2_SUCCESS%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="center" class="stateText">Minimum Division II Success Rate</td>
+                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV2_SUCCESS%>"  size="15" maxlength="15"/><td>
+                 </tr>
+                <tr>
+                    <td colspan="2" class="errorText" align="center">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.MAX_DIV2_SUCCESS%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="center" class="stateText">Maximum Division II Success Rate</td>
+                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>"  size="15" maxlength="15"/><td>
+                 </tr>
+                <tr>
+                    <td colspan="2" class="errorText" align="center">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.DIV1_LEVEL%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="center" class="stateText">Division I Level</td>
+                    <tc-webtag:rscSelect name="<%=Constants.DIV1_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/>
+                 </tr>
+                <tr>
+                    <td colspan="2" class="errorText" align="center">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.DIV2_LEVEL%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="center" class="stateText">Division II Level</td>
+                    <tc-webtag:rscSelect name="<%=Constants.DIV2_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/>
+                 </tr>
+               <table>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
                    <TD colspan="11" class="statText"><%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
