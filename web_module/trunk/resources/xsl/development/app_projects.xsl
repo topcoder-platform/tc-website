@@ -72,6 +72,9 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
+
+
+
                                 <tr valign="top">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Content_Syndication">Content Syndication</a>
@@ -146,6 +149,32 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Order_Fulfillment_Development_DAO">Order Fulfillment: Data Access Layer</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$1500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">06/14/2004 9:00 AM ET</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Order_Fulfillment_Development_BO">Order Fulfillment: Business Object Tier</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$1500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">06/14/2004 9:00 AM ET</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Order_Fulfillment_Development_FE">Order Fulfillment: Front End</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$1500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">06/14/2004 9:00 AM ET</td>
+                                </tr>
+
+
                                 <!--
                                 <tr valign="top">
                                     <td class="projectCells">
