@@ -408,6 +408,14 @@
 
                 <tr>
                     <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
+                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://software.topcoder.com/pages/c_active_collab.jsp?ft=2</xsl:attribute>Developer Forums</a>
+                    </td>
+                </tr>
+                
+                <xsl:call-template name="div_line_row"/>
+
+                <tr>
+                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
                         <xsl:when test="/TC/Command='comp_archive'">graybv_lite_bg</xsl:when>
                         <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
