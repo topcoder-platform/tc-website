@@ -3,6 +3,7 @@ package com.topcoder.web.tces.bean;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.InitialContext;
 import javax.servlet.http.*;
@@ -16,6 +17,7 @@ import java.util.Map;
  */
 
 public class Authentication implements Serializable {
+    private static Logger log = Logger.getLogger(Authentication.class);
 
     public static int USER_NOT_LOGGED_IN = -1;
 
