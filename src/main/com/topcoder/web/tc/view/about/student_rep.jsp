@@ -19,7 +19,7 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../../includes/global_left.jsp">
-                <jsp:param name="level1" value="about"/>
+                <jsp:param name="level1" value="home"/>
 <%--                <jsp:param name="level1" value="about"/>
                 <jsp:param name="level2" value="student_rep"/> --%>
             </jsp:include>
