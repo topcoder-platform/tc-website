@@ -110,12 +110,12 @@ ProfileExperienceObject profExp = tces.getProfileExperienceObject();
 	String city = profExp.city;
 	String selectedState = profExp.state_code;
 	String selectedCountry = profExp.country_code;
-	String selectedIndustry = profExp.industry_id;
+	String selectedIndustry = profExp.industry_id.toString();
 	String url = profExp.organization_url;
 	String selectedTitle = profExp.job_title;
-	String selectedRole = profExp.job_role_id;
-	String selectedManagement = profExp.job_type_id;
-	String selectedNumberPeople = profExp.organization_size_id;
+	String selectedRole = profExp.job_role_id.toString();
+	String selectedManagement = profExp.job_type_id.toString();
+	String selectedNumberPeople = profExp.organization_size_id.toString();
 	
         Calendar c = new GregorianCalendar();
         c.setTime(profExp.date_start);
