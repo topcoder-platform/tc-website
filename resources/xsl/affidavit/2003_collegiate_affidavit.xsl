@@ -355,7 +355,7 @@ I, <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:va
   </xsl:choose>
 </xsl:when>
 <xsl:otherwise>
-  Error: Invalid country, please contact TopCoder.
+    <BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/>
 </xsl:otherwise>
 </xsl:choose>
 

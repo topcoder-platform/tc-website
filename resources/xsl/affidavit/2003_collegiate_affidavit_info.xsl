@@ -98,7 +98,7 @@
                                 </p>
                             </li>
                             <li>
-                                <p><strong>To be completed by those that will personally receive a cash prize:</strong></p>
+                                <p><strong>To be completed by those who will personally receive a cash prize:</strong></p>
                                 <p><strong>TAX FORM</strong> - must be postmarked on or before March 17, 2003:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
@@ -119,13 +119,13 @@
                                 </xsl:choose>
                             </li>
                             <li>
-                                <p><strong>To be completed by those that will be traveling to the onsite semifinal rounds on April 4th and 5th in Cambridge, MA in the USA.</strong></p>
+                                <p><strong>To be completed by those who will be traveling to the onsite semifinal rounds on April 4th and 5th in Cambridge, MA in the USA.</strong></p>
                                 <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed by 12:00 PM EST on Monday, March 17th:</p>
             
                                 <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
                             </li>
                             <li>
-                                <p><strong>To be completed by those that will be traveling to the onsite semifinal rounds on April 4th and 5th in Cambridge, MA in the USA.</strong></p>
+                                <p><strong>To be completed by those who will be traveling to the onsite semifinal rounds on April 4th and 5th in Cambridge, MA in the USA.</strong></p>
                                 <p><strong>HEAD SHOT</strong> - must be emailed by 12:00PM EST on Monday, March 17th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
@@ -140,7 +140,7 @@
                         </ol>
                         
                         <div align="center"> 
-                            TopCoder Invitational<br/>
+                            TopCoder Attn: Tom Longo<br/>
                             703 Hebron Avenue<br/>
                             Glastonbury, CT 06033
                         </div>
