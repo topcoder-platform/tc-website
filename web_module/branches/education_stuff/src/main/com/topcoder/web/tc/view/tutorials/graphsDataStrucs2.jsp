@@ -30,15 +30,27 @@
 
          <div class="tutorBodyFull">
             
-            <h2>Introduction to graphs and their data structures</h2>
+            <h2>Introduction to graphs and their data structures: Section 2</h2>
+
+<span class="outline1"><A href="#basic">Basic methods for searching graphs</A></span><br/>
+	<span class="outline2"><A href="#introduction">Introduction</A></span><br/>
+	<span class="outline2"><A href="#stack">Stack</A></span><br/>
+	<span class="outline2"><A href="#depth">Depth First Search</A></span><br/>
+	<span class="outline2"><A href="#queue">Queue</A></span><br/>
+	<span class="outline2"><A href="#breadth">Breadth First Search</A></span>
+
+<br/><br/>
 
 			<p>
+<a name="basic"></a>
 <span class=bodySubtitle>Basic methods for searching graphs</span><br/>
+<a name="introduction"></a>
 <span class=bodySubtitle>Introduction</span><br/>
 So far we have learned how to represent our graph in memory, but now we need to start doing something with this information.  There are two methods for searching graphs that are extremely prevalent, and will form the foundations for more advanced algorithms later on.  These two methods are the Depth First Search and the Breadth First Search.
 <br/><br/>
 We will begin with the depth first search method, which will utilize a stack.  This stack can either by represented explicitly (by a stack data-type in our language) or implicitly when using recursive functions.
 <br/><br/>
+<a name="stack"></a>
 <span class=bodySubtitle>Stack</span><br/>
 A stack is one of the simplest data structures available.  There are four main operations on a stack:
 <ol>
@@ -63,6 +75,7 @@ using System.Collections;
 Stack stack = new Stack();
 </pre>
 
+<a name="depth"></a>
 <span class=bodySubtitle>Depth First Search</span><br/>
 Now to solve an actual problem using our search!  The depth first search is well geared towards problems where we want to find any solution to the problem (not necessarily the shortest path), or to visit all of the nodes in the graph.  A recent TopCoder problem was a classic application of the depth first search, the flood-fill.  The flood-fill operation will be familiar to anyone who has used a graphic painting application.  The concept is to fill a bounded region with a single color, without leaking outside the boundaries.
 <br/><br/>
@@ -137,19 +150,16 @@ int doFill(int x, int y) {
 }
 </pre>
 This solution should work fine, however there is a limitation due to the architecture of computer programs.  Unfortunately, the memory for the implicit stack, which is what we are using for the recursion above is more limited than the general heap memory.  In this instance, we will probably overflow the maximum size of our stack due to the way the recursion works, so we will next discuss the explicit method of solving this problem.
+</p>
 
-<br/><br/>
-<table align=center class=formFrame cellpadding=5 cellspacing=0 width=500>
-	<tr>
-		<td class=sidebarText>
+		<div class=sideNote>
+		<b>Sidenote:</b><br/>
 		Stack memory is used whenever you call a function; the variables to the function are pushed onto the stack by the compiler for you.  When using a recursive function, the variables keep getting pushed on until the function returns.  Also any variables the compiler needs to save between function calls must be pushed onto the stack as well.  This makes it somewhat difficult to predict if you will run into stack difficulties.  I recommend using the explicit Depth First search for every situation you are at least somewhat concerned about recursion depth.
 		<br/><br/>
 		In this problem we may recurse a maximum of 600 * 400 times (consider the empty grid initially, and what the depth first search will do, it will first visit 0,0 then 1,0, then 2,0, then 3,0 ... until 599, 0.  Then it will go to 599, 1 then 598, 1, then 597, 1, etc. until it reaches 599, 399.  This will push 600 * 400 * 2 integers onto the stack in the best case, but depending on what your compiler does it may in fact be more information.  Since an integer takes up 4 bytes we will be pushing 1,920,000 bytes of memory onto the stack, which is a good sign we may run into trouble.
-		</td>
-	</tr>
-</table>
-<br/><br/>
+		</div>
 
+<p>
 We can use the same function definition, and the structure of the function will be quite similar, just we won't use any recursion any more:
 <pre>
 class node { int x, y; }
@@ -198,6 +208,7 @@ If you want to practice some DFS based problems, some good ones to look at are:
 TCCC 03 Quarterfinals - Marketing - Div 1 500<br/>
 TCCC 03 Semifinals Room 4 - Circuits - Div 1 275
 <br/><br/>
+<a name="queue"></a>
 <span class=bodySubtitle>Queue</span><br/>
 A queue is a simple extension of the stack data type.  Whereas the stack is a FILO (first-in last-out) data structure the queue is a FIFO (first-in first-out) data structure.  What this means is the first thing that you add to a queue will be the first thing that you get when you perform a pop().
 <br/><br/>
@@ -239,6 +250,7 @@ The operations map to the Queue class as follows:
 using System.Collections;
 Queue myQueue = new Queue();
 </pre>
+<a name="breadth"></a>
 <span class=bodySubtitle>Breadth First Search</span><br/>
 The Breadth First search is an extremely useful searching technique.  It differs from the depth-first search in that it uses a queue to perform the search, so the order in which the nodes are visited is quite different.  It has the extremely useful property that if all of the edges in a graph are unweighted (or the same weight) then the first time a node is visited is the shortest path to that node from the source node.  You can verify this by thinking about what using a queue means to the search order.  When we visit a node and add all the neighbors into the queue, then pop the next thing off of the queue, we will get the neighbors of the first node as the first elements in the queue.  This comes about naturally from the FIFO property of the queue and ends up being an extremely useful property.  One thing that we have to be careful about in a Breadth First search is that we do not want to visit the same node twice, or we will lose the property that when a node is visited it is the quickest path to that node from the source.
 <br/><br/>

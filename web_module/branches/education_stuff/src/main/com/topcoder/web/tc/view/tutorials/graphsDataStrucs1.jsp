@@ -30,12 +30,24 @@
 
          <div class="tutorBodyFull">
             
-            <h2>Introduction to graphs and their data structures</h2>
+            <h2>Introduction to graphs and their data structures: Section 1</h2>
+
+<span class="outline1"><A href="#introduction">Introduction</A></span><br/>
+<span class="outline1"><A href="#recognize">Recognizing a graph problem</A></span><br/>
+<span class="outline1"><A href="#represent">Representing a graph and key concepts</A></span><br/>
+	<span class="outline2"><A href="#singlyLinked">Singly linked lists</A></span><br/>
+	<span class="outline2"><A href="#trees">Trees</A></span><br/>
+	<span class="outline2"><A href="#graphs">Graphs</A></span><br/>
+	<span class="outline2"><A href="#arrayRep">Array representation</A></span>
+
+<br/><br/>
 
 			<p>
+<a name="introduction"></a>
 <span class=bodySubtitle>Introduction</span><br/>
 Graphs are a fundamental data structure in the world of programming, and this is no less so on TopCoder.  Usually appearing as the hard problem in Division 2, or the medium or hard problem in Division 1, there are many different forms solving a graph problem can take.  They can range in difficulty from finding a path on a 2D grid from a start location to an end location, to something as hard as finding the maximum amount of water that you can route through a set of pipes, each of which has a maximum capacity (also known as the maximum-flow minimum-cut problem - which we will discuss later).  Knowing the correct data structures to use with graph problems is critical.  A problem that appears intractable may prove to be a few lines with the proper data structure, and luckily for us the standard libraries of the languages used by TopCoder help us a great deal here!
 <br/><br/>
+<a name="recognize"></a>
 <span class=bodySubtitle>Recognizing a graph problem</span><br/>
 The first key to solving a graph related problem is recognizing that it is a graph problem.  This can be more difficult than it sounds, because the problem writers don't usually spell it out for you.  Nearly all graph problems will somehow use a grid or network in the problem, but sometimes these will be well disguised.  Secondly, if you are required to find a path of any sort, it is usually a graph problem as well.  Some common keywords associated with graph problems are: vertices, nodes, edges, connections, connectivity, paths, cycles and direction.  An example of a description of a simple problem that exhibits some of these characteristics is:
 <br/><br/>
@@ -53,6 +65,7 @@ An example of a neighborhood of width 7 and height 5:
 </pre>
 Once you have recognized that the problem is a graph problem it is time to start building up your representation of the graph in memory.
 <br/><br/>
+<a name="represent"></a>
 <span class=bodySubtitle>Representing a graph and key concepts</span><br/>
 Graphs can represent many different types of systems, from a two-dimensional grid (as in the problem above) to a map of the internet that shows how long it takes data to move from computer A to computer B.  We first need to define what components a graph consists of.  In fact there are only two, nodes and edges.  A node (or vertex) is a discrete position in the graph.  An edge (or connection) is a link between two vertices that can be either directed or undirected and may have a cost associated with it.  An undirected edge means that there is no restriction on the direction you can travel along the edge.  So for example, if there were an undirected edge from A to B you could move from A to B or from B to A.  A directed edge only allows travel in one direction, so if there were a directed edge from A to B you could travel from A to B, but not from B to A.  An easy way to think about edges and vertices is that edges are a function of two vertices that returns a cost.  We will see an example of this methodology in a second.
 <br/><br/>
@@ -61,6 +74,7 @@ For those that are used to the mathematical description of graphs, a graph G = {
 Order - The number of vertices in a graph
 Size - The number of edges in a graph
 <br/><br/>
+<a name="singlyLinked"></a>
 <span class=bodySubtitle>Singly linked lists</span><br/>
 An example of one of the simplest types of graphs is a singly linked list!  Now we can start to see the power of the graph data structure, as it can represent very complicated relationships, but also something as simple as a list.
 <br/><br/>
@@ -92,6 +106,7 @@ This cost function represents the fact that we can only move directly to the lin
 <br/><br/>
 Now that we have seen an example of the one of the simplest types of graphs, we will move to a more complicated example.
 <br/><br/>
+<a name="trees"></a>
 <span class=bodySubtitle>Trees</span><br/>
 There will be a whole section written on trees.  We are going to cover them very briefly as a stepping-stone along the way to a full-fledged graph.  In our list example above we are somewhat limited in the type of data we can represent.  For example, if you wanted to start a family tree (a hierarchal organization of children to parents, starting from one child) you would not be able to store more than one parent per child.  So we obviously need a new type of data structure.  Our new node structure will look something like this:
 <pre>
@@ -112,6 +127,7 @@ Here we can see that every node has a mother and father.  And since node is a re
 <br/><br/>
 Another thing to note is that we could imagine a situation easily where the tree requires more than two node references, for example in an organizational hierarchy, you can have a manager who manages many people then the CEO manages many managers.  Our example above was what is known as a binary tree, since it only has two node references.  Next we will move onto constructing a data structure that can represent a general graph!
 <br/><br/>
+<a name="graphs"></a>
 <span class=bodySubtitle>Graphs</span><br/>
 A tree only allows a node to have children, and there cannot be any loops in the tree, with a more general graph we can represent many different situations.  A very common example used is flight paths between cities.  If there is a flight between city A and city B there is an edge between the cities.  The cost of the edge can be the length of time that it takes for the flight, or perhaps the amount of fuel used.
 <br/><br/>
@@ -129,6 +145,7 @@ list<node> nodes;
 </pre>
 This is a very general way to represent a graph.  It allows us to have multiple edges from one node to another and it is a very compact representation of a graph as well.  However the downside is that it is usually more difficult to work with than other representations (such as the array method discussed below).
 <br/><br/>
+<a name="arrayRep"></a>
 <span class=bodySubtitle>Array representation</span><br/>
 Representing a graph as a list of nodes is a very flexible method.  But usually on TopCoder we have limits on the problems that attempt to make life easier for us.  Normally our graphs are relatively small, with a small number of nodes and edges.  When this is the case we can use a different type of data structure that is easier to work with.
 <br/><br/>

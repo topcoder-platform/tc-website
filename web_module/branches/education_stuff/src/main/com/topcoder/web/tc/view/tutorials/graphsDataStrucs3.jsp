@@ -30,25 +30,30 @@
 
          <div class="tutorBodyFull">
             
-            <h2>Introduction to graphs and their data structures</h2>
+            <h2>Introduction to graphs and their data structures: Section 3</h2>
 
+<span class="outline1"><A href="#finding">Finding the best path through a graph</A></span><br/>
+	<span class="outline2"><A href="#dijkstra">Dijkstra (Heap method)</A></span><br/>
+	<span class="outline2"><A href="#floydWarshall">Floyd-Warshall</A></span>
+
+
+<br/><br/>
 			<p>
+<a name="finding"></a>
 <span class=bodySubtitle>Finding the best path through a graph</span><br/>
 An extremely common problem on TopCoder is to find the shortest path from one position to another.  There are a few different ways for going about this, each of which has different uses.  We will be discussing two different methods, Dijkstra using a Heap and the Floyd Warshall method.
 <br/><br/>
+<a name="dijkstra"></a>
 <span class=bodySubtitle>Dijkstra (Heap method)</span><br/>
 Dijkstra using a Heap is one of the most powerful techniques to add to your TopCoder arsenal.  It essentially allows you to write a Breadth First search, and instead of using a Queue you use a Priority Queue and define a sorting function on the nodes such that the node with the lowest cost is at the top of the Priority Queue.  This allows us to find the best path through a graph in O(m * log(n)) time where n is the number of vertices and m is the number of edges in the graph.
+</p>
 
-<br/><br/>
-<table align=center class=formFrame cellpadding=5 cellspacing=0 width=500>
-	<tr>
-		<td class=sidebarText>
+		<div class=sideNote>
+		<b>Sidenote:</b><br/>
 		If you haven't seen big-O notation before then I recommend reading <A href="http://www.cprogramming.com/tutorial/computersciencetheory/algorithmicefficiency1.html" target="_blank">this</A>.
-		</td>
-	</tr>
-</table>
-<br/><br/>
+		</div>
 
+<p>
 First however, an introduction to the Priority Queue/Heap structure is in order.  The Heap is a fundamental data structure and is extremely useful for a variety of tasks.  The property we are most interested in though is that it is a semi-ordered data structure.  What I mean by semi-ordered is that we define some ordering on elements that are inserted into the structure, then the structure keeps the smallest (or largest) element at the top.  The Heap has the very nice property that inserting an element or removing the top element takes O(log n) time, where n is the number of elements in the heap.  Simply getting the top value is an O(1) operation as well, so the Heap is perfectly suited for our needs.
 <br/><br/>
 The fundamental operations on a Heap are:
@@ -201,6 +206,7 @@ SRM 194 - Div 1 1000 - IslandFerries<br/>
 SRM 198 - Div 1 500 - DungeonEscape<br/>
 TCCC '04 Round 4 - 500 - Bombman
 <br/><br/>
+<a name="floydWarshall"></a>
 <span class=bodySubtitle>Floyd-Warshall</span><br/>
 Floyd-Warshall is a very powerful technique when the graph is represented by an adjacency matrix.  It runs in O(n^3) time, where n is the number of vertices in the graph.  However, in comparison to Dijkstra, which only gives us the shortest path from one source to the targets, Floyd-Warshall gives us the shortest paths from all source to all target nodes.  There are other uses for Floyd-Warshall as well; it can be used to find connectivity in a graph (known as the Transitive Closure of a graph).
 <br/><br/>
