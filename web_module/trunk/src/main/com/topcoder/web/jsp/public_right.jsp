@@ -55,7 +55,7 @@ function find(n) {
             <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br/>
             <jsp:include page="calendar.jsp"/>
             <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br/>
-            <a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=tournaments&c=tco03_schedule#online"><img src="/i/promos/tco_promo_third.gif" alt="2003 TopCoder Open" width="170" height="120" border="0"></a><br/>
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=tournaments&c=tco03_sched#online"><img src="/i/promos/tco_promo_third.gif" alt="2003 TopCoder Open" width="170" height="120" border="0"></a><br/>
             <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br/>
 <!-- Review Board ends -->
 
