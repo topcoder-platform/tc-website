@@ -20,12 +20,12 @@
         <td class="login" nowrap>
     <% if (sessionInfo.isAnonymous()) {  // no logged user %>
             <strong>You are not logged in.</strong>
-&#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=LoginPage" class="loginLinks" target="_parent">Login</a>
-&#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">Register</a>
+&#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=LoginPage" class="loginLinks" target="_parent">Login</a>
+&#160;&#160;|&#160;&#160;<a href="https://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Registration" class="loginLinks">Register</a>
     <% } else { %>
             <strong>Hello, <jsp:getProperty name="sessionInfo" property="Handle" />.</strong>
-&#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="loginLinks" target="_parent">Logout</a>
-&#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">Update Profile</a>
+&#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Logout" class="loginLinks" target="_parent">Logout</a>
+&#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Registration" class="loginLinks">Update Profile</a>
     <% } %>
 
         </td>
@@ -41,7 +41,7 @@
 <% if (isHomePage) { %>
         <img src="/i/corp/logo_corp.gif" width="206" height="49" border="0" alt="TopCoder Corporate Services" vspace="5">
 <% } else { %>
-        <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=index" class="globalNavSmall" target="_parent"><img src="/i/corp/logo_corp.gif" width="206" height="49" border="0" alt="TopCoder Corporate Services" vspace="5"></a>
+        <a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/" class="globalNavSmall" target="_parent"><img src="/i/corp/logo_corp.gif" width="206" height="49" border="0" alt="TopCoder Corporate Services" vspace="5"></a>
 <%  } %>
 
         </td>
