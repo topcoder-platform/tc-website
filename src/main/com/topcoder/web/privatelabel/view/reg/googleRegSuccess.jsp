@@ -89,7 +89,7 @@ function openWin(url, name, w, h) {
 
 <h2>Registration Successful!</h2>
 <p>
-<br/><br/>
+<br/>
 
 <b>In order to be eligible to compete in the Google Extreme Coding Challenge,
 you must activate your account by follwoing the directions sent to you via
