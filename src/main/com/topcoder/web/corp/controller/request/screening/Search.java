@@ -34,6 +34,8 @@ public class Search extends BaseScreeningProcessor {
             setDefault(Constants.FIRST_NAME, sm.getFirstName());
             setDefault(Constants.LAST_NAME, sm.getLastName());
             setDefault(Constants.EMAIL_ADDRESS, sm.getEmailAddress());
+            
+            getRequest().setAttribute("searchResults", sm);
 
             setNextPage(Constants.SEARCH_PAGE);
             setIsNextPageInContext(true); 
