@@ -166,8 +166,28 @@ public final class TaskDevelopment {
                 }
             }
             /********************** tcs_inquire *******************/
-            else if (command.equals("tcs_inquire") || command.equals("tcs_app_inquire")) {
+            else if (command.equals("tcs_inquire")  || command.equals("tcs_app_inquire")) {
                 if (nav.getLoggedIn()) {
+               Request dataRequest = null;
+               ResultSetContainer rsc = null;
+               Map resultMap = null;
+               log.debug("getting dai");
+               dataRequest = new Request();
+               dataRequest.setContentHandle("open_projects");
+
+               DataAccessInt dai = new DataAccess((javax.sql.DataSource)
+                        TCContext.getInitial().lookup(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG)));
+               log.debug("got dai");
+
+               resultMap = dai.getData(dataRequest);
+               log.debug("got map");
+               rsc = (ResultSetContainer) resultMap.get("Retrieve open projects");
+
+               log.debug("got rsc");
+               if(rsc == null)
+                  log.debug("rsc is null");
+               devTag.addTag(rsc.getTag("projects", "project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
                     String handle = nav.getUser().getHandle();
                     devTag.addTag(new ValueTag("ProjectName", project));
@@ -179,8 +199,8 @@ public final class TaskDevelopment {
                 }
             }
             /********************** tcs_inquire-design *******************/
-            else if (command.equals("tcs_inquire-design")|| command.equals("tcs_inquire-dev")) {
-                if(comp != null)
+            else if (command.equals("tcs_inquire-design")|| command.equals("tcs_inquire-dev"))  {
+                if(comp != null && comp.length() > 0)
                 {
                     log.debug("here");
                     long componentId = Long.parseLong(comp);
@@ -510,7 +530,7 @@ public final class TaskDevelopment {
                     mail.setBody(msgText.toString());
                     EmailEngine.send(mail);
 
-                    if(comp.length() > 0){
+                    if(comp.length()  == 0){
                          
                         xsldocURLString = XSL_DIR + "inquiry_app.xsl";
                     }
