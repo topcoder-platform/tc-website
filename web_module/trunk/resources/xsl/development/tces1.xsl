@@ -79,7 +79,7 @@ TopCoder strongly feels that the developers have a very big role when it comes t
 The component team will consist of four rated TopCoder Members. 
 <ul>
 <li>One Architect</li>
-<li>Two Developers</li>
+<li>Three Developers</li>
 <li>One QA Developer</li>
 </ul>
                                     <b>Architect</b>
@@ -130,7 +130,7 @@ Staffing
                                         <li>$735.00 on June 7th. </li>
                                         <li>$980.00 at the completion of the project.* </li>
                                     </ul>
-                                    There will be a total of two developers.<br/>
+                                    There will be a total of three developers.<br/>
                                     Each developer will get paid a total of $2,800.00:
                                     <ul>
                                         <li>$280.00 at the start of the project.</li>
