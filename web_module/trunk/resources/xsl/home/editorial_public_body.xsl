@@ -175,7 +175,7 @@ Check back April 19th for room assignments/schedule<BR/><BR/>
 </TABLE>
                          
 <!-- Editorials --> 
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
+<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR>  
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" COLSPAN="2" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
@@ -218,7 +218,7 @@ By&#160;ZorbaTHut,<I>TopCoder Member</I><BR/>
   <TR>  
     <TD VALIGN="top" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD>    
   </TR>   
-</TABLE>
+</TABLE> -->
  <!-- Coder of the Week Begins -->
    <xsl:call-template name="coder_week"/>
 <!-- Coder of the Week Ends -->

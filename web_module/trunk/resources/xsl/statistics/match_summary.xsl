@@ -69,9 +69,9 @@
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                        
             <TR>
-              <TD VALIGN="middle" HEIGHT="13" CLASS="bodyText"><A HREF="/?ContestId=4120&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 79<!-- 2002 TCCC Regional Championships --></A></TD>            
-              <TD VALIGN="middle" CLASS="bodyText">Wednesday, April 10</TD>
-              <TD VALIGN="middle" CLASS="bodyText">9:00pm EST</TD>
+              <TD VALIGN="middle" HEIGHT="13" CLASS="bodyText"><A HREF="/?t=schedule&amp;c=tourny_sched" CLASS="bodyGeneric"><!-- Single Round Match 80 -->2002 TCCC Semifinals</A></TD>            
+              <TD VALIGN="middle" CLASS="bodyText">Friday, April 19</TD>
+              <TD VALIGN="middle" CLASS="bodyText"><A HREF="/?t=schedule&amp;c=tourny_sched" CLASS="bodyGeneric">tourney schedule</A></TD>
             </TR>            
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="22" BORDER="0"/></TD>
@@ -83,7 +83,7 @@
                       <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_spons"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
                     </TR> -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: Single Round Match 78 - April 9, 2002<!-- 2002 TCCC Regional Championships - March 13 --></TD>
+              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: Single Round Match 80 - April 15, 2002<!-- 2002 TCCC Regional Championships - March 13 --></TD>
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -98,42 +98,33 @@
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <!-- <A HREF="/index?t=statistics&amp;c=consec_wins_div1" CLASS="bodyGeneric">View the list of Division-I Consecutive Wins</A>
 <A HREF="/stat?c=all_time_wins_by_div&amp;dn=1" CLASS="bodyGeneric">View the list of Division-I Wins</A>
-<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="bodyGeneric">View the list of Division-II Rating Point Gain</A>
+<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="bodyGeneric">View the list of Division-I Rating Point Gain</A>
 <A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="bodyGeneric">View the list of Division-II Rating Point Gain</A>
 <A HREF="/index?t=statistics&amp;c=winning_debut" CLASS="bodyGeneric">View the list of Winning Debuts</A> 
 <A HREF="/stat?c=all_time_wins" CLASS="bodyGeneric">View the list of Overall Wins</A>
 <A HREF="/index?t=statistics&amp;c=winning_debut" CLASS="bodyGeneric">View the list of Winning Debuts</A>
 <A HREF="/stat?&amp;c=highest_totals&amp;dn=2" CLASS="bodyGeneric">View the list of Division-II Point Totals</A>
 <A HREF="/stat?c=impressive_debuts" CLASS="bodyGeneric">View the list of Impressive Debuts</A>
+<A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>
 -->
 <P>
-<A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A> earned 100 points in the 
-"Challenge Phase" for a come-from-behind win in Room 1.  The room win was the 44th by 
-<A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>, by far the most of any 
-member (<A HREF="/stat?c=all_time_wins" CLASS="bodyGeneric">View the list of Overall Wins</A>).  
-<A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A> had a total of 1308.41 
-points in the "Coding Phase", and trailed room-leader 
-<A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">NDBronson</A> 
-by 73.30 points, 1381.71 to 1308.41.  
-<A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A> earned 241.71 points on 
-the Level One problem, 355.08 on the Level Two problem, and 711.62 on the Level Three problem.  
-During the "Challenge Phase", <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A> 
-first successfully challenged the Level Three submission of 
-<A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dgarthur</A>, and then the Level Two submission 
-of <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">bigg_nate</A>.  Those two successful 
-challenges and the passing of all three submissions through the system test, gave 
-<A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A> the room win with 1408.41 final points.  
-That total was 26.70 points more than <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">NDBronson</A> 
-(1381.71), who didn't attempt a challenge, but like <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A> 
-had all three submissions pass the system test. 
+Four Division-I coders used two challenges for come-from-behind room wins: 
 </P>
 
 <P>
-The top-score in Division-I was earned by <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">SnapDragon</A>, who won Room 3 with 1483.30 final points.  <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">SnapDragon</A> earned 243.96 points on the Level One problem, 405.17 on the Level Two problem, and 734.17 on the Level Three problem for 1383.30 points in the "Coding Phase".  <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">SnapDragon</A> added 100 points in the "Challenge Phase" with successful challenges of the Level Two submissions of <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">qubits</A> and <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dangelo</A>. 
+In Room 12, <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">kdby</A> coded the Level One and Level Two problems during the "Coding Phase" for 423.85 points.  That total placed him seventh in the room.  In the "Challenge Phase", <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">kdby</A> successfully challenged the Level One submission of <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">turian</A>, who was the room leader with 1169.14 points, as well as the Level One submission of <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">mmsa</A>.  Those challenges added 100 points to the total of <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">kdby</A>, producing a final point total of 523.85. 
 </P>
 
 <P>
-The biggest margin of victory in Division-I was in Room 7, where <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dgoodman</A> won by 573.64 points.  <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dgoodman</A> finished with 1198.36 points, all earned in the "Coding Phase".  The second place finisher in the room was <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">bm999</A>, who earned 574.72 points in the "Coding Phase" and 50 in the "Challenge Phase" for a total of 624.72.
+In Room 13, <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">hilgart</A> took a similar approach to <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">kdby</A>, coding the Level One and Two problems during the "Coding Phase" for 481.48 points.  That point total placed him fourth in the room.  Again, just like <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">kdby</A>, <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">hilgart</A> challenged Level One submissions during the "Challenge Phase".  <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">hilgart</A> successfully challenged <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">graycu02</A> and <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">tihi</A> for 100 additional points, and won the room with 581.48 final points. 
+</P>
+
+<P>
+With 518.75 points after the "Coding Phase", <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">hilfiger</A> placed fourth in Room 15.  <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">hilfiger</A> coded the Level One and Two problems.  During the "Challenge Phase", <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">hilfiger</A> successfully challenged the Level Three submission of <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">jfreyss</A>, who was the room leader with 1188.27 points, and <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">EnderJon</A>, who was in second place with 1097.18.  <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">hilfiger</A> finished with 618.75 points. 
+</P>
+
+<P>
+In Room 22, <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">billyf19</A> coded the Level One and Two problems during the "Coding Phase" for 399.49 points.  <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">billyf19</A> added 100 additional points in the "Challenge Phase", by successfully challenging the Level One submissions of <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">lightningmonsoo</A> and <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">harv</A>.  The Level Two submission of <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=1" CLASS="bodyGeneric">billyf19</A> ended up failing the system test, but a final point total of 256.22 was enough to win the room.
 </P>
 
 
@@ -154,29 +145,15 @@ The biggest margin of victory in Division-I was in Room 7, where <A HREF="/stat?
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">            
 <P>
-The highest score earned by a first-time coder was the 1441.00 point total of <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">antimatter</A>, 
-who was the winner in Room 53.  That point total earned <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">antimatter</A> a 
-1785 debut rating (<A HREF="/stat?c=impressive_debuts" CLASS="bodyGeneric">View the list of Impressive Debuts</A>), 
-which is the 17th highest ever. 
+<A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=2" CLASS="bodyGeneric">b0b0b0b</A> was the top-scorer in Division-II, earning 1522.93 final points to win Room 33.  <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=2" CLASS="bodyGeneric">b0b0b0b</A> earned 248.17 points on the Level One problem, 543.28 on the Level Two problem, and 731.48 on the Level Three problem. 
 </P>
 
 <P>
-The margin of victory in three Division-II rooms was less than one point: 
+The winner in Room 42 was <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=2" CLASS="bodyGeneric">tenken</A>, who earned 1256.40 points after submitting code for all three problems.  <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=2" CLASS="bodyGeneric">tenken</A> was the lowest rated coder in the room, entering the competition with a rating of 861.  The low rating, coupled with the high point total, gave <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=2" CLASS="bodyGeneric">tenken</A> a rating gain of 274, which was the highest in the division for the match. 
 </P>
 
 <P>
-The closest margin was in Room 49, where <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">WallyWaffle</A> beat <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">Tronaek</A> by 0.86 points, 787.80 to 786.94.  
-In Room 45, <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">Fuzzyb18</A> triumphed over <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">jmkapadia</A> by 0.93 points, 708.81 to 707.88.  Making that room even closer 
-was <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">IvIetalhead</A>, who finished third with 701.53 points.  The third tight battle took place in Room 57, 
-where <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">Tre</A> outpaced <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">fvolny4</A> by 0.99 points, 574.65 to 573.66. 
-</P>
-
-<P>
-The biggest margin of victory in Division-II was in Room 30, where <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">joexner</A> won by 817.93.  <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">joexner</A> 
-submitted code for all three problems in the "Coding Phase" for 1316.20 points.  <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">joexner</A> then added 
-200 points from four successful challenges of his opponent's Level Three submissions in the "Challenge Phase", 
-to finish with 1516.20 points, the highest total of the match.  Five different coders tried to challenge the 
-Level Three submission of <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">joexner</A>, but to no avail.
+<A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=2" CLASS="bodyGeneric">Yarin</A> was the top-scoring first time coder, winning Room 60 with 1266.37 final points.  <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=2" CLASS="bodyGeneric">Yarin</A> earned 246.19 points on the Level One problem, 281.73 on the Level Two problem, and 738.45 on the Level Three problem.  <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=2" CLASS="bodyGeneric">Xin</A> tried to challenge the Level Three submission of <A HREF="/stat?c=last_match&amp;rd=4125&amp;dn=2" CLASS="bodyGeneric">Yarin</A>, but to no avail.
 </P>
 
 
