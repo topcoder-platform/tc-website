@@ -6,7 +6,7 @@
 
 <head>
 
-<title>Competition Review Board at TopCoder</title>
+<title>Design Review Board at TopCoder</title>
 
 <jsp:include page="../script.jsp" />
 
@@ -48,13 +48,16 @@
                <a href="/?t=features&amp;c=#" class="bodyText"><strong>Go to Development Review Board</strong></a>
             </p> -->
             <p class="bodyText">
-            TopCoder is pleased to announce the formation of a Competition Review Board. The Review Board's 
-            responsibilities include making recommendations on how to improve the quality and integrity of TopCoder 
-            Competitions. The Review Board will also provide us with guidelines on how we can best handle sub-optimal 
-            situations that can arise during competitions.
+            Highly rated and experienced TopCoder members fill the ranks of the
+            Architecture Review Board.  These members screen and review all design
+            submissions to ensure the components meet the functional requirements,
+            are documented properly and contain the appropriate sequence, use case
+            and class diagrams.  Additionally, the Architecture Review Board
+            recommends design enhancements and verifies the design is flexible
+            enough to be reused and customized in the future.
             </p>
             <p class="bodyText">
-            The following members have agreed to participate on the TopCoder Competition Review Board:
+            The following members have agreed to participate on the TopCoder Design Review Board:
             <br><br>
             </p>
          </td>
@@ -380,7 +383,7 @@
             
 
 <p align="middle" >
-<A href="mailto:service@topcoder.com" class="bodyText">Have a question about the TopCoder Design Review Board?</strong></a>
+<A href="mailto:service@topcodersoftware.com" class="bodyText">Have a question about the TopCoder Design Review Board?</strong></a>
 </p>
 <p><br></p>
 
