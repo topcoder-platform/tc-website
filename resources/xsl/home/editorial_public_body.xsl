@@ -145,18 +145,17 @@
   <TR>
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="26" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText">
-    <IMG SRC="/i/m/coder_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>    
+    <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>    
     </TD>
     <TD VALIGN="top" WIDTH="40%" ALIGN="left" CLASS="bodyText">
-<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Match 77 - April 3, 2002</B></FONT><BR/>
-By&#160;dmwright<BR/>
-
+<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Match 80 - April 9, 2002</B></FONT><BR/>
+By&#160;lbackstrom<BR/>
     </TD>
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
      <TD VALIGN="top" WIDTH="60%" ALIGN="left" CLASS="bodyText">
-&#183; <A HREF="/?t=statistics&amp;c=story_room1" CLASS="bodyGeneric">Problem Set - Analysis &amp; Opinion</A><BR/>
-&#183; <A HREF="/?t=statistics&amp;c=story_room1" CLASS="bodyGeneric">Room One Review</A><BR/>
-&#183; <A HREF="#" CLASS="bodyGeneric">First Timers Review</A><BR/>
+&#183; <A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="bodyGeneric">Room One Review</A><BR/>
+&#183; <A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="bodyGeneric">Rookie Review</A><BR/>
+&#183; <A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A><BR/>
     </TD>
      <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
   </TR>
@@ -207,14 +206,15 @@ By&#160;dmwright<BR/>
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="26" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="50%" ALIGN="left" CLASS="bodyText">
 <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>[TC] Sponsorships</B></FONT><BR/>
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliqua
-<A HREF="#" CLASS="bodyGeneric">Sponsorship Overview</A><BR/>
+TopCoder offers sponsorship programs for the weekly <A HREF="/index?t=about_tc&amp;c=spons_srm" CLASS="bodyGeneric">Single Round Matches</A> as well as for 
+<A HREF="/index?t=about_tc&amp;c=spons_tourny" CLASS="bodyGeneric">Tournaments</A>. Read more about our 
+<A HREF="/index?t=about_tc&amp;c=spons_target" CLASS="bodyGeneric">sponsorship programs</A><BR/>
     </TD>
     <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="50%" ALIGN="left" CLASS="bodyText">
 <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>[TC] Employment Services</B></FONT><BR/>
-Ipsuma dipiscing elit, sed diam nonummy nibh euismod tincidunt sit amet, consectetuer ut laoreet dolore magna aliqua
- <A HREF="#" CLASS="bodyGeneric">TCES Overview</A><BR/>
+TopCoder works with companies to connect them with top-rated developers. Read more about our 
+<A HREF="/index?t=about_tc&amp;c=empl_tces" CLASS="bodyGeneric">employment services</A>.<BR/>
     </TD>
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
