@@ -5,6 +5,14 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.servlet.ServletConfig;
 import java.lang.reflect.Field;
 
+/**
+ * Contains constants for the private label web application.
+ * Classes outside this web application should not use constants
+ * in this class that are initialized in the initialize
+ * method becuase one can not be sure it has already been
+ * initialized.
+ * @author gpaul 06.26.2003
+ */
 public class Constants {
 
     private static Logger log = Logger.getLogger(Constants.class);
@@ -16,9 +24,9 @@ public class Constants {
     private static String[] ignoreList = {"log", "isInitialized", "ignoreList"};
 
     //pages
-    public static String REGISTRATION_PAGE;
-    public static String REGISTRATION_CONFIRM_PAGE;
-    public static String REGISTRATION_SUCCESS_PAGE;
+    public static String SIMPLE_REG_PAGE;
+    public static String SIMPLE_REG_CONFIRM_PAGE;
+    public static String SIMPLE_REG_SUCCESS_PAGE;
     public static String DEFAULT_PAGE;
 
     //parameter keys
@@ -48,9 +56,9 @@ public class Constants {
     public static int MAX_EMAIL_LENGTH;
 
     //processors
-    public static String REGISTRATION_MAIN;
-    public static String REGISTRATION_CONFIRM;
-    public static String REGISTRATION_SUBMIT;
+    public static String SIMPLE_REGISTRATION_MAIN;
+    public static String SIMPLE_REGISTRATION_CONFIRM;
+    public static String SIMPLE_REGISTRATION_SUBMIT;
 
 
     //DB's
