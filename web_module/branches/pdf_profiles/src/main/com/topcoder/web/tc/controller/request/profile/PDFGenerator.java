@@ -783,11 +783,15 @@ public class PDFGenerator extends BaseProcessor {
             
             byte[] rawBytes = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFile();
             //pass through the converter
+            byte[] result;
+            if(ext.equals("pdf")) {
+                result = rawBytes;
+            } else {
+                ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.FILE_CONVERSION_PROVIDER_URL);
             
-            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.FILE_CONVERSION_PROVIDER_URL);
-            
-            FileConversion filebean = (FileConversion)createEJB(ctx, FileConversion.class);
-            byte[] result = filebean.convertDoc(rawBytes,ext);
+                FileConversion filebean = (FileConversion)createEJB(ctx, FileConversion.class);
+                result = filebean.convertDoc(rawBytes,ext);
+            }
             
             PdfReader reader = new PdfReader(result);
             
