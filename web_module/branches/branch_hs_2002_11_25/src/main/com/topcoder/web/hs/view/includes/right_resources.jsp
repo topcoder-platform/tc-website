@@ -25,7 +25,7 @@
                         <A HREF="http://www.mastercsharp.com/" TARGET="_blank" CLASS="resoursesnav">http://www.mastercsharp.com/</A><BR/>
                         <A HREF="http://www.c-sharpcorner.com/" TARGET="_blank" CLASS="resoursesnav">http://www.c-sharpcorner.com/</A><BR/>
                         <P ALIGN="right">
-                        <A HREF="?module=Static&d1=resources&d2=resources" CLASS="resoursesnav">More Resources>></A></P>
+                        <A HREF="?module=Static&d1=resources&d2=resources" CLASS="resoursesnav">More Resources&gt;&gt;</A></P>
                         </TD>
                     </TR>
                 </TABLE>

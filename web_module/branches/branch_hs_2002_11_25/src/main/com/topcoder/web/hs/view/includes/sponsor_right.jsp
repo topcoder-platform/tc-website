@@ -26,7 +26,7 @@
                     Connecticut Association of Secondary 
                     School Principals and the Connecticut 
                     Interscholastic Athletic Conference.</Font></A></P>
-                    <P ALIGN="right"><A HREF="?module=Static&d1=sponsor&d2=sponsor_cas" CLASS="resoursesnav"><I>read more>></I></A></P>
+                    <P ALIGN="right"><A HREF="?module=Static&d1=sponsor&d2=sponsor_cas" CLASS="resoursesnav"><I>read more&gt;&gt;</I></A></P>
                     </TD>
                 </TR>
                 </TABLE>           

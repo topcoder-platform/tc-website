@@ -58,21 +58,38 @@ if(username==null) username = SessionInfo.getHandle();
 if(username==null) username = "";
 %>
 
-<form name="loginform" action="?" method="post">
+<script>
+  function submitEnter(e){
+    var keycode;
+    if (window.event) keycode = window.event.keyCode;
+    else if (e) keycode = e.which;
+    else return true;
+    if (keycode == 13) {
+     loginform.submit();
+     return false;
+    } else return true;
+  }
+</script>
+<form name="loginform" action="?" method="POST">
 <input type="hidden" name="module" value="Login">
 <input type="hidden" name="nextpage" value="<%= nextpage %>">
 <TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
 <TR>
    <TD CLASS="bodyText"><font size=+1 color=#ff2010><%= message %></font></TD>
 </TR>
+</TABLE>
+<TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
 <TR>
-    <TD CLASS="bodyText"><B>Handle</B><BR/><INPUT TYPE="text" NAME="username" VALUE="<%= username %>" SIZE="25"></TD>
+    <TD CLASS="bodyText"><B>Handle</B><BR/><INPUT TYPE="text" NAME="username" VALUE="<%= username %>" SIZE="25" onKeyPress="submitEnter(event)"></TD>
 </TR>
 <TR>
-    <TD CLASS="bodyText"><B>Password</B><BR/><INPUT TYPE="password" NAME="password" SIZE="25"><BR/><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login>></A></B></TD>
+    <TD CLASS="bodyText"><B>Password</B><BR/><INPUT TYPE="password" NAME="password" SIZE="25" onKeyPress="submitEnter(event)"><BR/><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login&gt;&gt;</A></B></TD>
 </TR>
 </TABLE>
-</form>        <script> document.loginform.<%=username.equals("")?"username":"password"%>.focus(); </script>
+</form>
+<script>
+  document.loginform.<%=username.equals("")?"username":"password"%>.focus();
+</script>
 
             </TD>
              <TD>

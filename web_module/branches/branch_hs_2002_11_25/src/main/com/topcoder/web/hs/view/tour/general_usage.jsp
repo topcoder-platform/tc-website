@@ -53,7 +53,7 @@
 
 <P><B>Chatting / Asking Questions</B></P>
 
-<P>In all rooms, there is a place to chat.  You can communicate with the others in the room by typing in the chat line at the bottom of the screen.  There are a number of features to make chatting easier.  Next to the chat line, you will find a box populated with a ">>".  Clicking on this box will expand your chat options and present two dropdown lists.  The first list represents the type of chat message, while the second contains a list of the handles of all coders currently in the room.</P>
+<P>In all rooms, there is a place to chat.  You can communicate with the others in the room by typing in the chat line at the bottom of the screen.  There are a number of features to make chatting easier.  Next to the chat line, you will find a box populated with a "&gt;&gt;".  Clicking on this box will expand your chat options and present two dropdown lists.  The first list represents the type of chat message, while the second contains a list of the handles of all coders currently in the room.</P>
 
 <P><B>General Chat</B><BR/>
 The most basic form of chat is the "General" chat, which will simply allow you to type in a message.  A general chat message will be sent to all of the coders currently in that room.  The general chat message type is equivalent to simply typing a message in the chat line without the chat feature box expanded.</P>
