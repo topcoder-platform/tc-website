@@ -173,19 +173,19 @@
                 <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <tr valign="top">
-                    <td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     <td background="" class="statText" colspan="2"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-fe">Online Review Front End</a></td>
                     <td background="" width="5" class="statText">06.16.2003</td>
 		    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>
                 <tr valign="top">
-                    <td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     <td background="" class="statText" colspan="2"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-bl">Online Review Business Logic</a></td>
                     <td background="" width="5" class="statText">06.16.2003</td>
 		    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>
                 <tr valign="top">
-                    <td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     <td background="" class="statText" colspan="2"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-pl">Online Review Persistence Layer</a></td>
                     <td background="" width="5" class="statText">06.16.2003</td>
 		    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
