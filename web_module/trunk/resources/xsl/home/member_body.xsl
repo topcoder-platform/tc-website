@@ -477,7 +477,7 @@
             <map name="srmanimation_home">
             <!-- <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="javascript:void window.open('http://www.gentleware.com')" />  -->
             <!-- <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?RoundId=4540&amp;t=schedule&amp;c=srm" /> -->
-            <area shape="rect" alt="TCES" coords="1,1,243,85" href="/?RoundId=4545&amp;t=schedule&amp;c=srm" />
+            <area shape="rect" alt="Intel Developer Services" coords="1,1,243,85" href="/?t=sponsor&amp;c=intel_ids" />
             <area shape="rect" alt="SRM Match 146" coords="0,93,243,141" href="/?RoundId=4545&amp;t=schedule&amp;c=srm" />
             </map>
 <!--SRM Sponsor Ends-->
