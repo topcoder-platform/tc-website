@@ -13,8 +13,6 @@ import com.topcoder.common.web.constant.TCServlet;
 import com.fx4m.plot13.HistoryPlot;
 
 import org.faceless.graph.*;
-import org.faceless.graph.formatter.DateFormatter;
-import org.faceless.graph.math.DataCurve;
 import org.faceless.graph.output.PNGOutput;
 
 import javax.servlet.*;
@@ -265,7 +263,8 @@ public class GraphServlet extends HttpServlet {
             return baos.toByteArray();
 
         } catch (Exception e) {
-            throw new NavigationException(e);
+            throw new NavigationException("GraphServlet:getRatingsDistribution:ERROR:",
+                    TCServlet.NAVIGATION_ERROR_PAGE);
         }
     }
 
@@ -325,7 +324,8 @@ public class GraphServlet extends HttpServlet {
             return baos.toByteArray();
 
         } catch (Exception e) {
-            throw new NavigationException(e);
+            throw new NavigationException("GraphServlet:getRatingsDistributionDark:ERROR:",
+                    TCServlet.NAVIGATION_ERROR_PAGE);
         }
     }
 
@@ -394,7 +394,8 @@ public class GraphServlet extends HttpServlet {
             return baos.toByteArray();
 
         } catch (Exception e) {
-            throw new NavigationException(e);
+            throw new NavigationException("GraphServlet:getProblemDistribution:ERROR:",
+                    TCServlet.NAVIGATION_ERROR_PAGE);
         }
     }
 }
