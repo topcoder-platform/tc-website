@@ -11,6 +11,7 @@
 
 <!-- Corporate Home begins-->
 <% if (level1.equals("tces_home")) { %>
+                        <div class="corpRight"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_becomesponsor"><img src="/i/promos/sponsor_tccc04.gif" alt="Become a Sponsor for the TCCC04" width="170" height="150" border="0" /></A><br/><img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br /></div>
                         <div class="corpRight"><a href="mailto:tces@topcoder.com"><img src="/i/corp/promo_contact_tces.gif" alt="Contact TCES" width="170" height="76" border="0"></a></div>
                         <div class="corpRight"><a href="/i/corp/downloads/tc_demo_tces.pdf"><img src="/i/corp/promos/tc_demo_tces.gif" alt="Download TCES Demographics" width="170" height="218" border="0"></a></div>
 <% } %>
