@@ -40,7 +40,7 @@
     <table align="right">
         <tr>
         <td align="right">
-            <a href="/tc/?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>" class="statText">View Results</a>&nbsp;&nbsp;
+            <a href="/tc?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>" class="statText">View Results</a>&nbsp;&nbsp;
         </td><td align="right">
             <a href="javascript:document.ratings.submit()" class="statText">Submit Ratings</a>&nbsp;&nbsp;
         </td></tr>

@@ -40,7 +40,7 @@
 <!--CRPF Header-->
                <table align="center">
                   <tr>
-                     <td><A href="/tc/?&module=Static&d1=crpf&d2=index"><img src="/i/tournament/crpf03/crpf_banner.gif" width="505" height="152" border="0"  vspace="15"/></A></td>
+                     <td><A href="/tc?&module=Static&d1=crpf&d2=index"><img src="/i/tournament/crpf03/crpf_banner.gif" width="505" height="152" border="0"  vspace="15"/></A></td>
                   </tr>
                </table>
                
@@ -65,7 +65,7 @@
             Round 1 is open to all members who are 18 years of age or older and who raise a minimum of $25 as of 11:59pm on November 10th.  </p>
 
             <p>Everyone who competes in an online round must log on to the TopCoder Competition Arena no later than ten minutes prior to 
-            the start of the online round.  (Click <a href="/tc/?&module=Static&d1=crpf&d2=crpf_sched">here</a> for competition dates and times.)  
+            the start of the online round.  (Click <a href="/tc?&module=Static&d1=crpf&d2=crpf_sched">here</a> for competition dates and times.)
             TopCoder members from around the world may be participating in these rounds, 
             <strong>but all start times will be communicated as Eastern Time, so contestants in different time zones must adjust 
             accordingly</strong>.  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an 

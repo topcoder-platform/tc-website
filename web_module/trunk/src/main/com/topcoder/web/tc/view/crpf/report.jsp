@@ -44,7 +44,7 @@
 <!--CRPF Header-->
                <table align="center">
                   <tr>
-                     <td><A href="/tc/?&module=Static&d1=crpf&d2=index"><img src="/i/tournament/crpf03/crpf_banner.gif" width="505" height="152" border="0"  vspace="15"/></A></td>
+                     <td><A href="/tc?&module=Static&d1=crpf&d2=index"><img src="/i/tournament/crpf03/crpf_banner.gif" width="505" height="152" border="0"  vspace="15"/></A></td>
                   </tr>
                </table>
 
