@@ -95,12 +95,12 @@
         </jsp:include>
 
 <p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
-    <table  WIDTH="500" BORDER="0" CELLSPACING="2" CELLPADDING="6"align="center" class="sidebarBox">
+    <table  WIDTH="500" BORDER="0" CELLSPACING="0" CELLPADDING="6"align="center" class="sidebarBox">
         <tr>
            <td class="sidebarTitle" align="left" valign="bottom" nowrap>Question</td>
-           <td class="sidebarTitle" align="right" valign="bottom" nowrap>Total Avg.<br/>Rating</td>
-           <td class="sidebarTitle" align="right" valign="bottom" nowrap>Div I Avg.<br/>Rating</td>
-           <td class="sidebarTitle" align="right" valign="bottom" nowrap>Div II Avg.<br/>Rating</td>
+           <td class="sidebarTitle" align="right" valign="bottom" nowrap>Total Avg. Rating</td>
+           <td class="sidebarTitle" align="right" valign="bottom" nowrap>Div I Avg. Rating</td>
+           <td class="sidebarTitle" align="right" valign="bottom" nowrap>Div II Avg. Rating</td>
         </tr>
         <%  if (!problemRatingResults.isEmpty()) {
                 count = ((ProblemRatingResult)problemRatingResults.get(0)).getOverallCount().intValue();
