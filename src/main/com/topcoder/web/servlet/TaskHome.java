@@ -95,11 +95,15 @@ public final class TaskHome {
                         rt.addTag(((com.topcoder.common.web.data.stat.contest.RoomResult) a.get(i)).getXML());
                     }
                     */
+
                     dataRequest = new Request();
                     dataRequest.setContentHandle("most_recent_coder_comps");
                     dataRequest.setProperty("cr", String.valueOf(nav.getUserId()));
+                    dataRequest.setProperty("sr", "1");
+                    dataRequest.setProperty("er", "3");
                     resultMap = dai.getData(dataRequest);
                     rsc = (ResultSetContainer) resultMap.get("Most_Recent_Coder_Comps");
+
                     homeTag.addTag(rsc.getTag("Last3Comps", "RoomResult"));
 
                     dataRequest = new Request();
