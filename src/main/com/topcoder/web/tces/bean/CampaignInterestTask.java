@@ -231,6 +231,10 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
             sortBy = value;
         if (paramName.equalsIgnoreCase(TCESConstants.SORT_ORDER_PARAM))
             sortOrder = value;
+        if (paramName.equalsIgnoreCase(TCESConstants.BACK_SORT_PARAM))
+            backSortBy = value;
+        if (paramName.equalsIgnoreCase(TCESConstants.BACK_SORT_ORDER_PARAM))
+            backSortOrder = value;
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));
     }
