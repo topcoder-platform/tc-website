@@ -181,6 +181,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
         email.setEmailTypeId(emailId, EMAIL_TYPE, transDb);
         email.setPrimaryEmailId(newUser.getId(), emailId, transDb);
 
+        if (1==1)
+            throw new Exception("shit");
 
         //create coder
         if (!coder.exists(newUser.getId(), transDb)) { // check if the user exists in registration database already as a coder
