@@ -21,6 +21,7 @@
   <xsl:import href="../includes/modules/srm_best_worst.xsl"/>
   <xsl:import href="../includes/modules/big_promo.xsl"/>
   <xsl:import href="../includes/modules/small_promos.xsl"/>
+  <xsl:import href="../includes/modules/corp_promos.xsl"/>
   <xsl:import href="../includes/modules/coder_pov.xsl"/>
   <xsl:import href="../includes/modules/tcs_promo.xsl"/>
   <xsl:import href="../includes/modules/member_surveys.xsl"/>
@@ -54,6 +55,12 @@
 <!-- Small Promos begin -->
             <xsl:call-template name="small_promos"/>
 <!-- Small Promos end -->
+
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
+        
+<!-- Corporate Promos begins -->
+            <xsl:call-template name="corp_promos"/>
+<!-- Corporate Promos ends -->
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
         
@@ -363,6 +370,10 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br />
 
+<!-- Getting Started Arena Begins -->
+            <xsl:call-template name="arena"/>
+<!-- Getting Started Arena Ends -->
+
 <!-- Summary/Best/Worst Begins  -->
             <xsl:call-template name="srm_best_worst"/>
 <!-- Summary/Best/Worst Ends -->
@@ -382,34 +393,6 @@
 <!-- Press Room Highlights Begins -->
             <xsl:call-template name="tc_updates"/>
 <!-- Press Room Highlights Ends -->
-
-<!-- Java Web Start Begins -->
-            <xsl:call-template name="arena"/>
-<!-- Java Web Start Ends -->
-
-<!-- TC special promo -->
-            <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr valign="top">
-                    <td class="statTextLarge" bgcolor="#999999" width="49%"><font size="3">Sponsorships</font></td>
-                    <td class="statTextLarge" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
-                    <td class="statTextLarge" bgcolor="#999999" width="49%"><font size="3">Employment Services</font></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="50%" align="left" class="bodyText">
-                        TopCoder offers sponsorship programs for the weekly <a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_srm</xsl:attribute>Single Round Matches</a>
-                        as well as for <a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_tourny</xsl:attribute>Tournaments</a>. Read
-                        more about our <a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_target</xsl:attribute>sponsorship programs</a>.<br />
-                    </td>
-
-                    <td class="statTextLarge" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
-
-                    <td width="50%" align="left" class="bodyText">
-                        TopCoder works with companies to connect them with top-rated developers. Read more about our <a class="bodyText">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>employment services</a>.<br />
-                    </td>
-                </tr>
-            </table>
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
 
