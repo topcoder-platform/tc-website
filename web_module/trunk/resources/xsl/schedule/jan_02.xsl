@@ -42,7 +42,7 @@
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
   <xsl:with-param name="image">schedule</xsl:with-param>
-  <xsl:with-param name="title">Monthly View - December 2002</xsl:with-param>
+  <xsl:with-param name="title">Monthly View - January 2002</xsl:with-param>
 </xsl:call-template>			
 			<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 				<TR>
@@ -50,7 +50,7 @@
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
     <!-- Calendar Pulldown Begins -->	
         <xsl:call-template name="calendar_view_pulldown"/>
-	<!-- Calendar Pulldown Ends -->	   
+	<!-- Calendar Pulldown Ends -->	  
       <TABLE BACKGROUND="/i/steel_gray_bg.gif" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
         <TR> 
           <TD VALIGN="top" COLSPAN="2"> 
@@ -61,53 +61,53 @@
                 <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Tues</B></TD>
                 <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Wed</B></TD>
                 <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Thurs</B></TD>
-                <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center" WIDTH="20%"><B>Fri</B></TD>
+                <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center"><B>Fri</B></TD>
                 <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center"><B>Sat</B></TD>
               </TR>
               <TR BGCOLOR="#FFFFFF"> 
+                <TD WIDTH="97" ALIGN="center" CLASS="smallText" BGCOLOR="#FFFFFF">&#160;</TD>
+                <TD WIDTH="92" ALIGN="center" CLASS="smallText" BGCOLOR="#FFFFFF">&#160;</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">1</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">2</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">3</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>4</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 122</B></SPAN><BR/>Register: 5:00&#160;PM<BR/>Compete: 8:00&#160;PM<BR/>Sponsored by: Artifact Software<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4400&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>3</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 54</B></SPAN><BR/>Register: 8:30&#160;PM<BR/>Compete: 10:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4025&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">4</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">5</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">6</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">7</TD>
               </TR>
               <TR BGCOLOR="#FFFFFF"> 
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">6</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>7</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 55</B></SPAN><BR/>Register: 6:30&#160;PM<BR/>Compete: 8:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4026&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">8</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">9</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>10</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 123</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><!-- Sponsored by: Apex<BR/> --><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4405&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>9</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 56</B></SPAN><BR/>Register: 7:30&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4027&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">10</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">11</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>12</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 124</B></SPAN><BR/>Register: 7:00&#160;PM<BR/>Compete: 10:00&#160;PM<BR/>Sponsored by: FBI<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4410&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">12</TD>
+              </TR>
+              <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">13</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">14</TD>
-              </TR>
-              <TR BGCOLOR="#FFFFFF"> 
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">15</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>16</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 125</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/>Sponsored by: NVIDIA<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4415&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>15</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 57</B></SPAN><BR/>Register: 8:30&#160;PM<BR/>Compete: 10:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4028&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>16</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 58</B></SPAN><BR/>Register: 7:30&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4029&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">17</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">18</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">19</TD>
+              </TR>
+              <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">20</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">21</TD>
-              </TR>
-              <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">22</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>23</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 126</B></SPAN><BR/>Register: 5:00&#160;PM<BR/>Compete: 8:00&#160;PM<BR/>Sponsored by: Cryptic Studios<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4420&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>23</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 59</B></SPAN><BR/>Register: 7:30&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4030&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">24</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">25</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">26</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">27</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">28</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>26</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 60</B></SPAN><BR/>Register: 12:30&#160;PM<BR/>Compete: 2:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4031&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
               </TR>
               <TR BGCOLOR="#FFFFFF"> 
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">27</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">28</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">29</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">30</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">31</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>30</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 61</B></SPAN><BR/>Register: 7:30&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4032&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>31</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 62</B></SPAN><BR/>Register: 6:30&#160;PM<BR/>Compete: 8:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4033&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD WIDTH="99" ALIGN="center" CLASS="smallText" BGCOLOR="#FFFFFF">&#160;</TD>
+                <TD WIDTH="99" ALIGN="center" CLASS="smallText" BGCOLOR="#FFFFFF">&#160;</TD>
               </TR>
             </TABLE>
           </TD>
