@@ -476,7 +476,7 @@ public class TCLoadRound extends TCLoad {
             query = new StringBuffer(100);
             query.append(" SELECT cs.round_id");              //1
             query.append(" ,cs.coder_id ");            //2
-            query.append(" ,cm.problem_id ");          //3
+            query.append(" , (SELECT cm.problem_id FROM component cm WHERE cm.component_id = cs.component_id)");          //3
             query.append(" ,cs.points ");              //4
             query.append(" ,cs.status_id ");           //5
             query.append(" ,cs.language_id ");         //6
