@@ -230,7 +230,18 @@ Monday, September 30, 2002<BR/><BR/>
             <TR>
               <TD VALIGN="middle" WIDTH="20%" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0"><B><xsl:value-of select="division"/></B></TD>
               <TD VALIGN="middle" WIDTH="10%" CLASS="bodyText">&#160;&#160;<xsl:value-of select="change_type"/>:</TD> 
-              <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;<xsl:value-of select="handle"/></TD>
+              <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;
+                <A>
+                  <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
+                  <xsl:attribute name="CLASS">bodyText</xsl:attribute>
+                  <FONT>
+                    <xsl:attribute name="color">
+                      <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                    </xsl:attribute>
+                    <xsl:value-of select="handle"/>
+                  </FONT>
+                </A>
+              </TD>
               <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center"><xsl:value-of select="change"/></TD>
               <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;<xsl:value-of select="room_name"/></TD>
             </TR>
