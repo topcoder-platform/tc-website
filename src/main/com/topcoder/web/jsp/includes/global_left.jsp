@@ -145,6 +145,14 @@
                     <tr><td id="<%=level1.equals("support")?"leftNavOn":"leftNav"%>"><a href="/?&t=support&c=index" class="<%=level1.equals("support")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("support")?"bottom":"right"%>.gif" border="0"/>Support/FAQs</a></td></tr>
     <%-- Support/FAQs ends --%>
 
+            <% if (level1.equals("home")) { %>
+                <tr><td id="leftNavTitle">Next Match:</td></tr>
+            
+                <jsp:include page="../../home/srm_dates.jsp" />
+              
+                <jsp:include page="../../home/srm_sponsor.jsp" />
+
+            <% } %>
     <%-- Competition ends *************************** --%>
 
 <% } %>
@@ -159,6 +167,11 @@
 <%-- PACTS ends *************************** --%>
 <% } %>
 
+            </table>
+
+            <jsp:include page="../calendar.jsp" />
+
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td bgcolor="#990000"><jsp:include page="../includes/modules/simpleSearch.jsp"/></td></tr>
             </table>
 
