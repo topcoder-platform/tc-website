@@ -185,7 +185,9 @@
 
                 <tr valign="middle">
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
+
                     <td background="/i/steel_bluebv_bg.gif" class="statText">Development Projects</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="23%" class="statText" align="center"># of Inquiries</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Payment*</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Submit by</td>
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
