@@ -81,7 +81,7 @@ public class Util {
             throws NoSuchUserException, Exception {
         PrincipalMgrRemote mgr = getPrincipalManager();
         TCSubject ret = mgr.getUserSubject(userID);
-        log.debug("TCSubject retreived by ID [" + ret + "]");
+        //log.debug("TCSubject retreived by ID [" + ret + "]");
         return ret;
     }
 
@@ -97,7 +97,7 @@ public class Util {
             throws NoSuchUserException, Exception {
         PrincipalMgrRemote mgr = getPrincipalManager();
         TCSubject ret = mgr.getUserSubject(mgr.getUser(handle).getId());
-        log.debug("TCSubject retreived by handle [" + ret + "]");
+        //log.debug("TCSubject retreived by handle [" + ret + "]");
         return ret;
     }
 

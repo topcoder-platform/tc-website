@@ -126,15 +126,23 @@ public class BasicAuthentication implements WebAuthentication {
          * they're anonymous
          */
         User u = getUserFromPersistor();
+
         if (u == null) {
             u = (User)persistor.getObject(request.getSession().getId()+USER_COOKIE_NAME);
             if (u == null) {
                 u = checkCookie();
                 if (u==null) {
                     u = guest;
+                    log.debug("*** made up a guest ***");
+                } else {
+                    log.debug("*** they were in cookie ***");
                 }
                 persistor.setObject(request.getSession().getId()+USER_COOKIE_NAME, u);
+            } else {
+                log.debug("*** they were stale ***");
             }
+        } else {
+            log.debug("*** they were live***");
         }
         return u;
     }
