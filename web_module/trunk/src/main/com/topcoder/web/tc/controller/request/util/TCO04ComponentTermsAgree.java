@@ -18,12 +18,12 @@ import java.util.Calendar;
 public class TCO04ComponentTermsAgree extends TermsAgreeBase {
     //dammit, my kingdom for some multiple inheritance!!!
     private TCO04ComponentTerms helper = new TCO04ComponentTerms();
-    
+
     //overload this event, will throw exception if unsuccessful
      protected void businessProcessing() throws TCWebException {
          try {
              super.businessProcessing();
-             
+
              //if we're here, this is successful
              UserEvent userEvent = (UserEvent)createEJB(getInitialContext(), UserEvent.class);
              userEvent.createUserEvent(getUser().getId(), Constants.TCO04_EVENT_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
@@ -94,7 +94,7 @@ public class TCO04ComponentTermsAgree extends TermsAgreeBase {
     }
 
     protected void setSuccessPage() {
-        //just go to the default
+        setNextPage("/tc");
         setIsNextPageInContext(false);
     }
 
