@@ -7,7 +7,7 @@
 	</TR>
 	<TR><TD VALIGN="top" HEIGHT="13" CLASS="statText">&#160;&#160;United States</TD></TR>	
 	<TR><TD VALIGN="top" HEIGHT="13" CLASS="statText">&#160;&#160;Australia</TD></TR>
-	<TR><TD VALIGN="top" HEIGHT="13" CLASS="statText">&#160;&#160;Canada</TD></TR>
+	<TR><TD VALIGN="top" HEIGHT="13" CLASS="statText">&#160;&#160;Canada (excluding Quebec)</TD></TR>
 	<TR><TD VALIGN="top" HEIGHT="13" CLASS="statText">&#160;&#160;China</TD></TR>
 	<TR><TD VALIGN="top" HEIGHT="13" CLASS="statText">&#160;&#160;Ireland</TD></TR>	
 	<TR><TD VALIGN="top" HEIGHT="13" CLASS="statText">&#160;&#160;India</TD></TR>
