@@ -16,13 +16,13 @@
     </TD>
   </TR>
   <TR valign="middle">
-    <TD CLASS="statText" ALIGN="left" VALIGN="middle" COLSPAN="2">
+    <TD CLASS="statTextBig" ALIGN="left" VALIGN="middle" COLSPAN="2">
       <% if (JobHitTask.hasResume()) { %>
-        Click <A HREF="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" CLASS="statText">here</A> to upload a new resume.</A>
+        Click <A HREF="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" CLASS="statTextBig">here</A> to upload a new resume.</A>
         <br/>
         Click <A HREF="/Resume?&t=DownloadTask" CLASS="statText">here</A> to download your resume.
       <% } else { %>
-        You do NOT currently have a resume on file at TopCoder.  Since most employers will look for this information, we strongly encourage you to upload a resume.  If you would like to upload a resume now, click <A HREF="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" CLASS="statText">here</a>.
+        You do NOT currently have a resume on file at TopCoder.  Since most employers will look for this information, we strongly encourage you to upload a resume.  If you would like to upload a resume now, click <A HREF="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" CLASS="statTextBig">here</a>.
       <% } %>
     </TD>
   </TR>
