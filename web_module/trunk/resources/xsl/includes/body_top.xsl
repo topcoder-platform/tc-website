@@ -4,43 +4,42 @@
     <xsl:param name="image1"></xsl:param>
     <xsl:param name="image"></xsl:param>
     <xsl:param name="title"></xsl:param>
-    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-      <TR>
-        <TD VALIGN="top" WIDTH="11" ALIGN="right">
+
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="bottom">
+                    <td width="11" align="right">
           
 <xsl:choose>
-<xsl:when test="$image1='steelblue'"><img src="/i/clear.gif" width="1" height="8" BORDER="0"/><BR/>
-<IMG WIDTH="11" HEIGHT="26" BORDER="0"><xsl:attribute name="SRC">/i/steelblue_top_left1.gif</xsl:attribute></IMG>
-</xsl:when>
-<xsl:when test="$image1='steelgray'"><img src="/i/clear.gif" width="1" height="8" BORDER="0"/><BR/>
-<IMG WIDTH="11" HEIGHT="26" BORDER="0"><xsl:attribute name="SRC">/i/tourney_top_left1.gif</xsl:attribute></IMG>
-</xsl:when>
-<xsl:otherwise>
-<IMG WIDTH="11" HEIGHT="26" BORDER="0"><xsl:attribute name="SRC">/i/table_top_leftx.gif</xsl:attribute></IMG>
-</xsl:otherwise>
+    <xsl:when test="$image1='steelblue'"><img src="/i/clear.gif" width="1" height="8" border="0"/><br/>
+                        <img width="11" height="26" border="0"><xsl:attribute name="SRC">/i/steelblue_top_left1.gif</xsl:attribute></img>
+    </xsl:when>
+
+    <xsl:when test="$image1='steelgray'"><img src="/i/clear.gif" width="1" height="8" border="0"/><br/>
+                        <img width="11" height="26" border="0"><xsl:attribute name="SRC">/i/tourney_top_left1.gif</xsl:attribute></img>
+    </xsl:when>
+
+    <xsl:otherwise>
+                        <img width="11" height="26" border="0"><xsl:attribute name="SRC">/i/clear.gif</xsl:attribute></img>
+    </xsl:otherwise>
 </xsl:choose>
           
-        </TD>
-        <TD VALIGN="bottom" WIDTH="75" ALIGN="left"><img src="/i/clear.gif" width="1" height="8" BORDER="0"/><BR/>
-          <IMG WIDTH="180" HEIGHT="26" BORDER="0">
-            <xsl:attribute name="SRC">/i/header_<xsl:value-of select="$image"/>.gif</xsl:attribute>
-            <xsl:attribute name="ALT"><xsl:value-of select="$image"/></xsl:attribute>
-          </IMG>
-        </TD>
-        <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
-          <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-          <BR/>&#160;<SPAN CLASS="bodySubhead">&#160;&#160;<xsl:value-of select="$title"/>&#160;&#160;</SPAN>
-        </TD>
-        <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"/></TD>
-      </TR>
-      <!-- <TR>
-        <TD VALIGN="top" COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-      </TR>       
-      <TR>
-        <TD VALIGN="top" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-        <TD VALIGN="top" WIDTH="100%" ALIGN="left" COLSPAN="2" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-        <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-      </TR> -->      
-    </TABLE>
+                    </td>
+                    
+                    <td width="75" align="left"><img src="/i/clear.gif" width="1" height="8" border="0"/><br/>
+                        <img width="180" height="26" border="0">
+                            <xsl:attribute name="SRC">/i/header_<xsl:value-of select="$image"/>.gif</xsl:attribute>
+                            <xsl:attribute name="ALT"><xsl:value-of select="$image"/></xsl:attribute>
+                        </img>
+                    </td>
+        
+                    <td class="bodySubhead" width="100%">
+                        &#160;<xsl:value-of select="$title"/>&#160;<br />
+                        <img src="/i/clear.gif" alt="" width="240" height="1" border="0"/>
+                    </td>
+                    
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                </tr>
+            </table>
+
   </xsl:template>
 </xsl:stylesheet>
