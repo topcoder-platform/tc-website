@@ -115,8 +115,14 @@
       <TR>    
         <!-- <TD COLSPAN="2" BGCOLOR="#000000" VALIGN="bottom"><IMG SRC="/i/logo_btm_tab.gif" ALT="" WIDTH="187" HEIGHT="6" BORDER="0"/></TD> -->  
         <TD COLSPAN="4" BGCOLOR="#000000" ALIGN="right">
-
-<A TARGET="_parent" HREF="Javascript:arena()" CLASS="registerNav"><IMG SRC="/i/label_download_applet.gif" ALT="Download the Applet" WIDTH="134" HEIGHT="17" BORDER="0"/></A><A TARGET="_parent" HREF="/index?t=schedule&amp;c=practice_room" CLASS="registerNav"><IMG SRC="/i/label_visit_practice_room.gif" ALT="Visit the Practice Room" WIDTH="141" HEIGHT="17" BORDER="0"/></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="25" HEIGHT="1" BORDER="0"/>
+          <A TARGET="_parent" HREF="Javascript:arena()" CLASS="registerNav">
+            <IMG SRC="/i/label_download_applet.gif" ALT="Download the Applet" WIDTH="134" HEIGHT="17" BORDER="0"/>
+          </A>
+          <A TARGET="_parent" CLASS="registerNav">
+            <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=practice_room</xsl:attribute>
+            <IMG SRC="/i/label_visit_practice_room.gif" ALT="Visit the Practice Room" WIDTH="141" HEIGHT="17" BORDER="0"/>
+          </A>
+          <IMG SRC="/i/clear.gif" ALT="" WIDTH="25" HEIGHT="1" BORDER="0"/>
         </TD> 
       </TR>              
     </TABLE>
