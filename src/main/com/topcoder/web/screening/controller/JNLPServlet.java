@@ -67,7 +67,7 @@ public final class JNLPServlet extends HttpServlet {
                      "<vendor>TopCoder, Inc.</vendor>\r\n" +
                      "<homepage href=\"http://corporate.topcoder.com\"/>\r\n" +
                      "<description>TopCoder Testing Application</description>\r\n" +
-                     "<icon href=\"http://corporate.topcoder.com/images/topcoder.jpg\"/>\r\n" +
+                     "<icon href=\"http://corporate.topcoder.com/i/ScreeningJWS.jpg\"/>\r\n" +
                      "</information>\r\n" +
                      "<security>\r\n" +
                      "<all-permissions/>\r\n" +
