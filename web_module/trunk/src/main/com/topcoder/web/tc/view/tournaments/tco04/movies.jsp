@@ -35,8 +35,10 @@
 			<tr>
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/rm3_1.MPG"><img src="/i/tournament/tco04/onsite_movies/rm3_1.jpg" border=0/></A>
 				<br/><A href="/i/tournament/tco04/onsite_movies/rm3_1.MPG">the crowd cheers<br/>for reid (15 MB)</A><br/></td>
-				<td></td>
-				<td></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/wc_1.AVI"><img src="/i/tournament/tco04/onsite_movies/wc_1.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/wc_1.AVI">watch haha's pencil...<br/>awesome (1 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/wc_2.mpg"><img src="/i/tournament/tco04/onsite_movies/wc_2.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/wc_2.mpg">snewman's wildcard<br/>win (22 MB)</A><br/></td>
             </tr>
 		</table>
 

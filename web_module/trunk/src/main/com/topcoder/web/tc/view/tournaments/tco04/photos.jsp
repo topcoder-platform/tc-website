@@ -10,7 +10,7 @@
 
 var imageDir = "/i/tournament/tco04/onsite_photos/";
 var imageNum = 1;
-var totalImages = 91;
+var totalImages = 113;
 
 <%
     final String CURR_IMAGE_KEY = "currImage";
@@ -91,8 +91,8 @@ function changeImage(place, imageIndex) {
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 22);">Room 1</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 45);">Room 2</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 69);">Room 3</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 92);">WildCard</a>
 <%--
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 5);">WildCard</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 6);">Coding Finals</a>
 --%>
 
