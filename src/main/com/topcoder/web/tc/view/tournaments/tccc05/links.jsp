@@ -4,13 +4,6 @@
     String tabLev3 = request.getParameter("tabLev3")==null?"":request.getParameter("tabLev3");
 %>
 
-<!-- Right aligned mapping
-<map name="L1_tabs"> 
-<area shape="poly" alt="" coords="1,29, 31,1, 208,1, 180,29" href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about" />
-<area shape="poly" alt="" coords="182,29, 210,1, 386,1, 358,29" href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_description" />
-<area shape="poly" alt="" coords="362,29, 388,1, 567,1, 567,29" href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_description" />
-</map>
--->
 <map name="L1_tabs">
 <area shape="poly" alt="" coords="1,29, 1,1, 178,1, 204,29" href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about" />
 <area shape="poly" alt="" coords="210,29, 184,1, 356,1, 384,29" href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_description" />
