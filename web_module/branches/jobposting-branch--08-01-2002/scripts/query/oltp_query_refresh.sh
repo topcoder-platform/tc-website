@@ -762,6 +762,7 @@ SELECT dq.demographic_question_id
    AND da.demographic_question_id = dq.demographic_question_id
    AND dr.demographic_question_id = da.demographic_question_id
    AND (dr.coder_id = @mid@)
+   AND dq.demographic_question_id NOT IN (1,2,12)
  ORDER BY dq.demographic_question_id
      , da.sort
 "
