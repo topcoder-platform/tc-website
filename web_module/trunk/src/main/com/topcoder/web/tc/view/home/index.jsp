@@ -35,7 +35,7 @@
          </tr>
          <tr>
             <td width="50%" class="homeLogo"><img src="/i/home/TC_homeLogo.gif" alt=""/></td>
-            <td class="BIGPromoBox"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/home/promos/BIG_tccc05.gif" border="0" alt=""/></A></td>
+            <td class="BIGPromoBox"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_finals_analysis"><img src="/i/home/promos/BIG_tccc05.gif" border="0" alt=""/></A></td>
             <td width="50%" class="homeLogo">&#160;</td>
          </tr>            
       </table>
@@ -156,12 +156,12 @@
          <tr>
             <td class=homeArrow>&#160;</td>
             <td class=homeText><br/>
+            Champions Announced In 2005 TCCC Sponsored by Yahoo!&#174;<A href="/?&t=news_events&c=pr_03_14_05a"> ...more</A><br/>[March 14]<br/><br/>
+            LogicLibrary Teams with TopCoder to Accelerate SOA Deployments<A href="/?&t=news_events&c=pr_03_14_05b"> ...more</A><br/>[March 14]<br/><br/>
             Program for life<A href="/?&t=news_events&c=art_02_13_05"> ...more</A><br/>[February 13 - NewsWeek Poland]<br/><br/>
             Semifinalists Announced for 2005 TCCC Sponsored by Yahoo!&#174;<A href="/?&t=news_events&c=pr_02_22_05"> ...more</A><br/>[February 22]<br/><br/>
             NVIDIA Corporation Returns as Premier Sponsor of 2005 TopCoder&#174; Collegiate Challenge<A href="/?&t=news_events&c=pr_02_16_05"> ...more</A><br/>[February 16]<br/><br/>
             TopCoder Software&#153; Opens Access to Reusable Java&#153; and .NET&#153; Component Catalogs<A href="/?&t=news_events&c=pr_02_15_05"> ...more</A><br/>[February 15]<br/><br/>
-            Google Code Jam Comes to India<A href="/?&t=news_events&c=pr_02_09_05"> ...more</A><br/>[February 9]<br/><br/>
-            TC Community Surpasses 50,000 Worldwide Nears 10,000 Rated Member Mark<A href="/?&t=news_events&c=pr_02_07_05"> ...more</A><br/>[February 7]<br/><br/>
             </td>
          </tr>
       </table>

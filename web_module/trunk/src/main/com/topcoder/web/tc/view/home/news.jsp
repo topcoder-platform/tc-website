@@ -6,6 +6,30 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.14.05<br>12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_03_14_05a">Champions Announced In 2005 TCCC Sponsored by Yahoo!&#174;</A></span><br><br>
+      TopCoder today announced the champions of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/?&t=news_events&c=pr_03_14_05a">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.14.05<br>12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_03_14_05b">LogicLibrary Teams with TopCoder to Accelerate SOA Deployments</A></span><br><br>
+      "As developers turn to SOA, reusable components are becoming the building blocks of applications because of their ability to reduce costs, streamline projects and improve productivity."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/?&t=news_events&c=pr_03_14_05b">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.11.05<br>8:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_finals_analysis">mathijs wins the TCCC05 Algorithm Competition!</A></span><br><br>
       A stunning upset.  mathijs has put an end to tomek's streak.
@@ -229,29 +253,6 @@
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>02.23.05<br>12:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">SRM calendar updated for <A href="/index?t=schedule&c=may_05">May</A>, <A href="/index?t=schedule&c=jun_05">June</A>, and <A href="/index?t=schedule&c=jul_05">July</A></span><br><br>
-      Also, there will be no more 9am, 8pm, or 10pm matches. The reasoning behind this is simply participation analysis.  We are trying to maximize participation while at the same time providing timeslots that everyone in the world can participate in.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?&t=schedule&c=index">match dates</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.22.05<br>12:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_02_22_05">Semifinalists Announced for 2005 TCCC Sponsored by Yahoo!&#174;</A></span><br><br>
-      TopCoder today announced the 31 International onsite semifinalists who have advanced to the Championship rounds of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?&t=news_events&c=pr_02_22_05">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
 </table>
 <br><br>
 
