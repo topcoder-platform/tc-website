@@ -40,14 +40,6 @@ public class Confirm extends FullRegConfirm {
             info = new ResumeRegInfo(info);
         }
         
-        MultipartRequest req = (MultipartRequest)getRequest();
-        UploadedFile file = req.getUploadedFile(Constants.RESUME);
-        
-        if (file != null && file.getContentType() != null) {
-                log.debug("FOUND RESUME");
-                ((ResumeRegInfo)info).setUploadedFile(file);
-            }
-        
         return info;
     }
 
