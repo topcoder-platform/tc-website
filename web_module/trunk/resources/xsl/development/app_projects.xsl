@@ -78,16 +78,16 @@
 				                </tr>
 				                <tr valign="top">
 				                    <td class="projectCells">&#160;&#160;&#160;&#160;Dashboard Service</td>
-				                    <td class="projectCells" align="center">$2,346</td>
-				                    <td class="projectCells" align="center">$750</td>
-				                    <td class="projectCells" align="center">07.12.2004 5:00 PM ET</td>
+				                    <td class="projectCells" align="center">$2,730</td>
+				                    <td class="projectCells" align="center">$870</td>
+				                    <td class="projectCells" align="center">07.13.2004 5 PM ET</td>
 				                </tr>
 
 				                <tr valign="top">
 				                    <td class="projectCells">&#160;&#160;&#160;&#160;Dashboard Reports</td>
-				                    <td class="projectCells" align="center">$2,442</td>
-				                    <td class="projectCells" align="center">$780</td>
-				                    <td class="projectCells" align="center">07.12.2004 5 PM ET</td>
+				                    <td class="projectCells" align="center">$2,634</td>
+				                    <td class="projectCells" align="center">$840</td>
+				                    <td class="projectCells" align="center">07.13.2004 5 PM ET</td>
 				                </tr>
 
                                 <tr valign="top">
