@@ -57,7 +57,7 @@
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;August</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.28.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText">Open (<A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Write/Ideas?</A>)</TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.21.02</TD><TD VALIGN="middle" CLASS="bodyText">Polgara</TD><TD VALIGN="middle" CLASS="bodyText">Wireless</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.21.02</TD><TD VALIGN="middle" CLASS="bodyText">polgara</TD><TD VALIGN="middle" CLASS="bodyText">Wireless</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.14.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText">Open (<A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Write/Ideas?</A>)</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.07.02</TD><TD VALIGN="middle" CLASS="bodyText">KaiEl</TD><TD VALIGN="middle" CLASS="bodyText">Match Strategy</TD></TR>
 		
@@ -65,7 +65,7 @@
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;July</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.31.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText">Open (<A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Write/Ideas?</A>)</TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.24.02</TD><TD VALIGN="middle" CLASS="bodyText">Polgara</TD><TD VALIGN="middle" CLASS="bodyText">Developing for Users</TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.24.02</TD><TD VALIGN="middle" CLASS="bodyText">polgara</TD><TD VALIGN="middle" CLASS="bodyText">Developing for Users</TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.17.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText">Open (<A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Write/Ideas?</A>)</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.10.02</TD><TD VALIGN="middle" CLASS="bodyText">HeyJude</TD><TD VALIGN="middle" CLASS="bodyText">Working with Women Coders</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;07.03.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText">Open (<A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Write/Ideas?</A>)</TD></TR>
@@ -75,7 +75,7 @@
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.26.02</TD><TD VALIGN="middle" CLASS="bodyText">Jamieb100</TD><TD VALIGN="middle" CLASS="bodyText">Web Services</TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.19.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText">Rapid Rise</TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.12.02</TD><TD VALIGN="middle" CLASS="bodyText">Polgara</TD><TD VALIGN="middle" CLASS="bodyText">Outsourcing</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.12.02</TD><TD VALIGN="middle" CLASS="bodyText">polgara</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=feat_061202" CLASS="bodyGeneric">To in-house or to out-source, that is the question</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.05.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=feat_060502" CLASS="bodyGeneric">Where Has The Time Gone?</A></TD></TR>
 
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
