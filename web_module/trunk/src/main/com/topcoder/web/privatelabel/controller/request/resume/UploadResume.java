@@ -5,22 +5,11 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.servlet.request.UploadedFile;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-import javax.rmi.PortableRemoteObject;
 import java.util.Iterator;
-import java.util.Map;
 
 public class UploadResume extends Base {
 
-    private static final int TRANSACTIONAL = 2;
 
     protected void businessProcessing() throws TCWebException {
         UploadedFile uf = null;

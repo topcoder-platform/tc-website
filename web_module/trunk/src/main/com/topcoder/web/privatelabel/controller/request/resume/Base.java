@@ -19,6 +19,7 @@ import java.util.Map;
 abstract public class Base extends BaseProcessor {
 
     protected FileUpload file;
+    private static final int TRANSACTIONAL = 2;
 
     abstract protected void businessProcessing() throws TCWebException;
 
