@@ -63,10 +63,12 @@ if(srb.getProperty("sq")!=null){
 }
 
 String currRound = resultRow_0==null?srb.getProperty("rd"):resultRow_0.getItem("round_id").toString();
-String currSchool = resultRow_0==null?srb.getProperty("hs"):resultRow_0.getItem("school_id").toString();
 ResultSetContainer rdlist = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
 pageContext.setAttribute("resultSetDates", rdlist);
+
+String currSchool = "";
 if(bSchool) {
+  currSchool = resultRow_0==null?srb.getProperty("hs"):resultRow_0.getItem("school_id").toString();
   ResultSetContainer hslist = (ResultSetContainer) queryEntries.get("Schools_List");
   pageContext.setAttribute("resultSetSchools", hslist);
 }

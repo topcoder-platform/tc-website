@@ -212,7 +212,6 @@ else {
 
                  <TR>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" COLSPAN="20" HEIGHT="12"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD  CLASS="statText" COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="16" BORDER="0"></TD>
