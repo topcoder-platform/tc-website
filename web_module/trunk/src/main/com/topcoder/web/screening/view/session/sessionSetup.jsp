@@ -143,34 +143,26 @@ function submitSession() {
                     
                 <tr>
                     <td class="testTableSubtitleOdd">Month</td>
-                    <td class="testTableOdd">
-                        <screen:month name="beginMonth" selected="<%=sessionInfo.getBeginMonth()%>">
-                    </td>
-                    <td class="errortext"><screen:errors name="beginMonth"></TD>
+                    <td class="testTableOdd"><screen:month name="beginMonth" selected="<%=sessionInfo.getBeginMonth()%>" /></td>
+                    <td class="errortext"><screen:errors name="beginMonth" /></TD>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleEven">Day</td>
-                    <td class="testTableEven">
-                        <screen:day name="beginDay" selected="<%=sessionInfo.getBeginDay()%>">
-                    </td>
-                    <td class="errortext"><screen:errors name="beginDay"></td>
+                    <td class="testTableEven"><screen:day name="beginDay" selected="<%=sessionInfo.getBeginDay()%>" /></td>
+                    <td class="errortext"><screen:errors name="beginDay" /></td>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleOdd">Year</td>
-                    <td class="testTableOdd">
-                        <screen:year name="beginYear" selected="<%=sessionInfo.getBeginYear()%>">
-                    </td>
-                    <td class="errortext"><screen:errors name="beginYear"></td>
+                    <td class="testTableOdd"><screen:year name="beginYear" selected="<%=sessionInfo.getBeginYear()%>" /></td>
+                    <td class="errortext"><screen:errors name="beginYear" /></td>
                 </tr>
 
                 <tr>
                     <td class="testTableSubtitleEven">Hour</td>
-                    <td class="testTableEven">
-                        <screen:hour name="beginHour" selected="<%=sessionInfo.getBeginHour()%>">
-                    </td>
-                    <td class="errortext"><screen:errors name="beginHour"></td>
+                    <td class="testTableEven"><screen:hour name="beginHour" selected="<%=sessionInfo.getBeginHour()%>" /></td>
+                    <td class="errortext"><screen:errors name="beginHour" /></td>
                 </tr>
 
                 <tr>
@@ -185,34 +177,26 @@ function submitSession() {
                     
                 <tr>
                     <td class="testTableSubtitleOdd">Month</td>
-                    <td class="testTableOdd">
-                        <screen:month name="endMonth" selected="<%=sessionInfo.getEndMonth()%>">
-                    </td>
-                    <td class="errortext"><screen:errors name="endMonth"></TD>
+                    <td class="testTableOdd"><screen:month name="endMonth" selected="<%=sessionInfo.getEndMonth()%>" /></td>
+                    <td class="errortext"><screen:errors name="endMonth" /></td>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleEven">Day</td>
-                    <td class="testTableEven">
-                        <screen:day name="endDay" selected="<%=sessionInfo.getEndDay()%>">
-                    </td>
-                    <td class="errortext"><screen:errors name="endDay"></td>
+                    <td class="testTableEven"><screen:day name="endDay" selected="<%=sessionInfo.getEndDay()%>" /></td>
+                    <td class="errortext"><screen:errors name="endDay" /></td>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleOdd">Year</td>
-                    <td class="testTableOdd">
-                        <screen:year name="endYear" selected="<%=sessionInfo.getEndYear()%>">
-                    </td>
-                    <td class="errortext"><screen:errors name="endYear"></td>
+                    <td class="testTableOdd"><screen:year name="endYear" selected="<%=sessionInfo.getEndYear()%>" /></td>
+                    <td class="errortext"><screen:errors name="endYear" /></td>
                 </tr>
 
                 <tr>
                     <td class="testTableSubtitleEven">Hour</td>
-                    <td class="testTableEven">
-                        <screen:hour name="endHour" selected="<%=sessionInfo.getEndHour()%>">
-                    </td>
-                    <td class="errortext"><screen:errors name="endHour"></td>
+                    <td class="testTableEven"><screen:hour name="endHour" selected="<%=sessionInfo.getEndHour()%>" /></td>
+                    <td class="errortext"><screen:errors name="endHour" /></td>
                 </tr>
 
                 <tr>
@@ -225,11 +209,11 @@ function submitSession() {
                 </tr>
                     
                 <tr>
-                    <td class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=sessionInfo.getCandidateEmail()%>"></td>
+                    <td class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=sessionInfo.getCandidateEmail()%>" /></td>
                 </tr>
                 
                 <tr>
-                    <td class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=sessionInfo.getRepEmail()%>"></td>
+                    <td class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=sessionInfo.getRepEmail()%>" /></td>
                 </tr>
                 
                 <tr>
