@@ -934,18 +934,17 @@ SELECT c.coder_id
      , user u
      , coder_type ct
      , coder c
-  LEFT OUTER JOIN (coder_image_xref cix JOIN image i
-                                          ON cix.image_id = i.image_id
-                                        JOIN path p
-                                          ON p.path_id = i.path_id)
-               ON c.coder_id = cix.coder_id
-              AND cix.display_flag = 1
-  LEFT OUTER JOIN current_school cs
-               ON c.coder_id = cs.coder_id
+     ,OUTER (coder_image_xref cix, OUTER (image i, path p))
+     ,OUTER current_school cs
  WHERE c.country_code = cy.country_code
    AND u.user_id = c.coder_id
    AND c.coder_type_id = ct.coder_type_id
-   AND (c.coder_id = @mid@)
+   AND c.coder_id = cs.coder_id
+   AND c.coder_id = @mid@
+   AND c.coder_id = cix.coder_id
+   AND cix.display_flag = 1
+   AND cix.image_id = i.image_id
+   AND p.path_id = i.path_id
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1052 "TCES_Member_Demographics" 0 0 "
