@@ -111,7 +111,8 @@ function checkInputs(){
                 </tr>
             </table>
 
-             <div align="center"><br>Required fields are in <strong>bold</strong><br>&#160;</div>
+             <div align="center"><br>Required fields are in <strong>bold</strong><br/>
+             Please read the <A href="/?t=about_tc&amp;c=terms">Terms and Revisions</A>, and <A href="/?&t=about_tc&c=privacy">Privacy Policy</A> before registering.</div>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
 
