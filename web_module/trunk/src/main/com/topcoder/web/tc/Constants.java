@@ -78,6 +78,9 @@ public class Constants {
     public static String STATISTICS_PATH;
     public static int TCCC04_TERMS_OF_USE_ID;
     public static int UNLOCK_CARD_PREFERENCE_ID;
+    public static int JAVA_CATALOG_ID;
+    public static int DOT_NET_CATALOG_ID;
+
 
     static {
         initialize();
