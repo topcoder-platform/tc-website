@@ -12,6 +12,7 @@ import com.topcoder.security.login.LoginRemote;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.ApplicationServer;
 
 /**
  * Performs authentication using the TCS security component. Uses cookies and
@@ -104,7 +105,8 @@ public class BasicAuthentication implements WebAuthentication {
             Hashtable env = new Hashtable();
             env.put(Context.INITIAL_CONTEXT_FACTORY,
                 "org.jnp.interfaces.NamingContextFactory");
-            env.put(Context.PROVIDER_URL, "172.16.20.40:1099");
+            env.put(Context.PROVIDER_URL,
+                ApplicationServer.SECURITY_PROVIDER_URL);
             InitialContext context = new InitialContext(env);
             
             LoginRemoteHome loginHome = (LoginRemoteHome)
