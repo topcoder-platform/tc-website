@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Component Competition News" border="0" /><br>03.31.05<br>12:05 PM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=SurveyResults&sid=208">TCO05 seeding/advancement survey</A></span><br><br>
+      Which of the following seeding/advancement formats would you most prefer for the online portion of the upcoming TopCoder Open Algorithm Competition?
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?&module=SurveyResults&sid=208">view survey</A>&#160;|&#160;
+         <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>03.30.05<br>11:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://software.topcoder.com/index.jsp">"Top 10 Most Downloaded Components" added to TCS homepage</A></span><br><br>
       Find out what components are being downloaded the most.
@@ -235,18 +247,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_leader_website">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.10.05<br>9:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room3_analysis">mathijs wins Room 3</A></span><br><br>
-      mathijs had just a few more points, and so he will advance to the finals while Eryx and RalphFurmaniak will have to battle it out in what I'm sure will be a brutal wildcard round.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room3_analysis">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
