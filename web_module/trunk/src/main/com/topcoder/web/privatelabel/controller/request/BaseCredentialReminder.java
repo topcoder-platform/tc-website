@@ -23,13 +23,13 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
     protected void registrationProcessing() throws TCWebException {
         String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
 
-
         StringTokenizer st = new StringTokenizer(email, "@.");
-        if (st.countTokens() < 3
+        if (!email.equals("")&&(st.countTokens() < 3
                 || !StringUtils.contains(email, '@')
-                || !StringUtils.contains(email, '.')) {
+                || !StringUtils.contains(email, '.'))) {
             addError(Constants.EMAIL, "Please enter a valid email address.");
             setDefault(Constants.EMAIL, email);
+            setNextPage(getStartPage());
         } else{
             try {
                 Request r = new Request();
@@ -47,6 +47,7 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
                     mail.setFromAddress(getEmailFromAddress(), getEmailFromAddressName());
                     log.info("sent reminder email to " + email);
                     EmailEngine.send(mail);
+                    setNextPage(getSuccessPage());
                 }
             } catch (TCWebException e) {
                 throw e;
@@ -54,7 +55,6 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
                 throw new TCWebException(e);
             }
         }
-        setNextPage();
 
     }
 
@@ -83,6 +83,7 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
         return "TopCoder Service";
     }
 
-    abstract protected void setNextPage();
+    abstract protected String getSuccessPage();
+    abstract protected String getStartPage();
 
 }
