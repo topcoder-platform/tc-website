@@ -646,8 +646,19 @@ score was seen: <b>1601.35</b> by first timer <b>Yi Zhang</b>. The runner ups in
 							
 				<tr valign="top">
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=279551">scamp</a></td>
+					<td class="statText" align="right">97.98</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>             
+							
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 					<td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
-					<td class="statText" align="right">90.28</td>
+					<td class="statText" align="right">90.07</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>             
 							
@@ -658,9 +669,20 @@ score was seen: <b>1601.35</b> by first timer <b>Yi Zhang</b>. The runner ups in
 				<tr valign="top">
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
-					<td class="statText" align="right">84.26</td>
+					<td class="statText" align="right">85.21</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>             
+							
+				<tr valign="top">
+					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+				</tr>                             
+							
+				<tr valign="top">
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=251162">SamBob</a></td>
+					<td class="statText" align="right">84.12</td>
+					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+				</tr>     
 											
 				<tr valign="top">
 					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
@@ -672,29 +694,7 @@ score was seen: <b>1601.35</b> by first timer <b>Yi Zhang</b>. The runner ups in
 					<td class="statText" align="right">83.78</td>
 					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 				</tr>             
-							
-				<tr valign="top">
-					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-				</tr>                             
-							
-				<tr valign="top">
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=267860">atdiehm</a></td>
-					<td class="statText" align="right">83.39</td>
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-				</tr>     
 											
-				<tr valign="top">
-					<td colspan="4" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-				</tr>                             
-							
-				<tr valign="top">
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=285960">jkang</a></td>
-					<td class="statText" align="right">82.40</td>
-					<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-				</tr>             
-
 				<tr>
 					<td colspan="4"><img src="/i/clear.gif" width="1" height="10" border="0"/></td>
 				</tr>                       
