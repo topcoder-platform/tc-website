@@ -10,14 +10,13 @@ import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Date;
 
 import javax.ejb.EJBException;
 import javax.naming.NamingException;
+import java.rmi.RemoteException;
 import java.sql.SQLException;
 
 /**
@@ -33,7 +32,6 @@ public class CompanyBean implements SessionBean {
     private static Logger log = Logger.getLogger(CompanyBean.class);
     private static final String dataSourceName = "CORP_OLTP";
     private static final String idGenDataSourceName = "CORP_OLTP";
-
 
     //required ejb methods
 
@@ -70,26 +68,19 @@ public class CompanyBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            log.debug("user transaction "+ctx.lookup("javax/transaction/UserTransaction"));
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(idGenDataSourceName), "sequence_object", "name", "current_value", 9999999999L, 1, true);
             }
             ret = IdGenerator.nextId("COMPANY_SEQ");
 
             StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO company (company_id, create_date, modify_date) VALUES (?,?,?)");
-//            query.append(Long.toString(ret));
-//            query.append(",'now','now')");
+            query.append("INSERT INTO company (company_id) VALUES (");
+            query.append(Long.toString(ret));
+            query.append(")");
 
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
-            conn.setAutoCommit(false);
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, ret);
-            Date now = new Date();
-            ps.setDate(2, new java.sql.Date(now.getTime()));
-            ps.setDate(3, new java.sql.Date(now.getTime()));
-            
             int rows = ps.executeUpdate();
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows);
 
@@ -125,7 +116,6 @@ public class CompanyBean implements SessionBean {
             query.append(Long.toString(companyId));
 
             ctx = new InitialContext();
-            log.debug("user transaction "+ctx.lookup("javax/transaction/UserTransaction"));
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
@@ -165,7 +155,6 @@ public class CompanyBean implements SessionBean {
             query.append(Long.toString(companyId));
 
             ctx = new InitialContext();
-            log.debug("user transaction "+ctx.lookup("javax/transaction/UserTransaction"));
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
@@ -199,11 +188,10 @@ public class CompanyBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE company SET company_name = '" + name + "', modify_date = 'now' WHERE company_id = ");
+            query.append("UPDATE company SET company_name = '" + name + "' WHERE company_id = ");
             query.append(Long.toString(companyId));
 
             ctx = new InitialContext();
-            log.debug("user transaction "+ctx.lookup("javax/transaction/UserTransaction"));
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
@@ -235,11 +223,10 @@ public class CompanyBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE company SET primary_contact_id = " + primaryContactId + ", modify_date = 'now' WHERE company_id = ");
+            query.append("UPDATE company SET primary_contact_id = " + primaryContactId + " WHERE company_id = ");
             query.append(Long.toString(companyId));
 
             ctx = new InitialContext();
-            log.debug("user transaction "+ctx.lookup("javax/transaction/UserTransaction"));
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
