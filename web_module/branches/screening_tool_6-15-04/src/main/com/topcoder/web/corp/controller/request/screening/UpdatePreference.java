@@ -181,7 +181,7 @@ public class UpdatePreference extends BaseProcessor {
 
         // Get the resulting data
         ResultSetContainer rsc = (ResultSetContainer) map.get(Constants.CONTACT_INFO_QUERY_KEY);
-        if (rsc.size() == 0 || rsc.size() > 1) {
+        if (rsc.size() != 1) {
             throw new ScreeningException("Contact result set size wrong(" + rsc.size() + ")");
         }
 
