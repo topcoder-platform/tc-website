@@ -169,10 +169,10 @@
             <pl:responseIterator id="response" list="responseList">
                 <tr>
                     <td align="right">
-                        <pl:demographicQuestionText questions="questionMap" response="response"/>
+                        <pl:demographicQuestionText questions="<%=questionMap%>" response="<%=response%>"/>
                     </td>
                     <td align="left">
-                        <pl:demographicAnswerText questions="questionMap" response="response"/>
+                        <pl:demographicAnswerText questions="<%=questionMap%>" response="<%=response%>"/>
                     </td>
                 </tr>
             </pl:responseIterator>

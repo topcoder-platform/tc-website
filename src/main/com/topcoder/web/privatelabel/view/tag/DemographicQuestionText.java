@@ -16,7 +16,7 @@ public class DemographicQuestionText extends TagSupport {
         this.response = response;
     }
 
-    public void setQuestion(Map questions) {
+    public void setQuestions(Map questions) {
         this.questions = questions;
     }
 
