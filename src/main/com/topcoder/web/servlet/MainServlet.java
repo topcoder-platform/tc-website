@@ -27,13 +27,13 @@ import java.util.*;
 import java.util.zip.GZIPOutputStream;
 
 
-public final class TCServlet extends HttpServlet {
+public final class MainServlet extends HttpServlet {
 
 
     private HTMLRenderer htmlMaker;
     private static final String SESSION_TIMEOUT_PAGE = TCServlet.XSL_ROOT + "session_timeout.xsl";
     private static final int MAX_REPLACEMENTS = 100;
-    private static Logger log = Logger.getLogger(TCServlet.class);
+    private static Logger log = Logger.getLogger(MainServlet.class);
 
 
     public synchronized void init(ServletConfig config) throws ServletException {
@@ -108,7 +108,7 @@ public final class TCServlet extends HttpServlet {
             }
             String loggedIn = Conversion.checkNull(request.getParameter("LoggedIn"));
             if (timedOut && loggedIn.equals("true")) {
-                throw new NavigationException("TCServlet:processCommands:ERROR:session timeout:", SESSION_TIMEOUT_PAGE);
+                throw new NavigationException("MainServlet:processCommands:ERROR:session timeout:", SESSION_TIMEOUT_PAGE);
             }
             // INIT SESSION AND XML DOCUMENT
             session = request.getSession(true);
@@ -153,20 +153,20 @@ public final class TCServlet extends HttpServlet {
                     Context ctx = null;
                     try {
                         StringBuffer msg = new StringBuffer(250);
-                        msg.append("TCServlet: logged in user found with no user attributes:\n");
-                        msg.append("TCServlet: user id = ");
+                        msg.append("MainServlet: logged in user found with no user attributes:\n");
+                        msg.append("MainServlet: user id = ");
                         msg.append(nav.getUserId());
                         msg.append("\n");
-                        msg.append("TCServlet: Loading user attributes from user entity bean...");
+                        msg.append("MainServlet: Loading user attributes from user entity bean...");
                         log.debug(msg.toString());
                         ctx = TCContext.getInitial();
                         UserServicesHome userHome = (UserServicesHome) ctx.lookup("UserServicesHome");
                         UserServices userEJB = (UserServices) userHome.findByPrimaryKey(new Integer(nav.getUserId()));
                         user = userEJB.getUser();
                         nav.setUser(user);
-                        log.debug("TCServlet: user loaded from entity bean");
+                        log.debug("MainServlet: user loaded from entity bean");
                     } catch (Exception e) {
-                        throw new NavigationException("TCServlet:processCommands:ERROR READING DATABASE\n" + e, TCServlet.INTERNAL_ERROR_PAGE);
+                        throw new NavigationException("MainServlet:processCommands:ERROR READING DATABASE\n" + e, TCServlet.INTERNAL_ERROR_PAGE);
                     } finally {
                         if (ctx != null) {
                             try {
@@ -181,7 +181,7 @@ public final class TCServlet extends HttpServlet {
             } else {
                 if (loggedIn.equals("true")) {
                     StringBuffer msg = new StringBuffer(200);
-                    msg.append("TCServlet:processCommands:ERROR:");
+                    msg.append("MainServlet:processCommands:ERROR:");
                     msg.append("request indicates user is logged in, ");
                     msg.append("but the server session indicates otherwise.");
                     throw new NavigationException(msg.toString(), TCServlet.LOGGED_OUT_ERROR_PAGE);
@@ -342,7 +342,7 @@ public final class TCServlet extends HttpServlet {
                     HTMLString = appendSessionIdToURL(HTMLString, request, response);
                 }
                 out.print(HTMLString);
-                log.debug("TCServlet:NAVIGATION ERROR:\n" + ne.getMessage());
+                log.debug("MainServlet:NAVIGATION ERROR:\n" + ne.getMessage());
             } catch (Exception neFail) {
                 neFail.printStackTrace();
                 try {
@@ -424,7 +424,7 @@ public final class TCServlet extends HttpServlet {
             }
             out.print(HTMLString);
         } catch (Exception e) {
-            throw new TCException("TCServlet.showInternalError:" + e.getMessage());
+            throw new TCException("MainServlet.showInternalError:" + e.getMessage());
         }
     }
 
@@ -461,7 +461,7 @@ public final class TCServlet extends HttpServlet {
                 }
             }
         } catch (Exception e) {
-            throw new TCException("TCServlet:setupSession:ERROR:\n" + e);
+            throw new TCException("MainServlet:setupSession:ERROR:\n" + e);
         }
         return result;
     }
@@ -492,7 +492,7 @@ public final class TCServlet extends HttpServlet {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw new TCException("TCServlet:addURLTags:ERROR:\n" + e);
+            throw new TCException("MainServlet:addURLTags:ERROR:\n" + e);
         }
     }
 
@@ -504,7 +504,7 @@ public final class TCServlet extends HttpServlet {
 
     private String appendSessionIdToURL(String HTMLString, HttpServletRequest request,
                                         HttpServletResponse response) throws TCException {
-        log.debug("***TCServlet.appendSessionIdToURL:replaceURL:***");
+        log.debug("***MainServlet.appendSessionIdToURL:replaceURL:***");
         StringBuffer msg = null;
         msg = new StringBuffer(350);
         msg.append("  :Task=");
@@ -564,7 +564,7 @@ public final class TCServlet extends HttpServlet {
                 }
             }
         } catch (Exception e) {
-            throw new TCException("TCServlet:appendSessionIdToURL:ERROR:\n" + e);
+            throw new TCException("MainServlet:appendSessionIdToURL:ERROR:\n" + e);
         }
         return HTMLString;
     }
@@ -632,7 +632,7 @@ public final class TCServlet extends HttpServlet {
                     loopCount++;
                     if (loopCount > MAX_REPLACEMENTS) {
                         StringBuffer msg = new StringBuffer(100);
-                        msg.append("TCServlet:replaceURL:ERROR:");
+                        msg.append("MainServlet:replaceURL:ERROR:");
                         msg.append(Integer.toString(MAX_REPLACEMENTS));
                         msg.append(" max replacements exceeded.");
                         throw new TCException(msg.toString());
@@ -641,7 +641,7 @@ public final class TCServlet extends HttpServlet {
                 result = buf.toString();
             }
         } catch (Exception e) {
-            throw new TCException("TCServlet:replaceURL:ERROR:\n" + e);
+            throw new TCException("MainServlet:replaceURL:ERROR:\n" + e);
         }
         return result;
     }
