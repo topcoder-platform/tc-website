@@ -77,8 +77,8 @@
                     </TR>                    
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><B>Total Competitors</B></TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_pt1" CLASS="statTextBig">Part 1</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_pt2" CLASS="statTextBig">Part 2</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_pt1" CLASS="statTextBig">Part 1 Seeding</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_pt2" CLASS="statTextBig">Part 2 Seeding</A></TD>
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">1,024</TD>
