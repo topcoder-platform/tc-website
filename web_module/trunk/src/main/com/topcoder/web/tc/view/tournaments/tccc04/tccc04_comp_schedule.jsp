@@ -75,10 +75,10 @@
                         Submission deadline
                      </td>
                      <td class="sidebarText">
-                        02.02.04 11:59PM
+                        02.03.04 9:00AM
                      </td>
                      <td class="sidebarText">
-                        02.23.04 11:59PM
+                        02.24.04 9:00AM
                      </td>
                 </tr>
                 <tr valign="top">
@@ -147,10 +147,10 @@
                         Submission deadline
                      </td>
                      <td class="sidebarText">
-                        02.23.04 11:59PM
+                        02.24.04 9:00AM
                      </td>
                      <td class="sidebarText">
-                        03.15.04 11:59PM
+                        03.16.04 9:00AM
                      </td>
                 </tr>
                 <tr valign="top">
@@ -219,10 +219,10 @@
                         Submission deadline
                      </td>
                      <td class="sidebarText">
-                        04.05.04 11:59PM
+                        04.06.04 9:00AM
                      </td>
                      <td class="sidebarText">
-                        04.05.04 11:59PM
+                        04.06.04 9:00AM
                      </td>
                 </tr>
                 <tr valign="top">
