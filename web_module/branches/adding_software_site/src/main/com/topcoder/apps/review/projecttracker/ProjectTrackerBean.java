@@ -2701,7 +2701,7 @@ public class ProjectTrackerBean implements SessionBean {
                      "          pi.end_date," +
                      "          p.project_id" +
                      " ORDER BY score desc";
-        final String insertScores = "update project_results set " +
+        final String insertScores = "update project_result set " +
                                     "            final_score = ?," +
                                     "            placed = ?," +
                                     "            payment = ?" +
