@@ -143,9 +143,9 @@ public class StatisticsHttpServlet extends HttpServlet {
                 if (nav.getLoggedIn())
                     com.topcoder.common.web.util.Data.loadUser(nav);
                 if (nav.getUser() == null)
-                    log.info("[*** stats *** " + dataRequest.getContentHandle() + " ***  ***]");
+                    log.info("[**** stats **** " + dataRequest.getContentHandle() + " ****  **** " + request.getRemoteHost() + " ****]");
                 else
-                    log.info("[*** stats *** " + dataRequest.getContentHandle() + " *** " + nav.getUser().getHandle() + " ***]");
+                    log.info("[**** stats **** " + dataRequest.getContentHandle() + " **** " + nav.getUser().getHandle() + " **** " + request.getRemoteHost() + " ****]");
 
                 //hoke so that we can reload the properties file on the fly
                 if (dataRequest.getContentHandle().equals("reload")) {

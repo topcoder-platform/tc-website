@@ -47,21 +47,14 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         log.debug("in doPost");
 
-//        String command = request.getParameter(DataAccessConstants.COMMAND);
         String taskName = request.getParameter(Constants.TASK_PARAM);
         String taskStepName = request.getParameter(Constants.STEP_PARAM);
 
-        try {
-            log.debug("INCONTROLLER - " + ((Integer) request.getSession(true).getAttribute("user_id")).toString());
-        } catch (Exception ignore) {
-        }
+        log.info("[**** tces **** " + taskName + " **** " + request.getRemoteHost() + " ****]");    
 
         InitialContext ctx = null;
         try {
             ctx = (InitialContext) TCContext.getInitial();
-
-            log.debug("ctx " + ctx.toString());
-            log.debug("task = " + taskName);
 
             if (taskName != null && taskName.trim().length() > 0) {
                 // process a task
