@@ -41,10 +41,10 @@
             <p>Ever wanted to show off your TopCoder skills on your personal site? Want that ace in the hole at your next job interview? The TopCoder Member Badges and Cards are the answer, and they're <strong>free</strong>!</p>
             
             <p><span class="bodySubtitle">Member Badges</span><br/>
-            <a href="/tc?module=Static&d1=card&d2=downloads"><img src="/i/card/badge1_150x50.gif" border="0" align="right" hspace="5" vspace="5"/></a>
+            <a href="/card?module=Downloads"><img src="/i/card/badge1_150x50.gif" border="0" align="right" hspace="5" vspace="5"/></a>
             A TopCoder Badge is the perfect seal of approval for anyone trying to make their experience stand out.  Just place one of the TopCoder Badge images on your resume or website and you're sure to grab some attention.  Each graphic shows that you are a TopCoder rated member, signifying your skill as one of the best programmers around.  On our downloads page we have several sizes and variations for you to choose from.  So go pick your favorite and start showing off.</p>
 
-            <p>Go to the <a href="/tc?module=Static&d1=card&d2=downloads">TopCoder Badges downloads page</a></p>
+            <p>Go to the <a href="/card?module=Downloads">TopCoder Badges downloads page</a></p>
             
             <p><span class="bodySubtitle">Member Cards</span><br/>
             Like collectible cards?  How about a digital card that never gets worn out?  How about a card with statistics that are always up-to-the-second accurate?  Now how about a card where <strong>you</strong> are the star?  Sound good?<br/><br/>
