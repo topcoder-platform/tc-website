@@ -8,15 +8,12 @@ import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.ejb.user.UserHome;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.user.UserAddressHome;
 import com.topcoder.web.ejb.address.AddressHome;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.phone.PhoneHome;
 import com.topcoder.web.ejb.phone.Phone;
-import com.topcoder.web.ejb.email.EmailHome;
-import com.topcoder.web.ejb.email.Email;
 
 import javax.naming.InitialContext;
 import java.sql.*;
@@ -166,7 +163,6 @@ final class UserDbCoder {
             }
 
             InitialContext ctx = new InitialContext();
-            com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup("main:"+UserHome.EJB_REF_NAME)).create();
             Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
             Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
             UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
@@ -506,7 +502,6 @@ final class UserDbCoder {
             throws TCException {
         log.debug("ejb.User.UserDbCoder:updateCoder() called...");
         PreparedStatement ps = null;
-        ResultSet rs = null;
         try {
             if (coder.getModified().equals("A")) {
                 insertCoder(conn, coder);
@@ -538,7 +533,6 @@ final class UserDbCoder {
                     State state = coder.getHomeState();
                     Country country = coder.getHomeCountry();
                     Editor editorType = coder.getEditor();
-                    int i = 0;
                     ps = conn.prepareStatement(query.toString());
                     ps.setString(1, coder.getFirstName());
                     ps.setString(2, coder.getLastName());
@@ -592,7 +586,6 @@ final class UserDbCoder {
                 updateCoderConfirmations(conn, coder.getCoderConfirmations());
 
                 InitialContext ctx = new InitialContext();
-                com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup("main:"+UserHome.EJB_REF_NAME)).create();
                 Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
                 Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
                 UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
