@@ -106,7 +106,9 @@
                   <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
                      <tr>
                         <td class="bodySubtitle" valign="top">
+                           <% if (question.getImagePath()!=null) {%>
                            <img src="<jsp:getProperty name="question" property="imagePath"/>" alt="survey logo" width="100" height="70" align="left" border="0"/>
+                           <% } %>
                         </td>
                         <td colspan="3" class="bodySubtitle" valign="top" width="100%">
                            <jsp:getProperty name="question" property="text"/><br/><br/>

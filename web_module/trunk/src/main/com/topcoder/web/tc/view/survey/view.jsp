@@ -60,7 +60,9 @@
                               <hr width="100%" size="1" noshade/>
                            </td>
                         <td class="bodySubtitle" valign="top">
+                        <% if (question.getImagePath()!=null) {%>
                            <img src="<jsp:getProperty name="question" property="imagePath"/>" alt="survey logo" width="100" height="70" align="left" border="0"/>
+                           <% } %>
                         </td>
 
                            </tr>
