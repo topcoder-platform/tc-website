@@ -61,7 +61,7 @@ function openWin(url, name, w, h) {
             <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
             <td align="left" width ="100%" class="bodyText" valign="top" rowspan="2">
-               <p>Beat the odds!  These results of over 30,000,000 Monte Carlo simulations
+               <p>Beat the odds!  These results of over 10,000,000 Monte Carlo simulations
                predict your chances to advance in the 2003 TopCoder Open sponsored by Intel&#174; based only on
                your current TopCoder rating and volatility.  Prove that you're
                underrated as you advance through the Tournament.  Also remember that in any
