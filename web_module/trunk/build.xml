@@ -821,6 +821,11 @@
             <fileset dir="${java}/com/topcoder/web/privatelabel/view">
                 <include name="**/*.jsp"/>
             </fileset>
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="errorPage.jsp"/>
+                <include name="foot.jsp"/>
+                <include name="script.jsp"/>
+            </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/shared/util/"/>
                 <include name="com/topcoder/shared/dataAccess/"/>
