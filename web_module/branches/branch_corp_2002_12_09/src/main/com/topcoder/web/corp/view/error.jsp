@@ -1,10 +1,8 @@
 <%@ page language="java" 
-session="true" 
-isErrorPage="true" 
+    session="true" 
+    isErrorPage="true" 
 %>
-<% if (exception!=null) exception.printStackTrace();
-   String message = (String)request.getAttribute("message");
- %>
+<% if( exception != null ) exception.printStackTrace(); %>
 <html>
 <head>
    <TITLE>TopCoder</TITLE>
@@ -29,7 +27,7 @@ isErrorPage="true"
         <TR>
           <TD VALIGN="middle" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
           <TD><IMG SRC="/i/clear.gif" WIDTH="72" HEIGHT="1" BORDER="0" VSPACE="20"/></TD>
-          <TD CLASS="time" VALIGN="middle" NOWRAP="" ALIGN="right"><BR CLEAR="all"/><BR/><SPAN CLASS="smallBrackets">[ </SPAN> <A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="registerToday" TARGET="_parent">Register Today</A> :<span class="time"><jsp:include page="date_time.jsp" /></span><SPAN CLASS="smallBrackets">]</SPAN><BR CLEAR="ALL"/><BR CLEAR="ALL"/></TD><TD WIDTH="50" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/></TD>
+          <TD CLASS="time" VALIGN="middle" NOWRAP="" ALIGN="right"><BR CLEAR="all"/><BR/><SPAN CLASS="smallBrackets">[ </SPAN> <A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="registerToday" TARGET="_parent">Register Today</A> :<span class="time"><jsp:include page="/includes/date_time.jsp" /></span><SPAN CLASS="smallBrackets">]</SPAN><BR CLEAR="ALL"/><BR CLEAR="ALL"/></TD><TD WIDTH="50" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/></TD>
 
         </TR>
       </TABLE>
@@ -42,13 +40,35 @@ isErrorPage="true"
 </TABLE>
 
 
-
-
  <TABLE BGCOLOR="#CCCCCC" CELLSPACING="0" CELLPADDING="0" BORDER="0" HEIGHT="69%" WIDTH="100%">
  <TR>
  <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="170"> <IMG ALT="" BORDER="0" HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"></TD>
  <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="10"><IMG BORDER="0" HEIGHT="8" WIDTH="10" SRC="/i/clear.gif"></TD>
- <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText"><IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR><DIV CLASS="header"><%=message==null?"Navigation Error":message%></DIV></TD>
+ <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
+   <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
+   <DIV CLASS="header">
+
+     <!-- Error message content pane -->
+
+     You have not enough priveleges to perform this action<br>
+     If you think this page was shown by mistake, please contact us<br>
+     We are sorry for any inconveniences caused by this<br>
+     Site Administration<br><br>
+
+     <!-- web-app debug time stack trace  BEGIN -->
+     <br><hr><b><i>Debug information is provided for web application debug time only</i></b><br>
+     <pre>
+     <% Exception excCaught = (Exception)request.getAttribute("caught-exception");
+        if( excCaught != null ) {
+            excCaught.printStackTrace(new java.io.PrintWriter(out));
+        }
+     %>
+     </pre><hr>
+
+     <!-- web-app debug time stack trace END -->
+
+   </DIV>
+ </TD>
  <TD BGCOLOR="#CCCCCC" WIDTH="10"><IMG BORDER="0" HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"></TD>
  <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="170"><IMG BORDER="0" HEIGHT="1" WIDTH="170" SRC="/i/clear.gif"><BR></TD>
  <TD BGCOLOR="#CCCCCC" WIDTH="10"><IMG HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"></TD>
@@ -56,6 +76,6 @@ isErrorPage="true"
  <TD BGCOLOR="#CCCCCC" WIDTH="25"><IMG BORDER="0" HEIGHT="1" WIDTH="25" SRC="/i/clear.gif"></TD>
  </TR>
  </TABLE>
-   <jsp:include page="/foot.jsp" /> 
+   <jsp:include page="/includes/foot.jsp" /> 
 </body>
 </html>
