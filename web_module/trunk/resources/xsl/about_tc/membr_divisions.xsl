@@ -2,17 +2,17 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
+  <xsl:import href="../includes/body_top.xsl"/>
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
       <HEAD>
-        <xsl:call-template name="Preload"/>      
+        <xsl:call-template name="Preload"/>
         <TITLE>TopCoder :: About TopCoder</TITLE>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
@@ -26,11 +26,11 @@
 	<TR>
     <!-- Left Column Begins -->
 		<TD WIDTH="180" VALIGN="top">
-	<!-- Global Seconday Nav Begins -->		
-<!-- Left Column Include Begins -->	
-    <!-- Global Seconday Nav Begins -->	
+	<!-- Global Seconday Nav Begins -->
+<!-- Left Column Include Begins -->
+    <!-- Global Seconday Nav Begins -->
         <xsl:call-template name="global_left"/>
-	<!-- Global Seconday Nav Ends -->	
+	<!-- Global Seconday Nav Ends -->
 <!-- Left Column Include Ends -->
 	  	</TD>
 	<!-- Left Column Ends -->
@@ -39,7 +39,7 @@
     <!-- Gutter Ends -->
 
 <!-- Body Area -->
-	<!-- Center Column Begins -->	
+	<!-- Center Column Begins -->
 		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
@@ -55,14 +55,14 @@
  	<TR>
         <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
         <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-    </TR> 
-                <TR> 
+    </TR>
+                <TR>
           			<TD COLSPAN="2" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD>
                 </TR>
 	            <TR>
                     <TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle">&#160; &#160;</TD>
 		            <TD BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">QUESTIONS?:</TD>
-	            </TR>                    
+	            </TR>
 	            <TR>
                     <TD COLSPAN="2" VALIGN="top" BGCOLOR="#999999">
 					<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#FFFFFF">
@@ -70,11 +70,11 @@
 							<TD VALIGN="top" CLASS="smallText">&#160;&#160;</TD>
 							<TD COLSPAN="2" VALIGN="top" CLASS="bodyText"><A HREF="mailto:service@topcoder.com" CLASS="bodyText">Contact member services</A></TD>
 						</TR>
-						<TR><TD VALIGN="top" COLSPAN="3" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
+						<TR><TD VALIGN="top" COLSPAN="3" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
 					</TABLE>
 		          	</TD>
         		</TR>
- 	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
+ 	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
 </TABLE>
 <!--end contextual links-->
 					<P>TopCoder runs two divisions of competition that, to date, have been based on prize distribution. In February of 2002, divisions will be redone in order to balance out the field of competition by offering a different level of challenge. Overall, the goal for "Divisions" is to make the single round matches better balanced, more fair, and to ease first-time match participants into the TopCoder competition model.</P>
@@ -94,19 +94,18 @@
 					</TR>
 					</TABLE></DIV>
 					<P>All new members and non-rated members will compete first in Division II. As coders build their ratings with subsequent match participation &#40;or possibly with a very high rating debut&#41;, coders will move into Division I immediately upon attaining a rating of 1200 or higher. Likewise, when a coder's rating drops below 1200, they will be placed (and seeded) in Division II.</P>
-					<P><A HREF="/index?t=support&amp;c=divisions" CLASS="bodyText">:: More about Divisions</A></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>
 				<TR>
 					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
+				</TR>
 				<TR>
 					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
 					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
+				</TR>
 				<TR>
 					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
@@ -123,9 +122,9 @@
     <!-- Gutter Ends -->
 	<!-- Right Column Begins -->
 		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
-<!-- Right Column Include Begins --> 
-        <xsl:call-template name="public_right_col"/>       
-<!-- Right Column Include Ends -->        
+<!-- Right Column Include Begins -->
+        <xsl:call-template name="public_right_col"/>
+<!-- Right Column Include Ends -->
         </TD>
 	<!-- Right Column Ends -->
 	<!-- Gutter -->
