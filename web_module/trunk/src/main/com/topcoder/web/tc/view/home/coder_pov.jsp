@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/Eeyore_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=273434"><strong>Eeyore</strong></a><br/>
+                        <img src="/i/m/antimatter_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=275071"><strong>antimatter</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,18 +19,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm180_prob">SRM 180 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Thursday, January 22, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm181_prob">SRM 181 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, January 28, 2004</p>
 
                         <p>
-Three-dimensional geometry is poison to some. It was balm for <b>tjq</b>,
-who solved all three Division One problems in little more than an hour
-to win the latest single-round match. Hot on his heels came <b>haha</b>,
-finishing a fraction of a point behind. "To compute the distance between
-a line segment and a point in space is child's play," said the top two in
-a fictitious post-match interview. 
+This SRM seemed significantly easier than the last few for Division I coders, with seven 
+coders within 50 points of leader <b>tomek</b> after the coding phase.  After challenge phase, 
+however, <b>SnapDragon</b> barely pulled ahead by picking up a successful challenge, and he 
+won the match with an impressive 1629.45 points.
 
-                       <a href="/?t=statistics&amp;c=srm180_prob" class="bodyText"><strong>full&#160;story</strong></a>
+                       <a href="/?t=statistics&amp;c=srm181_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
