@@ -149,8 +149,11 @@ public class Controller extends HttpServlet {
 
                 request.setAttribute(taskName, task);
 
-                getServletContext().getRequestDispatcher(response.encodeURL(
-                        task.getNextPage())).forward(request, response);
+                if (!response.isCommitted()) {
+                    getServletContext().getRequestDispatcher(response.encodeURL(
+                            task.getNextPage())).forward(request, response);
+                }
+
             } else {
                 forwardToErrorPage(request, response,
                         new Exception("missing " + TCESConstants.TASK_PARAM

@@ -18,6 +18,9 @@ import javax.servlet.ServletOutputStream;
 import javax.naming.Context;
 import java.util.Map;
 
+/**
+ * @deprecated
+ */
 public class CorporateDownloadTask extends ResumeTask{
     private Resume resume = null;
     private static Logger log = Logger.getLogger(CorporateDownloadTask.class);

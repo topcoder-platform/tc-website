@@ -57,7 +57,7 @@ public class UserList extends BaseProcessor {
         ResultSetContainer rsc = null;
         try {
             ic = (InitialContext)TCContext.getInitial();
-            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.OLTP_DATASOURCE_NAME));
+            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME));
 
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("CORP_user_list");

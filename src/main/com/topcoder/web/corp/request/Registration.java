@@ -106,7 +106,7 @@ public final class Registration extends UserEdit {
         ResultSetContainer rsc = null;
         try {
             ic = (InitialContext)TCContext.getInitial();
-            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.OLTP_DATASOURCE_NAME));
+            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME));
             dataRequest.setContentHandle("cmd-states-list");
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("State_List");
@@ -259,7 +259,7 @@ public final class Registration extends UserEdit {
                 stateRequest.setProperty("countryID", value);
             }
             DataAccessInt dai = new DataAccess(
-                    (DataSource) ic.lookup(DBMS.JTS_OLTP_DATASOURCE_NAME)
+                    (DataSource) ic.lookup(DBMS.CORP_JTS_OLTP_DATASOURCE_NAME)
             );
             Map state = dai.getData(stateRequest);
             ResultSetContainer rsc;
