@@ -65,11 +65,11 @@
                             <xsl:choose>
                               <xsl:when test="RoundId='4175'">
                                 <!--spons,nam,top,lef,wid,hei,sta-->
-                                <a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm','Citrix','1','1','680','489')"><IMG SRC="/i/srm91_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
+                                <a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm','Citrix','1','1','660','489')"><IMG SRC="/i/srm91_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
                                 <!--<a href="Javascript:sponsorLink('/?&amp;t=sponsor&amp;c=link&amp;link=http://apps.citrix.com/CDN/Login.asp&amp;refer=srm')"><IMG SRC="/i/srm91_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>-->
                               </xsl:when>
                               <xsl:when test="RoundId='4185'">
-                                <a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm','Citrix','1','1','680','489')"><IMG SRC="/i/srm93_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
+                                <a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm','Citrix','1','1','660','489')"><IMG SRC="/i/srm93_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
                                 <!--<a href="Javascript:sponsorLink('/?&amp;t=sponsor&amp;c=link&amp;link=http://apps.citrix.com/CDN/Login.asp&amp;refer=srm')"><IMG SRC="/i/srm93_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>-->
                               </xsl:when>
                               <xsl:otherwise>

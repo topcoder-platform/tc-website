@@ -110,7 +110,7 @@ function sponsorLink(spons)
 }
 function sponsorLinkWindow(spons,nam,top,lef,wid,hei)
 {
-  w=window.open(spons,nam,"top="+top+",left="+lef+",width="+wid+",height="+hei+",resizable=yes,toolbar=yes,location=yes,scrollbars=yes,menubar=yes,status=yes");
+  w=window.open(spons,nam,"top="+top+",left="+lef+",width="+wid+",height="+hei+",resizable=no,toolbar=no,location=no,scrollbars=no,menubar=no,status=no");
   return;
 }
 function goTo(selection)
