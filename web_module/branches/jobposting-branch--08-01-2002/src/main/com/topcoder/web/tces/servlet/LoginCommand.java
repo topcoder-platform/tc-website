@@ -40,8 +40,7 @@ public class LoginCommand implements TCESCommand, Serializable {
 			isStepView=true;
 			isStepAuth=false;
 		}
-
-		if (step.equals("v")) {
+		else if (step.equals("v")) {
 			isStepAuth=false;
 			isStepView=true;
 		}
