@@ -123,6 +123,7 @@ answers.</td>
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Minimum Requirements Checklist</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 0</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -130,6 +131,7 @@ answers.</td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Diagrams exist in a .zuml file that can be opened using Poseidon.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -145,6 +147,7 @@ answers.</td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">A Class Diagram exists in the .zuml file.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -160,6 +163,7 @@ answers.</td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Use-Case Diagram(s) exist(s) in the .zuml file.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -175,6 +179,7 @@ answers.</td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Sequence Diagram(s) exist(s) in the .zuml file.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -190,6 +195,7 @@ answers.</td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Component Specification exists.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -209,6 +215,7 @@ algorithms are required in section 1.3 of the Requirements
 Specification, are algorithms defined in section 1.3 of the Component
 Specification?
 </p><p class="scorecardQuestion">If algorithms are not required, disregard this question.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -241,6 +248,7 @@ Specification?
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Class Definition</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 30</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -248,6 +256,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Provides a descriptive overview of class usage in the Documentation tab of Poseidon</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 10</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -258,7 +267,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -291,6 +300,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Where applicable sub-packages have been created to separate functionality.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 10</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -301,7 +311,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -334,6 +344,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Class scope properly matches class usage. (i.e. objects defined as public packages)</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 20</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -344,7 +355,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -377,6 +388,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Proper and effective use of inheritance and abstraction.  The Component is designed to be extended</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 20</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -387,7 +399,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -420,6 +432,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Interfaces are used appropriately.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 20</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -430,7 +443,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -463,6 +476,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Suitable constructors are defined for the component.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 10</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -473,7 +487,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -506,6 +520,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Class modifiers such as final, static, abstract are appropriately used where applicable.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 10</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -516,7 +531,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -560,6 +575,7 @@ Specification?
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Variable Definition</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 10</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -567,6 +583,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Variable scope is correctly defined (i.e. the variables are well encapsulated.)</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 33</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -577,7 +594,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -611,6 +628,7 @@ Specification?
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Type assignments are defined with respect to both efficiency and flexibility as pertains to this component.
 </p><p class="scorecardQuestion">(i.e. generic objects may be used to increase component flexibility at the cost of efficiency.)</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 34</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -621,7 +639,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -654,6 +672,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Variable details (scope, type, name, description) are defined in the 'Documentation' tab of Poseidon.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 33</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -664,7 +683,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -674,49 +693,6 @@ Specification?
 				        		    <textarea name="questions[6].responses[0].responseText" cols="65" rows="2"></textarea></td>
 				        		<td class="forumTextOdd" valign="middle" width="15%"> 
 				        		    <select name="questions[15].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-			                    </td>
-				        		<td class="forumTextOdd" valign="middle" width="5%">
-				        		    
-				        		    <input name="submit" value="Delete" class="submitButton" type="submit"></td>
-				        		<td class="forumTextOdd" valign="middle" width="5%"> 
-							        		
-				        		    
-				        		    <input name="submit" value="Add" class="submitButton" type="submit">
-							        		        
-				        		        </td>
-				        	</tr>
-				        </tbody></table>
-				    </td>
-				</tr>
-		
-	
-    
-
-	
-    
-    
-			    <tr>
-			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Variables are defined with an initial value.  The initial value may be null, but that must be stated.</p></td>
-			    	<td class="forumTextOdd" valign="top" width="10%">
-	
-	
-			    	    <select name="questions[16].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-	
-					</td>
-			    </tr>
-	
-	    
-			    <tr>
-			        <td colspan="2">
-			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-			
-				        	<tbody><tr>
-				        		<td class="forumTextOdd" nowrap="nowrap" width="15%">
-				        		    <strong>Response 1:</strong></td>
-				        		<td class="forumTextOdd" width="60%">
-				        		    <textarea name="questions[6].responses[0].responseText" cols="65" rows="2"></textarea></td>
-				        		<td class="forumTextOdd" valign="middle" width="15%"> 
-				        		    <select name="questions[16].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
 			                    </td>
 				        		<td class="forumTextOdd" valign="middle" width="5%">
 				        		    
@@ -751,6 +727,7 @@ Specification?
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Method Definition</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 15</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -758,6 +735,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Method scope is correctly defined (i.e. Not everything is public.)</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 15</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -768,7 +746,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -802,6 +780,7 @@ Specification?
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">All exceptions are properly handled and thrown.  Custom exceptions must be displayed in the diagram.
 </p><p class="scorecardQuestion">(If exceptions are not detailed in the Class Diagram, they must be detailed in the Component Specification.)</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 15</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -812,7 +791,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -845,6 +824,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Modifiers are properly used where applicable.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 14</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -855,7 +835,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -889,7 +869,8 @@ Specification?
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Return types are appropriately defined.
 </p><p class="scorecardQuestion">(i.e. instead of returning a Boolean for success/failure, an Exception is thrown).</p></td>
-			    	<td class="forumTextOdd" valign="top" width="10%">
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 14</p></td>
+			    	<td class="forumTextOdd" valign="top" width="1%">
 	
 	
 			    	    <select name="questions[20].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
@@ -899,7 +880,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -932,6 +913,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Method arguments are appropriately defined (i.e. instead of passing in 10+ arguments an object is passed in).</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 14</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -942,7 +924,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -975,6 +957,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">The required API as stated in the requirements specification is available.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 14</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -985,7 +968,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -1018,6 +1001,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Method details (scope, type, name, description) are defined in the 'Documentation' tab of Poseidon.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 14</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -1028,7 +1012,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -1072,6 +1056,7 @@ Specification?
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Diagrams</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 35</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -1079,6 +1064,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">The Use Case Diagrams reflect the functionality as outlined in the Requirements Specification.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 50</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -1089,7 +1075,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -1133,6 +1119,7 @@ Specification?
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Anonymity</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 10</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -1140,6 +1127,7 @@ Specification?
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">The submission does not contain any information identifying the designer.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 100</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -1150,7 +1138,7 @@ Specification?
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -1194,6 +1182,7 @@ Specification?
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Diagrams</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 35</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -1204,6 +1193,7 @@ Specification?
 least one Sequence Diagram exists for each concrete Use Case in the Use
 Case Diagrams. Each Sequence Diagram should have the same name as the
 Use Case it defines.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 50</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -1214,7 +1204,7 @@ Use Case it defines.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -1258,6 +1248,7 @@ Use Case it defines.</p></td>
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Overall</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 50</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -1265,6 +1256,7 @@ Use Case it defines.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Is this submission worthy of being reviewed.  </p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 100</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -1275,7 +1267,7 @@ Use Case it defines.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>

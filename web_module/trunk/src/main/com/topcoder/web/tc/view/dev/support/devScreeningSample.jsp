@@ -128,6 +128,7 @@ dropdown answers.</td>
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Development Checklist</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 0</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -135,6 +136,7 @@ dropdown answers.</td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Log File from successful execution of unit test cases. (Review the /log directory)</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -151,6 +153,7 @@ dropdown answers.</td>
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Source Code exists and compiles successfully. (Execute 'ant compile' / 'nant compile')
 </p><p class="scorecardQuestion">This may require additional packages as defined in the Component Specification.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -166,6 +169,7 @@ dropdown answers.</td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Unit Test cases exist and compile successfully. (Execute 'ant_compile_tests' / 'nantnant compile_tests')</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -184,6 +188,7 @@ dropdown answers.</td>
 and unit test source code contain reasonably complete documentation
 (Java: Javadoc style / .NET: XML). Documentation may be missing from
 some places, but this should not be a widespread issue.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -216,6 +221,7 @@ some places, but this should not be a widespread issue.</p></td>
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Documentation</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 20</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -223,6 +229,7 @@ some places, but this should not be a widespread issue.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">All public methods are clearly commented.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 34</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -233,7 +240,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -268,6 +275,7 @@ some places, but this should not be a widespread issue.</p></td>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Required tags are included.
 </p><p class="scorecardQuestion">Java: @author, @param, @return, @throws and @version
 </p><p class="scorecardQuestion">.NET: &lt;param&gt;, &lt;summary&gt;, &lt;returns&gt; and &lt;value&gt;</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 33</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -278,7 +286,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -311,6 +319,7 @@ some places, but this should not be a widespread issue.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Copyright tag is populated: Copyright © 2003, TopCoder, Inc. All rights reserved</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 33</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -321,7 +330,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -365,6 +374,7 @@ some places, but this should not be a widespread issue.</p></td>
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Standards</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 10</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -374,6 +384,7 @@ some places, but this should not be a widespread issue.</p></td>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Adheres to coding standards.
 </p><p class="scorecardQuestion">Java: http://java.sun.com/docs/codeconv/html/CodeConvTOC.doc.html
 </p><p class="scorecardQuestion">.NET: http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vsent7/html/vxconcodingtechniques.asp</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 50</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -384,7 +395,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -417,6 +428,7 @@ some places, but this should not be a widespread issue.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Code uses a 4 space indentation (not a tab)</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 50</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -427,7 +439,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -471,6 +483,7 @@ some places, but this should not be a widespread issue.</p></td>
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Design Adaptation</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 10</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -478,6 +491,7 @@ some places, but this should not be a widespread issue.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">All class definitions found in the class diagram are accurately represented in the source code</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 34</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -488,7 +502,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -521,6 +535,7 @@ some places, but this should not be a widespread issue.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">All method definitions found in the class diagram are accurately represented in the source code</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 33</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -531,7 +546,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -564,6 +579,7 @@ some places, but this should not be a widespread issue.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">All variable definitions found in the class diagram are accurately represented in the source code</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 33</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -574,7 +590,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -618,6 +634,7 @@ some places, but this should not be a widespread issue.</p></td>
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Compatibility</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 5</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -627,6 +644,7 @@ some places, but this should not be a widespread issue.</p></td>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">For Java Submissions:
 </p><p class="scorecardQuestion">Submission compiles against required targets.  (Execute 'ant compile_targets')
 </p><p class="scorecardQuestion">This will require modification of the java_1_3_bootclasspath found in build.xml</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 5</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -637,7 +655,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -681,6 +699,7 @@ some places, but this should not be a widespread issue.</p></td>
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Test Cases</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 40</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -688,6 +707,7 @@ some places, but this should not be a widespread issue.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Unit test cases exists for all public methods in the design.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 90</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -698,7 +718,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -733,6 +753,7 @@ some places, but this should not be a widespread issue.</p></td>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">For Java Submissions:
 </p><p class="scorecardQuestion">The UnitTests source file calls each unit test.
 </p><p class="scorecardQuestion">.NET Submissions should receive a 4.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 10</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -743,7 +764,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -787,6 +808,7 @@ some places, but this should not be a widespread issue.</p></td>
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Test Case Results</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 35</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -794,6 +816,7 @@ some places, but this should not be a widespread issue.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">The submission passes the unit tests submitted by the developer.  Disregard all other tests.  (Execute 'ant test' / 'nant test')</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 100</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 						 Pass: <input name="questions[15].totalPass" size="4" value="60" class="registerForm" type="text"><br>
@@ -805,7 +828,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -849,6 +872,7 @@ some places, but this should not be a widespread issue.</p></td>
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Anonymity</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 5</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -856,6 +880,7 @@ some places, but this should not be a widespread issue.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">The submission does not contain any information identifying the developer.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -866,7 +891,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -904,7 +929,68 @@ some places, but this should not be a widespread issue.</p></td>
 	
 
 	
-			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		    <table class="forumBkgd" align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
+					
+			    <tbody><tr>
+			    	<td class="forumTitle" width="90%">
+			    	    <strong>Overall</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 75</strong></td>
+			    	<td class="forumTitleCenter" width="10%">
+			    	    <strong>Response</strong></td>
+			    </tr>
+    
+    
+			    <tr>
+			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">This submission is worthy of being reviewed.</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 100</p></td>
+			    	<td class="forumTextOdd" valign="top" width="10%">
+	
+	
+			    	    <select name="questions[16].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+	
+					</td>
+			    </tr>
+	
+	    
+			    <tr>
+			        <td colspan="3">
+			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+			
+				        	<tbody><tr>
+				        		<td class="forumTextOdd" nowrap="nowrap" width="15%">
+				        		    <strong>Response 1:</strong></td>
+				        		<td class="forumTextOdd" width="60%">
+				        		    <textarea name="questions[16].responses[0].responseText" cols="65" rows="2"></textarea></td>
+				        		<td class="forumTextOdd" valign="middle" width="15%"> 
+				        		    <select name="questions[16].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+			                    </td>
+				        		<td class="forumTextOdd" valign="middle" width="5%">
+				        		    
+				        		    <input name="submit" value="Delete" onclick="set(this.form,'delete',16,0)" class="submitButton" type="submit"></td>
+				        		<td class="forumTextOdd" valign="middle" width="5%"> 
+							        		
+				        		    
+				        		    <input name="submit" value="Add" onclick="set(this.form,'add',16,0)" class="submitButton" type="submit">
+							        		        
+				        		        </td>
+				        	</tr>
+				        </tbody></table>
+				    </td>
+				</tr>
+		
+	
+    	
+		    </tbody></table>
+<!-- spacer  -->										
+		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		    	<tbody><tr>
+		    		<td class="normal"><img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1"></td>
+		    	</tr>
+		    </tbody></table>
+		
+	
+
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
 				<tbody><tr>
 					<td class="whiteBkgnd">Logs</td>
 				</tr>
@@ -916,6 +1002,7 @@ some places, but this should not be a widespread issue.</p></td>
 			    <tbody><tr>
 			    	<td class="forumTitle" width="90%">
 			    	    <strong>Logs</strong></td>
+			    	<td class="forumTitle" nowrap="nowrap"><strong>Weight: 0</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
 			    </tr>
@@ -923,6 +1010,7 @@ some places, but this should not be a widespread issue.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Paste the 'compile' log below</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -933,7 +1021,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -966,6 +1054,7 @@ some places, but this should not be a widespread issue.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Paste the 'compile_tests' log below</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -976,7 +1065,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -1009,6 +1098,7 @@ some places, but this should not be a widespread issue.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Paste the 'compile_targets' log below</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -1019,7 +1109,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
@@ -1052,6 +1142,7 @@ some places, but this should not be a widespread issue.</p></td>
     
 			    <tr>
 			    	<td class="forumTextOdd" width="90%"><p class="scorecardQuestion">Paste the 'test' log below</p></td>
+			    	<td class="forumTextOdd" nowrap="nowrap"><p class="scorecardQuestion">Weight: 1</p></td>
 			    	<td class="forumTextOdd" valign="top" width="10%">
 	
 	
@@ -1062,7 +1153,7 @@ some places, but this should not be a widespread issue.</p></td>
 	
 	    
 			    <tr>
-			        <td colspan="2">
+			        <td colspan="3">
 			            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 			
 				        	<tbody><tr>
