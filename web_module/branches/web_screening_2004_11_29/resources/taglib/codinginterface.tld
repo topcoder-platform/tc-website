@@ -12,6 +12,7 @@
     <tag>
         <name>argumentIterator</name>
         <tagclass>com.topcoder.web.codinginterface.view.tag.ArgumentIterator</tagclass>
+        <teiclass>com.topcoder.web.codinginterface.view.tag.ArgumentIteratorTEI</teiclass>
         <bodycontent>JSP</bodycontent>
         <info></info>
         <attribute>

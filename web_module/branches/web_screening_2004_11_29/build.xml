@@ -104,7 +104,7 @@
              deprecation="${deprecation}"
              debug="${debug}"
              >
-             <include name="com/topcoder/web/codinginterface/techassess/**"/>
+             <include name="com/topcoder/web/codinginterface/**"/>
              <include name="com/topcoder/web/common/**"/>
          </javac>
      </target>
