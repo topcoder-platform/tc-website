@@ -111,7 +111,7 @@ public final class TaskDevelopment {
                 devTag.addTag(new ValueTag("date", date));
                 double paymentAmt = Double.parseDouble(payment);
                 devTag.addTag(new ValueTag("payment", format.format(paymentAmt)));
-                
+                log.debug(format.format(paymentAmt*.75));
                 devTag.addTag(new ValueTag("first_payment", format.format(paymentAmt*.75)));
                 devTag.addTag(new ValueTag("second_payment", format.format(paymentAmt*.25)));
                 
