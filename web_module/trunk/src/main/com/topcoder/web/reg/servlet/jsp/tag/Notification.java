@@ -143,7 +143,7 @@ public class Notification
             s.append(" class=\"" + ccsclass + "\"");
         }
         if (selectedValues.contains(selectedKey)) {
-            s.append(" checked");
+            s.append(" checked=\"true\"");
         }
         s.append(" />");
         return s.toString();
