@@ -26,7 +26,7 @@
 		<td class="dc_bodyText">
          <p class="pageTitle">Registration</p>
 
-            <p>Registration for the DoubleClick Coding Challenge opens at 9:00AM EST on Monday, February 9th.</p>
+            <p>Registration for the DoubleClick Coding Challenge opens at 9:00AM ET on Monday, February 9th.</p>
 
 		</td>
 	</tr>

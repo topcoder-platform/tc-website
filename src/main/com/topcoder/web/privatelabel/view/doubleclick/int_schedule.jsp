@@ -45,7 +45,7 @@
             <tr>
                <td class="sidebarText">Main Competition Round - all registered participants</td>
                <td class="sidebarText">Friday, February 19</td>
-               <td class="sidebarText">1:00PM</td>
+               <td class="sidebarText">11:00AM</td>
             </tr>
             <tr>
                <td class="sidebarText">Final Round - 10 finalists</td>
