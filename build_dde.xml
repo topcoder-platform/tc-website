@@ -198,8 +198,8 @@
              <exclude name="com/topcoder/shared/problemParser/**" />
              <exclude name="com/topcoder/shared/language/**" />
          </javac>
-        <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
-        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
+        <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${build_classdir}"/>
+        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${build_classdir}"/>
     </target>
 
     <target name="package" depends="compile,build-or">
