@@ -32,12 +32,9 @@ public class WriterReport {
     try {
       TCResourceBundle bundle = new TCResourceBundle("DBMS");  
       
+      Class.forName(DBMS.INFORMIX_DRIVER);
       conn = DriverManager.getConnection(bundle.getProperty("INFORMIX_CONNECT_STRING", ""));
 
-
-
-      query = new StringBuffer(300);
-      
       query = new StringBuffer(300);
       query.append( " SELECT count(*), r.round_id, rs.start_time");
       query.append( " FROM room_result rr");
