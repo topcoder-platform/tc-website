@@ -16,21 +16,22 @@ public class Error extends Base {
     public void process() {
         super.process();
 
+        Exception e = (Exception)request.getAttribute("exception");
+        String en, et;
+        if(e==null) {
+            en = "Unknown Error";
+            et = "No trace available";
+        } else {
+            en = e.toString();
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            et = sw.toString();
+        }
+        request.setAttribute("error_name", en);
+        request.setAttribute("error_cause", et);
+
         setNextPage("/hs"+"/error.jsp");  //@@@ remove prefix... make relative to controller servlet
         setIsNextPageInContext(true);
-    }
-
-    private String checkNull(String s) {
-        return s==null?"":s;
-    }
-
-    private static boolean isLegal(String s) {
-        if(s==null) return false;
-        if(s.equals("")) return false;
-        char[] c = s.toCharArray();
-        for(int i=0; i<c.length; i++)
-            if(0 > "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_".indexOf(c[i]))
-                return false;
-        return true;
     }
 }
