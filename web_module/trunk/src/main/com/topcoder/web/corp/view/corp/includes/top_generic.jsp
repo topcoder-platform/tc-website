@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.corp.request.Login,
+         import="com.topcoder.web.corp.controller.request.Login,
                  com.topcoder.web.corp.Constants,
                  com.topcoder.shared.security.User,
                  com.topcoder.web.common.security.SessionPersistor,

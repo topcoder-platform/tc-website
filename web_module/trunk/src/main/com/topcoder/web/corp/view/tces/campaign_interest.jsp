@@ -9,7 +9,7 @@
           
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
 
-<jsp:useBean id="CampaignInterestTask" scope="request" class="com.topcoder.web.corp.request.tces.CampaignInterestTask" />
+<jsp:useBean id="CampaignInterestTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.CampaignInterestTask" />
           
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>

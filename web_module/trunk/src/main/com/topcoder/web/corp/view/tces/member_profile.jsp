@@ -22,7 +22,7 @@
   <jsp:include page="top.jsp" />
 
 
-<jsp:useBean id="MemberProfileTask" scope="request" class="com.topcoder.web.corp.request.tces.MemberProfileTask" />
+<jsp:useBean id="MemberProfileTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.MemberProfileTask" />
 
 <% ResultSetContainer MemberInfo = MemberProfileTask.getMemberInfo(); %>
 <% ResultSetContainer MemberStats = MemberProfileTask.getMemberStats(); %>

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          autoFlush="false"
          buffer="64kb"
-         import="com.topcoder.web.corp.request.Login,
+         import="com.topcoder.web.corp.controller.request.Login,
                  com.topcoder.web.corp.model.SessionInfo,
                  com.topcoder.web.corp.Constants,
                  com.topcoder.web.common.BaseServlet" %>
