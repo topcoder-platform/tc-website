@@ -153,11 +153,11 @@ public final class TaskStatic {
                     for (int i=0; i<5; i++) {
                         String regionCode = null;
                         switch(i) {
-                            case 1: regionCode = "STH"; break;
-                            case 2: regionCode = "N"; break;
-                            case 3: regionCode = "W"; break;
-                            case 4: regionCode = "MW"; break;
-                            case 5: regionCode = "INT"; break;
+                            case 0: regionCode = "STH"; break;
+                            case 1: regionCode = "N"; break;
+                            case 2: regionCode = "W"; break;
+                            case 3: regionCode = "MW"; break;
+                            case 4: regionCode = "INT"; break;
                         }
                         dataRequest.setProperty("rc", regionCode);
                         resultMap = dai.getData(dataRequest);
