@@ -24,12 +24,14 @@
       <TD class="statText" width="100%" bgcolor="#001935" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
         <TABLE WIDTH="100%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <TR><TD class="statText" COLSPAN="2">Command List</TD></TR>
+          <TD class="statTextBig">Group Name</TD>
+          <TD class="statTextBig">Command Name</TD>
           <query:resultSetRowIterator id="command" rowList="<%=CommandListTask.getCommandList()%>">
             <TR>
-              <TD>
-                <query:resultSetItem row="<%=command%>" name="command_group_desc"/>
+              <TD class="statText">
+                <query:resultSetItem row="<%=command%>" name="command_group_name"/>
               </TD>
-              <TD>
+              <TD class="statText">
                 <A HREF="<jsp:getProperty name="CommandListTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandListTask" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" class="statText">
                   <query:resultSetItem row="<%=command%>" name="command_desc"/>
                 </A>
