@@ -72,8 +72,8 @@
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
                     <td class="advCell" align="center">80.86</td>
-                    <td class="advCell" align="center">77.25</td>
-                    <td class="advCell" align="right">181.29</td>
+                    <td class="advCell" align="center">77.29</td>
+                    <td class="advCell" align="right">181.34</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
