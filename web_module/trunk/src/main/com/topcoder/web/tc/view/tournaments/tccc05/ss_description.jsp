@@ -26,9 +26,7 @@
 		<img src="/i/tournament/tccc05/ss_logo.gif" border=0 />
       </div>
 
-        <p>Want a chance to meet other TopCoder members and compete for prizes? Are you new to TopCoder and want to see what 
-        our tournaments are all about? Do you live in the San Jose area and need an excuse to get away from work on a Friday 
-        afternoon? If so, then the TCCC Spectator Showdown is for you!</p>
+        <p>Want a chance to meet other TopCoder members and compete for prizes? Are you new to TopCoder and want to see what our tournaments are all about? Do you live in the San Jose area and have always wanted to meet the TC admins? If so, then the Spectator Showdown is for you!</p>
 
 <%-- uncomment this when SS starts --%>
 <%--
@@ -40,19 +38,17 @@
 --%>
 		</p>
 
-		<p><span class="bodySubtitle">OPEN COMPETITION!</span><br/>TopCoder is introducing a competition for attendees of the 2004 TopCoder Open. The TCCC Spectator Showdown is a 
+		<p><span class="bodySubtitle">OPEN COMPETITION!</span><br/>Once again, TopCoder is holding a competition for attendees of the 2005 TopCoder Collegiate Challenge. The Spectator Showdown is a 
 		competition open to members of the event audience who want to join in the competitive spirit and battle for prizes.  
 		It's is an exciting way to see how your algorithmic skills match up against others' skills on TopCoder problems. </p> 
 
-		<p><span class="bodySubtitle">TEST YOUR SKILLS!</span><br/>We will have a separate competition room at the Santa Clara Marriott that is open from 9:00AM to 3:30PM PT on Friday, 
-		November 12. The room will be home to eight competition machines, which are being provided by Intel&#174;. Spectators 
-		at the TCCC can stop in on Friday and test their skills on one of two possible questions.</p>
+		<p><span class="bodySubtitle">TEST YOUR SKILLS!</span><br/>There will be a separate competition room at the Santa Clara Marriott that is open two different days and times - from 5:00 to 8:00PM PT on Thursday, March 10 and from Noon to 3:00PM PT on Friday, March 11. The room will be home to eight competition machines, which are being provided by Intel&#174;. Spectators 
+		at the TCCC can stop in on either day to test their skills on the problem sets.</p>
 
-		<p><span class="bodySubtitle">PRIZES!</span><br/>Two grand prizes will be given away right before the Championship announcements are made for the Algorithm and 
-		Component Competitions. Each grand prize includes a <strong>Microsoft&#174; Xbox video game console</strong>, an <strong>NVIDIA&#174; graphics 
-		card</strong> and a <strong>Yahoo!&#174; gift pack</strong>.  <a href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_rules','comp',545,655);">Click here</a> for the complete <a href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_rules','comp',545,655);">rules</A>.</p>
+		<p><span class="bodySubtitle">PRIZES!</span><br/>Two grand prizes - one for the high scorers each day - will be given away right before the Championship announcements are made for the Algorithm and 
+		Component Competitions on Friday, March 12. Each grand prize includes a Yahoo!&#174; gift pack, a Motorola&#174; cell phone, an NVIDIA&#174; gift pack and a TopCoder&#174; gift pack.  <a href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_rules','comp',545,655);">Click here</a> for the complete <a href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_rules','comp',545,655);">rules</A>.</p>
 
-		<p>We hope to see you there!</p>
+		<p>Show up your friends and show off your skills at the Spectator Showdown!</p>
 
         </div>
 		</td>
