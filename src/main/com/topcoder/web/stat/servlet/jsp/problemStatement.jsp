@@ -107,7 +107,7 @@ while (strtok.hasMoreTokens()){
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="problemText" VALIGN="middle" ALIGN="left">
-              		<%= problem.toHTML(JavaLanguage.JAVA_LANGUAGE, false); %>
+              		<%= problem.toHTML(JavaLanguage.JAVA_LANGUAGE, false) %>
                    </TD>
                  </TR>
                  <TR>
