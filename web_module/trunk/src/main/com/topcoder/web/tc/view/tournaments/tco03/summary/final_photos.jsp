@@ -65,25 +65,25 @@
             <table border="0" cellspacing="0" cellpadding="3" width="100%">            
                 <tr>
                     <td class="thumbnails" align="center">
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/final/01.jpg');"><img src="/i/tournament/tco03/final/01_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/final/02.jpg');"><img src="/i/tournament/tco03/final/02_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/final/03.jpg');"><img src="/i/tournament/tco03/final/03_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/final/04.jpg');"><img src="/i/tournament/tco03/final/04_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/final/05.jpg');"><img src="/i/tournament/tco03/final/05_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/events/crpf03/photos/01.jpg');"><img src="/i/events/crpf03/photos/01_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/events/crpf03/photos/02.jpg');"><img src="/i/events/crpf03/photos/02_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/events/crpf03/photos/03.jpg');"><img src="/i/events/crpf03/photos/03_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/events/crpf03/photos/04.jpg');"><img src="/i/events/crpf03/photos/04_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/events/crpf03/photos/05.jpg');"><img src="/i/events/crpf03/photos/05_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
                     </td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText" align="center"><img src="/i/tournament/tco03/final/01.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig" /></td>
+                    <td class="bodyText" align="center"><img src="/i/events/crpf03/photos/01.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig" /></td>
                 </tr>            
                 
                 <tr>
                     <td class="thumbnails" align="center">
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/final/06.jpg');"><img src="/i/tournament/tco03/final/06_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/final/07.jpg');"><img src="/i/tournament/tco03/final/07_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/final/08.jpg');"><img src="/i/tournament/tco03/final/08_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/final/09.jpg');"><img src="/i/tournament/tco03/final/09_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/final/10.jpg');"><img src="/i/tournament/tco03/final/10_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/events/crpf03/photos/06.jpg');"><img src="/i/events/crpf03/photos/06_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/events/crpf03/photos/07.jpg');"><img src="/i/events/crpf03/photos/07_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/events/crpf03/photos/08.jpg');"><img src="/i/events/crpf03/photos/08_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/events/crpf03/photos/09.jpg');"><img src="/i/events/crpf03/photos/09_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/events/crpf03/photos/10.jpg');"><img src="/i/events/crpf03/photos/10_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
                     </td>
                 </tr>
             </table>
