@@ -11,7 +11,11 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.Persistor;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.security.TCSubject;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -32,11 +36,15 @@ abstract class RegistrationBase extends BaseProcessor {
     protected static final TCSubject CREATE_USER = new TCSubject(100000);
 
     protected final void businessProcessing() throws TCWebException {
-        p = new SessionPersistor(getRequest().getSession(true));
-        regInfo = makeRegInfo();
-        db = getCompanyDb(regInfo.getCompanyId());
-        p.setObject(Constants.REGISTRATION_INFO, regInfo);
-        registrationProcessing();
+        try {
+            p = new SessionPersistor(getRequest().getSession(true));
+            regInfo = makeRegInfo();
+            db = getCompanyDb(regInfo.getCompanyId());
+            p.setObject(Constants.REGISTRATION_INFO, regInfo);
+            registrationProcessing();
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
     }
 
     protected void clearRegInfo() {
@@ -49,7 +57,7 @@ abstract class RegistrationBase extends BaseProcessor {
      * is called in child classes.
      * @return
      */
-    protected abstract SimpleRegInfo makeRegInfo();
+    protected abstract SimpleRegInfo makeRegInfo() throws Exception;
 
     /**
      * subclasses must implement this method to do their
@@ -66,19 +74,22 @@ abstract class RegistrationBase extends BaseProcessor {
     public DataAccessInt getDataAccess() throws Exception {
         return getDataAccess(db, false);
     }
+
     public DataAccessInt getDataAccess(boolean cached) throws Exception {
         return getDataAccess(db, cached);
     }
 
     public DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
-        if(datasource == null) return null;
+        if (datasource == null) return null;
         InitialContext context = new InitialContext();
         DataSource ds = (DataSource)
-            PortableRemoteObject.narrow(context.lookup(datasource),
-                                        DataSource.class);
+                PortableRemoteObject.narrow(context.lookup(datasource),
+                        DataSource.class);
         DataAccessInt dAccess = null;
-        if (cached) dAccess = new CachedDataAccess(ds);
-        else dAccess = new DataAccess(ds);
+        if (cached)
+            dAccess = new CachedDataAccess(ds);
+        else
+            dAccess = new DataAccess(ds);
         return dAccess;
     }
 
@@ -86,7 +97,7 @@ abstract class RegistrationBase extends BaseProcessor {
         ResultSetContainer list = getStateList();
         ResultSetContainer.ResultSetRow row = null;
         for (Iterator it = list.iterator(); it.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow)it.next();
+            row = (ResultSetContainer.ResultSetRow) it.next();
             if (row.getItem("state_code").toString().equals(stateCode))
                 return row.getItem("state_name").toString();
         }
@@ -97,7 +108,7 @@ abstract class RegistrationBase extends BaseProcessor {
         ResultSetContainer list = getCountryList();
         ResultSetContainer.ResultSetRow row = null;
         for (Iterator it = list.iterator(); it.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow)it.next();
+            row = (ResultSetContainer.ResultSetRow) it.next();
             if (row.getItem("country_code").toString().equals(countryCode))
                 return row.getItem("country_name").toString();
         }
@@ -132,4 +143,26 @@ abstract class RegistrationBase extends BaseProcessor {
         }
     }
 
+    protected final PrincipalMgrRemote getPrincipalManager() throws Exception {
+        InitialContext ctx = null;
+        try {
+            ctx = (InitialContext) TCContext.getContext(
+                    ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                    ApplicationServer.SECURITY_PROVIDER_URL);
+            PrincipalMgrRemoteHome rHome = (PrincipalMgrRemoteHome)
+                    ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+
+            PrincipalMgrRemote mgr = rHome.create();
+            return mgr;
+        } finally {
+            close(ctx);
+        }
+
+    }
+
+     protected String getRequestParameter(String name) throws Exception {
+        String ret = null;
+        ret = getRequest().getParameter(name);
+        return ret;
+    }
 }

@@ -2,7 +2,7 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="registrationInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -13,27 +13,27 @@
     <table cellpadding="1" cellspacing="3">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.SIMPLE_REG_SUBMIT%>"/>
-            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="registrationInfo" property="CompanyId"/>"/>
-            <input type="hidden" name="<%=Constants.HANDLE%>" value="<jsp:getProperty name="registrationInfo" property="Handle"/>"/>
-            <input type="hidden" name="<%=Constants.LAST_NAME%>" value="<jsp:getProperty name="registrationInfo" property="FirstName"/>"/>
-            <input type="hidden" name="<%=Constants.FIRST_NAME%>" value="<jsp:getProperty name="registrationInfo" property="LastName"/>"/>
-            <input type="hidden" name="<%=Constants.PASSWORD%>" value="<jsp:getProperty name="registrationInfo" property="Password"/>"/>
-            <input type="hidden" name="<%=Constants.PASSWORD_CONFIRM%>" value="<jsp:getProperty name="registrationInfo" property="PasswordConfirm"/>"/>
-            <input type="hidden" name="<%=Constants.EMAIL%>" value="<jsp:getProperty name="registrationInfo" property="Email"/>"/>
-            <input type="hidden" name="<%=Constants.EMAIL_CONFIRM%>" value="<jsp:getProperty name="registrationInfo" property="EmailConfirm"/>"/>
-            <input type="hidden" name="<%=Constants.ADDRESS1%>" value="<jsp:getProperty name="registrationInfo" property="Address1"/>"/>
-            <input type="hidden" name="<%=Constants.ADDRESS2%>" value="<jsp:getProperty name="registrationInfo" property="Address2"/>"/>
-            <input type="hidden" name="<%=Constants.CITY%>" value="<jsp:getProperty name="registrationInfo" property="City"/>"/>
-            <input type="hidden" name="<%=Constants.ZIP%>" value="<jsp:getProperty name="registrationInfo" property="Zip"/>"/>
-            <input type="hidden" name="<%=Constants.STATE_CODE%>" value="<jsp:getProperty name="registrationInfo" property="StateCode"/>"/>
-            <input type="hidden" name="<%=Constants.COUNTRY_CODE%>" value="<jsp:getProperty name="registrationInfo" property="CountryCode"/>"/>
+            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
+            <input type="hidden" name="<%=Constants.HANDLE%>" value="<jsp:getProperty name="regInfo" property="Handle"/>"/>
+            <input type="hidden" name="<%=Constants.LAST_NAME%>" value="<jsp:getProperty name="regInfo" property="FirstName"/>"/>
+            <input type="hidden" name="<%=Constants.FIRST_NAME%>" value="<jsp:getProperty name="regInfo" property="LastName"/>"/>
+            <input type="hidden" name="<%=Constants.PASSWORD%>" value="<jsp:getProperty name="regInfo" property="Password"/>"/>
+            <input type="hidden" name="<%=Constants.PASSWORD_CONFIRM%>" value="<jsp:getProperty name="regInfo" property="PasswordConfirm"/>"/>
+            <input type="hidden" name="<%=Constants.EMAIL%>" value="<jsp:getProperty name="regInfo" property="Email"/>"/>
+            <input type="hidden" name="<%=Constants.EMAIL_CONFIRM%>" value="<jsp:getProperty name="regInfo" property="EmailConfirm"/>"/>
+            <input type="hidden" name="<%=Constants.ADDRESS1%>" value="<jsp:getProperty name="regInfo" property="Address1"/>"/>
+            <input type="hidden" name="<%=Constants.ADDRESS2%>" value="<jsp:getProperty name="regInfo" property="Address2"/>"/>
+            <input type="hidden" name="<%=Constants.CITY%>" value="<jsp:getProperty name="regInfo" property="City"/>"/>
+            <input type="hidden" name="<%=Constants.ZIP%>" value="<jsp:getProperty name="regInfo" property="Zip"/>"/>
+            <input type="hidden" name="<%=Constants.STATE_CODE%>" value="<jsp:getProperty name="regInfo" property="StateCode"/>"/>
+            <input type="hidden" name="<%=Constants.COUNTRY_CODE%>" value="<jsp:getProperty name="regInfo" property="CountryCode"/>"/>
 
             <tr>
                 <td align="right">
                     Handle
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="registrationInfo" property="Handle"/>
+                    <jsp:getProperty name="regInfo" property="Handle"/>
                 </td>
             </tr>
 
@@ -42,7 +42,7 @@
                     First Name
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="registrationInfo" property="FirstName"/>
+                    <jsp:getProperty name="regInfo" property="FirstName"/>
                 </td>
             </tr>
 
@@ -51,7 +51,7 @@
                     Last Name
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="registrationInfo" property="LastName"/>
+                    <jsp:getProperty name="regInfo" property="LastName"/>
                 </td>
             </tr>
 
@@ -78,7 +78,7 @@
                     Email Address
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="registrationInfo" property="Email"/>
+                    <jsp:getProperty name="regInfo" property="Email"/>
                 </td>
             </tr>
 
@@ -87,7 +87,7 @@
                     Confirm Email Address
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="registrationInfo" property="EmailConfirm"/>
+                    <jsp:getProperty name="regInfo" property="EmailConfirm"/>
                 </td>
             </tr>
 
@@ -96,7 +96,7 @@
                     Address1
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="registrationInfo" property="Address1"/>
+                    <jsp:getProperty name="regInfo" property="Address1"/>
                 </td>
             </tr>
 
@@ -105,7 +105,7 @@
                     Address2
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="registrationInfo" property="Address2"/>
+                    <jsp:getProperty name="regInfo" property="Address2"/>
                 </td>
             </tr>
 
@@ -114,7 +114,7 @@
                     City
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="registrationInfo" property="City"/>
+                    <jsp:getProperty name="regInfo" property="City"/>
                 </td>
             </tr>
 
@@ -123,7 +123,7 @@
                     Zip Code
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="registrationInfo" property="Zip"/>
+                    <jsp:getProperty name="regInfo" property="Zip"/>
                 </td>
             </tr>
 
@@ -132,7 +132,7 @@
                     State
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="registrationInfo" property="StateName"/>
+                    <jsp:getProperty name="regInfo" property="StateName"/>
                 </td>
             </tr>
 
@@ -141,7 +141,7 @@
                     Country
                 </td>
                 <td align="left">
-                    <jsp:getProperty name="registrationInfo" property="CountryName"/>
+                    <jsp:getProperty name="regInfo" property="CountryName"/>
                 </td>
             </tr>
 

@@ -21,12 +21,16 @@ public class Constants {
     /**
      *  variables that shouldn't be initialized
      */
-    private static String[] ignoreList = {"log", "isInitialized", "ignoreList"};
+    private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "STUDENT", "PROFESSIONAL"};
 
     //pages
     public static String SIMPLE_REG_PAGE;
     public static String SIMPLE_REG_CONFIRM_PAGE;
     public static String SIMPLE_REG_SUCCESS_PAGE;
+    public static String VERIZON_REG_PAGE;
+    public static String VERIZON_REG_DEMOG_PAGE;
+    public static String VERIZON_REG_CONFIRM_PAGE;
+    public static String VERIZON_REG_SUCCESS_PAGE;
     public static String DEFAULT_PAGE;
 
     //parameter keys
@@ -47,6 +51,9 @@ public class Constants {
     public static String STATIC_PREFIX;
     public static String COMPANY_ID;
     public static String REGISTRATION_INFO;
+    public static String FILE_TYPE;
+    public static String CODER_TYPE;
+    public static String RESUME;
 
     //rules
     public static int MAX_PASSWORD_LENGTH;
@@ -61,9 +68,12 @@ public class Constants {
     public static String SIMPLE_REG_CONFIRM;
     public static String SIMPLE_REG_SUBMIT;
 
-
     //DB's
     public static String REGISTRATION_DB;
+
+    //various constants
+    public static final int STUDENT = 1;
+    public static final int PROFESSIONAL = 2;
 
     private Constants() {
     }

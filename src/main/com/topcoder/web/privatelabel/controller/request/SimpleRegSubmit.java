@@ -8,9 +8,6 @@ import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.shared.util.Transaction;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.GroupPrincipal;
@@ -66,24 +63,15 @@ public class SimpleRegSubmit extends SimpleRegBase {
             } catch (Exception ex) {
                 throw new TCWebException(ex);
             }
-            InitialContext securityCtx = null;
             try {
                 //since we don't have a transaction spanning the security
                 //stuff, attempt to remove this newly created user manually
                 if (newUser!=null && newUser.getId()>0) {
-                    securityCtx = (InitialContext) TCContext.getContext(
-                                        ApplicationServer.SECURITY_CONTEXT_FACTORY,
-                                        ApplicationServer.SECURITY_PROVIDER_URL);
-                    PrincipalMgrRemoteHome rHome = (PrincipalMgrRemoteHome)
-                                        securityCtx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-
-                    PrincipalMgrRemote mgr = rHome.create();
+                    PrincipalMgrRemote mgr = getPrincipalManager();
                     mgr.removeUser(newUser, CREATE_USER);
                 }
             } catch (Exception ex) {
                 throw new TCWebException(ex);
-            } finally {
-                close(securityCtx);
             }
             throw new TCWebException(e);
         }
@@ -91,7 +79,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
 
     private UserPrincipal store(SimpleRegInfo regInfo) throws Exception {
         InitialContext ctx = null;
-        InitialContext securityCtx = null;
         try {
             ctx = new InitialContext();
             User user = (User)createEJB(ctx, User.class, "main:");
@@ -99,14 +86,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
             Email email = (Email)createEJB(ctx, Email.class, "main:");
             UserAddress userAddress = (UserAddress)createEJB(ctx, UserAddress.class, "main:");
 
-
-            securityCtx = (InitialContext) TCContext.getContext(
-                                ApplicationServer.SECURITY_CONTEXT_FACTORY,
-                                ApplicationServer.SECURITY_PROVIDER_URL);
-            PrincipalMgrRemoteHome rHome = (PrincipalMgrRemoteHome)
-                                securityCtx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-
-            PrincipalMgrRemote mgr = rHome.create();
+            PrincipalMgrRemote mgr = getPrincipalManager();
 
             UserPrincipal newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
 
@@ -166,7 +146,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
             return newUser;
         } finally {
             close(ctx);
-            close(securityCtx);
         }
 
     }
