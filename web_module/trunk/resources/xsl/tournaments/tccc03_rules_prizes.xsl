@@ -60,46 +60,52 @@
 	<!-- Coder of the Week Pulldown Ends -->
 	<BR/>
 	<xsl:call-template name="tccc03rule_links"/>
-					<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-						<TR><TD VALIGN="middle" COLSPAN="3" HEIGHT="16" CLASS="statText"><BR/>
-						<DIV CLASS="statTextBig">About the Prizes</DIV>
-						To advance to the onsite Semifinal and Championship rounds, contestants must first successfully compete in the online Regional rounds.  TopCoder will pay for reasonable transportation and 
-						accommodation costs for each contestant competing in the onsite Semifinal and Championship rounds in Cambridge, MA, and a guest of his/her choice.  A contestant must be 
-						present, in person, at the onsite Semifinal and Championship rounds in order to advance or to receive any prizes. Prizes are structured as follows:<BR/><BR/>
-						
-						<DIV CLASS="statTextBig">Online Regional Quarter-Finals</DIV>
-						Wednesday, February 26, 2003 (100 coders per room).  200 advancers win the following: <UL>
-						<LI>$50**</LI>
-						<LI>Automatic bid to the Online Semifinal Round</LI></UL>
-						<BR/>
-						
-						<DIV CLASS="statTextBig">Online Regional Semifinals</DIV>
-						Wednesday, March 5, 2003 (40 coders per room).  50 advancers win the following: <UL>
-						<LI>$50**</LI>
-						<LI>Automatic bid to the Online Regional Final Round</LI></UL>
-						<BR/>						
-												
-						<DIV CLASS="statTextBig">Online Regional Final Round</DIV>
-						Wednesday, March 12, 2003 (10 coders per room).  The winner of the room (the "Regional Champion") wins the following: <UL>
-						<LI>$600**</LI>
-						<LI>Automatic bid to the Onsite Semifinal round</LI></UL>
-						<B>NOTE:</B> All Regional Champions must participate in the onsite Semifinal rounds to receive prizes.<BR/><BR/>
-						
-						<DIV CLASS="statTextBig">Semifinal Rounds (onsite at the University Park Hotel @ MIT):</DIV>
-						Friday, April 4, 2003 (16 coders compete - 4 advance).  The 16 Semifinalists will be split into 4 rooms.  The winner of each room 
-						advances to the Championship round. The 12 non-advancing semifinalists will win $1,000** each.<BR/><BR/>
-						
-						<DIV CLASS="statTextBig">Championship Round (onsite at the University Park Hotel @ MIT):</DIV>
-						Saturday, April 5, 2003 (4 coders compete - 1 wins).  Within the final group of 4: <UL>
-						<LI>4th place prize $2,500**</LI>
-						<LI>3rd place prize $5,000**</LI>
-						<LI>2nd place prize $15,000**</LI>
-						<LI>Grand Prize (1st place) wins $50,000**</LI></UL><BR/>
-						** All prizes will be awarded at the conclusion of the final onsite round of competition.  All winners must be present at the onsite rounds to receive their prizes.  Any and all 
-						applicable taxes on prizes including bringing a guest to the onsite rounds are the sole responsibility of the prizewinner.<BR/><BR/>
-						</TD>
+<P class="statText">
+Prizes will be awarded to a total of 200 competitors.  Prize money will be distributed as follows:
+</P>
+	
+						<DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="1" CELLPADDING="6" CELLSPACING="0">																		
+						<TR>
+							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Competitor(s)</TD>
+							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Prize Money</TD>
 						</TR>
-					</TABLE>
+						<TR>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">200 advancers from Regional Quarterfinal Round who compete in Regional Semifinal Round</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$50 each</TD>
+						</TR>						
+						<TR>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">50 advancers from Regional Semifinal Round who compete in Regional Championship Round</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$50 each</TD>
+						</TR>
+						<TR>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">5 Regional Champions</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$600 each</TD>
+						</TR>
+						<TR>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">12 competitors who compete in the Semifinal Round who do not advance to the Championship Round</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$1,000 each</TD>
+						</TR>
+						<TR>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">4th place finisher in the Championship Round</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$2,500</TD>
+						</TR>
+						<TR>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">3rd place finisher in the Championship Round</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$5,000</TD>
+						</TR>																								
+						<TR>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">2nd place finisher in the Championship Round</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$15,000</TD>
+						</TR>
+						<TR>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText"><B>1st place finisher - Tournament Champion</B></TD>
+							<TD VALIGN="top" BGCOLOR="#666666" class="statText"><B>$50,000</B></TD>
+						</TR>																										
+						</TABLE></DIV><BR/>
+<P CLASS="statText">
+** All prizes will be awarded at the conclusion of the final onsite round of competition. All winners must be present at the onsite rounds to receive their prizes. Any and all applicable taxes on prizes including bringing a guest to the onsite rounds are the sole responsibility of the prizewinner.						
+</P>
+
 					<P><BR/></P>
 		</TD>
 		<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
