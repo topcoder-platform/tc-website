@@ -17,7 +17,7 @@
 
 <script>
 function openWin(url, name, w, h) {
-    win = window.open(url, 'biowin', "scrollbars=auto,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+    win = window.open(url, 'biowin', "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
     win.location.href = url;
     win.focus();
 }
@@ -25,7 +25,7 @@ function openWin(url, name, w, h) {
 
 <xsl:call-template name="Preload"/>      
 
-<title>Intel is the title sponsor of the 2003 TopCoder Open</title>
+<title>Intel&#174; is the title sponsor of the 2003 TopCoder Open</title>
 
 <xsl:call-template name="CSS"/>      
 
