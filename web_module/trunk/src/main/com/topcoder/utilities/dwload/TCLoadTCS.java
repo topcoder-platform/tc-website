@@ -683,7 +683,8 @@ public class TCLoadTCS extends TCLoad {
                             "c.start_date as contest_start_timestamp, " +
                             "c.end_date as contest_end_timestamp, " +
                             "c.contest_type_id, " +
-                            "ct.contest_type_desc " +
+                            "ct.contest_type_desc," +
+                            "c.phase_id  " +
                             "from contest c, " +
                             "contest_type_lu ct " +
                             "where ct.contest_type_id = c.contest_type_id";
@@ -696,7 +697,7 @@ public class TCLoadTCS extends TCLoad {
                 log.info("PROCESSING CONTEST " + rs.getInt("contest_id"));
 
                 //update record, if 0 rows affected, insert record
-                sSQL = "update contest set contest_name = ?,  contest_start_timestamp = ?, contest_end_timestamp = ?, contest_type_id = ?, contest_type_desc = ? " +
+                sSQL = "update contest set contest_name = ?,  contest_start_timestamp = ?, contest_end_timestamp = ?, contest_type_id = ?, contest_type_desc = ?, phase_id = ? " +
                         " where contest_id = ? ";
 
                 ps2 = prepareStatement(sSQL, TARGET_DB);
@@ -705,7 +706,8 @@ public class TCLoadTCS extends TCLoad {
                 ps2.setObject(3, rs.getObject("contest_end_timestamp"));
                 ps2.setObject(4, rs.getObject("contest_type_id"));
                 ps2.setObject(5, rs.getObject("contest_type_desc"));
-                ps2.setLong(6, rs.getLong("contest_id"));
+                ps2.setObject(6, rs.getObject("phase_id"));
+                ps2.setLong(7, rs.getLong("contest_id"));
 
                 int retVal = ps2.executeUpdate();
 
@@ -715,7 +717,7 @@ public class TCLoadTCS extends TCLoad {
                 if(retVal == 0)
                 {
                     //need to insert
-                    sSQL = "insert into contest (contest_id, contest_name, contest_start_timestamp, contest_end_timestamp, contest_type_id, contest_type_desc) " +
+                    sSQL = "insert into contest (contest_id, contest_name, contest_start_timestamp, contest_end_timestamp, contest_type_id, contest_type_desc, phase_id) " +
                            "values (?, ?, ?, ?, ?, ?) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
@@ -725,6 +727,7 @@ public class TCLoadTCS extends TCLoad {
                     ps2.setObject(4, rs.getObject("contest_end_timestamp"));
                     ps2.setObject(5, rs.getObject("contest_type_id"));
                     ps2.setObject(6, rs.getObject("contest_type_desc"));
+                    ps2.setObject(7, rs.getObject("phase_id"));
 
                     ps2.execute();
 
