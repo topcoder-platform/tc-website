@@ -95,6 +95,11 @@ public abstract class BaseServlet extends HttpServlet {
         SessionInfo info = null;
 
         try {
+            if (!request.getRequestURI().endsWith(getServletConfig().getServletName())) {
+                fetchRegularPage(request, response, getServletConfig().getServletName(), false);
+                return;
+            }
+
             //set up security objects and session info
             authentication = createAuthentication(request, response);
             TCSubject user = getUser(authentication.getActiveUser().getId());
