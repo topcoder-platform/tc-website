@@ -90,7 +90,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         results = getDataAccess().getData(r);
         detail = (ResultSetContainer) results.get("pm_details");
         
-        String address = detail.getStringItem(0,"details");
+        String address = detail.getStringItem(0,"address");
         log.info("ORIGINAL ADDRESS IS: " + address);
         
         TCSEmailMessage mail = new TCSEmailMessage();
