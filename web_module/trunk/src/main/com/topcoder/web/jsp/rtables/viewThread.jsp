@@ -22,42 +22,49 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
-  <HEAD>
-    <TITLE>Round Tables</TITLE>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-    <jsp:include page="../script.jsp" />
-    <%@ include file="rating.jsp" %>
-  </HEAD>
-  <BODY>
-    <jsp:include page="../top.jsp" />
-    <!--------main content table------------>
-    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-      <TR>
-        <!-- Left Column Begins -->
+
+<HEAD>
+
+<TITLE>Round Tables</TITLE>
+
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+
+<jsp:include page="../script.jsp" />
+
+<%@ include file="rating.jsp" %>
+
+</HEAD>
+
+<BODY>
+
+<jsp:include page="../top.jsp" />
+
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+    <TR>
+
+<!-- Left Column Begins -->
         <TD WIDTH="180" VALIGN="top">
-          <!-- Left Column Include Begins -->
-          <!-- Global Seconday Nav Begins -->
-         <jsp:include page="../includes/global_left.jsp" />
-          <!-- Global Seconday Nav Ends -->
-          <!-- Left Column Include Ends -->
+            <jsp:include page="../includes/global_left.jsp" />
         </TD>
-        <!-- Left Column Ends -->
-        <!-- Gutter Begins -->
+<!-- Left Column Ends -->
+
+<!-- Gutter Begins -->
         <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-        <!-- Center Column Begins -->
+<!-- Gutter Ends -->
+
+<!-- Center Column Begins -->
         <TD class="statText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="round_tables"/>
-           <jsp:param name="image1" value="steelblue"/>
-           <jsp:param name="title" value="View Threads"/>
-        </jsp:include>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
-  <TR>
-    <TD BGCOLOR="#001B35" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+            <jsp:include page="../body_top.jsp" >
+                <jsp:param name="image" value="round_tables"/>
+                <jsp:param name="image1" value="steelblue"/>
+                <jsp:param name="title" value="View Threads"/>
+            </jsp:include>
+
+            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
+                <TR VALIGN="top">
+                    <TD BGCOLOR="#001B35" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+                    <TD class="statText" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="10" BORDER="0"/><br>
 
 <%  ////////////////////////
   // authorization check
@@ -331,130 +338,65 @@ int numReplies = thread.getMessageCount()-1;
 
      
      <!---------header table------------->
-    <table width="100%" cellspacing="0" cellpadding="0" border="0">
-    
-      <tr>
-        <td valign="top" height="5"><img src="/i/clear.gif" width="1" height="5" /></td>
-      </tr>
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr><td valign="top" height="5"><img src="/i/clear.gif" width="1" height="5" /></td></tr>
       
 <% if (responseURL=="") {%>
-      <tr>
-        <td valign="middle" class="statText"><a href="/rtables/index.jsp" class="statText">[ view round tables ]</a> &#160;<a href="/rtables/viewForum.jsp?forum=<%=forumID%>" class="statText">[ view threads ]</a> &#160;<a href="/rtables/post.jsp?mode=new&forum=<%=forumID%>" class="statText">[ post new message ]</a> &#160;<a href="/rtables/search.jsp?forum=<%=forumID%>" class="statText">[ search ]</a> &#160;</td>
-      </tr>
+                            <tr><td valign="middle" class="statText"><a href="/rtables/index.jsp" class="statText">[ view round tables ]</a> &#160;<a href="/rtables/viewForum.jsp?forum=<%=forumID%>" class="statText">[ view threads ]</a> &#160;<a href="/rtables/post.jsp?mode=new&forum=<%=forumID%>" class="statText">[ post new message ]</a> &#160;<a href="/rtables/search.jsp?forum=<%=forumID%>" class="statText">[ search ]</a> &#160;</td></tr>
 <% } else {%>
-      <tr>
-        <td valign="middle" class="statText"><a href="/rtables/index.jsp" class="statText">[ view round tables ]</a> &#160;<a href="/rtables/viewForum.jsp?forum=<%=forumID%>" class="statText">[ view threads ]</a> &#160;<a href="/rtables/post.jsp?mode=new&forum=<%=forumID%>" class="statText">[ post new message ]</a> &#160;<a href="/rtables/search.jsp?forum=<%=forumID%>" class="statText">[ search ]</a> &#160;</td>
-      </tr>
+                            <tr><td valign="middle" class="statText"><a href="/rtables/index.jsp" class="statText">[ view round tables ]</a> &#160;<a href="/rtables/viewForum.jsp?forum=<%=forumID%>" class="statText">[ view threads ]</a> &#160;<a href="/rtables/post.jsp?mode=new&forum=<%=forumID%>" class="statText">[ post new message ]</a> &#160;<a href="/rtables/search.jsp?forum=<%=forumID%>" class="statText">[ search ]</a> &#160;</td></tr>
 <% } %>
-
-
      
-    </table>
+                        </table>
      <!---------end header table------------->
      
      <br>         
    
 <%-- root message --%>
-      <table width="100%" cellspacing="0" cellpadding="0" border="0">
-       
-        <tr>
-          <td><img src="/i/clear.gif" width="1" height="1" /></td>
-          <td><img src="/i/clear.gif" width="1" height="1" /></td>
-          <td><img src="/i/clear.gif" width="1" height="1" /></td>
-          <td><img src="/i/clear.gif" width="1" height="1" /></td>
-        </tr>
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr>
+                                <td><img src="/i/clear.gif" width="1" height="1" /></td>
+                                <td><img src="/i/clear.gif" width="1" height="1" /></td>
+                                <td><img src="/i/clear.gif" width="1" height="1" /></td>
+                                <td><img src="/i/clear.gif" width="1" height="1" /></td>
+                            </tr>
         
-        <tr>
-          <td valign="middle" colspan="4" class="statTextBig" background="/i/steel_gray_bg.gif" height="18">&#160;<b><%= forumName %> > <%= rootMsgSubject %></b></td>
-        </tr>
+                            <tr><td valign="middle" colspan="4" class="statTextBig" background="/i/steel_gray_bg.gif" height="18">&#160;<b><%= forumName %> > <%= rootMsgSubject %></b></td></tr>
         
-        <tr>
-          <td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="1" /></td>
-        </tr>
- <% if (rootMessageID!=msgID) {
-%>
-        <tr>
-          <td colspan="4" class="statTextBig" background="/i/steel_bluebv_bg.gif" height="18"><a name =<%= rootMessageID %>> <b><img src="/i/clear.gif" width="3" height="1" /><%= rootMsgSubject %></b></a></td>
-        </tr>
-<%
-  }
-  else {
-%>
-    
-        <tr>
-          <td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="2" /></td>
-        </tr>
+                            <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="1" /></td></tr>
 
-        <tr>
-          <td colspan="4" class="statTextBig" background="/i/steel_bluebv_bg.gif" height="18"><a name =<%= rootMessageID %>> <b><img src="/i/clear.gif" width="3" height="1" /><%= rootMsgSubject %></b></a></td>
-        </tr>
-<% }
-%>
-
+<% if (rootMessageID!=msgID) { %>
+                            <tr><td colspan="4" class="statTextBig" background="/i/steel_bluebv_bg.gif" height="18"><a name =<%= rootMessageID %>> <b><img src="/i/clear.gif" width="3" height="1" /><%= rootMsgSubject %></b></a></td></tr>
+<% } else { %>
+                            <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="2" /></td></tr>
+                            <tr><td colspan="4" class="statTextBig" background="/i/steel_bluebv_bg.gif" height="18"><a name =<%= rootMessageID %>> <b><img src="/i/clear.gif" width="3" height="1" /><%= rootMsgSubject %></b></a></td></tr>
+<% } %>
         
-        <tr background="/i/steel_darkblue_bg.gif">
-          <td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="1" /></td>
-        </tr>
+                            <tr background="/i/steel_darkblue_bg.gif"><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="1" /></td></tr>
      
-        <tr>
-          <td align="left" class="statText" height="18">
-            <img src="/i/clear.gif" width="3" height="1" />Posted By: <%=getUserDisplay(author)%></td>
+                            <tr>
+                                <td align="left" class="statText" height="18"><img src="/i/clear.gif" width="3" height="1" />Posted By: <%=getUserDisplay(author)%></td>
+                                <td colspan="3" align="right" class="statText" height="18">Posted <i><%= dateFormatter.format(creationDate) %>&#160;<img src="/i/clear.gif" width="6" height="1" /></td>
+                            </tr>
+                            
+                            <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="3" /></td></tr>
+                            <tr><td colspan="4" class="statText"><img src="/i/clear.gif" width="3" height="1" /><%= (rootMsgBody!=null)?rootMsgBody:"" %></td></tr>
+                            <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="3" /></td></tr>
+                            <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="2" /></td></tr>
+                            <tr><td colspan="4"><img src="/i/clear.gif" width="1" height="4" /></td></tr>
+                            <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="5" /></td></tr>
 
+<% if (responseURL=="") { %>
+                            <tr><td width="1" colspan="4" align="center"><a class="statTextBig" href="<%=response.encodeURL("/rtables/post.jsp")%>?mode=reply&forum=<%=forumID%>&thread=<%=threadID%>&message=<%=rootMessageID%>">[ Reply ]</a></td></tr>
 
-          <td colspan="3" align="right" class="statText" height="18">Posted <i><%= dateFormatter.format(creationDate) %>&#160;<img src="/i/clear.gif" width="6" height="1" /></td>
-        </tr>
-        <tr>
-          <td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="3" /></td>
-        </tr>
-      
-        <tr>
-          <td colspan="4" class="statText"><img src="/i/clear.gif" width="3" height="1" /><%= (rootMsgBody!=null)?rootMsgBody:"" %></td>
-        </tr>
-     
-        <tr>
-          <td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="3" /></td>
-        </tr>
-      
-        <tr>
-          <td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="2" /></td>
-        </tr>
-        
-        <tr>
-         <td colspan="4">
-           <img src="/i/clear.gif" width="1" height="4" />
-         </td>
-       </tr>
-      
-        <tr>
-          <td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="5" /></td>
-        </tr>
-<% if (responseURL=="") {
-%>
-        <tr>
-          <td width="1" colspan="4" align="center"><a class="statTextBig" href="<%=response.encodeURL("/rtables/post.jsp")%>?mode=reply&forum=<%=forumID%>&thread=<%=threadID%>&message=<%=rootMessageID%>">[ Reply ]</a></td>
-        </tr>
-<%
-  }
-  else {
-%>
-        <tr>
-          <td width="1" colspan="4" align="center"><a class="statTextBig" href="<%=response.encodeURL("/rtables/post.jsp")%>&mode=reply&forum=<%=forumID%>&thread=<%=threadID%>&message=<%=rootMessageID%>"><span class="statText">[ Reply ]</span></a></td>
-        </tr>
-<% }
-%>
+<% } else { %>
+                            <tr><td width="1" colspan="4" align="center"><a class="statTextBig" href="<%=response.encodeURL("/rtables/post.jsp")%>&mode=reply&forum=<%=forumID%>&thread=<%=threadID%>&message=<%=rootMessageID%>"><span class="statText">[ Reply ]</span></a></td></tr>
 
+<% } %>
       
-        <tr>
-          <td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="15" /></td>
-        </tr>
-      
-        <tr>
-          <td valign="top" colspan="4" class="statText"><b>There <%= (numReplies==1)?"is":"are" %> <%= numReplies %> <%= (numReplies==1)?"reply":"replies" %> to this message.</b></td>
-        </tr>
-      
-    </table>
-    
-    
+                            <tr><td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="15" /></td></tr>
+                            <tr><td valign="top" colspan="4" class="statText"><b>There <%= (numReplies==1)?"is":"are" %> <%= numReplies %> <%= (numReplies==1)?"reply":"replies" %> to this message.</b></td></tr>
+                        </table>
     
 <%  /////////////////////////
   // print out all child messages:
@@ -475,40 +417,34 @@ int numReplies = thread.getMessageCount()-1;
 <%  }
 %>
                 <!---------end body table------------->
-                <br>
-                <br>
-                <br>
+                        <br>
+                        <br>
+                        <br>
                 <!--------end main content table------------>
-              </td>
-    </TD>
-    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-  <TR>
-    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-  </TR>     
-  <TR>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR>  
-  <TR>
-    <TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-</TABLE>
-    </TD>
-  <!-- Center Column Ends -->
-<!-- Body Area Ends -->
-        <!-- Gutter -->
+                    </td>
+                    
+                    <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+                </TR>
+                
+                <TR><TD BGCOLOR="#001B35" WIDTH="100%" colspan="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>     
+            </TABLE>
+            
+            <p><b></p>
+            
+        </TD>
+<!-- Center Column Ends -->
+
+<!-- Gutter -->
         <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-        <!-- Gutter Ends -->
-      </TR>
-    </TABLE>
-    <jsp:include page="../foot.jsp" />
-  </BODY>
+<!-- Gutter Ends -->
+
+    </TR>
+</TABLE>
+
+<jsp:include page="../foot.jsp" />
+
+</BODY>
+
 </HTML>
 
 
