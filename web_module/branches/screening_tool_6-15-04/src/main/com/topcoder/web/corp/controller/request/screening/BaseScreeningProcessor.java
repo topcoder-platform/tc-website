@@ -41,7 +41,14 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
 
                 ResultSetContainer access = (ResultSetContainer) map.get("usage_type");
 
-                usageType = new Long(access.getLongItem(0, "usage_type_id"));
+                if(access.getRowCount() == 0)
+                {
+                    usageType = new Long(Constants.USAGE_TYPE_TESTING);
+                }
+                else
+                {
+                    usageType = new Long(access.getLongItem(0, "usage_type_id"));
+                }
                 session.setAttribute(Constants.USAGE_TYPE, usageType);
             }
 

@@ -1079,7 +1079,7 @@
         
         <init-param>
             <param-name>usage_type_screening</param-name>
-            <param-value>1</param-value>
+            <param-value>2</param-value>
             <description></description>
         </init-param>
 

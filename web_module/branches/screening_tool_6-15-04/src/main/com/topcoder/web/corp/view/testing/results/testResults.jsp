@@ -192,7 +192,11 @@ function getProblemDetail(id) {
     <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
-		       <TD COLSPAN="8" VALIGN="top" CLASS="testTableTitle">Test Set B Results:</TD>
+	        <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
+		       <TD COLSPAN="9" VALIGN="top" CLASS="testTableTitle">Test Set B Results:</TD>
+		<% } else { %>
+                       <TD COLSPAN="8" VALIGN="top" CLASS="testTableTitle">Test Set B Results:</TD>
+		<% } %>
 	        </TR>
 	        <TR>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Problem</B></TD>
@@ -202,7 +206,10 @@ function getProblemDetail(id) {
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Test Failed</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>% Test Passed</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Time</B></TD>
-		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader">&#160;</TD>
+                <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader">Percentile</TD>
+		<% } %>
+                       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader">&#160;</TD>
 	        </TR>
                 <% { even = false; %>
                    <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetBResults()%>">
@@ -223,8 +230,6 @@ function getProblemDetail(id) {
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
-		       Usage Type: <%= request.getAttribute(Constants.USAGE_TYPE)%><br>
-		       Expected: <%= Constants.USAGE_TYPE_SCREENING%><br>
 		       <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><%= testResultsInfo.getProblemSetBPrecentiles().get( String.valueOf( row.getLongItem("problem_id") ) ) %></td>
 		       <% } %>		       
