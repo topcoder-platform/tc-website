@@ -45,6 +45,15 @@
                 </tr>
                 
                 <tr>
+                    <td class="bodyText" bgcolor="#EEEEEE">8:00am - 9:00am</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Breakfast</td>
+                </tr>
+                <tr>
+                    <td class="bodyText">9:00am - 10:00am</td>
+                    <td class="bodyText">Yahoo! Presentation</td>
+                </tr> 
+                
+                <tr>
                     <td class="bodyText" bgcolor="#EEEEEE">10:00am - 11:45am</td>
                     <td class="bodyText" bgcolor="#EEEEEE">Algorithm Semifinal Room 1</td>
                 </tr>
@@ -61,7 +70,7 @@
                 
                 <tr>
                     <td class="bodyText">3:00pm - 4:00pm</td>
-                    <td class="bodyText">Sponsor Presentation</td>
+                    <td class="bodyText">Intel Presentation</td>
                 </tr>
                 
                 
@@ -73,7 +82,11 @@
                 
                 <tr>
                     <td class="bodyText">6:00pm - 7:00pm</td>
-                    <td class="bodyText">Sponsor Presentation</td>
+                    <td class="bodyText">NVIDIA Presentation</td>
+                </tr>
+                <tr>
+                    <td class="bodyText" bgcolor="#EEEEEE">7:30pm - 10:30pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Microsoft's Evening with the Participants</td>
                 </tr>
     
                 <tr>
