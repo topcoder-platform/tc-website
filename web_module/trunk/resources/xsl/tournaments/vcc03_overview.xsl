@@ -12,17 +12,7 @@
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
-<!--
-<xsl:template match="swf">      
-<br />  
-<object type="application/x-shockwave-flash" 
-            data="{@src}" 
-            width="{@width}" 
-            height="{@height}">
-<param name="movie" value="{@src}" />
-</object>
- </xsl:template> 
--->
+
 <html>
 <head>
 
@@ -72,11 +62,14 @@
         
 <!-- TCO Header -->
 
-            <div align="center"><img src="/i/tournament/vcc03/vcc03.jpg" alt="2003 Verizon Coding Challenge" width="494" height="119" border="0" vspace="15" /></div>
-<!--            <swf src="/i/tournament/vcc03/vcc03.swf" height="120" width="500" /> -->
- 
-
-
+    <div align="center"><object 
+         type="application/x-shockwave-flash"
+         data="/i/tournament/vcc03/vcc03.swf"
+         width="500"
+         height="120">
+    <param name="movie" value="/i/tournament/vcc03/vcc03.swf" />
+    </object></div>
+    
 <!-- Tab bar links-->
             <xsl:call-template name="vcc03_links">
                 <xsl:with-param name="selectedTab">overview</xsl:with-param>

@@ -60,7 +60,13 @@
             </xsl:call-template>
         
 <!-- TCO Header -->
-            <div align="center"><img src="/i/tournament/vcc03/vcc03.jpg" alt="2003 Verizon Coding Challenge" width="494" height="119" border="0" vspace="15" /></div>
+    <div align="center"><object 
+         type="application/x-shockwave-flash"
+         data="/i/tournament/vcc03/vcc03.swf"
+         width="500"
+         height="120">
+    <param name="movie" value="/i/tournament/vcc03/vcc03.swf" />
+    </object></div>
 
 <!-- Tab bar links-->
             <xsl:call-template name="vcc03_links">
