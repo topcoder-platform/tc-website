@@ -1699,6 +1699,7 @@ public class Registration
         CoderConfirmation c = new CoderConfirmation();
         c.setCode(this.sunConfirm);
         c.setContestId(SUN_CONTEST_ID);
+        a.add(cc);
         coder.setCoderConfirmations(a);
         if (isRegister())
         {
