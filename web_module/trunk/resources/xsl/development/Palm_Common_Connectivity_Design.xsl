@@ -324,9 +324,8 @@ architecture.
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        <!--Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Common%20Remote%20Connectivity%20App">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
-                                                        -->
-                                                        Closed
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Common%20Remote%20Connectivity%20App">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
+
                                                     </p>
                                                 </td>
                                             </tr>
