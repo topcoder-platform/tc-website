@@ -134,7 +134,7 @@
 
         <TR>
 
-          <TD WIDTH="187" VALIGN="top" BGCOLOR="#990000"><A HREF="/?ContestId=4085&amp;t=schedule&amp;c=srm"><IMG SRC="/i/moto_promo1.gif" ALT="" WIDTH="240" HEIGHT="161" BORDER="0"/></A></TD>
+          <TD WIDTH="187" VALIGN="top" BGCOLOR="#990000"><A HREF="/?RoundId=4085&amp;t=schedule&amp;c=srm"><IMG SRC="/i/moto_promo1.gif" ALT="" WIDTH="240" HEIGHT="161" BORDER="0"/></A></TD>
 
           <TD WIDTH="285" VALIGN="top" BGCOLOR="#990000"><A HREF="http://www.topcoder.com/i/mot_redir.html" target="_blank"><IMG SRC="/i/moto_promo2.gif" ALT="" WIDTH="244" HEIGHT="161" BORDER="0"/></A></TD>
 

@@ -21,7 +21,7 @@
       <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
         <a name="top_page"></a>
         <xsl:variable name="roundId">
-          <xsl:value-of select="/TC/SCHEDULE/RoundId"/>
+          <xsl:value-of select="/TC/SCHEDULE/Round/Details/round_id"/>
         </xsl:variable>
         <xsl:call-template name="Top"/>
         <!-- Body Begins -->
@@ -42,13 +42,11 @@
             <!-- Body Area -->
             <!-- Center Column Begins -->  
             <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" BORDER="0"/><BR/>
-              <xsl:for-each select="/TC/SCHEDULE/Contests/Contest[ContestId=$roundId]">
-                <xsl:call-template name="BodyTop">
-                  <xsl:with-param name="image1">white</xsl:with-param>
-                  <xsl:with-param name="image">schedule</xsl:with-param>
-                  <xsl:with-param name="title"><xsl:value-of select="ContestName"/></xsl:with-param>
-                </xsl:call-template>
-              </xsl:for-each>
+              <xsl:call-template name="BodyTop">
+                <xsl:with-param name="image1">white</xsl:with-param>
+                <xsl:with-param name="image">schedule</xsl:with-param>
+                <xsl:with-param name="title"><xsl:value-of select="/TC/SCHEDULE/Round/Details/contest_name"/></xsl:with-param>
+              </xsl:call-template>
               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
                 <TR>
                   <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
@@ -59,84 +57,47 @@
                       <TR><TD COLSPAN="3" ALIGN="center"><IMG SRC="/i/clear.gif" ALT="" WIDTH="428" HEIGHT="10" BORDER="0" /></TD></TR>
 
 
-                      <xsl:for-each select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]">
-                        <TR>
-                          <TD COLSPAN="3" ALIGN="center">
-                            <xsl:choose>
-                              <xsl:when test="RoundId='4175'">
-                                <!--spons,nam,top,lef,wid,hei,sta-->
-                                <a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm','Citrix','1','1','660','489')"><IMG SRC="/i/srm91_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
-                              </xsl:when>
-                              <xsl:when test="RoundId='4180'">
-                                <a href="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm92"><IMG SRC="/i/srm92_motorola.gif" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
-                              </xsl:when>
-                              <xsl:when test="RoundId='4185'">
-                                <a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm','Citrix','1','1','660','489')"><IMG SRC="/i/srm93_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
-                              </xsl:when>
-                              <xsl:when test="RoundId='4210'">
-                                <a href="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm98"><IMG SRC="/i/srm98_motorola.gif" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
-                              </xsl:when>
-                              <xsl:when test="RoundId='4220'">
-                                <a href="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm100"><IMG SRC="/i/srm100_motorola.gif" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
-                              </xsl:when>
-                              <xsl:when test="RoundId='4275'">
-                                <IMG SRC="/i/srm_banner_sun.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
-                              </xsl:when>
-                              <xsl:when test="RoundId='4282'">
-                                <IMG SRC="/i/srm_banner_sun.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
-                              </xsl:when>
-                              <xsl:when test="RoundId='4285'">
-                                <IMG SRC="/i/es/google/srm_bnr_google.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
-                              </xsl:when>
-                              <xsl:when test="RoundId='4290'">
-                                <IMG SRC="/i/es/apex/apex_srm.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
-                              </xsl:when>
-                              <xsl:when test="RoundId='4330'">
-                                <IMG SRC="/i/es/ge/srm_banner_ge.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
-                              </xsl:when>
-                              <xsl:when test="RoundId='4340'">
-                                <IMG SRC="/i/es/google/srm_bnr_google.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
-                              </xsl:when>
-                              <xsl:when test="RoundId='4350'">
-                                <IMG SRC="/i/es/apex/apex_srm.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
-                              </xsl:when>
-                              <xsl:when test="RoundId='4360'">
-                                <IMG SRC="/i/es/fbi/srm_banner_fbi.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
-                              </xsl:when>
-                              <xsl:when test="RoundId='4365'">
-                                <IMG SRC="/i/artifact/srm_banner_artifact.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
-                              </xsl:when>
-                              <xsl:otherwise>
-                                <IMG SRC="/i/srm_banner.jpg" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
-                              </xsl:otherwise>
-                            </xsl:choose>
 
-                            <TR BGCOLOR="#CCCCCC">
-                              <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Date</B></TD>
-                              <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Registration</B></TD>
-                              <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Start</B></TD>
-                            </TR>
-                            <TR BGCOLOR="#666666">
-                              <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                              <b> <xsl:value-of select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,0,11)"/><br/> </b>
-                              </TD>
-                              <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                                <B>
-                                  <xsl:value-of select="format-number(RoundSegments/RoundSegment[SegmentId='1']/StartHour,'##')"/>:<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartMinute"/>&#160;<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartAMPM"/>
-                                </B>
-                              </TD>
-                              <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                                <B>
-                                  <xsl:value-of select="format-number(RoundSegments/RoundSegment[SegmentId='2']/StartHour,'##')"/>:<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
-                                </B>
-                              </TD>
-                            </TR>
-                          </TD>
-                        </TR>
-
-                      </xsl:for-each>
+                          <TR>
+                            <TD COLSPAN="3" ALIGN="center">
+                              <xsl:choose>
+                                <xsl:when test="/TC/SCHEDULE/Round/Details/path=''">
+                                  <IMG SRC="/i/srm_banner.jpg" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
+                                </xsl:when>
+                                <xsl:otherwise>
+                                  <IMG ALT="" BORDER="0">
+                                    <xsl:attribute name="SRC"><xsl:value-of select="/TC/SCHEDULE/Round/Details/path"/></xsl:attribute>
+                                    <xsl:attribute name="WIDTH"><xsl:value-of select="/TC/SCHEDULE/Round/Details/width"/></xsl:attribute>
+                                    <xsl:attribute name="HEIGHT"><xsl:value-of select="/TC/SCHEDULE/Round/Details/height"/></xsl:attribute>
+                                  </IMG>
+                                </xsl:otherwise>
+                              </xsl:choose>
+  
+                              <TR BGCOLOR="#CCCCCC">
+                                <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Date</B></TD>
+                                <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Registration</B></TD>
+                                <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Start</B></TD>
+                              </TR>
+                              <TR BGCOLOR="#666666">
+                                <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
+                                <b> <xsl:value-of select="/TC/SCHEDULE/Round/Details/date"/><br/> </b>
+                                </TD>
+                                <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
+                                  <B>
+                                    <xsl:value-of select="/TC/SCHEDULE/Round/Details/reg_begin"/>
+                                  </B>
+                                </TD>
+                                <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
+                                  <B>
+                                    <xsl:value-of select="/TC/SCHEDULE/Round/Details/coding_begin"/>
+                                  </B>
+                                </TD>
+                              </TR>
+                            </TD>
+                          </TR>
+  
                       
-                      <xsl:if test="/TC/SCHEDULE/Rounds/Round/RoundId='4365'">
+                      <xsl:if test="$roundId='4365'">
                         <TR><TD COLSPAN="3" ALIGN="center" class="bodyText">
                           <A HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact">...More about Artifact</A>
                         </TD></TR>

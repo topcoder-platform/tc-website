@@ -69,7 +69,7 @@
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 						</TR>												
 						<TR>
-							<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4031&amp;t=schedule&amp;c=srm" CLASS="statText">Single Round Match 60</A></TD>						
+							<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?RoundId=4031&amp;t=schedule&amp;c=srm" CLASS="statText">Single Round Match 60</A></TD>						
 							<TD VALIGN="middle" CLASS="statText">Saturday, January 26</TD>
 							<TD VALIGN="middle" CLASS="statText">2:00pm EST</TD>
 						</TR>						

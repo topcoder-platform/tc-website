@@ -69,7 +69,7 @@
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                        
             <TR>
-              <TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4110&amp;t=schedule&amp;c=srm" CLASS="statText">Single Round Match 77<!-- 2002 TCCC Regional Championships --></A></TD>            
+              <TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?RoundId=4110&amp;t=schedule&amp;c=srm" CLASS="statText">Single Round Match 77<!-- 2002 TCCC Regional Championships --></A></TD>            
               <TD VALIGN="middle" CLASS="statText">Wednesday, April 3</TD>
               <TD VALIGN="middle" CLASS="statText">9:00pm EST</TD>
             </TR>            
