@@ -55,7 +55,7 @@ public class Controller extends HttpServlet {
 		} else if (command.equals("login")) {
             request.setAttribute("message",new String("foo"));
             getServletContext().getRequestDispatcher(
-                response.encodeURL("login.jsp")).forward(request, response);
+                response.encodeURL("/es/login.jsp")).forward(request, response);
 
             //handleLogin(request, response);
         } else if (command.equals("job_posting") || command.equals("click_thru")) {
