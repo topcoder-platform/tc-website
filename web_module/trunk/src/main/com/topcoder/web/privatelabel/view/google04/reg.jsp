@@ -70,7 +70,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" width="50%" nowrap>
-                    Handle
+                    <span class="errorText">*</span> Handle
                 </td>
                 <td align="left" width="50%">
                     <tc-webtag:textInput name="<%=Constants.HANDLE%>"  size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="<%=regInfo.isNew()%>"/>
@@ -84,7 +84,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" nowrap>
-                    First Name
+                    <span class="errorText">*</span> First Name
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>"  size="15" maxlength="50"/>
@@ -112,7 +112,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" nowrap>
-                    Last Name
+                    <span class="errorText">*</span> Last Name
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/>
@@ -127,7 +127,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" nowrap>
-                    Password
+                    <span class="errorText">*</span> Password
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.PASSWORD%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/> (<%=Constants.MIN_PASSWORD_LENGTH%> to <%=Constants.MAX_PASSWORD_LENGTH%> characters)
@@ -141,7 +141,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" nowrap>
-                    Confirm Password
+                    <span class="errorText">*</span> Confirm Password
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/>
@@ -155,7 +155,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" nowrap>
-                    Email Address
+                    <span class="errorText">*</span> Email Address
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
@@ -169,7 +169,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" nowrap>
-                    Confirm Email Address
+                    <span class="errorText">*</span> Confirm Email Address
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>"  size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
@@ -183,7 +183,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" nowrap>
-                    Address1
+                    <span class="errorText">*</span> Address1
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.ADDRESS1%>"  size="30" maxlength="50"/>
@@ -225,7 +225,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" nowrap>
-                    City
+                    <span class="errorText">*</span> City
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.CITY%>"  size="15" maxlength="50"/>
@@ -264,7 +264,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" nowrap>
-                    Zip Code
+                    <span class="errorText">*</span> Zip Code
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.ZIP%>"  size="10" maxlength="15"/>
@@ -278,7 +278,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" nowrap>
-                    Country
+                    <span class="errorText">*</span> Country
                 </td>
                 <td align="left">
                     <% ResultSetContainer countryRsc = (ResultSetContainer)request.getAttribute("countryList"); %>
@@ -292,11 +292,19 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" valign=bottom nowrap>
-                    Student/Professional
+                    <span class="errorText">*</span> Student/Professional
                 </td>
                 <td align="left" valign=bottom>
                     Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
                     Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign=bottom nowrap>
+                    <span class="errorText">* Required</span> 
+                </td>
+                <td align="left" valign=bottom>
+                    &nbsp;
                 </td>
             </tr>
             <tr>
