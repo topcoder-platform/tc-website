@@ -53,14 +53,12 @@ body,td,font,p,a
                <td valign="top">
                   <div class=content> 
                   <div align="center">
-	            <font size="-1">
-                     <a href="/pl/?&module=Static&d1=google&d2=google_overview">Overview</a> &nbsp;|&nbsp; 
-                     <a href="/pl/?&module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp; 
-                     <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp; 
-                     <font color="006633">Registration</font> &nbsp;|&nbsp; 
-                     <a href="/pl/?&module=Static&d1=google&d2=google_faq">FAQ</a> &nbsp;|&nbsp; 
-                     <a href="/pl/?&module=Static&d1=google&d2=google_practice">Practice Arena</a>
-                  </font>
+                  
+                  <!-- Tab bar links-->
+                  <jsp:include page="googlelinks.jsp" >
+                     <jsp:param name="selectedTab" value="registration"/>
+                  </jsp:include>
+                  
                   </div><br><br>
                   
                   <table border=0 cellspacing=0 width="100%">
