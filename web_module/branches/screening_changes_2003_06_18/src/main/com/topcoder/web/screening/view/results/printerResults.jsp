@@ -90,6 +90,7 @@
         <p></p>
 
 
+   <% boolean even = false; %>
    <% if(testResultsInfo.isSessionComplete()) { %>
 
      <% if (profileInfo.hasTestSetA()) { %>
@@ -109,7 +110,6 @@
 		       <td width="15%" align="center" class="testFormHeader">Time</td>
                 </tr>
 
-                <% boolean even = false; %>
                 <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetAResults()%>">
                 <tr>
 		       <td class="<%=even?"testTableEven":"testTableOdd"%>">&#160;<screen:resultSetItem row="<%=row%>" name="problem_name" /></td>
