@@ -89,7 +89,7 @@
             <h2>Coder Problem Submissions</h2>
 
             <p>
-                <A HREF="JavaScript:getGraph('/graph?c=rating_history_graph&amp;cr=<jsp:getProperty name="CompetitionHistoryTask" property="MemberID"/>','600','400')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                <A HREF="JavaScript:getGraph('/graph?c=rating_history_graph&amp;cr=<jsp:getProperty name="ProblemSubmissionsTask" property="MemberID"/>','600','400')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
                 <A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400')" class="bodyText">Overall Rating Distribution Graph</a>
             </p>
 
