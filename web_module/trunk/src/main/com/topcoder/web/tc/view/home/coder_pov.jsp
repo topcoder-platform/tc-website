@@ -29,10 +29,9 @@ The best-of-the-best battled for the 50 round 4 slots.  Unlike previous rounds, 
 practices prevailed, with many submissions falling to challenges and systests.  Most quickly submitted the 
 easy problem, but had troubles with the medium.  Valiant coders who submitted the medium had even greater 
 woes ahead.
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=tco03_online_rd_3</xsl:attribute><strong>full&#160;story</strong></a>
+                       <a class="bodyText" href="/?t=statistics&amp;c=tco03_online_rd_3"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
                 </tr>
-                <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
             </table>

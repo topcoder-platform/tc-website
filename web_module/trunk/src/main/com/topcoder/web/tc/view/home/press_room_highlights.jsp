@@ -19,6 +19,4 @@
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_09_29_03">Intel is the Title Sponsor for TopCoder Open</A> [September 29]</td></tr>  
 
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_09_22_03">NVIDIA Signs On To Sponsor 2003 TopCoder Open</A> [September 22]</td></tr>  
-
-                <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr> 
           </table>
