@@ -21,32 +21,32 @@
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%
 
-    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-    WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(tcRequest.getSession()),
-            tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
-    PrincipalMgrRemote pmgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-    TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
-    SessionInfo info = new SessionInfo(tcRequest, authentication, user.getPrincipals());
-    if (!info.isAdmin()) {
-        %> you don't have permssion to view this page <%
-        return;
-    }
 
-                com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
-				dataRequest.setContentHandle("srm_match_info");
-				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
-				
-				           DataAccessInt dai = new CachedDataAccess(
-                                    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
-                    Map dataMap = null;
-                    dataMap = dai.getData(dataRequest);
-					
-					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_match_info");
-					
-					
-					
-			%>		
+	String round = request.getParameter("rd");
+	    if (round==null) {
+        com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
+                        dataRequest.setContentHandle("most_recent_srm");
+
+                                   DataAccessInt dai = new CachedDataAccess(
+                                            dataRequest.getProperty(Constants.DB_KEY, Query.WAREHOUSE));
+                            Map dataMap = null;
+                            dataMap = dai.getData(dataRequest);
+
+                            ResultSetContainer rsc1 = (ResultSetContainer)dataMap.get("Most_Recent_SRM");
+        round = rsc1.getStringItem(0, "round_id");
+    }
+    com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
+	dataRequest.setContentHandle("srm_match_info");
+	dataRequest.setProperty("rd", round);
+	DataAccessInt dai = new CachedDataAccess(
+    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
+    Map dataMap = null;
+    dataMap = dai.getData(dataRequest);
+	ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_match_info");
+
+    
+
+%>		
 <table>
   <tr>
     <td class=sectionTitle><%= rsc.getItem(0,"contest_name") %> on <%= rsc.getItem(0,"contest_date") %></td>
