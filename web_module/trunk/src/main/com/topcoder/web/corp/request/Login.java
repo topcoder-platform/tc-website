@@ -4,6 +4,7 @@ import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.Constants;
@@ -42,6 +43,8 @@ import com.topcoder.web.corp.Constants;
  *
  */
 public class Login extends BaseProcessor {
+    private static Logger log = Logger.getLogger(Login.class);
+
     public static final String KEY_USER_HANDLE = "handle";
     public static final String KEY_USER_PASS = "passw";
     public static final String KEY_DESTINATION_PAGE = "dest";

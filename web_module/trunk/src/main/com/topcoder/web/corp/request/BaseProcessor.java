@@ -28,7 +28,7 @@ import java.util.Vector;
  *
  */
 public abstract class BaseProcessor implements RequestProcessor {
-    protected static final Logger log = Logger.getLogger(BaseProcessor.class);
+    private static Logger log = Logger.getLogger(BaseProcessor.class);
     protected HttpServletRequest request = null;
     protected boolean pageInContext = false;
     protected String nextPage = null;
