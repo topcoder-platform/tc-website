@@ -32,205 +32,186 @@
 <jsp:include page="top.jsp" >
     <jsp:param name="level1" value="employment_services"/>
 </jsp:include>
-  <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-    <TR valign="top">
-<!-- Left Column Begins -->
-      <TD WIDTH="25"><img src="/i/corp/clear.gif" width="25" HEIGHT="11" alt="" BORDER="0"></TD>
-<!-- Left Column Ends -->
+<table width=700 border=0 cellpadding=0 cellspacing=0 align=center>
+	<TR valign="top">
+<!-- Center Column Begins -->
+        <td class="bodyText" width="100%" align=center>
+			<img src="/i/corp/clear.gif" width="400" height="11" alt="" border=0><br/>
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
+                <tr valign="top">
+                    <td class=bodyText>
+                        <p>
+		                <tces:trailIterator id="trailItem" trailList="<%=DemographicTask.getTrail()%>">
+		                  <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
+		                </tces:trailIterator>
+						<br/>
+						<span class=testHead>Campaign Demographic Info</span>
+						<br/><br/>
+                        <strong>Campaign:</strong> <jsp:getProperty name="DemographicTask" property="CampaignName"/><br/>
+                        </p>
+                    </td>
+                </tr>
+            </table>
 
-      <!-- Gutter Begins -->
-      <TD WIDTH="6"><IMG src="/i/corp/clear.gif" WIDTH="6" HEIGHT="8"></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-        <!-- Center Column Begins -->
-      <TD class="bodyText" width="100%"><img src="/i/corp/clear.gif" width="400" HEIGHT="11" BORDER="0"><BR>
-
-        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-          <TR>
-            <TD WIDTH="11"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-            <TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-              <P ALIGN="center">
-                <tces:trailIterator id="trailItem" trailList="<%=DemographicTask.getTrail()%>">
-                  <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
-                </tces:trailIterator>
-              </P> 
-              <P>
-              <B>Campaign: <jsp:getProperty name="DemographicTask" property="CampaignName"/></B><BR>
-              
-              <% if (DemographicTask.getJobID()>=0) { %>             
-              <B>Position:</B> <jsp:getProperty name="DemographicTask" property="PositionName"/><BR>
-              <% } %>
-              </P>
-              
-              <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
+              <TABLE WIDTH="100%" cellspacing="0" cellpadding="0" border=0>
                 <TR valign='top'>
-                <TD width='40%'>
-                
+                <TD width='50%'>
                   <% if (DemographicTask.getStudentCoderCount() > 0) { %>    
                 
-                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
+            		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
-                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
+                          <TD class="screeningTitle" COLSPAN="3"><b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
                         </TR>
-
                         <% if (!StudentResponseList.isEmpty()) { %>
                             <TR>
-                              <TD class="testFormHeader" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
+                              <TD class="screeningHeader" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
                             </TR>
 
                             <% boolean odd = true; %>
                             <tces:mapIterator id="responseRow" MapList="<%=StudentResponseList%>">
                                 <TR>
-                                  <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                                  <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="50%">
                                     <%=(String)responseRow.get("title")%>
                                   </TD>
-                                  <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                                  <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="25%" align=right>
                                     <%=(String)responseRow.get("percent")%>
                                   </TD>
-                                  <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                                  <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="25%" align=right>
                                     <%=(String)responseRow.get("count")%>
                                   </TD>
                                 </TR>
                                 <% odd = !odd; %>
                             </tces:mapIterator>
                         <% } %>
-
+					</table>
                         <%
                           while (StudentQuestionIterator.hasNext()) {
                             String question = (String)StudentQuestionIterator.next();
                             List StudentResponsesList = (List)StudentQuestionMap.get(question);
                         %>
+            		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 
                         <TR>
-                          <TD class="bodyText" COLSPAN="3"><BR></TD>
-                        </TR>                
-
-                        <TR>
-                          <TD class="testFormHeader"COLSPAN="3"><%=question%></TD>
+                          <TD class="screeningHeader"COLSPAN="3"><%=question%></TD>
                         </TR>
 
 
                         <% boolean odd = true;; %>
                         <tces:mapIterator id="resp" MapList="<%=StudentResponsesList%>">
                             <TR>
-                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="50%">
                                 <%=(String)resp.get("title")%>
                               </TD>
-                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="25%" align=right>
                                 <%=(String)resp.get("percent")%>
                               </TD>
-                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="25%" align=right>
                                 <%=(String)resp.get("count")%>
                               </TD>
                             </TR>
                             <% odd = !odd; %>
                         </tces:mapIterator>
-
+					</table>
                         <%            
                           }
                         %>
 
-                      </TABLE>
                       
                    <% }else{ %>
-                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
+                      <TABLE WIDTH="100%" cellspacing="0" cellpadding="3" BORDER="0">
                         <TR>
-                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Student (0)</b></TD>
+                          <TD class="screeningTitle" COLSPAN="3">Student (0)</TD>
                         </TR>
                         <TR>
-                          <TD class="bodyText" COLSPAN="3"><BR></TD>
+                          <TD class="screeningCellOdd" COLSPAN="3"><BR></TD>
                         </TR>                
                         <TR>
-                          <TD class="bodyText" COLSPAN="3" align="center">No data available.</TD>
+                          <TD class="screeningCellOdd" COLSPAN="3" align="center">No data available.</TD>
                         </TR>                
                       </TABLE>
                    <% } %>
 
                 </TD>
 
+                <TD><IMG src="/i/corp/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"/></TD>
 
-                <TD WIDTH="10%"></TD>
-
-
-                <TD width="40%">
+                <TD width="50%">
 
                   <% if (DemographicTask.getProCoderCount() > 0) { %>
                   
-                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
+            		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
-                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="DemographicTask" property="ProCoderCount"/>)</b></TD>
+                          <TD class="screeningTitle" COLSPAN="3">Professional (<jsp:getProperty name="DemographicTask" property="ProCoderCount"/>)</TD>
                         </TR>
 
                         <% if (!ProResponseList.isEmpty()) { %>
                             <TR>
-                              <TD class="testFormHeader" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
+                              <TD class="screeningHeader" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
                             </TR>
 
                             <% boolean odd = true;%>
                             <tces:mapIterator id="responseRow" MapList="<%=ProResponseList%>">
                                 <TR>
-                                  <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                                  <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="50%">
                                     <%=(String)responseRow.get("title")%>
                                   </TD>
-                                  <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                                  <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="25%" align=right>
                                     <%=(String)responseRow.get("percent")%>
                                   </TD>
-                                  <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                                  <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="25%" align=right>
                                     <%=(String)responseRow.get("count")%>
                                   </TD>
                                 </TR>
                             <% odd = !odd;; %>
                             </tces:mapIterator>
                         <% } %>
+					</table>
 
                         <%
                           while (ProQuestionIterator.hasNext()) {
                             String question = (String)ProQuestionIterator.next();
                             List ProResponsesList = (List)ProQuestionMap.get(question);
                         %>
+            		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 
                         <TR>
-                          <TD class="bodyText" COLSPAN="3"><BR></TD>
-                        </TR>                
-
-                        <TR>
-                          <TD class="testFormHeader" COLSPAN="3"><B><%=question%></B></TD>
+                          <TD class="screeningHeader" COLSPAN="3"><B><%=question%></B></TD>
                         </TR>                
 
                         <% boolean odd = true; %>
                         <tces:mapIterator id="resp" MapList="<%=ProResponsesList%>">
                             <TR>
-                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="50%">
                                 <%=(String)resp.get("title")%>
                               </TD>
-                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="25%" align=right>
                                 <%=(String)resp.get("percent")%>
                               </TD>
-                              <TD class="<%=odd?"testTableOdd":"testTableEven"%>">
+                              <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="25%" align=right>
                                 <%=(String)resp.get("count")%>
                               </TD>
                             </TR>
                         <% odd = !odd; %>
                         </tces:mapIterator>
 
+					</table>
                         <%            
                           }
                         %>
 
-                      </TABLE>                  
                   
                    <% }else{ %>
-                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
+            		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
-                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Professional (0)</b></TD>
+                          <TD class="screeningTitle" COLSPAN="3">Professional (0)</TD>
                         </TR>
 
                         <TR>
-                          <TD class="bodyText" COLSPAN="3"><BR></TD>
+                          <TD class="screeningCellOdd" COLSPAN="3"><BR></TD>
                         </TR>                
 
                         <TR>
-                          <TD class="bodyText" COLSPAN="3" align="center">No data available.</TD>
+                          <TD class="screeningCellOdd" COLSPAN="3" align="center">No data available.</TD>
                         </TR>                
                       </TABLE>
                     <% } %>
@@ -241,29 +222,7 @@
               
               <P><BR></P>
     </TD>
-    <TD VALIGN="top" WIDTH="10"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-  <TR>
-    <TD COLSPAN="4" WIDTH="100%"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-  </TR>     
-
-</TABLE>
-    </TD>
   <!-- Center Column Ends -->
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="6"><IMG src="/i/corp/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-      <!-- Right Column Begins -->
-      <TD WIDTH="10"><IMG src="/i/corp/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
-        <!-- Right Column Include Begins -->
-        <!--include virtual="/includes/public_right_col.shtml"-->
-        <!-- Right Column Include Ends -->
-      </TD>
-      <!-- Right Column Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="25"><IMG src="/i/corp/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
     </TR>
 </TABLE>
 

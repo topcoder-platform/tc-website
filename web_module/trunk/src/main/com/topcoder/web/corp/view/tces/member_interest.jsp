@@ -35,77 +35,48 @@
 	                </tces:trailIterator>
 					<br/>
 					<span class=testHead>Member Interest: <jsp:getProperty name="MemberInterestTask" property="Handle"/></span>
-						<br/><br/>
+					<br/><br/>
+                    <strong>Campaign:</strong> <%=MemberInterestTask.getCampaignName()%>
+					<br/><br/>
 					</td>
 				</tr>
+				<tr>
+					<td class=bodyText>
+					<A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
+					<br/>
+					<% if (MemberInterestTask.isRanked()) { %>
+					<A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
+					<br/>
+					<A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
+					<% } %>
+					<br/><br/>
+					</td>
+				</tr>
+			</table>
 
-
-            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
-          <tr>
-            <td WIDTH="11"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></td>
-            <td class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-                  <table ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
-                    <tr>
-                        <td class="bodyText" ALIGN="center" WIDTH="33%">
-                          <A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">
-                            Coder Demographic Info</A>
-                        </td>
-                        <% if (MemberInterestTask.isRanked()) { %>
-                        <td class="bodyText" ALIGN="center" WIDTH="33%">
-                          <A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">
-                            Coder Competition History</A>
-                        </td>
-                        <td class="bodyText" ALIGN="center" WIDTH="33%">
-                          <A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">
-                            Coder Problem Submissions</A>
-                        </td>
-                        <% } %>
-                    </tr>
-                  </table>
-
-              <P>
-              <FONT SIZE="5" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">Member Interest</FONT>
-              <BR/>
-              <B>Campaign:</B> <%=MemberInterestTask.getCampaignName()%><br/>
-              </P>
-              <table ID="dataTable" WIDTH="50%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
-                  <td class="screeningHeader" HEIGHT="18">&#160;<b>Position Name</b></td>
-                  <td class="screeningHeader"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></td>
-                  <td class="screeningHeader"><b>Hit Date</b></td>
+                  <td class="screeningHeader" width="75%">Position Name</td>
+                  <td class="screeningHeader" align=center>Hit Date</td>
                 </tr>
-
 
                 <% int i=0; %>
                 <tces:rowIterator id="hit" rowList="<%=(List)MemberInterestTask.getHitList()%>">
                 <% i++; %>
 
                 <tr>
-                  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" HEIGHT="18">&#160;
-                    <%= hit.getItem("job_desc").toString() %>
-                  </td>                                   
-                  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></td>
-                  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
-                    <%= JSPUtils.autoFormat(hit.getItem("timestamp")) %>
-                  </td>
+                  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><%= hit.getItem("job_desc").toString() %></td>                                   
+                  <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=center><%= JSPUtils.autoFormat(hit.getItem("timestamp")) %></td>
                 </tr>
                 
                 </tces:rowIterator>
 
 
               </table>
-              <P><br/></P>
-    </td>
-    <td VALIGN="top" WIDTH="10"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></td>
-  </tr>
-  <tr>
-    <td COLSPAN="4" WIDTH="100%"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></td>
-  </tr>     
-
-</table>
-    </td>
-  <!-- Center Column Ends -->
-    </tr>
+            <p><br></p>
+			</td>
+<!-- Center Column Ends -->
+		</tr>
 </table>
 
 <!-- Footer begins -->
