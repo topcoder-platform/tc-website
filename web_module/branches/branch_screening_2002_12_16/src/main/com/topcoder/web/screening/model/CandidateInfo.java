@@ -1,5 +1,7 @@
 package com.topcoder.web.screening.model;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+
 /** 
  * <p>
  * This is the model for candidate information.  Currently, candidate
@@ -16,6 +18,9 @@ public class CandidateInfo extends BaseModel {
     private String password;
     private Long userId;
 
+    /** Holds value of property noteList. */
+    private ResultSetContainer noteList;
+    
     public CandidateInfo() {
         emailAddress = "";
         password = "";
@@ -75,4 +80,18 @@ public class CandidateInfo extends BaseModel {
         return userId;
     }
 
+    /** Getter for property noteList.
+     * @return Value of property noteList.
+     */
+    public ResultSetContainer getNoteList() {
+        return this.noteList;
+    }
+    
+    /** Setter for property noteList.
+     * @param noteList New value of property noteList.
+     */
+    public void setNoteList(ResultSetContainer noteList) {
+        this.noteList = noteList;
+    }
+    
 }
