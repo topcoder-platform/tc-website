@@ -42,22 +42,22 @@
 
 <!-- Center Column Begins -->	
         <td class="promoText" width="99%">
-            <table border="0" cellspacing="10" cellpadding="0" width="100%">
+            <table border="0" cellspacing="10" cellpadding="0" width="510">
                
                 <tr valign="top">
-                    <td align="left" width="100%">
+                    <td align="left" width="510">
                         <table border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                <td colspan="2" align="center"><img src="/i/sponsor/intel_ids/IDS_TC-header.gif" width="510" height="115" /></td>
                               </tr>
                             <tr>
-                            <td class="bodyText" >
+                            <td align="left" width="255" class="bodyText" >
                             	<p>With technology complexity increasing at a blistering pace, <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel&#174; 
                             	Developer Services</strong> </a> offers the resources and opportunities you need to keep stride with industry innovations,
                              	take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p></td>
                              
-                            <td align="center"><img src="/i/spacer.gif" height="117" width="50"/><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" />
-                            <img src="/i/spacer.gif" height="117" width="50"/></td>
+                            <td align="center" width="255"><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" />
+                            </td>
                       </tr>
                       <tr>
                             <td valign="top" class="bodyText"><p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and 
