@@ -32,7 +32,7 @@ public class TestResults extends BaseScreeningProcessor {
     /** Implements the processing step.
      * @throws com.topcoder.web.common.TCWebException
      */
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         try {
             log.info("USAGE TYPE CODE");
             
@@ -122,5 +122,5 @@ public class TestResults extends BaseScreeningProcessor {
         setNextPage(Constants.TEST_RESULTS_PAGE);
         setIsNextPageInContext(true);
     }
-
+    
 }

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 public abstract class BaseScreeningProcessor extends BaseProcessor {
     private final static Logger log = Logger.getLogger(TestResults.class);
 
-    protected long getUsageType() throws TCWebException {
+    protected void businessProcessing() throws TCWebException {
         try
         {
             HttpSession session = getRequest().getSession();
@@ -40,13 +40,18 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
             }
 
             log.info("USAGE TYPE:" + usageType.longValue());
-            return usageType.longValue();
+            
+            //maybe set attribute here?
+            
+            screeningProcessing();
         }
         catch(Exception e)
         {
             throw new TCWebException(e);
         }
     }
+    
+    abstract protected void screeningProcessing() throws TCWebException;
 
 
 }
