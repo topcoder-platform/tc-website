@@ -41,7 +41,7 @@ public class TCCC04Terms extends Base {
                             throw new NavigationException("You are not eligible to register for the TCCC");
                         }
                     } else {
-                        throw new NavigationException("You are already registration for the TCCC.");
+                        throw new NavigationException("You are already registered for the TCCC.");
                     }
                 }
             }
