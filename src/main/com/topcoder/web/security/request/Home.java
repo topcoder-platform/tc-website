@@ -5,7 +5,7 @@ import com.topcoder.web.security.Constants;
 
 public class Home extends BaseProcessor {
     public void businessProcessing() {
-        setNextPage(Constants.jsp_root + Constants.menu_page);
+        setNextPage(Constants.jsp_root + Constants.index_page);
     }
 
 }
