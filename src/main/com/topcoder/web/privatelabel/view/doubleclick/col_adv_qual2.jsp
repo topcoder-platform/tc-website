@@ -30,7 +30,7 @@
                       <table class="formFrame" cellpadding=5 cellspacing=2 width="400">
                         <tr>
                            <td class="sidebarTitle" width="40%">Handle</td>
-                           <td class="sidebarTitle" width="30%">Problem Set</td>
+                           <td class="sidebarTitle" width="30%">Problem Set</td> 
                            <td class="sidebarTitle" width="30%">Score</td>
                         </tr>
                         <tr><td class="sidebarText"></td><td class="sidebarText"></td><td class="sidebarText"></td></tr>
