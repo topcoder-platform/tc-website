@@ -96,7 +96,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$150 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">clsoed</td>
+                                    <td class="projectCells" align="right">closed</td>
                                 </tr>
 
                             </table>
