@@ -98,7 +98,13 @@
           </xsl:otherwise>
         </xsl:choose>     
       <TR>
-        <TD COLSPAN="6" ALIGN="right" CLASS="statText" HEIGHT="13"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE="3"/><A HREF="http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_stats" CLASS="statText">all last match results</A>&#160;&#160;</TD>
+        <TD COLSPAN="6" ALIGN="right" CLASS="statText" HEIGHT="13">
+          <IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE="3"/>
+          <A CLASS="statText">
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_stats</xsl:attribute>
+            all last match results
+          </A>&#160;&#160;
+        </TD>
       </TR>
       <TR>
         <TD COLSPAN="6" WIDTH="1"><IMG HEIGHT="10" WIDTH="1" SRC="/i/clear.gif" BORDER="0"/></TD>

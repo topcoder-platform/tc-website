@@ -40,7 +40,7 @@
     <TD WIDTH="100%" VALIGN="top" ALIGN="left" BGCOLOR="#666666" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
     <SPAN CLASS="smallFoot">
       <A CLASS="smallFoot">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
+        <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
         register
       </A>&#160;&#160;::&#160;&#160;
       <A CLASS="smallFoot">
