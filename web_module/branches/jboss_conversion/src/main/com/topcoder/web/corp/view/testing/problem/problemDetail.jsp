@@ -70,7 +70,7 @@
            </TR>
            <TR>
               <TD CLASS="screeningCellOdd" VALIGN="top">
-<screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language="Java" styleClass="bodyText"/>
+<screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language='<%="Java"%>' styleClass="bodyText"/>
               </TD>
            </TR>
          </table>
