@@ -229,12 +229,16 @@ AND division_id =
   WHERE problem_id = @pm@ AND round_id = @rd@)
 "
 java com.topcoder.utilities.QueryLoader 13 "Problem_Submission" 0 0 "
-SELECT submission_text
-FROM problem_submission
-WHERE round_id = @rd@
-AND coder_id = @cr@
-AND problem_id = @pm@
-AND last_submission = 1
+SELECT ps.submission_text
+FROM problem_submission ps
+WHERE ps.round_id = @rd@
+AND ps.coder_id = @cr@
+AND ps.problem_id = @pm@
+AND ps.submission_number= (SELECT MAX(submission_number)
+                             FROM problem_submission ps1
+                            WHERE ps.coder_id = ps1.coder_id
+                              AND ps.problem_id = ps1.problem_id
+                              AND ps.round_id = ps1.round_id)
 "
 java com.topcoder.utilities.QueryLoader 14 "Coder_Data" 0 0 "
 SELECT c.handle,
