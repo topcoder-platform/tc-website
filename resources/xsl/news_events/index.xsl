@@ -64,7 +64,7 @@
                             
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_21_03_javaone">TopCoder to Administer Contest at the 2003 JavaOne<span class="super">SM</span> Conference </A> [May 21]</td></tr>    
                            
-                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_14_03">Amity Regional Takes First Place in 2003 High School Challenge</A> [May 21]</td></tr>    
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_21_03_hs">Amity Regional Takes First Place in 2003 High School Challenge</A> [May 21]</td></tr>    
                            
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_14_03">TopCoder and CAS Announce 2003 High School Challenge</A> [May 14]</td></tr>    
                            
