@@ -58,17 +58,6 @@ For additional questions regarding the Competition Arena, take a look at the <A 
 
                     <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0">
                         <TR>
-                        	<TD VALIGN="top" CLASS="bodyText"><A HREF="/i/full_manual.pdf" CLASS="bodyText"><IMG SRC="/i/pdf_icon.gif" ALT="Download Manual" WIDTH="31" HEIGHT="31" BORDER="0"/></A></TD>
-                            <TD VALIGN="top" CLASS="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
-                            <TD VALIGN="top" CLASS="bodyText">
-                                    <B><A HREF="/i/full_manual.pdf" CLASS="bodyText">Download Tournament Manual (471K)</A></B>
-                                    <BR/>
-       The Tournament Manual is in portable document format (PDF). 
-       Adobe Acrobat needs to be installed to view .pdf files. 
-       <A HREF="http://www.adobe.com/products/acrobat/readstep.html" CLASS="bodyText">Click here to download Adobe Acrobat</A>.
-                            </TD>
-                        </TR>
-                        <TR>
                             <TD COLSPAN="3"><IMG WIDTH="1" HEIGHT="15" ALT="" SRC="/i/clear.gif" BORDER="0"/></TD>
                         </TR>
                     </TABLE>
