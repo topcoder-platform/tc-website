@@ -313,64 +313,64 @@ Cb -&gt; Cb Db Eb Fb Gb Ab Bb Cb
             </P>
 <TABLE>
 <TR>
-    <TD>1</TD>
-    <TD>C</TD>
-    <TD>B#</TD>
+    <TD CLASS="bodyText" >1</TD>
+    <TD CLASS="bodyText" >C</TD>
+    <TD CLASS="bodyText" >B#</TD>
   </TR>
 <TR>
-    <TD>2</TD>
-    <TD>C#</TD>
+    <TD CLASS="bodyText" >2</TD>
+    <TD CLASS="bodyText" >C#</TD>
     <TD>Db</TD>
   </TR>
 <TR>
-    <TD>3</TD>
-    <TD>D</TD>
-    <TD>-</TD>
+    <TD CLASS="bodyText" >3</TD>
+    <TD CLASS="bodyText" >D</TD>
+    <TD CLASS="bodyText" >-</TD>
   </TR>
 <TR>
-    <TD>4</TD>
-    <TD>D#</TD>
-    <TD>Eb</TD>
+    <TD CLASS="bodyText" >4</TD>
+    <TD CLASS="bodyText" >D#</TD>
+    <TD CLASS="bodyText" >Eb</TD>
   </TR>
 <TR>
-    <TD>5</TD>
-    <TD>E</TD>
-    <TD>Fb</TD>
+    <TD CLASS="bodyText" >5</TD>
+    <TD CLASS="bodyText" >E</TD>
+    <TD CLASS="bodyText" >Fb</TD>
   </TR>
 <TR>
-    <TD>6</TD>
-    <TD>F</TD>
-    <TD>E#</TD>
+    <TD CLASS="bodyText" >6</TD>
+    <TD CLASS="bodyText" >F</TD>
+    <TD CLASS="bodyText" >E#</TD>
   </TR>
 <TR>
-    <TD>7</TD>
-    <TD>F#</TD>
-    <TD>Gb</TD>
+    <TD CLASS="bodyText" >7</TD>
+    <TD CLASS="bodyText" >F#</TD>
+    <TD CLASS="bodyText" >Gb</TD>
   </TR>
 <TR>
-    <TD>8</TD>
-    <TD>G</TD>
-    <TD>-</TD>
+    <TD CLASS="bodyText" >8</TD>
+    <TD CLASS="bodyText" >G</TD>
+    <TD CLASS="bodyText" >-</TD>
   </TR>
 <TR>
-    <TD>9</TD>
-    <TD>G#</TD>
-    <TD>Ab</TD>
+    <TD CLASS="bodyText" >9</TD>
+    <TD CLASS="bodyText" >G#</TD>
+    <TD CLASS="bodyText" >Ab</TD>
   </TR>
 <TR>
-    <TD>10</TD>
-    <TD>A</TD>
-    <TD>-</TD>
+    <TD CLASS="bodyText" >10</TD>
+    <TD CLASS="bodyText" >A</TD>
+    <TD CLASS="bodyText" >-</TD>
   </TR>
 <TR>
-    <TD>11</TD>
-    <TD>A#</TD>
-    <TD>Bb</TD>
+    <TD CLASS="bodyText" >11</TD>
+    <TD CLASS="bodyText" >A#</TD>
+    <TD CLASS="bodyText" >Bb</TD>
   </TR>
 <TR>
-    <TD>12</TD>
-    <TD>B</TD>
-    <TD>Cb</TD>
+    <TD CLASS="bodyText" >12</TD>
+    <TD CLASS="bodyText" >B</TD>
+    <TD CLASS="bodyText" >Cb</TD>
   </TR>
 </TABLE>
 <P>
