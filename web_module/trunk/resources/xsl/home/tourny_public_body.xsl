@@ -110,16 +110,19 @@
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
 	<P><IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
-	<A HREF="/index?t=news_events&amp;c=feat_050102" CLASS="bodyGeneric"><B>The Women of TopCoder</B></A><BR/>
-	<I>Few in Numbers, Not in Ability</I><BR/><BR/>
-	Wednesday, May 1, 2002<BR/>
+	<A HREF="/index?t=news_events&amp;c=feat_050802" CLASS="bodyGeneric"><B>Headline here</B></A><BR/>
+	<I>Subhead here</I><BR/><BR/>
+	Wednesday, May 8, 2002<BR/>
 	By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
 	</P>
-	<P>Even though many of us flip the television channels when a commercial appears, it's very easy to 
-	ascertain that certain items such as: make-up kits, stuffed animals and Barbie dolls are targeted 
-	toward little girls, while sports equipment, remote control cars and action/adventure and sports 
-	computer games have little boys written all over them. Both <A HREF="/index?t=news_events&amp;c=feat_050102" CLASS="bodyGeneric">pearl</A> and <A HREF="/index?t=news_events&amp;c=feat_050102" CLASS="bodyGeneric">polgara</A>, two of TopCoder's 
-	top-rated female members...<A HREF="/index?t=news_events&amp;c=feat_050102" CLASS="bodyGeneric">full&#160;story</A></P>
+<P>
+Everyone remembers the 1980's don't they?  The big hair, the Members Only jackets, 
+the leg warmers, carrying "Boom-boxes" on your shoulder, Molly Ringwald in every movie, and 
+those damn Rubik's Cubes.  The challenge was to try and return the six-sided cube to its original 
+form by having all of the like-colored squares on the same side.  These little cubes had the whole 
+world, from infants to grandparents, captivated.  While solving the Rubik's Cube provided one with 
+a God-like mystique, some who consistently failed grew frustrated and quit, while others just keep 
+trying for the fun of it...<A HREF="/index?t=news_events&amp;c=feat_050802" CLASS="bodyGeneric">full&#160;story</A></P>
 	</TD>
     <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
@@ -166,7 +169,7 @@
   <TR><TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
       <TD VALIGN="top" COLSPAN="2" WIDTH="50%"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
       <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
-      <TD VALIGN="top" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+      <TD VALIGN="top" WIDTH="1" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
       <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
       <TD VALIGN="top" COLSPAN="2" WIDTH="50%"><IMG SRC="/i/label_lessons.gif" ALT="Lessons Learned the Hard Way" WIDTH="205" HEIGHT="26" BORDER="0"/></TD>       
       <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
@@ -175,8 +178,8 @@
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" COLSPAN="7" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-  </TR> -->
-  <TR><TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD></TR>     
+  </TR>
+  <TR><TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD></TR> -->     
      
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
