@@ -166,7 +166,7 @@
             <!-- Gutter -->
             <TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
             <!-- Gutter Ends -->
-            3!-- Right Column Begins -->
+            <!-- Right Column Begins -->
             <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
               <!-- Right Column Include Begins --> 
               <xsl:call-template name="public_right_col"/>       
