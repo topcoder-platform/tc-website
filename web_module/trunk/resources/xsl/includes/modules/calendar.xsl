@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="calendar">
-            <table width="170" bgcolor="#333333" cellspacing="0" cellpadding="0" border="0">
+            <table width="100%" bgcolor="#333333" cellspacing="0" cellpadding="0" border="0">
                 <tr> 
                     <td valign="top">
                         <table width="100%" border="0" cellspacing="1" cellpadding="1">
