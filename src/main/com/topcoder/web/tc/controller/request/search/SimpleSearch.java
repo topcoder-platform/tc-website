@@ -59,6 +59,11 @@ public class SimpleSearch extends Base {
             ret.setEnd(new Integer(Constants.SEARCH_SCROLL_SIZE));
         else ret.setEnd(new Integer(end));
 
+        //make sure we like the size they they're searching for
+        if (ret.getEnd().intValue()-ret.getStart().intValue()>(Constants.SEARCH_SCROLL_SIZE-1)) {
+            ret.setEnd(new Integer(ret.getStart().intValue()+(Constants.SEARCH_SCROLL_SIZE-1)));
+        }
+
         String handle = getRequest().getParameter(Constants.HANDLE);
         if (handle != null)
             ret.setHandle(handle);
