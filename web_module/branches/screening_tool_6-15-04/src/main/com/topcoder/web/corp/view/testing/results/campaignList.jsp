@@ -24,13 +24,13 @@
 
 <!-- Middle column begins -->
         <td width="100%" align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="600">
+            <table border="0" cellspacing="0" cellpadding="0" width="700">
                 <tr valign="top">
                     <td class="bodyText">
                         <p><span class=testHead>Campaign List</span><br/>
                         <screen:resultSetRowIterator id="row"
                                 list="<%=(List) request.getAttribute(Constants.COMPANY_INFO)%>">
-                        Company Name: <screen:resultSetItem row="<%=row%>" name="company_name" /><br/>
+                        <screen:resultSetItem row="<%=row%>" name="company_name" /><br/>
                         </screen:resultSetRowIterator>
                         </p>
                     </td>
@@ -39,7 +39,7 @@
 
             <br/>
 
-            <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="33%">Campaign Name</td>
                     <td class="screeningHeader" width="33%" align=center>Most Recent Activity</td>
