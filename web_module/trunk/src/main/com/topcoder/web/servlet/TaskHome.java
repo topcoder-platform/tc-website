@@ -88,12 +88,21 @@ public final class TaskHome {
                     else
                         homeTag.addTag(new com.topcoder.common.web.data.stat.coder.Coder().getXML());
 
+                    /*
                     ArrayList a = temp.getLastCoderComps(nav.getUser().getUserId(), 3);
                     RecordTag rt = new RecordTag("Last3Comps");
                     for (int i = 0; i < a.size(); i++) {
                         rt.addTag(((com.topcoder.common.web.data.stat.contest.RoomResult) a.get(i)).getXML());
                     }
-                    homeTag.addTag(rt);
+                    */
+                    dataRequest = new Request();
+                    dataRequest.setContentHandle("most_recent_coder_comps");
+                    dataRequest.setProperty("cr", String.valueOf(nav.getUserId()));
+                    dataRequest.setProperty("start", "1");
+                    dataRequest.setProperty("end", "3");
+                    resultMap = dai.getData(dataRequest);
+                    rsc = (ResultSetContainer) resultMap.get("Most_Recent_Code_Comps");
+                    homeTag.addTag(rsc.getTag("Last3Comps", "RoomResult"));
 
                     dataRequest = new Request();
                     dataRequest.setContentHandle("member_profile");
