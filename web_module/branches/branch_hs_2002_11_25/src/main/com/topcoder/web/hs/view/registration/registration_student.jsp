@@ -16,20 +16,20 @@
     }
     ArrayList state_schools=(ArrayList)schools.get(schools.size()-1);
     state_schools.add(rsr.getItem("short_name").getResultData());
-    ArrayList state_codes=(ArrayList)codes.get(codes.size()-1);
-    state_codes.add(rsr.getItem("school_id").getResultData());
+    ArrayList school_codes=(ArrayList)codes.get(codes.size()-1);
+    school_codes.add(rsr.getItem("school_id").getResultData());
    } %>
 <SCRIPT type="text/javascript">
  var schools=new Array(<%=schools.size()%>)
  var codes=new Array(<%=codes.size()%>)
  <% for (int i=0;i<schools.size();i++) {
      ArrayList state_schools=(ArrayList)schools.get(i);
-     ArrayList state_codes=(ArrayList)codes.get(i); %>
+     ArrayList school_codes=(ArrayList)codes.get(i); %>
  schools[<%=i%>]=new Array(<%=state_schools.size()%>)
- codes[<%=i%>]=new Array(<%=state_codes.size()%>)
+ codes[<%=i%>]=new Array(<%=school_codes.size()%>)
   <% for (int j=0;j<state_schools.size();j++) { %>
  schools[<%=i%>][<%=j%>]=<%=(String)state_schools.get(j)%>
- codes[<%=i%>][<%=j%>]=<%=(Integer)state_codes.get(j)%>
+ codes[<%=i%>][<%=j%>]=<%=(Long)state_codes.get(j)%>
   <% }
     } %>
  function changeState() {
