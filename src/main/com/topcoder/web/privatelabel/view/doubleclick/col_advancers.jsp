@@ -38,6 +38,9 @@
                         <tr valign="top">
                            <td class="sidebarText" nowrap="nowrap"><a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_adv_main">Main Competition Round</a></td>
                         </tr>
+                        <tr valign="top">
+                           <td class="sidebarText" nowrap="nowrap"><a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_adv_finals">Finals</a></td>
+                        </tr>
                      </table>
 
 		</td>
