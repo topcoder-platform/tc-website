@@ -45,7 +45,7 @@
                     <td class="devProjectText">
                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
                             <tr>
-                                <td class="devProjectText" colspan="2"><A href="/?&amp;t=development&amp;c=online_gift_card_v10_dev"><strong>Online Gift Card Sales Development</strong></A></td>
+                                <td class="devProjectText" colspan="2"><A href="/?&amp;t=development&amp;c=online_gift_card_v10_dev"><strong>Online Gift Card Sales</strong></A></td>
                             </tr>
 
                             <tr>
@@ -54,20 +54,20 @@
                             </tr>
                             <tr>
                                 <td class="devProjectWinner">Winning Developer:</td>
-                                <td class="devProjectWinnerMoney">$833.00</td>
+                                <td class="devProjectWinnerMoney2">$833.00</td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectWinner">Second Place:</td>
-                                <td class="devProjectWinnerMoney">$313.00</td>
+                                <td class="devProjectSecond2">Second Place:</td>
+                                <td class="devProjectSecondMoney2">$313.00</td>
                             </tr>
                             <tr>
-                                <td class="devProjectSecond">Group 2</td>
-                                <td class="devProjectSecondMoney"></td>
+                                <td class="devProjectWinner2">Group 2</td>
+                                <td class="devProjectWinnerMoney2"></td>
                             </tr>                            
                             <tr>
-                                <td class="devProjectSecond">Winning Developer:</td>
-                                <td class="devProjectSecondMoney">$333.00</td>
+                                <td class="devProjectWinner2">Winning Developer:</td>
+                                <td class="devProjectWinnerMoney2">$333.00</td>
                             </tr>
 
                             <tr>
