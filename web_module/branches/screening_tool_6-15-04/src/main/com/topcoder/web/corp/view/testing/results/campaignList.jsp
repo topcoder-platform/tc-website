@@ -50,7 +50,7 @@
 
                 <%
                     int counter = 0;
-                    String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
+                    String[] cssClasses = {"screeningCellOdd", "screeningCellEven"};
                 %>
                 <screen:resultSetRowIterator id="row"
                         list="<%=(List) request.getAttribute(Constants.COMPANY_CAMPAIGNS_LIST)%>">
