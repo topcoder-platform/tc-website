@@ -682,7 +682,7 @@ public class UserEdit extends BaseProcessor {
             man = Util.getPrincipalManager();
 
             InitialContext icEJB = null;
-            if (authToken.getActiveUser().isAnonymous()) {
+            if (authToken.getUser().isAnonymous()) {
                 try {
                     requestor = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);
                 } catch (Exception cause) {
@@ -692,7 +692,7 @@ public class UserEdit extends BaseProcessor {
                 }
                 return;
             }
-            loggedUserID = authToken.getActiveUser().getId();
+            loggedUserID = authToken.getUser().getId();
 
             try {
                 icEJB = (InitialContext)TCContext.getInitial();
@@ -716,11 +716,9 @@ public class UserEdit extends BaseProcessor {
                 Util.closeIC(icEJB);
             }
             try {
-                requestor = Util.retrieveTCSubject(primaryUserID);
+                requestor = Util.retrieveTCSubject(loggedUserID);
             } catch (Exception cause) {
-                throw new MisconfigurationException(
-                        "Can't retrieve TCSubject for corp web application " + cause.getMessage()
-                );
+                throw new MisconfigurationException("Can't retrieve TCSubject for: " + loggedUserID + cause.getMessage());
             }
         }
 
