@@ -6,6 +6,7 @@
 
 <jsp:include page="../../script.jsp" />
 <link type="text/css" rel="stylesheet" href="/css/TCO04style.css"/>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 </head>
 
 <body>
@@ -18,6 +19,7 @@
 <td  class="bodyText">
 <br/>
 
+	<% String sLink = "/stat?c=member_profile&cr=";%>
       <table cellpadding="0" cellspacing="3" align="center" border="0" class="bodyText" width="800">
          <tr>
             <td align="center" class="bodyText" colspan="3"><img src="/i/tournament/tco04/header_logo.gif"/></td>
@@ -56,7 +58,7 @@
          </tr>
          <tr>
             <td align="left" class="bodyText" valign="top">
-               By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=277659"><strong>radeye</strong></a><br />
+               By&#160;<tc:ratingImage link='<%=sLink + 277659%>' bg='W' cid='<%=277659%>' /><br />
                <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
             </td>
          </tr>
