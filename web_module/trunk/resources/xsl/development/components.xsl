@@ -156,11 +156,14 @@
                           <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
                          <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
                          <td class="formHandleOdd">
-                            <a class="coderTextBlue">
-                                <xsl:attribute name="href">
-                                      <xsl:value-of select="concat('/stat?c=member_profile&amp;cr=', ./coder_id)"/>
+                            <a>
+                                <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-ofselect="coder_id"/></xsl:attribute>
+                                <xsl:attribute name="CLASS">
+                                    <xsl:call-template name="GetRatingClass">
+                                        <xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param>
+                                    </xsl:call-template>
                                 </xsl:attribute>
-                                <strong><xsl:value-of select="./user_id"/></strong>
+                                <xsl:value-of select="user_id"/>
                             </a>
                          </td>
                          <td class="formHandleOdd" align="center"><xsl:value-of select="./score"/></td>
@@ -203,12 +206,23 @@
                           <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
                          <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
                          <td class="formHandleOdd">
-                            <a class="coderTextBlue">
-                                <xsl:attribute name="href">
-                                      <xsl:value-of select="concat('/stat?c=member_profile&amp;cr=', ./coder_id)"/>
+                            <a>
+                                <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-ofselect="coder_id"/></xsl:attribute>
+                                <xsl:attribute name="CLASS">
+                                    <xsl:call-template name="GetRatingClass">
+                                        <xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param>
+                                    </xsl:call-template>
                                 </xsl:attribute>
-                                <strong><xsl:value-of select="./user_id"/></strong>
+                                <xsl:value-of select="user_id"/>
                             </a>
+<!--
+                                    <a class="coderTextBlue">
+                                        <xsl:attribute name="href">
+                                            <xsl:value-of select="concat('/stat?c=member_profile&amp;cr=', ./coder_id)"/>
+                                        </xsl:attribute>
+                                        <strong><xsl:value-of select="./user_id"/></strong>
+                                    </a>
+-->
                          </td>
                          <td class="formHandleOdd" align="center"><xsl:value-of select="./score"/></td>
                          <td class="formHandleOdd" align="center"><xsl:value-of select="format-number(./money, $priceFormat)"/></td>
