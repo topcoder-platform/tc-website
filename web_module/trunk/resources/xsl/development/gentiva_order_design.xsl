@@ -295,7 +295,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Gentiva%20Order%20Processing">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>

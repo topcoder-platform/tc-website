@@ -77,8 +77,8 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=gentiva_order_design"> Gentiva Order Processing</a>
                                     </td>
-                                    <td class="projectCells" align="right">$1,260 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$360 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,050 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">04/02/2004</td>
                                 </tr>
 <!--
