@@ -160,7 +160,7 @@ pageContext.setAttribute("resultSetDates", rsc);
     <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText" ALIGN="right"><%=submissions%> &nbsp;&nbsp;</TD>
     <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText" ALIGN="right"><%=perCor%> &nbsp;&nbsp;</TD>
     <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText" ALIGN="right"><%=avgPoints%></TD>
-    <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText" ALIGN="right">&nbsp;<A HREF="JavaScript:void(getGraph('c=problem_distribution_graph&pm=<%= problemID %>&dn=<%= currentDivID %>','600','400'))" class="statText">Distribution Graph</a></TD>
+    <TD VALIGN="middle" NOWRAP HEIGHT="15" CLASS="statText" ALIGN="right">&nbsp;<A HREF="JavaScript:void(getGraph('c=problem_distribution_graph&pm=<%= problemID %>&dn=<%= currentDivID %>','600','400','distribution'))" class="statText">Distribution Graph</a></TD>
   </TR>
   <%
       }
