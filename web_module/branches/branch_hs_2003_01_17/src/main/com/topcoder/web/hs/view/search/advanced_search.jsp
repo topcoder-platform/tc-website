@@ -5,6 +5,7 @@
 <P><BR></P>   
 <P>Enter search criteria below then click the go button. Search results matching the criteria selections will be returned. Click on a Handle to view information about the Coder.</P>
 <FORM METHOD="get" name="advForm">
+ <INPUT TYPE="hidden" NAME="module" VALUE="Search">
  <INPUT TYPE="hidden" NAME="cmd" VALUE="adv">
  <INPUT TYPE="hidden" NAME="next" VALUE="">
  <INPUT TYPE="hidden" NAME="prev" VALUE="">
