@@ -50,6 +50,37 @@
         <TR>
           <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>          
+          <P>
+            Congratulations for making it into the fourth round of the TopCoder Invitational.<BR/>
+            <BR/>
+            This next round is the final online round.<BR/>
+            <BR/> 
+            All items below must be completed by Monday, October 28th at noon EST in order to receive your minimum cash award.<BR/>
+            <BR/>
+            <ol>
+              <li>
+                Click <A HREF="/?amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.
+              </li>
+              <xsl:if test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
+                <li>
+                  Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to print out a tax form.  This must be returned immediately.
+                </li>
+              </xsl:if>
+              <li>
+	        Click <A HREF="#">here</A> to fill out a TopCoder 2002 Questionnaire.
+              </li>
+              <li>
+	        Click <A HREF="#">here</A> to complete a Travel Information Page.
+              </li>
+              <li>
+	        Click <A HREF="/">here</A> to view your current headshot.<BR/>
+              </li>
+            </ol>
+              Reminder, you will not receive any prize money unless all items above are completed by Monday, October 28th at Noon EST.
+
+          </P>
+
+<!--
           <TABLE WIDTH="100%" BORDER="0" CELLPADDING="2" CELLSPACING="0" BGCOLOR="#FFFFFF">
             <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
             <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">blah blah blah blah blah</TD></TR>
@@ -71,6 +102,7 @@
             <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">coder_type <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/coder_type_desc"/></TD></TR>
             <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit" CLASS="bodyText">get affidavit</A></TD></TR>
           </TABLE>
+-->
           <P><BR/></P>
           </TD>
           <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
