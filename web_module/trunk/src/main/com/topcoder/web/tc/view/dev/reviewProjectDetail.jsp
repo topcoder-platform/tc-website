@@ -11,7 +11,7 @@
 <% ResultSetContainer projectDetail= (ResultSetContainer)request.getAttribute("projectDetail");%>
 <% List reviewerList= (List)request.getAttribute("reviewerList");%>
 <head>
-<title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
+<title>Open Component Projects Available for Review</title>
 
 <jsp:include page="../script.jsp" />
 
@@ -60,7 +60,7 @@
             
             <table cellspacing="0" width="530" class="formFrame">
                 <tr>
-                    <td class="projectTitles" colspan="3">Component Info</td>
+                    <td class="projectTitles" colspan="3">Component Details</td>
                 </tr>
                 <tr>
                     <td class="projectHeaders" align="left" width="50%">Catalog</td>
