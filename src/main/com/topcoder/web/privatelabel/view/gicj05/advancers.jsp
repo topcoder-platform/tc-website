@@ -41,17 +41,19 @@
 			</span>
 
 			<br/><br/>
+
 			<table class=tableFrame cellpadding=5 cellspacing=2 border=0 width="400">
 			<tr>
-			<td class=advancersTitle colspan=3>Qualification Round</td>
+			<td class="advancersTitle">Round</td>
+			<td class="advancersTitle" align="right" width="100%">Advancers</td>
 			</tr>
-			<tr>
-			<td class=advancersRound width="30%">Handle</td>
-			<td class=advancersRound width="40%">Problem Set</td>
-			<td class=advancersRound width="30%" align="right">Score</td>
+			<tr valign="top">
+			<td class="advancersRound"><a href="/pl/?&module=Static&d1=gicj05&d2=advQual" class="topLink">Qualification Round</a></td>
+			<td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=gicj05&d2=advQual">500</a></td>
 			</tr>
-<tr class=sidebarText><td>rotoZOOM</td><td>Problem Sets 1 and 7</td><td align="right">1206.68</td></tr>
-         </table>
+			</table>
+
+
 
 			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
