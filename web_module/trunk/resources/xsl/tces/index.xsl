@@ -107,24 +107,6 @@
                             </tr>
 <!-- Nvidia ends -->
 
-                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
-                        
-<!-- Google begins -->
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=google"><img src="/i/es/google_sm.gif" width="143" height="59" border="0"/></a></td>
-                                <td width="99%" class="bodyText">Google is looking for exceptional people who like to develop innovative new products, especially software 
-                                    engineers and tech-savvy product managers. Are you exceptional at what you do? 
-                                    <a href="/?&amp;t=tces&amp;c=google" class="bodyText">Click here</a> to view current 
-                                    positions available at Google.<br /><br /></td>
-                            </tr>
-<!-- Google ends -->
-                            
-
-
-
-
-
-
                         </table>
 
                         <p><br /></p>
