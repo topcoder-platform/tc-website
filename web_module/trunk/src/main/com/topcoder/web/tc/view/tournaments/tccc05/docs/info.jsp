@@ -98,7 +98,7 @@
                                     Glastonbury, CT 06033
                                 </div>
                                    </p>
-                                <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by 9:00 PM ET on Wednesday, September 29.  Any
+                                <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by 9:00 PM EST on Wednesday, February 2.  Any
                                 items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
                             </ol>
