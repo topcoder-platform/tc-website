@@ -337,7 +337,7 @@
 
                                         <p>
                                             <strong>
-                                                <!--<a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group1">Inquire for the Group 1 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.-->
+                                                <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Single%20Sign%20On">Inquire for the Single Sign-On Project</a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
                                         <!--
