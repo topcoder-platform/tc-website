@@ -41,7 +41,7 @@
         
         <tr> 
         <td colspan="2" class="bodyText" align="left" width="480">
-        <p>If you are interested in becoming part of the NVIDIA team, please check our <A href="http://www02.rmx.scd.yahoo.com/pljb/nvidia/nvidiaemployment/applicant/index.jsp">career opportunities</A>, and <A href="/tc?module=JobHit&jid=265&jt=1">apply now</A>!</p>
+        <p>If you are interested in becoming part of the NVIDIA team, please check our <A href="http://www02.rmx.scd.yahoo.com/pljb/nvidia/nvidiaemployment/applicant/index.jsp" target="_blank">career opportunities</A>, and <A href="/tc?module=JobHit&jid=265&jt=1">apply now</A>!</p>
         </td>
         </tr>
      
