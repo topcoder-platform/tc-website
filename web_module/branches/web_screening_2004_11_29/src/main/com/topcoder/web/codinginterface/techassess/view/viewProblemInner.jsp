@@ -44,7 +44,7 @@
                   <td align=left><span class=bodySmallTitle>Problem Statement</span></td>
                   <td align=right>
                   Choose your language:
-                  <tc-webtag:listIterator id="language" list="languages">
+                  <tc-webtag:listIterator id="language" list="languages" type="com.topcoder.shared.language.Language">
                     <input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="<jsp:getProperty name="language" property="id"/>">&#160;<jsp:getProperty name="language" property="name"/>&#160;
                   </tc-webtag:listIterator>
                   </td>
