@@ -112,6 +112,11 @@ public class ProfileSearch extends Base {
             query.append('\n');
         }
         query.append(buildCoderConstraints(request, skill));
+        query.append("  ORDER BY ");
+        query.append(request.getParameter("order"));
+        int so = Integer.parseInt(request.getParameter("sort"));
+        if(so == 1)query.append(" ASC\n");
+        else query.append(" DESC\n");
         return query.toString();
     }
     private List[] buildDemoQuery(TCRequest request){
