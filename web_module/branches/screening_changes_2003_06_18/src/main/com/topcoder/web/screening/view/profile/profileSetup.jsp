@@ -116,15 +116,16 @@ function submitConfirm() {
                                 %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option><%
                             } %>
                             </screen:resultSetRowIterator>
+                            <option value="" name="round_id" />">No Test Set A</option>
                         </select>
                     <td class="errorTextEven">&#160;</td>
                 </tr>
             </table>
-            
+
              <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr><td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
             </table>
- 
+
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="7">Test Set A</td></tr>
 
@@ -136,7 +137,7 @@ function submitConfirm() {
                     <td colspan="2" align="center" class="testFormHeader">Algorithmic Categories</td>
                      <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                  </tr>
-            
+
                 <screen:listIterator id="testA" list="<%=profile.getTestSetAList()%>">
 
                 <tr>
