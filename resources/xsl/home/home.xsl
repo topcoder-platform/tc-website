@@ -10,7 +10,7 @@
 <html>
 <head>
 
-<title>Computer Programming Competitions, Software Development, and Employment Services at TopCoder</title>
+<title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
         
 <script language="JavaScript">
   function changeImage(image, newImage) {
