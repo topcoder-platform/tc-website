@@ -37,8 +37,10 @@ public class ReviewProjectDetail extends Base {
                 //set submission count to 1 for zero submissions
                 int numSubmissions = detail.getIntItem(0, "submission_count");
                 int numSubmissionsPassed = detail.getIntItem(0, "submission_passed_screening_count");
-                if(numSubmissions == 0)
+                if(numSubmissions == 0) {
                     numSubmissions = 1;
+                    numSubmissionsPassed = 1;
+                }
 
                 if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE) {
                     ResultSetContainer reviewers = (ResultSetContainer) results.get("development_reviewers");
