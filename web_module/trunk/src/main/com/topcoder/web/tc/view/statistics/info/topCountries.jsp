@@ -43,19 +43,18 @@
             <p class="bodyText">Where:</p>
 
             <p class="bodyText"><b><i>M</i></b> is the number of coders from a particular
-            country that have competed within the last 180 days</p>
-
-            <p class="bodyText"><b><i>i</i></b> is a 1 based index of active coders from a
+            country that have competed within the last 180 days
+            <br/>
+            <b><i>i</i></b> is a 1 based index of active coders from a
             particular country when sorted by rating in descending order, in other words,
-            their rank within their country</p>
-
-            <p class="bodyText"><b><i>rating<sub>i </sub></i></b>is the rating of the coder
-            with index i</p>
-
-            <p class="bodyText"><b><i>R</i></b> is a constant that will dictate the
-            weighting of the different ranks</p>
-
-            <p></p>
+            their rank within their country
+            <br/>
+            <b><i>rating<sub>i </sub></i></b>is the rating of the coder
+            with index i
+            <br/>
+            <b><i>R</i></b> is a constant that will dictate the weighting of the different ranks
+            <br/>
+            <br/>
 
             <p class="bodyText">One may determine the weighting (<b><i>R</i></b>) using the
             following equation.</p>
