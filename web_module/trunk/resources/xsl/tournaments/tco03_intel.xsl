@@ -57,12 +57,13 @@
                             
                             
                             <tr>
-                            	<td valign="top" width="300" >
+                            	<td valign="top" width="275" >
                             		<table>
                             			<tr align="left" >
                             				
                             				
                             				<td class="bodyText" >
+                            					<p><br/></p>
                             					<p>With technology complexity increasing at a blistering pace, <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel&#174; 
                             					Developer Services</strong> </a> offers the resources and opportunities you need to keep stride with industry innovations,
                              					take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p>
