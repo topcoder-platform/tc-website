@@ -77,7 +77,7 @@ public class Data extends Base {
             addElement(hd, "percentile", df.format(profileRsc.getDoubleItem(0, "percentile")), emptyAtts);
             addElement(hd, "memberSince", sdf.format(profileRsc.getItem(0, "member_since").getResultData()), emptyAtts);
             addElement(hd, "lastMatchDate", sdf.format(profileRsc.getItem(0, "last_match").getResultData()), emptyAtts);
-            addElement(hd, "bestDvi1", profileRsc.getStringItem(0, "best_div1"), emptyAtts);
+            addElement(hd, "bestDiv1", profileRsc.getStringItem(0, "best_div1"), emptyAtts);
             addElement(hd, "bestDiv2", profileRsc.getStringItem(0, "best_div2"), emptyAtts);
             addElement(hd, "competitions", profileRsc.getStringItem(0, "num_competitions"), emptyAtts);
             addElement(hd, "designRating", profileRsc.getStringItem(0, "design_rating"), emptyAtts);
