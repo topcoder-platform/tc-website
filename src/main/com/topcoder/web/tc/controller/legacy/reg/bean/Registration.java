@@ -49,6 +49,7 @@ public class Registration
     public static final String STEP_2 = "2";
     public static final String STEP_3 = "3";
     public static final String STEP_4 = "4";
+    public static final String STEP_5 = "5";
     public static final String DEFAULT_STEP = STEP_1;
 
     // pages
@@ -190,6 +191,7 @@ public class Registration
     protected String code;
     protected String compCountry;
     protected boolean hasResume;
+    protected boolean autoActivate;
 
     public Registration() {
         super();
@@ -198,7 +200,7 @@ public class Registration
 
     void init() {
         log.info(" => REGISTRATION.INIT()");
-        validSteps = new String[]{STEP_0, STEP_1, STEP_2, STEP_3, STEP_4};
+        validSteps = new String[]{STEP_0, STEP_1, STEP_2, STEP_3, STEP_4, STEP_5};
 
         if (user == null || user.getUserId() == 0) {
             firstName = "";
@@ -248,6 +250,7 @@ public class Registration
             gpaScale = "";
             hasResume = false;
             compCountry = "";
+            autoActivate = false;
             resetUser();
         }
     }
@@ -535,6 +538,8 @@ public class Registration
             register();
 
             if (isRegister()) {
+                //check for auto activate
+                log.debug("AUTO-ACTIVATE FLAG: " + autoActivate);
                 //resetUser();
                 init();
             }
@@ -547,7 +552,19 @@ public class Registration
                 addError(CODE, "Unable to activate.  Please contact service@topcoder.com");
             else
                 addError(CODE, "Activation complete.  Please continue to the home page to log in.");
+        } else if (isStep(STEP_5)) {
+            clearErrors();
+            setAutoActivate(true);
+            
         }
+    }
+    
+    public void setAutoActivate(boolean b) {
+        autoActivate = b;
+    }
+    
+    public boolean getAutoActivate() {
+        return autoActivate;
     }
 
     public void setProcess(String ignore) {
@@ -617,6 +634,8 @@ public class Registration
             } else {
                 return PAGE_4;
             }
+        } else if( isStep(STEP_5)) {
+            return PAGE_1;
         }
 
         return PAGE_1;
