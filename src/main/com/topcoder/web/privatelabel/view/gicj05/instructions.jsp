@@ -42,7 +42,7 @@
 			</span>
 
 			<br/><br/>
-                         <strong>Loading the Competition Arena</strong><br/>
+                         <span class="greenSubtitle">Loading the Competition Arena</span><br/>
                         The Competition Arena is a Java Applet that requires the Java 1.4 runtime to be installed on your machine.  Load the application by clicking the Competition Arena link at the left. 
                         Once you click the button, you will be notified if 
                         you need to upgrade your Java runtime. If so, please follow the steps of the installation wizard to upgrade your system.  If an upgrade is not 
@@ -50,7 +50,7 @@
 
                         <br><br>                        
 
-                        <strong>Logging in to the Competition Arena</strong><br/>
+                        <span class="greenSubtitle">Logging in to the Competition Arena</span><br/>
                         Once the Competition Arena launches, you will be presented with a login screen.  From here, you need simply type in your handle and the password that 
                         you chose during the registration process.  Once you log in, you will initially be placed in the main chat lobby.  Move to your assigned competition 
                         room as follows:
@@ -60,12 +60,12 @@
                             <li>Select Verizon Coding Contest.</li>
                         </ul>
                         
-                        <strong>The Competition Room</strong><br/>
+                        <span class="greenSubtitle">The Competition Room</span><br/>
                         From within the competition room, you will access the problem statements that you will attempt to solve during the Coding Phase.
                         
                         <br><br>                        
                         
-                        <strong>Coding Phase</strong><br/>
+                        <span class="greenSubtitle">Coding Phase</span><br/>
                         The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements.  
                         In all rounds of the Verizon Coding Challenge, the Coding Phase will last 75 minutes.  When the competition begins, you may view the 
                         problem statements as follows: 
@@ -92,7 +92,7 @@
 
                         <br><br>                        
                         
-                           <strong>The Coding Window</strong><br/>
+                           <span class="greenSubtitle">The Coding Window</span><br/>
                         The coding window is the most important part of the Competition Arena.  It is in the coding window that the problem statement is shown, and the 
                         solutions are coded, compiled, tested, and submitted.
                         
@@ -109,7 +109,7 @@
                             find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language 
                             before you attempt to compile your code.  Strange compilation results can be a symptom of having the wrong language selected.<br/><br/>
                         
-                            <dd><strong>Creating a Solution</strong><br/>
+                            <dd><<strong>Creating a Solution</strong><br/>
                             The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members 
                             and invoke the appropriate methods.  Below you will find code templates for Java, C++, C# and VB.NET:<br/><br/>
                            
@@ -226,26 +226,26 @@ End Class </pre><br/><br/>
                             value for the problem.<br/><br/>
                        </dl>
                       
-                           <strong>Saving</strong><br/>
+                           <span class="greenSubtitle">Saving</span><br/>
                     At any time while coding, you may save your code.  Clicking the "Save" button will place the current version of your code on the TopCoder server.  
                     It is good to save every-so-often to ensure that a recent version of your code will be available in the event that something happens to your session 
                     (i.e., you lose your Internet connection).  Compiling your code also has the effect of saving it.
                     
                         <br><br>                        
 
-                       <strong>Clearing the Code</strong><br/>
+                       <span class="greenSubtitle">Clearing the Code</span><br/>
                     Using the "Clear" button, you can quickly clear out the coding window.  Use this option only if you wish to start over on a particular problem.  
                     <i>Warning:  Once you clear your code, there is no way to retrieve it!</i>
                     
                         <br><br>                        
 
-                        <strong>The Timer</strong><br/>
+                        <span class="greenSubtitle">The Timer</span><br/>
                     The timer in the coding window will be always counting down to the end of the Coding Phase.  Remember that there is variable latency between your 
                     computer and our servers.  For that reason, it is ALWAYS best to perform any submissions with at least 30 seconds left on the timer.
                     
                         <br><br>                        
 
-                       <strong>The Challenge Phase</strong><br/>
+                       <span class="greenSubtitle">The Challenge Phase</span><br/>
                     The Challenge Phase will begin five minutes after the end of the Coding Phase (the period in between is an intermission), and will last for 15 minutes.
                     
                         <br><br>                        
@@ -269,7 +269,7 @@ End Class </pre><br/><br/>
                 
                         <br><br>                        
 
-                   <strong>System Testing Phase</strong><br/>
+                   <span class="greenSubtitle">System Testing Phase</span><br/>
                 After the Challenge Phase, all submissions will be run through a series of test cases.  These test cases will compare an expected result against a received 
                 result to determine if the code submission works for each test case.  <i>Any submission that fails any test case will be deemed incorrect, and will result in a 
                 loss of all points for that submission.  In addition, any submission that runs longer than eight (8) seconds for any test case will be deemed incorrect, and 
@@ -282,17 +282,14 @@ End Class </pre><br/><br/>
                 
                         <br><br>                        
                 
-                   <strong>If You Have Any Questions</strong><br/>
+                   <span class="greenSubtitle">If You Have Any Questions</span><br/>
                     If you have a question during the competition about the problem statement or about the functionality of the Arena, please utilize the chat interface in the 
-                    Arena to present your question to the competition administrators.  To do so, simply type the following in the white chat line at the bottom of the applet:<br/><br/>
+                    Arena to present your question to the competition administrators.  To do so, simply type the following in the white chat line at the bottom of the applet:
 
-                        <br><br>                        
+                     <br/><br/>
 
                     <strong><i>admins: [YOUR QUESTION]</i></strong><br/><br/>
-                    An administrator will respond to your question in the chat area.<br/><br/>
-                    If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <a href="mailto: vcc@topcoder.com">vcc@topcoder.com</a>. Please include a detailed 
-                    description of the problem that you are having.
-
+                    An administrator will respond to your question in the chat area.
 
 			<br/><br/>
 			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
