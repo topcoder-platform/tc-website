@@ -43,11 +43,13 @@
 
 <h2>Results</h2>
 
+<%--
                         <p align=right>
                         <a href="#week">Weekly</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#month">Monthly</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#quarter">Quarterly</a>
                         </p>
+--%>
 
                         <a name="week"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
