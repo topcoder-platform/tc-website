@@ -48,7 +48,7 @@ abstract public class Base extends BaseProcessor {
         Request r = new Request();
         String pid = getRequest().getParameter(Constants.PROBLEM_ID);
         if(pid==null) 
-            throw new NavigationException("Problem ID is invalid");
+            throw new NavigationException("There was an error with your problem.");
         r.setContentHandle("Problem Rating Results");
         r.setProperty("pm", pid);
         //response data has to be live, no cache
@@ -57,7 +57,7 @@ abstract public class Base extends BaseProcessor {
         ResultSetContainer questions = (ResultSetContainer) qMap.get("problem rating results");
         ResultSetContainer problemName = (ResultSetContainer) qMap.get("problem name");
         if(problemName.size()==0){
-            throw new NavigationException("Problem ID is invalid");
+            throw new NavigationException("There was an error with your problem.");
         }
         getRequest().setAttribute("problemRatingResults",questions);
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
@@ -71,7 +71,7 @@ abstract public class Base extends BaseProcessor {
         r.setContentHandle("Problem Rating Questions");
         String pid = getRequest().getParameter(Constants.PROBLEM_ID);
         if(pid==null) 
-            throw new NavigationException("Problem ID is invalid");
+            throw new NavigationException("There was an error with your problem.");
         r.setProperty("pm", pid);
         r.setProperty("cr", String.valueOf(userID));
         //response data has to be live, no cache
@@ -95,7 +95,7 @@ abstract public class Base extends BaseProcessor {
         }
         getRequest().setAttribute("problemRatingQuestions",questions);
         if(problemName.size()==0){
-            throw new NavigationException("Problem ID is invalid");
+            throw new NavigationException("There was an error with your problem.");
         }
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
         setNextPage(Constants.PROBLEM_RATING_QUESTIONS);
