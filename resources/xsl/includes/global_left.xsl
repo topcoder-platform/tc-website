@@ -1063,7 +1063,7 @@
                                 </td>
                             </tr>
 
-            <!-- Project Submit and Review 
+            <!-- Project Submit and Review -->
                             <tr>
                                 <td id="leftSubnav">
                                     <xsl:attribute name="id">
@@ -1072,10 +1072,10 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://172.16.20.222:8082/review</xsl:attribute>Project Submit &amp; Review</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://software.topcoder.com/review</xsl:attribute>Project Submit &amp; Review</A>
                                 </td>
                             </tr>
-            -->
+
             <!-- Project Status -->
                             <tr>
                                 <td id="leftSubnav">

@@ -180,14 +180,14 @@
                         Register</A> for this Component Project to get information necessary to submit a solution</strong>
                         </p>
                             
-                        <p><br /></p>
+                            <p><br /></p>
+                           
+                            <p><strong>Upload Your Submission</strong><br/>
+                            Managing your projects is now easier than ever with the Project Submit & Review application. After you've inquired about a project, 
+                            use Project Submit & Review to check timelines, submit solutions and final fixes, and review your scorecards.</p>
+                            <!-- Learn more about Project Submit & Review (link to future How-to guide -->
 
-                        <p align="right"><strong><A>
-                            <xsl:attribute name="href"> 
-                                <xsl:value-of select="concat('http://software.topcoder.com/catalog/s_upload_submission.jsp?version=', $version, '&amp;phase=' , $phase, '&amp;compvers=', /TC/DEVELOPMENT/compvers, '&amp;comp_id=', $componentId, '&amp;Project=', $formattedName)"/>
-                            </xsl:attribute>
-                        Upload your submission!</A> &gt;&gt;</strong>
-                        </p>
+                           <p align="center"><strong><A href="http://software.topcoder.com/review">Project Submit & Review</A> &gt;</strong></p>
                     </td>
                 </tr>
             </table>
