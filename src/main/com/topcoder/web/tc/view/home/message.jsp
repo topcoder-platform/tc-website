@@ -3,5 +3,8 @@
                <tr><td><img src="/i/important_message.gif" width="180" height="20" border="0"></td></tr>
             </table>
             <table border="0" cellspacing="0" cellpadding="5" width="180" class="surveyFrame">
-               <tr><td class="bodyText" bgcolor="#FBF6A6"><p>danger will robins, danger.  you have not registered yet for the TCCC04.</td></tr>
+               <tr><td class="bodyText" bgcolor="#D4E1EE">
+               <p>There's a new application project available:<br/>
+               <div align="right"><A href="/">Sun OSSJ TCK Test Proxy</A></div>
+               </td></tr>
             </table>
