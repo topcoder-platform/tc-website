@@ -94,6 +94,7 @@ public class LoginBean extends BaseEJB {
                     "AND group_role_xref.role_id = security_roles.role_id";
             ps2 = conn.prepareStatement(query);
             ps2.setLong(1, userId);
+            ps2.setLong(2, userId);
             rs2 = ps2.executeQuery();
 
             //build list of RolePrincipals
