@@ -28,8 +28,8 @@
  schools[<%=i%>]=new Array(<%=state_schools.size()%>)
  codes[<%=i%>]=new Array(<%=school_codes.size()%>)
   <% for (int j=0;j<state_schools.size();j++) { %>
- schools[<%=i%>][<%=j%>]=<%=(String)state_schools.get(j)%>
- codes[<%=i%>][<%=j%>]=<%=(Long)state_codes.get(j)%>
+ schools[<%=i%>][<%=j%>]=<%=state_schools.get(j)%>
+ codes[<%=i%>][<%=j%>]=<%=school_codes.get(j)%>
   <% }
     } %>
  function changeState() {
