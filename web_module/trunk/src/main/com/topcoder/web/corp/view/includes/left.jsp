@@ -1,20 +1,28 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.corp.Constants"
          autoFlush="false" %>
+<%
+    String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
+    String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
 
+%>
 <!-- My Services begins -->
             <table width="170" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="myServicesTitle">My Services</td></tr>
 
 <!-- Candidate Testing begins-->
                 <tr><td id="myServicesNav"><img src="/i/nav_arrow_bottom.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="corpLeft">Candidate Testing</a></td></tr>
-                <tr><td id="myServicesSubnavOn"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="corpLeft">Overview</a></td></tr>
-                <tr><td id="myServicesSubnav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=problem_selection" target="_parent" class="corpLeft">Problem Selection</a></td></tr>
-                <tr><td id="myServicesSubnav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=coding_environment" target="_parent" class="corpLeft">Coding Environment</a></td></tr>
-                <tr><td id="myServicesSubnav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=session_admin" target="_parent" class="corpLeft">Session Administration</a></td></tr>
-                <tr><td id="myServicesSubnav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=reporting" target="_parent" class="corpLeft">Reporting</a></td></tr>
-                <tr><td id="myServicesSubnav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=security_fraud" target="_parent" class="corpLeft">Security and Fraud Detection</a></td></tr>
-                <tr><td id="myServicesSubnav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=pricing" target="_parent" class="corpLeft">Pricing</a></td></tr>
+<% if (level1.equals("testing")) { %>
+                <tr><td id="<%=level2.equals("overview")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="corpLeft">Overview</a></td></tr>
+                <tr><td id="<%=level2.equals("problemSelection")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=problem_selection" target="_parent" class="corpLeft">Problem Selection</a></td></tr>
+                <tr><td id="<%=level2.equals("codingEnvironent")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=coding_environment" target="_parent" class="corpLeft">Coding Environment</a></td></tr>
+                <tr><td id="<%=level2.equals("sessionAdmin")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=session_admin" target="_parent" class="corpLeft">Session Administration</a></td></tr>
+                <tr><td id="<%=level2.equals("reporting")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=reporting" target="_parent" class="corpLeft">Reporting</a></td></tr>
+                <tr><td id="<%=level2.equals("security")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=security_fraud" target="_parent" class="corpLeft">Security and Fraud Detection</a></td></tr>
+                <tr><td id="<%=level2.equals("pricing")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=pricing" target="_parent" class="corpLeft">Pricing</a></td></tr>
+<% } else { %>
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="corpLeft">Candidate Testing</a></td></tr>
+<% } %>
 <!-- Candidate Testing ends-->
 
                 <tr><td id="myServicesNav"><img src="/i/nav_arrow_right.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=spon_prog&d2=index" class="corpLeft">Sponsorship</a></td></tr>
