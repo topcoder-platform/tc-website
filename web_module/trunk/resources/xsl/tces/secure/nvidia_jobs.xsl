@@ -71,15 +71,15 @@
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Systems Software Engineer</A><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Performance Analysis Software Engineer</A><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Software QA Engineer</A><BR/>
-       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Cad Engineer (intern/co-op position only)</A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Cad Engineer (intern/co-op position only)</A><BR/><BR/>
        <b>ARCHITECTURE</b><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Graphics Architecture Engineer</A><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">3D Graphics Applications Software Engineer</A><BR/>
-       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Platform Architecture Engineer (Intern/Co-op position only)</A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Platform Architecture Engineer (Intern/Co-op position only)</A><BR/><BR/>
        <b>IT/BUSINESS DEVELOPMENT</b><BR/>
-       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Web Software Engineer</A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Web Software Engineer</A><BR/><BR/>
        <b>MARKETING</b><BR/>
-       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Technical Marketing Engineering Intern</A><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Technical Marketing Engineering Intern</A><BR/><BR/>
        <b>HARDWARE</b><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Hardware Engineer - ASIC</A><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Mixed Signal Design Engineer</A><BR/>
