@@ -69,6 +69,7 @@ public class JobHit extends Base {
             getRequest().setAttribute("JobHitData", hit);
 
             log.debug("user rating: " + hit.getRating());
+            jpServices = (JobPostingServices) BaseProcessor.createEJB(getInitialContext(), JobPostingServices.class);
             if (hitType == Constants.PLACEMENT_CLICK_THRU_ID) {
                 if (jpServices.jobExists(jobId, DBMS.OLTP_DATASOURCE_NAME)) {
                     SessionInfo sessionInfo = (SessionInfo)
@@ -122,7 +123,6 @@ public class JobHit extends Base {
             } else {
                 if (hit.getRating() > 0) {
                     if (hit.hasResume()) {
-                        jpServices = (JobPostingServices) BaseProcessor.createEJB(getInitialContext(), JobPostingServices.class);
                         if (jobHits.size() > 0) {
                             for (int i = 0; i < jobHits.size(); i++) {
                                 long currJob = ((Long) jobHits.get(i)).intValue();
