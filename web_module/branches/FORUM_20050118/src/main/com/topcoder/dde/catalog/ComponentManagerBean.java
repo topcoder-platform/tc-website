@@ -886,6 +886,39 @@ public class ComponentManagerBean
                         homeBindings.lookup(ProjectTrackerHome.EJB_REF_NAME),
                         ProjectTrackerHome.class);
                 ProjectTracker pt = ptHome.create();
+
+
+                // if component went to dev, get the winner from design to add to forum post notification.
+                if ((versionBean.getPhaseId() != ComponentVersionInfo.DEVELOPMENT) &&
+                    (info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
+                    log.debug("Project went to development. Winner of desing will be added to notification");
+
+                    Notification notification = null;
+
+                    Project project = pt.getProjectById(
+                        pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DEVELOPMENT), requestor);
+
+
+                    if (project.getWinner() != null) {
+                        log.debug("WinnerId=" + project.getWinner().getId());
+
+                        NotificationHome notificationHome = (NotificationHome)
+                                PortableRemoteObject.narrow(
+                                homeBindings.lookup(NotificationHome.EJB_REF_NAME),
+                                NotificationHome.class);
+
+                        Notification notification = notificationHome.create();
+
+                        notification.createNotification("forum post " + project.getForumId(),
+                                project.getWinner().getId(),
+                                notification.FORUM_POST_TYPE_ID);
+                    } else {
+                        log.debug("Winner can't be retrieved because project.getWinner()==null.  No notification added");
+                    }
+
+
+                }
+
                 long projectId = pt.createProject(
                         versionBean.getCompCatalog().getComponentName(),
                         info.getVersionLabel(),
@@ -900,12 +933,9 @@ public class ComponentManagerBean
                     log.debug("New forum created, adding PM to notification.");
                     Project project = pt.getProjectById(projectId, requestor);
 
-                    NotificationHome notificationHome = (NotificationHome)
-                            PortableRemoteObject.narrow(
-                            homeBindings.lookup(NotificationHome.EJB_REF_NAME),
-                            NotificationHome.class);
-
-                    Notification notification = notificationHome.create();
+                    if (notification == null) {
+                        notification = notificationHome.create();
+                    }
 
                     notification.createNotification("forum post "+ newForum,
                             project.getProjectManager().getId(),
@@ -929,41 +959,7 @@ public class ComponentManagerBean
                 throw new CatalogException(e.getMessage());
             }
         }
-log.debug("qq before if");
-        if ((versionBean.getPhaseId() != ComponentVersionInfo.DEVELOPMENT) &&
-            (info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
-            log.debug("Project went to development. Winner of desing will be added to notification");
-            try {
-                Context homeBindings = new InitialContext();
 
-                ProjectTracker pt = projectTrackerHome.create();
-
-                Project project = pt.getProjectById(
-                    pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DEVELOPMENT), requestor);
-
-                log.debug("WinnerId=" + project.getWinner().getId());
-
-                NotificationHome notificationHome = (NotificationHome)
-                        PortableRemoteObject.narrow(
-                        homeBindings.lookup(NotificationHome.EJB_REF_NAME),
-                        NotificationHome.class);
-
-                Notification notification = notificationHome.create();
-
-                notification.createNotification("forum post " + project.getForumId(),
-                        project.getWinner().getId(),
-                        notification.FORUM_POST_TYPE_ID);
-
-           } catch (NullPointerException e) {
-               log.debug("Can't get winner for project, no notification added: " +e.toString());
-           } catch (Exception e) {
-                ejbContext.setRollbackOnly();
-                throw new CatalogException(e.toString());
-            }
-
-
-
-        }
 
         versionBean.setVersionText(info.getVersionLabel());
         versionBean.setComments(info.getComments());
