@@ -62,11 +62,11 @@
 
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-				<td class=homeTitle><A href="http://software.topcoder.com/components/subscriptions.jsp" class=homeTitleLink>Component Catalog Subscriptions</A></td>
+				<td class=homeTitle><A href="/tc?module=Static&d1=contracting&d2=index" class=homeTitleLink>Looking for your next Gig?</A></td>
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>Now you can buy infrastructure components in both .NET and Java to serve as the building blocks for software components.  Only $12.95 a month for personal <A href="http://software.topcoder.com/components/subscriptions.jsp">subscriptions</A></td>
+				<td class=homeText>Interested in earning money? Just register <A href="/tc?module=Static&d1=contracting&d2=index">here</A> and TopCoder will contact you about temporary and permanent positions that fit your skills.</td>
 			</tr>
 		</table>
 		</td>

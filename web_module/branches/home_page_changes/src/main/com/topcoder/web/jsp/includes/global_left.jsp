@@ -269,13 +269,7 @@
 
     <% if (level1.equals("home")) { %>
 
-			<table border="0" cellspacing="0" cellpadding="0" width="100%">
-    			<tr><td><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp" target="_top"><img src="/i/promos/featured_clients.gif" width="180" height="167" border="0"></A></td></tr>
-				<tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
-			</table>
-
             <jsp:include page="../../home/coder_of_month.jsp" />
     <% } %>
 
             <div align="center"><img src="/i/logo_ghosted_bracket.gif" width="160" height="77" alt="[ TopCoder ]" vspace="10" border="0"/></div><br /><br />
-
