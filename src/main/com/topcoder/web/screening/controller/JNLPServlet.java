@@ -58,7 +58,7 @@ public final class JNLPServlet extends HttpServlet {
              /***********************************************************************/
 
              out.print("<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                     "<jnlp spec=\"1.0+\" codebase=\"http://172.16.20.24/contest/screening/\" " +
+                     "<jnlp spec=\"1.0+\" codebase=\"http://corporate.topcoder.com/contest/screening/\" " +
                      "href=\"ScreeningApp.jnlp\">\r\n" +
                      "<information>\r\n" +
                      "<title>TopCoder Testing Application</title>\r\n" +
@@ -72,7 +72,7 @@ public final class JNLPServlet extends HttpServlet {
                      "</security>\r\n" +
                      "<resources>\r\n" +
                      "<j2se version=\"1.4+\"/>\r\n" +
-                     "<jar href=\"http://172.16.20.20/contest/classes/ScreeningClient.jar\"/>\r\n" +
+                     "<jar href=\"http://corporate.topcoder.com/contest/classes/ScreeningClient.jar\"/>\r\n" +
                      "</resources>\r\n" +
                      "<application-desc " +
                      "main-class=\"com.topcoder.client.screening.tool.view.screeningClient.GenericStarter\">\r\n"+
