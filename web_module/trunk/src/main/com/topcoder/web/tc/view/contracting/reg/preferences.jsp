@@ -52,6 +52,8 @@ return false;
             <jsp:param name="title" value="Registration"/>
         </jsp:include>
 
+		<p class=bodyText>This is a description paragraph with some instructions and some details about the questions asked.</p>
+
 		<FORM ACTION="" METHOD=POST onSubmit="">
         <table border=0 cellpadding=2 cellspacing=0 width="100%" class=bodyText>
 			<tr>
