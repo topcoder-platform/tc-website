@@ -29,6 +29,8 @@ public class Constants {
     public static String SURVEY_LIST;
     public static String SURVEY_THANKS;
 
+    public static String CRPF_REPORT;
+
     public static String PROBLEM_RATING_RESULTS;
 
     private Constants() {
