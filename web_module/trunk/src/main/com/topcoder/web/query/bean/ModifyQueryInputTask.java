@@ -4,10 +4,9 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.*;
-import com.topcoder.web.query.ejb.QueryServices.Input;
-import com.topcoder.web.query.ejb.QueryServices.InputHome;
-import com.topcoder.web.query.ejb.QueryServices.QueryInput;
-import com.topcoder.web.query.ejb.QueryServices.QueryInputHome;
+import com.topcoder.web.query.common.InputBean;
+import com.topcoder.web.query.common.QueryInputBean;
+import com.topcoder.web.query.ejb.QueryServices.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -65,8 +64,14 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
         QueryInputHome qiHome = (QueryInputHome) getInitialContext().lookup(ApplicationServer.Q_QUERY_INPUT);
         QueryInput qi = qiHome.create();
 
+        QueryHome qHome = (QueryHome) getInitialContext().lookup(ApplicationServer.Q_QUERY);
+        Query q = qHome.create();
+
         i.setDataSource(getDb());
         qi.setDataSource(getDb());
+        q.setDataSource(getDb());
+
+        setQueryName(q.getName(getQueryId()));
 
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             QueryInputBean qib = null;
