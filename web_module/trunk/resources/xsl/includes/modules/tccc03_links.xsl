@@ -4,17 +4,15 @@
   <xsl:param name="selectedTab"></xsl:param>
             <table border="0" cellspacing="0" cellpadding="0" width="100%" id="tccc_bkgd">
                 <tr valign="top">
-                    <td width="110"><a href="/?&amp;t=tournaments&amp;c=tccc03_semiroom2"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="110" height="90" border="0" /></a></td>
+                    <td width="110"><a href="/?&amp;t=tournaments&amp;c=tccc03_semiroom3"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="110" height="90" border="0" /></a></td>
                     <td valign="middle" class="statText" width="99%">
-                        <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
-                        <div align="center"><font size="3"><strong>Attention TopCoder Members</strong></font></div>
-                        Check the TopCoder site on April 4th and 5th for a complete play-by-play of the Semi-Final and Final rounds of the 2003 TopCoder Collegiate Challenge.<br />
-                        <img src="/i/clear.gif" alt="" width="1" height="5" border="0" /><br />
-                        Experience the semi-final and final rounds in person at MIT on April 4th and 5th. <strong>Come early on Saturday for a <a href="/index?t=tournaments&amp;c=tccc03_schedule_mit" class="statText">FREE Lunch</a> and FREE Sun Microsystems Seminar!</strong>
-                        &#160;&#160;<a href="/index?t=tournaments&amp;c=tccc03_directions" class="statText">Get Directions</a><br />
-                        <img src="/i/clear.gif" alt="" width="1" height="5" border="0" />
+                            <p><img src="/i/clear.gif" alt="" width="1" height="5" border="0" /><br />
+                            <font size="3"><strong>The 2003 TopCoder Collegiate Challenge is going on right now! Experience the competition in real time by loading the 
+                            <a class="statText" href="Javascript:arena()"><font size="3">tournament applet</font></a></strong></font><br />
+                            <a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>Get more information</a><br />
+                            <img src="/i/clear.gif" alt="" width="1" height="5" border="0" /></p>
                     </td>
-                    <td width="135"><a href="/?&amp;t=tournaments&amp;c=tccc03_semiroom2"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
+                    <td width="135"><a href="/?&amp;t=tournaments&amp;c=tccc03_semiroom3"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
                 </tr>
                 <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="10" height="10" border="0" /></td></tr>
             </table>
@@ -26,10 +24,10 @@
 <!-- Summary tab -->
                                 <xsl:choose>
                                     <xsl:when test="$selectedTab='summary'">
-                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_semiroom1" class="statTextBig"><img src="/i/tournament/tabSummaryOn.gif" alt="Summary" width="85" height="21" border="0" /></a></td>
+                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_semiroom3" class="statTextBig"><img src="/i/tournament/tabSummaryOn.gif" alt="Summary" width="85" height="21" border="0" /></a></td>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_semiroom1" class="statTextBig"><img src="/i/tournament/tabSummaryOff.gif" alt="Summary" width="85" height="21" border="0" /></a></td>
+                                        <td class="statTextBig" width="1"><a href="/index?t=tournaments&amp;c=tccc03_semiroom3" class="statTextBig"><img src="/i/tournament/tabSummaryOff.gif" alt="Summary" width="85" height="21" border="0" /></a></td>
                                     </xsl:otherwise>
                                 </xsl:choose>
 

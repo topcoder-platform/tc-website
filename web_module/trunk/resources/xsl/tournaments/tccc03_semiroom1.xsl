@@ -76,13 +76,13 @@
                     <td width="99%" class="bodyText">
                         <table border="0" cellspacing="5" cellpadding="0" align="right" width="200">
                             <tr valign="top"><td align="left"><img src="/i/tournament/tccc03/room1_main.jpg" alt="" width="200" height="433" class="photoFrameBig" /></td></tr>
-                            <tr valign="top"><td align="left" class="smallText">WhiteShadow and dgarthur observe the action.</td></tr>
+                            <tr valign="top"><td align="left" class="smallText">What is Yarin thinking about?</td></tr>
                         </table>
                                 
                         <h2>Yarin moves on</h2>
                         <p>by MaryBeth Biondi, <em>TopCoder Staff</em><br />
                         Friday, April 4, 2003<br />
-                        <a href="/index?t=tournaments&amp;c=tccc03_brackets">View current bracket</a></p>
+                        <a href="/index?t=tournaments&amp;c=tccc03_brackets" class="bodyText">View current bracket</a></p>
 
                         <p>Maybe it was the later-than-normal start, or the fact that there are so many onsite tournament newbies, 
                         but the tournament room was bustling with traffic for the Round 1 competition.  More in line with past 
@@ -111,22 +111,22 @@
                         <table border="0" cellspacing="10" cellpadding="0">
                             <tr>
                                 <td width="100" class="bodyText" nowrap="nowrap">Yarin</td>
-                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">508.19</td>
+                                 <td width="50" class="bodyText" align="right" nowrap="nowrap">508.19</td>
                              </tr>
                                			
                             <tr>
                                 <td width="100" class="bodyText" nowrap="nowrap">Evd</td>
-                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">159.53</td>
+                                 <td width="50" class="bodyText" align="right" nowrap="nowrap">159.53</td>
                              </tr>
                                			
                             <tr>
                                 <td width="100" class="bodyText" nowrap="nowrap"> Yike</td>
-                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">129.35</td>
+                                 <td width="50" class="bodyText" align="right" nowrap="nowrap">129.35</td>
                              </tr>
                                			
                             <tr>
                                 <td width="100" class="bodyText" nowrap="nowrap">StefanPochmann</td>
-                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">-&#160;50.00</td>
+                                 <td width="50" class="bodyText" align="right" nowrap="nowrap">-&#160;50.00</td>
                              </tr>
                         </table>		
 
