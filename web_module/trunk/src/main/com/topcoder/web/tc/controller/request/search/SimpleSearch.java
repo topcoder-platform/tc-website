@@ -32,7 +32,7 @@ public class SimpleSearch extends Base {
 
 
     protected void setDefaults(MemberSearch m) {
-        if (m.getHandle()!=null) setDefault(Constants.HANDLE, m.getHandle());
+        setDefault(Constants.HANDLE, m.getHandle()==null?"":m.getHandle());
     }
 
 
