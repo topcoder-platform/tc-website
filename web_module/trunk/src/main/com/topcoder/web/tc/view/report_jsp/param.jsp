@@ -9,13 +9,13 @@
           com.topcoder.common.web.data.report.*"
 
 %>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%
   ReportNode reportList = null;
   Report report = null;
   Integer reportId = null;
   Parameter[] parameters = null;
-  String GET_REPORT_ADDR = Constants.SERVLET_ADDR +  "?" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_RESULT_KEY + "&" + Constants.REPORT_ID_KEY + "=" + request.getParameter(Constants.REPORT_ID_KEY);
   reportList = (ReportNode)request.getAttribute(Constants.REPORT_LIST_KEY);
   reportId = new Integer(request.getParameter(Constants.REPORT_ID_KEY));
   report = reportList.findReport(reportId);
