@@ -54,6 +54,7 @@ public final class TaskAuthentication {
         String result = null;
         try {
             String activationCode = Conversion.checkNull(request.getParameter(Registration.CODE));
+            log.debug("activation code: " + activationCode);
             if (!activationCode.equals("")) {
                 try {
                     switch (ProcessAuthentication.validateActivationCode(activationCode)) {
