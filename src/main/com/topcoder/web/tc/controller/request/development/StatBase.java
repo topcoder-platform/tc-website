@@ -22,9 +22,9 @@ import java.util.Map;
  */
 public abstract class StatBase extends Base {
 
-    abstract String getDataSourceName();
-    abstract String getCommandName();
-    abstract String getPageName();
+    abstract String getDataSourceName() throws TCWebException;
+    abstract String getCommandName() throws TCWebException;
+    abstract String getPageName() throws TCWebException;
     
     abstract void statProcessing() throws TCWebException;
     
