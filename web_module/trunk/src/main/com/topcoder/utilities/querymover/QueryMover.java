@@ -551,26 +551,31 @@ public class QueryMover {
     /**
      *
      */
-    private void initSource() throws RemoteException, NamingException, CreateException {
-        Context ctx = TCContext.getContext(sourceContextFactory, sourceContextURL);
-
-        QueryHome qHome = (QueryHome) ctx.lookup(ApplicationServer.Q_QUERY);
-        sourceQ = qHome.create();
-
-        QueryInputHome qiHome = (QueryInputHome) ctx.lookup(ApplicationServer.Q_QUERY_INPUT);
-        sourceQI = qiHome.create();
-
-        CommandQueryHome cqHome = (CommandQueryHome) ctx.lookup(ApplicationServer.Q_COMMAND_QUERY);
-        sourceCQ = cqHome.create();
-
-        CommandHome cHome = (CommandHome) ctx.lookup(ApplicationServer.Q_COMMAND);
-        sourceC = cHome.create();
-
-        InputHome iHome = (InputHome) ctx.lookup(ApplicationServer.Q_INPUT);
-        sourceI = iHome.create();
-
-        CommandGroupHome cgHome = (CommandGroupHome) ctx.lookup(ApplicationServer.Q_COMMAND_GROUP);
-        sourceCG = cgHome.create();
+    private void initSource() throws CreateException, NamingException, RemoteException {
+        try {
+            Context ctx = TCContext.getContext(sourceContextFactory, sourceContextURL);
+            QueryHome qHome = (QueryHome) ctx.lookup(ApplicationServer.Q_QUERY);
+            sourceQ = qHome.create();
+            QueryInputHome qiHome = (QueryInputHome) ctx.lookup(ApplicationServer.Q_QUERY_INPUT);
+            sourceQI = qiHome.create();
+            CommandQueryHome cqHome = (CommandQueryHome) ctx.lookup(ApplicationServer.Q_COMMAND_QUERY);
+            sourceCQ = cqHome.create();
+            CommandHome cHome = (CommandHome) ctx.lookup(ApplicationServer.Q_COMMAND);
+            sourceC = cHome.create();
+            InputHome iHome = (InputHome) ctx.lookup(ApplicationServer.Q_INPUT);
+            sourceI = iHome.create();
+            CommandGroupHome cgHome = (CommandGroupHome) ctx.lookup(ApplicationServer.Q_COMMAND_GROUP);
+            sourceCG = cgHome.create();
+        } catch (NamingException e) {
+            e.printStackTrace();
+            throw e;
+        } catch (CreateException e) {
+            e.printStackTrace();
+            throw e;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            throw e;
+        }
 
     }
 }
