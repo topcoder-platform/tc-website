@@ -81,7 +81,7 @@
                                             <a href="#eligibility">Eligibility</a> |
                                             <a href="#timeline">Timeline</a> |
                                             <a target="_new" href="/i/development/downloads/SSODevelopmentRFI1.pdf">Requirement Specification</a> |
-                                            <a href="#inquire">Inquire</a>
+                                            
                                         </p>
 
                                         <!-- Overview -->
@@ -438,34 +438,6 @@ Total - $1,746.50
                                             <a name="requirementspecification"></a>
                                             <strong>View the Requirement Specification for this application project
                                                 <a target="_new" class="bodyText" href="/i/development/downloads/SSODevelopmentRFI1.pdf">Requirement Specification</a> for this application project &gt;&gt;
-                                            </strong>
-                                        </p>
-
-                                        <p>If you'd like to work on more than one project, please specify that in your inquiry comments.</p>
-
-                                        <p>
-                                            <strong>
-                                               <a name="inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Security%20Server%20EJB%20Interface">Inquire for the Security Server EJB Interface Development Tasks of the Single Sign-on Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
-                                            </strong>
-                                        </p>
-                                        <p>
-                                            <strong>
-                                               <a name="inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Security%20Server%20SAML%20Interface">Inquire for the Security Server SAML Interface Development Tasks of the Single Sign-on Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
-                                            </strong>
-                                        </p>
-                                        <p>
-                                            <strong>
-                                               <a name="inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Portal%20Adapter">Inquire for the Portal Adapter Interface Development Tasks of the Single Sign-on Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
-                                            </strong>
-                                        </p>
-                                        <p>
-                                            <strong>
-                                               <a name="inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=JSP%20Based%20Application%20Authenticators">Inquire for the JSP-Based Applications Interface Development Tasks of the Single Sign-on Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
-                                            </strong>
-                                        </p>
-                                        <p>
-                                            <strong>
-                                               <a name="inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=WebConnect%20based%20Application%20Authentication">Inquire for the WebConnect-Based Applications Development Tasks of the Single Sign-on Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
 
