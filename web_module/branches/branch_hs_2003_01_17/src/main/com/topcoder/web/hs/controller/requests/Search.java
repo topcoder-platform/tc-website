@@ -59,6 +59,8 @@ public class Search extends Base {
   }
 
   private void populateSearchWithDefaults(SearchBean _sb) {
+    _sb.setPrev(new Integer(0));
+    _sb.setNext(new Integer(SearchBean.getMaxResultsPerPage()));
     _sb.setHandle("");
     _sb.setMinRating(new Integer(-1));
     _sb.setMaxRating(new Integer(-1));
