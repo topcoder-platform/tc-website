@@ -37,6 +37,13 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      */
     private FinalFixStatus[] statuses = null;
 
+
+    /**
+     * The approved status: "true", "false" or null
+     */
+    private String approvedStatus = null;
+
+
     // ----------------------------------------------------------- Properties
 
     /**
@@ -92,10 +99,11 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      * Return whether this final review is approved
      * </p>
      *
-     * @return "true" if the final review is approved, otherwise "false".
+     * @return "true" if the final review is approved, "false" in not approved, or null if unknown
      */
-    public String isApproved() {
-        return finalReview.isApproved() ? "true" : "false";
+    public String getApproved() {
+        return approvedStatus;
+        //return finalReview.isApproved() ? "true" : "false";
     }
 
     /**
@@ -105,8 +113,20 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      *
      * @param isApproved Whether this review is approved.
      */
-    public void setApproved(String isApproved) {
-        finalReview.setApproved(isApproved.equals("true"));
+    public void setApproved(String approved) {
+        approvedStatus = approved;
+
+        if (finalReview != null) {
+            if (approved.equals("true"))  {
+                finalReview.setApproved(true);
+            } else if (approved.equals("false")) {
+                finalReview.setApproved(false);
+            } else {
+                approvedStatus = null;
+            }
+        }
+
+        //finalReview.setApproved(isApproved.equals("true"));
     }
 
     /**
@@ -164,6 +184,18 @@ public class FinalReviewForm extends AggregationWorksheetForm {
                 }
             }
         }
+
+        if (getApproved() == null) {
+            setValid(false);
+            errors.add("approved", new ActionError("error.status.required"));
+        } else {
+            if (!finalReview.isApproved() && ((getComments() == null) || (getComments().trim().length() == 0))) {
+                setValid(false);
+                errors.add("comments", new ActionError("error.message.required"));
+            }
+
+        }
+
 
         return errors;
     }

@@ -148,11 +148,19 @@
 					<td class="forumText" colspan="6">
 					    <p class='scorecardQuestion'>Comments for the final fixes</p></td>
 				</tr>
+			    	<tr>
+					<td colspan="6" width="100%" class="errorText">
+					    <html:errors property='comments' /></td>
+			    	</tr>
 				<tr>
 					<td class="forumTextEven" align="center">
 						<textarea name="comments" cols="80" rows="10"></textarea>
 					</td>
 				</tr>
+			    	<tr>
+					<td colspan="6" width="100%" class="errorText">
+					    <html:errors property='approved' /></td>
+			    	</tr>
 				<tr>
 					<td class="forumTextOdd" align="center">
 						<input type="radio" name="approved" value="true">Accepted</input>
