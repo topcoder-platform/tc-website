@@ -119,40 +119,39 @@
                     <td class="projectHeaders" align="left">Details</td>
                 </tr>
 
-                <% int i = 0; %>
-                <rsc:iterator list="<%=projectList%>" id="resultRow">
-                    <% pageContext.setAttribute("price", prices.get(i)); %>
-                    <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DESIGN_PHASE) { %>
-                    <tr>
-                        <% if ((resultRow.getLongItem("category_id"))==Constants.DOT_NET_CATALOG_ID) { %>
-                            <td class="projectCells" align="center"><img src="/i/development/netSm.gif" border="0"/></td>
-                        <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
-                            <td class="projectCells" align="center"><img src="/i/development/smJava.gif" border="0"/></td>
-                        <% } else if ((resultRow.getLongItem("category_id"))==Constants.FLASH_CATALOG_ID) { %>
-                            <td class="projectCells" align="center"><img src="/i/development/flashSm.gif" border="0"/></td>
-                        <% } else if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
-                            <td class="projectCells" align="center"><img src="/i/development/smApp.gif" border="0"/></td>
-                        <% } else { %>
-                            <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
-                        <% } %>
-
-                        <% if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
-                            <td class="projectCells"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></td>
-                        <% } else {%>
-                            <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></a></td>
-                        <% } %>
-                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="PrimaryReviewPrice" format="#,###.00"/></td>
-                        <td class="projectCells" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
-                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
-                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
-                        <td class="projectCells" align="left" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<rsc:item row="<%=resultRow%>" name="phase_id"/>">details</a>
-                        <% if (resultRow.getIntItem("price_changes")>0) { %> <img src="/i/development/up_arrow_gr.gif" border="0"/> <% } %></td>
-                    </tr>
-                    <% } %>
-                    <% i++;%>
-                </rsc:iterator>
+<% int i = 0; %>
+<rsc:iterator list="<%=projectList%>" id="resultRow">
+ <% pageContext.setAttribute("price", prices.get(i)); %>
+ <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DESIGN_PHASE) { %>
+  <tr>
+ <% if ((resultRow.getLongItem("category_id"))==Constants.DOT_NET_CATALOG_ID) { %>
+  <td class="projectCells" align="center"><img src="/i/development/netSm.gif" border="0"/></td>
+ <% } else if ((resultRow.getLongItem("category_id"))==Constants.JAVA_CATALOG_ID) { %>
+  <td class="projectCells" align="center"><img src="/i/development/smJava.gif" border="0"/></td>
+ <% } else if ((resultRow.getLongItem("category_id"))==Constants.FLASH_CATALOG_ID) { %>
+  <td class="projectCells" align="center"><img src="/i/development/flashSm.gif" border="0"/></td>
+ <% } else if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
+  <td class="projectCells" align="center"><img src="/i/development/smApp.gif" border="0"/></td>
+ <% } else { %>
+  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
+ <% } %>
+ <% if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
+  <td class="projectCells"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></td>
+ <% } else {%>
+  <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></a></td>
+ <% } %>
+ <td class="projectCells" align="right">$<tc:beanWrite name="price" property="PrimaryReviewPrice" format="#,###.00"/></td>
+ <td class="projectCells" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
+ <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
+ <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
+ <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
+ <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
+ <td class="projectCells" align="left" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ReviewProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>&<%=Constants.PHASE_ID%>=<rsc:item row="<%=resultRow%>" name="phase_id"/>">details</a>
+ <% if (resultRow.getIntItem("price_changes")>0) { %> <img src="/i/development/up_arrow_gr.gif" border="0"/> <% } %></td>
+ </tr>
+ <% } %>
+ <% i++;%>
+</rsc:iterator>
 
                     <tr>
                         <td class="projectHeaders" align="left" nowrap="nowrap" colspan="9"><img src="/i/development/up_arrow_gr.gif" border="0"/>: the payment for reviewing this component has increased</td>
