@@ -3,7 +3,7 @@
 <head>
 <title>Technical Assessment</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<link type="text/css" rel="stylesheet" href="/css/screening.css"/>
+<link type="text/css" rel="stylesheet" href="/css/screening.css" >
 </head>
 <body>
 
@@ -30,15 +30,20 @@
 				<p class=pL>
 				<span class=bodyBigTitle>Welcome to the Testing Application.</span>
 				<br/><br/>
-				Please login to the Technical Assessment Tool below.  Your ID and PASSWORD have been emailed to you.		
+				Please login to the Technical Assessment Tool below.  Your ID and PASSWORD are in the email that contained the link to this page.
 				<br/><br/>
 				</p>
 
 				<table width="400" cellspacing=0 cellpadding=0 border=0 class=tableFrame>
-					<tr>
+					<tr>   
 						<td class=tableTitle colspan=2>Login</td>
 					</tr>
+<%-- NO ERROR OR...--%>
 					<tr><td class=tableText colspan=2>&#160;</td></tr>
+<%-- ERROR --%>
+					<tr><td class=tableText colspan=2><p class=pC><span class=bigRed>Invalid ID and/or PASSWORD</span></p></td></tr>
+
+
 					<tr>
 						<td class=loginLeft>ID:</td>
 						<td class=loginRight><INPUT TYPE="TEXT" NAME="ID" SIZE="20" VALUE=""></td>
