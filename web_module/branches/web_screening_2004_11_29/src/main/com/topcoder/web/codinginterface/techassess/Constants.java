@@ -21,6 +21,10 @@ public class Constants {
     private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "bundle"};
 
     public static String PAGE_INDEX;
+    public static String HANDLE;
+    public static String PASSWORD;
+    public static String COMPANY_ID;
+
 
 
 
