@@ -41,7 +41,7 @@
 			</span>
 
 			<br/><br/>
-			Do you have exceptional programming skills? Can you make computers perform cleverly crafted code with just a few well-expressed commands? Are you at ease when faced with a hard deadline and a group of peers scrutinizing your work? Here’s your opportunity to display the art of Computer Science in a reward-rich environment.
+			Do you have exceptional programming skills? Can you make computers perform like silicon puppets with cleverly crafted code? Are you at ease when faced with a hard deadline and a group of peers scrutinizing your work? Here’s your opportunity to demonstrate the art of Computer Science in a reward-rich environment.
 			<br/><br/>
 			Google is looking for engineers with the programming skill to rewrite the world's information infrastructure. The Google India Code Jam 2005 is one way we hope to find them. While we don't impose arbitrary deadlines on our engineers, we do put a premium on well-implemented code. And we appreciate the thought process required to create it. In fact, we appreciate clear thinking in all its forms, from puzzle solving to chess mastery (one of our engineers is an International Grand Master).
 			<br/><br/>
