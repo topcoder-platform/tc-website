@@ -494,7 +494,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
             By&#160;Logan<br /><i>[TC]&#160;Member</i><br /></td>
           <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td> 
           <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-            <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 130</b></font> 
+            <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 131</b></font>
           </td>
         </tr>      
         
