@@ -45,7 +45,7 @@ public class ProfileSearch extends Base {
     }
     
     private String buildQuery(TCRequest request, List headers){
-        headers.addAll(Arrays.asList(new String[]{"Handle", "First Name", "Last Name", "City", "State", "Country", "Algorithm Rating", "Design Rating", "Development Rating","More Info"}));
+        headers.addAll(Arrays.asList(new String[]{"Handle", "First Name", "Last Name", "City", "State", "Country", "Algorithm Rating", "Design Rating", "Development Rating","","","","",""}));
         List[] skills = buildSkillsQuery(request, headers);
         boolean skill = skills[0].size() > 0;
         List[] demo = buildDemoQuery(request);
