@@ -27,7 +27,7 @@ public class GeneratePayments extends BaseProcessor implements PactsConstants {
                 addError(ROUND_ID, "Missing round id");
             }
         } catch (NumberFormatException e) {
-            addError(ROUND_ID, "Please enter a value round id");
+            addError(ROUND_ID, "Please enter a value for round id");
         } catch (IllegalUpdateException e) {
             throw new NavigationException(e.getMessage());
         } catch (TCWebException e) {
