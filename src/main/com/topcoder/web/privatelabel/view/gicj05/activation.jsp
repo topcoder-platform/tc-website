@@ -47,7 +47,7 @@
 
 			You may practice for the contest by clicking the Competition Arena link above.
 			<br/><br/>
-			If you encounter any problems, please contact us at <A href="mailto:gicj05@topcoder.com?subject=Question regarding Google India Code Jam">gicj05@topcoder.com?subject=Question regarding Google India Code Jam</A>.
+			If you encounter any problems, please contact us at <A href="mailto:gicj05@topcoder.com?subject=Question regarding Google India Code Jam">gicj05@topcoder.com</A>.
 
 			<br/><br/>
 			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.

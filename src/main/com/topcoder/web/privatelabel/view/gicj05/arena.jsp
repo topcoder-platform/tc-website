@@ -57,7 +57,7 @@ function openWin(url, name, w, h) {
          <br/><br/>
          Note:  If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
          <br/><br/>
-         If you experience problems loading or running the Competition Arena please contact  <A href="mailto:gicj05@topcoder.com?subject=Question regarding Google India Code Jam">gicj05@topcoder.com?subject=Question regarding Google India Code Jam</A>.
+         If you experience problems loading or running the Competition Arena please contact  <A href="mailto:gicj05@topcoder.com?subject=Question regarding Google India Code Jam">gicj05@topcoder.com</A>.
          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 			<br/><br/>

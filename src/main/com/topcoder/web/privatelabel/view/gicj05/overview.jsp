@@ -50,6 +50,8 @@
 			<br/><br/>
 			Use Java or C++. Pick either of these programming languages to code your solutions. Both are acceptable and neither is given an advantage.
 			<br/><br/>
+         A wizard with C but rusty with C++?  Don't worry!  We’ve got it covered.  Check out the <A href="/pl/?&module=Static&d1=gicj05&d2=cpp">C++ for C Programmers page</A> that shows you the basics of learning C++ for the competition.  Also, be sure to spend time in the Practice Rooms by clicking on the Competition Arena link above.
+			<br/><br/>
 			<span class=greenSubtitle>How it works</span>
 			<br/><br/>
 			Be sure to read the Google India Code Jam 2005 <a href="/pl/?&module=Static&d1=gicj05&d2=instructions">competition instructions</a>.
