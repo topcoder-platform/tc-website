@@ -89,6 +89,14 @@ public class ProfileConfig extends BaseProcessor {
             info.setProblems(rsc);
             
             //get default selected problem
+            r = new Request();
+            r.setContentHandle("best_problem");
+            r.setProperty("cr", String.valueOf(uid));
+
+            rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("successful_problems");
+            if(rsc.size() != 0) {
+                setDefault("component", rsc.getStringItem(0, "problem_id"));
+            }
             
             getRequest().setAttribute("configInfo", info);
 
