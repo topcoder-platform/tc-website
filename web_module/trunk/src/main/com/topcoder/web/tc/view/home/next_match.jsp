@@ -17,13 +17,13 @@
 
                     <td class="bodyText" width="170"> 
                         <h3>Next Match:</h3>
-                        <jsp:include page="../../home/srm_dates.jsp" />
+                        <jsp:include page="srm_dates.jsp" />
                     </td>
 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 
                     <td class="bodyText" width="170"> 
-                        <jsp:include page="../../home/srm_sponsor.jsp" />
+                        <jsp:include page="srm_sponsor.jsp" />
                     </td>
                 </tr>
             </table>
