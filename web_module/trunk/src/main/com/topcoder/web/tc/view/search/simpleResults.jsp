@@ -62,7 +62,7 @@
 
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
               <tr valign="top">
-                  <td width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+                  <td width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/>
                       <form name="simpleSearch" method="get">
                           <input type="hidden" name="module" value="SimpleSearch"/>
                           <input type="hidden" name=<%=DataAccessConstants.START_RANK%> value=""/>

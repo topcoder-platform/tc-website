@@ -5,9 +5,9 @@
 <jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 <% ResultSetContainer results = memberSearch.getResults();%>
           <a name="data"/>
-          <table border="0" cellspacing="0" cellpadding="4" width="510" align="center" class="formFrame">
+          <table border="0" cellspacing="0" cellpadding="4" width="510" align="center" class="bodyText">
               <tr valign="middle">
-                  <td colspan="8" class="bodyText">Search Results:
+                  <td colspan="6" class="bodyText">Search Results:
                           &#160;&#160;<jsp:getProperty name="memberSearch" property="start"/>
                           to
                           <jsp:getProperty name="memberSearch" property="end"/>
@@ -17,48 +17,47 @@
               </tr>
 
               <tr valign="middle">
-                  <td class="bodyText" height="16" colspan="8" align="center">
+                  <td class="bodyText" height="16" colspan="6" align="center">
                     <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bodyText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
                     | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bodyText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                   </td>
               </tr>
+         </table>
 
+          <table border="0" cellspacing="0" cellpadding="4" width="510" align="center" class="formFrame">
               <tr>
                   <td class="header" valign="middle" height="18" width="20%">Handle</td>
                   <td class="header" valign="middle" align="right" width="10%">Rating</td>
-                  <td class="header" valign="middle" align="right" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
                   <td class="header" valign="middle" align="center" width="5%">State</td>
                   <td class="header" valign="middle" align="center" width="10%">Country</td>
                   <td class="header" valign="middle" align="right" width="20%">Rated Events</td>
                   <td class="header" valign="middle" align="right" width="30%">Last Competition</td>
-                  <td class="header" valign="middle" align="right" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
               </tr>
 
               <%boolean even = false;%>
               <rsc:iterator list="<%=results%>" id="resultRow">
               <tr>
-                  <td class="<%=even?"formHandleOdd":"formHandleEven"%>" valign="middle" height="13">
+                  <td class="<%=even?"formHandleOdd":"formHandleEven"%>" valign="top" nowrap>
                       <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="user_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
                   </td>
                   <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/></td>
-                  <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="right" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
                   <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
-                  <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="country_name"/></td>
-                  <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/></td>
-                  <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
-                  <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="right" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
+                  <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="center" nowrap><rsc:item row="<%=resultRow%>" name="country_name"/></td>
+                  <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                  <td class="<%=even?"formTextOdd":"formTextEven"%>" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
               </tr>
               <%even=!even;%>
               </rsc:iterator>
+           </table>
 
-              <tr><td colspan="8"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-
+          <table border="0" cellspacing="0" cellpadding="4" width="510" align="center" class="bodyText">
+              <tr><td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
               <tr valign="middle">
-                  <td class="bodyText" height="16" colspan="8" align="center">
+                  <td class="bodyText" height="16" colspan="6" align="center">
                     <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bodyText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
                     | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bodyText\">next &gt;&gt;</a>":"&gt;&gt; next")%>
                   </td>
               </tr>
 
-              <tr><td colspan="8"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+              <tr><td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
           </table>

@@ -13,7 +13,7 @@
                     <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
 
                     <tr valign="top">
-                        <td colspan="2"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+                        <td colspan="2">
                             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                                 <tr>
                                 <td class="bodyText">
