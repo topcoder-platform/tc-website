@@ -321,7 +321,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Order%20Fulfillment%20Design">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
+                                                        Closed
                                                     </p>
                                                 </td>
                                             </tr>
