@@ -19,6 +19,7 @@ import com.topcoder.web.tc.controller.request.Base;
 import javax.naming.Context;
 import javax.transaction.Status;
 import javax.transaction.UserTransaction;
+import javax.rmi.PortableRemoteObject;
 import java.util.Arrays;
 
 public class Activate extends Base {
@@ -81,7 +82,10 @@ public class Activate extends Base {
         UserTransaction uTx = null;
         try {
             ctx = TCContext.getInitial();
-            UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
+            UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
+                            UserServicesHome.class.getName()),
+                            UserServicesHome.class);
+
             UserServices userEJB = userHome.findByPrimaryKey(new Long(userId));
             user = userEJB.getUser();
             log.debug("tc: user loaded from entity bean");

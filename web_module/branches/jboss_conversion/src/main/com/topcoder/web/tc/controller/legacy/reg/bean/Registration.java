@@ -2039,7 +2039,7 @@ public class Registration
             Authentication authentication = authenticationServices.getActivation(coderId);
             if (authentication.getUserId().intValue() == coderId && authentication.getActivationCode().equalsIgnoreCase(this.code)) {
                 if (authentication.getStatus().equals("U")) {
-                    UserServicesHome userServicesHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
+                    UserServicesHome userServicesHome = (UserServicesHome) PortableRemoteObject.narrow(context.lookup(
                                     UserServicesHome.class.getName()),
                                     UserServicesHome.class);
                     UserServices userServices = userServicesHome.findByPrimaryKey(authentication.getUserId());
