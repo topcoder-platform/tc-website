@@ -318,13 +318,11 @@ public class UserEdit extends BaseProcessor {
         if (targetUserID >= 0) {
             request.setAttribute(KEY_TARGET_USER_ID, "" + targetUserID);
         }
-        if (targetUserID != secTok.primaryUserID) {
-            try {
-                embedPermissions();
-            } catch (Exception ignore) {
-                log.error("Cant get user permissions. Only default ones will be available");
-                ignore.printStackTrace();
-            }
+        try {
+            embedPermissions();
+        } catch (Exception ignore) {
+            log.error("Cant get user permissions. Only default ones will be available");
+            ignore.printStackTrace();
         }
     }
 
