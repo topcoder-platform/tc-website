@@ -4,6 +4,7 @@ import com.topcoder.common.web.util.DateTime;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 
 import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
@@ -972,6 +973,7 @@ public class UtilBean extends BaseEJB {
         try {
             conn = DBMS.getConnection();
             StringBuffer query = new StringBuffer(150);
+            ctx = TCContext.getInitial();
             javax.naming.Context env = (javax.naming.Context) ctx.lookup("java:comp/env");
             int seq = ((java.lang.Integer) env.lookup("LINK_SEQ")).intValue();
             /*********************************************************/
