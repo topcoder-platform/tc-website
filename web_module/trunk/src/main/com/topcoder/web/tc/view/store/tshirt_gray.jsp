@@ -32,7 +32,7 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../../includes/global_left.jsp">
-                <jsp:param name="level1" value="home"/>
+                <jsp:param name="level1" value="store"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
