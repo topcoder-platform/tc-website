@@ -28,7 +28,7 @@
 <!-- Top ends -->
 
 <!-- Body Begins -->
-<table width="100%" height="69%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+<table width="100%" height="69%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
 <!-- Left Column Begins -->
