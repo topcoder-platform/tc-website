@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="/tc.tld" prefix="tc" %>
-<%--<jsp:useBean id="donationInfo" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />--%>
+<jsp:useBean id="donationInfo" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 <jsp:useBean id="donationTotal" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <html>
@@ -98,7 +98,6 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="1"/>"><img src="/i/tournament/crpf03/total_donation.gif" width="115" height="26" border="0"></a>
                 </td>
             </tr>
-            <%--
             <rsc:iterator list="<%=donationInfo%>" id="info">
                 <tr>
                     <td class="tourney_subnav" align="left">
@@ -112,7 +111,6 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                     </td>
                 </tr>
             </rsc:iterator>
-            --%>
         </table>
         <table>
                   <tr>
