@@ -8,15 +8,17 @@
             </table>
 
             <table width="100%" border="0" cellspacing="0" cellpadding="4">   
-                <tr><td class="prHead"><A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=63819" target="_blank">A Call for Leadership</A> [October 20]</td></tr>  
+                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_12_08_03">Winners Announced in 2003 TopCoder Open sponsored by Intel&#174;</A> [December 8]</td></tr>  
 
-                <tr><td class="prHead"><A href="http://www.cio.com/archive/101503/tl_winner.html" target="_blank">Winner's Circle for Sale</A> [October 15]</td></tr>  
+                <tr><td class="prHead"><A href="http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?c=1&amp;slug=btdownload08&amp;date=20031208&amp;query=geek+olympics" target="_blank">'Geek Olympics' features 2 locals</A> [December 8 - Seattle Times]</td></tr>  
 
-                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_10_14_03">Talbots Licenses Component Catalog From TopCoder Software</A> [October 14]</td></tr>  
+                <tr><td class="prHead"><A href="http://www.theage.com.au/articles/2003/12/08/1070732124037.html" target="_blank">NT programmer wins developer's coding competition</A> [December 8 - The Age]</td></tr>  
 
-                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_10_01_03">Artifact and Northface University to sponsor TopCoder Open</A> [October 1]</td></tr>  
+                <tr><td class="prHead"><A href="http://www.intelligententerprise.com/031210/619celko1_1.shtml" target="_blank">Code Confessions</A> [December 8 - Intelligent Enterprise]</td></tr>  
 
-                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_09_29_03">Intel is the Title Sponsor for TopCoder Open</A> [September 29]</td></tr>  
+                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_12_01_03">TopCoder and AT&amp;T Announce Winners of Charity Programming Tournament</A> [December 1]</td></tr>  
 
-                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_09_22_03">NVIDIA Signs On To Sponsor 2003 TopCoder Open</A> [September 22]</td></tr>  
+                <tr><td class="prHead"><A href="http://www.bayarea.com/mld/mercurynews/business/7269666.htm" target="_blank">Google puts coders to the test</A> [November 15 - SJM]</td></tr>  
+
+                <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr> 
           </table>

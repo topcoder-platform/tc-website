@@ -26,7 +26,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="10"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
@@ -42,14 +42,13 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
+         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
          <td width="170">
          <img src="/i/clear.gif" width="180" height="10" border="0"><br/>
          <jsp:include page="srm_sponsor.jsp" />
-         <jsp:include page="tco_promo.jsp" />
          <jsp:include page="coder_of_month.jsp" />
          <jsp:include page="member_surveys.jsp" />
          <img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="244" height="20" border="0" /><br/>
