@@ -115,7 +115,7 @@ function getProblemDetail(id) {
                         <tr>
                             <td class="screeningCellOdd" align=right nowrap=nowrap>Password:</td>
                             <td class="screeningCellOdd">
-                                <screen:resultSetItem row="<%=row%>" name="password" />
+                                <%=request.getAttribute("password")%>
                             </td>
                         </tr>
                         </screen:resultSetRowIterator>

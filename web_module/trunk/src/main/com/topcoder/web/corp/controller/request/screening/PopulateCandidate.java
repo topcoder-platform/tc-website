@@ -217,6 +217,9 @@ public class PopulateCandidate extends BaseScreeningProcessor {
                     
                     request.setAttribute(Constants.USER_ID, String.valueOf(getUser().getId()));
                     
+                    PrincipalMgr mgr = new PrincipalMgr();
+                    request.setAttribute("password", mgr.getPassword(Long.parseLong(cid)));
+                    
                     log.info("The problems info list contains : " + result.size() + " records");
 
                 } else {
