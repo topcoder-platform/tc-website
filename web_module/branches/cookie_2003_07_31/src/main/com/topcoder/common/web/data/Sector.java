@@ -1,4 +1,4 @@
-package com.topcoder.ejb.AuthenticationServices;
+package com.topcoder.common.web.data;
 
 
 /**

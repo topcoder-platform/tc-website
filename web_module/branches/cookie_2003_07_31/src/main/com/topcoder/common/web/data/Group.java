@@ -1,4 +1,4 @@
-package com.topcoder.ejb.AuthenticationServices;
+package com.topcoder.common.web.data;
 
 /**
  * This class defines a type of secure object that represents a group of users and/or other groups.

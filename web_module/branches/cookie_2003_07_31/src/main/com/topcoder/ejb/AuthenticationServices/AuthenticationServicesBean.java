@@ -1,6 +1,9 @@
 package com.topcoder.ejb.AuthenticationServices;
 
 
+import com.topcoder.common.web.data.*;
+import com.topcoder.shared.ejb.BaseEJB;
+
 import java.rmi.RemoteException;
 import java.sql.*;
 import java.util.*;

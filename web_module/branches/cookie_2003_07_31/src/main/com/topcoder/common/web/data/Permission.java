@@ -1,4 +1,6 @@
-package com.topcoder.ejb.AuthenticationServices;
+package com.topcoder.common.web.data;
+
+import com.topcoder.common.web.data.AccessLevel;
 
 
 /**

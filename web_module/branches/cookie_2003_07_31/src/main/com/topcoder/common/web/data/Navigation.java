@@ -1,6 +1,5 @@
 package com.topcoder.common.web.data;
 
-import com.topcoder.ejb.AuthenticationServices.User;
 import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.shared.util.ApplicationServer;

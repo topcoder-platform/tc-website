@@ -1,4 +1,7 @@
-package com.topcoder.ejb.AuthenticationServices;
+package com.topcoder.common.web.data;
+
+import com.topcoder.common.web.data.PermissionAssignee;
+import com.topcoder.common.web.data.SecureObject;
 
 
 /**

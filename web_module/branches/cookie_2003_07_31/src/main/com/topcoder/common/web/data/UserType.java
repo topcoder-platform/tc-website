@@ -1,4 +1,4 @@
-package com.topcoder.ejb.AuthenticationServices;
+package com.topcoder.common.web.data;
 
 /**
  * This class defines the type of user.
