@@ -80,7 +80,7 @@
 
                 <tr>
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
-                    <td class="bodyText" colspan="6">
+                    <td class="bodyText" colspan="7">
                         <p><strong>Only the projects below are designated as TCCC projects.
                         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_comp_description">Click here</A>
                         for the rules and more information about the 2004 TCCC Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCCC.</strong></p>
@@ -97,13 +97,14 @@
 
 <!-- TCO Design Begins -->
                 <tr>
-                    <td colspan="6" class="tccc04SubNav"><a name="design"></a>2004 TopCoder Collegiate Challenge Component Design Projects</td>
+                    <td colspan="7" class="tccc04SubNav"><a name="design"></a>2004 TopCoder Collegiate Challenge Component Design Projects</td>
                 </tr>
 
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Design Projects</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Catalog</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center"># of Inquiries</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center"># of Submissions</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Payment*</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Complexity</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submit by</td>
@@ -142,6 +143,7 @@
                             </td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_submissions"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
                             <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
@@ -152,33 +154,34 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($designtco)">
                         <tr valign="top">
-                            <td class="formTextOdd" colspan="6"><strong>The second round of the 2004 TCCC Component Design Competition begins on 2/17/2004</strong></td>
+                            <td class="formTextOdd" colspan="7"><strong>The second round of the 2004 TCCC Component Design Competition begins on 2/17/2004</strong></td>
                         </tr>
                 </xsl:if>
 <!--
                 <tr>
-                    <td class="bodyText" colspan="6"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
+                    <td class="bodyText" colspan="7"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
                 </tr>
 -->
                 <tr>
-                    <td class="bodyText" colspan="6">
+                    <td class="bodyText" colspan="7">
                     	<p>*Total Payment (before royalties)</p>
                     	<p><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=comp_des_rd1">View</A> TCCC04 project submitters.</p>
                     </td>
                 </tr>
 
-                <tr><td colspan="6"><A name="tco_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
+                <tr><td colspan="7"><A name="tco_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
 <!-- TCO Design Ends -->
 
 <!-- TCO Development Begins -->
                 <tr>
-                    <td class="tccc04SubNav" colspan="6">2004 TopCoder Collegiate Challenge Component Development Projects</td>
+                    <td class="tccc04SubNav" colspan="7">2004 TopCoder Collegiate Challenge Component Development Projects</td>
                 </tr>
 
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Development Projects</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Catalog</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center"># of Inquiries</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center"># of Submissions</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Payment*</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Complexity</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submit by</td>
@@ -212,6 +215,7 @@
                             </td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_submissions"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
                             <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
@@ -223,19 +227,19 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($devtco)">
                         <tr valign="top">
-                            <td class="formTextOdd" colspan="6"><strong>The first round of the 2004 TCCC Component Development Competition begins on 2/17/2004</strong></td>
+                            <td class="formTextOdd" colspan="7"><strong>The first round of the 2004 TCCC Component Development Competition begins on 2/17/2004</strong></td>
                         </tr>
                 </xsl:if>
 <!--
                 <tr>
-                    <td class="bodyText" colspan="6"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
+                    <td class="bodyText" colspan="7"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
                 </tr>
 -->
                 <tr>
-                    <td class="bodyText" colspan="6">*Total Payment (before royalties) </td>
+                    <td class="bodyText" colspan="7">*Total Payment (before royalties) </td>
                 </tr>
 
-                <tr><td colspan="6"><A name="comp_des"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
+                <tr><td colspan="7"><A name="comp_des"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
 <!-- TCO Development Ends -->
 
 <!-- Open Component Design Projects begins -->
@@ -243,14 +247,14 @@
 <!--                <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr> -->
                 <tr>
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
-                    <td class="bodyText" colspan="6">
+                    <td class="bodyText" colspan="7">
                         <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(/TC/DEVELOPMENT/Project/Total/total, $priceFormat)"/></span>
                         in payments to the winning designers and developers. Send us your solutions today so you can start collecting your share.</p>
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="header" colspan="6">Component Design Projects</td>
+                    <td class="header" colspan="7">Component Design Projects</td>
                 </tr>
 
 <!--                <tr valign="top">
@@ -263,6 +267,7 @@
                     <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Design Projects</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Catalog</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center"># of Inquiries</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center"># of Submissions</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Payment*</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Complexity</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submit by</td>
@@ -302,6 +307,7 @@
                             </td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_submissions"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
                             <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
@@ -310,10 +316,10 @@
                 </xsl:for-each>
 
                 <tr>
-                    <td class="bodyText" colspan="6">*Total Payment (before royalties) </td>
+                    <td class="bodyText" colspan="7">*Total Payment (before royalties) </td>
                 </tr>
 
-                <tr><td colspan="6"><A name="comp_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
+                <tr><td colspan="7"><A name="comp_dev"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
 <!-- Open Component Design Projects ends -->
 
 <!-- Open Component Development Projects begins -->
@@ -324,13 +330,14 @@
                 </tr>  -->
 
                 <tr>
-                    <td class="header" colspan="6">Component Development Projects</td>
+                    <td class="header" colspan="7">Component Development Projects</td>
                 </tr>
 
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Development Projects</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Catalog</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center"># of Inquiries</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center"># of Submissions</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Payment*</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Complexity</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submit by</td>
@@ -364,6 +371,7 @@
                             </td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./total_inquiries"/></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./total_submissions"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="formTextOdd" align="center"><xsl:value-of select="./description"/></td>
                             <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
@@ -372,7 +380,7 @@
                 </xsl:for-each>
 
                 <tr>
-                    <td class="bodyText" colspan="6">*Total Payment (before royalties)</td>
+                    <td class="bodyText" colspan="7">*Total Payment (before royalties)</td>
                 </tr>
             </table>
 
