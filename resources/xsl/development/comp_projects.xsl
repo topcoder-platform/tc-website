@@ -85,7 +85,7 @@
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
                     <td class="statText" colspan="3">
-			<p><b>Beginning May 1, 2003 TopCoder will pay first, second and third place for EACH component design and development project that passes screening.  Triple your earning potential!!!!!</b></p>
+			<p><b>Beginning May 1, 2003 TopCoder will pay first, second and third place for EACH component design and development project that receives a passing review score greater than 75.  Triple your earning potential!!!!!</b></p>
                         <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project/price) * 1.75, $priceFormat)"/></span> in payments to the winning designers and developers. Send us
                         your solutions today so you can start collecting your share.</p>
 
