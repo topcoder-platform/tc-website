@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.05.05<br>4:06 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/pressroom/040105.pdf" target="_blank">Cheun Test</A></span><br><br>
+      A piece on the TCCC05 Component Development Competition Champion, Gary Linscott, aka gladius." [Barrhaven Independent]
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/pressroom/040105.pdf" target="_blank">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.05.05<br>4:05 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/pressroom/040105.pdf" target="_blank">University computer whiz wins big at tech tourney</A></span><br><br>
       A piece on the TCCC05 Component Development Competition Champion, Gary Linscott, aka gladius." [Barrhaven Independent]
