@@ -14,7 +14,7 @@
 <body align="center">
 
 <jsp:include page="../links.jsp" >
-   <jsp:param name="tabLev1" value="collegiate"/>
+   <jsp:param name="tabLev1" value="internal"/>
    <jsp:param name="tabLev2" value="registration"/>
 </jsp:include>
 
