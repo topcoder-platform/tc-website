@@ -252,6 +252,8 @@ public class Submit extends FullRegSubmit {
                                 false,
                                 0);
 
+                session.setJobId(sessionId, getJobId());
+                
                 //now get info for segments
                 dataRequest = new Request();
                 dataRequest.setProperty(DataAccessConstants.COMMAND,
