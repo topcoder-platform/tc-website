@@ -2216,7 +2216,8 @@ public class ComponentManagerBean
         try {
             ProjectTracker pt = projectTrackerHome.create();
 
-            return pt.getProjectById(getProjectId(ProjectType.ID_DESIGN),requestor);
+            return pt.getProjectById(pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(),ProjectType.ID_DESIGN),
+                                     requestor);
 
         } catch(RemoteException e) {
             ejbContext.setRollbackOnly();

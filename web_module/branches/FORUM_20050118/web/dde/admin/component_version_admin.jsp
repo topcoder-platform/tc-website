@@ -20,6 +20,8 @@
 <%@ page import="com.topcoder.dde.notification.Notification" %>
 <%@ page import="com.topcoder.dde.notification.NotificationHome" %>
 
+<%@ page import="com.topcoder.apps.review.projecttracker.Project" %>
+
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="session.jsp" %>
 <%@ include file="/includes/formclasses.jsp" %>
@@ -463,7 +465,7 @@ if (action != null) {
 	    	
 	    } catch (Exception e) {
 	        // can't get winner
-	        debug.addMsg("component version admin",e);
+	        debug.addMsg("component version admin",e.toString());
 	    }
 	}
 	
