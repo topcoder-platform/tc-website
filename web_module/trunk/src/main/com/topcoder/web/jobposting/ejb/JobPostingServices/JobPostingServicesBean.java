@@ -53,21 +53,8 @@ public class JobPostingServicesBean extends BaseEJB {
             rs = ps.executeQuery();
             boolean hasHit = rs.next();
 
-            query = new StringBuffer();
-            query.append(" SELECT 'dok'");
-            query.append(  " FROM job");
-            query.append( " WHERE job_id = ?");
-            query.append(   " AND status_id = 1");
-            ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, jobId);
-            rs = ps.executeQuery();
-         
-            boolean jobExists = rs.next();
- 
             if (hasHit) {
                 log.debug("user_id: " + userId + " job_id: " + jobId + " hit_type_id: " + hitTypeId + " already exists.");
-            } else if (!jobExists) {
-                throw new Exception("job: " + jobId + " either does not exist or is not active.");
             } else {
                 query = new StringBuffer();
                 query.append(" INSERT");
@@ -168,4 +155,64 @@ public class JobPostingServicesBean extends BaseEJB {
         }
         return ret;
     }
+
+
+
+
+    /**
+     * Given a job id, check if that job exists and is active
+     * @param jobId the particular job
+     * @throws RemoteException if there was a problem with the database
+     */
+    public boolean jobExists(int jobId) throws RemoteException {
+        log.debug("addJobHit called...");
+        StringBuffer query = null;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBMS.getConnection();
+            query = new StringBuffer();
+            query.append(" SELECT 'dok'");
+            query.append(  " FROM job");
+            query.append( " WHERE job_id = ?");
+            query.append(   " AND status_id = 1");
+            ps = conn.prepareStatement(query.toString());
+            ps.setInt(1, jobId);
+            rs = ps.executeQuery();
+         
+            return rs.next();
+        } catch (SQLException se) {
+            log.error("job_id: " + jobId);
+            DBMS.printSqlException(true, se);
+            throw new RemoteException("JobPostingServicesBean.jobExists(int):ERROR: " + se);
+        } catch (Exception e) {
+            throw new RemoteException(e.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                }
+            }
+        }
+
+    }
+
+
+
+
 }
