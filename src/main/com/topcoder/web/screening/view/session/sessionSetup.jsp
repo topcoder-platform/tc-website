@@ -46,7 +46,9 @@ function submitSession() {
     document.sessionSetupForm.rp.value="<%=Constants.CONFIRM_SESSION_PROCESSOR%>";
     document.sessionSetupForm.submit();
 }
-//--></script>
+//-->
+</script>
+
 </head>
 
 <body>
@@ -66,11 +68,11 @@ function submitSession() {
 <!-- left column ends -->
 
 <!-- gutter begins -->
-        <td width="10"><img src="/i/ev/clear.gif" width="10" height="1"></td>
+        <td width="10"><img src="/i/ev/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td class="bodytext" width="100%"><img src="/i/ev/clear.gif" width="400" height="11" border="0"><br>
+        <td class="bodytext" width="100%"><img src="/i/ev/clear.gif" width="400" height="11" alt="" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr valign="top">
                     <td class="bodytext" align="left">
@@ -105,11 +107,11 @@ function submitSession() {
                         </screen:resultSetRowIterator>
                         </select>
                     </td>
-                    <td class="testTableOdd">&#160;<a name="profile"><a href="JavaScript:submitProfile()">Create a New Test Profile</a></td>
+                    <td class="testTableOdd">&#160;<a name="profile"></a><a href="JavaScript:submitProfile()">Create a New Test Profile</a></td>
                 </tr>
 
                 <tr>
-                    <td><img src="/i/ev/clear.gif" width="1" height="1" border="0"></td>
+                    <td><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>
                     <td colspan="2" class="errortext"></td>
                 </tr>
 
@@ -127,11 +129,11 @@ function submitSession() {
                         </screen:resultSetRowIterator>
                         </select>
                     </td>
-                    <td class="testTableOdd">&#160;<a name="profile"><a href="JavaScript:submitCandidate()">Add a Candidate</a></td>
+                    <td class="testTableOdd">&#160;<a name="profile"></a><a href="JavaScript:submitCandidate()">Add a Candidate</a></td>
                 </tr>
 
                 <tr>
-                    <td><img src="/i/ev/clear.gif" width="1" height="1" border="0"></td>
+                    <td><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>
                     <td colspan="2" class="errortext"></td>
                 </tr>
 
@@ -173,7 +175,7 @@ function submitSession() {
                 </tr>
 
                 <tr>
-                    <td><img src="/i/ev/clear.gif" width="1" height="1" border="0"></td>
+                    <td><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>
                     <td colspan="2" class="errortext"></td>
                 </tr>
 
@@ -215,7 +217,7 @@ function submitSession() {
                 </tr>
 
                 <tr>
-                    <td><img src="/i/ev/clear.gif" width="1" height="1" border="0"></td>
+                    <td><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>
                     <td colspan="2" class="errortext"></td>
                 </tr>
 
@@ -236,7 +238,7 @@ function submitSession() {
                 </tr>
                 
                 <tr>
-                    <td class="testTableOdd" colspan="3"><img src="/i/ev/clear.gif" width="1" height="10" border="0"></td>
+                    <td class="testTableOdd" colspan="3"><img src="/i/ev/clear.gif" width="1" height="10" alt="" border="0"></td>
                 </tr>
                 
                  <tr>
@@ -251,7 +253,7 @@ function submitSession() {
 <!-- Middle Column ends -->
 
 <!-- Gutter -->
-        <td width="10"><img src="/i/ev/clear.gif" width="10" height="1" border="0"></td>
+        <td width="10"><img src="/i/ev/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
     </tr>
