@@ -124,7 +124,7 @@
         <antcall target="package-EJB-ResumeServicesBean"/>
         <antcall target="package-EJB-QueryServicesBean"/>
         <antcall target="package-EJB-MainEmailBean"/>
-        <antcall target="package-EJB-MainUserBean"/>
+        <antcall target="package-EJB-UserBean"/>
         <antcall target="package-EJB-MainAddressBean"/>
         <antcall target="package-EJB-MainPhoneBean"/>
         <antcall target="package-EJB-CoderBean"/>
@@ -312,13 +312,12 @@
         </jar>
     </target>
 
-    <target name="package-EJB-MainUserBean" depends="compile">
+    <target name="package-EJB-UserBean" depends="compile">
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="MainUser"/>
+            <param name="unit-jar-name" value="User"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
-            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/main"/>
         </antcall>
-        <jar jarfile="${ejb_jars}/MainUser.jar" update="true">
+        <jar jarfile="${ejb_jars}/User.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
@@ -571,11 +570,7 @@
 
     <target name="build_hs_ejbs" depends="compile">
         <antcall target="package-EJB-QueryServicesBean"/>
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="HSUser"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
-            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/hs"/>
-        </antcall>
+        <antcall target="package-EJB-UserBean"/>
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="HSTermsOfUse"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
@@ -699,11 +694,7 @@
         </antcall>
 
         <!-- User ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="CorpUser"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
-            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/corp"/>
-        </antcall>
+        <antcall target="package-EJB-UserBean"/>
 
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="ScreeningCoder"/>
@@ -731,11 +722,7 @@
             <param name="unit-class-path" value="com/topcoder/web/ejb/sessionprofile"/>
         </antcall>
 
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="ScreeningUser"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
-            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/screening"/>
-        </antcall>
+        <antcall target="package-EJB-UserBean"/>
 
     </target>
 
@@ -853,7 +840,7 @@
     <target name="deploy-privatelabel" depends="compile">
         <antcall target="package-EJB-RatingBean"/>
         <antcall target="package-EJB-CoderBean"/>
-        <antcall target="package-EJB-MainUserBean"/>
+        <antcall target="package-EJB-UserBean"/>
         <antcall target="package-EJB-MainAddressBean"/>
         <antcall target="package-EJB-MainEmailBean"/>
         <antcall target="package-EJB-CompanyBean"/>

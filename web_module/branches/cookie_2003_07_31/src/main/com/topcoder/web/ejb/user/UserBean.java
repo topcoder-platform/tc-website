@@ -18,13 +18,10 @@ import java.sql.SQLException;
  */
 public class UserBean extends BaseEJB {
 
-    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
-    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
-
     private final static Logger log = Logger.getLogger(UserBean.class);
 
 
-    public void createUser(long userId, String handle, char status)
+    public void createUser(long userId, String handle, char status, String dataSource)
             throws EJBException {
 
         log.debug("createUser called. user_id=" + userId + " " +
@@ -38,7 +35,7 @@ public class UserBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             StringBuffer query = new StringBuffer(1024);
@@ -69,7 +66,7 @@ public class UserBean extends BaseEJB {
         }
     }
 
-    public void setFirstName(long userId, String firstName)
+    public void setFirstName(long userId, String firstName, String dataSource)
             throws EJBException {
 
         log.debug("setFirstName called. user_id=" + userId + " " +
@@ -83,7 +80,7 @@ public class UserBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             StringBuffer query = new StringBuffer(1024);
@@ -113,7 +110,7 @@ public class UserBean extends BaseEJB {
         }
     }
 
-    public void setLastName(long userId, String lastName)
+    public void setLastName(long userId, String lastName, String dataSource)
             throws EJBException {
 
         log.debug("setLastName called. user_id=" + userId + " " +
@@ -127,7 +124,7 @@ public class UserBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             StringBuffer query = new StringBuffer(1024);
@@ -158,7 +155,7 @@ public class UserBean extends BaseEJB {
     }
 
 
-    public void setMiddleName(long userId, String middleName)
+    public void setMiddleName(long userId, String middleName, String dataSource)
             throws EJBException {
 
         log.debug("setLastName called. user_id=" + userId + " " +
@@ -172,7 +169,7 @@ public class UserBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             StringBuffer query = new StringBuffer(1024);
@@ -203,7 +200,7 @@ public class UserBean extends BaseEJB {
     }
 
 
-    public void setStatus(long userId, char status)
+    public void setStatus(long userId, char status, String dataSource)
             throws EJBException {
 
         log.debug("setStatus called. user_id=" + userId + " " +
@@ -217,7 +214,7 @@ public class UserBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             StringBuffer query = new StringBuffer(1024);
@@ -247,7 +244,7 @@ public class UserBean extends BaseEJB {
         }
     }
 
-    public String getFirstName(long userId)
+    public String getFirstName(long userId, String dataSource)
             throws EJBException {
 
         log.debug("getFirstName called. user_id=" + userId);
@@ -263,7 +260,7 @@ public class UserBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             StringBuffer query = new StringBuffer(1024);
@@ -296,7 +293,7 @@ public class UserBean extends BaseEJB {
         return (first_name);
     }
 
-    public String getMiddleName(long userId)
+    public String getMiddleName(long userId, String dataSource)
             throws EJBException {
 
         log.debug("getMiddleName called. user_id=" + userId);
@@ -312,7 +309,7 @@ public class UserBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             StringBuffer query = new StringBuffer(1024);
@@ -347,7 +344,7 @@ public class UserBean extends BaseEJB {
 
 
 
-    public String getLastName(long userId)
+    public String getLastName(long userId, String dataSource)
             throws EJBException {
 
         log.debug("getLastName called. user_id=" + userId);
@@ -363,7 +360,7 @@ public class UserBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             StringBuffer query = new StringBuffer(1024);
@@ -396,7 +393,7 @@ public class UserBean extends BaseEJB {
         return (last_name);
     }
 
-    public char getStatus(long userId)
+    public char getStatus(long userId, String dataSource)
             throws EJBException {
 
         log.debug("getStatus called. user_id=" + userId);
@@ -411,7 +408,7 @@ public class UserBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             StringBuffer query = new StringBuffer(1024);
@@ -444,7 +441,7 @@ public class UserBean extends BaseEJB {
         return (status);
     }
 
-    public boolean userExists(long userId) throws EJBException {
+    public boolean userExists(long userId, String dataSource) throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -456,7 +453,7 @@ public class UserBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             StringBuffer query = new StringBuffer(1024);
@@ -488,4 +485,3 @@ public class UserBean extends BaseEJB {
 
 }
 
-;

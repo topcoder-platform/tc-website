@@ -24,9 +24,6 @@ import java.sql.SQLException;
  */
 public class UserAddressBean extends BaseEJB {
     private static Logger log = Logger.getLogger(UserAddressBean.class);
-    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
-    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
-
 
     /**
      *
@@ -34,7 +31,7 @@ public class UserAddressBean extends BaseEJB {
      * @param userId user ID to insert into table
      * @param addressId address ID to insert into table
      */
-    public void createUserAddress(long userId, long addressId) {
+    public void createUserAddress(long userId, long addressId, String dataSource) {
         log.debug("createUserAddress called...");
 
         Context ctx = null;
@@ -44,7 +41,7 @@ public class UserAddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO user_address_xref " +
@@ -78,7 +75,7 @@ public class UserAddressBean extends BaseEJB {
      * @param userId user ID of entry to remove
      * @param addressId address ID of entry to remove
      */
-    public void removeUserAddress(long userId, long addressId) {
+    public void removeUserAddress(long userId, long addressId, String dataSource) {
         log.debug("removeUserAddress called...");
 
         Context ctx = null;
@@ -88,7 +85,7 @@ public class UserAddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("DELETE FROM user_address_xref " +
@@ -116,7 +113,7 @@ public class UserAddressBean extends BaseEJB {
         }
     }
 
-    public ResultSetContainer getUserAddresses(long userId) {
+    public ResultSetContainer getUserAddresses(long userId, String dataSource) {
         log.debug("getUserAddresses called...");
 
         Context ctx = null;
@@ -128,7 +125,7 @@ public class UserAddressBean extends BaseEJB {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT address_id FROM user_address_xref " +

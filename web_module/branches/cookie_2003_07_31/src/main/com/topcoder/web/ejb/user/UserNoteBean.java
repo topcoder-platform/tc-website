@@ -22,15 +22,13 @@ import java.sql.SQLException;
 public class UserNoteBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(UserNoteBean.class);
-    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
-    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
     /**
      *
      * @param userId
      * @param noteId
      */
-    public void createUserNote(long userId, long noteId) {
+    public void createUserNote(long userId, long noteId, String dataSource) {
         // construct debug message
         StringBuffer debugBuf = new StringBuffer(200);
         StringBuffer varBuf = new StringBuffer(200);
@@ -57,7 +55,7 @@ public class UserNoteBean extends BaseEJB {
             query.append("values(?,?) ");
 
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
 
@@ -94,7 +92,7 @@ public class UserNoteBean extends BaseEJB {
      * @param userId
      * @param noteId
      */
-    public void removeUserNote(long userId, long noteId) {
+    public void removeUserNote(long userId, long noteId, String dataSource) {
         // construct debug message
         StringBuffer debugBuf = new StringBuffer(200);
         StringBuffer varBuf = new StringBuffer(200);
@@ -121,7 +119,7 @@ public class UserNoteBean extends BaseEJB {
             query.append("AND note_id = ? ");
 
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            ds = (DataSource) ctx.lookup(dataSource);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
 

@@ -18,12 +18,9 @@ import java.sql.SQLException;
  */
 public class UserSchoolBean extends BaseEJB {
 
-    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
-    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
-
     private final static Logger log = Logger.getLogger(UserSchoolBean.class);
 
-    public void createUserSchool(long userId, long schoolId)
+    public void createUserSchool(long userId, long schoolId, String dataSource)
             throws EJBException {
 
         log.debug("createUserSchool called. user_id=" + userId + " " +
@@ -35,7 +32,7 @@ public class UserSchoolBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
@@ -66,7 +63,7 @@ public class UserSchoolBean extends BaseEJB {
         }
     }
 
-    public void removeUserSchool(long userId, long schoolId)
+    public void removeUserSchool(long userId, long schoolId, String dataSource)
             throws EJBException {
 
         log.debug("removeUserSchool called. user_id=" + userId + " " +
@@ -79,7 +76,7 @@ public class UserSchoolBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("DELETE ");
@@ -110,7 +107,7 @@ public class UserSchoolBean extends BaseEJB {
         }
     }
 
-    public void setCurrentUserSchoolId(long userId, long schoolId)
+    public void setCurrentUserSchoolId(long userId, long schoolId, String dataSource)
             throws EJBException {
 
         log.debug("setCurrentUserSchoolId called. user_id=" + userId + " " +
@@ -123,7 +120,7 @@ public class UserSchoolBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE user_school_xref ");
@@ -169,7 +166,7 @@ public class UserSchoolBean extends BaseEJB {
         }
     }
 
-    public long getCurrentUserSchoolId(long userId)
+    public long getCurrentUserSchoolId(long userId, String dataSource)
             throws EJBException {
 
         log.debug("getCurrentUserSchoolId called. user_id=" + userId);
@@ -184,7 +181,7 @@ public class UserSchoolBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT school_id ");
@@ -218,7 +215,7 @@ public class UserSchoolBean extends BaseEJB {
         return (school_id);
     }
 
-    public boolean isCurrentUserSchoolId(long userId, long schoolId)
+    public boolean isCurrentUserSchoolId(long userId, long schoolId, String dataSource)
             throws EJBException {
 
         log.debug("isCurrentUserSchoolId called. user_id=" + userId + " " +
@@ -233,7 +230,7 @@ public class UserSchoolBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT current_ind ");
@@ -268,7 +265,7 @@ public class UserSchoolBean extends BaseEJB {
         return (current);
     }
 
-    public boolean exists(long userId, long schoolId)
+    public boolean exists(long userId, long schoolId, String dataSource)
             throws EJBException {
 
         log.debug("exists called. user_id=" + userId + " " +
@@ -283,7 +280,7 @@ public class UserSchoolBean extends BaseEJB {
         try {
 
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT current_ind ");
