@@ -1,6 +1,8 @@
 <%@ page 
   language="java"
-  import="com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+  import="com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+          java.util.StringTokenizer,
+          com.topcoder.web.common.StringUtils"
 
 %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
@@ -61,28 +63,32 @@ String sClassName = resultRow_Info!=null?resultRow_Info.getItem(0).toString():""
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Submission");
 ResultSetContainer.ResultSetRow resultRow_0 = rsc.isValidRow(0)? rsc.getRow(0):null;
 String sSolutionText = resultRow_0!=null?resultRow_0.getItem("submission_text").toString():"";
-//here is where we make the solution-text readable
-int i=-1;
-while((i = sSolutionText.indexOf("\n\n"))>=0){
-  sSolutionText = sSolutionText.substring(0,i+1) + "&nbsp;" + sSolutionText.substring(i+1);
-   
-}
-java.util.StringTokenizer strtok = new java.util.StringTokenizer(sSolutionText,"\n");
-StringBuffer stBuffer = new StringBuffer(sSolutionText.length());
-String sTemp = "";
-while (strtok.hasMoreTokens()){
-  sTemp = strtok.nextToken();
-  for (i=0; i<sTemp.length(); i++){
-    if (sTemp.charAt(i)==' ')
-      stBuffer.append("&#160;");
-    else if (sTemp.charAt(i)=='\t')
-      stBuffer.append("&#160;&#160;&#160;");
-    else
-      stBuffer.append(JSPUtils.htmlEncode(sTemp.substring(i, i+1)));
+%>
+<%!
+  private String addSpace(String text) {
+      int i=-1;
+      while((i = text.indexOf("\n\n"))>=0){
+        text = text.substring(0,i+1) + "&#160;" + text.substring(i+1);
+
+      }
+    StringTokenizer strtok = new StringTokenizer(text,"\n");
+    StringBuffer stBuffer = new StringBuffer(text.length());
+    String sTemp = "";
+    while (strtok.hasMoreTokens()){
+      sTemp = strtok.nextToken();
+      for (i=0; i<sTemp.length(); i++){
+        if (sTemp.charAt(i)==' ')
+          stBuffer.append("&#160;");
+        else if (sTemp.charAt(i)=='\t')
+          stBuffer.append("&#160;&#160;&#160;");
+        else
+          stBuffer.append(JSPUtils.htmlEncode(sTemp.substring(i, i+1)));
+      }
+      stBuffer.append("<BR>");
+    }
+    return stBuffer.toString();
   }
-  stBuffer.append("<BR>");
-}
-%>       
+%>
 
          <!-- BEGIN BODY -->
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
@@ -101,10 +107,10 @@ while (strtok.hasMoreTokens()){
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
                    <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>  
+                 </TR>
                  <TR>
                    <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
-                 </TR>      
+                 </TR>
                </TABLE>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
@@ -174,7 +180,7 @@ if (rscSubmissions.size() > 0) {  %>
                  </TR>
                  <TR>
                    <TD CLASS="problemText" COLSPAN="7" VALIGN="middle" ALIGN="left">
-                  <%= stBuffer.toString().trim().length()==0?"Solution Not Available":stBuffer.toString() %>
+                  <%= sSolutionText.trim().length()==0?"Solution Not Available":addSpace(sSolutionText) %>
                    </TD>
                  </TR>
                  <TR>
@@ -218,11 +224,11 @@ if (rscDefense.size() > 0) {
                    <TD CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">
                      <A HREF="/stat?c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 2 /* challenger id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* challenger name */ + "]" %>'/></A>
                    </TD>
-                   <TD CLASS="statText" VALIGN="middle" ALIGN="center"><%= JSPUtils.htmlEncode(resultRow.getItem(7))%></TD>
+                   <TD CLASS="statText" VALIGN="middle" ALIGN="center"><%= addSpace(resultRow.getItem(7).toString())%></TD>
                    <TD VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" VALIGN="middle" ALIGN="center"><%= JSPUtils.htmlEncode(resultRow.getItem(3))%></TD>
+                   <TD CLASS="statText" VALIGN="middle" ALIGN="center"><%= addSpace(resultRow.getItem(3).toString())%></TD>
                    <TD VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" VALIGN="middle" ALIGN="center"><%= JSPUtils.htmlEncode(resultRow.getItem(4))%></TD>
+                   <TD CLASS="statText" VALIGN="middle" ALIGN="center"><%= addSpace(resultRow.getItem(4).toString())%></TD>
                    <TD VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="center"><%= resultRow.getItem(6).toString().equals("Y")?"Yes":"No" %></TD>
                    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -236,11 +242,11 @@ if (rscDefense.size() > 0) {
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">
                      <A HREF="/stat?c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 2 /* challenger id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* challenger name */ + "]" %>'/></A>
                    </TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><%= JSPUtils.htmlEncode(resultRow.getItem(7))%></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><%= addSpace(resultRow.getItem(7).toString())%></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><%= JSPUtils.htmlEncode(resultRow.getItem(3))%></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><%= addSpace(resultRow.getItem(3).toString())%></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><%= JSPUtils.htmlEncode(resultRow.getItem(4))%></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><%= addSpace(resultRow.getItem(4).toString())%></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center"><%= resultRow.getItem(6).toString().equals("Y")?"Yes":"No" %></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -251,7 +257,9 @@ if (rscDefense.size() > 0) {
 <% } 
    row++;
 %>
- </logic:iterate>         
+
+
+ </logic:iterate>
                  <TR>
                    <TD COLSPAN="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
