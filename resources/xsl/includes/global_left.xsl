@@ -417,6 +417,11 @@
                         <A class="leftOn" href="/tc?&amp;module=Static&amp;d1=crpf&amp;d2=index">Charity</A>
                     </td>
                 </tr>
+                <tr>
+                    <td id="leftSubnav">
+                        <A class="leftOn" href="/pl/">Private Label</A>
+                    </td>
+                </tr>
 
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
