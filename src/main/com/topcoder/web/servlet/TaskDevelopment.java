@@ -2,6 +2,7 @@ package com.topcoder.web.servlet;
 
 import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
+import com.topcoder.common.web.data.CoderRegistration;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
@@ -9,6 +10,7 @@ import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.ejb.AuthenticationServices.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,6 +49,7 @@ public final class TaskDevelopment {
                 if (nav.getLoggedIn()) {
                     String project = Conversion.checkNull(request.getParameter("Project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
+                    String handle = nav.getUser().getHandle();
                     devTag.addTag(new ValueTag("ProjectName", project));
                     devTag.addTag(new ValueTag("Project", project));
                     devTag.addTag(new ValueTag("To", to));
@@ -91,11 +94,16 @@ public final class TaskDevelopment {
             else if (command.equals("tcs_send")) {
                 if (nav.getLoggedIn()) {
                     log.debug("terms: " + Conversion.checkNull(request.getParameter("terms")));
-                    String handle = nav.getUser().getHandle();
-                    String from = nav.getUser().getEmail();
+                    User user = nav.getUser();
+                    String handle = user.getHandle();
+                    String from = user.getEmail();
                     String project = Conversion.checkNull(request.getParameter("Project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
                     String comment = Conversion.clean(request.getParameter("Comment"));
+
+                    CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
+                    int rating = coder.getRating().getRating();
+                    
                     TCSEmailMessage mail = new TCSEmailMessage();
                     mail.setSubject(project + " -- " + handle);
                     StringBuffer msgText = new StringBuffer(1000);
@@ -110,11 +118,16 @@ public final class TaskDevelopment {
                     }
                     msgText.append("\n\nComment:\n");
                     msgText.append(comment);
+                    msgText.append("\n\nRating: ");
+                    msgText.append(rating);
                     mail.setBody(msgText.toString());
                     mail.addToAddress(to, TCSEmailMessage.TO);
                     mail.setFromAddress(from);
                     EmailEngine.send(mail);
-                    xsldocURLString = XSL_DIR + "inquiry_sent.xsl";
+                    
+                    if(rating <= 0)
+                        xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
+                    else xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
                 } else {
                     requiresLogin = true;
                 }
