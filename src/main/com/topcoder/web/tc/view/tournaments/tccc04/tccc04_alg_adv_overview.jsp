@@ -39,26 +39,13 @@
 <!-- Tab bar links-->
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="algorithm"/>
-   <jsp:param name="tabLev2" value="details"/>
-   <jsp:param name="tabLev3" value="online"/>
+   <jsp:param name="tabLev2" value="advancers"/>
+   <jsp:param name="tabLev3" value="overview"/>
 </jsp:include>
 
-            <h2>Overview of the Algorithm Competition</h2>
-
-            <ul>
-                <li><strong>Dates: </strong><br />
-                    October 7th through December 5th, 2003</li>
-                <li><strong>Rounds: </strong><br />
-                    Two qualification rounds - online<br />
-                    Four elimination rounds - online<br />
-                    The Semifinal and Championship rounds will be held at the Mohegan Sun Casino in Uncasville, CT on December 4th and 5th</li>
-                <li><strong>Prizes: </strong><br />
-                    Total Prize Purse: $100,000 in cash<br />
-                    Up to 500 competitors will receive a prize just for competing in Online Round #1<br />
-                    Up to 200 eligible competitors will receive cash prizes</li>
-                <li><strong>Finalists: </strong><br />
-                    The top 16 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds</li>
-            </ul>
+            <h2>Overview</h2>
+            
+            <p>This will be Dok's advancers/elimination page.  Not very happy with the word "overview"</p>
 
          <p><br/></p>
          </td>
