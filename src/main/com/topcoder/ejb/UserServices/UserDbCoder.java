@@ -1026,7 +1026,7 @@ final class UserDbCoder {
         query.append(" ,language l");
         query.append(" ,coder_type ct");
         query.append(" ,editor e");
-        query.append(" ,state s");
+        query.append(" ,OUTER state s");
         query.append(" ,OUTER");
         query.append(" TABLE(MULTISET(");
         query.append(" SELECT");
