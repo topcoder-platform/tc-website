@@ -50,7 +50,7 @@
                        <h3>Sales Director</h3>
                        
                        
-                       Job Description: 
+                       <strong>Job Description: </strong>
                         
                         <p>TopCoder Software, a division of TopCoder, Inc. is a progressive software company looking to hire a motivated, hard 
                         working salesperson to develop the New York City/Northern New Jersey area. TopCoder Software markets application 
@@ -58,7 +58,7 @@
                         developers, a rigorous development methodology and catalogs of re-usable software components. TopCoder Software also 
                         sells subscriptions to the component catalogs.</p>
                         
-                        Responsibilities include: 
+                        <strong>Responsibilities include: </strong>
                         <ul>
                             <li>Exceed all revenue targets - Following a six-month period to build a sales pipeline, we expect our 
                             sales representatives to exceed quarterly revenue goals.</li>                            
@@ -68,7 +68,7 @@
                             <li>Build business plan - Build a plan for developing the assigned business including specific customers and timeframes.</li>
                         </ul>
                         
-                        Qualifications include: 
+                        <strong>Qualifications include: </strong>
                         <ul>
                             <li>Business development experience Ð Ideal candidates should have at least three years of prior technical sales experience 
                             in the New York/Northern New Jersey area.</li>                 
@@ -79,8 +79,8 @@
                             <li>College Degree - Four year degree preferred.</li>                       
                         </ul>
                         
-                 <p> <strong>Contact Information</strong><br/>
-                        Company: TopCoder Software<br/>
+                        <strong>Contact Information:</strong>
+                        <p> Company: TopCoder Software<br/>
                         Contact: Dave Tanacea<br/>
                         Email: <a class="bodyText" href="mailto:dtanacea@topcoder.com?subject=TopCoder Software Sales Director">dtanacea@topcoder.com</a><br/>
                         Address: 703 Hebron Ave<br/>
