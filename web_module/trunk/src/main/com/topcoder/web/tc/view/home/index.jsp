@@ -157,12 +157,12 @@
          <tr>
             <td class=homeArrow>&#160;</td>
             <td class=homeText><br/>
+            Do you have what it takes?<A href="http://www.computeruser.com/articles/2404,1,1,1,0401,05.html" target="_blank"> ...more</A><br/>[April - ComputerUser]<br/><br/>
             Champions Announced In 2005 TCCC Sponsored by Yahoo!&#174;<A href="/?&t=news_events&c=pr_03_14_05a"> ...more</A><br/>[March 14]<br/><br/>
             LogicLibrary Teams with TopCoder to Accelerate SOA Deployments<A href="/?&t=news_events&c=pr_03_14_05b"> ...more</A><br/>[March 14]<br/><br/>
             Program for life<A href="/?&t=news_events&c=art_02_13_05"> ...more</A><br/>[February 13 - NewsWeek Poland]<br/><br/>
             Semifinalists Announced for 2005 TCCC Sponsored by Yahoo!&#174;<A href="/?&t=news_events&c=pr_02_22_05"> ...more</A><br/>[February 22]<br/><br/>
             NVIDIA Corporation Returns as Premier Sponsor of 2005 TopCoder&#174; Collegiate Challenge<A href="/?&t=news_events&c=pr_02_16_05"> ...more</A><br/>[February 16]<br/><br/>
-            TopCoder Software&#153; Opens Access to Reusable Java&#153; and .NET&#153; Component Catalogs<A href="/?&t=news_events&c=pr_02_15_05"> ...more</A><br/>[February 15]<br/><br/>
             </td>
          </tr>
       </table>
