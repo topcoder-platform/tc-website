@@ -28,7 +28,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
                 //we don't really care what the reviewer type nor review responsibility, we really just want to know
                 //what it costs.
                 prices.add(makeApp("", rsr.getIntItem("submission_count"),
-                        rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"), rsr.getLongItem("project_id"), 0));
+                        rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"), rsr.getLongItem("project_id"), 0).getComponent());
             }
             getRequest().setAttribute("prices", prices);
 

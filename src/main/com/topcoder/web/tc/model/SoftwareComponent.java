@@ -1,13 +1,11 @@
 package com.topcoder.web.tc.model;
 
-import com.topcoder.shared.util.logging.Logger;
-
 
 /**
  * @author dok
  * Date: Feb 11, 2004
  */
-public interface SoftwareComponent {
+public interface SoftwareComponent extends Cloneable {
 
     public final static int DEV_PHASE = 113;
     public final static int DESIGN_PHASE = 112;
@@ -36,6 +34,8 @@ public interface SoftwareComponent {
      * @return
      */
     float getReviewPrice();
+
+    Object clone() throws OutOfMemoryError;
 
 }
 
