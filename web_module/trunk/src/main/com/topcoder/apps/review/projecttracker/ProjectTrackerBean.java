@@ -2761,7 +2761,7 @@ public class ProjectTrackerBean implements SessionBean {
                 //place
                 if(score < 70)
                 {
-                    psInsertScores.setInt(2, 0);
+                    psInsertScores.setNull(2, Types.INTEGER);
                     money = 0;
                 }
                 else
