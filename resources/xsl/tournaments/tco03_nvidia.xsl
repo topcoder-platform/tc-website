@@ -67,7 +67,7 @@
                         and we are shaping the world of tomorrow&#133;today.  We invite you to explore the opportunities available at NVIDIA - just click on the link to see 
                         what your future may hold.</p>
                       </td>
-                      
+        </tr>
         <tr>
             <td align="center">
                 <p>Experienced professionals <br/>
