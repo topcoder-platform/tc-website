@@ -61,8 +61,8 @@
               <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "middle_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%>
               <br/>
               <%= MemberInfo.getItem(0, "address1").toString()%>
-              <br/><%= MemberInfo.getItem(0, "address2").getResultData()==null?"":MemberInfo.getItem(0, "address2").toString()+"<BR>"%>
-              <br/><%= MemberInfo.getItem(0, "address3").getResultData()==null?"":MemberInfo.getItem(0, "address3").toString()+"<BR>"%>
+              <br/><%= MemberInfo.getStringItem(0, "address2").length()==0?"":MemberInfo.getStringItem(0, "address2")+"<br/>"%>
+              <br/><%= MemberInfo.getStringItem(0, "address3").length()==0?"":MemberInfo.getStringItem(0, "address3")+"<br/>"%>
               <%= MemberInfo.getItem(0, "province").toString()%>
               <%= MemberInfo.getItem(0, "city").toString()%>,
               <%= MemberInfo.getItem(0, "state_code").toString()%>
