@@ -79,10 +79,8 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
         <table width="500" border="0" cellpadding="2" cellspacing="2" align="center">
             <rsc:iterator list="<%=donationTotal%>" id="info">
             <tr class="bodyText">
-                <td align="right" nowrap class="bodyText"><h2><rsc:item row="<%=info%>" name="count"/> people have raised</h2>
-                </td>
-                <td align="center" width="100%" class="bodyText"><h2>
-                     $<rsc:item row="<%=info%>" name="amount" format="0.00"/></h2>
+                <td align="center" width="100%" nowrap class="bodyText"><h2><rsc:item row="<%=info%>" name="count"/> people have raised</h2>
+                <h2>$<rsc:item row="<%=info%>" name="amount" format="0.00"/></h2>
                 </td>
             </tr>
              </rsc:iterator>
