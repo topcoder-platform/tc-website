@@ -131,7 +131,8 @@ public class MainServlet extends HttpServlet {
                 if (authen.getActiveUser().isAnonymous()) {
                     request.setAttribute(Constants.REDIRECT, redirect);
                     request.setAttribute(Constants.MESSAGE_PARAMETER,
-                            "You must be logged in to access that resource.");
+                            "In order to continue, you must provide your user name and password, "+
+                            "even if you’ve logged in already.");
                     throw new AnonymousUserException("Login required for " + r.getName());
                 } else {
                     throw new PermissionDeniedException(authen.getActiveUser(), r);
