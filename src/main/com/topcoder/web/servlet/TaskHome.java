@@ -6,14 +6,13 @@ import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Cache;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.ejb.AuthenticationServices.User;
 import com.topcoder.ejb.CoderStatistics.CoderStatistics;
 import com.topcoder.ejb.CoderStatistics.CoderStatisticsHome;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
@@ -33,7 +32,6 @@ import java.util.Map;
 public final class TaskHome {
 
     private static final String XSL_DIR = "home/";
-    private static final String XSL_DIR_SEARCH = "coder_list/";
     private static Logger log = Logger.getLogger(TaskHome.class);
 
     static String process(HttpServletRequest request, HttpServletResponse response,
@@ -41,9 +39,6 @@ public final class TaskHome {
             throws NavigationException {
 
         String result = null;
-        User user = null;
-        String rtUser = "";
-        String rtPassword = "";
         Context ctx = null;
         DataAccessInt dai = null;
         DataAccessInt transDai = null;
@@ -53,7 +48,6 @@ public final class TaskHome {
 
         try {
             RecordTag homeTag = new RecordTag("HOME");
-            ArrayList contests = null;
             Calendar cal = Calendar.getInstance();
             String day = "sun";
 
@@ -80,11 +74,11 @@ public final class TaskHome {
             homeTag.addTag(new ValueTag("Day", day));
             getContestDates(homeTag);
             String xsldocURLString = null;
-            String cacheKey = null;
             document.addTag(homeTag);
             try {
                 ctx = TCContext.getInitial();
                 dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
+                transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                 CoderStatisticsHome home = (CoderStatisticsHome) ctx.lookup(ApplicationServer.CODER_STATISTICS);
                 CoderStatistics temp = home.create();
                 if (nav.getLoggedIn()) {
@@ -122,40 +116,7 @@ public final class TaskHome {
                     rsc = (ResultSetContainer) resultMap.get("Top_Scorers");
                     homeTag.addTag(rsc.getTag("Div2TopScorers", "Coder"));
 
-                    dataRequest = new Request();
-//                    dataRequest.setContentHandle("invitational_info");
-                    dataRequest.setContentHandle("collegiate_info");
-                    dataRequest.setProperty("cr", "" + nav.getUserId());
-                    dataRequest.setProperty("rd", "4462");
-                    dataRequest.setProperty("cd", "4462");
-                    transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
-                    resultMap = transDai.getData(dataRequest);
-//                    RecordTag invitationalInfo = new RecordTag("CollegiateInfo");
-                    RecordTag collegiateInfo = new RecordTag("CollegiateInfo");
-                    rsc = (ResultSetContainer) resultMap.get("Collegiate_Eligibility");
-                    collegiateInfo.addTag(rsc.getTag("Collegiate_Eligibility", "Info"));
-//                    RecordTag invitationalInfo = new RecordTag("InvitationalInfo");
-//                    rsc = (ResultSetContainer) resultMap.get("Invitational_Eligibility");
-//                    invitationalInfo.addTag(rsc.getTag("Invitational_Eligibility", "Info"));
-                    rsc = (ResultSetContainer) resultMap.get("Is_Registered");
-                    collegiateInfo.addTag(new ValueTag("IsRegistered", rsc.getItem(0, "is_registered").toString()));
-                    homeTag.addTag(collegiateInfo);
-
-/*
-                    dataRequest = new Request();
-                    dataRequest.setContentHandle("top_room_winners");
-                    dataRequest.setProperty("dn", "1");
-                    resultMap = dai.getData(dataRequest);
-                    rsc = (ResultSetContainer) resultMap.get("Top_Room_Winners");
-                    homeTag.addTag(rsc.getTag("Div1RoomWinners", "RoomWinner"));
-
-                    dataRequest = new Request();
-                    dataRequest.setContentHandle("top_room_winners");
-                    dataRequest.setProperty("dn", "2");
-                    resultMap = dai.getData(dataRequest);
-                    rsc = (ResultSetContainer) resultMap.get("Top_Room_Winners");
-                    homeTag.addTag(rsc.getTag("Div2RoomWinners", "RoomWinner"));
-*/
+                    homeTag.addTag(getTourneyInfo(transDai, nav.getUserId()));
 
                 }
 
@@ -202,10 +163,7 @@ public final class TaskHome {
             } else {
                 xsldocURLString = TCServlet.XSL_ROOT + XSL_DIR + "home.xsl";
             }
-            if (!nav.getLoggedIn()) {
-                cacheKey = request.getServerName() + TCServlet.LOGGED_OUT_KEY;
-            }
-//            log.debug(document.getXML(2));
+            log.debug(document.getXML(2));
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             log.error("TaskHome:ERROR:\n" + ne);
@@ -219,6 +177,86 @@ public final class TaskHome {
             throw new NavigationException(msg.toString(), TCServlet.INTERNAL_ERROR_PAGE);
         }
         return result;
+    }
+
+
+    private static RecordTag getTourneyInfo(DataAccessInt dai, long userId) throws Exception {
+        Request dataRequest = null;
+        Map resultMap = null;
+
+        dataRequest = new Request();
+
+        dataRequest.setContentHandle("collegiate_info");
+        dataRequest.setProperty("cr", "" + userId);
+        dataRequest.setProperty("rd", "4462");
+        dataRequest.setProperty("cd", "4462");
+        resultMap = dai.getData(dataRequest);
+
+        RecordTag collegiateInfo = new RecordTag("CollegiateInfo");
+        ResultSetContainer eRsc = (ResultSetContainer) resultMap.get("Collegiate_Eligibility");
+//        collegiateInfo.addTag(eRsc.getTag("Collegiate_Eligibility", "Info"));
+        ResultSetContainer rRsc = (ResultSetContainer) resultMap.get("Is_Registered");
+//        collegiateInfo.addTag(new ValueTag("IsRegistered", rsc.getItem(0, "is_registered").toString()));
+
+        boolean isRegistered = false;
+        boolean isEligible = false;
+        boolean hasEnoughRatings = false;
+        boolean competedRecently = false;
+        boolean isStudent = false;
+
+        if (!eRsc.isEmpty()) {
+            isEligible = eRsc.getItem(0, "is_eligible").getResultData().equals("T");
+            hasEnoughRatings = eRsc.getItem(0, "has_enough_ratings").getResultData().equals("T");
+            competedRecently = eRsc.getItem(0, "has_recent_competition").getResultData().equals("T");
+            isStudent = eRsc.getItem(0, "is_student").getResultData().equals("T") &&
+                        eRsc.getItem(0, "in_school").getResultData().equals("T");
+        }
+
+        if (!rRsc.isEmpty()) {
+            isRegistered = rRsc.getItem(0, "is_registered").getResultData().equals(new Long(1));
+        }
+
+        RecordTag reasons = new RecordTag("reasons");
+        RecordTag reason = null;
+        if (isEligible) {
+            if (isRegistered) {
+                reason = new RecordTag("reason");
+                reason.addTag(new ValueTag("reason_text", "You are currently signed up for the 2003 " +
+                        "TopCoder Collegiate Challenge"));
+                reasons.addTag(reason);
+            } else {
+                reason = new RecordTag("reason");
+                reason.addTag(new ValueTag("reason_text", "Based on your profile information, you are eligible for the 2003 TopCoder " +
+                    "Collegiate Challenge, but you have not yet signed up."));
+                reasons.addTag(reason);
+                collegiateInfo.addTag(new ValueTag("showLink", "true"));
+            }
+        } else {
+            if (!hasEnoughRatings) {
+                reason = new RecordTag("reason");
+                reason.addTag(new ValueTag("reason_text", "You have not yet participated in at least two (2) rated events."));
+                reasons.addTag(reason);
+            }
+            if (!competedRecently) {
+                reason = new RecordTag("reason");
+                reason.addTag(new ValueTag("reason_text", "You have not participated in a rated event in the last six (6) months."));
+                reasons.addTag(reason);
+            }
+            if (!isStudent) {
+                reason = new RecordTag("reason");
+                reason.addTag(new ValueTag("reason_text", "Based on your profile information, you are not currently a student."));
+                reasons.addTag(reason);
+            }
+        }
+        collegiateInfo.addTag(reasons);
+
+        return collegiateInfo;
+
+//        dataRequest.setContentHandle("invitational_info");
+//        RecordTag invitationalInfo = new RecordTag("CollegiateInfo");
+//        RecordTag invitationalInfo = new RecordTag("InvitationalInfo");
+//        rsc = (ResultSetContainer) resultMap.get("Invitational_Eligibility");
+//        invitationalInfo.addTag(rsc.getTag("Invitational_Eligibility", "Info"));
     }
 
 
