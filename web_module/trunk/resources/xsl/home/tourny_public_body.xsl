@@ -125,17 +125,17 @@
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
 
-<A HREF="/index?t=news_events&amp;c=feat_052902" CLASS="bodyGeneric"><B>The Outsiders</B></A><BR/>
-<I>Non-Eligible Members Compete Despite Restrictions</I><BR/><BR/>
-Wednesday, May 29, 2002<BR/>
+<A HREF="/index?t=news_events&amp;c=feat_060502" CLASS="bodyGeneric"><B>Where Has The Time Gone?</B></A><BR/>
+<I>qubits Became TopCoder's First $100,000 Champion One Year Ago This Week</I><BR/><BR/>
+Wednesday, June 5, 2002<BR/>
 By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
 
 <P>
-Ah, the excitement of going to an amusement parks as a kid.  You couldn't wait to climb 
-on your favorite ceramic horse and go up and down the Merry-Go-Round, crash into your 
-friends in the Bumper Boats, and show your parents your world class arm by knocking 
-down a bunch of stacked cans to win a stuffed animal.  What you really wanted, though, 
-was to experience the thrill of that supersonic roller coaster...<A HREF="/index?t=news_events&amp;c=feat_052902" CLASS="bodyGeneric">full&#160;story</A></P>
+Powerball, "It's America's Game", and it's extremely popular.  And to think of it, 
+why wouldn't it be?   Powerball is a lotto game, which is a combined large jackpot 
+game and a cash game.  Twice a week, drawings are held where participants must 
+match five balls, plus the "red powerball" to balls that are randomly chosen, 
+to win a jackpot which has many times exceeded $50 million...<A HREF="/index?t=news_events&amp;c=feat_060502" CLASS="bodyGeneric">full&#160;story</A></P>
 <!-- <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P>	-->
 	</TD>
     <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
