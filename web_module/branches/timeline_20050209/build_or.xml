@@ -404,6 +404,8 @@
             <include name="${packagedir}/**" />
             <include name="com/topcoder/dde/util/ApplicationServer.java" />
             <include name="com/topcoder/dde/util/Cookies.java" />
+            <include name="com/topcoder/project/phases/**" />
+            <include name="com/topcoder/date/workdays/**" />
         </javac>
     </target>
 
