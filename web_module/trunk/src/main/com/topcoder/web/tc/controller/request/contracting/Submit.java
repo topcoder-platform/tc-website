@@ -21,6 +21,8 @@ import com.topcoder.shared.util.*;
 import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
+import com.topcoder.web.ejb.note.Note;
+import com.topcoder.web.ejb.user.UserNote;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -158,6 +160,36 @@ public class Submit  extends ContractingBase {
                 skillbean.bulkCreateCoderSkill(info.getUserID(), insertSkillIdArray, insertRankingArray, DBMS.OLTP_DATASOURCE_NAME);
                 
                 //notes
+                Note notebean = (Note)createEJB(ctx, Note.class);
+                UserNote usernotebean = (UserNote)createEJB(ctx, UserNote.class);
+                
+                if(info.isEdit()) {
+                    //get user's notes for contracting, add update where appropriate
+                    Request r = new Request();
+                    r.setContentHandle("contracting_user_notes");
+
+                    ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("contracting_user_notes");
+                    for(int i = 0; i < rsc.size(); i++) {
+                        
+                        if(info.getNote(rsc.getStringItem(i, "note_id")) == null) {
+                            //delete
+                            usernotebean.removeUserNote(info.getUserID(), rsc.getLongItem(i, "note_id"), DBMS.OLTP_DATASOURCE_NAME);
+                        } else {
+                            //update
+                            notebean.setText(rsc.getLongItem(i, "note_id"), info.getNote(rsc.getStringItem(i, "note_id")), DBMS.OLTP_DATASOURCE_NAME);
+                            info.removeNote(rsc.getStringItem(i, "note_id"));
+                        }
+                    }
+                }
+                
+                //insert
+                it = info.getNoteNames();
+                while(it.hasNext()) {
+                    String s = (String)it.next();
+                    long noteId = notebean.createNote(info.getNote(s), info.getUserID(), Integer.parseInt(s), DBMS.OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    usernotebean.createUserNote(info.getUserID(), noteId, DBMS.OLTP_DATASOURCE_NAME);
+                }
+                
                 
                 ut.commit();
                 clearInfo();
