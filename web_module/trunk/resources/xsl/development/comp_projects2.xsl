@@ -125,7 +125,7 @@
                             <td background="" class="statText">
                                 <a class="statText">
                                     <xsl:attribute name="href"> <!--2&#47;19&#47;2003-->
-                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;payment=', ./price, '&amp;date=2&#47;19&#47;2003')"/>
+                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;date=2&#47;19&#47;2003')"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                 </a>
                             </td>
