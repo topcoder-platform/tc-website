@@ -36,19 +36,23 @@ public class SortTag extends TagSupport {
         String sortDir = defaults.getDefault(column);
         if (sortDir==null) sortDir = "asc";
 
+        int finalColumn = -1;
+
         if (!(currCol.equals("") || currDir.equals(""))) {
             int inputCol = Integer.parseInt(currCol);
             if (inputCol==column) {
                 if (currDir.equals("desc")) {
+                    if (ascColumn >- 1) finalColumn = ascColumn;
                     sortDir = "asc";
                 } else {
+                    if (descColumn >- 1) finalColumn = descColumn;
                     sortDir = "desc";
                 }
             } else if (inputCol == ascColumn) {
-                column = descColumn;
+                finalColumn = descColumn;
                 sortDir = "desc";
             } else if (inputCol == descColumn) {
-                column = ascColumn;
+                finalColumn = ascColumn;
                 sortDir = "asc";
             }
         }
@@ -57,7 +61,7 @@ public class SortTag extends TagSupport {
         buf.append("&");
         buf.append(DataAccessConstants.SORT_COLUMN);
         buf.append("=");
-        buf.append(column);
+        buf.append(finalColumn);
         buf.append("&");
         buf.append(DataAccessConstants.SORT_DIRECTION);
         buf.append("=");
