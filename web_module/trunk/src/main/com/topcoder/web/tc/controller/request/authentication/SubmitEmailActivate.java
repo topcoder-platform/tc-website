@@ -5,14 +5,13 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.ejb.user.User;
 import com.topcoder.shared.util.*;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.security.TCSubject;
 import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.ejb.UserServices.UserServices;
+import com.topcoder.common.web.data.Coder;
 
-import javax.naming.Context;
 import javax.transaction.UserTransaction;
 import java.util.*;
 
@@ -51,10 +50,12 @@ public class SubmitEmailActivate extends Base {
                 return;
             }
             try {
+                UserServicesHome userServicesHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
+                UserServices userServices = userServicesHome.findByPrimaryKey(new Integer((int)subject.getUserId()));
+                com.topcoder.common.web.data.User user = userServices.getUser();
+                Coder tempCoder = (Coder)user.getUserTypeDetails().get("Coder");
 
-                User user = (User) createEJB(getInitialContext(), User.class);
-
-                updateEmail(subject, email);
+                updateEmail(userServices, email);
                 TCSEmailMessage mail = new TCSEmailMessage();
                 mail.setSubject("TopCoder Account Reactivation");
                 StringBuffer msgText = new StringBuffer(1000);
@@ -64,7 +65,7 @@ public class SubmitEmailActivate extends Base {
                 msgText.append("/tc?module=EmailActivate&");
                 msgText.append(Constants.ACTIVATION_CODE);
                 msgText.append("=");
-                msgText.append(user.getActivationCode(subject.getUserId(), DBMS.OLTP_DATASOURCE_NAME));
+                msgText.append(tempCoder.getActivationCode());
                 msgText.append("\n\n");
                 msgText.append("Thank You,\nTopCoder Service");
                 mail.setBody(msgText.toString());
@@ -95,16 +96,12 @@ public class SubmitEmailActivate extends Base {
         return ret;
     }
 
-    private void updateEmail(TCSubject subject, String email) throws Exception {
+    private void updateEmail(UserServices userServices , String email) throws Exception {
 
-        Context context = null;
         UserTransaction transaction = null;
         try {
-            context = TCContext.getInitial();
-            UserServicesHome userServicesHome = (UserServicesHome) context.lookup(ApplicationServer.USER_SERVICES);
             transaction = Transaction.get();
             if (Transaction.begin(transaction)) {
-                UserServices userServices = userServicesHome.findByPrimaryKey(new Integer((int)subject.getUserId()));
                 com.topcoder.common.web.data.User user = userServices.getUser();
                 user.setEmail(email);
                 user.setModified("U");
@@ -119,13 +116,6 @@ public class SubmitEmailActivate extends Base {
                 throw new Exception("Unable to commit or rollback transaction");
             }
             throw e;
-        } finally {
-            if (context != null) {
-                try {
-                    context.close();
-                } catch (Exception e) {
-                }
-            }
         }
     }
 }
