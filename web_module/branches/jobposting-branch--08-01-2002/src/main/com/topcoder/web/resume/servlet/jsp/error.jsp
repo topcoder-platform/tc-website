@@ -47,7 +47,7 @@ isErrorPage="true"
  <TR>
  <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="170"> <IMG ALT="" BORDER="0" HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"></TD>
  <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="10"><IMG BORDER="0" HEIGHT="8" WIDTH="10" SRC="/i/clear.gif"></TD>
- <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText"><IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR><DIV CLASS="header"><%= ((Throwable)request.getAttribute(Controller.EXCEPTION)).getMessage() %></DIV></TD>
+ <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText"><IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR><DIV CLASS="header">NAVIGATION ERROR:<br/><%= ((Throwable)request.getAttribute(Controller.EXCEPTION)).getMessage() %></DIV></TD>
  <TD BGCOLOR="#CCCCCC" WIDTH="10"><IMG BORDER="0" HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"></TD>
  <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="170"><IMG BORDER="0" HEIGHT="1" WIDTH="170" SRC="/i/clear.gif"><BR></TD>
  <TD BGCOLOR="#CCCCCC" WIDTH="10"><IMG HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"></TD>
