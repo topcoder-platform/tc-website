@@ -286,7 +286,7 @@ abstract public class ContractingBase extends BaseProcessor {
         return info;
     }
     
-    protected void clearInfo() {
+    protected void clearInfo() throws Exception {
         info = getInfoFromDB();
         
         p.removeObject(Constants.CONTRACTING_INFO);
