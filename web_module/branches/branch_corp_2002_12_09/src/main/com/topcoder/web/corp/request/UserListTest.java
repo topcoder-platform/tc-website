@@ -70,8 +70,9 @@ public class UserListTest extends BaseProcessor {
      */
     private void setupUsersList() throws Exception {
 
-        log.debug("UserList getting users");
+
         String companyId = (String)request.getParameter("companyId");
+        log.debug("UserList getting users for companyId: "+companyId);
         if (companyId == null || companyId.length() == 0) { 
             throw new Exception("Error getting company attribute");
         }
@@ -97,13 +98,11 @@ public class UserListTest extends BaseProcessor {
 
             */
 
-            // Test query until security_user table access works.
+            // Test query until security_user table and contact table access works.
             query.append( "SELECT u.user_id, u.user_id AS handle," );
             query.append( " u.first_name, u.last_name" );
-            query.append( " FROM contact c, user u" );
-            query.append( " WHERE u.user_id = c.contact_id" );
-            query.append( " AND c.company_id = " );
-            query.append(companyId);
+            query.append( " FROM user u" );
+
 
 
             ctx = new InitialContext();
