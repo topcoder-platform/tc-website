@@ -151,8 +151,8 @@
 		<td class="<%=tabLev3.equals("radeye")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=radeye_semi" target="_blank" class="subNavLink">radeye's Odds</a></td>
 	<% } else if (tabLev2.equals("summary")) {%>
 		<td class="<%=tabLev3.equals("online")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_sum_onlinerounds" class="subNavLink">Online Rounds</a></td>
-		<td class="<%=tabLev3.equals("room1")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_room1_analysis" class="subNavLink">Room 1</a></td>
 		<%--
+		<td class="<%=tabLev3.equals("room1")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_room1_analysis" class="subNavLink">Room 1</a></td>
 		<td class="<%=tabLev3.equals("room2")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_room2_analysis" class="subNavLink">Room 2</a></td>
 		<td class="<%=tabLev3.equals("room3")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_room3_analysis" class="subNavLink">Room 3</a></td>
 		<td class="<%=tabLev3.equals("wildcard")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_wildcard_analysis" class="subNavLink">Wildcard</a></td>
