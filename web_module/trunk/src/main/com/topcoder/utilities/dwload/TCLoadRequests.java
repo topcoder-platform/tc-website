@@ -391,6 +391,19 @@ public class TCLoadRequests extends TCLoad {
         }
     }
 
+    /**
+     * Get the time of the most recent request in the system
+     * this is important because the timestamp on the request is
+     * baseed on the time of the actual site hit.  If the application
+     * server's time was different than the db's time, we could end
+     * up missing requests.  We could end up with the situation where
+     * according to our update log we've loaded requests up to date
+     * x, but the application server may still thing it's before x.
+     * In that case, the next load would miss everything that happened
+     * in that window.
+     * @return
+     * @throws Exception
+     */
     private Timestamp getNewestTime() throws Exception {
         ResultSet rs = null;
         PreparedStatement ps = null;
