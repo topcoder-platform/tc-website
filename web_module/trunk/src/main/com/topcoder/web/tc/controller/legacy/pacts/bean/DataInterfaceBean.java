@@ -1263,7 +1263,7 @@ public class DataInterfaceBean implements PactsConstants {
 
     public boolean hasNotarizedAffidavit(long userId, int affidavitTypeId) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
-        return ps.canAffirmAffidavit(userId, affidavitTypeId);
+        return ps.hasNotarizedAffidavit(userId, affidavitTypeId);
     }
     public boolean hasAllDemographicAnswers(long userId) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
