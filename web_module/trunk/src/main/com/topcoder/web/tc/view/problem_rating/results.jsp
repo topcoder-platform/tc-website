@@ -12,7 +12,7 @@
 </head>
 <body>
 <center><h3><font color="#FFFFFF"><%= request.getAttribute("problemName") %></font></h3></center>
-    <table>
+    <table BGCOLOR="#001B35">
         <tr><td class="statTextBig">Question</td><td class="statTextBig">Average Rating</td></tr>
         <rsc:iterator list="<%=problemRatingResults%>" id="result">
         <% count = result.getIntItem("count"); %>

@@ -10,13 +10,13 @@
 <jsp:include page="../script.jsp"/>
 </SCRIPT>
 </head>
-<body background="/i/steel_bluebv_bg.gif">
+<body>
 <center><h3><font color="#FFFFFF"><%= request.getAttribute("problemName") %></font></h3></center>
 <tc-webtag:errorIterator id="err" name="problemRating"><%=err%><br/></tc-webtag:errorIterator>
 <form name="ratings" action="/tc/" method="GET">
 <input type="hidden" name="module" value="SubmitRatings">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
-    <table BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
+    <table BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#001B35">
         <tr><td></td>
             <% for(int i = 1; i<=10; i++){ %>
                 <td class="statTextBig">
