@@ -37,12 +37,13 @@
             <jsp:param name="title" value=""/>  
         </jsp:include>
 
-        <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <br/>
+        <table width="300" border="0" cellpadding="5" cellspacing="0" align=center>
             <tr>
-                <td class="statTextBig">
+                <td class="header">
                     Handle
                 </td>
-                <td class="statTextBig">
+                <td class="header" align=right>
                     Member Since
                 </td>
             </tr>
