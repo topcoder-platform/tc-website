@@ -69,7 +69,7 @@ if (o!=null) {
                     if (startTimes[i]==0) {
                       time = 0;
                     } else {
-                      if (countDown=='true')
+                      if (countDown==true)
                         time = correctedLocalTime.getTime()-startTimes[i];
                         if (time>times[i]) time = times[i];
                       else {
