@@ -18,6 +18,7 @@ public class ResumeTaskException extends Exception {
         return ex;
     }
     public void printStackTrace(){
-        ex.printStackTrace();
+        if(ex==this)super.printStackTrace();
+        else ex.printStackTrace();
     }
 }

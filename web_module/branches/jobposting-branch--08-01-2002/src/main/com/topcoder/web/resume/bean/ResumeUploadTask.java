@@ -40,6 +40,8 @@ public class ResumeUploadTask extends ResumeTask{
                     fileName = uf.getRemoteFileName();
                     file = fileBytes;
                 }
+            }else{
+                throw new ResumeTaskException("No files uploaded");
             }
         } catch(Exception e){
             e.printStackTrace();
