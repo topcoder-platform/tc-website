@@ -49,36 +49,28 @@
                     <td class="bodyText" width="99%">
                         <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
-                        <h3><a href="?module=Static&d1=corp&d2=recruiting&d3=index">Recruiting</a></h3>
-
-                        <p>We provide employers with innovative programs designed to attract, identify, and evaluate collegiate candidates and 
+                        <p><span class="bodySubtitle"><a href="?module=Static&d1=corp&d2=recruiting&d3=index">Recruiting</a></span><br>
+                        We provide employers with innovative programs designed to attract, identify, and evaluate collegiate candidates and 
                         experienced professionals for full time employment consideration.  With a member base in excess of 20,000&#151;including 
                         more than 12,000 students from over 750 schools&#151;employers obtain objective measurement detail about candidates, including 
                         code samples and statistics, that is not found elsewhere.</p>
 
-                        <h3><a href="?module=Static&d1=corp&d2=testing&d3=index">Testing</a></h3>
-
-                        <p>The TopCoder Testing Program allows companies to test the technical abilities of candidates during the interview process, 
+                        <p><span class="bodySubtitle"><a href="?module=Static&d1=corp&d2=testing&d3=index">Testing</a></span><br>
+                        The TopCoder Testing Program allows companies to test the technical abilities of candidates during the interview process, 
                         thereby reducing the time incurred by in-house engineers.  Employers can choose problem sets to test candidates' problem 
                         solving skills with scenarios that mirror on-the-job issues. </p>
 	
-                        <h3><a href="<?module=UserList">Manage Users</a></h3>
-
-                        <p>Use our online application to manage the access your company users get to the TCES Recruiting and Testing Tools. Add new 
+                        <p><span class="bodySubtitle"><a href="<?module=UserList">Manage Users</a></span><br>
+                        Use our online application to manage the access your company users get to the TCES Recruiting and Testing Tools. Add new 
                         users, assign different levels of administrative access to existing users, or delete users. Options vary depending on which 
-                        TCES packages you purchase. 
+                        TCES packages you purchase.</p>
 
                         <p><br></p>
                     </td>
 
-<!-- Gutter -->
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
 <!-- Right Column begins -->
                     <jsp:include page="includes/right.jsp">
-                        <jsp:param name="level1" value="tces"/>
-                        <jsp:param name="level2" value="overview"/> 
+                        <jsp:param name="level1" value="tces_home"/>
                     </jsp:include>
 <!-- Right Column ends -->
 
