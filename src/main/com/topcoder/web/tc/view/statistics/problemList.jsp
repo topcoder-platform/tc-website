@@ -49,6 +49,7 @@
             if (me.getValue() instanceof String) {
                 add(buf, me.getKey().toString(), me.getValue().toString());
             } else if (me.getValue().getClass().isArray()) {
+                sArray = (String[]) me.getValue();
                 for (int i = 0; i < sArray.length; i++) {
                     add(buf, me.getKey().toString(), sArray[i]);
                 }
