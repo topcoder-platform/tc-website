@@ -103,6 +103,29 @@
                 </tr>    
 
                 <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
+                                
+                <tr valign="middle">
+                    <td class="bodyText" valign="top"><strong>TopCoder Software Component Tutorials</strong><br />
+                        The TopCoder Component Tutorial provides a detailed guideline to designing and developmenting TopCoder Software components.</td>
+                    <td></td>
+                    <td class="bodyText" valign="top"><br />
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr valign="top">
+                                <td class="bodyText">11.6.2003</td>
+                                <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Component_Design_Tutorial_1.pdf" class="bodyText">Component Design Tutorial.pdf</a></td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="bodyText">11.6.2003</td>
+                                <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Component_Development_Tutorial.pdf" class="bodyText">Component Development Tutorial.pdf</a></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>    
+
+
+                <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
 
                 <tr valign="middle">
                     <td class="bodyText" valign="top"><strong>Design Deliverables</strong><br />
