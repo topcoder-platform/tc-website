@@ -73,7 +73,7 @@
                     <td width="274"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_overview"><img src="/i/tournament/photo_tco03.gif" alt="2003 TopCoder Open" width="274" height="121" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong>2003 TopCoder Open sponsored by Intel<sup>&#174; </sup></strong></font><br />
+                        <p><font size="3"><strong>2003 TopCoder Open&#153; sponsored by Intel<sup>&#174; </sup></strong></font><br />
                         December 4-5<br />
                         Mohegan Sun Casino<br />
                         Uncasville, Connecticut</p>
@@ -95,7 +95,7 @@
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="/index?t=tournaments&amp;c=tccc03_champ"><img src="/i/tournament/photo_tccc03.jpg" alt="2003 TCCC" width="274" height="134" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2003 Sun Microsystems&#153; TopCoder Collegiate Challenge</strong></font></td>
+                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2003 Sun Microsystems&#153; TopCoder Collegiate Challenge&#153;</strong></font></td>
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
@@ -114,7 +114,7 @@
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="/index?t=tournaments&amp;c=invit02_champ"><img src="/i/tournament/photo_tci02.jpg" alt="2002 TCI" width="274" height="134" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2002 TopCoder Invitational</strong></font></td>
+                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2002 TopCoder Invitational&#153;</strong></font></td>
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
@@ -133,7 +133,7 @@
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="/index?t=tournaments&amp;c=2002tccc_champ"><img src="/i/tournament/photo_tccc02.jpg" alt="2002 TCCC" width="274" height="134" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2002 Sun Microsystems&#153; TopCoder Collegiate Challenge</strong></font></td>
+                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2002 Sun Microsystems&#153; TopCoder Collegiate Challenge&#153;</strong></font></td>
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
@@ -153,7 +153,7 @@
                     <td width="274"><A href="/index?t=tournaments&amp;c=tourny_tci_01"><img src="/i/tournament/photo_tci01.jpg" alt="2001 TCI" width="274" height="134" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong>2001 TopCoder Invitational</strong></font><br />
+                        <p><font size="3"><strong>2001 TopCoder Invitational&#153;</strong></font><br />
                         November 2-3<br />
                         Foxwoods Resort Casino<br />
                         Mashantucket, Connecticut<br />
@@ -169,7 +169,7 @@
                     <td width="274"><A href="/index?t=tournaments&amp;c=tourny_tccc_01"><img src="/i/tournament/photo_tccc01.jpg" alt="2001 TCCC" width="274" height="134" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong>2001 TopCoder Collegiate Challenge</strong></font><br />
+                        <p><font size="3"><strong>2001 TopCoder Collegiate Challenge&#153;</strong></font><br />
                         June 5-7<br />
                         San Francisco Hilton and Towers<br/>
                         San Francisco, California<br />
