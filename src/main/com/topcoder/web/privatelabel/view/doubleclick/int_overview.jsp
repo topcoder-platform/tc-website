@@ -42,7 +42,7 @@
 
          <ul>
          <li><span class="dc_subTitle">Download the Arena</span><br/>
-         The TopCoder&#153; Competition Arena (a Java Applet) is where the action takes place. Download the applet, read the problem statements, then code solutions, compile and test those solutions and submit your code for points. To get acquainted with the environment, you can download the arena to work on sample problems prior to the competition. </li>
+         The TopCoder&#174; Competition Arena (a Java Applet) is where the action takes place. Download the applet, read the problem statements, then code solutions, compile and test those solutions and submit your code for points. To get acquainted with the environment, you can download the arena to work on sample problems prior to the competition. </li>
 
          <li><span class="dc_subTitle">Coding Phase</span><br/>
          At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. Beat your co-workers by creating an accurate solution in the shortest amount of time. A leader board will track the points along the way. </li>

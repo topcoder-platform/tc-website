@@ -19,7 +19,7 @@
             <p><strong>NO PURCHASE NECESSARY TO ENTER OR WIN</strong></p>
                             			
             <p><strong>OVERVIEW</strong><br />
-Intel will conduct a drawing at the conclusion of five Intel-sponsored TopCoder&#153; 
+Intel will conduct a drawing at the conclusion of five Intel-sponsored TopCoder&#174; 
 Single Round Matches.  In each drawing, one of the following scenarios will occur:</p>
 
 <ol>
