@@ -39,7 +39,7 @@
 
 			<br/><br/>
 
-			<span class=bigTitle>Registration</span>
+			<span class=bigTitle>Forgot your password?</span>
 			<span valign=top>
 			<jsp:include page="right_reg.jsp" />
 			</span>
