@@ -346,7 +346,7 @@
                                 </xsl:choose>
                             </td>
                             <td class="projectCells" align="center">
-                                <xsl:value-of select="/TC/DEVELOPMENT/MaxRatedInquiries"/>/<xsl:value-of select="/TC/DEVELOPMENT/MaxUnRatedInquiries"/>
+                                <xsl:value-of select="/TC/DEVELOPMENT/MaxRatedInquiries"/>/<xsl:value-of select="/TC/DEVELOPMENT/MaxUnratedInquiries"/>
                             </td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
@@ -437,7 +437,7 @@
                                 </xsl:choose>
                             </td>
                             <td class="projectCells" align="center">
-                                <xsl:value-of select="/TC/DEVELOPMENT/MaxRatedInquiries"/>
+                                <xsl:value-of select="/TC/DEVELOPMENT/MaxRatedInquiries"/>/<xsl:value-of select="/TC/DEVELOPMENT/MaxUnratedInquiries"/>
                             </td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
