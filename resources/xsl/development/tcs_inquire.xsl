@@ -97,7 +97,7 @@ You agree that if TopCoder is unable because of your unavailability, or for any 
 Nothing in this Agreement shall be construed as granting you any right or license under any intellectual property right of TopCoder (including any rights TopCoder may have in any patents, copyrights, trademarks, service marks or any trade secrets), by implication, estoppel or otherwise, except as expressly set forth herein.
 
 OBLIGATION TO SUBMIT
-By inquiring for a particular component project, you are obligated to submit a solution for that component by the corresponding deadline indicated on TopCoder's website.  Failure to submit a solution for the component you inquired of will result in a one-month suspension from participating in future TopCoder design and development competitions.  TopCoder reserves the right to permanently suspend you from all future design and development competitions if you continually fail to submit solutions for components you inquired of.
+By registering for a particular component project, you are obligated to submit a solution for that component by the corresponding deadline indicated on TopCoder's website.  TopCoder reserves the right to permanently suspend you from all future design and development competitions if you continually fail to submit solutions for components you registered for.
 
 If you have any questions regarding these Terms, contact us at service@topcoder.com.
 
