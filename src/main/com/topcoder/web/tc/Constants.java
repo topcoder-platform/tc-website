@@ -166,9 +166,14 @@ public class Constants {
     public static String MAX_DIV2_SUCCESS;
     public static String DIV1_LEVEL;
     public static String DIV2_LEVEL;
+
     public static String JOB_HIT_MESSAGE_NOT_REGISTERED;
     public static String JOB_HIT_MESSAGE_UN_REGISTERED;
 
+    // profile generator constants
+    public static String PROFILE_DOC_CONVERTOR_PAGE;
+    public static String PROFILE_MAIN_PAGE;
+    public static String PROFILE_CONFIG_PAGE;
 
     /* Contract Constants */
     public static String CONTRACTING_INFO;
