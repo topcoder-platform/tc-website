@@ -75,8 +75,7 @@
                             <tr valign="middle">
                                 <td class="loginText" align="right">Password:&#160;&#160;</td>
                                 <td align="left"><input maxlength="15" size="12" name="<%=Constants.PASSWORD%>" type="Password" onKeyPress="submitEnter(event)" value=""></td>
-                                <td class="loginText">&#160;&#160;<a href="Javascript:document.login.submit();" class="loginText">Login&#160;&gt;</a>
-                                    <input name="<%=Login.KEY_LOGINMODE%>" type="hidden" value="1"></td>
+                                <td class="loginText">&#160;&#160;<a href="Javascript:document.login.submit();" class="loginText">Login&#160;&gt;</a></td>
                             </tr>
                         </table>
                         </screen:form>
