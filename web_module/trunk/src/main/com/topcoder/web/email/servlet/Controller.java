@@ -105,7 +105,7 @@ public class Controller
                 dest = "/" + dest;
             }
             log.debug("forwarding to " + dest);
-            getServletContext().getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
+            getServletContext().getContext("/").getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
         } else {
             log.debug("redirecting to " + dest);
             response.sendRedirect(response.encodeRedirectURL(dest));
