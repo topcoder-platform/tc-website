@@ -6,7 +6,7 @@
           com.coolservlets.forum.util.*,
           com.coolservlets.forum.database.DbQuery,
           com.coolservlets.forum.database.DbForumFactory"
-  errorPage="errorPage.jsp"
+  errorPage="../errorPage.jsp"
 %>
 
 <%  ////////////////
