@@ -44,6 +44,7 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Set;
 import java.util.Vector;
 import java.net.URLEncoder;
 
@@ -631,11 +632,11 @@ public class TransactionServlet extends HttpServlet {
         PrincipalMgrRemote mgr = Util.getPrincipalManager();
         TCSubject buyerSubject = mgr.getUserSubject(txInfo.getBuyerID());
         UserPrincipal buyerPrincipal = mgr.getUser(txInfo.getBuyerID());
-        Collection assignedRoles = mgr.getRoles(buyerSubject);
+        Set assignedRoles = buyerSubject.getPrincipals();
         TCSubject appSubject = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);
         Iterator i = txInfo.getRolesPerProduct().iterator();
         log.debug("buyer ["+txInfo.getBuyerID()+"] has roles assigned "+assignedRoles);
-        log.debug("roles to added on per product basis "+txInfo.getRolesPerProduct());
+        log.debug("roles to be added on per product basis "+txInfo.getRolesPerProduct());
         
         HashSet rollbackStore = new HashSet();
         Exception caught = null;
