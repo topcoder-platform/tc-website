@@ -107,185 +107,6 @@ public class EmailBean implements SessionBean {
     return(email_id);
   }
 
-  public long getPrimaryEmailId(long _user_id)
-                                          throws EJBException, RemoteException {
-    long email_id=0;
-
-    Connection con=null;
-    PreparedStatement ps=null;
-
-    try {
-
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
-      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
-
-      StringBuffer query=new StringBuffer(1024);
-      query.append("SELECT email_id ");
-      query.append("FROM email ");
-      query.append("WHERE user_id=? AND primary=1");
-
-      con=ds.getConnection();
-      ps=con.prepareStatement(query.toString());
-      ps.setLong(1,_user_id);
-
-      ResultSet rs=ps.executeQuery();
-      if (rs.next()) {
-        email_id=rs.getLong(1);
-      }
-      else {
-        throw(new EJBException("No rows found when selecting from 'email' "+
-                               "with user_id="+_user_id+"."));
-      }
-    }
-    catch (SQLException _sqle) {
-      _sqle.printStackTrace();
-      throw(new EJBException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
-    }
-    finally {
-      if (con!=null) {
-        try {
-          con.close();
-        }
-        catch (Exception _e) {
-          /* do nothing */
-        }
-      }
-      if (ps!=null) {
-        try {
-          ps.close();
-        }
-        catch (Exception _e) {
-          /* do nothing */
-        }
-      }
-    }
-    return(email_id);
-  }
-
-  public long getEmailTypeId(long _email_id)
-                                          throws EJBException, RemoteException {
-
-    long email_type_id=0;
-
-    Connection con=null;
-    PreparedStatement ps=null;
-
-    try {
-
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
-      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
-
-      StringBuffer query=new StringBuffer(1024);
-      query.append("SELECT email_type_id ");
-      query.append("FROM email ");
-      query.append("WHERE email_id=?");
-
-      con=ds.getConnection();
-      ps=con.prepareStatement(query.toString());
-      ps.setLong(1,_email_id);
-
-      ResultSet rs=ps.executeQuery();
-      if (rs.next()) {
-        email_type_id=rs.getLong(1);
-      }
-      else {
-        throw(new EJBException("No rows found when selecting from 'email' "+
-                               "with email_id="+_email_id+"."));
-      }
-    }
-    catch (SQLException _sqle) {
-      _sqle.printStackTrace();
-      throw(new EJBException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
-    }
-    finally {
-      if (con!=null) {
-        try {
-          con.close();
-        }
-        catch (Exception _e) {
-          /* do nothing */
-        }
-      }
-      if (ps!=null) {
-        try {
-          ps.close();
-        }
-        catch (Exception _e) {
-          /* do nothing */
-        }
-      }
-    }
-    return(email_type_id);
-  }
-
-  public String getAddress(long _email_id)
-                                          throws EJBException, RemoteException {
-
-    String address="";
-
-    Connection con=null;
-    PreparedStatement ps=null;
-
-    try {
-
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
-      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
-
-      StringBuffer query=new StringBuffer(1024);
-      query.append("SELECT address ");
-      query.append("FROM email ");
-      query.append("WHERE email_id=?");
-
-      con=ds.getConnection();
-      ps=con.prepareStatement(query.toString());
-      ps.setLong(1,_email_id);
-
-      ResultSet rs=ps.executeQuery();
-      if (rs.next()) {
-        address=rs.getString(1);
-      }
-      else {
-        throw(new EJBException("No rows found when selecting from 'email' "+
-                               "with email_id="+_email_id+"."));
-      }
-    }
-    catch (SQLException _sqle) {
-      _sqle.printStackTrace();
-      throw(new EJBException(_sqle.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new EJBException(_ne.getMessage()));
-    }
-    finally {
-      if (con!=null) {
-        try {
-          con.close();
-        }
-        catch (Exception _e) {
-          /* do nothing */
-        }
-      }
-      if (ps!=null) {
-        try {
-          ps.close();
-        }
-        catch (Exception _e) {
-          /* do nothing */
-        }
-      }
-    }
-    return(address);
-  }
-
   public void setPrimaryEmailId(long _user_id,long _email_id)
                                           throws EJBException, RemoteException {
 
@@ -356,6 +177,65 @@ public class EmailBean implements SessionBean {
     }
   }
 
+  public long getPrimaryEmailId(long _user_id)
+                                          throws EJBException, RemoteException {
+    long email_id=0;
+
+    Connection con=null;
+    PreparedStatement ps=null;
+
+    try {
+
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
+      StringBuffer query=new StringBuffer(1024);
+      query.append("SELECT email_id ");
+      query.append("FROM email ");
+      query.append("WHERE user_id=? AND primary=1");
+
+      con=ds.getConnection();
+      ps=con.prepareStatement(query.toString());
+      ps.setLong(1,_user_id);
+
+      ResultSet rs=ps.executeQuery();
+      if (rs.next()) {
+        email_id=rs.getLong(1);
+      }
+      else {
+        throw(new EJBException("No rows found when selecting from 'email' "+
+                               "with user_id="+_user_id+"."));
+      }
+    }
+    catch (SQLException _sqle) {
+      _sqle.printStackTrace();
+      throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
+    }
+    finally {
+      if (con!=null) {
+        try {
+          con.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+      if (ps!=null) {
+        try {
+          ps.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+    }
+    return(email_id);
+  }
+
   public void setEmailTypeId(long _email_id,long _email_type_id)
                                           throws EJBException, RemoteException {
 
@@ -411,6 +291,66 @@ public class EmailBean implements SessionBean {
     }
   }
 
+  public long getEmailTypeId(long _email_id)
+                                          throws EJBException, RemoteException {
+
+    long email_type_id=0;
+
+    Connection con=null;
+    PreparedStatement ps=null;
+
+    try {
+
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
+      StringBuffer query=new StringBuffer(1024);
+      query.append("SELECT email_type_id ");
+      query.append("FROM email ");
+      query.append("WHERE email_id=?");
+
+      con=ds.getConnection();
+      ps=con.prepareStatement(query.toString());
+      ps.setLong(1,_email_id);
+
+      ResultSet rs=ps.executeQuery();
+      if (rs.next()) {
+        email_type_id=rs.getLong(1);
+      }
+      else {
+        throw(new EJBException("No rows found when selecting from 'email' "+
+                               "with email_id="+_email_id+"."));
+      }
+    }
+    catch (SQLException _sqle) {
+      _sqle.printStackTrace();
+      throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
+    }
+    finally {
+      if (con!=null) {
+        try {
+          con.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+      if (ps!=null) {
+        try {
+          ps.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+    }
+    return(email_type_id);
+  }
+
   public void setAddress(long _email_id,String _address)
                                           throws EJBException, RemoteException {
 
@@ -464,6 +404,66 @@ public class EmailBean implements SessionBean {
         }
       }
     }
+  }
+
+  public String getAddress(long _email_id)
+                                          throws EJBException, RemoteException {
+
+    String address="";
+
+    Connection con=null;
+    PreparedStatement ps=null;
+
+    try {
+
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
+      StringBuffer query=new StringBuffer(1024);
+      query.append("SELECT address ");
+      query.append("FROM email ");
+      query.append("WHERE email_id=?");
+
+      con=ds.getConnection();
+      ps=con.prepareStatement(query.toString());
+      ps.setLong(1,_email_id);
+
+      ResultSet rs=ps.executeQuery();
+      if (rs.next()) {
+        address=rs.getString(1);
+      }
+      else {
+        throw(new EJBException("No rows found when selecting from 'email' "+
+                               "with email_id="+_email_id+"."));
+      }
+    }
+    catch (SQLException _sqle) {
+      _sqle.printStackTrace();
+      throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
+    }
+    finally {
+      if (con!=null) {
+        try {
+          con.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+      if (ps!=null) {
+        try {
+          ps.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+    }
+    return(address);
   }
 
 };
