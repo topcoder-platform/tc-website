@@ -38,7 +38,7 @@
         </init-param>
         <init-param>
             <param-name>error_page</param-name>
-            <param-value>/errorPage.jsp</param-value>
+            <param-value>/error.jsp</param-value>
             <description>where to forward for errors</description>
         </init-param>
 <!--        <load-on-startup>2</load-on-startup>-->
