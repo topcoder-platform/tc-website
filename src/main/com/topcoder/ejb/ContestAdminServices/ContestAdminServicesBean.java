@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import com.topcoder.common.*;
 import com.topcoder.common.web.data.*; 
-import com.topcoder.jmaMessaging.*;
+import com.topcoder.server.messaging.*;
 
 
 public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
