@@ -77,19 +77,19 @@ with "Coach" in the subject line.
 <p><span class="bodySubtitle">Responsibilities</span><br/>
 <ul>
 <li>Expected behavior:</li>
-<li><ul>
+<ul>
 <li>Provide general design direction based on the initial ideas of the competitor.</li>
 <li>Provide pattern recommendations or explanations if the member is improperly using them.</li>
 <li>Explain technical theory and concepts.</li>
 <li>Identify potential downfalls of the design based on technical merit or in regard to the component scorecard requirements.</li>
-</ul></li>
+</ul>
 <li>Unaccepted behavior:</li>
-<li><ul>
+<ul>
 <li>It is unacceptable to guide a member to create your own design.</li>
 <li>It is unacceptable, at any time, to modify the design directly.</li>
 <li>When managing multiple competitors, it is unacceptable to share the ideas of one competitor with the others you are managing.</li>
 <li>When managing multiple competitors, it is unacceptable to guide all competitors to a similar design.  Again, initial design ideas and overall structure should be that of the members.</li>
-</ul></li>
+</ul>
 </ul>
 
          <p><br/></p>
