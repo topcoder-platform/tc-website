@@ -91,7 +91,7 @@
 					<LI>8&#37; are looking for part-time contract work</LI><BR/>
 					Students:
 					<LI>31&#37; are looking for full-time work</LI>
-					<LI>23&#37; are looking for part-time work</LI>
+					<LI>24&#37; are looking for part-time work</LI>
 					<LI>35&#37; are looking for an internship</LI>
 					</UL><BR/>
 					</TD>
