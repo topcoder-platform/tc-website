@@ -121,9 +121,14 @@
             </p>
 
             <p><span class="bodySubtitle">Round Structure</span><br />
-            During each online round of competition, eligible competitors will submit design and development solutions for at least two 
-            eligible components (including one level 2 component) by the submission due date.  Submissions will be scored by the TopCoder 
-            Review Boards and will be subject to final review and appeal in the same manner as standard component design submissions. 
+            During each online round of competition, eligible competitors will
+            submit design and development solutions for at least two eligible
+            components (including one level 2 component) by the submission due date.
+            Submissions will be scored by the TopCoder Review Boards and will be
+            subject to final review and appeal in the same manner as standard
+            component design submissions.  The score for the round will be the
+            average of your two highest scores (one score must be a level 2
+            component). 
             </p>           
             
             <p><span class="bodySubtitle">Onsite Championship Round 3</span><br />
@@ -132,6 +137,18 @@
             December 4th.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive a prize, and 
             his/her spot in the tournament will be given to the next highest overall scorer from Round 2.</p>
             
+            <p>The two finalists will have ten days to complete the final project.
+            Once the project is completed, the submissions will be submitted to
+            TopCoder and reviewed by the TopCoder review board.  The finalists will
+            receive the review scorecards at 8 am on the morning of the on site
+            competition as well as an addendum to the original requirements for
+            design projects and additional section of the design for development
+            projects.  Each finalist will be scored on the implementation of final
+            fixes for the component as well as the additional design or development
+            of the addendum.  This portion of the competition will last 4 hours.  An
+            example addendum for an HTTP Listener component would be to design or
+            develop an SSL module for the component.</p>
+
             <p>TopCoder will provide travel arrangements for each competitor and a guest of his/her choice, up to a cost of $1,000 per 
             person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between 
             the cost of the airfare and $1,000.)  In addition, TopCoder will also provide travel arrangements to and from the airport to the 
