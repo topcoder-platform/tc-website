@@ -70,7 +70,7 @@
             </TR>                        
             <TR>
 				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4200&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 96</A></TD>						
-				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4200&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Wednesday, June 11</A></TD>
+				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4200&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Tuesday, June 11</A></TD>
 				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4200&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">8:30pm EDT (registration)</A></TD>
             </TR>           
             <TR>

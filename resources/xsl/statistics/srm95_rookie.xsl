@@ -151,6 +151,11 @@ Room 66. <A HREF="/stat?c=member_profile&amp;cr=287944" CLASS="bodyGeneric">omar
  both finished with 535 points and change.
 </P>
 
+<P>
+At the time of this writing, it was not known to ZorbaTHut that jello (the
+rookie winner) was disqualified from the match and future competitions for
+cheating. Jello's results will not be found in the match results.
+</P>
 
 <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
