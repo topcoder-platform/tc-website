@@ -227,11 +227,12 @@ public class PhoneBean implements SessionBean {
     }
 
     /**
-     * 
+     *
      * @param userId
      * @return long
      * @throws RemoteException
      * @throws EJBException
+     * @deprecated Replaced with getPrimaryPhoneId
      */
     public long getPhoneId(long userId) throws RemoteException, EJBException {
         log.debug("getPhoneId called...user_id: " + userId);
@@ -526,5 +527,240 @@ public class PhoneBean implements SessionBean {
             }
         }
     }
-    
+
+    /**
+     *
+     *
+     * @param userId user ID to look up
+     * @return a long with the user's primary phone ID
+     */
+    long getPrimaryPhoneId(long userId) {
+        log.debug("getPrimaryPhoneId called...user_id: " + userId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        long ret = 0;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT phone_id FROM phone " +
+                                       "WHERE user_id = ? AND primary = 1");
+            ps.setLong(1, userId);
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getLong("phone_id");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting primary phone_id");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting primary phone_id");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting primary phone_id\n" +
+                                   e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in " +
+                              "getPrimaryPhoneId");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getPrimaryPhoneId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in " +
+                              "getPrimaryPhoneId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getPrimaryPhoneId");
+                }
+            }
+        }
+        return (ret);
+    }
+
+    /**
+     *
+     *
+     * @param userId the user ID to set
+     * @param phoneId the user's phone ID to set to primary
+     */
+    void setPrimaryPhoneId(long userId, long phoneId) {
+        log.debug("setPrimaryEmailId called...userId: " + userId +
+                  " phoneId: " + phoneId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        DataSource ds = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("UPDATE phone SET primary = 0");
+
+            int rows = ps.executeUpdate();
+
+            ps = conn.prepareStatement("UPDATE phone SET primary = 1" +
+                                       "WHERE user_id = ? AND phone_id = ?");
+
+            ps.setLong(1, userId);
+            ps.setLong(2, phoneId);
+
+            rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException updating primary phone");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException updating primary phone");
+        } catch (Exception e) {
+            throw new EJBException("Exception updating primary phone\n" +
+                                   e.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "setPrimaryPhoneId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in " +
+                              "setPrimaryPhoneId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setPrimaryPhoneId");
+                }
+            }
+        }
+    }
+
+    /**
+     *
+     *
+     * @param userId the user ID to check
+     * @param phoneId the phone ID to check
+     * @return a boolean with whether the phone ID is the user's primary
+     */
+    boolean isPrimaryPhoneId(long userId, long phoneId) {
+        log.debug("isPrimaryPhoneId called...user_id: " + userId +
+                  " phone_id: " + phoneId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        int ret = 0;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT primary FROM phone " +
+                                       "WHERE user_id = ? AND phone_id = ?");
+            ps.setLong(1, userId);
+            ps.setLong(2, phoneId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getInt("primary");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException checking primary phone_id");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException checking primary " +
+                                   "phone_id");
+        } catch (Exception e) {
+            throw new EJBException("Exception checking primary phone_id\n" +
+                                   e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in " +
+                              "isPrimaryPhoneId");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "isPrimaryPhoneId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in " +
+                              "isPrimaryPhoneId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in isPrimaryPhoneId");
+                }
+            }
+        }
+        return (ret==1);
+    }
 }

@@ -31,6 +31,7 @@ public interface Phone extends EJBObject {
      *
      *
      * @see com.topcoder.web.ejb.phone.PhoneBean#getPhoneId
+     * @deprecated
      */
     long getPhoneId(long userId)
                  throws RemoteException, EJBException;
@@ -58,4 +59,29 @@ public interface Phone extends EJBObject {
      */
     void setNumber(long userId, long phoneId, String number)
             throws RemoteException, EJBException;
+
+    /**
+     *
+     *
+     * @see com.topcoder.web.ejb.phone.PhoneBean#getPrimaryPhoneId
+     */
+    long getPrimaryPhoneId(long userId)
+             throws RemoteException, EJBException;
+
+    /**
+     *
+     *
+     * @see com.topcoder.web.ejb.phone.PhoneBean#setPrimaryPhoneId
+     */
+    void setPrimaryPhoneId(long userId, long phoneId)
+             throws RemoteException, EJBException;
+
+    /**
+     *
+     *
+     * @see com.topcoder.web.ejb.phone.PhoneBean#isPrimaryPhoneId
+     */
+    boolean isPrimaryPhoneId(long userId, long phoneId)
+             throws RemoteException, EJBException;
+
 }
