@@ -49,7 +49,7 @@
 
 
 
-	<tc-webtag:iterator list="<%=rsc%>" id="resultRow">
+	<tc-webtag:iterator id="resultRow" collection="<%=rsc%>">
 	  <TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
 			&#160;<tc-webtag:item name="user_id" row="<%=resultRow%>"/></TD>
