@@ -60,7 +60,7 @@
     String rooms[][] = new String[divisions][topN];
     for(int i = 0; i<leaders.size();i++){
         ResultSetContainer.ResultSetRow currentRow = leaders.getRow(i);
-        int divisionID = Integer.parseInt(currentRow.getItem("division_id").toString());
+        int divisionID = Integer.parseInt(currentRow.getItem("division_id").toString())-1;
         if(ptrs[divisionID]==topN)continue;
         String handle = currentRow.getItem("handle").toString();
         String room_name = currentRow.getItem("room_name").toString();
