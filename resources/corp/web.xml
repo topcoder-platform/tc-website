@@ -118,7 +118,7 @@
         </init-param>
         <init-param>
             <param-name>page-UserEdit-success</param-name>
-            <param-value>/?module=UserList</param-value> <!-- redirect -->
+            <param-value>?module=UserList</param-value> <!-- redirect -->
             <description></description>
         </init-param>
         <init-param>
