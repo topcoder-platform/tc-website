@@ -9,85 +9,82 @@
 %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML>
-<HEAD>
-<title>TopCoder Corporate Services</title>
+<html>
+<head>
+<title>TopCoder | Terms</title>
 
-<link rel="stylesheet" type="text/css" href="/css/corpStyle.css" />
+<link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
 
 <script language="JavaScript" type="text/javascript" src="/js/script.js"></script>
-</HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<jsp:include page="../includes/top.jsp"/>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-   <TR>
-    <!-- Left Column Begins -->
-      <TD WIDTH="170" VALIGN="top">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <jsp:include page="../includes/left.jsp"/>
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
-      <!-- Left Column Ends -->
-      <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-      <TD CLASS="bodyText" WIDTH="100%" valign="top"><IMG SRC="/i/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Customer Terms</B></FONT><BR>
-<P>
+</head>
 
-As a TopCoder Customer, you must agree to the Customer Terms below.  Please read the Customer Terms, and click "I Agree to the Customer Terms and Conditions stated above" to finalize your purchase.  If you do not agree to these Customer Terms and Conditions, click <A HREF="/" CLASS="bodyText">here</A> to go back.<BR/><BR/>
+<body>
 
-</P><BR>
-<FORM action="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TX_BEGIN%>" method="POST" name="frmTerms">
-<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-  <jsp:useBean id="TransactionInfo" scope="request" class="com.topcoder.web.corp.model.TransactionInfo" />
+<!-- Top begins -->
+<jsp:include page="../includes/top_generic.jsp"/>
+<!-- Top ends -->
 
-  <TR valign="middle">
-    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" background="/i/graybv_lite_bg.gif" HEIGHT="16">&#160;<FONT COLOR="#FFFFFF"><B>Customer Terms and Conditions ("Customer Terms")</B></FONT></TD>
-  </TR>
-  <TR align="right" valign="middle">
-    <TD COLSPAN="4" CLASS="bodyText" ALIGN="center" VALIGN="middle"><tc-webtag:textArea name="<%=Constants.KEY_TERMS%>" text="<%=TransactionInfo.getTerms()%>" rows="10" cols="80" readOnly="true" class="bodyText"/></TD>
-  </TR>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
 
-    <TR>
-        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-        <TD colspan="2" class="errorText" align="left" valign="middle">
-           <tc-webtag:errorIterator id="err" refname="<%=Constants.KEY_AGREE_TO_TERMS%>"><%=err%><br></tc-webtag:errorIterator>
-        </TD>
-    </TR>
-  <TR align="right" valign="middle">
-    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>I Agree to the Terms and Conditions stated above</b>&#160;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:chkBox name="<%=Constants.KEY_AGREE_TO_TERMS%>" value="<%=TransactionInfo.hasAgreed()%>"/></TD>
-  </TR>
+<!-- Left Column Begins -->
+        <td width="170" bgcolor="#CCCCCC">
+            <jsp:include page="../includes/left_generic.jsp" />
+        </td>
+<!-- Left Column Ends -->
 
-    <TR>
-        <TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0" /></TD>
-        <INPUT type="hidden" name="module" value="Registration"/>
-    </TR>
-  <TR ALIGN="right" VALIGN="middle">
-       <input type="hidden" name="back-to" value="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>"/>
-       <input type="hidden" name="prod-id" value="<jsp:getProperty name="TransactionInfo" property="productID"/>"/>
+<!-- Gutter Begins -->
+        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
 
-     <TD COLSPAN="3" ALIGN="center" VALIGN="middle" CLASS="statText"><input type="submit" onClick="" name="submit" value=" Submit "></td>
-  </TR>
-</TABLE>
-</FORM>
+<!-- Center Column begins -->
+        <td width="99%" class="bodyText"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
 
-<P><BR></P>
-     </TD>
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="30"><IMG SRC="/i/clear.gif" WIDTH="30" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-   </TR>
-</TABLE>
-  <!-- Body Ends -->
+            <h3><strong>Customer Terms</strong></h3>
+                        
+            <p>In order to process your order, you must agree to the Customer Terms below.  Please read the Customer Terms, and click "I Agree to the 
+            Customer Terms and Conditions stated above" to finalize your purchase.  If you do not agree to these Customer Terms and Conditions, 
+            click <a href="/">here</a> to go back.</p>
+            
+            <div align="center">
+            
+            <form action="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TX_BEGIN%>" method="POST" name="frmTerms">
+            
+            <table border="0" cellspacing="0" cellpadding="5">
+            <jsp:useBean id="TransactionInfo" scope="request" class="com.topcoder.web.corp.model.TransactionInfo" />
+                <tr valign="middle"><td class="bodyText"><strong>Customer Terms and Conditions ("Customer Terms")</strong></td></tr>
+                <tr valign="middle"><td class="bodyText"><tc-webtag:textArea name="<%=Constants.KEY_TERMS%>" text="<%=TransactionInfo.getTerms()%>" rows="10" cols="80" readOnly="true" class="bodyText"/></td></tr>
+                <tr valign="middle"><td class="errorForm"><tc-webtag:errorIterator id="err" refname="<%=Constants.KEY_AGREE_TO_TERMS%>"><%=err%></tc-webtag:errorIterator></td></tr>
+                <tr valign="middle"><td class="bodyText">I Agree to the Terms and Conditions stated above&#160;<tc-webtag:chkBox name="<%=Constants.KEY_AGREE_TO_TERMS%>" value="<%=TransactionInfo.hasAgreed()%>"/></td></tr>
+                <tr valign="middle"><td align="center">
+                        <input type="hidden" name="module" value="Registration">
+                        <input type="hidden" name="back-to" value="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>">
+                        <input type="hidden" name="prod-id" value="<jsp:getProperty name="TransactionInfo" property="productID" />">
+                        <input type="submit" onClick="" name="submit" value=" Submit">
+                    </td>
+                </tr>
+            </table>
 
-  <jsp:include page="../includes/foot.jsp"/>
+            </form>
+            
+            </div>
 
-</BODY>
-</HTML>
+            <p><br></p>
+
+        </td>
+<!-- Center Column ends -->
+
+<!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
+
+<!-- Footer begins -->
+<jsp:include page="../includes/foot_generic.jsp"/>
+<!-- Footer ends -->
+
+</body>
+</html>
+
