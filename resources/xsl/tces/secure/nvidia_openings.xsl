@@ -53,18 +53,14 @@
           <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
 
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-	<TR>
-		<TD CLASS="statText" BGCOLOR="#43515E" HEIGHT="18" VALIGN="middle">&#160;&#160;<B>Great Jobs at Google</B></TD>
-	</TR>
-	<TR>
-		<TD CLASS="bodyText" HEIGHT="18" VALIGN="middle">&#160;&#160;<A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">Jobs</A>&#160;|&#160;
-		<A HREF="http://www.google.com/about.html" CLASS="bodyText" TARGET="_blank">About Google</A>&#160;|&#160;
-		<A HREF="http://www.google.com/jobs/culture.html" CLASS="bodyText" TARGET="_blank">Culture</A>&#160;|&#160;
-		<A HREF="http://www.google.com/jobs/benefits.html" CLASS="bodyText" TARGET="_blank">Benefits</A>&#160;|&#160;
-		<A HREF="http://www.google.com/jobs/inside.html" CLASS="bodyText" TARGET="_blank">Inside&#160;View</A>	
-		</TD>
-	</TR>	
+<TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0">
+   <TR>
+      <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;NVIDIA Jobs</B></TD>
+  </TR>
+  <TR>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure">Jobs</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" TARGET="_blank">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" TARGET="_blank">Benefits</A>
+      </TD>
+  </TR>
 </TABLE>
 <IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0"/><BR/>       
 <FORM METHOD="" ACTION="/jobposting">
@@ -467,9 +463,9 @@ NVWHQL serves NVIDIA as the resident authority on Microsoft's Windows Logo Progr
 
 <P><B>Requirements:</B>
 <UL>
-<LI> AA Degree Computer Science or Electronic Engineering required, pursuit or achievement of BS degree preferred.  Intimate knowledge of Mobile & Desktop PC hardware, Windows operating systems, and device sub-system classes.</LI>
-<LI>Journeyman level knowledge of CPU & Memory architecture.</LI>
-<LI>Data transfer & I/O interfaces, including USB 2.0, 1394, Ethernet 10/100/1000, 802.11b,g, Audio Processing/MIDI/Dolby Digital 5.1+/DTS/THX certifications.</LI>
+<LI> AA Degree Computer Science or Electronic Engineering required, pursuit or achievement of BS degree preferred.  Intimate knowledge of Mobile &#38; Desktop PC hardware, Windows operating systems, and device sub-system classes.</LI>
+<LI>Journeyman level knowledge of CPU &#38; Memory architecture.</LI>
+<LI>Data transfer &#38; I/O interfaces, including USB 2.0, 1394, Ethernet 10/100/1000, 802.11b,g, Audio Processing/MIDI/Dolby Digital 5.1+/DTS/THX certifications.</LI>
 <LI>Display/Graphics experience (Inclusive of - Open GL, Direct X, Direct Draw, 2D, 3D, and commercial software applications) extremely beneficial.</LI>
 <LI>Ability to work in a fast paced environment and consistently remain detail oriented.</LI>
 <LI>Ability to communicate effectively with peers and management.</LI>
