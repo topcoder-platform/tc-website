@@ -57,7 +57,13 @@ public class Submit extends Base {
             setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingResults&" + Constants.PROBLEM_ID + "=" + request.getParameter("pid"));
             setIsNextPageInContext(true);
         }catch(Exception e){
-            e.printStackTrace();
+            if(e.getMessage().equals("Not enough answers")){
+                request.addAttribute("redoError","Please answer all of the questions.");
+                setNextPage("");
+                setIsNextPageInContext(true);
+            }else{
+                e.printStackTrace();
+            }
         }
     }
 }
