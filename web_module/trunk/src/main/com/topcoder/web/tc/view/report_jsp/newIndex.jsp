@@ -69,6 +69,7 @@
       Private Label Reports
       <UL>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=reg_info&"+Constants.DB_KEY+"=DC_OLTP"%>">DoubleClick Registration</A></LI>
+        <LI><A HREF="<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=google_reg&"+Constants.DB_KEY+"=GOOGLE_OLTP"%>">Google Registration</A></LI>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=brooks_usage_report&"+Constants.DB_KEY%>=SCREENING_OLTP">Brooks Registration</A></LI>
       </UL>
       <br/>
