@@ -34,7 +34,7 @@ abstract public class PRBase extends Base {
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
 
         //get the info for the distribution graphs
-        List overall = new ArrayList();
+        List overall = getDistributionList(qMap, "overall_problem_rating_distribution");
         List div1 = getDistributionList(qMap, "div1_problem_rating_distribution");
         List div2 = getDistributionList(qMap, "div2_problem_rating_distribution");
 
