@@ -30,24 +30,17 @@ public final class Index extends HttpServlet {
                 mail.setSubject("High School Registration");
                 StringBuffer msgText = new StringBuffer(1000);
 
-                msgText.append(checkNull(request.getParameter("firstName")));
-                msgText.append("|");
-                msgText.append(checkNull(request.getParameter("lastName")));
-                msgText.append("|");
-                msgText.append(checkNull(request.getParameter("school")));
-                msgText.append("|");
-                msgText.append(checkNull(request.getParameter("handle")));
-                msgText.append("|");
-                msgText.append(checkNull(request.getParameter("email")));
-                msgText.append("|");
-                msgText.append(checkNull(request.getParameter("coderType")));
-
-System.out.println(msgText.toString());
-
+                msgText.append("first:  " + checkNull(request.getParameter("firstName")));
+                msgText.append("last:   " + checkNull(request.getParameter("lastName")));
+                msgText.append("school: " + checkNull(request.getParameter("school")));
+                msgText.append("email:  " + checkNull(request.getParameter("email")));
+                msgText.append("type:   " + checkNull(request.getParameter("coderType")));
+ System.out.println(msgText.toString());
                 mail.setBody(msgText.toString());
                 mail.addToAddress("service@topcoder.com", TCSEmailMessage.TO);
                 mail.setFromAddress(checkNull(request.getParameter("email")));
                 EmailEngine.send(mail);
+                response.sendRedirect("/hs/home/index.jsp");
             } else {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/hs/home/index.jsp");
                 dispatcher.forward(request, response);
