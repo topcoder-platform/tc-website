@@ -56,7 +56,9 @@ public abstract class RegistrationBase extends BaseProcessor {
     }
 
     protected void clearRegInfo() {
-        regInfo = null;
+        //we'll let this object live for the life of the request at least.
+        //perhaps it is still necessary.  it'll die when the request processor dies
+//        regInfo = null;
         p.removeObject(Constants.REGISTRATION_INFO);
     }
 
