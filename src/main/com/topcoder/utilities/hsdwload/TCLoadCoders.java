@@ -5,7 +5,7 @@ package com.topcoder.utilities.hsdwload;
  *
  * TCLoadCoders loads coder information tables from one database to another.
  * The tables that are built by this load procedure are:
- * <ul>     
+ * <ul>
  * <li>state</li>
  * <li>country</li>
  * <li>coder</li>
@@ -57,8 +57,10 @@ public class TCLoadCoders extends TCLoad {
             getLastUpdateTime();
 
             loadState();
-   
+
             loadCountry();
+
+            loadSchool();
 
             loadCoder();
 
@@ -70,8 +72,7 @@ public class TCLoadCoders extends TCLoad {
 
             loadCoderImageXref();
 
-            loadSchool();
-         
+
             setLastUpdateTime();
 
             log.info("SUCCESS: Coders load ran successfully.");
@@ -129,7 +130,7 @@ public class TCLoadCoders extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT s.state_code ");
-            query.append(      " ,s.state_name ");    
+            query.append(      " ,s.state_name ");
             query.append(      " ,s.region_code ");
             query.append( " FROM state s ");
             query.append(" WHERE s.modify_date > ?");
@@ -138,11 +139,11 @@ public class TCLoadCoders extends TCLoad {
 
             query = new StringBuffer(100);
             query.append("INSERT INTO state ");
-            query.append(" (state_code ");       
-            query.append(" ,state_name ");      
+            query.append(" (state_code ");
+            query.append(" ,state_name ");
             query.append(" ,region_code) ");
             query.append("VALUES (");
-            query.append("?,?,?)"); 
+            query.append("?,?,?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -198,7 +199,7 @@ public class TCLoadCoders extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT c.country_code ");
-            query.append(      " ,c.country_name ");    
+            query.append(      " ,c.country_name ");
             query.append(      " ,c.participating ");
             query.append( " FROM country c ");
             query.append(" WHERE c.modify_date > ?");
@@ -207,11 +208,11 @@ public class TCLoadCoders extends TCLoad {
 
             query = new StringBuffer(100);
             query.append("INSERT INTO country ");
-            query.append(" (country_code ");       
-            query.append(" ,country_name ");      
+            query.append(" (country_code ");
+            query.append(" ,country_name ");
             query.append(" ,participating) ");
             query.append("VALUES (");
-            query.append("?,?,?)"); 
+            query.append("?,?,?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -877,7 +878,7 @@ public class TCLoadCoders extends TCLoad {
             query.append("      ,short_name ");           // 5
             query.append("      ,state_code) ");            // 6
             query.append("VALUES (");
-            query.append("?,?,?,?,?,?)"); 
+            query.append("?,?,?,?,?,?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
