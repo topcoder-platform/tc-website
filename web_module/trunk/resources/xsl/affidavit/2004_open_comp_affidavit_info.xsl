@@ -56,7 +56,7 @@
 <!-- TCO Head Begins -->
             <div align="center">
                 <img src="/i/clear.gif" alt="" width="10" height="15" border="0" /><br/>
-                <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about" target="_top"><img src="/i/tournament/tccc04/tccc04_home_banner2.gif" alt="2004 TopCoder Open" width="540" height="99" border="0"/></A><br/>
+                <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=overview" target="_top"><img src="/i/tournament/tco04/tco04_home_banner2.gif" alt="2004 TopCoder Open" width="540" height="99" border="0"/></A><br/>
                 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br/>
             </div>
 <!-- TCO Head Ends -->
@@ -84,8 +84,9 @@
                                 <li>
                                 <p>
                                     <strong>QUESTIONNAIRE</strong> - Form must be completed and submitted by 9:00 PM ET on Wednesday, March 17.
-                                    View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=203">2004 TopCoder Open Questionnaire</a>.
-                                    Complete ALL questions.  Please note that responses to the questions will be used in the TCCC04 program.
+                                    View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=203">2004 TopCoder Open Challenge Questionnaire</a>.
+                                    NOTE: All questions are mandatory.  The answera to the free form questions may be included in the 2004 TCO
+                                    Program, at TopCoder's discretion.  Answers to the multiple choice questions will be provided to Microsoft.
                                 </p>
                                 </li>
                             </ol>
