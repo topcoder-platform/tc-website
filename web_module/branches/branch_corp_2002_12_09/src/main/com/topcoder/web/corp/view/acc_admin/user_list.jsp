@@ -48,27 +48,19 @@
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>&#160;</B></TD>		
 	</TR>
 
-<%--
 	<tc-webtag:iterator id="resultRow" collection="<%=rsc%>">
 	  <TR>
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">&#160;
+			<jsp:getProperty name="resultRow" row="user_id"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			&#160;<tc-webtag:item name="user_id" row="<%=rsr%>"/></TD>
+			<jsp:getProperty name="resultRow" row="first_name"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			<tc-webtag:item name="first_name" row="<%=rsr%>"/></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			<tc-webtag:item name="last_name" row="<%=rsr%>"/></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<tc-webtag:item name="user_id" row="<%=rsr%>"/>" CLASS="bodyText">Edit</A></TD>		
+			<jsp:getProperty name="resultRow" row="last_name"/></TD>
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"> <A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<jsp:getProperty name="resultRow" row="user_id"/>" CLASS="bodyText">Edit</A></TD>		
 	  </TR>
 	</tc-webtag:iterator>
---%>
 
 	<TR>
-	  <TD>
-	  <% if (rsc != null) out.println(rsc.toString()); 
-	     else out.println("No Users Found"); 
-	  %>
-	  </TD>
-	</TR>
 		<TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr" CLASS="bodyText">Add</A></TD>		
 	</TR>				
 </TABLE>
