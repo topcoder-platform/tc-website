@@ -245,9 +245,13 @@
                 var ret="";
                 var states = s.split(",");
                 for(i=0; i<states.length; i++) {
-                  if(i==states.length-1)
-                    ret+="'"+states[i]+"'";
-                  else ret+="'"+states[i]+"',";
+                  if (states[i].charAt(0)!='\''
+                    ret+="'";
+                  ret+=states[i];
+                  if (states[i].charAt(states[i].length-1)!='\'')
+                    ret+="'";
+                  if(i<states.length-1)
+                    ret+=",";
                 }
                 return ret;
               }
