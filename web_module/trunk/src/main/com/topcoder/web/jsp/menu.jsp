@@ -8,8 +8,13 @@
    Navigation nav = (Navigation) session.getAttribute ( "navigation" );
    if ( nav == null ) nav = new Navigation();
 %>
+
 <%
    boolean isReg = "true".equals(request.getParameter("isReg"));
+%>
+
+<%
+    String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -20,7 +25,11 @@
     <tr valign="middle">
         <td class="topNav" width="49%">&#160;</td>
 
+    <% if ((level1.equals("registration")) || ((level1.equals("review_board"))) { %> 
+        <td class="topNav" nowrap><A href="/" class="topLink">Competition</A></td>
+    <% } else { %>
         <td class="topNavOn" nowrap><A href="/" class="topLink">Competition</A></td>
+    <% } %>
 
         <td class="topNav" nowrap><A href="/?t=development&c=index" class="topLink" target="_parent">Development</A></td>
 

@@ -15,7 +15,7 @@
 <body>
 
 <jsp:include page="../top.jsp" >
-    <jsp:param name="location" value="registration"/>
+    <jsp:param name="level1" value="review_board"/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -43,10 +43,10 @@
         </jsp:include>
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
       <tr>
-         <td>
-            <p align="right" >
+         <td><img src="/i/clear.gif" width="240" height="1" border="0"><br>
+<!-- Comment out until Dev info is available            <p align="right" >
                <a href="/?t=features&amp;c=#" class="bodyText"><strong>Go to Development Review Board</strong></a>
-            </p>
+            </p> -->
             <p class="bodyText">
             TopCoder is pleased to announce the formation of a Competition Review Board. The Review Board's 
             responsibilities include making recommendations on how to improve the quality and integrity of TopCoder 

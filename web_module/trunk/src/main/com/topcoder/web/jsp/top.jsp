@@ -110,7 +110,4 @@
     </tr>
 </table>
 
-<% String location = request.getParameter("location"); %>
-<jsp:include page="menu.jsp" >
-  <jsp:param name="isReg" value='<%="registration".equals(location)%>'/>
-</jsp:include>
+<jsp:include page="menu.jsp" />
