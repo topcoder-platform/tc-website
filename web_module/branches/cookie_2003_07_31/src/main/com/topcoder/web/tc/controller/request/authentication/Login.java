@@ -82,6 +82,7 @@ public class Login extends Base {
             getAuthentication().logout();
         }
 
+
         setNextPage(Constants.LOGIN);
         setIsNextPageInContext(true);
     }
