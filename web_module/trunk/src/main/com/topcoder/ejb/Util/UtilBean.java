@@ -33,7 +33,7 @@ public class UtilBean extends BaseEJB {
         query = new StringBuffer();
         query.append(" SELECT 'foo'");
         query.append(  " FROM invite_list");
-        query.append( " WHERE user_id = ?");
+        query.append( " WHERE coder_id = ?");
         query.append(   " AND round_id = ?");
         query.append(   " AND contest_id = ?");
 
@@ -54,7 +54,7 @@ public class UtilBean extends BaseEJB {
             } else {
                 query = new StringBuffer();
                 query.append(" INSERT");
-                query.append(  " INTO invite_list (user_id, contest_id, round_id)");
+                query.append(  " INTO invite_list (coder_id, contest_id, round_id)");
                 query.append(" VALUES (?, ?, ?)");
                 ps = conn.prepareStatement(query.toString());
                 ps.setInt(1, userId);
