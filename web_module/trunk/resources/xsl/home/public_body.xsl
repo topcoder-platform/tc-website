@@ -81,104 +81,6 @@
 
   <!-- Center Column Begins -->  
     <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/><BR/> 
-<!-- Invitational block -->    
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"> 
-  <TR>
-    <TD COLSPAN="3" CLASS="bodyText" VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="50"><FONT SIZE="3" FACE="verdana, arial, tahoma"><B>The 2002 TopCoder Invitational Champion is...</B></FONT></TD>
-  </TR>
-  <TR>
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD CLASS="bodyText" VALIGN="top" ><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute><IMG SRC="/i/tournament/invit02/home_invt02champ2.jpg" BORDER="0" WIDTH="250" HEIGHT="122" ALT=""/></A><BR/>
-<P><A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute><B>The Land Down Under comes out On Top!</B></A><BR/>
-by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
-Saturday, November 23, 2002</P>
-
-Due to an inaccuracy in one of the problem specifications, the four finalists were asked to 
-compete twice today as we sought to crown the 2002 TopCoder Invitational champion.  <B>John Dethridge</B> 
-became TopCoder's new highest rated member, defeating <B>SnapDragon</B>, <B>dgarthur</B>, and <B>moira</B> 
-in the Championship round...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute>read&#160;more</A><BR/><BR/>
-
-<B>Championship updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_semi</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ#photo</xsl:attribute>Photos</A>
-<BR/><BR/>
-<!--<B>When:</B> November 22nd and 23rd<BR/>
-<B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
-<B>Total Prize:</B> $150,000<BR/>
-<A HREF="http://www.mohegansun.com/directions/index.jsp" TARGET="_blank">
-<IMG SRC="/i/spectator.gif" ALT="Invitational" WIDTH="200" HEIGHT="57" VSPACE="3" BORDER="0"/></A>
-
-<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>
-<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>-->
-    </TD>
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-  <TR>  
-    <TD COLSPAN="3" CLASS="bodyText" VALIGN="top" WIDTH="100%">
-<!-- tourney links -->    
-	<!-- <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
-      <TR>
-        <TD COLSPAN="3" ALIGN="center" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;INVITATIONAL FEATURES</TD>
-      </TR>                    						
-	  <TR>
-		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='invit02_pt1'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_pt2'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rnd2'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rnd3'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rnd4'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_semi'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_champ'">orangebv_bg</xsl:when>
-			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
-		<A HREF="/index?t=schedule&amp;c=tourney_semi" CLASS="statTextBig">Round Updates</A></TD>
-		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='invit02_sched'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
-		<A HREF="/index?t=schedule&amp;c=invit02_sched" CLASS="statTextBig">Schedule</A></TD>
-		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig">
-			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_rules_overview'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rules_overview'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rules_scoring'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rules_conditions'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rules_prizes'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rules_onsite'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rules_structure'">orangebv_bg</xsl:when>
-			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>	
-		<A HREF="/index?t=schedule&amp;c=invit02_rules_overview" CLASS="statTextBig">Rules</A></TD>
-	  </TR>
-    </TABLE> -->
-<!-- tourney links end -->     
-<!-- <B>Update:</B><BR/>
-The assignments for the first round of the tournament are now available.  Each part lists the assigned members alphabetically by handle.<BR/><BR/> -->
-
-
-    </TD>    
-  </TR>
-  <!-- <TR> 
-    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
-    <TD VALIGN="top" CLASS="bodyText"><BR/>
-<FONT SIZE="3" FACE="verdana, arial, tahoma"><B>The Reception: A View from the Inside</B></FONT><BR/>
-In a scene reminiscent of Survivor, 16 finalists have gathered onsite to outwit, out-type and 
-out-code each other and, in the process, walk away with $50,000.  With the Melbourne University vs. 
-University of Waterloo rivalry alive on the international scene, and the question of whether Stanford 
-University will continue its dominance on the minds of the Americans, the 2002 TopCoder Invitational 
-is slated to be the most exciting onsite event yet.  Join me as the scene unfolds over the next two days...
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_reception</xsl:attribute>read&#160;more</A>
-
-<BR/><BR/>
-<B>Room 1</B>: 8AM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
-<BR/><BR/>
-    </TD>    
-    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
-  </TR> -->      
-  <TR>
-    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-  </TR>  
-  <TR>  
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-  </TR> 
-</TABLE>
-
-<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 
 <!-- Summary/Best/Worst Begins -->         
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
@@ -339,31 +241,29 @@ The most interesting variation in this match's problem sets is how the problems 
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
-<IMG SRC="/i/m/leadhyena_inran_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
-By&#160;leadhyena_inran<BR/><I>[TC] Member</I><BR/><BR/>
+<IMG SRC="/i/m/KaiEl_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
+By&#160;KaiEl<BR/><I>[TC] Member</I><BR/><BR/>
 <A HREF="/?&amp;t=features&amp;c=feat_topics"><IMG SRC="/i/writers_wanted.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="15"/></A></TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText"><BR/>
 <A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_112002</xsl:attribute>
-  <B>The eight seconds of death: <BR/>tips on preventing timeout</B></A><BR/>
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_120902</xsl:attribute>
+  <B>It's Sink or Swim During the Challenge Phase</B></A><BR/>
 <!-- <I>"If you take it slow you'll move up."</I><BR/> -->
-November 20, 2002<BR/>
+Monday, December 9, 2002<BR/>
 
 <P>
-I remember Round 3 of the 2002 Invitational vividly: I was doing rather well going into challenges, 
-having submitted all three problems, and I felt confident about my solutions. Then <B>NDBronson</B> 
-challenged my 900 (having one of the best challenge percentages in TopCoder, he easily caught my bug), and 
-I failed a challenge, so I was slightly bummed coming out of the challenge phase, but I still had some 
-hope. That's when <B>NDBronson</B> told me to check out Room 5.
+The Challenge Phase throws off a lot of newcomers to the TopCoder competition arena. While 
+the Coding and System Testing phases replicate real world situations that most coders are 
+familiar with, debugging someone else's code in the Challenge Phase is a task that may be unfamiliar to many new coders.
 </P>
 
 <P>
-There, <B><B>ZorbaTHut</B></B> had challenged four people in his room successfully by using a timeout case, a 
-type of challenge designed to make your code run longer than 8 seconds. Immediately my heart sank
- because I KNEW my code wouldn't survive it... not only had I lost all hope of making it into the 
- final online round, but I lost 101 rating points. It was then that I fully realized the power 
- of a timeout case and the perils of programming code that must run in an 8 second window...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_112002</xsl:attribute>full&#160;story</A></P>
+By making you look at other people's code and evaluate the best way to break it, the 
+Challenge Phase forces you to flex your brain in new and different ways from normal coding. 
+Some coders just don't have a knack for challenges, and they rely on quick, accurate coding 
+to get them through the contest. Others, however, are masters of finding those little bugs in 
+a person's code that invalidate their entire solution and make their 75 minutes of hard work meaningless...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_120902</xsl:attribute>full&#160;story</A></P>
 <!-- <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P> -->
   </TD>
     <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
@@ -431,12 +331,15 @@ type of challenge designed to make your code run longer than 8 seconds. Immediat
       <BR/>
     <MAP NAME="srmanimation_home">
     <AREA ALT="TCES" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=tces&amp;c=index"/>
-     <AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4380&amp;t=schedule&amp;c=srm"/> 
-    <AREA ALT="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/> 
+     <AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4405&amp;t=schedule&amp;c=srm"/> 
+    <!-- <AREA ALT="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/> --> 
     </MAP>
 <!--SRM Sponsor Ends-->
 <!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
 <IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A> -->
+
+<!-- <A HREF="/?&amp;t=tournaments&amp;c=invit02_cnn"><IMG SRC="/i/tournament/invit02/invit02_cnn_home.gif" ALT="TC on CNN" WIDTH="244" HEIGHT="145" BORDER="0"/></A> -->
+
 <A HREF="/?&amp;t=development&amp;c=components">
 <IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="156" VSPACE="1" BORDER="0"/></A>
 <!-- <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
