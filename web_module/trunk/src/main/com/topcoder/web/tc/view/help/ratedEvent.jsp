@@ -206,7 +206,7 @@
 
 		<a name="prewrittencode"></a>
 		<p><span class="bodySubtitle">18 Using Pre-Written Code</span><br/>
-		Many TopCoder participants find is useful to create code libraries for situations that commonly arise in TopCoder competitions.  Doing such is perfectly legal - as long as the code used has been entirely authored by you.  Use of any code other than that which has been authored by you is cheating (and you know how we feel about cheating).  Keep in mind, however, that onsite rounds of TopCoder advancements tournaments are handled differently.  On-site finalists of TopCoder advancement tournaments are not allowed to bring anything "on stage" - including code libraries.
+		Many TopCoder participants find is useful to create code libraries for situations that commonly arise in TopCoder competitions.  Doing such is perfectly legal - <b>as long as the code used has been entirely authored by you</b>.  Use of any code other than that which has been authored by you is cheating (and you know how we feel about cheating).  Keep in mind, however, that onsite rounds of TopCoder advancements tournaments are handled differently.  On-site finalists of TopCoder advancement tournaments are not allowed to bring anything "on stage" - including code libraries.
 		<br/><br/>
 		Pasting large libraries of code into each submission with the intent of only using a small percentage (if any), although not against any rules, is considered by TopCoder to be bad etiquette.
 		</p>
