@@ -85,7 +85,7 @@ public class TermsOfUseBean implements SessionBean {
                         "have inserted 1."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -140,7 +140,7 @@ public class TermsOfUseBean implements SessionBean {
                         _terms_of_use_id + "."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -193,7 +193,7 @@ public class TermsOfUseBean implements SessionBean {
                         "have updated 1."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -247,7 +247,7 @@ public class TermsOfUseBean implements SessionBean {
                         _terms_of_use_id + "."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -302,7 +302,7 @@ public class TermsOfUseBean implements SessionBean {
                         "have updated 1."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();

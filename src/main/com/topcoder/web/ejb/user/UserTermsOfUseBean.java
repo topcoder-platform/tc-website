@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.user;
 
+import com.topcoder.shared.util.DBMS;
+
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
@@ -73,7 +75,7 @@ public class UserTermsOfUseBean implements SessionBean {
                         "should have inserted 1."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -124,7 +126,7 @@ public class UserTermsOfUseBean implements SessionBean {
                         "should have deleted 1."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -173,7 +175,7 @@ public class UserTermsOfUseBean implements SessionBean {
             rs = ps.executeQuery();
             ret = rs.next();
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();

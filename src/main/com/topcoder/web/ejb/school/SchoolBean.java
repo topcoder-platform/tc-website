@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.school;
 
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
+import com.topcoder.shared.util.DBMS;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -84,7 +85,7 @@ public class SchoolBean implements SessionBean {
                         "inserted 1."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -136,7 +137,7 @@ public class SchoolBean implements SessionBean {
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -186,7 +187,7 @@ public class SchoolBean implements SessionBean {
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -236,7 +237,7 @@ public class SchoolBean implements SessionBean {
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -289,7 +290,7 @@ public class SchoolBean implements SessionBean {
                         "with school_id=" + _school_id + "."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -343,7 +344,7 @@ public class SchoolBean implements SessionBean {
                         "with school_id=" + _school_id + "."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -397,7 +398,7 @@ public class SchoolBean implements SessionBean {
                         "with school_id=" + _school_id + "."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();

@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.idgeneratorclient;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -58,6 +59,7 @@ public class IdGeneratorClient {
         }
         catch (SQLException e) {
             log.debug("SQLException occured within getSeqId" + e.toString());
+            DBMS.printSqlException(true,e);
         }
         return retVal;
     }
