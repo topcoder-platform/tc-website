@@ -68,7 +68,8 @@
 </jsp:include>
 
       <blockquote>
-      <h2>Registration</h2>
+      <h2>Registration</h2><br />
+      <p class="bodyText">Only Chennai residents are eligible to register in the Verizon Coding Challenge<br /></p>
         <table cellpadding="0" cellspacing="3" class="bodyText" align="center">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.FULL_REG_DEMOG%>"/>
@@ -80,10 +81,10 @@
                 </td>
             </tr>
             <tr>
-                <td align="right">
+                <td align="right" width="49%">
                     Handle
                 </td>
-                <td align="left">
+                <td align="left" width="49%">
                     <tc-webtag:textInput name="<%=Constants.HANDLE%>"  size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>"/>
                 </td>
             </tr>
