@@ -41,7 +41,7 @@
 
         <tr valign="middle">
             <td align="left" class="statText">&nbsp;Rating</td>
-            <td align="right" class="statText"><rsc:item set="<%=coderInfo%>" name="developement_rating" ifNull="Not Rated"/>&nbsp;</td>
+            <td align="right" class="statText"><rsc:item set="<%=coderInfo%>" name="development_rating" ifNull="Not Rated"/>&nbsp;</td>
         </tr>
         <tr valign="middle">
             <td align="left" class="statText">&nbsp;Earnings</td>
