@@ -76,9 +76,10 @@ function PassFlash(graphNums){
              </tc:questionIterator>
             </p>
             <p>
+               <a href="#" onClick="PassFlash('1,1,1,1,1,1,1,1,1')">zero</a>
                <a href="#" onClick="PassFlash('50,40,30,20')">String1</a>
-               <a href="#" onClick="PassFlash('20,30,40,50')">String1</a>
-               <a href="#" onClick="PassFlash('90,20,15,55')">String1</a>
+               <a href="#" onClick="PassFlash('20,30,40,50,10,4,24,17')">String1</a>
+               <a href="#" onClick="PassFlash('90,20,15,55,23,1,43')">String1</a>
                <a href="#" onClick="PassFlash('60,70,40,30')">String1</a>
             </p>
             <p>
