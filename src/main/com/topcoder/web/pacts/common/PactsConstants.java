@@ -274,14 +274,14 @@ public interface PactsConstants {
 
     // servlet and jsps
     public static final String INTERNAL_JSP_DIR = "/pacts/internal";
-    public static final String MEMBER_JSP_DIR = "/pacts/member";
+    public static final String MEMBER_JSP_DIR = "/pacts/client/";
     public static final String MEMBER_SERVLET_URL = "PactsMemberServlet";
+
     public static final String INTERNAL_SERVLET_URL = "/PactsInternalServlet";
-	//public static final String LOGIN_URL = "/?t=authentication&c=login";
-    public static final String LOGIN_URL = MEMBER_JSP_DIR + "/login.jsp";
+    public static final String LOGIN_URL = "/?t=authentication&c=login";
     public static final String TASK_STRING = "t";
     public static final String CMD_STRING = "c";
-    public static final String NAV_OBJECT_ATTR = "Navigation";
+    public static final String NAV_OBJECT_ATTR = "navigation";
     public static final String TABLE_MODEL = "table_data";
 
     // affidavit member jsps

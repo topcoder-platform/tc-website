@@ -42,7 +42,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 	private static Category log = PactsLog.getInstance(PactsInternalServlet.class.getName());
 
+
+	// Encapsulated boolean Class which describes
+	// whether or not a valid search parameter has
+	// been specified.
+	////////////////////////////////////////////////////
 	private static class PassedParam {
+	////////////////////////////////////////////////////
 		boolean val;
 		private PassedParam() { this(false); }
 		private PassedParam(boolean v) { val = v; }
@@ -51,7 +57,12 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 		private void set(boolean v) { val = v; }
 	}
 
+
+
+	/////////////////////////////////////////////////////////////////////////////////////
 	private boolean makeBoolean(String booleanString) throws Exception {
+	/////////////////////////////////////////////////////////////////////////////////////
+
         booleanString = booleanString.toUpperCase();
         if (booleanString.equals("T") || booleanString.equals("TRUE"))
             return true;
@@ -60,11 +71,21 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
         throw new Exception("String " + booleanString + " could not be converted to boolean type");
     }
 
+
+
+	/////////////////////////////////////////////////////////////////////////////////////
 	private boolean checkParam(int type, String param, boolean required) {
+	/////////////////////////////////////////////////////////////////////////////////////
+
 		return checkParam(type, param, required, null);
 	}
 
+
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 	private boolean checkParam(int type, String param, boolean required, PassedParam pp) {
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 		log.debug("checking for "+param);
 		if ((type % NULL_MULT != 0) && (param == null || param.equals(""))) return !required;
 		if ((type % NULL_MULT == 0) && (param == null || param.equals(""))) return true;
@@ -144,28 +165,46 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 		return true;
 	}
 
-     /*
-     Forwarding JSP: "addAffidavit.jsp"
-     */
-     private void doAddAffidavit(HttpServletRequest request, HttpServletResponse response)
-     {
+
+
+
+	// Pulls up the Add Affidavit Page
+	////////////////////////////////////////////////////////////////////////////////////////////////
+     private void doAddAffidavit(HttpServletRequest request, HttpServletResponse response) {
+	////////////////////////////////////////////////////////////////////////////////////////////////
+
          try {
-             PrintWriter out = response.getWriter();
              log.debug("doAddAffidavit<br>");
+
+			 // Give the JSP the User object
              InternalDispatchUserProfileHeader bean =
              	new InternalDispatchUserProfileHeader(request, response);
              UserProfileHeader results = bean.get();
 	         request.setAttribute(PACTS_INTERNAL_RESULT,results);
 
+
+			 // Give the JSP the list of Affidavit Types
 	         DataInterfaceBean dib = new DataInterfaceBean();
 	         Map map = dib.getAffidavitTypes();
 			 request.setAttribute(AFFIDAVIT_TYPE_LIST, map.get(AFFIDAVIT_TYPE_LIST));
+
+
+			 // Give the JSP the list of Payment Types
 	         map = dib.getPaymentTypes();
 			 request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));
+
+
+			 // Give the JSP the list of Affidavit Statuss
 	         map = dib.getStatusCodes(PactsConstants.AFFIDAVIT_OBJ);
 			 request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
+
+
+			 // Give the JSP the list of Payment Statuss
 	         map = dib.getStatusCodes(PactsConstants.PAYMENT_OBJ);
 			 request.setAttribute(STATUS_CODE_LIST + "2", map.get(STATUS_CODE_LIST));
+
+
+			 // Give the JSP the list of Rounds
 	         map = dib.getRounds();
 			 request.setAttribute(ROUND_LIST, map.get(ROUND_LIST));
 
@@ -175,20 +214,22 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
      }
 
 
-     /*
-     This method adds an affidavit and it's payment.
 
-     Forwarding JSP: "viewAffidavit.jsp"
-     */
-     private void doAddAffidavitPost(HttpServletRequest request, HttpServletResponse response)
-     {
+
+	 // Trys to add the Affidavit.  If successful, pulls up the View Affidavit, otherwise returns
+	 // the user to the Add Affidavit Page
+	 //////////////////////////////////////////////////////////////////////////////////////////////////
+     private void doAddAffidavitPost(HttpServletRequest request, HttpServletResponse response) {
+     //////////////////////////////////////////////////////////////////////////////////////////////////
+
          try {
-             PrintWriter out = response.getWriter();
              log.debug("doAddAffidavitPost<br>");
 
 			 long round_id = Long.parseLong(request.getParameter("round_id"));
 
+			 // Make the Affidavit
 			 Affidavit a = new Affidavit(
+				 // If the round id is invalid, there is no round.
 				 round_id < 0 ? null : new Long(round_id),
 				 Long.parseLong(request.getParameter("user_id")),
 				 Integer.parseInt(request.getParameter("affidavit_status_id")),
@@ -197,9 +238,11 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 				 false,
 				 makeBoolean(request.getParameter(IS_NOTARIZED)));
 
+			 // Leaving net amount blank is equivalent to entering 0
 			 String net = request.getParameter("net_amount");
 			 if (net == null || net.equals("")) net = "0";
 
+			 // Make the Payment
 			 Payment p = new Payment(
 				 Long.parseLong(request.getParameter("user_id")),
 				 request.getParameter("payment_desc"),
@@ -210,9 +253,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 			 p._dueDate = TCData.dateForm(request.getParameter("date_due"));
 
+
+			 // Add the Affidavit and the Payment
 			 DataInterfaceBean dib = new DataInterfaceBean();
 			 long affidavit_id = dib.addAffidavit(a, request.getParameter("text"), p);
 
+
+			 // Now get the Affidavit to view and give it to the JSP
              InternalDispatchAffidavit bean =
              	new InternalDispatchAffidavit(request, response);
              Affidavit results = bean.get(affidavit_id);
@@ -224,22 +271,30 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
      }
 
 
-     /*
-     Forwarding JSP: "addContract.jsp"
-     */
-     private void doAddContract(HttpServletRequest request, HttpServletResponse response)
-     {
+
+
+	 // Pulls up the Add Contract page.
+	 //////////////////////////////////////////////////////////////////////////////////////////////
+     private void doAddContract(HttpServletRequest request, HttpServletResponse response) {
+	 //////////////////////////////////////////////////////////////////////////////////////////////
+
          try {
-             PrintWriter out = response.getWriter();
              log.debug("doAddContract<br>");
+
+			 // Give the JSP the User Object
              InternalDispatchUserProfileHeader bean =
              	new InternalDispatchUserProfileHeader(request, response);
              UserProfileHeader results = bean.get();
 	         request.setAttribute(PACTS_INTERNAL_RESULT,results);
 
+
+			 // Give the JSP the list of Contract Types
 	         DataInterfaceBean dib = new DataInterfaceBean();
 	         Map map = dib.getContractTypes();
 			 request.setAttribute(CONTRACT_TYPE_LIST, map.get(CONTRACT_TYPE_LIST));
+
+
+			 // Give the JSP the list of Contract Statuss
 	         map = dib.getStatusCodes(PactsConstants.CONTRACT_OBJ);
 			 request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
 
@@ -249,11 +304,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
      }
 
 
-     /*
-     This method adds a new contract
 
-     Forwarding JSP: "viewContract.jsp"
-     */
+	 // Trys to add the Contract and, if successful, pulls up the View Contract page
+	 // otherwise returns the user to the Add Contract page
      private void doAddContractPost(HttpServletRequest request, HttpServletResponse response)
      {
          try {
@@ -582,6 +635,12 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 		return rv;
 	}
 
+	private String safeParam2(String param) {
+		String rv = new String(param);
+		rv = replaceInternal(rv,"&","%26");
+		return rv;
+	}
+
      /*
      This method authenticates the session and forwards
      the user to a login page if there is an error.
@@ -595,32 +654,22 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 				 UserProfileHeader client = new UserProfileHeader(nav);
              	 if (!client.isTCStaff()) {
 					String query = request.getQueryString();
-					query = INTERNAL_SERVLET_URL + "?" + query;
 
-					String url = LOGIN_URL;
-					if (!LOGIN_URL.equals("/login.jsp")) {
-						url += "&errorMsg=You%20must%20be%20a%20TopCoder%20Staff";
-						url += "%20Member%20to%20access%20this%20part%20of%20the%20site&errorURL=";
-						url += safeParam(query);
-					}
-
-					forward(url, request, response);
-				    return false;
+					response.sendRedirect("http://" + request.getServerName() +
+                              "/?t=authentication&c=login&errorMsg=" +
+                              "You must log in as a TC Staff Member to view this portion of the site.&errorURL=" + INTERNAL_SERVLET_URL +
+                              ((query == null) ? "" : ("?" + safeParam2(query))));
+                    return false;
 			 	 }
              	 else return true;
 			 }
 			 else {
 				 String query = request.getQueryString();
-				 query = INTERNAL_SERVLET_URL + "?" + query;
 
-				 String url = LOGIN_URL;
-				 if (!LOGIN_URL.equals("/login.jsp")) {
-					url += "&errorMsg=You%20must%20be%20a%20TopCoder%20Staff";
-					url += "%20Member%20to%20access%20this%20part%20of%20the%20site&errorURL=";
-					url += safeParam(query);
-				 }
-
-				 forward(url, request, response);
+					response.sendRedirect("http://" + request.getServerName() +
+                              "/?t=authentication&c=login&errorMsg=" +
+                              "You must log in as a TC Staff Member to view this portion of the site.&errorURL=" + INTERNAL_SERVLET_URL +
+                              ((query == null) ? "" : ("?" + safeParam2(query))));
 				 return false;
 			 }
          } catch (Exception e) { exceptionToError(e, request, response); }
@@ -1296,30 +1345,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
      public void doPost(HttpServletRequest request,
                                        HttpServletResponse response)
      {
-		 //
-		 //
-		 //Temporary login stuff.  Remove when merged with TC site!
-		 //
-		 //
-		 try {
-			 String login = request.getParameter("login");
-
-			 if (login != null) {
-				 Navigation nav = new Navigation();
-				 nav.setUserId(Integer.parseInt(login));
-				 nav.setLoggedIn(true);
-	             HttpSession session = request.getSession(true);
-	             session.setAttribute(NAV_OBJECT_ATTR,nav);
-				 doGet(request, response);
-				 return;
-			 }
-         } catch (Exception e) { exceptionToError(e, request, response); }
-		 //
-		 //
-		 //End temporary login stuff.
-		 //
-		 //
-
 		 String message = "";
 
 	     if (!doAuthenticate(request, response)) return;
@@ -2805,8 +2830,8 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
     }
 
     private void processException(Exception e, HttpServletRequest request, HttpServletResponse response) {
-		 StringTokenizer t = new StringTokenizer(e.getMessage(),"\n");
-		 log.debug("Exception Caught:\n" + e.getMessage());
+		 StringTokenizer t = new StringTokenizer((e.getMessage() == null) ? e.toString() : e.getMessage(),"\n");
+		 log.debug("Exception Caught:\n" + ((e.getMessage() == null) ? e.toString() : e.getMessage()));
 		 String ex = "No description available.";
 		 try {
 			 while (t.hasMoreElements()) {

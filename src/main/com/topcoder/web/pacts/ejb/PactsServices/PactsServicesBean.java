@@ -25,9 +25,13 @@ import org.apache.log4j.*;
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static Category log = Category.getInstance(PactsServicesBean.class.getName());
     private static QueueMessageSender pactsMsgSender = null;
+    private static ResourceBundle s_beanSettings;
 
     // Initialize the message queue
     static {
+        log.info("Initializing PACTS DBMS bundle ...");
+        s_beanSettings = ResourceBundle.getBundle( "DBMS" );
+
         log.info("Initializing PACTS message queue...");
         try {
             pactsMsgSender = new QueueMessageSender(ApplicationServer.JMS_FACTORY, DBMS.PACTS_QUEUE);
@@ -2948,7 +2952,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     // This is a lot like the helper function below, but requires payment-level granularity and
     // a record of each payment update outcome.
-    private UpdateResults batchUpdateStatus(Connection c, long paymentId[], int statusId) 
+    private UpdateResults batchUpdateStatus(Connection c, long paymentId[], int statusId)
     throws SQLException {
         ResultSetContainer addressData, detailData;
         int i;
@@ -3140,7 +3144,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * with the &quot;Ready to Print&quot; status to ready payments for printing. <p>
      *
      * This function actually just puts a message on the JMS queue.  The message handler,
-     * upon receipt of the message, will call the function <tt>doBatchUpdatePaymentStatus()</tt> 
+     * upon receipt of the message, will call the function <tt>doBatchUpdatePaymentStatus()</tt>
      * which performs the modifications.
      *
      * @param   paymentId[] The payments to update
@@ -3159,19 +3163,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (statusId == PRINTED_STATUS || statusId == PAID_STATUS) {
                 throw new IllegalUpdateException("Payment status cannot be manually set to printed or paid");
             }
-    
+
             HashMap properties = new HashMap();
             properties.put(STATUS_PROPERTY, new Integer(statusId));
             properties.put(USER_PROPERTY, new Long(userId));
             properties.put(UPDATE_TYPE_PROPERTY, new Integer(STATUS_UPDATE_TYPE));
-            
+
             if (pactsMsgSender == null) {
                 throw new JMSException("PACTS message queue has not been properly initialized.  Redeploy PACTS.");
             }
-    
+
             if (!pactsMsgSender.sendMessage(properties, paymentId)) {
                 throw new JMSException("Could not post batch update request to PACTS message queue.");
-            }                
+            }
         } catch(Exception e) {
             printException(e);
             if (e instanceof IllegalUpdateException)
@@ -3191,7 +3195,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws  IllegalUpdateException If any payment has not been printed
      * @throws  SQLException If there is some other problem updating the data
      */
-    public void reviewPayments(long paymentId[]) 
+    public void reviewPayments(long paymentId[])
     throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
         Connection c = null;
 
@@ -3206,11 +3210,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (paymentCount != paymentId.length) {
                 throw new NoObjectFoundException("Some of the payments to update could not be found");
             }
-            
+
             rsc = runSelectQuery(c, "SELECT COUNT(*) FROM payment WHERE payment_id IN(" + idList + ") AND print_count > 0");
             paymentCount = Integer.parseInt(rsc.getItem(0,0).toString());
             if (paymentCount != paymentId.length) {
-                throw new IllegalUpdateException("Some of the payments to mark as reviewed have not been printed");   
+                throw new IllegalUpdateException("Some of the payments to mark as reviewed have not been printed");
             }
 
             runUpdateQuery(c, "UPDATE payment SET review = 1 WHERE payment_id IN(" + idList + ")");
@@ -3824,8 +3828,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Sets the status on all affidavits older than a specified time
-     * to Expired, and set the status on their associated payment (if any) 
-     * to Canceled.  The time limit is specified in <tt>PactsConstants.java</tt> 
+     * to Expired, and set the status on their associated payment (if any)
+     * to Canceled.  The time limit is specified in <tt>PactsConstants.java</tt>
      * and is currently set to 60 days.  Any payments that were already paid
      * that would here have been canceled are logged.
      *

@@ -54,38 +54,15 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	    String passwd = request.getParameter("password");
 	    String url = request.getParameter("errorURL");
 
-	    /**
-	     * DELETE THIS. THIS IS FOR DEVELOPMENT AND IS HANLED
-	     * BY THE MAIN SITE
-	     */
-	    if((handle!=null) && (passwd!=null) && (nav==null)) {
-		log.debug("we got the get from the login page");
-	      
-		// create a new nav and put it in the session
-		nav = new Navigation();
-		nav.setUserId(Integer.parseInt(handle));
-		nav.setLoggedIn(true);
-		session.setAttribute(NAV_OBJECT_ATTR,nav);
-		
-		log.debug("the error URL is " + url);
-
-		forward("/PactsMemberServlet",request,response);
-		return;
-	    }
-	    /**
-	     * END DELETE
-	     */
-
-
 	    // check to see if the user has not logged in
 	    if((nav==null) || (!nav.getLoggedIn())) {
 		// forward to login page
 		String errorURL = request.getRequestURI();
 		errorURL += (request.getQueryString()==null) ? "" : request.getQueryString();
-		// UPDATE THIS TO POINT TO THE MAIN SITE LOGIN
-		String loginHref = "/pacts/client/PactsLogin.jsp?t=authentication&c=login&errorMsg=You%20must%20login%20to%20to%20use%20the%20pacts%20system&errorURL=" + errorURL;
-		forward(loginHref,request,response);
-		return;
+
+                response.sendRedirect("http://" + request.getServerName() + "/?t=authentication&c=login&errorMsg=" + "You must log in to view this portion of the site.&errorURL=" + errorURL + "?");
+                return;
+
 	    } else {
 		log.debug("we got the nav object");
 	    }
@@ -167,12 +144,15 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	    // check to see if the user has not logged in
 	    if((nav==null) || (!nav.getLoggedIn())) {
 		// forward to login page
-		String errorURL = request.getRequestURI();
-		errorURL += (request.getQueryString()==null) ? "" : request.getQueryString();
-		// UPDATE TO MAIN SITE LOGIN PAGE
-		String loginHref = "/pacts/client/PactsLogin.jsp?t=authentication&c=login&errorMsg=You%20must%20login%20to%20to%20use%20the%20pacts%20system&errorURL=" + errorURL;
-		forward(loginHref,request,response);
-		return;
+		//String loginHref = "/?t=authentication&c=login&errorMsg=You%20must%20login%20to%20to%20use%20the%20pacts%20system&errorURL=" + errorURL;
+		//forward(loginHref,request,response);
+		//return;
+
+                String errorURL = request.getRequestURI();
+                errorURL += (request.getQueryString()==null) ? "" : request.getQueryString();
+
+                response.sendRedirect("http://" + request.getServerName() + "/?t=authentication&c=login&errorMsg=" + "You must log in to view this portion of the site.&errorURL=" + errorURL + "?");
+                return;
 	    } else {
 		log.debug("we got the nav object");
 	    }
