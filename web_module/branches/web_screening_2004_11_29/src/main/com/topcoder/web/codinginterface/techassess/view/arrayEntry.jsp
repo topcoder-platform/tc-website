@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td>
-                    <input type=text id="inputText" style="width:96%" />
+                    <input type=text id="inputText" style="width:96%" onKeyPress="submitEnter(event)"/>
                 </td>
             </tr>
             <tr>
@@ -314,6 +314,7 @@
                 }
                 clearInput();
                 updateCountSpan();
+                document.frmArray.inputText.focus();
             }
 
             function addSingle() {
@@ -360,6 +361,17 @@
 
             function updateCountSpan() {
                 putInnerHTML("document", "countSpan", displayArgType + " -- " + getLength("document.frmArray", "listBox.options"));
+            }
+
+            function submitEnter(e) {
+                var keycode;
+                if (window.event) keycode = window.event.keyCode;
+                else if (e) keycode = e.which;
+                else return true;
+                if (keycode == 13) {
+                    addSingle();
+                    return false;
+                } else return true;
             }
 
         </script>
