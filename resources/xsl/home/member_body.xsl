@@ -411,8 +411,8 @@ for more information.<BR/><BR/>
 <tr>
     <td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td>
     <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><b>Single Round Match 129</b></a><br/>
-Tuesday, January 14, 2003<br/><br/>
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><b>Single Round Match 128</b></a><br/>
+Monday, January 6, 2003<br/><br/>
 
 
     </td>
