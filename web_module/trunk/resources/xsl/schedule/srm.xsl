@@ -104,13 +104,10 @@
                       </xsl:if>
                       
                       <TR><TD COLSPAN="3" ALIGN="center" class="bodyText">
-                        <BR/>.:: All times are Eastern Standard unless noted otherwise ::.<BR/><BR/></TD></TR>
+                        <BR/>All times are Eastern Time unless otherwise noted<BR/><BR/></TD></TR>
                       <TR><TD COLSPAN="3" ALIGN="center">
-                        .:: 
-                          <A HREF="JavaScript:arena();" CLASS="bodyTextBig">
-                            <b>DOWNLOAD THE ARENA APPLET</b>
-                            <BR/><BR/>
-                          </A>
+                        <A HREF="JavaScript:arena();" CLASS="bodyTextBig"><b>DOWNLOAD THE ARENA APPLET</b></A><BR/><BR/>
+                          
                       </TD></TR>
 
 
