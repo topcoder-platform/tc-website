@@ -17,15 +17,31 @@
 
 <script language="JavaScript"><!--
   function next() {
-    document.simpleSearch.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()+Constants.SEARCH_SCROLL_SIZE%>;
-    document.simpleSearch.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()+Constants.SEARCH_SCROLL_SIZE%>;
-    document.simpleSearch.submit();
+    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()+Constants.SEARCH_SCROLL_SIZE%>;
+    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()+Constants.SEARCH_SCROLL_SIZE%>;
+    document.searchForm.submit();
   }
   function previous() {
-    document.simpleSearch.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()-Constants.SEARCH_SCROLL_SIZE%>;
-    document.simpleSearch.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()-Constants.SEARCH_SCROLL_SIZE%>;
-    document.simpleSearch.submit();
+    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()-Constants.SEARCH_SCROLL_SIZE%>;
+    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()-Constants.SEARCH_SCROLL_SIZE%>;
+    document.searchForm.submit();
   }
+                        var search=document.searchForm;
+                        function submitEnter(e) {
+                            var keycode;
+                            if (window.event) keycode = window.event.keyCode;
+                            else if (e) keycode = e.which;
+                            else return true;
+                            if (keycode == 13) {
+                                submitSearch();
+                                return false;
+                            } else return true;
+                        }
+                        function submitSearch() {
+                            if (checkInput()) {
+                                search.submit();
+                            }
+                        }
 //--></script>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
@@ -65,25 +81,6 @@
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="AdvancedSearch"/>
                     <input type="hidden" name=<%=DataAccessConstants.START_RANK%> value=""/>
                     <input type="hidden" name=<%=DataAccessConstants.END_RANK%> value=""/>
-
-                    <script language="JavaScript"><!--
-                        var search=document.searchForm;
-                        function submitEnter(e) {
-                            var keycode;
-                            if (window.event) keycode = window.event.keyCode;
-                            else if (e) keycode = e.which;
-                            else return true;
-                            if (keycode == 13) {
-                                submitSearch();
-                                return false;
-                            } else return true;
-                        }
-                        function submitSearch() {
-                            if (checkInput()) {
-                                search.submit();
-                            }
-                        }
-                    //--></script>
 
                     <tr valign="top">
                         <td colspan="2"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
