@@ -101,7 +101,7 @@ scribbling by coders.
 <p>
 snewman, with his perfect reputation on the line (the GCJ notwithstanding), submitted the hard next, for 702.73 points.
 Not long after that, tjq stopped smirking, and got back to work, uncovering a bug in his medium submission, costing him
-187 points.  But, he wasn't the only one having trouble.  snewman found something wrong with his 1050, and resubitted it,
+187 points.  But, he wasn't the only one having trouble.  snewman found something wrong with his 1050, and resubmitted it,
 costing him over 200 points, and putting him far behind tjq.  After a little over an hour, ZorbaTHut checked in his hard
 problem, for 568.72 points.  After questioning the admins, tjq realized that his medium wasn't the only flawed
 submission, and resubmitted his hard.  With two resubmissions, it looked like the victory was out of reach for tjq, but
