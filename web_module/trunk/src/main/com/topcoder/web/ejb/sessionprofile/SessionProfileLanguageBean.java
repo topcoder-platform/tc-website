@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.sessionprofile;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -69,6 +70,7 @@ public class SessionProfileLanguageBean extends BaseEJB
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
+            DBMS.printSqlException(true,e);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in createProfileLanguage. ");
             exceptionBuf.append(varBuf.toString());
@@ -134,6 +136,7 @@ public class SessionProfileLanguageBean extends BaseEJB
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in removeProfileLanguage. ");
             exceptionBuf.append(varBuf.toString());

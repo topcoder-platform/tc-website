@@ -8,21 +8,21 @@
     <caching-descriptor>
       <max-beans-in-free-pool>20</max-beans-in-free-pool>
     </caching-descriptor>
-    <jndi-name>com.topcoder.web.ejb.user.UserHome</jndi-name>
+    <jndi-name>corp:com.topcoder.web.ejb.user.UserHome</jndi-name>
   </weblogic-enterprise-bean>
   <weblogic-enterprise-bean>
     <ejb-name>UserTermsOfUse</ejb-name>
     <caching-descriptor>
       <max-beans-in-free-pool>20</max-beans-in-free-pool>
     </caching-descriptor>
-    <jndi-name>com.topcoder.web.ejb.user.UserTermsOfUseHome</jndi-name>
+    <jndi-name>corp:com.topcoder.web.ejb.user.UserTermsOfUseHome</jndi-name>
   </weblogic-enterprise-bean>
   <weblogic-enterprise-bean>
     <ejb-name>UserSchool</ejb-name>
     <caching-descriptor>
       <max-beans-in-free-pool>20</max-beans-in-free-pool>
     </caching-descriptor>
-    <jndi-name>com.topcoder.web.ejb.user.UserSchoolHome</jndi-name>
+    <jndi-name>corp:com.topcoder.web.ejb.user.UserSchoolHome</jndi-name>
   </weblogic-enterprise-bean>
   <weblogic-enterprise-bean>
     <ejb-name>Contact</ejb-name>
@@ -30,7 +30,7 @@
       <max-beans-in-free-pool>20</max-beans-in-free-pool>
       <initial-beans-in-free-pool>0</initial-beans-in-free-pool>
     </caching-descriptor>
-    <jndi-name>com.topcoder.web.ejb.user.ContactHome</jndi-name>
+    <jndi-name>corp:com.topcoder.web.ejb.user.ContactHome</jndi-name>
   </weblogic-enterprise-bean>
   <weblogic-enterprise-bean>
     <ejb-name>UserAddress</ejb-name>
@@ -38,6 +38,6 @@
       <max-beans-in-free-pool>20</max-beans-in-free-pool>
       <initial-beans-in-free-pool>0</initial-beans-in-free-pool>
     </caching-descriptor>
-    <jndi-name>com.topcoder.web.ejb.user.UserAddressHome</jndi-name>
+    <jndi-name>corp:com.topcoder.web.ejb.user.UserAddressHome</jndi-name>
   </weblogic-enterprise-bean>
 </weblogic-ejb-jar>
