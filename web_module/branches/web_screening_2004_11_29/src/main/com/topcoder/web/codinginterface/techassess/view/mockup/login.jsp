@@ -33,22 +33,18 @@
 				<br/><br/>
 				</p>
 
-				<table width="400" cellspacing=0 cellpadding=0 class=tableFrame>
+				<table width="400" cellspacing=0 cellpadding=0 border=1 class=tableFrame>
 					<tr>
 						<td class=tableTitle colspan=2>Login</td>
 					</tr>
 					<tr><td class=tableText colspan=2>&#160;</td></tr>
 					<tr>
-						<td class=tableText align=right>Login:</td>
-						<td class=tableText>
-						<INPUT TYPE="TEXT" NAME="ID" SIZE="20" VALUE="">
-						</td>
+						<td class=tableText align=right>ID:</td>
+						<td class=tableText><INPUT TYPE="TEXT" NAME="ID" SIZE="20" VALUE=""></td>
 					</tr>
 					<tr>
 						<td class=tableText align=right>Password:</td>
-						<td class=tableText>
-						<INPUT TYPE="PASSWORD" NAME="password" SIZE="20" VALUE="">
-						</td>
+						<td class=tableText><INPUT TYPE="PASSWORD" NAME="password" SIZE="20" VALUE=""></td>
 					</tr>
 					<tr>
 						<td class=tableText align=right>&#160;</td>
