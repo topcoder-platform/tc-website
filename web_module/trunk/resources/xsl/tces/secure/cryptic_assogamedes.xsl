@@ -58,28 +58,42 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;Cryptic Studios Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Jobs</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic" CLASS="bodyText">Cryptic Studios Main Page</A>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic" CLASS="bodyText">Cryptic Studios Main Page</A>
       </TD>
   </TR>
 </TABLE>
 <IMG SRC="/i/es/cryptic/cryptic_logo.gif" WIDTH="120" HEIGHT="63" ALT="" BORDER="0" VSPACE="10"/><BR/>
-<P>Below is a listing of current open positions within Cryptic Studios.  All jobs Positions are located in San Jose, CA unless otherwise noted.  Click on the job title for the position description and requirements.
-</P>
-<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>
-        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_assogamedes&amp;a=secure" CLASS="bodyText">Associate Game Designer</A></B><BR/>        
-        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_programmer_1&amp;a=secure" CLASS="bodyText">Gameplay Programmer</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_lev1designer&amp;a=secure" CLASS="bodyText">Level Designer</A></B><BR/>        
-       </P>
-      </TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P><BR/>
-      </P>
-    </TD>
-  </TR>
-</TABLE> 
+
+
+
+<P><B>We are currently looking for a full time Associate Game Designer.</B></P>
+
+<P>Cryptic Studios is hard at work on City of Heroes (www.cityofheroes.com), the super powered massively multiplayer online role playing game. You will be working towards completing and polishing City of Heroes. Day to day tasks will include:</P>
+<UL>
+<LI>Assist with level completion and tuning</LI>
+<LI>Assist with data entry and tuning for game data tables</LI>
+<LI>Quality Assurance
+  <UL>
+  <LI>New feature testing</LI>
+  <LI>Regression testing</LI>
+  </UL></LI>
+</UL>
+<P>Skills that are considered desirable: </P>
+<UL>
+<LI>Effective communication skills</LI>
+<LI>Knowledge of, and experience with, current MMP games</LI>
+<LI>Scripting experience</LI>
+<LI>3D modeling experience</LI>
+</UL>
+<P>We offer a competitive salary, equity, and full benefits including health, dental, vision, and 401(k) - as well as a fun, flexible, informal workplace.</P>
+
+<P>We're currently only interviewing candidates who can already legally work in the United States, and who are willing to relocate to San Jose, CA.</P>
+ 
+  
+
+
+<P ALIGN="center"><A HREF="" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
+
 <!--end contextual links-->
           
           <P><BR/></P>
