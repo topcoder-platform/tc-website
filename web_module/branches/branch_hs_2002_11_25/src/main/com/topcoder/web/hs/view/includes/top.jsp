@@ -17,14 +17,14 @@
 
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=about&d2=about" CLASS="globalNavSmall">about [TCHS]</A>   
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=contacts&d2=contacts" CLASS="globalNavSmall">contacts</A>   
-        &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=home&d2=index" CLASS="globalNavSmall">[TCHS] home</A>   
+        &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Home" CLASS="globalNavSmall">[TCHS] home</A>   
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=coaches_corner&d2=coaches_corner" CLASS="globalNavSmall">Coach's Corner</A>&nbsp;&nbsp;</SPAN>
         </TD>
     </TR>
 </TABLE>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934" WIDTH="100%">
     <TR VALIGN="middle">
-        <TD WIDTH="100%" HEIGHT="50" BGCOLOR="#000000">&nbsp;&nbsp;<A HREF="?module=Static&d1=home&d2=index"><IMG SRC="/i/hs/top_tchs_logo.gif" WIDTH="168" HEIGHT="36" ALT="" BORDER="0"></A></TD>
+        <TD WIDTH="100%" HEIGHT="50" BGCOLOR="#000000">&nbsp;&nbsp;<A HREF="?module=Home"><IMG SRC="/i/hs/top_tchs_logo.gif" WIDTH="168" HEIGHT="36" ALT="" BORDER="0"></A></TD>
 		<TD WIDTH="100%" HEIGHT="50" BGCOLOR="#000000" ALIGN="right">
         <IMG SRC="/i/hs/top_banner2.gif" WIDTH="500" HEIGHT="50" ALT="" BORDER="0">
         </TD>

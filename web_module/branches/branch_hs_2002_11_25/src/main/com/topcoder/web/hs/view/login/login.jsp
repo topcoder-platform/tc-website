@@ -63,7 +63,7 @@ if(username==null) username = "";
 <input type="hidden" name="nextpage" value="<%= nextpage %>">
 <TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
 <TR>
-   <TD CLASS="bodyText" COLOR="#FF2010"><%= message %></TD>
+   <TD CLASS="bodyText"><font size=+1 color=#ff2010><%= message %></font></TD>
 </TR>
 <TR>
     <TD CLASS="bodyText"><B>Handle</B><BR/><INPUT TYPE="text" NAME="username" VALUE="<%= username %>" SIZE="25"></TD>

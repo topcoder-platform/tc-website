@@ -33,11 +33,15 @@ public abstract class Base implements RequestProcessor {
         response = sr;
     }
 
+    protected bool isUserGuest() {
+      return user.getId() == -1;  // hardcoded userid for anonymous user
+    }
+
     protected void buildSessionInfo() {
         SessionInfoBean si = new SessionInfoBean();
         si.setUserId((int)user.getId());
         si.setHandle(user.getUserName());
-        si.setGroup(user.getId()==-1 ? 'G' : 'S');  //@@@
+        si.setGroup(isUserGuest() ? 'G' : 'S');  //@@@
         si.setRating(2500);  //@@@
         request.setAttribute("SessionInfo", si);
     }
