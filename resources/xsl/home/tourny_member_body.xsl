@@ -74,6 +74,7 @@
 <xsl:call-template name="calendar"/>
 <!-- <xsl:call-template name="countries"/> -->
 <IMG SRC="/i/logo_ghosted_bracket.gif" WIDTH="160" HEIGHT="77" BORDER="0" ALT="[ TopCoder ]" VSPACE="5"/>
+<!-- Do Not Delete This Line --><FONT SIZE="1" COLOR="#CCCCCC" FACE="tahoma">HiddenWord</FONT>      
       </TD>    
 
   <!-- Left Column Ends -->
