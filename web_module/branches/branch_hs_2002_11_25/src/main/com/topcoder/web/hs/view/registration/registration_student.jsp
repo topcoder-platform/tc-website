@@ -232,7 +232,7 @@
   }
   function submitForm() {
    if (checkName()&&checkSchool()&&checkHandle()&&
-       checkEmail()&&checkPassword()&&checkTerms()) {
+       checkPassword()&&checkEmail()&&checkTerms()) {
     document.regForm.submit();
    }
   }
@@ -299,7 +299,7 @@
    return(true);
   }
   function checkTerms() {
-   if (!document.regForm.terms[0].checked) {
+   if (!document.regForm.terms.checked) {
     alert("Please agree to the terms and conditions");
     document.regForm.terms.focus();
     return(false);
