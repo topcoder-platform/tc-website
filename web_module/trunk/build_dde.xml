@@ -529,7 +529,14 @@
         <copy file="${informixinit.sar}" todir="${jboss.deploy.dir}"/>
     </target>
 
-    <target name="deploy-expanded" depends="dist">
+
+    <target name="build-or" depends="">
+         <exec executable="ant" dir=".">
+            <arg line="-f build_or.xml dist"/>
+         </exec>
+     </target>
+
+     <target name="deploy-expanded" depends="build-or,dist">
         <copy file="${configdir}/jboss/informix-service.xml" todir="${jboss.deploy.dir}"/>
         <copy file="${configdir}/jboss/log4j.xml" todir="${jboss.default.dir}/conf"/>
         <mkdir dir="${jboss.conf.dir}/${security.dir}"/>

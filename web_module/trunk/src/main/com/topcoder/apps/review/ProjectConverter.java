@@ -192,9 +192,9 @@ public class ProjectConverter {
             // to create project and insert tables:
             // project, phase_instance, payment_info, r_user_role
             long projectId = 0;
+/*
             try {
-                //doesn't exist anymore
-                //projectId = pt.convertProject(projectName, version, versionId,
+                projectId = pt.convertProject(projectName, version, versionId,
                         //componentId, compVersId, phaseId, projectTypeId, overview, dates, requestor, levelId);
             } catch (RemoteException e2) {
                 log.println(e2.toString());
@@ -203,6 +203,7 @@ public class ProjectConverter {
                 log.println(e2.toString());
                 continue;
             }
+*/
             remove.println("\n-- Delete project with projectId: " + projectId);
             remove.println("DELETE FROM payment_info\n " +
                     "WHERE payment_info_id IN\n " +
