@@ -12,6 +12,11 @@
                         <xsl:attribute name="action">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>
                         <input type="hidden" name="t" value="search"/>
                         <input type="hidden" name="c" value="simple_search"/>
+                        
+                        <!-- <SCRIPT type="text/javascript"> // Steve's javascript to place focus on Member Search
+                        document.write("<input type="text" name="SearchHandle" size="12" maxlength="15" value="Handle" onFocus="if (document.searchForm.SearchHandle.value == 'Handle') document.searchForm.SearchHandle.value = '';"; onBlur="if (document.searchForm.SearchHandle.value == '') document.searchForm.SearchHandle.value = 'Handle';" />");
+                        </SCRIPT> -->
+                        
                         <input type="text" name="SearchHandle" size="12" maxlength="15" value="Handle" />
                     </td>
                     <td class="statTextBig"><A href="javascript:void document.simpleSearchForm.submit();"><img src="/i/button_go_member_search.gif" alt="Go" width="24" height="18" vspace="3" border="0" /></A></td>
@@ -19,7 +24,7 @@
                     </form>
                 </tr>
                 
-                <tr><td class="statTextBig" colspan="3">&#160;&#160;<A href="/?t=search" class="statText">&gt; Advanced Search</A></td></tr>
+                <tr><td class="statTextBig" colspan="3"><img src="/i/clear.gif" width="5" height="5" border="0"/><br />&#160;&#160;<A href="/?t=search" class="statText">&gt; Advanced Search</A></td></tr>
             </table>
                           
             <table border="0" cellspacing="0" cellpadding="0" width="180">
