@@ -77,35 +77,35 @@ if (!rsc.isEmpty()) {
                     <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="126">
 
          <% if (rsc.isEmpty()) { %>
-         
+
                         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                             <TR>
                                 <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                             </TR>
-                
+
                             <TR>
                                 <TD CLASS="statText">This member has not yet been rated in a competition.</TD>
                             </TR>
-                
+
                             <TR>
                                 <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="14" BORDER="0"></TD>
                             </TR>
                         </TABLE>
-                        
+
          <% } else {%>
 
                         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="126">
                             <TR>
                                 <TD CLASS="statText" colspan="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                             </TR>
-                 
+
                             <TR>
                                 <TD CLASS="statTextLarge" colspan="2">
           <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"coder_score"*/ + "]" %>'/>
                                     <strong>Coder:</strong>&#160;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><strong><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></strong></SPAN>
                                 </TD>
                             </TR>
-                
+
                             <TR>
                                 <TD CLASS="statText" colspan="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                             </TR>
@@ -144,24 +144,24 @@ if (!rsc.isEmpty()) {
                                 <TD CLASS="statText">&#160;Member Since: <br/>
                                 &#160;<strong><bean:write format="MM.dd.yy" name="resultRow" property='<%= "item[" + 6 /*"start_date"*/ + "].resultData" %>'/></strong></TD>
                             </TR>
-                
+
                         </TABLE>
                     </TD>
-             
+
                     <TD VALIGN="top" WIDTH="99%">
                         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                             <TR>
                                 <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                             </TR>
-                 
+
                  <logic:notEqual name="resultRow" property='<%= "item[" + 2 /*"quote"*/ + "]" %>' type="ResultSetContainer.ResultSetRow" value="">
-                   
+
                             <TR>
                                 <TD COLSPAN="4" CLASS="statText" ALIGN="center">&quot;<bean:write name="resultRow" property='<%= "item[" + 2 /*"quote"*/ + "]" %>'/>&quot;</TD>
                             </TR>
-                 
+
                  </logic:notEqual>
-                 
+
                             <TR>
                                 <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                             </TR>
@@ -169,7 +169,7 @@ if (!rsc.isEmpty()) {
                             <TR>
                                 <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="4" CLASS="registerNav" HEIGHT="18">&#160;&#160;Algorithm Statistics</TD>
                             </TR>
-                            
+
                             <TR>
                                 <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
                             </TR>
@@ -180,7 +180,7 @@ if (!rsc.isEmpty()) {
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=ratings_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ history ]</A></TD>
                             </TR>
-                            
+
                             <TR>
                                 <TD CLASS="statText" >&#160;&#160;Rank:</TD>
                                 <TD CLASS="statText" ALIGN="right"><rsc:item set="<%=rsc%>" name="rank" ifNull="Not Ranked"/></TD>
@@ -194,11 +194,11 @@ if (!rsc.isEmpty()) {
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left">&#160;</TD>
                             </TR>
-                
+
                             <TR>
                                 <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
                             </TR>
-                
+
                             <TR>
                                 <TD CLASS="statText">&#160;&#160;Volatility Factor:</TD>
                                 <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 5 /* volatility*/ + "]" %>'/></TD>
@@ -248,11 +248,11 @@ if (!rsc.isEmpty()) {
                             <TR>
                                 <TD BACKGROUND="/i/steel_gray_bg3.gif" COLSPAN="4" CLASS="registerNav" HEIGHT="18">&#160;&#160;Component Statistics</TD>
                             </TR>
-                            
+
                             <TR>
                                 <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
                             </TR>
-                            
+
                             <TR>
                                 <TD CLASS="statText" >&#160;&#160;Design Rating:</TD>
                                 <TD CLASS="statText" ALIGN="right"><rsc:item set="<%=rsc%>" name="design_rating" ifNull="Not Rated" format="#"/></TD>
@@ -285,7 +285,7 @@ if (!rsc.isEmpty()) {
                             </TR>
                             <TR>
                                 <TD CLASS="statText" >&#160;&#160;Reliability Rating:</TD>
-                                <TD CLASS="statText" ALIGN="right"><rsc:item set="<%=rsc%>" name="reliability" ifNull="100%" format="##0.##%"/></TD>
+                                <TD CLASS="statText" ALIGN="right"><rsc:item set="<%=rsc%>" name="reliability" ifNull="Not Rated" format="##0.##%"/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=reliability_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ history ]</A></TD>
                             </TR>
