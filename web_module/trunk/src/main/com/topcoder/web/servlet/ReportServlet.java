@@ -242,6 +242,7 @@ public final class ReportServlet extends HttpServlet {
         Map mainMap = dai.getData(mainRequest);
         ResultSetContainer profileList = (ResultSetContainer)mainMap.get("main_profile_info");
 
+        log.debug("found " + profileList.size() + " people matching search criteria");
         ArrayList result = new ArrayList(profileList.size());
 
         Request detailRequest = new Request();
