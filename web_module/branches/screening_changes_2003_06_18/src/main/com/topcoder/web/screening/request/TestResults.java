@@ -71,6 +71,7 @@ public class TestResults extends BaseProcessor {
 
             problemSetAList = new ArrayList();
             result = (ResultSetContainer)map.get("testSetAResults");
+            pinfo.setTestSetA(result.getItem(0,"session_round_id").toString());
             for(int i=0; i < result.size(); i++){
                 problemSetAList.add(
                     ProblemInfo.createProblemInfo(
