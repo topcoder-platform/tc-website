@@ -51,9 +51,7 @@ if (o!=null) {
                 if (top.mainFrame) {
                     updateDivOrSpan(top.mainFrame.document, ids[i], text);
                 }
-
             }
-
             setTimeout("problemUpdate()", 1000);
         }
 
