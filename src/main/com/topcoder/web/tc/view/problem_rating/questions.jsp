@@ -5,22 +5,24 @@
 <html>
 <head>
 <title>TopCoder Problem Rating Questions - <%= request.getAttribute("problemName") %></title>
+<LINK REL="stylesheet" TYPE="text/css" href="/css/style.css"/>
+<LINK REL="stylesheet" TYPE="text/css" href="/css/coders.css"/>
 </head>
 <body bgcolor="#000000">
 <h3><%= request.getAttribute("problemName") %></h3>
 <form action="/tc/?module=SubmitRatings" method="POST">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table>
-        <tr>
+        <tr><td></td>
             <% for(int i = 0; i<10; i++){ %>
-                <td>
+                <td class="statTextBig">
                     <%=i%>
                 </td>
             <% } %>
         </tr>
         <rsc:iterator list="<%=problemRatingQuestions%>" id="result">
         <tr>
-            <td>
+            <td class="statText">
                 <rsc:item row="<%=result%>" name="question"/>
             </td>
                 <%
