@@ -10,7 +10,8 @@
           com.topcoder.common.web.data.Navigation,
           com.topcoder.common.*,
           com.topcoder.web.tces.common.*, 
-          com.topcoder.web.tces.servlet.*" %>
+          com.topcoder.web.tces.servlet.*,
+          com.topcoder.tces.web.bean.*" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>

@@ -8,7 +8,8 @@
           com.coolservlets.forum.util.*,
           weblogic.common.T3Services,
           com.topcoder.common.web.data.Navigation,
-          com.topcoder.common.*" %>
+          com.topcoder.common.*,
+          com.topcoder.tces.web.bean.*" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>

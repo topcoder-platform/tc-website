@@ -8,7 +8,12 @@
           com.coolservlets.forum.util.*,
           weblogic.common.T3Services,
           com.topcoder.common.web.data.Navigation,
-          com.topcoder.common.*" %>
+          com.topcoder.common.*,
+          com.topcoder.tces.web.bean.*" %>
+
+<%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
+
+<jsp:useBean id="CampaignDetailTask" scope="request" class="com.topcoder.web.tces.servlet.CampaignDetailTask" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -16,10 +21,10 @@
     <TITLE>TopCoder Employment Services</TITLE>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-    <%@ include file="../script.jsp" %>
+    <%@ include file="/script.jsp" %>
   </HEAD>
   <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-  <%@ include file="../top.jsp" %>
+  <%@ include file="/top.jsp" %>
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
     <!-- Left Column Begins -->
@@ -37,11 +42,31 @@
         <!-- Body Area -->
         <!-- Center Column Begins -->
       <TD class="statText" width="100%" bgcolor="#001935" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-        <jsp:include page="../body_top.jsp" >  
+        <jsp:include page="/body_top.jsp" >  
            <jsp:param name="image" value="tces"/>  
            <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value="Company Name"/>  
-        </jsp:include><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
+           <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="<%= TCESConstants.COMPANY_NAME_ATTR_KEY %>">"/>
+        </jsp:include>
+        
+        <p>
+        <b>
+        <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="CompanyName">"/>
+        </b>
+        <br>
+        <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="CampaignName">"/><br>
+        <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="CampaignStatus">"/>        
+        </p>
+        
+        <p>
+        Total Hits: <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="TotalHits">"/><br>
+        Most Recent Hit: <jsp:param name="title" value="<jsp:getProperty name="CampaignDetailTask" property="MostRecentHit">"/>
+        </p>
+        
+        <p>
+        <a href="<%= TCESConstants.CAMPAIGN_INTEREST_PAGE %>&<% TCESConstants.CAMPAIGN_ID_PARAM %>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID">" class="statText">View Hit Details</a>
+        </p>
+        
+        <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>
             <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
@@ -55,27 +80,23 @@
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Most Recent Hit</b></TD>
                 </TR>
-                <TR>
-                  <TD class="statText" HEIGHT="18">&#160;<A HREF="position_int.jsp" class="statText">Programmer</A></TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">10</TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText"><A HREF="campaign_int.jsp" class="statText">10.01.02</A></TD>
-                </TR>
-                <TR>
-                  <TD class="statText" HEIGHT="18">&#160;<A HREF="position_int.jsp" class="statText">Architect</A></TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">14</TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText"><A HREF="campaign_int.jsp" class="statText">10.01.02</A></TD>
-                </TR>                
-                <TR>
-                  <TD class="statText" HEIGHT="18">&#160;<A HREF="position_int.jsp" class="statText">DBA</A></TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText">11</TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText"><A HREF="campaign_int.jsp" class="statText">10.01.02</A></TD>
-                </TR>                               
+
+                <tces:mapIterator id="position" mapList="<%=(List) request.getAttribute(PositionList)%>">
+                  <TR>
+                    <TD class="statText" HEIGHT="18">&#160;<A HREF="position_int.jsp" class="statText">
+                        <%= (String)position.get("job_desc") %>
+                    </A></TD>
+                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="statText">
+                        <%= (String)position.get("hit_count") %>
+                    </TD>
+                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="statText"><A HREF="campaign_int.jsp" class="statText">
+                        <%= (String)position.get("most_recent") %>
+                    </A> </TD>
+                  </TR>
+                </tces:mapIterator>
+
               </TABLE>
               <P><BR></P>
     </TD>
@@ -118,7 +139,7 @@
   </TABLE>
   <!-- Body Ends -->
 
-  <%@ include file="../foot_tces.jsp" %>
+  <%@ include file="/foot_tces.jsp" %>
 
   </BODY>
 </HTML>

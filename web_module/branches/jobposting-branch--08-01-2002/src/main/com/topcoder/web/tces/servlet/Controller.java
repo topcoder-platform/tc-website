@@ -9,6 +9,7 @@ import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.web.tces.common.*;
 import com.topcoder.web.tces.ejb.TCESServices.TCESServices;
 import com.topcoder.web.tces.ejb.TCESServices.TCESServicesHome;
+import com.topcoder.web.tces.bean.*;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;

@@ -528,12 +528,13 @@
         <war warfile="${war.dir}/${tces.war.name}" webxml="${resources}/tces/web.xml">
             <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
               <include name="**/*.jsp"/>
-            </fileset>
+            </fileset>            
+            <webinf dir="${resources}/tces">
+                <include name="tces-taglib.tld"/>
+            </webinf>            
             <fileset dir="${java}/com/topcoder/web/jsp">
               <include name="**/*.jsp"/>
-            </fileset>
-
-        
+            </fileset>        
             <classes dir="${classes}">
                 <include name="com/topcoder/web/tces/common/*"/>
                 <include name="com/topcoder/web/tces/servlet/*"/>

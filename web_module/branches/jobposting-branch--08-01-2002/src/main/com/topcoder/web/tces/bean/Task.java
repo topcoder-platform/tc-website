@@ -1,4 +1,4 @@
-package com.topcoder.web.tces.servlet;
+package com.topcoder.web.tces.bean;
 
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
