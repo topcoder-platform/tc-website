@@ -112,7 +112,7 @@
 </UL>
 
 <P>If all this sounds intriguing, we'd like to hear from you.  The first step is taking our programming test, but that should fun, right?</P>
-<P><A HREF="/jobposting?&t=JobHitTask&jobhit_25=true">Click here to apply</A></P>
+<P><A HREF="/jobposting?&amp;t=JobHitTask&jobhit_25=true">Click here to apply</A></P>
 <!--end contextual links-->
           <P><BR/></P>
           </TD>
