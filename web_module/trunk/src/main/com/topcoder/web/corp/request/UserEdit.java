@@ -692,7 +692,7 @@ public class UserEdit extends BaseProcessor {
                     requestor = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);
                 } catch (Exception cause) {
                     throw new MisconfigurationException(
-                            "Can't retrieve TCSubject for corp web application"
+                            "Can't retrieve TCSubject for corp web application " + cause.getMessage()
                     );
                 }
                 return;
@@ -728,7 +728,7 @@ public class UserEdit extends BaseProcessor {
                 requestor = Util.retrieveTCSubject(primaryUserID);
             } catch (Exception cause) {
                 throw new MisconfigurationException(
-                        "Can't retrieve TCSubject for corp web application"
+                        "Can't retrieve TCSubject for corp web application " + cause.getMessage()
                 );
             }
         }

@@ -13,6 +13,7 @@ import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
+import com.topcoder.web.corp.model.SessionInfo;
 import com.topcoder.web.corp.request.Login;
 
 import javax.servlet.ServletConfig;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.Set;
 
 
 /**
@@ -115,12 +117,21 @@ public class MainServlet extends HttpServlet {
         );
         WebAuthentication authToken = null;
         RequestProcessor processorModule = null;
-
+        SessionInfo info = null;
         try {
             TCSubject tcUser;
             authToken = new BasicAuthentication(persistor, request, response);
             tcUser = Util.retrieveTCSubject(authToken.getActiveUser().getId());
+            log.info(new StringBuffer(100).append("[**** ").append(processorClassName).append(" **** ").
+                    append(authToken.getActiveUser().getUserName()).append(" **** ").
+                    append(request.getRemoteHost() + " ****]"));
             Authorization authorization = new TCSAuthorization(tcUser);
+
+            info = new SessionInfo();
+            request.setAttribute("SessionInfo", info);
+            Set groups = ((TCSAuthorization)authorization).getGroups();
+            info.setAll(authToken.getActiveUser(), groups);
+
             boolean allowedToRun = false;
             allowedToRun = authorization.hasPermission(
                     new SimpleResource(processorClassName)
