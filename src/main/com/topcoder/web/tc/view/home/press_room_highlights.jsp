@@ -6,6 +6,8 @@
             </table>
 
             <table width="530" border="0" cellspacing="0" cellpadding="4">   
+            	<tr><td class="prHead"><A href="/?&t=news_events&c=pr_09_07_04">Michael Morris to Speak at 2004 SD Best Practices Conference</A> [September 7]</td></tr>  
+            
             	<tr><td class="prHead"><A href="/?&t=news_events&c=pr_09_02_04">Yahoo! Signs On as Premier Sponsor of 2004 TopCoder Open</A> [September 2]</td></tr>  
             
             	<tr><td class="prHead"><A href="/?&t=news_events&c=pr_08_18_04">Intel Corporation Sponsors 2004 TopCoder Open Tournament</A> [August 18]</td></tr>  
