@@ -46,6 +46,141 @@
 							User is <%= user %><BR>
 							<%= user.getHandle() %> (<%= user.getUserId() %>)
 							<BR><BR>
+
+<!--trj insert 0613 2250 -->
+
+
+<%@ page import="javax.ejb.*,javax.naming.*,javax.rmi.*,com.topcoder.web.TCES.ejb.*,java.rmi.*,java.util.*" %>
+<%@ page import="com.topcoder.web.tces.common.*" %>
+<%
+
+
+
+Lookup gpas = new Lookup();
+gpas.addPair("0", "4.0");
+gpas.addPair("1", "2.0");
+
+
+Lookup months = new Lookup();
+months.addPair("0", "January");
+months.addPair("1", "February");
+
+Lookup years = new Lookup();
+years.addPair("0", "2002");
+years.addPair("1", "2003");
+
+
+Lookup states = new Lookup();
+states.addPair("1", "Alabama");
+states.addPair("2", "North Dakota");
+
+
+Lookup countries = new Lookup();
+states.addPair("1", "Lithuania");
+states.addPair("2", "Norway");
+
+String company = "";
+String city = "";
+String selectedState = "";
+String selectedCountry = "";
+String selectedIndustry = "";
+String url = "";
+String selectedTitle = "";
+String selectedRole = "";
+String selectedManagement = "";
+String selectedNumberPeople = "";
+
+String startMonth = "";
+String startYear = "";
+String endMonth = "";
+String endYear = "";
+
+
+%>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
+</tr>
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;</td>
+</tr>
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
+</tr>
+
+<tr>
+<td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 5: Select Start Date<br>
+<img src="/i/clear.gif" height="3" width="1" border="0"><br>
+&nbsp;<%= months.getSelectBox("", "", "", "") %>&nbsp;<%= years.getSelectBox("", "", "", "") %>
+<br><br>
+</b></td>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td align="center" valign="middle"><font color="#ffffff">&gt;&gt;</font></td>
+<td align="center"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 4: Select Graduation Date<br>
+<img src="/i/clear.gif" height="3" width="1" border="0"><br>
+&nbsp;<%= months.getSelectBox("", "", "", "") %>&nbsp;<%= years.getSelectBox("", "", "", "") %>
+<br><br>
+</b></td>
+</tr>
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
+</tr>
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;</td>
+</tr>
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
+</tr>
+
+<% // buttons %>
+<tr valign="middle">
+<td colspan="5" align="right"><input type="button" value="Clear Form">&nbsp;<input type="button" value="Save and Add">&nbsp;<input type="button" value="Done"></td>
+</tr>
+<% // end buttons %>
+
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
+</tr>
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;</td>
+</tr>
+
+<tr valign="middle">
+<td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
+</tr>
+
+
+<tr>
+<td colspan="2" class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif">History</td>
+<td>&nbsp;</td>
+<td colspan="2" class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif">History</td>
+</tr>
+
+</table>
+
+
+<!--end trj insert -->
+
+
+
+
+
+
+
+
+
+
+
 		    		</TD>
 		    		<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 			  	</TR>
