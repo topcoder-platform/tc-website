@@ -600,7 +600,7 @@
         <mkdir  dir="${war.dir}"/>
         <antcall target="war_email"/>
         <antcall target="war_query"/>
-        <antcall target="war_screening" />
+        <antcall target="deploy-screening" />
     </target>
 
     <target name="dev_wars" depends="compile">
@@ -893,7 +893,7 @@
             <param name="unit-jar-name" value="DataCache"/>
             <param name="unit-class-path" value="com/topcoder/ejb/DataCache"/>
         </antcall>
-        
+
         <!-- Resume ejb -->
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="ResumeServices"/>
