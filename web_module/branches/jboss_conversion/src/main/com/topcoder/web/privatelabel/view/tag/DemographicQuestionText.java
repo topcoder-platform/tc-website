@@ -30,4 +30,9 @@ public class DemographicQuestionText extends TagSupport {
         return SKIP_BODY;
     }
 
+    public int doEndTag() throws JspException {
+        response=null;
+        questions=null;
+        return super.doEndTag();
+    }
 }

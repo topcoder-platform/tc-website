@@ -30,4 +30,10 @@ public class MapIteratorTag
         return super.doStartTag();
     }
 
+    public void release() {
+        MapList= null;
+        super.release();
+    }
+
+
 }

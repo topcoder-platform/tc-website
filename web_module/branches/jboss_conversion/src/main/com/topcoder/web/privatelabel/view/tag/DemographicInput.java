@@ -151,7 +151,7 @@ public class DemographicInput extends BaseTag {
         this.cssclass = null;
         this.question = null;
         this.showMulti = true;
-        this.onChange=null;
+        this.onchange=null;
 
     }
 
