@@ -61,12 +61,12 @@
             </xsl:call-template>
         
 <!-- TCO Header -->
-            <div align="center"><img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open" width="550" height="240" border="0" vspace="15" /></div>
+            <div align="center"><img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open" width="550" height="160" border="0" vspace="15" /></div>
 
-<!-- Tab bar suplinks-->
+<!-- Tab bar suplinks
             <xsl:call-template name="tco03_suplinks">
                 <xsl:with-param name="selectedTab">component</xsl:with-param>
-            </xsl:call-template>
+            </xsl:call-template>-->
 
 <!-- Tab bar links-->
             <xsl:call-template name="tco03_links">
