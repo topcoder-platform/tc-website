@@ -67,7 +67,9 @@ Writing reports in Perl and interfacing with databases
 <BR/><BR/>
 Minimum GPA:  3.5
 <BR/><BR/>
-Pursuing BS in Computer Science.  Excellent programming skills with familiarity in Perl and databases highly desired.  Excellent problem solving capability and able to work independently with keen learning ability.  <B>THIS POSITION REPORTS TO HARDWARE ENGINEERING</B>.</P>
+Pursuing BS in Computer Science.  Excellent programming skills with familiarity in Perl and databases highly desired.  Excellent problem solving capability and able to work independently with keen learning ability.  
+<BR/><BR/>
+<B>THIS POSITION REPORTS TO HARDWARE ENGINEERING</B>.</P>
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=198&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
