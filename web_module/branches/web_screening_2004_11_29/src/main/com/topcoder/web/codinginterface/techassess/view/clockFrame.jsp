@@ -3,6 +3,7 @@
 <html>
   <head>
     <title></title>
+    <META HTTP-EQUIV=Refresh CONTENT="600; URL=?module=CurrentTime"> 
   </head>
   <body>
     <script language="javascript">
