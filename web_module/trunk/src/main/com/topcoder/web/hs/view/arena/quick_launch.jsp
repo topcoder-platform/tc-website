@@ -1,49 +1,35 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+
+<html id="quickLaunch">
+
 <head>
+
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>TCHS Competition Arena</title>
+
+<jsp:include page="../includes/css.jsp" />
+
 <SCRIPT type="text/javascript">
-if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVersion.charAt(0)=='4') {
-  document.write('<link type="text/css" rel="stylesheet" href="http://www.topcoder.com/css/style_linux.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="http://www.topcoder.com/css/coders_linux.css"/>');
-} else {
-  document.write('<link type="text/css" rel="stylesheet" href="http://www.topcoder.com/css/style.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="http://www.topcoder.com/css/coders.css"/>');
-}
-    </SCRIPT>
+    function getReq(){u='?module=Static&d1=faq&d2=soft_req';window.open(u);close();}
+</SCRIPT>
+
 </head>
-<body onLoad="focus()" leftmargin="0" topmargin="0" marginheight="0" marginwidth="0" bgcolor="#CCCCCC">
-<table align="center" width="290" cellspacing="0" cellpadding="0" border="0">
-<tr>
-<td><img src="/i/spacer.gif" width="1" height="8" border="0"></td>
-</tr>
-<tr>
-<td class="bodyText"><font size="3"><b>Competition Arena</b></font></td>
-</tr>
-<tr>
-<td><img src="/i/spacer.gif" width="1" height="12" border="0"></td>
-</tr>
-<tr>
-<td class="bodyText">
-              This page should present you with a button to start the competition arena applet.<br>
-<br>
-              NOTE: If a red button to "Load Competition Arena" does <b>not</b> appear below,
-              you may not have the appropriate Plug-in software installed.
-              <SCRIPT type="text/javascript">
-                function getReq(){u='?module=Static&d1=faq&d2=soft_req';window.open(u);close();}
-              </SCRIPT>
-<BR>
-<a href="Javascript:getReq()">
-                Click here for more information &gt;&gt;
-              </a></td>
-</tr>
-<tr>
-<td valign="top"><img src="/i/spacer.gif" width="1" height="20"></td>
-</tr>
-<tr>
-<td class="bodyText" align="center">
-<OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+
+<body onLoad="focus()" id="quickLaunch">
+
+<table width="290" cellspacing="0" cellpadding="10" border="0">
+    <tr>
+        <td class="statText">
+            <h2>Competition Arena</h2>
+
+            <p>This page should present you with a button to start the competition arena applet.</p>
+
+            <p>NOTE: If a red button to "Load Competition Arena" does <strong>not</strong> appear below, you may not have the appropriate 
+            Plug-in software installed. <a href="Javascript:getReq()" class="statText">Get&nbsp;more&nbsp;information</a></p>
+
+            <div align="center">
+        <OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
         width="239"
         height="26"
         name="LaunchApplet"
@@ -81,12 +67,13 @@ if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVers
 <NOEMBED>
 </NOEMBED>
 </EMBED>
-</OBJECT><br>
-<br>
-<b>You may minimize this browser window, but do not close it.</b>
-          Doing so will close the applet.
+            </OBJECT></div>
+
+            <p><strong>You may minimize this browser window, but do not close it.</strong> Doing so will close the applet.</p>
         </td>
-</tr>
+    </tr>
 </table>
+
 </body>
+
 </html>
