@@ -157,7 +157,7 @@
                                     <strong>Match 167</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tournaments&c=tco03_northface">Northface</A><br />
+                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_northface">Northface</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4640&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarTCO03">
