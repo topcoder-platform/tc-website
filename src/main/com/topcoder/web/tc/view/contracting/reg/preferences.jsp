@@ -103,8 +103,8 @@ return false;
                         <% ResultSetContainer nextSRM= (ResultSetContainer)request.getAttribute("Next_SRM");%>
                         You currently do not have a TopCoder rating.  Establishing a TopCoder rating will significantly increase your chance of being contacted for potential employment positions.  <br /><br />
                         Your next chance to become rated in an algorithm competition is <rsc:item set="<%=nextSRM%>" name="registration_start" format="EEEE, MMMM d"/>
-                        - check <a href="/?t=schedule&c=srm&RoundId=<rsc:item set="<%=nextSRM%>" name="round_id"/>">here</a> for details.<br />
-                        Check <a href="/?t=development&c=comp_projects">here</a> for information on becoming rated in the component competition.
+                        - check <a href="/?t=schedule&c=srm&RoundId=<rsc:item set="<%=nextSRM%>" name="round_id"/>">here</a> for details.<br /><br />
+                        Check <a href="/?t=development&c=comp_projects">here</a> for information on becoming rated in the component competition.<br />
                     </td>
                 </tr>
             </table>
