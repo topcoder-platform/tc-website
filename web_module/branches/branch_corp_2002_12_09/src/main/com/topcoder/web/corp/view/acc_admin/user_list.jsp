@@ -17,6 +17,13 @@
 <% String appContext = request.getContextPath(); %> 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <jsp:include page="../includes/top.jsp"/>
+
+<H1>
+<%=rsc.size()%><BR>
+<%=rsc.toString()%><BR>
+</H1>
+
+
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
    <TR>
     <!-- Left Column Begins -->
@@ -47,10 +54,8 @@
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>&#160;</B></TD>		
 	</TR>
 
-
-
+<%--
 	<tc-webtag:iterator id="resultRow" collection="<%=rsc%>">
-	<% ResultSetRow rsr = new ResultSetContainer.ResultSetRow((TCResultItem[])resultRow); %>
 	  <TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
 			&#160;<tc-webtag:item name="user_id" row="<%=rsr%>"/></TD>
@@ -61,7 +66,7 @@
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<tc-webtag:item name="user_id" row="<%=rsr%>"/>" CLASS="bodyText">Edit</A></TD>		
 	  </TR>
 	</tc-webtag:iterator>
-
+--%>
 
 
 	<TR>
