@@ -37,6 +37,17 @@
 <!-- Center Column Begins -->
         <td width="100%" align="center"><img src="/i/clear.gif" alt="" width="1" height="6" border="0" /><br />
 
+<!-- Special Message begins -->
+            <table border="0" cellspacing="0" cellpadding="5" width="100%">
+                <tr>
+                    <td id="specialMessage">TopCoder will be down for routine maintenance from 11:30pm&#160;EDT on Saturday, April&#160;26th until 
+                        5:00am&#160;EDT on Sunday, April&#160;27th. We apologize for any inconvenience.</td>
+                </tr>
+            </table>
+<!-- Special Message ends -->
+        
+            <img src="/i/clear.gif" alt="" width="1" height="6" border="0" /><br />
+
 <!-- My Stats Begins -->
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
