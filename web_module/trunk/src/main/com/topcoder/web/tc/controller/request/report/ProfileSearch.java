@@ -22,6 +22,8 @@ public class ProfileSearch extends Base {
             if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
                 String response_addr = Constants.REPORT_PROFILE_SEARCH_RESULTS_ADDR;
                 String query = buildQuery(getRequest());
+                log.debug(query.length()+" chars");
+                log.debug(query);
                 getRequest().setAttribute("QUERY",query);
                 setNextPage(Constants.JSP_ADDR + response_addr);
                 setIsNextPageInContext(true);
