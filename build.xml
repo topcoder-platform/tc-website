@@ -2,6 +2,7 @@
     <property name="Name" value="TopCoder"/>
     <property name="build" value="build"/>
     <property name="war.dir" value="${build}/wars"/>
+    <property name="ear.dir" value="${build}/ears"/>
     <property name="ejb_jars" value="${build}/ejb_jars"/>
     <property name="classes" value="${build}/classes"/>
     <property name="testclasses" value="${build}/testcases"/>
@@ -44,6 +45,7 @@
         <mkdir dir="${bin}"/>
         <mkdir dir="${ejb_jars}"/>
         <mkdir dir="${war.dir}"/>
+        <mkdir dir="${ear.dir}"/>
     </target>
 
     <target name="move_file_upload_xml">
@@ -789,6 +791,26 @@
         </war>
         <unwar src="${war.dir}/admin.war" dest="${public_html}/admin/" overwrite="yes"/>
         <delete dir="${public_html}/admin/META-INF"/>
+    </target>
+
+    <target name="build-security" depends="compile">
+        <jar
+            jarfile="${ejb_jars}/security.jar"
+            basedir="${classes}"
+            includes="com/topcoder/security/**">
+	        <metainf dir="${resources}/security/conf" includes="*.xml" excludes="application.xml"/>
+	    </jar>
+
+        <ear earfile="${ear.dir}/security.ear" appxml="${resources}/security/conf/application.xml">
+            <fileset dir="${jars.dir}">
+                <include name="idgenerator.jar"/>
+                <include name="configmanager2.jar"/>
+                <include name="tcsUtil.jar"/>
+            </fileset>
+            <fileset dir="${ejb_jars}">
+                <include name="security.jar"/>
+            </fileset>
+        </ear>
     </target>
 
     <target name="moveQueries" depends="compile">
