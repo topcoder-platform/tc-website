@@ -72,7 +72,7 @@
                         <p class="promoText">The <strong><A href="http://www.artifactnetwork.com" target="_blank">Artifact Desktop&#153;</A></strong> is a free .Net application that helps the individual developer to easily find, manage and share code, and collaborate with other 
                          developers in real-time. </p>
                          
-                         <p class="promoText">The <A href="http://www.artifactnetwork.com" target="_blank">Artifact Server&#153;</A></strong> enables a development team to quickly establish their own private code-sharing network behind the corporate firewall. If so, the Artifact 
+                         <p class="promoText">The <strong><A href="http://www.artifactnetwork.com" target="_blank">Artifact Server&#153;</A></strong> enables a development team to quickly establish their own private code-sharing network behind the corporate firewall. If so, the Artifact 
                            Desktop can help. It's a free application that provides access to the global Artifact Developer Network. This network contains thousands of code snippets and thousands of experienced 
                            developers. The Artifact Desktop helps you to quickly locate code you need from our network's repository. You can search for code snippets by language, platform, category and more. </p>
                         
