@@ -25,8 +25,6 @@
     String responseURL = "";
     n = (Navigation) session.getAttribute("navigation");
     if (n==null || !n.isIdentified() ) {
-      if (n==null) System.out.println("navigation was friggin null!");
-      else System.out.println("user: " + n.getUserId());
       StringBuffer errorURL = new StringBuffer(100);
       if ("POST".equalsIgnoreCase(request.getMethod())) {
           String[] keys = {"mode", "forum", "thread", "message"};
