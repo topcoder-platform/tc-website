@@ -132,6 +132,7 @@
 
                 window.close();
                 window.opener.focus();
+                window.opener.doSubmit(<%=Constants.RP_TEST%>);
             }
             function cancel() {
                 window.close();

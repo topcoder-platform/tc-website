@@ -17,7 +17,6 @@
     function clear(inputItem) {
       inputItem.value='';
     }
-    var windowHandle = null;
 </SCRIPT>
 
 <jsp:include page="problemTimer.jsp">
@@ -32,6 +31,7 @@
 <tc-webtag:useBean id="languages" name="<%=Constants.LANGUAGES%>" type="java.util.List" toScope="page" />
 
 <SCRIPT type="text/javascript">
+    var windowHandle = null;
     function openTestingWindow() {
       if(windowHandle && !windowHandle.closed) {
         windowHandle.focus();
