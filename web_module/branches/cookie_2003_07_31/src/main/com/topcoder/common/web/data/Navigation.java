@@ -47,7 +47,7 @@ public final class Navigation
         msg.append("user.getUserId:");
         msg.append(user.getUserId());
         log.debug(msg.toString());
-        if (getUser().getLoggedIn().equals("Y")) {
+        if (getUser().getLoggedIn().equals("Y") && user.getUserId()!=0) {
             Context ctx = null;
             try {
                 ctx = TCContext.getInitial();
