@@ -3,6 +3,7 @@ package com.topcoder.web.screening.request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.PermissionDeniedException;
 import com.topcoder.web.screening.common.ScreeningException;
@@ -18,7 +19,8 @@ import java.util.Date;
  * @author Porgery
  */
 public class TestResults extends BaseProcessor {
-    
+    private final static Logger log = Logger.getLogger(TestResults.class);
+
     /** Implements the processing step.
      * @throws Exception
      */
@@ -44,6 +46,8 @@ public class TestResults extends BaseProcessor {
         SessionInfo sessionInfo = new SessionInfo();
         sessionInfo.setBeginDate(((Date)result.getItem(0, "begin_time").getResultData()));
         sessionInfo.setEndDate(((Date)result.getItem(0, "end_time").getResultData()));
+        log.debug("begin set to: " + sessionInfo.getBeginDate());
+        log.debug("end set to: " + sessionInfo.getEndDate());
         getRequest().setAttribute("sessionInfo",sessionInfo);
 
         dAccess = getDataAccess(Constants.DW_DATA_SOURCE, true);
