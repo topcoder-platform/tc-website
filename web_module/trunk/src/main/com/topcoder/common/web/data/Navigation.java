@@ -90,6 +90,7 @@ public final class Navigation
     }
 
     public Navigation(HttpServletRequest request, HttpServletResponse response) throws TCException {
+        this();
         try {
             WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
                     request, response);
