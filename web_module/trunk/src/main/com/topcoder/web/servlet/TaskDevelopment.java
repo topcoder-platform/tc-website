@@ -221,7 +221,7 @@ public final class TaskDevelopment {
                     devTag.addTag(technologyTag);
 
                     devTag.addTag(new ValueTag("componentName", componentInfo.getName()));
-                    devTag.addTag(new ValueTag("formattedName", formatName("This is a test")));
+                    devTag.addTag(new ValueTag("formattedName", formatName(componentInfo.getName())));
                     devTag.addTag(new ValueTag("overview", componentInfo.getDescription()));
 
 
