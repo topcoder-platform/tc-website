@@ -38,7 +38,7 @@ return false;
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="my_home"/>
-                <jsp:param name="level2" value="index"/>
+                <jsp:param name="level2" value="employmentOpps"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -48,7 +48,7 @@ return false;
 
         <div class="myTCBody">
         <jsp:include page="../page_title.jsp" >
-            <jsp:param name="image" value="contract"/>
+            <jsp:param name="image" value="employmentOpps"/>
             <jsp:param name="title" value=""/>
         </jsp:include>
 

@@ -20,7 +20,7 @@
         <td width="180">
             <jsp:include page="../../../includes/global_left.jsp">
                 <jsp:param name="level1" value="my_home"/>
-                <jsp:param name="level2" value="index"/>
+                <jsp:param name="level2" value="employmentOpps"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
