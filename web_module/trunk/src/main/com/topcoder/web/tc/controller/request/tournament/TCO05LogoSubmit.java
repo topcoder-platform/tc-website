@@ -66,6 +66,7 @@ public class TCO05LogoSubmit extends Base {
                     CoderImage coderImage = (CoderImage)createEJB(getInitialContext(), CoderImage.class);
                     long imageId = image.createImage(fileName.toString(), IMAGE_TYPE, PATH_ID,
                             DBMS.JTS_OLTP_DATASOURCE_NAME);
+                    log.debug("created image " + imageId);
                     coderImage.createCoderImage(getUser().getId(), imageId, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
                     tm.commit();
                 } catch (Exception e) {
