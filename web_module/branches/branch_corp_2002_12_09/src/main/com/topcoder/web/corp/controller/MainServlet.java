@@ -101,6 +101,13 @@ public class MainServlet extends HttpServlet {
      * 
      * ----- some realization notes (to be removed upon completion) ---------<br>
      * 
+     * -- 2002/12/19 by NeoTuri
+     * All requests will be distributed on the 'module' query parameter in the 
+     * request string.  The associated servlet will receive the entire query 
+     * string.  I plan to later modify web.xml only use request servlets that
+     * contain a common prefix (i.e. com.topcoder.web.corp.request ). This value
+     * will reside in the Constants.QUERY_PACKAGE property.
+     *
      * -- 2002/12/17 by djFD
      * for now I just filtering mine (to be processed by me) URIs to be fed into
      * my primary Registrations processor. All others are processed by default
@@ -148,6 +155,10 @@ public class MainServlet extends HttpServlet {
                     try {
                         req.setRequest( request );
                         req.process();
+                        /* 12/19/2002 - NeoTuri
+                         * RequestProcessor MUST prepare a next page on success
+                         * or error
+                         */
                         sendToPage( request, response, req.getNextPage(), req.isNextPageInContext() );
                         found = true;
                     }
@@ -162,7 +173,8 @@ public class MainServlet extends HttpServlet {
         
         if( !found ) {
             log.debug( "doGet: module not found" );
-            //sendToErrorPage( request, response, new Exception("404?") );
+            /* Not sure what to do when no modules can be used to complete this request */
+            sendToPage( request, response, "/", false );
         }
         /*
     	// I suppose for testing purposes that 'pr' request parameter defines
