@@ -85,7 +85,7 @@
 
 <!-- Right Column Begins -->
         <td width="170">
-            <jsp:include page="../public_right.jsp"">
+            <jsp:include page="../public_right.jsp">
                 <jsp:param name="level1" value="search"/>
             </jsp:include>
         </td>
