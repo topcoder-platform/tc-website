@@ -7,7 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder | Corporate Services</title>
+<title>Securely purchase a Candidate Recruiting Program from TopCoder Employment Services</title>
 
 <jsp:include page="../includes/css.jsp" />
 
@@ -18,7 +18,9 @@
 <body>
 
 <!-- Top begins -->
-<jsp:include page="../includes/top.jsp"/>
+<jsp:include page="includes/top.jsp" >
+  <jsp:param name="isTCESPage" value="true"/>
+</jsp:include>
 <!-- Top ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
