@@ -98,8 +98,8 @@
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Development</td>
-                    <td class="sidebarTitle" width="21%" align="center">Design</td>
+                    <td class="sidebarTitle" width="25%">Development</td>
+                    <td class="sidebarTitle" width="25%" align="center">Design</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText" colspan="3"><strong>Online Round 1</strong></td>
@@ -203,10 +203,10 @@
                         Submissions posted
                         </td>
                      <td class="sidebarText">
-                        11.25.03
+                        11.25.03 6:00pm
                         </td>
                      <td class="sidebarText">
-                        11.25.03
+                        11.25.03 6:00pm
                         </td>
                    </tr>            
                   <tr>
