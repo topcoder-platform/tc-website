@@ -135,6 +135,7 @@
                             <xsl:choose>
                                 <xsl:when test="./submission_date != ''"> 
                                     <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="submission_date"/></xsl:call-template>
+
                                     <xsl:if test="./submission_date = ./min_sub_date">
                                         <BR/>MULTIPLIER 
         			    </xsl:if>
