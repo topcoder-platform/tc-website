@@ -131,7 +131,7 @@ public class PDFGenerator extends BaseProcessor {
         if(rsc.getIntItem(0, "challenge_attempts_made") == 0) {
             config.setChallengeSuccessRatio("N/A");
         } else {
-            config.setChallengeSuccessRatio(formater.format(rsc.getDoubleItem(0, "challenge_attempts_made")/rsc.getDoubleItem(0, "challenges_made_successful")*100.0) + "%" );
+            config.setChallengeSuccessRatio(formater.format(rsc.getDoubleItem(0, "challenges_made_successful")/rsc.getDoubleItem(0, "challenge_attempts_made")*100.0) + "%" );
         }
         
         config.setSubmissionRatio(rsc.getStringItem(0, "problems_submitted") + " out of " + rsc.getStringItem(0, "problems_presented") + " (" + formater.format(rsc.getDoubleItem(0, "problems_submitted")/rsc.getDoubleItem(0, "problems_presented")*100.0) + "%)" );
