@@ -84,7 +84,6 @@ public class TransactionServlet extends HttpServlet {
     private static final Hashtable currentTransactions = new Hashtable();
 
     public static final String KEY_OPERATION = "op";
-    private static final String RETURN_CODE_KEY = "rc";
     private static final String KEY_TRANSACTION_INFO = "TransactionInfo";
 
     public static final String KEY_PRODUCT_ID = "pid";
@@ -97,6 +96,7 @@ public class TransactionServlet extends HttpServlet {
 
     private static final String FRMKEY_CCTX_UID = "USER1";
 
+    private static final String RETURN_CODE_KEY = "RESULT";
     private static final String RESPONSE_MSG_KEY = "RESPMSG";
     private static final String FAILED_AVS = "AVSDECLINED";
 
