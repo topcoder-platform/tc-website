@@ -21,7 +21,7 @@ public interface QueryAuthentication extends EJBObject {
      * @return ResultSetContainer containing the user_id, handle and password
      * @throws EJBException if there was a problem with query execution
      */
-    public ResultSetContainer getLoginInfo(String handle) throws EJBException;
+    public ResultSetContainer getLoginInfo(String handle) throws RemoteException;
 
 }
 
