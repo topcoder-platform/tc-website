@@ -81,7 +81,7 @@
 <%
     if(!candidateInfo.isNew())
     { 
-        String params = "userId=" + candidateInfo.getUserId(); 
+        String params = Constants.CANDIDATE_ID + "=" + candidateInfo.getUserId(); 
 %>
 <P>To add a note <screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText">click here</screen:servletLink></P>
 <%
