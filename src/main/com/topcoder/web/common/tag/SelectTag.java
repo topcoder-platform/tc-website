@@ -13,6 +13,16 @@ public abstract class SelectTag extends BaseTag {
     private boolean selectedOnly = false;
     private String size = null;
     private String multiple = null;
+    private String topValue = null;
+    private String topText = null;
+
+    public void setTopValue(String topValue) {
+        this.topValue = topValue;
+    }
+
+    public void setTopText(String topText) {
+        this.topText = topText;
+    }
 
     public void setSize(String size) {
         this.size = size;
@@ -62,6 +72,11 @@ public abstract class SelectTag extends BaseTag {
     }
 
     String getSelected() throws JspException {
+        if (selectedValue != null && topValue != null && selectedValue.equals(topValue)) {
+            return topText;
+        } else if (selectedText != null && topText != null && selectedText.equals(topText)) {
+            return topValue;
+        }
         return getSelected(getSelectOptions());
     }
 
@@ -103,11 +118,20 @@ public abstract class SelectTag extends BaseTag {
             s.append(" multiple=\"" + multiple + "\"");
         }
         s.append(">\n");
+        s.append("<option value=\"");
+        s.append(topValue==null?"":topValue);
+        s.append("\"");
+        if (selectedValue != null && topValue != null && selectedValue.equals(topValue) ||
+                selectedText != null && topText != null && selectedText.equals(topValue)) {
+            s.append(" selected");
+        }
+        s.append(">");
+        s.append(topText==null?"":topText);
+        s.append("</option>");
         if (options != null) {
             if (selectedValue == null) {
                 selectedValue = (String) getDefaultValue();
             }
-            s.append("<option value=\"\"></option>");
             Iterator it = options.iterator();
             for (; it.hasNext();) {
                 Object option = it.next();
