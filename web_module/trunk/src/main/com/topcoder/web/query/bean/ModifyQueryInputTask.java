@@ -28,8 +28,15 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
     private String db;
     private ArrayList currentInputList;
     private ArrayList otherInputList;
+
     private long queryId;
+
+    /**
+     * used when creating a new query input relation, or deleting one.
+     * not used for modifying an existing relation
+     */
     private long inputId;
+
     private String queryName;
 
     /* Creates a new LoginTask */
@@ -42,8 +49,8 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
             throws AuthenticationException, Exception {
         HttpSession session = request.getSession(true);
         if (!Authentication.isLoggedIn(session)) {
-            log.debug("User not authenticated for access to TCES resource.");
-            throw new AuthenticationException("User not authenticated for access to TCES resource.");
+            log.debug("User not authenticated for access to query tool resource.");
+            throw new AuthenticationException("User not authenticated for access to query tool resource.");
         }
 	}
 
@@ -77,7 +84,7 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
         setCurrentInputList(qi.getInputsForQuery(getQueryId()));
         setOtherInputList(i.getAllInputs());
 
-        super.setNextPage(Constants.MODIFY_COMMAND_PAGE);
+        super.setNextPage(Constants.MODIFY_QUERY_INPUT_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
@@ -101,16 +108,23 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
         } else if (paramName.startsWith(Constants.OPTIONAL_PARAM)) {
             try {
                 long inputId = Long.parseLong(paramName.substring(Constants.OPTIONAL_PARAM.length()));
-                getQueryInput(getCurrentInputList(), inputId).setOptional(Boolean.getBoolean(value));
+                getQueryInput(getCurrentInputList(), inputId).setOptional(value.equals("on"));
             } catch (NumberFormatException e) {
                 super.addError(Constants.OPTIONAL_PARAM, e);
             }
         } else if (paramName.startsWith(Constants.DEFAULT_VALUE_PARAM)) {
             try {
                 long inputId = Long.parseLong(paramName.substring(Constants.DEFAULT_VALUE_PARAM.length()));
-                getQueryInput(getCurrentInputList(), inputId).setOptional(Boolean.getBoolean(value));
+                getQueryInput(getCurrentInputList(), inputId).setDefaultValue(value);
             } catch (NumberFormatException e) {
                 super.addError(Constants.DEFAULT_VALUE_PARAM, e);
+            }
+        } else if (paramName.startsWith(Constants.SORT_ORDER_PARAM)) {
+            try {
+                long inputId = Long.parseLong(paramName.substring(Constants.SORT_ORDER_PARAM.length()));
+                getQueryInput(getCurrentInputList(), inputId).setSortOrder(Integer.parseInt(value));
+            } catch (NumberFormatException e) {
+                super.addError(Constants.SORT_ORDER_PARAM, e);
             }
         }
 

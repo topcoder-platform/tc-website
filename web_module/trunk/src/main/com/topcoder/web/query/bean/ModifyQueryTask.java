@@ -44,8 +44,8 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
             throws AuthenticationException, Exception {
         HttpSession session = request.getSession(true);
         if (!Authentication.isLoggedIn(session)) {
-            log.debug("User not authenticated for access to TCES resource.");
-            throw new AuthenticationException("User not authenticated for access to TCES resource.");
+            log.debug("User not authenticated for access to query tool resource.");
+            throw new AuthenticationException("User not authenticated for access to query tool resource.");
         }
 	}
 
