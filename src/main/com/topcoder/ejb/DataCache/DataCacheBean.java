@@ -152,8 +152,8 @@ public class DataCacheBean extends BaseEJB {
     query.append (          " ,r.notes");
     query.append (          " ,r.link"); 
     query.append (     " FROM round r");
-    query.append (    " WHERE r.status = 'A'");
-    query.append (       " OR r.status = 'F'");
+    query.append (    " WHERE r.status IN ('A','F')");
+    query.append (      " AND r.round_type_id != 3");
     query.append ( " ORDER BY r.round_id");
     /*************************************************************************************/
     try {
