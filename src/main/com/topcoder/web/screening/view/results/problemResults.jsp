@@ -94,95 +94,76 @@ function getTCProblemResults(coderId, roundId, problemId) {
 	        </TR>
 	        <TR>
 		       <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-	        </TR>                       
-         </TABLE>           
-            
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+	        </TR>
+         </TABLE>
+
+         <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
            <TR>
-              <TD CLASS="bodyText" VALIGN="middle" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<b>Code:</b></TD>
+              <TD CLASS="testTableTitle">&#160;Code:</TD>
            </TR>
            <TR>
-              <TD CLASS="bodyText" VALIGN="top">
+              <TD CLASS="testTableOdd" VALIGN="top">
               <PRE><%=StringUtils.htmlEncode(submissionInfo.getCode())%></PRE>
               </TD>
-           </TR>           
-           <TR>
-              <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
            </TR>
-         </TABLE>
-          
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">                   
+         </table>
+
+         <p></p>
+
+         <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
            <TR>
-              <TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>                                
-           <TR>
-              <TD COLSPAN="3" CLASS="bodyText"><B>System Test</B></TD>
-           </TR>	        
+              <TD COLSPAN="4" CLASS="testTableTitle"><B>System Test</B></TD>
+           </TR>
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Args</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Expected</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Received</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Status</B></TD>	        
+		       <TD ALIGN="center" CLASS="testFormHeader">Args</TD>
+		       <TD ALIGN="center" CLASS="testFormHeader">Expected</TD>
+		       <TD ALIGN="center" CLASS="testFormHeader">Received</TD>
+		       <TD ALIGN="center" CLASS="testFormHeader">Status</TD>
 	        </TR>
-           <TR>
-              <TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>	        
            <screen:resultSetRowIterator id="testResult" list="<%= submissionInfo.getTestResults() %>">
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=testResult%>" name="args" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=testResult%>" name="expected_result" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=testResult%>" name="received" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=testResult%>" name="status" /></TD>
+		       <TD ALIGN="center" CLASS="testTableOdd"><screen:resultSetItem row="<%=testResult%>" name="args" /></TD>
+		       <TD ALIGN="center" CLASS="testTableOdd"><screen:resultSetItem row="<%=testResult%>" name="expected_result" /></TD>
+		       <TD ALIGN="center" CLASS="testTableOdd"><screen:resultSetItem row="<%=testResult%>" name="received" /></TD>
+		       <TD ALIGN="center" CLASS="testTableOdd"><screen:resultSetItem row="<%=testResult%>" name="status" /></TD>
 	        </TR>	        
-           <TR>
-              <TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>
            </screen:resultSetRowIterator>
            <% if(submissionInfo.getTestResults().isEmpty()){ %>
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" colspan='4'>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="testTableOdd" colspan='4'>
                            No system tests were performed on this problem.
                        </TD>
 	        </TR>	        
            <% } %>
-         </TABLE>
-         
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%"> 
+         </table>
+
+         <p></p>
+
+         <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
            <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>                           
-           <TR>
-              <TD COLSPAN="4" CLASS="bodyText"><B>Top TopCoder Solutions </B></TD>
+              <TD COLSPAN="4" CLASS="testTableTitle">Top TopCoder Solutions</TD>
            </TR>	        
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Points</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Categories</B></TD>
-<%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
+		       <TD ALIGN="center" CLASS="testFormHeader">Points</TD>
+		       <TD ALIGN="center" CLASS="testFormHeader">Division</TD>
+		       <TD ALIGN="center" CLASS="testFormHeader">Difficulty</TD>
+		       <TD ALIGN="center" CLASS="testFormHeader">Algorithmic Categories</TD>
 	        </TR>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>	        
            <screen:resultSetRowIterator id="solution" list="<%= submissionInfo.getTopTCSolutions() %>">
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;
-                           <A HREF="JavaScript:getTCProblemResults('<screen:resultSetItem row="<%=solution%>" name="coder_id" />','<screen:resultSetItem row="<%=solution%>" name="round_id" />','<screen:resultSetItem row="<%=solution%>" name="problem_id" />')" CLASS="bodyText">
+		       <TD ALIGN="center" HEIGHT="15" CLASS="testTableOdd">
+                           <A HREF="JavaScript:getTCProblemResults('<screen:resultSetItem row="<%=solution%>" name="coder_id" />','<screen:resultSetItem row="<%=solution%>" name="round_id" />','<screen:resultSetItem row="<%=solution%>" name="problem_id" />')" CLASS="testTableOdd">
                                <screen:resultSetItem row="<%=solution%>" name="final_points" />
                            </A>
                        </TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=solution%>" name="division_desc" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=solution%>" name="level_desc" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="algorithmicCategoryList" /></TD>		       	        
-<%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="businessCategoryList" /></TD> --%>
-	        </TR>	        
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>          	        	        	        
+		       <TD ALIGN="center" CLASS="testTableOdd"><screen:resultSetItem row="<%=solution%>" name="division_desc" /></TD>
+		       <TD ALIGN="center" CLASS="testTableOdd"><screen:resultSetItem row="<%=solution%>" name="level_desc" /></TD>
+		       <TD ALIGN="center" CLASS="testTableOdd"><jsp:getProperty name="problemInfo" property="algorithmicCategoryList" /></TD>
+	        </TR>
            </screen:resultSetRowIterator>
            <% if(submissionInfo.getTopTCSolutions().isEmpty()){ %>
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" colspan='5'>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="testTableOdd" colspan='5'>
                            No TopCoder solutions available for this problem.
                        </TD>
 	        </TR>	        

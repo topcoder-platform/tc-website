@@ -729,12 +729,6 @@
         </init-param>
 
         <init-param>
-            <param-name>note_list_page</param-name>
-            <param-value>candidate/noteList.jsp</param-value>
-            <description></description>
-        </init-param>
-
-        <init-param>
             <param-name>note_create_page</param-name>
             <param-value>candidate/noteCreate.jsp</param-value>
             <description></description>
@@ -826,6 +820,12 @@
         </init-param>
 
         <init-param>
+            <param-name>profile_session_list_query_key</param-name>
+            <param-value>profileSessionList</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
             <param-name>profile_info_query_key</param-name>
             <param-value>profileInfo</param-value>
             <description></description>
@@ -864,6 +864,12 @@
         <init-param>
             <param-name>profile_list_page</param-name>
             <param-value>profile/profileList.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_detail_page</param-name>
+            <param-value>profile/profileDetail.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -998,6 +1004,12 @@
         <init-param>
             <param-name>test_results_page</param-name>
             <param-value>results/testResults.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>printer_results_page</param-name>
+            <param-value>results/printerResults.jsp</param-value>
             <description></description>
         </init-param>
 

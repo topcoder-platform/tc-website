@@ -48,43 +48,33 @@ function getProblemDetail(id) {
             </table>
 
                    
-        <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">	        
+         <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
-		       <TD COLSPAN="2" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;</B></TD>
-		       <TD COLSPAN="3" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;TopCoder Submission %</B></TD>
-		       <TD COLSPAN="2" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;</B></TD>		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Name</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Division</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Difficulty</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Overall Accuracy %</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Sub. Acc. %</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Sub. %</B></TD>		       		       		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Algorithmic Categories</B></TD>		       
-<%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Business Categories</B></TD> --%>
-	        </TR>          
+		       <TD ALIGN="center" CLASS="testTableTitle">Name</TD>
+		       <TD ALIGN="center" CLASS="testTableTitle">Division</TD>
+		       <TD ALIGN="center" CLASS="testTableTitle">Difficulty</TD>
+		       <TD ALIGN="center" CLASS="testTableTitle">Overall Accuracy %</TD>
+		       <TD ALIGN="center" CLASS="testTableTitle">Sub. Acc. %</TD>
+		       <TD ALIGN="center" CLASS="testTableTitle">Sub. %</TD>
+		       <TD ALIGN="center" CLASS="testTableTitle">Algorithmic Categories</TD>
+	        </TR>
         <jsp:useBean id='problemList' type='java.util.List' scope='request' />
         <screen:nestedListIterator id="subSet" list="<%=problemList%>">
             <% ProblemInfo firstProblem = (ProblemInfo)subSet.get(0); %>
             <TR>
-                <TD COLSPAN="8" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<B><%=firstProblem.getRoundName()%></B></TD>
+                <TD COLSPAN="8" CLASS="testFormHeader"><%=firstProblem.getRoundName()%></TD>
             </TR>
             <screen:problemInfoIterator id="problem" list="<%= subSet %>">
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<screen:beanWrite name='problem' property='roundId' />,<screen:beanWrite name='problem' property='problemId' />')" CLASS="bodyText"><screen:beanWrite name='problem' property='problemName' /></A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='divisionDesc' /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='difficultyDesc' /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='overallAccuracy' />%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='submissionAccuracy' />%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='submission' />%</TD>		       		       		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>		       
-<%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='businessCategoryList' /></TD> --%>
+		       <TD ALIGN="center" CLASS="testTableOdd"><A HREF="JavaScript:getProblemDetail('<screen:beanWrite name='problem' property='roundId' />,<screen:beanWrite name='problem' property='problemId' />')" CLASS="bodyText"><screen:beanWrite name='problem' property='problemName' /></A></TD>
+		       <TD ALIGN="center" CLASS="testTableOdd"><screen:beanWrite name='problem' property='divisionDesc' /></TD>
+		       <TD ALIGN="center" CLASS="testTableOdd"><screen:beanWrite name='problem' property='difficultyDesc' /></TD>
+		       <TD ALIGN="center" CLASS="testTableOdd"><screen:beanWrite name='problem' property='overallAccuracy' />%</TD>
+		       <TD ALIGN="center" CLASS="testTableOdd"><screen:beanWrite name='problem' property='submissionAccuracy' />%</TD>
+		       <TD ALIGN="center" CLASS="testTableOdd"><screen:beanWrite name='problem' property='submission' />%</TD>
+		       <TD ALIGN="center" CLASS="testTableOdd"><screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>
 	        </TR>
             </screen:problemInfoIterator>
-            <TR>
-                <TD COLSPAN="7"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-            </TR>
         </screen:nestedListIterator>
         </TABLE>                 
 </FORM>         

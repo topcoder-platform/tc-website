@@ -17,7 +17,8 @@ public class ProfileInfo extends BaseModel {
     private ResultSetContainer languageList;
     private HashSet testSetB;
     private ArrayList language;
-    private String testSetAName;    
+    private String testSetAName;
+    private ResultSetContainer sessionList;
 
     public ProfileInfo()
     {
@@ -30,7 +31,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>profileId</code>.
      *
-     * @param profileId
+     * @param val
      */
     public void setProfileId( Long val )
     {
@@ -50,7 +51,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>profileName</code>.
      *
-     * @param profileName
+     * @param val
      */
     public void setProfileName( String val )
     {
@@ -70,7 +71,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>testSetA</code>.
      *
-     * @param testSetA
+     * @param val
      */
     public void setTestSetA( String val )
     {
@@ -81,7 +82,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>testSetA</code>.
      *
-     * @param testSetA
+     * @param val
      */
     public void setTestSetA( Long val )
     {
@@ -101,7 +102,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>problemSetList</code>.
      *
-     * @param problemSetList
+     * @param val
      */
     public void setProblemSetList( ResultSetContainer val )
     {
@@ -121,7 +122,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>testSetAList</code>.
      *
-     * @param testSetAList
+     * @param val
      */
     public void setTestSetAList( List val )
     {
@@ -141,7 +142,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>testSetBList</code>.
      *
-     * @param testSetBList
+     * @param val
      */
     public void setTestSetBList( List val )
     {
@@ -161,7 +162,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>companyProblemList</code>.
      *
-     * @param companyProblemList
+     * @param val
      */
     public void setCompanyProblemList( ResultSetContainer val )
     {
@@ -181,7 +182,7 @@ public class ProfileInfo extends BaseModel {
     /**
      * Sets the value of <code>languageList</code>.
      *
-     * @param languageList
+     * @param val
      */
     public void setLanguageList( ResultSetContainer val )
     {
@@ -266,5 +267,13 @@ public class ProfileInfo extends BaseModel {
      */
     public void setTestSetAName(String testSetAName) {
         this.testSetAName = testSetAName;
+    }
+
+    public ResultSetContainer getSessionList() {
+        return sessionList;
+    }
+
+    public void setSessionList(ResultSetContainer sessionList) {
+        this.sessionList = sessionList;
     }
 }

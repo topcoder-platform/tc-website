@@ -54,83 +54,44 @@ function getProblemDetail(id) {
 
             <jsp:useBean id="profileList" type="java.util.List" scope="request" />
 
-            <screen:nestedListIterator id="profile" list="<%= profileList %>">
-            <%
-                boolean even = true;
-                ResultSetContainer.ResultSetRow first = (ResultSetContainer.ResultSetRow)profile.get(0);
-            %>
-
-            <table cellspacing="1" cellpadding="0" width="100%">
-                <tr><td class="testHeadSmall"><screen:resultSetItem row="<%=first%>" name="session_profile_desc" /></td></tr>
-            </table>
-
-            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+            <table cellspacing="1" cellpadding="3" width="70%" class="testFrame">
                 <tr>
-                    <td colspan="2" class="testTableTitleSmall">&#160;</td>
-                    <td colspan="4" align="center" class="testTableTitleSmall">Candidates</td>
+                    <td class="testTableTitleSmall">&#160;</td>
+                    <td colspan="2" align="center" class="testTableTitleSmall">Candidates</td>
+                    <td class="testTableTitleSmall">&#160;</td>
+
                 </tr>
 
                 <tr>
-                   <td colspan="2" align="center" class="testFormHeader">Problem Set</td>
-                   <td colspan="2" align="center" class="testFormHeader">Total</td>
-                   <td colspan="2" align="center" class="testFormHeader">Complete</td>
+                   <td align="center" class="testFormHeader">Test Profile</td>
+                   <td align="center" class="testFormHeader">Total</td>
+                   <td align="center" class="testFormHeader">Complete</td>
+                   <td align="center" class="testFormHeader">Create Date</td>
                 </tr>
-
-                <tr>
-                    <td colspan="2" align="center" class="testTableEven"><screen:resultSetItem row="<%=first%>" name="round_name" /></td>
-                    <td colspan="2" align="center" class="testTableEven"><screen:resultSetItem row="<%=first%>" name="num_sessions" /></td>
-                    <td colspan="2" align="center" class="testTableEven"><screen:resultSetItem row="<%=first%>" name="num_complete" /></td>
-                </tr>
-
-                <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td></tr>
-
-                <tr>
-                   <td colspan="2" align="center" class="testHeadSmall">&#160;</td>
-                   <td align="center" class="testHeadSmall">&#160;</td>
-                   <td align="center" class="testHeadSmall">PROBLEMS</td>
-                   <td colspan="2" align="center" class="testHeadSmall">&#160;</td>
-                </tr>
-
-                <tr>
-                   <td align="center" class="testHeadSmall">Candidate</td>
-                   <td align="center" class="testHeadSmall">Status</td>
-                   <td align="center" class="testFormHeader">Presented</td>
-                   <td align="center" class="testFormHeader">Submitted</td>
-                   <td align="center" class="testFormHeader">Passed</td>
-                   <td align="center" class="testHeadSmall">&#160;</td>
-                </tr>
-
-                <screen:resultSetRowIterator id='row' list='<%= profile %>'>
-
-                <%-- Do a table body row --%>
-                <% if(row.getItem("num_sessions").toString().equals("0")){ %>
-                <tr><td colspan="6" align="center" class="bodyText" bgcolor="#EEEEEE">No sessions scheduled for this profile.</td></tr>
-
+                <% if(profileList.isEmpty()){ %>
+                    <tr>
+                       <td colspan="4" align="center" class="testTableOdd">No test profiles have been created.</td>
+                    </tr>
                 <% } else { %>
-                <%
-                    String cparam = Constants.CANDIDATE_ID + '=' + row.getItem("user_id");
-                    String sparam = Constants.SESSION_ID + '=' + row.getItem("session_id");
+                    <% int i = 0;
+                        String cparam = null;
+                    %>
 
-                    String color = (even) ? "bgcolor='#EEEEEE'" : "";
-                %>
-                <tr>
-                    <td width="20%" class="bodyText" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:sessionStatus row="<%=row%>" /></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><screen:sessionStatusLink row="<%=row%>" /></screen:servletLink></td>
-                </tr>
+                    <screen:resultSetRowIterator id='row' list='<%= profileList %>'>
+                    <% i++;
+                       cparam = Constants.PROFILE_ID + '=' + row.getItem("session_profile_id");
+                    %>
+                    <tr>
+                        <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:servletLink processor="ProfileDetail" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></screen:servletLink></td>
+                        <td align="center" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:resultSetItem row="<%=row%>" name="num_sessions" /></td>
+                        <td align="center" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:resultSetItem row="<%=row%>" name="num_complete" /></td>
+                        <td align="center" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:resultSetItem row="<%=row%>" name="create_date" format='MM/dd/yyyy hh:mm a'/></td>
+                    </tr>
+                    </screen:resultSetRowIterator>
                 <% } %>
-                <% even = !even; %>
-                </screen:resultSetRowIterator>
             </table>
             <p><br></p>
-            </screen:nestedListIterator>
 
-            <% if(profileList.isEmpty()){ %>
-                No test profiles found.
-            <% } %>
 
             <p><br></p>
         </td>

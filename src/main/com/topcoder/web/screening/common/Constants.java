@@ -57,7 +57,6 @@ public class Constants
     public static String CANDIDATE_INFO;
     public static String CANDIDATE_SETUP_PAGE;
     public static String CANDIDATE_LIST_PAGE;
-    public static String NOTE_LIST_PAGE;
     public static String NOTE_CREATE_PAGE;
     public static String UC_DEFAULT_FORWARD_PROCESSOR;
     public static String UC_CREATE_CODER_STATUS_ID;
@@ -78,10 +77,12 @@ public class Constants
     public static String PROFILE_INFO_QUERY_KEY;
     public static String PROFILE_PROBLEMS_QUERY_KEY;
     public static String PROFILE_LANGUAGES_QUERY_KEY;
+    public static String PROFILE_SESSION_LIST_QUERY_KEY;
     public static String POPULATE_PROFILE_PROCESSOR;
     public static String PROFILE_SETUP_PAGE;
     public static String PROFILE_CONFIRM_PAGE;
     public static String PROFILE_LIST_PAGE;
+    public static String PROFILE_DETAIL_PAGE;
     public static String PROFILE_ADD_PROBLEM_PROCESSOR;
     public static String PROFILE_REMOVE_PROBLEM_PROCESSOR;
     public static String PROFILE_CONFIRM_PROCESSOR;
@@ -108,6 +109,7 @@ public class Constants
     public static String PROBLEM_RESULT_PAGE;
     public static String TC_PROBLEM_RESULT_PAGE;
     public static String TEST_RESULTS_PAGE;
+    public static String PRINTER_RESULTS_PAGE;
 
     //Session constants
     public static String POPULATE_SESSION_PROCESSOR;
@@ -195,7 +197,6 @@ public class Constants
         CANDIDATE_INFO = config.getInitParameter("candidate_info_attribute");
         CANDIDATE_SETUP_PAGE = JSP_ROOT+config.getInitParameter("candidate_setup_page");
         CANDIDATE_LIST_PAGE = JSP_ROOT+config.getInitParameter("candidate_list_page");
-        NOTE_LIST_PAGE = JSP_ROOT+config.getInitParameter("note_list_page");
         NOTE_CREATE_PAGE = JSP_ROOT+config.getInitParameter("note_create_page");
         UC_DEFAULT_FORWARD_PROCESSOR = config.getInitParameter("update_candidate_default_forward_processor");
         UC_CREATE_CODER_STATUS_ID = config.getInitParameter("update_candidate_create_coder_status_id");
@@ -216,10 +217,12 @@ public class Constants
         PROFILE_INFO_QUERY_KEY = config.getInitParameter("profile_info_query_key");
         PROFILE_PROBLEMS_QUERY_KEY = config.getInitParameter("profile_problems_query_key");
         PROFILE_LANGUAGES_QUERY_KEY = config.getInitParameter("profile_languages_query_key");
+        PROFILE_SESSION_LIST_QUERY_KEY = config.getInitParameter("profile_session_list_query_key");
         POPULATE_PROFILE_PROCESSOR = config.getInitParameter("populate_profile_processor");
         PROFILE_SETUP_PAGE = JSP_ROOT+config.getInitParameter("profile_setup_page");
         PROFILE_CONFIRM_PAGE = JSP_ROOT+config.getInitParameter("profile_confirm_page");
         PROFILE_LIST_PAGE = JSP_ROOT+config.getInitParameter("profile_list_page");
+        PROFILE_DETAIL_PAGE = JSP_ROOT+config.getInitParameter("profile_detail_page");
         PROFILE_ADD_PROBLEM_PROCESSOR = config.getInitParameter("profile_add_problem_processor");
         PROFILE_REMOVE_PROBLEM_PROCESSOR = config.getInitParameter("profile_remove_problem_processor");
         PROFILE_CONFIRM_PROCESSOR = config.getInitParameter("profile_confirm_processor");
@@ -246,6 +249,7 @@ public class Constants
         PROBLEM_RESULT_PAGE = JSP_ROOT+config.getInitParameter("problem_result_page");
         TC_PROBLEM_RESULT_PAGE = JSP_ROOT+config.getInitParameter("tc_problem_result_page");
         TEST_RESULTS_PAGE = JSP_ROOT+config.getInitParameter("test_results_page");
+        PRINTER_RESULTS_PAGE = JSP_ROOT+config.getInitParameter("printer_results_page");
 
         //Session constants
         POPULATE_SESSION_PROCESSOR = config.getInitParameter("populate_session_processor");

@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.sessionprofile;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
@@ -28,5 +30,8 @@ public interface SessionProfileLanguage extends EJBObject{
      * @throws RemoteException
      */
     public void removeProfileLanguage(long sessionProfileId, int languageId)
+            throws RemoteException;
+
+    public ResultSetContainer getLanguages(long sessionProfileId)
             throws RemoteException;
 }

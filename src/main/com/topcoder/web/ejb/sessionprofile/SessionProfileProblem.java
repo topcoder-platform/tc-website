@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.sessionprofile;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
@@ -99,14 +101,6 @@ public interface SessionProfileProblem extends EJBObject {
                                   int problemTypeId)
             throws RemoteException;
 
-    /**
-     *
-     * @param sessionProfileId
-     * @param problemId
-     * @return
-     * @throws RemoteException
-     */
-    //public String getProblemTypeDesc(long sessionProfileId, long problemId)
-    //        throws RemoteException;
+    public ResultSetContainer getProblems(long sessionProfileId) throws RemoteException;
 
 }
