@@ -35,7 +35,7 @@
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
     <tr>
-        <td class=homeLogo><a href="http://www.topcoder.com"><img src="/images/logo.gif" width="206" height="49" border="0" alt="TopCoder"></a></td>
+        <td class=homeLogo><a href="http://<%=ApplicationServer.TC_SERVER%>"><img src="/images/logo.gif" width="206" height="49" border="0" alt="TopCoder"></a></td>
     </tr>
 </table>
 <!-- Header ends -->
