@@ -110,26 +110,6 @@
     </target>
 
 
-    <target name="build_ejbs" depends="compile">
-        <antcall target="package-EJB-PactsServicesBean"/>
-        <antcall target="package-EJB-JavaDocServicesBean"/>
-        <antcall target="package-EJB-UserServicesBean"/>
-        <antcall target="package-EJB-DataCacheBean"/>
-        <antcall target="package-EJB-UtilBean"/>
-        <antcall target="package-EJB-AuthenticationServicesBean"/>
-        <antcall target="package-EJB-EmailServicesBean"/>
-        <antcall target="package-EJB-SearchBean"/>
-        <antcall target="package-EJB-ReportingBean"/>
-        <antcall target="package-EJB-JobPostingServicesBean"/>
-        <antcall target="package-EJB-ResumeServicesBean"/>
-        <antcall target="package-EJB-QueryServicesBean"/>
-        <antcall target="package-EJB-MainEmailBean"/>
-        <antcall target="package-EJB-UserBean"/>
-        <antcall target="package-EJB-MainAddressBean"/>
-        <antcall target="package-EJB-MainPhoneBean"/>
-        <antcall target="package-EJB-CoderBean"/>
-    </target>
-
     <target name="package-EJB-QueryServicesBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="QueryServices"/>
@@ -621,34 +601,29 @@
         </jar>
     </target>
 
-    <target name="build_wars" depends="compile">
-        <delete dir="${war.dir}"/>
-        <mkdir dir="${war.dir}"/>
-        <antcall target="war_email"/>
-        <antcall target="war_query"/>
-        <antcall target="deploy-admin"/>
+
+    <target name="war-query" depends="compile">
+        <war warfile="${war.dir}/query.war" webxml="${resources}/query/web.xml">
+            <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/query/**"/>
+            </classes>
+            <webinf dir="${resources}/query">
+                <include name="query-taglib.tld"/>
+            </webinf>
+        </war>
     </target>
 
-    <target name="dev_wars" depends="compile">
-        <antcall target="dev_war_query"/>
-        <antcall target="dev_war_email"/>
-    </target>
-
-    <target name="dev_war_query" depends="war_query">
-        <copy todir="${public_html}" file="${war.dir}/query.war"/>
+    <target name="deploy-query" depends="compile">
+        <antcall target="package-EJB-QueryServicesBean"/>
+        <antcall target="war-query"/>
         <unwar src="${public_html}/query.war" dest="${public_html}/query/" overwrite="yes"/>
-        <delete file="${public_html}/query.war"/>
         <delete dir="${public_html}/query/META-INF"/>
     </target>
 
-    <target name="dev_war_email" depends="war_email">
-        <copy todir="${public_html}" file="${war.dir}/email.war"/>
-        <unwar src="${public_html}/query.war" dest="${public_html}/email/" overwrite="yes"/>
-        <delete file="${public_html}/email.war"/>
-        <delete dir="${public_html}/email/META-INF"/>
-    </target>
-
-    <target name="war_email" depends="compile">
+    <target name="war-email" depends="compile">
         <war warfile="${war.dir}/email.war" webxml="${resources}/email/web.xml">
             <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
                 <include name="**/*.jsp"/>
@@ -665,27 +640,16 @@
         </war>
     </target>
 
-    <target name="war_query" depends="compile">
-        <war warfile="${war.dir}/query.war" webxml="${resources}/query/web.xml">
-            <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/query/**"/>
-            </classes>
-            <webinf dir="${resources}/query">
-                <include name="query-taglib.tld"/>
-            </webinf>
-        </war>
+    <target name="deploy-email" depends="compile">
+        <antcall target="package-EJB-EmailServicesBean"/>
+        <antcall target="war-email"/>
+        <unwar src="${public_html}/email.war" dest="${public_html}/email/" overwrite="yes"/>
+        <delete dir="${public_html}/email/META-INF"/>
     </target>
 
     <!-- hs -->
-    <target name="deploy_hs" depends="war_hs,build_hs_ejbs">
-        <antcall target="dev_war_hs"/>
-    </target>
-
-    <target name="build_hs_ejbs" depends="compile">
-        <antcall target="package-EJB-QueryServicesBean"/>
+    <target name="deploy_hs" depends="war_hs">
+        <antcall target="deploy-query"/>
         <antcall target="package-EJB-UserBean"/>
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="HSTermsOfUse"/>
@@ -708,7 +672,9 @@
         <antcall target="package-EJB-SchoolBean"/>
         <antcall target="package-EJB-RatingBean"/>
         <antcall target="package-EJB-CoderBean"/>
+        <antcall target="dev_war_hs"/>
     </target>
+
 
     <target name="dev_war_hs" depends="war_hs">
         <copy todir="${public_html}" file="${war.dir}/hs.war"/>
@@ -771,7 +737,8 @@
         </war>
     </target>
 
-    <target name="deploy-corp" depends="war_corp,war_query">
+    <target name="deploy-corp" depends="war_corp">
+        <antcall target="deploy-query"/>
         <unwar src="${war.dir}/corp.war" dest="${public_html}/corp/" overwrite="yes"/>
         <delete dir="${public_html}/corp/META-INF"/>
 
@@ -780,45 +747,20 @@
     </target>
 
     <target name="corp-ejb-all" depends="compile">
-        <!-- QueryServices ejb -->
-        <antcall target="package-EJB-QueryServicesBean"/>
-
         <antcall target="package-EJB-DataCacheBean"/>
-
-        <!-- Resume ejb -->
         <antcall target="package-EJB-ResumeServicesBean"/>
-
-        <!-- Address ejb -->
         <antcall target="package-EJB-CorpAddressBean"/>
-
-        <!-- Company ejb -->
         <antcall target="package-EJB-CompanyBean"/>
-
-        <!-- Email ejb -->
         <antcall target="package-EJB-CorpEmailBean"/>
-
-        <!-- Phone ejb -->
         <antcall target="package-EJB-CorpPhoneBean"/>
-
-        <!-- Product ejb -->
         <antcall target="package-EJB-ProductBean"/>
-
-        <!-- TermsOfUse ejb -->
         <antcall target="package-EJB-CorpTermsOfUseBean"/>
-
-        <!-- User ejb -->
         <antcall target="package-EJB-UserBean"/>
-
         <antcall target="package-EJB-ScreeningCoderBean"/>
-
         <antcall target="package-EJB-ScreeningEmailBean"/>
-
         <antcall target="package-EJB-NoteBean"/>
-
         <antcall target="package-EJB-SessionBean"/>
-
         <antcall target="package-EJB-SessionProfileBean"/>
-
     </target>
 
     <target name="build-ejb-unit" depends="compile">
@@ -850,8 +792,6 @@
         </java>
         <echo message="${unit-jar-name}.jar done"/>
     </target>
-
-    <!-- end corp targets -->
 
 
     <target name="compile_tests" depends="compile">
@@ -1011,7 +951,24 @@
 
 
     <target name="deploy-tc" depends="compile">
-        <antcall target="build_ejbs"/>
+        <antcall target="deploy-query"/>
+        <antcall target="deploy-email"/>
+        <antcall target="deploy-admin"/>
+        <antcall target="package-EJB-PactsServicesBean"/>
+        <antcall target="package-EJB-JavaDocServicesBean"/>
+        <antcall target="package-EJB-UserServicesBean"/>
+        <antcall target="package-EJB-DataCacheBean"/>
+        <antcall target="package-EJB-UtilBean"/>
+        <antcall target="package-EJB-AuthenticationServicesBean"/>
+        <antcall target="package-EJB-SearchBean"/>
+        <antcall target="package-EJB-ReportingBean"/>
+        <antcall target="package-EJB-JobPostingServicesBean"/>
+        <antcall target="package-EJB-ResumeServicesBean"/>
+        <antcall target="package-EJB-MainEmailBean"/>
+        <antcall target="package-EJB-UserBean"/>
+        <antcall target="package-EJB-MainAddressBean"/>
+        <antcall target="package-EJB-MainPhoneBean"/>
+        <antcall target="package-EJB-CoderBean"/>
         <antcall target="package-EJB-ProblemRatingServicesBean"/>
         <antcall target="package-EJB-SurveyBean"/>
         <antcall target="war-tc"/>
