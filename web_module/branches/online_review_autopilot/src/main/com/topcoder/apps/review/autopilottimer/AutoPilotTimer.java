@@ -10,8 +10,7 @@ import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.RolePrincipal;
 
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
+import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.apps.review.EJBHelper;
 
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
@@ -79,9 +78,13 @@ public class AutoPilotTimer
                 ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker(); 
 
                 UserProjectInfo[] projs = projectTracker.getProjectInfo(user);
-                logger.debug("LENGTH: " + projs.length);
+                
                 for(int i = 0; i < projs.length;i++) {
-                    logger.debug("PROJECT: " + projs[i].getProjectName());
+                    if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_SUBMISSION) {
+                        if(projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
+                            logger.debug("SELECTED: " + projs[i].getProjectName());
+                        }
+                    } 
                 }
             } catch(Exception e) {
                 logger.error(e.getMessage());
