@@ -80,7 +80,9 @@
         <B><U>AIRLINE INFORMATION:</U></B><BR/>
         <BR/>
           TopCoder will secure airline reservations based upon your registration information and email a travel
-            itinerary to you.  Travel arrangements need to be finalized no later than <strong>Wednesday, November 12th</strong>.
+            itinerary to you.  TopCoder will provide travel arrangements for each competitor and a guest, up
+            to a cost of $1,000 per person.   Any cost in excess of $1,000 per person will be the responsibility
+            of the contestant.  This form must be completed and submitted by <strong>Midnight Wednesday, November 12th</strong>.
             Please be advised that once airlines tickets are confirmed, any changes are subject to penalty fees
             at your own expense.<BR/>
         <BR/>
@@ -90,6 +92,11 @@
             More information will be provided prior to the event. <strong><u>Please plan for your arrival  by 4:00pm
             on December 3rd.</u></strong><BR/>
         <BR/>
+            <B><U>AWARDS DINNER:</U></B><BR/>
+            <BR/>
+                All finalists and one(1) guest are invited to attend the awards dinner on Friday December 5th.
+                Please not that attire is business casual.<BR/>
+            <BR/>
         <BR/>
         <BR/>
         <CENTER>
@@ -135,7 +142,12 @@
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q7" VALUE="School"/>School:</TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q18" VALUE="School"/>Employer (if applicable):</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a18" size="30"/></TD>
+            </TR>
+
+            <TR>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q7" VALUE="School"/>School (if applicable):</TD>
               <TD align="left"><INPUT TYPE="text" NAME="a7" size="30"/></TD>
             </TR>
             <BR/>
@@ -184,7 +196,7 @@
 
             <TR>
               <TD COLSPAN="2">
-                  Please list your local newspapers, radio, and television stations for both hometown and college locations.
+                  Please list your local newspapers, radio, and television stations for both hometown and college (if applicable) locations.
               </TD>
             </TR>
 
