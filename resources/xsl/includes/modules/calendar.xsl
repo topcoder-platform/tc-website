@@ -7,7 +7,7 @@
                         <table width="100%" border="0" cellspacing="1" cellpadding="1">
                             <tr><td colspan="7" class="statTextBig" nowrap="nowrap" height="18">&#160;Match Dates: MARCH</td></tr>
                             
-                            <tr bgcolor="#CC6600"> 
+                            <tr> 
                                 <td id="calendarDays" width="15%">S</td>
                                 <td id="calendarDays" width="14%">M</td>
                                 <td id="calendarDays" width="14%">T</td>
