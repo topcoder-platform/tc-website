@@ -60,7 +60,7 @@
               <TD COLSPAN="3"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>                    
            <TR>
-              <TD COLSPAN="3" ALIGN="center" HEIGHT="15"><screen:servletLink processor="NoteCreate" param="<%=Constants.CANDIDATE_ID%>=<%=candidateInfo.getUserId()%>" styleClass="bodyText">Add</screen:servletLink></TD>
+              <TD COLSPAN="3" ALIGN="center" HEIGHT="15"><screen:servletLink processor="NoteCreate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText">Add</screen:servletLink></TD>
            </TR>           
          </TABLE>                        
 </FORM>         
