@@ -24,8 +24,8 @@ public class FullReg extends FullRegBase {
     protected SimpleRegInfo makeRegInfo() throws Exception {
         SimpleRegInfo ret = super.makeRegInfo();
         //set a couple of additional defaults for this verizon deal
-        ret.setCity("Chennai");
-        ret.setCountryCode("356");
+        if (ret.getCity()==null || ret.getCity().length()==0) ret.setCity("Chennai");
+        if (ret.getCountryCode()==null || ret.getCountryCode().length()==0) ret.setCountryCode("356");
         return ret;
     }
 
