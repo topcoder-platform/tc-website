@@ -69,7 +69,16 @@ public final class ReportServlet extends HttpServlet {
                     DataAccessInt dai = new DataAccess((javax.sql.DataSource)
                             TCContext.getInitial().lookup(
                                     dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL)));
-                    Map dataMap = dai.getData(dataRequest);
+                    Map dataMap = null;
+                    try {
+                        dataMap = dai.getData(dataRequest);
+                    } catch (Exception e) {
+                        try {
+                            forwardToErrorPage(request, response, e);
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    }
                     request.setAttribute(Constants.REPORT_RESULT_KEY, dataMap);
                     response_addr = Constants.NEW_RESULT_ADDR;
                 }
@@ -158,11 +167,6 @@ public final class ReportServlet extends HttpServlet {
             goTo(Constants.JSP_ADDR + response_addr, request, response);
         } catch (Exception e) {
             e.printStackTrace();
-            try {
-                forwardToErrorPage(request, response, e);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
     }
 
