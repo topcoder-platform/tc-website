@@ -12,7 +12,8 @@
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tccc03_spons'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
 		<A HREF="/index?t=tournaments&amp;c=tccc03_spons" CLASS="statTextBig">Sponsor</A></TD> -->
 		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tccc03_regions_ne'">orangebv_bg</xsl:when>
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tccc03_regions'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='tccc03_regions_ne'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='tccc03_regions_se'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='tccc03_regions_w'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='tccc03_regions_mw'">orangebv_bg</xsl:when>
@@ -25,7 +26,7 @@
 			<xsl:when test="/TC/Command='tccc03_regions_w128'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='tccc03_regions_mw128'">orangebv_bg</xsl:when>
 			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
-		<A HREF="/index?t=tournaments&amp;c=tccc03_regions_ne" CLASS="statTextBig"></A>Regions</TD>
+		<A HREF="/index?t=tournaments&amp;c=tccc03_regions" CLASS="statTextBig">Regions</A></TD>
 		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tccc03_sched'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
 		<A HREF="/index?t=tournaments&amp;c=tccc03_sched" CLASS="statTextBig">Schedule</A></TD>
