@@ -97,7 +97,7 @@ document.write(' allowScriptAccess="sameDomain" ');
 document.write(' type="application/x-shockwave-flash" ');
 document.write(' pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
 document.write(' </object> ');
-document.write(' <p align="center"><a href="/tc?module=Static&d1=card&d2=instructions"><img src="/i/card/unlock.gif" border="0"/></a></p> ');
+document.write(' <p align="center"><a href="/card?module=Unlock"><img src="/i/card/unlock.gif" border="0"/></a></p> ');
 
 }
 // -->
@@ -108,7 +108,7 @@ document.write(' <p align="center"><a href="/tc?module=Static&d1=card&d2=instruc
 if (!MM_FlashCanPlay){
 document.write('<A href="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"> ');
 document.write('<img src="/i/card/noFlash.gif" width="400" height="410" border="0"></A> ');
-document.write(' <p align="center"><a href="/tc?module=Static&d1=card&d2=instructions"><img src="/i/card/unlock2.gif" border="0"/></a></p> ');
+document.write(' <p align="center"><a href="/card?module=Unlock"><img src="/i/card/unlock2.gif" border="0"/></a></p> ');
 }
 // -->
 </SCRIPT>
