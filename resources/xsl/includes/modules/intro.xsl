@@ -71,6 +71,20 @@
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
           &#160;
           <A CLASS="statText">
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
+            - Jobs
+          </A>
+        </TD>
+        <TD VALIGN="top" CLASS="statText">&#160;</TD>
+      </TR>      
+      <TR> 
+        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+      </TR>      
+      <TR>       
+        <TD VALIGN="top" CLASS="statText">&#160;</TD>
+        <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
+          &#160;
+          <A CLASS="statText">
             <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
             - <B>Register Now</B>
           </A>
@@ -143,7 +157,7 @@
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
           &#160;
           <A CLASS="statText">
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=empl_tces</xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=hiring</xsl:attribute>
             - Why TopCoder
           </A>
         </TD>
