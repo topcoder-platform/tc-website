@@ -57,13 +57,13 @@
                     <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 
 <!--body contextual links-->
-                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                            <tr><td valign="middle" height="18" bgcolor="#43515E" class="statText"><b>&#160;Solipsys Jobs</b></td></tr>
-                            <tr><td valign="middle" height="18" class="bodyText"><a href="/?&amp;t=tces&amp;c=symbol_openings&amp;a=secure" class="bodyText">Jobs</a> | <a href="http://www.symbol.com/about/careers/career_culture.html" target="_blank" class="bodyText">Culture</a> | <a href="http://www.symbol.com/about/careers/career_profgrowth.html" target="_blank" class="bodyText">Professional Growth</a> | <a href="http://www.symbol.com/about/careers/career_benefits.html" target="_blank" class="bodyText">Benefits</a></td></tr>
+                        <table width="100%" cellpadding="3" cellspacing="0" border="0">
+                            <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Symbol Jobs</b></td></tr>
+                            <tr><td valign="middle" class="bodyText"><a href="/?&amp;t=tces&amp;c=symbol_openings&amp;a=secure" class="bodyText">Jobs</a> | <a href="http://www.symbol.com/about/careers/career_culture.html" target="_blank" class="bodyText">Culture</a> | <a href="http://www.symbol.com/about/careers/career_profgrowth.html" target="_blank" class="bodyText">Professional Growth</a> | <a href="http://www.symbol.com/about/careers/career_benefits.html" target="_blank" class="bodyText">Benefits</a></td></tr>
                         </table>
 
 <!-- Client Message Begins -->
-                        <img src="/i/es/solipsys/solipsys_logo.gif" width="135" height="60" alt="" border="0" vspace="10"/>
+                        <p><a href="/?&amp;t=tces&amp;c=symbol" class="bodyText"><img src="/i/es/symbol/symbol_logo.gif" width="135" height="49" alt="" border="0" /></a></p>
 
                         <p>Symbol Technologies, Inc. is a global leader in mobile data management systems and services with innovative 
                         customer solutions based on wireless local area networking for voice and data, application-specific mobile 
@@ -83,7 +83,7 @@
                         solutions.  To ensure Symbol's continuing leadership in the integrated data management industry, the company 
                         gives its associates the resources they need, the freedom they crave and the encouragement they deserve.</p>
                         
-                       <p>Come on… <a href="/?&amp;t=tces&amp;c=solipsys_openings&amp;a=secure" class="bodyText">join our team.</a></p>
+                       <p>Come on... <a href="/?&amp;t=tces&amp;c=solipsys_openings&amp;a=secure" class="bodyText">join our team.</a></p>
 <!-- Client Message Ends -->
 
                         <p><br/></p>
