@@ -59,6 +59,24 @@
                     <td class="bodyText" width="100%">         
 <!-- 2003 Features -->
                         <table width="100%" border="0" cellpadding="3" cellspacing="0">
+                            <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong>2004 Features</strong></font></td></tr>        
+
+                            <tr valign="middle">
+                                <td width="20%" class="bodySubtitle"><strong>Date</strong></td>
+                                <td width="20%" class="bodySubtitle"><strong>Author</strong></td>
+                                <td width="60%" class="bodySubtitle"><strong>Feature</strong></td>
+                            </tr>
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">January 14</td>
+                                <td valign="middle" class="bodyText">dplass</td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_011404" class="bodyText">An Enterprise Java Overview</A></td>
+                            </tr>
+                            
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+                        </table>
+
+                        <table width="100%" border="0" cellpadding="3" cellspacing="0">
                             <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong>2003 Features</strong></font></td></tr>        
 
                             <tr valign="middle">
