@@ -19,6 +19,8 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCESAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.corp.Util;
+import com.topcoder.web.corp.request.Login;
+import java.net.URLEncoder;
 
 /**
  * Only two methods are supported GET & POST (identical behaviour in
@@ -45,6 +47,7 @@ public class MainServlet extends HttpServlet {
     
     private static final String KEY_MODULE      = "module";
     private static final String KEY_MAINPAGE    = "main";
+    private static final String KEY_LOGINPAGE   = "login";
     private static final String KEY_ERRORPAGE   = "error";
     private static final String KEY_EXCEPTION   = "caught-exception";
 
@@ -109,6 +112,12 @@ public class MainServlet extends HttpServlet {
                 log.debug("user [id="+tcUser.getUserId()+"] has not enough "+
                     "permissions to work with module "+processorClassName
                 );
+                if (authToken.getActiveUser().isAnonymous()) {
+                    log.debug("unauthorized user not logged in, forwarding"+
+                               "to login page");
+                    fetchLoginPage(request,response);
+                    return;
+                }
                 throw new NotAuthorizedException("Not enough permissions to "+
                     "work with requested module"
                 );
@@ -225,6 +234,34 @@ public class MainServlet extends HttpServlet {
         fetchRegularPage(req, resp, errorPage, true);
     }
     
+
+    /**
+     * private method for sending user to login page.
+     *
+     * @param request the servlet request object
+     * @param response the servlet response object
+     *
+     * @throws ServletException
+     * @throws IOException
+     */
+    private void fetchLoginPage(
+        HttpServletRequest request,
+        HttpServletResponse response
+    )
+    throws ServletException, IOException 
+    {
+        String originatingPage = request.getRequestURI();
+        if( request.getQueryString() != null ) {
+            originatingPage += "?"+request.getQueryString();
+        }
+        String destParam = Login.KEY_DESTINATION_PAGE;
+        String loginPage = servletConfig.getInitParameter(PFX_PAGE+KEY_MAINPAGE);
+        String loginPageDest = loginPage + "&" + destParam + "="
+                               + URLEncoder.encode(originatingPage);
+        fetchRegularPage(req, resp, loginPageDest, true);
+    }
+
+
     /**
      * For now it is just synonym for doGet.
      *
