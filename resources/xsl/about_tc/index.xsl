@@ -33,7 +33,7 @@
     <tr valign="top">
 
 <!-- Left Column Begins -->
-        <td width="170">
+        <td width="180">
             <xsl:call-template name="global_left" />
         </td>
 <!-- Left Column Ends -->
