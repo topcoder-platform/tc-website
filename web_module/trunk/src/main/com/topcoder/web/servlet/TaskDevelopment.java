@@ -1,8 +1,11 @@
 package com.topcoder.web.servlet;
 
+
 import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.CoderRegistration;
 import com.topcoder.common.web.data.Navigation;
+import com.topcoder.common.web.data.report.Constants;
+import com.topcoder.common.web.data.report.Query;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
@@ -120,10 +123,6 @@ public final class TaskDevelopment {
             devTag.addTag(new ValueTag("comp", comp));
             String date = Conversion.checkNull(request.getParameter("date"));
             String payment = Conversion.checkNull(request.getParameter("payment"));
-
-            
-            
-            
             
             String xsldocURLString = null;
             String project = Conversion.checkNull(request.getParameter("Project"));
@@ -200,7 +199,7 @@ public final class TaskDevelopment {
             }
             /********************** comp_projects2 *******************/
             else if (command.equals("comp_projects2")) {
-
+/*
                RecordTag designProjectsTag = new RecordTag("design_projects");
                Collection colComponents = getCatalog().getComponentsByStatus(ComponentInfo.APPROVED);
                ComponentSummary summaries[] = (ComponentSummary[])colComponents.toArray(new ComponentSummary[0]);
@@ -242,7 +241,24 @@ public final class TaskDevelopment {
                     else if (phaseId == ComponentVersionInfo.DEVELOPMENT){
                     }
                }  
-               devTag.addTag(designProjectsTag); 
+  */
+  
+//               DataAccessInt dai = null;
+//               DataAccessInt transDai = null;
+               Request dataRequest = null;
+               ResultSetContainer rsc = null;
+               Map resultMap = null;
+               DataAccessInt dai = new DataAccess((javax.sql.DataSource)
+                        TCContext.getInitial().lookup(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL)));
+
+               dataRequest = new Request();
+               dataRequest.setContentHandle("open_projects");
+               //dataRequest.setProperty("dn", "1");
+               resultMap = dai.getData(dataRequest);
+               rsc = (ResultSetContainer) resultMap.get("Top_Scorers");
+
+               devTag.addTag(rsc.getTag("projects", "project")); 
                xsldocURLString = XSL_DIR + command + ".xsl";
 
             }
@@ -713,5 +729,5 @@ public final class TaskDevelopment {
        return catalog;
     }    
 
-    
+
 }
