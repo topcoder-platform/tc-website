@@ -56,6 +56,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     public void setSessionId(long sessionId) {
+        log.debug("session id set to " + sessionId);
         this.sessionId = sessionId;
         getRequest().getSession().setAttribute(Constants.SESSION_ID, new Long(sessionId));
     }
@@ -73,6 +74,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     public void setCompanyId(long companyId) {
+        log.debug("company id set to " + companyId);
         this.companyId = companyId;
         getRequest().getSession().setAttribute(Constants.COMPANY_ID, new Long(companyId));
     }
