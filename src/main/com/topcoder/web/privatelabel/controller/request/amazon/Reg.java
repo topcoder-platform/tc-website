@@ -7,6 +7,13 @@ import com.topcoder.web.privatelabel.model.VerizonRegInfo;
 import com.topcoder.web.privatelabel.controller.request.FullReg;
 import com.topcoder.web.common.TCWebException;
 
+import com.topcoder.shared.security.Authorization;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.security.TCSubject;
+import com.topcoder.web.common.security.TCSAuthorization;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.*;
+import com.topcoder.web.corp.Util;
 /**
  * @author dok
  * Date: Jan 21, 2004
@@ -16,6 +23,24 @@ public class Reg extends FullReg {
     protected void setNextPage() {
         setNextPage(Constants.AMAZON_REG_PAGE);
         setIsNextPageInContext(true);
+    }
+    
+    protected void registrationProcessing() throws TCWebException {
+        try {
+            TCSubject tcUser = Util.retrieveTCSubject(getAuthentication().getActiveUser().getId());
+            Authorization authorization = new TCSAuthorization(tcUser);
+
+            if (!authorization.hasPermission(new ClassResource(this.getClass()))) {
+                //redirect
+                throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
+            }
+
+            super.registrationProcessing();
+        } catch (TCWebException we) {
+            throw we;
+        } catch(Exception e) {
+            throw new TCWebException(e);
+        }
     }
 
     /**
