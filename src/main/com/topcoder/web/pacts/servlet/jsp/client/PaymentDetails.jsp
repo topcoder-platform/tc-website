@@ -45,7 +45,7 @@ function goTo(selection){
 	<TR>
 		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-
+<BR/>
 <!-- <jsp:include page="MemberHeader.jsp" flush="true" /> -->
 <%@ page import="com.topcoder.web.pacts.common.*" %>
 
@@ -90,11 +90,13 @@ function goTo(selection){
 
 
 	PactsHtmlTable table = new PactsHtmlTable(tableData);
-	table.setBgcolor("\"#FFFFFF\"");
+	table.setBgcolor("\"#001935\"");
 	table.setCellSpacing("0");
-	table.setCellPadding("3");
-	table.setBorder("1");
+	table.setCellPadding("2");
+	table.setRowColor(0,"\"#093158\"");	
+	table.setBorder("0");
 	table.setFontSize("0");
+	table.setClassName("statText");	
 	out.print(table.getHtml());
     } else {
 %>
