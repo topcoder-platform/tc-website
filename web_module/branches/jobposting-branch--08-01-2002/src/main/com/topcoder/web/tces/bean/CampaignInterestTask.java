@@ -136,7 +136,14 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
             hit.put("coder_id", ((Long)hitListRow.getItem("coder_id").getResultData()).toString() );
             hit.put("job_id", ((Long)hitListRow.getItem("job_id").getResultData()).toString() );
             hit.put("handle", hitListRow.getItem("handle").toString() );
-            hit.put("rating", ((Integer)hitListRow.getItem("rating").getResultData()).toString() );
+            if ((Integer)hitListRow.getItem("rating").getResultData()).intValue() > 0) {
+                hit.put("rating",
+                        ((Integer)hitListRow.getItem("rating").getResultData()).toString() );
+            }
+            else {
+                // member is unrated.
+                hit.put("rating", "Not rated");
+            }
             hit.put("state", hitListRow.getItem("state_code").toString() );
             hit.put("country", hitListRow.getItem("country_code").toString() );
             hit.put("type", hitListRow.getItem("coder_type_desc").toString() );
