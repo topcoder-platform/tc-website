@@ -52,7 +52,7 @@ public class Static extends BaseProcessor {
          * this test fails.
          */
         StringBuffer paramNums = new StringBuffer(STATIC_PREFIX + 
-                                                  levelsDeep + "=");
+                                                  levelsDeep);
         for (int i=levelsDeep-1; i>0; i--) { 
             String lookFor = STATIC_PREFIX + i;
             String requestDirectory = request.getParameter(lookFor);
