@@ -27,6 +27,10 @@
 	    <TD BGCOLOR="#666666" ALIGN="center"><FONT SIZE="4" COLOR="#FFFFFF" FACE="arial, verdana, tahoma"><B>Date &amp; Time</B></FONT></TD>
 	</TR>
 	<TR>
+		<TD HEIGHT="22"><FONT SIZE="4" COLOR="#FFFFFF" FACE="verdana, arial, tahoma"><B>Qualification Round</B></FONT></TD>
+	    <TD><FONT SIZE="4" COLOR="#FFFFFF" FACE="verdana, arial, tahoma"><B>Wednesday, September 18th, 11:30AM - 7:00PM</B></FONT></TD>
+	</TR>	
+	<TR>
 		<TD HEIGHT="22"><FONT SIZE="4" COLOR="#FFFFFF" FACE="verdana, arial, tahoma"><B>Quarterfinals</B></FONT></TD>
 	    <TD><FONT SIZE="4" COLOR="#FFFFFF" FACE="verdana, arial, tahoma"><B>Thursday, September 19th, 11:30AM</B></FONT></TD>
 	</TR>	
@@ -39,7 +43,7 @@
 	    <TD><FONT SIZE="4" COLOR="#FFFFFF" FACE="verdana, arial, tahoma"><B>Thursday, September 19th, 4:00PM</B></FONT></TD>
 	</TR>	
 </TABLE>
-<BR/><BR/>
+<BR/>
 <TABLE BORDER="0" CELLSPACING="2" CELLPADDING="5" WIDTH="95%">
 	<TR>
 		<TD COLSPAN="2" BGCOLOR="#336699" ALIGN="center" HEIGHT="21"><FONT SIZE="5" COLOR="#FFFFFF" FACE="verdana, arial, tahoma"><B>Prizes</B></FONT></TD>
@@ -65,7 +69,7 @@
 	    <TD><FONT SIZE="4" COLOR="#FFFFFF" FACE="verdana, arial, tahoma"><B>$5,000</B></FONT></TD>
 	</TR>		
 </TABLE>
-<BR/><BR/>
+<BR/>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
 	<TR>
 		<TD WIDTH="160"><IMG SRC="/i/powered_by_white.gif" ALT="" WIDTH="160" HEIGHT="31" BORDER="0" HSPACE="10"/></TD>
