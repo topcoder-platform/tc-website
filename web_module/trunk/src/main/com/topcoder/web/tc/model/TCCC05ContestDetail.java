@@ -84,6 +84,7 @@ public class TCCC05ContestDetail implements Serializable {
         } else {
             points.add(new Integer(p));
             Collections.sort(points);
+            Collections.reverse(points);
             ArrayList al = new ArrayList();
             for(int i = 0; i < max; i++) {
                 al.add(points.get(i));
