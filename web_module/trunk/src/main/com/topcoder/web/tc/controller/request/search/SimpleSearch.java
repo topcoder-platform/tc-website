@@ -46,6 +46,11 @@ public class SimpleSearch extends Base {
         }
     }
 
+    /**
+     * pull the info out of the request and do some error checking
+     * @return
+     * @throws Exception
+     */
     protected MemberSearch buildMemberSearch() throws Exception {
         MemberSearch ret = new MemberSearch();
 
