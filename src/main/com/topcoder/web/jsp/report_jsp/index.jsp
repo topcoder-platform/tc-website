@@ -90,7 +90,7 @@
       <b>Profile Information<b><br/>
       <ul><li><a href=<%=Constants.SERVLET_ADDR + "?c=" + Constants.REPORT_PROFILE_LIST_MENU_KEY%>>Profile List<a></li></ul>
       <ul><li><a href=<%=Constants.JSP_ADDR + Constants.REPORT_PROFILE_ADDR%>>Profile Look Up<a></li></ul>
-     <!-- <ul><li><a href=<%=Constants.JSP_ADDR + "?c=" + Constants.REPORT_PROFILE_LIST_MENU_KEY%>>Profile List<a></li></ul>-->
+     <!-- <ul><li><a href=<%=Constants.JSP_ADDR + "?"+Constants.TASK_NAME_KEY+"=" + Constants.REPORT_PROFILE_LIST_MENU_KEY%>>Profile List<a></li></ul>-->
 <%
    }
 %>
