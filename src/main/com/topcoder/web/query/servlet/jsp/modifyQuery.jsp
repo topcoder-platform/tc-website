@@ -13,12 +13,12 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
   </HEAD>
-  <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0"">
+  <BODY BGCOLOR="#333333" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0"">
   <jsp:include page="top.jsp" />
 
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
-      <TD WIDTH="170" bgcolor="#001935" VALIGN="top">
+      <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
         <TABLE WIDTH="170" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <query:linkIterator id="link" list="<%=ModifyQueryTask.getNavLinks()%>">
             <TR>
@@ -29,8 +29,8 @@
           </query:linkIterator>
         </TABLE>
       </TD>
-      <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
-      <TD CLASS="statText" WIDTH="100%" BGCOLOR="#001935" VALIGN="top">
+      <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
+      <TD CLASS="statText" WIDTH="100%" BGCOLOR="#000000" VALIGN="top">
         <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <FORM ACTION="<jsp:getProperty name="ModifyQueryTask" property="ServletPath"/>" method="post" name="ModQueryForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_QUERY_TASK%>">
@@ -76,10 +76,10 @@
           <FORM>
         </TABLE>
       </TD>
-      <TD WIDTH="4" BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
-      <TD WIDTH="10" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
+      <TD WIDTH="4" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="10" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
       </TD>
-      <TD WIDTH="25" BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="25" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
     </TR>
   </TABLE>
   </BODY>
