@@ -11,8 +11,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder | Private Label Registration</title>
+<title>Google Code Jam 2003</title>
 
+<link rel=stylesheet href="http://www.google.com/google.css">
 <jsp:include page="../script.jsp" />
 <script>
 function openWin(url, name, w, h) {
@@ -22,77 +23,56 @@ function openWin(url, name, w, h) {
 }
 </script>
 
+<style><!--
+body,td,font,p,a
+{
+    font-family:arial,sans-serif
+	}
+.sidebarBox
+{
+	border: 1px solid #95D597;
+	}
+.sidebarText
+{
+	color: #333;
+	line-height: 14px;
+	background-color: #EEEEEE;
+	}
+.sidebarTitle
+{
+	color: #333;
+	background-color: #CCCCCC;
+	}
+//-->
+</style>
+
 </head>
 
-<body>
+    <body class=corporate bgcolor="#ffffff" text="#000000" link="#0000CC" vlink="#800080" alink="#ff0000" topmargin=2>
+	
+	<div align="center">
+<%-- Google Header--%>
+<img width="276" height="110" src="http://www.google.com/codejam/codejam_logo.gif">
 
-<!-- TCO Header -->
-
-<a name="top_page"></a>
-<table  width="100%" border="0" cellspacing="0" cellpadding="0" class="bodyText">
-   <tr>
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-<!-- Header -->
-         <td width="100%" valign="top" class="bodyText" colspan="5">
-       
-         <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
-            <tr><td colspan="11" align="center"><img src="/i/events/google2003/google_logo_white.gif" width="300" height="150" border="0"/></td></tr>
-            <tr><td colspan="11"><img src="/i/clear.gif" width="10" height="10"></td></tr>
-            <tr><td colspan="11" align="center"><img src="/i/events/google2003/google_tagline.gif" width="173" height="15" border="0"/></td></tr>
-            <tr><td colspan="11"><img src="/i/clear.gif" width="10" height="20"></td></tr>
-
+<table border=0 cellspacing=5 width="740">
+   <tr> 
+      <td style="background-color: #006633">
+         <table class=sidebar bgcolor="#ffffff" cellpadding=15 cellspacing=0 border=0 width="100%">
             <tr>
-               <td width="50%">&nbsp;</td>
-               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_overview" style="text-decoration:none" ><font size="-1">Overview</font></a></td>
-               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_sched" style="text-decoration:none" ><font size="-1">Schedule</font></a></td>
-               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview" style="text-decoration:none" ><font size="-1"><img src="/i/events/google2003/rules_arrow_blue.gif" width="15" height="10" border="0"/>Rules</font></a></td>
-               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td bgcolor="#3366cc" align="center" width=95 nowrap><font color="#ffffff" size="-1"><b>Register Now</b></font></td>
-               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);" style="text-decoration:none"><font size="-1">Practice Arena</font></a></td>
-               <td width="50%">&nbsp;</td>
-            </tr>
-            <tr>
-               <td colspan="11" bgcolor=#3366cc><img width=1 height=1 alt=""></td>
-            </tr>
-         </table>
-         </td>
+               <td valign="top">
+                  <div class=content> 
+                  <div align="center">
+	            <font size="-1">
+                     <a href="/pl/?&module=Static&d1=google&d2=google_overview">Overview</a> &nbsp;|&nbsp; 
+                     <a href="/pl/?&module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp; 
+                     <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp; 
+                     <font color="006633">Register Now</font> &nbsp;|&nbsp; 
+                     <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
+                  </font>
+                  </div><br><br>
+                  <b><font size="+1">Registration</font></b><br>
 
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-      </tr>
-      <tr>
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-<!-- Left Column Begins -->
-        <td width="150" valign="top">      
-            <img src="/i/clear.gif" width="150" height="10" border="0"/><br />
-            <img src="/i/events/google2003/left.gif" width="150" height="450" border="0" usemap="#tchome"/>
-            <map name="tchome"><area shape="rect" alt="TC" coords="1,1,149,49" href="/" /></map>
-         </td>         
-<!-- Left Column Ends -->
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-<!-- Center Column Begins-->
-         <td width="100%" class="bodyText" valign="top">
-            <img src="/i/clear.gif" width="10" height="10" border="0"/><br />            
-
-      <h2>Registration</h2>
-      <table cellpadding="1" cellspacing="3" class="bodyText" align="center" width="100%">
+      <table cellpadding="1" cellspacing="3" class="bodyText" align="center" width="100%" border="0">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
@@ -103,10 +83,10 @@ function openWin(url, name, w, h) {
                 </td>
             </tr>
             <tr>
-                <td align="right" width="50%">
+                <td align="right" width="50%" valign="bottom">
                     Student/Professional
                 </td>
-                <td align="left" width="50%">
+                <td align="left" width="50%" valign="bottom">
                     Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
                     Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
                 </td>
@@ -129,36 +109,32 @@ function openWin(url, name, w, h) {
             </pl:questionIterator>
 
             <tr>
-               <td>
-               </td>
-               <td align="left">
-                  <p><br /></p>
-                  <p><a href="javascript: document.regForm.submit();" class="button" align="center">Submit</a></p>
-                  <p><br /></p>
+               <td colspan="2" align="center">
+                  <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
                </td>
             </tr>
          </form>
          </table>
-            <p><br /></p>
-         </td>
-<!-- Center Column Ends -->
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-         <td valign="top"><img src="/i/clear.gif" width="150" height="1" border="0"/></td>
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-    </tr>
+                  <p><br /></p>
+                  <p><a href="http://www.topcoder.com"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
+                  <font size="-1">This tournament is brought to you by TopCoder, Inc. (<a href="http://www.topcoder.com">http://www.topcoder.com</a>) 703 Hebron Avenue, Glastonbury, CT 06033 and Google Inc. (<a href="http://www.google.com">http://www.google.com</a>) 2400 Bayshore Parkway, Mountain View, CA 94043.
+                  </font></p>
+                  </div>
+               </td>
+            </tr>
+         </table>
+      </td>
+   </tr>
 </table>
-
-<!-- Footer Begins -->
-<jsp:include page="../google/google_foot.jsp" />
-<!-- Footer Ends -->
-
+</div>
+<p><div class=footer> 
+<small> &copy;2003 Google - 
+<a href="http://www.google.com/">Home</a> - 
+<a href="http://www.google.com/about.html">All About Google</a> - 
+<a href="http://www.topcoder.com/?t=about_tc&c=index">About TopCoder</a> - 
+<a href="http://www.google.com/jobs/">We're Hiring</a> 
+</small>
+</p>
+</div>
 </body>
 </html>
