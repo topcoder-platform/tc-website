@@ -26,11 +26,11 @@
 		<TD CLASS="bodyText" VALIGN="top">
 		
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 83</SPAN><BR/>
-Saturday, April 27, 2002<BR/>
+<SPAN CLASS="bodyTextBold">Single Round Match 84</SPAN><BR/>
+Tuesday, April 30, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR/>
-The top-two Rating Point Gains of all-time were established in Division-I during Single Round Match 83. In Room 22, <A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=1" CLASS="bodyGeneric">Yarin</A> was the winner with 1226.13 final points, which 
-produced the highest rating point gain ever...<BR/><BR/>
+It was a night of very close battles in the top-three Division-I rooms.<BR/> Starting right off in Room 1, where the top-rated coders battle each other every match, 
+<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">reid</A> was the winner with 1274.00 final points.<BR/><BR/>
 <A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">Get the summary</A> or <A HREF="/stat?c=last_match" CLASS="bodyGeneric">View Match Results</A>
 <BR CLEAR="all"/>
 </P>
