@@ -20,6 +20,7 @@ public class School
     private String modified;
     private float gpa;
     private float gpaScale;
+    private boolean viewable;
 
     public School() {
         init("");
@@ -43,6 +44,7 @@ public class School
         userId = 0;
         gpa = 0;
         gpaScale = 0;
+        viewable = true;
     }
 
     public boolean equals(Object other) {
@@ -58,6 +60,7 @@ public class School
                 && getSortLetter().equals(otherSchool.getSortLetter())
                 && getGpa() == otherSchool.getGpa()
                 && getGpaScale() == otherSchool.getGpaScale()
+                && isViewable() == otherSchool.isViewable()
         ) {
             result = true;
         }
@@ -79,6 +82,7 @@ public class School
             result.setGpa(getGpa());
             result.setGpaScale(getGpaScale());
             result.setModified(getModified());
+            result.setViewable(isViewable());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -156,6 +160,10 @@ public class School
         this.gpaScale = gpaScale;
     }
 
+    public void setViewable(boolean viewable) {
+        this.viewable = viewable;
+    }
+
 // get
 
     public int getSchoolId() {
@@ -196,6 +204,10 @@ public class School
 
     public float getGpaScale() {
         return gpaScale;
+    }
+
+    public boolean isViewable() {
+        return viewable;
     }
 
     public RecordTag getXML() throws Exception {
