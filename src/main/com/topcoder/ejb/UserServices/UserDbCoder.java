@@ -14,7 +14,7 @@ import com.topcoder.common.web.xml.*;
 final class UserDbCoder {
 
 
-  private static boolean VERBOSE = true;
+  private static boolean VERBOSE = false;
 
 
 
