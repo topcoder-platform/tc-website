@@ -25,7 +25,7 @@
 
             <p>This page should present you with a button to start the competition arena applet.</p>
 
-            <p>NOTE: If a red button to "Load Competition Arena" does <strong>not</strong> appear below, you may not have the appropriate 
+            <p>NOTE: If a red button to "Load Competition Arena" does <strong>not</strong> appear below, you may not have the appropriate
             Plug-in software installed.</p>
 
             <div align="center">
@@ -37,33 +37,37 @@
         vspace="0"
         hspace="0"
         codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
-<PARAM value="LaunchApplet" name="name">
-<PARAM value="com.topcoder.client.ChallengeApplet.LaunchApplet.class" name="code">
-<PARAM name="codebase" value="http://www.topcoder.com/Challenge/classes">
-<PARAM value="ChallengeApplet.jar" name="archive">
-<PARAM value="application/x-java-applet;version=1.3" name="type">
-<PARAM value="false" name="scriptable">
-<PARAM name="host" value="www.topcoder.com">
-<PARAM name="port" value="7001">
-<PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7001">
-<PARAM name="companyName" value="TopCoderHS">
+        <PARAM value="LaunchApplet" name="name">
+        <PARAM value="com.topcoder.client.ChallengeApplet.LaunchApplet.class" name="code">
+        <PARAM name="codebase" value="http://www.topcoder.com/contest/classes">
+        <PARAM value="VerizonContestApplet.jar" name="archive">
+        <PARAM value="application/x-java-applet;version=1.3" name="type">
+        <PARAM value="false" name="scriptable">
+        <PARAM name="host" value="www.topcoder.com">
+        <PARAM name="port" value="5021">
+        <PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7001">
+        <PARAM name="companyName" value="Verizon">
+        <PARAM name="poweredbyview" value="true">
+        <PARAM name="com.topcoder.client.contestApplet.editors.NoPluginManager" value="true">
 
-<EMBED type="application/x-java-applet;version=1.3"
-       code="com.topcoder.client.ChallengeApplet.LaunchApplet.class"
-       codebase="http://www.topcoder.com/Challenge/classes"
-       name="LaunchApplet"
-       archive="ChallengeApplet.jar"
-       host="www.topcoder.com"
-       port="7001"
-       tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7001"
-       companyName="TopCoderHS"
-       width="239"
-       height="26"
-       align="middle"
-       vspace="0"
-       hspace="0"
-       scriptable="false"
-       pluginspage="http://java.sun.com/j2se/1.3/jre/index.html">
+        <EMBED type="application/x-java-applet;version=1.3"
+        code="com.topcoder.client.ChallengeApplet.LaunchApplet.class"
+        codebase="http://www.topcoder.com/contest/classes"
+        name="LaunchApplet"
+        archive="VerizonContestApplet.jar"
+        host="www.topcoder.com"
+        port="5021"
+        tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7001"
+        companyName="Verizon"
+        poweredbyview="true"
+        com.topcoder.client.contestApplet.editors.NoPluginManager="true"
+        width="239"
+        height="26"
+        align="middle"
+        vspace="0"
+        hspace="0"
+        scriptable="false"
+        pluginspage="http://java.sun.com/j2se/1.3/jre/index.html">
 <NOEMBED>
 </NOEMBED>
 </EMBED>
