@@ -49,7 +49,7 @@
 	</TR>
 
 	<tc-webtag:iterator id="resultRow" collection="<%=rsc%>">
-	  <TR>
+	  <%--<TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">&#160;
 			<jsp:getProperty name="resultRow" property="user_id"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
@@ -57,7 +57,7 @@
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
 			<jsp:getProperty name="resultRow" property="last_name"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"> <A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<jsp:getProperty name="resultRow" property="user_id"/>" CLASS="bodyText">Edit</A></TD>		
-	  </TR>
+	  </TR>--%>
 	</tc-webtag:iterator>
 
 	<TR>
