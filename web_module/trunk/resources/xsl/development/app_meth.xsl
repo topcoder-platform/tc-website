@@ -286,9 +286,11 @@
                                             <li>A Development Review Board is selected from the Development Review Board Pool.</li>
                                             <li>The Development Review Board and Designer are responsible for testing and scoring each submission.</li>
                                             <li>Once all submissions are scored a winning solution is chosen.</li>
-                                            <li>The winning developers must integrate as a team all of the winning submissions into one application.</li>
-                                            <li>A lead developer is chosen by the TopCoder Software Project Manager, from the winning submitters to
-                                                facilitate the integration and build process.</li>
+
+                                            <li>The winning developer incorporates Review Board suggestions into their final development submission.</li>
+                                            <li>The Development Review Board performs a final review and accepts the development submission.</li>
+                                            <li>The winning development submission is posted as an Application Integration Project.</li>
+
                                             <li>The Development Review Board will test the application at the end of the Integration Phase.  All bug fixes are
                                                 addressed immediately by the integration team.</li>
                                             <li>The Development Review Board performs the Final Application Review once all the of fixes have been applied.</li>
@@ -296,6 +298,63 @@
                                     </td>
                                 </tr>
                                 <!-- Development ends -->
+                               <!-- Integration begins -->
+                                <tr valign="top">
+                                    <td width="100%">
+                                        <a name="qa"></a>
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
+                                            <tr valign="top">
+                                                <td class="methNav" width="98%">
+                                                    <a class="methNav" href="#spec">Specification</a>&#160;&#160;|&#160;&#160;
+                                                    <a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;
+                                                    <a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;
+                                                    <span class="bodyText">
+                                                        <strong>Integration</strong>
+                                                    </span>&#160;&#160;&#160;&#160;
+                                                    <a class="methNav" href="#qa">QA</a>&#160;&#160;|&#160;&#160;
+                                                </td>
+                                                <td class="methNav" width="2%" nowrap="nowrap">
+                                                    <div class="topPage">
+                                                        <a href="#top">[Top of Page]</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="bodyText">
+                                        <p>
+                                            <b>Integration Phase:</b> TopCoder members inquire for the integraion position as posted
+                                            by the TopCoder Software Project Manager.  The Project Manager then selects 2 members to compete
+                                            for each required area of integration.  Members must integrate the requirements of
+                                            the specification as designed by the application winning design.
+                                        </p>
+
+                                        <ol>
+                                            <li>Eligible TopCoder members inquire to be selected for the integration phase of the application.</li>
+                                            <li>TopCoder Software selects 2 members to work independently during the integration phase of the application.</li>
+                                            <li>Members are responsible for submitting completed integrated solutions that are ready for deployment </li>
+                                            <li>Developers must submit the following documents by the Due Date as stated in the Application Project Posting page:
+                                                <ul>
+                                                    <li>A working solution as defined by the Application Requirements and Design Specifications</li>
+                                                    <li>Unit Test Cases:</li>
+                                                    <ul>
+                                                        <li>Testing the implementation from a user perspective</li>
+                                                    </ul>
+                                                </ul>
+                                            </li>
+                                            <li>The Designer, Developers and TopCoder Software Application Manager are available to answer questions and give guidance.</li>
+                                            <li>A Development Review Board is selected from the Development Review Board Pool.</li>
+                                            <li>The Development Review Board and Designer are responsible for testing and scoring each submission.</li>
+                                            <li>Once all submissions are scored a winning solution is chosen.</li>
+                                            <li>The winning developer incorporates Review Board suggestions into their final submission.</li>
+                                            <li>The Development Review Board performs the Final Application Review once all the of fixes have been applied.</li>
+
+                                        </ol>
+                                    </td>
+                                </tr>
+                                <!-- Integration ends -->
                                <!-- QA begins -->
                                 <tr valign="top">
                                     <td width="100%">
@@ -319,22 +378,17 @@
                                         </table>
                                     </td>
                                 </tr>
-
                                 <tr valign="top">
                                     <td class="bodyText">
-
                                         <ol>
                                             <li>The Development Review Board and Designer perform several iterations of QA testing and provide feedback to the developers at specified milestones of the development phase.</li>
                                             <li>The Primary Development Review Board members and Designer team up with the TopCoder Software Project Manager to perform several iterations of QA testing with the winning developers at the completion of integration.</li>
                                             <li>Once the TopCoder Software Project Manager is satisfied that the application meets the rigorous standards of TopCoder Software, the application solution is accepted and the Development Integration Team is compensated.</li>
                                         </ol>
-
-
                                     </td>
                                 </tr>
                                 <!-- QA ends -->
                             </table>
-
                             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                                 <tr valign="top">
                                     <td height="10">
