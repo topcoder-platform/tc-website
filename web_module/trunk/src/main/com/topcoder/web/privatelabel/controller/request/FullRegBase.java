@@ -47,6 +47,7 @@ abstract class FullRegBase extends SimpleRegBase {
         } else {
             ret = fu.getParameter(name);
         }
+        log.debug("getRequestParameter: " + name + " = " + ret);
         return ret;
     }
 
