@@ -136,8 +136,8 @@ public class Controller
 
     void forwardToError(HttpServletRequest request, HttpServletResponse response, Throwable exception)
             throws ServletException, IOException {
-        if (request != null) {
-            request.setAttribute(Constants.MESSAGE_KEY, exception.getMessage());
+        if (exception != null) {
+            request.setAttribute("exception", exception);
         }
         forwardToError(request, response);
     }
