@@ -58,7 +58,7 @@
         <xsl:call-template name="invit02_links"/>
   <!-- Coder of the Week Pulldown Ends -->
   <BR/><BR/>
-  <P CLASS="statText">The following competitors have advanced from Round 4 to the Semifinals. <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4355" CLASS="statText">Back to Advancers</A></P>
+  <CENTER><P CLASS="statText">Tournament Advancement Board. <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4355" CLASS="statText">Back to Advancers</A></P></CENTER>
  <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" ALIGN="center">
     <TR>
         <TD VALIGN="top"><IMG SRC="/i/tournament/invit02/invit02_rooms.gif" WIDTH="507" HEIGHT="312" USEMAP="#invit02_rooms" BORDER="0"/></TD>
