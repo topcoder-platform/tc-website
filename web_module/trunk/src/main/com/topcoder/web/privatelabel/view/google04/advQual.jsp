@@ -59,7 +59,7 @@
 			<td class=advancersRound width="30%" align="right">Score</td>
 			</tr>
 
-			<tr><td class=sidebarText>SnapDragon</td><td class=sidebarText>Qualification Set 1</td><td class=sidebarText align="right">1187.65</td></tr>
+			<tr class=sidebarText><td>SnapDragon</td><td>Qualification Set 1</td><td align="right">1187.65</td></tr>
 
 			</table>
 
