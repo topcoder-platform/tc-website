@@ -62,7 +62,7 @@
 	</TR>
 </TABLE>
 </DIV>
-<B>What:</B> Code Survivor: the Java Developer Challenge, Powered by TopCoder<BR/>
+<B>What:</B> Code Survivor: the Java Developer Challenge, Powered by TopCoder<sup>TM</sup><BR/>
 <B>When:</B> November 11th - 13th<BR/>
 <B>Where:</B> OracleWorld - Moscone Center, San Francisco, CA<BR/>
 <B>Prizes:</B> Prizes valued at $25,000<BR/>
@@ -75,7 +75,7 @@ registered attendee* of OracleWorld to compete.
 * There is no cost to attend the OracleWorld exhibit hall. <A HREF="http://www.oracle.com/go/?&amp;Src=1393108&amp;Act=95" CLASS="statTextBig" TARGET="_blank">Click here to register</A>.
 </P>
 <BR/>
-<P><B><A HREF="http://www.oracle.com/oracleworld/sanfrancisco/conference/index.html?otn.html" CLASS="statText" TARGET="_blank">Code Survivor Official Rules</A></B></P>
+<P><B><A HREF="http://www.oracle.com/oracleworld/sanfrancisco/conference/index.html?otn.html" CLASS="statTextBig" TARGET="_blank">Code Survivor Official Rules</A></B></P>
 <UL>
 	<LI><A HREF="#2" CLASS="statText">Round Schedule</A></LI>
 	<LI><A HREF="#3" CLASS="statText">Practice Opportunities</A></LI>
