@@ -22,7 +22,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>TCO04 Qualification 1 Statistics at TopCoder</title>
+<title>TCO04 Qualification 3 Statistics at TopCoder</title>
 
 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@ function openWin(url, name, w, h) {
 <!--body contextual links-->
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
-                                <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">TCO04 Qualification Problem Set 1</font></td>
+                                <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">TCO04 Qualification Problem Set 3</font></td>
                                 <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
@@ -85,10 +85,11 @@ function openWin(url, name, w, h) {
 <h2>Match summary</h2> 
 
 <p> 
-This set was the only one not dominated by reds.  In fact, only
-one red, <b>Jan_Kuipers</b> cracked the top five, finishing second.  Yellow 
-<b>lujo</b> took top honors, with a green and two blues rounding out
-the top five, all three rising to yellow in the process.
+This set probably had the easiest hard problem, but it also had the most
+difficult easy problem to balance things out.  reid was the quickest to finish
+them both, and ended up less than 50 points ahead of snewman - if only there was
+a challenge phase.  qubits, a TopCoder from way back showed up and took third
+place, only a hair behind snewman.
 </p> 
  
 <p>
@@ -98,16 +99,16 @@ The Problems
 </p> 
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement&amp;pm=2941&amp;rd=5873" name="2941">NinePatch</a></b> 
+<b><a href="/stat?c=problem_statement&amp;pm=2990&amp;rd=5875" name="2990">Rank</a></b> 
 </font> 
-<A href="Javascript:openProblemRating(2941)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(2990)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
       <b>Value</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      250 
+      300 
     </td> 
   </tr> 
   <tr> 
@@ -115,7 +116,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Submission Rate</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      188 / 200 (94.00%) 
+      175 / 200 (87.50%) 
     </td> 
   </tr> 
   <tr> 
@@ -123,7 +124,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Success Rate</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      176 / 188 (93.62%) 
+      154 / 175 (88.00%) 
     </td> 
   </tr> 
   <tr> 
@@ -131,7 +132,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>High Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      <b>omkarashish</b> for 247.71 points (2 mins 11 secs) 
+      <b>reid</b> for 295.59 points (2 mins 47 secs) 
     </td> 
   </tr> 
   <tr> 
@@ -139,34 +140,39 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Average Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      207.64 (for 176 correct submissions) 
+      214.45 (for 154 correct submissions) 
     </td> 
   </tr> 
 </table></blockquote> 
 
 <p>
-A W-by-L scrap has enough fabric for (W/2)*(L/2) squares, with
-both divisions rounding down if necessary.  Add up the squares for
-all the scraps, and divide by 9 to get the number of blocks.
+If you did this problem the hard way, it was surely the hardest of the qual
+easies.  The hard way is to sort the elements, and then go through and rank
+them, and finally to put the ranks in the right places in the return.  Granted,
+this isn't that hard, but its a lot more work than the easy way that gave reid
+over 295/300.  <br/><br/>
+
+First, lets say there are no ties: in this case your rank is equal to one plus
+the number of people who beat you.  Now, lets say you tied with one person, so
+the two of you get ranks n and n+1, and the average is hence n+0.5.  Next, if
+you tied with 2 other people, the three of you would get ranks of n, n+1, and
+n+2, for an average of n+1.  The pattern developing here is that every tie adds
+0.5 to your rank.  Hence, your ranks is one plus the number of people who beat
+you, plus 0.5 times the number of people who tied you.  Therefore, two simple
+nested loops are sufficient to calculate the ranks of all the competitors.
 </p>
-<pre>
-    int squares = 0;
-    for (int i = 0; i &lt; length.length; i++)
-      squares += (width[i]/2)*(length[i]/2);
-    return squares/9;
-</pre>
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement&amp;pm=2008&amp;rd=5873" name="2008">LogCabin</a></b> 
+<b><a href="/stat?c=problem_statement&amp;pm=2974&amp;rd=5875" name="2974">GeneticCrossover</a></b> 
 </font> 
-<A href="Javascript:openProblemRating(2008)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(2974)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
       <b>Value</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      1000 
+      950 
     </td> 
   </tr> 
   <tr> 
@@ -174,7 +180,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Submission Rate</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      69 / 200 (34.50%) 
+      82 / 200 (41.00%) 
     </td> 
   </tr> 
   <tr> 
@@ -182,7 +188,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Success Rate</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      36 / 69 (52.17%) 
+      62 / 82 (75.61%) 
     </td> 
   </tr> 
   <tr> 
@@ -190,7 +196,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>High Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      <b>lujo</b> for 711.70 points (15 mins 53 secs) 
+      <b>reid</b> for 741.70 points (12 mins 49 secs) 
     </td> 
   </tr> 
   <tr> 
@@ -198,87 +204,74 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Average Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      478.96 (for 36 correct submissions) 
+      525.11 (for 62 correct submissions) 
     </td> 
   </tr> 
 </table></blockquote> 
 
 <p>
-In general, when you first add strip K, it is adjacent to strips K-1, K-3,
-and K-4.  For example, consider strip 7 in the following diagram.
-<pre>
-    7666
-    7325
-    7315
-    7445
-</pre>
-Strip 7 is adjacent to strips 6, 4, and 3.  Strip K is not adjacent to strip
-K-2, except for the special case of strip 3, which is adjacent to strips
-2 and 1.
-<pre>
-     32
-     31
-</pre>
+Was it the lower score, or was this problem really easier?  We'll never really
+know, but it did end up with more submissions than any other hard.  The basic
+principle needed to solve it is known as <i>linearity of expectations</i>.  This
+says that, if you know the expected values of a number of variables, then the
+expected value of the sum of those variables is equal to the sum of the expected
+values of the variables, regardless of the dependencies among those
+variables.<br/><br/>
+
+In this problem, the variables were the values contributed by each gene, elements
+of <b>dom</b> or <b>rec</b>.  The expected value of each of these variables was
+equal to the <tt>p*dom+(1-p)*r</tt>, where p is the probability that a gene will
+be expressed dominantly.  Since the return is simply the sum of all these
+expected values (by linearity of expectations), we only need to find p for each
+gene.<br/><br/>
+
+If a gene does not depend on another gene, then p is equal to the probability
+that one or both of the genes from the parents are dominant.  There are only 4
+cases to consider for each gene, and it isn't hard to just look at all four
+pairings.  Alternatively, <tt>p = 1-(2-q<sub>1</sub>)*(2-q<sub>2</sub>)/4</tt>,
+where q<sub>1</sub> and q<sub>2</sub> are the numbers of recessive genes from
+each parent has.  If gene i depends on gene j, we still have to compute the
+above probability for gene i. Since gene i may only be dominant if gene j is
+also, the we multiply the above value by the probability that gene j is
+dominant, which gives us the probability that both j and i are dominant.
 </p>
-
-<p>
-With those constraints in mind, a recursive depth-first search that tries
-all possibilities runs in plenty of time.  There was no need to do anything
-fancy like remembering the states that you've visited before.  In each
-recursive call, simply try all four fabrics as the next strip, backtracking
-when a fabric would be adjacent to itself or when the fabric is shorter
-than the desired strip.  During the search, keep track of the most strips 
-that are ever used.
 <pre>
-    int most = 0;
-    void dfs(int n) {
-       int desiredLength = (n+1)/2;
-       for (int f = 0; f &lt; 4; f++) {
-          if (fabricLength[f] &lt; desiredLength) continue;
-          if (f == strip[n-1] || f == strip[n-3] || f == strip[n-4) continue;
-          if (n == 3 &amp;&amp; f == strip[1]) continue; // special case for strip 3
-
-          fabricLength[i] -= desiredLength;
-          strip[n] = f;
-          most = max(most, n);
-          dfs(n+1);
-          fabricLength[i] += desiredLength;
-       }
-    }
+	double[] p;
+	int[] dep;
+	public double cross(String p1a, String p1b, String p2a, String p2b, int[] dom, int[] rec, int[] dep){
+		this.dep = dep;
+		char[][] ch = new char[4][];
+		ch[0]=p1a.toCharArray();
+		ch[1]=p1b.toCharArray();
+		ch[2]=p2a.toCharArray();
+		ch[3]=p2b.toCharArray();
+		p = new double[p1a.length()];
+		for(int i = 0; i&lt;p1a.length(); i++){
+        for(int j = 0; j&lt;2; j++){
+				for(int k = 0; k&lt;2; k++){
+					char c1 = ch[j][i];
+					char c2 = ch[k+2][i];
+					if(c1&gt;='A'&amp;&amp;c1&lt;='Z')p[i] += .25;
+					else if(c2&gt;='A'&amp;&amp;c2&lt;='Z')p[i] += .25;
+				}
+			}
+		}
+		double ret = 0;
+		for(int i = 0; i&lt;r.length; i++){
+            double r = rec(i);
+            ret += r * dom[i] + (1-r)*rec[i];
+		}
+		return ret;
+	}
+	double rec(int idx){
+		if(dep[idx] == -1)return p[idx];
+		else return p[idx] * rec(dep[idx]);
+	}
 </pre>
-Then the main function initializes the <tt>strip</tt> array, calls
-<tt>dfs(1)</tt>, and returns <tt>most</tt>.
-</p>
-
-<p>
-In this code, <tt>strip</tt> is an array that keeps track of which
-fabric was used in each strip, where <tt>strip[<i>n</i>]</tt> contains
-the fabric number (0-3) of the <i>n</i>-th strip.  Notice that the
-line 
-<pre>
-    if (f == strip[n-1] || f == strip[n-3] || f == strip[n-4) continue;
-</pre>
-refers to strips that do not exist when <i>n</i> &lt;= 4.  
-To avoid special cases for these values of <i>n</i>, 
-it is useful to insert phantom strips, known as 
-<a href="http://www.topcoder.com/?&amp;t=features&amp;c=feat_090104">sentinels</a>,
-in positions 0, -1, -2, and -3, initialized to some non-existent
-fabric number like 99.  Then we are guaranteed that the current
-fabric will not equal the fabric in, say, strip <i>n</i>-4 when
-strip <i>n</i>-4 does not exist.
-</p>
-
-<p>
-Of course, you are probably working in a language that does not support
-negative array indices.  In that case, shift all the strips a few
-positions forward, so that the <i>n</i>-th strip is stored in, say, 
-<tt>strip[n+4]</tt>.
-</p>
-
 
                         <p>
-                        <img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br />
+                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                         </p>
                     </td>
