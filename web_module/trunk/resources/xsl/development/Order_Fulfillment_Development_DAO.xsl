@@ -293,6 +293,11 @@
                                                             <td class="bodyText" nowrap="nowrap" align="left">06.15.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Project Checkpoint Submission Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.21.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+
+                                                        <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Due:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">06.28.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
