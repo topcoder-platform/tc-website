@@ -155,16 +155,18 @@ public class MainServlet extends HttpServlet {
                     try {
                         req.setRequest( request );
                         req.process();
-                        /* 12/19/2002 - NeoTuri
-                         * RequestProcessor MUST prepare a next page on success
-                         * or error
-                         */
-                        sendToPage( request, response, req.getNextPage(), req.isNextPageInContext() );
-                        found = true;
                     }
                     catch( Exception e ) {
                         /* Could not process module */
                         log.debug( "doGet: unable to properly forward " );
+                    }
+                    /* 12/19/2002 - NeoTuri
+                     * RequestProcessor MUST prepare a next page on success
+                     * or error.  Returning null may not send the desired page.
+                     */
+                    if( req.getNextPage() != null ) {
+                        sendToPage( request, response, req.getNextPage(), req.isNextPageInContext() );
+                        found = true;
                     }
                     break;
                 }
