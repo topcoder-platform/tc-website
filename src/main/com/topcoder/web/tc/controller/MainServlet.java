@@ -8,13 +8,18 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.common.web.data.Navigation;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Set;
 import java.util.MissingResourceException;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class MainServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(MainServlet.class);
@@ -30,6 +35,22 @@ public class MainServlet extends BaseServlet {
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         return true;
     }
+
+    protected void process(HttpServletRequest request, HttpServletResponse response )
+            throws IOException  {
+        if (request.getServerName().startsWith(ApplicationServer.SERVER_NAME))
+            super.process(request, response);
+        else {
+            response.setStatus(400);
+            PrintWriter out = response.getWriter();
+            out.println("<html><head><title>Invalid Request</title></head>");
+            out.println("<body><h4>Your request was invalid for this server.</h4>");
+            out.println("</body></html>");
+            out.flush();
+        }
+
+    }
+
 
     protected SessionInfo createSessionInfo(TCRequest request,
                                             WebAuthentication auth, Set groups) throws Exception {

@@ -315,6 +315,7 @@ public final class MainServlet extends HttpServlet {
             }
         } catch (NavigationException ne) {
             try {
+                response.setStatus(500);
                 out = response.getWriter();
                 ne.printStackTrace();
                 if (nav == null) {
