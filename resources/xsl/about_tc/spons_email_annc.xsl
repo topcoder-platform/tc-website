@@ -56,7 +56,7 @@
 					Date: 00.00.00<BR/>
 					Subject Line: "Single Round Match"<BR/><BR/>
 					Hello Coders,<BR/><BR/>
-					The next Single Round Match will be held on {DATE GOES HERE}. As always, registration is open two hours before the competition begins. Registration closes five minutes before competition.<BR/><BR/>
+					The next Single Round Match will be held on {DATE GOES HERE}. As always, registration is open three hours before the competition begins. Registration closes five minutes before competition.<BR/><BR/>
 					====================================<BR/>
 					Next match is sponsored by:<BR/>
 					====================================<BR/>
