@@ -43,8 +43,8 @@ public class QueryDataAccess implements DataAccessInt {
      * the data.
      */
     public Map getData(RequestInt request) throws Exception {
+        Connection conn = dataSource.getConnection();
         try {
-            Connection conn = dataSource.getConnection();
             QueryRunner qr = new QueryRunner(conn);
             Map map = qr.executeCommand(request.getProperties());
             return map;
@@ -55,8 +55,9 @@ public class QueryDataAccess implements DataAccessInt {
                 try {
                     conn.close();
                 } catch (Exception ce) {
-                log.error("Failed to close connection");
-             }
+                    log.error("Failed to close connection");
+                }
+            }
         }
     }
 

@@ -81,11 +81,11 @@ public class CachedDataAccess implements DataAccessInt {
      * the data from the EJB.
      */
     public Map getData(RequestInt request) throws Exception {
+        Connection conn = null;
         try {
             boolean cached = true;
             String key = request.toString();
             Map map = null;
-            Connection conn = null;
             DataRetriever dr = null;
             try {
                 map = (Map) (client.get(key));
@@ -116,7 +116,8 @@ public class CachedDataAccess implements DataAccessInt {
                     conn.close();
                 } catch (Exception ce) {
                 log.error("Failed to close connection");
-             }
+               }
+            }
         }
     }
 
