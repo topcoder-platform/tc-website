@@ -1153,6 +1153,7 @@
          <antcall target="package-EJB-JavaDocServicesBean"/>
          <antcall target="package-EJB-JobPostingServicesBean"/>
          <antcall target="package-EJB-PactsServicesBean"/>
+         <antcall target="package-EJB-PasswordBean"/>
          <antcall target="package-EJB-PhoneBean"/>
          <antcall target="package-EJB-PreferenceLevelBean"/>
          <antcall target="package-EJB-ProblemRatingBean"/>
@@ -1181,6 +1182,7 @@
                  <include name="JavaDocServices.jar"/>
                  <include name="JobPostingServices.jar"/>
                  <include name="PactsServices.jar"/>
+                 <include name="Password.jar"/>
                  <include name="Phone.jar"/>
                  <include name="PreferenceLevel.jar"/>
                  <include name="ProblemRatingServices.jar"/>
