@@ -64,12 +64,12 @@
 
                 <tr>
                    <td width="1" class="testFormOdd">&#160;</TD>
-                   <td width="30%" class="testFormOdd"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></td>               
-                   <td width="10%" align="center" class="testFormOdd"><% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>"><%=hasResults?"Results":"Details"%></screen:servletLink><% } %></td> 
-                   <td width="20%" align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
-                   <td width="20%" align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
-                   <td width="10%" align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="status" /></td> 
-                   <td width="10%" align="center" class="testFormOdd"><screen:servletLink processor="NoteList" param="<%=params%>"><%=hasNotes?"View":"None"%></screen:servletLink></td> 
+                   <td width="30%" class="testTableOdd"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></td>               
+                   <td width="10%" align="center" class="testTableOdd"><% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>"><%=hasResults?"Results":"Details"%></screen:servletLink><% } %></td> 
+                   <td width="20%" align="center" class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
+                   <td width="20%" align="center" class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
+                   <td width="10%" align="center" class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="status" /></td> 
+                   <td width="10%" align="center" class="testTableOdd"><screen:servletLink processor="NoteList" param="<%=params%>"><%=hasNotes?"View":"None"%></screen:servletLink></td> 
                 </tr>
 
             </screen:resultSetRowIterator>
