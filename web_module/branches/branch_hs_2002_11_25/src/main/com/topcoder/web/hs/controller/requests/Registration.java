@@ -25,7 +25,7 @@ public class Registration extends Base {
   private final static String REG_COACH_PAGE="registration_coach.jsp";
 
   private final static String CONFIRM_STUDENT_PAGE="confirm_student.jsp";
-  
+
   private final static String CONFIRM_COACH_PAGE="confirm_coach.jsp";
 
   private final static String THANK_YOU_PAGE="thankyou.jsp";
@@ -43,6 +43,10 @@ public class Registration extends Base {
   private final static String INVALID_COMMAND="Invalid command passed to "+
                                               "registration module: ";
 
+  private final static String STUDENT_TYPE="student";
+
+  private final static String COACH_TYPE="coach";
+
   public void process() throws Exception {
     super.process();
 
@@ -51,23 +55,71 @@ public class Registration extends Base {
     /* If there is no command, redirect to the main registration page
      */
     if (cmd==null||cmd.equals("")) {
-      setNextPage(HS_REG_BASE+REG_PAGE);
+      setNextPage(REG_BASE+REG_PAGE);
       setIsNextPageInContext(true);
     }
+
+    /* If the command is "reg", attempt to redirect to a specific registration
+     * page for the indicated type of coder
+     */
     else if (cmd.equals(REG_CMD)) {
       String coder_type=request.getParameter("coderType");
+
+      /* If coder_type=="student" redirect to the student registration page
+       */
+      if (STUDENT_TYPE.equals(coder_type)) {
+        setNextPage(REG_BASE+REG_STUDENT_PAGE);
+      }
+
+      /* If coder_type=="coach" redirect to the coach registration page
+       */
+      else if (COACH_TYPE.equals(coder_type)) {
+        setNextPage(REG_BASE+REG_COACH_PAGE);
+      }
+
+      /* Otherwise no coder_type was specified so redirect back to the main
+       * registration page
+       */
+      else {
+        setNextPage(REG_BASE+REG_PAGE);
+      }
+      setIsNextPageInContext(true);
     }
+
+    /* If the command is "reg_student", validate the student's information
+     * and redirect to a confirmation page
+     */
     else if (cmd.equals(REG_STUDENT_CMD)) {
     }
+
+    /* If the command is "reg_coach", validate the coach's information and
+     * redirect to a confirmation page
+     */
     else if (cmd.equals(REG_COACH_CMD)) {
     }
+
+    /* If the command is "confirm_student", validate the student's information
+     * a second time and commit it to the database
+     */
     else if (cmd.equals(CONFIRM_STUDENT_CMD)) {
     }
+
+    /* If the command is "confirm_coach", validate the coach's information a
+     * second time and commit it to the database
+     */
     else if (cmd.equals(CONFIRM_COACH_CMD)) {
     }
-    else { 
+
+    else {
       throw(new IllegalArgumentException(INVALID_COMMAND+cmd));
     }
   }
 
+  private boolean validateStudent() {
+    return(false);
+  }
+
+  private boolean validateCoach() {
+    return(false);
+  }
 };
