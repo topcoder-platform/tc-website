@@ -67,7 +67,7 @@ public class Submit extends FullRegSubmit {
                 buf.append("If you cannot click on the web address above, please copy the address into your web browser to continue.  If the address spans two lines, please make sure you copy and paste both sections without any spaces between them.\n\n");
                 buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in the DoubleClick 2004 Coding Challenge.\n\n");
                 buf.append("PRACTICING FOR THE EVENT AND LAUNCHING THE ARENA\n");
-                buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Coding Challenge.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 9:00AM ET on February 9 through 1:00PM ET on February 27, 2004.\n\n");
+                buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Coding Challenge.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 12:00PM ET on February 2 through 1:00PM ET on February 27, 2004.\n\n");
                 buf.append("You can access the practice room and launch and login to the arena for the competition by navigating to ");
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
