@@ -84,9 +84,9 @@ public final class TaskAffidavit {
                         me = (Map.Entry) it.next();
                         buf.append(me.getKey());
                         buf.append(". ");
-                        buf.append(me.getKey());
-                        buf.append("\n");
                         buf.append(me.getValue());
+                        buf.append("\n");
+                        buf.append(answers.get(me.getKey()));
                         buf.append("\n\n");
                     }
 
@@ -96,6 +96,21 @@ public final class TaskAffidavit {
                     mail.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
                     mail.setFromAddress(nav.getUser().getEmail());
                     EmailEngine.send(mail);
+
+                    xsldocURLString = TCServlet.XSL_ROOT + requestTask + "/" + requestCommand + "_sent.xsl";
+
+                    try {
+                        result = HTMLmaker.render(document, xsldocURLString);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        StringBuffer msg = new StringBuffer(150);
+                        msg.append("processStatic:displayStatic:");
+                        msg.append(requestCommand);
+                        msg.append(":ERROR:");
+                        msg.append(e.getMessage());
+                        throw new NavigationException(msg.toString(), TCServlet.NAVIGATION_ERROR_PAGE);
+                    }
+
                 } else {
                     ctx = TCContext.getInitial();
                     dai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
