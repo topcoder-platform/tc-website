@@ -12,11 +12,11 @@
                         <img alt="" src="/images/spacer.gif" height="3" width="138"><br/>
 
                         <table border="0" cellspacing="5" cellpadding="0" width="138" class="formFrame">
-                            <tr><td class="subBodyCopy">Registraton Starts<br/><strong>August 4th</strong></td></tr>
+                            <tr><td class="subBodyCopy">Registraton Starts<br/><strong>October 22nd</strong></td></tr>
 
-                            <tr><td class="subBodyCopy">Round 1 - Online<br/><strong>August 20th</strong></td></tr>
+                            <tr><td class="subBodyCopy">Round 1 - Online<br/><strong>October 31st</strong></td></tr>
 
-                            <tr><td class="subBodyCopy">Championship Round<br/><span class="smallText">Live at the Verizon Chennai Facility</span><br/><strong>August 29th</strong></td></tr>
+                            <tr><td class="subBodyCopy">Championship Round<br/><span class="smallText">Live at the Verizon Chennai Facility</span><br/><strong>November 7th</strong></td></tr>
                         </table>
 
                         <img alt="" src="/images/spacer.gif" height="6" width="138"><br/>
@@ -32,22 +32,22 @@
                         <table border="0" cellspacing="5" cellpadding="0" width="138" class="formFrame">
                             <tr>
                                 <td class="smallText">1st Place</td>
-                                <td class="subBodyCopy" align="right"><strong>$1,000 USD</strong></td>
+                                <td class="subBodyCopy" align="right"><strong>Rs. 50,000</strong></td>
                             </tr>
 
                             <tr>
                                 <td class="smallText">2nd Place</td>
-                                <td class="subBodyCopy" align="right"><strong>$500 USD</strong></td>
+                                <td class="subBodyCopy" align="right"><strong>Rs. 30,000</strong></td>
                             </tr>
 
                             <tr>
                                 <td class="smallText">3rd Place</td>
-                                <td class="subBodyCopy" align="right"><strong>$300 USD</strong></td>
+                                <td class="subBodyCopy" align="right"><strong>Rs. 20,000</strong></td>
                             </tr>
 
                             <tr>
                                 <td class="smallText">4th Place</td>
-                                <td class="subBodyCopy" align="right"><strong>$100 USD</strong></td>
+                                <td class="subBodyCopy" align="right"><strong>Rs. 10,000</strong></td>
                             </tr>
                         </table>
 
