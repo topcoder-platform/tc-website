@@ -35,6 +35,7 @@
         </jsp:include>
 
             <table border=0 cellpadding=2 cellspacing=0 width="100%">
+            <tr class="bodyText"><td nowrap="nowrap">02.22.05 9:45 AM - </td><td width="100%">The TCCC05 <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_bracket">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_bracket">Development</A> finalists have been announced.</td></tr>
             <tr class="bodyText"><td nowrap="nowrap">02.21.05 9:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=skiena">Professor Steven Skiena to speak at TCCC05</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">02.03.05 11:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_bracket">TCCC05 Algorithm SemiFinalists</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">01.27.05 11:00 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&d1=tournaments&d2=tccc05&d3=alg_adv_overview">TCCC05 Algorithm Round 3 results</A></td></tr>

@@ -6,6 +6,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.22.05<br>9:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">TCCC05 <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_bracket">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_bracket">Development</A> finalists</span><br><br>
+      The Design and Development finalists have been announced.  Take a look at who is going to compete next month in California.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_bracket">design bracket</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_bracket">development bracket</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>02.21.05<br>12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco04/onsite_movies/heidiBurgett.mov">Yahoo!'s Director of Corporate Communications Heidi Burgett</A></span><br><br>
       Yahoo!'s Heidi Burgett on hiring the "best and the brightest".
@@ -466,35 +479,35 @@
    <tr>
       <td class="sidebarTitle" colspan="4">News Archives</td>
    </tr>
-   <tr>
-      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_tc"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /></A></td>
-      <td class="sidebarText" width="50%"><A href="/tc?module=Static&d1=home&d2=news_archive_tc">General TopCoder News</A></td>
-      <td class="sidebarText"><A href="/?t=news_events&c=index"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /></A></td>
-      <td class="sidebarText" width="50%"><A href="/?t=news_events&c=index">Press Releases & Articles</A></td>
+   <tr class="sidebarText">
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_tc"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /></A></td>
+      <td width="50%"><A href="/tc?module=Static&d1=home&d2=news_archive_tc">General TopCoder News</A></td>
+      <td><A href="/?t=news_events&c=index"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /></A></td>
+      <td width="50%"><A href="/?t=news_events&c=index">Press Releases & Articles</A></td>
    </tr>
-   <tr>
-      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_alg"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /></A></td>
-      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_alg">Algorithm Competition News</A></td>
-      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_comp"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /></A></td>
-      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_comp">Component Competition News</A></td>
+   <tr class="sidebarText">
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_alg"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /></A></td>
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_alg">Algorithm Competition News</A></td>
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_comp"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /></A></td>
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_comp">Component Competition News</A></td>
    </tr>
-   <tr>
-      <td class="sidebarText"><A href="/tc?&module=SurveyList"><img src="/i/home/icons/survey.gif" alt="Surveys" border="0" /></A></td>
-      <td class="sidebarText"><A href="/tc?&module=SurveyList">Surveys</A></td>
-      <td class="sidebarText"><A href="/?t=statistics&c=editorial_archive"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /></A></td>
-      <td class="sidebarText"><A href="/?t=statistics&c=editorial_archive">Problem Sets & Analyses</A></td>
+   <tr class="sidebarText">
+      <td><A href="/tc?&module=SurveyList"><img src="/i/home/icons/survey.gif" alt="Surveys" border="0" /></A></td>
+      <td><A href="/tc?&module=SurveyList">Surveys</A></td>
+      <td><A href="/?t=statistics&c=editorial_archive"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /></A></td>
+      <td><A href="/?t=statistics&c=editorial_archive">Problem Sets & Analyses</A></td>
    </tr>
-   <tr>
-      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_tournie"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /></A></td>
-      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_tournie">Tournament News</A></td>
-      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_employment"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /></A></td>
-      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_employment">Employment Opportunities</A></td>
+   <tr class="sidebarText">
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_tournie"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /></A></td>
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_tournie">Tournament News</A></td>
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_employment"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /></A></td>
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_employment">Employment Opportunities</A></td>
    </tr>
-   <tr>
-      <td class="sidebarText"><A href="/tc?module=Static&d1=tutorials&d2=index"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /></A></td>
-      <td class="sidebarText"><A href="/tc?module=Static&d1=tutorials&d2=index">Educational Content</A></td>
-      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_movies"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /></A></td>
-      <td class="sidebarText"><A href="/tc?module=Static&d1=home&d2=news_archive_movies">Movies</A></td>
+   <tr class="sidebarText">
+      <td><A href="/tc?module=Static&d1=tutorials&d2=index"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /></A></td>
+      <td><A href="/tc?module=Static&d1=tutorials&d2=index">Educational Content</A></td>
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_movies"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /></A></td>
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_movies">Movies</A></td>
    </tr>
 </table>
 
