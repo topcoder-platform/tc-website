@@ -11,7 +11,7 @@
     <TD CLASS="statText" ALIGN="left" VALIGN="middle" COLSPAN="2">
       Thank you for expressing interest in TopCoder employment services.  You have successfully indicated your interest in this position(s).  Much of your TopCoder profile information will now become available to be viewed by the employer.  Below, you will find a summarization of your TopCoder profile information that will be available to the employer.  Please verify the accuracy of all of the information.  In addition to the information below, your past and/or future competition statistics, your current and/or future member photo, and your current and/or future resume will also be available for viewing by the employer.<BR/>
       <BR/>
-      If you would like to make changes to the information below, click <A HREF="/reg/index.jsp" class="statText">here</A> to update your profile.<BR/>
+      <B>If you would like to make changes to the information below, click <A HREF="/reg/index.jsp" class="statTextBig">here</A> to update your profile.</B><BR/>
       <BR/>
     </TD>
   </TR>
@@ -20,7 +20,7 @@
       <% if (JobHitTask.hasResume()) { %>
         Click <A HREF="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" CLASS="statTextBig">here</A> to upload a new resume.</A>
         <br/>
-        Click <A HREF="/Resume?&t=DownloadTask" CLASS="statText">here</A> to download your resume.
+        Click <A HREF="/Resume?&t=DownloadTask" CLASS="statTextBig">here</A> to download your resume.
       <% } else { %>
         You do NOT currently have a resume on file at TopCoder.  Since most employers will look for this information, we strongly encourage you to upload a resume.  If you would like to upload a resume now, click <A HREF="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" CLASS="statTextBig">here</a>.
       <% } %>
