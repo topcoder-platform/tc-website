@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
 
@@ -64,7 +64,7 @@
                         <p>
                         <%
                             String host = request.getParameter("host");
-                            if ((host==null) || host.equals("")) host="corporate.topcoder.com";
+                            if ((host==null) || host.equals("")) host="<%=ApplicationServer.CORP_SERVER_NAME%>";
 
                             String port = request.getParameter("port");
                             if ((port==null) || port.equals("")) port="8001";
