@@ -14,12 +14,14 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.security.Resource;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.*;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.http.*;
 import javax.servlet.ServletException;
@@ -2639,5 +2641,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         doAffidavit(request, response);
     }
+
+    protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
+        return true;
+    }
+
 
 }
