@@ -209,7 +209,7 @@ function goTo(selection){
                                 </TD>
 
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="statText">
-                                    <tc:ratingImage link='<%=sLink + coderIDs[j][i]%>' bg='B' cid='<%=coderIDs[j][i]%>' />
+                                    <tc:ratingImage link='<%=sLink + coderIDs[j][i]%>' bg='B' cid='<%=Integer.parseInt(coderIDs[j][i])%>' />
                                 </TD>
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText" ALIGN="right"><%= scores[j][i] %> &#160;&#160;</TD>
                                 <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText">&#160;<%= rooms[j][i] %></TD>
