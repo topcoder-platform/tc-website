@@ -10,7 +10,7 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td bgcolor="#666666" width="160"><img src="/i/clear.gif" width="160" height="1" border="0"/></td>
-        <td bgcolor="#666666" width="10"><img src="/i/footer_top_angle.gif" width="10" height="10" border="0"/></td>
+        <td width="10"><img src="/i/footer_top_angle.gif" width="10" height="10" border="0"/></td>
         <td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
     </tr>
 </table>
@@ -21,8 +21,8 @@
     </tr>
 
     <tr valign="top">
-        <td width="20" bgcolor="#43515E" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" width="20" height="1" border="0"/></td>
-        <td width="100%" align="left" bgcolor="#43515E" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" width="1" height="5" border="0"/><br/>
+        <td width="20" bgcolor="#43515E"><img src="/i/clear.gif" width="20" height="1" border="0"/></td>
+        <td width="100%" align="left" bgcolor="#43515E"><img src="/i/clear.gif" width="1" height="5" border="0"/><br/>
             <div class="smallFoot">
             <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register</a>&#160;&#160;|&#160;&#160;
             <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>About TopCoder</a>&#160;&#160;|&#160;&#160;
