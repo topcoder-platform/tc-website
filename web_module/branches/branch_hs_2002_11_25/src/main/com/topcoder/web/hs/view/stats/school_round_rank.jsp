@@ -1,117 +1,122 @@
-<HTML>
-<HEAD>
-	<TITLE>::TopCoder High School::</TITLE>
-    <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-    <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-<jsp:include page="../includes/css.jsp" />
-</HEAD>
-<BODY BGCOLOR="#001934" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<jsp:include page="../includes/top.jsp" />
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
-<TR><TD>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-    <TR VALIGN="top">
-		<TD WIDTH="170" BGCOLOR="#001934">
-        <jsp:include page="../includes/left_nav.jsp" />
-<jsp:include page="../includes/left_calendar.jsp" />
-        </TD>
-        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
-        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
-        <TD VALIGN="top" BACKGROUND="/i/hs/bluegradiant_stats_bg.gif" BGCOLOR="#001934">
-            <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%">
-    <TR>
-        <TD>
-            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/hs/headinginside_stats.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
-             <TD BACKGROUND="/i/hs/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="100%">&nbsp;
-             </TD></TR>
-            </TABLE>
-        </TD>
-    </TR>
-    <TR>
-        <TD>
-        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-        <TR>
-            <TD>
-                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-                <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                </TR>
-                </TABLE>
-            </TD>
-            <TD class="statText">
-            <!-- Start Body-->
-                        <P><B><Font COLOR="cccccc" SIZE="2">NOTE:  The information provided on this page is for 
-demonstration purposes only</Font></B></P>    
-<P><B>School Rankings</B></P>
+<%@ include file="head.inc" %>
+
+<script language="JavaScript">
+   function submitForm(goToPg){
+ 	var frm = document.schoolRankForm;
+	var fst = (frm.First.value) ? parseInt(frm.First.value): 1;
+	var lst = (frm.Last.value) ? parseInt(frm.Last.value):150;
+	var numRow = (frm.nr.value) ? parseInt(frm.nr.value):25;
+	if (fst<1) fst=1;
+    if(numRow > 150) numRow=150;
+	if(numRow < 1) numRow = 25;
+	if ((lst - fst) > 1000) lst = fst+ 1000;
+	if (!(fst>lst)){
+      if (goToPg && (goToPg > 0)){
+	    frm.pg.value = goToPg;
+	 	frm.sr.value = fst + ((goToPg-1) * numRow);
+		frm.er.value = fst + (goToPg * numRow - 1);
+	  }else{
+	   frm.sr.value = fst;
+	   frm.er.value = (fst + numRow - 1);
+	   frm.pg.value = 1;
+	  }
+
+   	  if (parseInt(frm.sr.value) < fst) {
+		  frm.sr.value = fst;
+		  frm.er.value = fst+numRow - 1;
+		  frm.pg.value = 1;
+	  }
+	  if (parseInt(frm.er.value) > lst) frm.er.value = lst;
+      frm.submit();
+	}
+   }
+</script>
+
+<%@ include file="body.inc" %> 
+
+         <!-- BEGIN BODY -->
+
+<%
+ResultSetContainer rdinfo = (ResultSetContainer) queryEntries.get("Round_Name");
+ResultSetContainer.ResultSetRow row = rdinfo.getRow(0);
+String contestName = row.getItem("contest_name").toString();
+String roundName = row.getItem("round_name").toString();
+int roundID = Integer.parseInt(row.getItem("round_id").toString());
+String currRound = roundID+"";
+ResultSetContainer rdlist = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
+pageContext.setAttribute("resultSetDates", rdlist);
+%>
+
+<P><B>School Rankings for <%= contestName %> - <%= roundName %></B></P>
+
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-<TR>
-                <TD>
+  <TR>
+   <TD>
     <SPAN class="statText"><B>Please select a round:</B><BR/></SPAN>
     <SELECT CLASS="dropdown" NAME="Contest" onchange="goTo(this)">
         <OPTION value="#">Select a Round:</OPTION>
-        
-         
-           <OPTION value="/stat?c=round_overview&er=4&rd=4380">Single Round Match 121 > Round 1</OPTION>
-           <OPTION value="/stat?c=round_overview&er=4&rd=4375">2002 TopCoder Invitational Championship > Round 1</OPTION>
-           <OPTION value="/stat?c=round_overview&er=4&rd=4373" selected>2002 TopCoder Invitational Semifinal > Round 4</OPTION>
-           <OPTION value="/stat?c=round_overview&er=4&rd=4372">2002 TopCoder Invitational Semifinal > Round 3</OPTION>
-           <OPTION value="/stat?c=round_overview&er=4&rd=4371">2002 TopCoder Invitational Semifinal > Round 2</OPTION>
-           <OPTION value="/stat?c=round_overview&er=4&rd=4370">2002 TopCoder Invitational Semifinal > Round 1</OPTION>
-           <OPTION value="/stat?c=round_overview&er=4&rd=4365">Single Round Match 120 > Round 1</OPTION>
-           <OPTION value="/stat?c=round_overview&er=4&rd=4360">Single Round Match 119 > Round 1</OPTION>
-           <OPTION value="/stat?c=round_overview&er=4&rd=4355">2002 TopCoder Inv > Round 4</OPTION>
-           <OPTION value="/stat?c=round_overview&er=4&rd=4350">Single Round Match 118 > Round 1</OPTION>
-           <OPTION value="/stat?c=round_overview&er=4&rd=4345">2002 TopCoder Inv. > Round 3</OPTION>
-           <OPTION value="/stat?c=round_overview&er=4&rd=4340">Single Round Match 117 > Round 1</OPTION>
-           <OPTION value="/stat?c=round_overview&er=4&rd=4335">2002 TopCoder Invitational > Round 2</OPTION>
+        <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
+         <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
+           <OPTION value="/?module=Statistics&c=school_round_rank&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+               <% } else { %>
+           <OPTION value="/?module=Statistics&c=school_round_rank&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+        <% } %>
+        </logic:iterate>
     </SELECT>
-    
     </TD>
   </TR>
-  <TR>
-                  <TD CLASS="statText">
-                     <SPAN CLASS="statText"><B>Please select a School:</B><BR/></SPAN>
-                     <SELECT NAME="Round" onchange="goTo(this)" CLASS="dropdown"><OPTION value="#">Select a School:</OPTION>
-                       
-                         
-                           <OPTION value="/hs/stats/hs_rankings.jsp" selected>Hartford Regional</OPTION>
-                           <OPTION value="/hs/stats/hs_rankings.jsp" selected>Glastonbury High</OPTION>
-                           <OPTION value="/hs/stats/hs_rankings.jsp" selected>Montage Academy</OPTION>
-                           <OPTION value="/hs/stats/hs_rankings.jsp" selected>Avon High</OPTION>
-                           <OPTION value="/hs/stats/hs_rankings.jsp" selected>Windsor Enfield</OPTION>                                                                                                            
-                                          
-                       
-                     </SELECT>
-                   </TD>
-                 </TR>  
-  </Table>
-         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"   WIDTH="100%">
+</TABLE>
+
+<% 
+ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("School_Round_Scores");
+pageContext.setAttribute("resultSet", rsc);
+
+//a little exception handling here for numeric issues...
+int iCurrentPage = 1;
+int iLast = 150;
+int iEndRow = 50;
+int iFirst = 1;
+try{
+  iCurrentPage = Integer.parseInt(srb.getProperty("pg","1"));
+  iLast = Integer.parseInt(srb.getProperty("Last","150"));
+  iFirst = Integer.parseInt(srb.getProperty("First","1"));  
+  iEndRow = Integer.parseInt(srb.getProperty("er","50"));
+}catch(Exception e){
+//ignore
+}
+%>
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"   WIDTH="100%">
            <TR>
              <TD BGCOLOR="#001934"   VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
              <TD COLSPAN="2" VALIGN="top" BGCOLOR="#001934" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-<form name="coderRankForm" action="/stat" method="get">
+
+<form name="schoolRankForm" action="/" method="get">
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"   WIDTH="100%">
                  <TR>
-                   <TD  BGCOLOR="#1B2E5D" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
+                   <TD BGCOLOR="#1B2E5D" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD BGCOLOR="#1B2E5D"  COLSPAN="5" CLASS="statText">
-                     Show <INPUT TYPE="text" NAME="nr" MAXLENGTH="4" SIZE="4" value="4" CLASS="bodyText">&nbsp;Schools per page. <A HREF="/?module=Static&d1=stats&d2=hs_rankings" CLASS="statText">&#160;[ submit ]</A>
+                     Show <INPUT TYPE="text" NAME="nr" MAXLENGTH="4" SIZE="4" value="<%= srb.getProperty("nr","50") %>" CLASS="bodyText">&nbsp;Schools per page. <A HREF="javascript:submitForm();" CLASS="statText">&#160;[ submit ]</A>
                    </TD>
                  </TR>
                  <TR>
-                   <TD BGCOLOR="#1B2E5D"  COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
+                   <TD BGCOLOR="#1B2E5D"   COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" HEIGHT="16" COLSPAN="5" ALIGN="center">
-				   
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif"  CLASS="statText" HEIGHT="16" COLSPAN="5" ALIGN="center">
+				   <% if (iCurrentPage > 1) {%>
+                     <A HREF="javascript:submitForm(<%= iCurrentPage - 1 %>);" CLASS="statText">&lt;&lt; previous</A>
+				   <% } else {%>
 				     &lt;&lt; previous
-				   
+				   <% } %>
                      |   
-				 
-                     <A HREF="/?module=Static&d1=stats&d2=hs_rankings" CLASS="statText"></A>next &gt;&gt;
-				   					 
+				 <% if (iEndRow < iLast) {%>
+                     <A HREF="javascript:submitForm(<%= iCurrentPage + 1 %>);" CLASS="statText">next &gt;&gt;</A>
+				   <% } else {%>
+				     next &gt;&gt;
+				   <% } %>					 
                    </TD>
                  </TR>
                  <TR>
@@ -121,85 +126,44 @@ demonstration purposes only</Font></B></P>
                    <TD BGCOLOR="#1B2E5D" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">Position</TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="48%">
-				   <A HREF="/?module=Static&d1=stats&d2=hs_rankings" CLASS="statText">School</a>
+				   <A HREF="/?module=Statistics&c=school_round_ranks&sq=School_Round_Scores&pg=<%= iCurrentPage%>&First=<%= iFirst%>&Last=<%=iLast%>&sr=<%=srb.getProperty("sr","1")%>&er=<%=srb.getProperty("er","50")%>&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("asc") ?"desc":"asc"%>" CLASS="statText">School</a>
 				   </TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="20%">
-				   <A HREF="/?module=Static&d1=stats&d2=hs_rankings" CLASS="statText">Score</a>
+				   <A HREF="/?module=Statistics&c=school_round_ranks&sq=School_Round_Scores&pg=<%= iCurrentPage%>&First=<%= iFirst%>&Last=<%=iLast%>&sr=<%=srb.getProperty("sr","1")%>&er=<%=srb.getProperty("er","50")%>&sc=2&sd=<%= "2".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Score</a>
 				   </TD>
                    <TD BGCOLOR="#1B2E5D" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD   COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-       
-	        
+       <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
+	        <bean:define id="coderrank" value="3000" />  <%-- @@@ make them all red? --%>
                  <TR>
-                   <TD   VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD   CLASS="statText" HEIGHT="13">1</TD>
-                   <TD   CLASS="statText" VALIGN="middle" ALIGN="left">
-					<A HREF="/?module=Static&d1=stats&d2=hs_round_stats" CLASS="coderTextRed">Glastonbury</A>
+                   <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD CLASS="statText" HEIGHT="13"><bean:write name="resultRow" property='<%= "item[" + 3 /* order */ + "]" %>'/></TD>
+                   <TD CLASS="statText" VALIGN="middle" ALIGN="left">
+					<A HREF="/?module=Statistics&c=school_round_stats&hs=<bean:write name="resultRow" property='<%= "item[" + 0 /* school_id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 1 /* school full_name */ + "]" %>'/></A>
                    </TD>
-                   <TD   CLASS="statText" VALIGN="middle" ALIGN="right">600</TD>
-                   <TD   VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD CLASS="statText" VALIGN="middle" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 2 /* school score */ + "]" %>'/></TD>
+                   <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-		
-	        
+		</logic:iterate>
                  <TR>
-                   <TD   VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD   CLASS="statText" HEIGHT="13">2</TD>
-                   <TD   CLASS="statText" VALIGN="middle" ALIGN="left">
-					<A HREF="/?module=Static&d1=stats&d2=hs_round_stats" CLASS="coderTextRed">Avon</A>
-                   </TD>
-                   <TD   CLASS="statText" VALIGN="middle" ALIGN="right">568</TD>
-                   <TD   VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-		
-	        
-                 <TR>
-                   <TD   VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD   CLASS="statText" HEIGHT="13">3</TD>
-                   <TD   CLASS="statText" VALIGN="middle" ALIGN="left">
-					<A HREF="/?module=Static&d1=stats&d2=hs_round_stats" CLASS="coderTextRed">Manchester</A>
-                   </TD>
-                   <TD   CLASS="statText" VALIGN="middle" ALIGN="right">537</TD>
-                   <TD   VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-		
-	        
-                 <TR>
-                   <TD   VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD   CLASS="statText" HEIGHT="13">4</TD>
-                   <TD   CLASS="statText" VALIGN="middle" ALIGN="left">
-					<A HREF="/?module=Static&d1=stats&d2=hs_round_stats" CLASS="coderTextRed">Marlboro</A>
-                   </TD>
-                   <TD   CLASS="statText" VALIGN="middle" ALIGN="right">430</TD>
-                   <TD   VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-		
-	        
-                 <TR>
-                   <TD   VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD   CLASS="statText" HEIGHT="13">5</TD>
-                   <TD   CLASS="statText" VALIGN="middle" ALIGN="left">
-					<A HREF="/?module=Static&d1=stats&d2=hs_round_stats" CLASS="coderTextRed">Hartford</A>
-                   </TD>
-                   <TD   CLASS="statText" VALIGN="middle" ALIGN="right">385</TD>
-                   <TD   VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-
-		
-                 <TR>
-                   <TD   COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
+                   <TD COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" HEIGHT="16" COLSPAN="5" ALIGN="center">
-				   
+				   <% if (iCurrentPage > 1) {%>
+                     <A HREF="javascript:submitForm(<%= iCurrentPage - 1 %>);" CLASS="statText">&lt;&lt; previous</A>
+				   <% } else {%>
 				     &lt;&lt; previous
-				   
+				   <% } %>
                      |   
-				 
-                     <A HREF="/?module=Static&d1=stats&d2=hs_rankings" CLASS="statText"></A>next &gt;&gt;
-				   			
+				 <% if (iEndRow < iLast) {%>
+                     <A HREF="javascript:submitForm(<%= iCurrentPage + 1 %>);" CLASS="statText">next &gt;&gt;</A>
+				   <% } else {%>
+				     next &gt;&gt;
+				   <% } %>			
                    </TD>
                  </TR>
                  <TR>
@@ -207,11 +171,11 @@ demonstration purposes only</Font></B></P>
                  </TR>
                  <TR>
                    <TD BGCOLOR="#1B2E5D" COLSPAN="5" ALIGN="center" CLASS="statText">
-                       Viewing coders ranked&#160;
-                       <INPUT TYPE="text" NAME="First" MAXLENGTH="4" SIZE="4" value="1" CLASS="bodyText">
+                       Viewing schools ranked&#160;
+                       <INPUT TYPE="text" NAME="First" MAXLENGTH="4" SIZE="4" value="<%=iFirst%>" CLASS="bodyText">
                        &#160;to&#160;
-                       <INPUT TYPE="text" NAME="Last" MAXLENGTH="4" VALIGN="center" SIZE="4" value="150" CLASS="bodyText">
-                       <A HREF="/?module=Static&d1=stats&d2=hs_rankings" CLASS="statText">&#160;[ submit ]</A>
+                       <INPUT TYPE="text" NAME="Last" MAXLENGTH="4" VALIGN="center" SIZE="4" value="<%=iLast%>" CLASS="bodyText">
+                       <A HREF="javascript:submitForm();" CLASS="statText">&#160;[ submit ]</A>
                    </TD>
                  </TR>
                  <TR>
@@ -220,40 +184,19 @@ demonstration purposes only</Font></B></P>
                </TABLE>
 			   <input type="hidden" name="sr" value="">
 			   <input type="hidden" name="er" value="">
-			   <input type="hidden" name="pg" value="1">
-   			   <input type="hidden" name="c" value="coder_ratings">
-			   
+			   <input type="hidden" name="pg" value="<%= iCurrentPage%>">
+   			   <input type="hidden" name="c" value="school_round_rank">
+			   <% if (srb.getProperty("sq", "").equals("School_Round_Scores")) { %>
+			   <input type="hidden" name="sq" value="School_Round_Scores">
+			   <input type="hidden" name="sc" value="<%=srb.getProperty("sc","2")%>">
+			   <input type="hidden" name="sd" value="<%=srb.getProperty("sd", "desc")%>">
+			   <% } %>
+   			   <input type="hidden" name="module" value="Statistics">
 			   </form>
              </TD>
              <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
            </TR>
-           <TR>
-             <TD COLSPAN="4" VALIGN="top" BGCOLOR="#001934"   WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-           </TR>      
          </TABLE>
-            <!-- End Body-->
-            </TD>
-             <TD>
-                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-                 <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-                </TABLE>  
-            </TD>
-           </TR>
-          </TABLE>       
-         </TD>
-        </TR>
+         <!-- END BODY -->
 
-       </TABLE>
-        </TD>
-        <TD  BGCOLOR="#001934" VALIGN="top">&nbsp;&nbsp;</TD>	
-        <TD  BGCOLOR="#001934" VALIGN="top">&nbsp;&nbsp;</TD>	
-        <TD  BGCOLOR="#001934" VALIGN="top">&nbsp;&nbsp;</TD>		
-	</TR>
-</TABLE>
-</TD></TR></TABLE>
-
-<jsp:include page="../includes/foot.jsp" />
-</BODY>
-</HTML>
+<%@ include file="tail.inc" %>
