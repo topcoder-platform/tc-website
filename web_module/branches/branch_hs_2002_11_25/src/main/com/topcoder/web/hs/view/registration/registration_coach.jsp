@@ -3,11 +3,8 @@
 <jsp:useBean id="coach" type="com.topcoder.web.hs.model.CoachRegistrationBean" scope="request"/>
 <%@ include file="head.inc" %>
 <P><B>Registration for Coaches</B></P>
-<P>Welcome to TopCoder HighSchool. Before you register, there are a few things we think you should know: First, and most importantly, TopCoder is a commercial site. We charge sponsors for the right to advertise on our site. This money pays for the operation of the site and the prizes awarded in competitions.</P>
-<P>This has several implications. Because we feel it is our obligation to let our sponsors know who their message is reaching, we collect as much demographic information as possible without making the registration process overly burdensome. Furthermore, we require that you verify the accuracy of the information you provide. This does not mean that sponsors have access to your personal information; they do not. It means that we want to give them as accurate aggregate information as possible.</P>
-<P>While we believe that sponsors have every right to expect that what we give them is accurate and valuable, we also believe that they must bring more than just money to our member base. We want sponsors who provide true value to developers.  TopCoder intends to help developers increase their skill level as well as increase their value to employers. Therefore, we are careful to choose sponsors that represent this philosophy.</P>
-<P>We are also very strict about the way in which sponsors present themselves to the member base - no annoying banners, pop-ups, etc. We work with sponsors to get their message across in an appealing and non-intrusive manner. Because we take our relationship with sponsors seriously, we believe that they have value to provide.  We ask that you listen to what they have to say.</P>
-<P>Please read the Terms of Use and Privacy Policy, and let me be the first to say good luck in the arena.</P>
+<P>Welcome to TopCoder High School.  TopCoder, Inc., the leader in identifying and promoting computer programming talent through competition, is excited to offer TopCoder High School.  TopCoder's unprecedented competition field is now being offered to high school students who are already interested in programming.  Register now for the ability to participate in these competitions.</P>
+<P>Please read the Terms of Use and Privacy Policy carefully.  And let me be the first to say, "Good luck to you in the Arena."</P>
 <P>Jack Hughes</P>
 <P><I>Founder and Chairman, TopCoder, Inc.</I></P>
 <P><BR></P>
