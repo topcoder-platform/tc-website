@@ -89,6 +89,7 @@ public class ModifyQuery extends BaseProcessor {
         }
 
         setNextPage(Constants.MODIFY_QUERY_PAGE);
+        setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {

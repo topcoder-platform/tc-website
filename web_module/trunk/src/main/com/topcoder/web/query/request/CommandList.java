@@ -45,6 +45,7 @@ public class CommandList extends BaseProcessor {
         Command c = cHome.create();
         setCommandList(c.getCommandList(getDb()));
         setNextPage(Constants.COMMAND_LIST_PAGE);
+        setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {

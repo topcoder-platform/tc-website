@@ -14,13 +14,13 @@ public class DBSelection extends BaseProcessor {
 
     private static Logger log = Logger.getLogger(DBSelection.class);
 
-    /* Creates a new Login */
     public DBSelection() {
         super();
     }
 
     protected void businessProcessing() throws Exception {
         setNextPage(Constants.DB_SELECTION_PAGE);
+        setIsNextPageInContext(true);
     }
 
 }

@@ -100,6 +100,7 @@ public class ModifyQueryInput extends BaseProcessor {
         setOtherInputList(i.getAllInputs(getDb()));
 
         setNextPage(Constants.MODIFY_QUERY_INPUT_PAGE);
+        setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
