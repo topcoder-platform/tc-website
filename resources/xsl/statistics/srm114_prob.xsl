@@ -392,7 +392,72 @@ return nW;
 
 <P>Reference Implementation: <B>Penwiper</B></P>
 
+  <font size="+2">
+  <b>Pipes</b>
+</font>
+<BR/>
 
+    Used as: Division I - Level 3 
+	:<blockquote>
+    <table cellspacing="2">
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Value</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">900 points</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Submission Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">53 / 146 (36.30%) 
+</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Success Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">37 / 53 (69.81%) 
+</td>
+      </tr>
+	  <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Average Score</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">482.34 points
+        </td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>High Score</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">
+          <b>radeye</b> for 733.71 points
+                </td>
+      </tr>
+    </table>
+	</blockquote>
+	
+  <P>
+  This problem was reasonably straightforward, so far as Div I - Level 3 problems go. You are given a map describing how pipes are buried in the ground, and need to calculate how much pressure is available in one of the lowest buried pipes. The pressure available in the first pipe on the top level is defined as 100. The pressure in each pipe below the first level is calculated based on the pipes from the previous level. If two pipes are directly on top of one another, then all of the pressure from the top pipe gets transferred to the pipe below it. If there is a horizontal separation between the two pipes however, the amount of pressure transferred to the lower pipe is inversely proportional to the horizontal distance, such that if two pipes p1 and p2 are distances x1 and x2 from the higher pipe, then the amount of pressure transferred to p1 will be (x2/x1) times the amount of pressure transferred to p2. I'm not certain if this is how pressure is really distributed between vertical pipes, but it sounds reasonable. 
+  </P>
+  <P>
+Given n pipes separated by the distances x1, x2, x3, ..., xn (where none of the xi are equal to zero) from a higher pipe with pressure P, you need to do the following to calculate p(i), the pressure in each of the lower n pipes:
+  </P>
+  
+  <OL>
+	<LI>Find the smallest distance, and call it xmin.</LI>
+	<LI>Calculate a pressure ratio for each pipe: pratio(i) = xmin / x(i)</LI>
+	<LI>Sum all of the ratios.</LI>
+	<LI>Calculate pressure in each pipe as: p(i) = pratio(i) / (Sum of ratios) * P and round down in all cases.</LI>
+  </OL>
+  
+  <P>
+  Every solution that I looked at calculated the ratios using floating-point arithmetic. Finding a sum of these ratios without using floating-point arithmetic would not be possible for some of the cases of large maps with many pipes. Some people added on things like .00000001 to each value of p(i) to avoid floating point errors, but this proved to be unnecessary, at least for all of the system test cases. 
+  </P>
+  <P>
+  Once you have the above algorithm for calculating the pressures of pipes going from one level to the next, the problem becomes quite simple. Set up a loop to start at the first level and go down to the second last level. At each pipe location in a given level, you start with knowledge of what that pipe's pressure is. Use the above algorithm to find out how much pressure that pipe contributes to each of the pipes below it. Once the loop is completed, you then simply have to return the pressure of the pipe on the last level whose zero-based index is given as an input parameter to the problem. 
+  </P>
 <IMG SRC="/i/m/Penwiper_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;Penwiper<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=160082" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
