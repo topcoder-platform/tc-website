@@ -30,7 +30,7 @@
 
          <p>For those who make it to the finals, the bounty is great: great prizes, recognition among co-workers and the satisfaction of having beaten DoubleClick employees from around the world.  As an added twist to the 2004 Coding Challenge, you'll have the chance to check your skills against some of New York City's brightest minds.  While you won't be competing for the same prizes, you will be asked to solve the same problems as participants from Columbia and NYU.</p>
 
-         <p>The DoubleClick 2004 Coding Challenge, Powered by TopCoder&#153;, is your chance to prove you are the best!  Are you up to the challenge?</p>
+         <p>The DoubleClick 2004 Coding Challenge, Powered by TopCoder&#174;, is your chance to prove you are the best!  Are you up to the challenge?</p>
 
          <p><span class="dc_subTitle">What language do you speak?</span><br/>
          Participants will have their choice of using Java, C++, C# or VB.Net - the most relevant of current software development technologies - to solve complex algorithmic problems. </p>

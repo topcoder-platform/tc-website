@@ -46,7 +46,7 @@
 			<span class="dc_subTitle">Use of Plugins in the Competition Arena</span><br/>
 			The use of external TopCoder Arena plugins or any modifications to the Competition Arena functionality is strictly prohibited.</p>
 
-			<p><span class="dc_subTitle">Logging into the Tournament</span><br/>
+			<p><span class="dc_subTitle">Logging in to the Tournament</span><br/>
 			Everyone who competes in the tournament must log in to the Competition Arena no later than ten minutes prior to the start of each round.  If a participant does not participate, for any reason, in a round he/she has advanced to, it will be treated as an automatic loss in that round of competition.</p>
 
 			<p><span class="dc_subTitle">Scoring and Advancing</span><br/>

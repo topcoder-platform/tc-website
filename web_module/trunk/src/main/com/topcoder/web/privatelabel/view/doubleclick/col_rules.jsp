@@ -27,7 +27,7 @@
             
 	         <p class="pageTitle">Official Rules and Regulations</p>
          
-            <h3>No purchase necessary to enter or win.</h3>
+            <h3>No purchase necessary to enter or win. Void where prohibited.</h3>
 
             <p><span class="dc_subTitle">Summary of the Tournament</span><br/>
             The DoubleClick&#153; 2004 Coding Challenge ("DCCC") is being offered by DoubleClick Inc. ("DoubleClick") and TopCoder, Inc. ("TopCoder").  The DCCC will take place between Monday, February 9 and Friday, February 27, 2004.  It begins with a one-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the subsequent two rounds of the programming tournament.  The entire tournament consists of a Qualification Round, one (1) main competition round, and one (1) onsite final round.  All participants who compete in the main competition round will receive a DoubleClick 2004 Coding Challenge T-shirt.  In addition, DoubleClick will award $10,000 in cash prizes to the 10 finalists in the tournament.</p>

@@ -44,7 +44,7 @@
             </tr>
             <tr>
                <td class="sidebarText">Main Competition Round - all registered participants</td>
-               <td class="sidebarText">Friday, February 19</td>
+               <td class="sidebarText">Thursday, February 19</td>
                <td class="sidebarText">11:00AM</td>
             </tr>
             <tr>
