@@ -102,10 +102,10 @@ public class JSPUtils {
 
         Iterator maps = mapList.iterator();
         while (maps.hasNext()) {
-            Map curMap = (Map)maps.hasNext();
+            Map curMap = (Map)maps.next();
 
             ArrayList keyDupList = null;
-            if (!mapsMap.containsKey(curMap.get(fieldName)))
+            if (!mapsMap.containsKey(curMap.get(fieldName))) {
                 keyDupList = new ArrayList();
                 mapsMap.put(curMap.get(fieldName), keyDupList);
             }
