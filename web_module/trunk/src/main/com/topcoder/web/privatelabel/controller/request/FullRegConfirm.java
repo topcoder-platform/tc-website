@@ -138,8 +138,7 @@ public class FullRegConfirm extends FullRegBase {
     }
 
     protected void setDefaults(FullRegInfo info) {
-        setDefault(Constants.RESUME, info.getFileName());
-        setDefault(Constants.FILE_TYPE, String.valueOf(info.getFileType()));
+        //todo set default for coder type
         List responses = info.getResponses();
         DemographicResponse response = null;
         for (Iterator it = responses.iterator(); it.hasNext();) {
