@@ -105,10 +105,10 @@ public class EmailInfo extends BaseModel {
         msgText.append("\n\n");
         msgText.append("Begin: ");
         msgText.append(sdf.format(sessionInfo.getBeginDate()));
-        msgText.append("\n");
+        msgText.append(" Eastern Time\n");
         msgText.append("End: ");
         msgText.append(sdf.format(sessionInfo.getEndDate()));
-        msgText.append("\n");
+        msgText.append(" Eastern Time\n");
         msgText.append("Login:  ");
         msgText.append(candidateHandle);
         msgText.append("\n");
@@ -146,10 +146,10 @@ public class EmailInfo extends BaseModel {
         msgText.append("\n");
         msgText.append("Begin: ");
         msgText.append(sdf.format(sessionInfo.getBeginDate()));
-        msgText.append("\n");
+        msgText.append(" Eastern Time\n");
         msgText.append("End: ");
         msgText.append(sdf.format(sessionInfo.getEndDate()));
-        msgText.append("\n");
+        msgText.append(" Eastern Time\n");
         msgText.append("\n");
         msgText.append("Access this individual's information by logging into the Testing Application ");
         msgText.append("Management Tool http://corporate.topcoder.com/testing and clicking on Candidates.");
