@@ -29,7 +29,7 @@
         <td width="99%" nowrap align="right">&#160;</td>
         <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
     </tr>
-    <tr><td height="3" class="headStripe" colspan="5"><img src="/images/clear.gif" alt="" height="3" alt="" border="0"></td></tr>
+    <tr><td height="3" class="headStripe" colspan="5"><img src="/i/clear.gif" alt="" height="3" alt="" border="0"></td></tr>
 </table>
 <!-- Header ends -->
 
