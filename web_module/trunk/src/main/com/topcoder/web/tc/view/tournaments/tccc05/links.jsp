@@ -94,9 +94,9 @@
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_description"><img src="/i/tournament/tccc05/tabs/L2_detailsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
 				<% if (tabLev2.equals("advancers")) {%>
-					<td class=nav><A href="/tc?module=SimpleStats&c=tccc05_alg_qual&trans=true&d1=tournaments&d2=tccc05&d3=alg_qualification"><img src="/i/tournament/tccc05/tabs/L2_advancersOn.gif" alt="" border=0 /></A></td>
+					<td class=nav><A href="/tc?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&d1=tournaments&d2=tccc05&d3=alg_adv_overview)http://www.topcoder.com/tc?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&d1=tournaments&d2=tccc05&d3=alg_adv_overview"><img src="/i/tournament/tccc05/tabs/L2_advancersOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
-					<td class=nav><A href="/tc?module=SimpleStats&c=tccc05_alg_qual&trans=true&d1=tournaments&d2=tccc05&d3=alg_qualification"><img src="/i/tournament/tccc05/tabs/L2_advancersOff.gif" alt="" border=0 /></A></td>
+					<td class=nav><A href="/tc?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&d1=tournaments&d2=tccc05&d3=alg_adv_overview)http://www.topcoder.com/tc?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&d1=tournaments&d2=tccc05&d3=alg_adv_overview"><img src="/i/tournament/tccc05/tabs/L2_advancersOff.gif" alt="" border=0 /></A></td>
 				<% } %>
 <%--
 				<% if (tabLev2.equals("summary")) {%>
@@ -159,7 +159,7 @@
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_rules"><% if (tabLev3.equals("rules")) {%><img src="/i/tournament/tccc05/tabs/L3_rulesOn.gif" border=0><% } else { %><img src="/i/tournament/tccc05/tabs/L3_rulesOff.gif" border=0><% } %></a></td>
 					<% } else if (tabLev2.equals("advancers")) {%>
 						<td class=subnav><a href="/tc?module=SimpleStats&c=tccc05_alg_qual&trans=true&d1=tournaments&d2=tccc05&d3=alg_qualification"><% if (tabLev3.equals("qualification")) {%><img src="/i/tournament/tccc05/tabs/L3_qualificationOn.gif" border=0><% } else { %><img src="/i/tournament/tccc05/tabs/L3_qualificationOff.gif" border=0><% } %></a></td>
-						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_adv_overview"><% if (tabLev3.equals("overview")) {%><img src="/i/tournament/tccc05/tabs/L3_overviewOn.gif" border=0><% } else { %><img src="/i/tournament/tccc05/tabs/L3_overviewOff.gif" border=0><% } %></a></td>
+						<td class=subnav><a href="/tc?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&d1=tournaments&d2=tccc05&d3=alg_adv_overview)http://www.topcoder.com/tc?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&d1=tournaments&d2=tccc05&d3=alg_adv_overview"><% if (tabLev3.equals("overview")) {%><img src="/i/tournament/tccc05/tabs/L3_overviewOn.gif" border=0><% } else { %><img src="/i/tournament/tccc05/tabs/L3_overviewOff.gif" border=0><% } %></a></td>
 <%--
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_bracket"><% if (tabLev3.equals("bracket")) {%><img src="/i/tournament/tccc05/tabs/L3_bracketOn.gif" border=0><% } else { %><img src="/i/tournament/tccc05/tabs/L3_bracketOff.gif" border=0><% } %></a></td>
 --%>
