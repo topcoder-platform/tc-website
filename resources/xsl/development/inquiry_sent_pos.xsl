@@ -48,6 +48,9 @@
 				<xsl:with-param name="title">&#160;Overview</xsl:with-param>
 			</xsl:call-template>
 			<xsl:variable name='FORUMID' select='/TC/DEVELOPMENT/forumId'/>
+			<xsl:variable name='design' select='/TC/DEVELOPMENT/design'/>
+			<xsl:variable name='Project' select='/TC/DEVELOPMENT/Project'/>
+
               <INPUT TYPE="hidden" NAME="date">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/date"/></xsl:attribute>
               </INPUT>
@@ -65,21 +68,22 @@
 					<td class="statText" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 						<img src="/i/clear.gif" alt="" width="240" height="1" border="0" /><br />
 						<p><strong>Your inquiry has been sent. Thank You!</strong></p>
-						<p>Thanks for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> component.  You now have access to the
-    						<a>
+						Thanks for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> component.  You now have access to the
+    						<a class="statText">
     						    <xsl:attribute name="href">
     						        <xsl:value-of select="concat('http://www.topcodersoftware.com/pages/c_forum.jsp?f=',$FORUMID)"/>
                                 </xsl:attribute>
                                 Specification Forum
     						</a>
     						<xsl:choose>
-    						    <xsl:when test="$des=1">
-    						        which can be used to obtain design documentation and ask any questions you may have regarding the component design.  Please post your questions at any time and a product manager will respond within 24 hours.  However, any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!</p>
-    						        <p>The deadline for submitting a design is <xsl:value-of select="/TC/DEVELOPMENT/date"/> at 11:59 PM EST.  Please submit your design to <a href="mailto:submissions@topcodersoftware.com">submissions@topcodersoftware.com</a>  Your submission should consist of a jar file populated with the required documents in /docs and appropriate test cases in /src/java/tests.  Any late submissions will be ignored.  Also, a reminder that this is a competition, and only the winning designer will receive payment.</p>
+    						    <!-- xsl:when test="$design=1" -->
+    						    <xsl:when test="contains($Project, 'Design')">
+    						        which can be used to obtain design documentation and ask any questions you may have regarding the component design.  Please post your questions at any time and a product manager will respond within 24 hours.  However, any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!
+    						        <p>The deadline for submitting a design is <xsl:value-of select="/TC/DEVELOPMENT/date"/> at 11:59 PM EST.  Please submit your design to <a href="mailto:submissions@topcodersoftware.com" class="statText">submissions@topcodersoftware.com</a>  Your submission should consist of a jar file populated with the required documents in /docs and appropriate test cases in /src/java/tests.  Any late submissions will be ignored.  Also, a reminder that this is a competition, and only the winning designer will receive payment.</p>
     						    </xsl:when>
     						    <xsl:otherwise>
-    						        which can be used to obtain the component design and designer test cases (See "Development Phase Documents" thread), as well as to ask any questions you may have regarding the development process or the design itself.  Design questions will be answered by the winning designer.  Please post your questions at any time and a product manager will respond within 24 hours.  However, any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!</p>
-    						        <p>The deadline for submitting a solution is <xsl:value-of select="/TC/DEVELOPMENT/date"/> at 11:59 PM EST.  Please submit your solution to <a href="mailto:submissions@topcodersoftware.com">submissions@topcodersoftware.com</a>.  Your submission should consist of a jar file populated with the required documents in /docs and appropriate source and test code in /src/java.  Do not modify the test cases that come with the design.  If you have problems getting the tests to run, please post a comment to the forum.  Any late submissions will be ignored.  Also, a reminder that this is a competition, and only the winning developer will receive payment.</p>
+    						        which can be used to obtain the component design and designer test cases (See "Development Phase Documents" thread), as well as to ask any questions you may have regarding the development process or the design itself.  Design questions will be answered by the winning designer.  Please post your questions at any time and a product manager will respond within 24 hours.  However, any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!
+    						        <p>The deadline for submitting a solution is <xsl:value-of select="/TC/DEVELOPMENT/date"/> at 11:59 PM EST.  Please submit your solution to <a href="mailto:submissions@topcodersoftware.com" class="statText">submissions@topcodersoftware.com</a>.  Your submission should consist of a jar file populated with the required documents in /docs and appropriate source and test code in /src/java.  Do not modify the test cases that come with the design.  If you have problems getting the tests to run, please post a comment to the forum.  Any late submissions will be ignored.  Also, a reminder that this is a competition, and only the winning developer will receive payment.</p>
     						    </xsl:otherwise>
     						</xsl:choose>
                         
