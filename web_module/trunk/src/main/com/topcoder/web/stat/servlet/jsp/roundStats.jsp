@@ -166,13 +166,6 @@ pageContext.setAttribute("resultSetDates", rsc);
            <a href="/stat?c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&dn=1" class="statTextBig">Division-I</a>&nbsp;|&nbsp;<a href="/stat?c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&dn=2" class="statTextBig">Division-II</a></TD>
                  </TR>
 
-<% if (hasSponsorImage) { %>
-    <TR>
-      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" COLSPAN="16">
-        <CENTER><A HREF="<bean:write name="sponsorImageRow" property='<%= "item[" + 1 /* link */ + "]" %>'/>"><img src="<bean:write name="sponsorImageRow" property='<%= "item[" + 0 /* link */ + "]" %>'/>" ALT="" WIDTH="<bean:write name="sponsorImageRow" property='<%= "item[" + 2 /* width */ + "]" %>'/>" HEIGHT="<bean:write name="sponsorImageRow" property='<%= "item[" + 3 /* height */ + "]" %>'/>" BORDER="0"/></A></CENTER>
-      </TD>
-    </TR>
-<% } %>
          <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
@@ -363,6 +356,12 @@ pageContext.setAttribute("resultSetDates", rsc);
        </TD>
        <TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
        <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0">
+
+<% if (hasSponsorImage) { %>
+        <CENTER><A HREF="<bean:write name="sponsorImageRow" property='<%= "item[" + 1 /* link */ + "]" %>'/>"><img src="<bean:write name="sponsorImageRow" property='<%= "item[" + 0 /* link */ + "]" %>'/>" ALT="" WIDTH="<bean:write name="sponsorImageRow" property='<%= "item[" + 2 /* width */ + "]" %>'/>" HEIGHT="<bean:write name="sponsorImageRow" property='<%= "item[" + 3 /* height */ + "]" %>'/>" BORDER="0"/></A></CENTER>
+<% } %>
+
+
          <%@ include file="/public_right.jsp" %>
        </TD>
     <!-- Gutter -->
