@@ -53,14 +53,6 @@ body,td,font,p,a
 
 <jsp:include page="../script.jsp" />
 
-<script>
-function openWin(url, name, w, h) {
-    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
-    win.location.href = url;
-    win.focus();
-}
-</script>
-
 </head>
 
     <body class=corporate bgcolor="#ffffff" text="#000000" link="#0000CC" vlink="#800080" alink="#ff0000" topmargin=2>
@@ -88,32 +80,25 @@ function openWin(url, name, w, h) {
                   <table border=0 cellspacing=0 width="100%">
                      <tr>
                         <td valign="top">
-                        <b><font size="+1">Advancers</font></b>
+                        <b><font size="+1">Winners</font></b>
                         <img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0" align="right" valign="top">
 
                         <p><font size="-1">
 
-                      <table class=googleFrame bgcolor="#ffffff" cellpadding=5 cellspacing=2 border=0 width="350">
+
+                      <table class=googleFrame bgcolor="#ffffff" cellpadding=5 cellspacing=2 border=0 width="400">
                         <tr>
-                           <td class="advancersTitle">Round</td>
-                           <td class="advancersTitle" align="right" width="100%">Advancers</td>
+                           <td class="advancersTitle" align="left" colspan="2">Onsite Championship Round</td>
                         </tr>
-                        <tr valign="top">
-                           <td class="google_round_id"><a href="/pl/?&module=Static&d1=google&d2=google_adv_qual" class="topLink">Qualification Round</a></td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_adv_qual">500</a></td>
+                        <tr>
+                           <td class="google_round_id" width="30%">Handle</td>
+                           <td class="google_round_id" width="30%" align="right">Score</td>
                         </tr>
-                        <tr valign="top">
-                           <td class="google_round_id" ><a href="/pl/?&module=Static&d1=google&d2=google_adv_online_1" class="topLink">Online Round 1</a></td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_adv_online_1">250</a></td>
-                        </tr>
-                        <tr valign="top">
-                           <td class="google_round_id" ><a href="/pl/?&module=Static&d1=google&d2=google_adv_online_2" class="topLink">Online Round 2</a></td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_adv_online_2">25</a></td>
-                        </tr>
-                        <tr valign="top">
-                           <td class="google_round_id" ><a href="/pl/?&module=Static&d1=google&d2=google_winners" class="topLink">Onsite Championship Round</a></td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_winners" class="topLink">4</a></td>
-                        </tr>
+
+<tr><td class="sidebarText" align="left" >ZorbaTHut</td><td class="sidebarText" align="right">1261.21</td></tr> 
+<tr><td class="sidebarText" align="left" >ChristopherH</td><td class="sidebarText" align="right">1161.37</td></tr> 
+<tr><td class="sidebarText" align="left" >Yarin</td><td class="sidebarText" align="right">1047.23</td></tr> 
+<tr><td class="sidebarText" align="left" >DjinnKahn</td><td class="sidebarText" align="right">1041.41</td></tr> 
 
                      </table>
 
