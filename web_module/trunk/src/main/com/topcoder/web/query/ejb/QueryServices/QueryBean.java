@@ -385,12 +385,14 @@ public class QueryBean extends BaseEJB {
          try {
              StringBuffer query = new StringBuffer();
              query.append(" SELECT query_id");
+             query.append(     " , lower(name)");
              query.append(     " , name");
              if (includeText)
                  query.append( " , text");
              query.append(     " , ranking");
              query.append(     " , column_index");
              query.append(  " FROM query");
+             query.append( " ORDER BY 2 ASC");
              ctx = new InitialContext();
              if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
              ds = (DataSource)ctx.lookup(dataSourceName);
