@@ -141,6 +141,7 @@
 
                         <ol>
                             <li>Eligible TopCoder members inquire to be selected for the design phase of the application.</li>
+                            <li>TopCoder Software selects 2 members to work independantky during the design phase of the application.</li>
                                         <!--<li>Designers must submit a completed Application Design Specification on the Specification Submission Due
                             Date as stated in the Application Project Posting page.</li>
                             -->
