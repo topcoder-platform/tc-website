@@ -2080,7 +2080,8 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 			 affidavit._roundID = round_id < 0 ? null : new Long(round_id);
 			 affidavit._header._statusID = Integer.parseInt(request.getParameter("affidavit_status_id"));
-			 affidavit._description = request.getParameter("affidavit_desc");
+			 //affidavit._description = request.getParameter("affidavit_desc");
+			 affidavit._header._description = request.getParameter("affidavit_desc");
 			 affidavit._header._typeID = Integer.parseInt(request.getParameter("affidavit_type_id"));
 			 affidavit._header._notarized = makeBoolean(request.getParameter(IS_NOTARIZED));
 

@@ -11,6 +11,7 @@
 <body>
 
 <%@ page import="com.topcoder.web.pacts.common.*" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%
 	Payment payment = (Payment)
 		request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
@@ -23,6 +24,7 @@
 		out.println("no payment!!!<br>");
 		payment = new Payment();
 	}
+	DecimalFormat df = new DecimalFormat(PactsConstants.DECIMAL_FORMAT_STRING);
 %>
 
 <h1>PACTS</h1>
@@ -63,13 +65,13 @@
 
 		<tr>
 		<td><b>Net Amount:</b></td>
-<%			out.print("<td>"+payment._netAmount+"</td>\n");
+<%			out.print("<td>"+df.format(payment._netAmount)+"</td>\n");
 %>
 		</tr>
 
 		<tr>
 		<td><b>Gross Amount:</b></td>
-<%			out.print("<td>"+payment._grossAmount+"</td>\n");
+<%			out.print("<td>"+df.format(payment._grossAmount)+"</td>\n");
 %>
 		</tr>
 
