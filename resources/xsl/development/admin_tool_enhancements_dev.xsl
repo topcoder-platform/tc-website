@@ -103,7 +103,7 @@
 
                                             <br/><br/>Group 2 - Must implement the following functionality according to the design:
                                             <br/>&#160;&#160;&#160;Implement Round Sequence
-                                            <br/>&#160;&#160;&#160;Auto room assigments
+                                            <br/>&#160;&#160;&#160;Auto room assignments
                                             <br/>&#160;&#160;&#160;Security Object Upgrade
 
                                             <br/><br/>Group 3 - Must implement the following functionality according to the design:
