@@ -70,12 +70,12 @@ if ( plugin ) {
     <tr valign="top">
 
 <!-- gutter begins -->
-        <td width="25"><img src="/i/corp/clear.gif" width="25" height="1" alt="" border="0"></td>
+        <td><img src="/i/corp/clear.gif" width="25" height="1" alt="" border="0"></td>
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
         <td width="50%"></td>
-        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
+        <td align="center"><img src="/i/corp/clear.gif" width="700" height="11" alt="" border="0"><br>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
@@ -107,12 +107,12 @@ if ( plugin ) {
                             document.write(' align="middle">');
                             document.write(' <param name="allowScriptAccess" value="sameDomain" />');
                             document.write(' <param name="movie" ');
-                            document.write(' value="/i/corp/screeningRatingEven.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>"/>');
+                            document.write(' value="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>"/>');
                             document.write(' <param name="menu" value="false" />');
                             document.write(' <param name="quality" value="high" />');
                             document.write(' <param name="bgcolor" value="#ffffff" />');
                             document.write(' <embed ');
-                            document.write(' src="/i/corp/screeningRatingEven.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>" ');
+                            document.write(' src="/i/corp/screeningRatingOdd.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>" ');
                             document.write(' menu="false" ');
                             document.write(' quality="high" ');
                             document.write(' bgcolor="#ffffff" ');
@@ -393,9 +393,9 @@ if ( plugin ) {
                   <tr><td><br/></td></tr>
                   </table>
               <% } %>
-              </table>
 
 <% } //isSessionComplete %>
+        <p><br/></p>
 
         </td>
         <td width="50%"></td>

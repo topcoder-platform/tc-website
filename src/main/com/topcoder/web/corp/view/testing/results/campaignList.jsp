@@ -24,7 +24,7 @@
 
 <!-- Middle column begins -->
         <td width="50%"></td>
-        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
+        <td align="center"><img src="/i/corp/clear.gif" width="700" height="11" alt="" border="0"><br>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
