@@ -325,6 +325,9 @@
                                             to place the single leftover square 'F' in the lower righthand corner allowing
                                             four diagram 3 blocks to be connected to form a 16x16 block analogously to how
                                             we generated the 4x4 block.
+                                        </p>
+                                        <pre>
+
                                                2x2      4x4 (diagram 1)   4x4 (diagram 2)     4x4 (diagram 3)
                                                 --        ----               ----                ----
                                                |AB|      |AAAA|             |AABB|              |AABB|
@@ -332,6 +335,8 @@
                                                 --       |ABBA|             |DEFC|              |DECC|
                                                          |AAAA|             |DDCC|              |DDCF|
                                                           ----               ----                ----
+                                        </pre>
+                                        <p>
                                             The moral of this story is, you never need to use more than a single square in
                                             any of the problem sizes.  Thus the answer can be calculated by finding the
                                             total area, dividing by 3, and then adding 1 for the remaining square block.
