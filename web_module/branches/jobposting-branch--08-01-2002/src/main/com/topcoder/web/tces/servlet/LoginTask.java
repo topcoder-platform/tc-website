@@ -140,7 +140,7 @@ log.debug("getting handleinput "+handleInput);
         setUserIdAuthenticated( TCData.getTCInt(rRow,"user_id") );
 
         setMessage("Login OK!");
-        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.LOGIN_PAGE);
+        setNextPage(TCESConstants.LOGIN_OK_PAGE );
     }
 
 

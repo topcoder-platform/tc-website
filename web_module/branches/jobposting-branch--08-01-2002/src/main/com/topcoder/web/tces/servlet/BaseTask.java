@@ -54,7 +54,7 @@ log.debug("next page -> "+nextPage);
     }
 
     public void servletAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response)
-    	throws Exception;
+    	throws Exception
     {
     }
 

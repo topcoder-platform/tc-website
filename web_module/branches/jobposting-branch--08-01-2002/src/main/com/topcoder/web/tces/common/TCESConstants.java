@@ -10,12 +10,15 @@ public class TCESConstants {
     public static String TCES_PACKAGE = "com.topcoder.web.tces.servlet";
     public static String ERROR_PAGE = null;
     public static String LOGIN_PAGE = null;
+    public static String LOGIN_OK_PAGE = "/tces?task=MainTask&st=v";
     public static String MAIN_PAGE = null;
 
     public static String LOGIN_TASK = "LoginTask";
     public static String LOGIN_TASK_STEP_VIEW = "v";
     public static String LOGIN_TASK_STEP_AUTH = "a";
     public static String MAIN_TASK = "MainTask";
+	public static String MAIN_TASK_STEP_VIEW = "v";
+	public static String MAIN_TASK_STEP_GOCAMPAIGN = "go";
 
     public static String TASK_PARAM = "task";
     public static String STEP_PARAM = null;
