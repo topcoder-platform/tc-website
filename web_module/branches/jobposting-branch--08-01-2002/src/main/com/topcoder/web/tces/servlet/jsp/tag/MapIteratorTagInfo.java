@@ -1,8 +1,6 @@
 package com.topcoder.web.tces.servlet.jsp.tag;
 
-
 import javax.servlet.jsp.tagext.*;
-
 
 public class MapIteratorTagInfo extends TagExtraInfo {
 
@@ -16,4 +14,5 @@ public class MapIteratorTagInfo extends TagExtraInfo {
     }
 
 }
+
 
