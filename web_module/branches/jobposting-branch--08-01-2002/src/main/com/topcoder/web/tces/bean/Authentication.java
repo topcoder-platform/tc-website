@@ -1,5 +1,9 @@
 package com.topcoder.web.tces.bean;
 
+import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
+
 import javax.servlet.http.*;
 import java.io.Serializable;
 
@@ -18,7 +22,7 @@ public class Authentication implements Serializable {
 
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_user_and_pw");
-        dataRequest.setProperty("hn", getHandleInput() );
+        dataRequest.setProperty("hn", handle );
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
@@ -29,20 +33,20 @@ public class Authentication implements Serializable {
         }
 
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
-        String actualPassword = TCData.getTCString(rRow, "password");
+        String actualPassword = rRow.getItem("password").toString();
         if (actualPassword == null) {
             auth.setErrorMessage("Incorrect login.  Please retry.");
             return false;
         }
 
-        if (!actualPassword.trim().equals(getPasswordInput().trim())) {
+        if (!actualPassword.trim().equals(password.trim())) {
             auth.setErrorMessage("Incorrect password.  Please retry.");
             return false;
         }
 
         // record in this session that we have authenticated a user.
 
-        auth.setUserId( (int)TCData.getTCLong(rRow,"user_id", -2, true) );
+        auth.setUserId( ((Long)rRow.getItem("user_id").requestData()).intValue() );
         return true;
     }
 
