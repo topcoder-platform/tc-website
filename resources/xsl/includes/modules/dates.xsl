@@ -1,19 +1,12 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="dates">
-    <xsl:for-each select="/TC/HOME/Contests/Contest[ContestId!='1000' and ContestId!='1080' and position()=1]">
-      <xsl:sort data-type="number" select="substring(ContestStartTimestamp,7,4)"/>
-      <xsl:sort data-type="number" select="substring(ContestStartTimestamp,1,2)"/>
-      <xsl:sort data-type="number" select="substring(ContestStartTimestamp,4,2)"/>
-      <xsl:variable name="start_hr">
-        <xsl:value-of select="number(substring(ContestStartTimestamp,12,2))"/>
-      </xsl:variable>
-      <xsl:variable name="start_min">
-        <xsl:value-of select="substring(ContestStartTimestamp,15,2)"/>
-      </xsl:variable>
-      <xsl:variable name="am_pm">
-        <xsl:value-of select="substring(ContestStartTimestamp,21,2)"/>
-      </xsl:variable>
+    <xsl:for-each select="/TC/HOME/Rounds/Round[RoundId!='1000' and RoundId!='1080' and position()=1]">
+    <!--<xsl:for-each select="/TC/HOME/Rounds/Round[number(RoundId)>4155]">-->
+    <!--<xsl:for-each select="/TC/HOME/Rounds/Round[position()=1]">-->
+      <xsl:sort data-type="number" select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,7,4)"/>
+      <xsl:sort data-type="number" select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,1,2)"/>
+      <xsl:sort data-type="number" select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,4,2)"/>
       <TR> 
         <TD VALIGN="top">
           <xsl:attribute name="CLASS"><xsl:value-of select="$class"/></xsl:attribute>
@@ -24,47 +17,18 @@
           <A>
             <xsl:attribute name="CLASS"><xsl:value-of select="$class"/></xsl:attribute>
             <xsl:choose>
-              <xsl:when test="ContestId='64' or ContestId='68'">
+              <xsl:when test="RoundId='64' or RoundId='68'">
                 <xsl:attribute name="href">/?t=schedule&amp;c=tourny_sched</xsl:attribute>
               </xsl:when>
               <xsl:otherwise>
-                <xsl:attribute name="href">/?ContestId=<xsl:value-of select="ContestId"/>&amp;t=schedule&amp;c=srm</xsl:attribute>
+                <xsl:attribute name="href">/?RoundId=<xsl:value-of select="RoundId"/>&amp;t=schedule&amp;c=srm</xsl:attribute>
               </xsl:otherwise>
             </xsl:choose>
-            <xsl:choose>
-              <xsl:when test="ContestId='4155'">
-                <b>05/09/2002</b><br/>
-                Register: 7:30 PM<br/>
-                Compete: 9:00 PM<br/>
-              </xsl:when>
-              <xsl:when test="ContestId='4160'">
-                <b>05/15/2002</b><br/>
-                Register: 7:30 PM<br/>
-                Compete: 9:00 PM<br/>
-              </xsl:when>
-              <xsl:when test="ContestId='4165'">
-                <b>05/18/2002</b><br/>
-                Register: 11:30 AM<br/>
-                Compete: 1:00 PM<br/>
-              </xsl:when>
-              <xsl:when test="ContestId='4170'">
-                <b>05/21/2002</b><br/>
-                Register: 7:30 PM<br/>
-                Compete: 9:00 PM<br/>
-              </xsl:when>
-              <xsl:when test="ContestId='4175'">
-                <b>05/22/2002</b><br/>
-                Register: 7:30 PM<br/>
-                Compete: 9:00 PM<br/>
-              </xsl:when>
-              <xsl:otherwise>
-                <b><xsl:value-of select="substring(ContestStartTimestamp,0,11)"/></b><br/>
-                Register:&#160;
-                <xsl:value-of select="$start_hr"/>:<xsl:value-of select="$start_min"/>&#160;<xsl:value-of select="$am_pm"/><br/>
-                Compete:&#160;
-                <xsl:value-of select="number($start_hr)+2"/>:<xsl:value-of select="format-number(number($start_min)-30,'00')"/>&#160;<xsl:value-of select="$am_pm"/><br/>
-              </xsl:otherwise>
-            </xsl:choose>
+            <b><xsl:value-of select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,0,11)"/></b><br/>
+            Register:&#160;
+            <xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartHour"/>:<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartMinute"/>&#160;<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartAMPM"/><br/>
+            Compete:&#160;
+            <xsl:value-of select="RoundSegments/RoundSegment[SegmentId='2']/StartHour"/>:<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/><br/>
           </A>
         </TD>
       </TR>

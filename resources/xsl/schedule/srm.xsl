@@ -22,8 +22,8 @@
       </HEAD>
       <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
         <a name="top_page"></a>
-        <xsl:variable name="contestId">
-          <xsl:value-of select="/TC/SCHEDULE/ContestId"/>
+        <xsl:variable name="roundId">
+          <xsl:value-of select="/TC/SCHEDULE/RoundId"/>
         </xsl:variable>
         <xsl:call-template name="Top"/>
         <!-- Body Begins -->
@@ -44,7 +44,7 @@
             <!-- Body Area -->
             <!-- Center Column Begins -->  
             <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" BORDER="0"/><BR/>
-              <xsl:for-each select="/TC/SCHEDULE/Contests/Contest[ContestId=$contestId]">
+              <xsl:for-each select="/TC/SCHEDULE/Contests/Contest[ContestId=$roundId]">
                 <xsl:call-template name="BodyTop">
                   <xsl:with-param name="image1">white</xsl:with-param>
                   <xsl:with-param name="image">schedule</xsl:with-param>
@@ -61,23 +61,14 @@
                       <TR><TD COLSPAN="3" ALIGN="center"><IMG SRC="/i/clear.gif" ALT="" WIDTH="428" HEIGHT="10" BORDER="0" /></TD></TR>
 
 
-                      <xsl:for-each select="/TC/SCHEDULE/Contests/Contest[ContestId=$contestId]">
-                        <xsl:variable name="start_hr">
-                          <xsl:value-of select="number(substring(ContestStartTimestamp,12,2))"/>
-                        </xsl:variable>
-                        <xsl:variable name="start_min">
-                          <xsl:value-of select="substring(ContestStartTimestamp,15,2)"/>
-                        </xsl:variable>
-                        <xsl:variable name="am_pm">
-                          <xsl:value-of select="substring(ContestStartTimestamp,21,2)"/>
-                        </xsl:variable>
+                      <xsl:for-each select="/TC/SCHEDULE/Rounds/Round[RoundId=$roundId]">
                         <TR>
                           <TD COLSPAN="3" ALIGN="center">
                             <xsl:choose>
-                              <xsl:when test="ContestId='4175'">
+                              <xsl:when test="RoundId='4175'">
                                 <a href="Javascript:sponsorLink('http://www.topcoder.com/contest/citrix.html')"><IMG SRC="/i/srm91_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
                               </xsl:when>
-                              <xsl:when test="ContestId='4185'">
+                              <xsl:when test="RoundId='4185'">
                                 <a href="Javascript:sponsorLink('http://www.topcoder.com/contest/citrix.html')"><IMG SRC="/i/srm93_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
                               </xsl:when>
                               <xsl:otherwise>
@@ -89,45 +80,16 @@
                                 </TR>
                                 <TR BGCOLOR="#666666">
                                   <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                                  <b>
-                                  <xsl:choose>
-                                    <xsl:when test="ContestId='4155'">05/09/2002<br/></xsl:when>
-                                    <xsl:when test="ContestId='4160'">05/15/2002<br/></xsl:when>
-                                    <xsl:when test="ContestId='4165'">05/18/2002<br/></xsl:when>
-                                    <xsl:when test="ContestId='4170'">05/21/2002<br/></xsl:when>
-                                    <xsl:when test="ContestId='4175'">05/22/2002<br/></xsl:when>
-                                    <xsl:otherwise>
-                                      <xsl:value-of select="substring(ContestStartTimestamp,0,11)"/><br/>
-                                    </xsl:otherwise>
-                                  </xsl:choose>
-                                  </b>
+                                  <b> <xsl:value-of select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,0,11)"/><br/> </b>
                                   </TD>
                                   <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
                                     <B>
-                                      <xsl:choose>
-                                        <xsl:when test="ContestId='4155'">7:30 PM</xsl:when>
-                                        <xsl:when test="ContestId='4160'">7:30 PM</xsl:when>
-                                        <xsl:when test="ContestId='4165'">11:30 AM</xsl:when>
-                                        <xsl:when test="ContestId='4170'">7:30 PM</xsl:when>
-                                        <xsl:when test="ContestId='4175'">7:30 PM</xsl:when>
-                                        <xsl:otherwise>
-                                          <xsl:value-of select="$start_hr"/>:<xsl:value-of select="$start_min"/>&#160;<xsl:value-of select="$am_pm"/>
-                                        </xsl:otherwise>
-                                      </xsl:choose>
+                                      <xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartHour"/>:<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartMinute"/>&#160;<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartAMPM"/>
                                     </B>
                                   </TD>
                                   <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
                                     <B>
-                                      <xsl:choose>
-                                        <xsl:when test="ContestId='4155'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
-                                        <xsl:when test="ContestId='4160'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
-                                        <xsl:when test="ContestId='4165'">1:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
-                                        <xsl:when test="ContestId='4170'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
-                                        <xsl:when test="ContestId='4175'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
-                                        <xsl:otherwise>
-                                          <xsl:value-of select="number($start_hr)+2"/>:<xsl:value-of select="format-number(number($start_min)-30,'00')"/>&#160;<xsl:value-of select="$am_pm"/>&#160;<xsl:value-of select="ShortDaylight"/>.
-                                        </xsl:otherwise>
-                                      </xsl:choose>
+                                      <xsl:value-of select="RoundSegments/RoundSegment[SegmentId='2']/StartHour"/>:<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
                                     </B>
                                   </TD>
                                 </TR>
@@ -183,7 +145,7 @@
                       <LI>All non-immigrants** currently residing in the US with a valid Visa</LI></UL>
                       *(including the US Territories of Guam, Puerto Rico and the US Virgin Islands)<BR/>
                       ** Non-immigrants refer to people who come to the US, but not permanently (i.e., they are not permanent residents)<BR/><BR/>
-                      <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;ContestId=<xsl:value-of select="$contestId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
+                      <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;ContestId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
                       </TD></TR>
                     </TABLE>
                     <P><BR/></P>
