@@ -3,6 +3,8 @@ package com.topcoder.ejb.Util;
 import com.topcoder.common.web.util.DateTime;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.DBMS;
 
 import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
@@ -12,6 +14,73 @@ import java.sql.ResultSet;
 public class UtilBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(UtilBean.class);
+
+    /**
+     * Add a respone to the response for the given user and question.
+     *
+     * @param userId the user who clicked
+     * @param jobId the particular job
+     * @param hitTypeId the type of hit
+     * @throws RemoteException if the give user already answered the question, or some other
+     * issue with the db.
+     */
+    public void addResponse(int userId, int answerId, int questionId) throws RemoteException {
+        log.debug("addResponse called");
+        StringBuffer query = null;
+        java.sql.Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        javax.naming.Context ctx = null;
+
+        query = new StringBuffer();
+        query.append(" SELECT *");
+        query.append(" FROM response");
+        query.append(" WHERE user_id = ?");
+        query.append(" AND question_id = ?");
+
+        try {
+            ctx = TCContext.getInitial();
+            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setInt(1, userId);
+            ps.setInt(2, questionId);
+            rs = ps.executeQuery();
+            /*
+               check if this user has already "hit" this job
+               if not, add their hit.
+             */
+            if (rs.next()) {
+                throw new RemoteException("user_id: " + userId + " question_id: " + questionId + " already exists.");
+            } else {
+                query = new StringBuffer();
+                query.append(" INSERT");
+                query.append(" INTO response (user_id, question_id, answer_id)");
+                query.append(" VALUES (?, ?, ?)");
+                ps = conn.prepareStatement(query.toString());
+                ps.setInt(1, userId);
+                ps.setInt(2, questionId);
+                ps.setInt(3, answerId);
+                int rowCount = ps.executeUpdate();
+                if (rowCount != 1) {
+                    throw new Exception("Wrong number of rows inserted into response: " + rowCount);
+                }
+            }
+        } catch (java.sql.SQLException se) {
+            DBMS.printSqlException(true, se);
+            throw new RemoteException("UtilBean.addResponse(int, int, int):ERROR: " + se);
+        } catch (Exception e) {
+            throw new RemoteException(e.getMessage());
+        }
+
+    }
+
+
+
+
+
+
+
 
     public java.sql.Date getCurrentDate() throws RemoteException {
         java.sql.Date result = null;

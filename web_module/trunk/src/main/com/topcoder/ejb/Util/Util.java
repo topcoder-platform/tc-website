@@ -5,6 +5,9 @@ import java.rmi.RemoteException;
 
 public interface Util extends EJBObject {
 
+    public void addResponse(int coderId, int answerId, int questionId)
+            throws RemoteException;
+
     public java.sql.Date getCurrentDate()
             throws RemoteException;
 
