@@ -407,7 +407,7 @@ public class RatingQubits {
             ps.setInt(6, phaseId);
             ps.setDouble(7, r.user_id);
             
-            int retVal = ps.executeUpdate();
+            int retVal = ps.executeUpdate(); 
             
             ps.close();
             ps = null;
@@ -420,7 +420,7 @@ public class RatingQubits {
                 ps = conn.prepareStatement(sqlStr.toString());
                 ps.setDouble(1, r.user_id);
                 ps.setInt(2, phaseId);
-                ps.setDouble(3, r.rating);
+                ps.setDouble(3, r.rating);   
                 ps.setDouble(4, r.vol);
                 ps.setDouble(5, r.rating_no_vol);
                 ps.setInt(6, r.last_project_rated);
