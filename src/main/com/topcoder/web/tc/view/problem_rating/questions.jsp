@@ -17,7 +17,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
   document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
 }
-function submit(){
+function verify(){
     var rf = document.ratings;
     var tot = 0;
     for(var i = 0; i<rf.elements.length; i++){
@@ -47,15 +47,15 @@ BODY
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
         <tr><td></td>
-            <% for(int i = 0; i<10; i++){ %>
-                <td class="statTextBig" align="center">
-                    <%=i%>
+            <% for(int i = 1; i<=10; i++){ %>
+                <td class="statTextBig">
+                    &nbsp;&nbsp;<%=i%>
                 </td>
             <% } %>
         </tr>
         <rsc:iterator list="<%=problemRatingQuestions%>" id="result">
         <tr>
-            <td class="statText" align="center">
+            <td class="statText">
                 <rsc:item row="<%=result%>" name="question"/>
             </td>
                 <%
@@ -68,11 +68,13 @@ BODY
                 <%  } %>
         </tr>
         </rsc:iterator>
+    </table>
+    <table align="right">
         <tr>
-        <td colspan="9" align="right">
-            <a href="/tc/?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>" class="statText">View Results</a>
-        </td><td>
-            <a href="#" onlick='submit()' class="statText">Submit Ratings</a>
+        <td align="right">
+            <a href="/tc/?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>" class="statText">View Results</a>&nbsp;&nbsp;
+        </td><td align="right">
+            <a href="javascript:verify()" class="statText">Submit Ratings</a>&nbsp;&nbsp;
         </td></tr>
     </table>
 </form>
