@@ -241,6 +241,7 @@ public class BasicAuthentication implements WebAuthentication {
     private User checkCookie() {
         Cookie[] ca = request.getCookies();
         for (int i = 0; ca != null && i < ca.length; i++) {
+            log.debug(ca[i].getName() + " " + ca[i].getPath() + " " + ca[i].getValue());
             if (ca[i].getName().equals(USER_COOKIE_NAME) && defaultCookiePath.getName().equals(ca[i].getPath())) {
 
                 try {
