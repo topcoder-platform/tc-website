@@ -42,6 +42,7 @@ public class Save extends Base {
             }
 
             if (hasParameter(Constants.LANGUAGE_ID)) {
+                log.debug("language: " + getRequest().getParameter(Constants.LANGUAGE_ID));
                 languageId = Integer.parseInt(getRequest().getParameter(Constants.LANGUAGE_ID).trim());
             } else {
                 throw new NavigationException("Invalid Request, missing parameter");
