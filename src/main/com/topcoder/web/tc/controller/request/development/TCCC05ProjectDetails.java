@@ -50,6 +50,7 @@ public class TCCC05ProjectDetails extends StatBase {
         {
             int pts = 0;
             String place = "-";
+            double score = 0;
             if(rsc.getItem(i, "final_score").getResultData() != null) {
                 if(rsc.getDoubleItem(i, "final_score") >= 70) {
                     if(i < placementPoints.length)  {
@@ -57,6 +58,7 @@ public class TCCC05ProjectDetails extends StatBase {
                         place = String.valueOf(i+1);
                     }
                 }
+                score = rsc.getDoubleItem(i, "final_score");
             }
             
             String prz = ""; 
@@ -73,7 +75,7 @@ public class TCCC05ProjectDetails extends StatBase {
             }
             
             arr.add( new TCCC05ProjectDetail(rsc.getStringItem(i, "handle"), pts ,    
-                place, rsc.getDoubleItem(i, "final_score"),
+                place, score,
                 rsc.getIntItem(i, "user_id"), prz, sub) );
         }
 
