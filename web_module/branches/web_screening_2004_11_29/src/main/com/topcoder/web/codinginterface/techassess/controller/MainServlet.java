@@ -17,7 +17,6 @@ import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.screening.common.ScreeningContext;
 import com.topcoder.shared.messaging.QueueMessageSender;
-import com.topcoder.shared.messaging.QueueResponseManager;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 
@@ -34,7 +33,7 @@ public class MainServlet extends BaseServlet {
 
     private final static Logger log = Logger.getLogger(MainServlet.class);
     private static QueueMessageSender sender = null;
-    private static QueueResponseManager receiver = null;
+    private static WebQueueResponseManager receiver = null;
 
 
     //todo have to check if the user currently has a synchronous
