@@ -97,9 +97,9 @@ The <B>W-8BEN form</B> should be filled out by all non-U.S. Citizens.<BR><A clas
 	    // the project name
 
 	    vec.clear();
-	    str = taxForms[i-1]._name;
+	    str = taxForms[i-1].getName();
 	    vec.add(new String(PactsConstants.TAX_FORM_ID + "=" +
-	            taxForms[i-1]._id));
+	            taxForms[i-1].getId()));
 
 	    href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
@@ -108,7 +108,7 @@ The <B>W-8BEN form</B> should be filled out by all non-U.S. Citizens.<BR><A clas
 	    tableData.setElement(i,0,href);
 
 	    // date filed
-	    tableData.setElement(i,1,taxForms[i-1]._dateFiled);
+	    tableData.setElement(i,1,taxForms[i-1].getDateFiled());
 
 	}
 

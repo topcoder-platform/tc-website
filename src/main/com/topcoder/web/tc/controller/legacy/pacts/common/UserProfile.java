@@ -41,23 +41,23 @@ import java.util.Map;
 public class UserProfile implements PactsConstants, java.io.Serializable {
     private static Logger log = Logger.getLogger(UserProfile.class);
 
-    public UserProfileHeader _header;
-    public String _email;
-    public String _workPhone;
-    public String _homePhone;
-    public String _country;
-    public String _zip;
-    public String _state;
-    public String _city;
-    public String _address1;
-    public String _address2;
-    public String _middleName;
-    public String _firstName;
-    public String _lastName;
-    public String _stateCode;
-    public String _countryCode;
-    public int _coderTypeId;
-    public String _coderTypeDesc;
+    protected UserProfileHeader header;
+    protected String email;
+    protected String workPhone;
+    protected String homePhone;
+    protected String country;
+    protected String zip;
+    protected String state;
+    protected String city;
+    protected String address1;
+    protected String address2;
+    protected String middleName;
+    protected String firstName;
+    protected String lastName;
+    protected String stateCode;
+    protected String countryCode;
+    protected int coderTypeId;
+    protected String coderTypeDesc;
 
     /**
      * this constructor takes in a result set map, and
@@ -65,7 +65,7 @@ public class UserProfile implements PactsConstants, java.io.Serializable {
      * error, default values will be used.  There should only be
      * one UserProfile and one UserProfileHeader in this result set.
      *
-     * @param resutls the result set map from the db query
+     * @param results the result set map from the db query
      */
     public UserProfile(Map results) {
         ResultSetContainer rsc = null;
@@ -101,24 +101,24 @@ public class UserProfile implements PactsConstants, java.io.Serializable {
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
 
         try {
-            _email = TCData.getTCString(rRow, "email");
-            _workPhone = TCData.getTCString(rRow, "work_phone");
-            _homePhone = TCData.getTCString(rRow, "home_phone");
-            _lastName = TCData.getTCString(rRow, "last_name");
-            _firstName = TCData.getTCString(rRow, "first_name");
-            _middleName = TCData.getTCString(rRow, "middle_name");
-            _address1 = TCData.getTCString(rRow, "address1");
-            _address2 = TCData.getTCString(rRow, "address2");
-            _city = TCData.getTCString(rRow, "city");
-            _state = TCData.getTCString(rRow, "state_name");
-            _zip = TCData.getTCString(rRow, "zip");
-            _country = TCData.getTCString(rRow, "country_name");
-            _stateCode = TCData.getTCString(rRow, "state_code");
-            _countryCode = TCData.getTCString(rRow, "country_code");
-            _coderTypeId = TCData.getTCInt(rRow, "coder_type_id");
-            _coderTypeDesc = TCData.getTCString(rRow, "coder_type_desc");
+            email = TCData.getTCString(rRow, "email");
+            workPhone = TCData.getTCString(rRow, "work_phone");
+            homePhone = TCData.getTCString(rRow, "home_phone");
+            lastName = TCData.getTCString(rRow, "last_name");
+            firstName = TCData.getTCString(rRow, "first_name");
+            middleName = TCData.getTCString(rRow, "middle_name");
+            address1 = TCData.getTCString(rRow, "address1");
+            address2 = TCData.getTCString(rRow, "address2");
+            city = TCData.getTCString(rRow, "city");
+            state = TCData.getTCString(rRow, "state_name");
+            zip = TCData.getTCString(rRow, "zip");
+            country = TCData.getTCString(rRow, "country_name");
+            stateCode = TCData.getTCString(rRow, "state_code");
+            countryCode = TCData.getTCString(rRow, "country_code");
+            coderTypeId = TCData.getTCInt(rRow, "coder_type_id");
+            coderTypeDesc = TCData.getTCString(rRow, "coder_type_desc");
 
-            _header = new UserProfileHeader(results);
+            header = new UserProfileHeader(results);
         } catch (Exception e) {
             log.error("there was an exception in the user profile contructor");
             setDefaults();
@@ -138,21 +138,159 @@ public class UserProfile implements PactsConstants, java.io.Serializable {
      * the method that actually sets the defaults
      */
     private void setDefaults() {
-        _header = new UserProfileHeader();
-        _email = "default@topcoder.com";
-        _workPhone = "(000) 000-0000";
-        _homePhone = "(000) 000-0000";
-        _country = "Default Country";
-        _zip = "00000";
-        _state = "Default State";
-        _city = "Default City";
-        _address1 = "Default Address 1";
-        _address2 = "Default Address 2";
-        _middleName = "Middle";
-        _firstName = "First";
-        _lastName = "Last";
-        _coderTypeId = -1;
-        _coderTypeDesc = "default coder desc";
+        header = new UserProfileHeader();
+        email = "default@topcoder.com";
+        workPhone = "(000) 000-0000";
+        homePhone = "(000) 000-0000";
+        country = "Default Country";
+        zip = "00000";
+        state = "Default State";
+        city = "Default City";
+        address1 = "Default Address 1";
+        address2 = "Default Address 2";
+        middleName = "Middle";
+        firstName = "First";
+        lastName = "Last";
+        coderTypeId = -1;
+        coderTypeDesc = "default coder desc";
     }
+
+
+    public UserProfileHeader getHeader() {
+        return header;
+    }
+
+    public void setHeader(UserProfileHeader header) {
+        this.header = header;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getWorkPhone() {
+        return workPhone;
+    }
+
+    public void setWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+    }
+
+    public String getHomePhone() {
+        return homePhone;
+    }
+
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getStateCode() {
+        return stateCode;
+    }
+
+    public void setStateCode(String stateCode) {
+        this.stateCode = stateCode;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public int getCoderTypeId() {
+        return coderTypeId;
+    }
+
+    public void setCoderTypeId(int coderTypeId) {
+        this.coderTypeId = coderTypeId;
+    }
+
+    public String getCoderTypeDesc() {
+        return coderTypeDesc;
+    }
+
+    public void setCoderTypeDesc(String coderTypeDesc) {
+        this.coderTypeDesc = coderTypeDesc;
+    }
+
 
 }

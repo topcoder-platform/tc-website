@@ -42,8 +42,7 @@ public class InternalDispatchUserProfileList implements PactsConstants {
      *
      * This method returns a UserProfileHeader[] object matching the affidavit_id parameter
      *
-     * @Args    - none
-     * @Returns - UserProfileHeader[]
+     * @return - UserProfileHeader[]
      *
      */
     public UserProfileHeader[] get() throws Exception {
@@ -81,7 +80,7 @@ public class InternalDispatchUserProfileList implements PactsConstants {
 
         Map results = dib.findUsers(search);
         if (results == null) return new UserProfileHeader[0];
-        return (new UserProfileHeaderList(results)).headerList;
+        return (new UserProfileHeaderList(results)).getHeaderList();
 
     }
 }

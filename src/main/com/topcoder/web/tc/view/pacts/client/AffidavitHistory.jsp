@@ -87,21 +87,21 @@ function goTo(selection){
 	// fill in the data
 	for(int i=1;i<=affidavits.length;i++) {
 	    // the description
-	    tableData.setElement(i,0,affidavits[i-1]._header._description);
+	    tableData.setElement(i,0,affidavits[i-1].getHeader().getDescription());
 
 	    // affirmation
 	    vec.clear();
-	    if(affidavits[i-1]._header._affirmed) {
-	        str = "affirmed on " + affidavits[i-1]._affirmationDate ;
-	    } else if(affidavits[i-1]._daysLeftToAffirm>0) {
-	      	str = "click to affirm, " + affidavits[i-1]._daysLeftToAffirm +
+	    if(affidavits[i-1].getHeader().isAffirmed()) {
+	        str = "affirmed on " + affidavits[i-1].getAffirmationDate() ;
+	    } else if(affidavits[i-1].getDaysLeftToAffirm()>0) {
+	      	str = "click to affirm, " + affidavits[i-1].getDaysLeftToAffirm() +
 	               " days left";
 	    } else {
 		str = "expired, click here to view";
 	    }
 
 	    vec.add(new String(PactsConstants.AFFIDAVIT_ID + "=" +
-	            affidavits[i-1]._header._id));
+	            affidavits[i-1].getHeader().getId()));
 
 	    href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
@@ -112,9 +112,9 @@ function goTo(selection){
 	    // payment
             vec.clear();
 	    DecimalFormat decf = new DecimalFormat("0.00");
-	    str = "$" + decf.format(affidavits[i-1]._payment._recentNetAmount);
+	    str = "$" + decf.format(affidavits[i-1].getPayment().getRecentNetAmount());
 	    vec.add(new String(PactsConstants.PAYMENT_ID + "=" +
-	            affidavits[i-1]._payment._id));
+	            affidavits[i-1].getPayment().getId()));
 	    href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.PAYMENT_TASK,
@@ -122,11 +122,11 @@ function goTo(selection){
 	    tableData.setElement(i,2,href);
 
 	    // notarized
-	    str = (affidavits[i-1]._header._notarized) ? "yes" : "no";
+	    str = (affidavits[i-1].getHeader().isNotarized()) ? "yes" : "no";
 	    tableData.setElement(i,3,str);
 
 	    // status
-	    tableData.setElement(i,4,affidavits[i-1]._header._status);
+	    tableData.setElement(i,4,affidavits[i-1].getHeader().getStatusDesc());
 
 	}
 

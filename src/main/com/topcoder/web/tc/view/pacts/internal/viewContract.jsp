@@ -38,56 +38,56 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(contract._header._user._id);
-			out.print("\">"+contract._header._user._handle+"</a></td>\n");
+			out.print(contract.getHeader().getUser().getId());
+			out.print("\">"+contract.getHeader().getUser().getHandle()+"</a></td>\n");
 %>
 		</tr>
 		<tr>
 		<td><b>Name:</b></td><td>
-<%			out.print(contract._header._name);
+<%			out.print(contract.getHeader().getName());
 %>
 		</td></tr>
 		<tr>
 		<td><b>Creation Date:</b></td>
-<%			out.print("<td>"+contract._header._creationDate+"</a>\n");
+<%			out.print("<td>"+contract.getHeader().getCreationDate()+"</a>\n");
 %>
 		</tr>
 		<tr>
 		<tr>
 		<td><b>Status:</b></td>
-<%			out.print("<td>"+contract._header._statusDesc+"</td>\n");
+<%			out.print("<td>"+contract.getHeader().getStatusDesc()+"</td>\n");
 %>
 		</tr>
 		<tr>
 		<td><b>Description:</b></td><td>
-<%			out.print(contract._description);
+<%			out.print(contract.getDescription());
 %>
 		</td></tr>
 		<tr>
 		<td><b>Type:</b></td><td>
-<%			out.print(contract._header._type);
+<%			out.print(contract.getHeader().getTypeDesc());
 %>
 		</td></tr>
 		<tr><td><b>Start Date:</b></td><td>
-<%		out.print(contract._startDate);
+<%		out.print(contract.getStartDate());
 %>
 		</td></tr>
 
 		<tr><td><b>End Date:</b></td><td>
-<%		out.print(contract._endDate);
+<%		out.print(contract.getEndDate());
 %>
 		</td></tr>
 
-<%		for (int n = 0; n < contract._payments.length; n++) {
+<%		for (int n = 0; n < contract.getPayments().length; n++) {
 			out.print("<tr><td><a href=\""+PactsConstants.INTERNAL_SERVLET_URL);
 			out.print("?"+PactsConstants.TASK_STRING+"=");
 			out.print(PactsConstants.VIEW_TASK+"&"+PactsConstants.CMD_STRING);
 			out.print("="+PactsConstants.PAYMENT_CMD+"&");
-			out.print(PactsConstants.PAYMENT_ID+"="+contract._payments[n]._id);
-			out.print("\">"+contract._payments[n]._description+"</a>:");
+			out.print(PactsConstants.PAYMENT_ID+"="+contract.getPayments()[n].getId());
+			out.print("\">"+contract.getPayments()[n].getDescription()+"</a>:");
 %>
 			</b></td><td>
-<%			out.print(contract._payments[n]._recentStatus+"</td></tr>");
+<%			out.print(contract.getPayments()[n].getRecentStatus()+"</td></tr>");
 		}
 %>
 
@@ -100,7 +100,7 @@
 	out.println("<input type=\"submit\" value=\"View Note\">");
 	out.println("<select name=\""+PactsConstants.NOTE_ID+"\">");
 	for (int n = 0; n < notes.length; n++) {
-		out.println("<option value=\""+notes[n]._id+"\">"+notes[n]._creationDate+" by "+notes[n]._user._handle+"</option>");
+		out.println("<option value=\""+notes[n].getId()+"\">"+notes[n].getCreationDate()+" by "+notes[n].getUser().getHandle()+"</option>");
 	}
 	out.println("</select></form>");
     }
@@ -111,7 +111,7 @@
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.VIEW_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.TEXT_CMD+"&");
-   out.println("object_id="+contract._header._id+"&object_type="+PactsConstants.CONTRACT_OBJ);
+   out.println("object_id="+contract.getHeader().getId()+"&object_type="+PactsConstants.CONTRACT_OBJ);
    out.println("\">View Contract Text</a><br>");
 
    out.println("<br>");
@@ -119,21 +119,21 @@
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.ADD_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAYMENT_CMD+"&");
-   out.println(PactsConstants.CONTRACT_ID+"="+contract._header._id);
+   out.println(PactsConstants.CONTRACT_ID+"="+contract.getHeader().getId());
    out.println("\">Add Contract Payment</a><br>");
 
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.ADD_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.NOTE_CMD+"&");
-   out.println("object_id="+contract._header._id+"&");
-   out.println("user_id="+contract._header._user._id+"&");
+   out.println("object_id="+contract.getHeader().getId()+"&");
+   out.println("user_id="+contract.getHeader().getUser().getId()+"&");
    out.println("object_type="+PactsConstants.CONTRACT_OBJ);
    out.println("\">Add Note</a><br>");
 
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.UPDATE_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.CONTRACT_CMD+"&");
-   out.println(PactsConstants.CONTRACT_ID+"="+contract._header._id);
+   out.println(PactsConstants.CONTRACT_ID+"="+contract.getHeader().getId());
    out.println("\">Update Contract</a><br>");
 %>
 

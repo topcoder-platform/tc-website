@@ -99,7 +99,7 @@ public class InternalDispatchNoteList implements PactsConstants {
         }
 
         if (results != null)
-            return (new NoteHeaderList(results)).headerList;
+            return (new NoteHeaderList(results)).getHeaderList();
         else
             return new NoteHeader[0];
     }
@@ -121,7 +121,7 @@ public class InternalDispatchNoteList implements PactsConstants {
         results = bean.findNotes(search);
 
         if (results != null)
-            return (new NoteHeaderList(results)).headerList;
+            return (new NoteHeaderList(results)).getHeaderList();
         else
             return new NoteHeader[0];
     }
@@ -137,7 +137,7 @@ public class InternalDispatchNoteList implements PactsConstants {
         results = bean.findNotes(search);
 
         if (results != null)
-            return (new NoteHeaderList(results)).headerList;
+            return (new NoteHeaderList(results)).getHeaderList();
         else
             return new NoteHeader[0];
     }

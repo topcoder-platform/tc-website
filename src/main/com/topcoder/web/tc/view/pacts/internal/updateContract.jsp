@@ -28,19 +28,19 @@
 	} else if (contract != null) {
 		String param;
 		param = request.getParameter("name");
-		if (param != null) contract._header._name = param;
+		if (param != null) contract.getHeader().setName(param);
 		param = request.getParameter("contract_desc");
-		if (param != null) contract._description = param;
+		if (param != null) contract.setDescription(param);
 		param = request.getParameter("start_date");
-		if (param != null) contract._startDate = param;
+		if (param != null) contract.setStartDate(param);
 		param = request.getParameter("end_date");
-		if (param != null) contract._endDate = param;
+		if (param != null) contract.setEndDate(param);
 		param = request.getParameter("text");
 		if (param != null) text = param;
 		param = request.getParameter("status_id");
-		try { if (param != null) contract._header._statusId = Integer.parseInt(param); } catch (Exception e) {}
+		try { if (param != null) contract.getHeader().setStatusId(Integer.parseInt(param)); } catch (Exception e) {}
 		param = request.getParameter("contract_type_id");
-		try { if (param != null) contract._header._typeID = Integer.parseInt(param); } catch (Exception e) {}
+		try { if (param != null) contract.getHeader().setTypeId(Integer.parseInt(param)); } catch (Exception e) {}
 	}
 	if (contract == null) {
 		out.println("no contract!!!<br>");
@@ -57,7 +57,7 @@
 
 		out.print("<input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\""+PactsConstants.UPDATE_TASK+"\">");
 		out.print("<input type=\"hidden\" name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.CONTRACT_CMD+"\">");
-		out.print("<input type=\"hidden\" name=\""+PactsConstants.CONTRACT_ID+"\" value=\""+contract._header._id+"\">");
+		out.print("<input type=\"hidden\" name=\""+PactsConstants.CONTRACT_ID+"\" value=\""+contract.getHeader().getId()+"\">");
 %>
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr>
@@ -69,25 +69,25 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(contract._header._user._id);
-			out.print("\">"+contract._header._user._handle+"</a></td>\n");
+			out.print(contract.getHeader().getUser().getId());
+			out.print("\">"+contract.getHeader().getUser().getHandle()+"</a></td>\n");
 %>
 		</tr>
 		<tr>
 		<td><b>Name:</b></td><td>
-<% out.print("<input type=text width=25 name=\"name\" value=\""+contract._header._name+"\">"); %>
+<% out.print("<input type=text width=25 name=\"name\" value=\""+contract.getHeader().getName()+"\">"); %>
 		</td></tr>
 		<tr>
 		<td><b>Description:</b></td><td>
-<% out.print("<input type=text width=25 name=\"contract_desc\" value=\""+contract._description+"\">"); %>
+<% out.print("<input type=text width=25 name=\"contract_desc\" value=\""+contract.getDescription()+"\">"); %>
 		</td></tr>
 		<tr>
 		<td><b>Start Date:</b></td><td>
-<% out.print("<input type=text width=25 name=\"start_date\" value=\""+contract._startDate+"\">"); %>
+<% out.print("<input type=text width=25 name=\"start_date\" value=\""+contract.getStartDate()+"\">"); %>
 		</td></tr>
 		<tr>
 		<td><b>End Date:</b></td><td>
-<% out.print("<input type=text width=25 name=\"end_date\" value=\""+contract._endDate+"\">"); %>
+<% out.print("<input type=text width=25 name=\"end_date\" value=\""+contract.getEndDate()+"\">"); %>
 		</td></tr>
 		<tr>
 		<td><b>Status:</b></td>
@@ -105,7 +105,7 @@
 				code = TCData.getTCInt(rsr,"status_id",0,true);
 				out.print("" + code);
 				s = TCData.getTCString(rsr,"status_desc","default status",true);
-				if (code == contract._header._statusId) {
+				if (code == contract.getHeader().getStatusId()) {
 					out.print(" selected");
 				}
 				out.print(">" + s + "</option>\n");
@@ -126,7 +126,7 @@
 				code = TCData.getTCInt(rsr,"contract_type_id",0,true);
 				out.print("" + code);
 				s = TCData.getTCString(rsr,"contract_type_desc","default affidavit type",true);
-				if (code == contract._header._typeID) {
+				if (code == contract.getHeader().getTypeId()) {
 					out.print(" selected");
 				}
 				out.print(">" + s + "</option>\n");

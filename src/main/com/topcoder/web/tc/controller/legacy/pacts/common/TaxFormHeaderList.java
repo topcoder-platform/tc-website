@@ -24,7 +24,7 @@ public class TaxFormHeaderList implements PactsConstants {
 
     private static Logger log = Logger.getLogger(TaxFormHeaderList.class);
 
-    public TaxFormHeader headerList[];
+    private TaxFormHeader headerList[];
 
     /**************\
      *              *
@@ -56,4 +56,9 @@ public class TaxFormHeaderList implements PactsConstants {
             headerList[n] = new TaxFormHeader(results, n);
         }
     }
+
+    public TaxFormHeader[] getHeaderList() {
+        return headerList;
+    }
+
 }

@@ -43,8 +43,8 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(taxFormList[n]._user._id);
-			out.print("\">"+taxFormList[n]._user._handle+"</a></td>\n");
+			out.print(taxFormList[n].getUser().getId());
+			out.print("\">"+taxFormList[n].getUser().getHandle()+"</a></td>\n");
 
 			out.print("<td><a href=\"");
 			out.print(PactsConstants.INTERNAL_SERVLET_URL);
@@ -53,12 +53,12 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_TAX_FORM_CMD+"&");
 			out.print(PactsConstants.TAX_FORM_ID+"=");
-			out.print(taxFormList[n]._id+"&");
+			out.print(taxFormList[n].getId()+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(taxFormList[n]._user._id);
-			out.print("\">"+taxFormList[n]._name+"</a></td>\n");
+			out.print(taxFormList[n].getUser().getId());
+			out.print("\">"+taxFormList[n].getName()+"</a></td>\n");
 
-			out.print("<td>" + taxFormList[n]._status + "</td></tr>\n");
+			out.print("<td>" + taxFormList[n].getStatus()+ "</td></tr>\n");
 		}
 	}
 %>

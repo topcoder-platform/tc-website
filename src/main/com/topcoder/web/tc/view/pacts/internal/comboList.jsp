@@ -41,7 +41,7 @@
 		UserProfile u;
   		for (int n = 0; n < entryList.length; n++) {
 			out.print("<tr><td>");
-			switch (entryList[n]._type) {
+			switch (entryList[n].getType()) {
 				case PactsConstants.PAYMENT_OBJ:
 					p = (Payment) entryList[n].get();
 					out.print("Payment</td><td><a href=\"");
@@ -51,8 +51,8 @@
 					out.print(PactsConstants.CMD_STRING+"=");
 					out.print(PactsConstants.PAYMENT_CMD+"&");
 					out.print(PactsConstants.PAYMENT_ID+"=");
-					out.print(p._header._id);
-					out.print("\">"+p._header._description+"</a>");
+					out.print(p.getHeader().getId());
+					out.print("\">"+p.getHeader().getDescription()+"</a>");
 					break;
 				case PactsConstants.AFFIDAVIT_OBJ:
 					a = (Affidavit) entryList[n].get();
@@ -63,8 +63,8 @@
 					out.print(PactsConstants.CMD_STRING+"=");
 					out.print(PactsConstants.AFFIDAVIT_CMD+"&");
 					out.print(PactsConstants.AFFIDAVIT_ID+"=");
-					out.print(a._header._id);
-					out.print("\">"+a._round+" for "+a._header._user._handle+"</a>");
+					out.print(a.getHeader().getId());
+					out.print("\">"+a.getRound()+" for "+a.getHeader().getUser().getHandle()+"</a>");
 					break;
 				case PactsConstants.CONTRACT_OBJ:
 					c = (Contract) entryList[n].get();
@@ -75,8 +75,8 @@
 					out.print(PactsConstants.CMD_STRING+"=");
 					out.print(PactsConstants.CONTRACT_CMD+"&");
 					out.print(PactsConstants.CONTRACT_ID+"=");
-					out.print(c._header._id);
-					out.print("\">"+c._header._name+"</a>");
+					out.print(c.getHeader().getId());
+					out.print("\">"+c.getHeader().getName()+"</a>");
 					break;
 				case PactsConstants.USER_TAX_FORM_OBJ:
 					t = (TaxForm) entryList[n].get();
@@ -87,9 +87,9 @@
 					out.print(PactsConstants.CMD_STRING+"=");
 					out.print(PactsConstants.USER_TAX_FORM_CMD+"&");
 					out.print(PactsConstants.TAX_FORM_ID+"=");
-					out.print(t._header._id+"&"+PactsConstants.USER_ID);
-					out.print("="+t._header._user._id);
-					out.print("\">"+t._header._name+" for "+t._header._user._handle+"</a>");
+					out.print(t.getHeader().getId()+"&"+PactsConstants.USER_ID);
+					out.print("="+t.getHeader().getUser().getId());
+					out.print("\">"+t.getHeader().getName()+" for "+t.getHeader().getUser().getHandle()+"</a>");
 					break;
 				case PactsConstants.USER_PROFILE_OBJ:
 					u = (UserProfile) entryList[n].get();
@@ -100,8 +100,8 @@
 					out.print(PactsConstants.CMD_STRING+"=");
 					out.print(PactsConstants.USER_CMD+"&");
 					out.print(PactsConstants.USER_ID+"=");
-					out.print(u._header._id);
-					out.print("\">"+u._header._handle+"</a>");
+					out.print(u.getHeader().getId());
+					out.print("\">"+u.getHeader().getHandle()+"</a>");
 					break;
 			}
 			out.println("</td></tr>");

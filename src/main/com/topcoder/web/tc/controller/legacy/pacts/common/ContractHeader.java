@@ -40,14 +40,14 @@ import java.util.Map;
 public class ContractHeader implements PactsConstants, java.io.Serializable {
     private static Logger log = Logger.getLogger(ContractHeader.class);
 
-    public String _statusDesc;
-    public int _statusId;
-    public String _creationDate;
-    public String _name;
-    public UserProfileHeader _user;
-    public long _id;
-    public String _type;
-    public int _typeID;
+    private String statusDesc;
+    private int statusId;
+    private String creationDate;
+    private String name;
+    private UserProfileHeader user;
+    private long id;
+    private String typeDesc;
+    private int typeId;
 
 
     /**
@@ -62,14 +62,14 @@ public class ContractHeader implements PactsConstants, java.io.Serializable {
      * constructor gets an error.
      */
     private void setDefaults() {
-        _statusDesc = "Default Status";
-        _creationDate = "00/00/00";
-        _name = "Default Contract Name";
-        _user = new UserProfileHeader();
-        _id = 0;
-        _statusId = 0;
-        _type = "Default Contract Type";
-        _typeID = 0;
+        statusDesc = "Default Status";
+        creationDate = "00/00/00";
+        name = "Default Contract Name";
+        user = new UserProfileHeader();
+        id = 0;
+        statusId = 0;
+        typeDesc = "Default Contract Type";
+        typeId = 0;
     }
 
     /**
@@ -107,16 +107,16 @@ public class ContractHeader implements PactsConstants, java.io.Serializable {
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(row);
 
         try {
-            _id = TCData.getTCLong(rRow, "contract_id");
-            _statusDesc = TCData.getTCString(rRow, "status_desc");
-            _statusId = TCData.getTCInt(rRow, "status_id");
-            _name = TCData.getTCString(rRow, "name");
+            id = TCData.getTCLong(rRow, "contract_id");
+            statusDesc = TCData.getTCString(rRow, "status_desc");
+            statusId = TCData.getTCInt(rRow, "status_id");
+            name = TCData.getTCString(rRow, "name");
             String handle = TCData.getTCString(rRow, "handle");
             long uid = TCData.getTCLong(rRow, "contracted_user_id");
-            _user = new UserProfileHeader(uid, handle);
-            _type = TCData.getTCString(rRow, "contract_type_desc");
-            _typeID = TCData.getTCInt(rRow, "contract_type_id");
-            _creationDate = TCData.getTCDate(rRow, "creation_date");
+            user = new UserProfileHeader(uid, handle);
+            typeDesc = TCData.getTCString(rRow, "contract_type_desc");
+            typeId = TCData.getTCInt(rRow, "contract_type_id");
+            creationDate = TCData.getTCDate(rRow, "creation_date");
         } catch (Exception e) {
             log.error("There was an exeption in the contructor of the\n" +
                     "ContractHeader, all values are being set to defaults");
@@ -135,4 +135,69 @@ public class ContractHeader implements PactsConstants, java.io.Serializable {
     public ContractHeader(Map results) {
         this(results, 0);
     }
+
+    public String getStatusDesc() {
+        return statusDesc;
+    }
+
+    public void setStatusDesc(String statusDesc) {
+        this.statusDesc = statusDesc;
+    }
+
+    public int getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public UserProfileHeader getUser() {
+        return user;
+    }
+
+    public void setUser(UserProfileHeader user) {
+        this.user = user;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTypeDesc() {
+        return typeDesc;
+    }
+
+    public void setTypeDesc(String typeDesc) {
+        this.typeDesc = typeDesc;
+    }
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
+    }
+
 }

@@ -1158,7 +1158,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     Double.parseDouble(request.getParameter("gross_amount")),
                     Integer.parseInt(request.getParameter("payment_status_id")));
 
-            p._dueDate = TCData.dateForm(request.getParameter("date_due"));
+            p.setDueDate(TCData.dateForm(request.getParameter("date_due")));
 
 
             // Add the Affidavit and the Payment
@@ -1243,7 +1243,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         if (request.getParameter(CONTRACT_ID) != null) {
             InternalDispatchContract bean =
                     new InternalDispatchContract(request, response);
-            ContractHeader results = bean.get()._header;
+            ContractHeader results = bean.get().getHeader();
             request.setAttribute(PACTS_INTERNAL_RESULT, results);
         } else {
             InternalDispatchUserProfileHeader bean =
@@ -1282,7 +1282,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 Double.parseDouble(request.getParameter("gross_amount")),
                 Integer.parseInt(request.getParameter("status_id")));
 
-        p._dueDate = TCData.dateForm(request.getParameter("date_due"));
+        p.setDueDate(TCData.dateForm(request.getParameter("date_due")));
 
         DataInterfaceBean dib = new DataInterfaceBean();
 
@@ -1449,12 +1449,12 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         } else {
             InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
             Map search = new HashMap();
-            search.put(AFFIDAVIT_ID, "" + results[0]._id);
+            search.put(AFFIDAVIT_ID, "" + results[0].getId());
             NoteHeader[] notes = nlb.get(search);
             request.setAttribute(NOTE_HEADER_LIST, notes);
 
             InternalDispatchAffidavit ab = new InternalDispatchAffidavit(request, response);
-            Affidavit affidavit = ab.get(results[0]._id);
+            Affidavit affidavit = ab.get(results[0].getId());
             request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
 
             forward(INTERNAL_AFFIDAVIT_JSP, request, response);
@@ -1575,12 +1575,12 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         } else {
             InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
             Map search = new HashMap();
-            search.put(CONTRACT_ID, "" + results[0]._id);
+            search.put(CONTRACT_ID, "" + results[0].getId());
             NoteHeader[] notes = nlb.get(search);
             request.setAttribute(NOTE_HEADER_LIST, notes);
 
             InternalDispatchContract cb = new InternalDispatchContract(request, response);
-            Contract contract = cb.get(results[0]._id);
+            Contract contract = cb.get(results[0].getId());
             request.setAttribute(PACTS_INTERNAL_RESULT, contract);
 
             forward(INTERNAL_CONTRACT_JSP, request, response);
@@ -1661,11 +1661,11 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         } else {
             InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
             Map search = new HashMap();
-            search.put(PAYMENT_ID, "" + results[0]._id);
+            search.put(PAYMENT_ID, "" + results[0].getId());
             request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
             InternalDispatchPayment pb = new InternalDispatchPayment(request, response);
-            request.setAttribute(PACTS_INTERNAL_RESULT, pb.get(results[0]._id));
+            request.setAttribute(PACTS_INTERNAL_RESULT, pb.get(results[0].getId()));
 
             forward(INTERNAL_PAYMENT_JSP, request, response);
         }
@@ -1800,7 +1800,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             forward(INTERNAL_TAX_FORM_LIST_JSP, request, response);
         } else {
             InternalDispatchTaxForm tfb = new InternalDispatchTaxForm(request, response);
-            request.setAttribute(PACTS_INTERNAL_RESULT, tfb.get(results[0]._id));
+            request.setAttribute(PACTS_INTERNAL_RESULT, tfb.get(results[0].getId()));
             forward(INTERNAL_TAX_FORM_JSP, request, response);
         }
 
@@ -1821,7 +1821,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         InternalDispatchNoteList nlb =
                 new InternalDispatchNoteList(request, response);
-        NoteHeader[] notes = nlb.get(results._header._user._id);
+        NoteHeader[] notes = nlb.get(results.getHeader().getUser().getId());
         request.setAttribute(NOTE_HEADER_LIST, notes);
 
         forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
@@ -1846,12 +1846,12 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             forward(INTERNAL_USER_TAX_FORM_LIST_JSP, request, response);
         } else {
             InternalDispatchUserTaxForm utfb = new InternalDispatchUserTaxForm(request, response);
-            request.setAttribute(PACTS_INTERNAL_RESULT, utfb.get(results[0]._id, results[0]._user._id));
+            request.setAttribute(PACTS_INTERNAL_RESULT, utfb.get(results[0].getId(), results[0].getUser().getId()));
 
             InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
             Map search = new HashMap();
-            search.put(TAX_FORM_ID, "" + results[0]._id);
-            search.put(TAX_FORM_USER_ID, "" + results[0]._user._id);
+            search.put(TAX_FORM_ID, "" + results[0].getId());
+            search.put(TAX_FORM_USER_ID, "" + results[0].getUser().getId());
             request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
             forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
@@ -1893,12 +1893,12 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         long round_id = Long.parseLong(request.getParameter("round_id"));
 
-        affidavit._roundID = round_id < 0 ? null : new Long(round_id);
-        affidavit._header._statusID = Integer.parseInt(request.getParameter("affidavit_status_id"));
+        affidavit.setRoundId(round_id < 0 ? null : new Long(round_id));
+        affidavit.getHeader().setStatusId(Integer.parseInt(request.getParameter("affidavit_status_id")));
         //affidavit._description = request.getParameter("affidavit_desc");
-        affidavit._header._description = request.getParameter("affidavit_desc");
-        affidavit._header._typeID = Integer.parseInt(request.getParameter("affidavit_type_id"));
-        affidavit._header._notarized = makeBoolean(request.getParameter(IS_NOTARIZED));
+        affidavit.getHeader().setDescription(request.getParameter("affidavit_desc"));
+        affidavit.getHeader().setTypeId(Integer.parseInt(request.getParameter("affidavit_type_id")));
+        affidavit.getHeader().setNotarized(makeBoolean(request.getParameter(IS_NOTARIZED)));
 
         DataInterfaceBean dib = new DataInterfaceBean();
         dib.updateAffidavit(affidavit);
@@ -1931,7 +1931,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         InternalDispatchText tb =
                 new InternalDispatchText(request, response);
-        request.setAttribute("text", tb.get(results._header._id, CONTRACT_OBJ));
+        request.setAttribute("text", tb.get(results.getHeader().getId(), CONTRACT_OBJ));
 
         DataInterfaceBean dib = new DataInterfaceBean();
         request.setAttribute(CONTRACT_TYPE_LIST, dib.getContractTypes().get(CONTRACT_TYPE_LIST));
@@ -1952,16 +1952,16 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 new InternalDispatchContract(request, response);
         Contract contract = bean.get();
 
-        contract._header._name = request.getParameter("name");
-        contract._startDate = TCData.dateForm(request.getParameter("start_date"));
-        contract._endDate = TCData.dateForm(request.getParameter("end_date"));
-        contract._description = request.getParameter("contract_desc");
-        contract._header._statusId = Integer.parseInt(request.getParameter("status_id"));
-        contract._header._typeID = Integer.parseInt(request.getParameter("contract_type_id"));
+        contract.getHeader().setName(request.getParameter("name"));
+        contract.setStartDate(TCData.dateForm(request.getParameter("start_date")));
+        contract.setEndDate(TCData.dateForm(request.getParameter("end_date")));
+        contract.setDescription(request.getParameter("contract_desc"));
+        contract.getHeader().setStatusId(Integer.parseInt(request.getParameter("status_id")));
+        contract.getHeader().setTypeId(Integer.parseInt(request.getParameter("contract_type_id")));
 
         DataInterfaceBean dib = new DataInterfaceBean();
         dib.updateContract(contract);
-        dib.updateText(contract._header._id, CONTRACT_OBJ, request.getParameter("text"));
+        dib.updateText(contract.getHeader().getId(), CONTRACT_OBJ, request.getParameter("text"));
 
         contract = bean.get();
 
@@ -2011,17 +2011,17 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         String net = request.getParameter("net_amount");
         if (net == null || net.equals("")) net = "0";
 
-        payment._header._description = request.getParameter("payment_desc");
-        payment._header._typeID = Integer.parseInt(request.getParameter("payment_type_id"));
-        payment._grossAmount = Double.parseDouble(request.getParameter("gross_amount"));
+        payment.getHeader().setDescription(request.getParameter("payment_desc"));
+        payment.getHeader().setTypeId(Integer.parseInt(request.getParameter("payment_type_id")));
+        payment.setGrossAmount(Double.parseDouble(request.getParameter("gross_amount")));
         // dpecora 05/03 - fix
         // payment._netAmount = Double.parseDouble(request.getParameter(net));
-        payment._netAmount = Double.parseDouble(net);
-        payment._statusId = Integer.parseInt(request.getParameter("status_id"));
-        payment._printDate = TCData.dateForm(request.getParameter("date_printed"));
-        payment._payDate = TCData.dateForm(request.getParameter("date_paid"));
-        payment._dueDate = TCData.dateForm(request.getParameter("date_due"));
-        payment._rationaleId = Integer.parseInt(request.getParameter("modification_rationale_id"));
+        payment.setNetAmount(Double.parseDouble(net));
+        payment.setStatusId(Integer.parseInt(request.getParameter("status_id")));
+        payment.setPrintDate(TCData.dateForm(request.getParameter("date_printed")));
+        payment.setPayDate(TCData.dateForm(request.getParameter("date_paid")));
+        payment.setDueDate(TCData.dateForm(request.getParameter("date_due")));
+        payment.setRationaleId(Integer.parseInt(request.getParameter("modification_rationale_id")));
 
         DataInterfaceBean dib = new DataInterfaceBean();
         dib.updatePayment(payment);
@@ -2055,7 +2055,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         InternalDispatchText tb =
                 new InternalDispatchText(request, response);
-        request.setAttribute("text", tb.get(results._header._id, TAX_FORM_OBJ));
+        request.setAttribute("text", tb.get(results.getHeader().getId(), TAX_FORM_OBJ));
 
         DataInterfaceBean dib = new DataInterfaceBean();
         request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.TAX_FORM_OBJ).get(STATUS_CODE_LIST));
@@ -2075,16 +2075,16 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 new InternalDispatchTaxForm(request, response);
         TaxForm taxForm = bean.get();
 
-        taxForm._header._name = request.getParameter("name");
-        taxForm._description = request.getParameter("tax_form_desc");
-        taxForm._defaultWithholdingPercentage = Float.parseFloat(request.getParameter("default_withholding_percentage"));
-        taxForm._defaultWithholdingAmount = Double.parseDouble(request.getParameter("default_withholding_amount"));
-        taxForm._genericFormStatusID = Integer.parseInt(request.getParameter("status_id"));
-        taxForm._defaultUsePercentage = makeBoolean(request.getParameter("default_use_percentage"));
+        taxForm.getHeader().setName(request.getParameter("name"));
+        taxForm.setDescription(request.getParameter("tax_form_desc"));
+        taxForm.setDefaultWithholdingPercentage(Float.parseFloat(request.getParameter("default_withholding_percentage")));
+        taxForm.setDefaultWithholdingAmount(Double.parseDouble(request.getParameter("default_withholding_amount")));
+        taxForm.setGenericFormStatusID(Integer.parseInt(request.getParameter("status_id")));
+        taxForm.setDefaultUsePercentage(makeBoolean(request.getParameter("default_use_percentage")));
 
         DataInterfaceBean dib = new DataInterfaceBean();
         dib.updateTaxForm(taxForm);
-        dib.updateText(taxForm._header._id, TAX_FORM_OBJ, request.getParameter("text"));
+        dib.updateText(taxForm.getHeader().getId(), TAX_FORM_OBJ, request.getParameter("text"));
 
         taxForm = bean.get();
 
@@ -2123,11 +2123,11 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 new InternalDispatchUserTaxForm(request, response);
         TaxForm userTaxForm = bean.get();
 
-        userTaxForm._withholdingPercentage = Float.parseFloat(request.getParameter("withholding_percentage"));
-        userTaxForm._withholdingAmount = Double.parseDouble(request.getParameter("withholding_amount"));
-        userTaxForm._header._statusID = Integer.parseInt(request.getParameter("status_id"));
-        userTaxForm._header._dateFiled = TCData.dateForm(request.getParameter("date_filed"));
-        userTaxForm._usePercentage = makeBoolean(request.getParameter("use_percentage"));
+        userTaxForm.setWithholdingPercentage(Float.parseFloat(request.getParameter("withholding_percentage")));
+        userTaxForm.setWithholdingAmount(Double.parseDouble(request.getParameter("withholding_amount")));
+        userTaxForm.getHeader().setStatusId(Integer.parseInt(request.getParameter("status_id")));
+        userTaxForm.getHeader().setDateFiled(TCData.dateForm(request.getParameter("date_filed")));
+        userTaxForm.setUsePercentage(makeBoolean(request.getParameter("use_percentage")));
 
         DataInterfaceBean dib = new DataInterfaceBean();
         dib.updateUserTaxForm(userTaxForm);
@@ -2251,7 +2251,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         } else {
             InternalDispatchNote nb = new InternalDispatchNote(request, response);
 
-            request.setAttribute(PACTS_INTERNAL_RESULT, nb.get(n[0]._id));
+            request.setAttribute(PACTS_INTERNAL_RESULT, nb.get(n[0].getId()));
             forward(INTERNAL_NOTE_JSP, request, response);
         }
     }
@@ -2314,11 +2314,11 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             forward(INTERNAL_USER_LIST_JSP, request, response);
         } else {
             InternalDispatchUserProfile upb = new InternalDispatchUserProfile(request, response);
-            request.setAttribute(PACTS_INTERNAL_RESULT, upb.get(u[0]._id));
+            request.setAttribute(PACTS_INTERNAL_RESULT, upb.get(u[0].getId()));
 
             InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
             Map search = new HashMap();
-            search.put(USER_ID, "" + u[0]._id);
+            search.put(USER_ID, "" + u[0].getId());
             request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
             forward(INTERNAL_USER_JSP, request, response);
@@ -2605,7 +2605,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         // check for birthday parameter, if it is not there get it from the affidavit
         if (birthday == null || birthday.equals("")) {
             log.debug("did not get the birthday in affidavit affirmation");
-            birthday = a.affidavit._birthday;
+            birthday = a.getAffidavit().getBirthday();
         }
 
         // try to extract the birthday and forward to the error page if it is malformed
@@ -2619,7 +2619,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         }
 
         // if it is for india, replace the form text with what they enterd
-        if (a.payment._country.equals("India")) {
+        if (a.getPayment().getCountry().equals("India")) {
             if ((aged == null) || (family == null) || (aged.length() == 0) || (family.length() == 0)) {
                 log.debug("did not get the aged or family text");
                 request.setAttribute("message", "Aged and Family must be filled in.<br>\n");
@@ -2628,20 +2628,20 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             }
 
             //first replace the aged
-            int aIdx = a.affidavitText.indexOf("FILL IN AGED");
+            int aIdx = a.getAffidavitText().indexOf("FILL IN AGED");
             int bIdx = aIdx + (new String("FILL IN AGED")).length();
-            a.affidavitText = a.affidavitText.substring(0, aIdx) +
-                    " " + aged + " " + a.affidavitText.substring(bIdx);
+            a.setAffidavitText(a.getAffidavitText().substring(0, aIdx) +
+                    " " + aged + " " + a.getAffidavitText().substring(bIdx));
 
             //now the family name
-            aIdx = a.affidavitText.indexOf("FILL IN BELOW");
+            aIdx = a.getAffidavitText().indexOf("FILL IN BELOW");
             bIdx = aIdx + (new String("FILL IN BELOW")).length();
-            a.affidavitText = a.affidavitText.substring(0, aIdx) +
-                    " " + family + " " + a.affidavitText.substring(bIdx);
+            a.setAffidavitText(a.getAffidavitText().substring(0, aIdx) +
+                    " " + family + " " + a.getAffidavitText().substring(bIdx));
         }
 
         // if we got here everything is good, we should affirm the affidavit
-        bean.affirmAffidavit(a.affidavit._header._id, a.affidavitText, dfmt.format(d));
+        bean.affirmAffidavit(a.getAffidavit().getHeader().getId(), a.getAffidavitText(), dfmt.format(d));
 
         doAffidavit(request, response);
     }

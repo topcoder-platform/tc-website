@@ -34,8 +34,8 @@ public class Note implements PactsConstants, java.io.Serializable {
 *  _header - more commonly requested information for this note
 *  _text   - the actual note made
 */
-    public NoteHeader _header;
-    public String _text;
+    private NoteHeader header;
+    private String text;
 
     /**************\
      *              *
@@ -48,8 +48,8 @@ public class Note implements PactsConstants, java.io.Serializable {
 *  @ARGS none
 */
     public Note() {
-        _header = new NoteHeader();
-        _text = "Default Note";
+        header = new NoteHeader();
+        text = "Default Note";
     }
 
 /* This constructor makes the object out of raw data.
@@ -65,10 +65,10 @@ public class Note implements PactsConstants, java.io.Serializable {
 */
     public Note(String text, int type, long user, long user_id) {
 
-        _header = new NoteHeader();
-        _header._user._id = user;
-        _header._typeId = type;
-        _text = text;
+        header = new NoteHeader();
+        header.getUser().setId(user);
+        header.setTypeId(type);
+        this.text = text;
 
     }
 
@@ -81,8 +81,8 @@ public class Note implements PactsConstants, java.io.Serializable {
 */
     public Note(NoteHeader header, String text) {
 
-        _header = header;
-        _text = text;
+        this.header = header;
+        this.text = text;
     }
 
 /* This constructor uses the Result Set NOTE_DETAIL to make the object
@@ -95,19 +95,38 @@ public class Note implements PactsConstants, java.io.Serializable {
 
         // check if it was there
         if (rsc == null) {
-            _header = new NoteHeader();
-            _text = "Default Note";
+            header = new NoteHeader();
+            text = "Default Note";
             return;
         }
 
         // make sure the row is valid
         if (rsc.getRowCount() < 1) {
-            _header = new NoteHeader();
-            _text = "Default Note";
+            header = new NoteHeader();
+            text = "Default Note";
             return;
         }
 
-        _text = TCData.getTCString(rsc.getRow(0), "text", "default note text", true);
-        _header = new NoteHeader(results);
+        text = TCData.getTCString(rsc.getRow(0), "text", "default note text", true);
+        header = new NoteHeader(results);
     }
+
+
+    public NoteHeader getHeader() {
+        return header;
+    }
+
+    public void setHeader(NoteHeader header) {
+        this.header = header;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+
 }

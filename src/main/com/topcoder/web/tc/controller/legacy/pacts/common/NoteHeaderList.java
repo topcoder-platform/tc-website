@@ -24,7 +24,7 @@ public class NoteHeaderList implements PactsConstants {
 
     private static Logger log = Logger.getLogger(NoteHeaderList.class);
 
-    public NoteHeader headerList[];
+    private NoteHeader headerList[];
 
     /**************\
      *              *
@@ -53,4 +53,9 @@ public class NoteHeaderList implements PactsConstants {
             headerList[n] = new NoteHeader(results, n);
         }
     }
+
+    public NoteHeader[] getHeaderList() {
+        return headerList;
+    }
+
 }

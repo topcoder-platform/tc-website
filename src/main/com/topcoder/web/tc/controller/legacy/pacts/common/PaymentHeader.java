@@ -34,16 +34,16 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 *   _description     - description of the payment
 *   _type            - type of payment
 */
-    public long _id;
-    public UserProfileHeader _user;
-    public String _recentStatus;
-    public double _recentNetAmount;
-    public double _recentGrossAmount;
-    public String _description;
-    public String _type;
-    public int _recentStatusID;
-    public int _typeID;
-    public boolean _reviewed;
+    private long id;
+    private UserProfileHeader user;
+    private String recentStatus;
+    private double recentNetAmount;
+    private double recentGrossAmount;
+    private String description;
+    private String type;
+    private int recentStatusId;
+    private int typeId;
+    private boolean reviewed;
 
     /**************\
      *              *
@@ -56,15 +56,15 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 *  @ARGS none
 */
     public PaymentHeader() {
-        _id = 0;
-        _user = new UserProfileHeader();
-        _recentStatus = "Default Status";
-        _recentNetAmount = 0;
-        _description = "Default Description";
-        _type = "Default Type";
-        _recentStatusID = 0;
-        _typeID = 0;
-        _reviewed = false;
+        id = 0;
+        user = new UserProfileHeader();
+        recentStatus = "Default Status";
+        recentNetAmount = 0;
+        description = "Default Description";
+        type = "Default Type";
+        recentStatusId = 0;
+        typeId = 0;
+        reviewed = false;
     }
 
 /* This constructor makes the object out of raw data.
@@ -84,12 +84,12 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     public PaymentHeader(long id, long userID, String handle, long groupID[],
                          String status, double netAmount, String description, String type) {
 
-        _id = id;
-        _user = new UserProfileHeader(userID, handle);
-        _recentStatus = status;
-        _recentNetAmount = netAmount;
-        _description = description;
-        _type = type;
+        this.id = id;
+        user = new UserProfileHeader(userID, handle);
+        recentStatus = status;
+        recentNetAmount = netAmount;
+        this.description = description;
+        this.type = type;
     }
 
 /* This constructor makes the object out of raw data & headers.
@@ -107,12 +107,12 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     public PaymentHeader(long id, UserProfileHeader user,
                          String status, double netAmount, String description, String type) {
 
-        _id = id;
-        _user = user;
-        _recentStatus = status;
-        _recentNetAmount = netAmount;
-        _description = description;
-        _type = type;
+        this.id = id;
+        this.user = user;
+        recentStatus = status;
+        recentNetAmount = netAmount;
+        this.description = description;
+        this.type = type;
     }
 
 /* This constructor makes the object out of the Map containing
@@ -127,44 +127,44 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         ResultSetContainer rsc = (ResultSetContainer) results.get(PAYMENT_HEADER_LIST);
         if (rsc == null) {
             log.error("There is no " + PAYMENT_HEADER_LIST + " in the ResultSetContainer");
-            _id = 0;
-            _user = new UserProfileHeader();
-            _recentStatus = "Default Status";
-            _recentNetAmount = 0;
-            _description = "Default Description";
-            _type = "Default Type";
-            _reviewed = false;
+            id = 0;
+            user = new UserProfileHeader();
+            recentStatus = "Default Status";
+            recentNetAmount = 0;
+            description = "Default Description";
+            type = "Default Type";
+            reviewed = false;
             return;
         }
 
         int numRows = rsc.getRowCount();
         if (numRows <= row || row < 0) {
             log.error("Bad row number: " + row);
-            _id = 0;
-            _user = new UserProfileHeader();
-            _recentStatus = "Default Status";
-            _recentNetAmount = 0;
-            _description = "Default Description";
-            _type = "Default Type";
-            _reviewed = false;
+            id = 0;
+            user = new UserProfileHeader();
+            recentStatus = "Default Status";
+            recentNetAmount = 0;
+            description = "Default Description";
+            type = "Default Type";
+            reviewed = false;
             return;
         }
 
         ResultSetContainer.ResultSetRow rsr = rsc.getRow(row);
 
         log.debug("Making the PaymentHeader");
-        _id = TCData.getTCLong(rsr, "payment_id", 0, true);
-        _recentStatus = TCData.getTCString(rsr, "status_desc", "default status", true);
-        _recentStatusID = TCData.getTCInt(rsr, "status_id", 0, true);
-        _recentGrossAmount = TCData.getTCDouble(rsr, "gross_amount", 0.0, true);
-        _recentNetAmount = TCData.getTCDouble(rsr, "net_amount", 0.0, true);
-        _description = TCData.getTCString(rsr, "payment_desc", "default description", true);
-        _type = TCData.getTCString(rsr, "payment_type_desc", "default type description", true);
-        _typeID = TCData.getTCInt(rsr, "payment_type_id", 0, true);
-        _user = new UserProfileHeader(
+        id = TCData.getTCLong(rsr, "payment_id", 0, true);
+        recentStatus = TCData.getTCString(rsr, "status_desc", "default status", true);
+        recentStatusId = TCData.getTCInt(rsr, "status_id", 0, true);
+        recentGrossAmount = TCData.getTCDouble(rsr, "gross_amount", 0.0, true);
+        recentNetAmount = TCData.getTCDouble(rsr, "net_amount", 0.0, true);
+        description = TCData.getTCString(rsr, "payment_desc", "default description", true);
+        type = TCData.getTCString(rsr, "payment_type_desc", "default type description", true);
+        typeId = TCData.getTCInt(rsr, "payment_type_id", 0, true);
+        user = new UserProfileHeader(
                 TCData.getTCLong(rsr, "user_id", 0, true),
                 TCData.getTCString(rsr, "handle", "default handle", true));
-        _reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
+        reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
     }
 
 /* Constructor
@@ -176,4 +176,86 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     public PaymentHeader(Map results) {
         this(results, 0);
     }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public UserProfileHeader getUser() {
+        return user;
+    }
+
+    public void setUser(UserProfileHeader user) {
+        this.user = user;
+    }
+
+    public String getRecentStatus() {
+        return recentStatus;
+    }
+
+    public void setRecentStatus(String recentStatus) {
+        this.recentStatus = recentStatus;
+    }
+
+    public double getRecentNetAmount() {
+        return recentNetAmount;
+    }
+
+    public void setRecentNetAmount(double recentNetAmount) {
+        this.recentNetAmount = recentNetAmount;
+    }
+
+    public double getRecentGrossAmount() {
+        return recentGrossAmount;
+    }
+
+    public void setRecentGrossAmount(double recentGrossAmount) {
+        this.recentGrossAmount = recentGrossAmount;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getRecentStatusId() {
+        return recentStatusId;
+    }
+
+    public void setRecentStatusId(int recentStatusId) {
+        this.recentStatusId = recentStatusId;
+    }
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
+    }
+
+    public boolean isReviewed() {
+        return reviewed;
+    }
+
+    public void setReviewed(boolean reviewed) {
+        this.reviewed = reviewed;
+    }
+
 }

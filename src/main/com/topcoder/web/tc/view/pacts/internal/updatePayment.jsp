@@ -28,21 +28,21 @@
 	} else if (payment != null) {
 		String param;
 		param = request.getParameter("status_id");
-		try { if (param != null) payment._header._recentStatusID = Integer.parseInt(param); } catch (Exception e) {}
+		try { if (param != null) payment.getHeader().setRecentStatusId(Integer.parseInt(param)); } catch (Exception e) {}
 		param = request.getParameter("payment_desc");
-		if (param != null) payment._header._description = param;
+		if (param != null) payment.getHeader().setDescription(param);
 		param = request.getParameter("date_printed");
-		if (param != null) payment._printDate = param;
+		if (param != null) payment.setPrintDate(param);
 		param = request.getParameter("date_paid");
-		if (param != null) payment._payDate = param;
+		if (param != null) payment.setPayDate(param);
 		param = request.getParameter("date_due");
-		if (param != null) payment._dueDate = param;
+		if (param != null) payment.setDueDate(param);
 		param = request.getParameter("payment_type_id");
-		try { if (param != null) payment._header._typeID = Integer.parseInt(param); } catch (Exception e) {}
+		try { if (param != null) payment.getHeader().setTypeId(Integer.parseInt(param)); } catch (Exception e) {}
 		param = request.getParameter("net_amount");
-		try { if (param != null) payment._netAmount = Double.parseDouble(param); } catch (Exception e) {}
+		try { if (param != null) payment.setNetAmount(Double.parseDouble(param)); } catch (Exception e) {}
 		param = request.getParameter("gross_amount");
-		try { if (param != null) payment._grossAmount = Double.parseDouble(param); } catch (Exception e) {}
+		try { if (param != null) payment.setGrossAmount(Double.parseDouble(param)); } catch (Exception e) {}
 	}
 	if (payment == null) {
 		out.print("No Payment!!!<br>");
@@ -64,11 +64,11 @@
    out.print(PactsConstants.UPDATE_TASK+"\">");
    out.print("<input type=\"hidden\" name=\""+PactsConstants.CMD_STRING+"\" value=\"");
    out.print(PactsConstants.PAYMENT_CMD+"\">");
-   out.print("<input type=\"hidden\" name=\""+PactsConstants.PAYMENT_ID+"\" value=\""+payment._header._id+"\">");
+   out.print("<input type=\"hidden\" name=\""+PactsConstants.PAYMENT_ID+"\" value=\""+payment.getHeader().getId()+"\">");
 %>
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr><td><b>ID:</b></td><td>
-<%		out.print(payment._header._id);	%>
+<%		out.print(payment.getHeader().getId());	%>
 		</td></tr><tr>
 		<td>
 <%		out.print("<b>User:</b></td>");
@@ -79,8 +79,8 @@
 		out.print(PactsConstants.CMD_STRING+"=");
 		out.print(PactsConstants.USER_CMD+"&");
 		out.print(PactsConstants.USER_ID+"=");
-		out.print(payment._header._user._id);
-		out.print("\">"+payment._header._user._handle+"</a>\n");
+		out.print(payment.getHeader().getUser().getId());
+		out.print("\">"+payment.getHeader().getUser().getHandle()+"</a>\n");
 %>
 		</td>
 		</tr>
@@ -100,7 +100,7 @@
 				code = TCData.getTCInt(rsr,"status_id",0,true);
 				out.print("" + code);
 				s = TCData.getTCString(rsr,"status_desc","default status",true);
-				if (code == payment._header._recentStatusID) {
+				if (code == payment.getHeader().getRecentStatusId()) {
 					out.print(" selected");
 				}
 				out.print(">" + s + "</option>\n");
@@ -112,19 +112,19 @@
 		</tr>
 		<tr>
 		<td><b>Description:</b></td><td>
-<% out.print("<input type=text width=25 name=\"payment_desc\" value=\""+payment._header._description+"\">"); %>
+<% out.print("<input type=text width=25 name=\"payment_desc\" value=\""+payment.getHeader().getDescription()+"\">"); %>
 		</td></tr>
 		<tr>
 		<td><b>Date Paid:</b></td><td>
-<% out.print("<input type=text width=25 name=\"date_paid\" value=\""+payment._printDate+"\">"); %>
+<% out.print("<input type=text width=25 name=\"date_paid\" value=\""+payment.getPrintDate()+"\">"); %>
 		</td></tr>
 		<tr>
 		<td><b>Date Printed:</b></td><td>
-<% out.print("<input type=text width=25 name=\"date_printed\" value=\""+payment._payDate+"\">"); %>
+<% out.print("<input type=text width=25 name=\"date_printed\" value=\""+payment.getPayDate()+"\">"); %>
 		</td></tr>
 		<tr>
 		<td><b>Date Due:</b></td><td>
-<% out.print("<input type=text width=25 name=\"date_due\" value=\""+payment._dueDate+"\">"); %>
+<% out.print("<input type=text width=25 name=\"date_due\" value=\""+payment.getDueDate()+"\">"); %>
 		</td></tr>
 		<tr>
 		<td><b>Type:</b></td><td>
@@ -137,7 +137,7 @@
 				code = TCData.getTCInt(rsr,"payment_type_id",0,true);
 				out.print("" + code);
 				s = TCData.getTCString(rsr,"payment_type_desc","default payment type",true);
-				if (code == payment._header._typeID) {
+				if (code == payment.getHeader().getTypeId()) {
 					out.print(" selected");
 				}
 				out.print(">" + s + "</option>\n");
@@ -148,11 +148,11 @@
 		</td></tr>
 		<tr>
 		<td><b>Net Amount:</b></td><td>
-<% out.print("<input type=text width=25 name=\"net_amount\" value=\""+payment._netAmount+"\">"); %>
+<% out.print("<input type=text width=25 name=\"net_amount\" value=\""+payment.getNetAmount()+"\">"); %>
 		</td></tr>
 		<tr>
 		<td><b>Gross Amount:</b></td><td>
-<% out.print("<input type=text width=25 name=\"gross_amount\" value=\""+payment._grossAmount+"\">"); %>
+<% out.print("<input type=text width=25 name=\"gross_amount\" value=\""+payment.getGrossAmount()+"\">"); %>
 		</td></tr>
 		<tr>
 		<td><b>Modification Rationale:</b></td><td>

@@ -8,9 +8,9 @@
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
 public class AffidavitWithText {
-    public Affidavit affidavit;
-    public String affidavitText;
-    public Payment payment;
+    private Affidavit affidavit;
+    private String affidavitText;
+    private Payment payment;
     private boolean hasTaxForm = false;
     private boolean hasNotarizedAffidavit = false;
     private boolean hasAllDemographicAnswers = false;
@@ -24,7 +24,7 @@ public class AffidavitWithText {
     }
 
     public boolean canAffirmOnline() {
-        return hasTaxForm && hasNotarizedAffidavit && hasAllDemographicAnswers && affidavit._daysLeftToAffirm > 0;
+        return hasTaxForm && hasNotarizedAffidavit && hasAllDemographicAnswers && affidavit.getDaysLeftToAffirm()> 0;
     }
 
     public boolean hasTaxForm() {
@@ -49,6 +49,31 @@ public class AffidavitWithText {
 
     public void setHasAllDemographicAnswers(boolean hasAllDemographicAnswers) {
         this.hasAllDemographicAnswers = hasAllDemographicAnswers;
+    }
+
+
+    public Affidavit getAffidavit() {
+        return affidavit;
+    }
+
+    public void setAffidavit(Affidavit affidavit) {
+        this.affidavit = affidavit;
+    }
+
+    public String getAffidavitText() {
+        return affidavitText;
+    }
+
+    public void setAffidavitText(String affidavitText) {
+        this.affidavitText = affidavitText;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
 }

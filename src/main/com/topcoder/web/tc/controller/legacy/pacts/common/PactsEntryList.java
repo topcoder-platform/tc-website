@@ -24,7 +24,7 @@ public class PactsEntryList implements PactsConstants {
 
     private static Logger log = Logger.getLogger(PactsEntryList.class);
 
-    public PactsEntry[] headerList;
+    private PactsEntry[] headerList;
 
     public PactsEntryList(Map data) {
         ResultSetContainer rsc = (ResultSetContainer) data.get(ENTRY_HEADER_LIST);
@@ -38,5 +38,14 @@ public class PactsEntryList implements PactsConstants {
         for (int n = 0; n < rowCount; n++) {
             headerList[n] = new PactsEntry(data, n);
         }
+    }
+
+
+    public PactsEntry[] getHeaderList() {
+        return headerList;
+    }
+
+    public void setHeaderList(PactsEntry[] headerList) {
+        this.headerList = headerList;
     }
 }

@@ -37,18 +37,18 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(affidavit._header._user._id);
-			out.print("\">"+affidavit._header._user._handle+"</a></td>\n");
+			out.print(affidavit.getHeader().getUser().getId());
+			out.print("\">"+affidavit.getHeader().getUser().getHandle()+"</a></td>\n");
 %>
 		</tr>
 		<tr>
 		<td><b>Creation Date:</b></td>
-<%			out.print("<td>"+affidavit._header._creationDate+"</a>\n");
+<%			out.print("<td>"+affidavit.getHeader().getCreationDate()+"</a>\n");
 %>
 		</tr>
 		<tr>
 		<td><b>Affirmed:</b></td>
-<%			if (affidavit._header._affirmed) {
+<%			if (affidavit.getHeader().isAffirmed()) {
 				out.print("<td>Yes</td>\n");
 			}
 			else {
@@ -58,7 +58,7 @@
 		</tr>
 		<tr>
 		<td><b>Notarized:</b></td>
-<%			if (affidavit._header._notarized) {
+<%			if (affidavit.getHeader().isNotarized()) {
 				out.print("<td>Yes</td>\n");
 			}
 			else {
@@ -68,27 +68,27 @@
 		</tr>
 		<tr>
 		<td><b>Status:</b></td>
-<%			out.print("<td>"+affidavit._header._status+"</td>\n");
+<%			out.print("<td>"+affidavit.getHeader().getStatusDesc()+"</td>\n");
 %>
 		</tr>
 		<tr>
 		<td><b>Description:</b></td><td>
-<%			out.print(affidavit._header._description);
+<%			out.print(affidavit.getHeader().getDescription());
 %>
 		</td></tr>
 		<tr>
 		<td><b>Affirmation Date:</b></td><td>
-<%			out.print(affidavit._affirmationDate);
+<%			out.print(affidavit.getAffirmationDate());
 %>
 		</td></tr>
 		<tr>
 		<td><b>Type:</b></td><td>
-<%			out.print(affidavit._header._type);
+<%			out.print(affidavit.getHeader().getTypeDesc());
 %>
 		</td></tr>
 		<tr>
 		<td><b>Round:</b></td><td>
-<%		out.print(affidavit._round);
+<%		out.print(affidavit.getRound());
 %>
 		</td></tr>
 		<tr>
@@ -98,11 +98,11 @@
 		out.print("?"+PactsConstants.TASK_STRING+"=");
 		out.print(PactsConstants.VIEW_TASK+"&"+PactsConstants.CMD_STRING);
 		out.print("="+PactsConstants.PAYMENT_CMD+"&");
-		out.print(PactsConstants.PAYMENT_ID+"="+affidavit._payment._id);
+		out.print(PactsConstants.PAYMENT_ID+"="+affidavit.getPayment().getId());
 		out.print("\">Payment</a>");
 %>
 			Status:</b></td><td>
-<%		out.print(affidavit._payment._recentStatus);
+<%		out.print(affidavit.getPayment().getRecentStatus());
 %>
 		</td></tr>
 
@@ -115,7 +115,7 @@
 	out.println("<input type=\"submit\" value=\"View Note\">");
 	out.println("<select name=\""+PactsConstants.NOTE_ID+"\">");
 	for (int n = 0; n < notes.length; n++) {
-		out.println("<option value=\""+notes[n]._id+"\">"+notes[n]._creationDate+" by "+notes[n]._user._handle+"</option>");
+		out.println("<option value=\""+notes[n].getId()+"\">"+notes[n].getCreationDate()+" by "+notes[n].getUser().getHandle()+"</option>");
 	}
 	out.println("</select></form>");
     }
@@ -126,7 +126,7 @@
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.VIEW_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.TEXT_CMD+"&");
-   out.println("object_id="+affidavit._header._id+"&object_type="+PactsConstants.AFFIDAVIT_OBJ);
+   out.println("object_id="+affidavit.getHeader().getId()+"&object_type="+PactsConstants.AFFIDAVIT_OBJ);
    out.println("\">View Affidavit Text</a><br>");
 
    out.println("<br>");
@@ -134,22 +134,22 @@
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.ADD_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.NOTE_CMD+"&");
-   out.println("object_id="+affidavit._header._id+"&");
-   out.println("user_id="+affidavit._header._user._id+"&");
+   out.println("object_id="+affidavit.getHeader().getId()+"&");
+   out.println("user_id="+affidavit.getHeader().getUser().getId()+"&");
    out.println("object_type="+PactsConstants.AFFIDAVIT_OBJ);
    out.println("\">Add Note</a><br>");
 
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.UPDATE_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.AFFIDAVIT_CMD+"&");
-   out.println(PactsConstants.AFFIDAVIT_ID+"="+affidavit._header._id);
+   out.println(PactsConstants.AFFIDAVIT_ID+"="+affidavit.getHeader().getId());
    out.println("\">Update Affidavit</a><br>");
 
-   if (!affidavit._header._affirmed) {
+   if (!affidavit.getHeader().isAffirmed()) {
    	out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    	out.print(PactsConstants.TASK_STRING+"="+PactsConstants.AFFIRM_TASK+"&");
    	out.println(PactsConstants.CMD_STRING+"="+PactsConstants.AFFIDAVIT_CMD+"&");
-   	out.println(PactsConstants.AFFIDAVIT_ID+"="+affidavit._header._id);
+   	out.println(PactsConstants.AFFIDAVIT_ID+"="+affidavit.getHeader().getId());
    	out.println("\">Affirm Affidavit</a><br>");
    }
 %>

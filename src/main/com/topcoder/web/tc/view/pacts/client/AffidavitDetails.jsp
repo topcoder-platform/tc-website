@@ -55,7 +55,7 @@ function goTo(selection){
     }
 
     if(a!=null) {
-	if(!a.affidavit._header._affirmed) {
+	if(!a.getAffidavit().getHeader().isAffirmed()) {
 %>
 
 <P class="bodyText"><B>Prize Payment Requirements:</B><P>
@@ -93,7 +93,7 @@ All four requirements must be met for TopCoder to release payment.
                     Mailing address for forms and affidavits:  TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033, USA
 
 <% if (!a.hasNotarizedAffidavit()||a.canAffirmOnline()) { %>
-<p><a href="PactsMemberServlet?t=affidavit&c=render_affidavit&affidavit_id=<%=a.affidavit._header._id%>">click here for a printer friendly version of the affidavit</a></p>
+<p><a href="PactsMemberServlet?t=affidavit&c=render_affidavit&affidavit_id=<%=a.getAffidavit().getHeader().getId()%>">click here for a printer friendly version of the affidavit</a></p>
 <% } %>
 <% }
 	if(!a.canAffirmOnline()) { %>
@@ -106,7 +106,7 @@ All four requirements must be met for TopCoder to release payment.
         <li>You do not have a tax form on file.</li>
       <% } else if (!a.hasAllDemographicAnswers()) { %>
         <li>Your demographic answers are incomplete.</li>
-      <% } else if (a.affidavit._daysLeftToAffirm<=0) { %>
+      <% } else if (a.getAffidavit().getDaysLeftToAffirm()<=0) { %>
         <li>This affidavit has expired.</li>
       <% } %>
 
@@ -114,23 +114,23 @@ All four requirements must be met for TopCoder to release payment.
         </p></b>
 <%
 	} else {
-		if(!a.affidavit._header._affirmed) {
-a.affidavitText = new String("<form action=PactsMemberServlet?t=affidavit&c=affirm_affidavit  method=post>") + a.affidavitText;
+		if(!a.getAffidavit().getHeader().isAffirmed()) {
+a.setAffidavitText(new String("<form action=PactsMemberServlet?t=affidavit&c=affirm_affidavit  method=post>") + a.getAffidavitText());
 
-			if(a.payment._country.equals("India")) {
-				int idx = a.affidavitText.indexOf("FILL IN AGED");
+			if(a.getPayment().getCountry().equals("India")) {
+				int idx = a.getAffidavitText().indexOf("FILL IN AGED");
                 if (idx>=0)
-				    a.affidavitText = a.affidavitText.substring(0,idx) + "<input type=\"text\" name=\"aged\" size=15 maxlength=15>" + a.affidavitText.substring(idx+(new String("FILL IN AGED")).length());
-				idx = a.affidavitText.indexOf("FILL IN BELOW");
+				    a.setAffidavitText(a.getAffidavitText().substring(0,idx) + "<input type=\"text\" name=\"aged\" size=15 maxlength=15>" + a.getAffidavitText().substring(idx+(new String("FILL IN AGED")).length()));
+				idx = a.getAffidavitText().indexOf("FILL IN BELOW");
                 if (idx>=0)
-				    a.affidavitText = a.affidavitText.substring(0,idx) + "<input type=\"text\" name=\"family_name\" size=25 maxlength=25>" + a.affidavitText.substring(idx+(new String("FILL IN BELOW")).length());
+				    a.setAffidavitText(a.getAffidavitText().substring(0,idx) + "<input type=\"text\" name=\"family_name\" size=25 maxlength=25>" + a.getAffidavitText().substring(idx+(new String("FILL IN BELOW")).length()));
 			}
 
-out.print("<p>" + a.affidavitText + "</p>");
+out.print("<p>" + a.getAffidavitText() + "</p>");
 out.print("<center><table><tr><td class=\"bodyText\">");
 out.print("<input type=hidden name=" + PactsConstants.AFFIDAVIT_ID);
-out.print(" value=" + a.affidavit._header._id + ">");
-if(a.affidavit._birthday.length() <= 0) {
+out.print(" value=" + a.getAffidavit().getHeader().getId()+ ">");
+if(a.getAffidavit().getBirthday().length() <= 0) {
 	out.print("Enter your birthday (MM/dd/YYYY): <input type=\"text\" name=\"date_of_birth\" size=15 maxlength=15>");
 }
 out.print("<input type=\"submit\" value=\"affirm affidavit\">");
@@ -141,7 +141,7 @@ out.print("<input type=\"submit\" value=\"Edit Personal Information\">");
 out.print("</form>");
 out.print("</td></tr></table></center>");
  		} else {
-			out.print("<p>" + a.affidavitText + "</p>");
+			out.print("<p>" + a.getAffidavitText() + "</p>");
 		}
 	}
 

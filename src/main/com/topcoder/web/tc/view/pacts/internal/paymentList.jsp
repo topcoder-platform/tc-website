@@ -51,8 +51,8 @@
 		</tr>
 <%
   		for (int n = 0; n < paymentList.length; n++) {
-			out.print("<tr><td><input type=checkbox name=\""+PactsConstants.PAYMENT_ID+"\" value=\""+paymentList[n]._id+"\" checked>\n");
-  			out.print("</td><td>" + paymentList[n]._id + "</td>");
+			out.print("<tr><td><input type=checkbox name=\""+PactsConstants.PAYMENT_ID+"\" value=\""+paymentList[n].getId()+"\" checked>\n");
+  			out.print("</td><td>" + paymentList[n].getId() + "</td>");
 			out.print("<td><a href=\"");
 			out.print(PactsConstants.INTERNAL_SERVLET_URL);
 			out.print("?"+PactsConstants.TASK_STRING+"=");
@@ -60,8 +60,8 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(paymentList[n]._user._id);
-			out.print("\">"+paymentList[n]._user._handle+"</a></td>\n");
+			out.print(paymentList[n].getUser().getId());
+			out.print("\">"+paymentList[n].getUser().getHandle()+"</a></td>\n");
 
 			out.print("<td><a href=\"");
 			out.print(PactsConstants.INTERNAL_SERVLET_URL);
@@ -70,15 +70,15 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.PAYMENT_CMD+"&");
 			out.print(PactsConstants.PAYMENT_ID+"=");
-			out.print(paymentList[n]._id);
-			out.print("\">"+paymentList[n]._description+"</a></td>\n");
+			out.print(paymentList[n].getId());
+			out.print("\">"+paymentList[n].getDescription()+"</a></td>\n");
 
-			total_net += paymentList[n]._recentNetAmount;
+			total_net += paymentList[n].getRecentNetAmount();
 
-			out.print("<td>"+df.format(paymentList[n]._recentNetAmount)+"</td>\n");
-			out.print("<td>"+paymentList[n]._type+"</td>\n");
-			out.print("<td>"+paymentList[n]._recentStatus+"</td>\n");
-			if (paymentList[n]._reviewed) out.print("<td>Yes</td>\n");
+			out.print("<td>"+df.format(paymentList[n].getRecentNetAmount())+"</td>\n");
+			out.print("<td>"+paymentList[n].getType()+"</td>\n");
+			out.print("<td>"+paymentList[n].getRecentStatus()+"</td>\n");
+			if (paymentList[n].isReviewed()) out.print("<td>Yes</td>\n");
 			else out.print("<td>No</td>\n");
 
 			out.print("</tr>\n");

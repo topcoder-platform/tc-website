@@ -31,7 +31,7 @@
 %>
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr><td><b>ID:</b></td><td>
-<%		out.print(payments[0]._header._id);	%>
+<%		out.print(payments[0].getHeader().getId());	%>
 		</td></tr><tr>
 		<td><b>User:</b></td>
 <% 			out.print("<td><a href=\"");
@@ -41,14 +41,14 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(payments[0]._header._user._id);
-			out.print("\">"+payments[0]._header._user._handle+"</a></td>\n");
+			out.print(payments[0].getHeader().getUser().getId());
+			out.print("\">"+payments[0].getHeader().getUser().getHandle()+"</a></td>\n");
 %>
 		</tr>
 		<tr>
 		<td><b>Reviewed:</b></td>
 <%
-		if (payments.length >= 1 && payments[0]._header._reviewed) out.print("<td>Yes</td>\n");
+		if (payments.length >= 1 && payments[0].getHeader().isReviewed()) out.print("<td>Yes</td>\n");
 		else out.print("<td>No</td>\n");
 %>
 		</tr>
@@ -73,23 +73,23 @@
 
 <%		for (int n = 0; n < payments.length; n++) {
 			out.print("<tr>\n");
-			out.print("<td>"+payments[n]._description+"</td>\n");
-			out.print("<td>"+payments[n]._statusDesc+"</td>\n");
-			out.print("<td>"+payments[n]._type+"</td>\n");
-			out.print("<td>"+df.format(payments[n]._netAmount)+"</td>\n");
-			out.print("<td>"+df.format(payments[n]._grossAmount)+"</td>\n");
-			out.print("<td>"+payments[n]._printDate+"</td>\n");
-			out.print("<td>"+payments[n]._payDate+"</td>\n");
-			out.print("<td>"+payments[n]._dueDate+"</td>\n");
-			out.print("<td>"+payments[n]._rationale+"</td>\n");
-			if (payments[n]._statusId == PactsConstants.PAID_STATUS || payments[n]._statusId == PactsConstants.PRINTED_STATUS) {
+			out.print("<td>"+payments[n].getDescription()+"</td>\n");
+			out.print("<td>"+payments[n].getStatusDesc()+"</td>\n");
+			out.print("<td>"+payments[n].getType()+"</td>\n");
+			out.print("<td>"+df.format(payments[n].getNetAmount())+"</td>\n");
+			out.print("<td>"+df.format(payments[n].getGrossAmount())+"</td>\n");
+			out.print("<td>"+payments[n].getPrintDate()+"</td>\n");
+			out.print("<td>"+payments[n].getPayDate()+"</td>\n");
+			out.print("<td>"+payments[n].getDueDate()+"</td>\n");
+			out.print("<td>"+payments[n].getRationale()+"</td>\n");
+			if (payments[n].getStatusId() == PactsConstants.PAID_STATUS || payments[n].getStatusId() == PactsConstants.PRINTED_STATUS) {
 				out.print("<td><pre>");
-				out.println(payments[n]._lastName+", "+payments[n]._firstName+" "+payments[n]._middleName);
-				out.println(payments[n]._address1);
-				out.println(payments[n]._address2);
-				out.print(payments[n]._city+", "+payments[n]._state+" (");
-				out.println(payments[n]._stateCode+") "+payments[n]._zip);
-				out.print(payments[n]._country+" ("+payments[n]._countryCode+")");
+				out.println(payments[n].getLastName()+", "+payments[n].getFirstName()+" "+payments[n].getMiddleName());
+				out.println(payments[n].getAddress1());
+				out.println(payments[n].getAddress2());
+				out.print(payments[n].getCity()+", "+payments[n].getState()+" (");
+				out.println(payments[n].getStateCode()+") "+payments[n].getZip());
+				out.print(payments[n].getCountry()+" ("+payments[n].getCountryCode()+")");
 				out.print("</pre></td>\n");
 			}
 			out.print("</tr>\n");
@@ -105,7 +105,7 @@
 	out.println("<input type=\"submit\" value=\"View Note\">");
 	out.println("<select name=\""+PactsConstants.NOTE_ID+"\">");
 	for (int n = 0; n < notes.length; n++) {
-		out.println("<option value=\""+notes[n]._id+"\">"+notes[n]._creationDate+" by "+notes[n]._user._handle+"</option>");
+		out.println("<option value=\""+notes[n].getId()+"\">"+notes[n].getCreationDate()+" by "+notes[n].getUser().getHandle()+"</option>");
 	}
 	out.println("</select></form>");
     }
@@ -117,7 +117,7 @@
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.ADD_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.NOTE_CMD+"&");
    out.println("object_id="+request.getParameter(PactsConstants.PAYMENT_ID)+"&");
-   out.println("user_id="+payments[0]._header._user._id+"&");
+   out.println("user_id="+payments[0].getHeader().getUser().getId()+"&");
    out.println("object_type="+PactsConstants.PAYMENT_OBJ);
    out.println("\">Add Note</a><br>");
 
@@ -138,7 +138,7 @@
    out.print("individual_payment%3D1");
    out.println("\">Review Payment</a><br>");
 
-   if (payments.length > 0 && payments[payments.length-1]._statusId == PactsConstants.PRINTED_STATUS) {
+   if (payments.length > 0 && payments[payments.length-1].getStatusId() == PactsConstants.PRINTED_STATUS) {
    	out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    	out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
    	out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAID_CMD+"&");

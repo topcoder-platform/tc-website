@@ -24,23 +24,23 @@
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr>
 		<td><b>Note ID:</b></td>
-<% out.println("<td>"+note._header._id+"</td></tr>"); %>
+<% out.println("<td>"+note.getHeader().getId()+"</td></tr>"); %>
 		<tr>
 		<td><b>Submitted by:</b></td>
-<% out.println("<td>"+note._header._user._handle+"</td></tr>"); %>
+<% out.println("<td>"+note.getHeader().getUser().getHandle()+"</td></tr>"); %>
 		<tr><td><b>Creation Date</b></td>
-<% out.println("<td>"+note._header._creationDate+"</td></tr>"); %>
+<% out.println("<td>"+note.getHeader().getCreationDate()+"</td></tr>"); %>
 		<tr><td><b>Type</b></td>
-<% out.println("<td>"+note._header._type+"</td></tr>"); %>
+<% out.println("<td>"+note.getHeader().getType()+"</td></tr>"); %>
 		</table>
 
 <pre>
-<% out.println(note._text); %>
+<% out.println(note.getText()); %>
 </pre>
 
 <br>
 <% out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?"+PactsConstants.TASK_STRING+"="+PactsConstants.LIST_TASK+"&");
-   out.print(PactsConstants.CMD_STRING+"="+PactsConstants.COMBO_CMD+"&"+PactsConstants.NOTE_ID+"="+note._header._id);
+   out.print(PactsConstants.CMD_STRING+"="+PactsConstants.COMBO_CMD+"&"+PactsConstants.NOTE_ID+"="+note.getHeader().getId());
    out.println("\">List Entries this Note is attached to</a>");
 %>
 <br><br>

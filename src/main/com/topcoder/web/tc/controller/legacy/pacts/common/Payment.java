@@ -25,32 +25,32 @@ import java.util.Map;
 public class Payment implements PactsConstants, java.io.Serializable {
     private static Logger log = Logger.getLogger(Payment.class);
 
-    public long _id;
-    public int _typeId;
-    public String _type;
-    public String _description;
-    public int _statusId;
-    public String _statusDesc;
-    public String _modifiedDate;
-    public String _rationale;
-    public int _rationaleId;
-    public double _netAmount;
-    public double _grossAmount;
-    public String _printDate;
-    public String _payDate;
-    public String _dueDate;
-    public String _lastName;
-    public String _firstName;
-    public String _middleName;
-    public String _address1;
-    public String _address2;
-    public String _city;
-    public String _country;
-    public String _zip;
-    public String _state;
-    public String _countryCode;
-    public String _stateCode;
-    public PaymentHeader _header;
+    private long id;
+    private int typeId;
+    private String type;
+    private String description;
+    private int statusId;
+    private String statusDesc;
+    private String modifiedDate;
+    private String rationale;
+    private int rationaleId;
+    private double netAmount;
+    private double grossAmount;
+    private String printDate;
+    private String payDate;
+    private String dueDate;
+    private String lastName;
+    private String firstName;
+    private String middleName;
+    private String address1;
+    private String address2;
+    private String city;
+    private String country;
+    private String zip;
+    private String state;
+    private String countryCode;
+    private String stateCode;
+    private PaymentHeader header;
 
     /**
      * this is used to set the payment when passed a result map
@@ -86,42 +86,42 @@ public class Payment implements PactsConstants, java.io.Serializable {
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(row);
 
         try {
-            _id = TCData.getTCLong(rRow, "payment_detail_id");
-            _statusDesc = TCData.getTCString(rRow, "status_desc");
-            _statusId = TCData.getTCInt(rRow, "status_id");
-            _rationale = TCData.getTCString(rRow, "modification_rationale_desc");
-            _rationaleId = TCData.getTCInt(rRow, "modification_rationale_id");
-            _grossAmount = TCData.getTCDouble(rRow, "gross_amount");
-            _netAmount = TCData.getTCDouble(rRow, "net_amount");
-            _payDate = TCData.getTCDate(rRow, "date_paid");
-            _printDate = TCData.getTCDate(rRow, "date_printed");
-            _dueDate = TCData.getTCDate(rRow, "date_due");
-            _type = TCData.getTCString(rRow, "payment_type_desc");
-            _typeId = TCData.getTCInt(rRow, "payment_type_id");
-            _description = TCData.getTCString(rRow, "payment_desc");
-            _modifiedDate = TCData.getTCDate(rRow, "date_modified");
+            id = TCData.getTCLong(rRow, "payment_detail_id");
+            statusDesc = TCData.getTCString(rRow, "status_desc");
+            statusId = TCData.getTCInt(rRow, "status_id");
+            rationale = TCData.getTCString(rRow, "modification_rationale_desc");
+            rationaleId = TCData.getTCInt(rRow, "modification_rationale_id");
+            grossAmount = TCData.getTCDouble(rRow, "gross_amount");
+            netAmount = TCData.getTCDouble(rRow, "net_amount");
+            payDate = TCData.getTCDate(rRow, "date_paid");
+            printDate = TCData.getTCDate(rRow, "date_printed");
+            dueDate = TCData.getTCDate(rRow, "date_due");
+            type = TCData.getTCString(rRow, "payment_type_desc");
+            typeId = TCData.getTCInt(rRow, "payment_type_id");
+            description = TCData.getTCString(rRow, "payment_desc");
+            modifiedDate = TCData.getTCDate(rRow, "date_modified");
             if (row == 0)
-                _header = new PaymentHeader(results, row);
+                header = new PaymentHeader(results, row);
             else
-                _header = new PaymentHeader();
+                header = new PaymentHeader();
 
 
-            if ((_statusId != PAID_STATUS) && (_statusId != PRINTED_STATUS)) {
+            if ((statusId != PAID_STATUS) && (statusId != PRINTED_STATUS)) {
                 rsc = (ResultSetContainer) results.get(CURRENT_CODER_ADDRESS);
                 if (rsc != null) rRow = rsc.getRow(0);
             }
 
-            _lastName = TCData.getTCString(rRow, "last_name");
-            _firstName = TCData.getTCString(rRow, "first_name");
-            _middleName = TCData.getTCString(rRow, "middle_name");
-            _address1 = TCData.getTCString(rRow, "address1");
-            _address2 = TCData.getTCString(rRow, "address2");
-            _city = TCData.getTCString(rRow, "city");
-            _state = TCData.getTCString(rRow, "state_name");
-            _country = TCData.getTCString(rRow, "country_name");
-            _stateCode = TCData.getTCString(rRow, "state_code");
-            _countryCode = TCData.getTCString(rRow, "country_code");
-            _zip = TCData.getTCString(rRow, "zip");
+            lastName = TCData.getTCString(rRow, "last_name");
+            firstName = TCData.getTCString(rRow, "first_name");
+            middleName = TCData.getTCString(rRow, "middle_name");
+            address1 = TCData.getTCString(rRow, "address1");
+            address2 = TCData.getTCString(rRow, "address2");
+            city = TCData.getTCString(rRow, "city");
+            state = TCData.getTCString(rRow, "state_name");
+            country = TCData.getTCString(rRow, "country_name");
+            stateCode = TCData.getTCString(rRow, "state_code");
+            countryCode = TCData.getTCString(rRow, "country_code");
+            zip = TCData.getTCString(rRow, "zip");
 
         } catch (Exception e) {
             log.error("there was an exception in the Payment contructor");
@@ -153,28 +153,28 @@ public class Payment implements PactsConstants, java.io.Serializable {
      * the method that set all values to defaults
      */
     private void setDefaults() {
-        _header = new PaymentHeader();
-        _id = 0;
-        _rationale = "Default Rationale";
-        _rationaleId = 0;
-        _netAmount = 0;
-        _grossAmount = 0;
-        _printDate = "00/00/00";
-        _payDate = "00/00/00";
-        _lastName = "Last";
-        _firstName = "First";
-        _middleName = "Middle";
-        _address1 = "Default Address 1";
-        _address2 = "Default Address 2";
-        _city = "Default City";
-        _country = "Defult Country";
-        _zip = "00000";
-        _state = "Default State";
-        _statusDesc = "default status desc";
-        _statusId = 0;
-        _stateCode = "0";
-        _countryCode = "0";
-        _dueDate = "00/00/00";
+        header = new PaymentHeader();
+        id = 0;
+        rationale = "Default Rationale";
+        rationaleId = 0;
+        netAmount = 0;
+        grossAmount = 0;
+        printDate = "00/00/00";
+        payDate = "00/00/00";
+        lastName = "Last";
+        firstName = "First";
+        middleName = "Middle";
+        address1 = "Default Address 1";
+        address2 = "Default Address 2";
+        city = "Default City";
+        country = "Defult Country";
+        zip = "00000";
+        state = "Default State";
+        statusDesc = "default status desc";
+        statusId = 0;
+        stateCode = "0";
+        countryCode = "0";
+        dueDate = "00/00/00";
     }
 
     /* This contructs the payment as it will be sent to the addPayment
@@ -185,17 +185,227 @@ public class Payment implements PactsConstants, java.io.Serializable {
     public Payment(long user, String desc, int type,
                    double net_amount, double gross_amount, int status) {
 
-        _header = new PaymentHeader();
-        _netAmount = net_amount;
-        _grossAmount = gross_amount;
-        _statusId = status;
-        _header._typeID = type;
-        _header._user._id = user;
-        _header._description = desc;
+        header = new PaymentHeader();
+        netAmount = net_amount;
+        grossAmount = gross_amount;
+        statusId = status;
+        header.setTypeId(type);
+        header.getUser().setId(user);
+        header.setDescription(desc);
     }
 
     public boolean payReferrer() {
-        return _typeId == CONTEST_PAYMENT;
+        return typeId == CONTEST_PAYMENT;
     }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
+    }
+
+    public String getStatusDesc() {
+        return statusDesc;
+    }
+
+    public void setStatusDesc(String statusDesc) {
+        this.statusDesc = statusDesc;
+    }
+
+    public String getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(String modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public String getRationale() {
+        return rationale;
+    }
+
+    public void setRationale(String rationale) {
+        this.rationale = rationale;
+    }
+
+    public int getRationaleId() {
+        return rationaleId;
+    }
+
+    public void setRationaleId(int rationaleId) {
+        this.rationaleId = rationaleId;
+    }
+
+    public double getNetAmount() {
+        return netAmount;
+    }
+
+    public void setNetAmount(double netAmount) {
+        this.netAmount = netAmount;
+    }
+
+    public double getGrossAmount() {
+        return grossAmount;
+    }
+
+    public void setGrossAmount(double grossAmount) {
+        this.grossAmount = grossAmount;
+    }
+
+    public String getPrintDate() {
+        return printDate;
+    }
+
+    public void setPrintDate(String printDate) {
+        this.printDate = printDate;
+    }
+
+    public String getPayDate() {
+        return payDate;
+    }
+
+    public void setPayDate(String payDate) {
+        this.payDate = payDate;
+    }
+
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public String getStateCode() {
+        return stateCode;
+    }
+
+    public void setStateCode(String stateCode) {
+        this.stateCode = stateCode;
+    }
+
+    public PaymentHeader getHeader() {
+        return header;
+    }
+
+    public void setHeader(PaymentHeader header) {
+        this.header = header;
+    }
+
 
 }

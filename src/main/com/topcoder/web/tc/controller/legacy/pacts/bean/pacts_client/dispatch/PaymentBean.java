@@ -51,7 +51,7 @@ public class PaymentBean implements PactsConstants {
     /**
      * gets an array of payment headers for the given user.
      *
-     * @param paymentId the payment id
+     * @param memberId the member id
      * @return the payment headers, or null if the payment id is bad
      */
     public PaymentHeader[] getPaymentsForUser(int memberId) {
@@ -68,7 +68,7 @@ public class PaymentBean implements PactsConstants {
 
         PaymentHeaderList plist = new PaymentHeaderList(reply);
 
-        return plist.headerList;
+        return plist.getHeaderList();
     }
 }
 

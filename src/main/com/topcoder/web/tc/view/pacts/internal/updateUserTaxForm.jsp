@@ -28,16 +28,16 @@
 		float f;
 		double d;
 		param = request.getParameter("status_id");
-		try { taxForm._header._statusID = Integer.parseInt(param); } catch (Exception e) {}
+		try { taxForm.getHeader().setStatusId(Integer.parseInt(param)); } catch (Exception e) {}
 		param = request.getParameter("date_filed");
-		taxForm._header._dateFiled = param;
+		taxForm.getHeader().setDateFiled(param);
 		param = request.getParameter("withholding_amount");
-		try { taxForm._withholdingAmount = Double.parseDouble(param); } catch (Exception e) {}
+		try { taxForm.setWithholdingAmount(Double.parseDouble(param)); } catch (Exception e) {}
 		param = request.getParameter("withholding_percentage");
-		try { taxForm._withholdingPercentage = Float.parseFloat(param); } catch (Exception e) {}
+		try { taxForm.setWithholdingPercentage(Float.parseFloat(param)); } catch (Exception e) {}
 		param = request.getParameter("use_percentage");
-		if (param != null && param.equals("true")) taxForm._usePercentage = true;
-		if (param != null && param.equals("false")) taxForm._usePercentage = false;
+		if (param != null && param.equals("true")) taxForm.setUsePercentage(true);
+		if (param != null && param.equals("false")) taxForm.setUsePercentage(false);
 	}
 	if (taxForm == null) {
 		out.print("No User Tax Form!!!<br>");
@@ -54,8 +54,8 @@
 
 		out.print("<input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\""+PactsConstants.UPDATE_TASK+"\">");
 		out.print("<input type=\"hidden\" name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.USER_TAX_FORM_CMD+"\">");
-		out.print("<input type=\"hidden\" name=\""+PactsConstants.TAX_FORM_ID+"\" value=\""+taxForm._header._id+"\">");
-		out.print("<input type=\"hidden\" name=\""+PactsConstants.USER_ID+"\" value=\""+taxForm._header._user._id+"\">");
+		out.print("<input type=\"hidden\" name=\""+PactsConstants.TAX_FORM_ID+"\" value=\""+taxForm.getHeader().getId()+"\">");
+		out.print("<input type=\"hidden\" name=\""+PactsConstants.USER_ID+"\" value=\""+taxForm.getHeader().getUser().getId()+"\">");
 %>
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr>
@@ -67,8 +67,8 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(taxForm._header._user._id);
-			out.print("\">"+taxForm._header._user._handle+"</a></td>\n");
+			out.print(taxForm.getHeader().getUser().getId());
+			out.print("\">"+taxForm.getHeader().getUser().getHandle()+"</a></td>\n");
 %>
 		</tr>
 		<tr>
@@ -87,7 +87,7 @@
 				status_id = TCData.getTCInt(rsr,"status_id",0,true);
 				out.print("" + status_id);
 				s = TCData.getTCString(rsr,"status_desc","default status",true);
-				if (status_id == taxForm._header._statusID) {
+				if (status_id == taxForm.getHeader().getStatusId()) {
 					out.print(" selected");
 				}
 				out.print(">" + s + "</option>\n");
@@ -100,24 +100,24 @@
 		<tr>
 		<td><b>Date Filed:</b></td>
 		<td><input type="text" name="date_filed"
-<% out.print("value=\""+taxForm._header._dateFiled+"\">"); %>
+<% out.print("value=\""+taxForm.getHeader().getDateFiled()+"\">"); %>
 		</td>
 		</tr>
 		<tr>
 		<td><b>Withholding Amount:</b></td>
 		<td><input type="text" name="withholding_amount"
-<% out.print("value=\""+taxForm._withholdingAmount+"\"></td><td>(Default: "+taxForm._defaultWithholdingAmount+")"); %>
+<% out.print("value=\""+taxForm.getWithholdingAmount()+"\"></td><td>(Default: "+taxForm.getDefaultWithholdingAmount()+")"); %>
 		</td>
 		</tr>
 		<tr>
 		<td><b>Withholding Percentage:</b></td>
 		<td><input type="text" name="withholding_percentage"
-<% out.print("value=\""+taxForm._withholdingPercentage+"\"></td><td>(Default: "+taxForm._defaultWithholdingPercentage+")"); %>
+<% out.print("value=\""+taxForm.getWithholdingPercentage()+"\"></td><td>(Default: "+taxForm.getDefaultWithholdingPercentage()+")"); %>
 		</td>
 		</tr>
 		<tr><td><b>Withholding Used:</b></td><td>
-		<input type=radio name="use_percentage" value="false"<% if (!taxForm._usePercentage) out.print( "checked"); %>>Amount <% if (!taxForm._defaultUsePercentage) out.print( "(default)"); %><br>
-		<input type=radio name="use_percentage" value="true"<% if (taxForm._usePercentage) out.print( "checked"); %>>Percentage <% if (taxForm._defaultUsePercentage) out.print( "(default)"); %>
+		<input type=radio name="use_percentage" value="false"<% if (!taxForm.isUsePercentage()) out.print( "checked"); %>>Amount <% if (!taxForm.isDefaultUsePercentage()) out.print( "(default)"); %><br>
+		<input type=radio name="use_percentage" value="true"<% if (taxForm.isUsePercentage()) out.print( "checked"); %>>Percentage <% if (taxForm.isDefaultUsePercentage()) out.print( "(default)"); %>
 		</td></tr>
 	</table>
 

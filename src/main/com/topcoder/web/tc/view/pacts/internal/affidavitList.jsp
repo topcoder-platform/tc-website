@@ -47,8 +47,8 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(affidavitList[n]._user._id);
-			out.print("\">"+affidavitList[n]._user._handle+"</a></td>\n");
+			out.print(affidavitList[n].getUser().getId());
+			out.print("\">"+affidavitList[n].getUser().getHandle()+"</a></td>\n");
 
 			out.print("<td><a href=\"");
 			out.print(PactsConstants.INTERNAL_SERVLET_URL);
@@ -57,27 +57,27 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.AFFIDAVIT_CMD+"&");
 			out.print(PactsConstants.AFFIDAVIT_ID+"=");
-			out.print(affidavitList[n]._id);
-			out.print("\">"+affidavitList[n]._description+"</a></td>\n");
+			out.print(affidavitList[n].getId());
+			out.print("\">"+affidavitList[n].getDescription()+"</a></td>\n");
 
-			out.print("<td>" + affidavitList[n]._creationDate + "</td>\n");
+			out.print("<td>" + affidavitList[n].getCreationDate()+ "</td>\n");
 
-			if (affidavitList[n]._affirmed) {
+			if (affidavitList[n].isAffirmed()) {
 				out.print("<td>Yes</td>\n");
 			}
 			else {
 				out.print("<td>No</td>\n");
 			}
 
-			if (affidavitList[n]._notarized) {
+			if (affidavitList[n].isNotarized()) {
 				out.print("<td>Yes</td>\n");
 			}
 			else {
 				out.print("<td>No</td>\n");
 			}
 
-			out.print("<td>"+affidavitList[n]._type+"</td>\n");
-			out.print("<td>"+affidavitList[n]._status+"</td>\n");
+			out.print("<td>"+affidavitList[n].getTypeDesc()+"</td>\n");
+			out.print("<td>"+affidavitList[n].getStatusDesc()+"</td>\n");
 
 			out.print("</tr>\n");
 		}

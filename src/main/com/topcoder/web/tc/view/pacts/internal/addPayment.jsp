@@ -77,11 +77,11 @@ Payment</h2>
 	   out.print("<input type=\"hidden\" name=\""+PactsConstants.CONTRACT_ID+"\" value=\"");
 	   out.print(""+contract_id+"\">");
 	   out.print("<input type=\"hidden\" name=\""+PactsConstants.USER_ID+"\" value=\"");
-	   out.print(""+contract._user._id+"\">");
+	   out.print(""+contract.getUser().getId()+"\">");
    }
    else {
 	   out.print("<input type=\"hidden\" name=\""+PactsConstants.USER_ID+"\" value=\"");
-	   out.print(""+user._id+"\">");
+	   out.print(""+user.getId()+"\">");
    }
 %>
 		<table border="0" cellpadding="5" cellspacing="5">
@@ -96,8 +96,8 @@ Payment</h2>
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(contract._user._id);
-			out.print("\">"+contract._user._handle+"</a></td></tr>\n");
+			out.print(contract.getUser().getId());
+			out.print("\">"+contract.getUser().getHandle()+"</a></td></tr>\n");
 
 			out.print("<tr><td><b>Contract:</b></td>");
  			out.print("<td><a href=\"");
@@ -107,8 +107,8 @@ Payment</h2>
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.CONTRACT_CMD+"&");
 			out.print(PactsConstants.CONTRACT_ID+"=");
-			out.print(contract._id);
-			out.print("\">"+contract._name+"</a>\n");
+			out.print(contract.getId());
+			out.print("\">"+contract.getName()+"</a>\n");
 		}
 		else {
 			out.print("<b>User:</b></td>");
@@ -119,8 +119,8 @@ Payment</h2>
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(user._id);
-			out.print("\">"+user._handle+"</a>\n");
+			out.print(user.getId());
+			out.print("\">"+user.getHandle()+"</a>\n");
 		}
 %>
 		</td>
