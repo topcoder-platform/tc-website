@@ -392,6 +392,7 @@ public class Util implements ConfigManagerInterface {
         Connection conn = ds.getConnection();
         PreparedStatement ps = conn.prepareStatement("set lock mode to wait 5");
         ps.execute();
+        ps.close();
         return conn;
     }
 
