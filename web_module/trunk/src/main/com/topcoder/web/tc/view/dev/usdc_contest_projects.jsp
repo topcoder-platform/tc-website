@@ -87,7 +87,7 @@ else
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
                                 <td class="sidebarText"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>"><rsc:item name="component_name" row="<%=resultRow%>"/>
-                                <% if(resultRow.getIntItem("is_complete")) == 0 { 
+                                <% if(resultRow.getIntItem("is_complete") == 0)  { 
                                     isComplete = false;%>
                                     *
                                 <% } %>
