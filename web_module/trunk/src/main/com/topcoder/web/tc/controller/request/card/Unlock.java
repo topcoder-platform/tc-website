@@ -41,7 +41,7 @@ public class Unlock extends Preview {
                             up.createUserPreference(getUser().getId(), Constants.UNLOCK_CARD_PREFERENCE_ID,
                                     DBMS.COMMON_OLTP_DATASOURCE_NAME);
                             up.setValue(getUser().getId(), Constants.UNLOCK_CARD_PREFERENCE_ID,
-                                    DBMS.COMMON_OLTP_DATASOURCE_NAME, String.valueOf(true));
+                                    String.valueOf(true),DBMS.COMMON_OLTP_DATASOURCE_NAME);
                         } catch (Exception e) {
                             if (tx != null) {
                                 Transaction.rollback(tx);
