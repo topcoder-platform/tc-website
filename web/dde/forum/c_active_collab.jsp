@@ -191,13 +191,19 @@
                 else if( Catalog.JAVA_CUSTOM_CATALOG == forum.getRootCategory( ) )
                 {
 				%>
-				<img src="/images/javaCustomSm.gif" alt="Java Custom Catalog" border="0" />
+								<img src="/images/javaCustomSm.gif" alt="Java Custom Catalog" border="0" />
 				<%
 				}
                 else if( Catalog.NET_CUSTOM_CATALOG == forum.getRootCategory( ) )
                 {
 				%>
-				<img src="/images/dotnetCustomSm.gif" alt=".NET Custom Catalog" border="0" />
+								<img src="/images/dotnetCustomSm.gif" alt=".NET Custom Catalog" border="0" />
+				<%
+				}
+                else if( Catalog. == forum.getRooCategory( ) )
+                {
+				%>
+								<img src="/images/appSm.gif" alt="Application" border="0" />
 				<%
                                 }
                                 %>
