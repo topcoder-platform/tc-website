@@ -7,7 +7,7 @@
  *
  * Java source created by Kary FRAMLING 12/2/1998
  *
- * Copyright 1998-2003 Kary Främling
+ * Copyright 1998-2003 Kary Frï¿½mling
  * Source code distributed under GNU LESSER GENERAL PUBLIC LICENSE,
  * included in the LICENSE.txt file in the topmost directory
  *
@@ -23,17 +23,32 @@ import java.awt.Image;
  * images in various formats.
  */
 public abstract class ImageSaverInterface {
-    protected String 	savePath;
-    protected Image		saveImage;
-    
-    public abstract String 		getFormatCode();
-    public abstract String 		getFormatString();
-    public abstract String 		getFormatExtension();
-    public abstract boolean		saveIt();
-    public abstract int			checkSave();
-    
-    public Image getSaveImage() { return saveImage; }
-    public void setSaveImage(Image img) { saveImage = img; }
-    public String getSavePath() { return savePath; }
-    public void setSavePath(String path) { savePath = path; }
+    protected String savePath;
+    protected Image saveImage;
+
+    public abstract String getFormatCode();
+
+    public abstract String getFormatString();
+
+    public abstract String getFormatExtension();
+
+    public abstract boolean saveIt();
+
+    public abstract int checkSave();
+
+    public Image getSaveImage() {
+        return saveImage;
+    }
+
+    public void setSaveImage(Image img) {
+        saveImage = img;
+    }
+
+    public String getSavePath() {
+        return savePath;
+    }
+
+    public void setSavePath(String path) {
+        savePath = path;
+    }
 }
