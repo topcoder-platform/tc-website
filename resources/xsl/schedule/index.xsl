@@ -135,7 +135,7 @@
                                     <strong>Match 160</strong><br />
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
-<!--                                    Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: <A href="/?t=tces&amp;c=index">AlphaSimplex</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4605&amp;t=schedule&amp;c=srm">Details</A></td>
                             </tr>
