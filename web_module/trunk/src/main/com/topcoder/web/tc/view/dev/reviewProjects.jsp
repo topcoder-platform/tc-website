@@ -103,6 +103,17 @@
             <br/>
 --%>
 
+<%
+    int devProjectCount = 0;
+    int desProjectCount = 0;
+%>
+    <rsc:iterator list="<%=projectList%>" id="resultRow">
+        <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DESIGN_PHASE) desProjectCount++;%>
+        <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DEV_PHASE) devProjectCount++;%>
+    </rsc:iterator>
+
+<% if (desProjectCount>0) { %>
+
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
                     <td class="projectTitles" colspan="9">Design Components</td>
@@ -162,7 +173,11 @@
                     </tr>
            </table>
 
+
            <br/><br/>
+<% } %>
+
+<% if (devProjectCount>0) { %>
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
@@ -224,9 +239,16 @@
                     </tr>
            </table>
 
+<% } %>
+<% if (desProjectCount+devProjectCount==0) { %>
+    <br />
+    <p>Sorry there are currently no review positions available.</p>
+    <br />
+<% } else { %>
             <br/>
             <p>Please note that custom components do not get added to the catalog and therefore do not have royalties.</p>
             <br/>
+<% } %>
 
         </td>
 <!-- Center Column Ends -->
