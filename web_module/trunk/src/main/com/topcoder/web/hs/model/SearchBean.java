@@ -2,8 +2,6 @@ package com.topcoder.web.hs.model;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-import java.util.*;
-
 public class SearchBean {
 
     private final static int MAX_RESULTS_PER_PAGE = 15;
@@ -15,8 +13,8 @@ public class SearchBean {
     private Long school_id = null;
     private String min_rating = null;
     private String max_rating = null;
-    private List state_list = null;
-    private List school_list = null;
+    private ResultSetContainer state_list = null;
+    private ResultSetContainer school_list = null;
     private ResultSetContainer member_list = null;
     private boolean has_prev = false;
     private boolean has_next = false;
@@ -81,19 +79,19 @@ public class SearchBean {
         max_rating = _max_rating;
     }
 
-    public List getStateList() {
+    public ResultSetContainer getStateList() {
         return (state_list);
     }
 
-    public void setStateList(List _state_list) {
+    public void setStateList(ResultSetContainer _state_list) {
         state_list = _state_list;
     }
 
-    public List getSchoolList() {
+    public ResultSetContainer getSchoolList() {
         return (school_list);
     }
 
-    public void setSchoolList(List _school_list) {
+    public void setSchoolList(ResultSetContainer _school_list) {
         school_list = _school_list;
     }
 
