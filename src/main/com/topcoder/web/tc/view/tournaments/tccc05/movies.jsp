@@ -28,7 +28,7 @@
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/gr_02.MPG"><img src="/i/tournament/tccc05/onsite_movies/gr_02.jpg" border=0/></A>
 				<br/><A href="/i/tournament/tccc05/onsite_movies/gr_02.MPG">poker pressure (2.2 MB)</A><br/></td>
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/gr_03.MPG"><img src="/i/tournament/tccc05/onsite_movies/gr_03.jpg" border=0/></A>
-				<br/><A href="/i/tournament/tccc05/onsite_movies/gr_03.MPG">The winner of the<br>TCCC05...  poker tournie (2.8 MB)</A><br/></td>
+				<br/><A href="/i/tournament/tccc05/onsite_movies/gr_03.MPG">The winner of the<br>poker tournie (2.8 MB)</A><br/></td>
             </tr>
 			<tr>
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/reception.mov"><img src="/i/tournament/tccc05/onsite_movies/reception.jpg" border=0/></A>
@@ -51,6 +51,8 @@
 				<br/><A href="/i/tournament/tccc05/onsite_movies/component.mov">Component Competition<br>and winners (3.5 MB)</A><br/></td>
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/designFinals.mov"><img src="/i/tournament/tccc05/onsite_movies/designFinals.jpg" border=0/></A>
 				<br/><A href="/i/tournament/tccc05/onsite_movies/designFinals.mov">Design finals and interview<br>with adic (3.4 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/NBC.wmv"><img src="/i/tournament/tccc05/onsite_movies/NBC.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tccc05/onsite_movies/NBC.wmv">TCCC05 on<br>NBC news (1.6 MB)</A><br/></td>
             </tr>
       </table>
 
