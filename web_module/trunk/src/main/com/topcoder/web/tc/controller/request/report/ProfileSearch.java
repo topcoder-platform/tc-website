@@ -63,6 +63,7 @@ public class ProfileSearch extends Base {
     }
     
     private String buildQuery(TCRequest request, List headers){
+        boolean cs = "on".equals(request.getParameter("casesensitive"));
         headers.addAll(Arrays.asList(new String[]{"Handle", "First Name", "Last Name", "City", "State", "Country", "Algorithm Rating", "Design Rating", "Development Rating","","","","",""}));
         List[] skills = buildSkillsQuery(request, headers);
         boolean skill = skills[0].size() > 0;
@@ -109,6 +110,10 @@ public class ProfileSearch extends Base {
         if("on".equals(request.getParameter("resume"))){
             query.append("    resume res,\n");
         }
+        String[] notify = request.getParameterValues("notifications");
+        if(notify!=null && notify.length>0){
+            query.append("    coder_notify cn\n");
+        }
 
         for(int i = 0; i<tables.size(); i++){
             String tab = (String)tables.get(i);
@@ -127,13 +132,21 @@ public class ProfileSearch extends Base {
         if(comp != null && comp.length() > 0){
             query.append("    AND src.coder_id = c.coder_id\n");
             query.append("    AND drc.demographic_question_id = 15\n");
-            query.append("    AND demographic_response");
-            query.append(stringMatcher(comp));
-            query.append('\n');
+            query.append(stringMatcher(comp,"drc.demographic_response",cs));
         }
 
         if("on".equals(request.getParameter("resume"))){
             query.append("    AND res.coder_id = c.coder_id\n");
+        }
+        if(notify!=null && notify.length>0){
+            query.append("    AND cn.coder_id = c.coder_id\n");
+            query.append("    AND cn.notify_id in (");
+            query.append(notify[0]);
+            for(int i = 1; i<notify.length; i++){
+                query.append(',');
+                query.append(notify[0]);
+            }
+            query.append(")\n");
         }
 
         for(int i = 0; i<constraints.size(); i++){
@@ -195,7 +208,7 @@ public class ProfileSearch extends Base {
     private List[] buildSkillsQuery(TCRequest request, List headers){
         Enumeration e = request.getParameterNames();
         ArrayList skills = new ArrayList();
-        List tables = new ArrayList();
+        Set tables = new HashSet();
         List constraints = new ArrayList();
         List selects = new ArrayList();
         Map names = new HashMap();
@@ -230,26 +243,33 @@ public class ProfileSearch extends Base {
                 }
             }
         }
-        return new List[]{tables,constraints, selects};
+        return new List[]{new ArrayList(tables),constraints, selects};
     }
-    private String stringMatcher(String s){
-        if(s.indexOf('%') != -1 || s.indexOf('_') != -1){
-            return ") LIKE lower('"+s+"')";
+    private String stringMatcher(String val, String col, boolean cs){
+        boolean like = false;;
+        if(val.indexOf('%') != -1 || val.indexOf('_') != -1){
+            if(cs){
+                return "    AND lower("+col+") LIKE lower('"+val+"')\n";
+            }else{
+                return "    AND "+col+" LIKE '"+val+"'\n";
+            }
         } else {
-            return ") = lower('"+s+"')";
+            if(cs){
+                return "    AND lower("+col+") = lower('"+val+"')\n";
+            }else{
+                return "    AND "+col+" = '"+val+"'\n";
+            }
         }
     }
     private String buildCoderConstraints(TCRequest request, boolean skill){
         String[] columns = {"c.zip","c.city","c.first_name","c.last_name","u.email","u.handle"};
         String[] fields = {"zipcode","city","firstname","lastname","email","handle"};
+        boolean cs = "on".equals(request.getParameter("casesensitive"));
         StringBuffer query = new StringBuffer(200);
         for(int i = 0; i<fields.length; i++){
             String s = request.getParameter(fields[i]);
             if(s!=null && s.length() > 0){
-                query.append("    AND lower(");
-                query.append(columns[i]);
-                query.append(stringMatcher(s));
-                query.append('\n');
+                query.append(stringMatcher(s,columns[i],cs));
             }
         }
         columns = new String[]{"c.state_code","c.country_code","c.comp_country_code"};
@@ -372,8 +392,8 @@ public class ProfileSearch extends Base {
         Map skillSetMap = new HashMap();
         Map demo = new HashMap();
         String[] textFields = {"handle","email","firstname","lastname","zipcode","city","company","maxdayssincerating","minevents","mindays","maxdays","minrating","maxrating"};
-        String[] checkBoxes = {"count","pro","stud","resume","travel","auth"};
-        boolean[] def = {false,true,true,false,false,false};
+        String[] checkBoxes = {"count","pro","stud","resume","travel","auth","casesensitive"};
+        boolean[] def = {false,true,true,false,false,false,true};
         boolean revise = "on".equals(request.getParameter("revise"));
         for(int i = 0; !revise && i<languages.getRowCount(); i++){
             ResultSetContainer.ResultSetRow lang = languages.getRow(i);
@@ -399,7 +419,7 @@ public class ProfileSearch extends Base {
                     l.add(new ListSelectTag.Option(v[i], name +" >= " + skillLevel));
                 }
                 skillSetMap.put(p,l);
-            }else if(p.equals("states") || p.equals("country") || p.equals("countryoforigin")){//set a few more selections
+            }else if(p.equals("states") || p.equals("country") || p.equals("countryoforigin") || p.equals("notifications")){//set a few more selections
                 Set s = new HashSet();
                 s.addAll(Arrays.asList(v));
                 sel.put(p,s);

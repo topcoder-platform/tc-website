@@ -17,6 +17,7 @@
     ResultSetContainer skill_types = (ResultSetContainer)m.get("skill_types");
     ResultSetContainer states = (ResultSetContainer)m.get("state_list");
     ResultSetContainer country = (ResultSetContainer)m.get("country_list_usa");
+    ResultSetContainer notifications = (ResultSetContainer)m.get("notifications");
     Map selectedMap = (Map)request.getAttribute("selected");
     Map demoMap = (Map)request.getAttribute("demoMap");
     Map skillMap = (Map)request.getAttribute("skillMap");
@@ -130,12 +131,13 @@
     <input type="hidden" name="order" value="1"/>
     <input type="hidden" name="sort" value="1"/>
 <table class="search"><tr><td align="center" colspan="3">
-  <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> |
-  <a href="/tc?module=LegacyReport&t=profile_search">Start over</a> |
+  <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> | 
+  <a href="/tc?module=ProfileSearch&t=profile_search">Start over</a> | 
   <a href="JavaScript:submitForm()">Submit</a>
 </td></tr><tr><td valign="top" class="lefttop">
     <table class="search">
       <tr><td class="left">Show count only:</td><td class="right"> <tc-webtag:chkBox onKeyPress="submitEnter(event)" name="count"/></td></tr>
+      <tr><td class="left">Case Sensitive:</td><td class="right"> <tc-webtag:chkBox onKeyPress="submitEnter(event)" name="casesenstive"/></td></tr>
       <tr><td class="left">Handle: </td><td class="right"><tc-webtag:textInput onKeyPress="submitEnter(event)" name="handle" size="15"/></td></tr>
       <tr><td class="left">E-Mail: </td><td class="right"><tc-webtag:textInput onKeyPress="submitEnter(event)" name="email" size="15"/></td></tr>
       <tr><td class="left">First Name: </td><td class="right"><tc-webtag:textInput onKeyPress="submitEnter(event)" name="firstname" size="15"/></td></tr>
@@ -169,6 +171,7 @@
       <tr><td class="left">Resume:</td><td class="right"> <tc-webtag:chkBox name="resume"/></td></tr>
       <tr><td class="left">Willing to travel/relocate:</td><td class="right"> <tc-webtag:chkBox name="travel"/></td></tr>
       <tr><td class="left">US Authorization:</td><td class="right"> <tc-webtag:chkBox name="auth"/></td></tr>
+      <tr><td class="left">Notifications:<br/><a href="JavaScript:deselect('notifications')">Deselect</a> </td><td class="right"><tc-webtag:multiRSCSelect class="multiSel1" fieldValue="notify_id" fieldText="name" name="notifications" multiple="true" size="5" useTopValue="false" list="<%=notifications%>" selected='<%=(Set)selectedMap.get("notifications")%>'/></td></tr>
 </table></td><td valign="top" class="centertop">
 <table class="search">
       <rsc:iterator list="<%=demographic_questions%>" id="resultRow">
@@ -203,8 +206,8 @@
       <tr><td></td></tr>
     </table>
 </td><tr><td align="center" colspan="3">
-  <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> |
-  <a href="/tc?module=LegacyReport&t=profile_search">Start over</a> |
+  <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> | 
+  <a href="/tc?module=ProfileSearch&t=profile_search">Start over</a> | 
   <a href="JavaScript:submitForm()">Submit</a>
 </td></tr></table>
   </FORM>
