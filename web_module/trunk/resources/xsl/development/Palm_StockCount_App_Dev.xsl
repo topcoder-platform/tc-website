@@ -192,7 +192,7 @@ A TopCoder client has existing infrastructure and software to support certain in
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$6,130.00</td>
+                                                            <td class="bodyText" align="right">$5,880.00</td>
                                                         </tr>
                                                     </table>
 
