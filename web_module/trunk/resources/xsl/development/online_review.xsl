@@ -85,23 +85,25 @@
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br /></p>
-                            <p>TopCoder will compensate the member with the winning solution as well as the runner-up. In order to be paid, both the winning submission and the runner up must pass screening and receive a review score above the minimum score.</p>
+                            <p>TopCoder will compensate the member with the winning solution as well as the 2nd place designer. In order to be paid, both the winning submission and the 2nd place designer must pass screening and receive a review score above the minimum score.</p>
                             Compensation for the winning solution is distributed in two installments.<br />
                             First Payment: When the winning solution is submitted and review board suggestions are integrated.<br />
                             Final Payment: At the completion of the development project*.<br />
-                            <p>Compensation for the runner-up will be paid in one installment following the completion of the design project.</p>
+                            <p>Compensation for the 2nd place designer will be paid in one installment following the completion of the design project.</p>
 
 							
-						<p><strong>Designer</strong><br />
+						<p><strong>Winning Designer</strong><br />
 						Total Payment - $1,500.00<br />
-						First Deliverable - $1,125.00<br />
-						Project Completion - $875.00<br />
+						First Payment - $1,125.00<br />
+						Final Payment - $875.00<br />
 						</p>
-							
+						<strong>2nd Place Designer</strong><br />
+						Total Payment - $225.00
+						
+                                                	
 
 <!-- Definition of Completion -->
-						<p><sup>*</sup>Completion of the project is defined as follows:</p>
-
+						<p /><sup>*</sup>Completion of the project is defined as follows:
 						<ul>
 							<li>The Initial Submission has been delivered by the Initial Submission Due Date.</li>
 							<li>The Submission has been selected by the board as the winning submission.</li>
