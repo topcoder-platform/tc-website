@@ -7,14 +7,13 @@
 <TITLE>TopCoder - Candidate Evaluation</TITLE>
 <jsp:include page="/script.jsp"/>
 <SCRIPT TYPE="text/javascript">
-function getProblemDetail(url,wd,ht) {
-    var last=0;
-    var daHt = parseInt(ht) + parseInt('49');
-    var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0";
+function getProblemDetail(id) {
+    var size = "top=2,left=2,width=600,height=549,status=0";
     var name="graph";
-    window.open('prob_detail.jsp?'+url+'&width='+wd+'&height='+ht,name,size);
+    window.open('<%=Constants.CONTROLLER_URL%>?<%=Constants.REQUEST_PROCESSOR%>=PopulateProblemDetail&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,size);
     return;
   }
+
 </SCRIPT>
 </HEAD>
 
@@ -79,13 +78,13 @@ function getProblemDetail(url,wd,ht) {
                 <% { boolean even = true; %>
                    <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetAResults()%>">
 	             <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>Java</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>Passed</TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>0</TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>100%</TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>65:45</TD>		       
+		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="language_name" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="status_desc" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="pct_passed" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><A HREF="/eval/prob_results_detail.jsp" CLASS="bodyText">Details</A></TD>		       
 	             </TR>
                      <% even = !even; %>
@@ -157,13 +156,13 @@ function getProblemDetail(url,wd,ht) {
                 <% { boolean even = true; %>
                    <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetBResults()%>">
 	             <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText">Problem A</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>Java</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>Passed</TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>0</TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>100%</TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>65:45</TD>		       
+		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>&#160;<A HREF="JavaScript:getProblemDetail('/eval/prob_detail.jsp','600','500')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="language_name" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="status_desc" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="pct_passed" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><A HREF="/eval/prob_results_detail.jsp" CLASS="bodyText">Details</A></TD>		       
 	             </TR>
                      <% even = !even; %>
