@@ -39,6 +39,10 @@
                     <td class="bodyText">
             <h1 class="testHead">Top TopCoder Problem Results</h1>
             <P>Below are the submitted code and system test results for the highest TopCoder point-getter.</P>
+                    </td>
+                </tr>
+            </table>
+
 
             <FORM>
             <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
