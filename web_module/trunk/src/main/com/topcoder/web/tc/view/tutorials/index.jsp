@@ -38,20 +38,25 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="3">
 				<tr valign=top><td class="bodyText"><b>Author</b></td><td class="bodyText" nowrap=nowrap width="100%"><b>Title</b></td></tr>
 				<tr valign=top><td class="bodyText">
-					<a class="bodyText" href="/stat?c=member_profile&amp;cr=7305703">Dumitru</a>
-					</td><td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=tutorials&d2=dynProg"><strong>Dynamic Programming:</strong> From novice to advanced</a></td></tr>
-				<tr valign=top><td class="bodyText">
 					<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052">lbackstrom</a>
 					</td><td class="bodyText" nowrap=nowrap><a href="/index?t=features&c=feat_100404b"><strong>The Importance of Algorithms</strong></a></td></tr>
 				<tr valign=top><td class="bodyText">
 					<a class="bodyText" href="/stat?c=member_profile&amp;cr=275071">antimatter</a>
 					</td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=dissectProblem"><strong>How To Dissect a TopCoder Problem Statement</strong></a></td></tr>
 				<tr valign=top><td class="bodyText">
+					<a class="bodyText" href="/stat?c=member_profile&amp;cr=282560">leadhyena_inran</a>
+					</td><td class="bodyText" nowrap=nowrap><strong>Planning an Approach to a TopCoder Problem:</strong><br/>
+					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=planApproach1"><strong>Section 1</strong></a><br/>
+					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=planApproach2"><strong>Section 2</strong></a><br/>
+				<tr valign=top><td class="bodyText">
 					<a class="bodyText" href="/stat?c=member_profile&amp;cr=268851">gladius</a>
 					</td><td class="bodyText" nowrap=nowrap><strong>Introduction to Graphs and Their Data Structures:</strong><br/>
 					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs1"><strong>Section 1: Recognizing and Representing a Graph</strong></a><br/>
 					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs2"><strong>Section 2: Searching a Graph</strong></a><br/>
 					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs3"><strong>Section 3: Finding the Best Path through a Graph</strong></a></td></tr>
+				<tr valign=top><td class="bodyText">
+					<a class="bodyText" href="/stat?c=member_profile&amp;cr=7305703">Dumitru</a>
+					</td><td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=tutorials&d2=dynProg"><strong>Dynamic Programming:</strong> From novice to advanced</a></td></tr>
 			</table>
 
         </div>
