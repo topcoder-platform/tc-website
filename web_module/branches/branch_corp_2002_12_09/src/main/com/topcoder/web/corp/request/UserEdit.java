@@ -246,10 +246,11 @@ public class UserEdit extends BaseRegistration {
             ).create();
             long emailID;
             if( ! createNewUser ) {
-                emailID = emailTable.getEmailId(userID);
+                emailID = emailTable.getPrimaryEmailId(userID);
             }
             else {
                 emailID = emailTable.createEmail(userID);
+                emailTable.setPrimaryEmailId(userID, emailID);
             }
             emailTable.setAddress(userID, emailID, email);
 
@@ -259,10 +260,11 @@ public class UserEdit extends BaseRegistration {
             ).create();
             long phoneID;
             if( !createNewUser ) {
-                phoneID = phoneTable.getPhoneId(userID);
+                phoneID = phoneTable.getPrimaryPhoneId(userID);
             }
             else {
                 phoneID = phoneTable.createPhone(userID);
+                phoneTable.setPrimaryPhoneId(userID, phoneID);
             }
             phoneTable.setNumber(userID, phoneID, phone);
 
@@ -337,7 +339,7 @@ public class UserEdit extends BaseRegistration {
             Email emailTable = (
                 (EmailHome)icEJB.lookup(EmailHome.EJB_REF_NAME)
             ).create();
-            long emailID = emailTable.getEmailId(userID);
+            long emailID = emailTable.getPrimaryEmailId(userID);
             email = emailTable.getAddress(userID, emailID); 
             setFormFieldDefault(KEY_EMAIL, email);
 
@@ -345,7 +347,7 @@ public class UserEdit extends BaseRegistration {
             Phone phoneTable = (
                 (PhoneHome)icEJB.lookup(PhoneHome.EJB_REF_NAME)
             ).create();
-            long phoneID = phoneTable.getPhoneId(userID);
+            long phoneID = phoneTable.getPrimaryPhoneId(userID);
             phone = phoneTable.getNumber(userID, phoneID);
             setFormFieldDefault(KEY_PHONE, phone);
         }

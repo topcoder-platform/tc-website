@@ -397,7 +397,9 @@ public class Registration extends BaseRegistration {
                 (EmailHome)icEJB.lookup(EmailHome.EJB_REF_NAME)
             ).create();
             long emailID = emailTable.createEmail(userID);
+            emailTable.setPrimaryEmailId(userID, emailID);
             emailTable.setAddress(userID, emailID, email);
+            
             
             // create address item for user
             Address addrTable = (
@@ -426,6 +428,7 @@ public class Registration extends BaseRegistration {
                 (PhoneHome)icEJB.lookup(PhoneHome.EJB_REF_NAME)
             ).create();
             long phoneID = phoneTable.createPhone(userID);
+            phoneTable.setPrimaryPhoneId(userID, phoneID);
             phoneTable.setNumber(userID, phoneID, phone);
             
             // int t = 0;
