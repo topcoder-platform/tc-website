@@ -72,13 +72,13 @@ public class TestResults extends BaseProcessor {
             pinfo.setTestSetAName(result.getItem(0,"session_round_name").toString());
 
             problemSetAList = new ArrayList();
-            result = (ResultSetContainer)map.get("testSetAResults");
-            for(int i=0; i < result.size(); i++){
+            ResultSetContainer dwResult = (ResultSetContainer)map.get("testSetAResults");
+            for(int i=0; i < dwResult.size(); i++){
                 problemSetAList.add(
                     ProblemInfo.createProblemInfo(
                         getUser(),
-                        Long.parseLong(result.getItem(i,"session_round_id").toString()),
-                        Long.parseLong(result.getItem(i,"problem_id").toString())));
+                        Long.parseLong(dwResult.getItem(i,"session_round_id").toString()),
+                        Long.parseLong(dwResult.getItem(i,"problem_id").toString())));
             }
             pinfo.setTestSetAList(problemSetAList);
         }
