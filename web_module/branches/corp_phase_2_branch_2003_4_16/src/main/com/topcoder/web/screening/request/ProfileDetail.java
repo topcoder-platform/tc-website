@@ -12,8 +12,8 @@ public class ProfileDetail extends BaseProfileProcessor {
     public void process() throws Exception {
         ProfileInfo info = buildProfileInfo(getRequest());
 
-        info.setTestSetAList(getTestSetAList(info.getTestSetA().longValue(), getAuthentication().getUser()));
-        info.setTestSetBList(getTestSetBList(info.getProfileId().longValue(), getAuthentication().getUser()));
+        info.setTestSetAList(getTestSetAList(info.getTestSetA().longValue(), getAuthentication().getActiveUser()));
+        info.setTestSetBList(getTestSetBList(info.getProfileId().longValue(), getAuthentication().getActiveUser()));
 
         SessionProfileHome spHome = (SessionProfileHome)
             PortableRemoteObject.narrow(
