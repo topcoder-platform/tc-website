@@ -23,7 +23,7 @@
     String url ="";
     String responseURL = "";
     String responsePostURL = responseURL.equals("") ? "" :  responseURL.substring(1);
-    String timeoutURL = "http://" + request.getServerName() + "?&t=authentication&clogin&errorMsg=Your session has been idle for more that 30 minutes, please log in again.";
+    String timeoutURL = "http://" + request.getServerName() + "?&t=authentication&c=login&errorMsg=Your session has been idle for more that 30 minutes, please log in again.";
     n = (Navigation) session.getAttribute("navigation"); 
     if (n==null) {
       session = request.getSession(true);
