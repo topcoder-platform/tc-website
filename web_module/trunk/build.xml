@@ -168,6 +168,7 @@
             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/resume/bean/Resume.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/resume/bean/Resume.class"/>
         </jar>
     </target>
 
