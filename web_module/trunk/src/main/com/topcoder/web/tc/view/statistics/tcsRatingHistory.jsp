@@ -72,6 +72,18 @@ pageContext.setAttribute("resultRow", rsr);
                      <A HREF="/stat?c=member_profile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
                      |   
                      <A HREF="/stat?c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Component History</A>
+                     |   
+<% 
+   if(pageContext.getAttribute("pi").equals("113"))
+   {
+%>
+                     <A HREF="/stat?c=tcs_ratings_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Ratings History</A>
+<%
+   }
+   else{
+%>
+                     <A HREF="/stat?c=tcs_ratings_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Ratings History</A>
+<%}%>
                    </TD>
                  </TR>
                  <TR>
@@ -110,7 +122,7 @@ if (srb.getProperty("sq")!=null){
 	sortString+="&sc=" + srb.getProperty("sc");
 	sortString+="&sd=" + srb.getProperty("sd", "desc");	
 }
-String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=tcs_ratings_history";
+String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=tcs_ratings_history&pi=" + srb.getProperty("pi");
 %>
           
                
