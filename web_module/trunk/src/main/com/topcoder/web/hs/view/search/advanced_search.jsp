@@ -130,7 +130,11 @@
                         <% if (search.hasMemberList()) { %>
 
                         <table width="100%" cellpadding="3" cellspacing="0" border="0" id="formFrame">
-                            <tr><td colspan="7" class="formTitle">&nbsp;Search Results:&nbsp;&nbsp;<jsp:getProperty name="search" property="Start"/> to <jsp:getProperty name="search" property="End"/></td></tr>
+                            <tr><td colspan="7" class="formTitle">&nbsp;Search Results:&nbsp;&nbsp;
+                                <% if (search.getMemberList().size()>0) { %>
+                                 <jsp:getProperty name="search" property="Start"/> to <jsp:getProperty name="search" property="End"/>
+                               <% } %>
+                               </td></tr>
 
                                 <% if (search.getMemberList().size()==0) { %>
                             <tr><td><img src="/i/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
