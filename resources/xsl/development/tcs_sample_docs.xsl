@@ -44,7 +44,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-			<td class="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0"/><br/>
+			<td class="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0"/><br />
 				<xsl:call-template name="BodyTop">
 					<xsl:with-param name="image1">steelblue</xsl:with-param>
 					<xsl:with-param name="image">development</xsl:with-param>
@@ -54,17 +54,17 @@
 				<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 					<tr>
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
-						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br />
 							
 							<h1 class="devSubhead"><strong>Documentation and Sample Submissions</strong></h1>
                                     
 	
-							<table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+							<table border="0" cellspacing="0" cellpadding="3" bgcolor="#001B35" width="100%">
 							
                 				<tr><td height="5" colspan="3"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
                 				<tr valign="middle">
-                    				<td background="/i/steel_gray_bg.gif" class="registerNav" height="18" colspan="3">&#160;&#160;Documentation</td>
+                    				<td bgcolor="#666666" class="registerNav" height="18" colspan="3">&#160;&#160;Documentation</td>
                 				</tr>
 
                 				<tr valign="middle">
@@ -72,8 +72,6 @@
                     				<td background="/i/steel_bluebv_bg.gif" class="statText" width="50%" height="18">&#160;Description&#160;</td>
                     				<td background="/i/steel_bluebv_bg.gif" class="statText" width="25%" height="18">Download&#160;</td>
                 				</tr>
-                				
-                				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
 
                 				<tr valign="middle">
                     				<td class="statText" height="15" valign="top"><strong>Component Design Deliverables</strong></td>
@@ -87,13 +85,9 @@
                 				</tr>
                 				
                 				<tr>
-                					<td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td>
+                					<td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="1" border="0" /><br />
+                					<hr width="100%" size="1px" color="666666" /></td>
                 				</tr>
-                				
-                				<tr>
-                					<td height="1" colspan="3" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" alt="" height="1" border="0" /></td>
-                				</tr>
-                				
                 				
                 				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
 
@@ -107,14 +101,10 @@
                     				</td>
                 				</tr>
                 				
-                				
-                				
-                				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
-                				
                 				<tr>
-                					<td height="1" colspan="3" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" alt="" height="1" border="0" /></td>
+                					<td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="1" border="0" /><br />
+                					<hr width="100%" size="1px" color="666666" /></td>
                 				</tr>
-                				
                 				
                 				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
 
@@ -132,10 +122,9 @@
                     				</td>
                 				</tr>
                 				
-                				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
-                				
                 				<tr>
-                					<td height="1" colspan="3" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" alt="" height="1" border="0" /></td>
+                					<td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="1" border="0" /><br />
+                					<hr width="100%" size="1px" color="666666" /></td>
                 				</tr>
                 				
                 				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
@@ -154,12 +143,10 @@
                     				</td>
                 				</tr>
                 				
-                				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
-                				
                 				<tr>
-                					<td height="1" colspan="3" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" alt="" height="1" border="0" /></td>
+                					<td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="1" border="0" /><br />
+                					<hr width="100%" size="1px" color="666666" /></td>
                 				</tr>
-                				
                 				
                 				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
 
@@ -173,15 +160,12 @@
                     				</td>
                 				</tr>
                 				
-                				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
-                				
                 				<tr>
-                					<td height="1" colspan="3" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" alt="" height="1" border="0" /></td>
+                					<td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="1" border="0" /><br />
+                					<hr width="100%" size="1px" color="666666" /></td>
                 				</tr>
                 				
-                				
                 				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
-
                 				<tr valign="middle">
                     				<td class="statText" height="15" valign="top"><strong>Design Review Scorecard</strong></td>
                     				<td class="statText" height="15" valign="top">
@@ -192,15 +176,13 @@
                     				</td>
                 				</tr>
                 				
-                				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
-                				
                 				<tr>
-                					<td height="1" colspan="3" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" alt="" height="1" border="0" /></td>
+                					<td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="1" border="0" /><br />
+                					<hr width="100%" size="1px" color="666666" /></td>
                 				</tr>
                 				
-                				
                 				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
-
+                				
                 				<tr valign="middle">
                     				<td class="statText" height="15" valign="top"><strong>Development Screening Scorecard</strong></td>
                     				<td class="statText" height="15" valign="top">
@@ -211,12 +193,10 @@
                     				</td>
                 				</tr>
                 				
-                				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
-                				
                 				<tr>
-                					<td height="1" colspan="3" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" alt="" height="1" border="0" /></td>
+                					<td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="1" border="0" /><br />
+                					<hr width="100%" size="1px" color="666666" /></td>
                 				</tr>
-                				
                 				
                 				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
 
@@ -230,10 +210,9 @@
                     				</td>
                 				</tr>
                 				
-                				<tr><td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
-                				
                 				<tr>
-                					<td height="1" colspan="3" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" alt="" height="1" border="0" /></td>
+                					<td height="3" colspan="3"><img src="/i/clear.gif" alt="" height="1" border="0" /><br />
+                					<hr width="100%" size="1px" color="666666" /></td>
                 				</tr>
                 				
                 			</table>
