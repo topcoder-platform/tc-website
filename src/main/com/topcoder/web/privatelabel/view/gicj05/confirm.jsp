@@ -3,7 +3,9 @@
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="/privatelabel.tld" prefix="pl" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.ResumeRegInfo" scope="session" />
+<jsp:usebean id="responseList" class="java.util.List" scope="request" />
+<jsp:usebean id="questionMap" class="java.util.Map" scope="request" />
 <html>
 <head>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
