@@ -29,7 +29,7 @@ function find(n) {
 <!-- Member Profiles, Search Pages, and Private Label Events Pages begins -->
 <% if ((level1.equals("profile")) | (level1.equals("search")) | (level1.equals("privatelabel"))) { %>
 
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
             
             <A href="/i/downloads/tco03_guide.pdf"  target="_blank"><img src="/i/promos/tco_guide_promo_third.gif" alt="The TCO Guide" width="170" height="150" border="0" /></A><br/>
 
@@ -43,7 +43,7 @@ function find(n) {
 <!-- About Us begins -->
 <% } else if (level1.equals("about")) { %>
 
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
             
             <A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><img src="/i/es/animated_emp_promo.gif" alt="Contact TCES" width="170" height="119" border="0" /></A><br/>
 
@@ -62,7 +62,7 @@ function find(n) {
 <!-- Review Board begins -->
 <% } else if (level1.equals("review_board")) { %>
 
-            <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br/>
+            <img src="/i/clear.gif" alt="" width="170" height="15" border="0"><br/>
 
             <jsp:include page="calendar.jsp"/>
 
