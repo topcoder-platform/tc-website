@@ -89,6 +89,8 @@
                                             <li>Java 1.3</li>
                                             <li>J2EE</li>
                                             <li>SQL</li>
+                                            <li>XML</li>
+                                            <li>XSL</li>
                                         </ul>
                                         <!-- Payment -->
                                         <p>
