@@ -138,7 +138,7 @@ Component Posting: 11/15/2002<BR/>
 Initial Submission Due Date: 11/29/2002<BR/>
 Final Submission Due Date: 12/13/2002<BR/>
 
-After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.
+  Each eligible member will be granted access to more detailed information about the project and the deliverables.
 </P>
 
 
