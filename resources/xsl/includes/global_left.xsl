@@ -802,27 +802,26 @@
         <xsl:when test="/TC/Task='about_tc'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="competition_row"/>
-                <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="sched_row"/>
-                <xsl:call-template name="stats_row"/>
-                <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="tourney_row"/>
-                <xsl:call-template name="rtables_row"/>
-                <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
 
                 <tr>
                     <td id="leftNavOn">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                        <xsl:when test="/TC/Command='index'">leftNavSelect</xsl:when>
-                        <xsl:otherwise>leftNavOn</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>About TopCoder</A></td>
                 </tr>
                 
+
+<!-- Members -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                        <xsl:when test="/TC/Command='index'">leftSubnavOn</xsl:when>
+                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>Overview</A>
+                    </td>
+                </tr>
 
 <!-- Members -->
                 <tr>
@@ -890,29 +889,28 @@
         <xsl:when test="/TC/Task='news_events'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="competition_row"/>
-                <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="sched_row"/>
-                <xsl:call-template name="stats_row"/>
-                <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="tourney_row"/>
-                <xsl:call-template name="rtables_row"/>
-                <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="reviewboard_row"/>
                 
-<!-- Press Releases -->
+<!-- Link -->
                 <tr>
                     <td id="leftNavOn">
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Press Room</A></td>
+                </tr>
+                
+<!-- Press Releases -->
+                <tr>
+                    <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                        <xsl:when test="/TC/Command='index'">leftNavSelect</xsl:when>
-                        <xsl:when test="starts-with(/TC/Command,'pr')">leftNavSelect</xsl:when>
-                        <xsl:otherwise>leftNavOn</xsl:otherwise>
+                        <xsl:when test="/TC/Command='index'">leftSubnavOn</xsl:when>
+                        <xsl:when test="starts-with(/TC/Command,'pr')">leftSubnavOn</xsl:when>
+                        <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Press Room</A></td>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute>Press Releases</A>
+                    </td>
                 </tr>
                 
 <!-- Articles -->
@@ -941,14 +939,6 @@
         <xsl:when test="/TC/Task='contacts'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="competition_row"/>
-                <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="sched_row"/>
-                <xsl:call-template name="stats_row"/>
-                <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="tourney_row"/>
-                <xsl:call-template name="rtables_row"/>
-                <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="reviewboard_row"/>
