@@ -256,37 +256,29 @@ is both happy since he did so well, and sad since he is a mutant
     <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>  
     <td valign="top" width="55" align="left" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/><br/>
 <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
-<img src="/i/m/KaiEl_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br/>
-By&#160;KaiEl<br/><i>[TC] Member</i><br/><br/>
+<img src="/i/m/radeye_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br/>
+By&#160;radeye<br/><i>[TC] Member</i><br/><br/>
 <a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="15"/></a></td>
     <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>
     <td valign="top" width="100%" align="left" class="bodyText"><br/>
 <a class="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_122002</xsl:attribute>
-  <b>The Big Rerun</b></a><br/>
-<i>A Complete Breakdown of the 2002 Invitational Championship Round</i><br/>
-Friday, December 20, 2002<br/>
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_010803</xsl:attribute>
+  <b>Functional Programming</b></a><br/>
+<!-- <i>A Complete Breakdown of the 2002 Invitational Championship Round</i><br/> -->
+Wednesday, January 8, 2003<br/>
 
 <p>
-Anyone who's been with TopCoder for long enough should be used to the troubles that occasionally 
-come up during Single Round Matches. Whether it's due to an error in the problem statement, system 
-testing or some other part of the process, sometimes there is an issue that compromises the fairness 
-or feasibility of counting the results of a contest. Some coders get mad about having their 75 
-minutes of hard work thrown out, but most of them accept that accidents do happen.
+During the next TopCoder competition, look at the code of some of the top reds and yellows. 
+You'll often see a complex algorithm expressed with a few recursive subroutines, and few, 
+if any, assignment statements. These solutions are usually much simpler to understand and 
+to read than other solutions filled with loops and assignment statements. This is what 
+functional programming is all about.
 </p>
 
 <p>
-When there's a similiar problem at a $150,000 tournament, though, people tend to be less accepting.
-</p>
-
-<p>
-Since the controversial re-running of the final round of the 2002 TopCoder Invitational, an 
-internal debate has flared up within the ranks of the TopCoder competitors and administrators. 
-Hundreds of people who were not directly affected by the results have posted their opinions in 
-the Round Tables and chatted endlessly about the results in the Competition Arena. If TopCoder 
-had its own version of 'Sports Talk' radio, then this one issue would probably have taken up 
-the morning and afternoon drive-time slots for the past month...<a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_122002</xsl:attribute>full&#160;story</a></p>
-<!-- <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P> -->
+About 80% of the code written in a TopCoder competition consists of assignment statements. 
+Yet, every single TopCoder problem can be solved without a single assignment statement. 
+Why would we want to do something like that...<a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_010803</xsl:attribute>full&#160;story</a></p>
   </td>
     <td valign="top" width="7"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
   </tr>
@@ -296,7 +288,7 @@ the morning and afternoon drive-time slots for the past month...<a class="bodyGe
   <td valign="top" bgcolor="#43515E" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
   <td valign="top" width="7"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
   </tr>    
-</table> 
+</table>  
 
  <!-- Coder of the Week Begins -->
    <!-- <xsl:call-template name="coder_week"/> -->
