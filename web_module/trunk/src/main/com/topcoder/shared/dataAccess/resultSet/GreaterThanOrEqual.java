@@ -1,5 +1,7 @@
 package com.topcoder.shared.dataAccess.resultSet;
 
+import com.topcoder.shared.util.logging.Logger;
+
 /**
  * User: dok
  * Date: Sep 8, 2004
@@ -7,6 +9,7 @@ package com.topcoder.shared.dataAccess.resultSet;
  */
 
 public class GreaterThanOrEqual implements ResultFilter {
+    protected static Logger log = Logger.getLogger(GreaterThanOrEqual.class);
 
     private Number n = null;
     private int col = -1;
@@ -36,6 +39,8 @@ public class GreaterThanOrEqual implements ResultFilter {
             item = rsr.getItem(colName);
         }
         Number other = (Number)item.getResultData();
+
+        log.debug("compare " + other + " with " + n);
 
         return ((Comparable)other).compareTo(n)>=0;
 
