@@ -105,8 +105,17 @@
               <TR><TD BGCOLOR="#FFFFFF" COLSPAN="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD></TR> 
              <TR> 
                   <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-                  <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Sponsor Related News</B></FONT></TD>
+                  <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Sponsor &amp; Related News</B></FONT></TD>
                 </TR>
+                      <TR>
+                          <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                        <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">10.28.02</TD>
+                        <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                        <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom" WIDTH="100%">
+                        <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_10_28_02</xsl:attribute>TopCoder Announces Field for the 2002 TopCoder Invitational Programming Tournament</A>
+                        </TD>
+                        <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+                      </TR>                
                       <TR>
                           <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">10.22.02</TD>
