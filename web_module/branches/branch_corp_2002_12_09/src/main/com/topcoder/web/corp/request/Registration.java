@@ -66,65 +66,65 @@ public class Registration extends BaseProcessor {
     public static final String KEY_EMAIL1       = "prim-email";
     public static final String KEY_EMAIL2       = "prim-email-once-more";
 
-	private String firstName;
-	private String lastName;
-	private String title;
+        private String firstName;
+        private String lastName;
+        private String title;
     private String company;
-	private String compAddress1;
-	private String compAddress2;
-	private String city;
-	private String state;
-	private String zip;
-	private String country;
-	private String phone;
-	private String userName;
-	private String password;
-	private String password2;
+        private String compAddress1;
+        private String compAddress2;
+        private String city;
+        private String state;
+        private String zip;
+        private String country;
+        private String phone;
+        private String userName;
+        private String password;
+        private String password2;
 
-	private String email;
-	private String email2;
+        private String email;
+        private String email2;
     
     private boolean stateFieldEmpty = false;
     private boolean countryFieldEmpty = false;
     
-	public Registration() {
+        public Registration() {
         pageInContext = true;
         // For this processor next page is always in the context. It is either
         // same form page (if any errors were encountered) or next workflow page
         // (something like to thank u very much for registration)
-	}
+        }
     
     /**
      * @see com.topcoder.web.common.AbstractRequestProcessor#businessProcessing()
      */
     void businessProcessing() throws Exception {
-    	// for all methods except POST
-    	//just return form to the user
-    	if( ! "POST".equals(request.getMethod()) ) {
-    		nextPage = "/reg/Registration.jsp";
-    		return;
-    	}
-    	
-    	//log.debug("business processing ("+request.getMethod()+")");
-    	// well, user filled the form
-    	// and possible he thinks that it is allright
-    	// so lets prove that he is wrong
-    	firstName      = (String) request.getParameter(KEY_FIRSTNAME);
-    	lastName       = (String) request.getParameter(KEY_LASTNAME);
-    	title          = (String) request.getParameter(KEY_TITLE);
+        // for all methods except POST
+        //just return form to the user
+        if( ! "POST".equals(request.getMethod()) ) {
+                nextPage = "/reg/Registration.jsp";
+                return;
+        }
+        
+        //log.debug("business processing ("+request.getMethod()+")");
+        // well, user filled the form
+        // and possible he thinks that it is allright
+        // so lets prove that he is wrong
+        firstName      = (String) request.getParameter(KEY_FIRSTNAME);
+        lastName       = (String) request.getParameter(KEY_LASTNAME);
+        title          = (String) request.getParameter(KEY_TITLE);
         company        = (String) request.getParameter(KEY_COMPANY);
-    	compAddress1   = (String) request.getParameter(KEY_ADDRLINE1);
-    	compAddress2   = (String) request.getParameter(KEY_ADDRLINE2);
-    	city           = (String) request.getParameter(KEY_CITY);
-    	state          = (String) request.getParameter(KEY_STATE);
-    	zip            = (String) request.getParameter(KEY_ZIP);
-    	country        = (String) request.getParameter(KEY_COUNTRY);
-    	phone          = (String) request.getParameter(KEY_PHONE);
-    	userName       = (String) request.getParameter(KEY_LOGIN);
-    	password       = (String) request.getParameter(KEY_PASSWORD1);
-    	password2      = (String) request.getParameter(KEY_PASSWORD2);
-    	email          = (String) request.getParameter(KEY_EMAIL1);
-    	email2         = (String) request.getParameter(KEY_EMAIL2);
+        compAddress1   = (String) request.getParameter(KEY_ADDRLINE1);
+        compAddress2   = (String) request.getParameter(KEY_ADDRLINE2);
+        city           = (String) request.getParameter(KEY_CITY);
+        state          = (String) request.getParameter(KEY_STATE);
+        zip            = (String) request.getParameter(KEY_ZIP);
+        country        = (String) request.getParameter(KEY_COUNTRY);
+        phone          = (String) request.getParameter(KEY_PHONE);
+        userName       = (String) request.getParameter(KEY_LOGIN);
+        password       = (String) request.getParameter(KEY_PASSWORD1);
+        password2      = (String) request.getParameter(KEY_PASSWORD2);
+        email          = (String) request.getParameter(KEY_EMAIL1);
+        email2         = (String) request.getParameter(KEY_EMAIL2);
         
         try {
             stateFieldEmpty = Integer.parseInt(state) == -1;
@@ -138,9 +138,9 @@ public class Registration extends BaseProcessor {
 
         boolean formDataValid = isValid();
         if( formDataValid ) {
-        	log.debug("data entered seem to be valid");
+                log.debug("data entered seem to be valid");
 
-        	makePersistent();
+                makePersistent();
             nextPage = "/reg/RegSuccess.jsp";
         }
         else {
@@ -156,7 +156,7 @@ public class Registration extends BaseProcessor {
     private boolean isValid() {
         boolean ret = true;
         
-        ret &=	// first name validity check 
+        ret &=  // first name validity check 
         checkItemValidity(KEY_FIRSTNAME, firstName, 
             StringUtils.ALPHABET_ALPHA_EN, true, 1,
             "Ensure first name is not empty, consists of letters and has not spaces inside"
@@ -187,18 +187,18 @@ public class Registration extends BaseProcessor {
         );
 
         ret &= // addr line 2 validity (optional)
-    	checkItemValidity(KEY_ADDRLINE2, compAddress2, 
+        checkItemValidity(KEY_ADDRLINE2, compAddress2, 
             StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 7,
             "Ensure address line 2 is not empty, consists of letters, digits and punctuation signs only (no more than 7 words)"
         );
 
         ret &= // city validity (optional) 
-    	checkItemValidity(KEY_CITY, city, 
+        checkItemValidity(KEY_CITY, city, 
             StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, false, 3,
             "Ensure city is not empty, consists of letters, digits and punctuation signs only (no more than 3 words)"
         );
 
-        if( !stateFieldEmpty ) {    	
+        if( !stateFieldEmpty ) {        
             ret &= // state validity (optional)
             checkAgainstDB(
                 KEY_STATE, 
@@ -216,8 +216,8 @@ public class Registration extends BaseProcessor {
             );
         }
 
-    	ret &= // zip validity (optional)
-    	checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_DIGITS_EN, 
+        ret &= // zip validity (optional)
+        checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_DIGITS_EN, 
             false, 1, "Ensure ZIP code is not empty and, consists of digits only"
         );
         
@@ -246,23 +246,23 @@ public class Registration extends BaseProcessor {
             );
             ret = false;
         }
-    	
+        
         ret &= // email validity
         checkItemValidity(KEY_EMAIL1, email, 
             StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 1,
             "Ensure email address is not empty and, has written correct"
         );
 
-    	// email2 validity
-    	if( email2 == null ) email2 = "";
+        // email2 validity
+        if( email2 == null ) email2 = "";
         setFormFieldDefault(KEY_EMAIL2, email2);
-    	if( ! email2.equals(email) ) {
+        if( ! email2.equals(email) ) {
             markFormFieldAsInvalid(
                 KEY_EMAIL2,
                 "e-mail addresses entered must be same in the both fields"
             );
             ret = false;
-	    }
+            }
         return ret;
     }
     
@@ -276,39 +276,39 @@ public class Registration extends BaseProcessor {
         String errMsg
     )
     {
-    	boolean ret = true;
-    	boolean chkMore = true;
-    	
+        boolean ret = true;
+        boolean chkMore = true;
+        
         setFormFieldDefault(itemKey, itemValue == null ? "" : itemValue);
-    	
-    	if( !required ) {
-    		if( itemValue == null || itemValue.length() == 0 ) {
-    			chkMore = false;
-    		}
-    	}
-    	if( ! chkMore ) return ret;
-    	
-    	// either this field is required or (optional and not empty)
-    	if( itemValue == null || itemValue.length() == 0 ) {
-    		ret = false;
+        
+        if( !required ) {
+                if( itemValue == null || itemValue.length() == 0 ) {
+                        chkMore = false;
+                }
+        }
+        if( ! chkMore ) return ret;
+        
+        // either this field is required or (optional and not empty)
+        if( itemValue == null || itemValue.length() == 0 ) {
+                ret = false;
             markFormFieldAsInvalid(itemKey, errMsg);
-    	}
-    	else {
-	    	//  alphabet check
-			if( (! StringUtils.consistsOf(itemValue, alphabet, true )) )  {
-				ret = false;
+        }
+        else {
+                //  alphabet check
+                        if( (! StringUtils.consistsOf(itemValue, alphabet, true )) )  {
+                                ret = false;
                 markFormFieldAsInvalid(itemKey, errMsg);
-			}
-			else {
-				if( maxWords <= 1 ) maxWords = 1;
-				
-				if( ! StringUtils.hasNotMoreWords(itemValue, maxWords) ) {
-					ret = false;
+                        }
+                        else {
+                                if( maxWords <= 1 ) maxWords = 1;
+                                
+                                if( ! StringUtils.hasNotMoreWords(itemValue, maxWords) ) {
+                                        ret = false;
                     markFormFieldAsInvalid(itemKey, errMsg);
-				}
-			}
-    	}
-    	return ret;
+                                }
+                        }
+        }
+        return ret;
     }
     
     /**
@@ -407,8 +407,8 @@ public class Registration extends BaseProcessor {
             long phoneID = phoneTable.createPhone(userID);
             phoneTable.setNumber(userID, phoneID, phone);
             
-            int t = 0;
-            System.err.println(1/t);
+            // int t = 0;
+            // System.err.println(1/t);
             tx.commit();
         }
         catch(Exception exc) {
