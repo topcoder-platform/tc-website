@@ -1,12 +1,13 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.corp.controller.request.Login,
-                 com.topcoder.web.corp.Constants,
-                 com.topcoder.shared.security.User,
-                 com.topcoder.web.common.security.SessionPersistor,
-                 com.topcoder.web.common.security.BasicAuthentication,
-                 com.topcoder.web.corp.model.SessionInfo,
-                 com.topcoder.shared.util.ApplicationServer" 
-        %>
+    import="com.topcoder.web.corp.controller.request.Login,
+        com.topcoder.ejb.DataCache.*,
+        com.topcoder.web.corp.Constants,
+        com.topcoder.shared.security.User,
+        com.topcoder.web.common.security.SessionPersistor,
+        com.topcoder.web.common.security.BasicAuthentication,
+        com.topcoder.web.corp.model.SessionInfo,
+        com.topcoder.shared.util.ApplicationServer" 
+    %>
 
 <%
    DataCache dcHome = com.topcoder.common.web.util.Cache.get();
