@@ -147,9 +147,7 @@
 	<% } else if (tabLev2.equals("advancers")) {%>
 		<td class="<%=tabLev3.equals("qualification")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=tco04_alg_qual&trans=true&d1=tournaments&d2=tco04&d3=alg_qualification" class="subNavLink">Qualification</a></td>
 		<td class="<%=tabLev3.equals("overview")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=tco04_alg_adv_overview&trans=true&d1=tournaments&d2=tco04&d3=alg_adv_overview" class="subNavLink">Overview</a></td>
-		<%--
 		<td class="<%=tabLev3.equals("bracket")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_bracket" class="subNavLink">Bracket</a></td>
-		--%>
 		<td class="<%=tabLev3.equals("radeye")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=radeye_semi" target="_blank" class="subNavLink">radeye's Odds</a></td>
 	<% } else if (tabLev2.equals("summary")) {%>
 		<td class="<%=tabLev3.equals("online")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_sum_onlinerounds" class="subNavLink">Online Rounds</a></td>
