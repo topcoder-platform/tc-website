@@ -55,7 +55,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Tab bar links-->
 <jsp:include page="tco03Links.jsp" >
    <jsp:param name="selectedContest" value="component"/>
-   <jsp:param name="selectedTab" value="advancers"/>
+   <jsp:param name="selectedTab" value="component_advancers"/>
 </jsp:include>
 
 <!-- Tab bar sublinks-->
