@@ -5,6 +5,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.tc.model.SoftwareComponent;
 import com.topcoder.web.tc.model.ReviewBoardApplication;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
@@ -136,7 +137,7 @@ public class ReviewProjectDetail extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-        setNextPage("/dev/reviewProjectDetail.jsp");
+        setNextPage(Constants.REVIEW_PROJECT_DETAIL);
         setIsNextPageInContext(true);
 
     }
