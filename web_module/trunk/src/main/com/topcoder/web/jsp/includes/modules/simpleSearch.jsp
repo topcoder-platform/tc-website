@@ -3,11 +3,10 @@
             </table>
 
             <table border="0" cellspacing="0" cellpadding="1" width="180" bgcolor="#990000">
-                <tr valign="middle"><form name="simpleSearchForm" method="get" action="/">
+                <tr valign="middle"><form name="simpleSearchForm" method="get" action="/tc">
                     <td class="data" width="2"><img src="/i/clear.gif" width="2" height="1" border="0"/></td>
                     <td class="statTextBig">
-                        <input type="hidden" name="t" value="search" />
-                        <input type="hidden" name="c" value="simple_search" />
+                        <input type="hidden" name="module" value="SimpleSearch" />
                         <input type="text" name="SearchHandle" value="Handle:" size="12" maxlength="15" onFocus="javascript: if (document.simpleSearchForm.SearchHandle.value=='Handle:') document.simpleSearchForm.SearchHandle.value = '';" onBlur="javascript: if (document.simpleSearchForm.SearchHandle.value == '') document.simpleSearchForm.SearchHandle.value = 'Handle:';" />
                     </td>
                     <td class="statTextBig"><A href="javascript:void document.simpleSearchForm.submit();"><img src="/i/button_go_member_search.gif" alt="Go" width="24" height="18" vspace="3" border="0" /></A></td>
