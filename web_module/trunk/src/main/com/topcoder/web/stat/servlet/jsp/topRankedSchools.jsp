@@ -56,15 +56,11 @@ pageContext.setAttribute("resultSet", rsc);
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="6" CLASS="statText">
-                   </TD>
-                 </TR>
-                 <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
-                     In order to be included in this list, a school must have at least 10 rated members.
+                     In order for a school to be ranked, it must have at least 10 rated members.
                    </TD>
                  </TR>
                  <TR>
