@@ -59,10 +59,10 @@
                     <td class="sidebarText">WHEN:
                     
                     	<ul>
-                    		<li>Registration opens - December 13, 2004</li>
+                    		<li>Registration opens - December 20, 2004</li>
 							<li>One qualification round - January 11-12, 2005 </li>
 							<li>Four elimination rounds - January 15, 19, 26, February 2, 2005</li> 
-							<li>Semifinal and Championship rounds - March 2005 </li>
+							<li>Semifinal and Championship rounds - March 10 & 11, 2005 </li>
 						</ul>
 						
 					</td>
@@ -73,7 +73,7 @@
                     	<ul>
                     		<li>One qualification round - Online</li> 
 							<li>Four elimination rounds - Online </li> 
-							<li>Semifinal and Championship rounds - Silicon Valley, CA </li> 
+							<li>Semifinal and Championship rounds - Santa Clara, CA </li> 
 						</ul>
 					</td>
                 </tr>
@@ -81,7 +81,7 @@
                 <tr>
                     <td class="sidebarText">PRIZES:
                     	<ul>
-                    		<li>$50,000 cash prize purse</li>
+                    		<li>$60,000 cash prize purse</li>
 							<li><strong>Champion will receive $20,000</strong></li>
 							<li>Participatory t-shirt, branded with sponsor logos </li>
 						</ul>
@@ -118,9 +118,8 @@
                     <td class="sidebarText">WHEN:
                     	<ul>
                     		<li>Registration opens - December 13, 2004</li>
-							<li>Participation rounds - December 14, 2004 - January 27, 2005</li>
-							<li>Championship round - February 22 - March 3, 2005</li>
-							<li>Winners announced - March 2005</li>
+							<li>Participation rounds - January 3, 2004 - February 3, 2005</li>
+							<li>Championship round - March 10, 2005</li>
 						</ul>
 					</td>
                 </tr>
@@ -129,8 +128,7 @@
                     <td class="sidebarText">WHERE:
                     	<ul>
                     		<li>Participation rounds - Online</li>
-							<li>Championship round - Online</li>
-							<li>Winners announced - Silicon Valley, CA</li> 
+							<li>Championship round - Onsite - Santa Clara, CA</li> 
 						</ul>
 					</td>
                 </tr>
@@ -138,8 +136,8 @@
                 <tr>
                     <td class="sidebarText">PRIZES:
                     	<ul>
-                    		<li>$100,000 cash prize purse</li>
-							<li><strong>Design Champion will receive $20,000; Development Champion will receive $10,000</strong></li>
+                    		<li>$90,000 cash prize purse</li>
+							<li><strong>Design Champion will receive $25,000; Development Champion will receive $13,000</strong></li>
 							<li>Participatory t-shirt, branded with sponsor logos</li>
 						</ul>
 					</td>
@@ -149,7 +147,7 @@
                     <td class="sidebarText">WHO CAN PARTICIPATE:
                     	<ul>
                     		<li>Any TopCoder member* who is 18 years of age or older and a matriculated full-time student at an accredited college or university can participate</li>
-							<li>The top 4 Designers and the top 4 Developers will be present onsite for the announcement of the Component Competition results</li>
+							<li>The top 4 Designers and the top 4 Developers will advance to the onsite Championship Round.</li>
 						</ul>
 						*If you're not already a TopCoder member<br/><a href="/reg/index.jsp">click here</a> to register.
 					</td>
