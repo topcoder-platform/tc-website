@@ -121,6 +121,12 @@ public class Constants
     public static String SESSION_SEGMENT_TEST_SET_B_ID;
     public static String TEST_SET_B_SEGMENT_INTERVAL;
 
+    //Preivew email constants
+    public static String EMAIL_LOOKUP_COMMAND;
+    public static String REP_EMAIL_INFO_QUERY_KEY;
+    public static String CANDIDATE_EMAIL_INFO_QUERY_KEY;
+    public static String EMAIL_INFO;
+
     //Common Constants
     public static String DATA_SOURCE;
     public static String TX_DATA_SOURCE;
@@ -288,6 +294,14 @@ public class Constants
             config.getInitParameter("session_segment_test_set_b_id");
         TEST_SET_B_SEGMENT_INTERVAL = 
             config.getInitParameter("test_set_b_segment_interval");
+
+        //Preview Email Constants
+        EMAIL_LOOKUP_COMMAND = config.getInitParameter("email_lookup_command");
+        REP_EMAIL_INFO_QUERY_KEY = 
+            config.getInitParameter("rep_email_info_query_key");
+        CANDIDATE_EMAIL_INFO_QUERY_KEY = 
+            config.getInitParameter("candidate_email_info_query_key");
+        EMAIL_INFO = config.getInitParameter("email_info_attribute");
 
         //Common Constants
         DATA_SOURCE = config.getInitParameter("data_source_name");

@@ -7,6 +7,7 @@
 <jsp:include page="/script.jsp"/>
 </HEAD>
 
+<jsp:useBean id="emailInfo" type="com.topcoder.web.screening.model.EmailInfo" />
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">            
    <TR>
@@ -39,18 +40,9 @@
 <FORM>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
            <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle"><b>Login:</b>&#160;</TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">nonummy</TD>
-           </TR>
-           <TR>
-              <TD></TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
-           </TR>
-           <TR align="right" valign="middle">
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle"><b>Password:</b>&#160;</TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">veniam</TD>
-           </TR>
-           <TR>
-              <TD></TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle"><PRE>
+<jsp:getProperty name="emailInfo" "msgText" />
+</PRE></TD>
            </TR>
          </TABLE>             
 </FORM>         

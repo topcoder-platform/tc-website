@@ -1,5 +1,6 @@
 package com.topcoder.web.screening.request;
 
+import java.sql.Timestamp;
 import java.util.Map;
 
 import javax.naming.InitialContext;
@@ -9,6 +10,7 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.User;
 
 import com.topcoder.web.ejb.session.Session;
 import com.topcoder.web.ejb.session.SessionHome;
@@ -18,6 +20,7 @@ import com.topcoder.web.ejb.session.SessionSegmentHome;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
 
+import com.topcoder.web.screening.model.EmailInfo;
 import com.topcoder.web.screening.model.SessionInfo;
 
 public class UpdateSession extends BaseSessionProcessor {
@@ -37,18 +40,16 @@ public class UpdateSession extends BaseSessionProcessor {
 
         long sessionProfileId = Long.parseLong(info.getProfileId());
         long userId = Long.parseLong(info.getCandidateId());
-        boolean repEmail = "YES".equals(info.getRepEmail());
-        boolean candidateEmail = "YES".equals(info.getCandidateEmail());
-
-        long sessionId = 0;
-        /*
+        User requestor = getAuthentication().getUser();
+        
+        long sessionId = 
             session.createSession(sessionProfileId, 
                                   userId, 
-                                  info.getBeginDate(), 
-                                  info.getEndDate(), 
-                                  repEmail, 
-                                  candidateEmail, 
-                                  getAuthentication().getUser().getId());
+                                  new Timestamp(info.getBeginDate().getTime()), 
+                                  new Timestamp(info.getEndDate().getTime()), 
+                                  info.useRepEmail(), 
+                                  info.useCandidateEmail(), 
+                                  requestor.getId());
 
 
         //now get info for segments
@@ -86,7 +87,11 @@ public class UpdateSession extends BaseSessionProcessor {
         long testSetBSegment = Long.parseLong(row.getItem("count").toString()) *
             Long.parseLong(Constants.TEST_SET_B_SEGMENT_INTERVAL);
         segment.createSessionSegment(sessionId, Long.parseLong(Constants.SESSION_SEGMENT_TEST_SET_B_ID), testSetBSegment);
-                                  */
+
+        //if we got through all that, then send the email
+        if(info.useCandidateEmail() || info.useRepEmail()) {
+            EmailInfo.createEmailInfo(info, requestor).sendEmail();
+        }
 
         setNextPage(Constants.DEFAULT_PAGE);
         setNextPageInContext(false);

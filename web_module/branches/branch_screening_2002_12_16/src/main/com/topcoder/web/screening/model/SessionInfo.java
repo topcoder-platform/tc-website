@@ -294,6 +294,10 @@ public class SessionInfo extends BaseModel {
         return candidateEmail;
     }
 
+    public boolean useCandidateEmail() {
+        return "YES".equalsIgnoreCase(candidateEmail);
+    }
+
     /**
      * Sets the value of <code>repEmail</code>.
      *
@@ -315,6 +319,10 @@ public class SessionInfo extends BaseModel {
     public String getRepEmail()
     {
         return repEmail;
+    }
+
+    public boolean useRepEmail() {
+        return "YES".equalsIgnoreCase(repEmail);
     }
 
     public Date getBeginDate() {
