@@ -17,6 +17,8 @@ import com.topcoder.shared.dataAccess.resultSet.*;
 
 import com.topcoder.web.tc.model.ContractingResponse;
 import com.topcoder.web.tc.model.ContractingResponseGroup;
+import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.shared.util.DBMS;
 /**
  *
  * @author  rfairfax
@@ -88,7 +90,14 @@ public class Confirm  extends ContractingBase {
 
             //resume status
             if(info.getResume() == null)
-                getRequest().setAttribute("resume", "Not Supplied");
+            {
+                ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
+                if(resumeServices.hasResume(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
+                    getRequest().setAttribute("resume", "Not Supplied, Using Existing Resume");
+                } else {
+                    getRequest().setAttribute("resume", "Not Supplied");
+                }
+            }
             else
                 getRequest().setAttribute("resume","Attached (" + info.getResume().getRemoteFileName() + ")");
 

@@ -17,6 +17,10 @@ import com.topcoder.web.tc.model.PreferenceGroup;
 import com.topcoder.web.tc.model.Preference;
 import com.topcoder.web.tc.model.PreferenceValue;
 
+import com.topcoder.web.ejb.resume.ResumeServices;
+
+import com.topcoder.shared.util.DBMS;
+
 import java.util.*;
 /**
  *
@@ -74,8 +78,15 @@ public class Preferences extends ContractingBase {
                 groups.add(grp);
             }
         
-        //set attribute with groups
-        getRequest().setAttribute("groups", groups);
+            //set attribute with groups
+            getRequest().setAttribute("groups", groups);
+
+            //check for existing resume
+            ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
+            if(resumeServices.hasResume(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME))
+            {
+                getRequest().setAttribute("hasResume", "true");
+            }
         } catch(TCWebException tce) {
             throw tce;
         } catch(Exception e) {
