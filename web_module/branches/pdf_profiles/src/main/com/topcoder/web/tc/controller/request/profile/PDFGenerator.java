@@ -368,6 +368,7 @@ public class PDFGenerator extends BaseProcessor {
 
             PdfPCell cell = new PdfPCell(new Phrase((String)groups.get(i), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
             cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
+            cell.setBorderWidth(1);
             inner.addCell(cell);
             
             java.util.List skillsList = info.getSkills((String)groups.get(i));
@@ -401,6 +402,7 @@ public class PDFGenerator extends BaseProcessor {
         PdfPCell cell = new PdfPCell(new Phrase("Coder Ranking (Based on " + info.getNumContests() + " Events)", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setBorderWidth(1);
         cell.setColspan(4);
 
         inner.addCell(cell);
@@ -413,18 +415,21 @@ public class PDFGenerator extends BaseProcessor {
 
         cell = new PdfPCell(new Phrase("Division", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setBorderWidth(1);
         inner.addCell(cell);
 
         inner.addCell(new Phrase(info.getRating() >= 1200 ? "1" : "2", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
         cell = new PdfPCell(new Phrase("Rank", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setBorderWidth(1);
         inner.addCell(cell);
 
         inner.addCell(new Phrase(info.getRank(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
         cell = new PdfPCell(new Phrase("Rank %", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setBorderWidth(1);
         inner.addCell(cell);
 
         inner.addCell(new Phrase("" + info.getRankPercentile(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
