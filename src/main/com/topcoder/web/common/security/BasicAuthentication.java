@@ -186,6 +186,7 @@ public class BasicAuthentication implements WebAuthentication {
      * but it is still pretty intensive...currently takes around 300 ms
      */
     private String hashForUser(long uid) throws Exception {
+        log.debug("hash for user: " + uid);
         CachedDataAccess dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
         dai.setExpireTime(30*60*1000);   //cache their password for 30 minutes, this should help db load
         Request dataRequest = new Request();
@@ -236,16 +237,9 @@ public class BasicAuthentication implements WebAuthentication {
                 try {
                     StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");
                     long uid = Long.parseLong(st.nextToken());
+                    if (uid<1) continue;
                     String hash = hashForUser(uid);
-                    if(!st.hasMoreTokens()) {  //@@@ special case to convert old cookies
-                        log.info("replacing cookie in old format");
-                        Cookie c = new Cookie(USER_COOKIE_NAME, ""+uid+"|"+hash);
-                        c.setMaxAge(Integer.MAX_VALUE);
-                        c.setPath(defaultCookiePath.getName());
-                        response.addCookie(c);
-                    } else {
-                        if(!hash.equals(st.nextToken())) continue;
-                    }
+                    if(!hash.equals(st.nextToken())) continue;
                     return makeUser(uid);
 
                 } catch(Exception e) {
