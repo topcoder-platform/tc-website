@@ -89,8 +89,8 @@
                         <p>Diversified Data has developed a clearly defined, results-based methodology, called 3DM, for implementing clients' Centera solution. Our proven 
                         methodology provides a roadmap for the successful and rapid implementation of a customized Centera solution. 3DM includes guidelines, checklists and 
                         templates to ensure product success and client satisfaction at every stage.</p>
-                        <p><strong>What were looking for:</strong></p>
-                        <p>Developers with 3+ years of experience to join our team on a contract-to-hire basis.  Unix and Perl experience a must.  Check out more of the 
+                        <p><strong>What we're looking for:</strong></p>
+                        <p>Developers with 3+ years of experience to join our team on a contract-to-hire basis.  Check out more of the 
                         details <A href="/?&amp;t=tces&amp;c=diversifieddata_softdev&amp;a=secure" class="bodyText">here</A>.</p>
 <!-- Client Message Ends -->
 
