@@ -47,11 +47,11 @@
             <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
 
-<jsp:useBean id="LoginCommand" scope="request"
+<jsp:useBean id="LoginTask" scope="request"
 class="com.topcoder.web.tces.servlet.LoginCommand" />
 
 <p class='notice'>
-<jsp:getProperty name="LoginCommand" property="Message" />
+<jsp:getProperty name="LoginTask" property="Message" />
 </p>
 
 <FORM NAME="login" METHOD="POST" ACTION="/tces/tces" onSubmit="">
@@ -63,7 +63,7 @@ class="com.topcoder.web.tces.servlet.LoginCommand" />
                   </TR>
                   <TR>
                     <TD HEIGHT="25" VALIGN="TOP">
-                      <INPUT MAXLENGTH="25" SIZE="20" NAME="handle" TYPE="TEXT" VALUE="">
+                      <INPUT MAXLENGTH="25" SIZE="20" NAME="handle" TYPE="TEXT" VALUE="<jsp:getProperty name="LoginTask" property="HandleInput" />">
                     </TD>
                   </TR>
                   <TR>

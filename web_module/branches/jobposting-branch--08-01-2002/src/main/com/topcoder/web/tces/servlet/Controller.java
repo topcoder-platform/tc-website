@@ -26,7 +26,6 @@ import java.util.*;
 public class Controller extends HttpServlet {
     private static Logger log = Logger.getLogger(Controller.class);
 
-
     /**
      * Initializes the servlet.
      * @throws ServletException
@@ -48,44 +47,48 @@ public class Controller extends HttpServlet {
         String debugMsg = "service called.";
 
         String command = request.getParameter(DataAccessConstants.COMMAND);
-        String commandStep = request.getParameter(TCESConstants.STEP_PARAM);
+        String taskName = request.getParameter(TCESConstants.TASK_PARAM);
+        String taskStepName = request.getParameter(TCESConstants.STEP_PARAM);
 
-		if (command!=null)
-			debugMsg+=" c="+command;
-		if (commandStep!=null)
-			debugMsg+=" st="+commandStep;
+        InitialContext ctx = null;
+        try {
+            ctx = (InitialContext) TCContext.getInitial();
 
-		log.debug(debugMsg);
+            if (taskName.trim().length() > 0) {
+                // process a task
+                Task task = null;
+                Class taskClass = null;
+                taskClass = Class.forName(TCESConstants.TCES_PACKAGE + "." + taskName);                        task = (Task) taskClass.newInstance();
+                task.processStep(taskStepName);
+                task.servletAction(this, request, response);
 
-      	InitialContext ctx = null;
-      	try {
-			ctx = (InitialContext) TCContext.getInitial();
-		} catch (Exception e) {
-            forwardToErrorPage(request, response,
-                    new Exception("unable to get initial context"));
+                getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) ).forward(request, response);
+
+            }
+            else if (command.trim().length() > 0) {
+                // process command (old code)
+                processCommand(command,request,response);
+            }
+            else {
+                forwardToErrorPage(request, response,
+                        new Exception("missing " + DataAccessConstants.COMMAND + " or " + TCESConstants.TASK_PARAM + " parameter in request"));
+            }
+        } catch (ClassNotFoundException cnfex) {
+            log.debug("Unable to dispatch task! "+cnfex.getMessage());
+            forwardToErrorPage(request, response, cnfex);
             return;
-		}
-
-        if (command == null) {
-            forwardToErrorPage(request, response,
-                    new Exception("missing " + DataAccessConstants.COMMAND + " parameter " +
-                    " in request"));
+        } catch (Exception ex) {
+            forwardToErrorPage(request, response, ex);
             return;
-		} else if (command.equals("login")) {
-			try {
-				(new LoginCommand(commandStep)).processCommand(request, response,
-									                         ctx, getServletContext());
-			} catch (Exception ex) {
-				forwardToErrorPage(request, response, ex);
-			}
-		} else if (command.equals("main")) {
-			try {
-				(new MainCommand()).processCommand(request, response,
-											       ctx, getServletContext());
-			} catch (Exception ex) {
-				forwardToErrorPage(request, response, ex);
-			}
-        } else if (command.equals("job_posting") || command.equals("click_thru")) {
+        }
+    }
+
+    public void processCommand(String command, HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException
+    {
+        InitialContext ctx = null;
+
+        if (command.equals("job_posting") || command.equals("click_thru")) {
             String tempJobId = request.getParameter(TCESConstants.JOB_ID_PARAM);
             String tempUserId = request.getParameter(TCESConstants.USER_ID_PARAM);
             int jobId = -1;
@@ -138,6 +141,14 @@ public class Controller extends HttpServlet {
         }
     }
 
+
+    private boolean isWord(String s) {
+        if (s == null || s.length() == 0) return false;
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isLetter(s.charAt(i))) return false;
+        }
+        return true;
+    }
 
     private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,
                                     Throwable exception) throws ServletException, IOException {
