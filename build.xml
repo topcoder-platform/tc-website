@@ -681,6 +681,7 @@
                 <include name="tc-webtags.tld"/>
                 <include name="screening.tld"/>
                 <include name="tces-taglib.tld"/>
+                <include name="rsc-taglib.tld"/>
             </webinf>
 
             <fileset dir="${java}/com/topcoder/web/jsp">
