@@ -4,7 +4,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
 import java.io.IOException;
 
-public class RatingClassTag extends TagSupport {
+public class RatingStyleTag extends TagSupport {
     private int rating;
 
     private static final String[] styles =
