@@ -70,9 +70,13 @@
                      <td width="150" align="center" valign="top"><img src="/i/tournament/crpf03/creditcard.gif" width="89" height="63" border="0">
                      </td>
                      <td>
-                        <ul><li>Credit card online at <A href="https://www.virtualsprockets.com/Transactions/secure1.cfm?clientID=72&return=http://www.christopherreeve.org/&ContributeType=c&ContributeURL=https://www.virtualsprockets.com/Transactions/secure1.cfm&case=DEFAULT&category=2&origin=TopCoderWebsite2003&mx=0&H=0&source=C&email=$X$&O18=0&CTZ=0&mid=0&FN=2&FormType=C&ExecNum=x5s6&FA=0&ACT=0" target="_blank">www.christopherreeve.org/topcoder</A>.  
-                        Donators will enter in the TopCoder member's name and/or handle so the donation can be matched with a TopCoder member.  
-                        This is important as eligibility and prizes are determined based on how much money each member raises.<br /><br/></li></ul>
+                        <ul><li>Credit card:</li>                        
+                        <ol>
+                        <li>Go to <A href="https://www.virtualsprockets.com/Transactions/secure1.cfm?clientID=72&return=http://www.christopherreeve.org/&ContributeType=c&ContributeURL=https://www.virtualsprockets.com/Transactions/secure1.cfm&case=DEFAULT&category=2&origin=TopCoderWebsite2003&mx=0&H=0&source=C&email=$X$&O18=0&CTZ=0&mid=0&FN=2&FormType=C&ExecNum=x5s6&FA=0&ACT=0" target="_blank">www.christopherreeve.org/topcoder</A></li>
+                        <li>Remember to enter the TopCoder member's name and/or handle so the donation can be matched to the correct competitor</li>
+                        <li>If you have any questions about this please contact <A href="mailto:service@topcoder.com" class="bodyText">General Questions</A></li>
+                        </ol>
+                        </ul>                    
                      </td>
                   </tr>
                   <tr>
