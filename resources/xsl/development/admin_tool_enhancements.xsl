@@ -179,34 +179,7 @@
                                         <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td valign="top" background="" bgcolor="#FFFFFF" width="11" align="right">
-                                        <img src="/i/clear.gif" alt="" width="11" height="8" border="0"/>
-                                    </td>
-                                    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#001B35" width="14">
-                                        <img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0"/>
-                                    </td>
-                                    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#001B35" width="100%">
-                                        <img src="/i/clear.gif" alt="" width="1" height="1" border="0"/>
-                                    </td>
-                                    <td valign="top" background="" bgcolor="#FFFFFF" width="10">
-                                        <img src="/i/clear.gif" alt="" width="1" height="1" border="0"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td valign="top" background="" width="11" align="right" bgcolor="#FFFFFF">
-                                        <img src="/i/clear.gif" alt="" width="11" height="8" border="0"/>
-                                    </td>
-                                    <td valign="top" background="" bgcolor="#FFFFFF" width="14">
-                                        <img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0"/>
-                                    </td>
-                                    <td valign="top" background="" bgcolor="#FFFFFF" width="100%">
-                                        <img src="/i/clear.gif" alt="" width="1" height="1" border="0"/>
-                                    </td>
-                                    <td valign="top" background="" bgcolor="#FFFFFF" width="10">
-                                        <img src="/i/clear.gif" alt="" width="1" height="1" border="0"/>
-                                    </td>
-                                </tr>
+
                             </table>
                             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                                 <tr valign="top">
