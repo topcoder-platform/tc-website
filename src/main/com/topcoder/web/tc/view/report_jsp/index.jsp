@@ -22,7 +22,7 @@
 
 <%!
   private String printTree(ReportNode node, StringBuffer buf) {
-    String GET_REPORT_ADDR = Constants.SERVLET_ADDR +  "?" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_RESULT_KEY + "&" + Constants.REPORT_ID_KEY + "=";
+    String GET_REPORT_ADDR = Constants.SERVLET_ADDR +  "&" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_RESULT_KEY + "&" + Constants.REPORT_ID_KEY + "=";
     ReportNode child = null;
     for (int i=0; i<node.getChildCount(); i++) {
       child = (ReportNode)node.getChildAt(i);
