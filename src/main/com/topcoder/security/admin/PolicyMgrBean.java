@@ -129,7 +129,7 @@ public class PolicyMgrBean extends BaseEJB {
         logger.debug("PolicyMgrBean.removePermissions");
         Collection c = permissions.getPermissions();
         Iterator i = c.iterator();
-        String query = "DELETE FROM security_perms WHERE permission = ?";
+        String query = "DELETE FROM security_perms WHERE permission = ? and  role_id = ?";
 
         InitialContext ctx = null;
         PreparedStatement ps = null;
@@ -142,6 +142,7 @@ public class PolicyMgrBean extends BaseEJB {
             while (i.hasNext()) {
                 TCPermission p = (TCPermission) i.next();
                 ps.setString(1, p.getName());
+                ps.setLong(2, role.getId());
                 ps.executeUpdate();
             }
         } catch (Exception e) {
