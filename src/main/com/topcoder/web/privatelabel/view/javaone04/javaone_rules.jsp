@@ -52,13 +52,13 @@
 						Each contestant must have purchased one of the following attendee passes to the JavaOne Conference in order to 
 						participate in the JavaOne Coding Challenge:</p>
 						
-						<blockquote><ul>
+						<blockquote><ul class="regmiddle">
 						<li>Conference Plus Pass</li>
 						<li>Conference Pass</li>
-						<li>JavaOnesm Pavilion Guest Pass</li></ul></blockquote>
+						<li>JavaOne Pavilion Guest Pass</li></ul></blockquote>
 
   						<p class="regmiddle">To register for the JavaOne Conference, visit 
-  						<a href="http://javaone.medialiveinternational.com/sf2004/registration.html">http://javaone.medialiveinternational.com/sf2004/registration.html</a></p>
+  						<a href="http://javaone.medialiveinternational.com/sf2004/registration.html" target="_blank">http://javaone.medialiveinternational.com/sf2004/registration.html</a></p>
   						
 						<p class="regmiddle">The JavaOne Coding Challenge is open to citizens and lawful permanent residents of the United States*, 
 						and to all non-immigrants currently in the United States* with a valid Visa, who are at least 18 years of age.</p>
@@ -77,7 +77,7 @@
 						the conference tracks.  Following each day's technical presentations, attendees can proceed to the TopCoder arena 
 						where attendees will attempt to solve various problems in the "Competition Arena."  At the conclusion of each day's 
 						Qualifying Round, a 4-person competition will be held.  The four individuals who achieved the highest two scores for 
-						their respective problem during the Qualification Round will be invited to compete in the afternoon’s competition. 
+						their respective problem during the Qualification Round will be invited to compete in the afternoon's competition. 
 						The schedule of competitions is as follows:</p>
 						
 									<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -96,7 +96,7 @@
                 <tr>
                     <td width="33%" class="sidebarText">Monday, June 28</td>
                     <td width="34%" class="sidebarText">Web Services - Competition</td>
-                    <td width="33%" class="sidebarText">5:00 pm - 6:00 pm</td>
+                    <td width="33%" class="sidebarText">5:00 pm - 6:30 pm</td>
                 </tr>
 
                 <tr>
@@ -108,7 +108,7 @@
                 <tr>
                     <td width="33%" class="sidebarText">Tuesday, June 29</td>
                     <td width="34%" class="sidebarText">Enterprise Services - Competition</td>
-                    <td width="33%" class="sidebarText">5:00 pm - 6:00 pm</td>
+                    <td width="33%" class="sidebarText">5:00 pm - 6:30 pm</td>
                 </tr>
                 
                 <tr>
@@ -120,7 +120,7 @@
                 <tr>
                     <td width="33%" class="sidebarText">Wednesday, June 30</td>
                     <td width="34%" class="sidebarText">Mobility - Competition</td>
-                    <td width="33%" class="sidebarText">5:00 pm - 6:00 pm</td>
+                    <td width="33%" class="sidebarText">5:00 pm - 6:30 pm</td>
                 </tr>
             </table>
             
@@ -234,7 +234,7 @@
             state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements 
             made by, or attributed to, the winners relating to TopCoder and any and all rights to said use, without further compensation.  
             Furthermore, all prizewinners agree to promptly notify TopCoder if a third-party contacts the prizewinner regarding employment 
-            opportunities and/or media interest as a result of the prizewinner’s participation in the tournament.</p>
+            opportunities and/or media interest as a result of the prizewinner's participation in the tournament.</p>
             
             <p class="regmiddle">TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with 
             competing in this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, 

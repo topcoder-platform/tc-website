@@ -56,7 +56,7 @@
                 <tr>
                     <td width="33%" class="sidebarText">Monday, June 28</td>
                     <td width="34%" class="sidebarText">Web Services - Competition</td>
-                    <td width="33%" class="sidebarText">5:00 pm - 6:00 pm</td>
+                    <td width="33%" class="sidebarText">5:00 pm - 6:30 pm</td>
                 </tr>
 
                 <tr>
@@ -68,7 +68,7 @@
                 <tr>
                     <td width="33%" class="sidebarText">Tuesday, June 29</td>
                     <td width="34%" class="sidebarText">Enterprise Services - Competition</td>
-                    <td width="33%" class="sidebarText">5:00 pm - 6:00 pm</td>
+                    <td width="33%" class="sidebarText">5:00 pm - 6:30 pm</td>
                 </tr>
                 
                 <tr>
@@ -80,7 +80,7 @@
                 <tr>
                     <td width="33%" class="sidebarText">Wednesday, June 30</td>
                     <td width="34%" class="sidebarText">Mobility - Competition</td>
-                    <td width="33%" class="sidebarText">5:00 pm - 6:00 pm</td>
+                    <td width="33%" class="sidebarText">5:00 pm - 6:30 pm</td>
                 </tr>
             </table>
 					

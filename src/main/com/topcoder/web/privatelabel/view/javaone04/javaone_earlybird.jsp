@@ -48,13 +48,13 @@
 
 						<p class="regmiddle">Join Us and SAVE $300 at the JavaOne<sup>SM</sup> Conference in San Francisco!</p>
 
-						<p class="regmiddle">Come join us at the JavaOneSM Conference taking place June 28-July 1, 
+						<p class="regmiddle">Come join us at the JavaOne Conference taking place June 28-July 1, 
 						2004, at Moscone Center in San Francisco. As the power behind the Coding Challenge at the Conference, 
-						TopCoder invites you to stop by the Competition Arena in the JavaOneSM Pavilion. It all starts at the 
+						TopCoder invites you to stop by the Competition Arena in the JavaOne Pavilion. It all starts at the 
 						JavaOne Conference, your source for cutting-edge knowledge and proven solutions.</p>
 
 						<p class="regmiddle">Professional TopCoder members save $300 off onsite pricing when you register by May 31, 2004.  
-						Register online today at java.sun.com/javaone/sf 
+						Register online today at <a href="http://javaone.medialiveinternational.com/sf2004/registration.html" target="_blank">java.sun.com/javaone/sf</a>.
 						Please use Registration Code "EXNAYA27" to receive your savings. </p>
 
 						<p class="regmiddle">The JavaOne conference is your ultimate source for Java technology knowledge and 
@@ -62,7 +62,7 @@
 
 
 						<blockquote>
-						<ul>
+						<ul class="regmiddle">
 						<li>JavaOne Pavilion, featuring the latest products and technologies from leading companies</li> 
 						<li>Hundreds of in-depth technical sessions that focus on real-world solutions </li> 
 						<li>Popular Birds-of-a-Feather sessions where you can interact with your peers </li> 
