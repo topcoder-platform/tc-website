@@ -3,7 +3,6 @@
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <%
     ResultSetContainer rsc = (ResultSetContainer)
             ((Map)request.getAttribute("QUERY_RESPONSE")).get("top_designers");
@@ -72,7 +71,7 @@
                    <TR>
                      <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                      <TD CLASS="statText" HEIGHT="13"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
-                     <TD CLASS="statText" HEIGHT="13" ALIGN="left"><tc-webtag:handle coderId='<%=resultRow.getIntItem("coder_id")%>' context="design"/></TD>
+                     <TD CLASS="statText" HEIGHT="13" ALIGN="left"><a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="rating" row="<%=resultRow%>" format="#"/></TD>
                      <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    </TR>
