@@ -42,7 +42,7 @@ public class PasswordFix {
 
         }
 
-        private int getUsers(Context ctx) throws Exception {
+        private int getUsers(InitialContext ctx) throws Exception {
 
             DataSource ds = (DataSource) ctx.lookup(SOURCE_DS);
             Connection conn = null;
