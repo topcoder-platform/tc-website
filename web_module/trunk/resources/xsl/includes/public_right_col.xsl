@@ -31,18 +31,6 @@ function find(n) {
           <IMG src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
             
             
-       		<A href="/?&amp;t=tces&amp;c=yahoo"><IMG src="/i/tournament/tccc04/yahoo/right_promo.gif" alt="Title Sponsor of the TCCC" width="170" height="103" border="0" /></A><br/>
-            
-            <IMG src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />	
-            
-            <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=sponsor_nvidia"><img src="/i/tournament/tccc04/promo_sm_nvidia.gif" alt="Premier Sponsor of the TCCC" width="170" height="95" border="0" /></A><br/>
-
-            <IMG src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-            
-            <A href="/i/downloads/tccc04_program.pdf"><img src="/i/promos/tccc04_program.gif" alt="TCCC04 Program" width="170" height="150" border="0" /></A><br/>
-            
-            <IMG src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-            
             <xsl:call-template name="calendar"/>
 
             <p><br/></p>
