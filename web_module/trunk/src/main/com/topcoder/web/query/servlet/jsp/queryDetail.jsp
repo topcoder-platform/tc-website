@@ -45,7 +45,7 @@
           <TR>
             <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
             <TD CLASS="statText" ALIGN="left">
-              <jsp:getProperty name="CommandDetailTask" property="Db"/>
+              <jsp:getProperty name="QueryDetailTask" property="Db"/>
             </TD>
           </TR>
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
