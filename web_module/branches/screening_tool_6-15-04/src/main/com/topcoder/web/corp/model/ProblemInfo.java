@@ -408,7 +408,7 @@ public class ProblemInfo extends BaseModel {
 
             row = (ResultSetContainer.ResultSetRow) rsc.get(0);
             info.setSubmissionAccuracy(row.getItem("submit_correct_percent").toString());
-            info.setSubmission(row.getItem("submit_percent").toString());
+            info.setSubmission(row.getItem("submission_percent").toString());
             info.setOverallAccuracy(row.getItem("overall_correct_percent").toString());
         }
         return info;
