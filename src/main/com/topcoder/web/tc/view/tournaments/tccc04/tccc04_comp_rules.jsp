@@ -51,10 +51,10 @@
 
             <h2>Overview of the Tournament</h2>
 
-            <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
+            <h3><font color="#CC0000">No purchase necessary to enter or win. The tournament is void where prohibited.</font></h3>
 
             <p>
-            The 2004 TopCoder Collegiate Challenge ("TCCC") Component Design and Development Competition ("CDDC") will take place between January 27th and April 16th, 2004.  It will consist of two competitions - the design competition and the development competition.  Each competition will consist of two (2) online elimination rounds, and one (1) onsite final round, being the Championship round.  The prize purse for this tournament is $61,000 in cash, with $39,000 being awarded for the design competition and $22,000 for the development competition.  The top four (4) scorers after Online Round #2 in each competition will advance to the onsite Championship round, being held at the Boston Park Plaza Hotel & Towers in Boston, Massachusetts on April 16th, 2004.
+            The 2004 TopCoder Collegiate Challenge ("TCCC") Component Design and Development Competition ("CDDC") will take place between January 27th and April 16th, 2004.  It will consist of two competitions - the design competition and the development competition.  Each competition will consist of two (2) online elimination rounds, and one (1) onsite final round, being the Championship round.  The prize purse for this tournament is $60,000 in cash, with $40,000 being awarded for the design competition and $20,000 for the development competition.  The top four (4) scorers after Online Round #2 in each competition will advance to the onsite Championship round, being held at the Boston Park Plaza Hotel & Towers in Boston, Massachusetts on April 16th, 2004.
             </p>
             
 <!-- eligibility -->
@@ -68,7 +68,7 @@
             <ul>
             <li>Must be at least 18 years of age (as of January 27, 2004); AND</li>
             <li>Must be matriculated full-time at an accredited college or university; AND</li>
-            <li>Must be living in the country of residence...can't be on student visa; AND</li>
+            <li>If not a US resident, must be living in, and participating from, your country of residence; AND</li>
             <li>Must not have been permanently suspended from participating in TopCoder Component Development projects</li>
             </ul>
             
@@ -80,9 +80,9 @@
             </p>
 
             <ul>
-            <li>The member will advance to the competition in which he/she achieved a higher weighted total</li>
-            <li>If the member's weighted total is the same in both competitions, then the member will advance to the competition in which he/she achieved a higher score for his/her Online Round #2 component</li>
-            <li>If the member's Online Round #2 component score is the same for both competitions, then the member will choose the competition in which he/she will compete</li>
+            <li>The member will advance to the competition in which he/she achieved a higher cumulative scores. (Details of how cumulative score is calculated are provided below)</li>
+            <li>If the member's cumulative score is the same in both competitions, then the member will advance to the competition in which he/she achieved a higher individual component score for his/her Online Round #2 component.</li>
+            <li>If the member's Online Round #2 individual component score is the same for both competitions, then the member will choose the competition in which he/she will compete.</li>
             </ul>
 
             <p>
@@ -103,11 +103,11 @@
 
          <p>As a condition of participation in the tournament, all information provided by you in your TopCoder member profile must be comprehensive, accurate and up-to-date. TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by TopCoder.</p>
 
-         <p>As a condition of winning and redeeming a cash prize, winners will be required to return by Friday, March 26, 2004 a completed (i) notarized Affidavit of Eligibility and Liability and Publicity Release, (ii) competitor questionnaire (the questions and responses will be published in the 2004 TopCoder Collegiate Challenge Guide), (iii) travel form, and (iv) IRS Form W-9 or W-8BEN, as appropriate, if one is not already on file with TopCoder. In completing the Affidavit of Eligibility and Liability and Publicity Release, a winner (i) confirms his/her eligibility, (ii) represents and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (iii) verifies the accuracy of the demographic information submitted to, and contained in, the TopCoder member database, (iv) authorizes TopCoder to publicize the tournament's results, (v) agrees to sign any applicable forms required by tax authorities, (vi) assigns to TopCoder all rights to all information submitted during the tournament (including rights to source code and other executables), and (vii) releases TopCoder from liability arising out of any prize won. TopCoder requires contestants to complete the Form W-9 or W-8BEN for tax reporting purposes. If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit, or the W-9 or W-8BEN, as specified, the winner will be disqualified and the prize money won by the disqualified winner will be forfeited. Providing false information in the registration process or in the required forms described in this paragraph will disqualify a winner.</p>
+         <p>As a condition of winning and redeeming a cash prize, winners will be required to return by Friday, March 26, 2004 a completed (i) notarized Affidavit of Eligibility and Liability and Publicity Release, (ii) competitor questionnaire (the questions and responses will be published in the 2004 TopCoder Collegiate Challenge Guide), (iii) travel form, and (iv) IRS Form W-9, W-8BEN, or W-8ECI, as appropriate, if one is not already on file with TopCoder. In completing the Affidavit of Eligibility and Liability and Publicity Release, a winner (i) confirms his/her eligibility, (ii) represents and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (iii) verifies the accuracy of the demographic information submitted to, and contained in, the TopCoder member database, (iv) authorizes TopCoder to publicize the tournament's results, (v) agrees to sign any applicable forms required by tax authorities, (vi) assigns to TopCoder all rights to all information submitted during the tournament (including rights to source code and other executables), and (vii) releases TopCoder from liability arising out of any prize won. TopCoder requires contestants to complete the Form W-9, W-8BEN, or W-8ECI for tax reporting purposes. If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit, or the appropriate tax form, the winner will be disqualified and the prize money won by the disqualified winner will be forfeited. Providing false information in the registration process or in the required forms described in this paragraph will disqualify a winner.</p>
 
          <p>By participating in a tournament and redeeming a prize, a winner releases and agrees to hold harmless TopCoder, its affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this tournament, or participation in any tournament-related activity, or the receipt, use or misuse of a prize. TopCoder specifically disclaims all liability associated with, and makes no warranties with regard to, any prize given.</p>
 
-         <p>In addition, all prizewinners agree to cooperate with TopCoder's publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to TopCoder and any and all rights to said use, without further compensation.  Furthermore, all prizewinners agree to promptly notify TopCoder if a third-party contacts the prizewinner regarding employment opportunities and/or media interest as a result of the prizewinner’s participation in the tournament.</p>
+         <p>In addition, all prizewinners agree to cooperate with TopCoder's publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to TopCoder and any and all rights to said use, without further compensation.  Furthermore, all prizewinners agree to promptly notify TopCoder if a third-party contacts the prizewinner regarding employment opportunities and/or media interest as a result of the prizewinner's participation in the tournament.</p>
 
          <p>TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the tournament process, or otherwise being in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the tournament if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.</p>
  
@@ -119,35 +119,32 @@
             <p><span class="bodySubtitle">Scoring and Advancing</span><br/>
             During each online round of competition, eligible competitors will submit design and development solutions for at least one eligible component by the submission due date.  Submissions will be scored by the TopCoder Review Boards and will be subject to final review and appeal in the same manner as standard component design submissions.</p>
             
-            <p>ALL SUBMISSIONS MUST BE RECEIVED DURING THE ROUND'S SUBMISSION TIMELINE TO BE CONSIDERED A VIABLE ENTRY.  THERE WILL BE NO EXCEPTIONS.  Following the submission deadline, the TopCoder Review Boards will review and score all eligible entries.  There will be no elimination of contestants between Online Rounds #1 and #2.  All contestants who submit components that pass screening in Online Round #1 in either competition will be eligible to participate in Online Round #2 of the same competition. The specific structure of the online rounds is as follows:
-            </p>
-            <p>Each contestant in an online round must submit his/her design and/or development submissions for components as scheduled. (See the <A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_schedule">schedule</a>)  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
-            </p>
+            <p>ALL SUBMISSIONS MUST BE RECEIVED DURING THE ROUND'S SUBMISSION TIMELINE TO BE CONSIDERED A VIABLE ENTRY.  THERE WILL BE NO EXCEPTIONS.  There will be no elimination of contestants between Online Rounds #1 and #2.  All contestants who submit components that pass screening in Online Round #1 in either competition will be eligible to participate in Online Round #2 of the same competition. </p>
 
             <ul>
             <li><b>Online Round #1</b><br/>
-            All eligible members may compete in Online Round #1 of either competition.  Those contestants who submit components that pass screening will advance to Online Round #2.</li>
+            All eligible members may compete in Online Round #1 of either or both competitions.  Those contestants who submit components that pass screening will advance to Online Round #2.</li>
 
             <li><b>Online Round #2</b><br/>
-            All contestants who submitted components that passed screening in Online Round #1 will compete and the four (4) contestants in each competition with the highest weighted total will advance to Round #3.  Each contestant's weighted total will be calculated as follows:
+            All contestants who submitted components that passed screening in Online Round #1 will compete and the four (4) contestants in each competition with the highest cumulative score will advance to Round #3.  The Online Round #2 component score will be weighted more heavily than the Online Round #1 component score in calculating the cumulative score. Each contestant's cumulative score will be calculated as follows:
                <ul>
-               <li>Highest score from an Online Round #1 submission + (Highest score from an Online Round #2 submission x 1.3)</li>
+               <li>Highest individual component score from Online Round #1 + (Highest individual component score from Online Round #2 x 1.3)</li>
             </ul>
             </ul>
 
             <p><span class="bodySubtitle">Onsite Championship Round</span><br/>
-             Four (4) members will compete in each competition.  The member with the highest score of the final submission will be declared the winner.</p>
+             Four (4) members will compete in each competition.  The member with the highest individual component score of the final submission will be declared the winner.</p>
              <p>
-             The four (4) advancers from Online Round #2 in each competition will travel to the Boston Park Plaza Hotel & Towers on Thursday, April 15th to compete in the final review stage of Round #3 being held on Friday, April 16th.  All contestants must arrive at the Boston Park Plaza Hotel & Towers no later than 4:00 PM on Thursday, April 15th.  If a contestant is unable to attend the onsite round, he/she will forfeit his/her eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest weighted total from Online Round #2.</p>
+             The four (4) advancers from Online Round #2 in each competition will travel to the Boston Park Plaza Hotel & Towers on Thursday, April 15th to compete in the final review stage of Round #3 being held on Friday, April 16th.  All contestants must arrive at the Boston Park Plaza Hotel & Towers no later than 4:00 PM on Thursday, April 15th.  If a contestant is unable to attend the onsite round, he/she will forfeit his/her eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest cumulative score from Online Round #2.</p>
              <p>
-             TopCoder will provide travel arrangements for each competitor up to a cost of $1,000 per person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  In addition, TopCoder will also provide travel arrangements to and from the airport to the Boston Park Plaza Hotel & Towers and accommodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will not provide travel or lodging accommodations for competitor guests at the 2004 TCCC.</p>
+             TopCoder will provide travel arrangements for each competitor up to a cost of $1,000 per person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  The Boston Park Plaza Hotel & Towers will provide travel arrangements to and from the airport and TopCoder will provide accomodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will <b>not</b> provide travel or lodging accommodations for competitor guests at the 2004 TCCC.</p>
              <p>
-             Championship Round #3 will be a single round of four (4) members in each competition.  The two winners of Championship Round #3 will be the members with the highest score of his/her component submission in each competition.</p>
+             Championship Round #3 will be a single round of four (4) members in each competition.  The winners will be crowned, one Design Champion and one Development Champion will be the members with the highest score of his/her component submission in each competition.</p>
 
             <p>Championship Tiebreaker:  In the event of a tie in the Championship Round, the tie will be resolved in the following manner (in order):</p>
 
             <ol>
-            <li>By weighted total at the end of Online Round #2</li>
+            <li>By cumulative score at the end of Online Round #2 (highest cumulative score wins)</li>
             <li>If a tie still remains, then by the highest Online Round #2 submission score</li>
             <li>If a tie still remains, then the prize money will be distributed equally among the tied members</li>
             </ol>
@@ -157,7 +154,7 @@
             <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>About the Prizes</h2>
             
-            <p>All contestants who submit components that pass screening in Online Round #1 will receive a prize.  The tournament will award $61,000 in cash prizes, with $39,000 being awarded for the design competition and $22,000 for the development competition.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:</p>
+            <p>All contestants who submit components that pass screening in Online Round #1 will receive a prize.  The tournament will award $60,000 in cash prizes, with $40,000 being awarded for the design competition and $20,000 for the development competition.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:</p>
 
             <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -176,16 +173,16 @@
 
                 <tr>
                     <td class="sidebarText">2nd place finisher* in the Championship Round</td>
-                    <td class="sidebarText" align="right">$8,000</td>
+                    <td class="sidebarText" align="right">$9,000</td>
                     <td class="sidebarText">2nd place finisher* in the Championship Round</td>
-                    <td class="sidebarText" align="right">$4,000</td>
+                    <td class="sidebarText" align="right">$2,000</td>
                 </tr>
 
                 <tr>
                     <td class="sidebarText">3rd place finisher* in the Championship Round</td>
                     <td class="sidebarText" align="right">$2,000</td>
                     <td class="sidebarText">3rd place finisher* in the Championship Round</td>
-                    <td class="sidebarText" align="right">$2,000</td>
+                    <td class="sidebarText" align="right">$1,500</td>
                 </tr>
 
                 <tr>
