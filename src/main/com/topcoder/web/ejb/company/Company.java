@@ -37,6 +37,15 @@ public interface Company extends EJBObject {
     /**
      *
      *
+     * @see com.topcoder.web.ejb.company.CompanyBean#getNewUserStatus
+     */
+    String getNewUserStatus(long companyId)
+            throws RemoteException, EJBException;
+
+
+    /**
+     *
+     *
      * @see com.topcoder.web.ejb.company.CompanyBean#setName
      */
     void setName(long companyId, String name)
@@ -49,4 +58,14 @@ public interface Company extends EJBObject {
      */
     void setPrimaryContactId(long companyId, long primaryContactId)
             throws RemoteException, EJBException;
+
+    /**
+     *
+     *
+     * @see com.topcoder.web.ejb.company.CompanyBean#setNewUserStatus
+     */
+    void setNewUserStatus(long companyId, String status)
+            throws RemoteException, EJBException;
+
+
 }
