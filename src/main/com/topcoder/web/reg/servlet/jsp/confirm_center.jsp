@@ -59,8 +59,11 @@
     Email: <jsp:getProperty name="Registration" property="Email" /><br>
         Handle: <jsp:getProperty name="Registration" property="Handle" /><br>
         Password: <jsp:getProperty name="Registration" property="MaskedPassword" /><br>
-        <tc:getProperty id="notify" name="Registration" property="Notify" />
-        Match Notification: <%=(notify.equalsIgnoreCase(Registration.CHECKBOX_YES)?"Yes":"No")%><br>
+        Email Notification: 
+        <tc:notification selectedOnly="true" selectedValues="<%=Registration.getNotifications()%>" class="statText">
+          <%=notifyControl%>&#160;&#160;
+        </tc:notification>
+        <br>
         Quote: <jsp:getProperty name="Registration" property="Quote" /><br>
     </td>
   </tr>

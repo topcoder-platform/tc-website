@@ -38,6 +38,7 @@ public class Coder implements Serializable, Base {
   private ArrayList experiences;
   private ArrayList inquiries;
   private ArrayList demographicResponses;
+  private ArrayList notifications;
   private boolean hasImage;
 
 
@@ -73,6 +74,7 @@ public class Coder implements Serializable, Base {
     experiences = new ArrayList();
     inquiries = new ArrayList();
     demographicResponses = new ArrayList();
+    notifications = new ArrayList();
     hasImage = false;
   }
 
@@ -259,6 +261,10 @@ public class Coder implements Serializable, Base {
     this.demographicResponses = demographicResponses;
   }
 
+  public void setNotifications(ArrayList notifications) {
+    this.notifications = notifications;
+  }
+
   public void setRating(Rating rating) {
     this.rating = rating;
   }
@@ -400,6 +406,10 @@ public class Coder implements Serializable, Base {
     return demographicResponses;
   }
 
+  public ArrayList getNotifications() {
+    return notifications;
+  }
+
   public boolean getHasImage() {
     return hasImage;
   }
@@ -441,6 +451,7 @@ public class Coder implements Serializable, Base {
       result.addTag( RecordTag.getListXML("Skills", skills));
       result.addTag( RecordTag.getListXML("Experiences", experiences));
       result.addTag( RecordTag.getListXML("DemographicResponses", demographicResponses));
+      result.addTag( RecordTag.getListXML("Notifications", notifications));
       result.addTag( RecordTag.getListXML("Inquiries",inquiries) );
       result.addTag( rating.getXML() );
       result.addTag( new ValueTag("Ranking", ranking));
