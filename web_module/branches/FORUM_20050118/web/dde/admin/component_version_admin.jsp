@@ -444,7 +444,7 @@ if (action != null) {
         ver.setPhaseDate(gcDate.getTime());
         ver.setPhase(Long.parseLong(phase));
 
-	// qq
+	// qq verify that it was not in dev before
 	debug.addMsg("component version admin", "qq phase = "+Long.parseLong(phase) );
 	if (Long.parseLong(phase) == 113) {
 	    try {

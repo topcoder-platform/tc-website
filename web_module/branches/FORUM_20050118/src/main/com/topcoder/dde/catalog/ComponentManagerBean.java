@@ -16,6 +16,8 @@ import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.document.DocumentManager;
 import com.topcoder.apps.review.document.DocumentManagerHome;
+import com.topcoder.dde.notification.Notification;
+import com.topcoder.dde.notification.NotificationHome;
 import com.topcoder.dde.forum.*;
 import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.forum.*;
@@ -725,6 +727,8 @@ public class ComponentManagerBean
 
     public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor, long levelId)
             throws CatalogException {
+
+
         if (info == null) {
             throw new CatalogException(
             "Null specified for version info");
@@ -801,6 +805,9 @@ public class ComponentManagerBean
             }
         }
 
+        long newForum;
+        boolean isNewForumCreated = false;
+
         // If the version is changing to specification or development
         // Makes sure the specification forum is created even if the component
         // is moved directly from collaboration to development.
@@ -816,7 +823,6 @@ public class ComponentManagerBean
             }
             if (numforums == 0) {
                 try {
-                    long newForum;
                     com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
                     try {
                         forum = forumadminHome.create().createForum(forum,
@@ -831,6 +837,7 @@ public class ComponentManagerBean
                     newForum = forum.getId();
                     compforumHome.create(newForum, Forum.SPECIFICATION, versionBean);
                     createForumRoles(newForum, Forum.SPECIFICATION, info.getPublicForum());
+                    isNewForumCreated = true;
                 } catch(ForumException exception) {
                     ejbContext.setRollbackOnly();
                     throw new CatalogException(
@@ -865,6 +872,7 @@ public class ComponentManagerBean
                 (versionBean.getPhaseId() == ComponentVersionInfo.SPECIFICATION
                     && info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
 
+log.debug("qq1" );
             long projectTypeId;
             if (info.getPhase() == ComponentVersionInfo.SPECIFICATION) {
                 // TODO Change to reference
@@ -880,7 +888,7 @@ public class ComponentManagerBean
                         homeBindings.lookup(ProjectTrackerHome.EJB_REF_NAME),
                         ProjectTrackerHome.class);
                 ProjectTracker pt = ptHome.create();
-                pt.createProject(
+                long projectId = pt.createProject(
                         versionBean.getCompCatalog().getComponentName(),
                         info.getVersionLabel(),
                         info.getVersionId(),
@@ -889,6 +897,28 @@ public class ComponentManagerBean
                         null,
                         requestor,
                         levelId);
+log.debug("qq2");
+                if (isNewForumCreated) {
+log.debug("qq3");
+                    Project project = pt.getProjectById(projectId, requestor);
+log.debug("qq4");
+
+                    NotificationHome notificationHome = (NotificationHome)
+                            PortableRemoteObject.narrow(
+                            homeBindings.lookup(NotificationHome.EJB_REF_NAME),
+                            NotificationHome.class);
+log.debug("qq5");
+
+                    Notification notification = notificationHome.create();
+log.debug("qq6");
+
+                    Notification.createNotification("forum post "+
+                              newForum,project.getProjectManager().getId(),
+                              notification.FORUM_POST_TYPE_ID);
+log.debug("qq7");
+
+                }
+
             } catch (ClassCastException e) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(e.toString());
