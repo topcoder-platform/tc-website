@@ -27,15 +27,20 @@
           <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
             <TR>
               <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-              <TD CLASS="statTextBig" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-                <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
+              <TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
                 <!-- begin body -->
+                <BR/>
+                <BR/>
+                <BR/>
                 The ability to apply for a job at TopCoder is restricted to rated members. In line with TopCoder's
                 overall philosophy, this policy allows companies to differentiate coders who otherwise look the same
                 on paper. Non-rated members wishing to obtain a rating should review the competition calendar for the
                 <A HREF="/?&t=schedule&c=srm&RoundId=<jsp:getProperty name="JobHitTask" property="NextRoundId"/>" CLASS="statTextBig">next Single Round Match</A>.
                 Click <A HREF="/?&t=schedule&c=index" class="statTextBig">here</A> for a complete list of upcoming Single
                 Round Matches.
+                <BR/>
+                <BR/>
+                <BR/>
                 <!-- end body -->
               </TD>
               <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
