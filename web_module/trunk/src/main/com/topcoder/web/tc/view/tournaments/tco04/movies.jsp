@@ -25,7 +25,8 @@
 
 		<table cellspacing=0 cellpadding=5 class=bodyText width="100%">
 			<tr>
-				<td class=bodyText align=center><A href="/i/tournament/tco04/onsite/movies/room1_results.MPG"><img src="/i/clear.gif" width=160 height=120 border=1/><br/><br/>Room 1 intros (20 MB)</A></td>
+				<td class=bodyText align=center><A href="/i/tournament/tco04/onsite/movies/room1_results.MPG"><img src="/i/clear.gif" width=160 height=120 border=1/>
+				<br/><br/>Room 1 results (20 MB)</A></td>
             </tr>
 		</table>
 
