@@ -133,15 +133,16 @@
                                 </td>
                             </tr>
                         </pl:responseIterator>
+                        
+                        <tr>
+                            <td class="brRegTableQuestion">Resume</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="UploadStatus"/></td>
+                        </tr>
                         <tr>
                             <td class="brRegTableQuestion"></td>
                             <td class="brRegTableAnswer"><br/>
                             <a class="brRegTableAnswer" href="javascript: document.regForm.submit();">Submit</a>
                             </td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion">Resume</td>
-                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="UploadStatus"/></td>
                         </tr>
                         </table>
 
