@@ -44,7 +44,7 @@ function goTo(selection){
 	<TR>
 		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-
+<BR/>
 <!-- <jsp:include page="MemberHeader.jsp" flush="true" /> -->
 <%@ page import="com.topcoder.web.pacts.common.*" %>
 
@@ -99,7 +99,7 @@ function goTo(selection){
 	String href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.CONTRACT_TASK, 
-	            PactsConstants.CONTRACT_PAYMENT_SUMMARY_CMD, str);
+	            PactsConstants.CONTRACT_PAYMENT_SUMMARY_CMD, str, "statText");
 	tableData.setElement(6,1,href);
 
 	
