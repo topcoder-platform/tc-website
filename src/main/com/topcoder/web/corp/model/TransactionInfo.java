@@ -70,7 +70,7 @@ public class TransactionInfo {
                 req.getSession(true)
         );
         contactID = (new BasicAuthentication(store, req, resp))
-                .getActiveUser().getId();
+                .getUser().getId();
 
         InitialContext icEJB = null;
         try {

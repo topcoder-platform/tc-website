@@ -2,8 +2,11 @@ package com.topcoder.web.corp.controller;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.security.Authorization;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
+import com.topcoder.web.corp.request.Login;
 import com.topcoder.web.corp.model.TransactionInfo;
 import com.topcoder.web.ejb.product.*;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
@@ -11,6 +14,12 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUseHome;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseHome;
 import com.topcoder.web.common.tag.BaseTag;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.TCSAuthorization;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.NotAuthorizedException;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletConfig;
@@ -24,6 +33,7 @@ import java.sql.Date;
 import java.util.Hashtable;
 import java.util.HashMap;
 import java.util.Vector;
+import java.net.URLEncoder;
 
 /**
  * Credit card transaction servlet. Used for both client and VeriSign
@@ -82,6 +92,9 @@ public class TransactionServlet extends HttpServlet {
     private String defaultPageFailure = null;
     private String defaultPageIntForm = null;
     private String defaultPageTerms = null;
+    private String errorPageSecurity = null;
+    private String loginApplicationPage = null;
+
 
     /**
      * Sets up default success, failure and, intermediate form pages for servlet
@@ -95,6 +108,10 @@ public class TransactionServlet extends HttpServlet {
         defaultPageFailure = cfg.getInitParameter("page-failure");
         defaultPageIntForm = cfg.getInitParameter("intermediate-form");
         defaultPageTerms = cfg.getInitParameter("terms");
+        errorPageSecurity = cfg.getInitParameter("page-error-security");
+        loginApplicationPage = cfg.getInitParameter("page-login");
+
+
     }
 
     /**
@@ -157,6 +174,7 @@ public class TransactionServlet extends HttpServlet {
             throws ServletException, IOException {
         String op = req.getParameter(KEY_OPERATION);
         req.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
+        WebAuthentication auth = null;
         if (OP_TX_STATUS.equals(op)) {
             try {
                 String retPage = txStatus(req, resp);
@@ -169,16 +187,58 @@ public class TransactionServlet extends HttpServlet {
             }
         } else if (OP_TERMS.equals(op)) {
             try {
+                SessionPersistor store = new SessionPersistor(req.getSession(true));
+                auth = new BasicAuthentication(store, req, resp);
+                TCSubject tcUser = Util.retrieveTCSubject(auth.getActiveUser().getId());
+                Authorization authorization = new TCSAuthorization(tcUser);
+
+                if (!authorization.hasPermission(new ClassResource(this.getClass()))) {
+                    log.debug("user [id=" + tcUser.getUserId() + "] has not enough " +
+                            "permissions to work with module " + this.getClass().getName()
+                    );
+                    throw new NotAuthorizedException(
+                            "Not enough permissions to work with requested module"
+                    );
+                }
+
                 TransactionInfo txInfo = buildTermsTransactionInfo(req, resp);
                 req.setAttribute(KEY_TRANSACTION_INFO, txInfo);
                 req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
-              } catch (Exception e) { // possible parameters are wrong
+            } catch (NotAuthorizedException nae) {
+                if (auth.getUser().isAnonymous()) {
+                    /* If the user is anonymous and tries to access a resource they
+                       are not authorized to access, send them to login page.    */
+                    log.debug("user unauthorized to access resource and user " +
+                            "not logged in, forwarding to login page.");
+                    fetchLoginPage(req, resp);
+                    return;
+                } else {
+                    /* If the user is logged-in and is not authorized to access
+                       the resource, send them to an authorization failed page */
+                    log.error("Unauthorized Access to [" + this.getClass().getName() + "]", nae);
+                    fetchErrorPage(req, resp, errorPageSecurity, nae);
+                    //fetchAuthorizationFailedPage(request, response, nae);
+                }
+            } catch (Exception e) { // possible parameters are wrong
                 e.printStackTrace();
                 req.setAttribute(KEY_EXCEPTION, e);
                 req.getRequestDispatcher(defaultPageFailure).forward(req, resp);
             }
         } else if (OP_TX_BEGIN.equals(op)) {
             try {
+                SessionPersistor store = new SessionPersistor(req.getSession(true));
+                auth = new BasicAuthentication(store, req, resp);
+                TCSubject tcUser = Util.retrieveTCSubject(auth.getActiveUser().getId());
+                Authorization authorization = new TCSAuthorization(tcUser);
+
+                if (!authorization.hasPermission(new ClassResource(this.getClass()))) {
+                    log.debug("user [id=" + tcUser.getUserId() + "] has not enough " +
+                            "permissions to work with module " + this.getClass().getName()
+                    );
+                    throw new NotAuthorizedException(
+                            "Not enough permissions to work with requested module"
+                    );
+                }
                 //only begin if they have agreed to terms.
                 if ("on".equalsIgnoreCase(req.getParameter(Constants.KEY_AGREE_TO_TERMS))) {
                     txBegin(req, resp);
@@ -193,6 +253,21 @@ public class TransactionServlet extends HttpServlet {
                     req.setAttribute(BaseTag.CONTAINER_NAME_FOR_ERRORS, formErrors);
                     req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
                 }
+            } catch (NotAuthorizedException nae) {
+                if (auth.getUser().isAnonymous()) {
+                    /* If the user is anonymous and tries to access a resource they
+                       are not authorized to access, send them to login page.    */
+                    log.debug("user unauthorized to access resource and user " +
+                            "not logged in, forwarding to login page.");
+                    fetchLoginPage(req, resp);
+                    return;
+                } else {
+                    /* If the user is logged-in and is not authorized to access
+                       the resource, send them to an authorization failed page */
+                    log.error("Unauthorized Access to [" + this.getClass().getName() + "]", nae);
+                    fetchErrorPage(req, resp, errorPageSecurity, nae);
+                    //fetchAuthorizationFailedPage(request, response, nae);
+                }
             } catch (Exception e) { // possible parameters are wrong
                 e.printStackTrace();
                 req.setAttribute(KEY_EXCEPTION, e);
@@ -204,8 +279,9 @@ public class TransactionServlet extends HttpServlet {
                 resp.setStatus(HttpServletResponse.SC_OK);
             } catch (Exception e) {
                 try {
-                  ((TransactionInfo) currentTransactions.get(transactionKey(req))).setTcExc(e);
-                } catch (Exception ignore) { }
+                    ((TransactionInfo) currentTransactions.get(transactionKey(req))).setTcExc(e);
+                } catch (Exception ignore) {
+                }
 
                 log.error("Can't complete CC Tx", e);
                 resp.setStatus(HttpServletResponse.SC_ACCEPTED);
@@ -227,7 +303,7 @@ public class TransactionServlet extends HttpServlet {
     private String txStatus(HttpServletRequest req, HttpServletResponse resp)
             throws Exception {
         // VeriSign has returned after transaction copletion
-        String txRc = req.getParameter(KEY_RC);
+//        String txRc = req.getParameter(KEY_RC);
         TransactionInfo txInfo = (
                 (TransactionInfo) currentTransactions.get(transactionKey(req))
                 );
@@ -267,8 +343,8 @@ public class TransactionServlet extends HttpServlet {
     private void txBegin(HttpServletRequest req, HttpServletResponse resp)
             throws Exception {
         TransactionInfo txInfo = buildTransactionInfo(req, resp);
-        InitialContext ic = (InitialContext)TCContext.getInitial();
-        UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+        InitialContext ic = (InitialContext) TCContext.getInitial();
+        UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
         if (!userTerms.hasTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
             userTerms.createUserTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID);
         }
@@ -339,7 +415,7 @@ public class TransactionServlet extends HttpServlet {
         InitialContext icEJB = null;
         Transaction dbTx = null;
         try {
-            icEJB = (InitialContext)TCContext.getInitial();
+            icEJB = (InitialContext) TCContext.getInitial();
             dbTx = Util.beginTransaction();
             Purchase purchaseTable = (
                     (PurchaseHome) icEJB.lookup(PurchaseHome.EJB_REF_NAME)
@@ -395,13 +471,13 @@ public class TransactionServlet extends HttpServlet {
         return txInfo;
     }
 
-    private TransactionInfo buildTermsTransactionInfo(HttpServletRequest req, HttpServletResponse resp )
+    private TransactionInfo buildTermsTransactionInfo(HttpServletRequest req, HttpServletResponse resp)
             throws Exception {
         TransactionInfo txInfo = new TransactionInfo(req, resp);
         InitialContext ic = (InitialContext) TCContext.getInitial();
         TermsOfUse terms = ((TermsOfUseHome) ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
         txInfo.setTerms(terms.getText(Constants.GENERAL_PRODUCT_TERMS_ID));
-        UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+        UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
         if (userTerms.hasTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
             txInfo.setAgreed(true);
         } else {
@@ -428,5 +504,107 @@ public class TransactionServlet extends HttpServlet {
         }
         return key;
     }
+
+
+    /**
+     *
+     * @param req
+     * @param resp
+     * @param dest
+     * @param forward
+     * @throws IOException
+     * @throws ServletException
+     */
+    private void fetchRegularPage(
+            HttpServletRequest req,
+            HttpServletResponse resp,
+            String dest,
+            boolean forward
+            )
+            throws IOException, ServletException {
+        if (dest == null) {
+            // it is supposed when processor returns null as next page, then
+            // controller must use defaul page
+            dest = new SessionPersistor(req.getSession(true)).popLastPage();
+            if (dest == null) { //still null
+                dest = req.getContextPath() + "/"; // default page is web app root
+            }
+        }
+        log.debug((forward ? "forwarding" : "redirecting") + " to " + dest);
+
+        String contextPrefix = req.getContextPath();
+        boolean startsWithContextPath = dest.startsWith(contextPrefix);
+        if (forward) {
+            // forwarded pages *must not* contain servlet context path
+            if (startsWithContextPath) {
+                dest = dest.substring(contextPrefix.length());
+            }
+            getServletContext().getRequestDispatcher(dest).forward(req, resp);
+        } else {
+            resp.sendRedirect(dest);
+        }
+    }
+
+    /**
+     * Forces error page to be returned to user. As I think, all errors must
+     * look similarly for the user - 403 forbidden. There is not any need to
+     * show him software internals because he was going on the page for
+     * some other reason. The only exception is debug time, at that time page
+     * may optionally include stack trace.
+     *
+     * @param req
+     * @param resp
+     * @param errPage
+     * @param exc
+     * @throws ServletException
+     * @throws IOException
+     */
+    private void fetchErrorPage(
+            HttpServletRequest req,
+            HttpServletResponse resp,
+            String errPage,
+            Throwable exc
+            )
+            throws ServletException, IOException {
+        // error page is regular page too with the only difference - it
+        // has an error attribute set in request, so..
+        if (exc != null) {
+            req.setAttribute(Constants.KEY_EXCEPTION, exc);
+        }
+        String contextPath = req.getContextPath();
+        if (!errPage.startsWith(contextPath)) {
+            errPage = contextPath + errPage;
+        }
+        fetchRegularPage(req, resp, errPage, true);
+    }
+
+
+    /**
+     * private method for sending user to login page.
+     *
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
+    private void fetchLoginPage(
+            HttpServletRequest req,
+            HttpServletResponse resp
+            )
+            throws ServletException, IOException {
+        String originatingPage = req.getRequestURI();
+        if (req.getQueryString() != null) {
+            originatingPage += "?" + req.getQueryString();
+        }
+        log.debug("fetchLoginPage request, orginatingPage = " + originatingPage);
+
+        StringBuffer loginPageDest = new StringBuffer(128);
+        loginPageDest
+                .append(loginApplicationPage).append('?')
+                .append(Login.KEY_DESTINATION_PAGE).append('=')
+                .append(URLEncoder.encode(originatingPage));
+        fetchRegularPage(req, resp, loginPageDest.toString(), true);
+    }
+
 
 }
