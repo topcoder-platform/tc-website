@@ -1065,9 +1065,6 @@
              <fileset dir="${ejb_jars}">
                  <include name="security.jar"/>
              </fileset>
-             <fileset dir="${resources}/security/conf">
-                 <include name="com/topcoder/security/Util.properties"/>
-             </fileset>
          </ear>
      </target>
 
