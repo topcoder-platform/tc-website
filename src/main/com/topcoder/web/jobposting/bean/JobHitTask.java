@@ -117,8 +117,8 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
                         for (int i = 0; i < jobHits.size(); i++) {
                             long currJob = ((Long) jobHits.get(i)).intValue();
                             try {
-                                if (jpServices.jobExists(currJob)) {
-                                    jpServices.addJobHit(userId, currJob, Constants.JOB_POSTING_ID);
+                                if (jpServices.jobExists(currJob, DBMS.OLTP_DATASOURCE_NAME)) {
+                                    jpServices.addJobHit(userId, currJob, Constants.JOB_POSTING_ID, DBMS.OLTP_DATASOURCE_NAME);
                                 } else {
                                     throw new Exception("job: " + currJob + " either doesn't exist or isn't active");
                                 }
@@ -132,10 +132,10 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
                         setNextPageInternal(true);
                     } else {
                         try {
-                            if (jpServices.jobExists(jobId)) {
-                                jpServices.addJobHit(userId, jobId, hitType);
+                            if (jpServices.jobExists(jobId, DBMS.OLTP_DATASOURCE_NAME)) {
+                                jpServices.addJobHit(userId, jobId, hitType, DBMS.OLTP_DATASOURCE_NAME);
                                 if (hitType==Constants.CLICK_THRU_ID) {
-                                    setNextPage(jpServices.getLink(jobId));
+                                    setNextPage(jpServices.getLink(jobId, DBMS.OLTP_DATASOURCE_NAME));
                                     setNextPageInternal(false);
                                 } else {
                                     setNextPage(Constants.PROFILE_PAGE);

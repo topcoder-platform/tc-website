@@ -158,8 +158,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
         long jobId = getJobId();
         if (jobId > 0) {
             JobPostingServices jp = (JobPostingServices)createEJB(getInitialContext(), JobPostingServices.class);
-            if (jp.jobExists(jobId)) {
-                jp.addJobHit(newUser.getId(), jobId, HIT_TYPE);
+            if (jp.jobExists(jobId, db)) {
+                jp.addJobHit(newUser.getId(), jobId, HIT_TYPE, db);
             } else {
                 throw new Exception ("Invalid or inactive job " + jobId);
             }

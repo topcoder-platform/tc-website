@@ -17,7 +17,6 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
