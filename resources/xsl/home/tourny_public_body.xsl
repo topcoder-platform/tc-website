@@ -433,17 +433,18 @@ If you have ever played a video game, gone to a movie, or just watched a bit of 
     </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
-<!--
-<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=apex</xsl:attribute></A>  
-<IMG USEMAP="#apex_home" SRC="/i/es/apex/apex_home.gif" alt="" width="244" height="160" border="0"/>  
+
+<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=ge</xsl:attribute></A>  
+<IMG USEMAP="#ge_home" SRC="/i/es/ge/ge_home.gif" alt="" width="244" height="160" border="0"/>  
   <BR/>
-<map name="apex_home">
-<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
-<area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=apex"/>
+<map name="ge_home">
+<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/> -->
+<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?ContestId=4330&amp;t=schedule&amp;c=srm"/>
+<area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=ge"/>
 </map>
--->
-<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
-<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/>
+
+<!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
+<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/> -->
 
 <A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
 <IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>
