@@ -579,18 +579,18 @@ public class TCLoadTCS extends TCLoad {
 
             while(rs.next())
             {
-                 sSQL = "update submission_review set reviewer_id = ?, raw_score = ?, final_score = ?, num_appeals = ?, num_successful_appeals = ? " +
-                 "where project_id = ? and user_id = ?";
+                 sSQL = "update submission_review set raw_score = ?, final_score = ?, num_appeals = ?, num_successful_appeals = ? " +
+                 "where project_id = ? and user_id = ? and reviewer_id = ?";
                 
                  ps2 = prepareStatement(sSQL, TARGET_DB);
-
-                 ps2.setLong(1, rs.getLong("reviewer_id"));
-                 ps2.setObject(2, rs.getObject("raw_score"));
-                 ps2.setObject(3, rs.getObject("final_score"));
-                 ps2.setObject(4, rs.getObject("num_appeals"));
-                 ps2.setObject(5, rs.getObject("num_successful_appeals"));
-                 ps2.setLong(6, project_id);
-                 ps2.setLong(7, rs.getLong("user_id"));
+                 
+                 ps2.setObject(1, rs.getObject("raw_score"));
+                 ps2.setObject(2, rs.getObject("final_score"));
+                 ps2.setObject(3, rs.getObject("num_appeals"));
+                 ps2.setObject(4, rs.getObject("num_successful_appeals"));
+                 ps2.setLong(5, project_id);
+                 ps2.setLong(6, rs.getLong("user_id"));
+                 ps2.setLong(7, rs.getLong("reviewer_id"));
 
                  int retVal = ps2.executeUpdate();
 
