@@ -259,7 +259,7 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 
     <jsp:include page="../script.jsp" />
-    <jsp:include page="rating.jsp" />
+    <%@ include file="rating.jsp" %>
 
   </HEAD>
 
