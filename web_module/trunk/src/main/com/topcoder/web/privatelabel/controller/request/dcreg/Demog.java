@@ -3,6 +3,7 @@ package com.topcoder.web.privatelabel.controller.request.dcreg;
 import com.topcoder.web.privatelabel.controller.request.FullRegDemog;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.common.TCWebException;
 
 /**
@@ -22,7 +23,8 @@ public class Demog extends FullRegDemog {
 
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);
-        if (!(info.getEmail().toLowerCase().endsWith("columbia.edu") ||
+        if (((FullRegInfo)info).getCoderType()==Constants.STUDENT &&
+                !(info.getEmail().toLowerCase().endsWith("columbia.edu") ||
                 info.getEmail().toLowerCase().endsWith("nyu.edu") ||
                 info.getEmail().equals("gpaul@topcoder.com"))) {
             addError(Constants.EMAIL, "Please provide a valid email address ending in either columbia.edu or nyu.edu");
