@@ -1,4 +1,4 @@
-package com.topcoder.web.query.common;
+package com.topcoder.web.query.bean;
 
 import java.io.Serializable;
 

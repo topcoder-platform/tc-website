@@ -9,7 +9,7 @@ public class CommandQueryIteratorTagInfo extends TagExtraInfo {
     public VariableInfo[] getVariableInfo(TagData data) {
         return new VariableInfo[]{
             new VariableInfo(data.getId(),
-                    "com.topcoder.web.query.common.CommandQueryBean",
+                    "com.topcoder.web.query.bean.CommandQueryBean",
                     true,
                     VariableInfo.NESTED)
         };

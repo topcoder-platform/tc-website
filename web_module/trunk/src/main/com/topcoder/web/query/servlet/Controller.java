@@ -2,7 +2,7 @@ package com.topcoder.web.query.servlet;
 
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.bean.Task;
+import com.topcoder.web.query.bean.task.Task;
 import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
 

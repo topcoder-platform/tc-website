@@ -1,4 +1,4 @@
-package com.topcoder.web.query.bean;
+package com.topcoder.web.query.bean.task;
 
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
@@ -6,6 +6,7 @@ import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.ejb.QueryServices.Query;
 import com.topcoder.web.query.ejb.QueryServices.QueryHome;
+import com.topcoder.web.query.bean.task.BaseTask;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,6 +1,6 @@
 package com.topcoder.web.query.servlet.jsp.tag;
 
-import com.topcoder.web.query.common.InputBean;
+import com.topcoder.web.query.bean.InputBean;
 
 import javax.servlet.jsp.JspException;
 import java.util.List;

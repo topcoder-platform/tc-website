@@ -5,7 +5,7 @@
            com.topcoder.web.query.bean.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
-<jsp:useBean id="QueryDetailTask" scope="request" class="com.topcoder.web.query.bean.QueryDetailTask" />
+<jsp:useBean id="QueryDetailTask" scope="request" class="com.topcoder.web.query.bean.task.QueryDetailTask" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
