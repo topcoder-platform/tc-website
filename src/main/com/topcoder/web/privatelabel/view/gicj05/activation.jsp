@@ -39,13 +39,6 @@
 			</div>
 
 			<br/><br/>
-
-			<span class=bigTitle>Registration</span>
-			<span valign=top>
-			<jsp:include page="right_reg.jsp" />
-			</span>
-
-			<br/><br/>
 			<span class=bigTitle>Activation Successful!</span>
 			<span valign=top>
 			<jsp:include page="right_reg.jsp" />
