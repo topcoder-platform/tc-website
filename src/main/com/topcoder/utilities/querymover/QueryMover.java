@@ -23,8 +23,8 @@ public class QueryMover {
 //    private static final String sourceDataSourceName = "JTS_OLTP";
 //    private static final String targetDataSourceName = "JTS_HS_OLTP";
 
-    private static final String sourceDataSourceName = "DW";
-    private static final String targetDataSourceName = "HS_DW";
+    private static final String sourceDataSourceName = "HS_DW";
+    private static final String targetDataSourceName = "DW";
 
     private static final String sourceContextFactory = "weblogic.jndi.WLInitialContextFactory";
     private static final String targetContextFactory = "weblogic.jndi.WLInitialContextFactory";
