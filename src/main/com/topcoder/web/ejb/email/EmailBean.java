@@ -314,7 +314,7 @@ public class EmailBean extends BaseEJB {
 
     public void setStatusId(long emailId, int statusId, String dataSource) {
         int ret = update("email",
-                new String[] {"stutus_id"},
+                new String[] {"status_id"},
                 new String[] {String.valueOf(statusId)},
                 new String[] {"email_id"},
                 new String[] {String.valueOf(emailId)},
