@@ -7,12 +7,11 @@
 <TITLE>TopCoder - Candidate Evaluation</TITLE>
 <jsp:include page="/script.jsp"/>
 <SCRIPT TYPE="text/javascript">
-function getProblemDetail(url,wd,ht) {
-    var last=0;
-    var daHt = parseInt(ht) + parseInt('49');
-    var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0";
+function getProblemDetail(id) {
+    var size = "top=2,left=2,width=600,height=549,status=0";
     var name="graph";
-    window.open('tc_prob_results.jsp?'+url+'&width='+wd+'&height='+ht,name,size);
+    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PopulateProblemDetail"; %>
+    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,size);
     return;
   }
 </SCRIPT>
