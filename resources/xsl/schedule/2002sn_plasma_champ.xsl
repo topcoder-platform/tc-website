@@ -30,7 +30,7 @@
        <TR>
           <TD CLASS="statText" WIDTH="25%">
 <FONT SIZE="4" COLOR="#FFFFFF" FACE="verdana, arial, tahoma"><B>
-bean911</B><BR/></FONT>
+chogyonim</B><BR/></FONT>
           </TD>
           <TD CLASS="statText" WIDTH="25%">
 <FONT SIZE="4" COLOR="#FFFFFF" FACE="verdana, arial, tahoma"><B>
@@ -38,11 +38,11 @@ dpecora</B><BR/></FONT>
           </TD>
           <TD CLASS="statText" WIDTH="25%">
 <FONT SIZE="4" COLOR="#FFFFFF" FACE="verdana, arial, tahoma"><B>
-krmc</B><BR/></FONT>
+jonmac</B><BR/></FONT>
           </TD>
           <TD CLASS="statText" WIDTH="25%">
 <FONT SIZE="4" COLOR="#FFFFFF" FACE="verdana, arial, tahoma"><B>
-sqrrrl</B><BR/></FONT>
+radeye</B><BR/></FONT>
           </TD>
        </TR>		
 </TABLE>
