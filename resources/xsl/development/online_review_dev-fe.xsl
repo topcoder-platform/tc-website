@@ -89,7 +89,7 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 					        <li>Struts</li>
 						</ul>
 
-						<p><strong>Documentation</strong</p>
+						<p><strong>Documentation</strong><br/>
 						Documentation for this project is provided in the <a class="statText" href="/i/development/downloads/Online_Review_Design.jar">Online Review Design Distribution</a>.
 						</p>
 
@@ -112,7 +112,7 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
                                                 	
 
 <!-- Definition of Completion -->
-						<p /><sup>*</sup>Completion of the project is defined as follows:</p>
+						<p><sup>*</sup>Completion of the project is defined as follows:</p>
 				<p>
 				The Initial Submission has been delivered by the Initial Submission Due Date.  The Submission has been reviewed by the board and if required changes have been re-submitted by the developer. Development payment is conditional on receiving a minimum score of fifty (50) by the Development Review Board.  The Integration Payment will be paid out following the completion of the integration period.  The Integration Payment is condition on acceptance of the fully functional application by the TopCoder Application Manager.
 				</p>
@@ -150,7 +150,6 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review">Inquire for the project</a></strong><br/> to be eligible to be selected as one of the two (2) developers for this project.  Each development submission receiving a score of fifty (50) or greater will receive the minimum development payment.  
 						</p>
 						
-                            </p>
                             <p>
                                  To submit a solution, email your submissions to <a href="mailto:submissions@topcodersoftware.com" class="statText">submissions@topcodersoftware.com</a>.
                             </p>
