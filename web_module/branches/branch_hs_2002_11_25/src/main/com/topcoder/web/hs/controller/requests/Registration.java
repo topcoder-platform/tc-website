@@ -1,10 +1,15 @@
 package com.topcoder.web.hs.controller.requests;
 
+import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.Transaction;
 
 import java.util.*;
+import javax.naming.*;
 import javax.servlet.*;
+import javax.sql.*;
 
 /**
  * A RequestProcessor which handles the registration of new users.  It contains
@@ -47,7 +52,6 @@ public class Registration extends Base {
 
   private final static String COACH_TYPE="coach";
 
-
   protected void businessProcessing() throws Exception {
 
     String cmd=request.getParameter("c");
@@ -65,9 +69,21 @@ public class Registration extends Base {
     else if (cmd.equals(REG_CMD)) {
       String coder_type=request.getParameter("coderType");
 
+      Context ctx=TCContext.getInitial();
+      DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+      DataAccessInt dai=new CachedDataAccess(ds);
+      Map map=new HashMap();
+
       /* If coder_type=="student" redirect to the student registration page
        */
       if (STUDENT_TYPE.equals(coder_type)) {
+
+        map.put(DataAccessConstants.COMMAND,"student_form");
+        Request req=new Request(map);
+        Map data=dai.getData(req);
+
+        request.setAttribute("FORM_DATA",data);
+
         setNextPage(REG_BASE+REG_STUDENT_PAGE);
       }
 
