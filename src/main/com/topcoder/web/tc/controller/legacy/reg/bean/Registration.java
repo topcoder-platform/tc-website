@@ -15,6 +15,7 @@ import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.tc.view.reg.tag.Demographic;
 import com.topcoder.web.tc.view.reg.tag.Notification;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
@@ -1712,13 +1713,16 @@ public class Registration
             //refresh their cache stuff in case they changed their quote or somthing else that is relevant.
             String tempKey = null;
             try {
-                log.debug("looking for userid " + user.getUserId() + " in cache");
-                String key = String.valueOf(user.getUserId());
+                Request r = new Request();
+                r.setContentHandle("member_profile");
+                r.setProperty("cr",String.valueOf(user.getUserId()));
+                String key= r.getCacheKey();
+                log.debug("looking for userid " + key + " in cache");
                 CacheClient client = CacheClientFactory.createCacheClient();
                 ArrayList list = client.getKeys();
                 for (int i=0; i<list.size(); i++) {
                     tempKey = (String)list.get(i);
-                    if (tempKey.indexOf(key) > -1 && tempKey.indexOf("member_profile") > -1) {
+                    if (tempKey.equals(key)) {
                         client.remove(tempKey);
                     }
                 }
