@@ -1334,6 +1334,7 @@ public class TCLoadAggregate extends TCLoad {
                 query.append(" FROM room_result");
                 query.append(" WHERE attended = 'Y'");
                 query.append(" AND round_id = " + fRoundId + ")");
+                query.append(" AND cp.round_id = " + fRoundId + " ");
             }
             query.append(" GROUP BY cp.round_id ");
             query.append(" ,cp.coder_id ");
