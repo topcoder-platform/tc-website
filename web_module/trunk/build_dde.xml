@@ -271,7 +271,7 @@
                 <exclude name="online_review/**/*"/>
             </fileset>
             <classes dir="${build_classdir}">
-                <include name="com/topcoder/dde/servlets/**"/>
+                <include name="com/topcoder/dde/servlet/**"/>
                 <include name="com/topcoder/dde/request/**"/>
                 <include name="com/topcoder/dde/util/**"/>
                 <include name="com/topcoder/shared/**/*.class"/>
