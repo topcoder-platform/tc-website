@@ -12,7 +12,7 @@
 <head>
 <title>TopCoder | Login</title>
 
-<link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
+<jsp:include page="includes/css.jsp" />
 
 <script language="JavaScript" type="text/javascript" src="/js/script.js"></script>
 
