@@ -79,23 +79,23 @@ public class SimpleSearch extends Base {
         if (!handle.equals(""))
             ret.setHandle(handle);
 
-        String stateCode = StringUtils.checkNull(getRequest().getParameter(Constants.STATE_CODE);
+        String stateCode = StringUtils.checkNull(getRequest().getParameter(Constants.STATE_CODE));
         if (!stateCode.equals(""))
             ret.setStateCode(stateCode);
 
-        String minRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_RATING);
+        String minRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_RATING));
         if (!minRating.equals(""))
             ret.setMinRating(new Integer(minRating));
 
-        String maxRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_RATING);
+        String maxRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_RATING));
         if (!maxRating.equals(""))
             ret.setMaxRating(new Integer(maxRating));
 
-        String minNumRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_NUM_RATINGS);
+        String minNumRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_NUM_RATINGS));
         if (!minNumRatings.equals(""))
             ret.setMinNumRatings(new Integer(minNumRatings));
 
-        String maxNumRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_NUM_RATINGS);
+        String maxNumRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_NUM_RATINGS));
         if (!maxNumRatings.equals(""))
             ret.setMaxNumRatings(new Integer(maxNumRatings));
 
