@@ -388,13 +388,13 @@ for (int i=7;i&lt;=14;i++) do_it(0,i,0,a,b);
       </tr>
     </table>
   </blockquote>
-<P>
+
 70 out of 76 coders who opened Tetramino, received 0 points.
+<P>
 Reference implementation: <B>jms137</B>
- 
 </P>
  
-Reference implementation:
+
 <BR/>
 <h4>Implementation</h4>
 <P>

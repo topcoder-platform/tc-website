@@ -395,8 +395,8 @@
 <tr> 
     <td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td> 
     <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><b>Single Round Match 126</b></a><br/>
-Monday, December 23, 2002<br/><br/>
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><b>Single Round Match 127</b></a><br/>
+Thursday, January 2, 2003<br/><br/>
 
 
     </td>    
@@ -490,25 +490,42 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
   </tr>  
   <tr>
     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>  
-    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br/> 
-    By&#160;Logan<br/><i>[TC]&#160;Member</i><br/></td>
+    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/slavik_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br/> 
+    By&#160;slavik<br/><i>[TC]&#160;Member</i><br/></td>
     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td> 
     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-    <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 126</b></font>
+    <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 127</b></font>
     </td>
   </tr>      
   <tr>
     <td valign="top" class="bodyText" width="100%">
 	<a class="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm126_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm127_prob</xsl:attribute>
         <b>Problem Set Analysis &amp; Opinion</b>
       </a><br/>
-<p> 
-This problem set had some extremely easy problems, but it also had some difficult problems 
-(relatively speaking). The Division-II Level 3 problem was moderately difficult for a Division-II 
-problem. The Division-I Level 2 problem was a bit large for a Level 2 problem; it could have easily 
-been split up into three different Level 1 problems. The Division-I Level 3 problem was also time-consuming, 
-yielding only 15 submissions, out of which only 6 were correct...<a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm126_prob</xsl:attribute>Get the analysis</a>
+<P>
+SRM 127 was one of those SRM where 0 was not such a bad score compared to everybody else. There were only 26 
+coders in Div-I with a score greater then 0. The problem set was a blood bath for Div-I coders where about only 1 
+out of 4 coders got a positive score. The problem set for Div-II on the other hand was much nicer and was well balanced. 
+So more people in Div-II had positive scores.
+</P>
+
+<P>
+The strongest Division-I performance of this match came from <B>radeye</B> (660.00 points, 70 rating points gain), 
+who beat the next runner up - <B>ambrose</B> by 103 points. <B>radeye</B>  was the only coder who completed three problems 
+in Div-I and only 1 out 2 coders who submitted the hard problem (even thought his solution for the hard problem didn't pass 
+the system test) 
+</P>
+
+<P>
+There was only one successful submission for the hard problem in Div-I by <B>niteneb</B> which gave him the forth best result 
+overall.
+</P>
+
+
+<p>
+Division-II had only one coder, <B>Dr. Gluk</B> (SRM127 was the first competition for <B>Dr. Gluk</B>) who completed all three 
+problems and was placed in Div-I...<a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm127_prob</xsl:attribute>Get the analysis</a>
 </p>
     </td>
     <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>     
@@ -539,8 +556,8 @@ yielding only 15 submissions, out of which only 6 were correct...<a class="bodyG
 					<img usemap="#fbi_home" src="/i/es/fbi/fbi_home.gif" alt="" width="244" height="160" border="0"/><br/>
 					<map name="fbi_home">
 						<area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=tces&amp;c=fbi"/>
-						<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4425&amp;t=schedule&amp;c=srm"/>
-						<!-- <AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/stat?&amp;c=last_match"/> --> 
+						<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4425&amp;t=schedule&amp;c=srm"/> -->
+						<area alt="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/stat?&amp;c=last_match"/> 
 					</map>
 <!--SRM Sponsor Ends-->
 
@@ -673,8 +690,8 @@ yielding only 15 submissions, out of which only 6 were correct...<a class="bodyG
             </table><br/>
 <!-- <A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
 <IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A> -->           
-<a href="/stat?c=member_profile&amp;cr=302185">
-<img src="/i/codermonth_nov.gif" alt="Coder of the Month" width="244" height="156" vspace="10" border="0"/></a>
+			<!-- <a href="/stat?c=member_profile&amp;cr=302185">
+			<img src="/i/codermonth_nov.gif" alt="Coder of the Month" width="244" height="156" vspace="10" border="0"/></a> -->
     </td>
 <!-- Body Area Ends -->
   </tr>   
