@@ -4,7 +4,7 @@
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Candidate Evaluation</TITLE>
-<jsp:include page="script.jsp"/>
+<jsp:include page="/script.jsp"/>
 </HEAD>
 
 <jsp:useBean id="submissionInfo" class="com.topcoder.web.screening.model.SubmissionInfo" />
@@ -24,7 +24,7 @@
       <TD WIDTH="22" VALIGN="top" BGCOLOR="#000000">
         <!-- Left Column Include Begins -->
         <!-- Global Seconday Nav Begins -->
-        <jsp:include page="includes/left.jsp"/>
+        <jsp:include page="/includes/left.jsp"/>
         <!-- Global Seconday Nav Ends -->
         <!-- Left Column Include Ends -->
       </TD>
@@ -101,7 +101,7 @@
 </TABLE>
   <!-- Body Ends -->
 
-  <jsp:include page="includes/foot.jsp"/>
+  <jsp:include page="/includes/foot.jsp"/>
 
 </BODY>
 </HTML>
