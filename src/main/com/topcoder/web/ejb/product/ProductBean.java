@@ -444,5 +444,162 @@ public class ProductBean implements SessionBean {
     }
 
 
+    /**
+     * by djFD 19/03/2002
+     *
+     * @param productId product ID of entry to set
+     * @param redirectURL an URL to return user to, after successfull purchase
+     * completion
+     */
+    public void setProductRedirectionURL(long productId, String redirectURL) {
+        log.debug(
+            "setProductRedirectionURL called... [productId,  redirectURL]=["
+            + productId + ", "+ redirectURL
+        );
 
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        DataSource ds = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup(
+                (String) ctx.lookup("java:comp/env/datasource_name")
+            );
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(
+                "UPDATE product SET redirect_url = ? WHERE product_id = ?"
+            );
+            ps.setString(1, redirectURL);
+            ps.setLong(2, productId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1) {
+                throw new EJBException(
+                    "Wrong number of rows in update: " + rows
+                );
+            }
+        }
+        catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
+            throw new EJBException("SQLException updating redirectURL");
+        }
+        catch (NamingException e) {
+            throw new EJBException("NamingException updating redirectURL");
+        }
+        catch (Exception e) {
+            throw new EJBException("Exception updating redirectURL\n" +e.getMessage());
+        }
+        finally {
+            if( ps != null ) {
+                try {
+                    ps.close();
+                }
+                catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in setProductRedirectionURL");
+                }
+            }
+
+            if( conn != null ) {
+                try {
+                    conn.close();
+                }
+                catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setProductRedirectionURL");
+                }
+            }
+
+            if( ctx != null ) {
+                try {
+                    ctx.close();
+                }
+                catch (Exception ignore) {
+                    log.error("FAILED to close Context in setProductRedirectionURL");
+                }
+            }
+        }
+    }
+    
+    /**
+     * by djFD 19/03/2003
+     * 
+     * @param productId product ID of the entry
+     * @return a String with redirection URL, ie. an URL where user will be
+     * redirected to, upon successfull purchase completion
+     */
+    public String getRedirectionURL( long productId ) {
+        log.debug("getRedirectionURL called... product_id: " + productId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        String ret = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup(
+                (String) ctx.lookup("java:comp/env/datasource_name")
+            );
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(
+                "SELECT redirect_url FROM product WHERE product_id = ?"
+            );
+            ps.setLong(1, productId);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                ret = rs.getString("redirect_url");
+            }
+        }
+        catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
+            throw new EJBException("SQLException getting redirect_url");
+        }
+        catch (NamingException e) {
+            throw new EJBException("NamingException getting redirect_url");
+        }
+        catch (Exception e) {
+            throw new EJBException("Exception getting redirect_url\n" + e.getMessage());
+        }
+        finally {
+            if( rs != null ) {
+                try {
+                    rs.close();
+                }
+                catch( Exception ignore ) {
+                    log.error("FAILED to close ResultSet in getRedirectionURL");
+                }
+            }
+            if( ps != null ) {
+                try {
+                    ps.close();
+                }
+                catch( Exception ignore ) {
+                    log.error("FAILED to close PreparedStatement in getRedirectionURL");
+                }
+            }
+            if( conn != null ) {
+                try {
+                    conn.close();
+                }
+                catch( Exception ignore ) {
+                    log.error("FAILED to close Connection in getRedirectionURL");
+                }
+            }
+
+            if( ctx != null ) {
+                try {
+                    ctx.close();
+                }
+                catch( Exception ignore ) {
+                    log.error("FAILED to close Context in getRedirectionURL");
+                }
+            }
+        }
+        return (ret);
+    }
 }

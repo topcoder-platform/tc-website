@@ -62,7 +62,9 @@ public class TransactionInfo {
      * information
      */
     public TransactionInfo(HttpServletRequest req, HttpServletResponse resp)
-            throws NamingException, RemoteException, CreateException, NotAuthorizedException, Exception {
+    throws NamingException, RemoteException, CreateException,
+            NotAuthorizedException, Exception
+    {
         productID = Long.parseLong(req.getParameter(TransactionServlet.KEY_PRODUCT_ID));
         userBackPage = req.getParameter(TransactionServlet.KEY_RETPAGE);
         if (userBackPage != null && userBackPage.trim().length() == 0) {
@@ -91,6 +93,7 @@ public class TransactionInfo {
             if (cost <= 0) {
                 throw new Exception("No valid product found for ID given");
             }
+            userBackPage = productTable.getRedirectionURL(productID);
 
             ProductUnit productUnit = ((ProductUnitHome) icEJB.lookup(ProductUnitHome.EJB_REF_NAME)).create();
             qtty = productUnit.getNumUnits(productID, getUnitIdByType(TIME_UNIT_TYPE_ID, productID));
@@ -176,9 +179,9 @@ public class TransactionInfo {
         return userBackPage;
     }
 
-    public void setUserBackPage(String userBackPage) {
-        this.userBackPage = userBackPage;
-    }
+//    public void setUserBackPage(String userBackPage) {
+//        this.userBackPage = userBackPage;
+//    }
 
     public long getProductID() {
         return productID;

@@ -434,7 +434,7 @@ public class TransactionServlet extends HttpServlet {
             purchaseTable.setEndDate(purchaseID, txInfo.getEnd(startDate));
             //purchaseTable.setSumPaid(purchaseID, txInfo.sum);
             dbTx.commit();
-            log.debug("CcTx completed");
+            log.debug("CcTx completed, redirectURL is "+txInfo.getUserBackPage());
         } catch (Exception e) {
             if (dbTx != null) {
                 dbTx.rollback();
