@@ -307,7 +307,7 @@
          <java classname="weblogic.ejbc" fork="yes" classpathref="class.path" failonerror="true">
              <sysproperty key="compiler" value="javac"/>
              <sysproperty key="classpath" path="class.path"/>
-             <arg line="${tmp-dir}/EmailServices.jar ${ejb_jars}/EmailServices.jar"/>
+             <arg line="${classes}/ejb-stuff/EmailServices.jar ${ejb_jars}/EmailServices.jar"/>
          </java>
          <echo message="EmailServices.jar done"/>
      </target>
