@@ -68,6 +68,7 @@ public class JobHit extends Base {
                         (CoderSessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY));
             Data.loadUser(navigation);
             JobHitData hit = getData(navigation.getUser());
+            getRequest().setAttribute("JobHitData", hit);
 
             log.debug("user rating: " + hit.getRating());
             if (hit.getRating() > 0) {

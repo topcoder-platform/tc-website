@@ -42,7 +42,7 @@
 						<li>Strong communication</li>
 					</ul>
 					
-					<p><span class="bodySubtitle"><a href="/jobposting?&amp;t=JobHitTask&amp;jid=214&amp;jt=1">Apply Now!</a></span></p>
+					<p><span class="bodySubtitle"><a href="/tc?module=JobHit&jid=214&jt=1">Apply Now!</a></span></p>
 
 
 

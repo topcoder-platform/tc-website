@@ -42,7 +42,7 @@
 						<li>Drive for results</li>
 					</ul>
 					
-					<p><span class="bodySubtitle"><a href="/jobposting?&amp;t=JobHitTask&amp;jid=212&amp;jt=1">Apply Now!</a></span></p>
+					<p><span class="bodySubtitle"><a href="//tc?module=JobHit&jid=212&jt=1">Apply Now!</a></span></p>
 
 
 
