@@ -64,10 +64,9 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
             <p>Click a column name to sort the list of advancers by that column.</p>
 
-            <a name="data"/>
             <table width="400" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
                 <tr>
-                  <td class="header" width="100%" colspan="4"></td>
+                  <td class="header" width="100%" colspan="4">Round ID</td>
                </tr>
                 <tr>
                    <td class="testTableTitle_off" width="10%" align="center">

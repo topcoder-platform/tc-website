@@ -76,21 +76,21 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                   <td align = "right" class="advancers_faded">n/a</td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tco03&d2=tco03_top100" class="topLink">Qualification Round 1</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tco03&d2=tco03_top100">200</a></td>
+                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tco03&d2=tco03_advancers" class="topLink">Qualification Round 1</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tco03&d2=tco03_advancers">200</a></td>
                   <td align = "right" class="advancers_faded">n/a</td>
                   <td align = "right" class="advancers_faded">n/a</td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tco03&d2=tco03_top100" class="topLink">Qualification Round 2</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tco03&d2=tco03_top100">200</a></td>
+                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tco03&d2=tco03_advancers" class="topLink">Qualification Round 2</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tco03&d2=tco03_advancers">200</a></td>
                   <td align = "right" class="advancers_faded">n/a</td>
                   <td align = "right" class="advancers_faded">n/a</td> 
                </tr>
             </table>
             <br/><br/>
             
-            <p> Click <A href="/tc?module=Static&d1=tco03&d2=tco03_top100">here</A> to see the full TCO advancers table.</p>
+            <p> Click <A href="/tc?module=Static&d1=tco03&d2=tco03_bracket">here</A> to see the full TCO advancers table.</p>
 
         <p><br/></p>
          </td>
