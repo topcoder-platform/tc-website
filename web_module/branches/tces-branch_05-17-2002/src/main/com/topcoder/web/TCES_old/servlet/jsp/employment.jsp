@@ -79,6 +79,23 @@ Lookup countries = new Lookup();
 states.addPair("1", "Lithuania");
 states.addPair("2", "Norway");
 
+Lookup titles = new Lookup();
+titles.addPair("1", "Software Engineer");
+titles.addPair("2", "Janitor");
+
+Lookup roles = new Lookup();
+titles.addPair("1", "QA");
+titles.addPair("2", "Developer");
+
+Lookup managed = new Lookup();
+managed.addPair("1", "Yes");
+managed.addPair("2", "No");
+
+Lookup numberPeople = new Lookup();
+numberPeople.addPair("1", "1-5");
+numberPeople.addPair("2", "2342 - 123123");
+
+
 String company = "";
 String city = "";
 String selectedState = "";
@@ -100,6 +117,12 @@ String endYear = "";
 
 <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
 
+
+<tr>
+<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Company</b>&nbsp;</td>
+<td colspan="4" class="statTextBig" align="left" valign="middle"><img src="/i/clear.gif" width="1" height="1" border="0"><input type="text" name="firstName" value ="<%= company %>" size="30" maxlength="30"></td>
+</tr>
+
 <tr valign="middle">
 <td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
 </tr>
@@ -113,7 +136,7 @@ String endYear = "";
 </tr>
 
 <tr>
-<td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 5: Select Start Date<br>
+<td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Term of Employment: Select Start Date<br>
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
 &nbsp;<%= months.getSelectBox("", "", "", "") %>&nbsp;<%= years.getSelectBox("", "", "", "") %>
 <br><br>
@@ -121,7 +144,7 @@ String endYear = "";
 <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
 <td align="center" valign="middle"><font color="#ffffff">&gt;&gt;</font></td>
 <td align="center"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-<td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 4: Select Graduation Date<br>
+<td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Next: End Date<br>
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
 &nbsp;<%= months.getSelectBox("", "", "", "") %>&nbsp;<%= years.getSelectBox("", "", "", "") %>
 <br><br>
