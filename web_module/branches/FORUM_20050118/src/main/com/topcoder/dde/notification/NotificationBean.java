@@ -36,18 +36,19 @@ import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
 
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 */
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Types;
 
 import com.topcoder.apps.review.persistence.Common;
 
@@ -131,15 +132,18 @@ public class NotificationBean implements SessionBean {
 
     public long createEvent(String event, long typeId) {
         info("Notification.createEvent " + event + " with type " + typeId);
-/*        Connection conn = null;
+        Connection conn = null;
         PreparedStatement ps = null;
 
+        long id = -1;
         try {
             conn = dataSource.getConnection();
             ps = conn.prepareStatement("INSERT INTO notification_event "+
                                        "(notification_event_id, event, notification_mail_type_id) " +
                                        "VALUES (?,?,?)");
-            ps.setLong(1, idGen.nextId());
+
+            id = idGen.nextId();
+            ps.setLong(1, id);
             ps.setString(2, event);
             ps.setLong(3,typeId);
             int nr = ps.executeUpdate();
@@ -156,38 +160,136 @@ public class NotificationBean implements SessionBean {
 // qq ver            throw new InvalidEditException("SQL Exception: " + e.getMessage());
 
         } finally {
-            Common.close(conn, ps, rs);
+            Common.close(conn);
+            Common.close(ps);
+            id = -1;
         }
-*/
-        return 5L;
+
+        return id;
     }
 
     public void createNotification(String event, long userId, long typeId) {
         info("Notification.createNotification for event " + event + ", user "+ userId + " with type " + typeId);
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        long id;
+
+        try {
+            // search the id for the event
+            conn = dataSource.getConnection();
+            ps = conn.prepareStatement(
+                            "SELECT notification_event_id " +
+                            "FROM notification_event " +
+                            "WHERE event = ?");
+            ps.setString(1, event);
+
+            rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                id = createEvent(event, typeId);
+            } else {
+                id = rs.getLong(1);
+            }
+
+            if (id < 0) {
+                throw new Exception("Cannot create event");
+            }
+
+            Common.close(ps);
+            Common.close(rs);
+
+            // look if the notification for the event for that user is already in the table
+            ps = conn.prepareStatement(
+                        "SELECT user_id "+
+                        "FROM user_notification_event_xref "+
+                        "WHERE notification_event_id = ? AND " +
+                        "      user_id  = ?");
+            ps.setLong(1,id);
+            ps.setLong(2,userId);
+
+            rs = ps.executeQuery();
+
+            // if no record found, create it
+            if (!rs.next()) {
+                Common.close(ps);
+                Common.close(rs);
+                ps = conn.prepareStatement(
+                        "INSERT INTO user_notification_event_xref "+
+                        "     (notification_event_id, user_id) "+
+                        "     VALUES(?, ?)");
+                ps.setLong(1,id);
+                ps.setLong(2,userId);
+
+                ps.executeUpdate();
+            }
+
+        } finally {
+            Common.close(conn, ps, rs);
+        }
     }
 
     public void notifyEvent(String event, Properties prop) {
-try {
-        info("Notification.notifyEvent " + event + " with properties " + prop);
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            info("Notification.notifyEvent " + event + " with properties " + prop);
 
-        XMLDocument xmlDocument = new XMLDocument("MAILDATA");
+            XMLDocument xmlDocument = new XMLDocument("MAILDATA");
 
-        for (Iterator it = prop.entrySet().iterator(); it.hasNext();) {
-            Map.Entry entry = (Map.Entry) it.next();
-            xmlDocument.addTag(new ValueTag((String) entry.getKey(), (String) entry.getValue()));
-            info(((String) entry.getKey())+"="+((String) entry.getValue()));
+            for (Iterator it = prop.entrySet().iterator(); it.hasNext();) {
+                Map.Entry entry = (Map.Entry) it.next();
+                xmlDocument.addTag(new ValueTag((String) entry.getKey(), (String) entry.getValue()));
+                info(((String) entry.getKey())+"="+((String) entry.getValue()));
+            }
+
+
+            ps = conn.prepareStatement(
+                    "SELECT e.address, nmt.mail_template, nmt.subject, nmt.from,  "+
+                    "       u.first_name, u.last_name, u.handle "+
+                    "FROM notification_event  ne, user_notification_event_xref ue, email e, "+
+                    "     user u, notification_mail_type_lu nmt "+
+                    "WHERE ne. notification_event_id = ue. notification_event_id AND "+
+                    "      ue.user_id = e.user_id AND "+
+                    "      u.user_id = e.user_id AND "+
+                    "      nmt. notification_mail_type_id=ne.notification_mail_type_id AND "+
+                    "      ne.event = ? ");
+
+            ps.setString(1,event);
+            rs = ps.executeQuery();
+
+            boolean first = true;
+            String bodyText = null;
+            String from = null;
+            String subject = null;
+
+
+            while (rs.next()) {
+                if (first) {
+                    first = false;
+
+                    String filenameXSL = ConfigHelper.getMailTemplatePath() + rs.getString(2);
+                    info ("filenameXSL=" +filenameXSL);
+
+                    bodyText = formatBody(xmlDocument, filenameXSL);
+                    info("body text: " + bodyText);
+
+                    from = rs.getString(4);
+                    subject = rs.getString(3);;
+
+                }
+                String to = "\"" + rs.getString(5) + " " + rs.getString(6) + "\" <" + rs.getString(1) +">";
+
+                sendMail(from, to, subject, bodyText);
+            }
+
+
+        } catch (Exception e) {
+            info("Notification can't be sent because: "+e.toString());
+        } finally {
+            Common.close(conn, ps, rs);
         }
-
-
-        String filenameXSL = ConfigHelper.getMailTemplatePath() + "forum_post_notification.xsl"; //qq
-        info ("filenameXSL=" +filenameXSL);
-
-        String bodyText = formatBody(xmlDocument, filenameXSL);
-        info("body text: " + bodyText);
-        sendMail("notification@gmail.com", "amarcu@gmail.com", "subject", bodyText);
-} catch (Exception e) {
-    info("Notification can't be sent because: "+e.toString());
-}
     }
 
     /**

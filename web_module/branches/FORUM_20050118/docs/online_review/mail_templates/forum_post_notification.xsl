@@ -5,14 +5,13 @@
 <xsl:output method="text" indent="yes"/>
 <xsl:template match="/">
 <xsl:for-each select="MAILDATA">
- Forum post notification mail.
- 
- WRITER_NAME = <xsl:value-of select="WRITER_NAME"/>
- IS_NEW_THREAD = <xsl:value-of select="IS_NEW_THREAD"/>
- THREAD_NAME = <xsl:value-of select="THREAD_NAME"/>
- LINK = <xsl:value-of select="LINK"/>
- COMPONENT_NAME = <xsl:value-of select="COMPONENT_NAME"/>
+Hello,
 
+<xsl:if test="IS_NEW_THREAD = 0">A new message was posted in the thread <xsl:value-of select="THREAD_NAME"/></xsl:if><xsl:if test="IS_NEW_THREAD = 1">The thread <xsl:value-of select="THREAD_NAME"/> was created </xsl:if> for the component <xsl:value-of select="COMPONENT_NAME"/> by <xsl:value-of select="WRITER_NAME"/>.
+
+Please see https://software.topcoder.com<xsl:value-of select="LINK"/>
+
+thanks,
 </xsl:for-each>
 </xsl:template>
 </xsl:stylesheet>

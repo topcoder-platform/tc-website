@@ -5,11 +5,12 @@
 <xsl:output method="text" indent="yes"/>
 <xsl:template match="/">
 <xsl:for-each select="MAILDATA">
-component_request_notification
+Hello, 
 
-REQUESTOR_NAME  = <xsl:value-of select="REQUESTOR_NAME "/>
-COMPONENT_NAME = <xsl:value-of select="COMPONENT_NAME"/>
+The component "<xsl:value-of select="COMPONENT_NAME"/>" was requested by <xsl:value-of select="REQUESTOR_NAME "/>.
 
+
+thanks,
 </xsl:for-each>
 </xsl:template>
 </xsl:stylesheet>
