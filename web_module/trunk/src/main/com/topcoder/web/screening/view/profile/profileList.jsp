@@ -115,7 +115,7 @@ function getProblemDetail(id) {
                 %>
                 <tr>
                     <td width="20%" class="bodyText" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:sessionStatus row="<%=row%>" />></td>
+                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:sessionStatus row="<%=row%>" /></td>
                     <td width="16%" align="center" class="bodyText" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
                     <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></td>
                     <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></td>
