@@ -72,7 +72,7 @@ function submitSession() {
 
 <!-- Middle column begins -->
         <td class="bodytext" width="100%"><img src="/i/ev/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="70%">
+            <table border="0" cellspacing="0" cellpadding="0" width="60%">
                 <tr valign="top">
                     <td class="bodytext" align="left">
                         <h1 class="testHead">Create a New Session</h1>
@@ -111,7 +111,7 @@ function submitSession() {
 
                 <tr>
                     <td><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>
-                    <td colspan="2" class="errortext"></td>
+                    <td colspan="2" class="errortextOdd"></td>
                 </tr>
 
                 <tr><td class="testTableTitle" colspan="3">Candidate</td></tr>
@@ -133,7 +133,7 @@ function submitSession() {
 
                 <tr>
                     <td><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>
-                    <td colspan="2" class="errortext"></td>
+                    <td colspan="2" class="errortextOdd"></td>
                 </tr>
 
                 <tr>
@@ -144,30 +144,30 @@ function submitSession() {
                 <tr>
                     <td class="testTableSubtitleOdd">Month</td>
                     <td class="testTableOdd"><screen:month name="beginMonth" selected="<%=sessionInfo.getBeginMonth()%>" /></td>
-                    <td class="errortext"><screen:errors name="beginMonth" /></TD>
+                    <td class="errortextOdd"><screen:errors name="beginMonth" /></TD>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleEven">Day</td>
                     <td class="testTableEven"><screen:day name="beginDay" selected="<%=sessionInfo.getBeginDay()%>" /></td>
-                    <td class="errortext"><screen:errors name="beginDay" /></td>
+                    <td class="errortextEven"><screen:errors name="beginDay" /></td>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleOdd">Year</td>
                     <td class="testTableOdd"><screen:year name="beginYear" selected="<%=sessionInfo.getBeginYear()%>" /></td>
-                    <td class="errortext"><screen:errors name="beginYear" /></td>
+                    <td class="errortextOdd"><screen:errors name="beginYear" /></td>
                 </tr>
 
                 <tr>
                     <td class="testTableSubtitleEven">Hour</td>
                     <td class="testTableEven"><screen:hour name="beginHour" selected="<%=sessionInfo.getBeginHour()%>" /></td>
-                    <td class="errortext"><screen:errors name="beginHour" /></td>
+                    <td class="errortextEven"><screen:errors name="beginHour" /></td>
                 </tr>
 
                 <tr>
                     <td><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>
-                    <td colspan="2" class="errortext"></td>
+                    <td colspan="2" class="errortextOdd"></td>
                 </tr>
 
                 <tr>
@@ -178,30 +178,30 @@ function submitSession() {
                 <tr>
                     <td class="testTableSubtitleOdd">Month</td>
                     <td class="testTableOdd"><screen:month name="endMonth" selected="<%=sessionInfo.getEndMonth()%>" /></td>
-                    <td class="errortext"><screen:errors name="endMonth" /></td>
+                    <td class="errortextOdd"><screen:errors name="endMonth" /></td>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleEven">Day</td>
                     <td class="testTableEven"><screen:day name="endDay" selected="<%=sessionInfo.getEndDay()%>" /></td>
-                    <td class="errortext"><screen:errors name="endDay" /></td>
+                    <td class="errortextEven"><screen:errors name="endDay" /></td>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleOdd">Year</td>
                     <td class="testTableOdd"><screen:year name="endYear" selected="<%=sessionInfo.getEndYear()%>" /></td>
-                    <td class="errortext"><screen:errors name="endYear" /></td>
+                    <td class="errortextOdd"><screen:errors name="endYear" /></td>
                 </tr>
 
                 <tr>
                     <td class="testTableSubtitleEven">Hour</td>
                     <td class="testTableEven"><screen:hour name="endHour" selected="<%=sessionInfo.getEndHour()%>" /></td>
-                    <td class="errortext"><screen:errors name="endHour" /></td>
+                    <td class="errortextEven"><screen:errors name="endHour" /></td>
                 </tr>
 
                 <tr>
                     <td><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>
-                    <td colspan="2" class="errortext"><screen:errors name="dateCompare" /></td>
+                    <td colspan="2" class="errortextOdd"><screen:errors name="dateCompare" /></td>
                 </tr>
 
                 <tr>
