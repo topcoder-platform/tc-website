@@ -14,7 +14,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "s_products.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -29,7 +29,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -68,31 +68,31 @@
                 <tr><td class="normal"><img src="/images/headHowToUse.gif" alt="How to Use the Component Catalog" width="545" height="32" border="0" /></td></tr>
                 <tr><td class="subhead">Making the most of your subscription</td></tr>
                 <tr><td class="normal">
-                        <p>Once you purchase a <a href="s_subscriptions.jsp">Component Subscription</a> you'll be able to immediately start downloading components 
+                        <p>Once you purchase a <a href="s_subscriptions.jsp">Component Subscription</a> you'll be able to immediately start downloading components
                         from the Catalog.</p>
 
                         <p><strong>Component Management Services</strong><br />
-                        TopCoder employs component development experts as Product Managers. Product Managers are responsible for managing the components developed 
-                        by the TopCoder Member Base using our Development Methodology.  Product Managers maximize the value of your Component Catalog by identifying 
-                        component opportunities and specifying requirements.  Their extensive knowledge of the Component Catalog allows them to identify the components 
-                        that will be of the highest value to you. <a href="s_subscriptions.jsp">Enterprise Subscriptions</a> offer five hours of Component Management Services FREE. 
+                        TopCoder employs component development experts as Product Managers. Product Managers are responsible for managing the components developed
+                        by the TopCoder Member Base using our Development Methodology.  Product Managers maximize the value of your Component Catalog by identifying
+                        component opportunities and specifying requirements.  Their extensive knowledge of the Component Catalog allows them to identify the components
+                        that will be of the highest value to you. <a href="s_subscriptions.jsp">Enterprise Subscriptions</a> offer five hours of Component Management Services FREE.
                         Additional time can be purchased separately.</p>
 
                         <!-- <p><strong>Component Customization (comment this out)</strong><br />
-                        TopCoder Software Components are built with re-usability as the highest priority.  They have been painstakingly developed to 
-                        encourage extension and customization.  Generic TopCoder components will often be extended and customized to meet a specific 
-                        customerÕs needs.  TopCoder is available to extend and customize catalog components for individual customers. -->
+                        TopCoder Software Components are built with re-usability as the highest priority.  They have been painstakingly developed to
+                        encourage extension and customization.  Generic TopCoder components will often be extended and customized to meet a specific
+                        customerï¿½s needs.  TopCoder is available to extend and customize catalog components for individual customers. -->
 
                         <p><strong>Component Integration</strong><br />
-                        TopCoder is constantly integrating components into both internal applications and more complex components for the 
-                        <a href="c_showroom.jsp">Component Catalog.</a>  In cases where you need help integrating TopCoder Components into your 
+                        TopCoder is constantly integrating components into both internal applications and more complex components for the
+                        <a href="c_showroom.jsp">Component Catalog.</a>  In cases where you need help integrating TopCoder Components into your
                         organization, TopCoder Software Integration Teams are available to help.</p>
 
                         <p><strong>Productivity Tools</strong><br />
-                        TopCoder Software is developing productivity tools to help improve the development process. The first tool is the 
-                        <a href="c_prodTools.jsp?comp=600191">TopCoder Rules Engine.</a> The Rules Engine centralizes and manages business logic for use in 
-                        multiple applications. The Rules Engine is available for purchase separately from the component catalog. To inquire about the 
-                        TopCoder Rules Engine send us an <a href="mailto:sales@topcoder.com?subject=I'm interested in the TopCoder Rules Engine">email</a> or 
+                        TopCoder Software is developing productivity tools to help improve the development process. The first tool is the
+                        <a href="c_prodTools.jsp?comp=600191">TopCoder Rules Engine.</a> The Rules Engine centralizes and manages business logic for use in
+                        multiple applications. The Rules Engine is available for purchase separately from the component catalog. To inquire about the
+                        TopCoder Rules Engine send us an <a href="mailto:sales@topcoder.com?subject=I'm interested in the TopCoder Rules Engine">email</a> or
                         call us toll free at <strong>866.867.2633.</strong></p>
 
                         <p>&#160;</p>
@@ -112,7 +112,7 @@
 <!-- Gutter 3 ends -->
     </tr>
 </table>
-    
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->

@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.dde.util.ApplicationServer" %>
+<%@ page import="com.topcoder.dde.util.ApplicationServer,
+                 com.topcoder.dde.user.User" %>
 
 <!--Header begins-->
 <%
@@ -9,17 +10,17 @@
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
     <tr>
         <td class=homeTopBar align=right>
-            <strong><%= (tcUser == null ? "" : "Hello, <strong>" + tcUser.getRegInfo().getUsername() + "</strong>") %></strong>
+            <strong><%= (session.getAttribute("TCUSER")== null ? "" : "Hello, <strong>" + ((User)session.getAttribute("TCUSER")).getRegInfo().getUsername() + "</strong>") %></strong>
 
-<% if (tcUser == null) { %>
+<% if (session.getAttribute("TCUSER") == null) { %>
 
-    <% if (page_name == "/login.jsp") { %>
+    <% if ("/login.jsp".equals(request.getParameter("page_name"))) { %>
             <strong>Login</strong>
     <% } else { %>
             <a href="/login.jsp" class="loginLinks">Login</a>
     <% } %>
 
-    <% if (page_name == "registration.jsp") { %>
+    <% if ("registration.jsp".equals(request.getParameter("page_name"))) { %>
             &#160;&#160;|&#160;&#160;<strong>Register</strong>
     <% } else { %>
             &#160;&#160;|&#160;&#160;<a href="/registration/registration.jsp" class="loginLinks">Register</a>

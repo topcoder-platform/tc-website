@@ -276,7 +276,9 @@ function TabNext(obj,event,len,next_field) {
 <body class="body" marginheight="0" marginwidth="0">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp">
+    <jsp:param name="page_name" value="registration.jsp"/>
+</jsp:include>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -325,9 +327,9 @@ function TabNext(obj,event,len,next_field) {
                                 <td class="registerTitle"><a name="c">Contact Information</a></td>
                             </tr>
                         </table>
-                        
+
                         <img src="/images/clear.gif" alt="" width="10" height="5" border="0" />
- 
+
                         <div align="center">
                         <table border="0" cellpadding="3" cellspacing="0" width="100">
 
@@ -466,9 +468,9 @@ function TabNext(obj,event,len,next_field) {
                                 <td class="registerTitle"><a name="u">User Name & Password</a></td>
                             </tr>
                         </table>
-                        
+
                         <img src="/images/clear.gif" alt="" width="10" height="5" border="0" />
- 
+
                         <div align="center">
                         <table border="0" cellpadding="3" cellspacing="0" width="100">
 
@@ -534,15 +536,15 @@ function TabNext(obj,event,len,next_field) {
                             </tr>
                         </table>
                         </div>
-                        
+
                     </td></form>
                 </tr>
             </table>
-                        
+
             <p><br/></p>
-                        
+
         </td>
-            
+
 <!--Middle Column ends -->
 
 <!-- Gutter 2 begins -->

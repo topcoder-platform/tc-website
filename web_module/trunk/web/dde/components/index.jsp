@@ -15,7 +15,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "s_definition.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -30,7 +30,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -67,56 +67,56 @@
                 </tr>
             </table>
             </div>
-            
+
             <hr width="100%" size="1px" noshade>
-            
+
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
                     <td width="100%" class="bodyText">
                         <p><strong>Making the Most of the Code</strong><br>
-                        Neither end of the software development spectrum allows a company to get what they need at the price they desire. Packaged software 
-                        is monolithic, difficult to integrate, and expensive to customize. Custom software development is costly and time consuming. 
-                        Progressive companies have begun to take a new approach: Component Based Development (CBD). CBD gives a company the best of 
-                        both worlds. Companies can use what are essentially pieces of applications that can be customized and tied together to form a unique solution 
-                        that suits their needs. Cost savings are achieved through a market approach: Because each component is sold to multiple companies, the 
+                        Neither end of the software development spectrum allows a company to get what they need at the price they desire. Packaged software
+                        is monolithic, difficult to integrate, and expensive to customize. Custom software development is costly and time consuming.
+                        Progressive companies have begun to take a new approach: Component Based Development (CBD). CBD gives a company the best of
+                        both worlds. Companies can use what are essentially pieces of applications that can be customized and tied together to form a unique solution
+                        that suits their needs. Cost savings are achieved through a market approach: Because each component is sold to multiple companies, the
                         development cost for each component is shared among all the companies.</p>
                     </td>
                 </tr>
             </table>
-            
+
              <hr width="100%" size="1px" noshade>
-            
+
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
                     <td width="100%" class="bodyText">
                         <p><strong>Standard Frameworks</strong><br>
-                        At TopCoder, we develop all of our components using industry frameworks such as J2EE and .NET. This makes every one of our components 
-                        more flexible and easily customizable. The use of frameworks-based software components also helps speed up the development cycle. These 
-                        components can be extended and customized for additional functionality. They can also be bundled together to form more complex components 
+                        At TopCoder, we develop all of our components using industry frameworks such as J2EE and .NET. This makes every one of our components
+                        more flexible and easily customizable. The use of frameworks-based software components also helps speed up the development cycle. These
+                        components can be extended and customized for additional functionality. They can also be bundled together to form more complex components
                         and full-blown applications.</p>
                     </td>
                 </tr>
             </table>
-            
+
              <hr width="100%" size="1px" noshade>
-            
+
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
                     <td width="100%" class="bodyText">
                         <p><strong>Increased Productivity</strong><br>
-                        Use of TopCoder Software components drives down the cost of software development in two ways. The first is by introducing 
-                        re-usable components to the development life cycle, which reduces the amount of software that must be built. The development 
-                        team can focus on customizing and integrating these components into a business solution. The second way TopCoder Software drives 
-                        down the cost of development is by lowering the cost of the components themselves. We utilize our member base of over 28,000 talented 
-                        individuals as a distributed development resource. This way, the components themselves are developed at a lower cost, and that cost can 
-                        be passed along to our customers. The end result is lower cost, higher quality software components, which leads to lower 
+                        Use of TopCoder Software components drives down the cost of software development in two ways. The first is by introducing
+                        re-usable components to the development life cycle, which reduces the amount of software that must be built. The development
+                        team can focus on customizing and integrating these components into a business solution. The second way TopCoder Software drives
+                        down the cost of development is by lowering the cost of the components themselves. We utilize our member base of over 28,000 talented
+                        individuals as a distributed development resource. This way, the components themselves are developed at a lower cost, and that cost can
+                        be passed along to our customers. The end result is lower cost, higher quality software components, which leads to lower
                         cost, higher quality <a href="/applications/index.jsp">software applications.</a></p>
                     </td>
                 </tr>
             </table>
-            
+
              <hr width="100%" size="1px" noshade>
-            
+
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
                     <td width="100%" class="bodyText">
@@ -125,21 +125,21 @@
                     </td>
                 </tr>
             </table>
-            
+
              <hr width="100%" size="1px" noshade>
-            
+
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
                     <td width="100%" class="bodyText">
                         <p><strong>Catalog Subscriptions</strong><br>
-                        <a href="/components/subscriptions.jsp">Subscribe</a> to one of Topcoder Software Catalogs today. We offer three subscription 
+                        <a href="/components/subscriptions.jsp">Subscribe</a> to one of Topcoder Software Catalogs today. We offer three subscription
                         levels to serve a wide range of budgets.</p>
                     </td>
                 </tr>
             </table>
-            
+
              <hr width="100%" size="1px" noshade>
-            
+
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                     <td colspan="2" class="bodyText" align="center">

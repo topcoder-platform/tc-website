@@ -82,7 +82,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -95,7 +95,7 @@
         <td width="180" class="leftColumn">
             <jsp:include page="/includes/left.jsp" >
                 <jsp:param name="level1" value="forum"/>
-                <jsp:param name="level2" value="all"/> 
+                <jsp:param name="level2" value="all"/>
             </jsp:include>
         </td>
 <!-- Left Column ends -->

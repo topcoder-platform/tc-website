@@ -17,7 +17,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "error_download.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <html>
@@ -25,7 +25,7 @@
     <title>TopCoder Software</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css">
-  
+
 <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js">
 </script>
 
@@ -34,7 +34,7 @@
 <body class="body" marginheigh="0" marginwidth="0">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -62,10 +62,10 @@
 <!--                 <tr><td class="normal"><img src="/images/headAttention.gif" alt="Attention" width="545" height="35" border="0" /></td></tr> -->
                 <tr><td class="subhead">You need permission to download this software</td></tr>
                 <tr><td class="normal">
-                        <p><a href="s_subscriptions.jsp">Subscriptions</a> to the TopCoder Software Component Catalog include access to all components in the catalog, plus any updates and new 
+                        <p><a href="s_subscriptions.jsp">Subscriptions</a> to the TopCoder Software Component Catalog include access to all components in the catalog, plus any updates and new
                         components added during the term of your suscription. To purchase a Subscription call us at 1-866-TOP-CODE or email us at <a href="mailto:sales@topcodersoftware.com">sales@topcodersoftware.com</a>.</p>
 
-                        <p>TopCoder Software <a href="c_prodTools.jsp?comp=600191">Productivity Tools</a> are now available for purchase. Discounts apply for 
+                        <p>TopCoder Software <a href="c_prodTools.jsp?comp=600191">Productivity Tools</a> are now available for purchase. Discounts apply for
                         TopCoder Software Subscription customers. To purchase Productivity Tools call us at 1-866-TOP-CODE or email us at <a href="mailto:sales@topcodersoftware.com">sales@topcodersoftware.com</a>.</p>
 
                         <p>If you are having technical difficulties contact us at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.</p>
@@ -80,7 +80,7 @@
 <!-- Gutter 3 ends -->
     </tr>
 </table>
-    
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->

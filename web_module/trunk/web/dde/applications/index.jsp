@@ -15,7 +15,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "s_definition.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -30,7 +30,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -62,25 +62,25 @@
                 <tr>
                     <td class="bodyText" align="left">
                         <img src="/images/clear.gif" width="1" height="10" alt="" border="0">
-                        <p><strong>We know you've probably become conditioned to tune out the claims made by other software companies. TopCoder is on a mission to prove 
+                        <p><strong>We know you've probably become conditioned to tune out the claims made by other software companies. TopCoder is on a mission to prove
                         that we can develop high-quality software applications differently from those companies. How do we do it?</strong></p>
-                        
+
                         <p>We utilize our member base of software developers who are differentiated by talent through
-                        competition. Combining this talent with our competition-based methodology and our catalogs of re-usable components is what allows us to develop 
+                        competition. Combining this talent with our competition-based methodology and our catalogs of re-usable components is what allows us to develop
                         faster, cheaper, and better.</p>
                     </td>
                 </tr>
             </table>
-            
+
             <hr width="530" size="1" color="#666666" noshade>
-            
+
             <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="49%" class="bodyText">
                         <p><strong>No-Shore Development</strong><br>
-                        TopCoder's member base is a distributed resource that spans over 150 countries. Unlike strictly off-shore development firms, it doesn't matter what 
-                        country our members call home, as long as they've proven that they can deliver a better 
-                        <a href="http://www.topcoder.com/?&t=development&c=components">solution</a> than their peers. Since our members work for 
+                        TopCoder's member base is a distributed resource that spans over 150 countries. Unlike strictly off-shore development firms, it doesn't matter what
+                        country our members call home, as long as they've proven that they can deliver a better
+                        <a href="http://www.topcoder.com/?&t=development&c=components">solution</a> than their peers. Since our members work for
                         TopCoder as contractors, not employees, our fixed costs are much lower than our competition.</p>
                     </td>
                     <td width="49%" class="bodyText" align="center">
@@ -88,15 +88,15 @@
                     </td>
                 </tr>
             </table>
-            
+
              <hr width="530" size="1" color="#666666" noshade>
-            
+
             <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="49%" class="bodyText">
                         <p><strong>Component Catalog</strong><br>
-                        We've spent a year developing substantial <a href="/catalog/c_showroom.jsp">catalogs</a> of re-usable Java and .NET components. Re-using these 
-                        bits of software over and over on client projects allows us to substantially shorten timelines and decrease costs. We then pass these savings onto 
+                        We've spent a year developing substantial <a href="/catalog/c_showroom.jsp">catalogs</a> of re-usable Java and .NET components. Re-using these
+                        bits of software over and over on client projects allows us to substantially shorten timelines and decrease costs. We then pass these savings onto
                         our clients.</p>
                     </td>
                     <td width="49%" class="bodyText" align="center">
@@ -104,19 +104,19 @@
                     </td>
                 </tr>
             </table>
-            
+
              <hr width="530" size="1" color="#666666" noshade>
-            
+
             <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="49%" class="bodyText">
                         <p><strong>Uncompromising Quality</strong><br>
-                        Differentiating our members by talent through competition insures that only quality developers are working on our code. Each week, hundreds of 
-                        TopCoder members compete in programming <a href="http://www.topcoder.com">competitions,</a> where they are rated based on the results. 
+                        Differentiating our members by talent through competition insures that only quality developers are working on our code. Each week, hundreds of
+                        TopCoder members compete in programming <a href="http://www.topcoder.com">competitions,</a> where they are rated based on the results.
                         Only members with acceptable ratings are allowed to develop software for TopCoder Software.</p>
-                        
-                        <p>Our Component Catalogs are made up of the extremely high quality components developed by our members. These components are of such high 
-                        quality due to the fact that they have been used and re-used in multiple applications. TopCoder strives to develop as many applications with 
+
+                        <p>Our Component Catalogs are made up of the extremely high quality components developed by our members. These components are of such high
+                        quality due to the fact that they have been used and re-used in multiple applications. TopCoder strives to develop as many applications with
                         re-usable components as possible.</p>
                     </td>
                     <td width="49%" class="bodyText" align="center">
@@ -124,22 +124,22 @@
                     </td>
                 </tr>
             </table>
-            
+
              <hr width="530" size="1" color="#666666" noshade>
-            
+
             <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="49%" class="bodyText">
                         <p><strong>Application Methodology</strong><br>
-                        TopCoder Project Managers work hand-in-hand with our customers to develop specifications for the applications that the customer needs. Once 
-                        specification deliverables have been created, two TopCoder members are contracted to perform the design and development. Unlike our 
-                        <a href="/components/methodology.jsp">component methodology,</a> only proven members that have been hand-selected may work on 
-                        Application projects for our customers. These member must sign non-disclosure agreements to protect our clients. Independent 
-                        review boards comprised of our strongest members judge, test, and select the best solution. The winning solution is tested at TopCoder before 
-                        deployment at the customers site for further integration and testing. Our rigorous <a href="/applications/methodology.jsp">application methodology,</a> 
+                        TopCoder Project Managers work hand-in-hand with our customers to develop specifications for the applications that the customer needs. Once
+                        specification deliverables have been created, two TopCoder members are contracted to perform the design and development. Unlike our
+                        <a href="/components/methodology.jsp">component methodology,</a> only proven members that have been hand-selected may work on
+                        Application projects for our customers. These member must sign non-disclosure agreements to protect our clients. Independent
+                        review boards comprised of our strongest members judge, test, and select the best solution. The winning solution is tested at TopCoder before
+                        deployment at the customers site for further integration and testing. Our rigorous <a href="/applications/methodology.jsp">application methodology,</a>
                         combined with our competition-tested members and our re-usable components, allow TopCoder to deliver applications of the highest quality.</p>
                     </td>
-                    <td width="49%" class="bodyText" align="center"> 
+                    <td width="49%" class="bodyText" align="center">
                         <a href="/applications/methodology.jsp"><img src="/images/apps_home_meth.gif" alt="Application Methodology" width="253" height="168" border="0" /></a>
                     </td>
                 </tr>

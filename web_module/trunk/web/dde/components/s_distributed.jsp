@@ -14,7 +14,7 @@
 <%
 	// STANDARD PAGE VARIABLES
 	String page_name = "s_distributed.jsp";
-	String action = request.getParameter("a");	
+	String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -29,7 +29,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -67,8 +67,8 @@
 				<tr><td class="normal"><img src="/images/headLearnComponents.gif" alt="Learn About Components" width="545" height="32" border="0" /></td></tr>
 				<tr><td class="subhead">Distributed Development</td></tr>
 				<tr><td class="normal">
-						<p>All TopCoder Software is developed utilizing The TopCoder Software Distributed Development Methodology. This 
-						methodology begins and ends with our customers. The four stages of component development are <strong>Collaboration, 
+						<p>All TopCoder Software is developed utilizing The TopCoder Software Distributed Development Methodology. This
+						methodology begins and ends with our customers. The four stages of component development are <strong>Collaboration,
 						Specification, Development, and Deployment.</strong></p>
 
 						<p><img src="/images/step1Graphic.gif" alt="" width="450" height="150" border="0" /></p>
@@ -80,7 +80,7 @@
 						<p><img src="/images/step4Graphic.gif" alt="" width="450" height="175" border="0" /></p>
 
 						<p>See what is available today. Visit our <a href="c_showroom.jsp">Component Catalog</a></p>
-						
+
 						<p><strong>Interested in components?</strong><br />
 						Weigh in with ideas and suggestions by <a href="c_active_collab.jsp" class="bodyText">collaborating</a> with others.</p></td>
 				</tr>
@@ -95,7 +95,7 @@
 <!-- Gutter 3 ends -->
 	</tr>
 </table>
-	
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->

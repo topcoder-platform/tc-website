@@ -13,7 +13,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "c_catalog_market.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <% // PAGE SPECIFIC DECLARATIONS %>
@@ -37,7 +37,7 @@
         // not found, redirect to main page
         response.sendRedirect("c_showroom.jsp");
     }
-    
+
     Collection colCategories = selectedCategory.getSubcategories();
     Category arrCategory[] = (Category[])colCategories.toArray(new Category[0]);
 %>
@@ -55,7 +55,7 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -72,11 +72,11 @@
             </jsp:include>
         </td>
 <!-- Left Column ends -->
-    
+
 <!-- Gutter begins -->
         <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0"></td>
 <!-- Gutter ends -->
-    
+
 <!-- Center Column begins -->
         <td width="99%">
             <img src="/images/clear.gif" alt="" width="1" height="1" border="0"/><br/>
@@ -93,7 +93,7 @@
 <!-- Categories-->
                 <tr><td colspan="3" height="16"><img src="/images/headChooseCat.gif" alt="now Choose a Category" width="158" height="16" border="0" /></td></tr>
             </table>
-                
+
             <table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
 
                 <tr><td colspan="2" bgcolor="#CCCCCC"><img src="/images/clear.gif" alt="" width="1" height="1" border="0" /></td></tr>
@@ -124,17 +124,17 @@
                                 tmpLink = "<a href=\"c_comp_cat.jsp?c=" + arrCategory[i+r*numCols].getId() + "\" class=\"catCategoryTitle\">" + tmpLink + "</A>";
                             }
 %>
-                            <td class="catCategoryTitle" width="<%= 100/numCols %>%"><%= tmpLink %></td>                    
+                            <td class="catCategoryTitle" width="<%= 100/numCols %>%"><%= tmpLink %></td>
 <%                    } else {
 %>
-                            <td class="catCategoryTitle" width="<%= 100/numCols %>%">&nbsp;</td>                                    
+                            <td class="catCategoryTitle" width="<%= 100/numCols %>%">&nbsp;</td>
 <%                    }
                     }
 %>
                 </tr>
 <%
             }
-%>        
+%>
                 <tr><td colspan="3" height="40"><img src="/images/clear.gif" alt="" width="1" height="40" border="0"/></td></tr>
             </table>
         </td>

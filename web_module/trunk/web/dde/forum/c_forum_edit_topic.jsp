@@ -29,35 +29,35 @@
         response.sendRedirect("/login.jsp");
         return;
     }
-    
+
     Topic topic = null;
-    
+
     /////////////////////////////////////////////
     //Process actions
     /////////////////////////////////////////////
 
     debug.addMsg("EditTopic", "Processing action " + action);
-    
+
     // process action
     if (action == null) {
         action = "new";
         if (topicId != 0) {
             topic = forumBean.getTopic(topicId);
         }
-            
+
     } else {
         String name = request.getParameter("txtTopic");
         String desc = request.getParameter("taDescription");
-        
+
         if (action.equalsIgnoreCase("create topic")) {
             com.topcoder.forum.Forum forum = forumBean.getForum(forumId);
             topic = new Topic();
             topic.setName(name);
             topic.setDescription(desc);
             Topic tmpTopic = forumBean.createTopic(forum, topic);
-            
+
             debug.addMsg("EditTopic", tmpTopic.getName() + tmpTopic.getId());
-            
+
             response.sendRedirect("/forum/c_forum.jsp?f="+forumId);
             return;
         } else if (action.equalsIgnoreCase("save")) {
@@ -84,7 +84,7 @@
 <body class="body" onLoad="frmTopic.txtTopic.focus()">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -101,7 +101,7 @@
             </jsp:include>
         </td>
 <!-- Left Column ends -->
-    
+
 <!-- Gutter begins -->
         <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0"></td>
 <!-- Gutter ends -->
@@ -116,7 +116,7 @@
                     <form name="frmTopic" action="<%=page_name%>" method="post">
                     <input type="hidden" name="f" value="<%=forumId%>">
                     <input type="hidden" name="t" value="<%=topicId%>">
-                    
+
 <!-- Title-->
                     <td class="forumTitleCenter" width="100%">
                         <table cellpadding="0" cellspacing="0" border="0" align="center">
@@ -164,7 +164,7 @@
                 </td></tr>
 <%  } %>
             </table>
- 
+
             <table width="100%" cellpadding="0" cellspacing="0" border="0" class="middle">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
             </table>

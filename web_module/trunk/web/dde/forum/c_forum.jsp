@@ -13,7 +13,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "c_forum.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 <%@ page import="com.topcoder.forum.*" %>
 <%@ page import="com.topcoder.dde.catalog.*" %>
@@ -52,7 +52,7 @@
             return;
         }
     }
-    
+
     /////////////////////////////////////////////
     //Get List of topics
     /////////////////////////////////////////////
@@ -76,7 +76,7 @@
 <body class="body" marginheight="0" marginwidth="0">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -93,7 +93,7 @@
             </jsp:include>
         </td>
 <!-- Left Column ends -->
-    
+
 <!-- Gutter begins -->
         <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0"></td>
 <!-- Gutter ends -->
@@ -101,7 +101,7 @@
 <!-- Middle Column begins -->
         <td width="99%">
             <%@ include file="/includes/forumTitle.jsp" %>
-        
+
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" class="forumBkgd">
 <!-- Column Titles begin -->
                 <tr valign="top"><form name="frmForum" action="<%=page_name%>?f=<%=forumId%>" method="post">

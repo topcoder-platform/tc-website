@@ -22,15 +22,15 @@
     if (txtHandle == null) {
         txtHandle = "";
     }
-    
+
     if (action != null) {
         action = action.trim();
-        
+
         if (action.equalsIgnoreCase("Get Password")) {
             if ("".equals(txtHandle)) {
                 strError = "You must enter a valid user name.";
             } else {
-            
+
                 try {
                     //Send the email
                     USER_MANAGER.sendPasswordEmail(txtHandle);
@@ -57,7 +57,7 @@
 <body class="body" marginheight="0" marginwidth="0" onLoad="frmLogin.txtHandle.focus()">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -83,7 +83,7 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                 <tr><td class="subhead">I forgot my password</td></tr>
             </table>
-                
+
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                <tr valign="top">
                     <td class="bodyText" width="100%">
@@ -137,7 +137,7 @@
 
     </tr>
 </table>
-    
+
 <!-- Footer begins -->
 <jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->

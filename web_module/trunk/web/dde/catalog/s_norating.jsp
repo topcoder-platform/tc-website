@@ -14,7 +14,7 @@
 <%
 	// STANDARD PAGE VARIABLES
 	String page_name = "s_contact.jsp";
-	String action = request.getParameter("a");	
+	String action = request.getParameter("a");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -29,12 +29,12 @@
 <body class="body">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
 
-<!-- breadcrumb begins 
+<!-- breadcrumb begins
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr><td width="100%" height="2" bgcolor="#000000"><img src="/images/clear.gif" alt="" width="10" height="2" border="0" /></td></tr>
 </table>
@@ -65,7 +65,7 @@
 				<tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
 				<tr><td class="normal">&nbsp;</td></tr>
 			</table>
-			
+
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
 				<tr valign="top">
 					<td class="normal">

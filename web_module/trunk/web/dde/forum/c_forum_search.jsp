@@ -13,7 +13,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "c_forum_search.jsp";
-    String action = request.getParameter("a");    
+    String action = request.getParameter("a");
 %>
 
 <% // PAGE SPECIFIC DECLARATIONS %>
@@ -28,7 +28,7 @@
     if (keywords == null) {
         keywords = "";
     }
-    
+
     // If action is null, show advanced search form
     // If action is not null, try to do the search
     if (action != null) {
@@ -60,7 +60,7 @@
 <body class="body" marginheight="0" marginwidth="0">
 
 <!-- Header begins -->
-<%@ include file="/includes/top.jsp" %>
+<jsp:include page="/includes/top.jsp"/>
 <jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
@@ -77,7 +77,7 @@
             </jsp:include>
         </td>
 <!-- Left Column ends -->
-    
+
 <!-- Gutter begins -->
         <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0"></td>
 <!-- Gutter ends -->
@@ -108,7 +108,7 @@
             oddeven = (row%2==0)?"Even":"Odd";
             ForumSearchResult fsr = (ForumSearchResult)itr.next();
             Collection path = fsr.getPath();
-            
+
             Iterator pathItr = path.iterator();
             com.topcoder.forum.Forum forum = (pathItr.hasNext())? (com.topcoder.forum.Forum)pathItr.next() : null;
             Topic topic = (pathItr.hasNext())? (Topic)pathItr.next() : null;
@@ -163,7 +163,7 @@
                 </tr>
 
 <%      }
-    } else { 
+    } else {
 %>
                 <tr valign="top"><td width="100%" class="forumTextOdd"><br>&nbsp;No results were found. Please try broadening your search criteria.<br>&nbsp;</td></tr>
 <%  } %>
