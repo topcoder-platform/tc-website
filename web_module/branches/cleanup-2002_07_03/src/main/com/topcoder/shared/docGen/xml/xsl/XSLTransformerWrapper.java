@@ -43,6 +43,29 @@ public class XSLTransformerWrapper
     }
   }
 
+
+  /**
+   * Creates a transformer with the specified XSL template.  Internally,
+   * a javax.xml.transform.Transformer object is created, and that's
+   * used for the actual XSL transformations.
+   *
+   * @param xslFile  the input file containing the XSL template
+   *
+   * @throws XSLTransformerWrapperException
+   */
+  public XSLTransformerWrapper(File xslFile)
+    throws XSLTransformerWrapperException
+  {
+    try {
+      TransformerFactory transformerFactory = TransformerFactory.newInstance();
+      Source xslSource = new StreamSource(xslFile);
+
+      this.transformer = transformerFactory.newTransformer(xslSource);
+    } catch (TransformerConfigurationException e) {
+      throw new XSLTransformerWrapperException(e);
+    }
+  }
+
   /**
    * Transforms the specified XML data and sends the output of the transformation
    * to the specified target OutputStream.
