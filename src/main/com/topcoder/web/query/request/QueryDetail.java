@@ -10,7 +10,6 @@ import com.topcoder.web.query.ejb.QueryServices.CommandQuery;
 import com.topcoder.web.common.BaseProcessor;
 
 import java.util.Enumeration;
-import java.util.List;
 
 /**
  * @author Greg Paul
@@ -28,7 +27,7 @@ public class QueryDetail extends BaseProcessor {
     private int columnIndex;
     private ResultSetContainer inputList;
     private int queryId;
-    private List commandList;
+    private ResultSetContainer commandList;
 
     /* Creates a new Login */
     public QueryDetail() {
@@ -130,11 +129,11 @@ public class QueryDetail extends BaseProcessor {
         this.queryId = queryId;
     }
 
-    public List getCommandList() {
+    public ResultSetContainer getCommandList() {
         return commandList;
     }
 
-    public void setCommandList(List commandList) {
+    public void setCommandList(ResultSetContainer commandList) {
         this.commandList = commandList;
     }
 
