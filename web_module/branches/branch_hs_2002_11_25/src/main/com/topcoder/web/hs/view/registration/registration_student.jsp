@@ -227,7 +227,7 @@
   <TR>
    <TD COLSPAN="4" CLASS="bodyText" ALIGN="center" VALIGN="middle">
     <TEXTAREA CLASS="bodyText" ROWS="10" COLS="80" READONLY>
-<%@ include file="terms.txt" %>
+     <jsp:getProperty name="student" property="TermsOfUse"/>
     </TEXTAREA>
    </TD>
   </TR>

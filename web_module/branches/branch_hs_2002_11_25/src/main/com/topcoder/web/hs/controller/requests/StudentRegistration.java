@@ -6,6 +6,8 @@ import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.*;
 import com.topcoder.web.ejb.user.*;
+import com.topcoder.web.ejb.email.*;
+import com.topcoder.web.ejb.termsofuse.*;
 import com.topcoder.web.hs.model.*;
 
 import java.rmi.*;
@@ -26,6 +28,8 @@ import javax.sql.*;
 public class StudentRegistration extends Base {
 
   private final static String STATE_INPUT_CODE="st";
+
+  private final static long TERMS_ID=1;
 
   private final static String REGISTRATION_BASE="/registration/";
 
@@ -253,6 +257,9 @@ public class StudentRegistration extends Base {
     }
     _srb.setSchoolList(school_list);
 
+    TermsOfUseHome touh=(TermsOfUseHome)ctx.lookup(TermsOfUseHome.EJB_REF_NAME);
+    TermsOfUse tou=touh.create();
+    _srb.setTermsOfUse(tou.getText(TERMS_ID));
   }
 
   private String getParameterNonNull(String _param) {
@@ -503,6 +510,25 @@ public class StudentRegistration extends Base {
 
       UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
       User user=uh.create();
+      user.createUser(user_id,_srb.getHandle(),'1');
+      user.setFirstName(user_id,_srb.getFirstName());
+      user.setLastName(user_id,_srb.getLastName());
+
+      UserSchoolHome ush=(UserSchoolHome)
+                                        ctx.lookup(UserSchoolHome.EJB_REF_NAME);
+      UserSchool user_school=ush.create();
+      user_school.createUserSchool(user_id,_srb.getSchoolId().longValue());
+      user_school.setCurrent(user_id,_srb.getSchoolId().longValue(),true);
+
+      UserTermsOfUseHome utouh=(UserTermsOfUseHome)
+                                    ctx.lookup(UserTermsOfUseHome.EJB_REF_NAME);
+      UserTermsOfUse user_terms_of_use=utouh.create();
+      //user_terms_of_use.createUserTermsOfUse(user_id, );
+
+      EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
+      Email email=eh.create();
+      long email_id=email.createEmail(user_id);
+      
 
     }
     catch (RemoteException _re) {
