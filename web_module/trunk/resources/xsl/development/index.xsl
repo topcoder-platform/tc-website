@@ -107,7 +107,7 @@ End Date: June 28, 2002<BR/>
 Member Selection: Closed<BR/>
 </P>
 
-<P>
+<!-- <P>
 Project: <A HREF="/index?t=development&amp;c=pdf_cci" CLASS="statText">PDF Conversion Component Implementation Project</A><BR/>
 Start Date: May 30, 2002<BR/>
 End Date: Jul 2, 2002<BR/>
@@ -250,7 +250,7 @@ Length: 9 days<BR/>
 Technologies: C#, Java, .Net<BR/>
 Member Selection: Closed<BR/>
 Inquiry Deadline: Dec 17, 2001 2:00 PM EST<BR/>
-</P>
+</P> -->
 					
 					<P><br/></P>
 		</TD>
