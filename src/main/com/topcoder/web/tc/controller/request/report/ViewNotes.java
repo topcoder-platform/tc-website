@@ -1,12 +1,11 @@
 package com.topcoder.web.tc.controller.request.report;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.security.ClassResource;
 
 /**
  * User: dok
@@ -17,6 +16,9 @@ public class ViewNotes extends Base {
 
     protected void businessProcessing() throws TCWebException {
         String userId = getRequest().getParameter(Constants.USER_ID);
+
+        if (!((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
 
         try {
             if (StringUtils.checkNull(userId).equals("")) {
