@@ -35,7 +35,7 @@ public class ProblemArchive extends Base {
 
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
-            ResultSetContainer rsc = (ResultSetContainer) result.get("crpf_donation_list");
+            ResultSetContainer rsc = (ResultSetContainer) result.get("problem_list");
             SortInfo s = new SortInfo();
             s.addDefault(rsc.getColumnIndex("problem_name"), "asc");
             s.addDefault(rsc.getColumnIndex("contest_name"), "asc");
