@@ -53,10 +53,9 @@
                   <TD class="errorText" HEIGHT="18" align="left" colspan="20">
 
                       <!-- Error message content pane -->
-                        You do not enough priveleges to access this resource<br>
-                        If you think this page was shown by mistake, please contact us<br>
-                        We are sorry for any inconveniences caused by this<br>
-                        site administration<br><br>
+     Your request could not be processed because you do not have permission.
+     If you feel you have reached this page in error and
+     would like to report this to TopCoder click <A CLASS="bodyText" HREF="mailto:service@topcoder.com">here</A>.
 
 <%--
 <!-- web-app debug time stack trace  BEGIN -->
