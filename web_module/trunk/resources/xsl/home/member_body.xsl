@@ -394,14 +394,14 @@
   </tr>
 </table>
 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
-<tr>
-    <td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td>
-            <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-              <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><b>Single Round Match 130</b></a><br />
-              Saturday, January 25, 2003<br /><br />
-            </td> 
-    <td valign="top" width="6"><img src="/i/clear.gif" alt="" width="6" height="1" border="0"/></td>
-  </tr>
+					<tr> 
+						<td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td> 
+						<td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
+							<xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 131</strong></a><br />
+							Thursday, January 30, 2003<br /><br />
+						</td>    
+						<td valign="top" width="6"><img src="/i/clear.gif" alt="" width="6" height="1" border="0"/></td>   
+					</tr>
   <tr>
     <td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td>
     <td valign="middle" align="center" bgcolor="#CCCCCC" width="33%" nowrap="0" height="15">
