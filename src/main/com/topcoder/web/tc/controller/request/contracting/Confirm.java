@@ -115,7 +115,79 @@ public class Confirm  extends ContractingBase {
             }
             
             getRequest().setAttribute("techSkills", techSkills);
+            
+            //database skill
+            ArrayList dbSkills = new ArrayList();
+            
+            //load skill list from db
+            r = new Request();
+            r.setContentHandle("skill_list");
+            r.setProperty("stid", String.valueOf(Constants.SKILL_TYPE_DATABASES));
+
+            rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_list");
+            for(int i = 0; i < rsc.size(); i++) {
+                int id = rsc.getIntItem(i, "skill_id");
+                String text = rsc.getStringItem(i, "skill_desc");
+
+                if(info.getSkill(String.valueOf(id)) != null) {
+                    ContractingResponse resp = new ContractingResponse();
+                    resp.setName(text);
+                    resp.setVal(info.getSkill(String.valueOf(id)));
+                    
+                    dbSkills.add(resp);                
+                }
+            }
+            
+            getRequest().setAttribute("dbSkills", dbSkills);
         
+            //languages skill
+            ArrayList langSkills = new ArrayList();
+            
+            //load skill list from db
+            r = new Request();
+            r.setContentHandle("skill_list");
+            r.setProperty("stid", String.valueOf(Constants.SKILL_TYPE_LANGUAGES));
+
+            rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_list");
+            for(int i = 0; i < rsc.size(); i++) {
+                int id = rsc.getIntItem(i, "skill_id");
+                String text = rsc.getStringItem(i, "skill_desc");
+
+                if(info.getSkill(String.valueOf(id)) != null) {
+                    ContractingResponse resp = new ContractingResponse();
+                    resp.setName(text);
+                    resp.setVal(info.getSkill(String.valueOf(id)));
+                    
+                    langSkills.add(resp);                
+                }
+            }
+            
+            getRequest().setAttribute("langSkills", langSkills);
+            
+            //os skill
+            ArrayList osSkills = new ArrayList();
+            
+            //load skill list from db
+            r = new Request();
+            r.setContentHandle("skill_list");
+            r.setProperty("stid", String.valueOf(Constants.SKILL_TYPE_OS));
+
+            rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_list");
+            for(int i = 0; i < rsc.size(); i++) {
+                int id = rsc.getIntItem(i, "skill_id");
+                String text = rsc.getStringItem(i, "skill_desc");
+
+                if(info.getSkill(String.valueOf(id)) != null) {
+                    ContractingResponse resp = new ContractingResponse();
+                    resp.setName(text);
+                    resp.setVal(info.getSkill(String.valueOf(id)));
+                    
+                    osSkills.add(resp);                
+                }
+            }
+            
+            getRequest().setAttribute("osSkills", osSkills);
+            
         } catch(TCWebException tce) {
             throw tce;
         } catch(Exception e) {
