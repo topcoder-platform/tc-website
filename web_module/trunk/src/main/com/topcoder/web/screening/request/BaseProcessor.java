@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpUtils;
 import javax.sql.DataSource;
 import java.util.Map;
+import java.util.HashMap;
 
 
 /** Provides some of the basic methods and data common to request processors.
@@ -39,13 +40,16 @@ public abstract class BaseProcessor implements RequestProcessor {
     
     /** Holds value of property authentication. */
     private WebAuthentication authentication;
-    
+
+    private HashMap errors;
+
     /** Creates a new instance of BaseProcessor */
     public BaseProcessor() {
         nextPage = null;
         nextPageInContext = true;
         request = null;
         authentication = null;
+        errors = new HashMap();
     }
     
     /** Performs the processing of the request.
@@ -152,4 +156,47 @@ public abstract class BaseProcessor implements RequestProcessor {
                 "Login required for " + this.getClass().getName());
         }
     }
+
+
+    protected void addError(String key, Object error) {
+        if (!hasError(key)) {
+            errors.put(key, error);
+        }
+    }
+
+    public String getError(String key) {
+        if (errors.containsKey(key) && errors.get(key) != null) {
+            return errors.get(key).toString();
+        }
+        return "";
+    }
+
+    public boolean hasError(String key) {
+        return errors.containsKey(key);
+    }
+
+    protected void removeError(String key) {
+        if (hasError(key)) {
+            errors.remove(key);
+        }
+    }
+
+    protected void clearErrors() {
+        errors.clear();
+    }
+
+    protected boolean hasErrors() {
+        return !errors.isEmpty();
+    }
+
+    /* some utility methods */
+
+    protected boolean isEmpty(String s) {
+        return !(s != null && s.trim().length() > 0);
+    }
+
+    protected String checkNull(String s) {
+        return s == null ? "" : s;
+    }
+
 }
