@@ -108,8 +108,8 @@ Second Payment	$45.00<BR/>
 <P>
 Component Posting: 10/25/2002<BR/>
 Initial Submission Due Date: 11/7/2002<BR/>
-Final Submission Due Date: 11/13/2002<BR/>
-Estimated Development End Date: 12/4/2002<BR/>
+Final Submission Due Date: 11/15/2002<BR/>
+Estimated Development End Date: 12/10/2002<BR/>
 </P>
 <a href="Javascript:document.frmInquire.Project.value='Timer';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
           <P><BR/></P>
