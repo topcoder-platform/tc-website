@@ -40,7 +40,7 @@
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="overview"/>
    <jsp:param name="tabLev2" value="join_us"/>
-   <jsp:param name="tabLev3" value="schedule"/>
+   <jsp:param name="tabLev3" value="directions"/>
 </jsp:include>
 
 <!-- Onsite Semifinal and Championship Rounds begins -->
@@ -96,13 +96,13 @@
                 </tr>
 
                 <tr valign="top">
-                    <td class="bodyText" bgcolor="#CCFF66"><strong>Championship Round</strong></td>
-                    <td class="bodyText" bgcolor="#CCFF66">
-                        <strong>Friday, December 5th<br />
-                        Compete: 3:00 PM<br /></strong>
+                    <td class="bodyText" bgcolor="#006666"><strong><font color="#FFFFFF">Championship Round</font></strong></td>
+                    <td class="bodyText" bgcolor="#006666">
+                        <strong><font color="#FFFFFF">Friday, December 5th<br />
+                        Compete: 3:00 PM<br /></font></strong>
                     </td>
-                    <td class="bodyText" bgcolor="#CCFF66" align="center"><strong>4</strong></td>
-                    <td class="bodyText" bgcolor="#CCFF66" align="center"><strong>1</strong></td>
+                    <td class="bodyText" bgcolor="#006666" align="center"><strong><font color="#FFFFFF">4</font></strong></td>
+                    <td class="bodyText" bgcolor="#006666" align="center"><strong><font color="#FFFFFF">1</font></strong></td>
                 </tr>
 
                 <tr valign="top">
