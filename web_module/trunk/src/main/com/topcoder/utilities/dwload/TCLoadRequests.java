@@ -458,7 +458,7 @@ public class TCLoadRequests extends TCLoad {
         }
 
         public long getCoderId() {
-            log.debug("getCoderId called " + getUrl());
+            //log.debug("getCoderId called " + getUrl());
             long ret = -1;
             if (hasCoderId()) {
                 boolean found = false;
@@ -466,6 +466,7 @@ public class TCLoadRequests extends TCLoad {
                     //returning the first found, so if there are more
                     //than one coder_id key in the query, then we'll be
                     //returning the first one
+                    log.debug("coder id value: " + paramMap.get(CODER_ID_KEYS[i]));
                     ret = Long.parseLong(((String) paramMap.get(CODER_ID_KEYS[i])));
                     found = true;
                 }
