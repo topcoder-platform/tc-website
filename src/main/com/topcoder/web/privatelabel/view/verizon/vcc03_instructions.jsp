@@ -99,7 +99,7 @@
        
                         
                         <p>The higher the point value assigned, the more difficult the problem will be.  You may open the problems in any order.  You may have all 
-                        problems open at the same time Ð but keep in mind that the timers for each problem will be counting down independent of other problems that 
+                        problems open at the same time - but keep in mind that the timers for each problem will be counting down independent of other problems that 
                         may be open.  The points that you receive when you submit a problem are calculated based on elapsed coding time.  The faster that you can submit 
                         a solution for a problem, the more point you will receive.</p>
                         
@@ -123,7 +123,7 @@
                         The Verizon Coding Challenge allows coders to utilize Java, C++, C#, or VB.NET as a competition programming language.  You have the option to 
                         choose a programming language on a problem-by-problem basis.  It is legal for you to use two different programming languages to solve different 
                         problems in a single competition.  For this reason, you have the option of choosing the programming language from within the coding window.  You can 
-                        find the language selection area in the upper right area of the coding window Ð under "Choose your language". Remember to select the appropriate language 
+                        find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language 
                         before you attempt to compile your code.  Strange compilation results can be a symptom of having the wrong language selected.</dd><br/>
                         
                         <dd><strong>Creating a Solution</strong><br/>
@@ -132,17 +132,17 @@
                            
                         <dd><strong>Java Code Template</strong><br/>
                         
-                        import &#60;necessary classes&#62;<br/><br/>
+                        <code>import &#60;necessary classes&#62;<br/><br/>
                         public class &#60;class-name&#62; {<br/>
                         public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br/>
                         //your source here<br/>
-                        return &#60;results&#62;;<br/>
+                        return &#60;results&#62;;</code><br/>
                         }<br/>
                         }</dd><br/>
                           
 
                           <dd><strong>C++ Code Template</strong><br/>
-                          #include &#60;necessary classes&#62;<br/>
+                          <code>#include &#60;necessary classes&#62;<br/>
                           using namespace std; //Required for TopCoder gcc compiler<br/>
                           class &#60;class-name&#62;<br/>
                           {<br/>
@@ -152,26 +152,26 @@
                           //your source here<br/>
                           return &#60result&#62;;<br/>
                           } ;<br/>
-                          } ; </dd><br/>
+                          } ; </code></dd><br/>
                           
                           
                           <dd><strong>C# Code Template</strong><br/>
-                          using &#60necessary classes&#62;;<br/><br/>
+                          <code>using &#60necessary classes&#62;;<br/><br/>
                           public class &#60class-name&#62; { <br/>
                           public &#60return-type&#62; &#60method-name&#62; (&#60argument-type&#62; arg1) {<br/>
                           //your source here<br/>
-                          return &#60result&#62;;<br/>
+                          return &#60result&#62;;</code><br/>
                           }<br/>
                           }</dd><br/>
                           
                           <dd><strong>VB.NET Code Template</strong><br/>
-                          <tt> Imports &#60necessary-classes&#62;<br/><br/>
+                          <code> Imports &#60necessary-classes&#62;<br/><br/>
                           Public Class &#60class-name&#62;<br/><br/>
                           public Function &#60method-name&#62; (arg1 as &#60argument-type&#62;) As &#60return-type&#62;<br/>
                           --your source here<br/>
                           Return &#60result&#62;<br/>
                           End Function<br/><br/>
-                          End Class </tt> </dd><br/>
+                          End Class </code> </dd><br/>
                           
                           
                           <dd><strong>Compiling</strong><br/>
