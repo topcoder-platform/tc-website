@@ -123,6 +123,7 @@
                                                         <br/>
                                                         <br/>
                                                         <strong> First Place Compensation: </strong>
+                                                        <br/>
                                                         Compensation for the winning solution is distributed in two installments.
                                                         <br/>
                                                         &#160;&#160;&#160;&#160;&#160;<strong>First Payment:</strong>
@@ -136,6 +137,7 @@
                                                         <br/>
                                                         <br/>
                                                         <strong> First Place Compensation: </strong>
+                                                        <br/>
                                                         Compensation for the second place designer will be paid in one installment
                                                         following the completion of the design project.
                                                     </p>
