@@ -762,6 +762,7 @@ public class PDFGenerator extends BaseProcessor {
         ResumeServices resumebean = (ResumeServices)createEJB(ctx, ResumeServices.class);
         
         if(resumebean.hasResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME)) {
+            System.out.println(resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName());
             byte[] rawBytes = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFile();
             //pass through the converter
             
