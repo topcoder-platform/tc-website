@@ -84,11 +84,11 @@
 					All members:
 					<LI>79&#37; have opted for notification of employment opportunities</LI>
 					<LI>78&#37; have indicated an interest in new employment</LI>
-					<LI>66&#37; are willing to relocate</LI><BR/>
+					<LI>65&#37; are willing to relocate</LI><BR/>
 					Professionals:
 					<LI>60&#37; are looking for full-time work</LI>
 					<LI>8&#37;&#160;&#160;&#160;are looking for full-time contract work</LI>
-					<LI>8&#37; are looking for part-time contract work</LI><BR/>
+					<LI>7&#37; are looking for part-time contract work</LI><BR/>
 					Students:
 					<LI>31&#37; are looking for full-time work</LI>
 					<LI>23&#37; are looking for part-time work</LI>
