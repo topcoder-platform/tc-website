@@ -55,11 +55,25 @@ Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu
 </P>
 <P><BR/></P>    
      </TD>
+
+
 <!-- Body Area Ends -->
       <!-- Gutter -->
       <TD WIDTH="30"><IMG SRC="/i/p/clear.gif" WIDTH="30" HEIGHT="1" BORDER="0"></TD>
       <!-- Gutter Ends -->
    </TR>
+   <tr>
+   <td align="left">
+             <form method="POST" action="<%=request.getContextPath()%>Tx/?op=begin">
+       <input type="hidden" name="back-to" value="/"/>
+       <table>
+         <tr><td>Product ID</td><td><input type="text" name="prod-id" value="1"/></td></tr>
+         <tr><td>Unit type ID</td><td><input type="text" name="utype-id" value="2"/></td></tr>
+         <tr><td colspan="2" align ="center"><input type="submit" value=" buy it "/></td></tr>
+       </table>
+     </form>
+   </td>
+   </tr>
 </TABLE>
   <!-- Body Ends -->
 
