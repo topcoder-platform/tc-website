@@ -4,10 +4,13 @@ import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.web.tc.controller.legacy.jobposting.common.Constants;
 import com.topcoder.web.ejb.jobposting.JobPostingServices;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.Data;
 
@@ -99,7 +102,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         if (navigation==null) navigation = new Navigation(request, response);
         if (navigation == null || !navigation.isIdentified()) {
             log.debug("User not logged in, can not add job hit.");
-            throw new Exception("User not logged in, can not add job hit.");
+            throw new PermissionException(SimpleUser.createGuest(), new ClassResource(this.getClass()));
         } else {
             Data.loadUser(navigation);
             loadUserInfo(navigation.getUser());
