@@ -14,7 +14,7 @@
 <jsp:include page="../../script.jsp" />
 <jsp:include page="../../nocache.jsp"/>
 
-<link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/>
+<link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/> 
 
 </head>
 <body align="center">
