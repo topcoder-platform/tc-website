@@ -128,7 +128,7 @@ public class TCCC05MemberResults extends StatBase {
             Calendar c2 = new GregorianCalendar();
             c2.setTime(a2.getSubmitTimestampDate());
             
-            if(c1.getTimeInMillis() == c2.getTimeInMillis() ) {
+            if(c1.getTime().getTime() == c2.getTime().getTime() ) {
                 return a1.getComponent().compareToIgnoreCase(a2.getComponent());
             }
             
