@@ -411,6 +411,7 @@
         </xsl:when>
         <xsl:otherwise>
           Eligible.
+        </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
       <xsl:otherwise> 
