@@ -1,4 +1,6 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -24,6 +26,7 @@
         <p class="bigTitle">Component Design Competition Finals</p>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" align="center" class="formFrame">
+               <tr><td class="advHeader" colspan="4" valign="middle">Original Distribution:<br><A class="topLink" href="/i/tournament/tccc05/comp_submissions/des_distribution.zip"><img src="/i/download.gif" border="0"/></A></td></tr>
                <tr>
                   <td class="advHeader" align="right" width="40%"></td>
                   <td class="advHeader" align="right" width="15%"><A href="/stat?c=member_profile&cr=278342">adic</a>&#160;&#160;</td>
@@ -36,42 +39,40 @@
                 </tr>
                 <tr>
                   <td class="advCell" align="left">&#160;&#160;&#160;aksonov</td>
-                  <td class="advCell" align="right">464.17&#160;&#160;</td>
-                  <td class="advCell" align="right">473.33&#160;&#160;</td>
-                  <td class="advCell" align="right">399.70&#160;&#160;</td>
+                  <td class="advCell" align="right"><A href="/i/tournament/tccc05/comp_submissions/adic_aksonov.zip">464.17</A>&#160;&#160;</td>
+                  <td class="advCell" align="right"><A href="/i/tournament/tccc05/comp_submissions/aubergineanode_aksonov.zip">473.33</A>&#160;&#160;</td>
+                  <td class="advCell" align="right"><A href="/i/tournament/tccc05/comp_submissions/MPhk_aksonov.zip">399.70</A>&#160;&#160;</td>
                 </tr>
                 <tr>
                   <td class="advCell" align="left">&#160;&#160;&#160;kyky</td>
-                  <td class="advCell" align="right">585.83&#160;&#160;</td>
-                  <td class="advCell" align="right">575.00&#160;&#160;</td>
-                  <td class="advCell" align="right">508.33&#160;&#160;</td>
+                  <td class="advCell" align="right"><A href="/i/tournament/tccc05/comp_submissions/adic_kyky.zip">585.83</A>&#160;&#160;</td>
+                  <td class="advCell" align="right"><A href="/i/tournament/tccc05/comp_submissions/aubergineanode_kyky.zip">575.00</A>&#160;&#160;</td>
+                  <td class="advCell" align="right"><A href="/i/tournament/tccc05/comp_submissions/MPhk_kyky.zip">508.33</A>&#160;&#160;</td>
                 </tr>
                 <tr>
                   <td class="advCell" align="left">&#160;&#160;&#160;WishingBone</td>
-                  <td class="advCell" align="right">256.67&#160;&#160;</td>
-                  <td class="advCell" align="right">240.00&#160;&#160;</td>
-                  <td class="advCell" align="right">265.83&#160;&#160;</td>
+                  <td class="advCell" align="right"><A href="/i/tournament/tccc05/comp_submissions/adic_WishingBone.zip">256.67</A>&#160;&#160;</td>
+                  <td class="advCell" align="right"><A href="/i/tournament/tccc05/comp_submissions/aubergineanode_WishingBone.zip">240.00</A>&#160;&#160;</td>
+                  <td class="advCell" align="right"><A href="/i/tournament/tccc05/comp_submissions/MPhk_WishingBone.zip">265.83</A>&#160;&#160;</td>
                 </tr>
 
                 <tr><td class="advCell" colspan=5>&#160;</td></tr>
 
                 <tr>  
                   <td class="advCell" align="left"><b>Final score:<b></td>
-                  <td class="advCell" align="right"><b>435.56&#160;&#160;<b></td>
-                  <td class="advCell" align="right"><b>429.44&#160;&#160;<b></td>
-                  <td class="advCell" align="right"><b>391.11&#160;&#160;<b></td>
+                  <td class="advCell" align="right"><b>435.56</A>&#160;&#160;<b></td>
+                  <td class="advCell" align="right"><b>429.44</A>&#160;&#160;<b></td>
+                  <td class="advCell" align="right"><b>391.11</A>&#160;&#160;<b></td>
                 </tr>
 
-<%--
-                <tr><td class="advCell" colspan=5>&#160;</td></tr>
+                <tr><td class="advCell" colspan=4>&#160;</td></tr>
 
                <tr>
                   <td class="advHeader"><strong>Submissions:</td>
-                  <td class="advHeader" align="right"><A class="topLink" href="/i/tournament/tco04/comp_submissions/des_sub_adic.zip"><img src="/i/download.gif" border="0"/></A></td>
-                  <td class="advHeader" align="right"><A class="topLink" href="/i/tournament/tco04/comp_submissions/des_sub_akso.zip"><img src="/i/download.gif" border="0"/></A></td>
-                  <td class="advHeader" align="right"><A class="topLink" href="/i/tournament/tco04/comp_submissions/des_sub_mphk.zip"><img src="/i/download.gif" border="0"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="/i/tournament/tccc05/comp_submissions/des_sub_adic.zip"><img src="/i/download.gif" border="0"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="/i/tournament/tccc05/comp_submissions/des_sub_aubergineanode.zip"><img src="/i/download.gif" border="0"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="/i/tournament/tccc05/comp_submissions/des_sub_MPhk.zip"><img src="/i/download.gif" border="0"/></A></td>
                </tr>
---%>
             </table>
 
          <p><br/></p>
