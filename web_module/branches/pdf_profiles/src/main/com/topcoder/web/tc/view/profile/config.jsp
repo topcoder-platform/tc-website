@@ -51,8 +51,7 @@
                     <b>Presented To Logo:</b>
                 </td>
                 <td>
-                    Existing: select here<br/>
-                    New: <input type="file" name="logo" />
+                    <input type="file" name="logo" />
                 </td>
             </tr>
             <tr>
