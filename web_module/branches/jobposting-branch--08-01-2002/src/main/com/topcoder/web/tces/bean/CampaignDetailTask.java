@@ -60,6 +60,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
     }
 
     public void setTotalHits( String campaignHits ) {
+log.debug("setting total hits = "+campaignHits);
         this.campaignHits = campaignHits;
     }
 
@@ -68,6 +69,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
     }
 
     public void setMostRecentHit( String mostRecentHit ) {
+log.debug("setting most recent hit = "+mostRecentHit);
         this.mostRecentHit = mostRecentHit;
     }
 
