@@ -101,11 +101,13 @@ function submitEnter(e) {
                              <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="30" onkeypress="submitEnter(event)"/>
                         </td>
                     </tr>
+                    <br/>
                     <tr>
                         <td colspan="2" align="center">
                             <p>(This must be the same information you used when you registered.)</p>
                         </td>
                     </tr>
+                    <br/>
                     <tr>
                         <td colspan="2" align="center">
                             <a href="javascript void document.frmPass.submit()">Submit</a>
