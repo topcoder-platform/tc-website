@@ -76,7 +76,7 @@
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=diversifieddata" target="_top"><img src="/i/es/diversifieddata/diversifieddata_logo.gif" width="150" height="38" alt="AlphaSimplex" border="0" /></a></td>
                                 <td width="99%" class="bodyText"><strong>Diversified Data, </strong>  the leader in Content Addressed Storage (CAS) consulting and the design and integration of 
-                                complex content and knowledge management environments, is looking to hire developers with Unix and Perl experience on a contract-to-hire basis.  Join teams comprised of their leading solutions 
+                                complex content and knowledge management environments, is looking to hire developers on a contract-to-hire basis.  Join teams comprised of their leading solutions 
                                 architects, accomplished engineers, project managers, and senior developers as they collaborate to craft end-to-end solutions that can be deployed and sustained locally or globally.  
                                 <A href="/?&amp;t=tces&amp;c=diversifieddata" class="bodyText" target="_top"> Learn more</A> about what Diversified Data has to offer. <br/><br/></td>
                             </tr>
