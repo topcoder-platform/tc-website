@@ -6,6 +6,8 @@
 
 <jsp:include page="../../script.jsp" />
 
+<link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>');
+    
 </head>
 
 <body>
@@ -39,11 +41,10 @@
    <jsp:param name="selectedTab" value="overview"/>
 </jsp:include>
 
-<!-- Tab bar sublinks
+<!-- Tab bar sublinks-->
 <jsp:include page="tccc04Sublinks.jsp" >
-   <jsp:param name="selectedList" value=""/>
-   <jsp:param name="selectedTab" value=""/>
-</jsp:include>-->
+   <jsp:param name="selectedList" value="overview"/>
+</jsp:include>
 
             <p class="terciary">
                 Algorithm Competition&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview_comp">Component Competition</a>
