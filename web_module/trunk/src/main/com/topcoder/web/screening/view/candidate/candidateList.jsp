@@ -40,19 +40,13 @@
                 </tr>
             </table>
 
-           <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                 <tr>
-                    <td colspan="2" class="testTableTitleSmall">&#160;</td>
-                    <td colspan="4" align="center" class="testTableTitleSmall">Candidates</td>
-                </tr>
-                
-                <tr>
-                   <td colspan="2" align="center" class="testTableTitle">Candidate</td>
-                   <td align="center" class="testTableTitle">Profile</td>               
-                   <td align="center" class="testTableTitle">Begin</td>               
-                   <td align="center" class="testTableTitle">End</td>
-                   <td align="center" class="testTableTitle">Status</td>
-                   <td align="center" class="testTableTitle">Notes</td>                                          
+                   <td colspan="2" align="center" class="testTableTitleSmall">Candidate</td>
+                   <td align="center" class="testTableTitleSmall">Profile</td>               
+                   <td align="center" class="testTableTitleSmall">Begin</td>               
+                   <td align="center" class="testTableTitleSmall">End</td>
+                   <td align="center" class="testTableTitleSmall">Status</td>
+                   <td align="center" class="testTableTitleSmall">Notes</td>                                          
                 </tr>
 
                 <jsp:useBean id="candidateList" type="java.util.List" scope="request" />
@@ -68,13 +62,13 @@
                 %>
 
                 <tr>
-                   <td align="center" class="testFormOdd">&#160;</TD>
-                   <td align="center" class="testFormOdd"><screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></TD>               
-                   <td align="center" class="testFormOdd"><% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>" styleClass="bodyText"><%=hasResults?"Results":"Details"%></screen:servletLink><% } %></TD>
-                   <td align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></TD>
-                   <td align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></TD>
-                   <td align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="status" /></TD>
-                   <td align="center" class="testFormOdd"><screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText"><%=hasNotes?"View":"None"%></screen:servletLink></TD>
+                   <td class="testFormOdd">&#160;</TD>
+                   <td class="testFormOdd"><screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></td>               
+                   <td align="center" class="testFormOdd"><% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>" styleClass="bodyText"><%=hasResults?"Results":"Details"%></screen:servletLink><% } %></td> 
+                   <td align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
+                   <td align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
+                   <td align="center" class="testFormOdd"><screen:resultSetItem row="<%=row%>" name="status" /></td> 
+                   <td align="center" class="testFormOdd"><screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText"><%=hasNotes?"View":"None"%></screen:servletLink></td> 
                 </tr>
 
             </screen:resultSetRowIterator>
