@@ -131,19 +131,77 @@
 			<br/><br/>
 			The top five scorers in the Championship Round will receive the following cash prizes:
 			<br/><br/>
-			<div class=indented>
-			      <b>1st Place - Rs. 300,000</b><br/>
-			      2nd Place - Rs. 200,000<br/>
-			      3rd Place - Rs. 125,000<br/>
-			      4th Place - Rs. 75,000<br/>
-			      5th Place - Rs. 50,000<br/>
-			      6th - 10th Place - Rs. 35,000<br/>
-			      11th - 20th Place - Rs. 25,000<br/>
-			      21st - 30th Place - Rs. 20,000<br/>
-			      31st - 40th Place - Rs. 15,000<br/>
-			      41st - 50th Place - Rs. 7,500<br/>
-			</div>
-			<br/>
+         <table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
+         <tr valign="top">
+         <td class="sidebarTitle">Competitor(s)</td>
+         <td class="sidebarTitle" align=right>Prize</td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText"><b>1st place finisher* - Tournament Champion</b></td>
+         <td class="sidebarText" align=right><b>Rs. 300,000</b>
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>2nd place finisher* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>Rs. 200,000
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>3rd place
+         finisher* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>Rs. 125,000
+         </td>
+         </tr>                
+         <tr valign="top">
+         <td class="sidebarText" nowrap>4th place
+         finisher* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>Rs. 75,000
+         </td>
+         </tr>                
+         <tr valign="top">
+         <td class="sidebarText" nowrap>5th place
+         finisher* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>Rs. 50,000
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>6th - 10th place
+         finishers* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>Rs. 35,000 each
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>11th - 20th place
+         finishers* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>Rs. 25,000 each
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>21st - 30th place
+         finishers* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>Rs. 20,000 each
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>31st - 40th place
+         finishers* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>Rs. 15,000 each
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>41st - 50th place
+         finishers* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>Rs. 7,500 each
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" colspan="2">* Winner must be present at the onsite round to receive prize.</td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" colspan="2">* Winner must correctly answer at least 1 question and do so in less than 1 hour to receive prize.</td>
+         </tr>
+         </table>
+			<br><br>
 			Those finalists not finishing as one of the top five scorers in the Championship Round will share Rs. 850,000.
 
 			<br/><br/>
