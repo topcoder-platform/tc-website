@@ -2,8 +2,6 @@ package com.topcoder.web.common.security;
 
 import java.util.*;
 import java.security.*;
-import java.sql.*;
-import javax.sql.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import com.topcoder.security.*;
@@ -48,11 +46,6 @@ public class BasicAuthentication implements WebAuthentication {
         this.login = (LoginRemote) Constants.createEJB(LoginRemote.class);
         this.pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
 
-        if(null == getSessionUser(false)) {
-            User u = checkCookie();
-            if(u == null) u = guest;
-            setSessionUser(u, false);
-        }
     }
 
     /**
@@ -93,7 +86,11 @@ public class BasicAuthentication implements WebAuthentication {
      * is present, returns an anonymous user.
      */
     public User getActiveUser() {
-        return getSessionUser(false);
+        User u = getSessionUser();
+        if (u == null) {
+            u = checkCookie();
+        }
+        return u;
     }
 
     /**
@@ -101,7 +98,7 @@ public class BasicAuthentication implements WebAuthentication {
      * this session.  Otherwise returns an anonymous user.
      */
     public User getUser() {
-        User u = getSessionUser(true);
+        User u = getSessionUser();
         if(u == null) u = guest;
         return u;
     }
@@ -137,6 +134,7 @@ public class BasicAuthentication implements WebAuthentication {
      * which cannot be cached and still get immediate behavior 2 above.
      */
     private String hashForUser(long uid) throws Exception {
+        log.debug("hashForUser called...");
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Request dataRequest = new Request();
         dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");
@@ -151,6 +149,7 @@ public class BasicAuthentication implements WebAuthentication {
         StringBuffer hex = new StringBuffer();
         for(int i=0; i<raw.length; i++)
             hex.append(Integer.toHexString(raw[i]&0xff));
+        log.debug("hashForUser hash for user done...");
         return hex.toString();
     }
 
@@ -206,9 +205,7 @@ public class BasicAuthentication implements WebAuthentication {
         return null;
     }
 
-    private User getSessionUser(boolean freshOnly) {
-        if(freshOnly && null==persistor.getObject(request.getSession().getId()+"logged_in"))
-            return null;
+    private User getSessionUser() {
         return (User)persistor.getObject(request.getSession().getId()+"user_obj");
     }
 
@@ -217,11 +214,10 @@ public class BasicAuthentication implements WebAuthentication {
      * persistor.  Done to avoid expensive rechecking of the cookie, and to
      * handle logins which expire with the session.
      *
-     * @param uid  numeric user_id
+     * @param user
      * @param fresh  true if they have logged in during this session
      */
     private void setSessionUser(User user, boolean fresh) {
-//@@@ does User need to implement Serializable for this to work across a cluster?
         persistor.setObject(request.getSession().getId()+"user_obj", user);
         persistor.setObject(request.getSession().getId()+"logged_in", fresh ? "yes" : null);
     }
