@@ -6,6 +6,7 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
+  <xsl:import href="../includes/modules/tco03_head.xsl"/>
   <xsl:import href="../includes/modules/tco03_links.xsl"/>
   <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>
   <xsl:import href="../includes/global_left.xsl"/>
