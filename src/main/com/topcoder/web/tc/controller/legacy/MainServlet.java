@@ -40,6 +40,7 @@ import java.text.SimpleDateFormat;
 public final class MainServlet extends HttpServlet {
 
 
+    private String ERROR_PAGE = null;
     private HTMLRenderer htmlMaker;
     private static final String SESSION_TIMEOUT_PAGE = TCServlet.XSL_ROOT + "error/session_timeout.xsl";
     private static Logger log = Logger.getLogger(MainServlet.class);
@@ -56,6 +57,7 @@ public final class MainServlet extends HttpServlet {
         super.init(config);
         bundle = new TCResourceBundle("ApplicationServer");
         xslCaching = new Boolean(bundle.getProperty("XSL_CACHING", "false")).booleanValue();
+        ERROR_PAGE = config.getInitParameter("error_page");
 
     }
 
@@ -334,44 +336,23 @@ public final class MainServlet extends HttpServlet {
                     }
                 }
             }
-        } catch (NavigationException ne) {
-            try {
-                response.setStatus(500);
-                out = response.getWriter();
-                ne.printStackTrace();
-                if (nav == null) {
-                    session = request.getSession(true);
-                    nav = new Navigation(request, response);
-                }
-                if (document == null) {
-                    document = new XMLDocument("TC");
-                    addURLTags(nav, request, response, document);
-                }
-                document.addTag(new ValueTag("ErrorMsg", ne.getMessage()));
-                document.addTag(new ValueTag("ErrorURL", Conversion.checkNull(ne.getErrorURL())));
-                HTMLString = htmlMaker.render(document, ne.getUrl());
-                out.print(HTMLString);
-                log.debug("MainServlet:NAVIGATION ERROR:\n" + ne.getMessage());
-            } catch (Exception neFail) {
-                neFail.printStackTrace();
-                try {
-                    showInternalError(request, response);
-                } catch (Exception end) {
-                    try {
-                        goTo("general_error.html", request, response);
-                    } catch (Exception ignore) {
-                    }
-                }
-            }
         } catch (Exception e) {
-            e.printStackTrace();
             try {
-                showInternalError(request, response);
-            } catch (Exception end) {
-                end.printStackTrace();
+                handleException(request, response, e);
+            } catch (Exception ex) {
+                log.fatal("forwarding to error page failed", e);
+                ex.printStackTrace();
+
+                response.setStatus(500);
                 try {
-                    goTo("general_error.html", request, response);
-                } catch (Exception ignore) {
+                    PrintWriter ot = response.getWriter();
+                    ot.println("<html><head><title>Internal Error</title></head>");
+                    ot.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");
+                    ot.println("</body></html>");
+                    ot.flush();
+                } catch (IOException ie) {
+                    //what more can i do captain?
+                    ie.printStackTrace();
                 }
             }
         } finally {
@@ -393,6 +374,26 @@ public final class MainServlet extends HttpServlet {
             }
         }
     }
+
+
+
+    protected void handleException(HttpServletRequest request, HttpServletResponse response, Exception e)
+            throws Exception {
+        log.error("caught exception, forwarding to error page", e);
+        if (e instanceof PermissionException) {
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            request.setAttribute(BaseServlet.MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.");
+        } else if (e instanceof NavigationException) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            request.setAttribute(BaseServlet.MESSAGE_KEY, e.getMessage());
+        } else {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            request.setAttribute(BaseServlet.MESSAGE_KEY, "An error has occurred when attempting to process your request.");
+       }
+        request.setAttribute("exception", e);
+        fetchRegularPage(request, response, ERROR_PAGE, true);
+    }
+
 
     private Navigation getNav(TCRequest request, HttpServletResponse response) throws Exception {
         Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
