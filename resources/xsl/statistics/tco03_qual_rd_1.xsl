@@ -22,7 +22,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>2003 TopCoder Open sponsored by Intel&#174; - Qualification Round 1 Summary</title>
+<title>2003 TopCoder Open sponsored by Intel&#174; sponsored by Intel&#174; - Qualification Round 1 Summary</title>
 
 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@ function openWin(url, name, w, h) {
 <!--body contextual links-->
                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                             <tr valign="middle">
-                                <td class="statTextLarge" bgcolor="#999999" width="50%" nowrap="nowrap"><font size="3">2003 TopCoder Open sponsored by Intel<sup>&#174;</sup> - Qualification Round 1 Summary</font></td>
+                                <td class="statTextLarge" bgcolor="#999999" width="50%" nowrap="nowrap"><font size="3">TCO - Qualification Round 1 Summary</font></td>
                                 <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
                             </tr>
 
@@ -84,7 +84,7 @@ function openWin(url, name, w, h) {
 <h2>Match summary</h2> 
 
 <p> 
-The first competition of the 2003 TopCoder Open came off pretty smoothly, with 3 relatively easy problems and 621 competitors.  In fact, 140 out of the 621 people solved all 3 successfully.  In order to advance to the next round of the TCO, you needed to get at least 590 points tonight, which amounted to solving the easy and medium problems pretty quickly (in around 25 minutes).  In this competition, the strategy pioneered by dmwright of skipping the medium problem might have made sense for some coders, since solving the easy and hard problem all but guaranteed you would make the cut.  Only 3 out of 157 coders who solved both the easy and the hard did not have enough points to advance from those two problems alone.
+The first competition of the 2003 TopCoder Open sponsored by Intel<sup>&#174;</sup> came off pretty smoothly, with 3 relatively easy problems and 621 competitors.  In fact, 140 out of the 621 people solved all 3 successfully.  In order to advance to the next round of the TCO, you needed to get at least 590 points tonight, which amounted to solving the easy and medium problems pretty quickly (in around 25 minutes).  In this competition, the strategy pioneered by dmwright of skipping the medium problem might have made sense for some coders, since solving the easy and hard problem all but guaranteed you would make the cut.  Only 3 out of 157 coders who solved both the easy and the hard did not have enough points to advance from those two problems alone.
 <br/><br/>
 Two relative new comers, mathijs and snewman, took first and second, respectively, each in his second competition.  snewman was leading the round going into the challenge phase, but mathijs was able to find two bits of bad code, and gained 100 points, edging out snewman by a meager 14 points.  wleite rounded out the top three, 32 points behind mathijs.  The top three rated coders going into this match - ambrose, zoidal and Joe - all ended up advancing with respectable scores, so no surprises there.
 </p> 
