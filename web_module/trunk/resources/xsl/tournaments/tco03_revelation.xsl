@@ -26,7 +26,7 @@
 
 </head>
 
-<body>
+<body onLoad="timer(1);">
 
 <!-- Header begins -->
 <xsl:call-template name="Top"/>
