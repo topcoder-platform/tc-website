@@ -576,7 +576,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
             sortAscending = ascending;
             sortSecondaryAscending = ascending;
         }
-    
+
         public DataRowComparator(int i, int j, boolean ascending, boolean secondaryAscending) {
             if (!isValidColumn(i))
                 throw new IllegalArgumentException("Column index " + i + " out of bounds");
@@ -591,12 +591,12 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         public int compare(Object o1, Object o2) {
             ResultSetRow rsr1 = (ResultSetRow) o1;
             ResultSetRow rsr2 = (ResultSetRow) o2;
-            TCResultItem ri1 = (TCResultItem) rsr1.getItem(columnToCompare);
-            TCResultItem ri2 = (TCResultItem) rsr2.getItem(columnToCompare);
+            TCResultItem ri1 = rsr1.getItem(columnToCompare);
+            TCResultItem ri2 = rsr2.getItem(columnToCompare);
             int temp = ri1.compareTo(ri2);
             if (temp==0) {
-                ri1 = (TCResultItem) rsr1.getItem(secondaryColumn);
-                ri2 = (TCResultItem) rsr2.getItem(secondaryColumn);
+                ri1 = rsr1.getItem(secondaryColumn);
+                ri2 = rsr2.getItem(secondaryColumn);
                 temp = ri1.compareTo(ri2);
                 if (sortSecondaryAscending) {
                     return temp;
@@ -1274,7 +1274,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * This routine sorts the data in the container by the given column,
      * in the given direction.
      *
-     * @param col The column to sort by.
+     * @param sCol The column to sort by.
      * @param ascending whether to sort the data in ascending or descending order.
      */
     public void sortByColumn(String sCol, boolean ascending) {
