@@ -19,6 +19,7 @@ public class Constants
 
     //URL Parameter constants
     public static String USER_ID;
+    public static String CANDIDATE_ID;
     public static String EMAIL_ADDRESS;
     public static String PASSWORD;
     public static String HANDLE;
@@ -115,6 +116,7 @@ public class Constants
 
         //URL Parameter constants
         USER_ID = config.getInitParameter("user_id_parameter");
+        CANDIDATE_ID = config.getInitParameter("candidate_id_parameter");
         EMAIL_ADDRESS = config.getInitParameter("email_address_parameter");
         PASSWORD = config.getInitParameter("password_parameter");
         HANDLE = config.getInitParameter("handle_parameter");

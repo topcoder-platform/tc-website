@@ -58,6 +58,12 @@
   </init-param>
 
   <init-param>
+    <param-name>candidate_id_parameter</param-name>
+    <param-value>cid</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
     <param-name>referrer_parameter</param-name>
     <param-value>referrer</param-value>
     <description></description>
