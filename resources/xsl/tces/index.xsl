@@ -81,6 +81,14 @@ next Single Round Match date.
 		<TD COLSPAN="3" VALIGN="middle" HEIGHT="17" BGCOLOR="#43515E" CLASS="statText">&#160;<B>Employers</B></TD>
 	</TR>
    <TR>
+		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=solipsys"><IMG SRC="/i/es/solipsys/solipsys_logo.gif" WIDTH="135" HEIGHT="60" BORDER="0"/></A></TD>
+		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+		<TD WIDTH="100%" VALIGN="middle" CLASS="bodyText">Solipsys Corporation is a small, high technology business specializing in products for defense application.  Our primary corporate focus is the development of products designed to address the multi-faceted problem of Joint and Coalition Forces information networking.  We are constantly scanning the horizon for motivated, team-oriented management, technology, and engineering professionals to lead our company into the 21st century.  <A HREF="/?&amp;t=tces&amp;c=solipsys" CLASS="bodyText">Check out</A> our open Software Developer and Systems Engineer positions. <BR/><BR/></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="3" BGCOLOR="#43515E" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+	</TR>     
+   <TR>
 		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=nvidia"><IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" BORDER="0"/></A></TD>
 		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD WIDTH="100%" VALIGN="middle" CLASS="bodyText"><B>NVIDIA&#174; Corporation (Nasdaq: NVDA)</B> is the worldwide leader in graphics processors and media and communications devices.  At NVIDIA we work hard. We thrive on innovation. We define the cutting-edge. We deliver to the nth degree.
