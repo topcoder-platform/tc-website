@@ -150,33 +150,26 @@
   </tr>  
   <tr>
     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>  
-    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br/> 
-    By&#160;Yarin<br/><i>[TC]&#160;Member</i><br/></td>
+    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br/> 
+    By&#160;Logan<br/><i>[TC]&#160;Member</i><br/></td>
     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td> 
     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-    <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 129</b></font> 
+    <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 130</b></font> 
     </td>
   </tr>      
   <tr>
     <td valign="top" class="bodyText" width="100%">
 	<a class="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm129_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm130_prob</xsl:attribute>
         <b>Problem Set Analysis &amp; Opinion</b>
       </a><br/>
-Tuesday, January 14, 2003<br/>
-<p>It was a long time since it last happened, but last night it happened again - a cancelled SRM! 
-Many people (including me) had serious connection problems starting just a few minutes before the 
-SRM was about to begin. The contest was postponed 20 minutes, but even then not everyone who had 
-registered could login to the arena. The admins quickly realized this couldn't be a fair contest, 
-so they decided to cancel it but still let those who wished work on the problems. 
-A good decision as the problem set was a nice one!</p>
 
 <p>
-I guess it was my usual luck that I, <b>Yarin</b>, should do one of my best performances ever when 
-it didn't count, winning Division-I with <b>1656.91</b> points. In Division-II, another impressive 
-score was seen: <b>1601.35</b> by first timer <b>Yi Zhang</b>. The runner ups in Division-I was 
-<b>radeye</b> and in Division-II <b>Karshikinpa</b>
-...<a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm129_prob</xsl:attribute>Get the analysis</a>
+This is one of the easier contests I've seen. The Division-II problems were rather trivial, and 
+only the Division-I Level 3 problem seemed difficult at all. Of all the Division-II coders that 
+submitted at least one problem, only two had a final score of 0, which surely made this a much 
+more satisfying match for most Division-II coders
+...<a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm130_prob</xsl:attribute>Get the analysis</a>
 </p>
     </td>
     <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>     
@@ -300,7 +293,7 @@ be a user interface that has never been seen before...<a class="bodyGeneric"><xs
 					<map name="srmanimation_home">
 						<!-- <area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=schedule&amp;c=srm_spon_artifact"/>	 -->				
 						<area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=tces&amp;c=index"/>
-						<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4445&amp;t=schedule&amp;c=srm"/>
+						<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4450&amp;t=schedule&amp;c=srm"/>
 						<!-- <area alt="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/stat?&amp;c=last_match"/> --> 
 					</map>
 <!--SRM Sponsor Ends-->
