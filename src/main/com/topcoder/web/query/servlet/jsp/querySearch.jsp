@@ -35,6 +35,15 @@
               <jsp:getProperty name="QuerySearch" property="Db"/>
             </td>
           </tr>
+          <tr>
+            <td class="statText" ALIGN="left" colspan="2">
+              <p>Enter a series of words seperated by spaces.  If you would like
+                to search for a phrase, enclose it in double quotes.<br/>
+                Example: search for "this word"<br/>
+                will search for: "search" and "for" and "this word"
+              </p>
+            </td>
+          </tr>
           <tr bgcolor="#333333">
             <form action="<jsp:getProperty name="SessionInfo" property="ServletPath"/>" method="get" name="QuerySearchForm" >
               <input type="hidden" name="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.QUERY_SEARCH_TASK%>">
@@ -57,10 +66,11 @@
                 <A href="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QuerySearch" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="query" property="QueryId"/>" class="statText">
                   [edit]
                 </A>
-                &#160;&#160;
               </td>
               <td class="statText">
-                <jsp:getProperty name="query" property="name"/>
+                <A href="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.QUERY_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QuerySearch" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="query" property="QueryId"/>" class="statText">
+                  <jsp:getProperty name="query" property="name"/>
+                </A>
               </td>
             </tr>
           </query:queryIterator>
