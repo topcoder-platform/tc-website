@@ -183,29 +183,29 @@ was to experience the thrill of that supersonic roller coaster...<A HREF="/index
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" WIDTH="20%" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0"><B>Div-I</B></TD>
              <TD VALIGN="middle" HEIGHT="16" WIDTH="10%" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;tenken</TD>
-             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">203</TD>
-             <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;Room 12</TD>
+             <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;frenetic</TD>
+             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">200</TD>
+             <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;Room 11&#160;</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;BanjoBill</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-467</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 11&#160;</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;acs</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-334</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 7</TD>
           </TR>
           <TR><TD COLSPAN="5" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>          
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0">&#160;<B>Div-II</B></TD>
              <TD VALIGN="middle" HEIGHT="16" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;dilipdalton</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">189</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 48</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;mbarb</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">373</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 47</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;mercury_m</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-444</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 48</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;samosa</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-290</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 44</TD>
           </TR>
           <TR><TD VALIGN="middle" HEIGHT="15" COLSPAN="5" BGCOLOR="#FFFFFF" CLASS="smallText">&#160;<!-- Login is required to view room details. --></TD></TR>                                  
        </TABLE>   
@@ -224,23 +224,23 @@ was to experience the thrill of that supersonic roller coaster...<A HREF="/index
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR><TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
       <TD VALIGN="top" COLSPAN="2"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
-      <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
+      <!-- <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
       <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
       <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
       <TD VALIGN="top" COLSPAN="2"><IMG SRC="/i/label_lessons.gif" ALT="Lessons Learned the Hard Way" WIDTH="205" HEIGHT="26" BORDER="0"/></TD>    
-      <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+      --><TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR>    
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
-    <TD VALIGN="top" WIDTH="40%" ALIGN="left" CLASS="bodyText">    
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/schveiguy_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
+    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">    
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
-    <B>SRM 93</B></FONT><BR/>
-	By&#160;Logan,<I>[TC] Member</I><BR/>
-	<A HREF="/?t=statistics&amp;c=srm93_room1" CLASS="bodyGeneric">Room One Review</A><BR/>
-	<A HREF="/?t=statistics&amp;c=srm93_rookie" CLASS="bodyGeneric">Rookie Review</A><BR/>
-	<A HREF="/?t=statistics&amp;c=srm93_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A></TD>
-    <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
+    <B>SRM 94</B></FONT><BR/>
+	By&#160;schveiguy,<I>[TC] Member</I><BR/>
+	<A HREF="/?t=statistics&amp;c=srm94_room1" CLASS="bodyGeneric">Room One Review</A><BR/>
+	<A HREF="/?t=statistics&amp;c=srm94_rookie" CLASS="bodyGeneric">Rookie Review</A><BR/>
+	<A HREF="/?t=statistics&amp;c=srm94_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A></TD>
+    <!-- <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
     <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
@@ -251,11 +251,11 @@ was to experience the thrill of that supersonic roller coaster...<A HREF="/index
 SRM 93 was a Thursday night contest.  As a landmark, it was the night
 before the 2002 Soccer World Cup kicked off.  There were 
 653 coders for the match, with 392 coders and 42 rooms in Div-II...<A HREF="/?t=statistics&amp;c=srm93_lessons" CLASS="bodyGeneric">full story</A>
-	</TD>
+	</TD> -->
      <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>	  
   </TR>
   <TR><TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  
- <TR>  
+  <TR>  
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" COLSPAN="7" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
@@ -295,17 +295,17 @@ before the 2002 Soccer World Cup kicked off.  There were
     </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
-<IMG SRC="/i/sponspostmatch_citrix.gif" WIDTH="244" HEIGHT="172" BORDER="0" USEMAP="#sponspromo_citrix_Map"/>
+<!-- <IMG SRC="/i/sponspostmatch_citrix.gif" WIDTH="244" HEIGHT="172" BORDER="0" USEMAP="#sponspromo_citrix_Map"/>
 <MAP NAME="sponspromo_citrix_Map">
 <AREA SHAPE="rect" ALT="" COORDS="4,5,240,109" HREF="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=home','Citrix','1','1','680','489')"></AREA>
 <AREA SHAPE="rect" ALT="" COORDS="106,145,195,157" HREF="/?t=statistics&amp;c=srm93_room1"></AREA>
 <AREA SHAPE="rect" ALT="" COORDS="106,133,196,144" HREF="/?t=statistics&amp;c=match_summary"></AREA>
 <AREA SHAPE="rect" ALT="" COORDS="107,117,192,132" HREF="/stat?c=last_match"></AREA>
 </MAP>
-<!-- <A HREF="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=home','Citrix','1','1','680','489')"><img BORDER="0" HEIGHT="172" WIDTH="244" ALT="" SRC="/i/sponspromo_citrix.gif"/></A><BR/> -->
-<!-- <A HREF="/?ContestId=4180&amp;t=schedule&amp;c=srm"><IMG SRC="/i/sponspromo_motorola.gif" ALT="" WIDTH="244" HEIGHT="172" BORDER="0"/></A><BR/><BR/>
+<A HREF="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=home','Citrix','1','1','680','489')"><img BORDER="0" HEIGHT="172" WIDTH="244" ALT="" SRC="/i/sponspromo_citrix.gif"/></A><BR/> -->
+<!-- <A HREF="/?ContestId=4180&amp;t=schedule&amp;c=srm"><IMG SRC="/i/sponspromo_motorola.gif" ALT="" WIDTH="244" HEIGHT="172" BORDER="0"/></A><BR/><BR/> -->
 <A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/promo_teams.gif" WIDTH="244" HEIGHT="81" BORDER="0"/></A><BR/>
-<A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/promo_jobs.gif" WIDTH="244" HEIGHT="81" BORDER="0"/></A>-->
+<A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/promo_jobs.gif" WIDTH="244" HEIGHT="81" BORDER="0"/></A>
 <xsl:call-template name="top_10_coders"/>
 
            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
