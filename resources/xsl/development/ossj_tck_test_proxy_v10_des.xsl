@@ -251,17 +251,17 @@
 
                                             <tr>
                                                 <td class="sidebarText">Winner Announced:</td>
-                                                <td class="sidebarText" align="right">02.13.2004</td>
+                                                <td class="sidebarText" align="right">02.04.2004</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Updated Submission Due Date:</td>
-                                                <td class="sidebarText" align="right">02.18.2004</td>
+                                                <td class="sidebarText" align="right">02.06.2004</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="sidebarText">Design Complete:</td>
-                                                <td class="sidebarText" align="right">02.24.2004</td>
+                                                <td class="sidebarText" align="right">02.10.2004</td>
                                             </tr>
 
                                             <tr>
