@@ -181,12 +181,23 @@
                                         </font>
                                         <h4>Implementation</h4>
                                         <p>
-                                            The solution to this problem was a straight-forward implementation of the function as described.
-                                            TopCoder takes care of the hard parts, ensuring that the value goes to 1 in a reasonable number
-                                            of steps and that no intermediate values overflow a 32 bit signed integer.
-                                            This problem had one of the highest success rates I've ever seen.  Only two people submitted it,
-                                            and only two people that submitted it got it wrong.
+                                            In this problem, coders were asked to determine the final letter grade a
+                                            student should receive given their exam scores, and the number of TopCoder
+                                            competitions they competed in.  The intelligent Professor M. forces his
+                                            students to compete in at least 3 competitions per semester.  Their final
+                                            grade will fall a single letter if they compete in less than 3 competitions.
+                                            To solve this problem one must add up the given scores and then account for
+                                            the number of competitions:
                                         </p>
+                                        <pre>
+                                            public class CSCourse {
+                                                String g[] = {"F","F","D","C","B","A"}; int[] grades = {60,70,80,90};
+                                                public String finalgrade(int[] scores, int events) {
+                                                int sum = scores[0]+scores[1]+scores[2]+scores[3]+scores[4], ret = (events>=3?1:0);
+                                                for (int i = 0; i < grades.length; i++) if (sum>=grades[i]) ret++;
+                                                return g[ret];
+                                            }
+                                        </pre>
                                         <p>&#160;</p>
                                         <a name="Complete"></a>
                                         <font size="+2">
