@@ -4,21 +4,15 @@ import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.error.TCException;
-import com.topcoder.common.web.util.Cache;
 import com.topcoder.common.web.util.Conversion;
-import com.topcoder.common.web.util.DateTime;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.common.web.data.User;
-import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.TCRequestFactory;
-import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
@@ -129,7 +123,7 @@ public final class MainServlet extends HttpServlet {
             // INIT SESSION AND XML DOCUMENT
             session = request.getSession(true);
             document = new XMLDocument("TC");
-            nav = getNav(TCRequestFactory.createRequest(request), response);
+            nav = getNav(HttpObjectFactory.createRequest(request), response);
             addURLTags(nav, request, response, document);
             // NEED THE TASK TO SEE WHAT THE USER WANTS
             requestTask = request.getParameter("t");
@@ -376,7 +370,8 @@ public final class MainServlet extends HttpServlet {
         if (nav==null) {
             nav = new Navigation(request, response);
         }
-        WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response, BasicAuthentication.MAIN_SITE);
+        TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+        WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, tcResponse, BasicAuthentication.MAIN_SITE);
         PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
         TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
         CoderSessionInfo info = new CoderSessionInfo(request, authentication, user.getPrincipals());

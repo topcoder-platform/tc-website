@@ -12,9 +12,6 @@ import javax.servlet.http.HttpUtils;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-import javax.rmi.PortableRemoteObject;
 import java.awt.*;
 import java.io.IOException;
 import java.io.ByteArrayOutputStream;
@@ -23,16 +20,12 @@ import java.util.Iterator;
 import java.util.Date;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCRequestFactory;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -96,9 +89,10 @@ public final class GraphServlet extends HttpServlet {
             Graph.setLicenseKey(LICENSE_KEY);
             dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
 
-            TCRequest tcRequest = TCRequestFactory.createRequest(request);
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             WebAuthentication authentication = new BasicAuthentication(
-                    new SessionPersistor(tcRequest.getSession()), tcRequest, response, BasicAuthentication.CORP_SITE);
+                    new SessionPersistor(tcRequest.getSession()), tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
 
             log.info("[*** graph *** " + dataRequest.getContentHandle() + " *** " + authentication.getActiveUser().getUserName() + " ***]");
 

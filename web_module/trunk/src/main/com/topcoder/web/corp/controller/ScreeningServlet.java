@@ -2,14 +2,13 @@ package com.topcoder.web.corp.controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletConfig;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -51,7 +50,7 @@ public class ScreeningServlet extends BaseServlet {
     }
 
     protected WebAuthentication createAuthentication(TCRequest request,
-                                                     HttpServletResponse response) throws Exception {
+                                                     TCResponse response) throws Exception {
         return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.CORP_SITE);
     }
 

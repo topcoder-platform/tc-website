@@ -381,7 +381,13 @@ public class QueryMover {
         }
         ArrayList ret = null;
         QueryBean query = null;
-        ResultSetContainer queryList = cq.getQueriesForCommand(commandId, dsn);
+        ResultSetContainer queryList = null;
+        try {
+            queryList = cq.getQueriesForCommand(commandId, dsn);
+        } catch (Exception e) {
+            log.debug("************ here *********");
+            e.printStackTrace();
+        }
         ResultSetContainer.ResultSetRow row = null;
         ret = new ArrayList(queryList.size());
         for (Iterator it = queryList.iterator(); it.hasNext();) {

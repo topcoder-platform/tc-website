@@ -7,7 +7,8 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCRequestFactory;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,8 +33,10 @@ public class Login {
             log.debug("login attempt[login/passw]: " + handle + "/" + passw);
             User possibleUser = new SimpleUser(0, handle, passw);
             try {
-                TCRequest tcRequest = TCRequestFactory.createRequest(request);
-                WebAuthentication authToken = new BasicAuthentication(new SessionPersistor(tcRequest.getSession()), tcRequest, response, BasicAuthentication.MAIN_SITE);
+                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+                TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+                WebAuthentication authToken = new BasicAuthentication(new SessionPersistor(tcRequest.getSession()),
+                        tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
                 authToken.login(possibleUser);
                 log.debug("user " + possibleUser.getUserName() + " has logged in");
                 nextPage = request.getContextPath();

@@ -97,9 +97,10 @@ public abstract class BaseServlet extends HttpServlet {
 
         try {
 
-            TCRequest tcRequest = TCRequestFactory.createRequest(request);
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             //set up security objects and session info
-            authentication = createAuthentication(tcRequest, response);
+            authentication = createAuthentication(tcRequest, tcResponse);
             TCSubject user = getUser(authentication.getActiveUser().getId());
             info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
             request.setAttribute(SESSION_INFO_KEY, info);
@@ -149,8 +150,10 @@ public abstract class BaseServlet extends HttpServlet {
                         throw pe;
                     }
                 }
-                fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
-                return;
+                if (!response.isCommitted()) {
+                    fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
+                    return;
+                }
             } catch (Exception e) {
                 handleException(request, response, e);
             }
@@ -208,7 +211,7 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected WebAuthentication createAuthentication(TCRequest request,
-                                                     HttpServletResponse response) throws Exception {
+                                                     TCResponse response) throws Exception {
         return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
     }
 

@@ -42,9 +42,10 @@ public class Controller extends HttpServlet {
 
         /* for exceptions we surely cannot correct */
         try {
-            TCRequest tcRequest = TCRequestFactory.createRequest(request);
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             persistor = new SessionPersistor(request.getSession());
-            auth = new BasicAuthentication(persistor, tcRequest, response, BasicAuthentication.HS_SITE);
+            auth = new BasicAuthentication(persistor, tcRequest, tcResponse, BasicAuthentication.HS_SITE);
 
             RequestProcessor rp;
 

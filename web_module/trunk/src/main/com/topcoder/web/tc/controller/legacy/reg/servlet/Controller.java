@@ -2,7 +2,6 @@ package com.topcoder.web.tc.controller.legacy.reg.servlet;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.User;
-import com.topcoder.common.web.data.Coder;
 import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.SimpleUser;
@@ -10,10 +9,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.tc.controller.legacy.reg.bean.Task;
 import com.topcoder.web.tc.controller.legacy.reg.bean.TaskException;
 import com.topcoder.web.tc.model.CoderSessionInfo;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCRequestFactory;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -58,8 +54,10 @@ public class Controller
              * they are asked to log in.  if we don't do this, we get the wrong info for the
              * request cuz it's stored in the session from some old request.
              */
-            TCRequest tcRequest = TCRequestFactory.createRequest(request);
-            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()), tcRequest, response, BasicAuthentication.MAIN_SITE);
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
+                    tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
             CoderSessionInfo info = new CoderSessionInfo(tcRequest, authentication, user.getPrincipals());

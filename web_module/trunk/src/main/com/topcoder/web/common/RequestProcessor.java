@@ -38,4 +38,6 @@ public interface RequestProcessor {
 
     boolean hasError(String key);
 
+    void setResponse(TCResponse r);
+
 }

@@ -3,7 +3,8 @@ package com.topcoder.web.corp.model;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCRequestFactory;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.ejb.product.*;
 import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.ejb.user.ContactHome;
@@ -87,8 +88,9 @@ public class TransactionInfo implements Serializable {
 
         // find out purchase parameters
         SessionPersistor store = new SessionPersistor(req.getSession(true));
-        TCRequest tcRequest = TCRequestFactory.createRequest(req);
-        User user = new BasicAuthentication(store, tcRequest, resp, BasicAuthentication.CORP_SITE).getUser();
+        TCRequest tcRequest = HttpObjectFactory.createRequest(req);
+        TCResponse tcResponse = HttpObjectFactory.createResponse(resp);
+        User user = new BasicAuthentication(store, tcRequest, tcResponse, BasicAuthentication.CORP_SITE).getUser();
         if (user.isAnonymous()) {
             throw new NotAuthorizedException("User not logged in: " + user.getId());
         } else {
@@ -97,7 +99,7 @@ public class TransactionInfo implements Serializable {
 
         InitialContext icEJB = null;
         try {
-            icEJB = (InitialContext) TCContext.getInitial();
+            icEJB = TCContext.getInitial();
             // check if there is such product
             Product productTable = ((ProductHome) icEJB.lookup(ProductHome.EJB_REF_NAME)).create();
             cost = productTable.getCost(productID);
@@ -170,7 +172,7 @@ public class TransactionInfo implements Serializable {
         long ret = -1;
         InitialContext icEJB = null;
         try {
-            icEJB = (InitialContext) TCContext.getInitial();
+            icEJB = TCContext.getInitial();
                 ProductUnit productUnit = ((ProductUnitHome) icEJB.lookup(ProductUnitHome.EJB_REF_NAME)).create();
             ResultSetContainer unitList = productUnit.getUnits(productId);
             if (unitList.size()==0) {
@@ -241,7 +243,7 @@ public class TransactionInfo implements Serializable {
         InitialContext icEJB = null;
         Date ret = null;
         try {
-            icEJB = (InitialContext) TCContext.getInitial();
+            icEJB = TCContext.getInitial();
             // check if there is such product
             Unit unit = ((UnitHome) icEJB.lookup(UnitHome.EJB_REF_NAME)).create();
 

@@ -9,8 +9,9 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.TCRequestFactory;
+import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -193,10 +194,11 @@ public final class ReportServlet extends HttpServlet {
                 }
                 goTo(Constants.JSP_ADDR + response_addr, request, response);
             } else {
-                TCRequest tcRequest = TCRequestFactory.createRequest(request);
+                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+                TCResponse tcResponse = HttpObjectFactory.createResponse(response);
                 //have to do all this to be sure that this request is in the info object
                 WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
-                    tcRequest, response, BasicAuthentication.MAIN_SITE);
+                    tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
                 PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
                         com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
                 TCSubject user = pmgr.getUserSubject(nav.getUserId());
