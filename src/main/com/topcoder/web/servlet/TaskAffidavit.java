@@ -64,6 +64,7 @@ public final class TaskAffidavit {
                 affidavitTag.addTag(rsc.getTag("Demographics", "Demographic"));
 
                 document.addTag(affidavitTag);
+                log.debug(document.getXML(2));
                 xsldocURLString = TCServlet.XSL_ROOT + requestTask + "/" + requestCommand + ".xsl";
                 result = HTMLmaker.render(document, xsldocURLString);
             }
