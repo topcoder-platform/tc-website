@@ -81,7 +81,7 @@
                                 
                             <tr>
                                 <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-                                <td class="statText" height="18">&#160;<a href="<jsp:getProperty name="campaigndetailtask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignDetailTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="statText"><%= (String)position.get("job_desc") %></a></td>
+                                <td class="statText" height="18">&#160;<a href="<jsp:getProperty name="CampaignDetailTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignDetailTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="statText"><%= (String)position.get("job_desc") %></a></td>
                                 <td><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                                 <td class="statText"><%= (String)position.get("hit_count") %></td>
                                 <td><img src="/i/clear.gif" alt="" width="20" height="1" border="0"></td>
