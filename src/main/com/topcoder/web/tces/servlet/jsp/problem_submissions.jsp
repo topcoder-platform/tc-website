@@ -76,16 +76,21 @@
                     <td class="bodyText" align="center" width="33%">
                         <A HREF="<jsp:getProperty name="ProblemSubmissionsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
                     </td>
-                    
+
                     <td class="bodyText" align="center" width="33%">
                         Coder Problem Submissions
                     </td>
                 </tr>
-            </table>             
-             
+            </table>
+
             <h2>Coder Problem Submissions</h2>
-                        
-            <table id="dataTable" cellspacing="0" cellpadding="5" border="0">               
+
+            <p>
+                <A HREF="JavaScript:getGraph('/graph?c=rating_history_graph&amp;cr=<jsp:getProperty name="CompetitionHistoryTask" property="MemberID"/>','600','400')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                <A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400')" class="bodyText">Overall Rating Distribution Graph</a>
+            </p>
+
+            <table id="dataTable" cellspacing="0" cellpadding="5" border="0">
                 <tr>
                   <td class="testTableTitle"<strong>Date</strong></td>
                   <td class="testTableTitle"><strong>Event Name</strong></td>
@@ -95,7 +100,7 @@
                   <td class="testTableTitle"><strong>Language</strong></td>
                   <td class="testTableTitle"><strong>Result</strong></td>
                 </tr>
-                
+
                 <% int i=0; %>
                 <%--not indenting to save some space on the download cuz this can be a big loop
                     and the spaces significantly impact the size of the html source
