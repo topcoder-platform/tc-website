@@ -337,6 +337,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             hasResume = rServices.hasResume(memberID, DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
+            e.printStackTrace();
         }
 
     }
