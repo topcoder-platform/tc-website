@@ -5,6 +5,7 @@
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
 %>
 
+<%--
 <script type="text/javascript" language="javascript">
 <!-- HIDE FROM OLD BROWSERS
 function timer(last) {
@@ -23,6 +24,8 @@ function find(n) {
 }
 // END HIDING --> 
 </script>
+--%>
+
 <% if ((level1.equals("profile")) | (level1.equals("search")) | (level1.equals("privatelabel"))) { %>
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />

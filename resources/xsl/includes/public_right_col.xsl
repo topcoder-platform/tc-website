@@ -7,6 +7,7 @@
   <xsl:param name="sectionName"></xsl:param>
   <xsl:param name="sectionSubname"></xsl:param>
 
+<!--
 <script type="text/javascript"><![CDATA[
 function timer(last) {
   var d = document;
@@ -23,6 +24,7 @@ function find(n) {
   }
 }
 ]]></script>
+-->
 
 <xsl:choose>
     <xsl:when test="$sectionName='tco03'or$sectionName='statistics'">
