@@ -106,7 +106,7 @@ function submitConfirm() {
                 
                 <tr>
                     <td class="testTableSubtitleOdd">Name</td>
-                    <td class="testTableOdd"><input type="text" name="profileName" value ="<jsp:getProperty name="profile" property="profileName" />" size="30" maxlength="30"></td>
+                    <td class="testTableOdd"><input type="text" name="profileName" value ="<jsp:getProperty name="profile" property="profileName" />" size="30" maxlength="100"></td>
                     <td class="errorTextOdd"><screen:errors name="profileName" /></td>
                 </tr>
 
