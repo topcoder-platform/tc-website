@@ -74,7 +74,7 @@ public class Search extends BaseScreeningProcessor {
         //in case we need the list before we've populated it.  this is most
         //likely to happen in makeRegInfo()
         Map questions;
-        questions = getQuestions();
+        questions = getQuestions(getUser().getId());
         
         List ret = new ArrayList(questions.size());
         DemographicQuestion q = null;
@@ -84,13 +84,14 @@ public class Search extends BaseScreeningProcessor {
         }
         return ret;
     }
-
-     protected static Map getQuestions() throws Exception {
+    
+     protected static Map getQuestions(long userId) throws Exception {
         Request r = new Request();
-        r.setContentHandle("demographic_question_list");
+        r.setContentHandle("demographic_question_list_by_user");
         r.setProperty("ct", "2"); //professional
+        r.setProperty("uid", String.valueOf(userId )); //professional
         Map qMap =  Util.getDataAccess(true).getData(r);
-        ResultSetContainer questions = (ResultSetContainer) qMap.get("demographic_question_list");
+        ResultSetContainer questions = (ResultSetContainer) qMap.get("demographic_question_list_by_user");
         ResultSetContainer.ResultSetRow row = null;
 
         Map ret = new HashMap();
