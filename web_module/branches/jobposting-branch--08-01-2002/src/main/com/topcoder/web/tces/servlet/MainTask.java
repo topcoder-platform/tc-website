@@ -46,7 +46,7 @@ log.debug("setting company name: "+companyName);
 		return companyName;
 	}
 
-    public void servletPreAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response)
+    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
     	throws Exception
     {
 try {
