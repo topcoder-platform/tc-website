@@ -6,7 +6,7 @@
           <TD COLSPAN="6"><IMG SRC="/i/label_room_winners.gif" HEIGHT="17" WIDTH="166" BORDER="0"/></TD>
         </TR>        
         <TR>
-          <TD BGCOLOR="#FFFFFF" COLSPAN="6"><IMG HEIGHT="1" WIDTH="1" SRC="/i/clear.gif"/></TD>
+          <TD BGCOLOR="#FFFFFF" COLSPAN="6" WIDTH="100%"><IMG HEIGHT="1" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>        
         <TR>
           <TD COLSPAN="6"><IMG HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"/></TD>
@@ -14,43 +14,43 @@
         <TR>
           <xsl:choose>
             <xsl:when test="number($division)=2">
-              <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>            
+              <TD WIDTH="10"><IMG WIDTH="10" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>            
               <TD CLASS="smallFoot" COLSPAN="4">Here is a view of the Top-10 room winners with the highest points from <xsl:value-of select="/TC/HOME/Div2RoomWinners/RoomWinner/contest_name"/>&#160;<xsl:value-of select="/TC/HOME/Div2RoomWinners/RoomWinner/round_name"/></TD>
-              <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+              <TD WIDTH="10"><IMG WIDTH="10" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
             </xsl:when>
             <xsl:otherwise>
-              <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>            
+              <TD WIDTH="10"><IMG WIDTH="10" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>            
               <TD CLASS="smallFoot" COLSPAN="4">Here is a view of the Top-10 room winners with the highest points from <xsl:value-of select="/TC/HOME/Div1RoomWinners/RoomWinner/contest_name"/>&#160;<xsl:value-of select="/TC/HOME/Div1RoomWinners/RoomWinner/round_name"/></TD>
-              <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>            
+              <TD WIDTH="10"><IMG WIDTH="10" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>            
             </xsl:otherwise>
           </xsl:choose>     
-        </TR>
+        </TR>  
         <TR>
           <TD COLSPAN="6"><IMG HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>                  
         <TR>
-          <TD WIDTH="10" BGCOLOR="#093158" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" HEIGHT="18"><IMG HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"/></TD>
-          <TD WIDTH="20%" BGCOLOR="#093158" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" CLASS="statTextBig">Room</TD>
-          <TD WIDTH="40%" BGCOLOR="#093158" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" CLASS="statTextBig">Handle</TD>
+          <TD WIDTH="10" BGCOLOR="#093158" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle"><IMG HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"/></TD>        
+          <TD WIDTH="45" BGCOLOR="#093158" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" HEIGHT="18"><IMG HEIGHT="1" WIDTH="45" SRC="/i/clear.gif"/></TD>
+          <TD WIDTH="50%" BGCOLOR="#093158" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" CLASS="statTextBig">Handle</TD>
           <TD WIDTH="3" BGCOLOR="#093158" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle"><IMG WIDTH="3" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD ALIGN="right" BGCOLOR="#093158" WIDTH="40%" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" CLASS="statTextBig">&#160;Final Points</TD>
+          <TD ALIGN="right" BGCOLOR="#093158" WIDTH="50%" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" CLASS="statTextBig">&#160;Final Points</TD>
           <TD WIDTH="10" BGCOLOR="#093158" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle"><IMG HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"/></TD>
         </TR>
         <TR>
-          <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="1" WIDTH="1" SRC="/i/clear.gif"/></TD>
+          <TD COLSPAN="6" WIDTH="1"><IMG HEIGHT="1" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
         <xsl:choose>
           <xsl:when test="number($division)=2">
             <xsl:for-each select="/TC/HOME/Div2RoomWinners/RoomWinner">
-              <!-- <TR>
-                <TD BGCOLOR="#093158" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;&#160;&#160;<xsl:value-of select="room_name"/></TD>
-              </TR> -->
+              <TR>
+                <TD BGCOLOR="#093158" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="6" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;&#160;&#160;<xsl:value-of select="room_name"/></TD>
+              </TR>
               <TR>
                 <TD COLSPAN="6" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
               </TR>
               <TR>
                 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-                <TD CLASS="statText">&#160;&#160;&#160;<xsl:value-of select="room_name"/></TD>
+                <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
                 <TD align="left" CLASS="statText">
                   <A>
                     <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
@@ -71,15 +71,15 @@
           </xsl:when>
           <xsl:otherwise>
             <xsl:for-each select="/TC/HOME/Div1RoomWinners/RoomWinner">
-              <!-- <TR>
-                <TD BGCOLOR="#093158" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;&#160;&#160;<xsl:value-of select="room_name"/></TD>
-              </TR> -->
+              <TR>
+                <TD BGCOLOR="#093158" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="6" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;&#160;&#160;<xsl:value-of select="room_name"/></TD>
+              </TR>
               <TR>
                 <TD COLSPAN="6" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
               </TR>
               <TR>
                 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-                <TD CLASS="statText">&#160;&#160;&#160;<xsl:value-of select="room_name"/></TD>
+                <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
                 <TD align="left" CLASS="statText">
                   <A>
                     <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
