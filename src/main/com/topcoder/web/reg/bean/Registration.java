@@ -165,7 +165,7 @@ public class Registration
     
     void init()
     {
-        Log.msg(VERBOSE,"Registration.init()");
+        Log.msg(" => REGISTRATION.INIT()");
         validSteps = new String[] {STEP_0, STEP_1, STEP_2, STEP_3, STEP_4};
         
         if (user == null || user.getUserId() == 0)
@@ -1535,6 +1535,7 @@ public class Registration
     protected void register()
         throws TaskException
     {
+        Log.msg(" <= REGISTRATION.REGISTER()");
         User user;
         CoderRegistration coder;
         if (isEdit())
