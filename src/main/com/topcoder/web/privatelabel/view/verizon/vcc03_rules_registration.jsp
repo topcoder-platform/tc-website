@@ -71,7 +71,7 @@
             500 eligible individuals to register will be invited to compete.  Official invitations will be emailed on Monday, August 18th.  
             </p>
             <p><br/></p>
-            <p><a href="pl/?&module=FullReg&cid=1">Register</a></p>
+            <p><a href="/pl/?&module=FullReg&eid=1&cid=1747">Register</a></p>
             </blockquote>
 
 <!-- Center Column Ends -->
