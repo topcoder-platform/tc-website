@@ -38,7 +38,7 @@
                        <p>
                         Tonight's set was pretty standard, with lots of successful submissions and few challenges in both divisions.  In an unusual turn of events, 
                         SRM 160 was not won by a member with a target, nor even by a red member.  Instead, it was a yellow member, <b>PMH</b>, who had the highest score, 
-                        unaided by any challenges.  This win, the first be a yellow member in a long time, propelled <b>PMH</b> up 215 rating points, to 2066.
+                        unaided by any challenges.  This win, the first by a yellow member in a long time, propelled <b>PMH</b> up 215 rating points, to 2066.
                         Less than 50 points behind was the TCCC champion <b>dgarthur</b>.  Rounding out the top 3 was <b>bladerunner</b>, only 8 points behind <b>dgarthur</b>. 
                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm160_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
