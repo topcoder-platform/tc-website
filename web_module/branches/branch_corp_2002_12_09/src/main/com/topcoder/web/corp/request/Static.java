@@ -1,23 +1,21 @@
 package com.topcoder.web.corp.request;
 
-import java.util.Enumeration;
-
 /**
-* <p>Title: Static </p>
+* <p> Title: Static </p>
 * <p> Description: Handles "static" pages.  Serve up jsp's in essentially 
-* any directory (below the root), constant STATIC_PREFIX="d".  A request 
-* might look like: 
-* corp/?module=Static&d1=statistics&d2=tourney_overview&d3=myPage
-* The request processor gets the list of parameters out of the request, 
-* validates them, and then begin to process them.  In the above example, 
-* that would mean the static processor should serve up
-* <document_root>/statistics/tourney_overview/myPage.jsp
-* @version   1.4
+* any directory (below the root) The request processor gets the list of 
+* parameters out of the request, validates them, and then processes them. 
+*
+* @version   1.1.2.19
 * @author    Daniel Cohn
 */
+
 public class Static extends BaseProcessor { 
 
+    private static final String HOME_PAGE = "index"; // home page is index.jsp
     private static final String STATIC_PREFIX = "d";  // Prefix for parameters
+    private static final String VALID_PARAMETER_CHARS = 
+        "_-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     /** Constructor sets pageInContext to true since all Static pages are in
      *  the same context 
@@ -46,12 +44,16 @@ public class Static extends BaseProcessor {
 
         boolean found = false;
         String cur = null;
-
-        /* start generating the return string containing the URL.    */
         StringBuffer ret = new StringBuffer();
+
+        /* start generating the return string containing the URL */
         for (int i=1; !found; i++) {
             cur = request.getParameter(STATIC_PREFIX+i);
             if (cur == null) {
+                /* if there is not a (STATIC_PREFIX+1) go to home page */
+                if (i==1) {
+                    ret.append(HOME_PAGE);
+                }
                 found = true;
             }
             else { 
@@ -71,7 +73,6 @@ public class Static extends BaseProcessor {
         return ret.toString();
     }
 
-
    /** If parameter is valid return -1, otherwise returns the index 
     *  of the invalid character in the request.
     * @param param parameter to check for validity.
@@ -80,8 +81,7 @@ public class Static extends BaseProcessor {
     private int validParameter(String param) {
         for (int i=0;i<param.length();i++) {
             char curChar = param.charAt(i);
-            if ( ("_-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" + 
-                  "0123456789").indexOf(curChar) == -1)
+            if (VALID_PARAMETER_CHARS.indexOf(curChar) == -1)
                 return i;
         }
         return -1;
