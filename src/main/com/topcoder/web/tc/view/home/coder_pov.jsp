@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/timmac_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=10407399"><strong>timmac</strong></a><br/>
+                        <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,16 +19,17 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm226_prob">SRM 226 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, January 5, 2005</p>
+                        <p><strong><font size="4"><a href="/index?t=statistics&c=tccc05_online_rd_1">TCCC05 Round 1 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Saturdya, January 15, 2005</p>
 
                         <p>
 
-In Division 2, <b>Oleksiy</b> took top honors with a commanding lead, while <b>bluequark</b>
-and <b>wickedman</b> took second and third.  A special mention goes to <b>wickedman</b> for being
-the highest scoring newbie.
+The first online elimination round in the TCCC caused no major upsets,
+as all the high seeds easily moved on. The problem set, containing three chess related
+problems, was fairly easy (compared to regular division 1 SRM's), and 22 participants
+solved all the problems.
 
-						<a href="/index?t=statistics&c=srm226_prob" class="bodyText"><strong>full&#160;story</strong></a>
+						<a href="/index?t=statistics&c=tccc05_online_rd_1" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
