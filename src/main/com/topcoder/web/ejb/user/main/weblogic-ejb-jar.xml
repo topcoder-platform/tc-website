@@ -48,11 +48,11 @@
         <reference-descriptor>
             <resource-description>
                 <res-ref-name>datasource</res-ref-name>
-                <jndi-name>OLTP</jndi-name>
+                <jndi-name>DS</jndi-name>
             </resource-description>
             <resource-description>
                 <res-ref-name>jts_datasource</res-ref-name>
-                <jndi-name>JTS_OLTP</jndi-name>
+                <jndi-name>JTS_DS</jndi-name>
             </resource-description>
         </reference-descriptor>
         <jndi-name>screening:com.topcoder.web.ejb.user.UserNoteHome</jndi-name>
