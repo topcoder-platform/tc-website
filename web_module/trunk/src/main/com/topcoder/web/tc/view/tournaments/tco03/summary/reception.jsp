@@ -40,11 +40,16 @@
    <jsp:param name="selectedTab" value="coding_summary"/>
 </jsp:include>
 
-<!-- Tab bar sublinks-->
+<jsp:include page="../tco03Sublinks.jsp" >
+   <jsp:param name="selectedList" value=""/>
+   <jsp:param name="selectedTab" value=""/>
+</jsp:include>
+
+<!-- Tab bar sublinks
 <jsp:include page="../tco03Sublinks.jsp" >
    <jsp:param name="selectedList" value="summary"/>
    <jsp:param name="selectedTab" value="reception"/>
-</jsp:include>
+</jsp:include>-->
 
             <p class="terciary">
                 Play-by-Play&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=reception_photos">Photos</a>
