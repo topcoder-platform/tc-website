@@ -8,8 +8,10 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.common.security.PrincipalMgrException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
 import com.topcoder.web.ejb.user.User;
@@ -64,7 +66,9 @@ public class UpdateCandidate extends BaseProcessor
      */
     public void process() throws Exception {
         synchronized(UpdateCandidate.class) {
-        requireLogin();
+            if (getAuthentication().getUser().isAnonymous()) {
+                throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
+            }
 
         request = getRequest();
         CandidateInfo info = new CandidateInfo();

@@ -4,10 +4,12 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.ProblemInfo;
 import com.topcoder.web.screening.model.ProfileInfo;
+import com.topcoder.web.common.PermissionException;
 
 import javax.servlet.ServletRequest;
 import java.util.ArrayList;
@@ -30,7 +32,9 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
     }
 
     public void process() throws Exception {
-        requireLogin();
+        if (getAuthentication().getUser().isAnonymous()) {
+            throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
+        }
         request = getRequest();
         
         //check to see if they are logged in

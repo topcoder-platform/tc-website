@@ -4,14 +4,18 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.SessionInfo;
+import com.topcoder.web.common.PermissionException;
 
 import java.util.Map;
 
 public class PopulateSession extends BaseSessionProcessor {
     public void process() throws Exception {
-        requireLogin();
+        if (getAuthentication().getUser().isAnonymous()) {
+            throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
+        }
         Request sessionInfo = new Request();
         sessionInfo.setProperty(DataAccessConstants.COMMAND,
                 Constants.SESSION_LOOKUP_COMMAND);

@@ -4,8 +4,10 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.ProfileInfo;
+import com.topcoder.web.common.PermissionException;
 
 import javax.servlet.ServletRequest;
 import java.util.Iterator;
@@ -13,7 +15,9 @@ import java.util.Map;
 
 public class CreateProfile extends BaseSessionProcessor {
     public void process() throws Exception {
-        requireLogin();
+        if (getAuthentication().getUser().isAnonymous()) {
+            throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
+        }
         updateSessionInfo();
 
         ServletRequest request = getRequest();

@@ -3,15 +3,11 @@ package com.topcoder.web.screening.request;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RequestProcessor;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.screening.common.AnonymousUserException;
 import com.topcoder.web.screening.common.Constants;
-import com.topcoder.web.corp.request.Login;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;

@@ -5,6 +5,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.ejb.session.Session;
 import com.topcoder.web.ejb.session.SessionHome;
@@ -14,6 +15,7 @@ import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
 import com.topcoder.web.screening.model.EmailInfo;
 import com.topcoder.web.screening.model.SessionInfo;
+import com.topcoder.web.common.PermissionException;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
@@ -24,7 +26,9 @@ import java.util.Map;
 public class UpdateSession extends BaseSessionProcessor {
     public void process() throws Exception {
         synchronized(UpdateSession.class) {
-        requireLogin();
+            if (getAuthentication().getUser().isAnonymous()) {
+                throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
+            }
 
         updateSessionInfo(); // we need this just in case of session timeout
 

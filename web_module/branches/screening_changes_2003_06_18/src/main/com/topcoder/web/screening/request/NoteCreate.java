@@ -4,6 +4,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.ejb.note.Note;
 import com.topcoder.web.ejb.note.NoteHome;
 import com.topcoder.web.ejb.user.UserNote;
@@ -11,6 +12,7 @@ import com.topcoder.web.ejb.user.UserNoteHome;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.PermissionDeniedException;
 import com.topcoder.web.screening.model.CandidateInfo;
+import com.topcoder.web.common.PermissionException;
 
 import javax.naming.InitialContext;
 import javax.transaction.UserTransaction;
@@ -26,8 +28,10 @@ public class NoteCreate extends BaseProcessor {
      * @throws Exception
      */
     public void process() throws Exception {
-        requireLogin();
-        
+        if (getAuthentication().getUser().isAnonymous()) {
+            throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
+        }
+
         String candId = getRequest().getParameter(Constants.CANDIDATE_ID);
 
         if( candId == null || candId.equals("") ){
