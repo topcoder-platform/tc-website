@@ -6,6 +6,7 @@ import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.util.Data;
+import com.topcoder.common.web.util.Cache;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
@@ -14,8 +15,8 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.PathResource;
-import com.topcoder.web.tc.controller.legacy.TaskHome;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.ejb.DataCache.DataCache;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -106,7 +107,7 @@ public final class TaskJob {
         }
         if (nav.getSessionInfo().getRating() <= 0) {
             RecordTag tag = new RecordTag("HOME");
-            TaskHome.getContestDates(tag);
+            getContestDates(tag);
             document.addTag(tag);
             throw new NavigationException(
                     "You must be a rated member to inquire about a job" // MESSAGE WILL APPEAR ABOVE LOGIN
@@ -115,16 +116,13 @@ public final class TaskJob {
         }
     }
 
-
-    private static String getRequestedURL(HttpServletRequest request) {
-        StringBuffer url = new StringBuffer(request.getRequestURI());
-        String query = request.getQueryString();
-        if (query != null) {
-            url.append("/?");
-            url.append(query);
+    static void getContestDates(RecordTag tag) {
+        try {
+            DataCache dcHome = Cache.get();
+            tag.addTag(RecordTag.getListXML("Rounds", dcHome.getRounds()));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return url.toString();
     }
-
 
 }
