@@ -61,7 +61,7 @@
                                 <td id="calendarMini">27</td>
                                 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=5859&amp;t=schedule&amp;c=srm">28</A></td>
                                 <td id="calendarTCO04Mini"><A id="miniSRMDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=about">29</A></td>
-                                <td id="calendarMini">20</td>
+                                <td id="calendarMini">30</td>
                                 <td id="calendarBlankMini">&#160;</td> 
                                 <td id="calendarBlankMini">&#160;</td> 
                             </tr>
