@@ -1,9 +1,9 @@
-package com.topcoder.web.reg.servlet;
+package com.topcoder.web.tces.servlet;
 // package com.topcoder.web.servlet;
 
 import com.topcoder.common.*;
 import com.topcoder.common.web.data.*;
-import com.topcoder.web.reg.bean.*;
+import com.topcoder.web.tces.bean.*;
 
 import java.io.*;
 import java.util.*;
@@ -20,7 +20,7 @@ public class Controller
     public static final String TASK = "task";
     public static final String STEP = "step";
     static final String CONTROLLER_ERROR_URL = "error.jsp";
-    static final String TASK_PACKAGE = "com.topcoder.web.reg.bean";
+    static final String TASK_PACKAGE = "com.topcoder.web.tces.bean";
     
     public void init(Servlet servletConfig)
         throws ServletException
