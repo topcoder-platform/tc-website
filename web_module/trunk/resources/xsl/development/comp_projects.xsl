@@ -83,6 +83,9 @@
                         <p><strong>Only the projects below are designated as TCCC projects.
                         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_comp_description">Click here</A>
                         for the rules and more information about the 2004 TCCC Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCCC.</strong></p>
+                       Be the first submitter for any TCCC project and earn yourself the multiplier.  Now from the 
+                       <a href='?&amp;t=development&amp;c=multiplier_status'>Project Submission</a> page you can view who has inquired, submitted and who has the multiplier!
+
                     </td>
                 </tr>
 
@@ -91,13 +94,6 @@
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
 
-                <tr>
-                    <xsl:variable name="priceFormat" select="'$###,###.00'" />
-                    <td class="bodyText" colspan="6">
-                        <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(/TC/DEVELOPMENT/Project/Total/total, $priceFormat)"/></span>
-                        in payments to the winning designers and developers. Send us your solutions today so you can start collecting your share.</p>
-                    </td>
-                </tr>
 <!-- TCO Design Begins -->
                 <tr>
                     <td colspan="6" class="tcoHeader"><a name="design"></a>2004 TopCoder Collegiate Challenge Component Design Projects</td>
@@ -240,7 +236,14 @@
 
 <!-- Open Component Design Projects begins -->
 
-                <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
+<!--                <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr> -->
+                <tr>
+                    <xsl:variable name="priceFormat" select="'$###,###.00'" />
+                    <td class="bodyText" colspan="6">
+                        <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(/TC/DEVELOPMENT/Project/Total/total, $priceFormat)"/></span>
+                        in payments to the winning designers and developers. Send us your solutions today so you can start collecting your share.</p>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="header" colspan="6">Component Design Projects</td>

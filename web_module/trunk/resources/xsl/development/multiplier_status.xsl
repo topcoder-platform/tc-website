@@ -70,11 +70,23 @@
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr><td><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
-
                 <tr>
                     <td class="bodyText" colspan="5">
+                        <p>
+                        View who has inquired and submitted for each project!  The multiplier graphic displays who
+                        currently has the multiplier, if the multiplier is still up for grabs, the project will not have a graphic.   Read below for the multiplier rules.
                         
+                        </p>
+                    </td>
+                </tr>
+                <tr><td><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
+                <tr>
+                    <td class="bodyText" colspan="5">
+                         
                         <ul><strong>Multiplier Rules</strong>
+                        <li>
+                            The multiplier is in active only for the TopCoder Collegiate Challenge Component Competition.
+                        </li>
                         <li>
                             The multiplier will only be active during the online rounds.  <br />
                             It will not be active for the final competition.
@@ -83,14 +95,15 @@
                             The member with the first submission for each component will be given the multiplier.  
                         </li>
                         <li>
-                            This multiplier will be used to double the component prize <strong>IF</strong> the member places in 1st or 2nd place for that component.  
+                            This multiplier will be used to double the component prize <strong>IF</strong> the member places in 1st or 2nd place for that component.  <br />
+                            There will be no 3rd place prizes. 
                         </li>
                         <li>
                             If a member resubmits a solution, the new submission date is used to determine who has recieved the multiplier.
                         </li>
                         <li>
                             As with the standard competition, 1st and 2nd place is limited to those submissions that pass screening <br />
-                           and receive a review score greater than 74.  
+                           and receive a review score greater than 75.  
                         </li>
                         </ul>
 
