@@ -77,11 +77,11 @@
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="13%" HEIGHT="18"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="0"/>" class="statText"><b>Problem&nbsp;Name</b></a></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="15%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="1"/>" class="statText"><b>Contest</b></a></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="10%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="2"/>" class="statText"><b>Date</b></a></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="20%"><b>Categories</b></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="5%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="4" ascColumn="8" descColumn="9"/>" class="statText"><b>Div. 1<br/>Level</b></a></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="15%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="6" ascColumn="12" descColumn="13"/>" class="statText"><b>Div. 1<br/>Success Rate</b></a></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="10%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="5" ascColumn="10" descColumn="11"/>" class="statText"><b>Div. 2<br/>Level</b></a></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="15%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="7" ascColumn="14" descColumn="15"/>" class="statText"><b>Div. 2<br/>Success Rate</b></a></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="20%"><b>Categories</b></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="5%" HEIGHT="18"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
@@ -94,11 +94,11 @@
                      <TD CLASS="statText" HEIGHT="13"><A HREF="/stat?c=problem_statement&pm=<rsc:item name="problem_id" row="<%=resultRow%>"/>&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statText"><rsc:item name="problem_name" row="<%=resultRow%>"/></A></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="left" NOWRAP="on"><A HREF="/stat?c=round_overview&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statText"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="contest_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></TD>
+                     <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="categories" row="<%=resultRow%>"/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div1_level" row="<%=resultRow%>"/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div1_success" row="<%=resultRow%>" format="0.00%"/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div2_level" row="<%=resultRow%>"/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div2_success" row="<%=resultRow%>" format="0.00%"/></TD>
-                     <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="categories" row="<%=resultRow%>"/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="right"><A HREF="/tc?module=ProblemDetail&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>&pm=<rsc:item name="problem_id" row="<%=resultRow%>"/>" class="statText">details</A></TD>
                      <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    </TR>
