@@ -5,9 +5,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
+<title>Topcoder | Testing Application Management Tool</title>
 
 <jsp:include page="/script.jsp" />
+
 <script type="text/javascript" language="Javascript">
 <!--
 function showEmail() {
