@@ -162,7 +162,7 @@
 <!-- Philip Morris begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170" class="bodyText" align="center"><font size="3"><strong>Philip Morris USA Inc</strong></font><br/><img src="/images/clear.gif" alt="" width="170" height="1" border="0" /></td>
+                    <td width="170"><img src="/images/philipmorris.gif" alt="Oxford" width="170" height="42" border="0" /></td>
                     
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     
