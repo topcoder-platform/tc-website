@@ -164,8 +164,8 @@ public class AuthenticationServicesBean extends BaseEJB {
             query.append(" ,handle");
             query.append(" ,UPPER(handle) AS upper_handle");
             query.append(" FROM user");
-            query.append(" WHERE UPPER(handle) LIKE '%");
-            query.append(handle.toUpperCase());
+            query.append(" WHERE handle_lower LIKE '%");
+            query.append(handle.toLowerCase());
             query.append("%'");
             query.append(" ORDER BY 3");
             /*************************************************************************************/
@@ -234,7 +234,7 @@ public class AuthenticationServicesBean extends BaseEJB {
         query.append(" ,c.activation_code");
         query.append(" FROM user u");
         query.append(" ,coder c");
-        query.append(" WHERE UPPER(handle)=UPPER(?)");
+        query.append(" WHERE handle_lower=lower(?)");
         query.append(" AND u.password=?");
         query.append(" AND u.user_id=c.coder_id");
         /*************************************************************************************/
