@@ -17,12 +17,10 @@ import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.Transaction;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.Context;
 import javax.transaction.Status;
-import javax.transaction.UserTransaction;
 import javax.transaction.TransactionManager;
 import javax.rmi.PortableRemoteObject;
 import java.util.*;
@@ -188,7 +186,7 @@ public final class Data {
             ResultSetContainer typeRsc = (ResultSetContainer) resultMap.get("Types");
             for (int i = 0; i < typeRsc.size(); i++) {
                 int dataTypeId = Integer.parseInt(typeRsc.getItem(i, "data_type_id").toString());
-                DataType type = new DataType(
+                new DataType(
                         dataTypeId,
                         typeRsc.getItem(i, "data_type_desc").toString(),
                         (HashMap) mappings.get(new Integer(dataTypeId)));
