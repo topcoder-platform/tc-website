@@ -10,10 +10,6 @@
 %>
 
 <%
-   boolean isReg = "true".equals(request.getParameter("isReg"));
-%>
-
-<%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
 %>
 
@@ -25,7 +21,7 @@
     <tr valign="middle">
         <td class="topNav" width="49%">&#160;</td>
 
-    <% if ((level1.equals("registration")) || ((level1.equals("review_board"))) { %> 
+    <% if ((level1.equals("registration")) || (level1.equals("review_board"))) { %>
         <td class="topNav" nowrap><A href="/" class="topLink">Competition</A></td>
     <% } else { %>
         <td class="topNavOn" nowrap><A href="/" class="topLink">Competition</A></td>
