@@ -115,7 +115,6 @@ public class EmailInfo extends BaseModel {
         msgText.append("Password:  ");
         msgText.append(candidatePassword);
         msgText.append("\n\n");
-        msgText.append("On average, you should expect to spend 3 hours using the Testing Application.  ");
         msgText.append("Windows, Linux and Unix users can access the Testing Application here: ");
         msgText.append("http://corporate.topcoder.com/testing/testingApp.jsp?company=");
         msgText.append(companyId);
