@@ -200,50 +200,6 @@ public final class TaskDevelopment {
             }
             /********************** comp_projects2 *******************/
             else if (command.equals("comp_projects2")) {
-/*
-               RecordTag designProjectsTag = new RecordTag("design_projects");
-               Collection colComponents = getCatalog().getComponentsByStatus(ComponentInfo.APPROVED);
-               ComponentSummary summaries[] = (ComponentSummary[])colComponents.toArray(new ComponentSummary[0]);
-
-               for(int k = 0; k < summaries.length; k++){
-                    long lngComponent = summaries[k].getComponentId();
-                    ComponentManager componentManager = getComponentManager(lngComponent);
-
-                    Collection colVersions = componentManager.getAllVersionInfo();
-                    ComponentVersionInfo versions[] = (ComponentVersionInfo[])colVersions.toArray(new ComponentVersionInfo[0]);
-
-                    long versionId = -1L;
-                    long phaseId = -1L;
-                    for(int i=0;i<versions.length;i++)
-                    {
-                        if(versions[i].getVersion() > versionId && ((versions[i].getPhase() == ComponentVersionInfo.SPECIFICATION) ||
-                                (versions[i].getPhase() == ComponentVersionInfo.DEVELOPMENT)))
-                        {
-                            versionId = versions[i].getVersion();
-                            phaseId = versions[i].getPhase();
-                        }
-                    }
-
-
-
-                    if(phaseId == ComponentVersionInfo.SPECIFICATION)
-                    {
-                        componentManager = getComponentManager(lngComponent, versionId);
-                        ComponentInfo compInfo = componentManager.getComponentInfo();
-                        RecordTag designProject = new RecordTag("designproject");
-                        ValueTag projectTag = new ValueTag("payment", "343");
-                        ValueTag nameTag = new ValueTag("componentName", compInfo.getName());
-                        ValueTag componentId = new ValueTag("componentId", compInfo.getId());
-
-                        designProject.addTag(projectTag);
-                        designProject.addTag(nameTag);
-                        designProjectsTag.addTag(designProject);
-                    }
-                    else if (phaseId == ComponentVersionInfo.DEVELOPMENT){
-                    }
-               }
-  */
-
                Request dataRequest = null;
                ResultSetContainer rsc = null;
                Map resultMap = null;
@@ -269,9 +225,9 @@ public final class TaskDevelopment {
             }
             /********************** tcs_inquire-design *******************/
             else if (command.equals("tcs_inquire-design")) {
-                if(request.getParameter("comp") != null)
+                if(comp != null)
                 {
-                    long componentId = Long.parseLong(request.getParameter("comp"));
+                    long componentId = Long.parseLong(comp);
 
                     ComponentManager componentManager  = getComponentManager(componentId);
                     ComponentInfo componentInfo  = componentManager.getComponentInfo();
@@ -280,48 +236,11 @@ public final class TaskDevelopment {
                     devTag.addTag(new ValueTag("formattedName", formatName("This is a test")));
                     devTag.addTag(new ValueTag("overview", componentInfo.getDescription()));
 
-                    try {
 
-
-                        Collection colVersions = componentManager.getAllVersionInfo();
-                        ComponentVersionInfo versions[] = (ComponentVersionInfo[])colVersions.toArray(new ComponentVersionInfo[0]);
-
-                        long versionId = 0L;
-                        long phaseId = 0L;
-                        for(int i=0;i<versions.length;i++)
-                        {
-                            if(versions[i].getVersion() > versionId && ((versions[i].getPhase() == ComponentVersionInfo.SPECIFICATION) ||
-                                    (versions[i].getPhase() == ComponentVersionInfo.DEVELOPMENT)))
-                            {
-                                versionId = versions[i].getVersion();
-                                phaseId = versions[i].getPhase();
-                            }
-                        }
-                        componentManager = getComponentManager(componentId, versionId);
-                        java.util.Collection colTempDocuments = componentManager.getDocuments();
-
-                        java.util.Iterator itr = colTempDocuments.iterator();
-                        Document requirementsDoc = null;
-                        while( itr.hasNext() && requirementsDoc == null) {
-                            Document doc = (Document) itr.next();
-                            if(doc.getType() == 0)
-                            {
-                                requirementsDoc = doc;
-                            }
-                        }
-                        if(requirementsDoc != null){
-                            devTag.addTag(new ValueTag("documentId", requirementsDoc.getId()));
-                        }
-                        log.debug("Phase: " + phaseId);
-                        log.debug("version: " + versionId);
-                        devTag.addTag(new ValueTag("phase", phaseId));
-                        devTag.addTag(new ValueTag("version", versionId));
-                    } catch (CatalogException e) {
-                        System.out.println(e.getMessage());
-
-                    } catch (Exception e) {
-                        System.out.println("here:" + e.getMessage());
-                    }
+                    devTag.addTag(new ValueTag("documentId", request.getParameter("docId")));
+                    
+                    devTag.addTag(new ValueTag("phase", request.getParameter("phase")));
+                    devTag.addTag(new ValueTag("version", request.getParameter("version")));
 
                     xsldocURLString = XSL_DIR + command + ".xsl";
                 }
@@ -409,7 +328,7 @@ public final class TaskDevelopment {
 
 
 
-	            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+  	               Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
 
 
                     com.topcoder.security.UserPrincipal selectedPrincipal = null;
