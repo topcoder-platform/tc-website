@@ -79,7 +79,7 @@
                 </UL></P>
             
                 <P>All positions are for New College Graduate &#40;NCG&#41;, Internship, and Co-op opportunities, unless otherwise indicated:</P>
-<P><BR/></P>
+                <P><BR/></P>
 
 <TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
    <TR>
@@ -87,7 +87,7 @@
        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng01&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER</A></B><BR/><BR/>
        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01&amp;a=secure" CLASS="bodyText">GRAPHICS ARCHITECTURE ENGINEER</A></B><BR/><BR/>
        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01&amp;a=secure" CLASS="bodyText">3D GRAPHICS APPLICATION SOFTWARE ENGINEER</A></B><BR/><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01&amp;a=secure" CLASS="bodyText">CAD ENGINEER*</A></B><BR/><BR/>
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01&amp;a=secure" CLASS="bodyText">CAD ENGINEER&#42; </A></B><BR/><BR/>
       </TD>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">       
        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_archeng01&amp;a=secure" CLASS="bodyText">SYSTEMS SOFTWARE ENGINEER</A></B><BR/> <BR/>  
@@ -95,17 +95,17 @@
        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01&amp;a=secure" CLASS="bodyText">WEB SOFTWARE ENGINEER</A></B><BR/><BR/>   
     </TD>
   </TR>
-</TABLE> <BR/>
-<P>*Intern&#47; Co-op Position Only</P>
+</TABLE> 
+<P>&#42; Intern&#47; Co-op Position Only</P>
 <P>As an New College Grad at NVIDIA, your career starts faster than the speed of light!  You will be working side by side with some of the world's best engineers, 
-and you will have an opportunity of a lifetime to make your mark in history.  Where your career will go…only you can tell!</P>
+and you will have an opportunity of a lifetime to make your mark in history.  Where your career will go...only you can tell!</P>
 
 <P>As an intern&#47; co-op at NVIDIA, you will be empowered to show what you can do.  You are a valuable member of our team and play a critical role in the development 
 of our latest products.  Your success will be determined by your technical strength and undisputed proactive attitude.</P>
 
 <P>If you are highly motivated and passionate about winning, check out the possibilities waiting for you.</P>
 
-<P>At NVIDIA, the sky's the limit!  Visualize your future...We do.</P>
+<P>At NVIDIA, the sky's the limit! Visualize your future...We do.</P>
 
 <P><STRONG>YOUR FUTURE BEGINS HERE...</STRONG></P>
 
