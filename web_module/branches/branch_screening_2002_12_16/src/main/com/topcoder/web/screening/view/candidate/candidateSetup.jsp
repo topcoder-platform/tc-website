@@ -26,11 +26,8 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
-<FONT SIZE="3" COLOR="#666666"><strong>Create a New Session - </strong></FONT><FONT SIZE="3" COLOR="#990000"><strong>Set-Up a Candidate</strong></FONT> 
-<P>
-            Create a new candidate or update the existing one.
-</P><BR>
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" scope="request" />
+<FONT SIZE="3" COLOR="#666666"><strong>Create a New Session - </strong></FONT><FONT SIZE="3" COLOR="#990000"><%if(candidateInfo.isNew()) { %><strong>Set-Up a Candidate</strong><%} else {%><strong>Candidate Info</strong><%}%></FONT> 
 
 <screen:form name="candidateSetupForm" action="<%= Constants.CONTROLLER_URL %>" method="GET">
         <INPUT type="hidden" name="rp" value="UpdateCandidate" />

@@ -344,7 +344,7 @@ public class SessionInfo extends BaseModel {
     private Date formDate(String year, String month, String day, String hour) {
         //if we don't have all the values then just exit
         if(year == null || month == null || day == null || hour == null) {
-            return null;
+            return new Date(); //so we don't blow up in certain places
         }
         Calendar c = Calendar.getInstance();
         c.set(Integer.parseInt(year), 

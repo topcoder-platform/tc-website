@@ -32,6 +32,16 @@ public class EmailInfo extends BaseModel {
     private String repName;
     private String repAddress;
 
+    public EmailInfo() {
+        subject = "Example Email";
+        candidateAddress = "somecandidate@candidateaddress.com";
+        candidateHandle = "candidate";
+        candidatePassword = "password";
+        repName = "Rep Name";
+        companyName ="Rep's Company";
+        repAddress = "rep@somecompany.com";
+    }
+
     /**
      * Sets the value of <code>sessionInfo</code>.
      *
