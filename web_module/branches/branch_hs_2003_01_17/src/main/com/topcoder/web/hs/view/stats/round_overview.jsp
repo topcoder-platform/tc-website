@@ -51,7 +51,7 @@
         scores[0][i] = currentRow.getItem("final_points").toString();
         ratings[0][i] = currentRow.getItem("new_rating").toString();
         coderIDs[0][i] = currentRow.getItem("coder_id").toString();
-        schools[0][i] = currentRow.getItem("full_name").toString();
+        schools[0][i] = currentRow.getItem("school_name").toString();
         hsids[0][i] = currentRow.getItem("school_id").toString();
     }
 %>

@@ -86,7 +86,7 @@ public class SessionInfoBean implements Serializable {
             DataAccessInt dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
 
             Map res = dai.getData(dataRequest);
-            ResultSetContainer rsc = (ResultSetContainer)res.get("user_to_school_and_rating");
+            ResultSetContainer rsc = (ResultSetContainer)res.get("user_details");
             ResultSetContainer.ResultSetRow rr = rsc.getRow(0);
 
             setSchoolId(Integer.parseInt(rr.getItem("school_id").toString()));
