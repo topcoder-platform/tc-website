@@ -12,7 +12,7 @@
 					</td>
 				</tr>
 				
-				<tr><td colspan="3" height="5"><img src="/i/clear.gif" width="1" height="5" border="0" /></tr>
+				<tr><td colspan="3" height="5"><img src="/i/clear.gif" width="1" height="5" border="0" /></td></tr>
 			</table>
 
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" background="/i/steel_gray_bg2.gif" bgcolor="#43515E">
