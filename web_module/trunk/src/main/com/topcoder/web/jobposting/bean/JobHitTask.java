@@ -113,7 +113,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         try {
             log.debug("user rating: " + getRating());
             if (getRating() > 0) {
-                if (hasResume) {
+                if (hasResume()) {
                     jpHome = (JobPostingServicesHome) getInitialContext().lookup(ApplicationServer.JOB_POSTING_SERVICES);
                     jpServices = jpHome.create();
                     if (jobHits.size() > 0) {
