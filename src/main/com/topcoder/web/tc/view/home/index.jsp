@@ -138,15 +138,15 @@
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
          <tr>
             <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-            <td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>February Events:</A></td>
+            <td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>March Events:</A></td>
          </tr>
          <tr>
             <td class=homeArrow>&#160;</td>
             <td class=homeText><br/>
-            <b>2/02</b> - TCCC05 Round 4<br/><br/>
-            <b>2/08</b> - SRM 230<br/><br/>
-            <b>2/19</b> - SRM 231<br/><br/>
-            <b>2/23</b> - SRM 232
+            <b>3/03</b> - SRM 233<br/><br/>
+            <b>3/10-11</b> - TCCC05<br/><br/>
+            <b>3/16</b> - SRM 234<br/><br/>
+            <b>3/22</b> - SRM 235<br/><br/>
             </td>
          </tr>
          <tr>
