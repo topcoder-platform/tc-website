@@ -1105,11 +1105,9 @@
                  <include name="public_right.jsp"/>
              </fileset>
              <classes dir="${classes}">
-                 <include name="com/topcoder/shared/**/*.class"/>
                  <include name="com/topcoder/common/**/*.class"/>
                  <include name="com/topcoder/web/common/**/*.class"/>
                  <include name="com/topcoder/web/tc/**/*.class"/>
-                 <include name="com/topcoder/security/**/*.class"/>
                  <include name="com/fx4m/**/*.class"/>
              </classes>
              <classes dir="${resources}">
