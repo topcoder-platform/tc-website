@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
+<%@ page import="com.topcoder.web.corp.common.Constants,
+                com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@ page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
                 <table border="0" cellspacing="0" cellpadding="0" align="center" width="600">
@@ -39,7 +40,7 @@
                                     <td class="screeningCellEven" width="25%" align=right>First Name:</td>
                                     <td class="screeningCellEven" width="75%">
                                         <%-- FIRST NAME TEXT BOX--%>
-                                        <tc-webtag:textInput type="text" name="firstName" size="30" maxlength="50" />
+                                        <tc-webtag:textInput type="text" name="<%=Constants.FIRST_NAME%>" size="30" maxlength="50" />
                                     </td>
                                 </tr>
 
@@ -48,7 +49,7 @@
                                 <tr>
                                     <td class="screeningCellOdd" align=right>Last Name:</td>
                                     <td class="screeningCellOdd">
-                                        <input type="text" name="lastName" size="30" maxlength="50" value="">
+                                        <tc-webtag:textInput type="text" name="<%=Constants.LAST_NAME%>" size="30" maxlength="50" />
                                     </td>
                                 </tr>
 
@@ -57,7 +58,7 @@
                                 <tr>
                                     <td class="screeningCellEven" align=right>Email Address:</td>
                                     <td class="screeningCellEven">
-                                        <input type="text" name="emailAddress" size="30" maxlength="50" value="">
+                                        <tc-webtag:textInput type="text" name="<%=Constants.EMAIL_ADDRESS%>" size="30" maxlength="50" />
                                     </td>
                                 </tr>
                             </table>
