@@ -2,28 +2,31 @@
 <% Map data=(Map)request.getAttribute("STUDENT_DATA");
    ResultSetContainer rsc;
    ResultSetContainer.ResultSetRow rsr;
-   List states=new ArrayList();
-   List schools=new ArrayList();
+   ArrayList states=new ArrayList();
+   ArrayList schools=new ArrayList();
    rsc=data.get("state_schools");
-   for (List state_schools=null,Iterator i=rsc.iterator();i.hasNext();) {
+   for (Iterator i=rsc.iterator();i.hasNext();) {
     rsr=(ResultSetContainer.ResultSetRow)i.next();
     String name=(String)rsr.getItem("state_name").getResultData();
     if (states.size()==0||!((String)states.get(states.size()-1)).equals(name)) {
      states.add(name);
-     state_schools=new ArrayList();
-     schools.add(state_schools);
+     schools.add(new ArrayList());
     }
+    ArrayList state_schools=(ArrayList)schools.get(schools.size()-1);
     state_schools.add(rsr.getItem("short_name").getResultData();
    } %>
 <SCRIPT type="text/javascript">
  var schools=new Array(<%=schools.size()%>)
  <% for (int i=0;i<schools.size();i++) {
-     List state_schools=(List)schools.get(i); %>
+     ArrayList state_schools=(ArrayList)schools.get(i); %>
  schools[<%=i%>]=new Array(<%=state_schools.size()%>)
   <% for (int j=0;j<state_schools.size();j++) { %>
  schools[<%=i%>][<%=j%>]=<%=(String)state_schools.get(j)%>
   <% }
     } %>
+ function changeState() {
+  
+ }
 </SCRIPT>
 <P><B>Registration for Students</B></P>
 <P>Welcome to TopCoder HighSchool. Before you register, there are a few things we think you should know: First, and most importantly, TopCoder is a commercial site. We charge sponsors for the right to advertise on our site. This money pays for the operation of the site and the prizes awarded in competitions.</P>
@@ -80,7 +83,10 @@
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">
     <SELECT NAME="state" CLASS="dropdown" ONCHANGE="changeState()">
-     <OPTION value="CT">Connecticut</OPTION>
+     <OPTION value="-1">Pick a state</OPTION>
+     <% for (int i=0;i<states.size();i++) { %>
+     <OPTION value="<%=i%>"><%=(String)states.get(i)%></OPTION>
+     <% } %>
     </SELECT>
    </TD>
   </TR>
@@ -93,9 +99,8 @@
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">School&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
-    <SELECT NAME="school" CLASS="dropdown">
+    <SELECT DISABLED NAME="school" CLASS="dropdown">
      <OPTION VALUE=""></OPTION>
-     <OPTION VALUE="ZZ">Glastonbury</OPTION>
     </SELECT>
    </TD>
   </TR>
