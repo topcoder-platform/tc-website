@@ -996,7 +996,7 @@
 			<h2>IX. Review</h2>
 			<p>The submission is out of your hands, and the Review Board will judge it on the 
 				following criteria.  You can find a very detailed summary of the scorecard 
-				<a href="/tc?module=Static&d1=dev&d2=support&d3=devScoreSheet">here</a>.</p>
+				<a href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=devReviewSample">here</a>.</p>
 			<p><strong>The implementation addresses the functionality as detailed in the component 
 					design documents.  - </strong>Does your component function as the 
 				design specified?  Does it do everything required, in the manner required?</p>
