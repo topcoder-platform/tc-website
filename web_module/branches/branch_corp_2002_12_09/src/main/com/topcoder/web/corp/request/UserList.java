@@ -21,8 +21,8 @@ import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 *
 */
 
-public class UserListTest extends BaseProcessor {
-    private static Logger log = Logger.getLogger(UserListTest.class);
+public class UserList extends BaseProcessor {
+    private static Logger log = Logger.getLogger(UserList.class);
 
    /**  <p>BusinessProcessing for this processor will retrieve a list of user
      *  information from the database related to current company of the
