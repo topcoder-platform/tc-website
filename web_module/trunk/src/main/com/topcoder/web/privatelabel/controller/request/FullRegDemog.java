@@ -13,12 +13,19 @@ import javax.naming.InitialContext;
  */
 public class FullRegDemog extends FullRegBase {
     protected void registrationProcessing() throws TCWebException {
-        try {
-            getRequest().setAttribute("fileTypeList", getFileTypes());
-        } catch (Exception e) {
-            throw new TCWebException(e);
+
+        checkRegInfo(regInfo);
+
+        if (hasErrors()) {
+            setNextPage(Constants.VERIZON_REG_PAGE);
+        } else {
+            try {
+                getRequest().setAttribute("fileTypeList", getFileTypes());
+            } catch (Exception e) {
+                throw new TCWebException(e);
+            }
+            setNextPage(Constants.VERIZON_REG_DEMOG_PAGE);
         }
-        setNextPage(Constants.VERIZON_REG_DEMOG_PAGE);
         setIsNextPageInContext(true);
     }
 

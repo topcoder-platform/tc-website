@@ -165,4 +165,13 @@ abstract class RegistrationBase extends BaseProcessor {
         ret = getRequest().getParameter(name);
         return ret;
     }
+
+    protected SimpleRegInfo getRegInfoFromPersistor() {
+        //TODO return a clone
+        SimpleRegInfo info = null;
+        Persistor p = new SessionPersistor(getRequest().getSession(true));
+        info = (SimpleRegInfo)p.getObject(Constants.REGISTRATION_INFO);
+        return info;
+    }
+
 }
