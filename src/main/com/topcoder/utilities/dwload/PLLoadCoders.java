@@ -341,7 +341,8 @@ public class PLLoadCoders extends TCLoad {
             query.append("       ,status ");                    // 19
             query.append("       ,email ");                     // 20
             query.append("       ,last_login ");                // 21
-            query.append("       ,coder_region_code)");         // 22
+            query.append("       ,coder_region_code ");         // 22
+            query.append("       ,password)");                  // 23
             query.append(" VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 20
@@ -372,7 +373,8 @@ public class PLLoadCoders extends TCLoad {
             query.append("       ,email = ? ");                     // 19
             query.append("       ,last_login = ? ");                // 20
             query.append("       ,coder_region_code = ? ");         // 21
-            query.append("WHERE coder_id = ?");                     // 22
+            query.append("       ,password = ?");                   // 22
+            query.append("WHERE coder_id = ?");                     // 23
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             // Our select statement to determine if a particular row is
@@ -419,7 +421,8 @@ public class PLLoadCoders extends TCLoad {
                     psUpd.setString(19, rs.getString(20));  // email
                     psUpd.setTimestamp(20, rs.getTimestamp(21));  // last_login
                     psUpd.setString(21, rs.getString(22));  // coder_region_code
-                    psUpd.setInt(22, coder_id);  // coder_id
+                    psUpd.setString(22, ""); //clear the password, dw don't need it
+                    psUpd.setInt(23, coder_id);  // coder_id
 
                     // Now, execute the insert of the new row
                     retVal = psUpd.executeUpdate();
@@ -453,6 +456,7 @@ public class PLLoadCoders extends TCLoad {
                     psIns.setString(20, rs.getString(20));  // email
                     psIns.setTimestamp(21, rs.getTimestamp(21));  // last_login
                     psIns.setString(22, rs.getString(22));  // coder_region_code
+                    psIns.setString(23, "");  // clear plassword, dw don't need it
 
                     // Now, execute the insert of the new row
                     retVal = psIns.executeUpdate();
