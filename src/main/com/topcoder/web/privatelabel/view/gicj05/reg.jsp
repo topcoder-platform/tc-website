@@ -81,20 +81,6 @@
 
             <tr>
                 <td colspan="2" class="errorText" align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.MIDDLE_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
-                </td>
-            </tr>
-            <tr>
-                <td align="right" nowrap>
-                    Middle Initial
-                </td>
-                <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.MIDDLE_NAME%>"  size="1" maxlength="1"/>
-                </td>
-            </tr>
-
-            <tr>
-                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -222,20 +208,6 @@
 
             <tr>
                 <td colspan="2" class="errorText" align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.STATE_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
-                </td>
-            </tr>
-            <tr>
-                <td align="right" nowrap>
-                    State
-                </td>
-                <td align="left">
-                    <% ResultSetContainer stateRsc = (ResultSetContainer)request.getAttribute("stateList"); %>
-                    <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=stateRsc%>" fieldText="state_name" fieldValue="state_code"/>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -252,7 +224,7 @@
             </tr>
             <tr>
                 <td align="right" nowrap>
-                    <span class="errorText">*</span> Zip Code
+                    <span class="errorText">*</span> PIN/Zip Code
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.ZIP%>"  size="10" maxlength="15"/>
