@@ -81,8 +81,6 @@
           <br/>
           <br/>
           Further, I represent that the following information contained in TopCoder's member database represents my personal, identifying information, and that such information is true, accurate and comprehensive:
-          <br/>
-          <br/>
       </li>
    </ul>
   <BR/>
