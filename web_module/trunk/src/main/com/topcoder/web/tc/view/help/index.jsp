@@ -84,21 +84,22 @@
                 <span class="outline2">6.2 <a href="/tc?module=Static&d1=help&d2=ratedEvent#challenge">The Challenge Phase</a></span><br/>
                 <span class="outline2">6.3 <a href="/tc?module=Static&d1=help&d2=ratedEvent#systemtesting">The System-Testing Phase</a></span><br/>
             <span class="outline1">7 <a href="/tc?module=Static&d1=help&d2=ratedEvent#codeobfuscation">Code Obfuscation</a></span><br/>
-            <span class="outline1">8 <a href="/tc?module=Static&d1=help&d2=ratedEvent#broadcastmessages">Broadcast Messages</a></span><br/>
-            <span class="outline1">9 <a href="/tc?module=Static&d1=help&d2=ratedEvent#status">Getting the Status of Other Competitors</a></span><br/>
-                <span class="outline2">9.1 <a href="/tc?module=Static&d1=help&d2=ratedEvent#leaderboard">The Leader Board</a></span><br/>
-                <span class="outline2">9.2 <a href="/tc?module=Static&d1=help&d2=ratedEvent#roomsummary">The Room Summary Window</a></span><br/>
-            <span class="outline1">10 <a href="/tc?module=Static&d1=help&d2=ratedEvent#gettinghelp">Getting Help</a></span><br/>
-            <span class="outline1">11 <a href="/tc?module=Static&d1=help&d2=ratedEvent#score">Determining Score</a></span><br/>
-            <span class="outline1">12 <a href="/tc?module=Static&d1=help&d2=ratedEvent#ratingchanges">Rating Changes</a></span><br/>
-            <span class="outline1">13 <a href="/tc?module=Static&d1=help&d2=ratedEvent#websitestats">Web Site Statistics</a></span><br/>
-            <span class="outline1">14 <a href="/tc?module=Static&d1=help&d2=ratedEvent#problems">Problems in the Practice Rooms</a></span><br/>
-            <span class="outline1">15 <a href="/tc?module=Static&d1=help&d2=ratedEvent#donotagree">What if You Do Not Agree with the Results?</a></span><br/>
-            <span class="outline1">16 <a href="/tc?module=Static&d1=help&d2=ratedEvent#problemanalysis">Problem Set Analysis and Discussion</a></span><br/>
-            <span class="outline1">17 <a href="/tc?module=Static&d1=help&d2=ratedEvent#disconnected">Getting Disconnected from the Arena</a></span><br/>
-            <span class="outline1">18 <a href="/tc?module=Static&d1=help&d2=ratedEvent#cheating">Cheating at TopCoder</a></span><br/>
-            <span class="outline1">19 <a href="/tc?module=Static&d1=help&d2=ratedEvent#prewrittencode">Using Pre-Written Code</a></span><br/>
-            <span class="outline1">20 <a href="/tc?module=Static&d1=help&d2=ratedEvent#arenaplugins">TopCoder Arena Plug-ins</a></span><br/>
+            <span class="outline1">8 <a href="/tc?module=Static&d1=help&d2=ratedEvent#extracoderule">Excessive / Extra Code Rule</a></span><br/>
+            <span class="outline1">9 <a href="/tc?module=Static&d1=help&d2=ratedEvent#broadcastmessages">Broadcast Messages</a></span><br/>
+            <span class="outline1">10 <a href="/tc?module=Static&d1=help&d2=ratedEvent#status">Getting the Status of Other Competitors</a></span><br/>
+                <span class="outline2">10.1 <a href="/tc?module=Static&d1=help&d2=ratedEvent#leaderboard">The Leader Board</a></span><br/>
+                <span class="outline2">10.2 <a href="/tc?module=Static&d1=help&d2=ratedEvent#roomsummary">The Room Summary Window</a></span><br/>
+            <span class="outline1">11 <a href="/tc?module=Static&d1=help&d2=ratedEvent#gettinghelp">Getting Help</a></span><br/>
+            <span class="outline1">12 <a href="/tc?module=Static&d1=help&d2=ratedEvent#score">Determining Score</a></span><br/>
+            <span class="outline1">13 <a href="/tc?module=Static&d1=help&d2=ratedEvent#ratingchanges">Rating Changes</a></span><br/>
+            <span class="outline1">14 <a href="/tc?module=Static&d1=help&d2=ratedEvent#websitestats">Web Site Statistics</a></span><br/>
+            <span class="outline1">15 <a href="/tc?module=Static&d1=help&d2=ratedEvent#problems">Problems in the Practice Rooms</a></span><br/>
+            <span class="outline1">16 <a href="/tc?module=Static&d1=help&d2=ratedEvent#donotagree">What if You Do Not Agree with the Results?</a></span><br/>
+            <span class="outline1">17 <a href="/tc?module=Static&d1=help&d2=ratedEvent#problemanalysis">Problem Set Analysis and Discussion</a></span><br/>
+            <span class="outline1">18 <a href="/tc?module=Static&d1=help&d2=ratedEvent#disconnected">Getting Disconnected from the Arena</a></span><br/>
+            <span class="outline1">19 <a href="/tc?module=Static&d1=help&d2=ratedEvent#cheating">Cheating at TopCoder</a></span><br/>
+            <span class="outline1">20 <a href="/tc?module=Static&d1=help&d2=ratedEvent#prewrittencode">Using Pre-Written Code</a></span><br/>
+            <span class="outline1">21 <a href="/tc?module=Static&d1=help&d2=ratedEvent#arenaplugins">TopCoder Arena Plug-ins</a></span><br/>
 
         <p><span class="bodySubtitle"><a href="/tc?module=Static&d1=help&d2=codingWindow">The Coding Window</a></span><br/>
             <span class="outline1">1 <a href="/tc?module=Static&d1=help&d2=codingWindow#problemstatement">The Problem Statement</a></span><br/>
