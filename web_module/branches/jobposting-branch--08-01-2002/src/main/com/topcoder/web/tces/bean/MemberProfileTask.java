@@ -32,6 +32,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     private int memberID;
     private Map memberInfo;
     private String positionName;
+    private List statsByLevel;
 
     private int uid;
 
@@ -45,6 +46,13 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         setCampaignID(-1);
     }
 
+    public List getStatsByLevel() {
+        return statsByLevel;
+    }
+
+    public void setStatsByLevel(List statsByLevel) {
+        this.statsByLevel = statsByLevel;
+    }
 
     public int getCampaignID() {
         return campaignID;
@@ -129,9 +137,9 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         // set up OLTP query command.
         Request oltpDataRequest = new Request();
         oltpDataRequest.setProperty("uid", Integer.toString(uid) );
-        oltpDataRequest.setProperty("jid", getJobID() );
-        oltpDataRequest.setProperty("cid", getCampaignID() );
-        oltpDataRequest.setProperty("mid", getMemberID() );
+        oltpDataRequest.setProperty("jid", Integer.toString(getJobID()) );
+        oltpDataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
+        oltpDataRequest.setProperty("mid", Integer.toString(getMemberID()) );
 
         DataAccessInt oltp = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map oltpResultMap = oltp.getData(oltpDataRequest);
@@ -149,7 +157,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Member_Handle");
         ResultSetContainer.ResultSetRow memHdlRow = oltpRSC.getRow(0);
-        memberInfo.put(TCESConstants.MEMBER_INFO_HANDLE_KEY, memHdlRow.getItem("handle").toString());
+        memberInfo.put(TCESConstants.MEM_INFO_HANDLE_KEY, memHdlRow.getItem("handle").toString());
 
         oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Position_Name");
         ResultSetContainer.ResultSetRow posNameRow = oltpRSC.getRow(0);
@@ -200,7 +208,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         memberInfo.put(TCESConstants.MEM_RATING_NUMEVENTS_KEY,
                             memStatsRow.getItem("num_ratings").toString() );
         memberInfo.put(TCESConstants.MEM_RATING_MOSTRECENT_KEY,
-                            getDate(memStatsRow,getItem("last_rated_event")) );
+                            getDate(memStatsRow.getItem("last_rated_event")) );
         memberInfo.put(TCESConstants.MEM_RATING_AVGPOINTS_KEY,
                             memStatsRow.getItem("avg_final_points").toString() );
 
@@ -219,17 +227,17 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[2],
                        memStatLvlRow.getItem("submitted").toString() );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[3],
-                       pctFmt.format(Double.parseDouble(memStatLvlRow.getItem("submit_percent").toString())) );
+                       pctFmt.format(Double.parseDouble(memStatLvlRow.getItem("submit_percent"))) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[4],
                        memStatLvlRow.getItem("correct").toString() );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[5],
-                       pctFmt.format(Double.parseDouble(memStatLvlRow.getItem("submission_accuracy").toString())) );
+                       pctFmt.format(Double.parseDouble(memStatLvlRow.getItem("submission_accuracy"))) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[6],
-                       pctFmt.format(Double.parseDouble(memStatLvlRow.getItem("overall_accuracy").toString())) );
+                       pctFmt.format(Double.parseDouble(memStatLvlRow.getItem("overall_accuracy"))) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[7],
-                       decFmt.format(Double.parseDouble(memStatLvlRow.getItem("avg_submission_points").toString())) );
+                       decFmt.format(Double.parseDouble(memStatLvlRow.getItem("avg_submission_points"))) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[8],
-                       decFmt.format(Double.parseDouble(memStatLvlRow.getItem("avg_final_points").toString())) );
+                       decFmt.format(Double.parseDouble(memStatLvlRow.getItem("avg_final_points"))) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[9],
                        memStatLvlRow.getItem("avg_time_elapsed").toString() );
 
@@ -237,7 +245,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         }
         // make a total row and add it to the maplist
         Map totalLevel = new HashMap();
-        totalLevel.put( TCESConstants.MEM_RATING_STATSBYtotalLevel_KEYS[0],
+        totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[0],
                         "All" );
 
         // sum the appropriate fields
@@ -255,15 +263,15 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         for (int rowI=0;rowI<dwRSC.getRowCount();rowI++) {
             memStatLvlRow = dwRSC.getRow(rowI);
 
-            avgSubPts += Double.parseDouble(memStatLvlRow.getItem("avg_submission_points").toString()) *
+            avgSubPts += Double.parseDouble(memStatLvlRow.getItem("avg_submission_points")) *
                          ((Integer)memStatLvlRow.getItem("submitted").getResultData()).doubleValue() /
                          (double)ttlSubmitted;
 
-            avgPtsOverall += Double.parseDouble(memStatLvlRow.getItem("avg_final_points").toString()) *
+            avgPtsOverall += Double.parseDouble(memStatLvlRow.getItem("avg_final_points")) *
                          ((Integer)memStatLvlRow.getItem("presented").getResultData()).doubleValue() /
                          (double)ttlPresented;
 
-            avgTimeToSubmit += Double.parseDouble(memStatLvlRow.getItem("avg_time_elapsed").toString())
+            avgTimeToSubmit += Double.parseDouble(memStatLvlRow.getItem("avg_time_elapsed")) *
                          ((Integer)memStatLvlRow.getItem("submitted").getResultData()).doubleValue() /
                          (double)ttlSubmitted;
         }
@@ -272,12 +280,12 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[1], Integer.toString(ttlPresented) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[2], Integer.toString(ttlSubmitted) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[3],
-                   pctFmt.format( ((double)Integer.toString(ttlSubmitted)) / ((double)Integer.toString(ttlPresented)) ));
+                   pctFmt.format( ((double)Integer.doubleValue(ttlSubmitted)) / ((double)Integer.doubleValue(ttlPresented)) ));
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[4], Integer.toString(ttlCorrect) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[5],
-                   pctFmt.format( ((double)Integer.toString(ttlCorrect)) / ((double)Integer.toString(ttlSubmitted)) ));
+                   pctFmt.format( ((double)Integer.doubleValue(ttlCorrect)) / ((double)Integer.doubleValue(ttlSubmitted)) ));
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[6],
-                   pctFmt.format( ((double)Integer.toString(ttlCorrect)) / ((double)Integer.toString(ttlPresented)) ));
+                   pctFmt.format( ((double)Integer.doubleValue(ttlCorrect)) / ((double)Integer.doubleValue(ttlPresented)) ));
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[7],
                    decFmt.format(avgSubPts) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[8],
