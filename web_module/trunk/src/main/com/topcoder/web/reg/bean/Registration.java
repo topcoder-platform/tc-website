@@ -119,6 +119,10 @@ public class Registration
     public static final int TOPCODER_EMAIL_REFERRAL = 70;
     public static final int JAVA_USER_GROUP_REFERRAL = 90;
     public static final int SEARCH_ENGINE_REFERRAL = 100;
+    private final static String HANDLE_ALPHABET="ABCDEFGHIJKLMNOPQRSTUVWXYZ"+
+                                                "abcdefghijklmnopqrstuvwxyz"+
+                                                "0123456789"+
+                                                "-_.";
 
     // school ids
     //public static final int OTHER_SCHOOL = 0;
@@ -394,6 +398,8 @@ public class Registration
 
             if (isEmpty(this.handle)) {
                 addError(HANDLE, "Please enter your desired handle.");
+            } else if (!isValidHandle(this.handle)) {
+                addError(HANDLE, "Your handle may contain only letters, numbers, underscore, dash and period.");
             } else if
             (
             // if handle has the word "guest" in it
@@ -553,6 +559,15 @@ public class Registration
             process();
         } catch (TaskException e) {
         }
+    }
+
+    private boolean isValidHandle(String handle) {
+        for (int i = 0; i < handle.length(); i++) {
+            if (HANDLE_ALPHABET.indexOf(handle.charAt(i)) == -1) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public String getNextPage() {
