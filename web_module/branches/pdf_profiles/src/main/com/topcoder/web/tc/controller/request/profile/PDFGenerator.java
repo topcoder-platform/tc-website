@@ -275,6 +275,7 @@ public class PDFGenerator extends BaseProcessor {
         t.addCell(new Phrase("Presented to:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
         
         if(info.getCompanyLogo().getFile() != null) {
+            log.debug("SIZE" + info.getCompanyLogo().getSize());
             byte[] b = new byte[(int)info.getCompanyLogo().getSize()];
             info.getCompanyLogo().getInputStream().read(b);
             Image companyLogo = Image.getInstance(b);
@@ -749,10 +750,9 @@ public class PDFGenerator extends BaseProcessor {
         submission.addCell(cell);
 
         System.out.println("TEXT:" + info.getSubmissionText());
-        
-        submission.addCell(new Phrase(info.getSubmissionText(), FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
 
         doc.add(submission);
+        doc.add(new Phrase(info.getSubmissionText(), FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
 
         doc.newPage();
     }
