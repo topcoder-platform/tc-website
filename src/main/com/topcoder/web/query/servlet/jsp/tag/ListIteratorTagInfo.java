@@ -7,7 +7,7 @@ public class ListIteratorTagInfo extends TagExtraInfo {
     public VariableInfo[] getVariableInfo(TagData data) {
         return new VariableInfo[]{
             new VariableInfo(data.getId(),
-                    "java.util.List",
+                    "java.util.Object",
                     true,
                     VariableInfo.NESTED)
         };

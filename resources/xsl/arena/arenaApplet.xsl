@@ -32,14 +32,14 @@
       <xsl:attribute name="value">/contest/classes</xsl:attribute>
     </PARAM>
     <PARAM name="archive" value="ContestApplet.jar"/>
-    <PARAM name="type" value="application/x-java-applet;version=1.2"/>
+    <PARAM name="type" value="application/x-java-applet;version=1.3"/>
     <PARAM name="scriptable" value="false"/>
     <PARAM name="host"><xsl:attribute name="value"><xsl:value-of select="$host"/></xsl:attribute></PARAM>
     <PARAM name="port"><xsl:attribute name="value"><xsl:value-of select="$port"/></xsl:attribute></PARAM> 
     <PARAM name="tunnel"><xsl:attribute name="value"><xsl:value-of select="$tunnel"/></xsl:attribute></PARAM>
     <PARAM name="companyName"><xsl:attribute name="value"><xsl:value-of select="$companyName"/></xsl:attribute></PARAM>
     <EMBED>
-      <xsl:attribute name="type">application/x-java-applet;version=1.2</xsl:attribute>
+      <xsl:attribute name="type">application/x-java-applet;version=1.3</xsl:attribute>
       <xsl:attribute name="code">com.topcoder.client.contestApplet.LaunchApplet.class</xsl:attribute>
       <xsl:attribute name="codebase">/contest/classes</xsl:attribute>
       <xsl:attribute name="name">LaunchApplet</xsl:attribute>
