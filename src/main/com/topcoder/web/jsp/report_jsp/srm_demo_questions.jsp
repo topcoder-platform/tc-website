@@ -7,7 +7,9 @@ java.sql.*,
 java.text.*,
 java.text.DateFormat,
 com.topcoder.shared.util.DBMS,
-javax.servlet.jsp.JspWriter
+javax.servlet.jsp.JspWriter,
+		  java.lang.Object
+
 "
 %>
 <jsp:include page="css.jsp" />
@@ -19,12 +21,19 @@ javax.servlet.jsp.JspWriter
 
 <body>
 
+<%
+string newrd;
+if (request.getParameter("rd")==null)
+{
+	newrd = "4445";
+	}
+else
+{
+	newrd = request.getParameter("rd");
+}
+
+%>
 <%!
-
-
-dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
-
-
   //////////////////////////////////////////////////////////////////////////////// 
   public static void doit(JspWriter out, int coderType, int roundID) throws SQLException, Exception
   //////////////////////////////////////////////////////////////////////////////// 
@@ -399,9 +408,9 @@ dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.ge
 <td class=sectionTitle width="40">&nbsp;&nbsp;</td>
 <td class=sectionTitle>Professionals</td></tr>
 <tr>
-	<td valign="top"><%doit(out,1,rd);%></td>
+	<td valign="top"><%doit(out,1,newrd);%></td>
 	<td width="40">&nbsp;&nbsp;</td>
-	<td valign="top"><%doit(out,2,rd);%></td>
+	<td valign="top"><%doit(out,2,newrd);%></td>
 </tr>
 </table>
 
