@@ -74,7 +74,7 @@ public class TCContext {
         java.io.InputStream in = new java.io.FileInputStream("Sample.properties");
         prop.load(in);
         env.put(javax.naming.Context.INITIAL_CONTEXT_FACTORY, prop.getProperty("JNDI_FACTORY"));
-        env.put(javax.naming.Context.PROVIDER_URL, prop.getProperty("HOST_URL"));
+        env.put(javax.naming.Context.PROVIDER_URL, prop.getProperty("PACTS_HOST_URL"));
       } catch (java.io.FileNotFoundException exception1) {
           log.error("Error locating properties file for Pacts context");
       } catch (java.io.IOException exception2) {
@@ -85,3 +85,4 @@ public class TCContext {
     return new InitialContext(env);
   }
 }
+
