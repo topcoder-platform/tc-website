@@ -1,5 +1,7 @@
 package com.topcoder.shared.util;
 
+import javax.sql.DataSource;
+import javax.naming.NamingException;
 import java.io.*;
 import java.sql.*;
 
@@ -13,9 +15,6 @@ import java.sql.*;
 public class DBMS {
 
     private static final TCResourceBundle bundle = new TCResourceBundle("DBMS");
-
-    public static String INFORMIX_CONNECT_STRING = getProperty("INFORMIX_CONNECT_STRING",
-            "jdbc:informix-sqli://172.16.20.25:1526/devoltp:INFORMIXSERVER=tc_memeber_dev_tcp;user=coder;password=coder");
 
     public static final int INFORMIX = getIntProperty("INFORMIX", 1);
     public static int DB = getIntProperty("DB", INFORMIX);
@@ -99,60 +98,24 @@ public class DBMS {
      * @throws SQLException
      */
     public static final java.sql.Connection getConnection() throws SQLException {
-        java.sql.Connection result = null;
-        int cnt = 0;
-        while (true) {
-            cnt++;
-            try {
-                Driver driver = (Driver) Class.forName(DBMS.POOL_DRIVER).newInstance();
-                result = driver.connect(DBMS.JMA_INFORMIX_POOL, null);
-                if (result == null) throw new SQLException();
-                break;
-            } catch (SQLException e) {
-                try {
-                    if (cnt >= 10) {
-                        System.out.println("ERROR: Could not get Informix connection.");
-                        throw e;
-                    } else {
-                        System.out.println("Could not get Informix Connection... trying again.");
-                        Thread.sleep(500);
-                    }
-                } catch (InterruptedException e2) {
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return result;
+        return getConnection(OLTP_DATASOURCE_NAME);
     }
 
-    public static final java.sql.Connection getDWConnection(String connectString) throws SQLException {
-        java.sql.Connection result = null;
-        int cnt = 0;
-        while (true) {
-            cnt++;
-            try {
-                Driver driver = (Driver) Class.forName(DBMS.POOL_DRIVER).newInstance();
-                result = driver.connect(connectString, null);
-                break;
-            } catch (SQLException e) {
-                try {
-                    if (cnt >= 10) {
-                        System.out.println("ERROR: Could not get dw_connection.");
-                        throw e;
-                    } else {
-                        System.out.println("Could not get dw_connection... trying again.");
-                        Thread.sleep(500);
-                    }
-                } catch (InterruptedException e2) {
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
+    private static final java.sql.Connection getConnection(String dataSourceName) throws SQLException {
+        DataSource ds = null;
+        try {
+            ds = (DataSource)TCContext.getInitial().lookup(dataSourceName);
+        } catch (NamingException e) {
+            e.printStackTrace();
+            throw new SQLException(e.getMessage());
         }
-        return result;
+        return ds.getConnection();
     }
-
 
     /**
      *
@@ -160,9 +123,7 @@ public class DBMS {
      * @throws SQLException
      */
     public static final java.sql.Connection getDWConnection() throws SQLException {
-        java.sql.Connection result = null;
-        result = getDWConnection(DBMS.JMA_INFORMIX_DW_POOL);
-        return result;
+        return getConnection(DW_DATASOURCE_NAME);
     }
 
     /**
@@ -171,9 +132,7 @@ public class DBMS {
      * @throws SQLException
      */
     public static final java.sql.Connection getTransConnection() throws SQLException {
-        java.sql.Connection result = null;
-        result = DriverManager.getConnection(DBMS.JMA_INFORMIX_POOL_JTS);
-        return result;
+        return getConnection(JTS_OLTP_DATASOURCE_NAME);
     }
 
     /**
