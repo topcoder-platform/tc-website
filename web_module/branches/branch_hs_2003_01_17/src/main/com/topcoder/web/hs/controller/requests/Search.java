@@ -253,6 +253,9 @@ public class Search extends Base {
   }
 
   private boolean checkValidMinRating(Map _errors,String _min_rating) {
+    if ("".equals(_min_rating)) {
+      return(true);
+    }
     try {
       Integer min_rating=new Integer(_min_rating);
       if (min_rating.intValue()<0) {
@@ -268,6 +271,9 @@ public class Search extends Base {
   }
 
   private boolean checkValidMaxRating(Map _errors,String _max_rating) {
+    if ("".equals(_max_rating)) {
+      return(true);
+    }
     try {
       Integer max_rating=new Integer(_max_rating);
       if (max_rating.intValue()<0) {
