@@ -572,7 +572,7 @@ Connecticut, USA may have taken a toll on <B>John Dethridge</B>'s sleeping patte
 <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom4</xsl:attribute>read&#160;more</A>
 </P>
 <B>Championship</B>: Nov. 23, 11AM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
-<BR/><BR/
+<BR/><BR/>
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
   </TR> 
