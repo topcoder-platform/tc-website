@@ -27,6 +27,8 @@ public class Constants {
     public static String PAGE_INDEX_INNER;
     public static String PAGE_VIEW_PROBLEM;
     public static String PAGE_VIEW_PROBLEM_INNER;
+    public static String PAGE_VIEW_PROBLEM_SET;
+    public static String PAGE_VIEW_PROBLEM_INNER_SET;
 
     //parameters
     public static String HANDLE;
@@ -52,6 +54,9 @@ public class Constants {
     public static String RP_VIEW_PROBLEM;
     public static String RP_VIEW_PROBLEM_RESPONSE;
     public static String RP_VIEW_PROBLEM_INNER;
+    public static String RP_VIEW_PROBLEM_SET;
+    public static String RP_VIEW_PROBLEM_SET_RESPONSE;
+    public static String RP_VIEW_PROBLEM_SET_INNER;
 
     //session keys
     public static String TEST_SET_A;
