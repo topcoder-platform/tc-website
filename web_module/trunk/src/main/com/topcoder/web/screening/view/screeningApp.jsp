@@ -42,10 +42,19 @@
       <tr>
         <td align="center" class="bodyText">
 
-        <% String host = request.getParameter("host");
-           String port = request.getParameter("port");
-           String tunnel = request.getParameter("tunnel");
-           String companyID = request.getParameter("company");
+        <%
+            String host = request.getParameter("host");
+            if ((host=="") || host.equals("")) host="corporate.topcoder.com";
+
+            String port = request.getParameter("port");
+            if ((port=="") || port.equals("")) port="8001";
+
+            String tunnel = request.getParameter("tunnel");
+            if ((tunnel=="") || tunnel.equals("")) tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=screening+port=8001";
+
+            String companyID = request.getParameter("company");
+            if ((companyID=="") || companyID.equals("")) companyID="1";
+
         %>
 
 <OBJECT classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" width="239" height="26" name="LaunchApplet" align="middle" vspace="0" hspace="0" codebase="http://java.sun.com/products/plugin/autodl/jinstall-1_4-windows-i586.cab#Version=1,4,0,0">
