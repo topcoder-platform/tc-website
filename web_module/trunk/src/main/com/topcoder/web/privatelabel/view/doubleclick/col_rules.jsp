@@ -47,6 +47,7 @@
             <p><span class="dc_subTitle">Competition Advancement</span><br/>
             At the end of Round 1 (Qualification), all participants with positive (i.e., greater than zero) scores will be eligible to compete in Round 2 (Main Competition).  All participants competing in the main competition round will be randomly assigned to specific virtual rooms, with up to 10 people in each room.  TopCoder will determine all room assignments prior to the start of the main competition round. The top 10 scorers from across all virtual rooms in Round 2 will advance to Round 3 (Final), which will be held onsite at DoubleClick's headquarters in New York, NY, USA.</p>
 
+            <a name="qualification"></a>
             <p><span class="dc_subTitle">Qualification Round</span><br/>
             Round 1, the Qualification Round, will be open for two (2) 12-hour sessions.  The first session will be open from 9:00AM through 9:00PM ET Monday, February 16, 2004.  The second session will be open from 9:00AM through 9:00PM ET Wednesday, February 18, 2004.  Participants can only attempt to qualify one time during one of the two sessions.</p>
 
@@ -68,7 +69,7 @@
             All participants in Round 2 must log in to the Competition Arena no later than ten minutes prior to the start of the online round.  If a participant does not participate, for any reason, in the online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. </p>
 
             <p><span class="dc_subTitle">Scoring and Advancing</span><br/>
-            After the results of Round 2 are compiled, the top 10 scorers from across all virtual rooms will be identified and will advance to Round 3, the Final Round.  Each participant must have positive points to advance, so if there are less than 10 participants who score positive points, only those competitors with a positive point total will advance.  Participant advancement is determined by comparing the total point values from all three phases of the round (see Structure of Rounds 2 and 3) for each participant.</p>
+            After the results of Round 2 are compiled, the top 10 scorers from across all virtual rooms will be identified and will advance to Round 3, the Final Round.  Each participant must have positive points to advance, so if there are less than 10 participants who score positive points, only those competitors with a positive point total will advance.  Participant advancement is determined by comparing the total point values from all three phases of the round (see <a href="#structure">Structure of Rounds 2 and 3</a>) for each participant.</p>
 
             <p>NOTE:  In the event of a tie for an advancing position from Round 2 to Round 3, the tie will be resolved in the following manner:</p>
 
@@ -77,8 +78,9 @@
             <li>If a tie still remains, all tied participants will advance to the next round</li>
             </ul>
 
+            <a name="structure"></a>
             <p><span class="dc_subTitle">Structure of Rounds 2 and 3</span><br/>
-            Rounds 2 and 3 consist of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. Round 1, the Qualification Round, will consist only of the Coding Phase and System Testing Phase.  (See "Qualification Round" for details.)</p>
+            Rounds 2 and 3 consist of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. Round 1, the Qualification Round, will consist only of the Coding Phase and System Testing Phase.  (See <a href="#qualification">Qualification Round</a> for details.)</p>
 
             <ul>
             <li>The <b>Coding Phase</b> is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles, and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.</li>
