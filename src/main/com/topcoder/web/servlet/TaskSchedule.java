@@ -46,7 +46,7 @@ public final class TaskSchedule {
                 dai = new CachedDataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                 dataRequest = new Request();
                 dataRequest.setContentHandle("tourney_advancers");
-                dataRequest.setProperty("rds", request.getParameter(roundids.trim()));
+                dataRequest.setProperty("rds", roundids.trim());
                 resultMap = dai.getData(dataRequest);
                 rsc = (ResultSetContainer) resultMap.get("Tourney_Advancers");
                 schedTag.addTag(rsc.getTag("Advancers", "Advancer"));
@@ -75,6 +75,7 @@ public final class TaskSchedule {
             log.error("TaskSchedule:ERROR:\n" + ne);
             throw ne;
         } catch (Exception e) {
+            e.printStackTrace();
             StringBuffer msg = new StringBuffer(150);
             msg.append("TaskSchedule:process:");
             msg.append(":ERROR:\n");
