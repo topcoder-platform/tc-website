@@ -50,7 +50,7 @@ public class TCCC05ContestDetails extends StatBase {
             Request dataRequest = new Request();
             Map result;
             try{
-                dataRequest.setContentHandle("tccc05_project_details"); 
+                dataRequest.setContentHandle("tccc05_project_results_all"); 
                 dataRequest.setProperty("ct", getRequest().getParameter("ct"));
                 dataRequest.setProperty("pj", String.valueOf(rsc.getIntItem(i, "project_id")));
 
@@ -63,7 +63,7 @@ public class TCCC05ContestDetails extends StatBase {
                 throw new TCWebException(e);
             }
             
-            ResultSetContainer rscDetails = (ResultSetContainer)result.get("tccc05_project_results"); 
+            ResultSetContainer rscDetails = (ResultSetContainer)result.get("tccc05_project_results_all"); 
             ResultSetContainer rscComplete = (ResultSetContainer)result.get("project_details"); 
             boolean bComplete = false;
             if(rscComplete.getIntItem(0, "complete_status") == 1) {

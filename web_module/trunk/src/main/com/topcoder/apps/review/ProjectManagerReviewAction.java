@@ -110,8 +110,10 @@ public final class ProjectManagerReviewAction extends ReviewAction {
                         if (!pr.getSubmissions()[i].isRemoved()) {
                             for (int j = 0; j < scorecards.length; j++) {
                                 if (scorecards[j].getSubmission().equals(pr.getSubmissions()[i]) && scorecards[j].isCompleted()) {
-                                    if (((ScreeningScorecard)scorecards[j]).getPassed() && scorecards[j].getScore() >= minscore) {
-                                        scores.add(new Double(scorecards[j].getScore()));
+                                    if(scorecards[j] instanceof ScreeningScorecard) {
+                                        if (((ScreeningScorecard)scorecards[j]).getPassed() && scorecards[j].getScore() >= minscore) {
+                                            scores.add(new Double(scorecards[j].getScore()));
+                                        }
                                     }
                                 }
                             }
