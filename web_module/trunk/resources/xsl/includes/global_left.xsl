@@ -6,6 +6,8 @@
   <xsl:import href="../includes/modules/intro.xsl"/>
   <xsl:import href="../includes/modules/module_login.xsl"/>
   <xsl:import href="../includes/modules/my_stats.xsl"/>
+  <xsl:import href="../includes/modules/countries.xsl"/>
+  <xsl:import href="../includes/modules/srm_dates.xsl"/>
   <xsl:template name="global_left">
     <xsl:choose>
       <xsl:when test="/TC/Task='public_home'">
