@@ -88,4 +88,14 @@ public interface Note extends EJBObject {
      */
     public String getNoteTypeDesc(long noteId, String dataSource)
             throws EJBException, RemoteException;
+
+    /**
+     *
+     * @param noteId
+     * @param dataSource
+     * @throws EJBException
+     * @throws RemoteException
+     */
+    public void removeNote(long noteId, String dataSource)
+        throws EJBException, RemoteException;
 }

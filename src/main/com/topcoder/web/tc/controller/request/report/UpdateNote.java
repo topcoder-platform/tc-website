@@ -22,7 +22,7 @@ public class UpdateNote extends Base {
     protected void businessProcessing() throws TCWebException {
         String userId = getRequest().getParameter(Constants.USER_ID);
 
-        if (!((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
+        if (!((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         if (StringUtils.checkNull(userId).equals("")) {
             throw new NavigationException("Request missing user id");
@@ -33,19 +33,15 @@ public class UpdateNote extends Base {
 
         try {
 
-            Note note = (Note)createEJB(getInitialContext(), Note.class);
+            Note note = (Note) createEJB(getInitialContext(), Note.class);
+            UserNote userNote = (UserNote) createEJB(getInitialContext(), UserNote.class);
+            UserTransaction uTx = null;
 
             if (StringUtils.checkNull(nId).equals("")) {
-                if (StringUtils.checkNull(noteText).equals("")) {
-                    addError(Constants.NOTE_TEXT, "Missing note text");
-                }
-                UserNote userNote = (UserNote)createEJB(getInitialContext(), UserNote.class);
-
-                UserTransaction uTx = null;
-
                 try {
                     uTx = Transaction.get();
                     uTx.begin();
+
                     long noteId = note.createNote(noteText, getUser().getId(), Constants.INTERNAL_NOTE_TYPE_ID,
                             DBMS.JTS_OLTP_DATASOURCE_NAME, DBMS.OLTP_DATASOURCE_NAME);
                     userNote.createUserNote(Long.parseLong(userId), noteId, DBMS.JTS_OLTP_DATASOURCE_NAME);
@@ -64,12 +60,33 @@ public class UpdateNote extends Base {
 
 
             } else {
-                note.setText(Long.parseLong(nId), noteText, DBMS.OLTP_DATASOURCE_NAME);
+                if (StringUtils.checkNull(noteText).equals("")) {
+                    try {
+                        uTx = Transaction.get();
+                        uTx.begin();
+                        long noteId = Long.parseLong(nId);
+                        note.removeNote(noteId, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                        userNote.removeUserNote(Long.parseLong(userId), noteId, DBMS.JTS_OLTP_DATASOURCE_NAME));
+                        uTx.commit();
+                    } catch (Exception e) {
+                        try {
+                            if (uTx != null && uTx.getStatus() == Status.STATUS_ACTIVE) {
+                                uTx.rollback();
+                            }
+                        } catch (Exception te) {
+                            throw new TCWebException(e);
+                        }
+                        throw new TCWebException(e);
+                    }
+                } else {
+                    note.setText(Long.parseLong(nId), noteText, DBMS.OLTP_DATASOURCE_NAME);
+                }
+
             }
 
-            SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+            SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 
-            setNextPage(info.getServletPath()+"?"+Constants.MODULE_KEY+"=ViewNotes&"+Constants.USER_ID+"="+userId);
+            setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=ViewNotes&" + Constants.USER_ID + "=" + userId);
             setIsNextPageInContext(false);
 
         } catch (TCWebException e) {

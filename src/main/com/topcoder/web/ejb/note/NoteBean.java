@@ -373,4 +373,40 @@ public class NoteBean extends BaseEJB {
 
         return noteTypeDesc;
     }
+
+
+    public void removeNote(long noteId,  String dataSource)
+            throws EJBException {
+        log.debug("removeNote called. note id: " + noteId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+
+        try {
+            StringBuffer query = new StringBuffer(180);
+            query.append("delete from note where note_id = ?");
+
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+
+            ps.setLong(1, noteId);
+
+            ps.executeUpdate();
+
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException in removeNote noteId: " + noteId);
+        } catch (Exception e) {
+            throw new EJBException("Exception in removeNote noteId: " + noteId);
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+
+
+
 }
+
