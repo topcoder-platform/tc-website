@@ -218,6 +218,7 @@
 
                 clearInput();
                 updateCountSpan();
+                document.frmArray.inputText.focus();
             }
 
             function addPlusPlus() {
@@ -233,6 +234,7 @@
 
                 clearInput();
                 updateCountSpan();
+                document.frmArray.inputText.focus();
 
             }
 
@@ -322,6 +324,7 @@
                     clearInput();
                     updateCountSpan();
                 }
+                document.frmArray.inputText.focus();
             }
 
             function clearInput() {

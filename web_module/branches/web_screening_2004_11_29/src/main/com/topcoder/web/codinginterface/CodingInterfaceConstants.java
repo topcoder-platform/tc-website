@@ -20,5 +20,5 @@ public interface CodingInterfaceConstants {
     public static final String TEST_ARGUMENT = "arg";
     public static final String TEST_ARGUMENT_DIMENSION = "argDim";
     public static final String MESSAGE = "mess";
-    public static final String SUCCESS_FLAG = "suc";
+    //public static final String SUCCESS_FLAG = "suc";
 }
