@@ -122,6 +122,7 @@
                                     <span id="calendarSRMDate">15</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
                                     Finals<br/>
+                                    Compete: TBD<br />
                                     &#160;<br />
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
@@ -129,6 +130,7 @@
                                     <span id="calendarSRMDate">16</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
                                     Finals<br/>
+                                    Compete: TBD<br />
                                     &#160;<br />
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>

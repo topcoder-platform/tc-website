@@ -38,7 +38,16 @@ body,td,font,p,a
 {
 	color: #EEE;
 	background-color: #006633;
-	}
+}
+
+.google_round_id
+{
+	font-size: 12px;
+	color: #FFF;
+	font-weight: normal;
+	background-color: #666;
+	white-space: nowrap;
+}
 //-->
 </style>
 
@@ -90,20 +99,20 @@ function openWin(url, name, w, h) {
                            <td class="advancersTitle" align="right" width="100%">Advancers</td>
                         </tr>
                         <tr valign="top">
-                           <td class="sidebarText" nowrap><a href="/pl/?&module=Static&d1=google&d2=google_rules_advancers">Qualification Round</a></td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_rules_advancers">All eligible members</a></td>
+                           <td class="google_round_id"><a href="/pl/?&module=Static&d1=google&d2=google_advancers" class="topLink">Qualification Round</a></td>
+                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_advancers">500</a></td>
                         </tr>
                         <tr valign="top">
-                           <td class="sidebarText" nowrap><a href="/pl/?&module=Static&d1=google&d2=google_rules_advancers">Online Round 1</a></td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_rules_advancers">500</a></td>
+                           <td class="google_round_id" ><a href="/pl/?&module=Static&d1=google&d2=google_advancers" class="topLink">Online Round 1</a></td>
+                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_advancers">250</a></td>
                         </tr>
                         <tr valign="top">
-                           <td class="sidebarText" nowrap><a href="/pl/?&module=Static&d1=google&d2=google_rules_advancers">Online Round 2</a></td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_rules_advancers">250</a></td>
+                           <td class="google_round_id" ><a href="/pl/?&module=Static&d1=google&d2=google_advancers" class="topLink">Online Round 2</a></td>
+                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_advancers">25</a></td>
                         </tr>
                         <tr valign="top">
-                           <td class="sidebarText" nowrap><a href="/pl/?&module=Static&d1=google&d2=google_rules_advancers">Onsite Championship Round</a></td>
-                           <td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=google&d2=google_rules_advancers">25</a></td>
+                           <td class="google_round_id" ><a href="/pl/?&module=Static&d1=google&d2=google_advancers" class="topLink">Onsite Championship Round</a></td>
+                           <td class="sidebarText" align="right">n/a</td>
                         </tr>
 
                      </table>
