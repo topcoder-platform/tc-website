@@ -98,11 +98,23 @@ public final class TaskDevelopment {
             RecordTag devTag = new RecordTag("DEVELOPMENT");
             String comp = Conversion.checkNull(request.getParameter("comp"));
             String date = Conversion.checkNull(request.getParameter("date"));
+            String payment = Conversion.checkNull(request.getParameter("payment"));
+            devTag.addTag(new ValueTag("payment", payment));
             devTag.addTag(new ValueTag("comp", comp));
             devTag.addTag(new ValueTag("date", date));
             String xsldocURLString = null;
             String project = Conversion.checkNull(request.getParameter("Project"));
-           
+            if(payment.equals(""))
+            {
+                NumberFormat format = NumberFormat.getCurrencyInstance();
+                
+                devTag.addTag(new ValueTag("date", date));
+                Double paymentAmt = Double.parse(payment);
+                devTag.addTag(new ValueTag("payment", format.parse(paymentAmt)));
+                
+                devTag.addTag(new ValueTag("first_payment", format.parse(paymentAmt*.75)));
+                devTag.addTag(new ValueTag("second_payment", format.parse(paymentAmt*.25)));
+            }
             if (command.equals("inquire")) {
                 if (nav.getLoggedIn()) {
                     String to = Conversion.checkNull(request.getParameter("To"));
