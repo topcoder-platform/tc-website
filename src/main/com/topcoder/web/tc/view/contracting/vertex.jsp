@@ -34,31 +34,11 @@
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
 
-		<div align="center">
-      <img src="/i/contracting/vertex_logo.gif" border=0/>
-		</div>
-
 		<p>
-      <span class="bodySubtitle">Lead Scientific Software Analyst (448JO)</span>
-      <br><br>
-      The selected candidate will architect, develop and support software applications used in drug discovery, especially those applications involved in the capture, analysis, reduction, storage, retrieval and visualization of chemical and biological data. This Analyst will be expected to work closely with scientists to define practical solutions to research data problems, respond quickly to high-priority prototyping efforts and mentor junior developers. Critical to success in this role will be the ability to work closely with developers and architects at other sites to create and maintain a consistent and high-quality code base. The selected candidate must also keep up with resources available in the open source community, commercial research software trends, advances in software development tools and cheminformatics techniques, as well as be available to support installation, configuration, maintenance, troubleshooting and upgrading of concomitant computer systems. 
-      <br><br>
-      <strong>Requirements:</strong>
-      <ul>
-      <li>College degree in Computer Science or Math</li>
-      <li>command of Java</li>
-      <li>demonstrated GUI/Swing experience on both Mac and PC and experience with Oracle database-driver applications</li>
-      <li>database design and working with open-source tools and Linux</li>
-      <li>a rapid learning curve and strong communication and interpersonal skills are essential</li>
-      <li>experience in multi-site project management is desirable</li>
-      <li>experience with Perl or Python would be advantageous</li>
-      </ul>
-      <br><br>
-      <a href="/tc?module=JobHit&jid=280&jt=4">Register for this position here!</a>
-		<br><br>
+      These job openings are no longer available.  Please <A href="/tc?module=Static&d1=contracting&d2=index">click here</A> to see what Employment Opportunities are currently posted.
+		<br/><br/>
 		</p>
 
-        </div>
         <p><br></p>
         </td>
 <!-- Center Column Ends -->
