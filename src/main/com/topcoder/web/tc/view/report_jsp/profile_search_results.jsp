@@ -57,8 +57,12 @@
     </rsc:iterator>
     </table>
     <form name="revise" action="tc" method="get">
-        <input type="hidden" name="t" value="">
-        <input type="hidden" name="order" value="">
+        <%if(request.getParameter("t") == null){%>
+            <input type="hidden" name="t" value="">
+        <%}>
+        <%if(request.getParameter("order") == null){%>
+            <input type="hidden" name="order" value="">
+        <%}>
         <logic:iterate collection="<%=e%>" id="key">
             <logic:iterate collection="<%=Arrays.asList(request.getParameterValues(key.toString()))%>" id="val">
                 <input type="hidden" name="<%=key%>" value="<%=val%>">
