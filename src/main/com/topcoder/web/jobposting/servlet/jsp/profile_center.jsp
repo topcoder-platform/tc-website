@@ -58,6 +58,9 @@
       Handle: <jsp:getProperty name="JobHitTask" property="Handle" /><br>
       Member Since Date: <jsp:getProperty name="JobHitTask" property="MemberSince" /><br>
       Most Recent Rated Event: <jsp:getProperty name="JobHitTask" property="MostRecentEvent" /><br>
+      <br/>
+      GPA: <jsp:getProperty name="JobHitTask" property="Gpa" /><br>
+      GPA: <jsp:getProperty name="JobHitTask" property="GpaScale" /><br>
     </td>
   </tr>
   <tr valign="middle">
