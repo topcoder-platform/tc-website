@@ -231,26 +231,25 @@ This problem can best be broken into two parts.  First, parse the expression,
 and calculate the result in nanoseconds.  Then, pick the correct units, and
 adjust the result.  The grammar for the equation was fairly simple, since it
 didn't have any parentheses in it (the ones from lg() don't really count, since
-they can only have a variable inside them).  If there is an '*' in the eqation,
-you should split the equation at the asterisk, then recursively evaluate the two
-halves, and multiple the results together.  Otherwise, if there is no asterisk,
-but there is a '+', you should again split the equation in half, recursively
-evaluate, and then add the results.  If the equation has neither '*' nor '+' in
+they can only have a variable inside them).  If there is a '+' in the eqation,
+you should split the equation at the plus, then recursively evaluate the two
+halves, and add the results together.  Otherwise, if there is no plus,
+but there is an '*', you should again split the equation in half, recursively
+evaluate, and then multiply the results.  If the equation has neither '*' nor '+' in
 it, then it must have one of the 4 possible TERM forms, each of which is
 relatively easy to evaluate (just be careful to do everything using doubles):
-</p>
-<pre class="code">
+</p><pre class="code">
 double evaluate(string equation){
-    if(equation.contains('*')){
-        int idx = equation.indexOf('*');
-        string a = equation.substring(0,idx);
-        string b = equation.substring(idx+1);
-        return evaluate(a)*evaluate(b);
-    }else if(equation.contains('*')){
+    if(equation.contains('+')){
         int idx = equation.indexOf('+');
         string a = equation.substring(0,idx);
         string b = equation.substring(idx+1);
         return evaluate(a)+evaluate(b);
+    }else if(equation.contains('*')){
+        int idx = equation.indexOf('*');
+        string a = equation.substring(0,idx);
+        string b = equation.substring(idx+1);
+        return evaluate(a)*evaluate(b);
     }else{
         return term(equation);
     }
