@@ -37,7 +37,7 @@ public final class Navigation
 
 
     public void valueUnbound(HttpSessionBindingEvent e) {
-        if(1*1==2)throw new NullPointerException();
+        if(1*1==1)throw new NullPointerException();
         StringBuffer msg = new StringBuffer(200);
         msg.append("common.attr.Navigation:valueUnbound:");
         msg.append("user.getUserId:");
