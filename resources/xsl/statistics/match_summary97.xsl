@@ -69,9 +69,9 @@
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                        
             <TR>
-				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4215&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 99</A></TD>						
-				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4215&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Thursday, June 20</A></TD>
-				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4215&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">6:30pm EDT (registration)</A></TD>
+				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4210&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 97</A></TD>						
+				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4210&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Wednesday, June 19</A></TD>
+				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4210&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">7:30pm EDT (registration)</A></TD>
             </TR>           
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="22" BORDER="0"/></TD>
@@ -83,7 +83,7 @@
                       <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_spons"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
                     </TR> -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: Single Round Match 98 - June 19, 2002<!-- 2002 TCCC Regional Championships - March 13 --></TD>
+              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: Single Round Match 97 - June 12, 2002<!-- 2002 TCCC Regional Championships - March 13 --></TD>
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -109,45 +109,39 @@
 -->
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=272072" CLASS="bodyGeneric">SnapDragon</A>, 
-participating from room one, once again broke the 3000 rating point mark with a final score of 1269.13 
+<A HREF="/stat?c=member_profile&amp;cr=260835" CLASS="bodyGeneric">reid</A>
+ won Room One with 1510.98 final points, and added 89 points to his rating.  
+That increased his rating to 3064, which made him the third member to eclipse the 
+3000 rating point mark.  <B>reid</B> earned 323.70 on the Level One problem, 325.62 on the Level 
+Two problem, and 861.66 on the Level Three problem. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=268580" CLASS="bodyGeneric">Wasyuu</A>
- and <A HREF="/stat?c=member_profile&amp;cr=288170" CLASS="bodyGeneric">qwj</A>
- dominated room 8, both achieving impressive rating gains of 127 and 246 rating points respectively. 
+<A HREF="/stat?c=member_profile&amp;cr=279471" CLASS="bodyGeneric">haha</A>
+ got the last laugh in Room 12 by earning 654.76 final points for the win.  He added 
+246 points to his rating, increasing it from 1559 to 1805.  <B>haha</B> earned 105.00 on the Level 
+One problem and 549.76 on the Level Three problem in the "Coding Phase".  He added 50 points 
+with a successful challenge of the Level One submission of 
+<A HREF="/stat?c=member_profile&amp;cr=278938" CLASS="bodyGeneric">binaryni</A>, but then lost those 50 
+points with an unsuccessful challenge of the Level One submission of 
+<A HREF="/stat?c=member_profile&amp;cr=260967" CLASS="bodyGeneric">codePony</A>. 
 </P>
 
 <P>
-Room 3 produced three new red-rated coders, with <A HREF="/stat?c=member_profile&amp;cr=264961" CLASS="bodyGeneric">henchq</A>
-, <A HREF="/stat?c=member_profile&amp;cr=263379" CLASS="bodyGeneric">pochmann</A>
-, and <A HREF="/stat?c=member_profile&amp;cr=274068" CLASS="bodyGeneric">Brian</A>
- all turning in very impressive 
-performances.  <B>henchq</B> has crossed into the red territory twice in the past, but for both <B>pochmann</B> and <B>Brian</B> 
-this is their initial incursion into the most elite of the rating groups. 
+<A HREF="/stat?c=member_profile&amp;cr=286951" CLASS="bodyGeneric">RobertLu</A>
+ won Room 20 with 1113.10 final points, and added 514 rating points, which is the 
+second largest gain ever in Division-I 
+(<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="bodyGeneric">View the list of Division-I Rating Point Gains</A>).  
+He earned 1213.10 in the "Coding Phase" by coding the Level One problem for 274.69 points, 
+the Level Two problem for 265.96, and the Level Three problem for 672.45.  During a very 
+active "Challenge Phase", <B>RobertLu</B> added 50 points with a successful challenge of the Level 
+One submission of <A HREF="/stat?c=member_profile&amp;cr=262235" CLASS="bodyGeneric">darler</A>, 
+but lost 150 points with three unsuccessful challenges of the 
+Level One submissions of 
+<A HREF="/stat?c=member_profile&amp;cr=284386" CLASS="bodyGeneric">Goron</A>, 
+<A HREF="/stat?c=member_profile&amp;cr=159995" CLASS="bodyGeneric">tommyv</A>, 
+and <A HREF="/stat?c=member_profile&amp;cr=288231" CLASS="bodyGeneric">skelter</A>.
 </P>
-
-<P>
-Lackluster performances from both <A HREF="/stat?c=member_profile&amp;cr=156216" CLASS="bodyGeneric">daveagp</A>
- and <A HREF="/stat?c=member_profile&amp;cr=262902" CLASS="bodyGeneric">ZandMaster</A>
- resulted in both dropping from the red group back 
-down into the yellow group. 
-</P>
-
-<P>
-Room 12 produced an incredible performance from <A HREF="/stat?c=member_profile&amp;cr=260987" CLASS="bodyGeneric">dangelo</A>
-, who produced a final score of 1330.20 and a rating 
-increase of 196 points. 
-</P>
-
-<P>
-In room 27, <A HREF="/stat?c=member_profile&amp;cr=280380" CLASS="bodyGeneric">dislyxec</A>
- turned in a very successful challenge phase, gaining 150 points from offensive challenges, 
-throwing in a successful defense of a challenge for good measure.  <B>dislyxec</B> improves to a 60% challenge success 
-rate, and with a final score of 457.82 points, moves up in the ratings as well.
-</P>
-
 
 
                  </TD>
@@ -158,41 +152,32 @@ rate, and with a final score of 457.82 points, moves up in the ratings as well.
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P>
-Nine first-time competitiors bypassed Division-II, jumping straight into Division-I.  
-The most impressive of the first-timer performances was turned in by 
-<A HREF="/stat?c=member_profile&amp;cr=289251" CLASS="bodyGeneric">ragnabot</A>
- who managed 
-1238.44 points in room 63, the seventh highest overall score in Division-II 
-(<A HREF="/stat?c=impressive_debuts" CLASS="bodyGeneric">View the list of Impressive Debuts</A>).  <B>ragnabot</B> also 
-successfully defended against three challenges and turned in a relatively easy challenge 
-against <A HREF="/stat?c=member_profile&amp;cr=289904" CLASS="bodyGeneric">sirishks</A>
- to top it off. 
+<A HREF="/stat?c=member_profile&amp;cr=279888" CLASS="bodyGeneric">shelby</A>
+ won Room 35 with a Division-II high 1441.31 final points.  He earned 255.76 
+points on the Level One problem, 436.91 on the Level Two problem, and 748.64 on the 
+Level Three problem.  <A HREF="/stat?c=member_profile&amp;cr=276132" CLASS="bodyGeneric">mzuckerberg</A>
+ tried to challenge the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=279888" CLASS="bodyGeneric">shelby</A>, 
+but to no avail.  <B>shelby</B> gained 211 rating points, increasing his total from 1073 to 1284, 
+and changing his rating color from green to blue. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=285577" CLASS="bodyGeneric">Partorg</A>
-, in room 31, produced the most fruitful performance in Division-II, hammering out 
-1403.64 points, with none of it resulting from the challenge phase.  As a result, <B>Partorg</B> 
-has risen 233 rating points to a current rating of 1359. 
+<A HREF="/stat?c=member_profile&amp;cr=284374" CLASS="bodyGeneric">robd</A>
+ used two challenges for a come-from-behind win in Room 48.  <B>robd</B> earned 562.94 points 
+in the "Coding Phase", good enough for fifth place in the room.  In the "Challenge Phase" 
+<B>robd</B> added 100 points with two successful challenges of the Level Two submissions of 
+<A HREF="/stat?c=member_profile&amp;cr=285061" CLASS="bodyGeneric">mandersen</A>
+ and <A HREF="/stat?c=member_profile&amp;cr=269210" CLASS="bodyGeneric">mostwanted</A>. 
 </P>
 
 <P>
-Both <A HREF="/stat?c=member_profile&amp;cr=158663" CLASS="bodyGeneric">Xcifer</A>
- in room 47 and <A HREF="/stat?c=member_profile&amp;cr=264728" CLASS="bodyGeneric">Liguo</A>
- in room 41 ransacked their rooms during the challenge phase, 
-with each managing to issue 4 successful challenges apiece.  Both added their 200 challenge 
-points on top of successful level one and level two problem submissions. 
+<A HREF="/stat?c=member_profile&amp;cr=276852" CLASS="bodyGeneric">micro</A>
+ won Room 54 with 1272.05 final points, and added 228 points to his rating, the most 
+for the match in Division-II.  <B>micro</B> coded all three problems for 1372.05 points in the 
+"Coding Phase", but lost 100 points with two unsuccessful challenges of the Level Two 
+submissions of <A HREF="/stat?c=member_profile&amp;cr=273136" CLASS="bodyGeneric">Scorpion1976</A>
+ and <A HREF="/stat?c=member_profile&amp;cr=286067" CLASS="bodyGeneric">wonton</A>.
 </P>
-
-<P>
-In room 60, <A HREF="/stat?c=member_profile&amp;cr=263657" CLASS="bodyGeneric">purpleurple</A>
- looked to have a secure lead going into the system testing phase, only 
-to loose 730 of 955 points to the system tests.  As a result, 
-<A HREF="/stat?c=member_profile&amp;cr=273303" CLASS="bodyGeneric">Celeborn</A>
- won the room with a final 
-score of 658.92 points and a Division-I initial rating of 1385.
-</P>
-
 
           </TD>
             </TR>            
