@@ -387,24 +387,57 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/catalog/c_component.jsp?comp=5800878" class="statText" target="parent">Standard Class</a></td>
-                    <td class="statText" height="15" align="center">2</td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7220290" class="statText" target="parent">Data Validation</a></td>
+                    <td class="statText" height="15" align="center">3</td>
                     <td class="statText" height="15"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=264803"><strong>zimmy</strong></a></td>
-                    <td class="statText" height="15" align="center">87.48</td>
+                    <td class="statText" height="15" align="center">95.22</td>
                     <td class="statText" height="15" align="right">$0.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/catalog/c_component.jsp?comp=5800878" class="statText" target="parent"></a></td>
+                    <td class="statText" height="15">&#160;&#160;</td>
                     <td class="statText" height="15" align="center"></td>
-                    <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=343613"><strong>phark4evr</strong></a></td>
-                    <td class="statText" height="15" align="center">75.63</td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=288429"><strong>jfjiang</strong></a></td>
+                    <td class="statText" height="15" align="center">90.44</td>
                     <td class="statText" height="15" align="right">$0.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;</td>
+                    <td class="statText" height="15" align="center"></td>
+                    <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=343613"><strong>phark4evr</strong></a></td>
+                    <td class="statText" height="15" align="center">80.70</td>
+                    <td class="statText" height="15" align="right">$0.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/catalog/c_component.jsp?comp=2810520" class="statText" target="parent">Encryption</a></td>
+                    <td class="statText" height="15" align="center">2</td>
+                    <td class="statText" height="15"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=153089"><strong>preben</strong></a></td>
+                    <td class="statText" height="15" align="center">90.74</td>
+                    <td class="statText" height="15" align="right">$0.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;</td>
+                    <td class="statText" height="15" align="center"></td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309786"><strong>Yi_Zhang</strong></a></td>
+                    <td class="statText" height="15" align="center">86.69</td>
+                    <td class="statText" height="15" align="right">$0.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+                
                 <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
 
 
