@@ -154,9 +154,8 @@ public class SimpleSearch extends Base {
         r.setProperty("member_search"+DataAccessConstants.END_RANK, m.getEnd().toString());
 
 
-        QueryDataAccess cda = new QueryDataAccess(DBMS.DW_DATASOURCE_NAME);
-        //todo cache
-//        cda.setExpireTime(15 * 60 * 1000); //cache for 15 minutes
+        CachedQueryDataAccess cda = new CachedQueryDataAccess(DBMS.DW_DATASOURCE_NAME);
+        cda.setExpireTime(15 * 60 * 1000); //cache for 15 minutes
         Map res = cda.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) res.get("member_search");
         ResultSetContainer count = (ResultSetContainer) res.get("count");
