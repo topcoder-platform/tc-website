@@ -2241,7 +2241,7 @@ public class TCLoadRound extends TCLoad {
             query.append("      (problem_id ");        // 1
             query.append("       ,problem_category_id) ");       // 2
             query.append("VALUES (");
-            query.append("?,?");  // 2 values
+            query.append("?,?)");  // 2 values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
