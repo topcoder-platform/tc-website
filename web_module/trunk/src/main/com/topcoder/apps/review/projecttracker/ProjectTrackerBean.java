@@ -2749,7 +2749,22 @@ public class ProjectTrackerBean implements SessionBean {
                      "   and is_removed = 0" +
                      "   and submission_type = 1 " +
                      "   and cur_version = 1)" +
-                     "   ) then 1 else 0 end multiplier" +
+                     "   ) then 1 else 0 end multiplier, " +
+                     "(select count(*) from scorecard sc, submission sb1 where sc.scorecard_type = 2 " +
+                     "and sc.cur_version = 1 and sc.submission_id = sb1.submission_id " +
+                     "and sb1.submission_type = 1 " +
+                     "and sb1.cur_version = 1 " +
+                     "and sb1.project_id = p.project_id " +
+                     "and sb1.submitter_id = sb.submitter_id " +
+                     "and not exists (select * from scorecard sc2, submission sb2 where sc2.scorecard_type = 2 " +
+                     "and sc2.cur_version = 1 and sc2.submission_id = sb2.submission_id " +
+                     "and sb2.submission_type = 1 " +
+                     "and sb2.cur_version = 1 " +
+                     "and sb2.project_id = p.project_id " +
+                     "and sb2.submitter_id <> sb.submitter_id " +
+                     "and sc2.author_id = sc.author_id " +
+                     "and sc2.score > sc.score " +
+                     ")) as wincount " +
                      "  FROM scorecard s , project p, comp_version_dates cvd," +
                      "       submission sb, phase_instance pi" +
                      " WHERE s.scorecard_type = 2" +
@@ -2775,8 +2790,9 @@ public class ProjectTrackerBean implements SessionBean {
                      "          price," +
                      "          sb.submitter_id, " +
                      "          pi.end_date," +
-                     "          p.project_id" +
-                     " ORDER BY score desc";
+                     "          p.project_id," +
+                     "          11 " +
+                     " ORDER BY score desc, 11 desc";
         final String insertScores = "update project_result set " +
                                     "            final_score = ?," +
                                     "            placed = ?," +
