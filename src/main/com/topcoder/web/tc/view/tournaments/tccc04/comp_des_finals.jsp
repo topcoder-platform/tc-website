@@ -97,9 +97,9 @@ function openWin(url, name) {
                 </tr>
                <tr>
                   <td class="advHeader"><strong>Submissions:</td>
-                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=adic_init_doc1','pops',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_init_doc1','kyky',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=MPhk_init_doc1','pops',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_finals&d4=adic_init_doc1','adic',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_finals&d4=aksonov_init_doc1','aksonov',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_finals&d4=MPhk_init_doc1','MPhk',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
          <p><br/></p>
