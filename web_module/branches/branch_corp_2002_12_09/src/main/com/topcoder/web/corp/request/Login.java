@@ -59,12 +59,8 @@ public class Login extends BaseProcessor {
      *
      */
     private static class login_attempt {
-        int count;
-        String destination;
-        login_attempt(String dest) {
-            destination = dest;
-            count = 0;
-        }
+        int count = 0;
+        String destination = null;
     }
 
     /**
@@ -87,13 +83,11 @@ public class Login extends BaseProcessor {
             login_attempt.class.getName()
         );
         if( la == null ) {
-            la = new login_attempt(destination);
+            la = new login_attempt();
             sp.setObject(login_attempt.class.getName(), la);
         }
-        else {
-            if( destination != null && destination.trim().length() != 0 ) {
-                la.destination = destination;
-            }
+        if( destination != null && destination.trim().length() != 0 ) {
+            la.destination = destination;
         }
 
         String handle = request.getParameter(KEY_USER_HANDLE);
