@@ -136,7 +136,13 @@
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 
 <%-- TCO homepage --%>
-			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/home/promos/tco04_onsite.gif" border=0 /></A></td></tr>
+			<tr><td class=homeBigPromo><img src="/i/home/promos/tco04_onsite.gif" border=0 usemap="#tco04_onsite" />
+	            <map name="tco04_onsite">
+	            <area shape="rect" alt="Advancers" coords="40,210,100,230" href="/tc?module=SimpleStats&c=tco04_alg_adv_overview&trans=true&d1=tournaments&d2=tco04&d3=alg_adv_overview" />
+	            <area shape="rect" alt="Photos" coords="110,210,165,230" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos" />
+	            <area shape="rect" alt="Videos" coords="180,210,230,230" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=videos" />
+	            </map>                        
+			</td></tr>
 
 <%-- Regular homepage
 			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/home/promos/tco04Finals.gif" border=0 /></A></td></tr>
