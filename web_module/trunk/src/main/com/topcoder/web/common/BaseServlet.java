@@ -24,11 +24,11 @@ import java.util.Set;
  * @author Greg Paul
  */
 public abstract class BaseServlet extends HttpServlet {
-    private String ERROR_PAGE = null;
-    private String MODULE = null;
-    private String PATH = null;
-    private String DEFAULT_PROCESSOR = null;
-    private String LOGIN_PROCESSOR = null;
+    protected String ERROR_PAGE = null;
+    protected String MODULE = null;
+    protected String PATH = null;
+    protected String DEFAULT_PROCESSOR = null;
+    protected String LOGIN_PROCESSOR = null;
     protected String LOGIN_SERVLET = null;
     public static final String MESSAGE_KEY = "message";
     public static final String URL_KEY = "url";
