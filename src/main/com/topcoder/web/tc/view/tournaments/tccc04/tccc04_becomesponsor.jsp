@@ -58,7 +58,7 @@
                 spend hours using Java (TM) technology in order to qualify and excel in these tournaments. TopCoder provides a unique environment for capturing the technical discipline of 
                 developing software into an exciting and competitive event for developers and spectators. </p> </td></tr>
                 
-                  <tr><td class="bodyText"><p><strong>How do I become a sponsor?</strong></p>
+                  <tr><td class="bodyText"><p><br/><strong>How do I become a sponsor?</strong></p>
                                     
                                         <p><a href="mailto:PMoriarty@topcoder.com?subject=TCCC04 Sponsorship">Contact us</a>  if you're interested in learning more about sponsorship<br/>
                                          for the 2004 TopCoder Collegiate Challenge.<br/></p>
