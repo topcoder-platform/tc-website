@@ -190,10 +190,16 @@
 			<xsl:when test="/TC/Command='editorial_archive'">graybv_lite_bg</xsl:when>
 			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=editorial_archive</xsl:attribute>&#160;&#160;Match Editorials</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-            <xsl:call-template name="div_line_row"/>            
+            <xsl:call-template name="div_line_row"/>
             <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">
             <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-			<xsl:when test="/TC/Command='year_02'">graybv_lite_bg</xsl:when>
+			<xsl:when test="/TC/Command='quick_stats'">graybv_lite_bg</xsl:when>
+			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+            &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=quick_stats</xsl:attribute>&#160;&#160;Quick Stats</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>            
+            <xsl:call-template name="div_line_row"/>                        
+            <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">
+            <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+			<xsl:when test="/TC/Task='search'">graybv_lite_bg</xsl:when>
 			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=search</xsl:attribute>&#160;&#160;Advanced Member Search</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>            
             <xsl:call-template name="div_line_row"/>
