@@ -77,6 +77,8 @@ public final class Controller extends HttpServlet {
 
             } catch(PermissionException e) {  //@@@ any way i can put this elsewhere?  in Error?
 
+//@@@  would like to handle this differently if they are already logged in
+
                 /* forward to the login page, with a message and a way back */
 
                 request.setAttribute("message", e.getMessage());
@@ -92,7 +94,7 @@ public final class Controller extends HttpServlet {
 
                 request.setAttribute("exception", e);
 
-                rp = new Login();
+                rp = new com.topcoder.web.hs.controller.requests.Error();
                 callProcess(rp, request, response);
             }
 

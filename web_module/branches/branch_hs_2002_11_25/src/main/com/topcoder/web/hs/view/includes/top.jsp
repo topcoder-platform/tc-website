@@ -15,8 +15,9 @@ function openWin(url, name, w, h) {
 <SPAN CLASS="smallFoot">        
 
 <jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
+<jsp:useBean id="CoderRatingStyle" class="com.topcoder.web.hs.mode.CoderRatingStyleBean" scope="application" />
 <% if(SessionInfo.isLoggedIn()) { %>
-        <font color=orange> Hello, <jsp:getProperty name="SessionInfo" property="Handle" />! </font>
+        <font color=orange>Hello, <span class="<jsp:getProperty name="CoderRatingStyle" property="Style" value="<%=SessionInfo.getRating()%>"><jsp:getProperty name="SessionInfo" property="Handle" /></span>!</font>
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Logout" CLASS="globalNavSmall">Logout</A>
 <% } else { %>
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Login" CLASS="globalNavSmall">Login</A>

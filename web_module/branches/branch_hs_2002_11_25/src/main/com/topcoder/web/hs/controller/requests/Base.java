@@ -47,8 +47,16 @@ public abstract class Base implements RequestProcessor {
      * Override this to disable auth setup and adding default beans.
      */
     protected void baseProcessing() throws Exception {
-        user = auth.getUser();
-        hsa = new HSAuthorization(user);
+
+        try {
+            user = auth.getUser();
+            hsa = new HSAuthorization(user);
+
+        } catch(Exception e) {  /* most likely a stale cookie, so clear it out and try again */
+            auth.logout();
+            user = auth.getUser();
+            hsa = new HSAuthorization(user);
+        }
 
         info = new SessionInfoBean();
         request.setAttribute("SessionInfo", info);

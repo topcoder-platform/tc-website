@@ -29,14 +29,9 @@ public class HSAuthorization implements Authorization {
 
     /** Constructor which takes a User object and fetches the TCSubject for that user. */
     public HSAuthorization(User user) throws Exception {
-        try {
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote)Constants.createEJB(PrincipalMgrRemote.class);
-            this.user = pmgr.getUserSubject(user.getId());
-            policy = (PolicyRemote)Constants.createEJB(PolicyRemote.class);
-        } catch(Exception e) {
-            e.printStackTrace();
-            //@@@ leave things as null and check below
-        }
+        PrincipalMgrRemote pmgr = (PrincipalMgrRemote)Constants.createEJB(PrincipalMgrRemote.class);
+        this.user = pmgr.getUserSubject(user.getId());
+        policy = (PolicyRemote)Constants.createEJB(PolicyRemote.class);
     }
 
     /** Query the security component to determine whether the user can access this resource. */
@@ -45,7 +40,7 @@ public class HSAuthorization implements Authorization {
             TCPermission perm = new GenericPermission(r.getName());
             return policy.checkPermission(user, perm);
         } catch(Exception e) {
-            return true;  //@@@ opposite of production
+            return false;
         }
     }
 
