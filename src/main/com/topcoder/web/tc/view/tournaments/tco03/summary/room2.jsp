@@ -55,7 +55,7 @@
             <span class="leadPhotoCaption">tomek is all smiles after taking Room 2<br/><br/></span>
             </div>
             
-            <h2>tomek takes Room 2</h2>
+            <h2>Landslide victory by tomek</h2>
 
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
             Thursday, December 4, 2003</p>
