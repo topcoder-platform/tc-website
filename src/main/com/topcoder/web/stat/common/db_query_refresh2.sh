@@ -13,7 +13,8 @@ rr.final_points,
 CASE WHEN r.round_type_id = 1 THEN 'N/A' ELSE rr.advanced END,
 rr.old_rating,
 (rr.new_rating - rr.old_rating) AS rating_change,
-rr.new_rating
+rr.new_rating,
+room.division_desc
 FROM contest con, round r, coder c, room_result rr, room
 WHERE rr.round_id = @rd@
 AND rr.division_id = @dn@
@@ -655,7 +656,8 @@ rr.final_points,
 CASE WHEN r.round_type_id = 1 THEN 'N/A' ELSE rr.advanced END,
 rr.old_rating,
 (rr.new_rating - rr.old_rating) AS rating_change,
-rr.new_rating
+rr.new_rating,
+room.division_desc
 FROM contest con, round r, coder c, room_result rr, room
 WHERE rr.round_id =
    (SELECT MAX(round_id) AS round_id
