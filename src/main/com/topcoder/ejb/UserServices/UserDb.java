@@ -162,7 +162,7 @@ final class UserDb {
                 InitialContext context = new InitialContext();
                 DataSource ds = (DataSource) context.lookup("java:comp/env/security_datasource");
                 query = new StringBuffer(100);
-                query.append(" UPDATE user");
+                query.append(" UPDATE security_user");
                 query.append(   " SET user_id = ?");
                 query.append( " WHERE login_id = ?");
                 conn = ds.getConnection();
