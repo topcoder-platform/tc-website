@@ -58,6 +58,7 @@
       <table cellpadding="1" cellspacing="3" class="bodyText">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.SIMPLE_REG_SUBMIT%>"/>
+            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
 
             <tr>
                 <td align="right">
