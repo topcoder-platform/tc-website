@@ -26,7 +26,8 @@
         <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
       </head>
 
-<body>
+<body onLoad="timer(1);">
+
 <a name="top_page"></a>
 
 <xsl:variable name="contestId">
