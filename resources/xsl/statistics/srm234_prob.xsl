@@ -22,7 +22,7 @@
 
 <xsl:call-template name="Preload"/> 
 
-<title>Single Round Match 233 Statistics at TopCoder</title>
+<title>Single Round Match 234 Statistics at TopCoder</title>
 
 <xsl:call-template name="CSS"/>
 
@@ -71,55 +71,36 @@ function openWin(url, name, w, h) {
 <!--body contextual links-->
                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
                    <tr valign="middle">
-                      <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 233</font></td>
+                      <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 234</font></td>
                       <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
                    </tr>
 
                    <tr valign="middle">
-                      <td class="bodyText">Wednesday, March 2, 2005</td>
+                      <td class="bodyText">Wednesday, March 16, 2005</td>
                       <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
                    </tr>
                 </table>
 <!--end contextual links-->
 
 <h2>Match summary</h2>
-
 <p>
-The submissions came fast and furious in both divisions; more
-than 85 submissions were recorded in the first five minutes of
-the match.  The rest of the submissions followed quickly, with
-a very large number of level three submissions in both
-divisions.  The Division 1 leader at the end of coding phase,
-<b>bmerry</b>, saw his medium go down on on a challenge; the
-Division 2 leader, <b>hhen926</b>, lost his difficult to a
-challenge.  Going into system tests, Division 1 was led by
-<b>nicka81</b>, <b>haha</b>, and <b>John Dethridge</b>;
-Division 2 was led by <b>supernova</b>, <b>rsasanka</b>,
-and <b>sandeep</b>.  System tests left the top three in each
-division unchanged.
+During this fast paced SRM, many coders were able to finish the entire set well before the coding
+phase ended.  The Div 1 Hard, scored at 850, proved easier than the medium for most high ranked
+competitors.  With a blazing medium submission, and a respectable challenge phase performance, 
+<b>SnapDragon</b> was able to claim the Div 1 title.  This victory was particularly special, since
+it allowed Snap to reclaim his throne at the
+top of Division 1.  Remaining on top will be the biggest challenge, with <b>Tomek</b> less than 40
+points behind.  In Division 2, the newcomer <b>Weixing Li</b> won by a comfortable margin.  Honorable
+mention goes to <b>Savior</b> and <b>logged</b> for taking second place in their respective divisions.
 </p>
-<p>
-At the end of the contest, it appeared this would be the
-first contest since SRM 55 that every submission on the easy
-problem in Divison 1 passed.  This was not to be, as <b>haha</b>,
-in an admirable feat of honesty, turned himself in on a
-violation of the unused code rule.  This gesture may have
-cost him one hundred rating points, but this writer believes
-he'll get them back quickly enough.
-</p>
-<p>
-In his (or her) second match, <b>marijnk</b>, gained an astonishing
-354 ratings points this match in Division 1.
-</p>
-
 <H1>
 The Problems
 </H1>
-
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=4017&amp;rd=6532" name="4017">JustifyText</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=3995&amp;rd=6533" name="3995">ComboLength</a></b>
 </font>
-<A href="Javascript:openProblemRating(4017)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(3995)"><img hspace="10" border="0" height=
+"18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division Two - Level One: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -134,7 +115,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      295 / 310 (95.16%)
+      270 / 283 (95.41%)
     </td>
   </tr>
   <tr>
@@ -142,7 +123,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      278 / 295 (94.24%)
+      226 / 270 (83.70%)
     </td>
   </tr>
   <tr>
@@ -150,7 +131,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>pankajbhamoriya</b> for 249.85 points (0 mins 41 secs)
+      <b>gdiitk</b> for 248.31 points (2 mins 20 secs)
     </td>
   </tr>
   <tr>
@@ -158,27 +139,27 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      217.11 (for 278 correct submissions)
+      219.35 (for 226 correct submissions)
     </td>
   </tr>
 </table></blockquote>
-
 <p>
-A loop to find the longest string, followed by another that extended each
-string to this length, sufficed.  Another approach lead to an elegantly
-short, although somewhat slower, solution:
-</p>
-<pre>
-for (int i=0; i&lt;text.length; i++)
-   for (int j=0; j&lt;text.length; j++)
-      while (text[i].length() &lt; text[j].length())
-         text[i] = " " + text[i] ;
+This problem asks for the longest substring entirely composed of one letter.  To compute this,
+loop over the input string, and count the length of each potential substring.  Java code follows:<pre>
+public int howLong(String moves) {
+    int ret = 1;
+    for (int i = 1, c = 1; i &lt; moves.length(); i++) 
+	ret = Math.max(ret, c = moves.charAt(i) == moves.charAt(i-1) ? c+1 : 1);
+    return ret;
+}
 </pre>
 
+</p>
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=3994&amp;rd=6532" name="3994">PipeCuts</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=3055&amp;rd=6533" name="3055">FractionSplit</a></b>
 </font>
-<A href="Javascript:openProblemRating(3994)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(3055)"><img hspace="10" border="0" height=
+"18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -193,7 +174,7 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      238 / 310 (76.77%)
+      212 / 283 (74.91%)
     </td>
   </tr>
   <tr>
@@ -201,7 +182,7 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      188 / 238 (78.99%)
+      133 / 212 (62.74%)
     </td>
   </tr>
   <tr>
@@ -209,7 +190,7 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>supernova</b> for 491.16 points (3 mins 49 secs)
+      <b>gdiitk</b> for 492.58 points (3 mins 29 secs)
     </td>
   </tr>
   <tr>
@@ -217,11 +198,10 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      352.12 (for 188 correct submissions)
+      331.79 (for 133 correct submissions)
     </td>
   </tr>
 </table></blockquote>
-
 
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
   <tr>
@@ -237,7 +217,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      144 / 145 (99.31%)
+      171 / 172 (99.42%)
     </td>
   </tr>
   <tr>
@@ -245,7 +225,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      143 / 144 (99.31%)
+      150 / 171 (87.72%)
     </td>
   </tr>
   <tr>
@@ -253,7 +233,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>wleite</b> for 247.65 points (2 mins 46 secs)
+      <b>krijgertje</b> for 246.53 points (3 mins 22 secs)
     </td>
   </tr>
   <tr>
@@ -261,34 +241,35 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      226.34 (for 143 correct submissions)
+      211.27 (for 150 correct submissions)
     </td>
   </tr>
 </table></blockquote>
-
 <p>
-Since there were few combinations of cuts, a simple enumeration followed
-by a test was sufficient.  Sorting the cut array first provided some
-brevity:
-</p>
-<pre>
-Arrays.sort(weldLocations) ;
-double sum = 0, tests = 0 ;
-for (int i=0; i&lt;weldLocations.length)
-   for (int j=0; j&lt;weldLocations.length) {
-      tests++ ;
-      if (weldLocations[i] > L ||
-          weldLocations[j] - weldLocations[i] > L ||
-          100 - weldLocations[j] > L)
-         sum++ ;
-   }
-return sum / tests ;
+This premise of this problem is a nice exercise for a Discrete Mathematics course.  One must prove
+that all positive fractions of the form n/d can be written as a sum of distinct unit fractions.
+Typically induction is used on the case where n&lt;d.  This result is then extended to the case where
+n&gt;=d.  Luckily, the problem statement revealed the key to the exercise.  Repeatedly try to
+remove the largest possible unit fraction.  Thankfully, the inputs are low enough that overflow is
+not an issue.  Java code follows:<pre>
+public String[] getSum(int nn, int dd) {
+    long n = nn, d = dd;
+    ArrayList al = new ArrayList();
+    while (n &gt; 0) {
+	long x = (d+n-1)/n;
+	al.add("1/"+x);
+	n = n*x - d;
+	d *= x;
+    } 
+    return (String[])al.toArray(new String[0]);
+}
 </pre>
-
+</p>
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=3937&amp;rd=6532" name="3937">AutoMarket</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=4021&amp;rd=6533" name="4021">DerivationDisplay</a></b>
 </font>
-<A href="Javascript:openProblemRating(3937)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(4021)"><img hspace="10" border="0" height=
+"18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -303,7 +284,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      101 / 310 (32.58%)
+      49 / 283 (17.31%)
     </td>
   </tr>
   <tr>
@@ -311,7 +292,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      32 / 101 (31.68%)
+      19 / 49 (38.78%)
     </td>
   </tr>
   <tr>
@@ -319,7 +300,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>Crystal</b> for 868.57 points (11 mins 24 secs)
+      <b>WeixingLi</b> for 765.17 points (16 mins 51 secs)
     </td>
   </tr>
   <tr>
@@ -327,67 +308,33 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      686.24 (for 32 correct submissions)
+      506.23 (for 19 correct submissions)
     </td>
   </tr>
 </table></blockquote>
-
 <p>
-This problem is longest increasing subsequence on a partial ordering.
-A first approach might be to use recursion:
+This problem can be paraphrased as follows: Write a parser.  Since the grammar in question is fixed,
+the CFG rules can be hardcoded into the solution.  The structure of the CFG, combined with the
+constraints, insure that there will always be a unique solution.  Essentially, this means that the
+input string would belong to the set
+<pre>	     { a<sup>n</sup>b<sup>m</sup> | n != m } </pre>
+or the set
+<pre>	     { bxa | x is a positive length string }. </pre>
+The early replacement steps entirely depend on which of the above sets contains the input string.
+The later steps are determined by m and n, or the contents of x.
 </p>
-<pre>
-int lengthFromHere(int carIndex) {
-   int result = 1 ;
-   for (int i=0; i&lt;i++)
-      if (ordered(i, carIndex))
-         result = Math.max(result, 1 + lengthFromHere(i)) ;
-   return result ;
-}
-</pre>
-<p>
-with a similar loop in the main program to find the best car for
-the head of the list.
-This doesn't run fast enough because of repeated computations,
-but memoization saves the day.
-</p>
-<p>
-Since the only argument to the recursive function is <tt>carIndex</tt>,
-dynamic programming also works, but first we need to order the
-cars in an appropriate way.  (This is one advantage of memoization
-over dynamic programming; with memoization you don't need to consider
-how to order the state space.)  Sorting by any
-particular attribute was sufficient, because the end result
-must be sorted by all attributes.  Since the input was
-provided in arrays, we may want to sort it ourselves using bubblesort,
-rather than building all sorts of data structures.
-A dynamic programming iteration of the state space
-completes the solution; we do not include the head
-car in our result array just to save us the trouble of initializing
-the array:
-</p>
-<pre>
-... bubble sort arrays by cost attribute ...
-int res[] = new int[n] ;
-int returnValue = 0 ;
-for (int i=0; i&lt;n; i++) for (int j=0; j&lt;i; j++)
-   if (ordered(j, i))
-      returnValue = Math.max(returnValue,
-                        res[i] = Math.max(res[i], 1+res[j])) ;
-return returnValue + 1 ;
-</pre>
-
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=3935&amp;rd=6532" name="3935">SmartWordToy</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=3998&amp;rd=6533" name="3998">WeirdRooks</a></b>
 </font>
-<A href="Javascript:openProblemRating(3935)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(3998)"><img hspace="10" border="0" height=
+"18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      500
+      650
     </td>
   </tr>
   <tr>
@@ -395,7 +342,7 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      83 / 145 (57.24%)
+      55 / 172 (31.98%)
     </td>
   </tr>
   <tr>
@@ -403,7 +350,7 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      63 / 83 (75.90%)
+      32 / 55 (58.18%)
     </td>
   </tr>
   <tr>
@@ -411,7 +358,7 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>ploh</b> for 420.22 points (12 mins 53 secs)
+      <b>SnapDragon</b> for 528.26 points (14 mins 20 secs)
     </td>
   </tr>
   <tr>
@@ -419,71 +366,33 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      289.18 (for 63 correct submissions)
+      336.17 (for 32 correct submissions)
     </td>
   </tr>
 </table></blockquote>
-
 <p>
-With 26^4 or less than half a million states, and only eight transitions
-out of each state, a breadth-first search works just fine.  Each state
-could be encoded with a base-26 integer, but using base 32 instead
-allows us to use shifts rather than divisions for some speedup.
-Encoding our state with an integer allows us to use a simple array
-for our distance map, although a four-dimensional array works also:
+This problem has a structure that lends itself to a recursive solution.  Processing the board from
+bottom to top, we eliminate one row at a time, and recursively solve a smaller instance.  If no rook
+is placed on the bottom row, then all of the squares in the row can be marked special.  Storing
+the number of these special squares, we then sever the bottom row from the board, and recurse on the remaining
+upper rows.  If we place a rook in the bottom row, then only the squares to its right can be marked as
+special.  In addition, when recursing on the upper rows, the column the rook resides in must be
+deleted from the board.  Without any memoization-style optimizations, the algorithm described here
+passes all systests.  On the largest case, it required 16 million recursive calls, and ran in
+under 2 seconds.
 </p>
-<pre>
-int dist[] = new int[1+encode('zzzz')] ;
-int queue[] = new int[1+encode('zzzz')] ;
-</pre>
-<p>
-We use two magic values in our distance array:  0 means we haven't
-gotten here yet, and -10 means it's an illegal square.  Using 0
-as the initial value means we don't have to initialize the array,
-but it also means we store one more than the actual distance.
-</p>
-<p>
-First we iterate through the <tt>forbid</tt> array, marking all the illegal
-places.  Because of the 50 character limit for each element, this
-should run in time, but it's something to watch out for.
-Our breadth first-search then looks like:
-</p>
-<pre>
-int queuePut = 0, queueGet = 0 ;
-queue[queuePut++] = encode(from) ;
-dist[encode(from)] = 1 ;
-int target = encode(to) ;
-while (queueGet &lt; queuePut) {
-   int pos = queue[queueGet++] ;
-   if (pos == to)
-      return dist[pos] - 1 ;
-   for (delta=-1; delta&lt;=1; delta += 2)
-      for (i=0; i&lt;4; i++) {
-         int npos = ...calc next position...
-	 if (dist[npos] == -1) {
-	    dist[npos] = dist[pos] + 1 ;
-            queue[queuePut++] = npos ;
-         }
-      }
-}
-return -1 ;
-</pre>
-<p>
-As an exercise for the reader, what is the greatest possible return
-value of this function, over all legal inputs?
-</p>
-
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=3936&amp;rd=6532" name="3936">DiskCut</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=3968&amp;rd=6533" name="3968">HowUnsorted</a></b>
 </font>
-<A href="Javascript:openProblemRating(3936)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+<A href="Javascript:openProblemRating(3968)"><img hspace="10" border="0" height=
+"18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      1000
+      850
     </td>
   </tr>
   <tr>
@@ -491,7 +400,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      47 / 145 (32.41%)
+      64 / 172 (37.21%)
     </td>
   </tr>
   <tr>
@@ -499,7 +408,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      27 / 47 (57.45%)
+      26 / 64 (40.62%)
     </td>
   </tr>
   <tr>
@@ -507,7 +416,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>Abednego</b> for 914.30 points (8 mins 52 secs)
+      <b>AdrianKuegel</b> for 828.24 points (4 mins 37 secs)
     </td>
   </tr>
   <tr>
@@ -515,61 +424,28 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      706.52 (for 27 correct submissions)
+      603.02 (for 26 correct submissions)
     </td>
   </tr>
 </table></blockquote>
-
 <p>
-A surprisingly large number of coders recognized this problem as
-classic Huffman coding.  To solve this, you reconstruct the cuts in
-reverse order; the last cut for any given input set always involves
-the smallest two pieces.  We can show this works by induction on a
-tree of cuts.  An interior node represents a piece to be cut, and the
-children are the result of the cut; the leaf nodes are the final pieces.
-The total cost of any tree is the sum over all leaves of the area of the
-leaf multiplied by the distance from that leaf to the root.  We prove,
-by induction, that any cut tree with minimum cost has the two smallest
-leaves adjacent and at maximum distance from the root.  The base case
-is two pieces and a single cut for which only one tree is possible.
-For the inductive case, if the smallest values are not located as a
-pair of leaves at the maximum distance from the root, we can clearly
-swap them with the ones that are in that location and reduce the
-overall cost of the tree.
-</p>
-<p>
-The shortest solution is probably something like:
-</p>
-<pre>
-int siz = percent.length ;
-int totalCost = 0 ;
-while (siz &gt; 1) {
-   Arrays.sort(percent, 0, siz) ;
-   totalCost += (percent[0] += percent[1]) ;
-   percent[1] = percent[siz-1] ;
-}
-return (totalCost + 100) * (double)area ;
-</pre>
-<p>
-A heap could also be used, or even just a simple linear search for
-the smallest values.  An exercise for the reader is to solve
-this problem using a single simple array, in place, in linear time
-after the sort.
-</p>
-<p>
-A completely different approach was used by some coders, such as
-<b>Andrew_Lazarev</b>, who used a memoized recursive algorithm
-to build an optimal ordered binary search tree.  (Others used
-dynamic programming; there is a strong relationship between
-memoized recursive algorithms and dynamic programming solutions.)
-If the leaves are ordered by frequency, any optimal ordered binary
-search tree is also an optimal Huffman tree.
+This classic problem can be solved in numerous ways, but the standard method is Merge sort.  The
+simple O(n<sup>2</sup>) inversion (unsortedness point) counting algorithm will timeout due to the input size.  
+The Merge sort technique works as follows.  To count the number of inversions in an array of size m,
+we first divide the array in half, and count the number of inversions in each half.  Clearly the
+inversions in each half will contribute to the total number of inversions in the array.  Next we
+sort each half.  Finally, as done in Merge sort, we fill an array in sorted order, using the two
+halves as input.  When we use a value x from the right half, we know that a certain number of
+inversions occurred in the original array.  This is because x is the lowest remaining value, but it sat to the
+right of all elements in the left half, so the number of remaining left half elements must be added
+to the inversion total.  One added benefit of this process, is that we can skip the &quot;sort each
+half&quot; step, since we are sorting during the process anyways.
 </p>
  
 
                 <p>
-                <img src="/i/m/radeye_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-                By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=277659"><strong>radeye</strong></a><br />
+                <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+                By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br />
                 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                 </p>
              </td>
