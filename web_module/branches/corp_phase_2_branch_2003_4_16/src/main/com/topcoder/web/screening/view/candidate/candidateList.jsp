@@ -71,7 +71,7 @@
                    <td width="20%" align="center" class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
                    <td width="20%" align="center" class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
                    <td width="10%" align="center" class="testTableOdd"><screen:sessionStatus row="<%=row%>" /></td>
-                   <td width="10%" align="center" class="testTableOdd"><screen:servletLink processor="NoteList" param="<%=params%>"><%=hasNotes?"View":"None"%></screen:servletLink></td> 
+                   <td width="10%" align="center" class="testTableOdd"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><%=hasNotes?"View":"None"%></screen:servletLink></td>
                 </tr>
 
             </screen:resultSetRowIterator>
