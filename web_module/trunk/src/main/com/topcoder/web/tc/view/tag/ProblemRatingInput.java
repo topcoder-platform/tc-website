@@ -35,14 +35,11 @@ public class ProblemRatingInput extends BaseTag {
         pageContext.setAttribute(ID,String.valueOf(question.getID()));
         counter = 0;
         int ret = doAfterBody();
-        if(ret==SKIP_BODY){
-            System.out.println("WTF");
-        }
-        System.out.println(ret);
         return ret;
     }
     
     public int doAfterBody() throws JspException{
+        System.out.println("in doAfterBody()... counter = " + counter);
         counter++;
         if(counter==11){
             return SKIP_BODY;
