@@ -7,7 +7,7 @@
 package com.topcoder.web.tces.bean;
 
 import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESConstants;
@@ -47,7 +47,7 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
     public String autoFormat(TCResultItem result){
         switch(result.getType()){
             case TCResultItem.DOUBLE:
-                return TCESConstants.NUMBER_FORMAT.format(((Double)result.getResultData()).doubleValue())
+                return TCESConstants.NUMBER_FORMAT.format(((Double)result.getResultData()).doubleValue());
             default:
                 return result.toString();
         }
