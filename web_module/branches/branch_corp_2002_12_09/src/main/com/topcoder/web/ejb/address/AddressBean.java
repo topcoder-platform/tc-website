@@ -68,6 +68,7 @@ public class AddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
+            log.debug("user transaction "+ctx.lookup("javax/transaction/UserTransaction"));
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(idGenDataSourceName), "sequence_object", "name", "current_value", 9999999999L, 1, true);
             }

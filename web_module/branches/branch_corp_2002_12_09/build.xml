@@ -609,11 +609,18 @@
     </target>
     
     <target name="corp-ejb-all" depends="compile">
+        <!-- Address ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="address"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/address"/>
+        </antcall>
+
         <!-- Company ejb -->
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="company"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/company"/>
         </antcall>
+
         <!-- CountryMgr bean -->
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="country"/>
