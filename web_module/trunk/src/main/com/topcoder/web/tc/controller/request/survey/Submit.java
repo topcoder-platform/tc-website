@@ -9,8 +9,10 @@ import com.topcoder.web.tc.model.Answer;
 import com.topcoder.web.tc.model.SurveyResponse;
 import com.topcoder.web.ejb.survey.Response;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.Transaction;
 
 import javax.naming.InitialContext;
+import javax.transaction.UserTransaction;
 import java.util.*;
 
 public class Submit extends View {
@@ -18,42 +20,60 @@ public class Submit extends View {
 
     protected void surveyProcessing() throws TCWebException {
 
+        InitialContext ctx = null;
+        UserTransaction tx = null;
         try {
             String paramName = null;
+            List responses = new ArrayList(10);
             for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
                 paramName = (String) params.nextElement();
                 log.debug("param: " + paramName);
                 if (paramName.startsWith(AnswerInput.PREFIX)) {
-                    List responses = validateAnswer(paramName, questionInfo);
-                    if (hasErrors()) {
-                        setNextPage(Constants.SURVEY_VIEW);
-                        setIsNextPageInContext(true);
-                    } else {
-                        SurveyResponse resp = null;
-                        Response response = (Response) createEJB(new InitialContext(), Response.class);
-                        boolean hasAllFreeForm = true;
-                        for (Iterator it = responses.iterator(); it.hasNext();) {
-                            resp = (SurveyResponse) it.next();
-                            hasAllFreeForm &= resp.isFreeForm();
-                            if (resp.isFreeForm()) {
-                                response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
-                            } else {
-                                response.createResponse(resp.getUserId(), resp.getQuestionId());
-                                response.setResponseText(resp.getUserId(), resp.getQuestionId(), resp.getText());
-                            }
-                        }
-                        if (hasAllFreeForm) {
-                            setNextPage(Constants.SURVEY_THANKS);
-                            setIsNextPageInContext(true);
-                        } else {
-                            setNextPage("?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
-                            setIsNextPageInContext(false);
-                        }
-                    }
+                    List l = validateAnswer(paramName, questionInfo);
+                    if (l != null)
+                        responses.addAll(l);
                 }
             }
+            boolean hasAllFreeForm = true;
+            if (!hasErrors()) {
+                ctx = new InitialContext();
+                Response response = (Response) createEJB(ctx, Response.class);
+
+                tx = Transaction.get();
+                Transaction.begin(tx);
+
+                SurveyResponse resp = null;
+                for (Iterator it = responses.iterator(); it.hasNext();) {
+                    resp = (SurveyResponse) it.next();
+                    hasAllFreeForm &= resp.isFreeForm();
+                    if (resp.isFreeForm()) {
+                        response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
+                    } else {
+                        response.createResponse(resp.getUserId(), resp.getQuestionId());
+                        response.setResponseText(resp.getUserId(), resp.getQuestionId(), resp.getText());
+                    }
+                }
+                Transaction.commit(tx);
+            }
+
+            if (hasErrors()) {
+                setNextPage(Constants.SURVEY_VIEW);
+                setIsNextPageInContext(true);
+            } else if (hasAllFreeForm) {
+                setNextPage(Constants.SURVEY_THANKS);
+                setIsNextPageInContext(true);
+            } else {
+                setNextPage("?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
+                setIsNextPageInContext(false);
+            }
+
         } catch (Exception e) {
+            if (tx != null) {
+                Transaction.rollback(tx);
+            }
             throw new TCWebException(e);
+        } finally {
+            close(ctx);
         }
     }
 
