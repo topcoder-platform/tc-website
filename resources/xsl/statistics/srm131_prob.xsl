@@ -189,15 +189,7 @@
                                             To solve this problem one must add up the given scores and then account for
                                             the number of competitions:
                                         </p>
-                                        <pre>
-                                            public class CSCourse {
-                                                String g[] = {"F","F","D","C","B","A"}; int[] grades = {60,70,80,90};
-                                                public String finalgrade(int[] scores, int events) {
-                                                int sum = scores[0]+scores[1]+scores[2]+scores[3]+scores[4], ret = (events>=3?1:0);
-                                                for (int i = 0; i < grades.length; i++) if (sum>=grades[i]) ret++;
-                                                return g[ret];
-                                            }
-                                        </pre>
+
                                         <p>&#160;</p>
                                         <a name="Complete"></a>
                                         <font size="+2">
