@@ -87,28 +87,25 @@
                 </tr>
 
                 <% int i=0; %>
-                <tces:rowIterator id="hit" rowList="<%=CampaignInterestTask.getHitList()%>">
-                <% i++; %>
-                
-                <tr>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_PROFILE_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<%=hit.getItem("job_id").toString()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=hit.getItem("coder_id").toString()%>" class="bodyText"><%= hit.getItem("handle").toString() %></a></td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("rating").toString() %></td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("state_code").toString() %></td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("country").toString() %></td>                  
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("coder_type_desc").toString() %></td>                  
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("school_name").toString() %></td> 
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<%=hit.getItem("job_id").toString()%>" class="bodyText"><%= hit.getItem("job_desc").toString() %></a></td>                                   
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("hit_date").toString() %></td>
-                </tr>
-                
-                </tces:rowIterator>
+                <%--not indenting to save some space on the download cuz this can be a big loop
+                    and the spaces significantly impact the size of the html source
+                --%>
+                <tces:rowIterator id="hit" rowList="<%=CampaignInterestTask.getHitList()%>"><% i++; %><tr>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><a href="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_PROFILE_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<%=hit.getItem("job_id").toString()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=hit.getItem("coder_id").toString()%>" class="bodyText"><%= hit.getItem("handle").toString() %></a></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("rating").toString() %></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("state_code").toString() %></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("country").toString() %></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("coder_type_desc").toString() %></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("school_name").toString() %></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<%=hit.getItem("job_id").toString()%>" class="bodyText"><%= hit.getItem("job_desc").toString() %></a></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("hit_date").toString() %></td></tr></tces:rowIterator>
 
                 <% if(CampaignInterestTask.getHitList().isEmpty()){ %>
                             
