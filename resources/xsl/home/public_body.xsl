@@ -45,13 +45,13 @@
         
 <!-- Catalog Intro begins -->
             <table border="0" cellspacing="0" cellpadding="0">
-                <tr><td colspan="3" height="60"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro_title.gif" alt="Introducing the TopCoder Software Component Catalog" width="556" height="60" border="0" /></A></td></tr>
+                <tr><td colspan="3" height="60"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro/catalog_intro_title.gif" alt="Introducing the TopCoder Software Component Catalog" width="556" height="60" border="0" /></A></td></tr>
                 <tr>
-                    <td width="220" height="100"><A href="http://software.topcoder.com/pages/s_learn.jsp#personal" target="_top"><img src="/i/promos/catalog_intro_personal.gif" alt="Personal" width="220" height="100" border="0" /></A></td>
-                    <td width="126" height="100"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro_icon.gif" alt="" width="126" height="100" border="0" /></A></td>
-                    <td width="210" height="100"><A href="http://software.topcoder.com/pages/s_learn.jsp#professional" target="_top"><img src="/i/promos/catalog_intro_professional.gif" alt="Professional" width="210" height="100" border="0" /></A></td>
+                    <td width="220" height="100"><A href="http://software.topcoder.com/pages/s_learn.jsp#personal" target="_top"><img src="/i/promos/catalog_intro/catalog_intro_personal.gif" alt="Personal" width="220" height="100" border="0" /></A></td>
+                    <td width="126" height="100"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro/catalog_intro_icon.gif" alt="" width="126" height="100" border="0" /></A></td>
+                    <td width="210" height="100"><A href="http://software.topcoder.com/pages/s_learn.jsp#professional" target="_top"><img src="/i/promos/catalog_intro/catalog_intro_professional.gif" alt="Professional" width="210" height="100" border="0" /></A></td>
                 </tr>
-                <tr><td colspan="3" height="20"><img src="/i/promos/catalog_intro_nav.gif" alt="" width="556" height="20" border="0" usemap="#catalog_intro_map" /></td></tr>
+                <tr><td colspan="3" height="20"><img src="/i/promos/catalog_intro/catalog_intro_nav.gif" alt="" width="556" height="20" border="0" usemap="#catalog_intro_map" /></td></tr>
             </table>
 
 <map name="catalog_intro_map">
@@ -62,6 +62,19 @@
 <!-- Catalog Intro ends -->
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
+
+<!-- Sun JavaOne promo begins
+            <table border="0" cellspacing="0" cellpadding="0" background="/i/promos/javaone_2003/javaone_bkgd.gif" width="100%">
+                <tr><td rowspan="3" width="138" height="89"><A href="/?t=sponsor&amp;c=javaone2003" target="_top"><img src="/i/promos/javaone_2003/promo_horz_logo.gif" alt="Sun's 2003 Worldwide Java Developer Conference" width="138" height="89" border="0" /></A></td></tr>
+                <tr>
+                    <td width="99%" height="25" valign="middle"><A href="/?t=sponsor&amp;c=javaone2003" target="_top"><img src="/i/promos/javaone_2003/javaone_coding_challenge.gif" alt="JavaOne Coding Challenge" width="231" height="20" border="0" /></A></td>
+                    <td width="113" height="25" align="right" valign="bottom"><A href="/?t=sponsor&amp;c=javaone2003" target="_top"><img src="/i/promos/javaone_2003/powered_by_topcoder.gif" alt="Powered by TopCoder" width="113" height="16" border="0" /></A></td>
+                </tr>
+                <tr><td colspan="2" height="64" valign="middle"><A href="/?t=sponsor&amp;c=javaone2003" target="_top"><img src="/i/promos/javaone_2003/sun_2003_wjdc.gif" alt="Sun's 2003 Worldwide Java Developer Conference" width="381" height="52" border="0" /></A></td></tr>
+            </table>
+ Sun JavaOne promo ends
+
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br /> -->
 
 <!-- Summary/Best/Worst Begins  -->
             <table width="100%" border="0" cellspacing="0" cellpadding="3">
@@ -265,8 +278,6 @@
             <a href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_promo.gif" alt="Component Design Contest 2: $6000 total prizes" border="0" width="244" height="113" /></a><br />
 
 <!-- Bonus Contest-->
-
-
             <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
             <a href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></a><br />
 
