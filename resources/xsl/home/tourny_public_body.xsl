@@ -105,7 +105,7 @@
   </TR>
   <TR>  
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD CLASS="bodyText" VALIGN="top" WIDTH="100%" BGCOLOR="#CCCCCC">
+    <TD CLASS="bodyText" VALIGN="top" WIDTH="100%">
 <!-- tourney links -->    
 	<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
       <TR>
@@ -147,7 +147,7 @@
 <!-- <B>Update:</B><BR/>
 The assignments for the first round of the tournament are now available.  Each part lists the assigned members alphabetically by handle.<BR/><BR/> -->
 <P>
-<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_advancers&amp;rds=4345</xsl:attribute>Click here</A> to view the advancers from Round 3 to the next round.
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_advancers&amp;rds=4345</xsl:attribute>Click here</A> to view the results from Round 3 or get a <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_final_64</xsl:attribute>snap shot</A> of the advancers to the next round.  
 </P>
 
 <P>
