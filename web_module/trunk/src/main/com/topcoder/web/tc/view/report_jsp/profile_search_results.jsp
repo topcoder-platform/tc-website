@@ -63,7 +63,7 @@
     <title>TopCoder Reporting</title>
   </head>
   <body>
-    <table class="entry">
+    <table class="entry" cellspacing=0>
     <tr>
     <tc:counter min="0" max="<%=results.getColumnCount()-1%>" id="i">
         <td>
