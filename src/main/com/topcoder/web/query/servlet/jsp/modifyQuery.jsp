@@ -44,13 +44,13 @@
               </TD>
             </TR>
             <TR>
-              <TD CLASS="statText" ALIGN="right">Group: </TD>
+              <TD CLASS="statText" ALIGN="right">Ranking: </TD>
               <TD CLASS="statText" ALIGN="left">
                 <input type="checkbox" name="<%=Constants.RANKING_PARAM%>" class="bodyText" <%=ModifyQueryTask.isRanking()?"checked":""%>/>
               </TD>
             </TR>
             <TR>
-              <TD CLASS="statText" ALIGN="right" WIDTH="50%">Name: </TD>
+              <TD CLASS="statText" ALIGN="right" WIDTH="50%">Column Index: </TD>
               <TD CLASS="statText" ALIGN="left" WIDTH="50%">
                 <input type="text" name="<%=Constants.COLUMN_INDEX_PARAM%>" value ="<jsp:getProperty name="ModifyQueryTask" property="ColumnIndex" />" size="3" maxlength="3">
               </TD>
@@ -62,9 +62,9 @@
               </TD>
             </TR>
            <TR>
-              <TD CLASS="statText" ALIGN="right">DB: </TD>
+              <TD CLASS="statText" ALIGN="right">Query Text: </TD>
               <TD CLASS="statText" ALIGN="left">
-                <input type="textarea" cols="120" rows="30" name="<%=Constants.QUERY_TEXT_PARAM%> value="<jsp:getProperty name="ModifyQueryTask" property="Text"/>"/>
+                <textarea cols="80" rows="30" name="<%=Constants.QUERY_TEXT_PARAM%>"><jsp:getProperty name="ModifyQueryTask" property="Text"/></textarea>
               </TD>
             </TR>
             <TR>
