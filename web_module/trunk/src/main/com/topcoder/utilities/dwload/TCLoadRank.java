@@ -30,6 +30,7 @@ public class TCLoadRank extends TCLoad {
 
     private static Logger log = Logger.getLogger(TCLoadRank.class);
     private static final int OVERALL_RATING_RANK_TYPE_ID = 1;
+    private static final int ACTIVE_RATING_RANK_TYPE_ID = 2;
     private static final int SRM_ROUND_TYPE = 1;
     private static final int TOURNAMENT_ROUND_TYPE = 2;
     private static final int AVERAGE_RATING_RANK_TYPE_ID = 1;
@@ -77,9 +78,12 @@ public class TCLoadRank extends TCLoad {
         log.debug("performLoad called...");
         try {
             
-            loadOverallRatingRank();
+            loadRatingRank(OVERALL_RATING_RANK_TYPE_ID);
 
             loadOverallRatingRankHistory();
+
+            loadRatingRank(ACTIVE_RATING_RANK_TYPE_ID);
+
 
 /*
             loadSchoolAvgRatingRank();
@@ -98,8 +102,8 @@ public class TCLoadRank extends TCLoad {
      * Loads the coder_rank table with information about
      * overall rating rank.
      */
-    private void loadOverallRatingRank() throws Exception {
-        log.debug("loadOverallRatingRank called...");
+    private void loadRatingRank(int rankType) throws Exception {
+        log.debug("loadRatingRank called...");
         StringBuffer query = null;
         PreparedStatement psDel = null; 
         PreparedStatement psSel = null; 
@@ -114,19 +118,19 @@ public class TCLoadRank extends TCLoad {
             query = new StringBuffer(100);
             query.append( " DELETE");
             query.append(   " FROM coder_rank");
-            query.append(  " WHERE coder_rank_type_id = " + OVERALL_RATING_RANK_TYPE_ID);
+            query.append(  " WHERE coder_rank_type_id = " + rankType);
             psDel = prepareStatement(query.toString(), TARGET_DB);
  
             query = new StringBuffer(100);
             query.append( " INSERT");
             query.append(   " INTO coder_rank (coder_id, percentile, rank, coder_rank_type_id)");
-            query.append( " VALUES (?, ?, ?, " + OVERALL_RATING_RANK_TYPE_ID + ")");
+            query.append( " VALUES (?, ?, ?, " + rankType + ")");
             psIns = prepareStatement(query.toString(), TARGET_DB);
         
             /* coder_rank table should be kept "up-to-date" so get the most recent stuff
              * from the rating table
              */ 
-            ratings = getCurrentCoderRatings();
+            ratings = getCurrentCoderRatings(rankType==ACTIVE_RATING_RANK_TYPE_ID);
             coderCount = ratings.size();
             
             // delete all the records for the overall rating rank type
@@ -205,7 +209,7 @@ public class TCLoadRank extends TCLoad {
              * of the given round
              */
             if (roundId==getMostRecentRound()) { 
-                ratings = getCurrentCoderRatings();
+                ratings = getCurrentCoderRatings(false);
             } else {
                 ratings = getCoderRatingsForRound();
             }
@@ -252,7 +256,7 @@ public class TCLoadRank extends TCLoad {
 
 
 
-    /** 
+    /**
      * Loads the school_rank table with information about
      * average rating
      */
@@ -275,15 +279,15 @@ public class TCLoadRank extends TCLoad {
             psDel = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append( " INSERT"); 
+            query.append( " INSERT");
             query.append(   " INTO school_rank (school_id, percentile, rank, school_rank_type_id)");
             query.append( " VALUES (?, ?, ?, " + AVERAGE_RATING_RANK_TYPE_ID);
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             psDel.executeUpdate();
-        
+
             ratings = getCurrentSchoolAvgRatings();
-            
+
             int i=0;
             float rating = 0;
             int rank = 0;
@@ -335,7 +339,7 @@ public class TCLoadRank extends TCLoad {
         PreparedStatement psSel = null;
         ResultSet rs = null;
         List ret = null;
-        
+
         try {
             query.append( " SELECT school_id ");
             query.append(        " ,CASE WHEN rated_count=0 THEN 0 ELSE sum_rating/rated_count END AS avg_rating ");
@@ -368,7 +372,7 @@ public class TCLoadRank extends TCLoad {
             query.append(  " WHERE rated_count > 0");
             query.append(  " ORDER BY 2 DESC");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
-          
+
             rs = psSel.executeQuery();
             ret = new ArrayList();
             while (rs.next()) {
@@ -394,7 +398,7 @@ public class TCLoadRank extends TCLoad {
      * @return List containing CoderRating objects
      * @throws Exception if something goes wrong when querying
      */
-    private List getCurrentCoderRatings() throws Exception {
+    private List getCurrentCoderRatings(boolean activeOnly) throws Exception {
         log.debug("getCurrentCoderRatings called...");
         StringBuffer query = null;
         PreparedStatement psSel = null; 
@@ -408,9 +412,13 @@ public class TCLoadRank extends TCLoad {
             query.append(       " ,r.rating");
             query.append(  " FROM coder c");
             query.append(       " ,rating r");
+            if (activeOnly)
+                query.append(   " ,  active_members a");
             query.append( " WHERE c.status = 'A'");
             query.append(   " AND r.rating > 0");
             query.append(   " AND c.coder_id = r.coder_id");
+            if (activeOnly)
+                query.append(" AND a.coder_id = c.coder_id");
             query.append( " ORDER BY r.rating DESC");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             
