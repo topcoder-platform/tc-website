@@ -202,6 +202,31 @@
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">  
   <TR>
+    <TD CLASS="statText">
+      <xsl:choose>
+      <xsl:when test="/TC/HOME/InvitationalInfo/IsRegistered='0'">
+        <xsl:choose>
+        <xsl:when test="/TC/HOME/InvitationalInfo/IsEligible='0'">
+          You are not eligible to compete in the TopCoder Invitational Tournament.  There are 3 possible reasons for this.<BR/>
+          1) You are not from an eligible country.<BR/>
+          2) You have not competed in at least 3 rated events.<BR/>
+          3) You have not competed since March 30, 2002.
+        </xsl:when>
+        <xsl:otherwise>
+          Click <A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="statText">here</A> to register for the TopCoder Invitational.
+        </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+          You are currently registered for the TopCoder Invitational.
+      </xsl:otherwise>
+      </xsl:choose>
+    </TD>
+  </TR>
+</TABLE> 
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">  
+  <TR>
     <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0" VSPACE="1"/><BR/>
       <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
