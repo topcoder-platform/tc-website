@@ -234,9 +234,9 @@ public class ProfileSearch extends Base {
     }
     private String stringMatcher(String s){
         if(s.indexOf('%') != -1 || s.indexOf('_') != -1){
-            return " LIKE lower('"+s+"')";
+            return ") LIKE lower('"+s+"')";
         } else {
-            return " = lower('"+s+"')";
+            return ") = lower('"+s+"')";
         }
     }
     private String buildCoderConstraints(TCRequest request, boolean skill){
@@ -246,7 +246,7 @@ public class ProfileSearch extends Base {
         for(int i = 0; i<fields.length; i++){
             String s = request.getParameter(fields[i]);
             if(s!=null && s.length() > 0){
-                query.append("    AND ");
+                query.append("    AND lower(");
                 query.append(columns[i]);
                 query.append(stringMatcher(s));
                 query.append('\n');
