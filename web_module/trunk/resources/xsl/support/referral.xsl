@@ -28,10 +28,7 @@
     <!-- Left Column Begins -->
 		<TD WIDTH="180" VALIGN="top">
 <!-- Left Column Include Begins -->	
-    <!-- Global Seconday Nav Begins -->	
         <xsl:call-template name="global_left"/>
-	<!-- Global Seconday Nav Ends -->		
-<!-- Left Column Include Ends -->							
 	  	</TD>
 	<!-- Left Column Ends -->
 	<!-- Gutter Begins -->
