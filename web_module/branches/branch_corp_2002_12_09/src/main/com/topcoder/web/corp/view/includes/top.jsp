@@ -15,7 +15,7 @@
       <TD VALIGN="middle" BGCOLOR="#333333" WIDTH="100%" ALIGN="right" CLASS="globalNavSmall" NOWRAP="0"> 
                 <A HREF="http://www.topcodersoftware.com" TARGET="_parent" CLASS="globalNavSmall">TopCoder Software</A>&#160;&#160;&#160;|&#160;&#160;&#160;
                 <A HREF="#" TARGET="_parent" CLASS="globalNavSmall">TopCoder High School</A>&#160;&#160;&#160;|&#160;&#160;&#160;
-<% if( auth.getUser().isAnonymous() ) {  // no logged user
+<% if( auth.getActiveUser().isAnonymous() ) {  // no logged user
  %>
     <A HREF="<%=appContext%>/?module=Static&d1=LoginPage" CLASS="globalNavSmall" TARGET="_parent">Login</A>&#160;&#160;&#160;|&#160;&#160;&#160;
 <% }
@@ -50,8 +50,7 @@
                         <TD WIDTH="100%" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="74" BORDER="0"/></TD>
                         <TD CLASS="time" ALIGN="right" VALIGN="middle" WIDTH="190" BGCOLOR="#000000">&#160;
                            <FORM NAME="frmMiniLogin" METHOD="POST" action="<%=appContext%>/?module=Login">
-<% if( auth.getUser().isAnonymous() ) {  // no logged user
- %>
+
                               <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
                                  <TR>
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">User Name:&#160;&#160;</TD>
@@ -66,24 +65,7 @@
                                  </TR>
                               </TABLE>
                               <INPUT NAME="<%=Login.KEY_LOGINMODE%>" TYPE="hidden" VALUE="1"/>
-<% }
-   else {
- %>
-                              <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
-                                 <TR>
-                                    <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">User Name:&#160;&#160;</TD>
-                                    <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2"><FONT COLOR="#CCCCCC"><%=loggedIn.getUserName()%></FONT></TD>
-                                 </TR>
-                                 <TR>
-                                    <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">Password:&#160;&#160;</TD>
-                                    <TD HEIGHT="20" VALIGN="TOP"><FONT COLOR="#CCCCCC">********</FONT></TD>
-                                    <TD CLASS="statTextBig" VALIGN="top">&#160;&#160;<A HREF="<%=appContext%>/?module=Logout" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Logout &gt;</FONT></A></TD>
-                                 </TR>
-                              </TABLE>
-                              <INPUT NAME="module" TYPE="hidden" VALUE="Logout"/>
-<%
-   }
- %>
+
                            </FORM>
                         </TD>
                         <TD WIDTH="10" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

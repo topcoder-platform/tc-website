@@ -13,8 +13,11 @@ import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 
 import java.sql.SQLException;
+import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 /**
  * My comments/description/notes go here
@@ -26,8 +29,7 @@ import java.util.Map;
 public class QueryIteratorTag extends IteratorTag {
     private String command = null;
     private ResultSetContainer rsc = null;
-
-//    private ResultSet rs;
+    Hashtable params;
 
     /**
      * 
@@ -42,6 +44,18 @@ public class QueryIteratorTag extends IteratorTag {
             );
             Request dataRequest = new Request();
             dataRequest.setContentHandle(command);
+            
+            if( params != null ) {
+                Enumeration e = params.keys();
+                while( e.hasMoreElements() ) {
+                    Object key = e.nextElement();
+                    dataRequest.setProperty(
+                        (String) key,
+                        (String) params.get(key)
+                    );
+                }
+            }
+            
             Map result = dai.getData(dataRequest);
             // for now will take first of queries results
             Iterator i = result.keySet().iterator();
@@ -79,4 +93,19 @@ public class QueryIteratorTag extends IteratorTag {
     public void setCommand(String cmd) {
         command = cmd;
     }
+    
+	/**
+	 * Sets the query parameters. Format is: 'name:value, name:value, ...'.
+     *  
+	 * @param params The params to set
+	 */
+	public void setParam(String param) {
+        params = new Hashtable();
+        StringTokenizer st = new StringTokenizer(param, " ,");
+        while( st.hasMoreTokens() ) {
+            StringTokenizer st2 = new StringTokenizer(st.nextToken(), ":");
+            if( st2.countTokens() != 2 ) continue;
+            params.put(st2.nextToken(), st2.nextToken());
+        }
+	}
 }
