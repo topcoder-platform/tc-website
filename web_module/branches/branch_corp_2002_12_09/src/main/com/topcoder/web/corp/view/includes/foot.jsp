@@ -13,7 +13,7 @@
     <A HREF="http://www.topcoder.com" TARGET="_blank" CLASS="bodyText">TopCoder.com</A> | 
     <A HREF="http://www.topcodersoftware.com" TARGET="_blank" CLASS="bodyText">TopCoder Software</A> | 
     <A HREF="#" CLASS="bodyText">TopCoder High School</A><BR> 
-    </SPAN><BR><SPAN CLASS="smallText">Copyright &#169; 2002, TopCoder, Inc. All rights reserved.</SPAN><BR><BR><BR></TD>
+    </SPAN><BR><SPAN CLASS="smallText">Copyright &#169; 2003, TopCoder, Inc. All rights reserved.</SPAN><BR><BR><BR></TD>
   </TR>
 </TABLE>
 
