@@ -286,7 +286,7 @@ private void processContact() throws SQLException, TaskException {
         } catch (Exception e) {
             error.add("Problem updating CoderObject.");
             Log.msg("Problem with updating CoderObject: " + e.getMessage());
-            throw new TaskException("TCES.processEmployment(): Exception: " + e.getMessage());
+            //throw new TaskException("TCES.processEmployment(): Exception: " + e.getMessage());
         }
         try {
             //xxx todo: something's up - have to figure it out - comment this for now
@@ -294,7 +294,7 @@ private void processContact() throws SQLException, TaskException {
         } catch (Exception e) {
             error.add("Problem updating UserObject.");
             Log.msg("Problem with updating UserObject: " + e.getMessage());
-            throw new TaskException ("TCES.processEmployment(): Exception: " + e.getMessage());
+            //throw new TaskException ("TCES.processEmployment(): Exception: " + e.getMessage());
         }
 
     }
