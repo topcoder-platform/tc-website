@@ -64,8 +64,21 @@ public class Home extends Base {
         }
     }
 
-    protected void loadMemberData() {
+    protected void loadMemberData() throws TCWebException {
+        try {
+            CachedDataAccess dwDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+            Request dataRequest = new Request();
+            dataRequest.setContentHandle("member_profile");
+            dataRequest.setProperty("cr", String.valueOf(getUser().getId()));
+            getRequest().setAttribute("member_info",
+                    dwDai.getData(dataRequest).get("Coder_Data"));
 
+
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
     }
 
 
