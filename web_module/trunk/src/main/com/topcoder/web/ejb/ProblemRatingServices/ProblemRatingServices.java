@@ -6,5 +6,5 @@ import java.rmi.RemoteException;
 import java.util.Map;
 
 public interface ProblemRatingServices extends EJBObject {
-    public void submitAnswers(int[] questions, int[] ratings, long userID, int problemID) throws RemoteException, Exception;
+    public boolean submitAnswers(int[] questions, int[] ratings, long userID, int problemID) throws RemoteException, Exception;
 }

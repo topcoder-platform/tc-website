@@ -54,17 +54,15 @@ public class Submit extends Base {
                 qs[i] = Integer.parseInt(al.get(ptr++).toString());
                 rs[i] = Integer.parseInt(al.get(ptr++).toString());
             }
-            prs.submitAnswers(qs,rs,userID,Integer.parseInt(request.getParameter("pid")));
-            setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingResults&" + Constants.PROBLEM_ID + "=" + request.getParameter("pid"));
-            setIsNextPageInContext(true);
-        }catch(RemoteException rm){
-            if(rm.getCause() instanceof IllegalArgumentException){
-                request.setAttribute("redoError","Please answer all of the questions.");
-                setNextPage("");
+            if(prs.submitAnswers(qs,rs,userID,Integer.parseInt(request.getParameter("pid")))){
+                setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingResults&" + Constants.PROBLEM_ID + "=" + request.getParameter("pid"));
                 setIsNextPageInContext(true);
             }else{
-                e.printStackTrace();
+                setNextPage("");
+                setIsNextPageInContext(true);
             }
+        }catch(Exception e){
+            e.printStackTrace();
         }catch(Exception e){
             e.printStackTrace();
         }
