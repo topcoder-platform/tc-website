@@ -99,9 +99,9 @@ function submitSession() {
                         <select name ="profileId">
                         <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
                         <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
-                            <option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id">" SELECTED><screen:resultSetItem row="<%=row%>" name="name"></option>
+                            <option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option>
                         <% } else { %>
-                            <option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id">"><screen:resultSetItem row="<%=row%>" name="name"></option>
+                            <option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
                         <% } %>
                         </screen:resultSetRowIterator>
                         </select>
@@ -121,9 +121,9 @@ function submitSession() {
                         <select name="cid">
                         <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getCandidateList()%>">
                         <% if(sessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
-                            <option value="<screen:resultSetItem row="<%=row%>" name="candidate_id">" SELECTED><screen:resultSetItem row="<%=row%>" name="handle"></option>
+                            <option value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="handle" /></option>
                         <% } else { %>
-                            <option value="<screen:resultSetItem row="<%=row%>" name="candidate_id">"><screen:resultSetItem row="<%=row%>" name="handle"></option>
+                            <option value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />"><screen:resultSetItem row="<%=row%>" name="handle" /></option>
                         <% } %>
                         </screen:resultSetRowIterator>
                         </select>
@@ -217,7 +217,7 @@ function submitSession() {
 
                 <tr>
                     <td><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>
-                    <td colspan="2" class="errortext"></td>
+                    <td colspan="2" class="errortext"><screen:errors name="dateCompare" /></td>
                 </tr>
 
                 <tr>
