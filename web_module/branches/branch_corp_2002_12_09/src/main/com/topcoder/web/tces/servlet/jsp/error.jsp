@@ -32,10 +32,10 @@
       <!-- Gutter Begins -->
       <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
        <!-- Gutter Ends -->
-	   <!-- Body Area -->
+       <!-- Body Area -->
        <!-- Center Column Begins -->
       <TD class="statText" width="100%" bgcolor="#001935" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-		<jsp:include page="/body_top.jsp" >
+        <jsp:include page="/body_top.jsp" >
            <jsp:param name="image" value="tces"/>
            <jsp:param name="image1" value="steelblue"/>
            <jsp:param name="title" value="<%=MainTask.getCompanyName()%>"/>
@@ -46,32 +46,32 @@
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
               <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
               <P><B><jsp:getProperty name="MainTask" property="CompanyName"/> User Unauthorized </B></P>
-			    <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
+              <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
                 <TR>
                   <TD class="statText" HEIGHT="18" COLSPAN="20"><BR></TD>                  
                 </TR>                
                 <TR>
                   <TD class="statText" HEIGHT="18" align="center" colspan="20">
 
-					  <!-- Error message content pane -->
-					
-						 You do not enough priveleges to perform this action.<br>
-						 If you think this page was shown by mistake, please contact us<br>
-						 We are sorry for any inconveniences caused by this<br>
-						 Site Administration<br><br>
+                      <!-- Error message content pane -->
+                    
+                        You do not enough priveleges to perform this action.<br>
+                        If you think this page was shown by mistake, please contact us<br>
+                        We are sorry for any inconveniences caused by this<br>
+                        Site Administration<br><br>
 
-					   <!-- web-app debug time stack trace  BEGIN -->
+                       <!-- web-app debug time stack trace  BEGIN -->
 
-					   <hr><b><i>Trace information is provided for web application debug time only</i></b><br>
-					   <pre>
-					   <% Exception excCaught = (Exception)request.getAttribute("caught-exception");
-						  if( excCaught != null ) {
-							 excCaught.printStackTrace(new java.io.PrintWriter(out));
-						  }
-					   %>
-					   </pre><hr>
+                        <hr><b><i>Trace information is provided for web application debug time only</i></b><br>
+                       <pre>
+                       <% Exception excCaught = (Exception)request.getAttribute("caught-exception");
+                          if( excCaught != null ) {
+                             excCaught.printStackTrace(new java.io.PrintWriter(out));
+                          }
+                       %>
+                       </pre><hr>
 
-					   <!-- web-app debug time stack trace END -->
+                       <!-- web-app debug time stack trace END -->
 
                   </TD>
                 </TR>
