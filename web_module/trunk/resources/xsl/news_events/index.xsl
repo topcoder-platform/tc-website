@@ -62,6 +62,23 @@
             </table>
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+<!-- Digital Journal.com -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://www.digitaljournal.com/news/?articleID=3913" target="_blank"><img src="/i/pressroom/digital_journal.gif" alt="Digital Journal" width="135" height="70" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.digitaljournal.com/news/?articleID=3913" target="_blank">World's Top Coder Takes Home $50,000 in Computing Contest</A></strong></font><br />
+                        Czajka began the tournament as the #2 seed, rated second among more than 34,000 developers in the TopCoder online community. 
+                        After "out-coding" Jimmy Mardell of Stockholm, Sweden, Bogdan Stanescu of Fairfax, VA, and Jiqing Tang of Hong Kong in the 
+                        Championship round, Czajka earned his spot as the highest-rated TopCoder member.<span class="prHead"> [January 9]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+           
                  
 <!-- News Observer Times -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
