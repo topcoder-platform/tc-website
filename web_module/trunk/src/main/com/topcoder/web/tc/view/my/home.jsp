@@ -20,7 +20,7 @@
         <td width="180">
             <jsp:include page="../../includes/global_left.jsp">
                 <jsp:param name="level1" value="my_topcoder"/>
-                <jsp:param name="level2" value="home"/>
+                <jsp:param name="level2" value=""/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -29,10 +29,10 @@
          <td class="cardCell" width="100%" align="center">
 
          <div class="myTCBody">
-
-            <img src="/i/my/title.gif" border=0/>
-            
-            <hr width="100%" size="1" noshade="noshade" />
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="my_tc"/>  
+            <jsp:param name="title" value="Home"/>  
+        </jsp:include>
 
             <table border=0 cellpadding=5 cellspacing=0 width="100%">
                 <tr>
@@ -41,16 +41,23 @@
                 </tr>
             </table>
             
-            <hr width="100%" size="1" noshade="noshade" />
-
+            <br/>
+            
+            <table border=0 cellpadding=5 cellspacing=0 width="100%">
+                <tr>
+                    <td class="bodyText" valign=top width=150><A href="/?&t=support&c=referral"><img src="/i/my/referrals.gif" border=0/></A></td>
+                    <td class="bodyText" valign=top>The TopCoder Referral Program is designed to increase the number of  top-performing coders who participate in TopCoder competitions, and to reward those TopCoder members who spread the word. The referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration. Click <A href="/?&t=support&c=referral">here</A> to find out more.</td>
+                </tr>
+            </table>
+            
+            <br/>
+            
             <table border=0 cellpadding=5 cellspacing=0 width="100%">
                 <tr>
                     <td class="bodyText" valign=top width=150><A href="/tc?module=Static&d1=card&d2=description"><img src="/i/my/b_and_c.gif" border=0/></A></td>
                     <td class="bodyText" valign=top>Ever wanted to show off your TopCoder skills? Want that ace in the hole at your next job interview? The TopCoder <A href="/tc?module=Static&d1=card&d2=description">Member Badges and Cards</A> are the answer!  Choose a badge from our selection and put it on your website, resume, or even make a giant poster!  Our member cards are an exciting way to post your stats on your own website and offer a great tool for recruiters to look at.</td>
                 </tr>
             </table>
-
-            <hr width="100%" size="1" noshade="noshade" />
 
         </div>
         <p><br/></p>

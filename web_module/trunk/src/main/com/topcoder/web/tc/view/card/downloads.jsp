@@ -36,7 +36,7 @@
             <jsp:param name="title" value="Downloads"/>  
         </jsp:include>
             
-         <p>You can download any of the badges listed below in various sizes.  Feel free to place them on your personal website or on your resume</p>
+         <p>You can download any of the badges listed below in various sizes.  Feel free to place them on your personal website or on your resume.</p>
 
         <table cellpadding="0" cellspacing="15" border="0" class="bodyText" align="center">
             <tr>
@@ -63,9 +63,6 @@
 
          <p>If you would like your badge to link to more info about your TopCoder experience, please insert the following HTML:</p>
          <p align=center class="cardCode">&lt;a href="http://<%=ApplicationServer.SERVER_NAME%>/card?cr=<jsp:getProperty name="sessionInfo" property="UserId"/>"&gt;(image / text goes here)&lt;a&gt;</p>
-
-
-        <p><a href="/tc?module=Static&d1=card&d2=description">Back to description</a></p>
 
          </div>
          <p><br/></p>
