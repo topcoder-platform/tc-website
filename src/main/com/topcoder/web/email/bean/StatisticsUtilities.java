@@ -3,6 +3,8 @@ package com.topcoder.web.email.bean;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.email.servlet.EmailConstants;
 
@@ -31,12 +33,13 @@ public class StatisticsUtilities {
     public static Map runStatsQuery(String commandName, Map inputMap)
             throws ServletException {
         DataAccessInt dai = null;
-        RequestInt dataRequest = null;
+        Request dataRequest = null;
         Map resultMap = null;
         try {
-            dai = new OLTPDataAccess();
+            dai = new DataAccess((javax.sql.DataSource)
+                TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
             dataRequest = new Request(inputMap);
-            dataRequest.setProperty("c", commandName);
+            dataRequest.setContentHandle(commandName);
             resultMap = dai.getData(dataRequest);
             return resultMap;
         } catch (Exception e) {
