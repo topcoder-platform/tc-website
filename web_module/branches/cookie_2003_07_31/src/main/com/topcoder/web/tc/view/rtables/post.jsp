@@ -16,13 +16,13 @@
             com.coolservlets.forum.util.*,
             com.topcoder.common.web.data.Navigation,
             com.topcoder.ejb.DataCache.*,
-            com.topcoder.common.*" %>
+            com.topcoder.common.*,
+            com.coolservlets.forum.database.DbAuthorization" %>
 <%
     Navigation n = null;
     String Redirect_URL = "http://" + request.getServerName() + "/rtables/perm_error.jsp";
     String url ="";
     String responseURL = "";
-    String responsePostURL = responseURL.equals("") ? "" :  responseURL.substring(1);
     n = (Navigation) session.getAttribute("navigation");
     if (n==null || !n.isIdentified() ) {
       StringBuffer errorURL = new StringBuffer(100);
@@ -56,31 +56,16 @@
     // get the authToken as a way to get userID's below
       Authorization authToken = null;
       com.topcoder.common.web.data.User user = null;
-      String rtUser = "";
-      String rtPassword = "";
-      try {
-        user = n.getUser();
-        if ( n.isIdentified() ) {
-          rtUser =user.getHandle();
-          rtPassword =user.getPassword();
-        }
-      } catch( Exception e ) {
-        response.sendRedirect(Redirect_URL);
-        return;
-      }
+      user = n.getUser();
       AuthorizationFactory authFactory = AuthorizationFactory.getInstance();
-      if(rtUser.equals("")){
-        authToken = authFactory.getAnonymousAuthorization();
-        session.setAttribute("jiveAuthorization",authToken);
-      }else{
-        authToken = authFactory.getAuthorization(rtUser,rtPassword);
-        session.setAttribute("jiveAuthorization",authToken);
+      if ( n.isIdentified() ) {
+         authToken = authFactory.getAuthorization(n.getSessionInfo().getHandle(), "");
+      } else {
+          response.sendRedirect(Redirect_URL); //if it's an anonymous user, they can't post
+          return;
       }
+      session.setAttribute("jiveAuthorization",authToken);
 
-    if (authToken.getUserID() == -1) {  //if it's an anonymous user, they can't post
-        response.sendRedirect(Redirect_URL);
-        return;
-    }
     // get parameters
     int forumID  = ParamUtils.getIntParameter(request,"forum",-1);
     int threadID = ParamUtils.getIntParameter(request,"thread",-1);
@@ -224,10 +209,6 @@
 
     // get forum properties (assumed no errors at this point)
     String forumName = forum.getName();
-    String threadName = "";
-    if (isReply && thread != null) {
-      threadName = thread.getName();
-    }
 
 %>
 
