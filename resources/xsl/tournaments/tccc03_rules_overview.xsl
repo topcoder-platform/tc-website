@@ -52,7 +52,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-        <td class="bodyText" width="100%">
+        <td class="bodyText">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">steelgray</xsl:with-param>
                 <xsl:with-param name="image">tournaments_gray</xsl:with-param>
@@ -69,7 +69,7 @@
             <table border="0" cellspacing="0" cellpadding="0" class="tourney_bkgd" width="100%">
                 <tr valign="top">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                    <td width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
+                    <td width="99%">
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td valign="middle" class="statText">
