@@ -82,7 +82,7 @@
                         </ul>
 
 <%-- Documentation --%>
-<% if (projectDetail.getIntItem(0, "root_category_id") == 5801778 || projectDetail.getIntItem(0, "root_category_id") == 5801779) {%>
+<% if (projectDetail.getIntItem(0, "root_category_id") == Constants.CUSTOM_JAVA_CATALOG_ID || projectDetail.getIntItem(0, "root_category_id") == Constants.CUSTOM_DOT_NET_CATALOG_ID) {%>
                         <p><strong>Documentation</strong><br />
                         Documentaion / Specification available in component forums.
 <% } else { %>
@@ -100,7 +100,7 @@
                     <td class="projectHeaders" align="left">Payment</td>
                 </tr>
             </table>
-<% if (projectDetail.getIntItem(0, "root_category_id") == 5801778 || projectDetail.getIntItem(0, "root_category_id") == 5801779) {%>
+<% if (projectDetail.getIntItem(0, "root_category_id") == Constants.CUSTOM_JAVA_CATALOG_ID || projectDetail.getIntItem(0, "root_category_id") == Constants.CUSTOM_DOT_NET_CATALOG_ID) {%>
                         <p>
                         TopCoder will compensate members with first and second place submissions that have scored at least
                         70. The initial payment will be distributed in two installments.

@@ -104,6 +104,8 @@ public class Constants {
     public static int UNLOCK_CARD_PREFERENCE_ID;
     public static int JAVA_CATALOG_ID;
     public static int DOT_NET_CATALOG_ID;
+    public static int CUSTOM_JAVA_CATALOG_ID;
+    public static int CUSTOM_DOT_NET_CATALOG_ID;
     public static int FLASH_CATALOG_ID;
     public static int APPLICATIONS_CATALOG_ID;
     public static int MAX_RATED_INQUIRIES;
