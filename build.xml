@@ -856,9 +856,34 @@
     <!-- end of screening application specific targets -->
 
 
+    <target name="deploy-admin" depends="compile">
+        <war warfile="${war.dir}/admin.war" webxml="${resources}/admin/web.xml">
+            <classes dir="${classes}">
+                <include name="com/topcoder/shared/util/"/>
+                <include name="com/topcoder/shared/docGen/"/>
+                <include name="com/topcoder/shared/dataAccess/"/>
+                <include name="com/topcoder/web/servlet/admin/" />
+                <include name="com/topcoder/common/web/" />
+            </classes>
+
+        </war>
+        <unwar src="${war.dir}/admin.war" dest="${public_html}/admin/" overwrite="yes"/>
+        <delete dir="${public_html}/admin/META-INF"/>
+    </target>
+
+
     <target name="moveQueries" depends="compile">
         <java classname="com.topcoder.utilities.querymover.QueryMover" fork="true">
-            <arg value="12195"/>
+            <arg value="11024"/>
+            <arg value="11023"/>
+            <arg value="11029"/>
+            <arg value="13"/>
+            <arg value="262"/>
+            <arg value="280"/>
+            <arg value="11021"/>
+            <arg value="11014"/>
+            <arg value="12157"/>
+            <arg value="12158"/>
             <classpath>
                 <pathelement location="${classes}"/>
                 <pathelement location="${resources}"/>
