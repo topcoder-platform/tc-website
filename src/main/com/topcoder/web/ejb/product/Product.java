@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.product;
 import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
+import java.sql.Date;
 
 
 /**
@@ -41,6 +42,8 @@ public interface Product extends EJBObject {
      * @see com.topcoder.web.ejb.product.ProductBean#getUnitTypeDesc
      */
     String getUnitTypeDesc(long productId) throws RemoteException, EJBException;
+
+
 
     /**
      * @see com.topcoder.web.ejb.product.ProductBean#setProductDesc

@@ -63,9 +63,9 @@ public class PurchaseBean implements SessionBean {
      *
      *
      * @param productId the product ID to assign to a purchase
-     * @param unitTypeId the unit type ID to assign to a purchase
      * @param contactId the contact ID to assign to a purchase
-     *
+     * @param companyId
+     * @param paid
      * @return a long with the unique purchase ID created
      */
     public long createPurchase(long companyId, long productId,
@@ -968,6 +968,91 @@ public class PurchaseBean implements SessionBean {
 
         return (ret);
     }
+
+
+    /**
+     *
+     *
+     * @param purchaseId purchaes ID of the entry
+     *
+     * @return when the purchase was created
+     */
+    public Date getCreateDate(long purchaseId) {
+        log.debug("getCreateDate called...purchase_id: " + purchaseId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        Date ret = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT create_date FROM purchase WHERE " +
+                    "purchase_id = ?");
+            ps.setLong(1, purchaseId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getDate("create_date");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
+            throw new EJBException("SQLException getting create_date");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting create_date");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting create_date\n" +
+                    e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getCreateDate");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                            "getCreateDate");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getCreateDate");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getCreateDate");
+                }
+            }
+        }
+
+        return (ret);
+    }
+
+
+
+
+
+
+
 
     /**
      *
