@@ -47,6 +47,11 @@
             <param-value>index.jsp</param-value>
             <description></description>
         </init-param>
+        <init-param>
+            <param-name>login_page</param-name>
+            <param-value>login.jsp</param-value>
+            <description></description>
+        </init-param>
         <!-- end application specific parameters -->
 
 
