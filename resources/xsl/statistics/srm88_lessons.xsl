@@ -310,6 +310,38 @@ is to see the graph in the matrix.
 <P>
 <A HREF="/stat?c=member_profile&amp;cr=263379" CLASS="bodyGeneric">pochmann</A>
 </P>
+
+<HR/>
+
+<P>
+sloejoe, I think you have a problem in your 1000 pt div2 answer.
+</P>
+ 
+<P>
+You say
+</P>
+ 
+<P>
+// Recursively check the fences<BR/>
+check(data, visited, i, j, data[i][j]);<BR/>
+areaCount++;<BR/>
+</P>
+
+<P>
+I say
+</P>
+ 
+<P>
+// Recursively check the fences<BR/>
+count += check(data, visited, i, j, data[i][j]);<BR/>
+areaCount++;<BR/>
+}<BR/>
+:0 !<BR/>
+</P>
+ 
+<P><A HREF="/stat?c=member_profile&amp;cr=280735" CLASS="bodyGeneric">Shammah</A></P>
+
+
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
