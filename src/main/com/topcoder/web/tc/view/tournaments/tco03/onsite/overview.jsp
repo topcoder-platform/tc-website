@@ -2,15 +2,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Rules</title>
+<title>2003 TopCoder Open sponsored by Intel&#174;  - Overview of the Onsite Finals</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../../../script.jsp" />
 
 </head>
 
 <body onLoad="timer(1);">
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../../../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../../../includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -32,18 +32,18 @@
 <!-- Center Column Begins -->
          <td class="bodyText" WIDTH="100%">
 
-<jsp:include page="tco03Head.jsp" />
+<jsp:include page="../tco03Head.jsp" />
 
 <!-- Tab bar links-->
-<jsp:include page="tco03Links.jsp" >
+<jsp:include page="../tco03Links.jsp" >
    <jsp:param name="selectedContest" value="coding"/>
    <jsp:param name="selectedTab" value="coding_onsite"/>
 </jsp:include>
 
 <!-- Tab bar sublinks-->
-<jsp:include page="tco03Sublinks.jsp" >
-   <jsp:param name="selectedList" value="coding_onsite"/>
-   <jsp:param name="selectedTab" value="overview"/>
+<jsp:include page="../tco03Sublinks.jsp" >
+   <jsp:param name="selectedList" value="onsite"/>
+   <jsp:param name="selectedTab" value="schedule"/>
 </jsp:include>
 
             <h2>Official Rules and Regulations</h2>
@@ -66,7 +66,7 @@
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../../../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -78,7 +78,7 @@
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../../../foot.jsp" />
 
 </body>
 
