@@ -28,7 +28,7 @@ import java.util.Enumeration;
 
 /**
  * The servlet to handle job posting http requests.
- * @author Greg Paul
+ * @author Greg Paul, modified by swif0ne
  * @version $Revision$
  *
  */
@@ -95,23 +95,24 @@ public class Controller extends HttpServlet {
 
 //---------
                 /* Code for initializing WebAuthentication tokens in each task */
-                SessionPersistor persistor = SessionPersistor.getInstance(request.getSession(true));
+                SessionPersistor persistor = SessionPersistor.getInstance(
+                    request.getSession(true)
+                );
                 WebAuthentication authToken;
                 authToken = new BasicAuthentication(persistor, request, response); 
                 task.setAuthToken(authToken);
-//----------
+                TCSubject tcUser = Util.retrieveTCSubject(
+                    authToken.getActiveUser() 
+                );
+                Authorization authorize = new TCESAuthorization(tcUser);
+                Resource taskResource = new ProcessorResource(task);
+                if (!authorize.hasPermission(taskResource)) {
+                    throw new NotAuthorizedException(uid + 
+                        ": not Authorized for access to resource: "
+                            " + taskName);
+                }
 
-//  Preliminary Authorization work:
-//
-//              TCSubject user = Util.retrieveTCSubject(authToken.getActiveUser());
-//              Resource taskResource = new ProcessorResource(task);
-//
-//              Authorization authorize = new TCESAuthorization(user);
-//              if (!authorize.hasPermission(taskResource)) {
-//                  throw new TCESAuthorizationException(
-//                          uid + ": not Authorized for access to resource: "
-//                          " + taskName);
-//              }
+//----------
 
                 task.servletPreAction(request, response);
 
@@ -129,20 +130,13 @@ public class Controller extends HttpServlet {
                         new Exception("missing " + TCESConstants.TASK_PARAM + " parameter in request"));
             }
         } catch (TCESAuthenticationException authex) {
-            log.debug("User not authenticated to access TCES resource.\n" + authex.getMessage());
-
-//          Authentication.attemptLogin("", "", ctx,request.getSession(true), request.getContextPath()+request.getServletPath()+"?"+request.getQueryString());
-            
-            //HttpSession currentSession = request.getSession(true);
-            
-            /* requestedURL is new way to store requested URL's instead of 
-               using Authentication object, stored as a string.             */
-            //currentSession.setAttribute("requestedURL", 
-            //    request.getContextPath() + request.getServletPath() + "?" +
-            //    request.getQueryString());
-
+            log.error("User authenticated error in TCES resource.\n" + authex.getMessage());
             forwardToLoginPage(request, response, authex);
             return;
+        } catch (NotAuthorizedException ae) {
+            log.debug("TCES Authorization failure! ", ae);
+            forwardToErrorPage(request, response, ae);
+            return; 
         } catch (ClassNotFoundException cnfex) {
             log.debug("Unable to dispatch task! "+cnfex.getMessage());
             forwardToErrorPage(request, response, cnfex);
@@ -169,12 +163,10 @@ public class Controller extends HttpServlet {
                                     Throwable exception) throws ServletException, IOException {
 
         log.error("Controller error - forwarding to error page", exception);
-        request.setAttribute("Exception", exception);
-        /* get the root context so we can forward to the generic error page, not just
-           one within this web application
-         */
-        getServletContext().getContext("/").getRequestDispatcher(
-                response.encodeURL(TCESConstants.ERROR_PAGE)).forward(request, response);
+        request.setAttribute("caught-exception", exception);
+
+        getServletContext().getRequestDispatcher(
+                response.encodeURL("error.jsp")).forward(request, response);
     }
 }
 
