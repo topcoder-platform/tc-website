@@ -80,7 +80,8 @@
                                             <a href="#payment">Payment</a> |
                                             <a href="#eligibility">Eligibility</a> |
                                             <a href="#timeline">Timeline</a> |
-                                            <a href="#requirementspecification">Requirement Specification</a>
+                                            <a target="_new" href="/i/development/downloads/SingleSignOn_v10-web.pdf">Requirement Specification</a> |
+                                            <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Single%20Sign%20On">Inquire</a>
                                         </p>
 
                                         <!-- Overview -->
@@ -106,11 +107,7 @@
                                                 <a target="_new" class="bodyText" href="/i/development/downloads/SingleSignOn_v10-web.pdf">Business Requirement Specification</a> for this application project.
                                             </strong>
                                         </p>
-                                        <p>
-                                            <strong>
-                                                <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Single%20Sign%20On">Inquire for the Single Sign-On Project</a> to get selected as a designer and to obtain the information necessary to submit a solution.
-                                            </strong>
-                                        </p>
+
 
                                         <!-- Project Type -->
                                         <p>
@@ -345,6 +342,7 @@
                                         </p>
 
                                         <p>
+                                            <a name="inquire"></a>
                                             <strong>
                                                 <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Single%20Sign%20On">Inquire for the Single Sign-On Project</a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                             </strong>
