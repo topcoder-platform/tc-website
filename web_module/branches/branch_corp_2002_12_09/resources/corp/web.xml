@@ -31,7 +31,7 @@
             <description>handles user list page</description>
         </init-param>
         <init-param>
-            <param-name>processor-CreateEdit</param-name>
+            <param-name>processor-UserEdit</param-name>
             <param-value>com.topcoder.web.corp.request.UserEdit</param-value>
             <description>creates/edit user/permissions</description>
         </init-param>
