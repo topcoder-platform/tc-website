@@ -25,6 +25,7 @@ import com.topcoder.common.web.render.*;
 import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.problem.TextElement;
 import com.topcoder.shared.problem.NodeElement;
+import com.topcoder.shared.problem.UserConstraint;
 import com.topcoder.shared.problem.TestCase;
 import java.io.FileOutputStream;
 
@@ -682,7 +683,7 @@ public class PDFGenerator extends BaseProcessor {
         
         for(int i = 0; i < constraintsElements.length; i++) {
             constraints.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-            constraints.addCell(new Phrase(constraintsElements[i].getClass().toString(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            constraints.addCell(new Phrase(new UserConstraintRenderer((UserConstraint)constraintsElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         }
 
         constraints.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
