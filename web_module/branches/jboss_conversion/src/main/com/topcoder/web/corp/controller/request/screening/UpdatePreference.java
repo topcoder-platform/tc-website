@@ -21,6 +21,7 @@ import com.topcoder.web.ejb.preferencelevel.PreferenceLevel;
 
 import javax.naming.NamingException;
 import javax.transaction.TransactionManager;
+import javax.transaction.Status;
 import java.rmi.RemoteException;
 import java.util.Map;
 
@@ -101,7 +102,8 @@ public class UpdatePreference extends BaseScreeningProcessor {
                 }
             } catch (Exception e) {
                 // Rollback the transaction if something went wrong
-                tm.rollback();
+                if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE)
+                    tm.rollback();
                 throw e;
             }
 

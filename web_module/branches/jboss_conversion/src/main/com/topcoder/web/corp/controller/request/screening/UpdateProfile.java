@@ -21,6 +21,7 @@ import com.topcoder.web.ejb.sessionprofile.*;
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpSession;
 import javax.transaction.TransactionManager;
+import javax.transaction.Status;
 import java.util.Map;
 
 public class UpdateProfile extends BaseProfileProcessor {
@@ -140,7 +141,8 @@ public class UpdateProfile extends BaseProfileProcessor {
 
                     updateSessionProfile(sessionProfileId);
                 } catch (Exception e) {
-                    tm.rollback();
+                    if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                        tm.rollback();
                     throw e;
                 }
                 tm.commit();

@@ -24,6 +24,7 @@ import com.topcoder.web.ejb.session.SessionSegmentHome;
 
 import javax.rmi.PortableRemoteObject;
 import javax.transaction.TransactionManager;
+import javax.transaction.Status;
 import java.sql.Timestamp;
 import java.util.Map;
 
@@ -122,7 +123,8 @@ public class UpdateSession extends BaseSessionProcessor {
                         EmailInfo.createEmailInfo(info, requestor).sendEmail();
                     }
                 } catch (Exception e) {
-                    tm.rollback();
+                    if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE)
+                        tm.rollback();
                     throw e;
                 }
                 tm.commit();
