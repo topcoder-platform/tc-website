@@ -72,6 +72,11 @@
 						tournament and members of the immediate families and/or persons living in the same household as such persons, 
 						are ineligible to enter the tournament.</p>
 						
+						<p class="regmiddle"><strong>Registration</strong><br/>
+                        Registration for the JavaOne Coding Challenge will occur onsite at JavaOne.  To register for the competition, individuals will be required to provide their first name, last name, email address, and cell phone number (in case we need to notify you of your advancement to the final round).  Registrants will also create a unique username ("handle") and password to log in to the Competition Arena.  All participants will be identified solely by their handle in the Competition Arena, however the full name and handle of each competitor may be published on TopCoder's and/or Sun's website, announcing the results of the competition.</p>
+
+                        <p class="regmiddle">All information provided during registration will be the property of Sun Microsystems, Inc.</p>
+
 						<p class="regmiddle"><strong>Competitions</strong><br/>
 						The JavaOne Coding Challenge provides a hands-on experience for conference attendees to apply what they learn during 
 						the conference tracks.  Following each day's technical presentations, attendees can proceed to the TopCoder arena 
@@ -221,7 +226,7 @@
             pertaining to the tournament shall be within the sole discretion of TopCoder or its designees and shall be final and binding 
             in all respects.</p>
             
-            <p class="regmiddle">By participating in this competition and redeeming a prize, a winner releases and agrees to hold 
+            <p class="regmiddle">By participating in the 2004 JavaOne Coding Challenge, each competitor releases and agrees to hold 
             harmless TopCoder, its affiliates, subsidiaries, advertising and promotion agencies, sponsors, including Sun Microsystems, 
             Inc., and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from 
             and against any and all liability for any loss, property damage or damage to person, including without limitation, death 
@@ -229,12 +234,12 @@
             participation in any tournament-related activity, or the receipt, use or misuse of a prize. TopCoder and Sun Microsystems 
             specifically disclaim all liability associated with, and make no warranties with regard to, any prize given.</p>
             
-            <p class="regmiddle">In addition, all prizewinners agree to cooperate with TopCoder, Inc.'s and Sun Microsystems, Inc.'s 
+            <p class="regmiddle">In addition, all competitors agree to cooperate with TopCoder, Inc.'s and Sun Microsystems, Inc.'s 
             publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and 
             state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements 
-            made by, or attributed to, the winners relating to TopCoder and any and all rights to said use, without further compensation.  
-            Furthermore, all prizewinners agree to promptly notify TopCoder if a third-party contacts the prizewinner regarding employment 
-            opportunities and/or media interest as a result of the prizewinner's participation in the tournament.</p>
+            made by, or attributed to, them relating to TopCoder and any and all rights to said use, without further compensation.  
+            Furthermore, all competitors agree to promptly notify TopCoder if a third-party contacts them regarding employment 
+            opportunities and/or media interest as a result of their participation in the tournament.</p>
             
             <p class="regmiddle">TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with 
             competing in this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, 
