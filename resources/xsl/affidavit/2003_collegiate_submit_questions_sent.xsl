@@ -8,7 +8,8 @@
       </HEAD>
       <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
         <CENTER>2003 TopCoder Collegiate Challenge</CENTER>
-          Thank you for your response.
+          Thank you for your response.   <BR/><BR/><BR/>
+          <A HREF="?&t=affidavit&c=2003_collegiate_affidavit_info">back to main info page</A>
       </BODY>
     </HTML>
   </xsl:template>
