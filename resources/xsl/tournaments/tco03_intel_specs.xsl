@@ -27,17 +27,14 @@
 </head>
 
 <body>
-        <td class="promoText" width="99%">
-            <table border="0" cellspacing="10" cellpadding="0" width="100%">
-                
-                            
-                <tr valign="top">
-                    <td align="left" width="100%" class="bodyText">
-
-                         <tr><td><table><tr><td align="center"><img src="/i/sponsor/intel_ids/specs_header.gif" width="510" height="64"/></td></tr> </table></td></tr>
-                        <tr>
-                        <td align="left" width="100%" class="bodyText">
-                        <table border="1" cellpadding="4" cellspacing="1">
+<table border="0" cellspacing="10" cellpadding="0" width="100%">
+    <tr valign="top">
+        <td align="center"><img src="/i/sponsor/intel_ids/specs_header.gif" width="510" height="64"/>
+        </td>
+    </tr>
+    <tr>
+        <td align="left" width="100%" class="bodyText">
+            <table border="1" cellpadding="4" cellspacing="1">
                             <tr class="promoText"><td>Base Unit:</td><td>Latitude D600, 1.60GHz, Pentium M, 14.1 SXGA+, English (221-1832)</td> </tr>
                             <tr class="promoText"><td>Memory:</td><td>512MB, 1 Dimm, Double Data Rate for Dell Latitude D-FAM Notebooks, Factory Install (311-1875)</td> </tr>
                             <tr class="promoText"><td>Hard Drive:</td><td>40GB Hard Drive 9.5MM 5400RPM for Dell Latitude, Factory Install (340-7879)</td> </tr>
@@ -53,15 +50,10 @@
                              <tr class="promoText"><td>Service:</td><td>Type 3 Contract - Next Business Day Parts and Labor On-Site Response + CompleteCare, 2YR Extended (900-6672)</td> </tr>
                              <tr class="promoText"><td>Misc:</td><td>Readyware Installation Fee (365-1234) </td> </tr>
                              <tr class="promoText"><td></td><td>Symantec Norton Antivirus 2003CD With Documentation, Retail Version, FACTORY INSTALLED (410-0160) </td> </tr>
-                            
-                        </table>
-                            
-                
-
-                    </td>
-                </tr>
             </table>
         </td>
+    </tr>
+</table>
 </body>
 
 </html>
