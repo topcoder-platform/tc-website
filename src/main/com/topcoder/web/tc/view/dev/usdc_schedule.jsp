@@ -45,7 +45,7 @@
 			<table>
 				<tr>
 					<td valign="top">
-						<table width="280" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+						<table width="270" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 			<tr>
                     			<td width="40%" class="sidebarTitle" valign="top"><strong>Design Contest</strong></td>
                     			<td width="30%" class="sidebarTitle">Start Date</td>
@@ -140,7 +140,7 @@
 					</td>
 					<td><img src="/i/clear.gif" width="10" height="1" border="0"></td>
 					<td valign="top">
-						<table width="280" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+						<table width="270" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 			<tr>
                     			<td width="50%" class="sidebarTitle" valign="top"><strong>Development Contest</strong></td>
                     			<td width="25%" class="sidebarTitle">Start Date</td>
@@ -232,11 +232,12 @@
                     			<td width="25%" class="sidebarText">8/31/2004</td>
                 			</tr>
 						</table>
+						
 					</td>
 				</tr>
 			</table>
 		</div>
-
+			<p><br/></p>
         </td>
 <!-- Center Column Ends -->
 
