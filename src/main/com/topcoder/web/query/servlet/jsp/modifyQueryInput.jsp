@@ -2,7 +2,7 @@
   language="java"
   errorPage="errorPage.jsp"
   import= "com.topcoder.web.query.common.*,
-           com.topcoder.web.query.bean.*"
+           com.topcoder.web.query.bean.task.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
 <jsp:useBean id="ModifyQueryInputTask" scope="request" class="com.topcoder.web.query.bean.task.ModifyQueryInputTask" />
