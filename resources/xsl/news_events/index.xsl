@@ -111,8 +111,8 @@
                     <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_08_10_04"><img src="/i/pressroom/tcs_logo.gif" alt="nvidia" width="135" height="30" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_08_10_04">TopCoder Software Wins Three New Customer Contracts</A></strong></font><br />
-                        TopCoder, Inc. today announced that TopCoder Software has won three new accounts -Thomson Prometric, ING and Burlington Coat Factory. The three latest projects will utilize TopCoder Software's competitive application development model which harnesses the talent of more than 40,000 developers from around the world to design, develop and deploy software. <span class="prHead">[August 10]</span></p>
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_08_10_04">TopCoder Software Wins New Customer Contracts</A></strong></font><br />
+                        TopCoder, Inc. today announced that TopCoder Software has won new accounts including Thomson Prometric and Burlington Coat Factory. The latest projects will utilize TopCoder Software's competitive application development model which harnesses the talent of more than 40,000 developers from around the world to design, develop and deploy software. <span class="prHead">[August 10]</span></p>
                     </td>
                 </tr>
             </table>
