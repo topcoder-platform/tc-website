@@ -87,8 +87,6 @@ public class Authentication implements Serializable {
                     ApplicationServer.QUERY_AUTHENTICATION + "\n" + e.getMessage());
         } catch (CreateException e) {
             throw new AuthenticationException("Could not create instance of QueryAuthentication ejb\n" + e.getMessage());
-        } catch (RemoteException e) {
-            throw new AuthenticationException("RemoteException: " + e.getMessage());
         }
     }
 

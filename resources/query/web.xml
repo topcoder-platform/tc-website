@@ -17,127 +17,128 @@
     <param-name>query_package</param-name>
     <param-value></param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>error_page</param-name>
     <param-value>errorPage.jsp</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>login_page</param-name>
     <param-value>login.jsp</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>command_list_page</param-name>
     <param-value>commandList.jsp</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>command_detail_page</param-name>
     <param-value>commandDetail.jsp</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>query_detail_page</param-name>
     <param-value>queryDetail.jsp</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>modify_group_page</param-name>
     <param-value>modifyGroup.jsp</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>modify_command_page</param-name>
     <param-value>modifyCommand.jsp</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>modify_query_page</param-name>
     <param-value>modifyQuery.jsp</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>modify_query_input_page</param-name>
     <param-value>modifyQueryInput.jsp</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>modify_input_page</param-name>
     <param-value>modifyInput.jsp</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>db_selection_page</param-name>
     <param-value>dbSelection.jsp</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>task_param</param-name>
     <param-value>t</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>handle_param</param-name>
     <param-value>h</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>password_param</param-name>
     <param-value>pass</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>db_param</param-name>
     <param-value>db</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>command_param</param-name>
     <param-value>c</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>query_param</param-name>
     <param-value>q</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>input_param</param-name>
     <param-value>i</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>group_param</param-name>
     <param-value>g</param-value>
     <description></description>
-  <init-param>
+  </init-param>
 
   <init-param>
     <param-name>login_task</param-name>
     <param-value>login</param-value>
     <description></description>
-  <init-param>
+  </init-param>
+</servlet>
 
 
 <servlet-mapping>
