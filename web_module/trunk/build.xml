@@ -39,23 +39,11 @@
     </path>
 
     <target name="init">
-        <property name="statservlets" value="com/topcoder/web/stat/servlet"/>
-        <property name="webservlets" value="com/topcoder/web/servlet"/>
-        <property name="pactsservlets" value="com/topcoder/web/pacts/servlet"/>
-        <property name="regservlets" value="com/topcoder/web/reg/servlet"/>
-        <property name="resumeservlets" value="com/topcoder/web/resume/servlet"/>
-        <property name="jobpostingservlets" value="com/topcoder/web/jobposting/servlet"/>
         <mkdir dir="${classes}"/>
         <mkdir dir="${testclasses}"/>
         <mkdir dir="${bin}"/>
         <mkdir dir="${ejb_jars}"/>
         <mkdir dir="${war.dir}"/>
-        <mkdir dir="${servlets}/${statservlets}"/>
-        <mkdir dir="${servlets}/${webservlets}"/>
-        <mkdir dir="${servlets}/${pactsservlets}"/>
-        <mkdir dir="${servlets}/${regservlets}"/>
-        <mkdir dir="${servlets}/${resumeservlets}"/>
-        <mkdir dir="${servlets}/${jobpostingservlets}"/>
     </target>
 
     <target name="move_file_upload_xml">
@@ -97,6 +85,19 @@
     </target>
 
     <target name="servlets" depends="compile,move_file_upload_xml">
+        <property name="statservlets" value="com/topcoder/web/stat/servlet"/>
+        <property name="webservlets" value="com/topcoder/web/servlet"/>
+        <property name="pactsservlets" value="com/topcoder/web/pacts/servlet"/>
+        <property name="regservlets" value="com/topcoder/web/reg/servlet"/>
+        <property name="resumeservlets" value="com/topcoder/web/resume/servlet"/>
+        <property name="jobpostingservlets" value="com/topcoder/web/jobposting/servlet"/>
+        <mkdir dir="${servlets}/${statservlets}"/>
+        <mkdir dir="${servlets}/${webservlets}"/>
+        <mkdir dir="${servlets}/${pactsservlets}"/>
+        <mkdir dir="${servlets}/${regservlets}"/>
+        <mkdir dir="${servlets}/${resumeservlets}"/>
+        <mkdir dir="${servlets}/${jobpostingservlets}"/>
+
         <move todir="${servlets}/${statservlets}">
             <fileset dir="${classes}/${statservlets}">
                 <include name="**/*.class"/>
@@ -466,6 +467,7 @@
         <mkdir dir="${war.dir}"/>
         <antcall target="war_email"/>
         <antcall target="war_query"/>
+        <antcall target="deploy-admin"/>
     </target>
 
     <target name="dev_wars" depends="compile">
@@ -473,7 +475,7 @@
         <antcall target="dev_war_email"/>
     </target>
 
-    <target name="dev_war_query" depends="war_email">
+    <target name="dev_war_query" depends="war_query">
         <copy todir="${public_html}" file="${war.dir}/query.war"/>
         <unwar src="${public_html}/query.war" dest="${public_html}/query/" overwrite="yes"/>
         <delete file="${public_html}/query.war"/>
@@ -584,7 +586,6 @@
             </lib>
         </war>
     </target>
-
 
 
     <!-- begin corp targets -->
@@ -813,6 +814,21 @@
         <unwar src="${war.dir}/admin.war" dest="${public_html}/admin/" overwrite="yes"/>
         <delete dir="${public_html}/admin/META-INF"/>
     </target>
+
+
+    <target name="deploy-security" depends="compile">
+        <war warfile="${war.dir}/security.war" webxml="${resources}/security/web.xml">
+            <fileset dir="${java}/com/topcoder/web/security/view">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/common/" />
+            </classes>
+        </war>
+        <unwar src="${war.dir}/security.war" dest="${public_html}/security/" overwrite="yes"/>
+        <delete dir="${public_html}/security/META-INF"/>
+    </target>
+
 
 
     <target name="moveQueries" depends="compile">
