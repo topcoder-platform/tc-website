@@ -78,6 +78,7 @@ function getProblemDetail(id) {
                             row = (ResultSetContainer.ResultSetRow) info.get(0);
                         %>
                         Campaign Name: <%=row.getStringItem("campaign_name")%><br/>
+                        Demographics: <a href="?<%=Constants.MODULE_KEY%>=Demographics&<%=Constants.CAMPAIGN_ID%>=<%=row.getIntItem("campaign_id")%>">view</a><br/>
                         </p>
                     </td>
                 </tr>
