@@ -75,22 +75,22 @@
                         
                         <table width="100%" border="0" cellpadding="5" cellspacing="0">
                         	<tr>
-                        		<td><img src="/i/corp/tcesclient_yahoo.gif" width="132" height="50" alt="" border="0" align="right"></td>
-                        		<td><img src="/i/corp/tcesclient_nvidia.gif" width="132" height="50" alt="" border="0" align="right"></td>
-                        		<td><img src="/i/corp/tcesclient_paypal.gif" width="132" height="50" alt="" border="0" align="right"></td>
-                        		<td><img src="/i/corp/tcesclient_google.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_yahoo.gif" width="132" height="50" alt="Yahoo!" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_nvidia.gif" width="132" height="50" alt="NVIDIA" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_paypal.gif" width="132" height="50" alt="PayPal" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_google.gif" width="132" height="50" alt="Google" border="0" align="right"></td>
                         	</tr>
                         	<tr>
-                        		<td><img src="/i/corp/tcesclient_microsoft.gif" width="132" height="50" alt="" border="0" align="right"></td>
-                        		<td><img src="/i/corp/tcesclient_fbi.gif" width="132" height="50" alt="" border="0" align="right"></td>
-                        		<td><img src="/i/corp/tcesclient_verizon.gif" width="132" height="50" alt="" border="0" align="right"></td>
-                        		<td><img src="/i/corp/tcesclient_doubleclick.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_microsoft.gif" width="132" height="50" alt="Microsoft" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_fbi.gif" width="132" height="50" alt="FBI" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_verizon.gif" width="132" height="50" alt="Verizon" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_doubleclick.gif" width="132" height="50" alt="DoubleClick" border="0" align="right"></td>
                         	</tr>
                         	<tr>
-                        		<td><img src="/i/corp/tcesclient_cryptic.gif" width="132" height="50" alt="" border="0" align="right"></td>
-                        		<td><img src="/i/corp/tcesclient_amazon.gif" width="132" height="50" alt="" border="0" align="right"></td>
-                        		<td><img src="/i/corp/tcesclient_apex.gif" width="132" height="50" alt="" border="0" align="right"></td>
-                        		<td><img src="/i/corp/tcesclient_appian.gif" width="132" height="50" alt="" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_cryptic.gif" width="132" height="50" alt="Cryptic" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_amazon.gif" width="132" height="50" alt="Amazon" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_apex.gif" width="132" height="50" alt="Appex" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_appian.gif" width="132" height="50" alt="Appian" border="0" align="right"></td>
                         	</tr>
                         </table>
                         
