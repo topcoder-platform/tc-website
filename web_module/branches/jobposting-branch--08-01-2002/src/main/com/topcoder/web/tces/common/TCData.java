@@ -8,8 +8,9 @@
 
 package com.topcoder.web.tces.common;
 
+import com.topcoder.shared.dataAccess.resultSet.*;
+
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
 
 import java.util.StringTokenizer;
 
@@ -188,7 +189,7 @@ public class TCData {
                     //Users may always enter 4 digit years
                     //Hopefully TC won't be running this code for Y10k
                     case 2:
-                        returnString += PactsConstants.YEAR_PREFIX + piece;
+                        returnString += "20" + piece;
                         break;
                     case 4:
                         returnString += piece;
