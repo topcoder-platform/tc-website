@@ -33,23 +33,23 @@
                 <tr><td id="<%=level2.equals("components")?"leftNavOn":"leftNav"%>"><img src="images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?&t=development&c=comp_projects" class="leftOn">Components</a></td></tr>
 
         <% if ((level2.equals("components"))) { %>
-                <tr><td id="<%=level3.equals("comp_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=comp_projects" class="leftOn">Open Projects</a></td></tr>
+                <tr><td id="<%=level3.equals("comp_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=comp_projects" class="leftOn">Projects</a></td></tr>
                 <tr><td id="<%=level3.equals("reviews")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewReviewProjects" class="leftOn">Review Opportunities</a></td></tr>
                 <tr><td id="<%=level3.equals("components")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=components" class="leftOn">Recent Project Winners</a></td></tr>
                 <tr><td id="<%=level3.equals("project_review")?"leftSubnavOn":"leftSubnav"%>"><a href="/review" class="leftOn">Project Submit & Review</a></td></tr>
                 <tr><td id="<%=level3.equals("comp_archive")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=comp_archive" class="leftOn">Project Status</a></td></tr>
                 <tr><td id="<%=level3.equals("comp_meth")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=comp_meth" class="leftOn">Development Methodology</a></td></tr>
         <% } %>
-                 
+
 <!-- Applications begins -->
                 <tr><td id="<%=level2.equals("applications")?"leftNavOn":"leftNav"%>"><img src="images/nav_arrow_<%=level2.equals("applications")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?t=development&c=app_projects" class="<%=level2.equals("applications")?"leftOn":"left"%>">Applications</a></td></tr>
 
         <% if ((level2.equals("applications"))) { %>
-                <tr><td id="<%=level3.equals("app_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=app_projects" class="leftOn">Open Projects</a></td></tr>
+                <tr><td id="<%=level3.equals("app_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=app_projects" class="leftOn">Projects</a></td></tr>
                 <tr><td id="<%=level3.equals("app_meth")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=app_meth" class="leftOn">Development Methodology</a></td></tr>
                 <tr><td id="<%=level3.equals("app_sample_docs")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=app_sample_docs" class="leftOn">Documentation</a></td></tr>
         <% } %>
-                
+
 <!-- Contests begins -->
                 <tr>
                     <td id="<%=level2.equals("contests")?"leftNavOn":"leftNav"%>">
@@ -65,7 +65,7 @@
 
 <!-- Support/FAQ begins -->
                 <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><img src="images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?t=development&c=getting_started" class="<%=level2.equals("support")?"leftOn":"left"%>">Support / FAQs</a></td></tr>
-               
+
 
             </table>
 
@@ -73,5 +73,5 @@
 
             <img src="images/left_nav_btm.gif" width="180" height="23" border="0" alt=""><br>
             <img src="images/clear.gif" width="180" height="15" border="0" alt=""><br>
-            
+
             <div align="center"><img src="images/logo_ghosted_bracket.gif" width="160" height="77" border="0" alt="[ TopCoder ]" vspace="10" /><br><br></center>

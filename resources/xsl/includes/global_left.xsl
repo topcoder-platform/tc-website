@@ -804,7 +804,7 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=comp_projects</xsl:attribute>Open Projects</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=comp_projects</xsl:attribute>Projects</A>
                                 </td>
                             </tr>
 
@@ -916,7 +916,7 @@
                 <xsl:otherwise>leftSubnav</xsl:otherwise>
             </xsl:choose>
             </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=app_projects</xsl:attribute>Open Projects</A>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=app_projects</xsl:attribute>Projects</A>
         </td>
     </tr>
 
