@@ -123,7 +123,7 @@
 
                         <xsl:variable name="dollarFormat" select="'$###,###.00'" />
                             
-                        <p>Total Payment - $<xsl:value-of select="$numericPayment"/></p>
+                        <p>Total Payment - <xsl:value-of select="$numericPayment"/></p>
                         
                         <p><strong>Second Place Developer</strong><br />
                            Total Payment - <xsl:value-of select="format-number(number($numericPayment)*.5, $dollarFormat)"/><br/>
