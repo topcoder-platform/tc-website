@@ -812,7 +812,7 @@
                 <include name="com/topcoder/web/hs/**"/>
             </classes>
             <webinf dir="${resources}/hs">
-                <include name="hs-taglib.tld"/>
+                <include name="registration-taglib.tld"/>
             </webinf>
             <webinf dir="${struts.dir}">
                     <include name="*.tld" />
