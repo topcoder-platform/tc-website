@@ -109,6 +109,10 @@
                             <xsl:when test="$roundId=4710">
                                 <b>For information on how to win an Intel&#174; Centrino&#153; mobile technology-based notebook computer click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
                            </xsl:when>
+                                <xsl:when test="$roundId=5856">
+                                    <b>For Official Contest Rules on how to win an Intel&#174; Centrino&#153; Mobile Technology-based Tablet PC click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=intel&amp;d4=tablet_rules">here</a></b><br/><br/>
+                                    <b>To view the specs for the Intel&#174; Centrino&#153; Mobile Technology-based Tablet PC click <a href="/tc?module=Static&amp;d1=tournaments&&amp;d2=tco04&&amp;d3=intel&&amp;d4=tablet_specs">here</a></b><br/><br/>
+                               </xsl:when>
                                 </xsl:choose>
 
                             <xsl:if test="number($roundId)=5075">
