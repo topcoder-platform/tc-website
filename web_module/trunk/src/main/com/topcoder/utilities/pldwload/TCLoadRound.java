@@ -1777,6 +1777,12 @@ if students change schools, reloading an old round will lose historical data
             query.append(" AND rr.coder_id = cs.coder_id");
             query.append(" WHERE cs.round_id = ?");
             query.append("   AND rr.attended = 'Y'");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT 'pops' ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = cs.coder_id ");
+            query.append("           AND gu.group_id IN (13,14))");
+
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -1980,6 +1986,11 @@ if students change schools, reloading an old round will lose historical data
             query.append(" WHERE chal.round_id = ? ");
             query.append("   AND chal.component_id = comp.component_id");
             query.append("   AND chal.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT 'pops' ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = chal.defendant_id ");
+            query.append("           AND gu.group_id IN (13,14))");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
