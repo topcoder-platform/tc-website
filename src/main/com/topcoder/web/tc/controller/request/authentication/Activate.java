@@ -9,17 +9,24 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.common.web.util.Data;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.Transaction;
+import com.topcoder.common.web.error.TCException;
+import com.topcoder.ejb.UserServices.UserServicesHome;
+import com.topcoder.ejb.UserServices.UserServices;
 
 import javax.naming.InitialContext;
+import javax.naming.Context;
+import javax.transaction.UserTransaction;
+import javax.transaction.Status;
 import java.util.Arrays;
 
 public class Activate extends Base {
 
     static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
     static final char[] UNACTIVE_STATI = {'U', '2'};
-    static final char[] ACTIVE_STATI = {'1','A'};
+    static final char[] ACTIVE_STATI = {'1', 'A'};
 
     static {
         //sort them so that one can use Arrays.binarySearch to figure out if a particular
@@ -48,12 +55,12 @@ public class Activate extends Base {
                 //activate account
                 User user = (User) createEJB(ctx, User.class);
                 char status = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                if (Arrays.binarySearch(UNACTIVE_STATI, status)>0) {
-                    doLegacyCrap();
+                if (Arrays.binarySearch(UNACTIVE_STATI, status) > 0) {
+                    doLegacyCrap((int)userId);
                     user.setStatus(userId, ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
                     setNextPage(Constants.ACTIVATE);
                     setIsNextPageInContext(true);
-                } else if (Arrays.binarySearch(ACTIVE_STATI, status)>0) {
+                } else if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
                     throw new NavigationException("Account has already been activated.");
                 } else {
                     throw new NavigationException("Your account can not be activated.");
@@ -70,11 +77,43 @@ public class Activate extends Base {
         }
     }
 
-    private void doLegacyCrap() throws Exception {
-        Navigation nav = (Navigation)getRequest().getSession(true).getAttribute("navigation");
-        if (nav==null) nav = new Navigation();
-        Data.loadUser(nav);
-        nav.getUser().setStatus(String.valueOf(ACTIVE_STATI[1]));
-        Data.saveUser(nav);
+    private void doLegacyCrap(int userId) throws Exception {
+        Context ctx = null;
+        com.topcoder.common.web.data.User user = null;
+        UserTransaction uTx = null;
+        try {
+            ctx = TCContext.getInitial();
+            UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
+            UserServices userEJB = userHome.findByPrimaryKey(new Integer(userId));
+            user = userEJB.getUser();
+            log.debug("tc: user loaded from entity bean");
+
+            user.setStatus(String.valueOf(ACTIVE_STATI[1]));
+
+            uTx = Transaction.get();
+            uTx.begin();
+            userEJB.setUser(user);
+            uTx.commit();
+
+        } catch (Exception e) {
+            try {
+                if (uTx != null && uTx.getStatus() == Status.STATUS_ACTIVE) {
+                    uTx.rollback();
+                }
+            } catch (Exception te) {
+                StringBuffer msg = new StringBuffer(300);
+                msg.append("common.DBMS:saveUser:");
+                msg.append("failed to roll back transaction.\n");
+                msg.append("MSG: ");
+                msg.append(te.getMessage());
+                msg.append("\n");
+                te.printStackTrace();
+            }
+            throw new TCException("tc:processCommands:ERROR READING DATABASE\n" + e);
+        } finally {
+            close(ctx);
+        }
+
+
     }
 }
