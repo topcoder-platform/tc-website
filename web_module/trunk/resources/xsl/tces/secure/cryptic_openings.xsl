@@ -72,7 +72,25 @@
    <TR>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <P>
-        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_qa_eng&amp;a=secure" CLASS="bodyText">Quality Assurance Engineer</A></B><BR/>        
+        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_qa_eng&amp;a=secure" CLASS="bodyText">Quality Assurance Engineer</A></B>
+       </P>
+       <P>
+        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_3d_anim&amp;a=secure" CLASS="bodyText">3D Character Animator</A></B>
+       </P>
+       <P>
+        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_creative_gd&amp;a=secure" CLASS="bodyText">Creative Game Designer</A></B>
+       </P>
+       <P>
+        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_sen_qa_eng&amp;a=secure" CLASS="bodyText">Senior QA Engineer</A></B>
+       </P>
+       <P>
+        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_sys_admin&amp;a=secure" CLASS="bodyText">Systems Administrator</A></B>
+       </P>
+       <P>
+        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_tech_gd&amp;a=secure" CLASS="bodyText">Technical Game Designer</A></B>
+       </P>
+       <P>
+        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_assoc_gd&amp;a=secure" CLASS="bodyText">Associate Game Designer</A></B>
        </P>
       </TD>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">

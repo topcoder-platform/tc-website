@@ -62,7 +62,7 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;Cryptic Studios Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back toJobs</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic" CLASS="bodyText">Cryptic Studios Main Page</A>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic" CLASS="bodyText">Cryptic Studios Main Page</A>
       </TD>
   </TR>
 </TABLE>
@@ -70,32 +70,59 @@
 
 
 
-<P><B>QA Engineer</B></P>
+<p><B>Technical Game Designer</B></p>
 
-<P>We are currently looking for a full time QA Engineer.</P>
+<p>We are currently looking for a full time <b>Technical Game Designer</b>.</p>
 
-<P>Cryptic Studios is hard at work on City of Heroes <a href="http://www.cityofheroes.com">(www.cityofheroes.com)</a>, the 
-massively multiplayer online superhero role playing game.</P>
+<p>Cryptic Studios is hard at work on City of Heroes <a href="http://www.cityofheroes.com">(www.cityofheroes.com)</a>, the 
+massively multiplayer online superhero role playing game. You will be working towards completing and polishing City of Heroes. </p>
 
-<P><B>Requirements:</B></P>
+<p><B>Day to day responsibilities:</B>
 <UL>
-<LI>Manage and maintain game build system</LI>
-<LI>New feature and regression testing</LI>
-<LI>Patch approval and deployment to off-site QA</LI>
-<LI>Write test code for game</LI>
-<LI>Optional IT responsibility</LI>
+<li>Assist with game system design</li>
+<li>Interfacing with software and art teams</li>
+<li>Create tools to improve productivity</li>
+<li>Technical documentation</li>
+<li>Quality Assurance</li>
+<ul>
+<li>New feature testing</li>
+<li>Regression testing</li>
+<li>Game balancing</li>
+</ul>
 </UL>
-	
-<P>We're looking for someone who is extremely talented and hardcore about gaming.</P>
-<P>This entry level position does require a CS degree.  1+  years experience of MMORPG experience as either a player or developer highly preferred.  Candidate must be an excellent programmer and IT (Windows/Linux) experience would be a plus.</P>
-<P>We offer a competitive salary, equity, and full benefits including health, dental, vision, and 401(k) - as well as a fun, flexible, informal workplace.</P>
-<P>We are currently only interviewing candidates who can legally work in the United States, and who are willing to relocate to San Jose, CA.</P>
+</p>
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=131&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
+<p><B>Necessary skills and experience:</B>
+<ul>
+<li>Programming experience: C, Perl</li>
+<li>Previous game design experience</li>
+<li>Ability to communicate clearly and concisely</li>
+<li>Knowledge of, and experience with, current MMP games</li>
+</ul>
+</p>
+
+<p><B>Desirable skills and experience:</B>
+<ul>
+<li>Production or QA experience</li>
+<li>3D modeling</li>
+<li>Scripting</li>
+</ul>
+</p>
+
+<p>We offer a competitive salary, equity, and full benefits including health, dental, vision, and 401(k) - as well 
+as a fun, flexible, informal workplace.</p>
+
+<p>We are currently only interviewing candidates who can legally work in the United States, and who are willing 
+to relocate to San Jose, CA.</p>
+
+<p>If you're looking for a place to shine and believe that you have what it takes to contribute to great games, 
+apply now!</p>
+	
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=136&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
 
 <!--end contextual links-->
           
-          <P><BR/></P>
+          <p><BR/></p>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>
