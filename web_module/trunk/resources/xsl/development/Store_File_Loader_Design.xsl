@@ -104,7 +104,7 @@
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
-                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/Store_File_Loader_App_Req_Spec.pdf">Business Requirement Specification</a> for this project.
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/Store_File_Loader_App_Req_Spec2.pdf">Business Requirement Specification</a> for this project.
                                                     </p>
 
 
