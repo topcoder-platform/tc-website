@@ -3,10 +3,13 @@ package com.topcoder.web.tc.controller.request.survey;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.Answer;
+import com.topcoder.web.tc.model.Question;
+import com.topcoder.web.ejb.survey.Response;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
+import javax.naming.InitialContext;
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -45,4 +48,20 @@ public class View extends SurveyData {
         return ret;
     }
 
+    private boolean alreadyResponded() throws Exception {
+        boolean ret = false;
+        Question q = null;
+        InitialContext ctx = null;
+        try {
+            ctx = new InitialContext();
+            Response response = (Response) createEJB(ctx, Response.class);
+            for (Iterator it = questionInfo.iterator(); it.hasNext();) {
+                q = (Question) it.next();
+                ret |= response.exists(getUser().getId(), q.getId());
+            }
+        } finally {
+            close(ctx);
+        }
+        return ret;
+    }
 }
