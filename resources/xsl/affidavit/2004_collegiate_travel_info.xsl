@@ -104,7 +104,7 @@
     <FORM name="questForm" method="POST" action="/">
         <INPUT TYPE="hidden" NAME="t" VALUE="affidavit"/>
         <INPUT TYPE="hidden" NAME="c" VALUE="2004_collegiate_submit_info"/>
-            <TR><TD COLSPAN="2"><U><B>COMPETITOR INFORMATION:</B></U><BR/></TD></TR>
+            <TR><TD COLSPAN="3"><U><B>COMPETITOR INFORMATION:</B></U><BR/></TD></TR>
 
             <TR>
                 <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="First Name"/>First Name: </TD>
@@ -114,16 +114,19 @@
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q2" VALUE="Last Name"/>Last Name: </TD>
               <TD align="left"><INPUT TYPE="text" NAME="a2" size="20"><xsl:attribute name="value"><xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/></xsl:attribute></INPUT><BR/></TD>
+                <td></td>
             </TR>
 
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q3" VALUE="Social Security #"/>Social Security #: </TD>
               <TD align="left"><INPUT TYPE="text" NAME="a3" size="10"/></TD>
+                <td></td>
             </TR>
 
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q4" VALUE="Date of Birth"/>Date of Birth: </TD>
               <TD align="left"><INPUT TYPE="text" NAME="a4" size="10"/></TD>
+                <td></td>
             </TR>
 
             <TR>
@@ -220,8 +223,9 @@
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q29" VALUE="April 17, 2004 - preferred departure time:"/>April 17, 2004 - preferred departure time: <br/>Please note: You <u>must</u> depart on Saturday April 17, 2004.</TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q29" VALUE="April 17, 2004 - preferred departure time:"/>April 17, 2004 - preferred departure time:</TD>
               <TD align="left"><SELECT name="a29"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
+                <td>Please note: You <u>must</u> depart on Saturday April 17, 2004.</td>
             </TR>
 
             <BR/>
