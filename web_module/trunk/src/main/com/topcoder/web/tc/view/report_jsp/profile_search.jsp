@@ -113,6 +113,7 @@
 </script>
   </head>
   <body>
+<h4 align="center">Advanced Member Search</h4>
   <FORM name="search" ACTION="/tc" METHOD="GET">
     <input type="hidden" name="module" value="ProfileSearch"/>
     <input type="hidden" name="t" value=""/>
