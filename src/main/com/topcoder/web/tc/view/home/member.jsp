@@ -62,6 +62,8 @@
          <td width="180">
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                <tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
+               <tr><td><jsp:include page="message.jsp" /></td></tr>
+               <tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
                <tr><td><jsp:include page="my_stats_right.jsp" /></td></tr>
                <tr><td><img src="/i/clear.gif" width="1" height="5" border="0" /></td></tr>
                <tr><td><img src="/i/top_10_lists_top.gif" alt="Competition Leaders" width="180" height="11" border="0"></td></tr>
