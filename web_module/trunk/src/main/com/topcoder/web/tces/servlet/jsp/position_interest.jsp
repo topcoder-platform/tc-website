@@ -118,7 +118,7 @@
                     <%= hit.getItem("handle").toString() %>
                   </A>
                   </TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                     <%= hit.getItem("rating").toString() %>
                   </TD>
