@@ -39,12 +39,12 @@
 		<td class=homeLeftCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr><td class=homeBigPromo><A href="/tc"><img src="/i/promos/developercenter.gif" border=0 /></A></td></tr>
-			<tr><td class=homeSmallPromo><A href="/"><img src="/i/promos/earncash.jpg" border=0 /></A></td></tr>
+			<tr><td class=homeSmallPromo><A href="/tc?module=Static&d1=dev&d2=ad_overview"><img src="/i/promos/earncash.jpg" border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Algorithm Competitions</A></td>
+				<td class=homeTitle><A href="/tc" class=homeTitleLink>Algorithm Competitions</A></td>
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
@@ -53,20 +53,20 @@
 
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Software Competitions</A></td>
+				<td class=homeTitle><A href="/?t=development&c=index" class=homeTitleLink>Software Competitions</A></td>
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>Compete in software <A href="/?t=development&c=index">component</A> or <A href="/?t=development&c=index">application</A> competitions and get paid for what you build! You can also earn money by <A href="/tc?module=ViewReviewProjects">reviewing</A> software components.</td>
+				<td class=homeText>Compete in software <A href="/?t=development&c=index">component</A> or <A href="/?t=development&c=index">application</A> competitions and get paid for what you build! You can also earn money by <A href="/?t=development&c=index">reviewing</A> software components.</td>
 			</tr>
 
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Component Catalog Subscriptions</A></td>
+				<td class=homeTitle><A href="http://software.topcoder.com/components/subscriptions.jsp" class=homeTitleLink>Component Catalog Subscriptions</A></td>
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>Now you can buy infrastructure components in both .NET and Java to serve as the building blocks for software components.  Only $12.95 a month for personal <A href="/?t=development&c=index">subscriptions</A></td>
+				<td class=homeText>Now you can buy infrastructure components in both .NET and Java to serve as the building blocks for software components.  Only $12.95 a month for personal <A href="http://software.topcoder.com/components/subscriptions.jsp">subscriptions</A></td>
 			</tr>
 		</table>
 		</td>
@@ -74,33 +74,33 @@
 		<td class=homeCentCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr><td class=homeBigPromo><A href="/"><img src="/i/promos/techAssessTool.jpg" border=0 /></A></td></tr>
-			<tr><td class=homeSmallPromo><A href="/"><img src="/i/promos/compSubscriptions.jpg" border=0 /></A></td></tr>
+			<tr><td class=homeSmallPromo><A href="http://software.topcoder.com/components/subscriptions.jsp"><img src="/i/promos/compSubscriptions.jpg" border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Software</A></td>
+				<td class=homeTitle><A href="http://software.topcoder.com" class=homeTitleLink>Software</A></td>
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>Some of the best developers in the world are competing to build your next application. Learn how TopCoder delivers high-quality <A href="/">software</A> at a lower cost than the competition.</td>
+				<td class=homeText>Some of the best developers in the world are competing to build your next application. Learn how TopCoder delivers high-quality <A href="http://software.topcoder.com">software</A> at a lower cost than the competition.</td>
 			</tr>
 
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Marketing Services</A></td>
+				<td class=homeTitle><A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index" class=homeTitleLink>Marketing Services</A></td>
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>Is your company looking to interact with the most talented developers from around the world? TopCoder offers many <A href="/">opportunities</A> to do just that.</td>
+				<td class=homeText>Is your company looking to interact with the most talented developers from around the world? TopCoder offers many <A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index">opportunities</A> to do just that.</td>
 			</tr>
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>Employment Services</A></td>
+				<td class=homeTitle><A href="/corp/?module=Static&d1=corp&d2=tces_home" class=homeTitleLink>Employment Services</A></td>
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>Are you a company interested in <A href="/">hiring</A> the best talent?  Let TopCoder bring you together with software engineers looking for jobs.</td>
+				<td class=homeText>Are you a company interested in <A href="/corp/?module=Static&d1=corp&d2=tces_home">hiring</A> the best talent?  Let TopCoder bring you together with software engineers looking for jobs.</td>
 			</tr>
 		</table>
 		</td>
