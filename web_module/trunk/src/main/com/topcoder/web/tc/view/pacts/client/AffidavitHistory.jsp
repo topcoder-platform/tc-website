@@ -33,7 +33,7 @@ function goTo(selection){
        </TD>
        <TD WIDTH="4" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
 <!-- Center Column Begins -->
-         <td class="bodyText" width="100%" align="center">
+         <td class="affidavitCell" width="100%" align="center" valign=top>
 
         <jsp:include page="../../page_title.jsp" >
             <jsp:param name="image" value="pact_s"/>
@@ -42,7 +42,7 @@ function goTo(selection){
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
 	<TR>
-		<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%">
+		<TD CLASS="affidavitCell" COLSPAN="2">
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*,java.util.*,java.text.*" %>
 
 <%
