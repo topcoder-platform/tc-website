@@ -94,7 +94,6 @@
         Generates an html select box with command groups
     </info>
     <tagclass>com.topcoder.web.query.servlet.jsp.tag.CommandGroupSelect</tagclass>
-    <teiclass>com.topcoder.web.query.servlet.jsp.tag.CommandGroupSelectInfo</teiclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>
@@ -188,7 +187,6 @@
         Generates an html select box with inputs
     </info>
     <tagclass>com.topcoder.web.query.servlet.jsp.tag.InputSelect</tagclass>
-    <teiclass>com.topcoder.web.query.servlet.jsp.tag.InputSelectInfo</teiclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>
@@ -239,7 +237,6 @@
         Generates an html select box with queries
     </info>
     <tagclass>com.topcoder.web.query.servlet.jsp.tag.QuerySelect</tagclass>
-    <teiclass>com.topcoder.web.query.servlet.jsp.tag.QuerySelectInfo</teiclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>name</name>
