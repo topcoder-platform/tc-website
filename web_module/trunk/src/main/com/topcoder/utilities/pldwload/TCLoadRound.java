@@ -313,6 +313,11 @@ public class TCLoadRound extends TCLoad {
             query.append("  FROM room_result rr ");
             query.append(" WHERE rr.round_id = ? ");
             query.append("   AND rr.attended = 'Y' ");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT 'pops' ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = rr.coder_id ");
+            query.append("           AND gu.group_id IN (13,14))");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
