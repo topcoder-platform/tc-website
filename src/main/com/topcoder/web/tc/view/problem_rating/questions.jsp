@@ -55,7 +55,7 @@
         </tr>
         <tc:problemRatingIterator list="<%=problemRatingQuestions%>" id="quest">
         <tr>
-            <td class="bodyText" width="15" valign="top"><img src="/i/icon_help_blue.gif" width="15" height="11" border="0"></td>
+            <td class="bodyText" width="15" valign="top"><A href="javascript:infoWindow('/tc?&module=Static&d1=problem_rating&d2=question_info')" class="statTextBig"><img src="/i/icon_help_blue.gif" width="15" height="11" border="0"></A></td>
             <td class="bodyText" width="100%">
                 <jsp:getProperty name="quest" property="question"/>
             </td>
@@ -68,15 +68,15 @@
         </tr>
         </tc:problemRatingIterator>
         <tr><td colspan="2"></td>
-        <td align="center" colspan="5" nowrap>
-            <a href="javascript:document.ratings.submit()" class="button">Submit Ratings</a>
-        </td>
-        <td align="center" colspan="5" nowrap>
-            <a href="/tc?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>" class="button">View Results</a>
+        <td align="center" colspan="10" nowrap>
+            <a href="javascript:document.ratings.submit()"><img src="/i/submit.gif" width="60" height="18" border="0"></a>
+            <img src="/i/clear.gif" width="10" height="18" border="0">
+            <a href="/tc?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>"><img src="/i/results.gif" width="60" height="18" border="0"></a>
         </td>
         </tr>
     </table>
 </form>
+      <br/><br/>
       </td>
 <!-- Center Column Ends -->
 
