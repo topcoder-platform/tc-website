@@ -384,23 +384,11 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=6511331" class="statText" target="parent">.NET Linked List</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=6511227" class="statText" target="parent">.NET Priority Queue</a></td>
                     <td class="statText" height="15" align="center">4</td>
-                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342"><strong>adic</strong></a></td>
-                    <td class="statText" height="15" align="center">97.29</td>
-                    <td class="statText" height="15" align="right">$1743.00&#160;&#160;</td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                
-                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
-
-                <tr valign="middle">
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;</td>
-                    <td class="statText" height="15" align="center">&#160;</td>
-                    <td class="statText" height="15"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=266625"><strong>anan</strong></a></td>
-                    <td class="statText" height="15" align="center">85.53</td>
-                    <td class="statText" height="15" align="right">$84.00&#160;&#160;</td>
+                    <td class="statText" height="15"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=301504"><strong>opi</strong></a></td>
+                    <td class="statText" height="15" align="center">90.81</td>
+                    <td class="statText" height="15" align="right">$144.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
@@ -411,20 +399,8 @@
                     <td class="statText" height="15">&#160;</td>
                     <td class="statText" height="15" align="center">&#160;</td>
                     <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=292290"><strong>CagedRat</strong></a></td>
-                    <td class="statText" height="15" align="center">84.68</td>
-                    <td class="statText" height="15" align="right">$42.00&#160;&#160;</td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                
-                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
-
-                <tr valign="middle">
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=6509957" class="statText" target="parent">File Class</a></td>
-                    <td class="statText" height="15" align="center">3</td>
-                    <td class="statText" height="15"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=112438"><strong>Pablo Gilberto</strong></a></td>
-                    <td class="statText" height="15" align="center">94.94</td>
-                    <td class="statText" height="15" align="right">$60.00&#160;&#160;</td>
+                    <td class="statText" height="15" align="center">86.64</td>
+                    <td class="statText" height="15" align="right">$114.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
@@ -434,9 +410,9 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText" height="15">&#160;</td>
                     <td class="statText" height="15" align="center">&#160;</td>
-                    <td class="statText" height="15"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=345828"><strong>g&#160;r&#160;e&#160;e&#160;n</strong></a></td>
-                    <td class="statText" height="15" align="center">80.79</td>
-                    <td class="statText" height="15" align="right">$30.00&#160;&#160;</td>
+                    <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=150617"><strong>ZackMan</strong></a></td>
+                    <td class="statText" height="15" align="center">79.93</td>
+                    <td class="statText" height="15" align="right">$36.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
@@ -444,27 +420,112 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=4202855" class="statText" target="parent">File Diff</a></td>
-                    <td class="statText" height="15" align="center">1</td>
-                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=267831"><strong>nrogers</strong></a></td>
-                    <td class="statText" height="15" align="center">90.94</td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=6529514" class="statText" target="par
+ent">C# Runtime Compiler</a></td>
+                    <td class="statText" height="15" align="center">3</td>
+                    <td class="statText" height="15"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=2058786"><strong>rcrdev</strong></a></td>
+                    <td class="statText" height="15" align="center">93.42</td>
                     <td class="statText" height="15" align="right">$168.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
+
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;</td>
+                    <td class="statText" height="15" align="center">&#160;</td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356"><strong>aksonov</strong></a></td>
+                    <td class="statText" height="15" align="center">92.54</td>
+                    <td class="statText" height="15" align="right">$928.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;</td>
+                    <td class="statText" height="15" align="center">&#160;</td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296745"><strong>pzhao</strong></a></td>
+                    <td class="statText" height="15" align="center">90.98</td>
+                    <td class="statText" height="15" align="right">$42.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=2809552" class="statText" target="par
+ent">Database Abstraction</a></td>
+                    <td class="statText" height="15" align="center">1</td>
+                    <td class="statText" height="15"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907"><strong>WishingBone</strong></a></td>
+                    <td class="statText" height="15" align="center">84.05</td>
+                    <td class="statText" height="15" align="right">$2,881.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=6512570" class="statText" target="parent">Image Deskew</a></td>
+                    <td class="statText" height="15" align="center">2</td>
+                    <td class="statText" height="15"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907"><strong>WishingBone</strong></a></td>
+                    <td class="statText" height="15" align="center">95.35</td>
+                    <td class="statText" height="15" align="right">$2,881.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
                 
                 <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=3501804" class="statText" target="parent">Magic Numbers</a></td>
-                    <td class="statText" height="15" align="center">1</td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=3304325" class="statText" target="parent">Jar Compressor</a></td>
+                    <td class="statText" height="15" align="center">2</td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342"><strong>adic</strong></a></td>
+                    <td class="statText" height="15" align="center">97.10</td>
+                    <td class="statText" height="15" align="right">$1,973.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=6409352" class="statText" target="parent">Phonetic Pattern Matching</a></td>
+                    <td class="statText" height="15" align="center">2</td>
                     <td class="statText" height="15"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907"><strong>WishingBone</strong></a></td>
-                    <td class="statText" height="15" align="center">92.16</td>
-                    <td class="statText" height="15" align="right">$2,202.00&#160;&#160;</td>
+                    <td class="statText" height="15" align="center">95.71</td>
+                    <td class="statText" height="15" align="right">$2,881.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
-               
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;</td>
+                    <td class="statText" height="15" align="center">&#160;</td>
+                    <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=158236"><strong>snard6</strong></a></td>
+                    <td class="statText" height="15" align="center">81.09</td>
+                    <td class="statText" height="15" align="right">$374.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+                
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5709951" class="statText" target="parent">SVG2DGraphics</a></td>
+                    <td class="statText" height="15" align="center">1</td>
+                    <td class="statText" height="15"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=114853"><strong>dmwright</strong></a></td>
+                    <td class="statText" height="15" align="center">89.14</td>
+                    <td class="statText" height="15" align="right">$288.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
 
                 <tr><td height="5" colspan="7"><img src="/i/clear.gif" alt="" height="20" border="0" /></td></tr>
             </table>
