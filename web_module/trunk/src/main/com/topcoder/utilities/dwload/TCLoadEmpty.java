@@ -230,7 +230,7 @@ public class TCLoadEmpty extends TCLoad {
             query.append("       ,rt.unrated ");        //10
             query.append("  FROM room rt ");
             query.append("   WHERE NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM room ro ");
             query.append("         WHERE ro.room_id = rt.room_id ");
             query.append("           AND ro.room_type_id <> 1)");

@@ -312,12 +312,12 @@ public class TCLoadRound extends TCLoad {
             query.append(" WHERE rr.round_id = ? ");
             query.append("   AND rr.attended = 'Y' ");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = rr.coder_id ");
             query.append("           AND gu.group_id = 13)");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = rr.coder_id ");
             query.append("           AND gu.group_id = 14)");
@@ -332,12 +332,12 @@ public class TCLoadRound extends TCLoad {
             query.append("   AND rr.attended = 'Y' ");
             query.append("   AND rr.new_rating > 0 ");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = rr.coder_id ");
             query.append("           AND gu.group_id = 13)");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = rr.coder_id ");
             query.append("           AND gu.group_id = 14)");
@@ -507,12 +507,12 @@ public class TCLoadRound extends TCLoad {
             query.append(" ON ps.problem_state_id = c.problem_state_id");
             query.append(" WHERE ps.round_id = ?");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = ps.coder_id ");
             query.append("           AND gu.group_id = 13)");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = ps.coder_id ");
             query.append("           AND gu.group_id = 14)");
@@ -725,12 +725,12 @@ public class TCLoadRound extends TCLoad {
             query.append("  FROM system_test_result str ");
             query.append(" WHERE round_id = ?");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = str.coder_id ");
             query.append("           AND gu.group_id = 13)");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = str.coder_id ");
             query.append("           AND gu.group_id = 14)");
@@ -891,7 +891,7 @@ public class TCLoadRound extends TCLoad {
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append("SELECT * ");
+            query.append("SELECT 'pops' ");
             query.append("  FROM contest ");
             query.append(" WHERE contest_id = ?");
             psSel2 = prepareStatement(query.toString(), TARGET_DB);
@@ -1062,7 +1062,7 @@ public class TCLoadRound extends TCLoad {
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append("SELECT * FROM problem ");
+            query.append("SELECT 'pops' FROM problem ");
             query.append(" WHERE problem_id = ? ");
             query.append("   AND round_id = ?");
             query.append("   AND division_id = ?");
@@ -1236,7 +1236,7 @@ public class TCLoadRound extends TCLoad {
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append("SELECT * FROM round where round_id = ?");
+            query.append("SELECT 'pops' FROM round where round_id = ?");
             psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
             // On to the load
@@ -1405,7 +1405,7 @@ public class TCLoadRound extends TCLoad {
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append("SELECT * FROM room WHERE room_id = ?");
+            query.append("SELECT 'pops' FROM room WHERE room_id = ?");
             psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
             // On to the load
@@ -1605,12 +1605,12 @@ public class TCLoadRound extends TCLoad {
             query.append("   AND rr.round_id = ?");
             query.append("   AND rr.attended = 'Y'");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = rr.coder_id ");
             query.append("           AND gu.group_id = 13)");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = rr.coder_id ");
             query.append("           AND gu.group_id = 14)");
@@ -1823,12 +1823,12 @@ public class TCLoadRound extends TCLoad {
             query.append(" AND rr.attended = 'Y'");
             query.append(" AND ps.round_id = ?");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = ps.coder_id ");
             query.append("           AND gu.group_id = 13)");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = ps.coder_id ");
             query.append("           AND gu.group_id = 14)");
@@ -2034,12 +2034,12 @@ public class TCLoadRound extends TCLoad {
             query.append(" WHERE round_id = ? ");
             query.append("   AND status_id <> " + CHALLENGE_NULLIFIED);
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = defendant_id ");
             query.append("           AND gu.group_id = 13)");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = challenger_id ");
             query.append("           AND gu.group_id = 14)");
