@@ -124,7 +124,7 @@ public final class Registration extends UserEdit {
             setFormFieldDefault(Constants.KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID));
 
             UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
-            if (userTerms.hasTermsOfUse(secTok.loggedUserID, Constants.GENERAL_PRODUCT_TERMS_ID)) {
+            if (userTerms.hasTermsOfUse(secTok.loggedUserID, Constants.CORP_SITE_TERMS_ID)) {
                 setFormFieldDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.TRUE.toString());
             } else {
                 setFormFieldDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.FALSE.toString());
@@ -387,7 +387,9 @@ public final class Registration extends UserEdit {
         addrTable.setZip(addressID, zip);
 
         UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
-        userTerms.createUserTermsOfUse(targetUserID, Constants.CORP_SITE_TERMS_ID);
+        if (!userTerms.hasTermsOfUse(secTok.loggedUserID, Constants.CORP_SITE_TERMS_ID)) {
+            userTerms.createUserTermsOfUse(targetUserID, Constants.CORP_SITE_TERMS_ID);
+        }
 
 
     }
