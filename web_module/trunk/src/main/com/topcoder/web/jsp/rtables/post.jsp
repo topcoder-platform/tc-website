@@ -526,7 +526,7 @@ DER="0"><BR>
 
              <tr>
 
-               <td valign="middle" class="statText">Message: (4000 character max)</td>
+               <td valign="middle" class="statText">Message: (8000 character max)</td>
 
              </tr>
 
@@ -646,9 +646,9 @@ DER="0"><BR>
 
     bodysize = reply.body.value.length;
 
-    if(bodysize>4000){
+    if(bodysize>8000){
 
-      alert("Your text size is currently " + bodysize + " characters.  Please edit the text so that it is 4000 characters or less.");
+      alert("Your text size is currently " + bodysize + " characters.  Please edit the text so that it is 8000 characters or less.");
 
       return false;
 
