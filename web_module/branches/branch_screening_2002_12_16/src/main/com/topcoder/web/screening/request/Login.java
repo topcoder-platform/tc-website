@@ -25,14 +25,14 @@ public class Login extends BaseProcessor {
         log.debug("Processing login");
         ServletRequest request = getRequest();
         
-        String handle = (String)request.getAttribute(HANDLE_PARAM);
-        String password = (String)request.getAttribute(PASSWORD_PARAM);
+        String handle = request.getParameter(HANDLE_PARAM);
+        String password = request.getParameter(PASSWORD_PARAM);
         
         if( handle == null || password == null ||
             handle.equals("") || password.equals("") )
         {
             log.debug("No username and/or password");
-            setNextPage("login.jsp");
+            setNextPage("/login.jsp");
             setNextPageInContext(true);
             request.setAttribute(MESSAGE_PARAM,
                 "Please enter both a username and a password.");
@@ -43,14 +43,14 @@ public class Login extends BaseProcessor {
             getAuthentication().login(new SimpleUser(-1,handle,password));
         }catch(AuthenticationException ae){
             log.debug("Login failed");
-            setNextPage("login.jsp");
+            setNextPage("/login.jsp");
             setNextPageInContext(true);
             request.setAttribute(MESSAGE_PARAM,
                 "Incorrect username and/or password.");
             return;
         }
 
-        String redirect = (String)request.getAttribute(REDIRECT_PARAM);
+        String redirect = request.getParameter(REDIRECT_PARAM);
         if(redirect == null || redirect.equals(""))
             redirect = "/";
         log.debug("Login succeeded, redirecting to " + redirect);
