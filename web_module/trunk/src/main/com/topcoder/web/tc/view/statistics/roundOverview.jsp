@@ -148,7 +148,7 @@ function goTo(selection){
 </script>
 <!--   <A class="statTextBig" href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></A><BR/>-->
 <!--DATE <BR/>-->
-                        <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
+                        <TABLE BORDER="1" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
                             <FORM name="coderRankForm" action="javaScript:submitForm();" method="get">
                             <TR>
                                 <TD COLSPAN="16">
