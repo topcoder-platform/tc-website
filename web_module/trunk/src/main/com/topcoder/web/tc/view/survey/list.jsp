@@ -67,9 +67,7 @@
                      <% } %>
                   </td>
                   <td>
-                     <% if (survey.getStringItem("image")!=null) { %>
-                        <img src="<rsc:item row="<%=survey%>" name="image"/>"/>
-                     <% } %>
+                     <tc:sponsorImage src='<%=survey.getStringItem("image")%>' href='<%=survey.getStringItem("link")%>' alt="survey logo" width="100" height="70" align="left" border="0"/>
                   </td>
                </tr>
                <% even = !even; %>

@@ -16,6 +16,7 @@ public class Question implements Serializable {
     private boolean isRequired;
     private List answerInfo;
     private String imagePath;
+    private String link;
 
     public Question() {}
 
@@ -81,6 +82,14 @@ public class Question implements Serializable {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
 }
