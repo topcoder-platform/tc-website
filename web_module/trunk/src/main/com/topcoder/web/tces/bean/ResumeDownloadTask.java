@@ -10,7 +10,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.web.tces.common.TCESConstants;
-import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
@@ -35,6 +34,17 @@ public class ResumeDownloadTask extends BaseTask {
 
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+
+        /* User authorization checking */
+        SessionPersistor persistor = new SessionPersistor(request.getSession(true));
+        WebAuthentication authToken = new BasicAuthentication(persistor, request, response);
+
+        if (authToken.getActiveUser().isAnonymous()) {
+            log.debug("User not logged in, can't download a file.");
+            throw new Exception("User not logged in, can't download a file.");
+        } else {
+            userId = (int)authToken.getActiveUser().getId();
+        }
 
 
         Request oltpDataRequest = new Request();
