@@ -80,7 +80,7 @@ public class ProjectReviewApply extends Base {
                     }
                     
                     Timestamp opensOn = (Timestamp) ((TCTimestampResult) detail.getItem(0, "opens_on")).getResultData();
-                    if (opensOn.compareTo(new Timestamp(System.currentTimeMillis())) == 1) {
+                    if (opensOn.getTime() > System.currentTimeMillis()) {
                         throw new NavigationException("Sorry, this project is not open for review yet.  "
                                 + "You will need to wait until "
                                 + DateTime.timeStampToString(opensOn));
