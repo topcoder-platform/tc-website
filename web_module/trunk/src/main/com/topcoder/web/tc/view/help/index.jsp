@@ -38,7 +38,7 @@
            <jsp:param name="title" value="Algorithm Competition Guide"/>  
         </jsp:include>
 
-        <h2>Algorithm Competition Guide</h2>
+        <h2>Algorithm Competition Guide</h2> 
 
         <p><span class="bodySubtitle"><a href="/tc?module=Static&d1=help&d2=getStarted">General TopCoder Arena Usage / Getting Started</a></span><br/>
             <span class="outline1">1 <a href="/tc?module=Static&d1=help&d2=getStarted#becomemember">Become a TopCoder Member</a></span><br/>
