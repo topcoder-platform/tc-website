@@ -121,7 +121,7 @@
 </TABLE>
 
 <!-- Footer begins -->
-<jsp:include page="../corp/foot.jsp" />
+<jsp:include page="../corp/includes/foot.jsp" />
 <!-- Footer ends -->
 
 </BODY>
