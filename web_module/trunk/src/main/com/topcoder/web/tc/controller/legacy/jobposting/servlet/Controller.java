@@ -154,6 +154,37 @@ public class Controller extends BaseServlet {
         return ret;
     }
 
+    protected void getRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
+                                  boolean forward) throws Exception {
+
+        if (forward) {
+            if (!dest.startsWith("/")) {
+                dest = "/" + dest;
+            }
+            log.debug("forwarding to " + dest);
+            getServletContext().getContext("/").getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
+        } else {
+            log.debug("redirecting to " + dest);
+            response.sendRedirect(response.encodeRedirectURL(dest));
+        }
+    }
+
+
+    protected void handleException(HttpServletRequest request, HttpServletResponse response, Exception e)
+            throws Exception {
+        log.error("caught exception, forwarding to error page", e);
+        if (e instanceof NavigationException) {
+            request.setAttribute(MESSAGE_KEY, e.getMessage());
+            if (((NavigationException)e).hasUrl())
+                request.setAttribute(URL_KEY, ((NavigationException)e).getUrl());
+        } else {
+            request.setAttribute(MESSAGE_KEY, "An error has occurred when attempting to process your request.");
+       }
+        request.setAttribute("exception", e);
+        getRegularPage(request, response, ERROR_PAGE, true);
+    }
+
+
 }
 
 
