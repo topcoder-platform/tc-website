@@ -5,12 +5,14 @@
 <title>2004 TopCoder Collegiate Challenge - Computer Programming Tournament - Summary</title>
 
 <jsp:include page="../../script.jsp" />
+<link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
+
 <script language="JavaScript" type="text/javascript">
 <!-- Hide from non-JavaScript browsers
 
-var imageDir = "/i/tournament/tco03/download_photos/";
+var imageDir = "/i/tournament/tccc04/onsite_photos/";
 var imageNum = 1;
-var totalImages = 328;
+var totalImages = 11;
 
 <%
     final String CURR_IMAGE_KEY = "currImage";
@@ -65,10 +67,12 @@ function changeImage(place, imageIndex) {
 // End Hiding -->
 </script>
 
-
-<link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
 </head>
+<%if (!currImage.equals("")) { %>
+<body onload="changeImage('slideImg', <%=currImage%>);">
+ <% } else { %>
+ <body onload="changeImage('slideImg', 1);">
+ <% } %>
 
 <body>
 
@@ -100,21 +104,46 @@ function changeImage(place, imageIndex) {
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="overview"/>
    <jsp:param name="tabLev2" value="onsite_events"/>
-   <jsp:param name="tabLev3" value="reception"/>
+   <jsp:param name="tabLev3" value="photos"/>
 </jsp:include>
-            <img src="/i/clear.gif" width="1" height="10" border="0"/><br/>
 
-            <div class="leadPhoto">
-            <img src="/i/tournament/tccc04/reception/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-            <span class="leadPhotoCaption">caption<br/><br/> </span>
-            </div>
+            <p class="terciary"><div align="center">
+                <a href="Javascript:void changeImage('slideImg', 1);">Reception</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 2);">Room 1</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 3);">Room 2</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 4);">Room 3</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 5);">Room 4</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 6);">Coding Finals</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 7);">Component Finals</a><br/>
+
+                <a href="Javascript:void changeImage('slideImg', 8);">Winners</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 9);">Press Conference</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 10);">Awards Dinner</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 11);">War Room</a>
+<%--
+--%>                
+            </div></p>
             
-            <h2>Opening Night Reception</h2>
+            <table cellpadding="0" cellspacing="5" border="0" align="center">
+                <tr valign="middle"><form name="blah" action="/tc"><td class="terciary">&lt;&lt; <a href="#" onClick="prevImage('slideImg');">previous</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td class="terciary">
+                        <input type="hidden" name="module" value="Static"/>
+                        <input type="hidden" name="d1" value="tournaments"/>
+                        <input type="hidden" name="d2" value="tccc04"/>
+                        <input type="hidden" name="d3" value="summary"/>
+                        <input type="hidden" name="d4" value="slide_show"/>
+                        <input type="text" value="1" name="<%=CURR_IMAGE_KEY%>" size="3"/> of 
+                        <script language="JavaScript"><!--
+                            document.write(totalImages);
+                            //-->
+                        </script>
+                    </td>
+                    <td class="terciary">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onClick="nextImage('slideImg');">next</a> &gt;&gt;</td></form></tr>
+            </table>
 
-            <p>by somedude, <em>TopCoder Staff</em><br />
-            Wednesday, April 4, 2004</p>
-
-            <p>Writeup</p>
+            <div align="center">
+                <img src="" width="448" height="336" name="slideImg" class="photoFrameBig">
+            </div>
             
 
          <p><br/></p>
