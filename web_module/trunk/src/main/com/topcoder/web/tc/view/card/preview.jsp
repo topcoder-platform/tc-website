@@ -69,7 +69,7 @@ if ( plugin ) {
                 <td align="center">
             
 <SCRIPT language="JavaScript">
-                <!--
+<!--
 if ( MM_FlashCanPlay ) {
 document.write(' <object ');
 document.write(' classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
@@ -111,12 +111,12 @@ document.write('<img src="/i/card/noFlash.gif" width="400" height="400" border="
 // -->
 </SCRIPT>
 
-                    <p align="center"><a href="/tc?module=Static&d1=card&d2=instructions">Unlock my card</a>
 
                 </td>
             </tr>
         </table>
 
+        <p align="center"><a href="/tc?module=Static&d1=card&d2=instructions"><img src="/i/card/unlock.gif" border="0"/></a></p>
         </div>
         <p><br/></p>
          </td>
