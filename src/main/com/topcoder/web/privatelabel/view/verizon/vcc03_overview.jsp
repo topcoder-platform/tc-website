@@ -48,7 +48,7 @@
             <table border="0" cellpadding="0" cellspacing="0" width="600">
                 <tr>
 		<td width="15"><img src="/i/clear.gif" alt="" width="15" height="20"></td>
-		<td width="221" style="padding-left:1px;"><img src="/i/clear.gif" height="2" width="178" border="0" alt=""><br/><a href="http://www22.verizon.com/progress/" onclick="logWtl('http://www22.verizon.com/progress/HPHH','http://www22.verizon.com/','Make Progress Every Day');" onMouseOut="restore();" onMouseOver="swap(document.makeprogress,'/i/events/verizon2003/make_progress_hmov.gif');"><img src="/i/events/verizon2003/make_progress_hm.gif" border="0" width="178" height="17" alt="Make progress every day" name="makeprogress" id="makeprogress"></a></td>
+		<td width="221" style="padding-left:1px;"><img src="/i/clear.gif" height="2" width="178" border="0" alt=""><br/><a href="http://www22.verizon.com/progress/" onMouseOver="document.makeprogress.src='/i/events/verizon2003/make_progress_hmov.gif'; "onMouseOut="document.makeprogress.src='/i/events/verizon2003/make_progress_hm.gif';"><img src="/i/events/verizon2003/make_progress_hm.gif" border="0" width="178" height="17" alt="Make progress every day" name="makeprogress" id="makeprogress"></a></td>
 		<td width="221" class="tableHead">&nbsp;</td>
 		<td width="143"><img src="/i/clear.gif" alt="" width="143" height="20"></td>
                 </tr>
@@ -86,18 +86,21 @@
 
                         <h2 class="pgTitle">The Best of the Best</h2>
 
-                        <p>Everyone knows that programmers from Chennai are the masters of software development. But who among them is the best? 
-                        Verizon is on a mission to answer that question. Through the Verizon Coding Challenge, top software developers will have a 
-                        chance to showcase their skills, earn recognition as the top developers in Chennai and win cash and other prizes.</p>
+                        <table width="427" border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="bottom">
+                                <td width="427" class="bodyCopy">
+                                    <img src="/i/events/verizon2003/photo_home.jpg" alt="Photo" width="170" height="159" align="right">
+                                    <p>Everyone knows that programmers from Chennai are the masters of software development. But who among them is the best? 
+                                    Verizon is on a mission to answer that question. Through the Verizon Coding Challenge, top software developers will have a 
+                                    chance to showcase their skills, earn recognition as the top developers in Chennai and win cash and other prizes.<br/><br/>
 
-                        <p>If you want to raise your profile by besting your peers, then this is the event for you. Verizon has teamed with TopCoder, 
-                        the leader in online and offline programming competitions and skills assessment, to execute this exciting event. Verizon may 
-                        use the results of this event for the purpose of finding new employees for their Chennai Center.</p>
-                    </td>
-                </tr>
+                                    If you want to raise your profile by besting your peers, then this is the event for you. Verizon has teamed with TopCoder, 
+                                    the leader in online and offline programming competitions and skills assessment, to execute this exciting event. Verizon may 
+                                    use the results of this event for the purpose of finding new employees for their Chennai Center.</p>
+                                </td>
+                            </tr>
+                        </table>
 
-                <tr valign="top">
-                    <td width="427" class="bodyCopy">
                         <p><span class="bodySubtitle">Choose Your Weapon</span><br />
                         Use Java, C++, C# or VB.NET to compete. The event will allow developers to choose from these four important programming languages, with no particular
                         advantage given to any one language.</p>
