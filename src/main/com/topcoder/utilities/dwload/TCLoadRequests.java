@@ -104,7 +104,7 @@ public class TCLoadRequests extends TCLoad {
                 // exception but all we are doing outside this method is
                 // catching and setting the reason for failure to be the
                 // message of the exception.
-                throw new SQLException("Last log time not found in " +
+                throw new Exception("Last log time not found in " +
                         "request_update_log table.");
             }
         } catch (SQLException sqle) {
