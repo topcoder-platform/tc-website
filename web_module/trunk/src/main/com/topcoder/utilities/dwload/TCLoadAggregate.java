@@ -27,6 +27,9 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.3  2002/05/31 01:25:37  gpaul
+ *           added more stuff to speed it up
+ *
  *           Revision 1.2  2002/05/24 19:28:10  gpaul
  *           added some  code so that we can load just the stuff for the current round in the aggregate load
  *
@@ -221,7 +224,6 @@ public class TCLoadAggregate extends TCLoad {
    */
   public boolean performLoad() {
     try {
-
       loadRoomResult2();
 
       loadCoderDivision();
@@ -986,65 +988,53 @@ public class TCLoadAggregate extends TCLoad {
           if(start_round_id == -1)
             start_round_id = round_id;
           prev_round_id = round_id;
-          continue;
-        }
-  
-        // If our current streak is <= 1, we don't record this as a streak
-        if(numWins <= 1) {
-          cur_coder_id = coder_id;
-          cur_division_id = division_id;
-          start_round_id = round_id;
+        } else if (numWins <= 1) { // If our current streak is <= 1, we don't record this as a streak
+          cur_coder_id = -1;
+          cur_division_id = -1;
+          start_round_id = -1;
           end_round_id = -1;
-          prev_round_id = round_id;
-          if(room_placed == 1)
-            numWins = 1;
-          else
-            numWins = 0;
-	  continue;
-        }
-
-        int streak_type_id = -1;
-        if(division_id == 1)
-          streak_type_id = CONSEC_WINS_DIV1;
-        else if(division_id == 2)
-          streak_type_id = CONSEC_WINS_DIV2;
-        else
-          throw new SQLException("Unknown division_id "+ division_id +
-                                 ". Code for streak table needs to be "+
-                                 "modified to accomodate new division.");
-
-        end_round_id = prev_round_id;
-
-        psIns.clearParameters();
-        psIns.setInt      (1,  cur_coder_id);
-        psIns.setInt      (2,  streak_type_id);
-        psIns.setInt      (3,  start_round_id);
-        psIns.setInt      (4,  end_round_id);
-        psIns.setInt      (5,  numWins);
-        psIns.setInt      (6,  (end_round_id == latest_round_id ? 1 : 0));
-
-        retVal = psIns.executeUpdate();
-        count += retVal;
-        if (retVal != 1) {
-          throw new SQLException("TCLoadAggregate: Insert for "+
-                                 "coder_id " + coder_id +
-                                 ", streak_type_id " + streak_type_id +
-                                 " modified " + retVal + " rows, not one.");
-        }
-
-        printLoadProgress(count, "streak");
-
-        cur_coder_id = coder_id;
-        cur_division_id = division_id;
-        start_round_id = round_id;
-        end_round_id = -1;
-        prev_round_id = round_id;
-        if(room_placed == 1)
-          numWins = 1;
-        else
+          prev_round_id = -1;
           numWins = 0;
+        } else {  //we have a streak, load it up
+          int streak_type_id = -1;
+          if(division_id == 1)
+            streak_type_id = CONSEC_WINS_DIV1;
+          else if(division_id == 2)
+            streak_type_id = CONSEC_WINS_DIV2;
+          else
+            throw new SQLException("Unknown division_id "+ division_id +
+                                   ". Code for streak table needs to be "+
+                                   "modified to accomodate new division.");
+  
+          end_round_id = prev_round_id;
+  
+          psIns.clearParameters();
+          psIns.setInt      (1,  cur_coder_id);
+          psIns.setInt      (2,  streak_type_id);
+          psIns.setInt      (3,  start_round_id);
+          psIns.setInt      (4,  end_round_id);
+          psIns.setInt      (5,  numWins);
+          psIns.setInt      (6,  (end_round_id == latest_round_id ? 1 : 0));
+  
+          retVal = psIns.executeUpdate();
+          count += retVal;
+          if (retVal != 1) {
+            throw new SQLException("TCLoadAggregate: Insert for "+
+                                   "coder_id " + coder_id +
+                                   ", streak_type_id " + streak_type_id +
+                                   " modified " + retVal + " rows, not one.");
+          }
+  
+          printLoadProgress(count, "streak");
+  
+          cur_coder_id = -1;
+          cur_division_id = -1;
+          start_round_id = -1;
+          end_round_id = -1;
+          prev_round_id = -1;
+          numWins = 0;
+        }
       }
-
       System.out.println("Records loaded for streak: " + count);
     }
     catch (SQLException sqle) {
