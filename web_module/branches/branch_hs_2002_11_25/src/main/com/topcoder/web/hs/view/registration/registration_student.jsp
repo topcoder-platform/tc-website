@@ -53,7 +53,7 @@
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">State&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">
-    <SELECT NAME="state" CLASS="dropdown" ONCHANGE="changeState()>
+    <SELECT NAME="state" CLASS="dropdown" ONCHANGE="changeState()">
      <OPTION value=""></OPTION>
      <OPTION value="CT">Connecticut</OPTION>
     </SELECT>
