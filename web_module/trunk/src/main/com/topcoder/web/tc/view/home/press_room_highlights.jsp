@@ -6,6 +6,8 @@
             </table>
 
             <table width="530" border="0" cellspacing="0" cellpadding="4">   
+                <tr><td class="prHead"><A href="http://java.sun.com/developer/technicalArticles/Programming/TopCoder2004/" target="_blank">Who's the Best Coder?</A> [June - Sun]</td></tr>  
+
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=art_06_01_04">Cracking the Hiring Code</A> [June 1 - Workforce Management]</td></tr>  
 
                 <tr><td class="prHead"><A href="http://online.wsj.com/article_email/0,,SB108605863196125506-IVjeoNllaV3nJunZXSGcaaBm4,00.html" target="_blank">Win in a Corporate Competition, Land on Square That Offers a Job</A> [June 1 - WSJO]</td></tr>  
@@ -15,8 +17,6 @@
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_12_04">TopCoder Announces the Ultimate Software Development Contest</A> [May 12]</td></tr>  
 
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_03_04">JavaOne Coding Challenge Powered by TopCoder</A> [May 3]</td></tr>  
-
-                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=art_04_29_04">And The Champion Coders Are...</A> [April 29 - BusinessWeek]</td></tr>  
 
 
                 <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr> 
