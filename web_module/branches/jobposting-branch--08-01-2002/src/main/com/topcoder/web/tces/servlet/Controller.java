@@ -63,6 +63,16 @@ public class Controller extends HttpServlet {
                 task = (Task) taskClass.newInstance();
                 task.setInitialContext(ctx);
                 task.processStep(taskStepName);
+
+                Enumeration parameterNames = request.getParameterNames();
+                while (parameterNames.hasMoreElements()) {
+                    String parameterName = parameterNames.nextElement().toString();
+                    String[] parameterValues = request.getParameterValues(parameterName);
+                    if (parameterValues != null) {
+                        task.setAttributes(parameterName, parameterValues);
+                    }
+                }
+
                 task.servletAction(this, request, response);
 
                 request.setAttribute( taskName, task );

@@ -55,5 +55,7 @@ log.debug("next page -> "+nextPage);
 
     public void servletAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response) {
     }
+
+    public abstract void setAttributes(String paramName, String paramValues[]);
 }
 

@@ -149,6 +149,17 @@ public class LoginTask extends BaseTask implements Task, Serializable {
         setNextPage(TCESConstants.JSP_ROOT + TCESConstants.LOGIN_PAGE);
     }
 
+    public void setAttributes(String paramName, String paramValues[]) {
+        String value = paramValues[0];
+        value = (value == null?"":value.trim());
+
+        if (paramName.equalsIgnoreCase(TCESConstants.HANDLE_PARAM))
+            setHandleInput(value);
+        else if (paramName.equalsIgnoreCase(TCESConstants.PASSWORD_PARAM))
+            setPasswordInput(value);
+
+    }
+
 }
 
 

@@ -37,5 +37,7 @@ public interface Task {
 
     void servletAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response);
 
+    void setAttributes(String paramName, String paramValues[]);
+
 }
 
