@@ -111,8 +111,8 @@
 
                 <xsl:for-each select="/TC/TOURNAMENTS/Competitors/Competitor">
                     <tr>
-                       <td class="advancers" align="right"><xsl:value-of select="seed"/></td>
-                       <td class="advancers" align="left">
+                       <td class="advancers_list" align="right"><xsl:value-of select="seed"/></td>
+                       <td class="advancers_list" align="left">
                            <a>
                                     <xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
                                     <xsl:attribute name="CLASS">
@@ -121,8 +121,8 @@
                                       <xsl:value-of select="handle"/>
                                   </a>
                        </td>
-                       <td class="advancers" align="right"><xsl:value-of select="rating"/></td>
-                       <td class="advancers" align="right"><xsl:value-of select="points"/></td>
+                       <td class="advancers_list" align="right"><xsl:value-of select="rating"/></td>
+                       <td class="advancers_list" align="right"><xsl:value-of select="points"/></td>
                    </tr>
                 </xsl:for-each>
 
