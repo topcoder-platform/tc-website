@@ -100,7 +100,7 @@
     <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" HSPACE="6" BORDER="0"/></TD>
     <TD CLASS="bodyText" VALIGN="top"><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A><BR/>
       <xsl:choose>
-      <xsl:when test="/TC/HOME/InvitationalInfo/IsRegistered='0'">
+      <xsl:when test="/TC/HOME/InvitationalInfo/IsRegistered='false'">
         <xsl:choose>
         <xsl:when test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/is_eligible='false'">
           <xsl:choose>
