@@ -59,7 +59,7 @@
             <BR/>
             <ol>
               <li>
-                Click <A HREF="/?amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.
+                Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.
               </li>
               <xsl:if test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
                 <li>
