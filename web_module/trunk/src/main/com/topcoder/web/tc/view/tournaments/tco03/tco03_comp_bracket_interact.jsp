@@ -94,7 +94,7 @@ if ( MM_FlashCanPlay ) {
 <SCRIPT language="JavaScript">
 <!--
        if (!MM_FlashCanPlay){
-       document.write('<img src="/i/tournament/tco03/bracket.gif" width="510" height="261" border="0">');
+       document.write('<img src="/i/tournament/tco03/comp_bracket.gif" width="510" height="227" border="0">');
        }
 // -->
 </SCRIPT>
