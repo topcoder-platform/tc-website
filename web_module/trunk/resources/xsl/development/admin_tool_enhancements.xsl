@@ -175,7 +175,6 @@
                                             Updated Submission Due Date: 8.15.2003
                                             <br/>
                                             Estimated Development End Date: 10.6.2003
-                                            <br/>
                                         </p>
                                         <!-- Register at TCS -->
                                         <p>
