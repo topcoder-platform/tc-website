@@ -133,10 +133,7 @@ public abstract class BaseServlet extends HttpServlet {
                     }
                 } catch (PermissionException pe) {
                     log.debug("caught PermissionException");
-                    if (pe.getUser() != null && !pe.getUser().isAnonymous()) {
-                        log.info("already identified, rethrowing");
-                        throw pe;
-                    } else {
+                    if (authentication.getUser().isAnonymous()) {
                         /* forward to the login page, with a message and a way back */
                         request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
                                 "and password.");
@@ -145,6 +142,9 @@ public abstract class BaseServlet extends HttpServlet {
                         request.setAttribute(MODULE, LOGIN_PROCESSOR);
                         fetchRegularPage(request, response, LOGIN_SERVLET==null?info.getServletPath():LOGIN_SERVLET, true);
                         return;
+                    } else {
+                        log.info("already logged in, rethrowing");
+                        throw pe;
                     }
                 }
                 fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
