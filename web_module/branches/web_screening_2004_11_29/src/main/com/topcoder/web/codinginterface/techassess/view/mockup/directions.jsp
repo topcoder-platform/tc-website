@@ -14,12 +14,12 @@
 
 <%-- TABS --%>
       <jsp:include page="tabs.jsp" >
-      <jsp:param name="tabLev1" value="login"/>
+         <jsp:param name="tabLev1" value="login"/>
       </jsp:include>
 
 <%-- TITLE/CLOCK --%>
       <jsp:include page="time.jsp" >
-      <jsp:param name="timer" value="off"/>
+         <jsp:param name="timer" value="current"/>
       </jsp:include>
 
       <table cellspacing=0 cellpadding=0 class=bodyTable>

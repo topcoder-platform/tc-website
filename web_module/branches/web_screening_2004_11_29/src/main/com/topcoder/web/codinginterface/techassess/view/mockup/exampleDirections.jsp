@@ -14,12 +14,12 @@
 
 <%-- TABS --%>
       <jsp:include page="tabs.jsp" >
-      <jsp:param name="tabLev1" value="login"/>
+         <jsp:param name="tabLev1" value="login"/>
       </jsp:include>
 
 <%-- TITLE/CLOCK --%>
       <jsp:include page="time.jsp" >
-      <jsp:param name="timer" value="off"/>
+         <jsp:param name="timer" value="remaining"/>
       </jsp:include>
 
       <table cellspacing=0 cellpadding=0 class=bodyTable>
@@ -56,8 +56,8 @@
                <tr>
                   <td class=tableTextOdd><a href="/mockup/codingRoom.jsp"><img src="/i/corp/screening/buttonOpen.gif" alt="" /></a></td>
                   <td class=tableTextOdd>Average</td>
-                  <td class=tableTextOdd>Un-Opened</td>
-                  <td class=tableTextOdd align=center><span class=bigRed>00:00</span></td>
+                  <td class=tableTextOdd>Open</td>
+                  <td class=tableTextOdd align=center><span class=bigRed>26:59</span></td>
                </tr>      
             </table>
 
