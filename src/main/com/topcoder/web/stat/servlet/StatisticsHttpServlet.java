@@ -10,7 +10,8 @@ import com.topcoder.web.stat.bean.QuickStatListBean;
 import com.topcoder.web.stat.common.StatXMLParser;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.problem.DataType;
+import com.topcoder.common.web.util.Data;
+
 import org.w3c.dom.Document;
 
 import javax.servlet.ServletContext;
@@ -51,52 +52,12 @@ public class StatisticsHttpServlet extends HttpServlet {
         if (srvctx.getAttribute("PAGECTRL") == null) {
             this.reload(srvctx);
         }
-
-        QueryRequest qr = null;
-        DataAccessInt dai = null;
-        Map resultMap = null;
-
-        /* initialize the DataType stuff, don't really understand what's going on here.... 
-         * this is pretty nasty to be having queries in 
-         * this servlet.  TODO get them outta here, and clean this up.
-         */
         try {
-
-            qr = new QueryRequest();
-            qr.addQuery("Mappings", "SELECT data_type_id, language_id, display_value " +
-                                     "FROM data_type_mapping");
-            qr.addQuery("Types", "SELECT data_type_id, data_type_desc FROM data_type");
-            dai = new QueryDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
-            resultMap = dai.getData(qr);
-           
-            ResultSetContainer mapRsc = (ResultSetContainer)resultMap.get("Mappings");
-    
-            HashMap mappings = new HashMap();
-    
-            for (int i=0; i<mapRsc.size(); i++) {
-                String dataTypeId = mapRsc.getItem(i, "data_type_id").toString();
-                String languageId = mapRsc.getItem(i, "language_id").toString();
-                String desc = mapRsc.getItem(i, "display_value").toString();
-                HashMap mapping = (HashMap) mappings.get(new Integer(dataTypeId));
-    
-                if(mapping == null) {
-                    mapping = new HashMap();
-                    mappings.put(new Integer(dataTypeId), mapping);
-                }
-                mapping.put(new Integer(languageId), desc);
-            }
-           
-            ResultSetContainer typeRsc = (ResultSetContainer)resultMap.get("Types");
-            for (int i=0; i<typeRsc.size(); i++) {
-                int dataTypeId = Integer.parseInt(typeRsc.getItem(i, "data_type_id").toString());
-                DataType type = new DataType(
-                        dataTypeId,
-                        typeRsc.getItem(i, "data_type_desc").toString(),
-                        (HashMap)mappings.get(new Integer(dataTypeId)));
-            }
+            Data.initializeDataTypes();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     /**

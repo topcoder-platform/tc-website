@@ -10,8 +10,13 @@ import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.shared.problem.DataType;
 
 import javax.naming.Context;
 import javax.transaction.Status;
@@ -20,6 +25,7 @@ import java.util.*;
 
 public final class Data {
     private static Logger log = Logger.getLogger(Data.class);
+    private static boolean hasBeenInitialized = false;
 
     public static final void stabilizeModifiableList(List modifiableList)
             throws Exception {
@@ -145,4 +151,46 @@ public final class Data {
     }
 
 
+
+    public static void initializeDataTypes() throws Exception {
+        QueryRequest qr = null;
+        DataAccessInt dai = null;
+        Map resultMap = null;
+
+        if (!hasBeenInitialized) {
+            qr = new QueryRequest();
+            qr.addQuery("Mappings", "SELECT data_type_id, language_id, display_value " +
+                                         "FROM data_type_mapping");
+            qr.addQuery("Types", "SELECT data_type_id, data_type_desc FROM data_type");
+            dai = new QueryDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            resultMap = dai.getData(qr);
+           
+            ResultSetContainer mapRsc = (ResultSetContainer)resultMap.get("Mappings");
+    
+            HashMap mappings = new HashMap();
+        
+            for (int i=0; i<mapRsc.size(); i++) {
+                String dataTypeId = mapRsc.getItem(i, "data_type_id").toString();
+                String languageId = mapRsc.getItem(i, "language_id").toString();
+                String desc = mapRsc.getItem(i, "display_value").toString();
+                HashMap mapping = (HashMap) mappings.get(new Integer(dataTypeId));
+    
+                if(mapping == null) {
+                    mapping = new HashMap();
+                    mappings.put(new Integer(dataTypeId), mapping);
+                }
+                mapping.put(new Integer(languageId), desc);
+            }
+           
+            ResultSetContainer typeRsc = (ResultSetContainer)resultMap.get("Types");
+            for (int i=0; i<typeRsc.size(); i++) {
+                int dataTypeId = Integer.parseInt(typeRsc.getItem(i, "data_type_id").toString());
+                DataType type = new DataType(
+                        dataTypeId,
+                        typeRsc.getItem(i, "data_type_desc").toString(),
+                        (HashMap)mappings.get(new Integer(dataTypeId)));
+            }
+            hasBeenInitialized = true;
+        }
+    }
 }
