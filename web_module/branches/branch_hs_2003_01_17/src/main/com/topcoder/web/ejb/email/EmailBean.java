@@ -14,6 +14,8 @@ public class EmailBean implements SessionBean {
 
   private final static String DATA_SOURCE="java:comp/env/datasource_name";
 
+  private final static String JTS_DATA_SOURCE="java:comp/env/jts_datasource_name";
+
   private transient InitialContext init_ctx=null;
 
   private SessionContext ctx;
@@ -61,6 +63,9 @@ public class EmailBean implements SessionBean {
       }
 
       email_id=IdGenerator.nextId("EMAIL_SEQ");
+
+      ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
+      ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
       query.append("INSERT ");
@@ -115,7 +120,7 @@ public class EmailBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
@@ -186,7 +191,7 @@ public class EmailBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
@@ -244,7 +249,7 @@ public class EmailBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
@@ -301,7 +306,7 @@ public class EmailBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
@@ -359,7 +364,7 @@ public class EmailBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
@@ -416,7 +421,7 @@ public class EmailBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);

@@ -14,6 +14,8 @@ public class TermsOfUseBean implements SessionBean {
 
   private final static String DATA_SOURCE="java:comp/env/datasource_name";
 
+  private final static String JTS_DATA_SOURCE="java:comp/env/jts_datasource_name";
+
   private transient InitialContext init_ctx=null;
 
   private SessionContext ctx;
@@ -61,6 +63,9 @@ public class TermsOfUseBean implements SessionBean {
       }
 
       terms_of_use_id=IdGenerator.nextId("TERMS_OF_USE_SEQ");
+
+      ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
+      ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
       query.append("INSERT ");
@@ -117,7 +122,7 @@ public class TermsOfUseBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
@@ -177,7 +182,7 @@ public class TermsOfUseBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
@@ -235,7 +240,7 @@ public class TermsOfUseBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
@@ -298,7 +303,7 @@ public class TermsOfUseBean implements SessionBean {
 
     try {
 
-      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      String ds_name=(String)init_ctx.lookup(JTS_DATA_SOURCE);
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
