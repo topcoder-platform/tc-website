@@ -57,7 +57,6 @@
             <param-value>/review_board/competition.jsp</param-value>
             <description></description>
         </init-param>
-
         <init-param>
             <param-name>survey_results</param-name>
             <param-value>/survey/results.jsp</param-value>
@@ -76,6 +75,11 @@
         <init-param>
             <param-name>survey_thanks</param-name>
             <param-value>/survey/thanks.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>crpf_report</param-name>
+            <param-value>/crpf/report.jsp</param-value>
             <description></description>
         </init-param>
         <init-param>
@@ -118,6 +122,12 @@
         <init-param>
             <param-name>SubmitRatings</param-name>
             <param-value>problemRating.Submit</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>CRPFReport</param-name>
+            <param-value>crpf.Report</param-value>
             <description></description>
         </init-param>
 
