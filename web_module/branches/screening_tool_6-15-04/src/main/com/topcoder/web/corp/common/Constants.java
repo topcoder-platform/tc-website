@@ -32,6 +32,16 @@ public class Constants
      */
     public static String PREFERENCE_LEVEL;
 
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of parameter
+     * of incoming HTTP requests containing the name of a column to sort the result set.</p>
+     *
+     * <p>The controller servlet configuration file must have a "sort_by" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String SORT_BY;
+
     public static String EMAIL_ADDRESS;
     public static String MESSAGE_PARAMETER;
     public static String FIRST_ATTEMPT;
@@ -254,6 +264,16 @@ public class Constants
     public static String CAMPAIGN_RESULTS_LIST;
 
     /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the results for
+     * candidates applied to specified position.</p>
+     *
+     * <p>The controller servlet configuration file must have a "position_results_list" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String POSITION_RESULTS_LIST;
+
+    /**
      * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a JSP page
      * providing the users with the candidate results corresponding to requested campaign.</p>
      *
@@ -314,6 +334,26 @@ public class Constants
      * @since Screening Tool 1.1
      */
     public static String POSITION_LIST_PROCESSOR;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a JSP page
+     * providing the users with the candidate results corresponding to requested position.</p>
+     *
+     * <p>The controller servlet configuration file must have a "position_results_page" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String POSITION_RESULTS_PAGE;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the details for
+     * specified position for the company the user is associated with.</p>
+     *
+     * <p>The controller servlet configuration file must have a "position_info" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String POSITION_INFO;
 
     //Profile constants
     public static String PROFILE_INFO;

@@ -57,7 +57,7 @@
                         list="<%=(List) request.getAttribute(Constants.COMPANY_CAMPAIGNS_LIST)%>">
                 <tr>
                     <td class="<%=cssClasses[counter % 2]%>" nowrap="nowrap">
-                        <a href="/corp/testing/results/campaignResults.jsp?<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />">
+                        <a href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />">
                             <screen:resultSetItem row="<%=row%>" name="campaign_name" />
                         </a>
                     </td>
@@ -68,7 +68,7 @@
                         <screen:resultSetItem row="<%=row%>" name="candidates_num" />
                     </td>
                     <td class="<%=cssClasses[counter++ % 2]%>" nowrap="center">
-                        <A href='/corp/testing/results/positionList.jsp?<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />'>view</A>
+                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_LIST_PROCESSOR%>&<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />'>view</A>
                     </td>
                 </tr>
                 </screen:resultSetRowIterator>

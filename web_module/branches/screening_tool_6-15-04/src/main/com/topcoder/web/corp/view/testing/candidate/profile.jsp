@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.corp.common.Constants,java.util.List"%>
+<%@ page import="com.topcoder.web.corp.common.Constants,java.util.List,
+                 com.topcoder.web.corp.common.JSPUtils"%>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -119,9 +120,9 @@ function getProblemDetail(id) {
                         </screen:resultSetRowIterator>
 
                         <!-- Address info -->
-                        <screen:resultSetRowIterator id="row"
-                                list="<%=(List) request.getAttribute(Constants.CANDIDATE_ADDRESS_INFO)%>">
                         <tr>
+                            <screen:resultSetRowIterator id="row"
+                                   list="<%=(List) request.getAttribute(Constants.CANDIDATE_ADDRESS_INFO)%>">
                             <td class="screeningCellOdd" align=right>Address 1:</td>
                             <td class="screeningCellOdd">
                                 <screen:resultSetItem row="<%=row%>" name="address1" />
@@ -272,16 +273,40 @@ if ( MM_FlashCanPlay ) {
                     <td width="14%" align="center" class="screeningHeader">Percentile</td>
                     <td width="14%" align="center" class="screeningHeader">Results</td>
                 </tr>
+
+               <screen:resultSetRowIterator id="row"
+                       list="<%=(List) request.getAttribute(Constants.CANDIDATE_PROBLEMS_INFO)%>">
                 <tr>
-                    <td width="30%" class="screeningCellOdd"><A href="/">Rain</A></td>
-                    <td width="14%" align="center" class="screeningCellOdd">Java</td>
-                    <td width="14%" align="center" class="screeningCellOdd">done</td>
-                    <td width="14%" align="center" class="screeningCellOdd">00:40.20</td>
-                    <td width="14%" align="center" class="screeningCellOdd">90.90</td>
+                    <td width="30%" class="screeningCellOdd">
+                        <A href="javascript:getProblemDetail(<screen:resultSetItem row="<%=row%>" name="problem_id" />);">
+                            <screen:resultSetItem row="<%=row%>" name="problem_name" />
+                        </A>
+                    </td>
+
                     <td width="14%" align="center" class="screeningCellOdd">
-                        <A href="javascript:getProblemDetail(?);">view</A>
+                        <screen:resultSetItem row="<%=row%>" name="language_name" />
+                    </td>
+
+                    <td width="14%" align="center" class="screeningCellOdd">
+                        <screen:resultSetItem row="<%=row%>" name="status_desc" />
+                    </td>
+
+                    <td width="14%" align="center" class="screeningCellOdd">
+                        <screen:resultSetItem row="<%=row%>" name="total_time" />
+                    </td>
+
+                    <td width="14%" align="center" class="screeningCellOdd">
+                        <screen:resultSetItem row="<%=row%>" name="candidate_percentile" />
+                    </td>
+
+                    <td width="14%" align="center" class="screeningCellOdd">
+                        <A href="javascript:getProblemDetail(<screen:resultSetItem row="<%=row%>" name="problem_id" />);">
+                            view
+                        </A>
                     </td>
                 </tr>
+               </screen:resultSetRowIterator>
+
             </table>
 
             <p><br></p>

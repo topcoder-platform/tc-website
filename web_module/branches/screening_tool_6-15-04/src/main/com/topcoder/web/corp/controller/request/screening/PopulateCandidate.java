@@ -53,17 +53,12 @@ public class PopulateCandidate extends BaseScreeningProcessor {
     protected void screeningProcessing() throws TCWebException {
 
         // First, determine the company usage type
-        int usageType = 0;
-        try {
-            usageType = getCompanyUsageType();
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
+        long usageType = getUsageType();
 
         // If the usage type is correct then process the request
-        if (usageType == 1) {
+        if (usageType == Constants.USAGE_TYPE_TESTING) {
             processUsageType1();
-        } else if (usageType == 2) {
+        } else if (usageType == Constants.USAGE_TYPE_SCREENING) {
             processUsageType2();
         } else {
             // otherwise notify the user about the invalid usage type set for the company
@@ -219,7 +214,7 @@ public class PopulateCandidate extends BaseScreeningProcessor {
                 throw(new ScreeningException(e));
             }
 
-            // Redirect the request to newly defined "Candidate profile page"
+            // Forward the request to newly defined "Candidate profile page"
             setNextPage(Constants.CANDIDATE_PROFILE_PAGE);
             setIsNextPageInContext(true);
 
@@ -227,34 +222,5 @@ public class PopulateCandidate extends BaseScreeningProcessor {
             // notify the user about the necessity to select a candidate to display the profile details for
             throw new ScreeningException("The candidate ID is not specified.");
         }
-    }
-
-    /**
-     * A helper method determining the <code>Screening Tool</code> application usage type set for the company the user
-     * wishing to view the candidate's info is associated with.
-     *
-     * @return an <code>int</code> containing the usage type for <code>Screening Tool</code> application set for the
-     *         company. As of <code>Screening Tool 1.1</code> this method is expected to return either 1 or 2.
-     * @throws Exception if any error occurs while fulfilling the request.
-     * @since  Screening Tool 1.1
-     */
-    private int getCompanyUsageType() throws Exception {
-        // Construct the request
-        Request dataRequest = new Request();
-        dataRequest.setContentHandle(Constants.COMPANY_USAGE_TYPE_QUERY_KEY);
-//        dataRequest.setProperty(DataAccessConstants.COMMAND, Constants.COMPANY_USAGE_TYPE_QUERY_KEY);
-        dataRequest.setProperty("uid", String.valueOf(getUser().getId()));
-
-        // Execute the query
-        Map map = Util.getDataAccess().getData(dataRequest);
-
-        // Get the resulting data
-        ResultSetContainer rsc = (ResultSetContainer) map.get(Constants.COMPANY_USAGE_TYPE_QUERY_KEY);
-        if (rsc.size() != 1) {
-            throw new ScreeningException("Company usage type result set size wrong(" + rsc.size() + ")");
-        }
-
-        ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) rsc.get(0);
-        return row.getIntItem("usage_type_id");
     }
 }

@@ -52,15 +52,14 @@ public class CampaignResults extends BaseScreeningProcessor {
         TCRequest request = getRequest();
 
         // Check if the campaign ID had been provided with request
-        String campaignId = (String) request.getAttribute(Constants.CAMPAIGN_ID);
+        String campaignId = request.getParameter(Constants.CAMPAIGN_ID);
         if (campaignId == null) {
             // notify the user about the error
             log.error("There is no campaign ID specified.");
             throw new ScreeningException("No campaign ID had been specified.");
         }
 
-        log.info("Got the request to display the campaign results for campaign : "
-                + request.getAttribute(Constants.CAMPAIGN_ID));
+        log.info("Got the request to display the campaign results for campaign : " + campaignId);
 
         // Construct a request for company details
         Request dr = new Request();
@@ -105,7 +104,7 @@ public class CampaignResults extends BaseScreeningProcessor {
 
             // Get the campaign details and save them to request for further rendering by the campaign results JSP
             result = (ResultSetContainer) map.get(Constants.CAMPAIGN_INFO);
-            request.setAttribute(Constants.COMPANY_INFO, result);
+            request.setAttribute(Constants.CAMPAIGN_INFO, result);
 
             // Construct a request for campaign results
             dr = new Request();
@@ -127,8 +126,6 @@ public class CampaignResults extends BaseScreeningProcessor {
             // Save the campaign results to request for further rendering by the campaign results JSP
             result = (ResultSetContainer) map.get(Constants.CAMPAIGN_RESULTS_LIST);
             request.setAttribute(Constants.CAMPAIGN_RESULTS_LIST, result);
-
-            // todo Determine if the total number of candidates should be calculated and saved to request. Ask Ryan.
 
             // Redirect the user to campaign results JSP
             log.info("Forwarding the request to " + Constants.CAMPAIGN_RESULTS_PAGE);

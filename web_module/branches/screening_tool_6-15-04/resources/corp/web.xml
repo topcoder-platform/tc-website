@@ -839,6 +839,12 @@
         </init-param>
 
         <init-param>
+            <param-name>position_info</param-name>
+            <param-value>positionInfo</param-value>
+            <description>the name of the query to be used to get the details for specified position</description>
+        </init-param>
+
+        <init-param>
             <param-name>campaign_positions_list</param-name>
             <param-value>campaignPositionsList</param-value>
             <description>the name of a query to be used to get the campaign positions list</description>
@@ -846,14 +852,26 @@
 
         <init-param>
             <param-name>campaign_results_list</param-name>
-            <param-value>campaignResultsList</param-value>
+            <param-value>campaignResults</param-value>
             <description>the name of a query to be used to get the campaign results list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>position_results_list</param-name>
+            <param-value>positionResults</param-value>
+            <description>the name of a query to be used to get the position results list</description>
         </init-param>
 
         <init-param>
             <param-name>campaign_results_page</param-name>
             <param-value>/testing/results/campaignResults.jsp</param-value>
             <description>the URL for the JSP page to be used to display the company campaign's results list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>position_results_page</param-name>
+            <param-value>/testing/results/positionResults.jsp</param-value>
+            <description>the URL for the JSP page to be used to display the company position's results list</description>
         </init-param>
 
         <init-param>
@@ -890,6 +908,12 @@
             <param-name>position_list_processor</param-name>
             <param-value>PositionList</param-value>
             <description>the name of a processor to be used to handle the requests for campaign position list</description>
+        </init-param>
+
+        <init-param>
+            <param-name>sort_by</param-name>
+            <param-value>sortBy</param-value>
+            <description>the name of a parameter of request containing the name of a column to sort the result set</description>
         </init-param>
 
         <!-- Parameters used by Candidate -->

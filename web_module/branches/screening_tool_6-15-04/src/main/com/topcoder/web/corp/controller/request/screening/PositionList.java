@@ -59,8 +59,7 @@ public class PositionList extends BaseScreeningProcessor {
             throw new ScreeningException("No campaign ID had been specified.");
         }
 
-        log.info("Got the request to display the positions for campaign : "
-                + request.getAttribute(Constants.CAMPAIGN_ID));
+        log.info("Got the request to display the positions for campaign : " + campaignId);
 
         // Construct a request for company details
         Request dr = new Request();
@@ -122,8 +121,8 @@ public class PositionList extends BaseScreeningProcessor {
                 // if so redirect the user to position results list
                 row = (ResultSetContainer.ResultSetRow) result.get(0);
                 log.info("There is a single position for campaign. Redirecting the request to "
-                        + buildProcessorURL(Constants.POSITION_RESULTS_PROCESSOR, null));
-                request.setAttribute(Constants.JOB_POSITION_ID, row.getStringItem("job_id"));
+                        + buildProcessorURL(Constants.POSITION_RESULTS_PROCESSOR, null) + "&"
+                        + Constants.JOB_POSITION_ID + "=" + row.getStringItem("job_id"));
                 setNextPage(buildProcessorURL(Constants.POSITION_RESULTS_PROCESSOR, null));
                 setIsNextPageInContext(false);
             } else {

@@ -57,14 +57,14 @@
                         list="<%=(List) request.getAttribute(Constants.CAMPAIGN_POSITIONS_LIST)%>">
                 <tr>
                     <td class="<%=cssClasses[counter % 2]%>" nowrap="nowrap">
-                        <a href="/corp/testing/results/positionResults.jsp?<%=Constants.JOB_POSITION_ID%>=<screen:resultSetItem row="<%=row%>" name="job_id" />">
+                        <a href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.JOB_POSITION_ID%>=<screen:resultSetItem row="<%=row%>" name="job_id" />">
                             <screen:resultSetItem row="<%=row%>" name="job_name" />
                         </a>
                     </td>
                     <td class="<%=cssClasses[counter % 2]%>" align="center">
                         <screen:resultSetItem row="<%=row%>" name="most_recent_activity" />
                     </td>
-                    <td class="<%=cssClasses[counter % 2]%>" nowrap="right">
+                    <td class="<%=cssClasses[counter++ % 2]%>" nowrap="right">
                         <screen:resultSetItem row="<%=row%>" name="candidates_num" />
                     </td>
                 </tr>
