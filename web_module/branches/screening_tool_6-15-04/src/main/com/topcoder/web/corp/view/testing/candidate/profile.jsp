@@ -289,7 +289,7 @@ if ( MM_FlashCanPlay ) {
                        list="<%=(List) request.getAttribute(Constants.CANDIDATE_PROBLEMS_INFO)%>">
                 <tr>
                     <td width="30%" class="<%=cssClasses[counter % 2]%>">
-                        <A href="javascript:getProblemDetail(<screen:resultSetItem row="<%=row%>" name="problem_id" />);">
+                        <A href="javascript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />');">
                             <screen:resultSetItem row="<%=row%>" name="problem_name" />
                         </A>
                     </td>
@@ -311,7 +311,7 @@ if ( MM_FlashCanPlay ) {
                     </td>
 
                     <td width="14%" align="center" class="<%=cssClasses[counter++ % 2]%>">
-                        <A href="javascript:getProblemDetail(<screen:resultSetItem row="<%=row%>" name="problem_id" />);">
+                        <A href="javascript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />');">
                             view
                         </A>
                     </td>
