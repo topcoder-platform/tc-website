@@ -406,6 +406,8 @@ public class Submit extends FullRegSubmit {
     
     private Date translateDate(Date d)
     {
+        log.info("TIME1: " + d);
+        log.info("TIME1: " + d.getTime());
         Date ret = new Date(d.getTime());
         
         //bring to GMT
