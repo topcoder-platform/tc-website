@@ -1,8 +1,6 @@
 package com.topcoder.web.ejb.user;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.util.idgenerator.IdGenerator;
-import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.shared.util.DBMS;
 
 import javax.ejb.SessionBean;
@@ -65,7 +63,7 @@ public class UserAddressBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("INSERT INTO user_address_xref (user_id, address_id, create_date, modify_date) VALUES (");
             query.append(Long.toString(userId) + "," + Long.toString(addressId));
             query.append(",'now','now')");
@@ -101,7 +99,7 @@ public class UserAddressBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("DELETE FROM user_address_xref WHERE user_id = ");
             query.append(Long.toString(userId));
             query.append(" AND address_id = " + Long.toString(addressId));

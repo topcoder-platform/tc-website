@@ -74,7 +74,7 @@ public class TermsOfUseBean implements SessionBean {
             }
             ret = IdGenerator.nextId("TERMSOFUSE_SEQ");
 
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("INSERT INTO company (terms_of_use_id, create_date, modify_date) VALUES (");
             query.append(Long.toString(ret));
             query.append(",'now','now')");
@@ -110,7 +110,7 @@ public class TermsOfUseBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("UPDATE terms_of_use SET terms_text = '" + text + "', modify_date = 'now' WHERE terms_of_use_id = ");
             query.append(Long.toString(termsOfUseId));
 
@@ -145,7 +145,7 @@ public class TermsOfUseBean implements SessionBean {
             DataSource ds = null;
 
             try {
-                StringBuffer query = new StringBuffer();
+                StringBuffer query = new StringBuffer(100);
                 query.append("UPDATE company SET terms_of_use_type_id = " + id + ", modify_date = 'now' WHERE terms_of_use_id = ");
                 query.append(Long.toString(termsOfUseId));
 
@@ -182,7 +182,7 @@ public class TermsOfUseBean implements SessionBean {
         String ret = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("SELECT terms_text FROM terms_of_use_id WHERE terms_of_use_id = ");
             query.append(Long.toString(termsOfUseId));
 
@@ -221,7 +221,7 @@ public class TermsOfUseBean implements SessionBean {
         long ret = 0;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("SELECT terms_of_use_type_id FROM terms_of_use WHERE terms_of_use_id = ");
             query.append(Long.toString(termsOfUseId));
 

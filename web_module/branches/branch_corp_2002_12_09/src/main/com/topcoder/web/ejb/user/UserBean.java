@@ -31,7 +31,7 @@ public class UserBean implements SessionBean {
     private SessionContext ctx;
     private static Logger log = Logger.getLogger(UserBean.class);
     private static final String dataSourceName = "CORP_OLTP";
-    private static final String idGenDataSourceName = "SCREENING_OLTP";
+    private static final String idGenDataSourceName = "CORP_OLTP";
 
     //required ejb methods
 
@@ -73,7 +73,7 @@ public class UserBean implements SessionBean {
             }
             ret = IdGenerator.nextId("USER_SEQ");
 
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("INSERT INTO user (user_id, create_date, modify_date) VALUES (");
             query.append(Long.toString(ret));
             query.append(",'now','now')");
@@ -109,7 +109,7 @@ public class UserBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("UPDATE user SET first_name = '" + firstName + "', modify_date = 'now' WHERE user_id = ");
             query.append(Long.toString(userId));
 
@@ -144,7 +144,7 @@ public class UserBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("UPDATE user SET last_name = '" + lastName + "', modify_date = 'now' WHERE user_id = ");
             query.append(Long.toString(userId));
 
@@ -179,7 +179,7 @@ public class UserBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("UPDATE user SET user_status_id = " + userStatusId + ", modify_date = 'now' WHERE user_id = ");
             query.append(Long.toString(userId));
 
@@ -216,7 +216,7 @@ public class UserBean implements SessionBean {
         String ret = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("SELECT first_name FROM user WHERE user_id = ");
             query.append(Long.toString(userId));
 
@@ -255,7 +255,7 @@ public class UserBean implements SessionBean {
         String ret = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("SELECT last_name FROM user WHERE user_id = ");
             query.append(Long.toString(userId));
 
@@ -294,7 +294,7 @@ public class UserBean implements SessionBean {
         long ret = 0;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("SELECT user_status_id FROM user WHERE user_id = ");
             query.append(Long.toString(userId));
 

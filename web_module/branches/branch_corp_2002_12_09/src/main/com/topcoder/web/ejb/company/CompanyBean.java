@@ -31,7 +31,7 @@ public class CompanyBean implements SessionBean {
     private SessionContext ctx;
     private static Logger log = Logger.getLogger(CompanyBean.class);
     private static final String dataSourceName = "CORP_OLTP";
-    private static final String idGenDataSourceName = "SCREENING_OLTP";
+    private static final String idGenDataSourceName = "CORP_OLTP";
 
     //required ejb methods
 
@@ -73,7 +73,7 @@ public class CompanyBean implements SessionBean {
             }
             ret = IdGenerator.nextId("COMPANY_SEQ");
 
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("INSERT INTO company (company_id, create_date, modify_date) VALUES (");
             query.append(Long.toString(ret));
             query.append(",'now','now')");
@@ -111,7 +111,7 @@ public class CompanyBean implements SessionBean {
         String ret = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("SELECT company_name FROM company WHERE company_id = ");
             query.append(Long.toString(companyId));
 
@@ -150,7 +150,7 @@ public class CompanyBean implements SessionBean {
         long ret = 0;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("SELECT primary_contact_id FROM company WHERE company_id = ");
             query.append(Long.toString(companyId));
 
@@ -187,7 +187,7 @@ public class CompanyBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("UPDATE company SET company_name = '" + name + "', modify_date = 'now' WHERE company_id = ");
             query.append(Long.toString(companyId));
 
@@ -222,7 +222,7 @@ public class CompanyBean implements SessionBean {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("UPDATE company SET primary_contact_id = " + primaryContactId + ", modify_date = 'now' WHERE company_id = ");
             query.append(Long.toString(companyId));
 
