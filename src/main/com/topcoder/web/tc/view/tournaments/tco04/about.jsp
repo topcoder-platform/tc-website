@@ -21,41 +21,93 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=pageTitle>2004 TopCoder Open - Overview</p>
+        <p class=pageTitle>2004 TopCoder Open</p>
 
-        <p>If you're looking for information on <strong>THE</strong> premier international programming tournament, you've come to the right place!  
-        The 2004 TopCoder Open, Sponsored by Microsoft&#174; will set as rivals some of the IT industry's top professionals and 
-        international collegiate coders.  Software will be designed and developed.  Seemingly unsolvable algorithmic problems 
-        will be solved. $150,000 will be awarded over the course of 14 weeks.</p>
-        
-        <h3>ARE YOU READY?</h3>
-        
-        
-		<ul>
-		<li><span class="bodySubtitle">Who:</span><br/>	
-       		All registered TopCoder members over the age of 18</li>
+            <p><span class="bodySubtitle">Algorithm competition results</span></p>
+            <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td width="33%" class="sidebarTitle">Place</td>
+                    <td width="33%" class="sidebarTitle">Competitor</td>
+                    <td width="33%" class="sidebarTitle" align="right">Prize</td>
+                </tr>
+                <tr>
+                    <td class="sidebarText">1st place finisher - Algorithm Competition Champion</td>
+                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=144400">tomek</a></td>
+                    <td class="sidebarText" align="right">$20,000</td>
+                </tr>
+                <tr>
+                    <td class="sidebarText">2nd place finisher</td>
+                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=272072">SnapDragon</a></td>
+                    <td class="sidebarText" align="right">$10,000</td>
+                </tr>
+                <tr>
+                    <td class="sidebarText">3rd place finisher</td>
+                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=260835">reid</a></td>
+                    <td class="sidebarText" align="right">$5,000</td>
+                </tr>
+                <tr>
+                    <td class="sidebarText">4th place finisher</td>
+                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=7445961">snewman</a></td>
+                    <td class="sidebarText" align="right">$2,500</td>
+                </tr>
+            </table>
 
-		<li><span class="bodySubtitle">What:</span><br/>
-       		Algorithm Competition<br/>
-       		Component Design Competition<br/>
-       		Component Development Competition
-       	</li>
+            <br/>
 
-		<li><span class="bodySubtitle">Where:</span><br/>	
-			Santa Clara Marriott in Santa Clara, CA, USA</li>
+            <p><span class="bodySubtitle">Design competition results</span></p>
+            <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td width="33%" class="sidebarTitle">Place</td>
+                    <td width="33%" class="sidebarTitle">Competitor</td>
+                    <td width="33%" class="sidebarTitle" align="right">Prize</td>
+                </tr>
+                <tr>
+                    <td class="sidebarText">1st place finisher - Design Competition Champion</td>
+                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=278342">adic</a></td>
+                    <td class="sidebarText" align="right">$20,000</td>
+                </tr>
+                <tr>
+                    <td class="sidebarText">2nd place finisher</td>
+                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=152342">kyky</a></td>
+                    <td class="sidebarText" align="right">$10,000</td>
+                </tr>
+                <tr>
+                    <td class="sidebarText">3rd place finisher</td>
+                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=277356">aksonov</a></td>
+                    <td class="sidebarText" align="right">$5,000</td>
+                </tr>
+                <tr>
+                    <td class="sidebarText">4th place finisher</td>
+                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=289824">MPhk</a></td>
+                    <td class="sidebarText" align="right">$2,500</td>
+                </tr>
+            </table>
 
-		<li><span class="bodySubtitle">When:</span><br/>	
-			Algorithm and Component registration opens August 9th<br/>
-			Component Development Competition starts August 10th<br/>
-       		Component Design Competition starts August 12th	<br/>
-       	</li>
+            <br/>
 
-		<li><span class="bodySubtitle">How Much:</span><br/>	
-			$100,000 will be awarded to Component Design & Development competitors<br/>
-       		$50,000 will be awarded to Algorithm competitors	
-       	</li>
-       	</ul>       		
-       	<p>See the official rules and regulations for full details.</p>
+            <p><span class="bodySubtitle">Development competition results</span></p>
+            <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td width="33%" class="sidebarTitle">Place</td>
+                    <td width="33%" class="sidebarTitle">Competitor</td>
+                    <td width="33%" class="sidebarTitle" align="right">Prize</td>
+                </tr>
+                <tr>
+                    <td class="sidebarText">1st place finisher - Development Competition Champion</td>
+                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=310233">Standlove</a></td>
+                    <td class="sidebarText" align="right">$10,000</td>
+                </tr>
+                <tr>
+                    <td class="sidebarText">2nd place finisher</td>
+                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=7270519">chippydip</a></td>
+                    <td class="sidebarText" align="right">$4,000</td>
+                </tr>
+                <tr>
+                    <td class="sidebarText">3rd place finisher</td>
+                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=7463987">ShindouHikaru</a></td>
+                    <td class="sidebarText" align="right">$2,500</td>
+                </tr>
+            </table>
 
             
         </div>
