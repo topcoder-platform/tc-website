@@ -57,18 +57,18 @@
 					<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
 <!-- Title -->
-						<h1 class="devSubhead"><strong>List Manipulation: Design</strong></h1>
+						<h1 class="devSubhead"><strong>Java FTP: Design</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=List Manipulation: Design&amp;comp=5502227&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Java FTP: Design&amp;comp=5501537&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						The List Manipulation component enables in-memory sorting and filtering of data sets.  Data sets are defined as any group of inter-related data.  The process of sorting and filtering data is typically reserved for a database.  Providing an in-memory alternative will reduce database dependencies and overhead involved in requesting, manipulating and retrieving data.
+						The Java FTP component wraps standard FTP commands into an easy to use API.  FTP connections can be initiated in passive or active mode, and files can be transferred in ASCII or binary mode.  For FTP commands that are not supported by this component, a facility is available to enter those commands directly through the API.
 						</p>
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
-						Component Design Project: Provide a complete design for the List Manipulation component.<br />
+						Component Design Project: Provide a complete design for the Java FTP component.<br />
 						Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 						If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -81,7 +81,7 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=5502227>">documentation</a> for this project is available on the TopCoder Software web site.</p>
+						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=5501537">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br />
@@ -94,9 +94,9 @@
 						<p><strong>Designer</strong><br />
 						Royalty Percentage - 25%</p>
 							
-						<p>Total Payment - $210.00<br/>
-						First Deliverable - $157.50<br/>
-						Project Completion - $52.50</p>
+						<p>Total Payment - $245.00<br/>
+						First Deliverable - $183.75<br/>
+						Project Completion - $61.25</p>
 
 <!-- Definition of Completion -->
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
@@ -127,11 +127,10 @@
 						Winner Announced: 2.13.2003<br/>
 						Final Submission Due Date: 2.17.2003<br/>
 						Estimated Development End Date: 3.26.2003</p>
-
 <!-- Register at TCS -->
 						<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=List Manipulation: Design&amp;comp=5502227&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Java FTP: Design&amp;comp=5501537&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 

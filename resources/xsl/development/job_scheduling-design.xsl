@@ -58,7 +58,7 @@
 							
 							<h1 class="devSubhead"><strong>Job Scheduling: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Job Scheduling: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Job Scheduling: Design&amp;comp=3300911&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
 							The Job Scheduling Component is the java version of cron, the unix scheduling utility. Cron enables users to schedule the automated execution of recurring tasks and processes. However, while cron is widely available on unix system, each operating system has its own version of the scheduling utility making it difficult to easily port applications between operating systems. By providing a Java version of this useful utility, java applications are another step closer to being completely platform independent.
@@ -111,15 +111,15 @@
 							<p><strong>Time Line</strong><br/>
 							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 							
-							<p>Component Posting: 1.16.2003<br/>
-							Initial Submission Due Date: 1.22.2003<br/>
-							Winner Announced: 1.23.2003<br/>
-							Final Submission Due Date: 2.3.2003<br/>
-                            Estimated Development End Date: 3.10.2003</p>
+						<p>Component Posting: 1.30.2003<br/>
+						Initial Submission Due Date: 2.5.2003<br/>
+						Winner Announced: 2.13.2003<br/>
+						Final Submission Due Date: 2.17.2003<br/>
+						Estimated Development End Date: 3.26.2003</p>
 
 							<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Job Scheduling: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Job Scheduling: Design&amp;comp=3300911&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
