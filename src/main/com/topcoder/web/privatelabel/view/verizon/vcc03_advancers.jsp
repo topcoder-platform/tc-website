@@ -76,7 +76,8 @@
                             </tr>
 
                             <tr valign="top">
-                                <td class="sidebarText">Round #2</td>n/a</td>
+                                <td class="sidebarText">Round #2</td>
+                                <td class="sidebarText" nowrap="nowrap">n/a</td>
                             </tr>
 
                             <tr valign="top">
