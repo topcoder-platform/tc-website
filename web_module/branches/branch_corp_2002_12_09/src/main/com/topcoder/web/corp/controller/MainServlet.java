@@ -148,12 +148,19 @@ public class MainServlet extends HttpServlet {
 
             // set main page in web.xml as homePage for Static Processor
             request.setAttribute("homePage",dest);
-            // set login page in web.xml as loginPage for Static Processor
-            request.setAttribute("loginPage", 
-                    servletConfig.getInitParameter(PFX_PAGE + KEY_LOGINPAGE));
+
             processorModule.setRequest(request);
             processorModule.setAuthToken(authToken);
-            processorModule.process();
+            try {
+                processorModule.process();
+            } catch (NotAuthorizedException nae) {
+                if (authToken.getActiveUser().isAnonymous()) {
+                    log.debug("user anonymous unauthorized to access static "
+                              + "resource, forwarding to login page.");
+                    fetchLoginPage(request,response);
+                    return;
+                }
+            }
             boolean forward = processorModule.isNextPageInContext();
             String destination = processorModule.getNextPage();
             if( destination != null ) {
