@@ -106,7 +106,10 @@
                     <b>Hit Date</b></A>
                   </TD>                                    
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><!-- resume --></TD>
+                  <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif">
+                    <A HREF="<jsp:getProperty name="PositionInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.SORT_PARAM%>=has_resume&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_DES%>" class="statText">
+                    <b>Resume</b></A>
+                  </TD>                                    
                 </TR>
                 
                 <tces:rowIterator id="hit" rowList="<%=PositionInterestTask.getHitList()%>">                
@@ -151,9 +154,7 @@
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <% if (hit.getItem("has_resume").toString().equals("1")) { %>
-                    <A href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="PositionInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="PositionInterestTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=hit.getItem("coder_id")%>" class="statText">Get Resume</A>
-                    <% } %>
+                    <%=hit.getItem("has_resume").toString().equals("1")?"Yes":"No"%>  
                   </TD>
                 </TR>
                 
