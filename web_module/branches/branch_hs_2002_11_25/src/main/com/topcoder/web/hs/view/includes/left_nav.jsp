@@ -75,7 +75,7 @@
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=faq&d2=faq" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Support/FAQs</A></TD>
 
 </logic:notEqual>
-<logic:notEqual name="NavZone" property="Folder[0]" value="faq">
+<logic:equal name="NavZone" property="Folder[0]" value="faq">
 
          <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=faq&d2=faq" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_bottom.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Support/FAQs</A></TD>
      </TR>
