@@ -51,7 +51,7 @@ function lookupText(qId){
   return "";
 }
 function brToSlashN(text) {
-  text.replace(/<br/>/i, "\n");
+  text.replace(/<br\/>/i, "\n");
   return text;
 }
 </SCRIPT>
