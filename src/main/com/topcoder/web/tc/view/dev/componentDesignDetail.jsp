@@ -95,7 +95,7 @@
                         Documentation / Specification available in component forums.
                         </p>
                         <p>
-                        View this component on the <a target="_new" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>">TopCoder Software web site</a>
+                        View <a target="_new" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>">this component</a> on the TopCoder Software web site.
                         </p>
 
                         <p><strong>Requirement Specification</strong><br />
