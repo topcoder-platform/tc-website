@@ -114,6 +114,21 @@
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+	<attribute>
+	    <name>link</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+	    <name>cssclass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+	    <name>imagecssclass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+	</attribute>
     </tag>
 
 
