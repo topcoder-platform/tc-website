@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>Order Fulfillment - Data Access Layer Development Project at TopCoder</title>
+                <title>Content Syndication Development Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@
                                         <!-- Title -->
                                         <table cellspacing="0" class="formFrame" align="center" width="530">
                                             <tr>
-                                                <td class="projectTitles" nowrap="nowrap">Development Application Project - Order Fulfillment - Data Access Layer</td>
+                                                <td class="projectTitles" nowrap="nowrap">Development Application Project - Content Syndication</td>
                                             </tr>
                                             <tr>
                                                 <td class="projectHeaders" align="left">Overview</td>
@@ -86,33 +86,21 @@
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        The current system was originally architected over ten years ago.
-                                                        The existing system is now outdated, slow and the user interface
-                                                        is hard to navigate.  Utilizing the latest Microsoft .NET technologies,
-                                                        a new faster, more extensible and user friendly application will be
-                                                        designed.  Not only will the new system be easier to navigate, but the
-                                                        maintenance of the system will be dramatically improved.  All business,
-                                                        data access and presentation logic will be properly separated into distinct
-                                                        tiers.  Separating each tier into a different layer will reduce maintenance
-                                                        costs and increase reusability.  Furthermore, the old application resides
-                                                        on a soon to be unsupported environment, NT4; the new environment will be
-                                                        hosted on Windows Server 2003.  This technology will increase the speed
-                                                        and scalability of the application.
+                                                        Today content syndication is an extremely manual and intensive process for employees.
+                                                        The goal of this system will be to automate as much of the content syndication project 
+                                                        as possible.  Automating this project will remove the majority of the manual intervention 
+                                                        needed to distribute content.  Users will select content for syndication through an 
+                                                        interactive front end for &quot;ordering&quot; content.  The selected content will then be converted 
+                                                        to the customer specific XML format and transported using the a Content Syndication server.
+                                                        Additionally, reporting and historical tracking will be built into the system.  Users will 
+                                                        be able to track who has been sent what content and when the content was sent.  
                                                         <br/>
                                                         <br/>
-                                                        The new system will provide an electronic web based interface to remove all
-                                                        paperwork associated with processing orders.  Internal sales representatives
-                                                        will enter order information for external customers into the new system.
-                                                        Once these orders have been entered the orders will be sent to the factories.
-                                                        The factories will receive the order and transmit a record back to the system
-                                                        stating the order was received and an expected completion date.  Users of the
-                                                        system will be able to view all orders to determine an order's status and completion times.
-                                                        Communication between the system and the factories is not in scope for this application.
-                                                        <br/>
-                                                        <br/>
-                                                        The developer of this project is responsible for creating all of the data access layer object
-                                                        to handle all persistence.  This layer will be utilized by the business object layer.  The 
-                                                        developer must be comfortable with SQL Server 2000 and stored procedures.
+                                                        From an architecture standpoint, the new system will be developed in Java instead of 
+                                                        Microsoft technologies.  Although, some integration points with the existing system 
+                                                        will be developed in Microsoft VB/ASP technologies.  By building the system externally 
+                                                        from the internal system, all dependencies on the current system will be removed, 
+                                                        facilitating a potential upgrade to a new digital rights management system.  
                                                         <br/>
                                                         <br/>
                                                         
@@ -121,23 +109,28 @@
                                                         <strong>Objectives</strong>
                                                     </p>
                                                     <ul class="noSpList">
-                                                        <li>Provide an extensible platform designed to handle the functional requirements identified by the client.</li>
-                                                        <li>Deliver the ability to scale through the addition of hardware, not requiring changes to the underlying software.</li>
-                                                        <li>Deliver an improved user experience and site navigation.</li>
+                                                        <li>Remove manual steps in producing content for syndication.</li>
+                                                        <li>Deliver the ability to select multiple articles for syndication.</li>
+                                                        <li>Provide a mechanism to create configurable XML for delivery to syndication partners.</li>
+                                                        <li>Feed the application server customized XML for each syndication partner.</li>
+                                                        <li>Remove sent files from application server queue.</li>
+                                                        <li>Link the internal databases once syndication occurs.</li>
                                                     </ul>
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
-                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/OrderFulfillment-Spec-1_0.pdf">Business Requirement Specification</a> for this application project.
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/CS-Generic.pdf">Business Requirement Specification</a> for this application project.
                                                     </p>
                                                     <!-- Technologies -->
                                                     <p class="noSpListTitle">
                                                         <strong>Technical Architecture Requirements</strong>
                                                     </p>
                                                     <ul class="noSpList">
-                                                        <li>Windows Server 2003</li>
-                                                        <li>SQL Server 2000</li>
-                                                        <li>Microsoft .NET Framework Version 1.1</li>
+                                                        <li>Windows 2000</li>
+                                                        <li>ASP</li>
+                                                        <li>VBScript</li>
+                                                        <li>IIS</li>
+                                                        <li>SQL Server</li>
                                                     </ul>
 
                                                     <!-- Payment -->
@@ -163,9 +156,9 @@
                                                         &#160;&#160;&#160;&#160;&#160;When the winning solution is submitted and review board suggestions are integrated.
                                                         <br/>
                                                         <br/>
-                                                        &#160;&#160;&#160;&#160;&#160;1. Second Payment:
+                                                        &#160;&#160;&#160;&#160;&#160;2. Second Payment:
                                                         <br/>
-                                                        &#160;&#160;&#160;&#160;&#160;At the completion of the development project.*
+                                                        &#160;&#160;&#160;&#160;&#160;At the completion of the development project*.
                                                         <br/>
                                                         <br/>
                                                         <strong> Second Place Compensation: </strong>
@@ -180,15 +173,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$2,000.00</td>
+                                                            <td class="bodyText" align="right">$500.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$1,300.00</td>
+                                                            <td class="bodyText" align="right">$350.00</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Second Payment -</td>
-                                                            <td class="bodyText" align="right">$700.00</td>
+                                                            <td class="bodyText" nowrap="nowrap">Second Payment - </td>
+                                                            <td class="bodyText" align="right">$150.00</td>
                                                         </tr>
                                                     </table>
 
@@ -198,7 +191,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$700.00</td>
+                                                            <td class="bodyText" align="right">$250.00</td>
                                                         </tr>
                                                     </table>
 
@@ -208,15 +201,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Primary Development Reviewer -</td>
-                                                            <td class="bodyText" align="right">$500.00</td>
+                                                            <td class="bodyText" align="right">$250.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Reviewer -</td>
-                                                            <td class="bodyText" align="right">$400.00</td>
+                                                            <td class="bodyText" align="right">$200.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Reviewer - </td>
-                                                            <td class="bodyText" align="right">$400.00</td>
+                                                            <td class="bodyText" align="right">$200.00</td>
                                                         </tr>
                                                     </table>
 
@@ -225,10 +218,9 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$4,000.00</td>
+                                                            <td class="bodyText" align="right">$1,400.00</td>
                                                         </tr>
                                                     </table>
-
 
                                                     <!-- Definition of Completion -->
 
@@ -278,56 +270,51 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="400">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Application Project Posting:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.10.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.17.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Register By:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.14.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.19.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.14.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.20.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.15.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.21.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Project Checkpoint Submission Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.21.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.28.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.25.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.02.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.29.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Updated Submission Due Date:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.08.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.01.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.11.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.01.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Integration Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.12.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.01.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Integration End:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.19.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.03.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Certification Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.19.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.06.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Certification End:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.26.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.09.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
 
                                                     </table>
@@ -345,7 +332,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Closed
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Content%20Syndication%20ASP%20Development">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
