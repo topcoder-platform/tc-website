@@ -61,7 +61,7 @@
 							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=URL Loader: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
-							The URL Loader component enables users to request the aysnchronous, multi-threaded retrieval of one or more web-based resources. The requesting application can then query the URL Loader component to check on the status of the process. The component can be utilized in the TopCoder applet to retrieve web-based resources without affecting the core functionality. A future use of the component may include integration with a larger "Link Validator" component.
+							The URL Loader component enables users to request the asynchronous, multi-threaded retrieval of one or more web-based resources. The requesting application can then query the URL Loader component to check on the status of the process. The component can be utilized in the TopCoder applet to retrieve web-based resources without affecting the core functionality. A future use of the component may include integration with a larger "Link Validator" component.
 
 							</p>
 
