@@ -74,10 +74,9 @@ public class GoogleLogin extends FullLogin {
 
     protected void setNextPage() {
         //reg closed
-/*
         setNextPage(Constants.GOOGLE_REG_CLOSED_PAGE);
         setIsNextPageInContext(true);
-*/
+/*
         if (hasErrors()) {
             setNextPage(Constants.GOOGLE_LOGIN_PAGE);
             setIsNextPageInContext(true);
@@ -85,6 +84,7 @@ public class GoogleLogin extends FullLogin {
             setNextPage(Constants.GOOGLE_REG_PAGE);
             setIsNextPageInContext(true);
         }
+*/
 
     }
 
