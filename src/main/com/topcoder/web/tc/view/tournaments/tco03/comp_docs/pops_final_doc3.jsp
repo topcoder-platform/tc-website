@@ -14,7 +14,7 @@
     <tr valign="top">
         <td width="190">
             <jsp:include page="pops_names.jsp">
-                <jsp:param name="time" value="1130" />
+                <jsp:param name="time" value="final" />
                 <jsp:param name="doc" value="doc3" />
             </jsp:include>
         </td>
@@ -25,13 +25,13 @@
                     <td colspan="2">
             <jsp:include page="times.jsp">
                 <jsp:param name="member" value="pops" />
-                <jsp:param name="time" value="1130" />
+                <jsp:param name="time" value="final" />
             </jsp:include>
                     </td>
                 </tr>
 
                 <tr>
-                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/pops/1130/AspectOrientedFactory.gif" alt="" width="1991" height="1446" border="0"></div></td>
+                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/pops/final/AspectOrientedFactory.gif" alt="" width="1991" height="1446" border="0"></div></td>
                     <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
                 </tr>
 
@@ -39,7 +39,7 @@
                     <td colspan="2">
             <jsp:include page="times.jsp">
                 <jsp:param name="member" value="pops" />
-                <jsp:param name="time" value="1130" />
+                <jsp:param name="time" value="final" />
             </jsp:include>
                     </td>
                 </tr>
