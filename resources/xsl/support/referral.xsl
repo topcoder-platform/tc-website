@@ -49,7 +49,25 @@
 			top-performing coders who participate in TopCoder competitions, 
 			and to reward those TopCoder members who spread the word.</STRONG></P>
 
-			<P>	<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="5" BGCOLOR="#999999" WIDTH="200" ALIGN="RIGHT" STYLE="MARGIN-LEFT: 10PX; MARGIN-TOP: 0PX; MARGIN-RIGHT: 0PX; MARGIN-BOTTOM: 10PX;" >
+			<TABLE>
+				<TR>
+					<TD CLASS="bodyText">
+				
+				
+				
+			<P><STRONG><font size="4">How it works</font></STRONG><BR/>
+			On the member registration page, there is a "Referring Member" field. If you convince a fellow coder to register with TopCoder, 
+			ask him or her to provide your handle in the "Referring Member" field.</P>
+
+			<P>The referring member (you) will receive a referral commission equal to 10% of any 
+			cash prize that the referred member wins during the 12 months following registration.</P>
+
+
+			<P>TopCoder will keep track of all member commissions earned and will pay them out at the end of each quarter. </P>
+			</TD>
+			<TD>
+			
+				<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="5" BGCOLOR="#999999" WIDTH="200" ALIGN="RIGHT" STYLE="MARGIN-LEFT: 10PX; MARGIN-TOP: 0PX; MARGIN-RIGHT: 0PX; MARGIN-BOTTOM: 10PX;" >
 					<TR>
 						<TD CLASS="smallText" BGCOLOR="#EEEEEE">
 						<P><STRONG>Example #1</STRONG><BR/>
@@ -60,15 +78,11 @@
 						</TD>
 					</TR>
 				</TABLE>
-			<STRONG><font size="4">How it works</font></STRONG><BR/>
-			On the member registration page, there is a "Referring Member" field. If you convince a fellow coder to register with TopCoder, 
-			ask him or her to provide your handle in the "Referring Member" field.</P>
+				
+				</TD>
+				</TR>
+				</TABLE>
 
-			<P>The referring member (you) will receive a referral commission equal to 10% of any 
-			cash prize that the referred member wins during the 12 months following registration.</P>
-
-
-			<P>TopCoder will keep track of all member commissions earned and will pay them out at the end of each quarter. </P>
 
 			<P>The "Referring Member" field in the registration cannot be changed once the registration process has been completed. 
 			Therefore, please ensure that any referred member provides the correct handle upon registering with TopCoder.</P>
