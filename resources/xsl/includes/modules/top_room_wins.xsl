@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="top_room_wins">    
-    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
         <TR>
           <TD COLSPAN="5"><IMG HEIGHT="3" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>
@@ -18,12 +18,12 @@
         <TR>
           <TD COLSPAN="5"><IMG HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"/></TD>
         </TR>                  
-        <TR BGCOLOR="#000033" BACKGROUND="/i/steel_bluebv_bg.gif">
-          <TD WIDTH="48" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" HEIGHT="18"><IMG HEIGHT="1" WIDTH="48" SRC="/i/clear.gif"/></TD>
-          <TD WIDTH="50%" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" CLASS="statTextBig">Handle</TD>
-          <TD WIDTH="3" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle"><IMG WIDTH="3" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD ALIGN="right" WIDTH="50%" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" CLASS="statTextBig">&#160;Final Points</TD>
-          <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle"><IMG HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"/></TD>
+        <TR>
+          <TD WIDTH="55" BGCOLOR="#093158" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" HEIGHT="18"><IMG HEIGHT="1" WIDTH="55" SRC="/i/clear.gif"/></TD>
+          <TD WIDTH="50%" BGCOLOR="#093158" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" CLASS="statTextBig">Handle</TD>
+          <TD WIDTH="3" BGCOLOR="#093158" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle"><IMG WIDTH="3" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+          <TD ALIGN="right" BGCOLOR="#093158" WIDTH="50%" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" CLASS="statTextBig">&#160;Final Points</TD>
+          <TD WIDTH="10" BGCOLOR="#093158" BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle"><IMG HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"/></TD>
         </TR>
         <TR>
           <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="1" WIDTH="1" SRC="/i/clear.gif"/></TD>
@@ -32,7 +32,7 @@
           <xsl:when test="number($division)=2">
             <xsl:for-each select="/TC/HOME/Div2RoomWinners/RoomWinner">
               <TR>
-                <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;<xsl:value-of select="room_name"/></TD>
+                <TD BGCOLOR="#093158" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;&#160;&#160;<xsl:value-of select="room_name"/></TD>
               </TR>
               <TR>
                 <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
@@ -60,7 +60,7 @@
           <xsl:otherwise>
             <xsl:for-each select="/TC/HOME/Div1RoomWinners/RoomWinner">
               <TR>
-                <TD BGCOLOR="#000033" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;<xsl:value-of select="room_name"/></TD>
+                <TD BGCOLOR="#093158" BACKGROUND="/i/steel_blue_bg.gif" align="left" COLSPAN="5" HEIGHT="11" VALIGN="middle" CLASS="smallFoot">&#160;<xsl:value-of select="room_name"/></TD>
               </TR>
               <TR>
                 <TD COLSPAN="5" WIDTH="1"><IMG HEIGHT="2" WIDTH="1" SRC="/i/clear.gif"/></TD>
