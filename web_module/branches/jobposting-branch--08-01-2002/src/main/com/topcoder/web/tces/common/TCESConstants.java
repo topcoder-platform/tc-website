@@ -2,7 +2,7 @@ package com.topcoder.web.tces.common;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import java.text.DateFormat;
+import java.text.*;
 
 /////////////// jk: todo: place all string literal constants in web.xml
 ////////////////////// and update code to load them ...
@@ -108,7 +108,8 @@ public class TCESConstants {
     public static int CLICK_THRU_ID = -1;
     public static int JOB_POSTING_ID = -1;
 
-    public static DateFormat DATE_FORMAT = new java.text.SimpleDateFormat("MM/dd/yyyy");
+    public static DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy");
+    public static NumberFormat NUMBER_FORMAT = new DecimalFormat("####0.00");
 
     public static void init(ServletConfig servletConfig) throws ServletException {
         JSP_ROOT = servletConfig.getInitParameter("jsp_root");
