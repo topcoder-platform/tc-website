@@ -50,8 +50,8 @@ public class ViewProblem extends Base {
 
             ScreeningOpenComponentResponse response = (ScreeningOpenComponentResponse)receive(5000);
 
-            setDefault(Constants.PROBLEM, new ProblemInfo(response.getCode(), response.getComponentID(),
-                    response.getLanguageID().intValue(), response.getProblem(), response.getProblemType() ));
+            setDefault(Constants.PROBLEM, new ProblemInfo(response.getCode(), componentId,
+                    response.getLanguageID().intValue(), response.getProblem(), problemTypeId));
 
             closeProcessingPage();
 
