@@ -86,12 +86,15 @@ function submitConfirm() {
 
             <jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
             
-             <table border="0" cellspacing="0" cellpadding="0" width="100%">
+             <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr><screen:form name="profileSetupForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
-                    <input type="hidden" name="rp" value="" >
-                    <% if(!profile.isNew()) { %>
-                    <input type="hidden" name="profileId" value="<jsp:getProperty name="profile" property="profileId" />" >
-                    <% } %>
+                    <td>
+                        <input type="hidden" name="rp" value="" >
+                        <% if(!profile.isNew()) { %>
+                            <input type="hidden" name="profileId" value="<jsp:getProperty name="profile" property="profileId" />" >
+                        <% } %>
+                        <img src="/i/clear.gif" width="1" height="10" alt="" border="0">
+                    </td>
                 </tr>
             </table>
  
@@ -126,68 +129,72 @@ function submitConfirm() {
                 <tr><td class="testTableTitle" colspan="7">Test Set A</td></tr>
 
                 <tr>
-                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0" /></td>
                     <td width="20%" align="center" class="testFormHeader">Name</td>
                     <td width="20%" align="center" class="testFormHeader">Division</td>
                     <td width="20%" align="center" class="testFormHeader">Difficulty</td>
                     <td colspan="2" align="center" class="testFormHeader">Algorithmic Categories</td>
-                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+ <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
+                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                  </tr>
            
-                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td></tr>
             
                 <screen:listIterator id="testA" list="<%=profile.getTestSetAList()%>">
                 <tr>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td align="center" class="testTableOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testA" property="roundId" />,<screen:beanWrite name="testA" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testA" property="problemName"/></a></td>
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testA" property="divisionDesc" /></td>
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testA" property="difficultyDesc" /></td>
                     <td colspan="2" align="center" class="testTableOdd"><screen:beanWrite name="testA" property="algorithmicCategoryList" /></td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+ <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testA" property="businessCategoryList" /></TD> --%>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
                 </screen:listIterator>
            
-                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="10" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
             
                 <tr><td class="testTableTitle" colspan="7">Test Set B</td></tr>
 
                 <tr>
-                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td width="20%" align="center" class="testFormHeader">Name</td>
                     <td width="20%" align="center" class="testFormHeader">Division</td>
                     <td width="20%" align="center" class="testFormHeader">Difficulty</td>
                     <td width="40%" align="center" class="testFormHeader">Algorithmic Categories</td>
+ <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
                     <td width="1%" align="center" class="testFormHeader">&#160;</td>
-                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                  </tr>
            
-                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td></tr>
             
-                <INPUT TYPE="HIDDEN" name="testSetBRemove" value="" >
+                <input type="hidden" name="testSetBRemove" value="" >
 
                 <screen:listIterator id="testB" list="<%=profile.getTestSetBList()%>">
-                <INPUT TYPE="HIDDEN" name="testSetB" value="<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>" >
+                <input type="hidden" name="testSetB" value="<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>" >
                 <tr>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td align="center" class="testTableOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testB" property="problemName"/></a></td>
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="divisionDesc" /></td>
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="difficultyDesc" /></td>
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="algorithmicCategoryList" /></td>
+ <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="businessCategoryList" /></TD> --%>
                     <td align="center" class="testTableOdd"><a href="JavaScript:submitRemove('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" CLASS="bodyText">Remove</a></td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
                 </screen:listIterator>
 
                 <tr>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td colspan="5" class="errorTextOdd"><screen:errors name="testSetB" /></td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
             
-                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="20" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td></tr>
             
                 <tr>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td colspan="5" align="center">
                         <select name="testSetBAdd" class="dropdown" size="10" multiple="true">
                             <screen:resultSetRowIterator id="row" list="<%=profile.getCompanyProblemList()%>">
@@ -195,16 +202,16 @@ function submitConfirm() {
                             </screen:resultSetRowIterator>
                         </select>
                     </td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
                 
                   <tr>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td colspan="5"><div align="center"><p class="button"><a href="JavaScript:submitAdd()" class="button">Add</a></p></div></td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
             
-                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="20" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td></tr>
 
                 <tr>
                     <td class="testTableTitle" colspan="7">Available Languages</td>
@@ -223,21 +230,18 @@ function submitConfirm() {
                 </screen:resultSetRowIterator>
                 
                 <tr>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td colspan="5" class="errorTextOdd"><screen:errors name="language" /></td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
             </table>
 
             <table border="0" cellspacing="10" cellpadding="0" width="70%">
                  <tr>
                     <td><div align="center"><p class="button"><a href="JavaScript:submitConfirm()" class="button">Confirm</a></p></div></td>
-                </tr>
+                </screen:form></tr>
             </table>
-            </screen:form>
-            
             <p><br></p>
-
         </td>
 <!-- Middle Column ends -->
 
