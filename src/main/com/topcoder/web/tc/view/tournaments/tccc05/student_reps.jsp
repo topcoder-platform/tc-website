@@ -53,6 +53,8 @@
       </table>
 
                <br><br>
+               Check out <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=supernova">"My TCCC05 Experience"</A>, supernova's personal account of what it was like at the TCCC05.
+               <br><br>
 
                 <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
