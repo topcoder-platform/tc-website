@@ -68,19 +68,19 @@ public class ProblemArchive extends Base {
                 setDefault(Constants.CLASS_NAME, className);
             }
             if (!minDiv1Success.equals("")) {
-                filters.add(new GreaterThanOrEqual(new BigDecimal(minDiv1Success), "div1_success"));
+                filters.add(new GreaterThanOrEqual(makePercentage(minDiv1Success), "div1_success"));
                 setDefault(Constants.MIN_DIV1_SUCCESS, minDiv1Success);
             }
             if (!minDiv2Success.equals("")) {
-                filters.add(new GreaterThanOrEqual(new BigDecimal(minDiv2Success), "div2_success"));
+                filters.add(new GreaterThanOrEqual(makePercentage(minDiv2Success), "div2_success"));
                 setDefault(Constants.MIN_DIV2_SUCCESS, minDiv2Success);
             }
             if (!maxDiv1Success.equals("")) {
-                filters.add(new LessThanOrEqual(new BigDecimal(maxDiv1Success), "div1_success"));
+                filters.add(new LessThanOrEqual(makePercentage(maxDiv1Success), "div1_success"));
                 setDefault(Constants.MAX_DIV1_SUCCESS, maxDiv1Success);
             }
             if (!maxDiv2Success.equals("")) {
-                filters.add(new LessThanOrEqual(new BigDecimal(maxDiv2Success), "div2_success"));
+                filters.add(new LessThanOrEqual(makePercentage(maxDiv2Success), "div2_success"));
                 setDefault(Constants.MAX_DIV2_SUCCESS, maxDiv2Success);
             }
             if (!div1Level.equals("")) {
@@ -116,6 +116,12 @@ public class ProblemArchive extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    private BigDecimal makePercentage(String s) {
+        BigDecimal temp = new BigDecimal(s);
+        if (temp.compareTo(new BigDecimal("1"))<0) return temp;
+        else return temp.divide(new BigDecimal("100"), 4, BigDecimal.ROUND_HALF_UP);
     }
 
 }
