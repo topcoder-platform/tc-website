@@ -62,6 +62,7 @@
 								String timeStamp = gc.get(Calendar.HOUR) + ":" + gc.get(Calendar.MINUTE);
 								obj.first_name = dateStamp;
 								obj.last_name = timeStamp;
+								obj.date_of_birth = new java.sql.Date(gc.getTime().getTime());
 								obj = beanHandle.request( Coder.UPDATE, obj );
 							%>
 
