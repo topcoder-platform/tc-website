@@ -316,8 +316,8 @@ abstract public class ContractingBase extends BaseProcessor {
             }
         }
         
-        if(!info.isEdit())
-            return info;
+        /*if(!info.isEdit())
+            return info;*/
         
         //load skills
         CoderSkill skillbean = (CoderSkill)createEJB(ctx, CoderSkill.class);
