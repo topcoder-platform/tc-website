@@ -8,7 +8,7 @@
 	<table align="center">
 		<tr>
    			<td>
-        		<A href="/tc?module=Static&d1=dev&d2=usdc_overview"><img src="/i/development/usdc/usdc_logo.gif" width="510" height="120" border="0" alt="Ultimate Software Development Contest"></A><br/>
+        		<A href="/tc?module=Static&d1=dev&d2=usdc_overview"><img src="/i/development/usdc/usdc_logo.gif" width="510" height="100" border="0" alt="Ultimate Software Development Contest"></A><br/>
             	<img src="/i/clear.gif" width="10" height="15" border="0"/></td>
     	</tr>
 	</table>
