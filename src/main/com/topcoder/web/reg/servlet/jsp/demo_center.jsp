@@ -209,8 +209,7 @@ function lookupText(qId){
 
   <tr>
     <td class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif" nowrap=""><%=demographicQuestion%>&nbsp;</td>
-    <td class="statText" align="left" valign="middle"><%=demographicAnswer%></td>
-    <td class="statText" align="left" valign="middle"><%=demographicDescription%></td>
+    <td colspan="2" class="statText" align="left" valign="middle"><%=demographicAnswer%>&#160;<%=demographicDescription%></td>
   </tr>
   <tr valign="middle">
     <td colspan="3"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
