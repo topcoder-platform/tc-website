@@ -36,14 +36,12 @@ public class Activate extends Base {
     }
 
     protected void businessProcessing() throws TCWebException {
-        InitialContext ctx = null;
 
         String code = StringUtils.checkNull(getRequest().getParameter(Constants.ACTIVATION_CODE));
         long userId = StringUtils.getCoderId(code);
 
         try {
-            ctx = new InitialContext();
-            Coder coder = (Coder) createEJB(ctx, Coder.class);
+            Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
             String dbCode = null;
             try {
                 dbCode = coder.getActivationCode(userId, DBMS.OLTP_DATASOURCE_NAME);
@@ -52,7 +50,7 @@ public class Activate extends Base {
             }
             if (dbCode.equals(code)) {
                 //activate account
-                User user = (User) createEJB(ctx, User.class);
+                User user = (User) createEJB(getInitialContext(), User.class);
                 char status = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 if (Arrays.binarySearch(UNACTIVE_STATI, status) > 0) {
                     doLegacyCrap((int)userId);
@@ -71,8 +69,6 @@ public class Activate extends Base {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
-        } finally {
-            close(ctx);
         }
     }
 

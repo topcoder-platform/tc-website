@@ -20,7 +20,6 @@ public class Submit extends View {
 
     protected void surveyProcessing() throws TCWebException {
 
-        InitialContext ctx = null;
         UserTransaction tx = null;
         try {
             if (getUser().isAnonymous())
@@ -42,13 +41,12 @@ public class Submit extends View {
                 checkRequiredQuestions(responses);
                 boolean hasAllFreeForm = true;
                 if (!hasErrors()) {
-                    ctx = new InitialContext();
 
                     tx = Transaction.get();
                     Transaction.begin(tx);
 
                     SurveyResponse resp = null;
-                    Response response = (Response) createEJB(ctx, Response.class);
+                    Response response = (Response) createEJB(getInitialContext(), Response.class);
                     for (Iterator it = responses.iterator(); it.hasNext();) {
                         resp = (SurveyResponse) it.next();
                         hasAllFreeForm &= resp.isFreeForm();
@@ -81,8 +79,6 @@ public class Submit extends View {
                 Transaction.rollback(tx);
             }
             throw new TCWebException(e);
-        } finally {
-            close(ctx);
         }
     }
 

@@ -101,14 +101,8 @@ public class Login extends Base {
      */
     private char getStatus(long userId) throws Exception {
         char result;
-        InitialContext ctx = null;
-        try {
-            ctx = new InitialContext();
-            User user = (User)createEJB(ctx, User.class);
-            result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        } finally {
-            close(ctx);
-        }
+        User user = (User)createEJB(getInitialContext(), User.class);
+        result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         return result;
 
     }
