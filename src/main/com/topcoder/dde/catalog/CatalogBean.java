@@ -439,8 +439,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
         StringBuffer query = new StringBuffer(200);
         query.append("SELECT category_id, category_name, description FROM categories ");
-        query.append(" WHERE ( NOT ( status_id = ? ) )                               ");
-        query.append("   AND parent_category_id IS NULL                   ORDER BY 2 ");
+        query.append(" WHERE status_id <> ? ");
+        query.append("   AND parent_category_id IS NULL ORDER BY 2 ");
 
         Connection c = null;
         PreparedStatement ps = null;

@@ -16,7 +16,7 @@
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "catalog.jsp";
-    String action = request.getParameter("a");	
+    String action = request.getParameter("a");
 %>
 
 
@@ -25,7 +25,7 @@
 	<title>TopCoder Software</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-  
+
 <script language="JavaScript" type="text/javascript" src="/scripts/javascriptAdmin.js">
 </script>
 
@@ -43,7 +43,7 @@
             fieldsRequest.add("keywords", new Field("Keywords", "keywords",  "", true));
             fieldsRequest.add("comments", new Field("Comments", "comments",  "", true));
             fieldsRequest.add("vlabel", new Field("Version Label", "vlabel",  "", true));
-        
+
         boolean requestError = false;
         String strRequestError = "";
         String strRequestMsg = "";
@@ -135,7 +135,7 @@
 				<tr><td class="normal"><img src="/images/headCatalogAdmin.gif" alt="Catalog Admin" width="545" height="35" border="0" /></td></tr>
 				<tr><td class="subhead"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 			</table>
-				
+
 			<table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
 				<tr valign="top">
 					<td align="center">
@@ -143,7 +143,7 @@
 						<table cellpadding="0" cellspacing="0" border="0">
 							<tr><td width="445" height="29" colspan="2"><img src="/images/adminViewStatHead.gif" alt="View Components by Status" width="500" height="29" border="0" /></td></tr>
 						</table>
-						
+
 						<table width="500" border="0" cellspacing="8" cellpadding="0" align="center" class="admin">
 
 <!-- Choose status begins -->
@@ -176,14 +176,14 @@
 <!-- Choose status ends -->
 
 <%
-    if (colComponents != null) { 
+    if (colComponents != null) {
 %>
- 
+
 <!-- Status Display begins -->
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
 				<tr><td class="adminSubhead">Search Results</td></tr>
 			</table>
-				
+
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
 				<tr valign="top">
 					<td width="40%" class="adminTitle">Name</td>
@@ -197,7 +197,7 @@
 		for (int i=0; i < summaries.length; i++) {
 	%>
 				<tr valign="top">
-					<td class="forumText"><strong><a href="component_admin.jsp?comp=<%= summaries[i].getComponentId() %>"><%= summaries[i].getName() %></a></td>
+					<td class="forumText"><strong><a href="component_admin.jsp?comp=<%= summaries[i].getComponentId() %>"><%=catalog.getCategory(summaries[i].getRootCategory()).getName()%> <%= summaries[i].getName() %></a></td>
 					<td class="forumTextCenter"><%= summaries[i].getVersion() %></td>
 					<td class="forumText"><%= summaries[i].getPhaseDate() %></td>
 					<td class="forumTextCenter"><a class="edit" href="component_admin.jsp?comp=<%= summaries[i].getComponentId() %>">EDIT</a></td>
@@ -233,7 +233,7 @@
 <!-- Gutter 3 ends -->
 	</tr>
 </table>
-	
+
 <!-- Footer begins -->
 <jsp:include page="/includes/footer.jsp" flush="true" />
 <!-- Footer ends -->
