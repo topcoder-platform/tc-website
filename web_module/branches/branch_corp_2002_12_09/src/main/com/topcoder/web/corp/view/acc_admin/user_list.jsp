@@ -64,7 +64,9 @@
 
 	<TR>
 	  <TD>
-	  <%=rsc.toString()%>
+	  <% if (rsc != null) out.println(rsc.toString()); 
+	     else out.println("No Users Found"); 
+	  %>
 	  </TD>
 	</TR>
 		<TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr" CLASS="bodyText">Add</A></TD>		

@@ -84,7 +84,7 @@ public class UserListTest extends BaseProcessor {
 
         try {
             StringBuffer query = new StringBuffer();
-            query.append("SELECT u.first_name, u.last_name, u.user_id FROM user u WHERE u.user_id = 12");
+            query.append("SELECT u.first_name, u.last_name, u.user_id FROM user u");
 
 //        query.append("SELECT u.user_id 
 //                           , su.user_id AS handle
