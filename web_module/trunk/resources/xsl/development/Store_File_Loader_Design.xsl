@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>Palm Common Connectivit Design Project at TopCoder</title>
+                <title>Store File Loader Design Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
