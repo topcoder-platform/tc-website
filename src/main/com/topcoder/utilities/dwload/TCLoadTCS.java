@@ -491,7 +491,9 @@ public class TCLoadTCS extends TCLoad {
                     "pr.valid_submission_ind, " +
                     "pr.raw_score, " +
                     "pr.final_score, " +
-                    "(select min(create_time) from component_inquiry where component_id = cc.component_id and tc_user_id = pr.user_id) as inquire_timestamp, " +
+                    "case when exists (select create_time from component_inquiry where project_id = p.project_id and tc_user_id = pr.user_id) then " +
+                    "(select min(create_time) from component_inquiry where project_id = p.project_id and tc_user_id = pr.user_id) else " +
+                    "(select min(create_time) from component_inquiry where component_id = cc.component_id and tc_user_id = pr.user_id) end as inquire_timestamp, " +
                     "(select submission_date from submission s where s.cur_version = 1 and s.project_id = pr.project_id and s.submitter_id = pr.user_id and submission_type = 1 and is_removed = 0) as submit_timestamp, " +
                     "(select max(pm_review_timestamp) from scorecard where scorecard_type = 2 and is_completed = 1 and submission_id = " +
                     "	(select submission_id from submission s where s.cur_version = 1 and s.project_id = pr.project_id and s.submitter_id = pr.user_id and submission_type = 1 and is_removed = 0) " +
