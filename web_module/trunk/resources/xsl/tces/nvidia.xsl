@@ -104,7 +104,7 @@ To support NVIDIA's employees, the HR team is committed to delivering programs a
 
 <P>Through our corporate donations and fundraising program, we currently support such organizations as the American Red Cross, the Second Harvest Food Bank, the Humane Society, and other non-profit organizations.</P>
 
-<P>Check out the Software Engineering positions available at NVIDIA.
+<P><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure">Click here</A> to check out the positions available at NVIDIA.
 </P>
 
 
