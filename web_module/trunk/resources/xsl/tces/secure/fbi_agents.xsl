@@ -199,7 +199,8 @@ The Federal Bureau of Investigation is an Equal Opportunity Employer. All qualif
 <B>IMPORTANT NOTE: </B><BR/>
 By clicking on "APPLY HERE", you authorize TopCoder to release your member
 profile information, competition statistics, code samples, resume, rating
-and ranking to the FBI.
+and ranking to the FBI.<BR/>
+<B>Applicants must be between the ages of 22 1/2 and 36 1/2.</B>
 </P>
 <P>
 Due to the high volume of response being received, the FBI will only accept
