@@ -445,6 +445,7 @@
             <classes dir="${classes}">
                 <include name="com/topcoder/web/jobPosting/common/*"/>
                 <include name="com/topcoder/web/jobPosting/servlet/*"/>
+                <include name="com/topcoder/web/jsp/errorPage.jsp"/>
             </classes>
         </war>
     </target>
