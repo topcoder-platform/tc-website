@@ -4,10 +4,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.Constants;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.*;
 import com.topcoder.web.codinginterface.techassess.controller.request.Base;
 import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
 import com.topcoder.web.codinginterface.techassess.model.WebResponsePool;
@@ -107,8 +104,8 @@ public class MainServlet extends BaseServlet {
 
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
-        return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response,
-                BasicAuthentication.TECH_ASSESS_SITE);
+        return new LightAuthentication(new SessionPersistor(request.getSession()), request, response,
+                LightAuthentication.TECH_ASSESS_SITE);
     }
 
 

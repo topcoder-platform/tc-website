@@ -268,7 +268,7 @@ public class BasicAuthentication implements WebAuthentication {
      *
      * @param user
      */
-    private void setUserInPersistor(User user) {
+    protected void setUserInPersistor(User user) {
         persistor.setObject(request.getSession().getId()+USER_PERSISTOR_KEY, user);
     }
 
