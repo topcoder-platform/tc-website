@@ -547,6 +547,30 @@
         <antcall target="deploy-privatelabel"/>
     </target>
 
+    <target name="move">
+        <unwar src="${war.dir}/tc.war" dest="${public_html}/tc/" overwrite="yes"/>
+        <delete dir="${public_html}/tc/META-INF"/>
+
+        <unwar src="${war.dir}/admin.war" dest="${public_html}/admin/" overwrite="yes"/>
+        <delete dir="${public_html}/admin/META-INF"/>
+
+        <unwar src="${war.dir}/query.war" dest="${public_html}/query/" overwrite="yes"/>
+        <delete dir="${public_html}/query/META-INF"/>
+
+        <unwar src="${war.dir}/email.war" dest="${public_html}/email/" overwrite="yes"/>
+        <delete dir="${public_html}/email/META-INF"/>
+
+        <unwar src="${war.dir}/corp.war" dest="${public_html}/corp/" overwrite="yes"/>
+        <delete dir="${public_html}/corp/META-INF"/>
+
+        <unwar src="${war.dir}/hs.war" dest="${public_html}/hs/" overwrite="yes"/>
+        <delete dir="${public_html}/hs/META-INF"/>
+
+        <unwar src="${war.dir}/privatelabel.war" dest="${public_html}/privatelabel/" overwrite="yes"/>
+        <delete dir="${public_html}/privatelabel/META-INF"/>
+    </target>
+
+
 
     <target name="war-query" depends="compile">
         <war warfile="${war.dir}/query.war" webxml="${resources}/query/web.xml">
