@@ -79,6 +79,11 @@ public class Submit extends Base {
                         new String[]{String.valueOf(getMessageId()), String.valueOf(componentId), String.valueOf(problemTypeId)}));
             } else if (response.getStatus()==ScreeningSubmitResponse.RESUBMIT) {
                 addError(Constants.CODE, response.getMessage());
+                setDefault(Constants.CODE, code);
+                setDefault(Constants.LANGUAGE_ID, String.valueOf(languageId));
+                setDefault(Constants.PROBLEM_TYPE_ID, String.valueOf(problemTypeId));
+                setDefault(Constants.COMPONENT_ID, String.valueOf(componentId));
+                setDefault(Constants.SUBMIT_FLAG, String.valueOf(resubmit));
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_SUBMIT_RESPONSE,
                         new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID, Constants.MESSAGE_ID,
                                       Constants.SUBMIT_FLAG},
