@@ -447,7 +447,6 @@
         <antcall target="war_email"/>
         <antcall target="war_query"/>
         <antcall target="deploy-admin"/>
-        <antcall target="deploy-security"/>
     </target>
 
     <target name="dev_wars" depends="compile">
