@@ -9,16 +9,16 @@
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML>
-<HEAD>
+<html>
+<head>
 
-<TITLE>TopCoder | Employment Services</TITLE>
+<title>TopCoder | Recruiting Reports</title>
 
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/corpStyle.css">
+<link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
 
 <jsp:include page="script.jsp" />
     
-</HEAD>
+</head>
 
 <body>
 
@@ -26,43 +26,33 @@
 
 <jsp:useBean id="MainTask" scope="request" class="com.topcoder.web.tces.bean.MainTask" />
 
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<table width="100%" border="0" CELLPADDING="0" CELLSPACING="0">
     <TR valign="top">
 
 <!-- Left Column Begins -->
-      <TD WIDTH="25"><img src="/i/clear.gif" width="25" HEIGHT="11" alt="" BORDER="0"></TD>
+      <td width="25"><img src="/i/clear.gif" width="25" height="11" alt="" border="0"></td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-      <TD WIDTH="6"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="8" alt="" border="0"></TD>
+      <td width="6"><img src="/i/clear.gif" width="6" height="8" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <TD class="bodyText" width="100%" align="center"><br>
-                    
-            <jsp:include page="body_top.jsp" >
-                <jsp:param name="image" value="tces" />
-                <jsp:param name="image1" value="steelblue" />
-                <jsp:param name="title" value="<%=MainTask.getCompanyName()%>" />
-            </jsp:include><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
-            
-            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="50%" align="center">
-                <TR VALIGN="top">
-                    <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="statTextBig" WIDTH="100%">
-                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="400" HEIGHT="10" BORDER="0"><br>
-                        Employment Campaigns for <jsp:getProperty name="MainTask" property="CompanyName"/><br>
-                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="10" BORDER="0">
-                        <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
-                            <TR>
-                                <TD WIDTH="5" class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                                <TD colspan="2" class="testTableTitle"><strong>Campaign Name</strong></TD>
-                                <TD WIDTH="10" class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD class="testTableTitle" nowrap="nowrap"><strong>Start Date</strong></TD>
-                                <TD WIDTH="10" class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD class="testTableTitle" nowrap="nowrap"><strong>End Date</strong></TD>
-                                <TD WIDTH="5" class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                            </TR>
+        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="50%" align="center">
+                <tr valign="top">
+                    <td class="bodyText">
+                        <h1 class="testHead">Employment Campaigns for <jsp:getProperty name="MainTask" property="CompanyName"/></h1>
+                    </td>
+                </tr>
+           </table>
+
+            <table id="dataTable" width="50%" cellspacing="0" cellpadding="3" border="0">
+                <tr>
+                    <td colspan="2" class="testTableTitle">Campaign Name</td>
+                    <td class="testTableTitle" nowrap="nowrap">Start Date</td>
+                    <td class="testTableTitle" nowrap="nowrap">End Date</td>
+                </tr>
     
                 <%
                   /* this is some logic so that if you're an "admin" user, you'll get the company names
@@ -79,70 +69,58 @@
                  %>
  
                 <tces:rowIterator id="campaignInfo" rowList="<%=MainTask.getCampaignInfoList()%>">
+                
                 <% i++;
                    currCompany = Integer.parseInt(campaignInfo.getItem("company_id").toString()); 
                    if (currCompany != lastCompany || (MainTask.hasManyCompanies() && i==1)) { %> 
-                            <TR>
-                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                                <TD colspan="6" class="statTextBig"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"><br>
-                                    <%= campaignInfo.getItem("company_name").toString() %></TD>
-                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                            </TR>
+                
+                <tr><td colspan="4"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
+                <tr><td colspan="4" class="testFormHeader"><%= campaignInfo.getItem("company_name").toString() %></td></tr>
+                
                 <% lastCompany = currCompany;
                    } %>
 
-                            <TR>
-                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="98%" class="bodyText"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></TD>
-                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="1%" class="bodyText" nowrap="nowrap"><%=campaignInfo.getItem("start_date").toString()%></TD>
-                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="1%" class="bodyText" nowrap="nowrap"><%=campaignInfo.getItem("end_date").toString()%></TD>
-                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                            </TR>
+                <tr>
+                    <td width="5" class="testTableOdd"><img src="/i/clear.gif" alt="" width="5" height="1" border="0"></td>
+                    <td width="60%" class="testTableOdd"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></td>
+                    <td width="20%" class="testTableOdd" nowrap="nowrap"><%=campaignInfo.getItem("start_date").toString()%></td>
+                    <td width="20%" class="testTableOdd" nowrap="nowrap"><%=campaignInfo.getItem("end_date").toString()%></td>
+                </tr>
 
-                            </tces:rowIterator>
+                </tces:rowIterator>
 
-                            <% if(MainTask.getCampaignInfoList().isEmpty()){ %>
+                <% if(MainTask.getCampaignInfoList().isEmpty()){ %>
                 
-                            <TR>
-                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                                <TD class="bodyText" colspan="6">
-                                    <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="5" BORDER="0"><br>
-                                    Your job campaigns have expired.  Contact <A HREF="mailto:tces@topcoder.com" class="bodyText">tces@topcoder.com</A> to renew your contract.</TD>
-                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                            </TR>
+                <tr>
+                    <td class="testTableOdd" colspan="4">
+                        <img src="/i/clear.gif" alt="" width="10" height="10" border="0"><br>
+                        Your job campaigns have expired. Contact <A HREF="mailto:tces@topcoder.com" class="bodyText">tces@topcoder.com</A> to renew your contract.<br>
+                        <img src="/i/clear.gif" alt="" width="10" height="10" border="0"></td>
+                </tr>
 
-                            <% } %>
+                <% } %>
 
-                        </TABLE>
-                    </TD>
-                    <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                </TR>
+            </table>
 
-                <TR><TD COLSPAN="3" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD></TR>
-                
-                <P><BR></P>
+            <P><BR></P>
 
-            </TABLE>
-        </TD>
+        </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-      <TD WIDTH="6"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" alt="" BORDER="0"></TD>
+      <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-      <TD WIDTH="25"><img src="/i/clear.gif" width="25" HEIGHT="11" alt="" BORDER="0"></TD>
+      <td width="25"><img src="/i/clear.gif" width="25" height="11" alt="" border="0"></td>
 <!-- Right Column Ends -->
 
-    </TR>
-</TABLE>
+    </tr>
+</table>
 
 <!-- Footer begins -->
 <jsp:include page="foot.jsp" />             
 <!-- Footer ends -->
 
-</BODY>
-</HTML>
+</body>
+</html>
