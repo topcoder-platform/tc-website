@@ -16,7 +16,8 @@ public class UseBeanTag extends BodyTagSupport {
     private static final int DEFAULT_SCOPE = PageContext.PAGE_SCOPE;
 
     private String type= DEFAULT_TYPE;
-    private int scope = DEFAULT_SCOPE;
+    private int toScope = DEFAULT_SCOPE;
+    private int fromScope = -1;
     private String id = null;
     private String name = null;
     private String property = null;
@@ -29,16 +30,25 @@ public class UseBeanTag extends BodyTagSupport {
         this.property = property;
     }
 
-    public void setScope(String scope) {
+    public void setFromScope(String fromScope) {
+        this.fromScope =scopeFigureOuterer(fromScope);
+    }
+
+    public void setToScope(String toScope) {
+        this.toScope = scopeFigureOuterer(toScope);
+    }
+
+    private int scopeFigureOuterer(String scope) {
         if (scope.equalsIgnoreCase("REQUEST")) {
-            this.scope = PageContext.REQUEST_SCOPE;
+            return PageContext.REQUEST_SCOPE;
         } else if (scope.equalsIgnoreCase("PAGE")) {
-            this.scope = PageContext.PAGE_SCOPE;
+            return PageContext.PAGE_SCOPE;
         } else if (scope.equalsIgnoreCase("SESSION")) {
-            this.scope = PageContext.SESSION_SCOPE;
+            return PageContext.SESSION_SCOPE;
         } else if (scope.equalsIgnoreCase("APPLICATION")) {
-            this.scope = PageContext.APPLICATION_SCOPE;
+            return PageContext.APPLICATION_SCOPE;
         }
+        return -1;
     }
 
     public void setId(String id) {
@@ -51,7 +61,12 @@ public class UseBeanTag extends BodyTagSupport {
 
     public int doEndTag() throws JspException {
         Object propertyObject = null;
-        Object o = pageContext.findAttribute(name);
+        Object o = null;
+        if (fromScope>=0) {
+             o = pageContext.getAttribute(name, fromScope);
+        } else {
+             o = pageContext.findAttribute(name);
+        }
         if (o==null) {
             throw new JspException("attribute " + name + " not found");
         } else if (property!=null) {
@@ -84,10 +99,10 @@ public class UseBeanTag extends BodyTagSupport {
             }
 
         }
-        pageContext.setAttribute(id, propertyObject==null?o:propertyObject, scope);
+        pageContext.setAttribute(id, propertyObject==null?o:propertyObject, toScope);
 
         this.type= DEFAULT_TYPE;
-        this.scope = DEFAULT_SCOPE;
+        this.toScope = DEFAULT_SCOPE;
         this.name = null;
         this.id = null;
         this.property = null;
