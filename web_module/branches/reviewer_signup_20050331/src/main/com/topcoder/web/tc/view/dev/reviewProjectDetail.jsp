@@ -155,8 +155,9 @@
                                 Not open yet***
                             <% } else if (((ReviewBoardApplication) reviewer).isSpotFilled()) { %>
                                 <tc:beanWrite name="reviewer" property="handle"/>
+                                <%--
                             <% } else {
-                               Timestamp ts = null;
+                                Timestamp ts = null;
                                 try {
                                     ts = rboardApplication.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
                                 } catch (RemoteException e) {
@@ -168,6 +169,7 @@
                                 }
                                 if (ts != null && System.currentTimeMillis() < ts.getTime() + APPLICATION_DELAY) { %>
                                    Waiting****
+                                   --%>
                                 <% } else { %>
                                     <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<tc:beanWrite name="reviewer" property="phaseId"/>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a>**
                                 <% }
