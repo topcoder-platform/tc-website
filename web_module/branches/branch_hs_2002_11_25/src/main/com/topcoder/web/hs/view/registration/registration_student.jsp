@@ -233,7 +233,7 @@
   </TR>
   <TR>
    <TD COLSPAN="4" CLASS="bodyText" ALIGN="center" VALIGN="middle">
-    <TEXTAREA NAME="TermDesc" ROWS="10" COLS="80" READONLY CLASS="bodyText">
+    <TEXTAREA CLASS="bodyText" ROWS="10" COLS="80" READONLY>
 <%@ include file="terms.txt" %>
     </TEXTAREA>
    </TD>
