@@ -37,6 +37,6 @@ public class TrySecurity extends BaseProcessor {
         PrincipalMgrRemote remotePrincipalMgr = AppContext.getInstance().getRemotePrincipalManager();
         UserPrincipal user = remotePrincipalMgr.getUser(132456);
         log.debug("security component remote access check passed");
-        //throw new Exception("debug exception");
+        throw new Exception("debug exception");
     }
 }
