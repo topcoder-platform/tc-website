@@ -666,7 +666,7 @@ public class PLLoadCoders extends TCLoad {
             query.append(" ,name ");
             query.append(" ,short_name) ");
             query.append("VALUES (");
-            query.append("?,?,?,?,?,?,?)");
+            query.append("?,?,?,?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
