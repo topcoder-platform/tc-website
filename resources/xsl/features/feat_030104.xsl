@@ -71,7 +71,7 @@ students to compete in SRMs (Single Round Matches).  While there's a wide range 
 the students do, and I've destroyed the university TopCoder rating,
 most are better off for the experience.</p>
 
-<p>As a new semester has just started, and there will be the usual
+<p>As a new semester has begun, and there will be the usual
 flurry of "why do you make us do this" questions, it's a good time
 to talk about the benefits (and also pitfalls) of TopCoding.
 My objective is to make my students smarter and more
