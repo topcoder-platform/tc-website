@@ -692,18 +692,18 @@ final class UserDbCoder {
                 ps = conn.prepareStatement(query);
                 ps.setInt(1, currentSchool.getSchoolId());
                 ps.setString(2, currentSchool.getName());
-                ps.setInt(3, currentSchool.getUserId());
                 if (currentSchool.getGpa()>0 || currentSchool.getGpaScale()>0) {
                     log.debug("setting gpa: " + currentSchool.getGpa());
                     log.debug("setting gpaScale: " + currentSchool.getGpaScale());
-                    ps.setFloat(4, currentSchool.getGpa());
-                    ps.setFloat(5, currentSchool.getGpaScale());
+                    ps.setFloat(3, currentSchool.getGpa());
+                    ps.setFloat(4, currentSchool.getGpaScale());
                 } else {
                     log.debug("setting gpa null");
                     log.debug("setting gpaScale");
+                    ps.setNull(3, Types.FLOAT);
                     ps.setNull(4, Types.FLOAT);
-                    ps.setNull(5, Types.FLOAT);
                 }
+                ps.setInt(5, currentSchool.getUserId());
                 ps.executeUpdate();
                 currentSchool.setModified("S");
             } else {
