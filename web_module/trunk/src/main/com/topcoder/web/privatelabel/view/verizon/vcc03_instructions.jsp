@@ -131,6 +131,14 @@
                            and invoke the appropriate methods.  Below you will find code templates for Java, C++, C# and VB.NET:</dd><br/>
                            
                         <dd><strong>Java Code Template</strong><br/></dd><br/>
+                        
+                        <tt>import &#60;necessary classes&#62;<br/>
+                        public class &#60;class-name&#62; {<br/>
+                        public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br?>
+                        //your source here<br/>
+                        return &#60;results&#62;;<br/>
+                        }<br/>
+                        }</tt>
                           
 
                           <dd><strong>C++ Code Template</strong><br/></dd><br/>
