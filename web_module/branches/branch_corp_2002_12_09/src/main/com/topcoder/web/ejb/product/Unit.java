@@ -17,19 +17,22 @@ public interface Unit extends EJBObject {
      *
      * @see com.topcoder.web.ejb.product.UnitBean#createUnit
      */
-    void createUnit(long productId, long unitTypeId, int numUnits);
+    void createUnit(long productId, long unitTypeId, int numUnits)
+        throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.product.UnitBean#getNumUnits
      */
-    int getNumUnits(long productId, long unitTypeId);
+    int getNumUnits(long productId, long unitTypeId)
+        throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.product.UnitBean#setNumUnits
      */
-    void setNumUnits(long productId, long unitTypeId, int numUnits);
+    void setNumUnits(long productId, long unitTypeId, int numUnits)
+        throws RemoteException, EJBException;
 }

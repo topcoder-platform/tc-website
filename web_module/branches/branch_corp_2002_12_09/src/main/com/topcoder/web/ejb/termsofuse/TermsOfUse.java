@@ -17,7 +17,7 @@ public interface TermsOfUse extends EJBObject {
      *
      * @see com.topcoder.web.ejb.termsofuse.TermsOfUseBean#createTermsOfUse
      */
-    long createTermsOfUse();
+    long createTermsOfUse() throws RemoteException, EJBException;
 
     /**
      *
@@ -40,12 +40,13 @@ public interface TermsOfUse extends EJBObject {
      *
      * @see com.topcoder.web.ejb.termsofuse.TermsOfUseBean#getText
      */
-    String getText(long termsOfUseId);
+    String getText(long termsOfUseId) throws RemoteException, EJBException;
 
     /**
      *
      *
      * @see com.topcoder.web.ejb.termsofuse.TermsOfUseBean#getTermsOfUseTypeId
      */
-    long getTermsOfUseTypeId(long termsOfUseId);
+    long getTermsOfUseTypeId(long termsOfUseId)
+                      throws RemoteException, EJBException;
 }
