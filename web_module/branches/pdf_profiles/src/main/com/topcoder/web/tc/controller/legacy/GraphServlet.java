@@ -951,9 +951,10 @@ public final class GraphServlet extends HttpServlet {
             PNGOutput out = new PNGOutput(600, 400, Color.black, baos);
             out.setMargin(10, 10, 10, 10);
             out.setColor(GREEN);
+            
+            out.render(g);
             out.line(110,0,110,400);
             out.line(126,0,126,400);
-            out.render(g);
             return baos.toByteArray();
 
         } catch (Exception e) {
