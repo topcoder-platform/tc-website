@@ -307,7 +307,7 @@ public class ProfileSkillXrefBean implements javax.ejb.SessionBean {
 		String			select = "SELECT SKILL.SKILL_ID, " +
 		  "SKILL_LEVEL_ID FROM " +
 		  "PROFILE_SKILL_XREF, SKILL WHERE " +
-		  "PROFILE_SKILL_XREF.PROFILE_SKILL_ID = SKILL.SKILL_ID AND " +
+		  "PROFILE_SKILL_XREF.SKILL_ID = SKILL.SKILL_ID AND " +
 		  "PROFILE_SKILL_XREF.PROFILE_ID = " + profileId.intValue() +
 		  " ORDER BY SKILL.SKILL_ORDER";
 		PreparedStatement	ps = null;
@@ -339,7 +339,7 @@ public class ProfileSkillXrefBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "jdbc/TCES" );
+			  context.lookup( "OLTP" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {
