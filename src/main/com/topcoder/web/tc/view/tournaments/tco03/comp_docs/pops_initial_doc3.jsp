@@ -31,7 +31,7 @@
                 </tr>
 
                 <tr>
-                    <td width="99%"><img src="/i/tournament/tco03/comp_docs/pops/initial/AspectOrientedFactory.gif" alt="" width="2502" height="714" border="0" class="compDocs"></td>
+                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/pops/initial/AspectOrientedFactory.gif" alt="" width="2502" height="714" border="0"></div></td>
                     <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
                 </tr>
 
