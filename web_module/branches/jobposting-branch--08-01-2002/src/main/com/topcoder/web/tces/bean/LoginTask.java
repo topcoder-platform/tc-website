@@ -30,14 +30,19 @@ public class LoginTask extends BaseTask implements Task, Serializable {
     /* Holds a message to be displayed on the login page */
     private String message;
 
+    /* Holds a boolean indicating whether the login task should perform custom redirection */
+    private boolean customRedir;
 
     /* Creates a new LoginTask */
     public LoginTask() {
         super();
+        customRedir=false;
         setHandleInput("");
         setPasswordInput("");
         setNextPage(TCESConstants.LOGIN_PAGE);
     }
+
+
 
     /** Setter for property handleInput.
      * @param handleInput New value of property handleInput.
@@ -83,6 +88,10 @@ public class LoginTask extends BaseTask implements Task, Serializable {
 
 	public void servletPreAction(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
+        if (Authentication.getRequestedURL(request.getSession(true)).trim().length()>0) {
+            setNextPage(Authentication.getRequestedURL(request.getSession(true)).trim());
+            customRedir=true;
+        }
 	}
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception
@@ -92,7 +101,8 @@ public class LoginTask extends BaseTask implements Task, Serializable {
             HttpSession session = request.getSession(true);
 
             if (Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "")) {
-                setNextPage(TCESConstants.LOGIN_OK_PAGE );
+                if (!customRedir)
+                    setNextPage(TCESConstants.LOGIN_OK_PAGE );
             }
             else {
                 setMessage(Authentication.getErrorMessage(session));

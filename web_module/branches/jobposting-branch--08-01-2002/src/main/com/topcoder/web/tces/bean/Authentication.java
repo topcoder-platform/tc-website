@@ -40,7 +40,7 @@ public class Authentication implements Serializable {
         try {
             Authentication auth;
 
-            if ( (auth=session.getAttribute("tces_auth"))==null) {
+            if ( (auth=(Authentication)session.getAttribute("tces_auth"))==null) {
                 auth = new Authentication();
                 session.setAttribute("tces_auth", auth);
             }
