@@ -8,8 +8,8 @@
 </head>
 <body>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<tc-webtag:useBean id="problem" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.problem.Problem" scope="page" property="problem"/>
-<tc-webtag:useBean id="language" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.language.Language" scope="page" property="language"/>
+<tc-webtag:useBean id="prob" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.problem.Problem" scope="page" property="problem"/>
+<tc-webtag:useBean id="language" name="prob" type="com.topcoder.shared.language.Language" scope="page" property="language"/>
 <tc-webtag:useBean id="languages" name="<%=Constants.LANGUAGES%>" type="java.util.List" scope="page" />
 
 
