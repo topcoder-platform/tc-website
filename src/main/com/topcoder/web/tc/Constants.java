@@ -103,6 +103,7 @@ public class Constants {
     public static int MAX_UNRATED_INQUIRIES;
     public static int REVIEWER_TERMS_ID;
     public static int TOURNAMENT_COMPONENT;
+    public static int ACTIVE_REVIEWER;
 
 
     static {
