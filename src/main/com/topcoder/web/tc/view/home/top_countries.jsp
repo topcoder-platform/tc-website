@@ -6,7 +6,7 @@
     <tr valign="middle">
         <td class="statTextBig" width="1%" nowrap="0">&#160;Top <%=countries.size()%> Countries</td>
         <td class="statTextBig" width="15"><A href="javascript:openWin('/tc?&amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topCountries','countryrankinfo', 500,500)" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0"/></A></td>
-        <td class="statTextBig" align="right" width="99%"><a href="/stat?c=coder_ratings" class="statTextBig">View all</a>&#160;</td>
+        <td class="statTextBig" align="right" width="99%"><a href="/stat?c=country_avg_rating" class="statTextBig">View all</a>&#160;</td>
     </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#333333">
