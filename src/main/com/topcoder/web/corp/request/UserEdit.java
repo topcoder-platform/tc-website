@@ -143,8 +143,11 @@ public class UserEdit extends BaseProcessor {
      * @throws Exception
      */
     protected boolean loadUserData() throws Exception {
-       nextPage = formPage;
-       return secTok.createNew;
+        if (!"POST".equalsIgnoreCase(request.getMethod())) {
+            nextPage = formPage;
+            return secTok.createNew;
+        }
+        return false;
     }
 
     /**
