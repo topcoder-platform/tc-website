@@ -170,7 +170,7 @@ public abstract class BaseServlet extends HttpServlet {
         } catch (Exception e) {
             log.fatal("forwarding to error page failed", e);
             e.printStackTrace();
-
+            response.setContentType("text/html");
             response.setStatus(500);
             PrintWriter out = response.getWriter();
             out.println("<html><head><title>Internal Error</title></head>");

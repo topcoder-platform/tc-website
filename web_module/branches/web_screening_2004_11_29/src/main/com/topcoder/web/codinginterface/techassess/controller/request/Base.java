@@ -39,6 +39,7 @@ public abstract class Base extends BaseProcessor {
 
         Message ret = null;
         getResponse().setStatus(500);
+        getResponse().setContentType("text/html");
         try {
             PrintWriter out = getResponse().getWriter();
             out.println("<html><head><title>Wait page</title></head><body><table><tr><td>");

@@ -93,6 +93,7 @@ public class ResumeServlet extends BaseServlet {
             e.printStackTrace();
 
             response.setStatus(500);
+            response.setContentType("text/html");
             PrintWriter out = response.getWriter();
             out.println("<html><head><title>Internal Error</title></head>");
             out.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");

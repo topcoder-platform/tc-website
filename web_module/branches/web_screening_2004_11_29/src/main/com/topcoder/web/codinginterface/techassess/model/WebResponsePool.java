@@ -6,7 +6,6 @@ import com.topcoder.web.common.TCResponse;
 
 import java.io.Serializable;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 
 /**
