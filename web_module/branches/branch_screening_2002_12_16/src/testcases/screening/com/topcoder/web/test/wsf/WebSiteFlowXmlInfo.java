@@ -122,9 +122,13 @@ public class WebSiteFlowXmlInfo {
 					l.targetUrl = val;
 				} else if (name.equals("target-name")) {
 					l.targetPageName = val;
-				} else {
+				} else if (name.equals("add-patterns")) {
+					// reading additional patterns of target page
+					WsfPattern[] pats = readPagePatterns(e);
+					l.addPatterns = pats;
+				}else {
 					throw new DataFormatException("Wrong link field name in readOneLink(): " + name);
-				}				
+				}
 			}
 		}
 		return l;		
@@ -194,7 +198,7 @@ public class WebSiteFlowXmlInfo {
 				    	(valNode.getNodeType() == Node.TEXT_NODE)) {
 					sval = valNode.getNodeValue();
 				}
-				if (name.equals("index")) {
+				if (name.equals("index") && sval!=null) {
 					f.index = Integer.parseInt(sval);
 				} else if (name.equals("submit-button-name")) {
 					f.submitName = sval;
@@ -204,7 +208,11 @@ public class WebSiteFlowXmlInfo {
 					// reading parameters
 					WsfFormParam parm = readFormParameter(e);
 					parms.add(parm);
-				}				
+				} else if (name.equals("add-patterns")) {
+					// reading additional patterns of target page
+					WsfPattern[] pats = readPagePatterns(e);
+					f.addPatterns = pats;
+				}
 			}
 		}
 		f.params = new WsfFormParam[0];
@@ -246,7 +254,7 @@ public class WebSiteFlowXmlInfo {
 					// reading url
 					Node n = part_el.getFirstChild();
 					if (n == null) {
-						page.url = null; 
+						page.url = ""; 
 					} else {
 						page.url = n.getNodeValue().trim();
 					}

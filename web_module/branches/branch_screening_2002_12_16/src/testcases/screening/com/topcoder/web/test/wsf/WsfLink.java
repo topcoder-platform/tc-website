@@ -9,4 +9,5 @@ public class WsfLink {
 	String pattern;
 	String targetPageName;
 	String targetUrl;
+	WsfPattern[] addPatterns;
 }

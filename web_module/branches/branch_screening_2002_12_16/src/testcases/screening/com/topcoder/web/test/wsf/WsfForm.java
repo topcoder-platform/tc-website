@@ -12,4 +12,5 @@ public class WsfForm {
 		String submitName;  // name of submit button
 		WsfFormParam[] params;
 		String targetPageName;	
+		WsfPattern[] addPatterns;
 }
