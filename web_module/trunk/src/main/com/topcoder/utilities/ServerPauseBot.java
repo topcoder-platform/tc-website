@@ -51,10 +51,6 @@ public class ServerPauseBot {
                 String ret = getData(p.getErrorStream());
                 p.destroy();
 
-
-                System.out.println("1:" + ret);
-                System.out.println(p.exitValue());
-
                 if (ret.indexOf("failed") != -1) {
                     System.out.println("FAILED," + time);
                 } else if (ret.indexOf("200 OK") == -1) {
