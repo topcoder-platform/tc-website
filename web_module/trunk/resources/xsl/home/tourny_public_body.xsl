@@ -459,9 +459,6 @@ If you have ever played a video game, gone to a movie, or just watched a bit of 
 <!-- <A HREF="/?&amp;t=schedule&amp;c=oraclesurv_rules">
 <IMG SRC="/i/oraclesurv_promo.gif" ALT="Oracle Code Survivor" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A> -->
 
-<A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
-<IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>
-
 <!-- <A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/2002sunnetwork_button.gif" alt="" width="244" height="79" border="0"/></A><BR/>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
   <TR> 
@@ -543,8 +540,10 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
   </TD>
   </TR>               
 </TABLE><BR/>
+<A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
+<IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>
 <A HREF="/stat?c=member_profile&amp;cr=296745">
-<IMG SRC="/i/codermonth_sept.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>
+<IMG SRC="/i/codermonth_sept.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>
 </TD>
 <!-- <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
 <!-- Body Area Ends -->
