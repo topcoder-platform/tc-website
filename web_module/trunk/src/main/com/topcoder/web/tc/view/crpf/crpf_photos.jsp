@@ -107,6 +107,18 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                     </td>
                 </tr>
             </table>
+            
+            <p>The grand prize winners of the TopCoder Challenge, sponsored by AT&T, were treated to <i>A Magical Evening</i>, 
+            the annual start-studded ball honoring the Christopher Reeve Paralysis Foundation. The top fundraisers were Cristobal 
+            Baray (cbaray) and his wife Catherine (catbaray), Bryan Brown (bryanb2002), and Jay Slupesky (Jay_Slupesky). 
+            The top scorers in the tournament were Jared Showalter (jms137), John Dethridge (John Dethridge), Po-Shen Loh (po), 
+            and Yevgeniy Kuznetsov (hamster). Jason Woolever (qubits) replaced po, who was not able to attend. Geir Engdahl (dark_lord), 
+            Stevie Scraudner (stevietodd) were picked in the wild-card drawing. Dressed in their black-tie finest, the winners appear in 
+            the photos below, along with TopCoder Founder and Chairman, Jack Hughes, as well as William Sardone, AT&T Sales Center 
+            Vice President - New York. The final photo features actor John Lithgow, who emceed this year's event.  </p>
+
+            <p>TopCoder would like to thank all of the competitors and fundraisers who participated in the first TopCoder Charity Challenge, 
+            sponsored by AT&T. <b>Our tournament resulted in a total donation of $37,380 for CRPF. Great job everyone!</b></p>
 
 
             <p><br /></p>
