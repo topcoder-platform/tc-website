@@ -88,6 +88,8 @@ public class RequestTracker {
             InitialContext ctx = null;
             try {
                 ctx = TCContext.getInitial();
+                //don't really need an ejb here, there's no transaction or anything like that.  we can
+                //can improve efficiency by just doing it in code to skip all the ejb overhread
                 RequestServices rs = (RequestServices) BaseProcessor.createEJB(ctx, RequestServices.class);
                 //log.debug("begin request batch load");
                 for (Iterator it = a.iterator(); it.hasNext();) {
