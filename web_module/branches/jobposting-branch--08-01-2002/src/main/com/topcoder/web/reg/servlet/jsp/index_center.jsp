@@ -155,13 +155,13 @@ Founder and Chairman, TopCoder, Inc.
      <tr><td colspan="4"><img src="/i/clear.gif" width="1" height="1" border="0"></td></tr>
      <tr>
        <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Resume</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-       <td colspan="2" class="statTextBig" align="left" valign="middle">
+       <td colspan="2" class="statText" align="left" valign="middle">
          <% if (Registration.hasResume()) { %>
-           Click <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" class="statText">here</a> to upload a new resume.
+           Click <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" class="statTextBig">here</a> to upload a new resume.
            <br/>
-           Click <a href="/Resume?&t=DownloadTask" class="statText">here</a> to download your resume.
+           Click <a href="/Resume?&t=DownloadTask" class="statTextBig">here</a> to download your resume.
          <% } else { %>
-           Click <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" class="statText">here</a> to upload a resume.
+           Click <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" class="statTextBig">here</a> to upload a resume.
          <% } %>
        </td>
      </tr>
