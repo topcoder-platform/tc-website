@@ -56,7 +56,7 @@ public class SchoolBean implements SessionBean {
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       if (!IdGenerator.isInitialized()) {
-        IdGenerator.init(new InformixDB(),ds,"sequence_object","name",
+        IdGenerator.init(new SimpleDB(),ds,"sequence_object","name",
                          "current_value",9999999999L,1,true);
       }
 
