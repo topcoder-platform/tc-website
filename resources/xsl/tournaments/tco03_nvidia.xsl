@@ -51,12 +51,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_visualize.gif" alt="NVIDA" width="357" height="18" border="0" />
+                    <td colspan="2" align="center"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_visualize.gif" alt="NVIDA" width="357" height="18" border="0" />
                     </td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="bodyText" align="left">
+                    <td class="bodyText" align="left" width="50%">
                         
                         <p>At NVIDIA we're continually looking for the elite few who will shape the future of the software 
                         industry&#133;  those who play hard, work smart, and always strive to win.  The visual computing industry is ultra-competitive and the stakes are high&#133;
@@ -68,7 +68,7 @@
                         and we are shaping the world of tomorrow&#133;today.  </p>
                      </td>
                      
-                      <td class="promoText">
+                      <td class="promoText" width="50%">
                         <p>We invite you to explore the opportunities available at NVIDIA - just click on the link to see what your future may hold.<br/>
                         Experienced professionals <br/>
                         New &#38; Recent College Graduates <br/>
@@ -79,7 +79,7 @@
         
         
         <tr>
-            <td colspan="2"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_partnering.gif" alt="NVIDA" width="357" height="18" border="0" />
+            <td colspan="2" align="center"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_partnering.gif" alt="NVIDA" width="357" height="18" border="0" />
             </td>
         </tr>
         <tr>
