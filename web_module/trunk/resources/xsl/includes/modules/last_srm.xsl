@@ -6,7 +6,7 @@
 		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
 	</TR> -->
 	<TR>
-		<TD VALIGN="middle" HEIGHT="16" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" NOWRAP="0">&#160;&#160;Match 77 - April 3, 2002<!-- 2002 TCCC Regional Championships - Mar. 13 --> &#160;</TD>
+		<TD VALIGN="middle" HEIGHT="16" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" NOWRAP="0">&#160;&#160;Match 78 - April 9, 2002<!-- 2002 TCCC Regional Championships - Mar. 13 --> &#160;</TD>
 	</TR>
 	<TR>
 		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -20,9 +20,8 @@
  	<TR>
 		<TD CLASS="statText" VALIGN="top">
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A>
-, TopCoder's top-rated member, was the winner in Room 1 with 1130.16 final points after passing the system test for 
-all three submitted problems.
+<A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="statText">dmwright</A> earned 100 points in the 
+"Challenge Phase" for a come-from-behind win in Room 1.
 </P>
 
        </TD>
@@ -39,11 +38,18 @@ all three submitted problems.
  	<TR>
 		<TD CLASS="statText" VALIGN="top">
 <P>
-The top score for a first time coder was earned by <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
-, who gained 1528.15 final points and won Room 61.  <A HREF="/stat?c=member_profile&amp;cr=274018" CLASS="coderTextBlue">Alexandre</A>
- finished a close second with 1501.93 points
+The highest score earned by a first-time coder was the 1441.00 point total of <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="statText">antimatter</A>, 
+who was the winner in Room 53
 ...<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="statText">full&#160;story</A>
 </P>
+
+<P>
+<B>NEW! - Last Match Editorials</B><BR/>
+<A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="statText">Room One Review</A> | 
+<A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="statText">Rookie Review</A> | 
+<A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="statText">Problem Set Analysis &amp; Opinion</A><BR/>
+</P>
+
        </TD>
 	</TR>
 <!-- <P>
