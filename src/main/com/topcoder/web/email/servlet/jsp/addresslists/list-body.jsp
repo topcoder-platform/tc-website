@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.web.email.servlet.*, com.topcoder.web.email.bean.*" %>
-<%@ include file="../js/validate-js.jsp" %>
+<jsp:include page="../js/validate-js.jsp" />
 
 
 <SCRIPT Language="javascript"> <!--

@@ -23,7 +23,7 @@
 	<input type="hidden" name="<%=EmailConstants.LIST_ID%>">
 </form>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 <p class="bodyTextBig">Choose address list</p>
 <form name="frmGroup" action="<%=response.encodeURL(EmailConstants.ALIAS)%>" method ="post">
 	<input type="hidden" name="<%=EmailConstants.TASK%>" value="<%=EmailConstants.SCHEDULEDJOB_TASK%>">
@@ -47,7 +47,7 @@
 </email:addressListIterator>
 </p>
 
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 
 </body>

@@ -23,7 +23,7 @@
 	<input type="hidden" name="commandId">
 </form>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 <p class="bodyTextBig"><b>Choose a predefined query</b></p>
 <p class="bodyText">
 <email:commandIterator id="idname">
@@ -34,7 +34,7 @@
 </email:commandIterator>
 </p>
 
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 
 </body>

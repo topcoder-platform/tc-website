@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<%@ include file="../header.jsp" %>
-<%@ include file="../js/task-js.jsp" %>
+<jsp:include page="../header.jsp" />
+<jsp:include page="../js/task-js.jsp" />
 
 <p class="bodyTextBig"><b>Bulk member entry</b></p>
 <p class="bodyText">
@@ -53,11 +53,11 @@
 <p>
 <hr/>
 
-<%@ include file="member-list.jsp" %>
+<jsp:include page="member-list.jsp" />
 
 <p>
 
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 
 

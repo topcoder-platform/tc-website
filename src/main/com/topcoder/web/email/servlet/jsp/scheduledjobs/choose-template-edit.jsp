@@ -24,7 +24,7 @@
 </form>
 
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 <h3>Choose template</h3>
 <p>
 <form name="frmGroup" action="<%=response.encodeURL(EmailConstants.ALIAS)%>" method ="post">
@@ -49,7 +49,7 @@
 </email:templateIterator>
 <p>
 
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 
 </body>

@@ -7,9 +7,9 @@
 </head>
 <body>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 
-<%@ include file="../js/task-js.jsp" %>
+<jsp:include page="../js/task-js.jsp" />
 
 <p class="bodyTextBig">
 <b>Send test message?</b>
@@ -28,7 +28,7 @@
 [finish without sending test message]</a>
 
 
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 </body>
 </html>

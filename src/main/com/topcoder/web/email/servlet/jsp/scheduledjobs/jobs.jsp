@@ -7,10 +7,10 @@
 </head>
 <body>
 
-<%@ include file="../js/task-js.jsp"%>
+<jsp:include page="../js/task-js.jsp"/>
 <% String thisPage = EmailConstants.SCHEDULEDJOB_LIST_PAGE; %>
 
-<%@ include file="../header.jsp" %>
+<jsp:include page="../header.jsp" />
 <p class="bodyTextBig"><b>Scheduled Jobs</b></p>
 <p class="bodyText">
 <a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_CREATE%>', '');"
@@ -26,7 +26,7 @@
 Recent jobs
 </p>
 
-<%@ include file="job-list.jsp" %>
+<jsp:include page="job-list.jsp" />
 
 <p class="bodyText">
 <a href="javascript:taskSubmit('<%=EmailConstants.HOME_TASK%>', '', '');"
@@ -34,7 +34,7 @@ Recent jobs
 		onMouseOut="window.status=''; return true;">
 [back to main menu]</a>
 </p>
-<%@ include file="../footer.jsp" %>
+<jsp:include page="../footer.jsp" />
 
 
 </body>

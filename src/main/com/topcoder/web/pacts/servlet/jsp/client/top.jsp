@@ -50,7 +50,7 @@
         <TR>
           <TD VALIGN="middle" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
               <TD BGCOLOR="#000000" ALIGN="center" NOWRAP=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/><A TARGET="_parent" HREF="/?t=tces&amp;c=index" CLASS="globalNavSmall"><IMG SRC="/i/jobs_banner2.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/ ></A><!-- <IMG SRC="/i/clear.gif" WIDTH="72" HEIGHT="1" BORDER="0" VSPACE="20"/> --></TD>
-          <TD CLASS="time" VALIGN="middle" NOWRAP="" ALIGN="right"><BR CLEAR="all"/><% if ( nav.getLoggedIn() ) { %>Welcome Back <SPAN CLASS="smallBrackets">[ </SPAN> <A href="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=<%=nav.getUser().getUserId()%>" class="statText" TARGET="_parent"><FONT color="<%=color%>"><B><%=nav.getUser().getHandle()%></B></FONT></A><SPAN CLASS="smallBrackets">]</SPAN> :<span class="time"><%@ include file="date_time.jsp" %></SPAN><% } else { %><BR/><SPAN CLASS="smallBrackets">[ </SPAN> <A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="registerToday" TARGET="_parent">Register Today</A> :<span class="time"><%@ include file="date_time.jsp" %></span><SPAN CLASS="smallBrackets">]</SPAN><% }%><BR CLEAR="ALL"/><BR CLEAR="ALL"/></TD><TD WIDTH="50" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/></TD>
+          <TD CLASS="time" VALIGN="middle" NOWRAP="" ALIGN="right"><BR CLEAR="all"/><% if ( nav.getLoggedIn() ) { %>Welcome Back <SPAN CLASS="smallBrackets">[ </SPAN> <A href="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=<%=nav.getUser().getUserId()%>" class="statText" TARGET="_parent"><FONT color="<%=color%>"><B><%=nav.getUser().getHandle()%></B></FONT></A><SPAN CLASS="smallBrackets">]</SPAN> :<span class="time"><jsp:include page="date_time.jsp" /></SPAN><% } else { %><BR/><SPAN CLASS="smallBrackets">[ </SPAN> <A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="registerToday" TARGET="_parent">Register Today</A> :<span class="time"><%@ include file="date_time.jsp" %></span><SPAN CLASS="smallBrackets">]</SPAN><% }%><BR CLEAR="ALL"/><BR CLEAR="ALL"/></TD><TD WIDTH="50" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/></TD>
 
         </TR>
       </TABLE>
@@ -61,4 +61,4 @@
     <TD COLSPAN="2" BGCOLOR="#000000" ALIGN="right"><A HREF="Javascript:arena()" CLASS="registerNav"><IMG SRC="/i/label_download_applet.gif" ALT="Download the Applet" WIDTH="134" HEIGHT="17" BORDER="0"/></A><A HREF="/index?t=schedule&amp;c=practice_room" CLASS="registerNav"><IMG SRC="/i/label_visit_practice_room.gif" ALT="Visit the Practice Room" WIDTH="141" HEIGHT="17" BORDER="0"/></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
   </TR>
 </TABLE>
-<%@ include file="menu.jsp" %>
+<jsp:include page="menu.jsp" />
