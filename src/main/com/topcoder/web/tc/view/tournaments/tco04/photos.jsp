@@ -93,9 +93,14 @@ function changeImage(place, imageIndex) {
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 3);">Room 2</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 4);">Room 3</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 5);">WildCard</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 6);">Coding Finals</a><br/>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 6);">Coding Finals</a>
+--%>                
 
-                <a href="Javascript:void changeImage('slideImg', 158);">Winners</a>
+<br/>
+
+<%--
+                <a href="Javascript:void changeImage('slideImg', 7);">Winners</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 8);">Spectator Showdown</a><br/>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 9);">Press Conference</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 10);">Awards Dinner</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 11);">War Room</a>
