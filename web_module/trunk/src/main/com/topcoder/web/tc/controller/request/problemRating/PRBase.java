@@ -6,6 +6,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.ProblemRatingQuestion;
+import com.topcoder.web.tc.model.ProblemRatingResult;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -32,6 +33,15 @@ abstract public class PRBase extends Base {
         }
         getRequest().setAttribute("problemRatingResults",questions);
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
+
+        //get the info for the distribution graphs
+        List overall = getDistributionList(getDataAccess().getData(r), "overall_problem_rating_distribution");
+        List competitor = getDistributionList(getDataAccess().getData(r), "compeitor_problem_rating_distribution");
+        overall.add(avg(overall));
+        competitor.add(avg(competitor));
+        getRequest().setAttribute("overallDistribution", overall);
+        getRequest().setAttribute("competitorDistribution", competitor);
+
         setNextPage(Constants.PROBLEM_RATING_RESULTS);
         setIsNextPageInContext(true);
     }
@@ -72,4 +82,50 @@ abstract public class PRBase extends Base {
         setNextPage(Constants.PROBLEM_RATING_QUESTIONS);
         setIsNextPageInContext(true);
     }
+
+
+    protected static List getDistributionList(Map m, String key) throws Exception {
+
+        ResultSetContainer rsc = (ResultSetContainer)m.get(key);
+        ResultSetContainer.ResultSetRow row = null;
+
+        List ret = new ArrayList(rsc.size());
+        ProblemRatingResult result = null;
+        for (Iterator it = rsc.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow)it.next();
+            result = new ProblemRatingResult();
+            result.setName(row.getStringItem("question"));
+            ArrayList frequencies = new ArrayList(10);
+            for (int i=1; i<11; i++) {
+                frequencies.add(row.getItem("rating_"+i).getResultData());
+            }
+            result.setFrequencies(frequencies);
+            ret.add(result);
+        }
+        return ret;
+    }
+
+
+    protected static ProblemRatingResult avg(List list) {
+        int[] sums = new int[((ProblemRatingResult)list.get(0)).getFrequencies().size()];
+        ProblemRatingResult pr = null;
+        //go through each question
+        for (int k=list.size(); --k>=0;) {
+            pr = (ProblemRatingResult) list.get(k);
+            //go through each question's distribution of responses
+            for (int i=pr.getFrequencies().size(); --i>=0;) {
+                sums[i]+=((Number)pr.getFrequencies().get(i)).intValue();
+            }
+        }
+        ProblemRatingResult ret = new ProblemRatingResult();
+        List freqs = new ArrayList(sums.length);
+        //generate an average of the distributions
+        for (int i=sums.length; --i>=0;) {
+            freqs.add(new Float((float)sums[i]/list.size()));
+        }
+        ret.setFrequencies(freqs);
+        return ret;
+    }
+
+
 }
