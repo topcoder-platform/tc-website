@@ -42,7 +42,7 @@
 	    </tr>
         <tr valign="top">
           <td>&nbsp;</td>
-          <td>New Participation Aging (days between registration and this match for new participants)</td>
+          <td class="srmQuestion">New Participation Aging (days between registration and this match for new participants)</td>
 	    </tr>
 		<tr valign="top">
           <td>&nbsp;</td>
