@@ -1,4 +1,5 @@
-<%@ page autoFlush="false" %>
+<%@ page contentType="text/html; charset=ISO-8859-1"
+         autoFlush="false" %>
 <SCRIPT type="text/javascript">
 var months=new Array(13);
 months[1]="January";

@@ -31,18 +31,21 @@
 
  <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
    <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
-   <DIV CLASS="header">
-
+   <table width="100%" border="0">
+   <tr><td class="errorText">
      <!-- Error message content pane -->
-
-     You have not enough priveleges to perform this action<br>
-     If you think this page was shown by mistake, please contact us<br>
+     Error have occured when trying to perform requested action. There are a lot of reasons
+     why it would be happen. Most probably it is because there are some technical problems
+     with service. E.g. there may be maintenance works on certain site pages, etc.<br><br>
+   </td></tr>
+   <tr><td class="bodyText">
      We are sorry for any inconveniences caused by this<br>
      Site Administration<br><br>
-   </DIV>
-
+   </td></tr>
+   <tr><td class="bodyText"><a href="Javascript:history.back()">&lt; back</a></td></tr>
+   </table>
+<%--
    <!-- web-app debug time stack trace  BEGIN -->
-
    <br><hr><b><i>Trace information is provided for web application debug time only</i></b><br>
    <pre>
    <% Exception excCaught = (Exception)request.getAttribute("caught-exception");
@@ -51,8 +54,8 @@
       }
    %>
    </pre><hr>
-
    <!-- web-app debug time stack trace END -->
+--%>
  </TD>
 
 <!-- Body Area Ends -->

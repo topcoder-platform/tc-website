@@ -1,8 +1,12 @@
+<%@ page contentType="text/html; charset=ISO-8859-1"
+         autoFlush="false"
+         buffer="64kb"
+         errorPage="../exc/InternalError.jsp" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Portal</TITLE>
-<jsp:include page="../script.jsp"/>
+<script language="JavaScript" src="<%=request.getContextPath()%>/script.js"></script>
 </HEAD>
 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
@@ -25,14 +29,14 @@
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Contact Us</B></FONT><BR/>
 <P>
-		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P>
 
 <P>
 olor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-		       tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam.
+                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+                       tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam.
 </P>
 
 <P><BR/></P>    

@@ -1,6 +1,6 @@
-<%@ page import="com.topcoder.web.corp.Constants"
-         autoFlush="false"
-%>
+<%@ page contentType="text/html; charset=ISO-8859-1"
+         import="com.topcoder.web.corp.Constants"
+         autoFlush="false" %>
     <TABLE WIDTH="160" BGCOLOR="#000000" CELLSPACING="0" CELLPADDING="0" BORDER="0">
       <TR> 
         <TD VALIGN="top"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/p/clear.gif" BORDER="0"/></TD>

@@ -1,4 +1,9 @@
-<%@page import="com.topcoder.web.corp.Constants" %>
+<%@ page contentType="text/html; charset=ISO-8859-1"
+         autoFlush="false"
+         buffer="64kb"
+         errorPage="../exc/InternalError.jsp"
+         import="com.topcoder.web.corp.Constants" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <form method="POST" name="CcTx" action="<%=Constants.CCTX_URL%>">
     <input type="hidden" name="LOGIN" value="<%=Constants.CCTX_LOGIN%>"/>

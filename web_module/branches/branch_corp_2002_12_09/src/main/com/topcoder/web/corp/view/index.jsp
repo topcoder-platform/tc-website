@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.corp.Constants"
          autoFlush="false"
          buffer="64kb"
-         errorPage="exc/InternalError.jsp" %>
+         errorPage="exc/InternalError.jsp"
+         import="com.topcoder.web.corp.Constants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
 <HEAD>
@@ -120,4 +120,3 @@
 
 </BODY>
 </HTML>
-<% int i = 0; out.print(3/1); %>

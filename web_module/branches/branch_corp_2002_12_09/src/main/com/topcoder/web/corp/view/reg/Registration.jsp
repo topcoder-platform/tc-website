@@ -1,11 +1,11 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
+         autoFlush="false"
+         buffer="64kb"
+         errorPage="../exc/InternalError.jsp"
          import="com.topcoder.web.corp.request.Registration,
                  com.topcoder.web.corp.Constants,
                  java.util.HashMap,
-                 com.topcoder.web.common.tag.BaseTag"
-         autoFlush="false"
-         buffer="64kb"
-         errorPage="../exc/InternalError.jsp" %>
+                 com.topcoder.web.common.tag.BaseTag" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
