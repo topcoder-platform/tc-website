@@ -45,6 +45,7 @@ public class Constants {
 
     public static String TERMS;
     public static String TERMS_AGREE;
+    public static String TERMS_OF_USE_ID;
 
     /* pages */
     public static String SURVEY_RESULTS;
