@@ -108,7 +108,7 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=287614"><img src="/i/m/argolite _mug.gif" alt="argolite " width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=287614"><img src="/i/m/argolite_mug.gif" alt="argolite" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=287614"><strong>argolite</strong></a><span class="smallText"> graduated from the University of British Columbia.  He believes that being a part of the review board allows him to see soltions to problems from angles he might not have seen on his own.</span>
