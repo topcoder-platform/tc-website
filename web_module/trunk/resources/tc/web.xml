@@ -73,6 +73,11 @@
             <param-value>/survey/list.jsp</param-value>
             <description></description>
         </init-param>
+        <init-param>
+            <param-name>survey_thanks</param-name>
+            <param-value>/survey/thanks.jsp</param-value>
+            <description></description>
+        </init-param>
 
         <!-- processor mappings -->
         <init-param>

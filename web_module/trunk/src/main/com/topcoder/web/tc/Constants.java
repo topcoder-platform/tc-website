@@ -26,6 +26,7 @@ public class Constants {
     public static String SURVEY_RESULTS;
     public static String SURVEY_VIEW;
     public static String SURVEY_LIST;
+    public static String SURVEY_THANKS;
 
 
     private Constants() {
