@@ -11,7 +11,7 @@
             <TD COLSPAN="2" WIDTH="140" VALIGN="top" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="140" HEIGHT="1" BORDER="0"/></TD>
           </TR>
           <TR>
-            <TD WIDTH="100%" VALIGN="middle" CLASS="statTextBig" BGCOLOR="#333333">&#160;:: please read </TD>
+            <TD WIDTH="100%" VALIGN="middle" CLASS="statTextBig" BGCOLOR="#333333">&#160;P.A.C.T.s</TD>
             <TD WIDTH="5" BGCOLOR="#333333" ALIGN="right"><IMG SRC="/i/sub_nav_title_right.gif" WIDTH="5" HEIGHT="21" BORDER="0"/></TD>
           </TR>
         </TABLE>
@@ -26,15 +26,32 @@
     <TR>
       <TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;&#160;&#160;::&#160;&#160;</TD>
       <TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="subNav" WIDTH="100%">
-        <A HREF="/index?t=&amp;c=privacy" CLASS="subNav">Privacy Policy</A>
+        <A HREF="PactsMemberServlet?<%= PactsConstants.TASK_STRING %>=<%= PactsConstants.PAYMENT_TASK %>&<%= PactsConstants.CMD_STRING %>=<%= PactsConstants.PAYMENT_HISTORY_CMD %>" CLASS="subNav">Payments</A>
+      </TD>
+      <TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    </TR>    
+    <TR>
+      <TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;&#160;&#160;::&#160;&#160;</TD>
+      <TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="subNav" WIDTH="100%">
+        <A HREF="PactsMemberServlet?<%= PactsConstants.TASK_STRING %>=<%= PactsConstants.AFFIDAVIT_TASK %>&<%= PactsConstants.CMD_STRING %>=<%= PactsConstants.AFFIDAVIT_HISTORY_CMD %>" CLASS="subNav">Affidavits</A>
       </TD>
       <TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     </TR>
     <TR>
       <TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;&#160;&#160;::&#160;&#160;</TD>
-      <TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="subNav" WIDTH="100%"><A HREF="/index?t=&amp;c=terms" CLASS="subNav">Terms, Revisions</A></TD>
+      <TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="subNav" WIDTH="100%">
+        <A HREF="PactsMemberServlet?<%= PactsConstants.TASK_STRING %>=<%= PactsConstants.CONTRACT_TASK %>&<%= PactsConstants.CMD_STRING %>=<%= PactsConstants.CONTRACT_HISTORY_CMD %>" CLASS="subNav">Contracts</A>
+      </TD>
       <TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     </TR>
+    <TR>
+      <TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;&#160;&#160;::&#160;&#160;</TD>
+      <TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="subNav" WIDTH="100%">
+        <A HREF="PactsMemberServlet?<%= PactsConstants.TASK_STRING %>=<%= PactsConstants.TAX_FORM_TASK %>&<%= PactsConstants.CMD_STRING %>=<%= PactsConstants.TAX_FORM_HISTORY_CMD %>" CLASS="subNav">Tax Forms</A>
+      </TD>
+      <TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    </TR>    
+
     <TR>
       <TD COLSPAN="2" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="2"/></TD>
       <TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
