@@ -55,7 +55,7 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br />
                     
-                        <p><img src="/i/about/man_computer.jpg" alt="" width="200" height="151" border="0" align="left"  style="padding-left: 0px; padding-top: 0px; padding-right: 7px; padding-bottom: 7px;"/>TopCoder, Inc. organizes and hosts online and onsite programming competitions for a global community of members. TopCoder members 
+                        <p><img src="/i/about/man_computer.jpg" alt="" width="200" height="151" border="0" align="left"  style="margin-left: 0px; margin-top: 0px; margin-right: 7px; margin-bottom: 7px;" />TopCoder, Inc. organizes and hosts online and onsite programming competitions for a global community of members. TopCoder members 
                         extend across all professional and collegiate levels. The attraction of competition and the associated rewards create a powerful community of 
                         programmers. Corporate partners access this member base for employment, software development and sponsorship. </p>
                         
