@@ -6,8 +6,7 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -35,8 +34,6 @@ public abstract class FullRegDemog extends FullRegBase {
         setDefaults(regInfo);
         setNextPage();
     }
-
-
 
 }
 
