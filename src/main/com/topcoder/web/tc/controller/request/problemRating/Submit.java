@@ -7,6 +7,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.security.TCSubject;
 import com.topcoder.web.ejb.ProblemRatingServices.ProblemRatingServices;
+import com.topcoder.web.tc.Constants;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -53,6 +54,7 @@ public class Submit extends Base {
                 rs[i] = Integer.parseInt(al.get(ptr++).toString());
             }
             prs.submitAnswers(qs,rs,userID,Integer.parseInt(request.getParameterValues("pm")[0]));
+            setNextPage(Constants.PROBLEM_RATING_RESULTS);
         }catch(Exception e){
             e.printStackTrace();
         }
