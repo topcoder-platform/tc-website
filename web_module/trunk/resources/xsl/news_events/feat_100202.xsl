@@ -55,7 +55,7 @@
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">
 <!-- <IMG SRC="/i/f/feat_050102_tn3.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/> -->
 
-<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Article on finding a job… </B></FONT><BR/>
+<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Article on finding a job... </B></FONT><BR/>
 <!-- <I>"If you take it slow you'll move up."</I><BR/><BR/> -->
 Wednesday, October 2, 2002<BR/>
 By&#160;pearl,<I>TopCoder Member</I><BR/>
@@ -84,7 +84,7 @@ So you've written your resume, gotten your best suit dry-cleaned, and are ready 
 <B>Option 1: College Recruitment Centers</B>
 </P>
 <P>
-Almost all colleges have a recruitment center to help the new college grad get that first job.  The best thing about the companies that come to interview at colleges is that they realize you will have no experience (all too often, in want ads or internet postings, they add on that phrase:  "x years experience in xyz required".)  What many job-seekers may not realize (or have simply forgotten), is that college recruitment centers also help grads who have been out in the real world for a while.  Often the company representative is from the company's personnel department, and they will be aware of the job openings for experienced professionals as well.  
+Almost all colleges have a recruitment center to help the new college grad get that first job.  The best thing about the companies that come to interview at colleges is that they realize you will have no experience (all too often, in want ads or internet postings, they add on that phrase:  &quot;x years experience in xyz required".)  What many job-seekers may not realize (or have simply forgotten), is that college recruitment centers also help grads who have been out in the real world for a while.  Often the company representative is from the company's personnel department, and they will be aware of the job openings for experienced professionals as well.  
 </P>
 <P>
 <B>Option 2:  Professional Recruiters</B>
@@ -96,7 +96,7 @@ You wouldn't hire the kid next door to cut your hair.  It makes sense to have pr
 <B>Option 3:  Newspaper Ads</B>
 </P>
 <P>
-Ten years ago, when I looked at the "Computer Professionals" section of the Sunday Jobs Want-Ads, there were 20-30 pages of jobs.  This last Sunday, there was only ½ of one page.   Why?  It is not the economy alone.  I believe that companies looking for technical people are turning to more modern methods-after all, would you be interested in hiring a programmer who didn't know how to access your site on the internet?  On the other hand, many smaller companies will use newspaper ads, since they don't have the resources to set up a web site (maybe that would be your first project at such a company!)  Don't overlook the fact that many of the major newspapers also have on-line want ads.
+Ten years ago, when I looked at the &quot;Computer Professionals&quot; section of the Sunday Jobs Want-Ads, there were 20-30 pages of jobs.  This last Sunday, there was only ½ of one page.   Why?  It is not the economy alone.  I believe that companies looking for technical people are turning to more modern methods-after all, would you be interested in hiring a programmer who didn't know how to access your site on the internet?  On the other hand, many smaller companies will use newspaper ads, since they don't have the resources to set up a web site (maybe that would be your first project at such a company!)  Don't overlook the fact that many of the major newspapers also have on-line want ads.
 </P>
 <P>
 <B>Option 4:  Word of mouth (now known as networking)</B>
@@ -160,9 +160,8 @@ From What Color Is Your Parachute?,  here are the top three successful job searc
 <P>
 Mr. Bolles mentions two other methods that are even more successful, but I leave it to you to read his book (they are variations of the job search techniques above).
 </P>
-
-Happy hunting!
-
+<P>
+<B>Happy hunting!</B>
 </P>
 
 
