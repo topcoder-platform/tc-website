@@ -7,6 +7,7 @@
 <head>
 <title>2005 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCCC05style.css"/>
+<link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
@@ -38,7 +39,7 @@
                 <tr class="advHeader">
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=seed&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Seed</a></td>
                     <td width = "15%" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=handle_sort&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Handle</a></td>
-                    <td width = "5%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=desc&sc=rating&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Rating</a></td>
+                    <td width = "5%" align = "right" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=desc&sc=rating&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Rating</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=round1_sort&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Round 1</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=round2_sort&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Round 2</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&sd=asc&sc=round3_sort&d1=tournaments&d2=tccc05&d3=alg_adv_overview">Round 3</a></td>
@@ -50,43 +51,44 @@
 <%-- formatting this crappy to save space in the download to the client --%>
                 <%boolean even = false;%>
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
-<tr class="<%=even?"advanceDk":"advanceLt"%>"><td align="center" ><rsc:item name="seed" row="<%=resultRow%>"/></td>
-<td ><tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm"/></td>
-<td align="right" ><rsc:item name="rating" row="<%=resultRow%>"/>&#160;&#160;</td>
+<tr>
+<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="seed" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDk":"advanceLt"%>"><tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm"/></td>
+<td  class="<%=even?"advanceDk":"advanceLt"%>" align="right" ><rsc:item name="rating" row="<%=resultRow%>"/>&#160;&#160;</td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round1" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="round1" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  ><rsc:item name="round1" row="<%=resultRow%>"/></td>
+<td   class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="round1" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round2")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round2" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="round2" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  ><rsc:item name="round2" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="round2" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round3")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="round3" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  ><rsc:item name="round3" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="round3" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round4")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round4" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="round4" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  ><rsc:item name="round4" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="round4" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="semi" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  ><rsc:item name="semi" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="semi" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("wildcard")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  ><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"eliminateDk":"eliminateLt"%>" align="center"><rsc:item name="final" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td  ><rsc:item name="final" row="<%=resultRow%>"/></td>
+<td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="final" row="<%=resultRow%>"/></td>
 <% } %>
 </tr>
 <%even=!even;%>
