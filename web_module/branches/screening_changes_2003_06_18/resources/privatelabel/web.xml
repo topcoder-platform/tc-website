@@ -136,6 +136,11 @@
             <param-value>zip</param-value>
             <description></description>
         </init-param>
+        <init-param>
+            <param-name>company_id</param-name>
+            <param-value>cid</param-value>
+            <description></description>
+        </init-param>
 
         <!-- reg rules -->
         <init-param>

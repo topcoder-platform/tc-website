@@ -36,6 +36,7 @@ public class Constants {
     public static String ZIP;
     public static String MODULE_KEY;
     public static String STATIC_PREFIX;
+    public static String COMPANY_ID;
 
     //rules
     public static int MAX_PASSWORD_LENGTH;

@@ -9,7 +9,20 @@ import java.util.StringTokenizer;
 
 abstract class RegistrationBase extends BaseProcessor {
 
-    protected abstract void businessProcessing();
+    private String db;
+
+    protected final void businessProcessing() {
+        long companyId = Long.parseLong(StringUtils.checkNull(getRequest().getParameter(Constants.COMPANY_ID)));
+        setDb(getCompanyDb(companyId));
+        registrationProcessing();
+    }
+
+    protected abstract void registrationProcessing();
+
+    private String getCompanyDb(long companyId) {
+        //TODO dynamicize when we have db support
+        return "OLTP";
+    }
 
     protected void setDefaults(RegistrationInfo info) {
         setDefault(Constants.HANDLE, info.getHandle());
@@ -93,6 +106,14 @@ abstract class RegistrationBase extends BaseProcessor {
         if (info.getZip().length()<1) {
             addError(Constants.ZIP, "Please enter your zip code.");
         }
+    }
+
+    public String getDb() {
+        return db;
+    }
+
+    public void setDb(String db) {
+        this.db = db;
     }
 
 }
