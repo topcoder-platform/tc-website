@@ -173,9 +173,9 @@
            </table>
 <!-- TCCC Design Ends -->
 
-            <br/>
 
 <!-- TCCC Development Begins -->
+            <p cass="bodyText" align="right"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=comp_dev_rd1">View</A> TCCC04 Development project submitters!</p>
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
                     <td class="tccc04SubNav" colspan="9">2004 TopCoder Collegiate Challenge Component Development Projects**</td>
