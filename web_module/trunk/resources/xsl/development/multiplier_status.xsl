@@ -70,19 +70,6 @@
             <xsl:with-param name="title">&#160;Component Submissions</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><td><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
-                <tr>
-                    <td class="bodyText" colspan="5">
-                        <p>
-                        View who has inquired and submitted for each project!  The multiplier graphic displays who
-                        currently has the multiplier, if the multiplier is still up for grabs, the project will not have a graphic.   Read below for the multiplier rules.
-
-                        </p>
-                    </td>
-                </tr>
-            </table>
-
             <br/><br/>
 
 <!-- Component Design Projects begin -->
