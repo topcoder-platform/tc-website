@@ -47,6 +47,11 @@ public class LoginTask extends BaseTask implements Task, Serializable {
 
     public void process(String step) throws Exception {
 
+
+        setNextPage(getServletPath() + "?" + Constants.TASK_PARAM + "=" + Constants.DB_SELECTION_TASK);
+        super.setInternalResource(false);
+        
+/*  pulling this out so that we just skip authentication while things are all up in the air.
         if (step!=null && step.equals(Constants.NEW_STEP)) {
             if (!super.getAuthentication().isLoggedIn()) {
                 try {
@@ -64,6 +69,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
         } else {
             setNextPage(Constants.LOGIN_PAGE);
         }
+*/
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
