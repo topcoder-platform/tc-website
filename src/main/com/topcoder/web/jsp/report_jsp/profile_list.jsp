@@ -6,6 +6,7 @@
           com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
+<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 
 <%!
   String stripQuotes(String s) {
@@ -375,8 +376,12 @@
               <TD><A HREF="<%=Constants.SERVLET_ADDR%>?<%=Constants.TASK_NAME_KEY%>=<%=Constants.REPORT_PROFILE_DETAIL_KEY%>&amp;<%=Constants.REPORT_CODER_ID_KEY%>=<%=rsr.getItem("user_id").toString()%>">detail</A></TD>
 <%
               for (int j=0; j<columns.length; j++) {
-%>            <TD><%=rsr.getItem(Integer.parseInt(columns[j])).toString()%></TD>
-<%          
+                  if (rsr.getItem(Integer.parseInt(columns[j])).getResultData() instanceof Date) {  %>
+              <TD><rsc:item name="<%=profiles.getColumnName(Integer.parseInt(columns[j]))%>" row="<%=rsr%>" format="MM/dd/yyyy hh:mm a"/></TD>
+<%                } else { %>
+              <TD><rsc:item name="<%=profiles.getColumnName(Integer.parseInt(columns[j]))%>" row="<%=rsr%>"/></TD>
+
+<%                }
               }
 %>
             </TR>
