@@ -125,10 +125,10 @@
                         </tr>
                         <pl:responseIterator id="resp" list="<%=responseList%>">
                             <tr>
-                                <td class="brReggTableQuestion">
+                                <td class="brRegTableQuestion">
                                     <pl:demographicQuestionText questions="<%=questionMap%>" response="<%=resp%>"/>
                                 </td>
-                                <td class="brReggTableAnswer">
+                                <td class="brRegTableAnswer">
                                     <pl:demographicAnswerText questions="<%=questionMap%>" response="<%=resp%>"/>
                                 </td>
                             </tr>

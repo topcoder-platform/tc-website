@@ -55,7 +55,14 @@ public abstract class FullRegBase extends SimpleRegBase {
             if(questions == null)
             {
                 log.info("GETTING QUESTIONS");
-                getQuestions(transDb, ((FullRegInfo) info).getCoderType());
+                try
+                {
+                    getQuestions(transDb, ((FullRegInfo) info).getCoderType());
+                }
+                catch(Exception e)
+                {
+                    log.error("COULD NOT GET QUESTIONS");
+                }
             }
             question = findQuestion(response.getQuestionId(), questions);
             if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
