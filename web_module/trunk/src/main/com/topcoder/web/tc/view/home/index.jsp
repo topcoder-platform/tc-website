@@ -138,7 +138,7 @@
 <%-- TCO homepage --%>
 	            <map name="tco04_onsite">
 	            <area shape="rect" alt="TCO04" coords="1,1,269,175" href="/tc" />
-	            <area shape="rect" alt="Results" coords="40,180,100,205" href="/tc" />
+	            <area shape="rect" alt="Results" coords="40,180,100,205" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about" />
 	            <area shape="rect" alt="Photos" coords="110,180,165,205" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos" />
 	            <area shape="rect" alt="Videos" coords="180,180,230,205" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=movies" />
 	            <area shape="rect" alt="Videos" coords="50,205,220,230" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=spec_showdown" />
