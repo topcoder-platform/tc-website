@@ -285,7 +285,7 @@ public class Legacy extends Base {
             }
             while(answer.getIntItem("demographic_question_id") == questionId){
                 String text = answer.getStringItem("demographic_answer_text");
-                l.add(new ListSelectTag.Option(answer.getStringItem("demographic_answer_id"), text, s.contains(new Integer(questionId))));
+                l.add(new ListSelectTag.Option(answer.getStringItem("demographic_answer_id"), text, s.contains(new String(questionId))));
                 if(++j == demographic_answers.getRowCount()){
                     break;
                 }else{
