@@ -57,9 +57,9 @@
                             
                             
                             <tr>
-                            	<td>
+                            	<td valign="top" width="200" >
                             		<table>
-                            			<tr align="left" width="255" >
+                            			<tr align="left" >
                             				
                             				
                             				<td class="bodyText" >
