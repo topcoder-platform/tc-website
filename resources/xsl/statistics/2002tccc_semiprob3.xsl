@@ -68,7 +68,7 @@
               <TD VALIGN="top" CLASS="bodyText">
 <IMG SRC="/i/pdf_iconw.gif" ALT="" WIDTH="31" HEIGHT="31" BORDER="0"/><BR/>
 Level One (250) - <A HREF="/i/2002tccc/MaxDensity_250.pdf" CLASS="bodyText">MaxDensity</A> by kyky<BR/>
-Level Two (500) - <A HREF="/i/2002tccc/Gin_500.pdf" CLASS="bodyText">Gin</A> | <A HREF="/i/2002tccc/Gin_Anly.pdf" CLASS="bodyText">Gin Analysis</A> by jay_peg<BR/>
+Level Two (500) - <A HREF="/i/2002tccc/Gin_500.pdf" CLASS="bodyText">Gin</A> Writer: jay_peg | <A HREF="/i/2002tccc/Gin_Anly.pdf" CLASS="bodyText">Gin Analysis</A> by alexcchan<BR/>
 Level Three (1000) - <A HREF="/i/2002tccc/Nested_1000.pdf" CLASS="bodyText">Nested</A> | <A HREF="/i/2002tccc/Nested_Anly.pdf" CLASS="bodyText">Nested Analysis</A> by qubits<BR/><BR/>
 
           </TD>
