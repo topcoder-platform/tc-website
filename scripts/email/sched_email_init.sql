@@ -12,6 +12,10 @@ INSERT INTO sched_job_type_lu
 (sched_job_type_id, job_type_name)
 VALUES (2, 'Email Broadcast');
 
+INSERT INTO sched_job_type_lu 
+(sched_job_type_id, job_type_name)
+VALUES (3, 'Email Broadcast Report');
+
 INSERT INTO sched_job_detail_status_lu
 (sched_job_detail_status_id, sched_job_detail_status_name)
 VALUES (0, 'no attempt');
@@ -51,6 +55,14 @@ VALUES (5, 'canceled');
 INSERT INTO email_template_group_lu
 (email_template_group_id, email_template_group_name)
 VALUES (99999, '[Deleted]');
+
+INSERT INTO email_template_group_lu
+(email_template_group_id, email_template_group_name)
+VALUES (99998, '[SentReports]');
+
+INSERT INTO email_template_group_lu
+(email_template_group_id, email_template_group_name)
+VALUES (99997, '[Reports]');
 
 INSERT INTO email_list_group_lu
 (email_list_group_id, email_list_group_name)
