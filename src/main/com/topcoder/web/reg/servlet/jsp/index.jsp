@@ -6,17 +6,17 @@
 <HTML>
   <HEAD>
     <TITLE>Registration</TITLE>
-    <%@ include file="../script.jsp" %>
+    <jsp:include page="../script.jsp" />
   </HEAD>
   <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-  <%@ include file="../top.jsp" %>
+  <jsp:include page="../top.jsp" />
   <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
     <TR>
     <!-- Left Column Begins -->
       <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
         <!-- Left Column Include Begins -->
         <!-- Global Seconday Nav Begins -->
-        <%@ include file="left.jsp" %>
+        <jsp:include page="left.jsp" />
         <!-- Global Seconday Nav Ends -->
         <!-- Left Column Include Ends -->
       </TD>
@@ -69,7 +69,7 @@
   <!-- <IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/> -->       
         <!-- Right Column Include Begins -->
 
-          <%@ include file="reg_legal.jsp"%>
+          <jsp:include page="reg_legal.jsp" />
 
         <!-- Right Column Include Ends -->
       </TD>
@@ -81,7 +81,7 @@
   </TABLE>
   <!-- Body Ends -->
 
-  <%@ include file="../foot.jsp" %>
+  <jsp:include page="../foot.jsp" />
 
   </BODY>
 </HTML>

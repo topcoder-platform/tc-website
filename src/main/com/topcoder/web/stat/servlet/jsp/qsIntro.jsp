@@ -20,7 +20,7 @@
             <form name="QSTATFORM">
                         <select name="quickstat" onchange="goTo(this)" size="1" class="dropdown">
                           <OPTION value="#" selected> Select a Stat: </OPTION>
-                          <%@ include file="qsList.jsp" %>
+                          <jsp:include page="qsList.jsp" />
                         </select>
                      <!-- Quick Stat Pulldown Ends -->
                       </TD>

@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>PageBuilder Page Menu</title>
-    <%@ include file="script.jsp" %>
+    <jsp:include page="script.jsp" />
   </head>
   <body class="bodyText">
     <br/><p class="header">&#160;TopCoder <em>PageBuilder</em></p>
