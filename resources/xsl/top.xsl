@@ -60,11 +60,17 @@
     <xsl:when test="/TC/LoggedIn='true'">
             <table width="99%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">            
                 <tr valign="middle"><form name="selectform">
-                    <td width="99%" align="right">
-                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-                        <xsl:when test="number(/TC/Rating)&lt;1200">top_div2_badge</xsl:when>
-                        <xsl:otherwise>top_div1_badge</xsl:otherwise></xsl:choose>.jpg</xsl:attribute>
-                        
+                    <td width="99%" align="left">
+                        <xsl:choose>
+                            <xsl:when test="number(/TC/Rating)&lt;1200">
+                                <IMG src="/i/top_div2_badge.jpg" width="390" height="75" border="0" alt="DIVISION II" />
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <IMG src="/i/top_div1_badge.jpg" width="370" height="75" border="0" alt="DIVISION I" />
+                            </xsl:otherwise>
+                        </xsl:choose>
+
+                    <td align="right">
                         <xsl:choose>
                             <xsl:when test="$sectionName='home'">
                                 <A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/>/components/free_components.jsp</xsl:attribute><IMG src="/i/promos/free_comps_promo_head.gif" width="178" height="61" border="0" alt="FREE COMPONENTS" vspace="7"  hspace="10" /></A>
