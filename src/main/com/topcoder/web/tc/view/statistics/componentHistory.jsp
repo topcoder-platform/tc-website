@@ -196,7 +196,7 @@ String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+
                             <TR VALIGN="middle">
                                 <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" HEIGHT="13"><bean:write format="MM.dd.yy" name="resultRow2" property='<%= "item[" + 3 /* event date */ + "].resultData" %>'/></TD>
-                                <% if (resultRow2.getIntItem("component_id")==-1) { %>
+                                <% if (resultRow2.getIntItem("component_id")!=-1) { %>
                                   <TD CLASS="statText" ALIGN="left"><A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<bean:write name="resultRow2" property='<%= "item[" + 2 /* round id */ + "]" %>'/>" CLASS="statText"><bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/></A></TD>
                                 <% } else { %>
                                   <TD CLASS="statText" ALIGN="left"><bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/></TD>
