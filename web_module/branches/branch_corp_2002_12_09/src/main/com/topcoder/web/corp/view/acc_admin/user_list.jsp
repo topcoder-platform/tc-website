@@ -1,8 +1,7 @@
 <%@ page
   language="java"
   errorPage="/error.jsp"
-  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
-          java.util.Map"
+  
 %>
 <%@ taglib uri="/WEB-INF/tc-taglib.tld" prefix="rsc" %>
 <%
@@ -49,7 +48,7 @@
 	</TR>
 
 
-
+<!--
 	<rsc:iterator list="<%=rsc%>" id="resultRow">
 	  <TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
@@ -61,7 +60,7 @@
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="bodyText">Edit</A></TD>		
 	  </TR>
 	</rsc:iterator>
-
+-->
 
 
 	<TR>
