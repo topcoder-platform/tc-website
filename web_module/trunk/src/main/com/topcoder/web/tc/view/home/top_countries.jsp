@@ -17,7 +17,7 @@
     </tr>
     <rsc:iterator list="<%=countries%>" id="resultRow">
         <tr>
-            <td align="right" class="formHandleEven"><rsc:item name="rank" row="<%=resultRow%>"/></td>
+            <td align="right" class="formHandleEven"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
             <td align="left" class="formHandleEven" nowrap="nowrap"><rsc:item name="name" row="<%=resultRow%>"/></td>
             <td align="right" class="formHandleEven" nowrap="nowrap"><rsc:item name="avg_rating" row="<%=resultRow%>"/></td>
         </tr>
