@@ -95,7 +95,7 @@ class UserListTest extends BaseProcessor {
 //                         AND u.user_id = c.contact_id"
 //                         AND c.company_id = ");
 
-//        query.append(Long.toString(companyId));
+//        query.append(companyId.toString());
         try {
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -109,7 +109,7 @@ class UserListTest extends BaseProcessor {
         } catch (NamingException e) {
             throw new Exception("NamingException getting users");
         } catch (Exception e) {
-            throw new Exception("Exception getting user's information : " + userId + "\n" + e.getMessage());
+            throw new Exception("Exception getting user's information." + e.getMessage());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getFirstName");}}
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getFirstName");}}
