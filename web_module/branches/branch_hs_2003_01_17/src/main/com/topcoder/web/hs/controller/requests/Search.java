@@ -202,7 +202,9 @@ public class Search extends Base {
     valid&=(checkValidState(_errors,_sb.getStateCode(),_sb.getStateList())&&
             checkValidSchool(_errors,_sb.getSchoolId(),_sb.getSchoolList()));
     valid&=checkValidStateSchool(_errors,_sb.getStateCode(),_sb.getSchoolId());
-    valid&=checkValidMinMax(_errors,_sb.getMinRating(),_sb.getMaxRating());
+    valid&=(checkValidMinRating(_errors,_sb.getMinRating())&&
+            checkValidMaxRating(_errors,_sb.getMaxRating())&&
+            checkValidMinMax(_errors,_sb.getMinRating(),_sb.getMaxRating()));
     return(valid);
   }
 
