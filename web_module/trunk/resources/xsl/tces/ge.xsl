@@ -379,7 +379,7 @@
 
 
 
-<P><B><A HREF="/?t=tces&amp;c=ge_criteria">Program Summary and Candidate Criteria</A></B></P>
+<P><B><A HREF="/?t=tces&amp;c=ge_criteria&amp;a=secure">Program Summary and Candidate Criteria</A></B></P>
 
 
 

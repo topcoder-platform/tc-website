@@ -92,7 +92,7 @@ positions available at Google.<BR/><BR/></TD>
 		<TD COLSPAN="3" BGCOLOR="#43515E" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 	</TR>	
 	<TR>
-		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="http://www.topcoder.com/?&amp;t=tces&amp;c=ge"><IMG SRC="/i/es/ge/ge_logo.gif" WIDTH="70" HEIGHT="60" ALT="" BORDER="0"/></A></TD>
+		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=ge"><IMG SRC="/i/es/ge/ge_logo.gif" WIDTH="70" HEIGHT="60" ALT="" BORDER="0"/></A></TD>
 		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText">
 <A HREF="/?&amp;t=tces&amp;c=ge" CLASS="bodyText">Click here</A> for information about GE's premier entry-level Information Management Leadership Program (IMLP).  
@@ -128,7 +128,7 @@ engineers and tech-savvy product managers. Are you exceptional at what you do?
 positions available at Google.<BR/>		
 		</TD>
 		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-		<TD WIDTH="50%" VALIGN="top" CLASS="bodyText"><A HREF="http://www.topcoder.com/?&amp;t=tces&amp;c=ge"><IMG SRC="/i/es/ge/ge_logo.gif" WIDTH="70" HEIGHT="60" ALT="" BORDER="0"/></A><BR/>
+		<TD WIDTH="50%" VALIGN="top" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=ge"><IMG SRC="/i/es/ge/ge_logo.gif" WIDTH="70" HEIGHT="60" ALT="" BORDER="0"/></A><BR/>
 <A HREF="/?&amp;t=tces&amp;c=ge" CLASS="bodyText">Click here</A> for information about GE's premier entry-level Information Management Leadership Program (IMLP).  
 IMLP puts information management careers on the fast track. Program graduates are in tremendous demand throughout GE.<BR/>		
        </TD>
