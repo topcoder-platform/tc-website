@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
+                 com.topcoder.web.common.BaseProcessor"%>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
@@ -6,6 +7,16 @@
 <title>Technical Assessment</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <link type="text/css" rel="stylesheet" href="/css/screening.css" >
+
+
+<%
+  System.out.println(request.getAttribute(BaseProcessor.ERRORS_KEY));
+    System.out.println(request.getAttribute(BaseProcessor.DEFAULTS_KEY));
+    System.out.println("\n\n\n\n");
+    System.out.println(session.getAttribute(BaseProcessor.ERRORS_KEY));
+      System.out.println(session.getAttribute(BaseProcessor.DEFAULTS_KEY));
+
+%>
 <script type="text/javascript">
 function submitEnter(e) {
     var keycode;
