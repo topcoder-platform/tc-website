@@ -9,10 +9,7 @@ import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 
@@ -25,9 +22,9 @@ import com.topcoder.web.screening.common.ScreeningException;
 public class ProblemInfo extends BaseModel {
     private static Logger log = Logger.getLogger(ProblemInfo.class);
 
-    private static DataAccess nonCached;
-    private static CachedDataAccess cached;
-    private static DataAccess dwAccess;
+    private static DataAccessInt nonCached;
+    private static DataAccessInt cached;
+    private static DataAccessInt dwAccess;
 
     private String problemName;
     private String divisionDesc;
@@ -315,7 +312,7 @@ public class ProblemInfo extends BaseModel {
                         context.lookup(Constants.DW_DATA_SOURCE),
                                        DataSource.class);
 
-            dwAccess = new DataAccess(ds);
+            dwAccess = new CachedDataAccess(ds);
         }
 
         //first check permissions on given problem
