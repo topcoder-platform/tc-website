@@ -98,30 +98,6 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=PMD_Service_Dev">Project Management Dashboard Service</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$3,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$1,100 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">08.13.2004</td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=PMD_Reports_Formatting_Dev">Project Management Dashboard Reports - Formatting</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$1,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">08.13.2004</td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=PMD_Reports_Execution_Dev">Project Management Dashboard Reports - Execution</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$2,400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">08.13.2004</td>
-                                </tr>
 
 
                             </table>
@@ -145,6 +121,26 @@
                                     </td>
                                     <td class="projectCells" align="right">$1,560 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$625 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=PMD_Service_Dev">Project Management Dashboard Service</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$3,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,100 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=PMD_Reports_Formatting_Dev">Project Management Dashboard Reports - Formatting</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=PMD_Reports_Execution_Dev">Project Management Dashboard Reports - Execution</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$2,400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                 </tr>
 
 
