@@ -62,7 +62,7 @@
             
 <!-- The Competition Field -->
             <p><span class="bodySubtitle">The Competition Field</span><br />
-            Round #1 is open to all members who raise a minimum of $25 as of 11:59pm on November 10th.  </p>
+            Round 1 is open to all members who are 18 years of age or older and who raise a minimum of $25 as of 11:59pm on November 10th.  </p>
 
             <p>Everyone who competes in an online round must log on to the TopCoder Competition Arena no later than ten minutes prior to 
             the start of the online round.  (Click <a href="/tc/?&module=Static&d1=crpf&d2=crpf_sched">here</a> for competition dates and times.)  
@@ -89,7 +89,7 @@
                 with a positive point total will advance.</li>
 
                 <li><strong>Round 2</strong><br />
-                Up to 100 coders will compete in Round #2 and up to 50 will advance.  The 50 highest scoring competitors advance to Round 
+                Up to 100 coders will compete in Round 2 and up to 50 will advance.  The 50 highest scoring competitors advance to Round 
                 3.  Each coder must have positive points to advance.  If less than 50 people score positive points, only those competitors with a 
                 positive point total will advance.</li>
 

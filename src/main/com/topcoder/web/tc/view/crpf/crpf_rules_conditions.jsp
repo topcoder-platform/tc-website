@@ -66,7 +66,7 @@
                   relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within 
                   the sole discretion of TopCoder or its designee and shall be final and binding in all respects.</p>
 
-                  <p>All 50 advancers from Round #2 must complete and return the following documents to TopCoder NO LATER THAN 6:00pm on 
+                  <p>All 50 advancers from Round 2 must complete and return the following documents to TopCoder NO LATER THAN 6:00pm on 
                   Monday, November 17th:<br />
                   <ul>
                   <li>Affidavit of Eligibility and Liability and Publicity Release (must be notarized unless you already have a notarized affidavit on file 

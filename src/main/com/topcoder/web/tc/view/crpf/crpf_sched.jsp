@@ -61,7 +61,6 @@
 </html>            <h2>Schedule</h2>
             
 <!-- Online Rounds begins -->
-           <p><span class="bodySubtitle">Qualification Rounds</span></p>
            
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">

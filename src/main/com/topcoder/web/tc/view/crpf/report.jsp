@@ -76,16 +76,16 @@
         <table width="500" border="0" cellpadding="0" cellspacing="0" align="center" class="sidebarBox">
              </rsc:iterator>
             <tr class="sidebarTitle">
-                <td width="20%" align="center">
+                <td width="25%" align="center">
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="5"/>"><img src="/i/tournament/crpf03/rank.gif" width="43" height="26" border="0"></a>
                 </td>
-                <td width="20%" align="left">
+                <td width="25%" align="left">
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="4"/>"><img src="/i/tournament/crpf03/handle.gif" width="55" height="26" border="0"></a>
                 </td>
-                <td width="20%" align="center">
+                <td width="25%" align="center">
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="2"/>"><img src="/i/tournament/crpf03/rating.gif" width="55" height="26" border="0"></a>
                 </td>
-                <td width="40%" align="right">
+                <td width="25%" align="right">
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="1"/>"><img src="/i/tournament/crpf03/total_donation.gif" width="115" height="26" border="0"></a>
                 </td>
             </tr>
