@@ -91,7 +91,9 @@ public class XSLTransformerCache {
      * Remove all XSLTransformerWrapper instances from the cache.
      */
     public synchronized void clear() {
+        long size = cache.size();
         cache.clear();
+        log.info("XSL cache cleared.  " + size + " --> " + cache.size());
     }
 
     /**
