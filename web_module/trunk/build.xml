@@ -103,12 +103,12 @@
    <target name="moveStruts" depends="check_java_version">
       <copy todir="${public_html}/WEB-INF/lib">
          <fileset dir="" >
-                 <include name="**/*.jar" />
+                 <include name="*.jar" />
          </fileset>
       </copy>
       <copy todir="${public_html}/WEB-INF">
          <fileset dir="" >
-                 <include name="**/*.tld" />
+                 <include name="*.tld" />
          </fileset>
       </copy>
    </target>
@@ -116,7 +116,7 @@
    <target name="moveStats" depends="check_java_version">
       <copy todir="${public_html}/WEB-INF">
          <fileset dir="resources/stat" >
-                 <include name="**/*.tld" />
+                 <include name="*.tld" />
          </fileset>
       </copy>
    </target>
