@@ -89,18 +89,18 @@
                     <td class="formTextOdd" align="center">closed</td>
                 </tr>
 
+		<tr valign="top">
+                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=online_gift_card_v10_des">Online Gift Card Sales</a></td>
+                    <td class="formTextOdd" align="center">$810</td>
+                    <td class="formTextOdd" align="center">$225</td>
+                    <td class="formTextOdd" align="center">12.03.03</td>
+                </tr>
+
                 <tr valign="top">
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=email_tool_enhancements">Email Tool Enhancements</a></td>
                     <td class="formTextOdd" align="center">$1,290</td>
                     <td class="formTextOdd" align="center">$420</td>
                     <td class="formTextOdd" align="center">closed</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=online_gift_card_v10_des">Online Gift Card Sales</a></td>
-                    <td class="formTextOdd" align="center">$810</td>
-                    <td class="formTextOdd" align="center">$225</td>
-                    <td class="formTextOdd" align="center">12.03.03</td>
                 </tr>
 
              </table>
