@@ -17,7 +17,6 @@ public class TCESConstants {
     public static String LOGIN_PAGE = null;
     public static String LOGIN_OK_PAGE = null;
     public static String MAIN_PAGE = null;
-    public static String MAIN_GODETAIL_PAGE = null;
     public static String CAMPAIGN_DETAIL_PAGE = null;
     public static String POSITION_INTEREST_PAGE = null;
     public static String CAMPAIGN_INTEREST_PAGE = null;
@@ -236,9 +235,7 @@ public class TCESConstants {
 
         AUTH_FAILED_PAGE = JSP_ROOT+servletConfig.getInitParameter("auth_failed_page");
         LOGIN_PAGE = servletConfig.getInitParameter("login_page");
-        LOGIN_OK_PAGE = servletConfig.getInitParameter("login_ok_page");
         MAIN_PAGE = JSP_ROOT+servletConfig.getInitParameter("main_page");
-        MAIN_GODETAIL_PAGE = servletConfig.getInitParameter("main_godetail_page");
         CAMPAIGN_DETAIL_PAGE = JSP_ROOT+servletConfig.getInitParameter("campaign_detail_page");
         POSITION_INTEREST_PAGE = JSP_ROOT+servletConfig.getInitParameter("position_interest_page");
         CAMPAIGN_INTEREST_PAGE = JSP_ROOT+servletConfig.getInitParameter("campaign_interest_page");
