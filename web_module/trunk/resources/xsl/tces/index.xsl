@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>TopCoder | Employment Services</title>
+<title>Job Listings for companies who are looking to hire top software engineers and developers at TopCoder Employment Services</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -121,7 +121,7 @@
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
 Microsoft ends -->
 
-<!-- Solipsys begins -->
+<!-- Solipsys begins  ### Solipsys' contract has expired 6/13/03 ###
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=solipsys"><img src="/i/es/solipsys/solipsys_logo.gif" width="135" height="60" border="0"/></a></td>
                                 <td width="99%" class="bodyText"><strong>Solipsys Corporation</strong> is a small, high technology business specializing in products 
@@ -133,7 +133,7 @@ Microsoft ends -->
                             </tr>
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
-<!-- Solipsys ends -->
+ Solipsys ends -->
 
 <!-- Nvidia begins -->
                             <tr valign="top">
