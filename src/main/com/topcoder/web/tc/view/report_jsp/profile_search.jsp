@@ -27,6 +27,19 @@
 
 <html>
   <head>
+<style type="text/css">
+	.search {font-size: 0.9em; }
+	.search SELECT{font-size: 0.9em; }
+	.search INPUT{font-size: 0.9em; }
+	.left{text-align: right; BORDER-RIGHT: #DDDDDD 1px solid; padding-right: 3px;}
+	.right{text-align: left; padding-left: 2px; }
+	.lefttop{text-align: right; BORDER-RIGHT: #999999 2px solid; padding-right: 10px;}
+	.centertop{text-align: right; padding-right: 8px; padding-left: 10px}
+	.righttop{text-align: right; BORDER-LEFT: #999999 2px solid; padding-left: 10px;}
+	.multiSel1{width:12em;}
+	.multiSel2{width:15em;}
+	.multiSel3{width:12em;}
+</style>
     <title>TopCoder Reporting</title>
 <script language="javascript">
 <!--
@@ -92,79 +105,85 @@
     <input type="hidden" name="t" value=""/>
     <input type="hidden" name="order" value="1"/>
     <input type="hidden" name="sort" value="1"/>
-
-    <table cellpadding="0" cellspacing="0" border="0">
-      <TR><TD><A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A></TD></TR>
-      <tr><td>Show count only: <tc-webtag:chkBox name="count"/></td></tr>
-      <tr><td>Handle: <tc-webtag:textInput name="handle" size="15"/></td></tr>
-      <tr><td>E-Mail: <tc-webtag:textInput name="email" size="15"/></td></tr>
-      <tr><td>First Name: <tc-webtag:textInput name="firstname" size="15"/></td></tr>
-      <tr><td>Last Name: <tc-webtag:textInput name="lastname" size="15"/></td></tr>
-      <tr><td>Zipcode: <tc-webtag:textInput name="zipcode" size="5"/></td></tr>
-      <tr><td>City: <tc-webtag:textInput name="city" size="15"/></td></tr>
-      <tr><td>Company: <tc-webtag:textInput name="company" size="15"/></td></tr>
-      <tr><td>State: <tc-webtag:multiRSCSelect fieldValue="state_code" fieldText="state_code" name="states" multiple="true" size="5" useTopValue="false" list="<%=states%>" selected='<%=(Set)selectedMap.get("states")%>'/><a href="JavaScript:deselect('states')">Deselect</a></td></tr>
-      <tr><td>Country: <tc-webtag:multiRSCSelect fieldValue="country_code" fieldText="country_name" name="country" multiple="true" size="5" useTopValue="false" list="<%=country%>" selected='<%=(Set)selectedMap.get("country")%>'/><a href="JavaScript:deselect('country')">Deselect</a></td></tr>
-      <tr><td>Country of origin: <tc-webtag:multiRSCSelect fieldValue="country_code" fieldText="country_name" name="countryoforigin" multiple="true" size="5" useTopValue="false" list="<%=country%>" selected='<%=(Set)selectedMap.get("countryoforigin")%>'/><a href="JavaScript:deselect('countryoforigin')">Deselect</a></td></tr>
-      <tr><td>Professional: <tc-webtag:chkBox name="pro"/>
-      Student: <tc-webtag:chkBox name="stud"/></td></tr>
-      <tr><td>Languages: 
+<table class="search"><tr><td align="center" colspan="3">
+  <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> | 
+  <a href="/tc?module=LegacyReport&t=profile_search">Start over</a> | 
+  <a href="JavaScript:submitForm()">Submit</a>
+</td></tr><tr><td valign="top" class="lefttop">
+    <table class="search">
+      <tr><td class="left">Show count only:</td><td class="right"> <tc-webtag:chkBox name="count"/></td></tr>
+      <tr><td class="left">Handle: </td><td class="right"><tc-webtag:textInput name="handle" size="15"/></td></tr>
+      <tr><td class="left">E-Mail: </td><td class="right"><tc-webtag:textInput name="email" size="15"/></td></tr>
+      <tr><td class="left">First Name: </td><td class="right"><tc-webtag:textInput name="firstname" size="15"/></td></tr>
+      <tr><td class="left">Last Name: </td><td class="right"><tc-webtag:textInput name="lastname" size="15"/></td></tr>
+      <tr><td class="left">Zipcode: </td><td class="right"><tc-webtag:textInput name="zipcode" size="5"/></td></tr>
+      <tr><td class="left">City: </td><td class="right"><tc-webtag:textInput name="city" size="15"/></td></tr>
+      <tr><td class="left">Company: </td><td class="right"><tc-webtag:textInput name="company" size="15"/></td></tr>
+      <tr><td class="left">State:<br/><a href="JavaScript:deselect('states')">Deselect</a> </td><td class="right"><tc-webtag:multiRSCSelect class="multiSel1" fieldValue="state_code" fieldText="state_name" name="states" multiple="true" size="5" useTopValue="false" list="<%=states%>" selected='<%=(Set)selectedMap.get("states")%>'/></td></tr>
+      <tr><td class="left">Country:<br/><a href="JavaScript:deselect('country')">Deselect</a> </td><td class="right"><tc-webtag:multiRSCSelect class="multiSel1" fieldValue="country_code" fieldText="country_name" name="country" multiple="true" size="5" useTopValue="false" list="<%=country%>" selected='<%=(Set)selectedMap.get("country")%>'/></td></tr>
+      <tr><td class="left">Country of origin:<br/><a href="JavaScript:deselect('countryoforigin')">Deselect</a> </td><td class="right"><tc-webtag:multiRSCSelect class="multiSel1" fieldValue="country_code" fieldText="country_name" name="countryoforigin" multiple="true" size="5" useTopValue="false" list="<%=country%>" selected='<%=(Set)selectedMap.get("countryoforigin")%>'/></td></tr>
+      <tr><td class="left">Professional: </td><td class="right"><tc-webtag:chkBox name="pro"/></tr></tr>
+      <tr><td class="left"> Student: </td><td class="right"><tc-webtag:chkBox name="stud"/></td></tr>
+      <tr><td class="left">Languages: </td><td class="right">
         <rsc:iterator list="<%=languages%>" id="resultRow">
           <rsc:item name="language_name" row="<%=resultRow%>"/>: 
           <tc-webtag:chkBox name='<%="lang_"+resultRow.getIntItem("language_id")%>'/>
+          <br/>
         </rsc:iterator>
       </td></tr>
-      <tr><td>Max days since last rating: <tc-webtag:textInput name="maxdayssincerating" size="5"/></td></tr>
-      <tr><td>Min events: <tc-webtag:textInput name="minevents" size="5"/></td></tr>
-      <tr><td>Days since registration: <tc-webtag:textInput name="mindays" size="5"/> to <tc-webtag:textInput name="maxdays" size="5"/></td></tr>
-      <tr><td>Rating range: <tc-webtag:textInput name="minrating" size="5"/> to <tc-webtag:textInput name="maxrating" size="5"/></td></tr>
-      <tr><td><hr/><center><h2>Demographics</h2></center></td></tr>
-      <rsc:iterator list="<%=demographic_questions%>" id="resultRow">
-        <tr><td>
-        <rsc:item name="demographic_question_text" row="<%=resultRow%>"/>:
-        <% int questionId = resultRow.getIntItem("demographic_question_id");%>
-        <tc-webtag:listSelect name='<%="demo_"+questionId%>' size="<%=String.valueOf(Math.min(5,((List)demoMap.get(new Integer(questionId))).size()))%>" useTopValue="false" multiple="true" list="<%=(List)demoMap.get(new Integer(questionId))%>"/>
-        <a href="JavaScript:deselect('demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>')">Deselect</a>
-        </td></tr>
-      </rsc:iterator>
-      <tr><td><hr/><center><h2>Placement Information</h2></center></td></tr>
-      <tr><td>Placement Indicator: <select name="placement">
+      <tr><td class="left">Max days since last rating:</td><td class="right"> <tc-webtag:textInput name="maxdayssincerating" size="5"/></td></tr>
+      <tr><td class="left">Min events:</td><td class="right"> <tc-webtag:textInput name="minevents" size="5"/></td></tr>
+      <tr><td class="left">Days since registration:</td><td class="right"> <tc-webtag:textInput name="mindays" size="5"/> to <tc-webtag:textInput name="maxdays" size="5"/></td></tr>
+      <tr><td class="left">Algorithm Rating range:</td><td class="right"> <tc-webtag:textInput name="minrating" size="5"/> to <tc-webtag:textInput name="maxrating" size="5"/></td></tr>
+      <tr><td class="left">Placement Indicator: </td><td class="right"><select name="placement">
       <option value="none"<%= "none".equals(request.getParameter("placement")) ? " selected" : "" %>>No preference</option>
       <option value="either"<%= "either".equals(request.getParameter("placement")) ? " selected" : "" %>>Either</option>
       <option value="contract"<%= "contract".equals(request.getParameter("placement")) ? " selected" : "" %>>Contract</option>
       <option value="full"<%= "full".equals(request.getParameter("placement")) ? " selected" : "" %>>Full time</option>
       </select>
       </td></tr>
-      <tr><td>Resume: <tc-webtag:chkBox name="resume"/></td></tr>
-      <tr><td>Willing to travel/relocate: <tc-webtag:chkBox name="travel"/></td></tr>
-      <tr><td>US Authorization: <tc-webtag:chkBox name="auth"/></td></tr>
-      <tr><td><hr/><center><h2>Skills</h2></center></td></tr>
-
-
-      
+      <tr><td class="left">Resume:</td><td class="right"> <tc-webtag:chkBox name="resume"/></td></tr>
+      <tr><td class="left">Willing to travel/relocate:</td><td class="right"> <tc-webtag:chkBox name="travel"/></td></tr>
+      <tr><td class="left">US Authorization:</td><td class="right"> <tc-webtag:chkBox name="auth"/></td></tr>
+</table></td><td valign="top" class="centertop">
+<table class="search">
+      <rsc:iterator list="<%=demographic_questions%>" id="resultRow">
+        <tr><td class="left">
+        <rsc:item name="demographic_question_text" row="<%=resultRow%>"/>:<br/>
+        <a href="JavaScript:deselect('demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>')">Deselect</a>
+        </td><td class="right">
+        <% int questionId = resultRow.getIntItem("demographic_question_id");%>
+        <tc-webtag:listSelect class="multiSel2" name='<%="demo_"+questionId%>' size="<%=String.valueOf(Math.min(4,((List)demoMap.get(new Integer(questionId))).size()))%>" useTopValue="false" multiple="true" list="<%=(List)demoMap.get(new Integer(questionId))%>"/>
+        </td></tr>
+      </rsc:iterator>
+</table></td><td class="righttop" valign="top"><table class="search">
       <rsc:iterator list="<%=skill_types%>" id="resultRow">
-        <tr><td>
+        <tr><td nowrap>
         <rsc:item name="skill_type_desc" row="<%=resultRow%>"/>:<br/>
         <% int skillType = resultRow.getIntItem("skill_type_id");%>
-        <tc-webtag:listSelect name='<%="skilltype"+skillType%>' useTopValue="false" multiple="true" size="10" list="<%=(List)skillMap.get(new Integer(skillType))%>"/>
-        <select size=10 name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
+        <tc-webtag:listSelect class="multiSel3" name='<%="skilltype"+skillType%>' useTopValue="false" multiple="true" size="12" list="<%=(List)skillMap.get(new Integer(skillType))%>"/>
+        <select size="12" name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
         <option>1</option>
         <option>2</option>
         <option>3</option>
         <option>4</option>
         <option>5</option>
         </select>
-        <tc-webtag:listSelect name='<%="skillset"+skillType%>' multiple="true" useTopValue="false" multiple="true" size="10" list='<%=(List)skillSetMap.get("skillset"+skillType)%>'/>
+        <tc-webtag:listSelect class="multiSel3" name='<%="skillset"+skillType%>' multiple="true" useTopValue="false" multiple="true" size="12" list='<%=(List)skillSetMap.get("skillset"+skillType)%>'/>
+        </td><td>
         <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</a><br/>
-        <a href="JavaScript:remove('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Remove skills</a>
+        <a href="JavaScript:remove('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Remove skills</a><br/>
         <a href="JavaScript:clear('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Clear</a>
         </td></tr>
       </rsc:iterator>
       <tr><td></td></tr>
     </table>
-  </FORM>
+</td><tr><td align="center" colspan="3">
+  <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> | 
+  <a href="/tc?module=LegacyReport&t=profile_search">Start over</a> | 
   <a href="JavaScript:submitForm()">Submit</a>
-  <a href="/tc?module=LegacyReport&t=profile_search">Clear</a>
+</td></tr></table>
+  </FORM>
   </body>
 </html>
 
