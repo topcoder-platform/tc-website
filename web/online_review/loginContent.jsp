@@ -1,5 +1,5 @@
 <%@ page language="java" %>
-<%@ page import="org.apache.struts.action.Action" %> 
+<%@ page import="org.apache.struts.action.Action" %>
 <%@ page import="org.apache.struts.action.ActionErrors" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
@@ -38,8 +38,8 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%">
                         <p><strong>Forgot your password?</strong><br/>
-                        If you cannot remember your password <a href="http://www.topcoder.com/index?t=authentication&c=recover_password">click here</a> and we can send it to you via email.</p>
-                        
+                        If you cannot remember your password <a href="http://www.topcoder.com/tc?&module=PasswordEmail">click here</a> and we can send it to you via email.</p>
+
                         <p><strong>New to TopCoder?</strong><br/>
                         <a href="https://www.topcoder.com/reg/index.jsp">Register now.</a> After you complete the registration process, we will send your account activation code via email.</p>
                     </td>
@@ -54,7 +54,7 @@
                     <td align="center">
                         <table border="0" cellpadding="3" cellspacing="0">
                            <tr><td colspan="3"><img src="images/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
-<logic:present name="<%=Action.ERROR_KEY%>"> 
+<logic:present name="<%=Action.ERROR_KEY%>">
 <!-- User Name Error Text -->
                             <tr valign="middle">
                                 <td class="errorText" colspan="3" align="left"><html:errors /></td>
