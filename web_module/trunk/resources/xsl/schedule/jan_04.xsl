@@ -43,7 +43,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="4"><IMG src="/i/table_top_fill.gif" width="4" height="26" border="0" /></td>
+        <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->	
@@ -60,7 +60,7 @@
 
                         <table width="100%" cellspacing="0" cellpadding="3" border="0" bgcolor="#999999">
                             <tr valign="middle"><form name="selectform">
-                                <td class="statTextLarge" width="99%"><font size="3">&#160;December 2003</font></td>
+                                <td class="statTextLarge" width="99%"><font size="3">&#160;January 2004</font></td>
                                 <td align="right" width="1%">
 <!-- Calendar Pulldown Begins -->	
                         <xsl:call-template name="calendar_view_pulldown"/>
@@ -82,107 +82,90 @@
                           
                             <tr> 
                                 <td id="calendarBlank">
-                                &#160;<br />
-                                &#160;<br />
-                                &#160;<br />
-                                &#160;<br />
-                                &#160;<br /></td>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
                                 <td id="calendar">1</td>
                                 <td id="calendar">2</td>
                                 <td id="calendar">3</td>
-                                <td id="calendarTCO03">
-                                    <span id="calendarTCO03Date">4</span><br />
-                                    <strong>2003 TCO: Coding</strong><br />
-                                    Semifinal Rounds<br />
-                                    Round 1: 10:00&#160;AM<br />
-                                    Round 2: 1:00&#160;PM<br />
-                                    Round 3: 4:00&#160;PM<br />
-                                    Round 4: 7:00&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
-                                <td id="calendarTCO03">
-                                    <span id="calendarTCO03Date">5</span><br />
-                                    <strong>2003 TCO: Coding</strong><br />
-                                    Championship<br />
-                                    Compete: 1:00&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
-                                <td id="calendar">6</td>
                             </tr>
                             
                             <tr> 
-                                <td id="calendar">7</td>
+                                <td id="calendar">4</td>
+                                <td id="calendar">5</td>
+                                <td id="calendar">6</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">7</span><br />
+                                    <strong>Match 178</strong><br />
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    Sponsor: <A href="/?t=sponsor&amp;c=intel_ids">Intel</A><br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?RoundId=4695&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">8</td>
                                 <td id="calendar">9</td>
                                 <td id="calendar">10</td>
-                                <td id="calendar">11</td>
-                                <td id="calendar">12</td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">13</span><br />
-                                    <strong>Match 174</strong><br />
-                                    Register: 9:00&#160;AM<br />
-                                    Compete: 12:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=sponsor&amp;c=intel_ids">Intel</A><br />
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4675&amp;t=schedule&amp;c=srm">Details</A></td>
                             </tr>
                             
                             <tr> 
+                                <td id="calendar">11</td>
+                                <td id="calendar">12</td>
+                                <td id="calendar">13</td>
                                 <td id="calendar">14</td>
                                 <td id="calendar">15</td>
                                 <td id="calendar">16</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">17</span><br />
-                                    <strong>Match 175</strong><br />
-                                    Register: 6:00&#160;PM<br />
-                                    Compete: 9:00&#160;PM<br />
+                                    <strong>Match 179</strong><br />
+                                    Register: 9:00&#160;AM<br />
+                                    Compete: 12:00&#160;PM<br />
                                     Sponsor: <A href="/?t=tces&amp;c=index">NVIDIA</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4680&amp;t=schedule&amp;c=srm">Details</A></td> 
+                                    <A href="/?RoundId=4700&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                            </tr>
+                            
+                            <tr> 
                                 <td id="calendar">18</td>
                                 <td id="calendar">19</td>
                                 <td id="calendar">20</td>
-                            </tr>
-                            
-                            <tr> 
                                 <td id="calendar">21</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">22</span><br />
-                                    <strong>Match 176</strong><br />
-                                    Register: 7:00&#160;PM<br />
-                                    Compete: 10:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tces&amp;c=index">Google</A><br />
+                                    <strong>Match 180</strong><br />
+                                    Register: 5:00&#160;PM<br />
+                                    Compete: 8:00&#160;PM<br />
+                                    Sponsor: <A href="/?t=sponsor&amp;c=intel_ids">Intel</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4685&amp;t=schedule&amp;c=srm">Details</A></td>
+                                    <A href="/?RoundId=4705&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">23</td>
                                 <td id="calendar">24</td>
-                                <td id="calendar">25</td>
-                                <td id="calendar">26</td>
-                                <td id="calendar">27</td>
                             </tr>
                             
                             <tr> 
-                                <td id="calendar">28</td>
-                                <td id="calendar">29</td>
+                                <td id="calendar">25</td>
+                                <td id="calendar">26</td>
+                                <td id="calendar">27</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">30</span><br />
-                                    <strong>Match 177</strong><br />
-                                    Register: 5:00&#160;PM<br />
-                                    Compete: 8:00&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <span id="calendarSRMDate">28</span><br />
+                                    <strong>Match 181</strong><br />
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    Sponsor: <A href="/?t=tces&amp;c=index">Google</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=4690&amp;t=schedule&amp;c=srm">Details</A></td>
+                                    <A href="/?RoundId=4710&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                <td id="calendar">29</td>
+                                <td id="calendar">30</td>
                                 <td id="calendar">31</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
-                           </tr>
-                            
+                            </tr>
                         </table>
 
-                        <p><br /></p>
+                        <p><br/></p>
                         
                     </td>
                 </tr>
@@ -191,7 +174,7 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="10"><IMG src="/i/clear.gif" width="10" height="1" border="0" /></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
     </tr>
 </table>
