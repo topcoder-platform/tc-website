@@ -102,6 +102,11 @@
                                 </tr>
 
                                 <tr valign="top">
+                                    <tr valign="middle">
+                                        <td class="projectHeaders" nowrap="nowrap" width="75%">Project</td>
+                                        <td class="projectHeaders" align="center" nowrap="nowrap">Winning Developer</td>
+                                        <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
+                                    </tr>
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Seat_Service_Data_Classes_Design">Seat Service Data Classes</a>
                                     </td>
