@@ -7,7 +7,7 @@
          <tr>
              <td background="/i/surveyBorderMiddle.gif">
                   <table width="100%" border="0" cellpadding="10" cellspacing="0">
-                     <rsc:iterator list="<%=countries%>" id="resultRow">
+                     <rsc:iterator list="<%=survey%>" id="resultRow">
                      <tr>
                         <td class="surveyText">
                         <span class="surveyTextBig"><rsc:item name="date" row="<%=resultRow%>"/> - </span>
