@@ -55,9 +55,12 @@ public class DemographicQuestion {
     }
 
     public List getDemographicAnswers() {
-        List list = new ArrayList(demographicAnswers.size());
-        for (int i=0; i<demographicAnswers.size(); i++) {
-            list.set(i, ((DemographicAnswer)demographicAnswers.get(i)).clone());
+        List list = null;
+        if (demographicAnswers!=null) {
+            list = new ArrayList(demographicAnswers.size());
+            for (int i=0; i<demographicAnswers.size(); i++) {
+                list.set(i, ((DemographicAnswer)demographicAnswers.get(i)).clone());
+            }
         }
         return list;
     }

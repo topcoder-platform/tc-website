@@ -81,8 +81,8 @@ public class FullRegDemog extends FullRegBase {
         Request r = new Request();
         r.setContentHandle("demographic_answer_list");
         r.setProperty("dq", String.valueOf(ret.getDemographicQuestionId()));
-        Map qMap = dataAccess.getData(r);
-        ResultSetContainer answers = (ResultSetContainer)qMap.get("demographic_answer_list");
+        Map aMap = dataAccess.getData(r);
+        ResultSetContainer answers = (ResultSetContainer)aMap.get("demographic_answer_list");
 
         ResultSetContainer.ResultSetRow aRow = null;
         List answerList = new ArrayList(answers.size());
