@@ -46,7 +46,8 @@
         <td width="20" bgcolor="#000000"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15" /></td>
         <td width="100%" nowrap="nowrap" align="right" bgcolor="#000000">
 <% if( activeUser.isAnonymous() ) { %>
-            <table border="0" cellpadding="0" cellspacing="0">
+            <form name="frmMiniLogin" method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
+           <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="middle">
                     <td nowrap="nowrap" class="statTextBig" align="right">User Name:&#160;&#160;</td>
                     <td colspan="2"><input class="dropdown" maxlength="15" size="12" name="<%=Login.KEY_USER_HANDLE%>" type="TEXT" onkeypress="submitEnter(event, document.frmMiniLogin)" /></td>
