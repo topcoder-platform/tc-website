@@ -48,6 +48,9 @@
    <jsp:param name="selectedTab" value="results"/>
 </jsp:include>
 
+<p>
+Contest Results
+</p>
 
 <h2>Results</h2>
 

@@ -50,6 +50,10 @@
    <jsp:param name="selectedTab" value="results"/>
 </jsp:include>
 
+<p>
+<a href="/tc?module=USDCResults">Contest Results</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+Contest Details - <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
+</p>
 
 <h2>Results</h2>
 
