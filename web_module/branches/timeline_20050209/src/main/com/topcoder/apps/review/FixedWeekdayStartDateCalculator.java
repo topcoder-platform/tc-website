@@ -99,7 +99,7 @@ public class FixedWeekdayStartDateCalculator implements StartDateCalculator {
             try {
                 weekday = Integer.parseInt(ConfigHelper.getString(configName + "_start_weekday"));
                 hour = Integer.parseInt(ConfigHelper.getString(configName + "_start_hour"));
-                minutes = Integer.parseInt(ConfigHelper.getString(configName + "_start_minute"));
+                minutes = Integer.parseInt(ConfigHelper.getString(configName + "_start_minutes"));
             } catch (Exception e) {
                 throw new IllegalArgumentException("can't read or parse from the configuration file using prefix: " + configName);
             }
