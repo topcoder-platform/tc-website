@@ -14,6 +14,9 @@
     <%@ include file="../script.jsp" %>
   </HEAD>
   <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+	<jsp:useBean id="TCES" scope="page" class="com.topcoder.web.tces.bean.TCES" />
+	<jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
+
   <%@ include file="../top.jsp" %>
   <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
     <TR>
@@ -42,23 +45,6 @@
             <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD CLASS="statTextBig" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
 
-							<jsp:useBean id="TCES" scope="session" class="com.topcoder.web.tces.bean.TCES" />
-							<jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
-							<tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
-							<%
-									int user_id = user.getUserId();
-									CoderBean beanCoder = new CoderBean();
-									CoderObject objCoder = new CoderObject();
-									objCoder.coder_id = new Long( (long)user_id );
-									objCoder = beanCoder.request(Coder.SELECT, objCoder);
-
-									UserBean beanUser = new UserBean();
-									UserObject objUser = new UserObject();
-									objUser.user_id = new Long ((long)user_id);
-									objUser = beanUser.request(User.SELECT, objUser);
-							%>
-
-<%= objCoder.first_name %> <%= objCoder.last_name %>
 
 <!--trj insert 6/11/2002 1943 -->
 <%
@@ -87,7 +73,6 @@ boolean student = true;
 
 
 %>
-
   <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
   <tr>
     <td class="statTextBig" width="150" align="right" valign="middle"><img src="/i/clear.gif" width="150" height="2" 
