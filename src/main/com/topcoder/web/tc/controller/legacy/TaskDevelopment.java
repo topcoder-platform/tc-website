@@ -654,7 +654,12 @@ public final class TaskDevelopment {
             ret = true;
         } else if (!rated && unratedCount>=Constants.MAX_UNRATED_INQUIRIES) {
             ret = true;
+        } else if (ratedCount+unratedCount>=Constants.MAX_RATED_INQUIRIES+Constants.MAX_UNRATED_INQUIRIES) {
+            //this is the case where someone registers while unrated, and becomes rated.
+            //without this case, an urated spot frees up
+            ret = true;
         }
+
 
         return ret;
 
