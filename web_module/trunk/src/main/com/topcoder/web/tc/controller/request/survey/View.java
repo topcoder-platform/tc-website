@@ -18,8 +18,10 @@ public class View extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
         try {
             if (alreadyResponded()) {
+                log.debug("already did this one, go to results");
                 setNextPage(Constants.SURVEY_RESULTS);
             } else {
+                log.debug("go to view");
                 setNextPage(Constants.SURVEY_VIEW);
             }
         } catch (Exception e) {
