@@ -44,6 +44,9 @@
           <query:resultSetRowIterator id="command" list="<%=CommandListTask.getCommandList()%>">
             <TR>
               <TD CLASS="statText">
+                <A HREF="<jsp:getProperty name="CommandListTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_GROUP_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandListTask" property="Db"/>&<%=Constants.GROUP_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_group_id"/>" class="statText">
+                  [edit]
+                </A>
                 <query:resultSetItem row="<%=command%>" name="command_group_name"/>
               </TD>
               <TD CLASS="statText">

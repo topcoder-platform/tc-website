@@ -23,6 +23,7 @@ public class CommandDetailTask extends BaseTask implements Task, Serializable {
     private String db;
     private String commandDesc;
     private String groupDesc;
+    private int groupId;
     private ResultSetContainer queryList;
     private ResultSetContainer inputList;
     private int commandId;
@@ -60,7 +61,8 @@ public class CommandDetailTask extends BaseTask implements Task, Serializable {
         qi.setDataSource(getDb());
 
         setQueryList(cq.getQueriesForCommand(getCommandId()));
-        setGroupDesc(cg.getCommandGroupName(c.getCommandGroupId(getCommandId())));
+        setGroupId(c.getCommandGroupId(getCommandId()));
+        setGroupDesc(cg.getCommandGroupName(getGroupId()));
         setCommandDesc(c.getCommandDesc(getCommandId()));
         setInputList(qi.getInputsForCommand(getCommandId()));
 
@@ -99,6 +101,14 @@ public class CommandDetailTask extends BaseTask implements Task, Serializable {
 
     public void setGroupDesc(String groupDesc) {
         this.groupDesc = groupDesc;
+    }
+
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
     }
 
     public ResultSetContainer getQueryList() {
