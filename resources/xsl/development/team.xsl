@@ -449,7 +449,7 @@ $975.00 on May 24th
 $975.00 on June 21st
                                                       </li>
                                                       <li>
-$1,650.00 at the completion of the project*
+$1,560.00 at the completion of the project*
                                                       </li>
                                                     </ul>
                                                 </li>
