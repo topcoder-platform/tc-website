@@ -152,7 +152,8 @@ public class TransactionInfo {
         long ret = -1;
         InitialContext icEJB = null;
         try {
-            ProductUnit productUnit = ((ProductUnitHome) icEJB.lookup(ProductUnitHome.EJB_REF_NAME)).create();
+            icEJB = (InitialContext) TCContext.getInitial();
+                ProductUnit productUnit = ((ProductUnitHome) icEJB.lookup(ProductUnitHome.EJB_REF_NAME)).create();
             ResultSetContainer unitList = productUnit.getUnits(productId);
             ResultSetContainer.ResultSetRow row = null;
             for (Iterator it = unitList.iterator(); it.hasNext();) {
