@@ -179,7 +179,7 @@ Members will also collect royalties on the revenue generated from the sale of th
   </TR>
   <TR>
     <TD class="statTextBig">Total Payment</TD>
-    <TD class="statTextBig" align="left">$437.00</TD>
+    <TD class="statTextBig" align="left">$437.50</TD>
   </TR>
   <TR>
     <TD class="statText">First Payment</TD>
