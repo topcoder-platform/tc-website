@@ -75,6 +75,10 @@ public class PreferenceInput extends BaseTag {
         if(getDefaultValue() != null && getDefaultValue().equals(getTrueValue())) {
             s.append("checked ");
         }
+        else {
+            s.append("/>");
+            s.append(getDefaultValue());
+        }
         
         s.append("/>");
         return s.toString();
