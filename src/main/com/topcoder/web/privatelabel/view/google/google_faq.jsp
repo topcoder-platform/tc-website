@@ -80,7 +80,7 @@ function openWin(url, name, w, h) {
                         
                         <p><font size="-1">
                         <font color="006633" size="3"><b>Is there a way to practice before my qualification attempt? </b></font><br><br>
-Once you’ve registered for the Google Code Jam, you may use your handle and password to login to the competition arena.  Within the arena there is a practice area that mimics the functionality of the real competition.  Nothing that you do in the practice room will count against you.<br><br>
+Once you've registered for the Google Code Jam, you may use your handle and password to login to the competition arena.  Within the arena there is a practice area that mimics the functionality of the real competition.  Nothing that you do in the practice room will count against you.<br><br>
 
                         <font color="006633" size="3"><b>What resources can I use to help me during the competition?</b></font><br><br>
 You may utilize any reference materials, including those found on the Internet.  You may not collaborate with any other person.<br><br>
