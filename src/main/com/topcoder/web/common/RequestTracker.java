@@ -122,7 +122,7 @@ public class RequestTracker {
          * @param r
          */
         private UserRequest(User u, TCRequest r) {
-            this.userId = u.getId();
+            this.userId = u==null?GUEST.getId():u.getId();
             StringBuffer buf = new StringBuffer(254);
             buf.append("http://");
             buf.append(r.getServerName());
