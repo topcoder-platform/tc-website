@@ -5,6 +5,7 @@
 <form name="selectform"><select name="quickstat" size="1" class="dropdown" onchange="goTo(this)">
 <OPTION value="SELECTED"> Select a Week: </OPTION>
 <OPTION value="thisweek">&#160;Current Week</OPTION>
+<OPTION value="apr0802">&#160;Apr. 8-week</OPTION>
 <OPTION value="apr0102">&#160;Apr. 1-week</OPTION>
 <OPTION value="">&#160;</OPTION>
 <OPTION value="mar2502">&#160;Mar. 25-week</OPTION>
