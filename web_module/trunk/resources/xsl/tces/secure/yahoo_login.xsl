@@ -59,29 +59,30 @@
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
                             <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Yahoo! Jobs</b></td></tr>
+                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Jobs</A></td></tr>
                         </table>
 
 <!-- Client Job List begins -->
                         <p><A href="/?&amp;t=tces&amp;c=yahoo" class="bodyText"><img src="/i/es/yahoo/yahoo_logo.gif" width="137" height="35" alt="Yahoo!" border="0" /></A></p>
-                        <p>All positions located in Sunnyvale, CA</p>
+
+                        <h3>Technical Yahoo! Software Engineer (Login/Registration Abuse Prevention)</h3>
                         
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_softeng&amp;a=secure" class="bodyText">Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_antispam&amp;a=secure" class="bodyText">Technical Yahoo! AntiSpam Architect</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_datareport&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Data Reporting Team)</A></p> 
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_srsofteng&amp;a=secure" class="bodyText">Sr. Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_datamining&amp;a=secure" class="bodyText">Data Mining Software Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_websearch&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Web Search Crawling)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_searchtech&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Search Technologies)</A>&#42;</p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_adsystems&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (AdSystems)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_login&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (Login/Registration Abuse Prevention)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_sports&amp;a=secure" class="bodyText">Technical Yahoo! Sports Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_movies&amp;a=secure" class="bodyText">Technical Yahoo! Movies Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_photos&amp;a=secure" class="bodyText">Technical Yahoo! Photo Engineer</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_tiger&amp;a=secure" class="bodyText">Technical Yahoo! Tiger Team</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_myyahoo&amp;a=secure" class="bodyText">Technical Yahoo! Software Engineer (My Yahoo!)</A></p>
-                        <p><A href="/?&amp;t=tces&amp;c=yahoo_intern&amp;a=secure" class="bodyText">Technical Yahoo! Intern</A></p>
+                       <p>We are looking for a motivated senior software engineer who will be responsible for detecting and preventing abuse on login and registration property.</p>
+                       
+                       <p>Login and Registration properties are critical for Yahoo. This position requires that the engineer work with the abuse team to create and 
+                       deploy innovative solutions to detect and combat abuse for login and registration. This requires a solid understanding of the login and 
+                       registration system. The engineer will also work on new login projects.</p>
+                       
+                       <p>This position requires a fast-learner with a solid foundation in OO design, C/C++ and good knowledge of the web protocols. The ideal candidate 
+                       is self-motivated, detail oriented and works well independently and in a team with a 3-7 years of C/C++ development in a Unix environment and a 
+                       BSCS/MSCS degree. Experience with Apache and high availability systems background is a plus.</p>
+                       						
+                       
+                        <p><strong>Job Location</strong><br/>
+                        Sunnyvale, CA</p>
                         
-                        <p>&#42;Position located in either Sunnyvale, CA or New York, NY</p>
+                        <p align="center"><a href="#" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
+
 <!-- Client Job List ends -->
 
                         <p><br/></p>
