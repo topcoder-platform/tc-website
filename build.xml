@@ -58,6 +58,10 @@
          <pathelement location="${jars.dir}/tcs/catalog.jar"/>
          <pathelement location="${jars.dir}/tcs/user.jar"/>
 
+	 <!-- file conversion component -->
+	<pathelement location="${jars.dir}/fileconvert.jar"/>
+	<pathelement location="${jars.dir}/httpunit.jar"/>
+	<pathelement location="${jars.dir}/itext-1.1.jar"/>
      </path>
 
      <target name="init">
@@ -166,6 +170,18 @@
          </jar>
      </target>
 
+     <target name="package-EJB-FileConversionBean" depends="compile">
+        <!--<antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="FileConversion"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/fileconversion"/>
+        </antcall>-->
+        <jar jarfile="${ejb_jars}/FileConversion.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+	    <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/fileconversion/**"/>
+	    <metainf dir="${java}/com/topcoder/web/ejb/fileconversion" includes="*.xml"/>
+        </jar>
+    </target>
 
      <target name="package-EJB-QueryServicesBean" depends="compile">
          <antcall target="build-ejb-unit">
@@ -1164,6 +1180,7 @@
          <antcall target="package-EJB-PreferenceLevelBean"/>
          <antcall target="package-EJB-ComponentRegistrationServicesBean"/>
          <antcall target="package-EJB-CoderSkillBean"/>
+	 <antcall target="package-EJB-FileConversionBean"/>
          <antcall target="war-tc"/>
      </target>
 
@@ -1320,5 +1337,4 @@
          </java>
      </target>
  </project>
-
 
