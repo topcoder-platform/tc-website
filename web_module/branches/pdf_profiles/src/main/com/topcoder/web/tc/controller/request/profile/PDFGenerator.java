@@ -749,10 +749,8 @@ public class PDFGenerator extends BaseProcessor {
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         submission.addCell(cell);
 
-        System.out.println("TEXT:" + info.getSubmissionText());
-
         doc.add(submission);
-        doc.add(new Phrase(info.getSubmissionText(), FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
+        doc.add(new Phrase(info.getSubmissionText(), FontFactory.getFont(FontFactory.COURIER, 10, Font.NORMAL, Color.black)));
 
         doc.newPage();
     }
