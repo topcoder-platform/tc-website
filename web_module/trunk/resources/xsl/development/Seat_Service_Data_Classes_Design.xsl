@@ -109,7 +109,7 @@
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
                                                         View the
-                                                        <a target="_new" class="bodyText" href="/i/development/downloads/ReportsAbstract.pdf">Requirement Specification</a> for this application project.
+                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Data_Classes_Spec.pdf">Requirement Specification</a> for this application project.
                                                     </p>
                                                     <!-- Technologies -->
                                                     <p class="noSpListTitle">
