@@ -670,6 +670,8 @@ public class Registration
                 return PAGE_1;
             }
         } else if (isStep(STEP_2)) {
+            if (schoolStateChanged)
+                return PAGE_2;
             if (isValid()) {
                 return PAGE_3;
             } else {
