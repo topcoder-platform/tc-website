@@ -87,9 +87,6 @@
   <!-- Center Column Begins -->  
     <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"> 
 
-
-
-
      <!-- My Stats Begins -->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
   <TR>
@@ -171,9 +168,6 @@
       <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>  
 
-
-
-
   <xsl:choose>
   <xsl:when test="/TC/HasImage='true'">
     <!-- <TR>
@@ -203,14 +197,6 @@
 </TABLE> 
   </xsl:otherwise>
   </xsl:choose>
-
-
-
-
-
-
-
-
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">  
   <TR>
@@ -480,8 +466,8 @@
   </TR>   
 </TABLE>
 <xsl:call-template name="arena"/> 
-
-<!-- TC special promo --> 
+<P><BR/></P>
+<!-- TC special promo 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR>  
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
@@ -494,16 +480,16 @@
   <TR>  
     <TD VALIGN="top" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>    
   </TR>  
-</TABLE>  
+</TABLE> -->  
 
     </TD>
   <!-- Center Column Ends -->    
-    <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><!--<BR/>
+    <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244"><!--<BR/>
 <A HREF="/index?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/promo_teams.gif" ALT="" WIDTH="244" HEIGHT="81" BORDER="0"/></A><BR/><A HREF="/index?t=jobs&amp;c=index"><IMG SRC="/i/promo_jobs.gif" ALT="" WIDTH="244" HEIGHT="80" BORDER="0"/></A><BR/><BR/> -->
 <!-- <A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/teams_banner.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A><BR/>
 <A TARGET="_parent" HREF="/?t=jobs&amp;c=index"><IMG SRC="/i/jobs_banner2.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A> -->
 <xsl:call-template name="my_stats"/>
-
+<IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/>
      <xsl:choose>
      <xsl:when test="number(/TC/Rating)&lt;1200"> 
        <xsl:call-template name="top_room_wins"><xsl:with-param name="division">2</xsl:with-param></xsl:call-template>
