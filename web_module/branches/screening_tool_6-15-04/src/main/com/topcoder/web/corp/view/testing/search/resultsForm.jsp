@@ -57,6 +57,8 @@
                     height="12"
                     name="tc_card"
                     align="middle"
+                    preference="3"
+                    link="/corp/testing/?module=UpdatePreference&userId=7267401&cid=9102106" 
                     allowScriptAccess="sameDomain"
                     type="application/x-shockwave-flash"
                     pluginspage="http://www.macromedia.com/go/getflashplayer" />
