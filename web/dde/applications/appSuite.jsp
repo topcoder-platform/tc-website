@@ -60,24 +60,24 @@
 <object
 classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
 codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-width="100%"
-height="100%"
+width="800"
+height="450"
 id="appSuite"
 align="top"
 <param name="allowScriptAccess" value="sameDomain" />
-<param name="movie" value="http://172.16.210.55:8080/images/flash/appSuiteDetails.swf"/>
+<param name="movie" value="/images/flash/appSuiteDetails.swf"/>
 <param name="menu" value="false" />
 <param name="align" value="t" />
 <param name="salign" value="t" />
 <param name="menu" value="false" />
 <param name="bgcolor" value="#ffffff" />
 <embed
-src="http://172.16.210.55:8080/images/flash/appSuiteDetails.swf"
+src="/images/flash/appSuiteDetails.swf"
 menu="false"
 quality="high"
 bgcolor="#ffffff"
-width="100%"
-height="100%"
+width="800"
+height="450"
 name="appSuite"
 align="top"
 allowScriptAccess="sameDomain"

@@ -229,7 +229,16 @@
     <%-- TopCoder Gear ends --%>
 
     <%-- Support/FAQs begins --%>
-                    <tr><td id="<%=level1.equals("support")?"leftNavOn":"leftNav"%>"><a href="/?&t=support&c=index" class="<%=level1.equals("support")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("support")?"bottom":"right"%>.gif" border="0"/>Support / FAQs</a></td></tr>
+                    <tr><td id="<%=level1.equals("support")?"leftNavOn":"leftNav"%>"><a href="/tc?module=Static&d1=help&d2=index" class="<%=level1.equals("support")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("support")?"bottom":"right"%>.gif" border="0"/>Support / FAQs</a></td></tr>
+            <% if (level1.equals("support")) { %>
+                <tr><td id="<%=level2.equals("guide")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=help&d2=index">Algorithm Competition Guide</A></td></tr>
+                <tr><td id="<%=level2.equals("general")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=index">General FAQ</A></td></tr>
+                <tr><td id="<%=level2.equals("competition")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="//?&t=support&c=comp_faq">Competition FAQ</A></td></tr>
+                <tr><td id="<%=level2.equals("forms")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=form_faq">Forms W-9 & W-8BEN FAQ</A></td></tr>
+                <tr><td id="<%=level2.equals("ratings")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=ratings">Ratings Overview</A></td></tr>
+                <tr><td id="<%=level2.equals("charity")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=charities">Charity Donations</A></td></tr>
+                <tr><td id="<%=level2.equals("samples")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=sample_problems">Sample Problem Statements</A></td></tr>
+            <% } %>
     <%-- Support/FAQs ends --%>
 
             </table>
