@@ -393,36 +393,37 @@ public class TCLoadRequests extends TCLoad {
             //we only want the query string for the parameter extraction
             if (trimedUrl.indexOf('?') > 0) {
                 trimedUrl = trimedUrl.substring(trimedUrl.indexOf('?'));
-            }
-            log.debug("trimedurl " + trimedUrl);
-
-            StringTokenizer st = new StringTokenizer(trimedUrl, "?&");
-            String s;
-            for (; st.hasMoreTokens();) {
-                s = st.nextToken();
-                if (s.indexOf('=') == 0) {
-                    //this shouldn't ever happen, cuz that would me the url was something
-                    //like &=blah, but we'll throw a case in anyway
-                    paramMap.put("", s);
-                } else if (s.indexOf('=') > 0) {
-                    paramMap.put(s.substring(0, s.indexOf('=')),
-                            s.substring(s.indexOf('='), s.length()));
-                } else {
-                    paramMap.put(s, "");
+                log.debug("trimedurl " + trimedUrl);
+                StringTokenizer st = new StringTokenizer(trimedUrl, "?&");
+                String s;
+                for (; st.hasMoreTokens();) {
+                    s = st.nextToken();
+                    if (s.indexOf('=') == 0) {
+                        //this shouldn't ever happen, cuz that would me the url was something
+                        //like &=blah, but we'll throw a case in anyway
+                        paramMap.put("", s);
+                    } else if (s.indexOf('=') > 0) {
+                        paramMap.put(s.substring(0, s.indexOf('=')),
+                                s.substring(s.indexOf('='), s.length()));
+                    } else {
+                        paramMap.put(s, "");
+                    }
                 }
             }
+
         }
 
         public String getUrl() {
             Map.Entry me = null;
             StringBuffer ret = new StringBuffer(baseUrl.length());
             ret.append(baseUrl);
-            ret.append("?");
             int i = 0;
             for (Iterator it = paramMap.entrySet().iterator(); it.hasNext(); i++) {
                 me = (Map.Entry) it.next();
                 if (i > 0) {
                     ret.append('&');
+                } else {
+                    ret.append("?");
                 }
                 ret.append(me.getKey());
                 ret.append("=");
