@@ -2689,7 +2689,6 @@ public class ProjectTrackerBean implements SessionBean {
                      "       OR (p.project_type_id = 2 AND cvd.phase_id = 113))" +
                      "   AND cvd.comp_vers_id = p.comp_vers_id" +
                      "   AND is_completed = 1" +
-                     "   AND project_stat_id IN (2,4)" +
                      "   AND p.project_id = pi.project_id" +
                      "   AND p.project_id = ?" +
                      "   AND pi.phase_id = 1" +
@@ -2700,7 +2699,7 @@ public class ProjectTrackerBean implements SessionBean {
                      "          price," +
                      "          sb.submitter_id, " +
                      "          pi.end_date," +
-                     "          9" +
+                     "          p.project_id" +
                      " ORDER BY score desc";
         final String insertScores = "update project_results set " +
                                     "            final_score = ?," +
