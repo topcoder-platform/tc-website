@@ -61,6 +61,9 @@
                 </TR>
     
                 <%
+                  /* this is some logic so that if you're an "admin" user, you'll get the company names
+                     to separate the different campaigns.  if this tool get's big, we should do it better.
+                   */                
                  int lastCompany;
                  if (MainTask.getCampaignInfoList().isEmpty()) {
                      lastCompany = -1;
@@ -72,9 +75,6 @@
                  %>
  
                 <tces:rowIterator id="campaignInfo" rowList="<%=MainTask.getCampaignInfoList()%>">
-                <%-- this is some logic so that if you're an "admin" user, you'll get the company names
-                     to separate the different campaigns.  if this tool get's big, we should do it better.
-                 --%>
                 <% i++;
                    currCompany = Integer.parseInt(campaignInfo.getItem("company_id").toString()); 
                    if (currCompany != lastCompany || (MainTask.hasManyCompanies() && i==1)) { %> 
