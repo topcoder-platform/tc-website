@@ -65,10 +65,10 @@ By&#160;pearl,<I>TopCoder Member</I><BR/>
 Back in the ancient days, there were few avenues open to job-seekers:  we had newspaper ads, professional recruiters, college recruitment centers, and word of mouth.  That has all changed with the information age, of course.  Out of curiosity, I decided to look into the modern world of job-hunting.
 </P>
 <P>
-Talking with recent job-hunters, the first thing I learned was that finding a job is a job.  They spent at least 40 hours a week following up leads, sending resumes, and searching for job openings.  In the current economy, most companies are being very cautions about expanding.  It doesn't help that there have been large layoffs as well (American Airlines, etc.), so in addition to the usual influx of college graduates, there are a lot of seasoned professionals out there looking too.  The competition can be fierce.  One company I know recently put an ad in the local paper for an opening for a data base management position, and got over 4,000 applications over the course of three days for a position that was hard to fill just a few years ago.
+Talking with recent job-hunters, the first thing I learned was that finding a job is a job.  They spent at least 40 hours a week following up leads, sending resumes, and searching for job openings.  In the current economy, most companies are being very cautions about expanding.  It doesn't help that there have been large layoffs as well, so in addition to the usual influx of college graduates, there are a lot of seasoned professionals out there looking too.  The competition can be fierce.  One company I know recently put an ad in the local paper for an opening for a data-base management position, and got over 4,000 applications over the course of three days for a position that was hard to fill just a few years ago.
 </P>
 <P>
-The first step in your job search is writing your resume.  This article is too small to go into all the details of writing a resume-it will be well worth your while to buy a book on resume writing or to borrow one from your local library.  There are several things worth mentioning here, however. 
+The first step in your job search is writing your resume.  This article is too small to go into all the details of writing a resume-it will be well worth your while to buy a book on resume writing or to borrow one from your local library.  There are several tips on resume writing worth mentioning here, however I will only highlight a few: 
 <OL>
 <LI>Keep it short.  No more than one or two pages.</LI>
 <LI>List all your relevant experience.  This means that if you apply for jobs in different fields (say, one job as a games programmer, another as a database management professional), you will need more than one resume-one that emphasizes your programming skills, another your database skills.</LI>
@@ -84,13 +84,13 @@ So you've written your resume, gotten your best suit dry-cleaned, and are ready 
 <B>Option 1: College Recruitment Centers</B>
 </P>
 <P>
-Almost all colleges have a recruitment center to help the new college grad get that first job.  The best thing about the companies that come to interview at colleges is that they realize you will have no experience (all too often, in want ads or internet postings, they add on that phrase:  &quot;x years experience in xyz required&quot;.)  What many job-seekers may not realize (or have simply forgotten), is that college recruitment centers also help grads who have been out in the real world for a while.  Often the company representative is from the company's personnel department, and they will be aware of the job openings for experienced professionals as well.  
+Almost all colleges have a recruitment center to help the new college grad get that first job.  The best thing about the companies that come to interview at colleges is that they realize you will have no experience. All too often, in want ads or internet postings, they add on that phrase:  &quot;x years experience in xyz required&quot;.  What many job-seekers may not realize (or have simply forgotten), is that college recruitment centers also help grads who have been out in the real world for a while.  Often the company representative is from the company's personnel department, and they will be aware of the job openings for experienced professionals as well.  
 </P>
 <P>
 <B>Option 2:  Professional Recruiters</B>
 </P>
 <P>
-You wouldn't hire the kid next door to cut your hair.  It makes sense to have professionals helping you search for jobs as well.  Professional recruiters know about many job openings that are not posted anywhere.  They also will usually get you a better salary than searching on your own.  A key point to remember:  they have been finding positions for professionals for years, and often have good relationships with key employers.  They can often see a hidden talent of yours and sell it to the employers for you.  They also will be a go-between between you and the interviewer-providing you with important feed back as to how the interview went.  
+You wouldn't hire the kid next door to cut your hair.  It makes sense to have professionals helping you search for jobs as well.  Professional recruiters know about many job openings that are not posted anywhere.  They also will usually get you a better salary than searching on your own.  A key point to remember:  they have been finding positions for professionals for years, and often have good relationships with key employers.  They can often see a hidden talent of yours and sell it to the employers for you.  They also will be a contact person between you and the interviewer-providing you with important feed back as to how the interview went.  
 </P>
 <P>
 <B>Option 3:  Newspaper Ads</B>
@@ -99,7 +99,7 @@ You wouldn't hire the kid next door to cut your hair.  It makes sense to have pr
 Ten years ago, when I looked at the &quot;Computer Professionals&quot; section of the Sunday Jobs Want-Ads, there were 20-30 pages of jobs.  This last Sunday, there was only &#189; of one page.   Why?  It is not the economy alone.  I believe that companies looking for technical people are turning to more modern methods-after all, would you be interested in hiring a programmer who didn't know how to access your site on the internet?  On the other hand, many smaller companies will use newspaper ads, since they don't have the resources to set up a web site (maybe that would be your first project at such a company!)  Don't overlook the fact that many of the major newspapers also have on-line want ads.
 </P>
 <P>
-<B>Option 4:  Word of mouth (now known as networking)</B>
+<B>Option 4:  Word of mouth (now known as "networking")</B>
 </P>
 <P>
 Never underestimate the power of your friends and acquaintances.  Don't be embarrassed to tell everyone you know that you are looking for a job.  You never know when a friend of a friend will have the dream job you've always wanted-and will let you know about it before the personnel department advertises it.  Here is a scary statistic:  one article I read stated that 90% of managers preferred finding candidates through networking - either internally (within the company) or externally.  It can be very helpful to have a friend within the company you want to apply to-they may be able to get you past the 'gate keepers' in personnel and directly in contact with the supervisors who will be doing the hiring.   
@@ -108,7 +108,7 @@ Never underestimate the power of your friends and acquaintances.  Don't be embar
 <B>Option 5:  Cold-calling companies</B>
 </P>
 <P>
-Perhaps you have always dreamed of working on computer games.  Research the various gaming companies and find out where they are located, and send resumes.   Don't overlook the smaller companies, where you can gain experience while learning the ropes.  You may find you enjoy those smaller companies (imagine reporting directly to the president of the company, rather than a middle manager who has never even seen the vice president that he reports to!)  If you can find out the name of the director of personnel, or even better, the manager you would be reporting to, it doesn't hurt to send your cover letter/resume directly to them.  Also, check out individual company's sites on the web.  Often they will have a 'positions open' section.
+Perhaps you have always dreamed of working on computer games.  Research the various gaming companies and find out where they are located, and send resumes.   Don't overlook the smaller companies, where you can gain experience while learning the ropes.  You may find you enjoy those smaller companies. Imagine reporting directly to the president of the company, rather than a middle manager who has never even seen the vice president that he reports to!  If you can find out the name of the director of personnel, or even better, the manager you would be reporting to, it doesn't hurt to send your cover letter/resume directly to them.  Also, check out individual company sites on the web.  Often they will have a 'positions open' section.
 </P>
 <P>
 <B>Option 6:  On-line job sites</B>
@@ -120,7 +120,7 @@ These sites allow you to post your resume for everyone to see.  It is very impor
 <B>Option 7:  On-line sites such as TopCoder</B>
 </P>
 <P>
-Then there is TopCoder, an online community like no other.  At this site, a potential employer can view actual samples of your work, and see that you really do have the skills your resume lists.  This is very important to potential employers, as all too often applicants who are great at interviewing and have all the correct buzzwords on their resume, have absolutely no programming skill whatsoever.  TopCoder launched TCES (TopCoder Employment Services) in September. <A HREF="/?&amp;t=tces&amp;c=index"  CLASS="bodyGeneric">Click here</A> for details.
+Then there is TopCoder, an online community like no other.  At this site, a potential employer can view actual samples of your work, and see that you really do have the skills your resume lists.  This is very important to potential employers, as all too often applicants who are great at interviewing and have all the correct buzzwords on their resume have absolutely no programming skill whatsoever.  TopCoder launched TCES (TopCoder Employment Services) in September. <A HREF="/?&amp;t=tces&amp;c=index"  CLASS="bodyGeneric">Click here</A> for details.
 </P>
 <P>
 <B>Other Options</B>
@@ -132,7 +132,7 @@ There are probably many other ways to get a job (job fairs, internet job fairs, 
 <B>Get Ready to Search!</B>
 </P>
 <P>
-So, you are probably asking yourself, which method should I use?  According to Richard N. Bolles, author of What Color Is Your Parachute?, you should only concentrate on four methods.  According to him, any more and you will wear yourself too thin, and not do a good job.  Of course, if you have chosen four and then read about a job fair that sounds like just exactly what you are looking for, I would still go to the job fair.  Just concentrate most of your time and effort on your four main methods.  
+So, you are probably asking yourself, which method should I use?  According to Richard N. Bolles, author of What Color Is Your Parachute?, you should only concentrate on four methods.  According to him, any more and you will wear yourself too thin, and not do a good job.  Of course, if you have chosen four and then read about a job fair that sounds like exactly what you are looking for, I would still go to the job fair.  Just concentrate most of your time and effort on your four main methods.  
 </P>
 <P>
 As mentioned near the beginning of this article, finding a job is a full-time job in and of itself.  Companies tend to use only one or two avenues to fill positions.  Company A may do all of its hiring through word-of-mouth and a professional recruiter, while Company B relies solely on newspaper ads, and its company web site.  That is why it is important to use more than one option when seeking a job.
