@@ -2,8 +2,7 @@
   language="java"
   import="com.topcoder.common.web.data.report.*,
           com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-          com.topcoder.web.common.StringUtils,
-          com.topcoder.web.tc.Constants"
+          com.topcoder.web.common.StringUtils"
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <jsp:useBean id="note_list" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"/>
@@ -24,7 +23,7 @@
         <tr><td colspan=4 align=center><a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%>">View Report Profile</a></td></tr>
         <tr><td colspan=4 align=center>
                 <% if (((Boolean)request.getAttribute("registered_for_placement")).booleanValue()) { %>
-                     <A HREF="/tc?module=PlacementInfoDetail&uid=<%=request.getAttribute(Constants.USER_ID)%>">View Placement Information</A>
+                     <A HREF="/tc?module=PlacementInfoDetail&uid=<%=request.getAttribute(com.topcoder.web.tc.Constants.USER_ID)%>">View Placement Information</A>
                 <% } %>
         </td></tr>
         <tr>
