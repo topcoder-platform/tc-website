@@ -58,20 +58,30 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_soft_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
+<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_hard_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
 
 
 
-<P><B>WEB SOFTWARE ENGINEER</B></P>
+<P><B>MIXED SIGNAL DESIGN ENGINEER </B></P>
 <P><B>Role/Responsibilities:</B></P>
-<P>Develop business applications to automate key internal business processes at NVIDIA.  This involves building web-based user interfaces, 
-designing database schemas, coding business rules and workflow logic, and creating dynamically driven reports. Typical projects combine 
-workflow automation, complex user interfaces, database design, and reporting.</P>
+<P>Develop high-speed IC interfaces and complex analog functions.  Projects may include working with the following: high speed interfaces, gigabit Ethernet, 
+video digital-to-analog converters, video analog-to-digital converters, high speed phase-locked loops, and high speed I/O design.</P>
+ 
+
 
 <P><B>Qualifications: GPA: 3.5</B></P>
-<P>Candidates should have solid programming background with an emphasis on current web technologies. 
-Required Skills: Visual Basic.Net, ASP.Net, JavaScript, DHTML, XML, Microsoft SQL database design and T-SQL programming.  
-</P>
+<P>BS/MS in Electrical Engineering, PhD preferred.  Candidate must have experience in more than one of the following areas: <BR/>
+<ul><li>Clock/data recovery for high/speed channels (SERDES, OC48/192(sonet/fiber channel), Gigabit Ethernet, etc). </li>
+<li>Other analog design for high/speed channels (SERDES, OC48/192(sonet/fiber channel), Gigabit Ethernet, etc). </li>
+</ul>
+Experience designing PLL's (analog), CMOS A/D converters, high-speed I/O design, high-speed interfaces.
+Previous experience and internships in Analog/Mixed Signal Circuit Design desired.</P>
+
+
+
+
+
+
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
 

@@ -58,20 +58,26 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_soft_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
+<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_hard_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
 
 
 
-<P><B>WEB SOFTWARE ENGINEER</B></P>
+<P><B>APPLICATIONS ENGINEER </B></P>
 <P><B>Role/Responsibilities:</B></P>
-<P>Develop business applications to automate key internal business processes at NVIDIA.  This involves building web-based user interfaces, 
-designing database schemas, coding business rules and workflow logic, and creating dynamically driven reports. Typical projects combine 
-workflow automation, complex user interfaces, database design, and reporting.</P>
+<P>This is an opportunity to work on the hottest GPU Platform processors before they’ve been shown to the world!  The Applications Engineer is involved in all aspects of New 
+Product Introduction such as PCB (printed circuit board) design, silicon and PCB characterization, stress testing, hardware failure analysis, tuning high performance memory 
+subsystems, solving complex system problems, and consulting on customer designs.  Issues such as noise, power, thermals, AC timing, EMI, display output quality, and transmission 
+line effects, are explored.</P>
+
+<P>As an Applications Engineer, you will be interfacing with hardware designers, software engineers, sales, and the operations team to ensure the timely rollout of new products. 
+ At your disposal are the highest bandwidth DSO (digital storage oscilloscopes) and logic analyzers available.  Powerful in-house tools empower Applications Engineers with the 
+ ability to develop custom routines, which are compiled on the fly during run-time, to fully exercise any and all functions of the GPU.  You will be learning and helping to develop 
+ the best systems engineering practices in the industry.</P>
+ 
+
 
 <P><B>Qualifications: GPA: 3.5</B></P>
-<P>Candidates should have solid programming background with an emphasis on current web technologies. 
-Required Skills: Visual Basic.Net, ASP.Net, JavaScript, DHTML, XML, Microsoft SQL database design and T-SQL programming.  
-</P>
+<P>Senior and junior level positions available.  The ideal candidate will be working towards a degree in EE, CE, CS, Systems Engineering or Engineering Science/Physics, with an emphasis in computer architecture, digital design, circuit analysis, and device physics.  Knowledge of PC architecture and high-speed digital design concepts a must.  Knowledge of graphics system preferred.  Experience in hardware development or testing is highly desirable.   </P>
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
 

@@ -58,20 +58,16 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_soft_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
+<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_hard_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
 
 
 
-<P><B>WEB SOFTWARE ENGINEER</B></P>
+<P><B>HARDWARE ENGINEER - ASIC</B></P>
 <P><B>Role/Responsibilities:</B></P>
-<P>Develop business applications to automate key internal business processes at NVIDIA.  This involves building web-based user interfaces, 
-designing database schemas, coding business rules and workflow logic, and creating dynamically driven reports. Typical projects combine 
-workflow automation, complex user interfaces, database design, and reporting.</P>
+<P>Hardware Engineers at NVIDIA design and implement the industry’s leading graphics and media communications processors. Specific architectural areas include 2D and 3D graphics, mpeg, video, power management, audio, network protocols, bus protocols, and memory subsystem design. </P>
 
 <P><B>Qualifications: GPA: 3.5</B></P>
-<P>Candidates should have solid programming background with an emphasis on current web technologies. 
-Required Skills: Visual Basic.Net, ASP.Net, JavaScript, DHTML, XML, Microsoft SQL database design and T-SQL programming.  
-</P>
+<P>Candidates should have a solid hardware engineering background with a concentration in VLSI design, including some or all of the following areas: Logic design, General VLSI principles, RTL coding, Synthesis, Timing analysis, or Analog circuit design.</P>
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
 

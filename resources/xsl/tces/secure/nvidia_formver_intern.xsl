@@ -58,20 +58,25 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_soft_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
+<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_hard_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
 
 
 
-<P><B>WEB SOFTWARE ENGINEER</B></P>
+<P><B>FORMAL VERIFICATION ENGINEER</B></P>
 <P><B>Role/Responsibilities:</B></P>
-<P>Develop business applications to automate key internal business processes at NVIDIA.  This involves building web-based user interfaces, 
-designing database schemas, coding business rules and workflow logic, and creating dynamically driven reports. Typical projects combine 
-workflow automation, complex user interfaces, database design, and reporting.</P>
+<P>Develop and drive the Formal Verification strategy for NVIDIA's next generation graphics and computer chipsets/ASICs.  Investigate and evaluate formal verification tools and techniques.  Determine where and how to apply to reduce total verification time and effort, and to improve overall verification effectiveness.  Develop methodologies to guide the use of formal tools and functional verification strategies across multiple projects.
+</P>
+ 
+
 
 <P><B>Qualifications: GPA: 3.5</B></P>
-<P>Candidates should have solid programming background with an emphasis on current web technologies. 
-Required Skills: Visual Basic.Net, ASP.Net, JavaScript, DHTML, XML, Microsoft SQL database design and T-SQL programming.  
-</P>
+<P>MS in EE/CS required, PhD with a focus in Formal Verification preferred.  Research or internship experience in functional verification with large and complex design projects.  Knowledge of Verilog, C++ and Perl.  Experience with formal verification tools desired.</P>
+
+
+
+
+
+
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
 

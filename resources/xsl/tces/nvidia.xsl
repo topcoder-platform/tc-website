@@ -15,7 +15,7 @@
     <HTML>
       <HEAD>
         <xsl:call-template name="Preload"/>      
-        <TITLE>Nvidia jobs at TopCoder Employment Services</TITLE>
+        <TITLE>Job Listings for NVIDIA on TopCoder</TITLE>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
@@ -58,7 +58,7 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-<IMG SRC="/i/es/nvidia/main_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" ALIGN="CENTER" />
+<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/main_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>
 
 <P>NVIDIA Corporation is the worldwide leader in graphics processors and media and communications devices. The unmatched breadth of the NVIDIA product line enriches 3D &amp; 2D graphics, video, audio, communications, broadband connectivity, and high-definition digital video and television for every audience and platform including desktop PCs, game consoles, workstations, Internet-enabled appliances, Macintosh, and mobile PCs.</P>
 
