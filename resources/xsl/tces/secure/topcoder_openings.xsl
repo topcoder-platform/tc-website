@@ -86,7 +86,7 @@ HTML tools (BBEdit/HomeSite, no WYSIWYG) JavaScript, Photoshop, Illustrator/Free
 QuarkPress. Candidate must have a solid understanding of user interface issues to better 
 conceptualize mockups during design phase as well as provide and receive constructive 
 performance feedback. The ideal candidate should supply samples or urls. Only qualified 
-applicants with in-demand skills will be contacted. Salary is based on experience.
+applicants with in-demand skills will be contacted. Salary range is $40k to $50k.
 </P>
 
 <P>
