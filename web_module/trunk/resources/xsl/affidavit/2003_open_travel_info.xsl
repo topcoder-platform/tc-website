@@ -265,12 +265,12 @@
 
             <BR/>
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q28" VALUE="April 3, 2003 - preferred departure time"/>April 3, 2003 - preferred departure time:</TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q28" VALUE="December 3, 2003 - preferred departure time"/>December 3, 2003 - preferred departure time:</TD>
               <TD align="left"><SELECT name="a28"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q29" VALUE="April 6, 2003 - preferred departure time"/>April 6, 2003 - preferred departure time:</TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q29" VALUE="December 6, 2003 - preferred departure time"/>December 6, 2003 - preferred departure time:</TD>
               <TD align="left"><SELECT name="a29"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
             </TR>
 
