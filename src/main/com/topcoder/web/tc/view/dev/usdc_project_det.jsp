@@ -102,7 +102,7 @@ else
                         </table>
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
-                                <td class="sidebarText">* Project is still in progress, results subject to change</td>
+                                <td class="bodyText">* Project is still in progress, results subject to change</td>
                             </tr>
                         </table>
                         <br/>
