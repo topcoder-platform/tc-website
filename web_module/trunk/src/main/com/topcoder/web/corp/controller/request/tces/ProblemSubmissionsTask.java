@@ -141,6 +141,15 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
                     " does not belong to uid=" + Long.toString(uid));
         }
 
+        if (isRestrictedCampaign(getCampaignID())) {
+            if (!getRoundIds(getCampaignID()).contains(new Long(getRoundId()))) {
+                throw new NotAuthorizedException(" cid=" + Integer.toString(getCampaignID()) +
+                        " rd=" + getRoundId() +
+                        " does not belong to uid=" + Long.toString(uid));
+            }
+        }
+
+
         setMemberInfo((ResultSetContainer) resultMap.get("TCES_Member_Profile"));
         setJobName(((ResultSetContainer) resultMap.get("TCES_Position_Name")).
                 getItem(0, "job_desc").toString());
