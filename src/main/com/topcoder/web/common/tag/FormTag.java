@@ -90,7 +90,7 @@ public class FormTag extends TagSupport
 
         StringBuffer buffer = new StringBuffer("<form ");
         buffer.append("action=\"");
-        buffer.append(response.encodeURL(request.getContextPath() + action) + "\" ");
+        buffer.append(action + "\" ");
         buffer.append("method=\"" + method + "\"");
 
         if(onSubmit != null)
