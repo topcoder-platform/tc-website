@@ -9,7 +9,9 @@
         com.topcoder.web.corp.model.SessionInfo,
         com.topcoder.shared.util.ApplicationServer" 
     %>
-
+<%
+    String isHomePage = request.getParameter("isHomePage")==null?"":request.getParameter("isHomePage");
+%>
 <%
    DataCache dcHome = com.topcoder.common.web.util.Cache.get();
 %>
@@ -42,20 +44,22 @@
     <tr><td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>                
 </table> 
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
-    <tr valign="middle">
-        <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-        <td width="206"><a href="/" target="_parent"><img src="/i/logo_r.gif" width="206" height="49" border="0" vspace="5"/></a></td>
-        <td width="20"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15"/></td>
-        <td nowrap align="right">
-            <table width="99%" border="0" cellpadding="0" cellspacing="0">            
-                <tr><td><img src="/i/clear.gif" width="1" height="75" border="0"/></td></tr>           
-            </table>                    
-        </td>
-    </tr>
+<table width="100%" border=0 cellpadding=0 cellspacing=0>
+	<tr>
+		<td class=homeLogo><img src="http://www.topcoder.com/i/logo_r.gif" border=0 /></td>
+	</tr>
 </table>
+
 <!-- Header ends -->
 
 <!-- Main Navigation bar begins -->
-<jsp:include page="../../menu.jsp"/>
+<% if (isHomePage.equals("true")) {%>
+		<table width="100%" border=0 cellpadding=0 cellspacing=0>
+			<tr>
+				<td class=homeRedBar>&#160;</td>
+			</tr>
+		</table>
+<% } else { %>
+	<jsp:include page="../../menu.jsp"/>
+<% } %>
 <!-- Main Navigation bar ends -->
