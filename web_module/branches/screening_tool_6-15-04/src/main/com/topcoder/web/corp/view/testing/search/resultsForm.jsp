@@ -89,7 +89,7 @@ function getProblemDetail(id) {
                     pluginspage="http://www.macromedia.com/go/getflashplayer" />
                     </object>
                   </td>
-                  <td class="screeningCellOdd" align=center><A href="">view</A></td>
+                  <td class="screeningCellOdd" align=center><A href="/corp/testing/?module=PopulateCandidate&referrer=SearchResults&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>">view</A></td>
                   <td class="screeningCellOdd" align=center><A href="">view</A></td>
               </tr>
               </rsc:iterator>

@@ -65,7 +65,8 @@ public class SearchResults extends BaseScreeningProcessor {
 	query.append("NVL(cup.level,0) as preference, ");
 	query.append("p.problem_id, ");
 	query.append("sppx.session_round_id, ");
-	query.append("u.user_id ");
+	query.append("u.user_id, ");
+        query.append("s.session_id ");
         query.append("from ");
 	query.append("user u, session s, session_profile sp, email e, ");
 	query.append("coder c, user_address_xref uax, address a, country ct, coder_type cty, ");
