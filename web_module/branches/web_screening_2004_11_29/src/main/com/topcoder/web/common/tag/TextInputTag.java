@@ -1,6 +1,9 @@
 package com.topcoder.web.common.tag;
 
+import com.topcoder.shared.util.logging.Logger;
+
 public class TextInputTag extends BaseTag {
+    protected static Logger log = Logger.getLogger(TextInputTag.class);
     private String value;
     private int size = -1;
     private int maxlength = -1;
@@ -28,9 +31,11 @@ public class TextInputTag extends BaseTag {
                 ret.append("onKeyPress=\"").append(onKeyPress).append("\" ");
             }
 
+            log.debug("value is " + value);
             if (value == null) {
                 value = getDefaultValue()==null?null:getDefaultValue().toString();
             }
+            log.debug("valu is now " + value);
             if (value != null) {
                 ret.append("value=\"").append(value).append("\" ");
             }
