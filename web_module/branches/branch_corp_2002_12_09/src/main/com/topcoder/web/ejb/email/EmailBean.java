@@ -153,6 +153,7 @@ public class EmailBean implements SessionBean {
      * @return long
      * @throws RemoteException
      * @throws EJBException
+     * @deprecated Replaced by getPrimaryEmailId
      */
     public long getEmailId(long userId) {
         log.debug("getEmailId called...user_id: " + userId);
@@ -529,5 +530,242 @@ public class EmailBean implements SessionBean {
                 }
             }
         }
+    }
+
+    /**
+     *
+     *
+     * @param userId user ID to check for primary email
+     * @return a long with the primary email ID
+     */
+    long getPrimaryEmailId(long userId) {
+        log.debug("getPrimaryEmailId called...user_id: " + userId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        long ret = 0;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT email_id FROM email " +
+                                       "WHERE user_id = ? AND primary = 1");
+            ps.setLong(1, userId);
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getLong("email_id");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting primary email_id");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting primary email_id");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting primary email_id\n" +
+                                   e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in" +
+                              "getPrimaryEmailId");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getPrimaryEmailId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in " +
+                              "getPrimaryEmailId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getPrimaryEmailId");
+                }
+            }
+        }
+        return (ret);
+    }
+
+
+    /**
+     *
+     *
+     * @param userId user ID to set
+     * @param emailId user's email ID to set to primary
+     */
+    void setPrimaryEmailId(long userId, long emailId) {
+        log.debug("setPrimaryEmailId called...userId: " + userId +
+                  " emailId: " + emailId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        DataSource ds = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("UPDATE email SET primary = 0");
+
+            int rows = ps.executeUpdate();
+
+            ps = conn.prepareStatement("UPDATE email SET primary = 1" +
+                                       "WHERE user_id = ? AND email_id = ?");
+
+            ps.setLong(1, userId);
+            ps.setLong(2, emailId);
+
+            rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                                       rows);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException updating primary email");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException updating primary email");
+        } catch (Exception e) {
+            throw new EJBException("Exception updating primary email\n" +
+                                   e.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "setPrimaryEmailId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in " +
+                              "setPrimaryEmailId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setPrimaryEmailId");
+                }
+            }
+        }
+    }
+
+    /**
+     *
+     *
+     * @param userId user ID to check
+     * @param emailId email ID to check
+     * @return a boolean with whether the email ID is the user's primary
+     */
+    boolean isPrimaryEmailId(long userId, long emailId) {
+        log.debug("isPrimaryEmailId called...user_id: " + userId +
+                  " email_id: " + emailId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        int ret = 0;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT primary FROM email " +
+                                       "WHERE user_id = ? AND email_id = ?");
+            ps.setLong(1, userId);
+            ps.setLong(2, emailId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getInt("primary");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException checking primary email_id");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException checking primary " +
+                                   "email_id");
+        } catch (Exception e) {
+            throw new EJBException("Exception checking primary email_id\n" +
+                                   e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in" +
+                              "isPrimaryEmailId");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "isPrimaryEmailId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in " +
+                              "isPrimaryEmailId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in isPrimaryEmailId");
+                }
+            }
+        }
+        return (ret==1);
     }
 }

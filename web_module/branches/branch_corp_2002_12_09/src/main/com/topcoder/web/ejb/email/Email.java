@@ -24,6 +24,7 @@ public interface Email extends EJBObject {
      *
      *
      * @see com.topcoder.web.ejb.email.EmailBean#getEmailId
+     * @deprecated
      */
     long getEmailId(long userId) throws RemoteException, EJBException;
 
@@ -59,4 +60,29 @@ public interface Email extends EJBObject {
      */
     void setAddress(long userId, long emailId, String address)
              throws RemoteException, EJBException;
+
+    /**
+     *
+     *
+     * @see com.topcoder.web.ejb.email.EmailBean#getPrimaryEmailId
+     */
+    long getPrimaryEmailId(long userId)
+             throws RemoteException, EJBException;
+
+    /**
+     *
+     *
+     * @see com.topcoder.web.ejb.email.EmailBean#setPrimaryEmailId
+     */
+    void setPrimaryEmailId(long userId, long emailId)
+             throws RemoteException, EJBException;
+
+    /**
+     *
+     *
+     * @see com.topcoder.web.ejb.email.EmailBean#isPrimaryEmailId
+     */
+    boolean isPrimaryEmailId(long userId, long emailId)
+             throws RemoteException, EJBException;
+
 }
