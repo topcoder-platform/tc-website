@@ -1,7 +1,7 @@
 package com.topcoder.web.admin.task;
 
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.common.web.error.NavigationException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.web.admin.XSLConstants;

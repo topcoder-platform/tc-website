@@ -7,7 +7,7 @@ import com.topcoder.shared.util.logging.*;
 import com.topcoder.web.hs.model.*;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.common.web.error.NavigationException;
+import com.topcoder.web.common.NavigationException;
 
 import java.util.*;
 
