@@ -29,7 +29,7 @@
             
             var text = padWithZeroes(d.getHours() % 12) + ":" + padWithZeroes(d.getMinutes()) + ":" + padWithZeroes(d.getSeconds()) + " " + leadingIdent + " GMT" + offset;
             
-            if(top.mainFrame && top.mainFrame.document && top.mainFrame.document.currentTimer) {
+            if(top.mainFrame && top.mainFrame.document ) {
                 updateDivOrSpan(top.mainFrame.document, "currentTimer", text);
             }
             
