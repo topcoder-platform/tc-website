@@ -106,7 +106,7 @@
 
                 <tr valign="top">
                     <td class="promoText" width="99%">
-                        <p><font face="times" size="3"><strong>For more information go to <A href="http://www.revelation.com./tcohome/tcoevent03" target="_blank">www.revelation.com/tcohome/tcoevent03</A></strong></font></p>
+                        <p><font face="times" size="3"><strong>For more information go to <A href="http://www.revelation.com/tcohome/tcoevent03" target="_blank">www.revelation.com/tcohome/tcoevent03.</A></strong></font></p>
                     </td>
                 </tr>
             </table>
