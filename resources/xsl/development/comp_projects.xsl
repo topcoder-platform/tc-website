@@ -55,11 +55,9 @@
 			</table>
 				
 			<table border="0" cellspacing="5" cellpadding="5" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
-				<tr>
-					<td class="statText" colspan="2">Component Projects are classified as <a class="statText" href="#design">Design</a> or <a class="statText" href="#development">Development</a> projects. There are also <a class="statText" href="/index?t=development&amp;c=app_projects">Application</a> projects available.</td>
-				</tr>
+				<tr><td class="statText">Component Projects are classified as <a class="statText" href="#design">Design</a> or <a class="statText" href="#development">Development</a> projects. There are also <a class="statText" href="/index?t=development&amp;c=app_projects">Application</a> projects available.</td></tr>
 
-				<tr><td class="statText" colspan="2"><a name="design"><h1 class="devSubhead">Open Component Design Projects</h1></a></td></tr>
+				<tr><td class="statText"><a name="design"><h1 class="devSubhead">Open Component Design Projects</h1></a></td></tr>
 				
 <!--				<tr valign="top">
 					<td class="statText">
@@ -70,76 +68,206 @@
 				</tr>  -->
 							
 				<tr valign="top">
-					<td class="statText" width="50%">
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=file_distributor-design">File Distributor: Design</a><br />
-						Submit by: 12.27.2002</p>   
+					<td> 
+						<table width="100%" cellspacing="0" cellpadding="0" border="0">                
+							<tr valign="middle">
+								<td background="/i/bluebv_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+								<td background="/i/bluebv_bg.gif" width="60%" class="statText">Design Projects</td>
+								<td background="/i/bluebv_bg.gif" width="18%" class="statText" align="right">Payment*</td>
+								<td background="/i/bluebv_bg.gif" width="18%" class="statText" align="center">Submit by</td>
+								<td background="/i/bluebv_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+							</tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=generic_mapping-design">Generic Mapping: Design</a><br />
-						Submit by: 12.27.2002</p>   
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=global_dist_calc-design">Global Distance Calculator: Design</a><br />
-						Submit by: 12.27.2002</p>   
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=code_formatter-design">Code Formatter</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">1.3.2003</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=job_scheduling-design">Job Scheduling: Design</a><br />
-						Submit by: 12.27.2002</p>   
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=xml_parser-design">Lightweight XML Parser: Design</a><br />
-						Submit by: 12.27.2002</p>   
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_system_search-design">File System Search</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">1.3.2003</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=random_string-design">Random String Generator: Design</a><br />
-						Submit by: 12.27.2002</p>   
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=socket_server_mgr-design">Socket Server Manager: Design</a><br />
-						Submit by: 12.27.2002</p>   
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=financial_calc-design">Financial Calculator</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">1.3.2003</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=url_loader-design">URL Loader: Design</a><br />
-						Submit by: 12.27.2002</p>   
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=currency">Currency: Design</a><br />
-						Submit by: 12.18.2002</p>   
-					</td>
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=image_resizing-design">Image Resizing</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">1.3.2003</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+							
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-					<td class="statText" width="50%">
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=exec_wrapper">Executable Wrapper: Design</a><br />
-						Submit by: 12.18.2002</p>   
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=jar_compressor-design">JAR Compressor</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">1.3.2003</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=http_tunnel-design">HTTP Tunneling: Design</a><br />
-						Submit by: 12.18.2002</p>   
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=java_compiler">Java Compiler: Design</a><br />
-						Submit by: 12.18.2002</p>   
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=magic_numbers-design">Magic Numbers</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">1.3.2003</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=object_pool">Object Pool: Design</a><br />
-						Submit by: 12.18.2002</p>   
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=object_selector-design">Object Selector: Design</a><br />
-						Submit by: 12.18.2002</p>   
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=matrix-design">Matrix</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">1.3.2003</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+							
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=serial_num">Serial Number Generator: Design</a><br />
-						Submit by: 12.18.2002</p>   
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=string-design">String</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">1.3.2003</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=service_mgr">Service Manager: Design</a><br />
-						Submit by: 12.18.2002</p>   
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=spell_check">Spell Check: Design</a><br />
-						Submit by: 12.18.2002</p>   
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=thesaurus-design">Thesaurus</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">1.3.2003</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=xml_search-design">XML Search</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">1.3.2003</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_distributor-design">File Distributor: Design</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=generic_mapping-design">Generic Mapping: Design</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=global_dist_calc-design">Global Distance Calculator: Design</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=job_scheduling-design">Job Scheduling: Design</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=xml_parser-design">Lightweight XML Parser: Design</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=random_string-design">Random String Generator: Design</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=socket_server_mgr-design">Socket Server Manager: Design</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=url_loader-design">URL Loader: Design</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+
+							<tr>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td class="statText" colspan="3">*Total Payment (before royalties)</td></tr>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="15" alt="" border="0" /></td></tr>
+						</table>
 					</td>
 				</tr>
 				
@@ -153,20 +281,76 @@
 				</tr>  -->
 							
 				<tr valign="top">
-					<td class="statText" width="50%">
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=ip_filter-dev">IP Filter: Development</a><br />
-						Submit by: 12.27.2002</p>   
+					<td> 
+						<table width="100%" cellspacing="0" cellpadding="0" border="0">                
+							<tr valign="middle">
+								<td background="/i/bluebv_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+								<td background="/i/bluebv_bg.gif" class="statText">Development Projects</td>
+								<td background="/i/bluebv_bg.gif" class="statText" align="right">Payment*</td>
+								<td background="/i/bluebv_bg.gif" class="statText" align="center">Submit by</td>
+								<td background="/i/bluebv_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+							</tr>
 
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=object_formatter-dev">Object Formatter: Development</a><br />
-						Submit by: 12.27.2002</p>   
-					</td>
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-					<td class="statText" width="50%">
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=resourcebundle-dev">ResourceBundle: Development</a><br />
-						Submit by: 12.27.2002</p>   
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=api_comparator-dev">API Comparator</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">1.3.2003</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+							
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=unique_key-dev">Unique Key</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">1.3.2003</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+							
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=ip_filter-dev">IP Filter: Development</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_formatter-dev">Object Formatter: Development</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+							
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+							<tr valign="top">
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=resourcebundle-dev">ResourceBundle: Development</a></td>
+								<td background="" class="statText" align="right">$xxx.xx</td>
+								<td background="" class="statText" align="center">12.27.2002</td>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+
+							<tr>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+								<td class="statText" colspan="3">*Total Payment (before royalties)</td></tr>
+								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="15" alt="" border="0" /></td></tr>
+						</table>
 					</td>
 				</tr>
 			</table>
