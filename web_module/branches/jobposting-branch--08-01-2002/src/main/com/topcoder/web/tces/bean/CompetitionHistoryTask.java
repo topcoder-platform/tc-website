@@ -47,7 +47,6 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
-        super.servletPreAction(request, response);
         HttpSession session = request.getSession(true);
 
         if (!Authentication.isLoggedIn(session)) {

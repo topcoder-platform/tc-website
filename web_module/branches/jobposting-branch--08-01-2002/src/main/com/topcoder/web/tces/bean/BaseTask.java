@@ -72,7 +72,6 @@ public abstract class BaseTask implements Task {
 
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
          throws Exception {
-        setServletPath(request.getContextPath() + request.getServletPath());  
     }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)

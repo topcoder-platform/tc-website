@@ -58,7 +58,6 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
-        super.servletPreAction(request, response);
         HttpSession session = request.getSession(true);
 
         if (!Authentication.isLoggedIn(session)) {

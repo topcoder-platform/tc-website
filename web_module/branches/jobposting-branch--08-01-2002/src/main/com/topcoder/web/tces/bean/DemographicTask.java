@@ -191,7 +191,6 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
-        super.servletPreAction(request, response);
         HttpSession session = request.getSession(true);
 
         if (!Authentication.isLoggedIn(session)) {

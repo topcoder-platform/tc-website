@@ -72,7 +72,9 @@ public class Controller extends HttpServlet {
                     }
                 }
 
-				task.servletPreAction(request, response);
+                task.setServletPath(request.getContextPath() + request.getServletPath());
+
+                task.servletPreAction(request, response);
 
                 task.processStep(taskStepName);
 
