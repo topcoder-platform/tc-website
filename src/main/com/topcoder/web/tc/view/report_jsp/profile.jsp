@@ -20,6 +20,7 @@
   ResultSetContainer handleList = null;
   ResultSetContainer addressList = null;
   ResultSetContainer violationList = null;
+  ResultSetContainer statusList = null;
   ResultSetContainer.ResultSetRow p = null;
   ArrayList detailList = null;
   String className = null;
@@ -79,6 +80,7 @@
       handleList = (ResultSetContainer)((Map)detailList.get(k)).get("handle_history");
       addressList = (ResultSetContainer)((Map)detailList.get(k)).get("address_history");
       violationList = (ResultSetContainer)((Map)detailList.get(k)).get("violations");
+      statusList = (ResultSetContainer)((Map)detailList.get(k)).get("status_changed");
 
       int rating = ((Integer)p.getItem("rating").getResultData()).intValue();
 
@@ -316,6 +318,29 @@
   </table>
 
             <%
+        }
+%>
+<%
+        if (!statusList.isEmpty()) {
+%>
+  <br/><br/>
+  <table cellpadding="5" cellspacing="0">
+    <tr><td colspan="3"><b>Status History</b></td></tr>
+    <tr>
+      <td><b>old value</b></td>
+      <td><b>new value</b></td>
+      <td><b>date of change</b></td>
+      </tr>
+
+       <rsc:iterator list="<%=statusList%>" id="resultRow">
+    <tr>
+      <td><rsc:item name="old_value" row="<%=resultRow%>"/></td>
+      <td><rsc:item name="new_value" row="<%=resultRow%>"/></td>
+      <td><rsc:item name="timestamp" row="<%=resultRow%>" format="MM/dd/yyyy hh:mm a"/></td>
+      </tr>
+    </rsc:iterator>
+  </table>
+<%
         }
 %>
   <br/>
