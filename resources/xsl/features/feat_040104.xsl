@@ -75,13 +75,13 @@ I'll begin with the bad news. To understand DP, you must first have a firm grasp
 
 <p>As an example of how straightforward these recursive relationships can be, consider the longest common subsequence problem. You are given two strings, S and T, and want to find the longest subsequence that appears in both strings, where the characters of the subsequence do not have to appear consecutively in the original strings. For example, given the strings "ABCDE" and "DACACBE", the longest common subsequence is "ACE". The straightforward recursive algorithm can be written in pseudocode as</p>
 
-<pre>function LCS(S, T) is
-
- if S is empty or T is empty then return empty string
- if first char of S == first char of T then
- return (first char of S) + LCS(S - first char, T - first char)
- otherwise // first chars are different
- return longer of LCS(S - first char, T) and LCS(S, T - first char)
+<pre>
+function LCS(S, T) is
+    if S is empty or T is empty then return empty string
+    if first char of S == first char of T then
+        return (first char of S) + LCS(S - first char, T - first char)
+    otherwise // first chars are different
+        return longer of LCS(S - first char, T) and LCS(S, T - first char)
  </pre>
 
 <p>In the first case, one or both of the strings is empty, so the longest common subsequence is empty. In the second case, both strings begin with the same character, so we declare that character to be part of the longest common subsequence and recursively calculate the longest common subsequence of the remaining characters. In the third case, the strings begin with different characters, so at least one of the first character of S or the first character of T is not part of the longest common subsequence. Therefore, we recursively calculate the longest common subsequences that we would get by dropping the first character of S and by dropping the first character of T, and keep whichever answer is longer.</p>
@@ -93,22 +93,21 @@ Consider what happens in the recursive LCS algorithm on inputs such as "ABCDE" a
 
 <pre>
 LCS("ABCDE", "FGHI")
-
- = longer of { LCS("BCDE","FGHI"),
- LCS("ABCDE","GHI") }
- = longer of {
- longer of { LCS("CDE","FGHI"),
- LCS("BCDE","GHI") },
- longer of { LCS("BCDE","GHI"),
- LCS("ABCDE","HI") }}
- = longer of {
- longer of {
- longer of { LCS("DE","FGHI"), LCS("CDE","GHI") },
- longer of { LCS("CDE","GHI"), LCS("BCDE","HI") }},
- longer of {
- longer of { LCS("CDE","GHI"), LCS("BCDE","HI") },
- longer of { LCS("BCDE","HI"), LCS("ABCDE","I") }}}
- = ...
+    = longer of { LCS("BCDE","FGHI"),
+            LCS("ABCDE","GHI") }
+    = longer of {
+        longer of { LCS("CDE","FGHI"),
+            LCS("BCDE","GHI") },
+        longer of { LCS("BCDE","GHI"),
+            LCS("ABCDE","HI") }}
+    = longer of {
+        longer of {
+            longer of { LCS("DE","FGHI"), LCS("CDE","GHI") },
+            longer of { LCS("CDE","GHI"), LCS("BCDE","HI") }},
+        longer of {
+            longer of { LCS("CDE","GHI"), LCS("BCDE","HI") },
+            longer of { LCS("BCDE","HI"), LCS("ABCDE","I") }}}
+    = ...
 </pre>
 
 <p>Notice how certain subproblems appear over and over again. Already we see three calls to LCS("CDE","GHI") and another three calls to LCS("BCDE","HI"). Eventually we'll end up with a whopping 35 calls to LCS("E","I"). This explains why the algorithm is so slow-like Sisyphus, it keeps pushing the same rock up the same hill. Lather. Rinse. Repeat.</p>
@@ -122,49 +121,48 @@ Memoization is the technique of remembering what inputs we've called a function 
 
 <p>For example, here is the LCS algorithm re-written to use memoization. It depends on a "memo table" of answers indexed by pairs of strings:</p>
 
-<pre>function MLCS(S, T) is
+<pre>
+  function MLCS(S, T) is
+    if the pair &lt;S,T&gt; is in the memo table then
+      lookup and return the answer associated with the pair &lt;S,T&gt;
+    otherwise
+      answer = LCS(S,T)  // <i>do the actual work for these inputs</i>
+      save answer in memo table with the pair &lt;S,T&gt;
+      return answer
 
- if the pair &lt;S,T&gt; is in the memo table then
- lookup and return the answer associated with the pair &lt;S,T&gt;
- otherwise
- answer = LCS(S,T) // do the actual work for these inputs
- save answer in memo table with the pair &lt;S,T&gt;
- return answer
-
-
- function LCS(S, T) is
- if S is empty or T is empty then return empty string
- f first char of S == first char of T then
- return (first char of S) + MLCS(S - first char, T - first char)
- otherwise // first chars are different
- return longer of MLCS(S - first char, T) and MLCS(S, T - first char)
+  function LCS(S, T) is
+    if S is empty or T is empty then return empty string
+    if first char of S == first char of T then
+      return (first char of S) + MLCS(S - first char, T - first char)
+    otherwise // <i>first chars are different</i>
+      return longer of MLCS(S - first char, T) and MLCS(S, T - first char)
 </pre>
 
 <p>For clarity, I've isolated the memoization code into a separate function MLCS that calls the original LCS function. The only change to LCS is that it now calls MLCS instead of calling itself recursively. (Of course, LCS calls MLCS, which in turn calls LCS again, so there is still recursion going on here. But now it is mutual recursion between LCS and MLCS instead of between LCS and itself.)</p>
 
 <p>In the code above, the memo table would probably be implemented as a hash table. This is a very common representation of memo tables, especially when the inputs are strings. In this particular case, however, we can do better, assuming we are willing to erase the memo table between distinct calls to the algorithm. Instead of passing around entire strings, we can pass around indices into those strings. Then the memo table can be a simple two-dimensional array indexed by integers. The catch is that we need arrays of different sizes whenever we call the main function with different initial strings. So we allocate a new array when we start the main function, and deallocate the array when we finish. We use an index of 0 to indicate that we are at the beginning of a string, and an index one past the last position in the string to indicate that we have reached the end of the string. The main function is now</p>
 
-<pre>function MAIN-LCS(S, T) is
-
-allocate an array A[0..length of S, 0..length of T]
- initialize all entries in A to null
- answer = LCS(0,0)
- deallocate A
- return answer
-
+<pre>
+  function MAIN-LCS(S, T) is
+    allocate an array A[0..length of S, 0..length of T]
+    initialize all entries in A to null
+    answer = LCS(0,0)
+    deallocate A
+    return answer
+</pre>
  with LCS and MLCS as local helper functions
- function MLCS(i, j) is
+<pre>
+  function MLCS(i, j) is
+    if A[i,j] == null then
+      A[i,j] = LCS(i,j)
+    return A[i,j]
 
- if A[i,j] == null then
- A[i,j] = LCS(i,j)
- return A[i,j]
-
- function LCS(i, j) is
- if i == length of S or j == length of T then return empty string
- if S[i] == T[j] then
- return S[i] + MLCS(i+1, j)
- otherwise
- return longer of MLCS(i+1, j) and MLCS(i, j+1)
+  function LCS(i, j) is
+    if i == length of S or j == length of T then return empty string
+    if S[i] == T[j] then
+      return S[i] + MLCS(i+1, j)
+    otherwise
+      return longer of MLCS(i+1, j) and MLCS(i, j+1)
 </pre>
 
 <p>The memoization-based algorithm processes the memo table in a top-down, demand-driven fashion. Taking the final step to full-fledged DP involves processing the memo table bottom-up, instead.</p>
@@ -176,34 +174,54 @@ If you trace through the execution of the memoization-based algorithm, you'll se
 
 <p>Converting the previous algorithm to use DP is straightforward, except for one point that I'll discuss in a moment.</p>
 
-<pre>function LCS(S, T) is
-
- allocate an array A[0..length of S, 0..length of T]
- for i = length of S downto 0 do
- for j = length of T downto 0 do
- if i == length of S or j == length of T then
- A[i,j] = empty string
- else if S[i] == T[j] then
- A[i,j] = S[i] + A[i+1,j]
- else
- A[i,j] = longer of A[i+1,j] and A[i,j+1]
- answer = A[0,0]
- deallocate A
- return answer
-</pre>
-
-<p>If you compare the body of the inner loop side-by-side with the body of the previous LCS function, you can see that the two algorithms really are doing the same thing.<br/><br/>
- DP Memoization</p>
-
 <pre>
- -------------------------------------------- --------------------------------------------
- if i == length of S or j == length of T then if i == length of S or j == length of T then
- A[i,j] = empty string return empty string
- else if S[i] == T[j] then if S[i] == T[j] then
- A[i,j] = S[i] + A[i+1,j] return S[i] + MLCS(i+1,j)
- else otherwise
- A[i,j] = longer of A[i+1,j] and A[i,j+1] return longer of MLCS(i+1,j) and MLCS(i,j+1)
+  function LCS(S, T) is
+    allocate an array A[0..length of S, 0..length of T]
+    for i = length of S downto 0 do
+      for j = length of T downto 0 do
+        if i == length of S or j == length of T then
+          A[i,j] = empty string
+        else if S[i] == T[j] then
+          A[i,j] = S[i] + A[i+1,j]
+        else
+          A[i,j] = longer of A[i+1,j] and A[i,j+1]
+    answer = A[0,0]
+    deallocate A
+    return answer
 </pre>
+
+<p>If you compare the body of the inner loop side-by-side with the body of the previous LCS function, you can see that the two algorithms really are doing the same thing</p>
+
+<table class="bodyText" cellpadding="0" cellspacing="0" border="0"> 
+<tr>
+<td class="bodyText" align="center">DP<br/>
+ -------------------------------------------- </td>
+<td class="bodyText" align="center">Memoization<br/>
+ -------------------------------------------- </td>
+</tr>
+<tr>
+<td class="bodyText">
+<pre>
+ if i == length of S or j == length of T then 
+    A[i,j] = empty string 
+ else if S[i] == T[j] then 
+    A[i,j] = S[i] + A[i+1,j] 
+ else 
+    A[i,j] = longer of A[i+1,j] and A[i,j+1]
+</pre>
+</td>
+<td class="bodyText">
+<pre>
+if i == length of S or j == length of T then
+    return empty string
+if S[i] == T[j] then
+    return S[i] + MLCS(i+1,j)
+otherwise
+    return longer of MLCS(i+1,j) and MLCS(i,j+1)
+</pre>
+</td>
+</tr>
+</table>
 
 <p>The main differences are that calls to MLCS have been replaced with lookups in the array, and the returns have been replaced with assignments into the array.</p>
 
@@ -212,49 +230,44 @@ If you trace through the execution of the memoization-based algorithm, you'll se
 <p>With DP, however, it is probably more natural to work front to back. Fortunately, this is a very easy change to make</p>
 
 <pre>
-function LCS(S, T) is
-
- allocate an array A[0..length of S, 0..length of T]
- for i = 0 upto length of S do
- for j = 0 upto length of T do
- if i == 0 or j == 0 then
- A[i,j] = empty string
- else if S[i-1] == T[j-1] then
- A[i,j] = A[i-1,j] + S[i-1]
- else
- A[i,j] = longer of A[i-1,j] and A[i,j-1]
- answer = A[length of S,length of T]
- deallocate A
- return answer
+  function LCS(S, T) is
+    allocate an array A[0..length of S, 0..length of T]
+    for i = 0 upto length of S do
+      for j = 0 upto length of T do
+        if i == 0 or j == 0 then
+          A[i,j] = empty string
+        else if S[i-1] == T[j-1] then
+          A[i,j] = A[i-1,j] + S[i-1]
+        else
+          A[i,j] = longer of A[i-1,j] and A[i,j-1]
+    answer = A[length of S,length of T]
+    deallocate A
+    return answer
 </pre>
 
 
  <p>This answer is fine as is, but aficionados of DP often take the further step of initializing the base cases outside the main loop, as in the following version.</p>
 <pre>
-function LCS(S, T) is
+  function LCS(S, T) is
+    allocate an array A[0..length of S, 0..length of T]
 
-allocate an array A[0..length of S, 0..length of T]
+    // <i>initialize base cases</i>
+    for i = 0 upto length of S do
+      A[i,0] = empty string
+    for j = 0 upto length of T do
+      A[0,j] = empty string
 
+    // <i>main loop</i>
+    for i = 1 upto length of S do
+      for j = 1 upto length of T do
+        if S[i-1] == T[j-1] then
+          A[i,j] = A[i-1,j] + S[i-1]
+        else
+          A[i,j] = longer of A[i-1,j] and A[i,j-1]
 
-// initialize base cases
- for i = 0 upto length of S do
- A[i,0] = empty string
- for j = 0 upto length of T do
- A[0,j] = empty string
-
-
- // main loop
- for i = 1 upto length of S do
- for j = 1 upto length of T do
- if S[i-1] == T[j-1] then
- A[i,j] = A[i-1,j] + S[i-1]
- else
- A[i,j] = longer of A[i-1,j] and A[i,j-1]
-
-
- answer = A[length of S,length of T]
- deallocate A
- return answer
+    answer = A[length of S,length of T]
+    deallocate A
+    return answer
 </pre>
 
 
@@ -264,90 +277,89 @@ There are many variations of the knapsack problem, but here's one: Given an arra
 
 <p> We begin with a straightforward recursive solution, where combos(i,m) is the number of combinations of integers in C[1..i] that add up to m.</p>
 <pre>
- function combos(i,m) is
-
-if m = 0 then return 1
- if i = 0 then return 0
- if C[i] &gt; m then return combos(i-1,m)
- else return combos(i-1,m) + combos(i-1,m-C[i])
- </pre>
+  function combos(i,m) is
+    if m = 0 then return 1
+    if i = 0 then return 0
+    if C[i] &gt; m then return combos(i-1,m)
+    else return combos(i-1,m) + combos(i-1,m-C[i])
+</pre>
 
 <p>In the first case, there is exactly one combination of integers that adds up to 0, namely the empty combination. In the second case, we have no numbers to add so there is no way to get a non-zero sum. In the third case, C[i] is too big so the only way to add up to m is to use the integers in C[1..i]. In the last case, we count the number of combinations that do not use C[i] plus the number of combinations that do use C[i].</p>
 
 
 <p>Notice that i is always between 0 and K, inclusive, and m is always between 0 and N, inclusive. Therefore, in the DP solution, we use an array A[0..K, 0..N]. We initialize the array from smaller values of i and m to bigger values.</p>
 <pre>
-function combos(C) is
+  function combos(C) is
+    allocate an array A[0..K, 0..N]
 
-allocate an array A[0..K, 0..N]
+    // <i>initialize base cases</i>
+    A[0,0] = 1
+    for m = 1 upto N do
+      A[0,m] = 0
 
-// initialize base cases
- A[0,0] = 1
- for m = 1 upto N do
- A[0,m] = 0
+    // <i>main loop</i>
+    for i = 1 upto K do
+      for m = 1 upto M do
+        if C[i] &gt; m then
+          A[i,m] = A[i-1,m]
+        else
+          A[i,m] = A[i-1,m] + A[i-1,m-C[i]]
 
- // main loop
- for i = 1 upto K do
- for m = 1 upto M do
- if C[i] &gt; m then
- A[i,m] = A[i-1,m]
- else
- A[i,m] = A[i-1,m] + A[i-1,m-C[i]]
-
- answer = A[K,N]
- deallocate A
- return answer
+    answer = A[K,N]
+    deallocate A
+    return answer
 </pre>
 
  <p>This algorithm obviously takes O(KN) time and space. With a small amount of cleverness, we can reduce the space requirement to O(N). The key is to realize that each row of the table depends only on the previous row. Therefore, we only need to keep one row in memory at a time.</p>
 
 <p>With that hint, most people will go out and write the following code:</p>
-<pre>function combos(C) is // Warning: Buggy!
+<pre>
+  function combos(C) is // <i><b>Warning: Buggy!</b></i>
+    allocate an array A[0..N]
 
- allocate an array A[0..N]
+    // <i>initialize base cases</i>
+    A[0] = 1
+    for m = 1 upto N do
+      A[m] = 0
 
- // initialize base cases
- A[0] = 1
- for m = 1 upto N do
- A[m] = 0
+    // <i>main loop</i>
+    for i = 1 upto K do
+      for m = 1 upto N do
+        // if C[i] &gt; m then A[m] is unchanged
+        if C[i] &lt;= m then
+          A[m] = A[m] + A[m-C[i]]
 
- // main loop
- for i = 1 upto K do
- for m = 1 upto N do
- // if C[i] &gt; m then A[m] is unchanged
- if C[i] &lt;= m then
- A[m] = A[m] + A[m-C[i]]
-
- answer = A[N]
- deallocate A
- return answer
+    answer = A[N]
+    deallocate A
+    return answer
  </pre>
 
 <p>Unfortunately, there's a serious bug in this code that illustrates how important it is to be careful about the order in which you fill in the table. At each iteration of the inner loop, A[1..m-1] has already been updated to hold the number of valid combinations of integers from C[1..i], whereas A[m..N] still holds the number of valid combinations of integers from C[1..i-1]. Now, look at the innermost assignment</p>
-<pre>A[m] = A[m] + A[m-C[i]]</pre>
+<pre>
+        A[m] = A[m] + A[m-C[i]]
+</pre>
 
 <p>By the time we do this assignment, we've already updated A[m-C[i]], whereas what we want here is the previous value of A[m-C[i]]. The fix is simply to run the inner loop backwards from N to 1 instead of forwards from 1 to N. That way, when we process A[m], we have not yet processed A[m-C[i]]. The corrected code is</p>
 
-<pre>function combos(C) is
+<pre>
+  function combos(C) is
+    allocate an array A[0..N]
 
- allocate an array A[0..N]
+    // <i>initialize base cases</i>
+    A[0] = 1
+    for m = 1 upto N do
+      A[0,m] = 0
 
- // initialize base cases
- A[0] = 1
- for m = 1 upto N do
- A[0,m] = 0
+    // <i>main loop</i>
+    for i = 1 upto K do
+      for m = N downto 1 do
+        // if C[i] &gt; m then A[m] is unchanged
+        if C[i] &lt;= m then
+          A[m] = A[m] + A[m-C[i]]
 
- // main loop
- for i = 1 upto K do
- for m = N downto 1 do
- // if C[i] &gt; m then A[m] is unchanged
- if C[i] &lt;= m then
- A[m] = A[m] + A[m-C[i]]
-
-
- answer = A[N]
- deallocate A
- return answer
+    answer = A[N]
+    deallocate A
+    return answer
  </pre>
 
 <p><span class="bodySubtitle">Summary</span><br/>
