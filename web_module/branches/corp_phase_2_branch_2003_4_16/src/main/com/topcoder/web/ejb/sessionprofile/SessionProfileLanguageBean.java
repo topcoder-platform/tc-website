@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.sessionprofile;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -13,6 +14,7 @@ import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 /**
  *
@@ -157,4 +159,78 @@ public class SessionProfileLanguageBean extends BaseEJB
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in removeProfileLanguage");}}
         }
     }
+
+
+    /**
+     *
+     * @param sessionProfileId
+     */
+    public ResultSetContainer getLanguages(long sessionProfileId) {
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
+
+        varBuf.append("sessionProfileId: ");
+        varBuf.append(sessionProfileId);
+
+        debugBuf.append("getLanguages called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+
+        // begin method
+        Context ctx = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        ResultSetContainer ret = null;
+
+        try {
+            StringBuffer query = new StringBuffer(180);
+            query.append(" SELECT l.language_id");
+            query.append(     " , l.language_name");
+            query.append(     " , l.language_desc");
+            query.append(  " FROM session_profile_language_xref x");
+            query.append(     " , language l");
+            query.append( " WHERE l.language_id = x.language_id");
+            query.append(   " AND x.session_profile_id = ?");
+
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup(dsName);
+            conn = ds.getConnection();
+
+            pstmt = conn.prepareStatement(query.toString());
+            pstmt.setLong(1, sessionProfileId);
+
+            rs = pstmt.executeQuery();
+            ret = new ResultSetContainer(rs);
+
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("SQLException in getLanguages. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
+        } catch (NamingException e) {
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("NamingException in getLanguages. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
+        } catch (Exception e) {
+            StringBuffer exceptionBuf = new StringBuffer(200);
+            exceptionBuf.append("Exception in getLanguages. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
+        } finally {
+            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getLanguages");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore){log.error("FAILED to close PreparedStatement in getLanguages");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore){log.error("FAILED to close Connection in getLanguages");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore){log.error("FAILED to close Context in getLanguages");}}
+        }
+
+        return ret;
+    }
+
+
+
 }
