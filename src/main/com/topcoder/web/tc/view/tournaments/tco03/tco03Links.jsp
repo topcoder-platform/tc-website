@@ -5,33 +5,30 @@
     String selectedTab = request.getParameter("selectedTab")==null?"":request.getParameter("selectedTab");
 %>
 
+<!-- Large Coding/Component Tabs begins -->
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
       <td width="49%" align="right"><img src="/i/clear.gif" alt="" width="5" height="10" border="0"  vspace="0"/></td>
 <% if (selectedContest.equals("coding")) {%>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_overview"><img src="/i/tournament/tco03/coding_tab_on.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
+<% } else if (selectedContest.equals("both")) {%>
                  <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_overview"><img src="/i/tournament/tco03/coding_tab_on.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
 <% } else { %>
                  <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_overview"><img src="/i/tournament/tco03/coding_tab_off.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
 <% } %>
 <% if (selectedContest.equals("component")) {%>
                  <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
-<% } else { %>
+<% } else if (selectedContest.equals("both")) { %>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
+<% } else {%>
                  <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_off.gif" alt="Component tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
 <% } %>
       <td width="49%" align="left"><img src="/i/clear.gif" alt="" width="5" height="10" border="0"  vspace="0"/></td>
    </tr>
 </table>
+<!-- Large Coding/Component Tabs ends -->
 
-<!-- <table border="0" cellspacing="0" cellpadding="0" width="100%">
-      <tr>
-         <td width="49%" align="right"><img src="/i/clear.gif" alt="" width="5" height="10" border="0"  vspace="0"/></td>
-           <td align="center" valign="top"><img src="/i/tournament/tco03/bracket_left.gif" alt="bracket" width="25" height="19" border="0" vspace="0" hspace="0"/></td>
-           <td align="center" valign="top"><img src="/i/tournament/tco03/bracket_middle.gif" alt="bracket" width="325" height="19" border="0" vspace="0" hspace="0"/></td>
-           <td align="center" valign="top"><img src="/i/tournament/tco03/bracket_right.gif" alt="bracket" width="25" height="19" border="0" vspace="0" hspace="0"/></td>
-         <td width="49%" align="left"><img src="/i/clear.gif" alt="" width="5" height="10" border="0"  vspace="0"/></td>
-      </tr>
-</table> -->
-
+<!-- Small Nav Tabs begins -->
 <% if (selectedContest.equals("coding")) {%>
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
@@ -128,3 +125,4 @@
    </tr>
 </table>
 <% } %>
+<!-- Small Nav Tabs begins -->
