@@ -18,12 +18,14 @@ public class ApplicationServer {
     public static int ENVIRONMENT = bundle.getIntProperty("ENVIRONMENT", DEV);
     public static String SERVER_NAME = bundle.getProperty("SERVER_NAME", "172.16.20.20");
     public static String HOST_URL = bundle.getProperty("HOST_URL", "t3://172.16.20.41:7030");
+    public static String SECURITY_HOST = bundle.getProperty("SECURITY_HOST", "172.16.20.40:1099");
     public static String CONTEST_HOST_URL = bundle.getProperty("CONTEST_HOST_URL", "t3://172.16.20.40:9003");
     public static String[] WEBLOGIC_CLUSTER_IP = getClusterArray(bundle.getProperty("WEBLOGIC_CLUSTER_IP", "172.16.20.41"));
     public static String BASE_DIR = bundle.getProperty("BASE_DIR", "/usr/web/build/classes");
 
     public static String IAGREE = bundle.getProperty("IAGREE", BASE_DIR + "/com/topcoder/common/terms.txt");
     public final static String JNDI_FACTORY = bundle.getProperty("JNDI_FACTORY", "weblogic.jndi.WLInitialContextFactory");
+    public final static String JBOSS_JNDI_FACTORY = bundle.getProperty("JBOSS_JNDI_FACTORY", "org.jnp.interfaces.NamingContextFactory");
     public final static String JMS_FACTORY = bundle.getProperty("JMS_FACTORY", "jms.connection.jmsFactory");
     public final static String JMS_BKP_FACTORY = bundle.getProperty("JMS_BKP_FACTORY", "jms.connection.jmsFactory_BKP");
     public final static String TRANS_FACTORY = bundle.getProperty("TRANS_FACTORY", "javax.transaction.UserTransaction");

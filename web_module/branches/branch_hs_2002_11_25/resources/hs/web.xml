@@ -6,7 +6,6 @@
 
 <web-app>
 
-
 <servlet>
   <servlet-name>hs</servlet-name>
   <display-name>hs</display-name>
@@ -36,19 +35,22 @@
     <param-value>/home/error.jsp</param-value>
     <description>path to page which handles errors</description>
   </init-param>
-
-  <init-param>
-    <param-name>security_component_remote_address</param-name>
-    <param-value>172.16.20.40:1099</param-value>
-    <description>Context.PROVIDER_URL for locating the security component EJBs</description>
-  </init-param>
-
 </servlet>
 
+<servlet>
+  <servlet-name>graph</servlet-name>
+  <display-name>graph</display-name>
+  <description>The graph servlet for TCHS</description>
+  <servlet-class>com.topcoder.web.hs.controller.GraphServlet</servlet-class>
+</servlet>
 
 <servlet-mapping>
   <servlet-name>hs</servlet-name>
-  <url-pattern>hs</url-pattern>
+  <url-pattern></url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+  <servlet-name>graph</servlet-name>
+  <url-pattern>graph</url-pattern>
 </servlet-mapping>
 
 </web-app>

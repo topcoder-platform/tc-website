@@ -11,7 +11,6 @@ import javax.servlet.ServletConfig;
  */
 public class Constants {
 
-   public static String security_component_remote_address;
    public static String public_home;
    public static String member_home;
    public static String login_form;
