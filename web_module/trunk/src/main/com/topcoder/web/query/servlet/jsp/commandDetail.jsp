@@ -46,7 +46,12 @@
               </A>
             </TD></TR>
           <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
-          <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">Group: <jsp:getProperty name="CommandDetailTask" property="GroupDesc"/></TD></TR>
+          <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">
+            <A HREF="<jsp:getProperty name="CommandDetailTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_GROUP_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.GROUP_ID_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="GroupId"/>" class="statText">
+              [edit]
+            </A>
+            Group: <jsp:getProperty name="CommandDetailTask" property="GroupDesc"/>
+          </TD></TR>
           <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR>
             <TD VALIGN="top" WIDTH="50%">
