@@ -108,10 +108,8 @@ function changeImage(place, imageIndex) {
 <!-- Tab bar sublinks-->
 <jsp:include page="../tco03Sublinks.jsp" >
    <jsp:param name="selectedList" value="summary"/>
-   <jsp:param name="selectedTab" value="final"/>
+   <jsp:param name="selectedTab" value="slide_show"/>
 </jsp:include>
-
-            <p><br/></p>
 
             <p class="terciary"><div align="center">
                 <a href="Javascript:void changeImage('slideImg', 1);">Reception</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -129,21 +127,21 @@ function changeImage(place, imageIndex) {
                 <a href="Javascript:void changeImage('slideImg', 282);">Press Conference</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="Javascript:void changeImage('slideImg', 304);">Awards Dinner</a>
             </div></p>
-            <p>
+
+            <p><div align="center">
               <form name="blah" action="/tc">
                 <input type="hidden" name="module" value="Static"/>
                 <input type="hidden" name="d1" value="tournaments"/>
                 <input type="hidden" name="d2" value="tco03"/>
                 <input type="hidden" name="d3" value="summary"/>
                 <input type="hidden" name="d4" value="slide_show"/>
-                <input type="text" value="1" name="<%=CURR_IMAGE_KEY%>" size="3"/>
-              </form>
-              of
+                <input type="text" value="1" name="<%=CURR_IMAGE_KEY%>" size="3"/> of 
               <script language="JavaScript"><!--
               document.write(totalImages);
              //-->
              </script>
-            </p>
+              </form>
+            </div></p>
 
             <div align="center">
                 <img src="" width="448" height="336" name="slideImg" class="photoFrameBig">
