@@ -89,6 +89,8 @@ function back() {
                             
             </screen:form>
 
+            <p></p>
+
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr>
                     <td width="70%" class="testTableTitleSmall">Notes</td>
