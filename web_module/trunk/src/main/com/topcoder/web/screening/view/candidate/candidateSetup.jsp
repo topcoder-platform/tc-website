@@ -29,8 +29,8 @@ function back() {
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="70%">
+        <td width="100%" align="center"><img src="/i/clear.gif" width="200" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="50%">
                 <tr valign="top">
                     <td class="bodyText">
                     
@@ -56,7 +56,7 @@ function back() {
                 </tr>
                     
                 <tr>
-                    <td width="60" class="testTableSubtitleOdd">Email Address:</td>
+                    <td class="testTableSubtitleOdd">Email Address:</td>
                         <% if (candidateInfo.isNew()) { %>
                     <td class="testTableOdd"><input type="text" name="emailAddress" size="30" maxlength="30" value="<jsp:getProperty name="candidateInfo" property="userName" />"></td>
                         <% } else { %>
