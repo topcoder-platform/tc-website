@@ -10,7 +10,7 @@
 <script type="text/javascript"><![CDATA[
 function timer(last) {
   var d = document;
-  var stuff = [['/i/tournament/tco03/promo_sm_revelation.gif', '/?t=tournaments&c=tco03_revelation'], ['/i/tournament/tco03/promo_sm_northface.gif', '/?t=tournaments&c=tco03_northface'], ['/i/tournament/tco03/promo_sm_artifact.gif', '/?t=tournaments&c=tco03_artifact']];
+  var stuff = [['/i/tournament/tco03/promo_sm_revelation.gif', '/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_revelation'], ['/i/tournament/tco03/promo_sm_northface.gif', '/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_northface'], ['/i/tournament/tco03/promo_sm_artifact.gif', '/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_artifact']];
   curr = (last+1)%stuff.length;
   document.changerImg.src=stuff[curr][0];
   find('changerHref').href=stuff[curr][1];
