@@ -12,8 +12,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/Eeyore_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=273434"><strong>Eeyore</strong></a><br/>
+                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> 
 
@@ -22,18 +22,15 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm174_prob">SRM 174 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Saturday, December 13, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm175_prob">SRM 175 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, December 17, 2003</p>
 
 <p> 
-TopCoder served up a gamblers' special on the weekend as, improbably
-enough, every Division One problem dealt with chance. The horse to back
-was <b>SnapDragon</b>, who galloped across the finish line after less than
-thirty minutes' coding. <b>Yarin</b> would have been another good bet,
-returning from his Final Four showing at the TopCoder Open (coincidentally
-held in a casino) to place a distant second in this match.
+In a relatively hard SRM, SnapDragon marched to another SRM win, bringing his total to 26.  In a rare 
+appearance from down under, John Dethridge was a close second, less than 20 points behind.  radeye was 
+a distant third, followed by lars, and up-and-comer Eryx in his second SRM.
 
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm174_prob</xsl:attribute><strong>full&#160;story</strong></a>
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm175_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
