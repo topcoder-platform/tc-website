@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:import href="../script.xsl"/>
-<xsl:import href="javaoneArenaApplet.xsl"/>
+<xsl:import href="arenaApplet.xsl"/>
 <xsl:output method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
 <xsl:template match="/">
 <html>
