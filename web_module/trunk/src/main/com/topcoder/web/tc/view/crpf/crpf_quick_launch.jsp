@@ -6,7 +6,7 @@
 
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>TCHS Competition Arena</title>
+<title>Competition Arena</title>
 
 <jsp:include page="../script.jsp" />
 
