@@ -102,6 +102,7 @@ abstract public class ContractingBase extends BaseProcessor {
     
     protected final static String[] contractingPreferences = new String[] { "3", "4", "5", "6"};
     protected final static String[] permanentPreferences = new String[] { "8", "9"};
+    protected final static String[] overallPreferences = new String[] { "10", "11"};
     
     protected boolean errorCheck() {
         if(getRequestParameter("previouspage") == null)
@@ -133,6 +134,12 @@ abstract public class ContractingBase extends BaseProcessor {
                     if(info.getPreference(permanentPreferences[i]) == null) {
                         addError(Constants.PREFERENCE_PREFIX + permanentPreferences[i], "This question is required.");
                     }
+                }
+            }
+            
+            for(int i = 0 ; i < overallPreferences.length; i++) {
+                if(info.getPreference(overallPreferences[i]) == null) {
+                    addError(Constants.PREFERENCE_PREFIX + overallPreferences[i], "This question is required.");
                 }
             }
             
