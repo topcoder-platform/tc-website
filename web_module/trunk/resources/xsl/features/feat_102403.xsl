@@ -160,9 +160,9 @@ epsilon value is used in the conversion of a double to an integer.</li>
 <li>Greedy solutions. Solutions that appear to avoid considering all possibilities by making 
 some assumptions may not always work. Try and come up with an example where the assumption fails.</li>
 <li>Timeouts. Solutions that appear to use brute force analysis or very high recursion may take more 
-than the maximum 8 seconds. Tests run in the arena indicate that 2^29 additions, or 2^28 multiplications 
+than the maximum 8 seconds. Tests run in the arena indicate that 2<sup>29</sup> additions, or 2<sup>28</sup> multiplications 
 (including loop overhead and variable fetching) will run in just under 8 seconds. These times are for C++, 
-and other languages will be slower. So, if a solution ever looks like making more than, say, 2^27 repeated 
+and other languages will be slower. So, if a solution ever looks like making more than, say, 2<sup>27</sup> repeated 
 calls or iterations then it is likely to timeout. The limits may actually be a lot lower than this depending on 
 inner loop efficiency.</li>
 </ul>
