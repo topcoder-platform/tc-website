@@ -33,6 +33,13 @@
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyQueryTask" property="Db"/>">
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_QUERY_NAME%></TD></TR>
+            <TR>
+              <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
+              <TD CLASS="statText" ALIGN="left">
+                  <jsp:getProperty name="ModifyQueryTask" property="Db"/>
+              </TD>
+            </TR>
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyQueryTask%>" key="<%=Constants.QUERY_NAME_PARAM%>"/></TD></TR>
              <TR>
               <TD CLASS="statText" ALIGN="right" WIDTH="50%">Name: </TD>
@@ -53,13 +60,6 @@
               <TD CLASS="statText" ALIGN="right" WIDTH="50%">Column Index: </TD>
               <TD CLASS="statText" ALIGN="left" WIDTH="50%">
                 <input type="text" name="<%=Constants.COLUMN_INDEX_PARAM%>" value ="<jsp:getProperty name="ModifyQueryTask" property="ColumnIndex" />" size="3" maxlength="3"/>
-              </TD>
-            </TR>
-            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR>
-              <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
-              <TD CLASS="statText" ALIGN="left">
-                  <jsp:getProperty name="ModifyQueryTask" property="Db"/>
               </TD>
             </TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
