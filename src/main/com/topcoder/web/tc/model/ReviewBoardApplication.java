@@ -12,6 +12,7 @@ public class ReviewBoardApplication {
 
     private long projectId = 0;
     private String reviewerType = "";
+    private int reviewerTypeId = 0;
 
     private int phaseId = 0;
     private int levelId = 0;
@@ -85,6 +86,15 @@ public class ReviewBoardApplication {
     public int getSubmissionsPassedScreening() {
         return submissionsPassedScreening;
     }
+
+    public int getReviewerTypeId() {
+        return reviewerTypeId;
+    }
+
+    public void setReviewerTypeId(int reviewerTypeId) {
+        this.reviewerTypeId = reviewerTypeId;
+    }
+
 
     public boolean isSpotFilled() {
         return userId!=0;

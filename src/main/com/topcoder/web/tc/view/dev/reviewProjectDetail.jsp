@@ -115,7 +115,7 @@
                             <% if (((ReviewBoardApplication)reviewer).isSpotFilled()) { %>
                                 <tc:beanWrite name="reviewer" property="handle"/>
                             <% } else { %>
-                                <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<tc:beanWrite name="reviewer" property="phaseId"/>&<%=Constants.PRIMARY_FLAG%>=<tc:beanWrite name="reviewer" property="primary"/>">Apply Now</a>
+                                <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<tc:beanWrite name="reviewer" property="phaseId"/>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a>
                             <% } %>
                         </td>
                         <td class="bodyText">
