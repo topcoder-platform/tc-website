@@ -4,7 +4,7 @@ import com.topcoder.security.UserPrincipal;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.controller.request.Activate;
+import com.topcoder.web.privatelabel.controller.request.BaseActivate;
 import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.SessionInfo;
@@ -113,7 +113,7 @@ public class Submit extends FullRegSubmit {
         buf.append("=");
         buf.append(Constants.DC_ACTIVATION);
         buf.append("&");
-        buf.append(Activate.ACTIVATION_CODE);
+        buf.append(BaseActivate.ACTIVATION_CODE);
         buf.append("=");
         buf.append(code);
         buf.append("&");

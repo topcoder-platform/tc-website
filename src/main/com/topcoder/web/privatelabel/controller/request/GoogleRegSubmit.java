@@ -176,7 +176,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
         buf.append("=");
         buf.append(Constants.GOOGLE_ACTIVATION);
         buf.append("&");
-        buf.append(Activate.ACTIVATION_CODE);
+        buf.append(BaseActivate.ACTIVATION_CODE);
         buf.append("=");
         buf.append(code);
         buf.append("&");

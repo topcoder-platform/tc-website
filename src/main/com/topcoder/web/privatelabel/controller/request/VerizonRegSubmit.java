@@ -111,7 +111,7 @@ public class VerizonRegSubmit extends FullRegSubmit {
         buf.append("=");
         buf.append(Constants.VERIZON_ACTIVATION);
         buf.append("&");
-        buf.append(Activate.ACTIVATION_CODE);
+        buf.append(BaseActivate.ACTIVATION_CODE);
         buf.append("=");
         buf.append(code);
         buf.append("&");
