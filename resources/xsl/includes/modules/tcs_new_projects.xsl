@@ -150,7 +150,7 @@
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                     <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Project Title</td>
-                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Inquire by</td>
+                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
                     <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                 </tr>
                             
@@ -169,7 +169,7 @@
                 <tr valign="top">
                     <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     <td class="statText"><a class="statText" href="/index?t=development&amp;c=online_review&amp;t=app">Online Review</a></td>
-                    <td class="statText" align="center">12.14.2003</td>
+                    <td class="statText" align="center">03.05.2003</td>
                     <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>                            
                             
@@ -192,6 +192,7 @@
                             <tr valign="top">
                                 <td width="100%" bgcolor="#003366" class="statTextSmall">
                                     <p>Please read the Component Development <a class="statTextSmall" href="/index?t=development&amp;c=comp_meth">Methodology</a> before submitting a Component Design or Development solution.</p>
+                                    <p>Please read the Application Development <a class="statTextSmall" href="/index?t=development&amp;c=app_meth">Methodology</a> before submitting an Application Design or Development solution.</p>
                                     <p>Not sure what to submit? Go to <a class="statTextSmall" href="/index?t=development&amp;c=tcs_sample_docs">Documentation and Sample Submissions</a> for the information that you need.</p></td>
                             </tr>
                         </table>
