@@ -174,8 +174,7 @@
 
                 <tr valign="top">
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                    <td class="statText">Online Review Front End</td>
-                    <td class="statText" align="center">&nbsp;</td>
+                    <td colspan="2" class="statText">Online Review Front End</td>
 		    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>
                 <TR>
