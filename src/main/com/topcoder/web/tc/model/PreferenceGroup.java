@@ -27,6 +27,10 @@ public class PreferenceGroup implements Serializable, Comparable {
         sortOrder = 0;
     }
     
+    public void addPreference(Preference p) {
+        prefs.add(p);
+    }
+    
     public int getSortOrder() {
         return sortOrder;
     }
