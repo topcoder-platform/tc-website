@@ -69,7 +69,7 @@
 						Woolever, 22 and from the town of Erin in upstate New York, heard about the competition from a friend at Stanford University, who knew that Woolever had participated in other programming competitions.<BR/><BR/>
 						When he heard how much money was at stake, his interest was piqued.<BR/><BR/>
 						"That's a lot of money involved," Woolever said.<BR/><BR/>
-						There were some tight moments when it looked as if the $100,000 prize might slip away. In the semifinals, for example, Woolever finished the most difficult, and most valuable, problem in the round with nearly an hour to spare Ñ earning him important points for speed.<BR/><BR/>
+						There were some tight moments when it looked as if the $100,000 prize might slip away. In the semifinals, for example, Woolever finished the most difficult, and most valuable, problem in the round with nearly an hour to spare - earning him important points for speed.<BR/><BR/>
 						Afterward, however, he realized he'd left out a small, vital piece of code. His program would fail. His stomach sank.<BR/><BR/>
 						"As it turned out, though, I made it up by challenging other people's code," Woolever said.<BR/><BR/>
 						Woolever had worked out a system for tearing apart his opponents' programs. Previously, when he simply dove straight into the code, he discovered that he began to think like the programmer and, therefore, missed bugs.<BR/><BR/>
