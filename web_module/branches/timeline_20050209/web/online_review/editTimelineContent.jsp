@@ -139,8 +139,8 @@ function checkFalse(f, n)
 				</logic:notEqual>						
 					</td>
 					<td width="50%">
-			                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' onkeydown='<%= "checkFalse(projectForm," + pIdx + ")" %>' value="false" />
-			                        <html:text property='<%="forcedPhaseStart["+pIdx+"]"%>' size="20" />
+			                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="false" />
+			                        <html:text property='<%="forcedPhaseStart["+pIdx+"]"%>' onkeydown='<%= "checkFalse(projectForm," + pIdx + ")" %>' size="20" />
 					</td>
 				    </tr>
 			    </table>
