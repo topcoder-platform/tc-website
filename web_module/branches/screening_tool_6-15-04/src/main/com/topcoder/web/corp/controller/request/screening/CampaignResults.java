@@ -62,6 +62,8 @@ public class CampaignResults extends BaseScreeningProcessor {
             throw new ScreeningException("No campaign ID had been specified.");
         }
 
+        request.setAttribute(Constants.CAMPAIGN_ID, campaignId);
+
         log.info("Got the request to display the campaign results for campaign : " + campaignId);
 
         // Construct a request for company details
