@@ -35,6 +35,16 @@ public class Constants
     public static String TEST_SET_B_ADD;
     public static String TEST_SET_B_REMOVE;
     public static String PROBLEM_ID;
+    public static String BEGIN_MONTH;
+    public static String BEGIN_DAY;
+    public static String BEGIN_YEAR;
+    public static String BEGIN_HOUR;
+    public static String END_MONTH;
+    public static String END_DAY;
+    public static String END_YEAR;
+    public static String END_HOUR;
+    public static String CANDIDATE_EMAIL;
+    public static String REP_EMAIL;
 
     //Candidate constants
     public static String CANDIDATE_INFO;
@@ -46,6 +56,8 @@ public class Constants
     public static String UC_CREATE_CODER_STATUS_ID;
     public static String MAX_PASSWORD_SIZE;
     public static String CANDIDATE_LIST_QUERY_KEY;
+    public static String CREATE_CANDIDATE_PROCESSOR;
+    public static String POPULATE_CANDIDATE_PROCESSOR;
 
     //Profile constants
     public static String PROFILE_INFO;
@@ -66,6 +78,7 @@ public class Constants
     public static String PROFILE_REMOVE_PROBLEM_PROCESSOR;
     public static String PROFILE_CONFIRM_PROCESSOR;
     public static String UPDATE_PROFILE_PROCESSOR;
+    public static String CREATE_PROFILE_PROCESSOR;
     
     //Problem constants
     public static String PROBLEM_LIST_PAGE;
@@ -79,6 +92,12 @@ public class Constants
     public static String PROBLEM_RESULT_PAGE;
     public static String TC_PROBLEM_RESULT_PAGE;
     public static String TEST_RESULTS_PAGE;
+
+    //Session constants
+    public static String UPDATE_SESSION_PROCESSOR;
+    public static String PREVIEW_EMAIL_PAGE;
+    public static String SESSION_SETUP_PAGE;
+    public static String SESSION_INFO;
 
     //Common Constants
     public static String DATA_SOURCE;
@@ -114,6 +133,16 @@ public class Constants
         TEST_SET_B_REMOVE = 
             config.getInitParameter("test_set_b_remove_parameter");
         PROBLEM_ID = config.getInitParameter("problem_id_parameter");
+        BEGIN_MONTH = config.getInitParameter("begin_month_parameter");
+        BEGIN_DAY = config.getInitParameter("begin_day_parameter");
+        BEGIN_YEAR = config.getInitParameter("begin_year_parameter");
+        BEGIN_HOUR = config.getInitParameter("begin_hour_parameter");
+        END_MONTH = config.getInitParameter("end_month_parameter");
+        END_DAY = config.getInitParameter("end_day_parameter");
+        END_YEAR = config.getInitParameter("end_year_parameter");
+        END_HOUR = config.getInitParameter("end_hour_parameter");
+        CANDIDATE_EMAIL = config.getInitParameter("candidate_email_parameter");
+        REP_EMAIL = config.getInitParameter("rep_email_parameter");
 
         //Candidate constants
         CANDIDATE_INFO = config.getInitParameter("candidate_info_attribute");
@@ -128,6 +157,10 @@ public class Constants
         MAX_PASSWORD_SIZE = config.getInitParameter("max_password_size");
         CANDIDATE_LIST_QUERY_KEY = 
             config.getInitParameter("candidate_list_query_key");
+        CREATE_CANDIDATE_PROCESSOR = 
+            config.getInitParameter("create_candidate_processor");
+        POPULATE_CANDIDATE_PROCESSOR = 
+            config.getInitParameter("populate_candidate_processor");
 
         //Profile constants
         PROFILE_INFO = config.getInitParameter("profile_info_attribute");
@@ -162,6 +195,8 @@ public class Constants
             config.getInitParameter("profile_confirm_processor");
         UPDATE_PROFILE_PROCESSOR =
             config.getInitParameter("update_profile_processor");
+        CREATE_PROFILE_PROCESSOR =
+            config.getInitParameter("create_profile_processor");
         
         //Problem constants
         PROBLEM_LIST_PAGE = config.getInitParameter("problem_list_page");
@@ -180,6 +215,17 @@ public class Constants
         TC_PROBLEM_RESULT_PAGE = 
             config.getInitParameter("tc_problem_result_page");
         TEST_RESULTS_PAGE = config.getInitParameter("test_results_page");
+
+        //Session constants
+        UPDATE_SESSION_PROCESSOR = 
+            config.getInitParameter("update_sesesion_processor");
+        PREVIEW_EMAIL_PAGE = 
+            config.getInitParameter("preview_email_page");
+        SESSION_SETUP_PAGE = 
+            config.getInitParameter("session_setup_page");
+        SESSION_INFO = 
+            config.getInitParameter("session_info_attribute");
+
 
         //Common Constants
         DATA_SOURCE = config.getInitParameter("data_source_name");

@@ -153,6 +153,66 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>begin_month_parameter</param-name>
+    <param-value>beginMonth</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>begin_day_parameter</param-name>
+    <param-value>beginDay</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>begin_year_parameter</param-name>
+    <param-value>beginYear</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>begin_hour_parameter</param-name>
+    <param-value>beginHour</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>end_month_parameter</param-name>
+    <param-value>endMonth</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>end_day_parameter</param-name>
+    <param-value>endDay</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>end_year_parameter</param-name>
+    <param-value>endYear</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>end_hour_parameter</param-name>
+    <param-value>endHour</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>candidate_email_parameter</param-name>
+    <param-value>candidateEmail</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>rep_email_parameter</param-name>
+    <param-value>repEmail</param-value>
+    <description></description>
+  </init-param>
+
   <!-- Parameters used by Candidate -->
   <init-param>
     <param-name>candidate_info_attribute</param-name>
@@ -205,6 +265,18 @@
   <init-param>
     <param-name>candidate_list_query_key</param-name>
     <param-value>candidateList</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>create_candidate_processor</param-name>
+    <param-value>CreateCandidate</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>populate_candidate_processor</param-name>
+    <param-value>PopulateCandidate</param-value>
     <description></description>
   </init-param>
 
@@ -317,25 +389,6 @@
     <description></description>
   </init-param>
 
-  <!-- Results constants -->
-  <init-param>
-    <param-name>problem_result_page</param-name>
-    <param-value>/results/problemResults.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>tc_problem_result_page</param-name>
-    <param-value>/results/tcProblemResult.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>test_results_page</param-name>
-    <param-value>/results/testResults.jsp</param-value>
-    <description></description>
-  </init-param>
-
   <!-- Problem constants -->
   <init-param>
     <param-name>problem_list_page</param-name>
@@ -363,13 +416,57 @@
 
   <init-param>
     <param-name>problem_detail_command</param-name>
-    <param-value>problemDetailCommand</param-value>
+    <param-value>problemDetail</param-value>
     <description></description>
   </init-param>
 
   <init-param>
     <param-name>problem_info_query_key</param-name>
     <param-value>problemInfo</param-value>
+    <description></description>
+  </init-param>
+
+  <!-- Results constants -->
+  <init-param>
+    <param-name>problem_result_page</param-name>
+    <param-value>/results/problemResults.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>tc_problem_result_page</param-name>
+    <param-value>/results/tcProblemResult.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>test_results_page</param-name>
+    <param-value>/results/testResults.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <!-- Session parameters -->
+  <init-param>
+    <param-name>update_session_processor</param-name>
+    <param-value>UpdateSession</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>preview_email_page</param-name>
+    <param-value>session/previewEmail.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>session_setup_page</param-name>
+    <param-value>session/sessionSetup.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>session_info_attribute</param-name>
+    <param-value>sessionInfo</param-value>
     <description></description>
   </init-param>
 

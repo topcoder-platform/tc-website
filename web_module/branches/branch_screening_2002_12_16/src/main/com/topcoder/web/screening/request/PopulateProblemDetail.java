@@ -47,5 +47,7 @@ public class PopulateProblemDetail extends BaseProcessor {
         }
 
         request.setAttribute(Constants.PROBLEM_INFO, info);
+        setNextPage(Constants.PROBLEM_DETAIL_PAGE);
+        setNextPageInContext(true);
     }
 }
