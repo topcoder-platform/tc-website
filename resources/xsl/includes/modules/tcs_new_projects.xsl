@@ -30,8 +30,8 @@
 <!-- Component Design Projects begins -->
             <img src="/i/development/head_comp_des_projects.gif" alt="Component Design Projects" width="244" height="20" border="0" /><br />
                 
-            <A class="statText" href="/index?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_devpromo.gif" alt="Component Design Bonus Contest" width="244" height="97" border="0" /></A><br />
-                
+<!--            <A class="statText" href="/index?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_devpromo.gif" alt="Component Design Bonus Contest" width="244" height="97" border="0" /></A><br />
+-->                
             <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#093158"> 
                 <tr valign="middle">
                     <td background="/i/development/bluebv_lite_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
