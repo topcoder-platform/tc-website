@@ -127,7 +127,7 @@
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project[phase_id=$design-phase and status_id=$status_id]/price) * 1.75, $priceFormat)"/></span> 
+                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project[phase_id=$design-phase ]/price) * 1.75, $priceFormat)"/></span> 
                                     in payments. </td>
                             </tr>
                         </table>
@@ -178,7 +178,7 @@
                             </tr>
 
                             <tr>
-                                <td class="devProjectInquire">Inquire By:</td>
+                                <td class="devProjectInquire">Submit By:</td>
                                 <td class="devProjectDate"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                             </tr>
                         </table>
@@ -207,7 +207,7 @@
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project[phase_id=$dev-phase and status_id=$status_id]/price) * 1.75, $priceFormat)"/></span> 
+                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project[phase_id=$dev-phase ]/price) * 1.75, $priceFormat)"/></span> 
                                     in payments. </td>
                             </tr>
                         </table>
@@ -255,7 +255,7 @@
                             </tr>
 
                             <tr>
-                                <td class="devProjectInquire">Inquire By:</td>
+				    <td class="devProjectInquire">Submit By:</td>
                                 <td class="devProjectDate"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                             </tr>
                         </table>
