@@ -193,7 +193,7 @@ function getProblemDetail(id) {
             <%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
-                       <TD COLSPAN="8" VALIGN="top" CLASS="testTableTitle">Problem Statistics:</TD>
+                       <TD COLSPAN="7" VALIGN="top" CLASS="testTableTitle">Problem Statistics:</TD>
 	        </TR>
 	        <TR>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Problem</B></TD>
