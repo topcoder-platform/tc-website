@@ -719,6 +719,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getUserAffidavitList(long userId) throws SQLException {
         StringBuffer selectAffidavitHeaders = new StringBuffer(300);
+        // Old version which sorted by affidavit ID
+        /*
         selectAffidavitHeaders.append("SELECT a.affidavit_id, a.status_id, s.status_desc, a.user_id, ");
         selectAffidavitHeaders.append("a.notarized, a.affirmed, a.date_created, u.handle, ");
         selectAffidavitHeaders.append("a.affidavit_type_id, atl.affidavit_type_desc ");
@@ -728,6 +730,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectAffidavitHeaders.append("AND a.affidavit_type_id = atl.affidavit_type_id ");
         selectAffidavitHeaders.append("AND a.status_id = s.status_id ");
         selectAffidavitHeaders.append("ORDER BY 1");
+        */
+
+        // New version which sorts by a combination time field which is round start time 
+        // if the affidavit is associated with a contest, and the affidavit creation date
+        // otherwise.
+        selectAffidavitHeaders.append("SELECT a.affidavit_id, a.status_id, s.status_desc, a.user_id, "); 
+        selectAffidavitHeaders.append("a.notarized, a.affirmed, a.date_created, u.handle, ");
+        selectAffidavitHeaders.append("a.affidavit_type_id, atl.affidavit_type_desc, ");
+        selectAffidavitHeaders.append("NVL(rs.start_time, a.date_created) AS origin_date ");
+        selectAffidavitHeaders.append("FROM affidavit a, status_lu s, user u, affidavit_type_lu atl, ");
+        selectAffidavitHeaders.append("OUTER round_segment rs ");
+        selectAffidavitHeaders.append("WHERE a.user_id = " + userId + " ");
+        selectAffidavitHeaders.append("AND u.user_id = " + userId + " ");
+        selectAffidavitHeaders.append("AND a.affidavit_type_id = atl.affidavit_type_id ");
+        selectAffidavitHeaders.append("AND a.status_id = s.status_id ");
+        selectAffidavitHeaders.append("AND a.round_id = rs.round_id ");
+        selectAffidavitHeaders.append("ORDER BY origin_date DESC");
 
         ResultSetContainer rsc = runSelectQuery(selectAffidavitHeaders.toString(), true);
         HashMap hm = new HashMap();
@@ -1113,6 +1132,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map findAffidavits(Map searchCriteria) throws SQLException {
         StringBuffer selectHeaders = new StringBuffer(300);
+        // Old version which sorted by affidavit_id
+        /*
         selectHeaders.append("SELECT a.affidavit_id, a.status_id, s.status_desc, a.user_id, ");
         selectHeaders.append("a.notarized, a.affirmed, a.date_created, u.handle, ");
         selectHeaders.append("a.affidavit_type_id, atl.affidavit_type_desc ");
@@ -1120,6 +1141,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append("WHERE a.affidavit_type_id = atl.affidavit_type_id ");
         selectHeaders.append("AND a.status_id = s.status_id ");
         selectHeaders.append("AND u.user_id = a.user_id");
+        */
+
+        // New version which sorts by a combination time field which is round start time 
+        // if the affidavit is associated with a contest, and the affidavit creation date
+        // otherwise.
+        selectHeaders.append("SELECT a.affidavit_id, a.status_id, s.status_desc, a.user_id, "); 
+        selectHeaders.append("a.notarized, a.affirmed, a.date_created, u.handle, ");
+        selectHeaders.append("a.affidavit_type_id, atl.affidavit_type_desc, ");
+        selectHeaders.append("NVL(rs.start_time, a.date_created) AS origin_date ");
+        selectHeaders.append("FROM affidavit a, status_lu s, user u, affidavit_type_lu atl, ");
+        selectHeaders.append("OUTER round_segment rs ");
+        selectHeaders.append("WHERE a.affidavit_type_id = atl.affidavit_type_id ");
+        selectHeaders.append("AND a.status_id = s.status_id ");
+        selectHeaders.append("AND u.user_id = a.user_id ");
+        selectHeaders.append("AND a.round_id = rs.round_id ");
 
         ArrayList objects = new ArrayList();
         Iterator i = searchCriteria.keySet().iterator();
@@ -1157,7 +1193,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new SQLException(e.getMessage());
         }
 
+        // Old version which sorted by affidavit ID
+        /*
         selectHeaders.append(" ORDER BY 1");
+        */
+        selectHeaders.append(" ORDER BY origin_date DESC");
         ResultSetContainer rsc = runSearchQuery(selectHeaders.toString(), objects, true);
         HashMap hm = new HashMap();
         hm.put(AFFIDAVIT_HEADER_LIST, rsc);
