@@ -43,7 +43,7 @@
                     <tr valign="top">
                         <td colspan="2">
                             <table border="0" cellspacing="0" cellpadding="10" width="100%">
-                                <tr><td class="header">Member Search: Search by handle, rating, state or country.</td></tr>
+                                <tr><td class="searchHeaders">Member Search: Search by handle, rating, state or country.</td></tr>
 
                                 <tr>
                                     <td class="bodyText">
