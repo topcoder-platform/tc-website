@@ -75,6 +75,7 @@
 
 <tr><td class="sidebarText" align="left" >nash</td><td class="sidebarText" align="right">1605.39</td></tr>
 <tr><td class="sidebarText" align="left" >jkraju1</td><td class="sidebarText" align="right">1243.58</td></tr>
+<tr><td class="sidebarText" align="left" >rangarao1_pec</td><td class="sidebarText" align="right">1235.88</td></tr>
 <tr><td class="sidebarText" align="left" >SaranKeer</td><td class="sidebarText" align="right">1014.13</td></tr>
 <tr><td class="sidebarText" align="left" >dumpey</td><td class="sidebarText" align="right">641.79</td></tr>
 <tr><td class="sidebarText" align="left" >jsp</td><td class="sidebarText" align="right">507.47</td></tr>
@@ -126,8 +127,8 @@
 <tr><td class="sidebarText" align="left" >MSaravanan</td><td class="sidebarText" align="right">103.08</td></tr>
 <tr><td class="sidebarText" align="left" >rsathya</td><td class="sidebarText" align="right">102.61</td></tr>
 <tr><td class="sidebarText" align="left" >Vadivelan</td><td class="sidebarText" align="right">101.80</td></tr>
-<tr><td class="sidebarText" align="left" >CodeGene</td><td class="sidebarText" align="right">100.00</td></tr>
 <tr><td class="sidebarText" align="left" >prathi</td><td class="sidebarText" align="right">100.00</td></tr>
+<tr><td class="sidebarText" align="left" >CodeGene</td><td class="sidebarText" align="right">100.00</td></tr>
 <tr><td class="sidebarText" align="left" >Venkataraman</td><td class="sidebarText" align="right">98.30</td></tr>
 <tr><td class="sidebarText" align="left" >Rajancbz</td><td class="sidebarText" align="right">96.94</td></tr>
 <tr><td class="sidebarText" align="left" >suki</td><td class="sidebarText" align="right">95.31</td></tr>

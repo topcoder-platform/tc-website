@@ -72,7 +72,7 @@
 
                             <tr valign="top">
                                 <td class="sidebarText">Round #1</td>
-                                <td class="sidebarText" nowrap="nowrap"><a href="/pl/?module=Static&d1=verizon&d2=vcc03_round1_adv">69</a></td>
+                                <td class="sidebarText" nowrap="nowrap"><a href="/pl/?module=Static&d1=verizon&d2=vcc03_round1_adv">70</a></td>
                             </tr>
 
                             <tr valign="top">
