@@ -3,6 +3,7 @@
                  java.util.Map"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="/tc.tld" prefix="tc" %>
 <html>
 <head>
 <title>TopCoder Charity Challenge</title>
@@ -76,6 +77,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
             <p align="right">Round 1&#160;|&#160;<a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_final">Finals</a></p>
             <table align="center" border="0" cellpadding="2" cellspacing="2" class="sidebarBox">
+    		<% String sLink = "/stat?c=member_profile&cr=";%>
                 <tr>
                     <td class="crpfTitle" width="100%" colspan="2" bgcolor="#4E9DD5">Round 1</td>
                </tr>
@@ -83,7 +85,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                     <td class="crpfAdvancersSort" width="25%" align="left" nowrap="nowrap">Handle</td>
                     <td class="crpfAdvancersSort" width="50%" align="right" nowrap="nowrap">Points</td>
                </tr>
-<tr valign="top"><td class="sidebarText" align="left">Maris</td><td class="sidebarText" align="right">1550.73</td></tr>
+<tr valign="top"><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 269788%>' bg='W' cid='269788' /></td><td class="sidebarText" align="right">1550.73</td></tr>
 <tr valign="top"><td class="sidebarText" align="left">kyky</td><td class="sidebarText" align="right">1533.18</td></tr>
 <tr valign="top"><td class="sidebarText" align="left">srowen</td><td class="sidebarText" align="right">1522.72</td></tr>
 <tr valign="top"><td class="sidebarText" align="left">po</td><td class="sidebarText" align="right">1498.53</td></tr>
