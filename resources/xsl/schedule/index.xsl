@@ -42,7 +42,7 @@
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
   <xsl:with-param name="image">schedule</xsl:with-param>
-  <xsl:with-param name="title">Monthly View - September 2002</xsl:with-param>
+  <xsl:with-param name="title">Monthly View - October 2002</xsl:with-param>
 </xsl:call-template>			
 			<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 				<TR>
@@ -65,47 +65,47 @@
                 <TD CLASS="registerNav" BACKGROUND="/i/orangebv_bg.gif" ALIGN="center"><B>Sat</B></TD>
               </TR>
               <TR BGCOLOR="#FFFFFF"> 
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">1</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">2</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">3</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>4</B></FONT><BR/><SPAN CLASS="statText"><B>Match 111<BR/>Sponsored by: Sun</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4275&amp;t=schedule&amp;c=srm" CLASS="statText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">4</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">5</TD>
+              </TR>
+              <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">6</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">7</TD>
-              </TR>
-              <TR BGCOLOR="#FFFFFF"> 
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">8</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>9</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 112</B></SPAN><BR/>Register: 5:00&#160;PM<BR/>Compete: 8:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4280&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>10</B></FONT><BR/><SPAN CLASS="statText"><B>Match 113<BR/>Sponsored by: Sun</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4282&amp;t=schedule&amp;c=srm" CLASS="statText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="#990000"><FONT COLOR="#FFFFFF"><B>8</B></FONT><BR/><SPAN CLASS="smallFoot"><B>2002 TopCoder Invitational</B></SPAN><BR/>Online Rd #1 (pt 1)<BR/>Register: 7:30&#160;PM<BR/>Compete: 9:30&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="statText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">9</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="#990000"><FONT COLOR="#FFFFFF"><B>10</B></FONT><BR/><SPAN CLASS="smallFoot"><B>2002 TopCoder Invitational</B></SPAN><BR/>Online Rd #1 (pt 2)<BR/>Register: 7:30&#160;PM<BR/>Compete: 9:30&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="statText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">11</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">12</TD>
+              </TR>
+              <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">13</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">14</TD>
-              </TR>
-              <TR BGCOLOR="#FFFFFF"> 
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">15</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">16</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>15</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 116</B></SPAN><BR/>Register: 7:00&#160;PM<BR/>Compete: 10:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4330&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="#990000"><FONT COLOR="#FFFFFF"><B>16</B></FONT><BR/><SPAN CLASS="smallFoot"><B>2002 TopCoder Invitational</B></SPAN><BR/>Online Round #2<BR/>Compete: 9:30&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="statText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">17</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>18</B></FONT><BR/><SPAN CLASS="statText"><B>SunNetwork Coding Challenge</B></SPAN><BR/>Qualification Round &amp; Qualification Period<BR/>11:30&#160;AM - 7:00&#160;PM PDT<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/><A HREF="/sunnetworkchallenge" CLASS="statText">Learn more &gt;</A></TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>19</B></FONT><BR/><SPAN CLASS="statText"><B>SunNetwork Coding Challenge</B></SPAN><BR/>Quarterfinal, Semifinals and Championship Rounds<BR/>11:30&#160;AM - 6:00&#160;PM PDT<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/><A HREF="/sunnetworkchallenge" CLASS="statText">Learn more &gt;</A></TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="990000"><FONT COLOR="#FFFFFF"><B>20</B></FONT><BR/><SPAN CLASS="statText"><B>SunNetwork Coding Challenge</B></SPAN><BR/>Keynote Presentation<BR/>9:00&#160;AM PDT<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/><A HREF="/sunnetworkchallenge" CLASS="statText">Learn more &gt;</A></TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">21</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">18</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">19</TD>
               </TR>
               <TR BGCOLOR="#FFFFFF"> 
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">20</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>21</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 117</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4340&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">22</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">23</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>24</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 114</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4285&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="#990000"><FONT COLOR="#FFFFFF"><B>23</B></FONT><BR/><SPAN CLASS="smallFoot"><B>2002 TopCoder Invitational</B></SPAN><BR/>Online Round #3<BR/>Compete: 9:30&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="statText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">24</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">25</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">26</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">27</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">28</TD>
               </TR>
               <TR BGCOLOR="#FFFFFF"> 
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">29</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>30</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 115</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4290&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD WIDTH="97" ALIGN="center" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">27</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">28</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>29</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 118</B></SPAN><BR/>Register: 5:00&#160;PM<BR/>Compete: 8:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?ContestId=4350&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallFoot" BGCOLOR="#990000"><FONT COLOR="#FFFFFF"><B>30</B></FONT><BR/><SPAN CLASS="smallFoot"><B>2002 TopCoder Invitational</B></SPAN><BR/>Online Round #4<BR/>Compete: 9:30&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?t=schedule&amp;c=invit02_sched" CLASS="statText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">31</TD>
                 <TD WIDTH="97" ALIGN="center" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
                 <TD WIDTH="97" ALIGN="center" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
               </TR>
