@@ -84,52 +84,18 @@ List prefList = (List)request.getAttribute("prefs");
 				<td align=right width="65%"><b>Preferences</b></td>
 				<td width="35%"><a href="javascript:goToPage('ContractingPreferences');">edit<a/></td>
             </tr>
-            <tc:listIterator id="pref" list="<%=prefList%>">
+            <tc:listIterator id="prefGroup" list="<%=prefList%>">
             <tr>
-				<td align=right><b><%=((ContractingResponseGroup)pref).getName()%></b></td>
+				<td align=right><b><%=((ContractingResponseGroup)prefGroup).getName()%></b></td>
 				<td valign=top>&#160;</td>
+                        	<tc:listIterator id="pref" list="<%=((ContractingResponseGroup)prefGroup).getResponses()%>">
+                                  <tr>
+                                    <td align=right><%=((ContractingResponse)pref).getName()%>:</td>
+                                    <td valign=top><%=((ContractingResponse)pref).getVal()%></td>
+                                </tr>				
+				</tc:listIterator>
             </tr>
             </tc:listIterator>
-            <tr>
-				<td align=right><b>Contract Work</b></td>
-				<td valign=top>&#160;</td>
-            </tr>
-            <tr>
-				<td align=right>Minimum hourly rate:</td>
-				<td valign=top>$20/hr</td>
-            </tr>
-            <tr>
-				<td align=right>Maximum length of engagement:</td>
-				<td valign=top>Indefinite</td>
-            </tr>
-            <tr>
-				<td align=right>Minimum length of engagement</td>
-				<td valign=top>3 months</td>
-            </tr>
-            <tr>
-				<td align=right>Willing to travel:</td>
-				<td valign=top>No</td>
-            </tr>
-            <tr>
-				<td align=right><b>Permanent Work</b></td>
-				<td valign=top>&#160;</td>
-            </tr>
-            <tr>
-				<td align=right>Minimum hourly rate:</td>
-				<td valign=top>$20/hr</td>
-            </tr>
-            <tr>
-				<td align=right>Maximum length of engagement:</td>
-				<td valign=top>Indefinite</td>
-            </tr>
-            <tr>
-				<td align=right>Minimum length of engagement</td>
-				<td valign=top>6 months</td>
-            </tr>
-            <tr>
-				<td align=right>Willing to travel:</td>
-				<td valign=top>Yes</td>
-            </tr>
 			
 			<tr><td>&#160;</td></tr>			
 
