@@ -3,10 +3,10 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML>
-<HEAD>
+<html>
+<head>
 <title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
-<jsp:include page="/script.jsp"/>
+<jsp:include page="/script.jsp">
 <SCRIPT TYPE="text/javascript"><!--
 function showEmail() {
     var width = screen.availWidth * 2 / 3;
@@ -25,7 +25,7 @@ function showEmail() {
         rEmail = "YES";
     }
     <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PreviewEmail"; %>
-    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.CANDIDATE_ID%>='+ cid + "&<%=Constants.REP_EMAIL%>=" + rEmail + "&<%=Constants.CANDIDATE_EMAIL%>=" + cEmail,name,cmd);
+    window.open('<screen:rewrite page="<%=url%>">&<%=Constants.CANDIDATE_ID%>='+ cid + "&<%=Constants.REP_EMAIL%>=" + rEmail + "&<%=Constants.CANDIDATE_EMAIL%>=" + cEmail,name,cmd);
     return;
   }
 
@@ -44,176 +44,217 @@ function submitSession() {
     document.sessionSetupForm.submit();
 }
 //--></SCRIPT>
-</HEAD>
+</head>
 
-<BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<jsp:include page="/includes/top.jsp"/>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-   <TR>
-    <!-- Left Column Begins -->
-      <TD WIDTH="22" VALIGN="top" BGCOLOR="#000000">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <jsp:include page="/includes/left.jsp"/>
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
-      <!-- Left Column Ends -->
-      <!-- Gutter Begins -->
-      <TD VALIGN="top"><img src="/i/ev/clear.gif" width="10" height="1" /></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-        <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><br />
-            <h1 class="testHead">Create a New Session</h1>
-            <p>Here you will create a Test Profile and assign candidate(s) to it by following these steps:</p>
-            <ol>
-                <li>Select a Test Profile. If you wish to create a new Test Profile, click "Create a New Test Profile".</li>
-                <li>Select a candidate to assign to the Test Profile.  If you wish to add a new candidate, click "Add a Candidate".</li>
-                <li>Set the timeframe for when the candidate can access the Testing Application. Be sure to allow at least a 3-hour during which the candidate can participate.</li>
-            </ol>
-           
-<jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
-<screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
-        <input type="HIDDEN" name="rp" value="" >
-         <TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
-           <TR VALIGN="middle">
-              <TD CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC" nowrap="nowrap"><strong>Test Profile</strong>&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left">
-              <select name ="profileId">
-                <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
-                <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
-                <option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option>
-                <% } else { %>
-                <option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
-                <% } %>
-                </screen:resultSetRowIterator>
-              </select>
-              </TD>
-              <TD CLASS="bodyText" nowrap="nowrap">&#160;<a name="profile" /><a href="JavaScript:submitProfile()">Create a New Test Profile</a></TD>
-           </TR>
-           <TR>
-              <TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD><TD COLSPAN="2" class="errorText" align="left" valign="middle"></TD>
-           </TR>
-           <TR VALIGN="middle">
-              <TD CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC" nowrap="nowrap"><strong>Candidate</strong>&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left">
-              <select name="cid">
-                <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getCandidateList()%>">
-                <% if(sessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
-                <option value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="handle" /></option>
-                <% } else { %>
-                <option value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />"><screen:resultSetItem row="<%=row%>" name="handle" /></option>
-                <% } %>
-                </screen:resultSetRowIterator>
-              </select>
-              </TD>
-              <TD CLASS="bodyText" nowrap="nowrap">&#160;<a name="candidate" /><a href="JavaScript:submitCandidate()">Add a Candidate</a></TD>
-           </TR>
-           <TR>
-              <TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD><TD COLSPAN="2" class="errorText" align="left" valign="middle"></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="3" CLASS="bodyText" HEIGHT="20" VALIGN="middle" BGCOLOR="#CCCCCC" nowrap="nowrap">&#160;<strong>Begin Time</strong></TD>
-           </TR>
-           <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Month&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-              <screen:month name="beginMonth" selected="<%=sessionInfo.getBeginMonth()%>" />
-              </TD>
-              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="beginMonth" /></TD>
-           </TR>
-           <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Day&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-              <screen:day name="beginDay" selected="<%=sessionInfo.getBeginDay()%>" />
-              </TD>
-              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="beginDay" /></TD>
-           </TR>
-           <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Year&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-              <screen:year name="beginYear" selected="<%=sessionInfo.getBeginYear()%>" />
-              </TD>
-              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="beginYear" /></TD>
-           </TR>
-           <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Hour&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-              <screen:hour name="beginHour" selected="<%=sessionInfo.getBeginHour()%>" />
-              </TD>
-              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="beginHour" /></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="3"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="3" CLASS="bodyText" HEIGHT="20" VALIGN="middle" BGCOLOR="#CCCCCC" nowrap="nowrap">&#160;<strong>End Time</strong></TD>
-           </TR>
-           <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Month&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-              <screen:month name="endMonth" selected="<%=sessionInfo.getEndMonth()%>" />
-              </TD>
-              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="endMonth" /></TD>
-           </TR>
-           <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Day&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-              <screen:day name="endDay" selected="<%=sessionInfo.getEndDay()%>" />
-              </TD>
-              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="endDay" /></TD>
-           </TR>
-           <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Year&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-              <screen:year name="endYear" selected="<%=sessionInfo.getEndYear()%>" />
-              </TD>
-              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="endYear" /></TD>
-           </TR>
-           <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Hour&#160;</TD>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
-              <screen:hour name="endHour" selected="<%=sessionInfo.getEndHour()%>" />
-              </TD>
-              <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="endHour" /></TD>
-           </TR>
-           <TR>
-              <TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD><TD COLSPAN="2" class="errorText" align="left" valign="middle"><screen:errors name="dateCompare" /></TD>
-           </TR>
-         </TABLE>
+<body>
 
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="90%">
-           <TR>
-              <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-          <TR>
-           <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=sessionInfo.getCandidateEmail()%>" />&#160;</TD>
-          </TR>
-          <TR>
-           <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=sessionInfo.getRepEmail()%>" />&#160;</TD>
-          </TR>
-          <TR>
-           <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">To preview the email template <A HREF="JavaScript:showEmail()" CLASS="bodyText">click here</A>.</TD>
-          </TR>
-           <TR>
-              <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD ALIGN="center"><A HREF="JavaScript:submitSession()" CLASS="bodyText" >Confirm</A></TD>
-           </TR>
-         </TABLE>
-</screen:form>
-<P><BR/></P>
-     </TD>
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="10"><img src="/i/ev/clear.gif" width="10" height="1" border="0" /></TD>
-      <!-- Gutter Ends -->
-   </TR>
-</TABLE>
-  <!-- Body Ends -->
+<!-- Header begins -->
+<jsp:include page="/includes/top.jsp">
+<!-- Header ends -->
 
-  <jsp:include page="/includes/foot.jsp"/>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+<!-- left column begins -->
+        <td width="22" bgcolor="#000000">
 
-</BODY>
-</HTML>
+        <jsp:include page="/includes/left.jsp">
+
+      </td>
+<!-- left column ends -->
+
+<!-- gutter begins -->
+        <td width="10"><img src="/i/ev/clear.gif" width="10" height="1"></td>
+<!-- gutter ends -->
+
+<!-- Middle column begins -->
+        <td class="bodytext" width="100%"><img src="/i/ev/clear.gif" width="400" height="11" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="70%">
+                <tr valign="top">
+                    <td class="bodytext" align="left">
+                        <h1 class="testHead">Create a New Session</h1>
+                        <p>Here you will create a session by selecting a Test Profile and assigning a candidate to it by following these steps:</p>
+                        <ol>
+                            <li>Select a Test Profile. If you wish to create a new Test Profile, click "Create a New Test Profile".</li>
+                            <li>Select a candidate to assign to the Test Profile.  If you wish to add a new candidate, click "Add a Candidate".</li>
+                            <li>Set the timeframe for when the candidate can access the Testing Application. Be sure to allow at least a 3-hour window during which the candidate can participate.</li>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+
+            <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session">
+            <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
+            <input type="hidden" name="rp" value="" >
+
+            <div id="testTableBorder">
+            <table border="0" cellspacing="0" cellpadding="3" width="70%">
+                <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
+                <tr>
+                    <td class="testTableOdd">&#160;</td>
+                    <td class="testTableOdd">
+                        <select name ="profileid">
+                        <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
+                        <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
+                            <option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id">" SELECTED><screen:resultSetItem row="<%=row%>" name="name"></option>
+                        <% } else { %>
+                            <option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id">"><screen:resultSetItem row="<%=row%>" name="name"></option>
+                        <% } %>
+                        </screen:resultSetRowIterator>
+                        </select>
+                    </td>
+                    <td class="testTableOdd">&#160;<a name="profile"><a href="JavaScript:submitProfile()">Create a New Test Profile</a></td>
+                </tr>
+
+                <tr>
+                    <td><img src="/i/ev/clear.gif" width="1" height="1" border="0"></td>
+                    <td colspan="2" class="errortext"></td>
+                </tr>
+
+                <tr><td class="testTableTitle" colspan="3">Candidate</td></tr>
+                <tr>
+                    <td class="testTableOdd">&#160;</td>
+                    <td class="testTableOdd">
+                        <select name="cid">
+                        <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getCandidateList()%>">
+                        <% if(sessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
+                            <option value="<screen:resultSetItem row="<%=row%>" name="candidate_id">" SELECTED><screen:resultSetItem row="<%=row%>" name="handle"></option>
+                        <% } else { %>
+                            <option value="<screen:resultSetItem row="<%=row%>" name="candidate_id">"><screen:resultSetItem row="<%=row%>" name="handle"></option>
+                        <% } %>
+                        </screen:resultSetRowIterator>
+                        </select>
+                    </td>
+                    <td class="testTableOdd">&#160;<a name="profile"><a href="JavaScript:submitCandidate()">Add a Candidate</a></td>
+                </tr>
+
+                <tr>
+                    <td><img src="/i/ev/clear.gif" width="1" height="1" border="0"></td>
+                    <td colspan="2" class="errortext"></td>
+                </tr>
+
+                <tr>
+                    <td class="testTableTitle" colspan="2">Begin Time</td>
+                    <td class="testTableTimezone">All times are Eastern Time</td>
+                </tr>
+                    
+                <tr>
+                    <td class="testTableSubtitleOdd">Month</td>
+                    <td class="testTableOdd">
+                        <screen:month name="beginMonth" selected="<%=sessionInfo.getBeginMonth()%>">
+                    </td>
+                    <td class="errortext"><screen:errors name="beginMonth"></TD>
+                </tr>
+                
+                <tr>
+                    <td class="testTableSubtitleEven">Day</td>
+                    <td class="testTableEven">
+                        <screen:day name="beginDay" selected="<%=sessionInfo.getBeginDay()%>">
+                    </td>
+                    <td class="errortext"><screen:errors name="beginDay"></td>
+                </tr>
+                
+                <tr>
+                    <td class="testTableSubtitleOdd">Year</td>
+                    <td class="testTableOdd">
+                        <screen:year name="beginYear" selected="<%=sessionInfo.getBeginYear()%>">
+                    </td>
+                    <td class="errortext"><screen:errors name="beginYear"></td>
+                </tr>
+
+                <tr>
+                    <td class="testTableSubtitleEven">Hour</td>
+                    <td class="testTableEven">
+                        <screen:hour name="beginHour" selected="<%=sessionInfo.getBeginHour()%>">
+                    </td>
+                    <td class="errortext"><screen:errors name="beginHour"></td>
+                </tr>
+
+                <tr>
+                    <td><img src="/i/ev/clear.gif" width="1" height="1" border="0"></td>
+                    <td colspan="2" class="errortext"></td>
+                </tr>
+
+                <tr>
+                    <td class="testTableTitle" colspan="2">End Time</td>
+                    <td class="testTableTimezone">All times are Eastern Time</td>
+                </tr>
+                    
+                <tr>
+                    <td class="testTableSubtitleOdd">Month</td>
+                    <td class="testTableOdd">
+                        <screen:month name="endMonth" selected="<%=sessionInfo.getEndMonth()%>">
+                    </td>
+                    <td class="errortext"><screen:errors name="endMonth"></TD>
+                </tr>
+                
+                <tr>
+                    <td class="testTableSubtitleEven">Day</td>
+                    <td class="testTableEven">
+                        <screen:day name="endDay" selected="<%=sessionInfo.getEndDay()%>">
+                    </td>
+                    <td class="errortext"><screen:errors name="endDay"></td>
+                </tr>
+                
+                <tr>
+                    <td class="testTableSubtitleOdd">Year</td>
+                    <td class="testTableOdd">
+                        <screen:year name="endYear" selected="<%=sessionInfo.getEndYear()%>">
+                    </td>
+                    <td class="errortext"><screen:errors name="endYear"></td>
+                </tr>
+
+                <tr>
+                    <td class="testTableSubtitleEven">Hour</td>
+                    <td class="testTableEven">
+                        <screen:hour name="endHour" selected="<%=sessionInfo.getEndHour()%>">
+                    </td>
+                    <td class="errortext"><screen:errors name="endHour"></td>
+                </tr>
+
+                <tr>
+                    <td><img src="/i/ev/clear.gif" width="1" height="1" border="0"></td>
+                    <td colspan="2" class="errortext"></td>
+                </tr>
+
+                <tr>
+                    <td class="testTableTitle" colspan="3">Email</td>
+                </tr>
+                    
+                <tr>
+                    <td class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=sessionInfo.getCandidateEmail()%>"></td>
+                </tr>
+                
+                <tr>
+                    <td class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=sessionInfo.getRepEmail()%>"></td>
+                </tr>
+                
+                <tr>
+                    <td class="testTableOdd" colspan="3">To preview the email template <a href="JavaScript:showEmail()" CLASS="bodyText">click here</a></td>
+                </tr>
+                
+                <tr>
+                    <td class="testTableOdd" colspan="3"><img src="/i/ev/clear.gif" width="1" height="10" border="0"></td>
+                </tr>
+                
+                 <tr>
+                    <td class="testTableOdd" colspan="3"><a href="JavaScript:submitSession()" CLASS="bodyText" >Confirm</a></td>
+                </tr>
+            </table>
+            </div>
+
+            </screen:form>
+            <p><br></p>
+        </td>
+<!-- Middle Column ends -->
+
+<!-- Gutter -->
+        <td width="10"><img src="/i/ev/clear.gif" width="10" height="1" border="0"></td>
+<!-- Gutter Ends -->
+
+    </tr>
+</table>
+
+  <jsp:include page="/includes/foot.jsp">
+
+</body>
+</html>
