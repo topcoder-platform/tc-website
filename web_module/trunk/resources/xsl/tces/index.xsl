@@ -106,6 +106,8 @@
                                     to check out our open positions.<br /><br /></td>
                             </tr>
 <!-- Nvidia ends -->
+
+                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
                         
 <!-- Google begins -->
                             <tr valign="top">
@@ -116,8 +118,6 @@
                                     positions available at Google.<br /><br /></td>
                             </tr>
 <!-- Google ends -->
-                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
-
                             
 
 
