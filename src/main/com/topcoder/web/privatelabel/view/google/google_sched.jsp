@@ -7,7 +7,33 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder | Private Label Registration</title>
+
+<link rel=stylesheet href="http://www.google.com/google.css">
+
+<title>Google Code Jam 2003</title>
+
+<style><!--
+body,td,font,p,a
+{
+    font-family:arial,sans-serif
+	}
+.sidebarBox
+{
+	border: 1px solid #95D597;
+	}
+.sidebarText
+{
+	color: #333;
+	line-height: 14px;
+	background-color: #EEEEEE;
+	}
+.sidebarTitle
+{
+	color: #333;
+	background-color: #CCCCCC;
+	}
+//-->
+</style>
 
 <jsp:include page="../script.jsp" />
 
@@ -21,78 +47,32 @@ function openWin(url, name, w, h) {
 
 </head>
 
-<body>
+    <body class=corporate bgcolor="#ffffff" text="#000000" link="#0000CC" vlink="#800080" alink="#ff0000" topmargin=2>
+	
+	<div align="center">
+<img width="276" height="110" src="http://www.google.com/codejam/codejam_logo.gif" alt="Google Code Jam logo">
+    <table border=0 cellspacing=5 width="740">
+              <tr> 
+                <td style="background-color: #006633"> <table class=sidebar bgcolor="#ffffff" cellpadding=15 cellspacing=0 border=0 width="100%">
+                    <tr>
+    <td valign="top"> <div class=content> 
+<div align="center">
+	<font size="-1">
+<a href="/pl/?&module=Static&d1=google&d2=google_overview">Overview</a> &nbsp;|&nbsp; 
+<font color="006633">Schedule</font> &nbsp;|&nbsp; 
+<a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp; 
+<a href="/pl/?&module=Static&d1=google&d2=google_registration">Register Now</a> &nbsp;|&nbsp; 
+<a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
+</font>
+</div>
+	<br><br>
+<b><font size="+1">Schedule</font></b>
 
-<!-- TCO Header -->
-
-<a name="top_page"></a>
-<table  width="100%" border="0" cellspacing="0" cellpadding="0" class="bodyText">
-   <tr>
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-<!-- Left Column Begins-->
-         <td width="100%" valign="top" class="bodyText" colspan="3">
-       
-         <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
-            <tr><td colspan="11" align="center"><img src="/i/events/google2003/google_logo_white.gif" width="300" height="150" border="0"/></td></tr>
-            <tr><td colspan="11"><img src="/i/clear.gif" width="10" height="10"></td></tr>
-            <tr><td colspan="11" align="center"><img src="/i/events/google2003/google_tagline.gif" width="173" height="15" border="0"/></td></tr>
-            <tr><td colspan="11"><img src="/i/clear.gif" width="10" height="20"></td></tr>
-
-            <tr>
-               <td width="50%">&nbsp;</td>
-               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_overview" style="text-decoration:none" ><font size="-1">Overview</font></a></td>
-               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td bgcolor="#3366cc" align="center" width=95 nowrap><font color="#ffffff" size="-1"><b>Schedule</b></font></td>
-               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview" style="text-decoration:none" ><font size="-1"><img src="/i/events/google2003/rules_arrow_blue.gif" width="15" height="10" border="0"/>Rules</font></a></td>
-               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_registration" style="text-decoration:none" ><font size="-1">Register Now</font></a></td>
-<%--               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="?&<%=Constants.MODULE_KEY+"="+Constants.GOOGLE_REG_MAIN+"&"+Constants.COMPANY_ID+"=1865&"+Constants.EVENT_ID+"=1"%>" style="text-decoration:none"><font size="-1">Register Now</font></a></td> --%>
-               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);" style="text-decoration:none"><font size="-1">Practice Arena</font></a></td>
-               <td width="50%">&nbsp;</td>
-            </tr>
-            <tr>
-               <td colspan="11" bgcolor=#3366cc><img width=1 height=1 alt=""></td>
-            </tr>
-         </table>
-         </td>
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-      </tr>
-      <tr>
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-<!-- Left Column Begins -->
-        <td width="150" valign="top">      
-            <img src="/i/clear.gif" width="150" height="10" border="0"/><br />
-            <img src="/i/events/google2003/left.gif" width="150" height="450" border="0" usemap="#tchome"/>
-            <map name="tchome"><area shape="rect" alt="TC" coords="1,1,149,49" href="/" /></map>
-         </td>         
-<!-- Left Column Ends -->
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-<!-- Center Column Begins-->
-         <td width="100%" class="bodyText" valign="top">
-            <img src="/i/clear.gif" width="10" height="10" border="0"/><br />            
-            <h2>Schedule</h2>
+            <img align="right" hspace="10" vspace="5" src="http://www.google.com/codejam/codejam_info.gif" width="150" height="390" border="0">
             
 <!-- Qualification Rounds begins -->
-           <p><span class="bodySubtitle">Qualification Rounds</span><br />
-           The top 100 scorers from each problem presented during the Qualification Round will be eligible to compete in Round 1 of the Extreme Coding Challenge.</p>
+           <p><font color="006633" size="3"><b>Qualification Rounds</b></font><br />
+           <font size="-1">The top 100 scorers from each problem presented during the Qualification Round will be eligible to compete in Round 1 of the Extreme Coding Challenge.</p>
 
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -121,7 +101,7 @@ function openWin(url, name, w, h) {
 <!-- Qualification Rounds ends -->
 
 <!-- Online Elimination Rounds begins -->
-            <A name="online"></A><p><span class="bodySubtitle">Online Elimination Rounds</span><br />
+            <A name="online"></A><p><font color="006633" size="3"><b>Online Elimination Rounds</b></font><br />
             Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of 
             the online round.  All start times will be communicated as Eastern Time.  If a coder does not participate, for any reason, in an online 
             round he/she has advanced to, it will be treated as an automatic loss in that round of competition. </p>
@@ -165,7 +145,7 @@ function openWin(url, name, w, h) {
 <!-- Online Elimination Rounds ends -->
 
 <!-- Onsite Championship Round begins -->
-            <p><span class="bodySubtitle">Onsite Championship Round</span><br />
+            <p><font color="006633" size="3"><b>Onsite Championship Round</b></font><br />
             Up to 25 coders will compete in the Championship Round being held onsite at Google's headquarters.  Each finalist is responsible for arriving at Google's headquarters to compete.</p>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -192,20 +172,21 @@ function openWin(url, name, w, h) {
             </table><br />
             
             <p><br /></p>
-                        
-        </td>
-<!-- Center Column Ends -->
 
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-    </tr>
-</table>
-
-<!-- Footer Begins -->
-<jsp:include page="google_foot.jsp" />
-<!-- Footer Ends -->
+<a href="http://www.topcoder.com"><img align="right" src="http://www.google.com/codejam/topcoder.gif" width="100" height="33" border="0">
+</a>
+To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_rules_conditions">Terms and Conditions</a>.
+</font></p>
+      </div></td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table>
+	
+	</div>
+<p><div class=footer> <small> &copy;2003 Google - <a href="http://www.google.com/">Home</a> 
+        - <a href="http://www.google.com/about.html">All About Google</a> - <a href="http://www.topcoder.com/?t=about_tc&c=index">About TopCoder</a> - <a href="http://www.google.com/jobs/">We're
+        Hiring</a> </small> </div></p>
 
 </body>
 </html>

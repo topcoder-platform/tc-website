@@ -7,97 +7,97 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder | Private Label Registration</title>
+
+<link rel=stylesheet href="http://www.google.com/google.css">
+
+<title>Google Code Jam 2003</title>
+
+<style><!--
+body,td,font,p,a
+{
+    font-family:arial,sans-serif
+	}
+.sidebarBox
+{
+	border: 1px solid #95D597;
+	}
+.sidebarText
+{
+	color: #333;
+	line-height: 14px;
+	background-color: #EEEEEE;
+	}
+.sidebarTitle
+{
+	color: #333;
+	background-color: #CCCCCC;
+	}
+//-->
+</style>
 
 <jsp:include page="../script.jsp" />
 
+<script>
+function openWin(url, name, w, h) {
+    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+    win.location.href = url;
+    win.focus();
+}
+</script>
+
 </head>
 
-<body>
+    <body class=corporate bgcolor="#ffffff" text="#000000" link="#0000CC" vlink="#800080" alink="#ff0000" topmargin=2>
+	
+	<div align="center">
+<%-- Google Header--%>
+<img width="276" height="110" src="http://www.google.com/codejam/codejam_logo.gif" alt="Google Code Jam logo">
 
-
-<a name="top_page"></a>
-<table  width="100%" border="0" cellspacing="0" cellpadding="0" class="bodyText">
-   <tr>
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-<!-- TCO Header -->
-         <td width="100%" valign="top" class="bodyText" colspan="3">
-       
-         <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
-            <tr><td colspan="11" align="center"><img src="/i/events/google2003/google_logo_white.gif" width="300" height="150" border="0"/></td></tr>
-            <tr><td colspan="11"><img src="/i/clear.gif" width="10" height="10"></td></tr>
-            <tr><td colspan="11" align="center"><img src="/i/events/google2003/google_tagline.gif" width="173" height="15" border="0"/></td></tr>
-            <tr><td colspan="11"><img src="/i/clear.gif" width="10" height="20"></td></tr>
-
+<table border=0 cellspacing=5 width="740">
+   <tr> 
+      <td style="background-color: #006633">
+         <table class=sidebar bgcolor="#ffffff" cellpadding=15 cellspacing=0 border=0 width="100%">
             <tr>
-               <td width="50%">&nbsp;</td>
-               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_overview" style="text-decoration:none" ><font size="-1">Overview</font></a></td>
-               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_sched" style="text-decoration:none" ><font size="-1">Schedule</font></a></td>
-               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview" style="text-decoration:none" ><font size="-1"><img src="/i/events/google2003/rules_arrow_blue.gif" width="15" height="10" border="0"/>Rules</font></a></td>
-               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_registration" style="text-decoration:none" ><font size="-1">Register Now</font></a></td>
-<%--               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="?&<%=Constants.MODULE_KEY+"="+Constants.GOOGLE_REG_MAIN+"&"+Constants.COMPANY_ID+"=1865&"+Constants.EVENT_ID+"=1"%>" style="text-decoration:none"><font size="-1">Register Now</font></a></td> --%>
-               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
-               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);" style="text-decoration:none"><font size="-1">Practice Arena</font></a></td>
-               <td width="50%">&nbsp;</td>
-            </tr>
-            <tr>
-               <td colspan="11" bgcolor=#3366cc><img width=1 height=1 alt=""></td>
+               <td valign="top">
+                  <div class=content> 
+                  <div align="center">
+	            <font size="-1">
+                     <a href="/pl/?&module=Static&d1=google&d2=google_overview">Overview</a> &nbsp;|&nbsp; 
+                     <a href="/pl/?&module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp; 
+                     <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp; 
+                     <font color="006633">Register Now</font> &nbsp;|&nbsp; 
+                     <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
+                  </font>
+                  </div><br><br>
+                  <b><font size="+1">Registration</font></b>
+
+                  <table border=0 cellspacing=0 width="100%">
+                     <tr>
+                        <td><p><font size="-1"><br/>Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.</font></p></td>
+                        <td><img align="right" valign="top" hspace="10" vspace="5" src="http://www.google.com/codejam/codejam_info.gif" width="150" height="390" border="0"></td>
+                     </tr>
+                  </table
+                  <p><font size="-1"><br/>Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.</font></p>
+                  <p><br /></p>
+                  <p><a href="http://www.topcoder.com"><img align="right" src="http://www.google.com/codejam/topcoder.gif" width="100" height="33" border="0"></a>
+                  <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_rules_conditions">Terms and Conditions</a>.
+                  </font></p>
+                  </div>
+               </td>
             </tr>
          </table>
-         </td>
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-      </tr>
-      <tr>
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-<!-- Left Column Begins -->
-        <td width="150" valign="top">      
-            <img src="/i/clear.gif" width="150" height="10" border="0"/><br />
-            <img src="/i/events/google2003/left.gif" width="150" height="450" border="0" usemap="#tchome"/>
-            <map name="tchome"><area shape="rect" alt="TC" coords="1,1,149,49" href="/" /></map>
-         </td>         
-<!-- Left Column Ends -->
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-<!-- Center Column Begins-->
-         <td width="100%" class="bodyText" valign="top">
-            <img src="/i/clear.gif" width="10" height="10" border="0"/><br />            
-            <h2>Registration</h2>
-            
-            <p>Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.</p>
-            
-            <p><br /></p>
-                        
-        </td>
-<!-- Center Column Ends -->
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-    </tr>
+      </td>
+   </tr>
 </table>
-
-<!-- Footer Begins -->
-<jsp:include page="google_foot.jsp" />
-<!-- Footer Ends -->
-
+</div>
+<p><div class=footer> 
+<small> &copy;2003 Google - 
+<a href="http://www.google.com/">Home</a> - 
+<a href="http://www.google.com/about.html">All About Google</a> - 
+<a href="http://www.topcoder.com/?t=about_tc&c=index">About TopCoder</a> - 
+<a href="http://www.google.com/jobs/">We're Hiring</a> 
+</small>
+</p>
+</div>
 </body>
 </html>
