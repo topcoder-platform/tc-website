@@ -8,6 +8,7 @@ package com.topcoder.web.common.tag;
 public class RadioButtonTag extends BaseTag {
     private String value=null;
     private String selected=null;
+    private String onClick=null;
 
     public int doStartTag() {
         StringBuffer ret = new StringBuffer();
@@ -22,6 +23,8 @@ public class RadioButtonTag extends BaseTag {
             if (checked) {
                 ret.append("checked=\"").append(value).append("\" ");
             }
+            if (onClick!=null)
+                ret.append("onClick=\"").append(onClick).append("\" ");
             ret.append("/>");
             pageContext.getOut().print(ret.toString());
         } catch (java.io.IOException ioe) {
@@ -41,9 +44,14 @@ public class RadioButtonTag extends BaseTag {
         this.selected=selected;
     }
 
+    public void setOnClick(String onClick) {
+        this.onClick = onClick;
+    }
+
     protected void init() {
         this.value =null;
         this.selected=null;
+        this.onClick = null;
     }
 
 }
