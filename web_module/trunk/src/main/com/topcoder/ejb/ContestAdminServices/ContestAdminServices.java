@@ -22,9 +22,9 @@ public interface ContestAdminServices extends EJBObject {
   public ArrayList getContestList() throws RemoteException;
   //public int getContestCoderCount(int contestId) throws RemoteException;
   //public void createContest (Contest ca) throws RemoteException;
-  public int saveContest (ContestAdmin ca) throws RemoteException;
-  public int saveRound (Round ra) throws RemoteException;
-  public void saveRoundSegment (RoundSegment rsa) throws RemoteException;
+  // public int saveContest (ContestAdmin ca) throws RemoteException;
+  // public int saveRound (Round ra) throws RemoteException;
+  // public void saveRoundSegment (RoundSegment rsa) throws RemoteException;
   //public void insertContestCoder(ContestCoder contestCoder) throws RemoteException;
   public ArrayList getRoundSegments(int round_id, int contest_id) throws RemoteException;
   public ArrayList getRoundProblems(int round_id, int contest_id) throws RemoteException;

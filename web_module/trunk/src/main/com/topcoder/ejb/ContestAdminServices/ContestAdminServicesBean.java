@@ -192,6 +192,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
   * @return int round_id
   ******************************************************************************************
   **/
+  /*
   public int saveRound (Round ra) throws RemoteException {
     Log.msg(VERBOSE, "Contest: saveRound() called ... ");
     java.sql.Connection conn = null;
@@ -243,7 +244,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
 
     return round_id;
   }
-
+  */
   /*****************************************************************************************
   * Saves a RoundSegment.
   *
@@ -252,6 +253,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
   * @return int contest_id
   ******************************************************************************************
   **/
+  /*
   public void saveRoundSegment (RoundSegment rsa) throws RemoteException {
     Log.msg(VERBOSE, "Contest: saveRoundSegment() called ... ");
     java.sql.Connection conn = null;
@@ -324,7 +326,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
 
   }
 
-
+*/
 /**
    *****************************************************************************************
    *  method: getContestCoder
@@ -1306,6 +1308,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
     * @return ArrayList of RoundSegment
     *****************************************************************************************
     **/
+	/*
     public ArrayList getRoundSegments(int round_id, int contest_id) throws RemoteException {
       if(VERBOSE) Log.msg("Contest.getRoundSegements(round_id, contest) called ... ");
 
@@ -1421,7 +1424,8 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
        return roundSegments;
 
     }
-
+    */
+	
     /*****************************************************************************************
     * Retrieves all round problem_ids from the
     * ROUND_PROBLEMS table for a contest round

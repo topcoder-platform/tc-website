@@ -8,7 +8,7 @@ import java.text.*;
 import javax.sql.DataSource;
 import javax.naming.Context;
 import com.topcoder.common.DBMS;
-import com.topcoder.server.ejb.BaseEJB;
+import com.topcoder.ejb.BaseEJB;
 import com.topcoder.server.docGen.xml.*;
 import com.topcoder.web.stat.common.*;
 
@@ -19,6 +19,9 @@ import com.topcoder.web.stat.common.*;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.3  2002/04/03 16:27:17  steveb
+ *           SB -- changed name of default data source
+ *
  *           Revision 1.2  2002/04/03 04:14:48  steveb
  *           SB configured to allow connections to different DataSources
  *

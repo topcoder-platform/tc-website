@@ -15,6 +15,8 @@
    <property name="testjava"    value="${src.dir}/testcases" />
    <property name="resources"   value="resources" />
    <property name="images"      value="images" />
+   <property name="mpsqas.jar"  value="${bin}/MPSQASApplet.jar"/>
+   <property name="Jive.jar"  value="${bin}/Jive.jar"/>
    <property environment="env"/>
 
    <property name="deprecation"   value="false" />
@@ -57,8 +59,15 @@
       </javac>
    </target>
 
-   <target name="run" depends="compile">
+   <target name="run" depends="package">
    </target>
+   
+   <target name="package" depends="jars">
+   </target>
+
+   <target name="jars" depends="package-mpsqasApplat,package-Jive">
+   </target>
+
 
    <target name="javadocs">
         <mkdir dir="${build.javadocs}"/>
@@ -81,5 +90,22 @@
       <target name="main">
         <antcall target="run"/>
     </target>
+	
+	<target name="package-mpsqasApplat" depends="compile">
+       <jar jarfile="${mpsqas.jar}" >
+	       <fileset dir="${classes}/"
+                includes="com/topcoder/mpsqas/**,com/topcoder/common/**"
+				excludes="com/topcoder/common/web/**"
+           />
+       </jar>
+   </target>
+   
+   <target name="package-Jive" depends="compile">
+       <jar jarfile="${Jive.jar}" >
+	       <fileset dir="${classes}/"
+                includes="com/coolservlets/**"
+           />
+       </jar>
+   </target>
 
 </project>
