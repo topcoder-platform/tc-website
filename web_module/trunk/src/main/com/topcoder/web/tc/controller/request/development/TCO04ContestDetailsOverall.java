@@ -42,6 +42,8 @@ public class TCO04ContestDetailsOverall extends StatBase {
         
         DecimalFormat dfmt = new DecimalFormat("$#,##0.00");
         
+        log.error("RYAN " + rsc.size());
+        
         for(int i = 0; i < rsc.size(); i++)
         {
             Request dataRequest = new Request();
