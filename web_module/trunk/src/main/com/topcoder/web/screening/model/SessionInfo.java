@@ -378,4 +378,20 @@ public class SessionInfo extends BaseModel {
         c.set(Calendar.MILLISECOND, 0);
         return c.getTime();
     }
+
+    /**
+     * returns value -1 if the session is in the future, 0 if the session
+     * is currently open, 1 if the session is in the past.
+     * @param curr
+     * @param sessBegin
+     * @param segEnd
+     * @param sessEnd
+     * @return
+     */
+    public static int sessionStatus(Date curr, Date sessBegin, Date segEnd, Date sessEnd) {
+        int ret = 0;
+        if (curr.getTime() < sessBegin.getTime()) ret = -1;
+        else if (Math.min(segEnd.getTime(), sessEnd.getTime()) < curr.getTime()) ret = 1;
+        return ret;
+    }
 }

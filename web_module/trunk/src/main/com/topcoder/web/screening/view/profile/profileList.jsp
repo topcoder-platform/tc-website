@@ -131,7 +131,7 @@ function getProblemDetail(id) {
                     <td width="16%" align="center" class="bodyText" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
                     <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></td>
                     <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><%=linkName%>></screen:servletLink></td>
+                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><%=linkName%></screen:servletLink></td>
                 </tr>
                 <% } %>
                 <% even = !even; %>
