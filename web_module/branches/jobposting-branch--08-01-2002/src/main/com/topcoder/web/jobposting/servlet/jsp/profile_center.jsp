@@ -1,6 +1,6 @@
 <%@ page errorPage="/errorPage.jsp" %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
-<jsp:useBean id="JobHitTask" scope="request" CLASS="com.topcoder.web.jobposting.bean.JobHitTask" />
+<jsp:useBean id="JobHitTask" scope="request" class="com.topcoder.web.jobposting.bean.JobHitTask" />
 <tc:getProperty id="coderType" name="JobHitTask" property="CoderType" />
 <img src="/i/clear.gif" width="240" height="1" vspace="5" border="0"><br>
   <div align="center">
@@ -37,15 +37,15 @@
       <% } %>
     </TD>
   </TR>
-  <TR valign="middle">
-    <TD CLASS="statTextBig" align="left" valign="middle" background="/i/steel_bluebv_bg.gif" height="16" colspan="2">&nbsp;Contact Information</TD>
-  </TR>
-  <TR valign="middle">
-    <TD colspan="2" CLASS="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></TD>
-  </TR>    
-    <TR valign="middle">
-    <TD CLASS="statText" width="30" align="right" valign="middle"><img src="/i/clear.gif" width="30" height="1"></TD>
-    <TD CLASS="statText" align="left" valign="top">
+  <tr valign="middle">
+    <td class="statTextBig" align="left" valign="middle" background="/i/steel_bluebv_bg.gif" height="16" colspan="2">&nbsp;Contact Information</td>
+  </tr>
+  <tr valign="middle">
+    <td colspan="2" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td>
+  </tr>    
+    <tr valign="middle">
+    <td class="statText" width="30" align="right" valign="middle"><img src="/i/clear.gif" width="30" height="1"></td>
+    <td class="statText" align="left" valign="top">
     Name: <jsp:getProperty name="JobHitTask" property="FirstName" />
         <jsp:getProperty name="JobHitTask" property="LastName" /><br>
       Address:<br>  
@@ -57,69 +57,68 @@
         <tc:getProperty id="country" name="JobHitTask" property="Country" />
         <tc:countrySelect name="country" selectedValue="<%=country%>" selectedOnly="true" /><br>
         Phone: <jsp:getProperty name="JobHitTask" property="Phone" /><br>
-    </TD>
-  </TR>
-  <TR valign="middle">
-    <TD colspan="2" CLASS="statText" valign="middle">&nbsp;</TD>
-  </TR>  
-  <TR valign="middle">
-    <TD CLASS="statText" align="right" valign="middle">&nbsp;</TD>
-    <TD CLASS="statText"  align="left" valign="top">
+    </td>
+  </tr>
+  <tr valign="middle">
+    <td colspan="2" class="statText" valign="middle">&nbsp;</td>
+  </tr>  
+  <tr valign="middle">
+    <td class="statText" align="right" valign="middle">&nbsp;</td>
+    <td class="statText"  align="left" valign="top">
     Email: <jsp:getProperty name="JobHitTask" property="Email" /><br>
         Handle: <jsp:getProperty name="JobHitTask" property="Handle" /><br>
         Email Notification: 
-        <tc:notification selectedOnly="true" selectedValues="<%=JobHitTask.getNotifications()%>" CLASS="statText">
+        <tc:notification selectedOnly="true" selectedValues="<%=JobHitTask.getNotifications()%>" class="statText">
           <%=notifyControl%>&#160;&#160;
         </tc:notification>
         <br>
         Quote: <jsp:getProperty name="JobHitTask" property="Quote" /><br>
-    </TD>
-  </TR>
-  <TR valign="middle">
-    <TD colspan="2" CLASS="statText" valign="middle">&nbsp;</TD>
-  </TR>  
-  <TR valign="middle">
-    <TD CLASS="statText" align="right" valign="middle">&nbsp;</TD>
-    <TD CLASS="statText"  align="left" valign="top">
+    </td>
+  </tr>
+  <tr valign="middle">
+    <td colspan="2" class="statText" valign="middle">&nbsp;</td>
+  </tr>  
+  <tr valign="middle">
+    <td class="statText" align="right" valign="middle">&nbsp;</td>
+    <td class="statText"  align="left" valign="top">
         <tc:getProperty id="editor" name="JobHitTask" property="Editor" />
     Default Editor: <tc:editorSelect name="editor" selectedValue="<%=editor%>" selectedOnly="true" /><br>
         <tc:getProperty id="language" name="JobHitTask" property="Language" />
     Default Language: <tc:languageSelect name="language" selectedValue="<%=language%>" selectedOnly="true" /><br>
-    </TD>
-  </TR>
-  <TR valign="middle">
-    <TD colspan="2" CLASS="statText" valign="middle">&nbsp;</TD>
-  </TR>  
-  <TR valign="middle">
-    <TD CLASS="statTextBig" align="left" valign="middle" background="/i/steel_bluebv_bg.gif" height="16" colspan="2">&nbsp;Demographics</TD>
-  </TR>
-  <TR valign="middle">
-    <TD colspan="2" CLASS="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></TD>
-  </TR>
-  <TR valign="middle">
-    <TD CLASS="statText" align="right" valign="middle">&nbsp;</TD>
-    <TD CLASS="statText"  align="left" valign="top">
+    </td>
+  </tr>
+  <tr valign="middle">
+    <td colspan="2" class="statText" valign="middle">&nbsp;</td>
+  </tr>  
+  <tr valign="middle">
+    <td class="statTextBig" align="left" valign="middle" background="/i/steel_bluebv_bg.gif" height="16" colspan="2">&nbsp;Demographics</td>
+  </tr>
+  <tr valign="middle">
+    <td colspan="2" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td>
+  </tr>
+  <tr valign="middle">
+    <td class="statText" align="right" valign="middle">&nbsp;</td>
+    <td class="statText"  align="left" valign="top">
       <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
 <%if (coderType.equalsIgnoreCase(JobHitTask.CODER_TYPE_STUDENT)) { %>
-    <TR>
-        <TD CLASS="statText">School:</TD>
-        <TD CLASS="statText">
+    <tr>
+        <td class="statText">School:</td>
+        <td class="statText">
             <tc:getProperty id="school" name="JobHitTask" property="School" />
             <tc:schoolSelect name="school" selectedValue="<%=school%>" selectedOnly="true" /><br>
-      </TD>
-    </TR>
+      </td>
+    </tr>
 <%}%>
 
         <tc:demographic coderType="<%=coderType%>" selectedValues="<%=JobHitTask.getDemographics()%>" selectedOnly="true">
-          <TR><TD CLASS="statText"><%=demographicQuestion%>:</TD><TD CLASS="statText"><%=demographicAnswer%></TD></TR>
+          <tr><td class="statText"><%=demographicQuestion%>:</td><td class="statText"><%=demographicAnswer%></td></tr>
         </tc:demographic>
       </table>
-    </TD>
-  </TR>
-
-  <TR valign="middle">
-    <TD colspan="2" CLASS="statText" valign="middle">&nbsp;</TD>
-  </TR>
-    <TR valign="middle">
-    </TR>
+    </td>
+  </tr>
+  <tr valign="middle">
+    <td colspan="2" class="statText" valign="middle">&nbsp;</td>
+  </tr>
+    <tr valign="middle">
+    </tr>
   </table>
