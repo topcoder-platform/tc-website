@@ -24,7 +24,8 @@
                 <tr><td class="<%=doc.equals("doc4")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_initial_doc4">Sequence Diagram 2.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc5")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_initial_doc5">Sequence Diagram 3.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc6")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_initial_doc6">Sequence Diagram 4.gif</a></td></tr>
-                <tr><td class="<%=doc.equals("doc7")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_initial_doc7">Use Case Diagram 1.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc7")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_initial_doc7">Sequence Diagram 5.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc8")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_initial_doc8">Use Case Diagram 1.gif</a></td></tr>
                 <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
@@ -44,7 +45,7 @@
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/rnielsen/StressTests.java" target="_blank">Stress Tests.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/rnielsen/TestFailedMaintainer.java" target="_blank">Test Failed Maintainer.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/rnielsen/TestManyMessages.java" target="_blank">Test Many Messages.java</a></td></tr>
-                
+
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/rnielsen/initial/AckMessage.java" target="_blank">Ack Message.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/rnielsen/initial/AckMessageTest.java" target="_blank">Ack Message Test.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/rnielsen/initial/AgreementLayerImpl.java" target="_blank">Agreement Layer Impl.java</a></td></tr>
@@ -159,7 +160,7 @@
     <% } %>
 
                 <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
-                
+
                 <tr><td class="compDocsSmall">Review Board Scorecards</td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/rnielsen/rnielsen_dsc_dev_review_lkw.htm" target="_blank"><strong>lkw</strong></a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/rnielsen/rnielsen_dsc_dev_review_bryanchen.htm" target="_blank"><strong>BryanChen</strong></a></td></tr>
