@@ -1,21 +1,20 @@
 /*
- * TCO04Results.java
+ * TCO04ContestProjects.java
  *
- * Created on August 5, 2004, 10:35 AM
+ * Created on August 5, 2004, 11:20 AM
  */
 
 package com.topcoder.web.tc.controller.request.development;
 
 import com.topcoder.shared.util.DBMS;
-
 /**
  *
  * @author  rfairfax
  */
-public class TCO04Results extends StatBase {
+public class TCO04ContestProjects {
     
-    String getCommandName() {
-        return "tco04_results";
+     String getCommandName() {
+        return "tco04_contest_projects";
     }
     
     String getDataSourceName() {
@@ -23,7 +22,7 @@ public class TCO04Results extends StatBase {
     }
     
     String getPageName() {
-        return "/tournaments/tco04/comp_results.jsp";
+        return "/tournament/tco04/contest_projects.jsp";
     }
     
     void statProcessing() throws com.topcoder.web.common.TCWebException {
