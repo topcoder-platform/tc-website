@@ -6,7 +6,6 @@
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
 <jsp:usebean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
 <%List questionList = searchResults.getQuestions();%>
-<%=questionList.size()%>
 <script language="JavaScript"><!--
                         function submitEnter(e) {
                             var keycode;
@@ -83,7 +82,7 @@
                                     int counter = 0;
                                 %>
                                 <pl:questionIterator id="question" list="<%=questionList%>">
-                                <%--<%if(question.getId() == Constants.AREA_OF_INTEREST_ID) { %> --%>
+                                <%if(question.getId() == Constants.AREA_OF_INTEREST_ID) { %> 
                                 <tr>
                                     <td class="<%=cssClasses[counter % 2]%>" align=right>
                                         <%=question.getText()%>
@@ -92,7 +91,7 @@
                                         <pl:demographicInput question="<%=question%>"/>
                                     </td>
                                </tr>
-                               <%--<%} %>--%>
+                               <%} %>
                             </pl:questionIterator>
                             </table>
                         </td>
