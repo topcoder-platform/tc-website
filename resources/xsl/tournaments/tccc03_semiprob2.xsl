@@ -75,148 +75,192 @@
                 <tr valign="top">
                     <td width="10%" class="bodyText">
                         <p>Friday, April 4, 2002</p>
+                        <p><b>Problem Summary</b><br /><br />
+            These were easy problems, by semifinal standards.  The easy problem, a 
+            Reverse-Polish-Notation calculator, is really just a measure of typing speed.  The medium, a sort of Tic-Tac-Toe 
+            &quot;AI&quot;, was relatively easy for a medium problem as well.  The hard problem was nice and hard, however,
+            with a brief and elegant solution that is only apparent after some thinking.
+       		</p>
+			<h3>RPN</h3>
+   			 Used as: Level 1:
+   			<blockquote>
+   			<table cellspacing="2">
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Value</b></td>
+			<td style="background: #eee;" class="bodyText">200</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
+			<td style="background: #eee;" class="bodyText">4/4 (100%)</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
+			<td style="background: #eee;" class="bodyText">4/4 (100%)</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
+			<td style="background: #eee;" class="bodyText"><b>niteneb</b> for 183.76 points</td>
+			</tr>
+			</table>
+			</blockquote>
+			<b>Implementation</b><br />
+			<p>
+           	This is a very easy problem for a semifinal round. All one needs is a working implementation of a stack, which any 
+          	language would come with. Or one could go without an explicit stack altogether, solving the problem recursively.
+            </p>
+			<p>
+         	The process of evaluating an expression is fairly well described in the problem statement. We read the next token 
+           	(separated conveniently by spaces).  If it is a digit, we push that value onto the stack.  Otherwise, it is an 
+          	operation that we must apply to the top one or two elements of the stack.
+            </p>
+			<p>
+    		Application of an operator is a simple <tt>switch</tt> statement (or something similar).
+          	Not all of the operators are commutative (order is important for the <tt>-</tt> operator),
+ 			so it is important to make sure that operator is applied to the operands in the proper order.
+			When subtracting, the top of the stack is subtracted <i>from</i> the value just below it.
+            </p>
+			<p>
+			All that is left at this point is error checking. It is easy enough to ensure that the stack is empty at the end of 
+			evaluation.  It is marginally more difficult to make sure that the stack is non-empty every time a value is popped.  
+			The whole evaluation process could simply be surrounded by an exception handler, or one can just be careful about 
+			performing error checking at each point in the code where values from the stack are popped.
+            </p>
+			<p></p>
+			<h3>TicSolver</h3>
+			Used as: Level 2:
+			<blockquote>
+			<table cellspacing="2">
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Value</b></td>
+			<td style="background: #eee;" class="bodyText">500</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
+			<td style="background: #eee;" class="bodyText">4/4 (100%)</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
+			<td style="background: #eee;" class="bodyText">4/4 (100%)</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
+			<td style="background: #eee;" class="bodyText"><b>dmwright</b> for 364.04 points</td>
+			</tr>
+			</table>
+			</blockquote>
+			<b>Implementation</b><br />
+			<p>
+			This simplest form of Tic-Tac-Toe is generally liked by programmers, because it is such a small	game.  
+			There are only 3<sup>9</sup> = 19683 possible ways to draw a Tic-Tac-Toe board, and only a subset of those 
+			possibilities represent valid game states.  Because of this, it is easy to generate every possible outcome 
+			from a given starting state.
+            </p>
+			<p>
+			The first piece of code we need is a function that determines whether a particular player has won. The crudest method 
+			is hard-coding expressions that determine if every position in each winning triple of locations is occupied by the same player.  
+			There are only eight of these triples. Once we have this function, we can work on board validity, as well as generating 
+			possible outcomes.
+            </p>
+			<p>
+			There are two ways to determine board validity.  The first consists of simply generating all possible states from the initial, 
+			empty board, by following the rules of the game. If the input configuration isn't in this set of possible states, then 
+			it must be invalid.
+            </p>
+			<p>
+			The other method is more analytical and easier to make a mistake with. First, count the number of Xs and the number of Os.  
+			Since in this problem O goes first, the difference between the number of Os and the number of Xs must be either 0 or 1. Any 
+			other difference indicates an invalid board.  There are also a few other invalid conditions that involve a player having 
+			already won.  If the number of Os exceeds the number of Xs, but X has won the game, we have an invalid state.  
+			If the number of Os equals the number of Xs, but O has won the game, we have an invalid state.  If both players have won, 
+			we also have an invalid state.
+            </p>
+			<p>
+          	We are now ready to generate all the possible outcomes.  These will be generated within a directed acyclic graph (DAG) structure.
+ 			Each particular state branches off into a number of possible new states, except for wins or draws which 
+ 			form the vertices with no outgoing edges. For each state, we will need to know whose turn is next and whether or not they have won.
+            </p>
+			<p>
+                Once we have this DAG (or the means of generating it as we go along), we can implement a recursive function
+                that determines which player can force a win (if any) by walking the DAG.
+                The base case is when the next player can win on the next move or when all the locations are filled.
+                This corresponds to a vertex in the DAG with no outgoing edges.
+                Otherwise we look at every possible move for the current player.  Our recursive function will tell us for
+                each move whether a win is forced or not.  If there exists a move that forces a win for the current player,
+                then we know that the current state also means a forced win for the current player.  Otherwise, the current
+                player has to hope for a way to force a draw.  If a move exists that forces a draw, then the current state
+                also forces a draw.  Otherwise, the other player can force a win from this particular state.
+            </p>
+			<p>
+                The DAG generation and the walk of the DAG can be implemented either separately and explicitly,
+                or together and implicitly.  Implemented implicitly, the solution looks like standard memoization.
+                It helps to be able to generate a unique identifier for each state (e.g., a 9-digit number in base-3),
+                so that one can look up the result for a particular state in the memoization table.  The return value
+                for our public method can then just involve a lookup of the input state in that table, after a check
+                for validity first.
+            </p>
+			<p></p>
+			<h3>TelephoneGame</h3>
+			Used as: Level 3:
+			<blockquote>
+			<table cellspacing="2">
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Value</b></td>
+			<td style="background: #eee;" class="bodyText">1050</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Submission Rate</b></td>
+			<td style="background: #eee;" class="bodyText">2/4 (50%)	</td>
+			</tr>
+			<tr>
+			<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
+			<td style="background: #eee;" class="bodyText">0/2 (0%)</td>
+			</tr>
+			</table>
+			</blockquote>
+			
+			<b>Implementation</b><br />
+			<p>
+                This is the sort of problem where the solution is difficult to derive, but once it is discovered, it
+                is very easy to implement.  What makes this problem tractable is the fact that a circle of irremovable
+                connections is given.  We know right off that a connection will have to be routed either within this circle or without.
+            </p>
+			<p>
+                For each pair of removable connections, we first determine whether they can exist on the same side of the
+                circle without crossing.  Given two points along a circle, any third point on that circle will be between
+                those two points.  If we arbitrarily pick one of the two given points, the third point will be located
+                in an interval that is either the clockwise or counterclockwise relative to the chosen point.  This gives
+                us a simple means of labelling the two intervals.
+            </p>
+			<p>
+                To apply this model to this problem, let the two given points be the endpoints of one connection.
+                Then take a second connection.  If and only if both endpoints of the
+                second connection are located in the same interval, then the connections do not cross.
+            </p>
+			<p>
+                For each pair of connections that cross, we know they must be routed on opposite sides of the circle.  Suppose we
+                build a graph, where each vertex represents a connection, and an edge between two connections indicates that the
+                two connections cannot exist on the same side of the circle.  Then it becomes evident that what we want to find the
+                largest subset of edges that make this a bipartite graph, meaning that the vertices can be grouped into two sets
+                consisting of vertices that have no edges to each other.
+            </p>
+			<p>
+                So all we have to do is build this graph, iterate through all subsets of edges in this graph, and choose the
+                subset with the most edges that gives a bipartite graph.  To iterate through subsets of a set of
+                <i>n</i> elements, just count from
+                0 to 2<sup><i>n</i></sup> - 1.  The binary representation of our counter will describe each subset.
+            </p>
+			<p>
+                For each subset, we have to determine whether it describes a bipartite graph.  An alternate definition of
+                a bipartite graph is that it contains no cycles of odd length.  Or, put another way, it means that we can
+                color all the edges using only two colors without having any two adjacent edges be the same color.
+                Whichever definition you choose to work with, it is fairly easy to implement a function that walks the graph
+                consisting of any given subset of edges and finds all the minimum-length cycles.  If none exist that are of
+                odd length, we have a bipartite graph.
+            </p>
+<p></p>
+
                         
-                        <h2>RoadTrip<br />
-                        <font size="-1">Used as: Level 1</font></h2>
-
-                        <h4>Implementation</h4>
                         
-                        <p>This problem is strongly reminiscent of the programming language <a href="http://www.catseye.mb.ca/esoteric/befunge/" target="_blank">BeFunge</a>.
-                        In a sense, this problem calls for the implementation of an evaluator for a very simplified version
-                        of the language.  The program is the two-dimensional character array given as input, and the commands
-                        are either no-ops (the dots) or turns (left, right, or 180 degrees).  Input to the program would be
-                        a starting location and a direction, and the output would be the number of locations visited at least once.
-                        The problem then just calls for evaluating the input program for all possible
-                        inputs, and returning the maximal output.  You must also detect infinite loops, and terminate any program
-                        that enters one.</p>
-
-                        <p>The easiest method for handling motion and turns is by specifying an array of position offsets to
-                        represent movement in each direction.  For example:</p>
-
-<pre>
-    int[][] dxy = {
-        { 0, 1 },   // east
-        { -1, 0 },  // north
-        { 0, -1 },  // west
-        { 1, 0 },   // south
-    }
-</pre>
-                        <p>Each row in this array represents movement in a particular direction, and the rows are ordered
-                        such that the row following represents a left turn and the row preceding represents a right turn.
-                        The first column is the row offset, and the second column is the column offset.  Thus <tt>{0, 1}</tt>
-                        represents no change in row and a positive change in column, which corresponds to eastward movement.
-                        To turn left, then, one just adds <tt>1</tt> to the current direction and then takes that value
-                        mod <tt>4</tt> (so, a left turn when the direction is <tt>3</tt> yields <tt>0</tt>).  A right turn
-                        consists of subtracting <tt>1</tt>, but the modulus operator doesn't work the same way for negative
-                        numbers.  It is easier to add <tt>3</tt> instead (since <tt>3</tt> and <tt>-1</tt> are congruent modulo <tt>4</tt>).
-                        This method is useful for many, many grid traversal problems.</p>
-
-                        <p>Now all that is left is detection of infinite loops.  An infinite loop will only occur if you
-                        revisit a previously visited location and leave it in the same direction that you have left it before.
-                        Thus, maintain a three-dimensional boolean array, where the indices represent row, column, and direction.
-                        When you leave a location, check the appropriate element in the array.  If it is true, you have entered
-                        an infinite loop, and might as well terminate the program, as no new locations will ever be visited.
-                        Otherwise, set the appropriate element in the array to true and continue evaluation.</p>
-
-                        <p>Simply evaluate the program for all possible locations and directions, and count how many locations are
-                        visited.  Then just return the maximum.</p>
-
-                        <p>&#160;</p>
-                        
-                        <a name="GraphPaths"></a><h2>GraphPaths<br />
-                        <font size="-1">Used as: Level 2</font></h2>
-    
-                        <h4>Implementation</h4>
-    
-                        <p>It's clear from the examples that simply iterating paths is not the answer, as there
-                        can be up to 2<sup>63</sup> paths that one must count.  Instead we must count the paths
-                        without iterating them.  In fact, a dynamic programming solution is called for.</p>
-
-                        <p>Suppose that we know the number of paths of length <tt>a</tt> between all pairs of vertices,
-                        as well as the number of paths of length <tt>b</tt>.
-                        Can we use this information to compute the number of paths of length <tt>a + b</tt> for all pairs?
-                        We can, and it's actually quite easy.  If there exist <tt>m</tt> paths of length <tt>a</tt> from
-                        vertex <tt>i</tt> to vertex <tt>j</tt>, and there exist <tt>n</tt> paths of length <tt>b</tt>
-                        from vertex <tt>j</tt> to vertex <tt>k</tt>, then there must be <tt>m * n</tt> paths of length
-                        <tt>a + b</tt> from vertex <tt>i</tt> to vertex <tt>k</tt>.  Thus with three nested <tt>for</tt>
-                        loops, one can easily generate a matrix giving number of paths of a particular length from similar
-                        matrices for smaller lengths.</p>
-
-                        <p>Now we can see how to solve this problem in time that is proportional to the logarithm of
-                        the given length.  Simply look at the binary representation of the length.  The binary representation
-                        is a way of decomposing a value into a sum of powers of <tt>2</tt>.  So, all we have to do is
-                        compute the number of paths between all pairs of vertices for all lengths that are powers of <tt>2</tt>
-                        (up to a certain point).</p>
-                        
-                        <p>For this, we again use the method described above.  If we know the number of paths of length <tt>a</tt>,
-                        we can compute the number of paths of length <tt>a + a</tt>.  So, we build a three-dimensional array,
-                        <tt>paths</tt>, where <tt>paths[x][i][j]</tt> gives the number of paths of length <tt>2<sup>x</sup></tt> from vertex
-                        <tt>i</tt> to vertex <tt>j</tt>.  The range of the first index needs to be <tt>0..30</tt> (since
-                        the base-2 logarithm of the maximum length we will be given is less than 31).  We initialize <tt>paths[0]</tt>
-                        to be all zeros, except where an edge exists from <tt>i</tt> to <tt>j</tt>.  If there is an edge from
-                        <tt>i</tt> to <tt>j</tt>, then <tt>paths[0][i][j] = 1</tt>.</p>
-
-                        <p>We then successively build <tt>paths[1]</tt> through <tt>paths[30]</tt>.  Since we're going to have
-                        to repeat this process later on to obtain the answer for our given length, it is a good idea to
-                        develop this process as a function, which takes two two-dimensional matrices (representing the number of
-                        paths between all pairs for two different lengths) and returns a two-dimensional matrix (representing
-                        the number of paths between all pairs for the sum of the two input lengths).  Then, to build
-                        <tt>paths[n]</tt>, we simply pass two references to <tt>paths[n - 1]</tt> to this function.
-                        The function also has to handle overflow detection.  Basically, before increasing any value, verify that
-                        the amount it is going to be increased by is less than the difference between the maximum value and its
-                        current value.  If so, replace it with <tt>-1</tt>.</p>
-    
-                        <p>Once we build <tt>paths</tt>, we are ready to compute the answer.  We initialize a two-dimensional
-                        <tt>sum</tt> to all zeros, and then set <tt>sum[i][i] = 1</tt> for all vertices <tt>i</tt>.  This
-                        represents the number of paths of length 0.  We then iterate through the bits of <tt>length</tt>.
-                        If bit <tt>i</tt> is <tt>1</tt>, then we pass <tt>sum</tt> and <tt>paths[i]</tt> to the function
-                        we implemented above and replace <tt>sum</tt> with its return value.  After we've done this for all
-                        the bits of <tt>length</tt>, we have our answer for all pairs of vertices.  We simply look up the
-                        value at the location specified by the input parameters and return it.</p>
-                        
-                        <p>&#160;</p>
-                        
-                        <a name="HigherMaze"></a><h2>HigherMaze<br />
-                        <font size="-1">Used as: Level 3</font></h2>
-    
-                        <h4>Implementation</h4>
-                        
-                        <p>This is just a suped up version of a typical breadth-first-search problem, something which should pose
-                        little challenge to competitors that have made it to the semi-finals.  The most interesting aspect of
-                        this problem is the input, part of which specifies parameters to a pseudo-random number generator which
-                        is used to populate the graph before the search is performed.  This might make testing and challenging
-                        more difficult, but the problem statement explicitly specifies how to code the generator, so it should
-                        not pose much difficulty as far as coding goes.</p>
-
-                        <p>There are at most <tt>20<sup>5</sup> = 3200000</tt> locations in the graph.  There's no problem with storing
-                        information for all of these in memory.  The general process of a breadth-first search is then as follows.</p>
-
-                        <p>The primary data structure for a breadth-first search is a priority queue.  The values that are stored in
-                        the priority queue are tuples.  Each such tuple represents a location and a cost for reaching that location.
-                        Thus the priority queue is initially populated with the starting location with a cost of zero.</p>
-
-                        <p>Each value that we pull from the queue represents a location we can reach (and the minimal cost of reaching
-                        that location).  For each location we reach, we generate the locations of all its neighbors (which may include
-                        neighbors reached directly through wormholes) and compute the costs
-                        for reaching each of these locations by passing through the current location.  That is, we compute the cost
-                        of travelling from the current location to a neighbor, and add that cost to the cost of reaching the current
-                        location.  We then construct a tuple for associating each of the neighboring locations with the computed cost
-                        for each, and add them to the priority queue.</p>
-
-                        <p>Usually, for efficiency, we would not not add a tuple to the
-                        queue if there has already been added to the queue a tuple for the same location with a lower cost.
-                        However, we are dealing with a graph where edges may have negative weights, so this practice would be
-                        erroneous.</p>
-
-                        <p>This is all standard fare, and all of the contestants have probably solved this problem for two, three, or even
-                        four dimensions (I recall an ACM ICPC problem a few years ago that was four-dimensional).  This is just
-                        a generalization of the same problem.  Generalizing the solution is trivial, except for the matter of iterating
-                        neighbors.  Writing code to generate neighbors of an arbitrary location in <i>n</i> dimensions is trivial if
-                        <i>n</i> is constant for your program, but it's slightly harder to generalize for any <i>n</i>.  This consists
-                        of generating all <i>n</i>-element arrays where the values of each element can be either <tt>-1</tt>, <tt>0</tt>,
-                        or <tt>1</tt>, and this could easily be done in a simple recursive function.  Generating locations of asteroids
-                        in the manner prescribed should probably be done in the same manner.</p>
-
 
                         <img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left"/>
                         By <a href="/stat?c=member_profile&amp;cr=112902" class="bodyText"><strong>Logan</strong></a><br/>
@@ -229,21 +273,7 @@
                 </tr>                  
 
                 <tr><td height="1"><img src="/i/clear.gif" alt="" width="10" height="3" border="0"/></td></tr>
-                <tr><td class="tourney_subnav"><strong>Semifinal Room 2 Play-by-play</strong></td></tr>
-                <tr>
-                    <td valign="top" class="bodyText">
-                        <p><strong>CODING PHASE</strong><br/>
-                        8:00:02 AM - malpt opens the Level One problem<br/>
-                        8:00:04 AM - ambrose opens the Level One problem<br/>
-                        8:00:05 AM - SnapDragon opens the Level One problem<br/>
-                        8:00:07 AM - kyky opens the Level One problem<br/>
-                        8:10:02 AM - SnapDragon submits the Level One problem for 268.59 points (final submission)<br/>
-                        9:15:36 AM - SnapDragon submits the Level Three problem for 521.09 points (final submission)</p>
-
-                        <p><strong>CHALLENGE PHASE</strong><br/>
-                        9:38:16 AM - SnapDragon challenges ambrose on the Level Two problem successfully</p>
-                    </td>
-                </tr>            
+                   
             </table>
 
             <p><br/></p>
