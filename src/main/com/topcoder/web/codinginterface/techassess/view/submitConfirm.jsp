@@ -43,7 +43,7 @@
               <table cellspacing=0 cellpadding=0 class=bodyTable>
                  <tr>
                     <td><img src="/i/corp/screening/bodyTL.gif" alt=""/></td>
-                    <td class=bodyT>&#160;</td>
+                    <td class=bodyT><img src="/i/corp/screening/clear.gif" alt=""/></td>
                     <td><img src="/i/corp/screening/bodyTR.gif" alt=""/></td>
                  </tr>
                  <tr>
