@@ -19,6 +19,9 @@
 			<xsl:when test="/TC/Command='invit02_rnd4'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='invit02_semi'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='invit02_champ'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_final_64'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_final_16'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rooms'">orangebv_bg</xsl:when>									
 			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
 		<A HREF="/index?t=schedule&amp;c=invit02_pt1" CLASS="statTextBig">Round Updates</A></TD>
 		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
