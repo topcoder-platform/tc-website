@@ -265,21 +265,6 @@
         </init-param>
 
         <init-param>
-            <param-name>login_task</param-name>
-            <param-value>LoginTask</param-value>
-        </init-param>
-
-        <init-param>
-            <param-name>login_task_step_view</param-name>
-            <param-value>v</param-value>
-        </init-param>
-
-        <init-param>
-            <param-name>login_task_step_auth</param-name>
-            <param-value>a</param-value>
-        </init-param>
-
-        <init-param>
             <param-name>main_task</param-name>
             <param-value>MainTask</param-value>
         </init-param>
@@ -508,12 +493,6 @@
 
 
         <init-param>
-            <param-name>login_page</param-name>
-            <param-value>login.jsp</param-value>
-            <description></description>
-        </init-param>
-
-        <init-param>
             <param-name>valid_char_list</param-name>
             <param-value>abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_</param-value>
             <description></description>
@@ -565,30 +544,6 @@
         <init-param>
             <param-name>email_address_parameter</param-name>
             <param-value>emailAddress</param-value>
-            <description></description>
-        </init-param>
-
-        <init-param>
-            <param-name>password_parameter</param-name>
-            <param-value>password</param-value>
-            <description></description>
-        </init-param>
-
-        <init-param>
-            <param-name>handle_parameter</param-name>
-            <param-value>handle</param-value>
-            <description></description>
-        </init-param>
-
-        <init-param>
-            <param-name>redirect_parameter</param-name>
-            <param-value>redir</param-value>
-            <description></description>
-        </init-param>
-
-        <init-param>
-            <param-name>message_parameter</param-name>
-            <param-value>msg</param-value>
             <description></description>
         </init-param>
 
