@@ -136,7 +136,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
     private void viewMemberProfile() throws Exception
     {
-        NumberFormat decFmt = new DecimalFormat("#.#0");
+        NumberFormat decFmt = new DecimalFormat("#.##");
 
         Map memberInfo = new HashMap();
         ArrayList statsByLevel = new ArrayList();
