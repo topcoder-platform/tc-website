@@ -5,7 +5,7 @@ package com.topcoder.web.codinginterface;
  * @version  $Revision$ $Date$
  * Create Date: Jan 21, 2005
  */
-public class CodingInterfaceConstants {
+public interface CodingInterfaceConstants {
 
     public static final String HANDLE = "ha";
     public static final String PASSWORD = "ps";

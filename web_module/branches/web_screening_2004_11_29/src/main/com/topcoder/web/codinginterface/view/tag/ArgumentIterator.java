@@ -5,7 +5,7 @@ import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.language.Language;
 import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.codinginterface.techassess.Constants;
+import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 
 import javax.servlet.jsp.tagext.BodyTagSupport;
 import javax.servlet.jsp.JspException;
@@ -99,7 +99,7 @@ public class ArgumentIterator extends BodyTagSupport {
             out.write("<img src=\"/i/corp/screening/buttonCreate.gif\" alt=\"Create\"/>");
             out.write("</a>");
         } else {
-            String name = Constants.TEST_ARGUMENT_PREFIX+index;
+            String name = CodingInterfaceConstants.TEST_ARGUMENT_PREFIX+index;
             out.write("<input type=\"text\" name=\"");
             out.write(name);
             out.write("\" size=\"20\" maxlength=\"50\"");

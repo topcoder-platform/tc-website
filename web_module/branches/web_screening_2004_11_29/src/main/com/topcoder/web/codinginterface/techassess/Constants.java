@@ -2,6 +2,7 @@ package com.topcoder.web.codinginterface.techassess;
 
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 
 import java.lang.reflect.Field;
 import java.util.MissingResourceException;
@@ -10,7 +11,7 @@ import java.util.MissingResourceException;
  * User: dok
  * Date: Dec 6, 2004
  */
-public class Constants {
+public class Constants implements CodingInterfaceConstants {
 
     private static TCResourceBundle bundle = new TCResourceBundle("TechAssess");
     private static boolean isInitialized = false;
@@ -34,19 +35,8 @@ public class Constants {
     public static String PAGE_TEST;
 
     //parameters
-    public static String HANDLE;
-    public static String PASSWORD;
     public static String COMPANY_ID;
-    public static String COMPONENT_ID;
-    public static String PROBLEM_TYPE_ID;
-    public static String LANGUAGE_ID;
-    public static String CODE;
-    public static String MODULE;
-    public static String STATIC_PREFIX;
-    public static String MESSAGE_ID;
     public static String SESSION_ID;
-    public static String SUBMIT_FLAG;
-    public static String TEST_ARGUMENT_PREFIX;
 
     //request processors
     public static String RP_CURRENT_TIME;
