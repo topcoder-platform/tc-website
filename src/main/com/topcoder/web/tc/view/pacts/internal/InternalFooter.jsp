@@ -49,7 +49,7 @@ Searches<br>
    out.print("Print Payments</a><br>");
 %>
 <br><br>
-<a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=Static&d1=pacts&d2=internal&d3=generatePayments">Generate Payments</a><br>
+<a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=Static&d1=pacts&d2=internal&d3=generatePayments">Generate Affidavits</a><br>
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=Static&d1=pacts&d2=internal&d3=createAffidavitTemplate">Create an Affidavit Template</a><br>
 
 
