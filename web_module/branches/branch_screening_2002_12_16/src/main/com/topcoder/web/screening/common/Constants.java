@@ -34,6 +34,7 @@ public class Constants
     public static String LANGUAGE;
     public static String TEST_SET_B_ADD;
     public static String TEST_SET_B_REMOVE;
+    public static String PROBLEM_ID;
 
     //Candidate constants
     public static String CANDIDATE_INFO;
@@ -64,9 +65,15 @@ public class Constants
     public static String PROFILE_ADD_PROBLEM_PROCESSOR;
     public static String PROFILE_REMOVE_PROBLEM_PROCESSOR;
     public static String PROFILE_CONFIRM_PROCESSOR;
+    public static String UPDATE_PROFILE_PROCESSOR;
     
     //Problem constants
     public static String PROBLEM_LIST_PAGE;
+    public static String PROBLEM_DETAIL_PAGE;
+    public static String POPULATE_PROBLEM_DETAIL_PROCESSOR;
+    public static String PROBLEM_INFO;
+    public static String PROBLEM_DETAIL_COMMAND;
+    public static String PROBLEM_INFO_QUERY_KEY;
     
     //Results constants
     public static String PROBLEM_RESULT_PAGE;
@@ -106,6 +113,7 @@ public class Constants
         TEST_SET_B_ADD = config.getInitParameter("test_set_b_add_parameter");
         TEST_SET_B_REMOVE = 
             config.getInitParameter("test_set_b_remove_parameter");
+        PROBLEM_ID = config.getInitParameter("problem_id_parameter");
 
         //Candidate constants
         CANDIDATE_INFO = config.getInitParameter("candidate_info_attribute");
@@ -152,13 +160,25 @@ public class Constants
             config.getInitParameter("profile_remove_problem_processor");
         PROFILE_CONFIRM_PROCESSOR =
             config.getInitParameter("profile_confirm_processor");
+        UPDATE_PROFILE_PROCESSOR =
+            config.getInitParameter("update_profile_processor");
         
         //Problem constants
         PROBLEM_LIST_PAGE = config.getInitParameter("problem_list_page");
+        PROBLEM_DETAIL_PAGE = config.getInitParameter("problem_detail_page");
+        POPULATE_PROBLEM_DETAIL_PROCESSOR =
+            config.getInitParameter("populate_problem_detail_processor");
+        PROBLEM_INFO = 
+            config.getInitParameter("problem_info_attribute");
+        PROBLEM_DETAIL_COMMAND = 
+            config.getInitParameter("problem_detail_command");
+        PROBLEM_INFO_QUERY_KEY = 
+            config.getInitParameter("problem_info_query_key");
         
         //Result constants
         PROBLEM_RESULT_PAGE = config.getInitParameter("problem_result_page");
-        TC_PROBLEM_RESULT_PAGE = config.getInitParameter("tc_problem_result_page");
+        TC_PROBLEM_RESULT_PAGE = 
+            config.getInitParameter("tc_problem_result_page");
         TEST_RESULTS_PAGE = config.getInitParameter("test_results_page");
 
         //Common Constants

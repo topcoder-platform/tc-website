@@ -28,7 +28,7 @@ public class PrincipalMgr {
         {
             Hashtable env = new Hashtable();
             env.put(InitialContext.INITIAL_CONTEXT_FACTORY,
-                        ApplicationServer.SECURITY_CONTEXT_FACTORY);
+                        ApplicationServer.SECURITY_FACTORY);
             env.put(InitialContext.PROVIDER_URL, 
                         ApplicationServer.SECURITY_PROVIDER_URL);
             context = new InitialContext(env);

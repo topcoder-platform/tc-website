@@ -147,6 +147,12 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>problem_id_parameter</param-name>
+    <param-value>problemId</param-value>
+    <description></description>
+  </init-param>
+
   <!-- Parameters used by Candidate -->
   <init-param>
     <param-name>candidate_info_attribute</param-name>
@@ -305,6 +311,12 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>update_profile_processor</param-name>
+    <param-value>UpdateProfile</param-value>
+    <description></description>
+  </init-param>
+
   <!-- Results constants -->
   <init-param>
     <param-name>problem_result_page</param-name>
@@ -328,6 +340,36 @@
   <init-param>
     <param-name>problem_list_page</param-name>
     <param-value>/problem/problemList.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>problem_detail_page</param-name>
+    <param-value>/problem/problemDetail.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>populate_problem_detail_processor</param-name>
+    <param-value>PopulateProblemDetail</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>problem_info_attribute</param-name>
+    <param-value>problemInfo</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>problem_detail_command</param-name>
+    <param-value>problemDetailCommand</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>problem_info_query_key</param-name>
+    <param-value>problemInfo</param-value>
     <description></description>
   </init-param>
 
