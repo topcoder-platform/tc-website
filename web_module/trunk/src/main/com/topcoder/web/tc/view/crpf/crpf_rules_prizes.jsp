@@ -83,11 +83,10 @@
                $100 will be entered into the drawing.  Members will receive one chance for every $100 he/she raises</li>
                </ul>
 
-               <p>All grand-prize winners will travel to New York City on Monday, November 24th to attend A Magical Evening, the annual 
-               star-studded gala ball benefiting CRPF.  A Magical Evening will be held at the Marriott Marquis on November 24th at 5:00pm.  
-               If a grand-prize winner is unable to attend the A Magical Evening, he/she will forfeit his/her eligibility to receive a prize, and 
-               his/her prize will be given to the next eligible member (i.e. next highest scorer if a high-scorer can not attend, the next highest 
-               fund-raiser if a top fund-raiser can not attend, etc.). </p>
+               <p>The grand prize is an expenses paid trip to New York City on Monday, November 24th to attend <a href="/tc/?module=Static&d1=crpf&d2=crpf_overview"><i>A Magical Evening</i></a>, 
+               the annual star-studded gala ball benefiting CRPF. <i>A Magical Evening</i> will be held at the Marriott Marquis at 5:00pm. If a grand-prize winner is 
+               unable to attend <i>A Magical Evening</i>, he/she will forfeit his/her eligibility to receive a prize, and his/her prize will be given to the next eligible 
+               member (i.e. next highest scorer if a high-scorer can not attend, the next highest fund-raiser if a top fund-raiser can not attend, etc.). </p>
 
                <p>TopCoder will provide travel arrangements for each winner, up to a cost of $1,000 per person.  (That is, if a contestant’s 
                airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  
