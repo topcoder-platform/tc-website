@@ -345,18 +345,23 @@ pageContext.setAttribute("resultSet", rsc3);
         <!-- END BODY -->
 
        </TD>
-       <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
 
+<!-- Gutter begins -->
+       <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+<!-- Gutter ends -->
+
+        <TD width="170">
 <!-- Left nav begins -->
             <jsp:include page="../public_right.jsp">
                 <jsp:param name="level1" value="profile"/>
             </jsp:include>
 <!-- Left nav ends -->
-
        </TD>
-    <!-- Gutter -->
-    <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+
+<!-- Gutter begins -->
+       <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+<!-- Gutter ends -->
+
      </TR>
    </TABLE>
    <jsp:include page="../foot.jsp" />
