@@ -488,10 +488,10 @@ is slated to be the most exciting onsite event yet.  Join me as the scene unfold
 <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=round_stats&amp;rd=4372</xsl:attribute><B>The 2002 TopCoder Invitational: Room 3</B></A><BR/>
+        <xsl:attribute name="HREF">/stat?&amp;c=round_stats&amp;rd=4373</xsl:attribute><B>The 2002 TopCoder Invitational: Room 4</B></A><BR/>
 Friday, November 22, 2002<BR/><BR/>
 
-<B>Room 3 updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_semi</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom3</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom3#photo</xsl:attribute>Photos</A>
+<B>Room 4 updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_semi</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom4</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom4#photo</xsl:attribute>Photos</A>
 <BR/><BR/>
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
@@ -512,7 +512,7 @@ Friday, November 22, 2002<BR/><BR/>
     </TD> 
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="23%" NOWRAP="0">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=round_stats&amp;rd=4372</xsl:attribute>
+        <xsl:attribute name="HREF">/stat?&amp;c=round_stats&amp;rd=4373</xsl:attribute>
         Results
       </A>
     </TD>   
@@ -560,20 +560,22 @@ Friday, November 22, 2002<BR/><BR/>
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><BR/>
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiroom3</xsl:attribute><B>And the woman has her way!</B></A><BR/>
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiroom4</xsl:attribute><B>G'day Mate!</B></A><BR/>
 by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
 
 <P>
-The answer to my last question has been answered in a resounding way - the surprises are 
-anything but over.  In the biggest upset of the day, the lowest ranked coder onsite, 
-<B>moira</B>, has overcome the odds and will be advancing to the finals for the chance to win $50,000...
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom3</xsl:attribute>read&#160;more</A>
+The 15-hour time difference between Melbourne, Victoria, Australia and Uncasville, 
+Connecticut, USA may have taken a toll on <B>John Dethridge</B>'s sleeping patterns, but
+ not on his thought process.  In the most dramatic finish of the day, <B>John Dethridge</B> 
+ submitted his 1100-point solution with 10 seconds remaining in the contest, becoming 
+ only the 4th person today to submit all three problems in the given 75 minutes...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom4</xsl:attribute>read&#160;more</A>
 </P>
-<B>Room 4</B>: 6PM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
-<BR/><BR/>
+<B>Championship</B>: Nov. 23, 11AM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
+<BR/><BR/
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
-  </TR>
+  </TR> 
   
   <TR><TD COLSPAN="3" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD></TR>
   <TR>  
@@ -592,25 +594,37 @@ anything but over.  In the biggest upset of the day, the lowest ranked coder ons
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
-    By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
+    By&#160;lbackstrom<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>The 2002 TopCoder Invitational: Room 3</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>The 2002 TopCoder Invitational: Room 4</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob3</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob4</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>	  
 <P>
-I just noticed that TopCoder doesn't often have problems that deal with geometry.
-            However, this round's Level 1 problem was a pure geometry problem, and relatively easy.
-            It was a refreshing change for Level 1 problems, but the coders seemed to struggle with it.
-            The Level 2 problem was straight-forward, but the Level 3 problem was a poser, stumping all
-            four coders...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob3</xsl:attribute>Get the analysis</A>
+Probably the most exciting round of the semifinals.  <B>ZorbaTHut</B> and <B>John Dethridge</B> both finished the easy 
+quickly, while <B>DjinnKahn</B> and jms137 submitted a few minutes later.  John decided to go for the 1100 next, 
+while everyone else moved onto the 400.  <B>ZorbaTHut</B> finished two problems first and moved on to the hard 
+with 62 minutes left.  <B>DjinnKahn</B> was the fastest on the 400, though and spend 40 minutes on the hard.  
+After reading the hard a couple of times, John returned to the 400 and submitted it without to much 
+trouble and returned to the hard.  <B>DjinnKahn</B> and <B>John Dethridge</B> were both getting close to solving the
+ 1100, with about ten minutes to go, when <B>ZorbaTHut</B> leaned back and put his hands behind his head.  As 
+ the seconds ticked away, <B>John Dethridge</B> and jms137 slowly converged on the solution.  With about 2 
+ minutes to go, John had all of the test cases working except 1.  In the last two minutes, he coded 
+ furiously, added another 10 lines of code, or so.  With 20 seconds to go, his code compiled successfully, 
+ and with 15 seconds to go, his solution passed the last test case.  So, with 10 seconds to spare he 
+ submitted the 1100 for 416.94 points, propelling him into the lead.  The results appeared one problem 
+ at a time.  Everyone passed the easy with ease.  However, as ambrose tactfully pointed out to <B>ZorbaTHut</B>,
+  there are better ways to write floyd's than the way he did it, and as all of the spectators predicted,
+   <B>ZorbaTHut</B> failed the medium, guarenteeing <B>John Dethridge</B> the win.  In the end John's solution ended up 
+   failing on a few cases, but it didn't matter any more.  Congatrulations to everyone who made it this
+    far, and tomarrow promises to be even more intense and nerve racking...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob4</xsl:attribute>Get the analysis</A>
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
