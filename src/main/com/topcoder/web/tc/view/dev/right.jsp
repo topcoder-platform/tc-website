@@ -7,7 +7,7 @@
 
 <div class="devRightSpacer">
 <%-- Read Me's begins --%>
-            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <table width="170" border="0" cellspacing="0" cellpadding="5">
                 <tr valign="top">
                     <td width="100%" class="smallText">
                         <p>Read the Component <a href="/index?t=development&c=comp_meth">Methodology</a> before submitting a Component design or development solution.</p>
