@@ -22,8 +22,8 @@
    <property name="Jive.jar"      value="${bin}/Jive.jar"/>
    <property name="servlets"      value="${build}/servlets" />
    <property name="web"           value="src/main/com/topcoder/web" />
-   <property name="tc_cluster"   value="/export/home/weblog5/weblogic1/tc_cluster" />
-   <property name="public_html"   value="/export/home/weblog5/weblogic1/tc_cluster/public_html" />
+   <property name="tc_cluster"   value="/export/home/apps/weblogic_apps/tc_cluster" />
+   <property name="public_html"   value="/export/home/apps/weblogic_apps/tc_cluster/public_html" />
    <property environment="env"/>
 
    <property name="deprecation"   value="false" />
