@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.web.corp.common.Constants,
                  com.topcoder.web.corp.model.TestSessionInfo,
                  java.util.Date,
-                 java.lang.Integer;
+                 java.lang.Integer,
                  com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
