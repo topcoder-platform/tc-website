@@ -148,7 +148,7 @@
 
 
 <!-- LEVEL 3 TABS -->
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tccc04SubNav">
+            <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tccc04SubNav">
                 <tr>
                     <td class="tccc04SubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
       <% if (tabLev1.equals("algorithm")) { %>
