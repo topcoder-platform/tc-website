@@ -934,6 +934,8 @@ log.debug("qq before if");
             (info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
             log.debug("Project went to development. Winner of desing will be added to notification");
             try {
+                Context homeBindings = new InitialContext();
+
                 ProjectTracker pt = projectTrackerHome.create();
 
                 Project project = pt.getProjectById(
