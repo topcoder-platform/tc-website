@@ -11,12 +11,6 @@
    <tr>
       <td align=center>
 
-
-<%-- TABS --%>
-      <jsp:include page="tabs.jsp" >
-         <jsp:param name="tabLev1" value="login"/>
-      </jsp:include>
-
 <%-- TITLE/CLOCK --%>
       <jsp:include page="time.jsp" >
          <jsp:param name="timer" value="off"/>

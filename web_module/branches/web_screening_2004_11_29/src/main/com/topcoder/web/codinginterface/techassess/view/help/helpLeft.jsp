@@ -80,7 +80,7 @@
                             <% if (selected.equals("clearingCode")) { %>
                                  <td class="helpTitleOn"><strong>Clearing the Code</strong><br><br></td>
                            <% } else { %>
-                                <td class="helpTitle"><a href="clearingCode.jsp">Clearing the Code</a></td>
+                                <td class="helpTitle"><a href="clearingCode.jsp">Clearing the Code</a><br><br></td>
                             <% } %>
                             </tr>
 <!-- Clearing the Code ends -->
