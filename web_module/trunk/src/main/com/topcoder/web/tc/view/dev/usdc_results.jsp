@@ -50,17 +50,19 @@
 
                         <br/>
                         <a name="week"></a>
-                        <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                        <table width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
-                                <td class=header colspan=6>Weekly Contests</td>
+                                <td class=usdcTitle>Weekly Contests</td>
                             </tr>
+                        </table>
+                        <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
                                 <td class="sidebarTitle" width=50%>Contest</td>
                                 <td class="sidebarTitle" width=10% align=center>Start Date</td>
                                 <td class="sidebarTitle" width=10% align=center>End Date</td>
                                 <td class="sidebarTitle" width=10% align=center>Winner</td>
                                 <td class="sidebarTitle" width=10% align=right>Contest Prize</td>
-                                <td class="sidebarTitle" width=10% align=center>Projects</td>
+                                <td class="sidebarTitle" width=10% align=center>Components</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
@@ -97,17 +99,19 @@
                         <br/>
 <% rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("usdc_monthly_results"); %>                    
                         <a name="month"></a>
-                        <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                        <table width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
-                                <td class=header colspan=6>Monthly Contests</td>
+                                <td class=usdcTitle>Monthly Contests</td>
                             </tr>
+                        </table>
+                        <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
                                 <td class="sidebarTitle" width=50%>Contest</td>
                                 <td class="sidebarTitle" width=10% align=center>Start Date</td>
                                 <td class="sidebarTitle" width=10% align=center>End Date</td>
                                 <td class="sidebarTitle" width=10% align=center>Winner</td>
                                 <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
-                                <td class="sidebarTitle" width=10% align=center>Projects</td>
+                                <td class="sidebarTitle" width=10% align=center>Components</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
@@ -124,17 +128,19 @@
                         <br/>
 <% rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("usdc_quarterly_results"); %>                    
                         <a name="quarter"></a>
-                        <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                        <table width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
-                                <td class=header colspan=6>Quarterly Contests</td>
+                                <td class=usdcTitle>Quarterly Contests</td>
                             </tr>
+                        </table>
+                        <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
                                 <td class="sidebarTitle" width=50%>Contest</td>
                                 <td class="sidebarTitle" width=10% align=center>Start Date</td>
                                 <td class="sidebarTitle" width=10% align=center>End Date</td>
                                 <td class="sidebarTitle" width=10% align=center>Winner</td>
                                 <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
-                                <td class="sidebarTitle" width=10% align=center>Projects</td>
+                                <td class="sidebarTitle" width=10% align=center>Components</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
