@@ -67,71 +67,10 @@
                             <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Email"/></td>
                         </tr>
 
-                        <tr>
-                            <td class="brRegTableQuestion">Address1</td>
-                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Address1"/></td>
-                        </tr>
-
-                        <tr>
-                            <td class="brRegTableQuestion">Address2</td>
-                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Address2"/></td>
-                        </tr>
-
-                        <tr>
-                            <td class="brRegTableQuestion">Address3</td>
-                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Address3"/></td>
-                        </tr>
-
-                        <tr>
-                            <td class="brRegTableQuestion">City</td>
-                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="City"/></td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion">Province</td>
-                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Province"/></td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion">Pin/Zip Code</td>
-                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Zip"/></td>
-                        </tr>
-
-                        <tr>
-                            <td class="brRegTableQuestion">Country</td>
-                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="CountryName"/></td>
-                        </tr>
                         </table>
 
                         <p><br/></p>
 						
-                        <table width="100%" cellpadding="0" cellspacing="3" border="0" >
-                        <tr>
-                            <td class="brRegTableQuestion"><b>Demographics</b></td>
-                            <td class="brRegTableAnswer">
-                                <a class="brRegTableAnswer" href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.BROOKS_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
-                            </td>
-                        </tr>
-                        <pl:responseIterator id="resp" list="<%=responseList%>">
-                            <tr>
-                                <td class="brRegTableQuestion">
-                                    <pl:demographicQuestionText questions="<%=questionMap%>" response="<%=resp%>"/>
-                                </td>
-                                <td class="brRegTableAnswer">
-                                    <pl:demographicAnswerText questions="<%=questionMap%>" response="<%=resp%>"/>
-                                </td>
-                            </tr>
-                        </pl:responseIterator>
-                        
-                        <tr>
-                            <td class="brRegTableQuestion">Resume</td>
-                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="UploadStatus"/></td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion"></td>
-                            <td class="brRegTableAnswer"><br/>
-                            <a class="brRegTableAnswer" href="javascript: document.regForm.submit();">Submit</a>
-                            </td>
-                        </tr>
-                        </table>
 
 						<p><br/></p>
 					</td> 
