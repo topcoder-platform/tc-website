@@ -49,6 +49,7 @@ public class Submit extends FullRegSubmit {
                 SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
                 StringBuffer buf = new StringBuffer(150);
                 buf.append("http://");
+                buf.append(ApplicationServer.SERVER_NAME);
                 buf.append(info.getServletPath());
                 buf.append("?");
                 buf.append(Constants.MODULE_KEY);
@@ -62,28 +63,28 @@ public class Submit extends FullRegSubmit {
             throw new RuntimeException("impossible, isEligible returned false, fix the code");
         }
     }
-    
+
     protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
         UserPrincipal ret = super.storeWithoutCoder(regInfo, newUser);
-        
+
         //need to add coder record to avoid breaking a bunch of foreign keys
         CoderHome cHome = (CoderHome)
                 PortableRemoteObject.narrow(
                         getInitialContext().lookup(CoderHome.class.getName()), CoderHome.class);
         Coder coder = cHome.create();
         coder.createCoder(newUser.getId(), 1);
-        
+
         super.setCoderType(ret.getId(), ((FullRegInfo)regInfo).getCoderType());
         ret = super.storeQuestions(regInfo, ret);
-        
+
         //check for resume save
         ResumeRegInfo info = (ResumeRegInfo)regInfo;
         if(info.getUploadedFile() != null)
         {
-            byte[] fileBytes = null;   
+            byte[] fileBytes = null;
             String fileName = "";
             int fileType = -1;
-            
+
             fileBytes = new byte[(int) info.getUploadedFile().getSize()];
             info.getUploadedFile().getInputStream().read(fileBytes);
             if (fileBytes == null || fileBytes.length == 0)
@@ -105,10 +106,10 @@ public class Submit extends FullRegSubmit {
                 resumeServices.putResume(ret.getId(), fileType, fileName, fileBytes, transDb);
             }
         }
-        
+
         return ret;
     }
-    
+
     protected Map getFileTypes(String db) throws Exception {
         Request r = new Request();
         r.setContentHandle("file_types");
@@ -126,10 +127,10 @@ public class Submit extends FullRegSubmit {
 
     protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
         try {
-            
+
             //UserTransaction ut = Transaction.get(getInitialContext());
             //ut.begin();
-            
+
             try
             {
                 //placed here to fix transaction woes.
@@ -180,7 +181,7 @@ public class Submit extends FullRegSubmit {
                 //lookup session profile id, check if it exists
                 //company_session_profile
                 long spid = 0;
-                
+
                 dataRequest = new Request();
                 dataRequest.setProperty(DataAccessConstants.COMMAND,
                         "company_session_profile");
@@ -189,7 +190,7 @@ public class Submit extends FullRegSubmit {
                 map = access.getData(dataRequest);
                 rsc = (ResultSetContainer)
                         map.get("company_session_profile");
-                
+
                 if(rsc.getRowCount() != 0)
                 {
                     spid = rsc.getIntItem(0, "session_profile_id");
@@ -242,7 +243,7 @@ public class Submit extends FullRegSubmit {
                                 getInitialContext().lookup(SessionSegmentHome.class.getName()),
                                 SessionSegmentHome.class);
                 SessionSegment segment = ssHome.create();
-                
+
                 long sessionId =
                         session.createSession(spid,
                                 newUser.getId(),
@@ -253,7 +254,7 @@ public class Submit extends FullRegSubmit {
                                 0);
 
                 session.setJobId(sessionId, getJobId());
-                
+
                 //now get info for segments
                 dataRequest = new Request();
                 dataRequest.setProperty(DataAccessConstants.COMMAND,
@@ -298,7 +299,7 @@ public class Submit extends FullRegSubmit {
 
                 Date transBegin = translateDate(beginDate);
                 Date transEnd = translateDate(endDate);
-                
+
 
                 buf.append("Thank you for your interest in employment opportunities with Brooks Automation Private Limited in Chennai, India.  As part of our candidate selection and evaluation process, we would like you to participate in the Brooks Automation Technical Assessment Tool, powered by TopCoder.  Through this Technical Assessment Tool, you will be asked to solve algorithmic problems as an objective measure of your programming and technical problem solving ability.\n\n");
                 buf.append("Please review the Help Manual before getting started:\n");
@@ -333,7 +334,7 @@ public class Submit extends FullRegSubmit {
                 buf.append(companyId);
                 buf.append("\n\n");
                 buf.append("If you encounter any technical problems while using the Technical Assessment Tool, please contact us at brooks@topcoder.com.\n\n");
-                buf.append("Thank you,\n\n");             
+                buf.append("Thank you,\n\n");
                 buf.append("Brooks Automation Private Limited\n");
                 buf.append("Chennai, India");
 
@@ -389,7 +390,7 @@ public class Submit extends FullRegSubmit {
         c.set(Calendar.MILLISECOND, 0);
         return c.getTime();
     }
-    
+
     private Date formEndDate(String year, String month, String day, String hour) {
         //if we don't have all the values then just exit
         if(year == null || month == null || day == null || hour == null) {
@@ -401,29 +402,29 @@ public class Submit extends FullRegSubmit {
                Integer.parseInt(day),
                Integer.parseInt(hour), 0, 0);
         c.set(Calendar.MILLISECOND, 0);
-        
+
         //96 hours
         c.add(Calendar.DATE,4);
         return c.getTime();
     }
-    
+
     private Date translateDate(Date d)
     {
         log.debug("TIME1: " + d);
         log.debug("TIME1: " + d.getTime());
         Date ret = new Date(d.getTime());
-        
+
         //bring to GMT
         log.debug("TIME: " + ret);
         log.debug("EST: " + TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
         log.debug("IST: " + TimeZone.getTimeZone("IST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
         ret = new Date( ret.getTime() - TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
         ret = new Date( ret.getTime() + TimeZone.getTimeZone("IST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
-        
+
         return ret;
     }
-    
-    private static int[] months = 
+
+    private static int[] months =
         new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH,
                   Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY,
                   Calendar.AUGUST, Calendar.SEPTEMBER, Calendar.OCTOBER,
