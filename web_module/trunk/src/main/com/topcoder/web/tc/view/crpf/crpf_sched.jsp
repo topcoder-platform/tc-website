@@ -63,15 +63,6 @@
 <!-- Online Rounds begins -->
            <p><span class="bodySubtitle">Qualification Rounds</span></p>
            
-           <p> All competitors must be 18 years of age or older as of November 11th, 2003.</p>
-
-            <p><strong>$25 USD Donation</strong> - If you and/or any sponsors have combined to donate at least $25 in honor of your name or handle, 
-            you will receive an automatic berth into the first round of the TopCoder Charity Challenge. </p>
-            
-            <p><strong>Donations</strong> - Donations can be made online at <A href="http://www.christopherreeve.org/topcoder">www.christopherreeve.org/topcoder</A>. 
-            Donations can also be mailed in with the following form:</p>
-            
-            
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
