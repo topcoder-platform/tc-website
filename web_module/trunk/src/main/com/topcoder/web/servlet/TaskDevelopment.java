@@ -24,8 +24,9 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-
+import com.topcoder.dde.catalog.Catalog;
 import com.topcoder.dde.catalog.CatalogException;
+import com.topcoder.dde.catalog.CatalogHome;
 import com.topcoder.dde.catalog.ComponentInfo;
 import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.catalog.ComponentManager;
@@ -226,17 +227,17 @@ public final class TaskDevelopment {
                     
                     if(phaseId == ComponentVersionInfo.SPECIFICATION)
                     {
-                        ComponentInfo comp = componentManager.getComponentInfo();
+                        ComponentInfo compInfo = componentManager.getComponentInfo();
                         RecordTag designProject = new RecordTag("designproject");         
                         ValueTag projectTag = new ValueTag("payment", "343");
-                        ValueTag nameTag = new ValueTag("componentName", comp.getName());
-                        ValueTag componentId = new ValueTag("componentId", comp.getId());
+                        ValueTag nameTag = new ValueTag("componentName", compInfo.getName());
+                        ValueTag componentId = new ValueTag("componentId", compInfo.getId());
     
                         designProject.addTag(projectTag);
                         designProject.addTag(nameTag);
                         designProjectsTag.addTag(designProject);
                     }
-                    else if (phase == ComponentVersionInfo.DEVELOPMENT){
+                    else if (phaseId == ComponentVersionInfo.DEVELOPMENT){
                     }
                }  
                devTag.addTag(designProjectsTag); 
@@ -685,7 +686,7 @@ public final class TaskDevelopment {
           return componentMgr;
     }    
 
-    static Catalog getCatalog(long componentId, long version){
+    static Catalog getCatalog(){
 
        Catalog catalog = null;
        try{
@@ -706,7 +707,7 @@ public final class TaskDevelopment {
        {
           log.error("Could not create catalog: " + remoteException.getMessage());
        }
-          return componentMgr;
+       return catalog;
     }    
 
 }
