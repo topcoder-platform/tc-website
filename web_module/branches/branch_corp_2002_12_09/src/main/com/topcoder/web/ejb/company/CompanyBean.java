@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Date;
 
 import javax.ejb.EJBException;
 import javax.naming.NamingException;
@@ -76,13 +77,18 @@ public class CompanyBean implements SessionBean {
             ret = IdGenerator.nextId("COMPANY_SEQ");
 
             StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO company (company_id, create_date, modify_date) VALUES (");
-            query.append(Long.toString(ret));
-            query.append(",'now','now')");
+            query.append("INSERT INTO company (company_id, create_date, modify_date) VALUES (?,?,?)");
+//            query.append(Long.toString(ret));
+//            query.append(",'now','now')");
 
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, ret);
+            Date now = new Date();
+            ps.setDate(2, new java.sql.Date(now.getTime()));
+            ps.setDate(3, new java.sql.Date(now.getTime()));
+            
             int rows = ps.executeUpdate();
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows);
 
