@@ -39,6 +39,7 @@ public abstract class SurveyData extends Base {
             if (survey == null) {
                 throw new NavigationException("Invalid Request, survey does not exist.");
             } else {
+                log.debug("found survey " + survey.getId());
                 getRequest().setAttribute("surveyInfo", survey);
                 questionInfo = getQuestionInfo(surveyId);
                 getRequest().setAttribute("questionInfo", questionInfo);
@@ -61,6 +62,7 @@ public abstract class SurveyData extends Base {
 
         ResultSetContainer.ResultSetRow question = null;
         List questionList = new ArrayList(questions.size());
+        log.debug("got " + questionList.size() + " questions");
         for (Iterator it = questions.iterator(); it.hasNext();) {
             question = (ResultSetContainer.ResultSetRow) it.next();
             questionList.add(makeQuestion(question));
