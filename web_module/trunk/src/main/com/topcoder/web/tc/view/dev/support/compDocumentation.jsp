@@ -148,6 +148,14 @@
 					<td class="projectCells" valign="top" align="center">05.28.2003</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/topcoder_code_convention.xml">Jalopy Configuration File</A></td>
 				</tr>
+                <tr>
+					<td class="projectCells" valign="top">
+					<strong>CheckStyle Configuration</strong><br/>
+					TopCoder Software CheckStyle Configuration Files The TopCoder Software CheckStyle Configuration Files contain the formatting style required by the TopCoder Software Java Coding Standards.  Both submitters and reviewers can use this configuration to see how closely a submission follows the required coding style.
+					</td>
+					<td class="projectCells" valign="top" align="center">09.27.2004</td>
+					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/tcs_checkstyle_config.jar">CheckStyle Configuration</A></td>
+				</tr>
 			</table>
 			
 			<br/><br/>
