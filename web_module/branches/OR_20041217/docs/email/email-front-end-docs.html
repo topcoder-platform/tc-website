@@ -1,0 +1,722 @@
+<html>
+<head>
+<title>
+[TopCoder] Email System Front End Documentation
+</title>
+</head>
+<body>
+<img src="logo.jpg"><br>
+<strong>Email System Front End</strong>
+<hr>
+<font size=-1>
+James Lee (<a href="mailto:jameslee@cs.stanford.edu">jameslee@cs.stanford.edu</a>)
+<br>
+May 10, 2002
+</font>
+<p>
+<strong>Contents:</strong>
+<ul>
+<li><a href="#architecture">Basic Architecture</a>
+<li><a href="#installation">Installation</a>
+<li><a href="#properties">Properties</a>
+<li><a href="#dependencies">External Dependencies</a>
+<li><a href="#instructions">User Instructions</a>
+<li><a href="#notes">Notes</a>
+</ul>
+<hr>
+<a name="architecture"><strong>Basic Architecture</strong></a>
+<p>
+This web application follows the Model-View-Controller (MVC) paradigm.  Requests from the web interface are sent to a controller servlet, which parses the request parameters to determine the appropriate Javabean task.  The task then performs the desired actions and forwards the request to the appropriate JSP, at which point the cycle is repeated.
+<p>
+The main classes that enable this process are:
+<ul>
+<li>com.topcoder.web.email.servlet.Controller
+<li>com.topcoder.web.email.servlet.TaskRouter
+<li>com.topcoder.web.email.bean.TaskFactory
+<li>com.topcoder.web.email.bean.Task
+</ul>
+<p>
+The Controller class handles all incoming requests.  It uses the TASK parameter to determine which Javabean task to invoke.  If there is no TASK parameter, it uses the HOME_TASK to send the user to the main menu.  The TASK parameter contains the name of the task bean's class - for example, "AddressListTask" tells the controller to use com.topcoder.web.email.bean.AddressListTask to process the request.  All task beans subclass com.topcoder.web.email.bean.Task.  This abstract base class contains the single method "perform".  The "perform" method's job is to perform the appropriate actions and return a TaskRouter object that tells the controller which JSP page it should display next.  The controller uses a TaskFactory object to create singleton instances of each desired Task.
+<p>
+The Controller class also provides security. If a client hasn't succesfully logged in, the Controller will redirect the client to the login task without bringing up the requested page.
+<p>
+The controller's "service" method:
+<p>
+<font size=-1><pre>
+    /**
+     * This method handles requests by getting the appropropriate task
+     * bean, having that bean perform its task, and then routing to the
+     * resulting page.  Tasks are specified by their class name in the
+     * TASK parameter.
+     *
+     * @param HttpServletRequest    the servlet request object
+     * @param HttpServletResponse    the servlet response object
+     *
+     * @throws ServletException
+     * @throws IOException
+     */
+    public void service(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException
+    {
+        try {
+            String userName = request.getParameter(EmailConstants.USERNAME);
+            String userPass = request.getParameter(EmailConstants.USERPASS);
+            String taskName = request.getParameter(EmailConstants.TASK);
+            trace.debug("Requested task: " + taskName);
+
+            try {
+                boolean [] loggedin = (boolean []) request.getSession().getAttribute("IsUserLoggedIn");
+
+                if (loggedin == null 
+                 || !loggedin[0]) {
+                    if (userName == null
+                     || userPass == null) {
+                        throw new Exception("No login creditials - going to login page");
+                    }
+                    
+                    Context context = new InitialContext();
+                    AuthenticationServicesHome serviceHome = (AuthenticationServicesHome) context.lookup(EmailConstants.AUTHENTICATIONSERVICES_EJB);
+                    AuthenticationServices service = serviceHome.create();
+                    Authentication authenticate = service.authenticate(userName, userPass);
+
+                    trace.debug("Processing login request for user " + 
+                            + authenticate.getUserId().intValue() 
+                            + "(" + userName + ")");
+
+                    if (authenticate.getUserId().intValue() <= 0) {
+                        throw new Exception("Not a valid user - going to login page");
+                    }
+                    
+                    User user = service.loadUser(authenticate.getUserId().intValue());
+                    if (!service.isStaff(user)) {
+                        throw new Exception("Not staff - going to login page");
+                    }
+                    
+                    loggedin = new boolean[1];
+                    loggedin[0] = true;
+                    request.getSession().setAttribute("IsUserLoggedIn", loggedin);
+                }
+                
+                // if there's no task parameter, go home
+                if (taskName == null) {
+                    trace.debug("No task parameter - going home");
+                    taskName = EmailConstants.HOME_TASK;
+                }
+            } catch (Exception e) {
+                trace.debug(e.getMessage());
+                taskName = EmailConstants.LOGIN_TASK;
+            }
+
+            String taskClassName = EmailConstants.TASK_PACKAGE + "." + taskName;
+            trace.debug("Task bean: " + taskClassName);
+
+            try {
+                Task task = taskFactory.getTask(taskClassName, getClass().getClassLoader());
+
+                TaskRouter taskRouter = task.perform(this, request, response);
+                taskRouter.route(this, request, response);
+            } catch (Exception e) {
+                forwardToErrorPage(request, response, e);
+            }
+        } catch (Exception e) {
+            throw new ServletException(e.toString());
+        }
+    }
+</pre></font>
+<p>
+- <i>Tasks</i>
+<p>
+The task beans used by this web application are:
+<ul>
+<li>com.topcoder.web.email.bean.AddressListTask
+<li>com.topcoder.web.email.bean.ScheduledJobTask
+<li>com.topcoder.web.email.bean.TemplateTask
+</ul>
+<p>
+These task beans handle all the interactions between the web front end and the EJB back end.  For example, when the user requests the cancellation of a scheduled job from the web interface, the ScheduledJobTask bean retrieves the job id from the request parameters and calls the "cancelEmailJob" method of the EmailJob EJB.
+<p>
+- <i>Forms</i>
+<p>
+The main form beans used by this web application are:
+<ul>
+<li>com.topcoder.web.email.bean.AddressListForm
+<li>com.topcoder.web.email.bean.EmailTemplateForm
+<li>com.topcoder.web.email.bean.ScheduledJobForm
+</ul>
+<p>
+These form beans store properties from JSP forms.  For example, the EmailTemplateForm bean stores the group id, template name, and template text entered by the user into the web interface.  The form beans are used to retrieve properties from the web interface and vice versa.
+<p>
+- <i>Tags</i>
+<p>
+Custom tags are used in the JSP's to keep most of the Java code outside of the JSP's.  The tags are located in the package com.topcoder.web.email.servlet.jsp.tag.  An example tag is the TemplateIDNameIteratorTag.  This tag subclasses the generic Iterator tag, which iterates through a Collection of Objects.  The TemplateIDNameIteratorTag is used in the JSP which displays the list of available e-mail templates:
+<p>
+<font size=-1>
+<pre>
+	&lt;email:templateIterator id="idname" group="&lt;%=(String) request.getAttribute(EmailConstants.GROUP)%&gt;"&gt;
+
+		&lt;tr bgcolor="&lt;%=colors[(row++)%colors.length]%&gt;"&gt;
+
+		&lt;td width=80%&gt;
+		&lt;a href="javascript:taskSubmit('&lt;%=EmailConstants.EMAILTEMPLATE_TASK%&gt;', '&lt;%=EmailConstants.TEMPLATE_EDIT%&gt;', '&lt;%=idname.getId()%&gt;');"
+			onMouseOver="window.status='Edit template'; return true;"
+			onMouseOut="window.status=''; return true;"&gt;
+
+		&lt;%=idname.getName()%&gt;&lt;/a&gt;
+		&lt;/td&gt;
+
+		&lt;td&gt;
+		&lt;a href="javascript:taskSubmit('&lt;%=EmailConstants.EMAILTEMPLATE_TASK%&gt;', '&lt;%=EmailConstants.TEMPLATE_DELETE%&gt;', '&lt;%=idname.getId()%&gt;');"
+			onMouseOver="window.status='Delete template'; return true;"
+			onMouseOut="window.status=''; return true;"&gt;
+		[delete]&lt;/a&gt;
+		&lt;/td&gt;
+
+		&lt;/tr&gt;
+	&lt;/email:templateIterator&gt;
+</pre>
+</font>
+<p>
+In this example, the TemplateIDNameIteratorTag is used to iterate through the templates in a specified template group.  Each ID/name pair is used to create an entry in the HTML table.  All the formatting is contained in the JSP, and the custom tag is only used to retrieve the information to render.
+<hr>
+<a name="installation"><strong>Installation</strong></a>
+<p>
+The "email-war" target in the build.xml file will bundle all of the files associated with this web application into a .WAR file (email.war).  The following entry should then be added to the weblogic.properties file:
+<p>
+<pre>
+weblogic.httpd.webApp.email={war path}/email.war
+</pre>
+<p>
+where {war path} is the path containing email.war.  The Weblogic server should then be restarted.  The email servlet will then be accessible at the following url:
+<p>
+<pre>
+http://{server address}/email/emailServlet
+</pre>
+<p>
+where {server address} is the address of the host server.
+<p>
+The database scripts in /app/scripts/email should be run to ensure that the required stats queries are in the database.
+<hr>
+<a name="properties"><strong>Properties</strong></a>
+<p>
+The "web.xml" file contains the configurable properties of this application.  All parameters are contained in &lt;init-param&gt; tag blocks of "web.xml".  Within each &lt;init-param&gt; section, parameter names are inside the &lt;param-value&gt; tag, and parameter values are inside the &lt;param-value&gt; tag.  For example, the following describes a parameter named "home_page" with the value "index.jsp":
+<p>
+<pre>
+  &lt;init-param&gt;
+    &lt;param-name&gt;home_page&lt;/param-name&gt;
+    &lt;param-value&gt;index.jsp&lt;/param_value&gt;
+  &lt;/init-param&gt;
+</pre>
+<p>
+Here is a list of parameter names and descriptions:
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+	<tr>
+	<th align=left>Parameter name</th>
+	<th align=left>Description</th>
+	</tr>
+	<tr>
+	<td>servlet_alias</td>
+	<td>Alias to the servlet - for example: /email/emailServlet</td>
+	</tr>
+	<tr>
+	<td>task_package</td>
+	<td>Package for task beans - for example: com.topcoder.web.email.bean</td>
+	</tr>
+	<tr>
+	<td>jsp_root</td>
+	<td>Root path for JSP's</td>
+	</tr>
+	<tr>
+	<td>addresslist_num_fields</td>
+	<td>The number of fields to allow for an address list</td>
+	<tr>
+	<tr>
+	<td>field_prefix</td> 
+	<td>Prefix for naming fields in a member data form (used internally)</td>
+	</tr>
+	<tr>
+	<td>member_tag</td>
+	<td>XML tag for member data information - for example, if the value is "member", all member fields will go between &ltmember&gt; tags</td>
+	</tr>
+	<tr>
+	<td>email_address_tag</td> 
+	<td>XML tag for email address - for example, if the value is "email-address", the e-mail address for each member will go between &ltemail-address&gt; tags</td> 
+	</tr>
+	<tr>
+	<td>deleted_group_id</td>
+	<td>When address lists or email templates are deleted, their group id is changed to this value</td> 
+	</tr>
+	<tr>
+	<td>no_list_id</td>
+	<td>The list id for a scheduled job without a static list</td> 
+	</tr>
+	<tr>
+	<td>no_command_id</td> 
+	<td>The command id for a scheduled job without a predefined query</td> 
+	</tr>
+	<tr>
+	<td>test_list_group_id</td>
+	<td>Test address lists (uesd for sending test messages) must have this group id</td> 
+	</tr>
+	<tr>
+	<td>recent_job_days</td> 
+	<td>The number of days to look back on the scheduled job list screen</td> 
+	</tr>
+	<tr>
+	<td>default_num_log_entries_per_screen</td> 
+	<td>The default number of log entries to show per screen</td> 
+	</tr>
+	<tr>
+	<td>data_source</td>
+	<td>The name of the data source for the db</td>
+	</tr>
+	<tr>
+	<td>recent_jobs_command</td> 
+	<td>Name of the stats query to retrieve recent job id's</td>
+	</tr>
+	<tr>
+	<td>recent_jobs_result</td> 
+	<td>Name of the result set for the recent jobs query</td> 
+	</tr>
+	<tr>
+	<td>jobs_by_date_command</td> 
+	<td>Name of the stats query to retrieve job id's by date</td> 
+	</tr>
+	<tr>
+	<td>jobs_by_date_result</td> 
+	<td>Name of the result set for the jobs-by-date query</td> 
+	</tr>
+	<tr>
+	<td>jobs_by_sender_command</td> 
+	<td>Name of the stats query to retrieve job id's by sender email</td> 
+	</tr>
+	<tr>
+	<td>jobs_by_sender_result</td> 
+	<td>Name of the result set for the jobs-by-sender query</td> 
+	</tr>
+	<tr>
+	<td>jobs_by_subject_command</td> 
+	<td>Name of the stats query to retrieve job id's by subject</td> 
+	</tr>
+	<tr>
+	<td>jobs_by_subject_result</td> 
+	<td>Name of the result set for the jobs-by-subject query</td> 
+	</tr>
+	<tr>
+	<td>query_description_command</td>
+	<td>Name of the stats query to retrieve query descriptions</td>
+	</tr>
+	<tr>
+	<td>query_description_result</td>
+	<td>Name of the result set for the query-description query</td> 
+	</tr>
+	<tr>
+	<td>query_metadata_command</td> 
+	<td>Name of the stats query to retrieve command query metadata</td> 
+	</tr>
+	<tr>
+	<td>query_metadata_result</td> 
+	<td>Name of the result set for the query-metadata query</td> 
+	</tr>
+	<tr>
+	<td>email_queries_command</td> 
+	<td>Name of the stats query to retrieve available command queries</td> 
+	</tr>
+	<tr>
+	<td>email_queries_result</td>
+	<td>Name of the result set for the available-command-queries query</td> 
+	</tr>
+	<tr>
+	<td>email_ejb_package</td> 
+	<td>Package of e-mail EJB's</td> 
+	</tr>
+	<tr>
+	<td>authentication_services_ejb_package</td> 
+	<td>Package of authentication service EJB's</td> 
+	</tr>
+	<tr>
+	<td>statistics_ejb_package</td> 
+	<td>Package of statistics EJB</td> 
+	</tr>
+	<tr>
+	<td>email_template_ejb</td>
+	<td>The email template EJB</td>
+	</tr>
+	<tr>
+	<td>email_template_group_ejb</td> 
+	<td>The email template group EJB</td>
+	</tr>
+	<tr>
+	<td>address_list_ejb</td> 
+	<td>The email list EJB</td>
+	</tr>
+	<tr>
+	<td>address_list_group_ejb</td>
+	<td>The email list group EJB</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_ejb</td> 
+	<td>The email job EJB</td>
+	</tr>
+	<tr>
+	<td>authentication_services_ejb</td> 
+	<td>The authentication service EJB</td>
+	</tr>
+	<tr>
+	<td>statistics_ejb</td> 
+	<td>The statistics EJB</td>
+	</tr>
+	<tr>
+	<td>job_status_creating</td> 
+	<td>Job status id for 'creating'</td> 
+	</tr>
+	<tr>
+	<td>job_status_ready</td> 
+	<td>Job status id for 'ready'</td> 
+	</tr>
+	<tr>
+	<td>job_status_active</td> 
+	<td>Job status id for 'active'</td> 
+	</tr>
+	<tr>
+	<td>job_status_complete</td> 
+	<td>Job status id for 'completing'</td> 
+	</tr>
+	<tr>
+	<td>job_status_incomplete</td> 
+	<td>Job status id for 'incomplete'</td> 
+	</tr>
+	<tr>
+	<td>job_status_cancelled</td> 
+	<td>Job status id for 'cancelled'</td> 
+	</tr>
+	<tr>
+	<td>job_type_predetail</td> 
+	<td>Job type id for 'pre detail build'</td> 
+	</tr>
+	<tr>
+	<td>job_type_postdetail</td> 
+	<td>Job type id for 'post detail build'</td> 
+	</tr>
+	<tr>
+	<td>login_task</td> 
+	<td>Task bean that forwards to the login page</td>
+	</tr>
+	<tr>
+	<td>home_task</td> 
+	<td>Task bean that forwards to the main menu</td>
+	</tr>
+	<tr>
+	<td>email_template_task</td> 
+	<td>Task bean for template-related tasks
+	</tr>
+	<tr>
+	<td>address_list_task</td> 
+	<td>Task bean for address list-related tasks
+	</tr>
+	<tr>
+
+	<td>scheduled_job_task</td> 
+	<td>Task bean for scheduled job-related tasks
+	</tr>
+	<tr>
+	<td>login_page</td> 
+	<td>Login JSP</td>
+	</tr>
+	<tr>
+	<td>home_page</td> 
+	<td>Main menu JSP</td>
+	</tr>
+	<tr>
+	<td>error_page</td> 
+	<td>Navigation JSP</td> 
+	</tr>
+	<tr>
+	<td>email_template_list_page</td> 
+	<td>JSP that lists email templates</td>
+	</tr>
+	<tr>
+	<td>email_template_edit_page</td> 
+	<td>JSP for editing an email template</td>
+	</tr>
+	<tr>
+	<td>email_template_create_page</td> 
+	<td>JSP for creating a new email template</td>
+	</tr>
+	<tr>
+	<td>address_list_list_page</td>
+	<td>JSP that lists address lists</td>
+	</tr>
+	<tr>
+	<td>address_list_edit_page</td> 
+	<td>JSP for editing an address list</td>
+	</tr>
+	<tr>
+	<td>address_list_create_page</td> 
+	<td>JSP for creating a new address list</td>
+	</tr>
+	<tr>
+	<td>address_list_edit_member_page</td> 
+	<td>JSP for editing an address list member</td>
+	</tr>
+	<tr>
+	<td>address_list_add_member_page</td>
+	<td>JSP for adding a new address list member</td>
+	</tr>
+	<tr>
+	<td>address_list_bulk_add_page</td> 
+	<td>JSP for bulk-adding address list members</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_list_page</td> 
+	<td>JSP for listing scheduled jobs</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_edit_page</td> 
+	<td>JSP for editing a scheduled job</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_view_page</td> 
+	<td>JSP for viewing a scheduled job</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_create_page</td> 
+	<td>JSP for creating a new scheduled job</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_choose_template_add_page</td>
+	<td>JSP for choosing a template when creating a new job</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_choose_report_template_page</td>
+	<td>JSP for choosing a template for the report when creating a new job</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_choose_command_add_page</td> 
+	<td>JSP for choosing a predefined query when creating a new job</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_choose_command_inputs_add_page</td> 
+	<td>JSP for choosing query inputs when creating a new job</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_choose_list_add_page</td> 
+	<td>JSP for choosing an address list when creating a new job</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_choose_test_list_page</td> 
+	<td>JSP for choosing a test list</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_ask_send_test_page</td>
+	<td>JSP for asking if a test message should be sent</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_choose_template_edit_page</td> 
+	<td>JSP for choosing a template when editing a job</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_choose_command_edit_page</td> 
+	<td>JSP for choosing a predefined query when editing a job</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_choose_command_inputs_edit_page</td> 
+	<td>JSP for choosing query inputs when editing a job</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_choose_list_edit_page</td> 
+	<td>JSP for choosing an address list when editing a job</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_log_page</td>
+	<td>JSP for displaying a job's log</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_log_data_page</td>
+	<td>JSP for display a job log entry's details</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_search_page</td> 
+	<td>JSP for searching jobs</td>
+	</tr>
+	<tr>
+	<td>scheduled_job_search_results_page</td>
+	<td>JSP for displaying job search results</td>
+	</tr>
+</table>
+<hr>
+
+<a name="dependencies"><strong>External Dependencies</strong></a>
+<p>
+External packages used:
+<ul>
+<li>javax.servlet
+<li>javax.servlet.http
+<li>javax.naming
+<li>com.topcoder.server.ejb.EmailServices
+<li>org.apache.log4j
+<li>com.topcoder.web.tc.controller.legacy.stat.ejb
+<li>com.topcoder.web.tc.controller.legacy.stat.ejb.Statistics
+<li>com.topcoder.web.tc.controller.legacy.stat.common
+<li>com.topcoder.server.docGen.xml
+<li>com.topcoder.ejb.AuthenticationServices
+<li>org.w3c.dom
+<li>org.xml.sax.InputSource
+<li>javax.xml.parsers
+</ul>
+<hr>
+<a name="instructions"><strong>User Instructions</strong></a>
+<p>
+The main menu presents the user with three options - Email Templates, Address Lists, and Scheduled Jobs.
+<p>
+<hr width=50%>
+<p>
+The "Email Templates" option takes the user to a screen displaying a list of email templates.  The "Group" combobox lists all existing email template groups - selecting one of these groups will refresh the page to display all the templates in the chosen template group.  There are three main functions accessible from this page - create, edit, and delete.
+<p>
+<i>Create</i> - To create a new e-mail template, the user should click the "create new message template" link.  This link takes the user to a form with three fields - Name, Group, and Template.  The "Name" field should contain the desired name of the new template.  The "Group" combobox should display the group in which the new template should belong.  Finally, the "Template" field should contain the actual e-mail template.  When the user clicks the "create" button, the new template will be saved.
+<p>
+The e-mail template should be in the form of an XSLT document.  All templates should begin with:
+<p>
+<pre>
+&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"&gt;
+&lt;xsl:output method="text"/&gt;
+&lt;xsl:template match="/"&gt;
+</pre>
+<p>
+and end with:
+<p>
+<pre>
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+</pre>
+<p>
+The actual e-mail message should go between those two sections.  Any dynamic content should go in an xsl:value-of tag.  For example:
+<p>
+&lt;xsl:value-of select="member/handle"/&gt
+<p>
+will be replaced in the actual e-mails with the value of the handle field for each member of the address list or predefined query.  All fields must be prefaced by "member/", because each member of an address list or predefined query is enclosed within a pair of &lt;member&gt; tags.
+<p>
+<img src="templateform.gif">
+<p>
+Report templates are similar to e-mail templates, but the report template will be transformed twice, so additional headers are necessary.  Also, the first transformation will be using the report XML data, so a different set of values are available. The second transformation will be using the address list that the report is being sent to and works exactly like a broadcast (because it is a broadcast).
+<p>
+The report data fields are:
+<table border=1 cellspacing=0>
+<tr><td>id</td><td>The job id of the email broadcast job for which the report is generated.</tr>
+<tr><td>status</td><td>A text description of the final status of the email broadcast job.</tr>
+<tr><td>date</td><td>The start date for the email broadcast job (may not match the actual time the job was started if resources were not available).</tr>
+<tr><td>template</td><td>The text name of the template that was used for the email broadcast job.</tr>
+<tr><td>template_group</td><td>The text name of the group the template was assigned to.</tr>
+<tr><td>sender_email</td><td>The email address that the broadcast was sent by.</tr>
+<tr><td>sender_name</td><td>The name that the broadcast was sent by.</tr>
+<tr><td>subject</td><td>The subject line of the email broadcast.</tr>
+<tr><td>count_sent</td><td>The number of emails that were successfully sent.</tr>
+<tr><td>count_failed</td><td>The number of emails that did not get sent.</tr>
+<tr><td>count_other</td><td>The number of emails that have a status other than sent or failed.  Primarily intended to cover the case of new result statuses being added in the future. </tr>
+<tr><td>list_sent</td><td>The email addresses that were successfully sent the message, 1 per line.</tr>
+<tr><td>list_failed</td><td>The email addresses that did not get sent the message and the reason that they did not get the sent the message. 1 address plus reason per line.</tr>
+<tr><td>list_other</td><td>The email addresses that have an unexpected status and the reason for the status, if any.  1 address plus reason per line.</tr>
+</table>
+<p>
+The following example is a simple report template that includes the subject line, a count of the messages that failed to send, and the list of addresses that failed to send, if any:
+<pre>
+&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"&gt;
+&lt;xsl:output method="text" media-type="text/rtf"/&gt;
+&lt;xsl:template match="/"&gt;&lt;![CDATA[&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"&gt;
+&lt;xsl:output method="text" media-type="text/rtf"/&gt;
+&lt;xsl:template match="/"&gt;]]&gt;
+This is a report for broadcast about: &lt;xsl:value-of select="/report/subject"/&gt;
+
+The broadcast is &lt;xsl:value-of select="/report/status"/&gt;. There were &lt;xsl:value-of select="/report/count_failed"/&gt; failed messages.
+
+&lt;xsl:value-of select="/report/list_failed"/&gt;
+&lt;![CDATA[&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;]]&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+</pre>
+<p>
+<i>Edit</i> - To edit an e-mail template, the user should click the name of the desired template.  The user will be presented with the same form as above.  Clicking the "save" button will save the edited template.
+<p>
+<i>Delete</i> - To delete an e-mail template, the user should click the "delete" link next to the desired template.  The template will not actually be deleted - rather, it will be put into the predefined "Deleted" template group.
+<p>
+<hr width=50%>
+<p>
+The "Address Lists" option takes the user to a screen very similar to the templates screen.  The main page displays a list of address lists.  The "Group" combobox contains all existing address list groups - selecting one of these groups will refresh the page to display all the address lists in the chosen address list group.  Like the main template screen, there are three main functions accessible from this screen - create, edit, and delete.
+<p>
+<i>Create</i> - To create a new address list, the user should click the "create new mailing list" link.  This link takes the user to a form with a "Name" field, a "Group" combobox, and several "Member data" fields.  The "Name" field should contain the desired name of the new address list.  The "Group" combobox should display the group in which the new template should belong.  The "Member data" fields should contain the various fields that members of the new address list should contain.  "email_address" is a mandatory field.  Fields that are more than a single level deep should be delimited by the '/' character.  For example, if the following fields are specified:
+<p>
+email_address<br>
+name/first<br>
+name/last
+<p>
+The members of the address list will look like:
+<p>
+<pre>
+&lt;member&gt;
+	&lt;email_address&gt;an email address&lt;/email_address&gt;
+	&lt;name&gt;
+		&lt;first&gt;first name&lt;/first&gt;
+		&lt;last&gt;last name&lt;/last&gt;
+	&lt;/name&gt;
+&lt;/member&gt;
+</pre>
+<p>
+<img src="addresslistform.gif">
+<p>
+Clicking the "create" button will bring up the member addition screen.  Members can be added one at a time, or in bulk.  To add members one at a time, fill in the specified fields, and click "add" for each member.  To switch to bulk entry mode, the user should click the "bulk entry mode" link.  This screen shows one large text area where the user can enter multiple address list members in a single shot.  The instructions on the screen will explain the order in which the user should input the fields - each line will contain a single member.
+<p>
+<img src="memberform.gif">
+<p>
+To edit and delete members, the user can click the "edit" and "delete" links that show up next to each member's data.  The process for editing a member is identical to the process for adding a member.
+<p>
+<i>Edit</i> - To edit an address list, the user should click the name of the desired address list.  The editing process is identical to the creating process.
+<p>
+<i>Delete</i> - To delete an address list, the user should click the "delete" link next to the desired address list.  The address list will not actually be deleted - rather, it will be put into the predefined "Deleted" template group.
+<p>
+<hr width=50%>
+<p>
+The "Scheduled Jobs" option takes the user to a screen that displays a list of recent scheduled jobs.  The user can view, edit (where applicable), view log entries for, cancel (where applicable), and resume (where applicable) jobs in this list.  The user can also schedule new jobs and search past jobs through links from this screen.
+<p>
+<i>Schedule</i> - To schedule a new job, the user should click the "schedule new job" link.  This will bring up a form where the user can specify several required pieces of information: the sender name, sender e-mail address, subject, start time, and end time.  The start time specifies the earliest time at which the job should begin.  The end time specifies the time after which the job should not continue.
+<p>
+<img src="scheduledjob.gif">
+<p>
+After filling in the required fields, the user can also choose which administrative emails they wish to generate.
+<p>
+The reminder email sends a copy of the email to the admin list (selected in a later step) about 15 minutes before the full broadcast is scheduled to being.
+<p>
+The test email sends a copy of the email to the admin list immediately upon being scheduled.
+<p>
+The report email sends a report to the admin list. The report may include information such as how many emails were sent and how many failed, and may also include the list of failed email addresses.  The format of the report is determined by the report template choosen (selected in a later step) and the report will be sent shortly after the main broadcast finishes.
+<p>
+Finally, the user can choose either a static address list or a predefined query by clicking one of the two links at the bottom of the page.  The address list link will bring up a list of available address lists.  The user should choose one by clicking on the name of the desired list.  The predefined query link will bring up a list of available queries.  Clicking on one of the queries will bring up a screen where the user can input any values required by the query.  If the query does not take any values, this screen is skipped.
+<p>
+After choosing either a predefined query or static address list, the user must choose an email template.  The screen will display a list of available templates.  The user can choose one by clicking on the name of the desired template. 
+<p> If no administraive emails were requested, the job is now scheduled and the schedule screen is displayed.  If administrative emails were requested, the admin list must be selected. After the admin list is selected, if a report is to be sent, the report template must also be picked. Be sure to pick a valid report template (one that has the extra set of headers) or the report task will fail to send any emails.
+<p>
+<i>Hint:</i> After the report is sent, the report remains available in the [SentReports] template group.
+<p>
+<i>View/Edit</i> - Jobs can only be edited before the back end builds the job details in the database.  Jobs eligible for editing will show up with an "edit" link.  Other jobs will show up with a "view" link in its place.  The "view" link shows a read-only screen that displays the details of the job.  The "edit" link shows an editable form similar to the first screen shown when creating a new job.  There are additional links to change the template, address list, or predefined query.
+<p>
+<i>Log</i> - Job log entries can be viewed by clicking a job's "log" link.  Entries in the status column of the log screen can be clicked to view details of each log entry.
+<p>
+<i>Cancel/Resume</i> - Jobs in progress can be cancelled by clicking their "cancel" links.  Cancelled jobs can be resumed with the "resume" link.
+<p>
+<i>Search</i> - Clicking the "search past jobs" link will bring up a search page.  The user can use this page to search past jobs by date, e-mail address, and subject.
+<hr>
+<a name="notes"><strong>Notes</strong></a>
+<ul>
+<li>Search by e-mail currently doesn't work because the queries will contain the '@' character, which is the query input delimiter used by the Statistics EJB.
+</ul>
+<hr>
+
+<font size=-1>
+Created by James Lee (<a href="mailto:jameslee@cs.stanford.edu">jameslee@cs.stanford.edu</a>) - May 10, 2002
+<br>Updated by Eric Ellingson - July 15, 2002 
+</font>
+</body>
+</html>
