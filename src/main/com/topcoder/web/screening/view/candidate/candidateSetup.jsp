@@ -42,7 +42,7 @@ function back() {
                 </tr>
             </table>
 
-             <table border="0" cellspacing="0" cellpadding="0" width="100%">
+             <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr><screen:form name="candidateSetupForm" action="<%= Constants.CONTROLLER_URL %>" method="GET">
                     <INPUT type="hidden" name="rp" value="UpdateCandidate" />
                     <INPUT type="hidden" name="referrer" value="<jsp:getProperty name="candidateInfo" property="referrer" />" />
@@ -50,7 +50,11 @@ function back() {
                 </tr>
             </table>
  
-            <table cellspacing="0" cellpadding="3" class="testFrame">
+            <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
+                <tr>
+                    <td class="testTableTitle" colspan="2">Candidate</td>
+                </tr>
+                    
                 <tr>
                     <td class="testTableSubtitleOdd">Email Address</td>
                         <% if (candidateInfo.isNew()) { %>
@@ -80,11 +84,11 @@ function back() {
                 <tr><td colspan="2"><img src="/i/clear.gif" width="1" height="10" border="0" /></td></tr>
             </table>
                     
-            <table border="0" cellspacing="10" cellpadding="0">
+            <table border="0" cellspacing="10" cellpadding="0" width="70%">
                 <% if (candidateInfo.isNew()) { %>
-                 <tr><td><div align="center"><a href="JavaScript:document.candidateSetupForm.submit()" class="bodyText">Save</a></div></td></tr>
+                 <tr><td><div align="center"><a href="JavaScript:document.candidateSetupForm.submit()" class="button">Save</a></div></td></tr>
                     <% } else { %>
-                 <tr><td><div align="center"><a href="JavaScript:back()" class="bodyText">Go Back</a></div></td></tr>
+                 <tr><td><div align="center"><a href="JavaScript:back()" class="button">Go Back</a></div></td></tr>
                     <% } %>
             
                 <%
@@ -92,7 +96,7 @@ function back() {
                     { 
                         String params = Constants.CANDIDATE_ID + "=" + candidateInfo.getUserId(); 
                 %>
-                <p>To add a note <screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText">click here</screen:servletLink></p>
+                <p><screen:servletLink processor="NoteList" param="<%=params%>">Add a note</screen:servletLink> for this candidate</p>
                 <% }  %>
 
             </table>
