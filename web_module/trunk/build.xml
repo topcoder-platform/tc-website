@@ -1,0 +1,85 @@
+<project name="topcoder" default="main" basedir=".">
+
+   <property name="Name"     value="TopCoder" />
+   <property name="version"     value="0.0.1" />
+   <property name="build"       value="build" />
+   <property name="ejb_jars"    value="${build}/ejb_jars" />
+   <property name="classes"     value="${build}/classes" />
+   <property name="testclasses" value="${build}/testcases" />
+   <property name="build.javadocs" value="${build}/javadocs" />
+   <property name="lib.dir"         value="lib" />
+   <property name="jars.dir"         value="${lib.dir}/jars" />
+   <property name="bin"         value="lib/bin" />
+   <property name="src.dir"     value="source"/>
+   <property name="java"        value="${src.dir}/java/main" />
+   <property name="testjava"    value="${src.dir}/testcases" />
+   <property name="resources"   value="resources" />
+   <property name="images"      value="images" />
+   <property environment="env"/>
+
+   <property name="deprecation"   value="false" />
+   <property name="debug"   value="true" />
+
+   <path id="class.path">
+      <pathelement location="${classes}" />
+      <pathelement location="${testclasses}" />
+      <pathelement location="${resources}" />
+      <pathelement location="${images}" />
+      <fileset dir="${jars.dir}">
+         <include name="**/*.jar" />
+      </fileset>
+      <pathelement path="${env.CLASSPATH}"/>
+   </path>
+
+   <target name="init">
+      <mkdir dir="${classes}" />
+      <mkdir dir="${testclasses}" />
+      <mkdir dir="${bin}" />
+	  <mkdir dir="${ejb_jars}" />
+   </target>
+
+    <target name="check_java_version">
+        <available property="jdk1.4+" classname="java.nio.ByteBuffer" />
+    </target>
+
+   <target name="compile" depends="init,check_java_version">
+      <javac
+            srcdir="${java}"
+            destdir="${classes}"
+            classpathref="class.path"
+            deprecation="${deprecation}"
+            debug="${debug}"
+            >
+            <exclude
+                name="com/topcoder/server/listener/nio/channels/spi/java14/*"
+                unless="jdk1.4+"
+            />
+      </javac>
+   </target>
+
+   <target name="run" depends="compile">
+   </target>
+
+   <target name="javadocs">
+        <mkdir dir="${build.javadocs}"/>
+        <javadoc
+            packagenames="com.*"
+            sourcepath="${java}"
+            destdir="${build.javadocs}"
+            windowtitle="${Name} API"
+            doctitle="${Name} API"
+            >
+        </javadoc>
+    </target>
+
+   <target name="clean">
+      <!-- kill the entire build dir -->
+      <delete dir="${build}" />
+      <delete dir="${bin}" />
+   </target>
+
+      <target name="main">
+        <antcall target="run"/>
+    </target>
+
+</project>
