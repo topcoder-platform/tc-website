@@ -52,7 +52,7 @@
       Permanent Job<br>
       Full Time
       <br><br>
-      The <A href="http://www.limegroup.com">LimeGroup</A> is in the process of starting a new company in the field of electronic finance.  This job offers the opportunity to help found a company and architect and build the core systems from the ground up.  We are looking for a person who has both the technical skills to code the application and business/personal skills to grow the team and company over time.
+      The <A href="http://www.limegroup.com" target="_blank">LimeGroup</A> is in the process of starting a new company in the field of electronic finance.  This job offers the opportunity to help found a company and architect and build the core systems from the ground up.  We are looking for a person who has both the technical skills to code the application and business/personal skills to grow the team and company over time.
       <br><br>
       Must have very good programming experience.  Strong technical skills using C++/Java, Linux, SQL, XML, Perl, HTML, Javascript.  Object-oriented analysis, design and development required.  Should have experience with a relational database preferably Postgres or MySQL.  Experience with robust and redundant systems a plus. 
       <br><br>
@@ -67,7 +67,7 @@
       Permanent Job<br>
       Full Time
       <br><br>
-      Tower Research Capital LLC, a quantitative hedge fund manager, is looking to hire computer programmer with world class intelligence, good math skills, and very strong programming skills to help work on our trading infrastructure.  The firm successfully trades a number of different strategies in a variety of markets.  We have an extremely high performance network that processes a huge amount of financial information in real time.  The team here is made up of an extremely talented group of quantitative financial analysts and programmers.  Please see <A href="http://www.tower-research.com">www.tower-research.com</A> for more details.
+      Tower Research Capital LLC, a quantitative hedge fund manager, is looking to hire computer programmer with world class intelligence, good math skills, and very strong programming skills to help work on our trading infrastructure.  The firm successfully trades a number of different strategies in a variety of markets.  We have an extremely high performance network that processes a huge amount of financial information in real time.  The team here is made up of an extremely talented group of quantitative financial analysts and programmers.  Please see <A href="http://www.tower-research.com" target="_blank">www.tower-research.com</A> for more details.
       <br><br>
       Job responsibilities include expanding and maintaining our trading capabilities on various markets around the world.  Duties will include: coding connections to new markets, optimizing the performance of our systems, maintaining and expanding our databases of financial information, performing basic systems administration to keep our trading network running, and building risk management and performance tracking tools.
       <br><br>
