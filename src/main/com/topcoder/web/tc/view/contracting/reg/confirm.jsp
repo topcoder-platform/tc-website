@@ -1,6 +1,6 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.web.tc.Constants,
-                 java.util.Hashtable,
+                 java.util.HashMap,
                  java.util.Iterator" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -12,7 +12,7 @@
 <jsp:include page="../../../script.jsp" />
 
 <%
-Hashtable skillList = (Hashtable)request.getAttribute("prefs");
+HashMap skillList = (HashMap)request.getAttribute("prefs");
 %>
 
 </head>
