@@ -35,6 +35,9 @@ public class XSLTransformerCache {
   /**
    * Get the XSLTransformerWrapper indicated by the cacheKey.
    * If the XSLTransformerWrapper does not exist in the cache, it is created and put in the cache.
+   * This method artificially requires that the cacheKey be the path/filename of the xsl template
+   * this is not strictly necessary, but we would need another method taking both a key and 
+   * a template stream.
    *     
    * @param cacheKey the unique identifier for the XSLTransformerWrapper possibly in the cache.
    *     
@@ -53,10 +56,9 @@ public class XSLTransformerCache {
       }
       else
       {
-        java.net.URL url = new java.net.URL ( cacheKey );
-        java.io.InputStream iStream = url.openStream();
-        if ( iStream == null ) throw new XSLTransformerWrapperException ( "Unable to getStream from XSLStrategy." );
-        cache.put ( cacheKey, new XSLTransformerWrapper(iStream) );
+        java.io.File file = new java.io.File(cacheKey);
+        if ( !file.exists()) throw new XSLTransformerWrapperException ( "Unable to find file " + cacheKey + "." );
+        cache.put ( cacheKey, new XSLTransformerWrapper(file) );
       }
     } catch ( Exception e ) {
       throw new XSLTransformerWrapperException ( e.getMessage() );
