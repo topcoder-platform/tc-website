@@ -12,4 +12,4 @@
         <OPTION value="submissionaccuracy">&#160;Submission Accuracy</OPTION>
         <OPTION value="challengesuccess">&#160;Challenge Success</OPTION>
       </select>
-        </td></form></tr>
+        </td></form></tr> 

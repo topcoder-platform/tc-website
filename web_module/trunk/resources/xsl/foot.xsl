@@ -12,7 +12,7 @@
     <tr><td width="100%" class="footer">
             <A class="footerLinks"><xsl:attribute name="HREF">/</xsl:attribute>Home</A>&#160;&#160;|&#160;&#160;
             <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=about&amp;d2=index</xsl:attribute>About TopCoder</A>&#160;&#160;|&#160;&#160;
-            <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=review_board&amp;d2=competition</xsl:attribute>Review Boards</A>&#160;&#160;|&#160;&#160;
+            <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=review_board&amp;d2=design</xsl:attribute>Review Boards</A>&#160;&#160;|&#160;&#160;
             <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute>Press Room</A>&#160;&#160;|&#160;&#160;
             <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>Contact Us</A>&#160;&#160;|&#160;&#160;
             <A class="footerLinks"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=privacy</xsl:attribute>Privacy</A>&#160;&#160;|&#160;&#160;
