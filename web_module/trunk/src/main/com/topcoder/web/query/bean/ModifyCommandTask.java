@@ -66,7 +66,7 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
             checkCommandId(getCommandId(), c);
             if (!super.hasErrors()) {
                 if (isNewCommand()) {
-                    c.createCommand(getCommandDesc(), getGroupId());
+                    setCommandId(c.createCommand(getCommandDesc(), getGroupId()));
                 } else {
                     c.setCommandDesc(getCommandId(), getCommandDesc());
                     c.setCommandGroupId(getCommandId(), getGroupId());

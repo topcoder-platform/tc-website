@@ -13,7 +13,7 @@ import java.rmi.RemoteException;
  */
 public interface Command extends EJBObject {
 
-    void createCommand(String commandDesc, int commandGroupId) throws RemoteException, EJBException;
+    long createCommand(String commandDesc, int commandGroupId) throws RemoteException, EJBException;
 
     void setCommandDesc(long commandId, String commandDesc) throws RemoteException, EJBException;
     void setCommandGroupId(long commandId, int commandGroupId) throws RemoteException, EJBException;

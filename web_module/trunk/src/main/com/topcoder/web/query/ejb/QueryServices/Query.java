@@ -13,7 +13,7 @@ import java.rmi.RemoteException;
  */
 public interface Query extends EJBObject {
 
-    void createQuery(String text, String name, int ranking) throws RemoteException, EJBException;
+    long createQuery(String text, String name, int ranking) throws RemoteException, EJBException;
 
     void setText(long queryId, String text) throws RemoteException, EJBException;
     void setName(long queryId, String name) throws RemoteException, EJBException;

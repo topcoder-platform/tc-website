@@ -26,7 +26,7 @@ public class QueryBean extends BaseEJB {
     private static Logger log = Logger.getLogger(QueryBean.class);
     private String dataSourceName;
 
-    public void createQuery(String text, String name, int ranking)
+    public long createQuery(String text, String name, int ranking)
             throws RemoteException, EJBException {
         log.debug("createQuery called...\ntext: " + text + "\nname: " +
                 name + " ranking: " + ranking );
@@ -35,6 +35,7 @@ public class QueryBean extends BaseEJB {
         Connection conn = null;
         Context ctx = null;
         DataSource ds = null;
+        long ret = 0;
 
         try {
             StringBuffer query = new StringBuffer();
@@ -46,7 +47,8 @@ public class QueryBean extends BaseEJB {
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, getNextValue());
+            ret = getNextValue();
+            ps.setLong(1, ret);
             ps.setBytes(2, DBMS.serializeTextString(text));
             ps.setString(3, name);
             ps.setInt(4, ranking);
@@ -54,6 +56,7 @@ public class QueryBean extends BaseEJB {
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows +
                     " \ntext: " + text + "\nname: " +
                     name + " ranking: " + ranking);
+            return ret;
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating query, \ntext: " + text + "\nname: " +

@@ -52,7 +52,7 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
             checkGroupId(getGroupId(), cg);
             if (!super.hasErrors()) {
                 if (isNewGroup()) {
-                    cg.createCommandGroup(getGroupDesc());
+                    setGroupId(cg.createCommandGroup(getGroupDesc()));
                 } else {
                     cg.setCommandGroupName(getGroupId(), getGroupDesc());
                 }

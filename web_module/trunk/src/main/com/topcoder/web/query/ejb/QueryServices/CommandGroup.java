@@ -13,7 +13,7 @@ import java.rmi.RemoteException;
  */
 public interface CommandGroup extends EJBObject {
 
-    void createCommandGroup(String commandGroupName) throws RemoteException, EJBException;
+    int createCommandGroup(String commandGroupName) throws RemoteException, EJBException;
 
     void setCommandGroupName(int commandGroupId, String commandGroupName) throws RemoteException, EJBException;
 

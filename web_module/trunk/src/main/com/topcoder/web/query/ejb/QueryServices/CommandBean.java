@@ -26,7 +26,7 @@ public class CommandBean extends BaseEJB {
     private static Logger log = Logger.getLogger(CommandBean.class);
     private String dataSourceName;
 
-    public void createCommand(String commandDesc, int commandGroupId)
+    public long createCommand(String commandDesc, int commandGroupId)
             throws RemoteException, EJBException {
         log.debug("createCommand called...desc: " + commandDesc + " group: " + commandGroupId);
 
@@ -34,6 +34,7 @@ public class CommandBean extends BaseEJB {
         Connection conn = null;
         Context ctx = null;
         DataSource ds = null;
+        long ret = 0;
 
         try {
             StringBuffer query = new StringBuffer();
@@ -45,12 +46,14 @@ public class CommandBean extends BaseEJB {
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, getNextValue());
+            ret = getNextValue();
+            ps.setLong(1, ret);
             ps.setString(2, commandDesc);
             ps.setInt(3, commandGroupId);
             int rows = ps.executeUpdate();
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows +
                     " desc: " + commandDesc + " group: " + commandGroupId);
+            return ret;
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating command desc: " +
