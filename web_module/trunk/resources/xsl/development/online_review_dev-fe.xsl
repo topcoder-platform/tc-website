@@ -73,13 +73,13 @@
 The front-end development will be implemented using the MVC framework.  The deliverable must be a fully functional front-end implementing the provided HTML mockups and API design.  The developer must implement stub classes for all front end APIs, which imitate the HTML mockups (i.e. the test data for the stub classes is provided in the HTML mockup screens).
 						</p>
 						<p>
-All development project teams are encouraged to use as many completed TopCoder Software components as appropriate (<a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp">http://software.topcoder.com/pages/c_showroom.jsp</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.  Access to these components will be granted upon request to the Application Manager.
+All development project teams are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.  Access to these components will be granted upon request to the Application Manager.
 						</p>
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
 Application Front-End Development Project: Provide a complete front-end solution for the Online Review Application.
-Please review the TopCoder Software <a class="statText" href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at service@topcodersoftware.com.
+Please review the TopCoder Software <a class="statText" href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you inquire for the project. If you have questions about the project, contact the TopCoder Application Manager at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.
                         </p>
                             
 <!-- Technologies -->
@@ -95,8 +95,7 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 
 
 <!-- Payment -->
-						<p><strong>Payment</strong><br /></p>
-                            <p>
+						<p><strong>Payment</strong><br />
 			    TopCoder will compensate first and second place submitters. The development payment will be distributed at the completion of the project review period.  The integration payment will be distributed at the completion of the project integration period<sup>*</sup>.
 			    </p>
 
@@ -147,7 +146,7 @@ Please review the TopCoder Software <a class="statText" href="/?&amp;t=developme
 
 <!-- Register at TCS -->
 						   <p>
-						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review">Inquire for the project</a></strong><br/> to be eligible to be selected as one of the two (2) developers for this project.  Each development submission receiving a score of fifty (50) or greater will receive the minimum development payment.  
+						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review">Inquire for the project</a></strong> to be eligible to be selected as one of the two (2) developers for this project.  Each development submission receiving a score of fifty (50) or greater will receive the minimum development payment.  
 						</p>
 						
                             <p>
