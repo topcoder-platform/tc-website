@@ -9,8 +9,8 @@
                 <tr>
                     <td width="85" class="bodyText"  valign="top">
                         <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
-                        <img src="/i/m/ivern_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=156859"><strong>ivern</strong></a><br/>
+                        <img src="/i/m/leadhyena_inran_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=282560"><strong>leadhyena_inran</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
                     </td>
@@ -18,13 +18,13 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td  width="99%" class="bodyText"  valign="top">
-                        <p><a href="/?&amp;t=features&amp;c=feat_080304" class="bodyText"><font size="4"><strong>Reviewing Software for Fun and Profit</strong></font></a><br />
-                        Tuesday, August 3, 2004</p>
+                        <p><a href="/?&amp;t=features&amp;c=feat_090104" class="bodyText"><font size="4"><strong>On Sentinels</strong></font></a><br />
+                        Wednesday, September 1, 2004</p>
 
                         <p>
-						About one year and a half ago, I started reviewing components for TopCoder Software.  Since then, I've learned a lot about a number of previously unfamiliar technologies, earned over four thousand dollars in a month, and visited Boston for the 2004 TCCC...all working less than 20 hours a week on average!
+						When competing in the arena, while it is important to be able to code a solution quickly in order to score more points, it is just as important for the solution to work so you can actually score those points.
 
-                        <a href="/?&amp;t=features&amp;c=feat_080304" class="bodyText"><strong>full&#160;story</strong></a></p>
+                        <a href="/?&amp;t=features&amp;c=feat_090104" class="bodyText"><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
             </table>
