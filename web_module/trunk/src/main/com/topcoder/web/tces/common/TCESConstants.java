@@ -58,6 +58,7 @@ public class TCESConstants {
     public static String PROBLEM_STATISTICS_TASK = null;
     public static String PROBLEM_STATEMENT_TASK = null;
     public static String MEMBER_INTEREST_TASK = null;
+    public static String RESUME_DOWNLOAD_TASK = null;
 
     // SORT_X constants are used by PositionInterestTask and CampaignInterestTask.
     public static String SORT_HANDLE = "ha";
@@ -199,6 +200,7 @@ public class TCESConstants {
         PROBLEM_STATISTICS_TASK = bundle.getProperty("problem_statistics_task", "");
         PROBLEM_STATEMENT_TASK = bundle.getProperty("problem_statement_task", "");
         MEMBER_INTEREST_TASK = bundle.getProperty("member_interest_task", "");
+        RESUME_DOWNLOAD_TASK = bundle.getProperty("resume_download_task", "");
 
         SORT_ORDER_ASC = bundle.getProperty("sort_order_asc", "");
         SORT_ORDER_DES = bundle.getProperty("sort_order_des", "");
