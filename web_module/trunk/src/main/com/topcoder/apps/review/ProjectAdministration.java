@@ -461,7 +461,7 @@ public class ProjectAdministration implements Model {
                                     }
                                     System.out.println(((Item)obj1).getSubmission().getSubmitter().getHandle() + "=" + vals[0]);
                                     System.out.println(((Item)obj2).getSubmission().getSubmitter().getHandle() + "=" + vals[1]);
-                                    return vals[0] - vals[1];
+                                    return vals[1] - vals[0];
                                 }
                                 return Double.compare(((Item) obj2).getSubmission().getFinalScore(),
                                         ((Item) obj1).getSubmission().getFinalScore());
