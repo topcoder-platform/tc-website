@@ -409,7 +409,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         if (start > end)
             throw new IllegalArgumentException("Start row cannot exceed end row");
         initializeMetaData(rs);
-        int row = 0;
+        int row = 1;
         ResultSetRow rsr = null;
         for (Iterator it = rs.iterator(); it.hasNext(); row++) {
             rsr = (ResultSetRow)it.next();
