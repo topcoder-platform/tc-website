@@ -11,7 +11,8 @@
     <tr>
         <td bgcolor="#666666" width="160"><img src="/i/clear.gif" width="160" height="1" border="0"/></td>
         <td bgcolor="#000000" width="10"><img src="/i/footer_top_angle.gif" width="10" height="10" border="0"/></td>
-        <td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+        <td width="99%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+        <td bgcolor="#001935" width="244"><img src="/i/clear.gif" width="244" height="1" border="0"/></td>
     </tr>
 </table>
 
