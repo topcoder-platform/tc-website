@@ -395,7 +395,6 @@ public class TCLoadRequests extends TCLoad {
             } else {
                 trimedUrl = url;
             }
-
             if (trimedUrl.indexOf('?') < 0)
                 this.baseUrl = trimedUrl;
             else baseUrl = trimedUrl.substring(0, trimedUrl.indexOf('?'));
@@ -419,8 +418,10 @@ public class TCLoadRequests extends TCLoad {
                         log.debug("adding " + s.substring(0, s.indexOf('=')) +
                                 " " + s.substring(s.indexOf('=')+1, s.length()));
 */
-                        paramMap.put(s.substring(0, s.indexOf('=')),
-                                s.substring(s.indexOf('=')+1, s.length()));
+
+                        if (!s.substring(0, s.indexOf('=')).equals("WebLogicSession"))
+                            paramMap.put(s.substring(0, s.indexOf('=')),
+                                    s.substring(s.indexOf('=')+1, s.length()));
                     } else {
                         paramMap.put(s, "");
                     }
