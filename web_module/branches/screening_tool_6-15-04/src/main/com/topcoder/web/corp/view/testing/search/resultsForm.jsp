@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.corp.common.Constants,
-                com.topcoder.shared.dataAccess.DataAccessConstants"%>
+                com.topcoder.shared.dataAccess.DataAccessConstants,
+                com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
