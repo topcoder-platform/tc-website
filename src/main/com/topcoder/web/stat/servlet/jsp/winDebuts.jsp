@@ -1,6 +1,7 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
+  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 %>
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
