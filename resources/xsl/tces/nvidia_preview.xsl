@@ -16,10 +16,10 @@
 <FONT SIZE="3"><B>NVIDIA - TopCoder Employment Program</B></FONT><BR/>
 Please view the following links for review of the NVIDIA Employment program.<BR/><BR/>
 <B>Website</B><BR/>
-<A HREF="/i/es/nvidia/public_home.gif">Public Home Page</A><BR/>
-<A HREF="/i/es/nvidia/member_home.gif">Member Home Page</A><BR/>
-<A HREF="/?t=tces&amp;c=nvidia">NVIDIA Main Page</A><BR/>
-<A HREF="/?t=tces&amp;c=nvidia_openings">NVIDIA Job Listing Page</A><BR/>
+<A HREF="/i/es/nvidia/public_home.gif" CLASS="bodyText">Public Home Page</A><BR/>
+<A HREF="/i/es/nvidia/member_home.gif" CLASS="bodyText">Member Home Page</A><BR/>
+<A HREF="/?t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A><BR/>
+<A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">NVIDIA Job Listing Page</A><BR/>
 <!-- <A HREF="statsindex.gif">Statistics Index Page</A><BR/>
 <A HREF="overview.gif">Match Overview Page</A><BR/>
 <A HREF="results.gif">Match Results Page</A><BR/>
@@ -27,13 +27,13 @@ Please view the following links for review of the NVIDIA Employment program.<BR/
 <A HREF="calendar.gif">Monthly Calendar</A><BR/> -->
 <BR/><BR/>
 <B>Arena Applet</B>- Updated<BR/>
-<A HREF="/i/es/nvidia/lobby_sample.jpg">Lobby Window</A><BR/>
-<A HREF="/i/es/nvidia/coding_sample.jpg">Coding Window</A><BR/>
-<A HREF="/i/es/nvidia/status_sample.jpg">Status Window</A><BR/>
-<A HREF="/i/es/nvidia/leaderboard_sample.jpg">Leaderboard</A><BR/>
+<A HREF="/i/es/nvidia/lobby_sample.jpg" CLASS="bodyText">Lobby Window</A><BR/>
+<A HREF="/i/es/nvidia/coding_sample.jpg" CLASS="bodyText">Coding Window</A><BR/>
+<A HREF="/i/es/nvidia/status_sample.jpg" CLASS="bodyText">Status Window</A><BR/>
+<A HREF="/i/es/nvidia/leaderboard_sample.jpg" CLASS="bodyText">Leaderboard</A><BR/>
 <BR/><BR/>
 <B>Email</B><BR/>
-<A HREF="ma.html">Employment Announcement</A><BR/>
+<A HREF="/?t=tces&amp;c=nvidia_em" CLASS="bodyText">Employment Announcement</A><BR/>
 <!-- <A HREF="mr.html">Match Results</A><BR/> -->
 <BR/><BR/>
 <!-- <B>PDF</B><BR/>

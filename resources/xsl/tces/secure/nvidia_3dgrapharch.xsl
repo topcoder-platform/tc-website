@@ -58,13 +58,14 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;NVIDIA Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Jobs</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" TARGET="_blank" CLASS="bodyText">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA</A>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" TARGET="_blank" CLASS="bodyText">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A>
       </TD>
   </TR>
 </TABLE>
 <IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/>    
 
-<P><B>3D GRAPHIC ARCHITECT:</B><BR/>
+<P><B>3D GRAPHIC ARCHITECT:</B></P>
+<P>
 This is an opportunity to work with the hottest team in 3D graphics! The current team members possess over 100 patents and average over 15 years of 3D graphics experience apiece. The graphics architect will be expected to work at NVIDIA in the area of 3D architecture, algorithms, and software development, building on NVIDIA's current architecture and products. In this capacity, the architect will be expected to become familiar with NVIDIA current architecture, algorithms, products, and development methodologies, and perform research supporting the development of new algorithms and ideas. The architect will also be expected to analyze performance of proposed and current NVIDIA products, and develop algorithms and architectural features to support NVIDIA's product plans. The focus of these developments will include 3D geometry and rendering, antialiasing, animation, and video. In pursuit of this development, the architect will be expected to document the mathematical equations involved in the algorithms, generate test programs to validate the ideas, and generate C-model code to assist in hardware design and verification.</P>
 
 <P><B>Requirements:</B>
@@ -74,7 +75,7 @@ This is an opportunity to work with the hottest team in 3D graphics! The current
 <LI>The candidate should have strong familiarity with graphics research literature, including SIGGRAPH proceedings, and should be familiar with a wide range of graphics and rendering.</LI>
 </UL>
 </P>
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=30&amp;jt=2" CLASS="bodyText">Apply now!</A>
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=30&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
 
 <!--end contextual links-->
           

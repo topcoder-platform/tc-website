@@ -58,15 +58,19 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;NVIDIA Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure">Jobs</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" TARGET="_blank">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" TARGET="_blank">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia">NVIDIA</A>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Jobs</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" CLASS="bodyText" TARGET="_blank">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" CLASS="bodyText" TARGET="_blank">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A>
       </TD>
   </TR>
 </TABLE>
-<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0"/><BR/>       
-<FORM METHOD="" ACTION="/jobposting">
-<INPUT TYPE="HIDDEN" NAME="t" VALUE="JobHitTask"/>
+<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/><BR/>       
 
-<P><B>3D GRAPHIC ARCHITECT:</B><BR/>
+<P>
+<B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dgrapharch&amp;a=secure" CLASS="bodyText">3D GRAPHIC ARCHITECT</A></B><BR/>
+<B><A HREF="/?&amp;t=tces&amp;c=nvidia_softqaeng_intern&amp;a=secure" CLASS="bodyText">SOFTWARE QA ENGINEER INTERN/CO-OP</A></B><BR/>
+<B><A HREF="/?&amp;t=tces&amp;c=nvidia_platverarch&amp;a=secure" CLASS="bodyText">PLATFORM VERIFICATION ARCHITECT</A></B><BR/>
+</P>
+<P>
+3D GRAPHIC ARCHITECT<BR/>
 This is an opportunity to work with the hottest team in 3D graphics! The current team members possess over 100 patents and average over 15 years of 3D graphics experience apiece. The graphics architect will be expected to work at NVIDIA in the area of 3D architecture, algorithms, and software development, building on NVIDIA's current architecture and products. In this capacity, the architect will be expected to become familiar with NVIDIA current architecture, algorithms, products, and development methodologies, and perform research supporting the development of new algorithms and ideas. The architect will also be expected to analyze performance of proposed and current NVIDIA products, and develop algorithms and architectural features to support NVIDIA's product plans. The focus of these developments will include 3D geometry and rendering, antialiasing, animation, and video. In pursuit of this development, the architect will be expected to document the mathematical equations involved in the algorithms, generate test programs to validate the ideas, and generate C-model code to assist in hardware design and verification.</P>
 
 <P><B>Requirements:</B>
@@ -79,10 +83,11 @@ This is an opportunity to work with the hottest team in 3D graphics! The current
 
 EOE
 
+<B><A HREF="/?&amp;t=tces&amp;c=nvidia_softqaeng_intern&amp;a=secure" CLASS="bodyText">SOFTWARE QA ENGINEER INTERN/CO-OP</A>:</B><BR/>
 <P><B>SOFTWARE QA ENGINEER INTERN/CO-OP:</B></P>
 <P>Role/Responsibilities:<BR/>                                                                                            
 NVWHQL serves NVIDIA as the resident authority on Microsoft's Windows Logo Program (WLP).  The Windows Logo Program revolves around 
-Windows Hardware Quality Labs (WHQL).  Examine Microsoft's WHQL site <A HREF="http://www.microsoft.com/hwtest" TARGET="_blank">www.microsoft.com/hwtest</A> for more information.  NVWHQL has three main objectives.  Our first objective is to ensure that NVIDIA products comply with current WLP requirements and industry specifications.  Which in turn makes them available for shipment in systems designed by major OEMs.  The second objective of NVWHQL is to field our customer's questions surrounding the application of requirements to their specific configurations.  Our third objective is to monitor industry trends and understand how they will influence pending specifications and impact NVIDIA, our customers, and the Windows Logo Program.</P>
+Windows Hardware Quality Labs (WHQL).  Examine Microsoft's WHQL site <A HREF="http://www.microsoft.com/hwtest" TARGET="_blank" CLASS="bodyText">www.microsoft.com/hwtest</A> for more information.  NVWHQL has three main objectives.  Our first objective is to ensure that NVIDIA products comply with current WLP requirements and industry specifications.  Which in turn makes them available for shipment in systems designed by major OEMs.  The second objective of NVWHQL is to field our customer's questions surrounding the application of requirements to their specific configurations.  Our third objective is to monitor industry trends and understand how they will influence pending specifications and impact NVIDIA, our customers, and the Windows Logo Program.</P>
                                                                                                                
 <P>GPA 3.0</P>
  <UL>                                                                                                                          
@@ -459,7 +464,7 @@ This position requires a BS or MS in electrical engineering with 2-7 years of se
 EOE
 
 <P><B>WHQL ENGINEER:</B><BR/>
-NVWHQL serves NVIDIA as the resident authority on Microsoft's Windows Logo Program (WLP). The Windows Logo Program revolves around Windows Hardware Quality Labs (WHQL). Examine Microsoft's WHQL site <A HREF="http://www.microsoft.com/hwtest" TARGET="_blank">WWW.MICROSOFT.COM/HWTEST</A> for more information. NVWHQL has three main objectives. Our first objective is to ensure that NVIDIA products comply to current WLP requirements and industry specifications, which in turn makes them available for shipment in systems designed by major OEMs. The second objective of NVWHQL is to field our customer's questions surrounding the application of requirements to their specific configurations. Our third objective is to monitor industry trends and understand how they will influence pending specifications and impact NVIDIA, our customers, and the Windows Logo Program.</P>
+NVWHQL serves NVIDIA as the resident authority on Microsoft's Windows Logo Program (WLP). The Windows Logo Program revolves around Windows Hardware Quality Labs (WHQL). Examine Microsoft's WHQL site <A HREF="http://www.microsoft.com/hwtest" TARGET="_blank" CLASS="bodyText">WWW.MICROSOFT.COM/HWTEST</A> for more information. NVWHQL has three main objectives. Our first objective is to ensure that NVIDIA products comply to current WLP requirements and industry specifications, which in turn makes them available for shipment in systems designed by major OEMs. The second objective of NVWHQL is to field our customer's questions surrounding the application of requirements to their specific configurations. Our third objective is to monitor industry trends and understand how they will influence pending specifications and impact NVIDIA, our customers, and the Windows Logo Program.</P>
 
 <P><B>Requirements:</B>
 <UL>
@@ -596,9 +601,6 @@ Architect groundbreaking memory subsystems for the hottest chips in 3D graphics 
 EOE
 
 
-<DIV ALIGN="center" CLASS="dropdown"><INPUT TYPE="SUBMIT" VALUE=" Submit "/>&#160;<INPUT TYPE="RESET" VALUE=" Clear "/></DIV>
-
-</FORM>
 <!--end contextual links-->
           
           <P><BR/></P>

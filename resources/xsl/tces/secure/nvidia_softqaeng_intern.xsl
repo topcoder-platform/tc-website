@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:import href="../top.xsl"/>
-  <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
-  <xsl:import href="../foot.xsl"/>
-  <xsl:import href="../includes/modules/practice_room.xsl"/>
-  <xsl:import href="../includes/modules/module_login.xsl"/>  
-  <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/tces/public_tces_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../../top.xsl"/>
+  <xsl:import href="../../script.xsl"/>
+  <xsl:import href="../../includes/body_top.xsl"/>  
+  <xsl:import href="../../foot.xsl"/>
+  <xsl:import href="../../includes/modules/practice_room.xsl"/>
+  <xsl:import href="../../includes/modules/module_login.xsl"/>  
+  <xsl:import href="../../includes/modules/calendar.xsl"/>
+  <xsl:import href="../../includes/tces/public_tces_left.xsl"/> 
+  <xsl:import href="../../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
@@ -52,67 +52,37 @@
         <TR>
           <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
-<!--body contextual links-->
-<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="150">
-   <TR>
-        <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-        <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-    </TR> 
-                <TR> 
-                <TD COLSPAN="2" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD>
-                </TR>
-              <TR>
-                    <TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle">&#160; &#160;</TD>
-                <TD BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">EMPLOYMENT LINKS:</TD>
-              </TR>                    
-              <TR>
-                    <TD COLSPAN="2" VALIGN="top" BGCOLOR="#999999">
-          <TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
-            <TR>
-              <TD VALIGN="top" CLASS="smallText">&#160;&#160;</TD>
-              <TD COLSPAN="2" VALIGN="top" CLASS="bodyText"><A HREF="mailto:tces@topcoder.com" CLASS="bodyText">Contact employment services</A></TD>
-            </TR>
-            <TR><TD VALIGN="top" COLSPAN="3" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>        
-          </TABLE>
-                </TD>
-            </TR>
-   <TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
-</TABLE> -->
+
 <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0">
    <TR>
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;NVIDIA Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Jobs</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" TARGET="_blank" CLASS="bodyText">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" TARGET="_blank" CLASS="bodyText">Benefits</A>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" TARGET="_blank" CLASS="bodyText">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A>
       </TD>
   </TR>
 </TABLE>
-<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/>
-
-<P>Founded in 1993, NVIDIA has quickly become the worldwide leader in graphics processors and media communications devices. In fact, NVIDIA was the first 3D graphics semiconductor company to deliver a complete top-to-bottom family of 3D solutions.</P>
-
-<P>Our mission is simple: Build a great company and be the most important 3D graphics company in the world.</P>
-
-<P>Led by our co-founders - Jen-Hsun Huang (President and CEO), Curtis Priem (Chief Technical Officer) and Chris Malachowsky (VP of Hardware Engineering) - our employees are committed to developing innovative technologies that deliver stunning multimedia experiences. And they're doing it around the world, at NVIDIA offices located in the United States (AZ, CA, MA, NC, TX, and WA) as well as in England, France, Germany, Japan, Singapore, and Taiwan.</P>
-
-<P>Wherever the location, NVIDIA makes a significant investment in its people - in addition to its methodologies, technology and brand - to ensure the Company continues to deliver to its customers a unique competitive advantage.</P>
-
-<P>What's this commitment and investment mean in our everyday working lives? Quite simply, it means that NVIDIA offers a challenging, high-energy and rewarding work experience. 
-To support NVIDIA's employees, the HR team is committed to delivering programs and services to the nth degree. That means you can be sure that working at NVIDIA just may be the greatest experience in your professional life.</P>
-
-<P>Our commitment also extends beyond the NVIDIA workplace to the communities in which we work and live. Just as the Company strives to maintain its leadership position in the graphics world, it is also committed to making a lasting and positive impact in the lives of the people in our community.</P>
-
-<P>Through our corporate donations and fundraising program, we currently support such organizations as the American Red Cross, the Second Harvest Food Bank, the Humane Society, and other non-profit organizations.</P>
-
-<P><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Click here</A> to check out the positions available at NVIDIA.
-</P>
+<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/>    
 
 
-
-
+<P><B>SOFTWARE QA ENGINEER INTERN/CO-OP:</B></P>
+<P>Role/Responsibilities:<BR/>                                                                                            
+NVWHQL serves NVIDIA as the resident authority on Microsoft's Windows Logo Program (WLP).  The Windows Logo Program revolves around 
+Windows Hardware Quality Labs (WHQL).  Examine Microsoft's WHQL site <A HREF="http://www.microsoft.com/hwtest" TARGET="_blank" CLASS="bodyText">www.microsoft.com/hwtest</A> for more information.  NVWHQL has three main objectives.  Our first objective is to ensure that NVIDIA products comply with current WLP requirements and industry specifications.  Which in turn makes them available for shipment in systems designed by major OEMs.  The second objective of NVWHQL is to field our customer's questions surrounding the application of requirements to their specific configurations.  Our third objective is to monitor industry trends and understand how they will influence pending specifications and impact NVIDIA, our customers, and the Windows Logo Program.</P>
+                                                                                                               
+<P><B>GPA 3.0</B></P>
+<UL>                                                                                                                          
+<LI>Expert trouble-shooting ability where a problem can be isolated down to the root cause software or hardware component.</LI>
+<LI>Ability to maintain multiple systems in lab environment.  Keeping them continually in operation, updated with current software, and problem free.</LI>
+<LI>Power-User level experience with the Windows Family of Operating Systems.  Including Windows XP, Windows Me, Windows 2000, Windows 98 SE, and Windows NT4.  Including how they interact with Applications and hardware.</LI>
+<LI>Understanding of QA theory, bug tracking to resolution, and software development support.</LI>
+<LI>The ability to research and comprehend technically complex specifications concerning the development of PC architecture and sub-systems.</LI>
+<LI>Knowledgeable of current industry standards such as DirectX, OpenGL, EDID &#38; DDC, DVD, ACPI, and PC Design Guides.</LI>
+</UL>
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=31&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
 
 <!--end contextual links-->
-
+          
           <P><BR/></P>
           </TD>
           <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
@@ -161,4 +131,3 @@ To support NVIDIA's employees, the HR team is committed to delivering programs a
     </HTML>
   </xsl:template>
 </xsl:stylesheet>
-
