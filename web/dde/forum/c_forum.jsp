@@ -166,7 +166,7 @@
                     <td class="forumTextEven"><strong><%=thread.getInitialPostUsername()%></strong></td>
                     <td class="forumTextEven">
 <%          if (thread.getNumPosts()>0 && thread.getLastPostTime()!=null) { %>
-                        <%=dateFormat.format(thread.getLastPostTime())%>&nbsp;EST by&nbsp;<strong><%=thread.getLastPostUsername()%></strong>
+                        <%=dateFormat.format(thread.getLastPostTime())%>&nbsp;ET by&nbsp;<strong><%=thread.getLastPostUsername()%></strong>
 <%          } %>
                     </td>
                 </tr>
