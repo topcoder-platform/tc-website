@@ -10,11 +10,69 @@
 <title>TopCoder Survey Results</title>
 
 <jsp:include page="../script.jsp" />
+                            <SCRIPT LANGUAGE="JavaScript">
+                            <!--
+                            var flashinstalled = 0;
+                            var flashversion = 0;
+                            MSDetect = "false";
+                            if (navigator.plugins && navigator.plugins.length)
+                            {
+                                x = navigator.plugins["Shockwave Flash"];
+                                if (x)
+                                {
+                                    flashinstalled = 2;
+                                    if (x.description)
+                                    {
+                                        y = x.description;
+                                        flashversion = y.charAt(y.indexOf('.')-1);
+                                    }
+                                }
+                                else
+                                    flashinstalled = 1;
+                                if (navigator.plugins["Shockwave Flash 2.0"])
+                                {
+                                    flashinstalled = 2;
+                                    flashversion = 2;
+                                }
+                            }
+                            else if (navigator.mimeTypes && navigator.mimeTypes.length)
+                            {
+                                x = navigator.mimeTypes['application/x-shockwave-flash'];
+                                if (x && x.enabledPlugin)
+                                    flashinstalled = 2;
+                                else
+                                    flashinstalled = 1;
+                            }
+                            else
+                                MSDetect = "true";
+
+                            // -->
+                            </SCRIPT>
+
+                            <SCRIPT LANGUAGE="VBScript">
+
+                            on error resume next
+
+                            If MSDetect = "true" Then
+                                For i = 2 to 6
+                                    If Not(IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash." & i))) Then
+
+                                    Else
+                                        flashinstalled = 2
+                                        flashversion = i
+                                    End If
+                                Next
+                            End If
+
+                            If flashinstalled = 0 Then
+                                flashinstalled = 1
+                            End If
+
+                            </SCRIPT>
 
 </head>
 
 <body>
-
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value="review_board"/>
 </jsp:include>
@@ -62,32 +120,22 @@
                         </td>
                         <td>
                             <p align="center">
-                            <object
-                                  type="application/x-shockwave-flash"
-                                  data="/i/barGraph.swf"
-                            classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-                            codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
-                            width="200"
-                            height="15"
-                            border="0"
-                            id="myFlash<%=question.getId()%>_<rsc:item row="<%=answer%>" name="answer_id"/>" >
-                            <param name="movie"  value="/i/barGraph.swf"/>
-                            <param name="quality" value="high"/>
-                            <param name="bgcolor" value="#FFFFFF"/>
-                            <param name="sw1" value="<rsc:item row="<%=answer%>" name="percentage" format="#.##"/>"/>
-                            <embed
-                            src="/i/barGraph.swf"
-                            quality=high
-                            width=200
-                            height=15
-                            border="0"
-                            type="application/x-shockwave-flash"
-                            pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"
-                            name="myFlash"
-                            swLiveConnect="true"
-                            sw1="<rsc:item row="<%=answer%>" name="percentage" format="#.##"/>" >
-                            </embed>
-                            </object>
+
+                            <SCRIPT LANGUAGE="JavaScript">
+                            <!--
+                            if (flashinstalled>1){
+                               document.write('<object type="application/x-shockwave-flash" data="/i/barGraph.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width=200 height=15 border="0" id="myFlash<%=question.getId()%>_<rsc:item row="<%=answer%>" name="answer_id"/>" >');
+                               document.write('<PARAM  NAME=movie  VALUE="/i/barGraph.swf?percentage=<rsc:item row="<%=answer%>" name="percentage" format="#.##"/>">');
+                               document.write('<PARAM NAME=quality VALUE="high">');
+                               document.write('<PARAM NAME=bgcolor VALUE="#FFFFFF">');
+                               document.write('<embed src="/i/barGraph.swf?percentage=<rsc:item row="<%=answer%>" name="percentage" format="#.##"/>&flashContentURL=flash_content/flash_content.html&altContentURL=upgrade_flash/upgrade_flash.html&contentVersion=6&contentMajorRevision=0&contentMinorRevision=79&allowFlashAutoInstall=false" quality=high width=200 height=15 border="0" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" name="myFlash<%=question.getId()%>_<rsc:item row="<%=answer%>" name="answer_id"/>" swLiveConnect="true" ></embed>');
+                               document.write('</object>');
+                            }
+                            else {
+                               document.write('<a href="http://www.macromedia.com/go/getflashplayer">no flash</a>');
+                            }
+                            // -->
+                            </SCRIPT>
                             </p>
                         </td>
                      </tr>
@@ -123,3 +171,23 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
