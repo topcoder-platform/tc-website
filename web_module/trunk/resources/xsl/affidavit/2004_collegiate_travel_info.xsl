@@ -78,16 +78,16 @@
          A room will be confirmed for your arrival on April 14th and departure on April 17th.   The check-in time is
             3:00pm and check out time is 12:00noon.  If you have any special requests, please indicate them on the
             travel form. The cost of your sleeping room and applicable taxes will be charged to the TopCoder master
-            account.  You will be required, however, to provide a credit card upon check-in for any incidentals.
+            account.  You will be required, however, to provide a credit card upon check-in for any incidental expenses.
             <BR/><BR/>
-            At the TCCC04, you will be sharing a hotel room with another competitor.  Once the finalists have
+            <b>At the TCCC04, you will be sharing a hotel room with another competitor.</b>  Once the finalists have
             been announced, you can email <a href="mailto:bhealy@topcoder.com">Barbara Healy</a> with any preference you may have for a
             roommate.  We will do everything possible to accommodate your request. <BR/>
         <BR/>
         <B><U>AIRLINE INFORMATION:</U></B><BR/>
         <BR/>
           Your travel information must be submitted no later than <strong>9:00 PM ET on Wednesday, March 24th</strong>.    TopCoder will secure
-            airline reservations based upon your registration information and email a travel itinerary to you
+            airline reservations based upon your registration information and will email a travel itinerary to you
             by Friday, April 2nd.  Please be advised that once airlines tickets are confirmed, any changes are
             subject to penalty fees at your own expense.
             <BR/>
@@ -143,31 +143,37 @@
               <TD align="left"><INPUT TYPE="text" NAME="a6" size="15"/></TD>
             </TR>
 
+        <TR>
+          <TD align="right"><INPUT TYPE="hidden" NAME="q7" VALUE="Passport Number"/>Passport #:</TD>
+          <TD align="left"><INPUT TYPE="text" NAME="a7" size="15"/></TD>
+        </TR>
+
+
             <BR/>
             <TR><TD COLSPAN="2"><U><B>Mailing address:</B></U></TD></TR>
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q7" VALUE="Street Address"/>Street Address:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a7" size="50"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q8" VALUE="Street Address"/>Street Address:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a8" size="50"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q8" VALUE="City"/>City:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a8" size="25"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q9" VALUE="City"/>City:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a9" size="25"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q9" VALUE="State"/>State:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a9" size="2"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q10" VALUE="State"/>State:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a10" size="2"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q10" VALUE="Zip"/>Zip:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a10" size="15"/></TD>
-            </TR>
-
-            <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q11" VALUE="Phone"/>Phone:</TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q11" VALUE="Zip"/>Zip:</TD>
               <TD align="left"><INPUT TYPE="text" NAME="a11" size="15"/></TD>
+            </TR>
+
+            <TR>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q12" VALUE="Phone"/>Phone:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a12" size="15"/></TD>
             </TR>
 
             <BR/>

@@ -39,14 +39,15 @@
       <xsl:value-of select="/TC/AFFIDAVIT/Member/Profile/school_name"/>, which is an accredited college or university.
       My date of birth is _________.  I hereby represent I am either:<BR/><BR/>
           &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(a) a U.S.* citizen;<BR/>
-          &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(b) a lawful permanent resident of the U.S.*; or<BR/>
-          &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(c) a non-immigrant residing in the U.S.* with a valid visa;<BR/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(b) a lawful permanent resident of the U.S.*;<BR/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(c) a non-immigrant residing in the U.S.* with a valid visa; or<BR/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(d) a non-US citizen participating from my country of citizenship;<BR/>
           <br/>
           <br/>
       (*Including the U.S. territories of Guam, Puerto Rico, and the U.S. Virgin Islands.)
       <br/>
       <br/>
-      I am submitting this affidavit with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2004 TopCoder Collegiate Challenge Component Competition (the "Contest").
+      I am submitting this affidavit with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2004 TopCoder Collegiate Challenge, sponsored by Yahoo!&#174; Component Tournament (the "Contest").
       <br/>
       <br/>
       I hereby represent that I have complied with, and will continue to comply with, all the rules and regulations of this Contest and that I have perpetrated no fraud or deception in entering the Contest or in claiming any prize that may be awarded to me. I hereby represent further that my performance in the Contest is a result of my efforts alone and all ideas for code or challenges submitted by me during the course of the Contest were mine alone.
