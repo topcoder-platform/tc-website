@@ -35,7 +35,7 @@ cell phones. They talk everyday about cool websites or the latest gadgets.</p>
 several years of experience looking for something new, you can apply your technology skills on the job, and 
 expand and deepen them to become a true expert.</p>
 
-<p>Check out our available positions: <A href="/?&amp;t=tces&amp;c=accenture" target="_blank">http://www.topcoder.com?t=tces&c=accenture</A></p>
+<p>Check out our available positions: <A href="/?t=tces&amp;c=accenture" target="_blank">http://www.topcoder.com?t=tces&amp;c=accenture</A></p>
 
 <p>Thank you and, as always, good luck in the Arena!<br/>
 The TopCoder Employment Services Team</p>
