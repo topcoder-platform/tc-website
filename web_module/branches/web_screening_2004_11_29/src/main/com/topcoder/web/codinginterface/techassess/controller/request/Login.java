@@ -16,7 +16,7 @@ public class Login extends Base {
 
     protected static Logger log = Logger.getLogger(Login.class);
 
-    protected void businessProcessing() throws Exception {
+    protected void techAssessProcessing() throws Exception {
 
         String handle = null;
         String password = null;
@@ -49,15 +49,7 @@ public class Login extends Base {
 
                 send(request);
 
-                /* send them over to the login response page.  we're including the message
-                 * id parameter so that we can be sure that we can accurately link the response
-                 * and the response together.  we're going over the top for this because it's
-                 * possible that they have two browsers logged in in the same session.  if they
-                 * submitted two of these requests at the same time, we wouldn't know which response
-                 * should go to which browser without the message id.
-                 */
-                showProcessingPage(buildProcessorRequestString(Constants.RP_LOGIN_RESPONSE,
-                    new String[] {Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
+                showProcessingPage();
 
                 ScreeningLoginResponse response = (ScreeningLoginResponse)receive(5000);
 
@@ -69,7 +61,15 @@ public class Login extends Base {
                     addError(Constants.HANDLE, response.getMessage());
                 }
 
-                closeProcessingPage();
+                /* send them over to the login response page.  we're including the message
+                 * id parameter so that we can be sure that we can accurately link the response
+                 * and the response together.  we're going over the top for this because it's
+                 * possible that they have two browsers logged in in the same session.  if they
+                 * submitted two of these requests at the same time, we wouldn't know which response
+                 * should go to which browser without the message id.
+                 */
+                closeProcessingPage(buildProcessorRequestString(Constants.RP_LOGIN_RESPONSE,
+                    new String[] {Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
 
             }
         } else {

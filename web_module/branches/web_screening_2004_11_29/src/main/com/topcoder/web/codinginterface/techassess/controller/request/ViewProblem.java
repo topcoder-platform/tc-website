@@ -14,7 +14,7 @@ import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 public class ViewProblem extends Base {
 
 
-    protected void businessProcessing() throws Exception {
+    protected void techAssessProcessing() throws Exception {
 
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
@@ -44,16 +44,16 @@ public class ViewProblem extends Base {
 
             send(request);
 
-            showProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
-                    new String[] {Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
-                    new String[]{String.valueOf(getMessageId()), String.valueOf(componentId), String.valueOf(problemTypeId)}));
+            showProcessingPage();
 
             ScreeningOpenComponentResponse response = (ScreeningOpenComponentResponse)receive(5000);
 
             setDefault(Constants.PROBLEM, new ProblemInfo(response.getCode(), componentId,
                     response.getLanguageID().intValue(), response.getProblem(), problemTypeId));
 
-            closeProcessingPage();
+            closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
+                    new String[] {Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
+                    new String[]{String.valueOf(getMessageId()), String.valueOf(componentId), String.valueOf(problemTypeId)}));
 
         }
 

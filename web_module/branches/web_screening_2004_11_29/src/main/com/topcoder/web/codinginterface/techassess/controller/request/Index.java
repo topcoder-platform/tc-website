@@ -17,7 +17,7 @@ public class Index extends Base {
 
     protected static Logger log = Logger.getLogger(Index.class);
 
-    protected void businessProcessing() throws Exception {
+    protected void techAssessProcessing() throws Exception {
 
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
@@ -31,8 +31,7 @@ public class Index extends Base {
 
             send(request);
 
-            showProcessingPage(buildProcessorRequestString(Constants.RP_INDEX_RESPONSE,
-                    new String[] {Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
+            showProcessingPage();
 
             ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse)receive(5000);
 
@@ -42,7 +41,8 @@ public class Index extends Base {
             setDefault(Constants.PROBLEM_SETS, sets);
             setLanguages(getLanguages(response.getAllowedLanguages()));
 
-            closeProcessingPage();
+            closeProcessingPage(buildProcessorRequestString(Constants.RP_INDEX_RESPONSE,
+                    new String[] {Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
 
         }
 

@@ -16,7 +16,7 @@ import com.topcoder.shared.problem.ProblemComponent;
  */
 public class Save extends Base {
 
-    protected void businessProcessing() throws Exception {
+    protected void techAssessProcessing() throws Exception {
 
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
@@ -61,9 +61,7 @@ public class Save extends Base {
 
             //log.debug("problemtype : " + problemTypeId);
 
-            showProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
-                    new String[] {Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
-                    new String[]{String.valueOf(getMessageId()), String.valueOf(componentId), String.valueOf(problemTypeId)}));
+            showProcessingPage();
 
             ScreeningSaveResponse response = (ScreeningSaveResponse)receive(5000);
 
@@ -74,7 +72,9 @@ public class Save extends Base {
 
             setDefault(Constants.PROBLEM, new ProblemInfo(code, componentId, languageId, p, problemTypeId));
 
-            closeProcessingPage();
+            closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
+                    new String[] {Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
+                    new String[]{String.valueOf(getMessageId()), String.valueOf(componentId), String.valueOf(problemTypeId)}));
 
         }
 

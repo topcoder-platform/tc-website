@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class Test extends Base {
 
 
-    protected void businessProcessing() throws TCException {
+    protected void techAssessProcessing() throws TCException {
 
 
         long componentId = 0;

@@ -10,18 +10,13 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 public class IndexInner extends Base {
 
 
-    protected void businessProcessing() throws Exception {
-        indexProcessing(Constants.PAGE_INDEX_INNER, Constants.RP_INDEX);
-
-    }
-
-    protected void indexProcessing(String successPage, String problemProcessor) throws Exception {
+    protected void techAssessProcessing() throws Exception {
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
                     new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
-            setNextPage(buildProcessorRequestString(problemProcessor, null, null));
+            setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
             setIsNextPageInContext(false);
 
             if (hasParameter(Constants.MESSAGE_ID)) {
@@ -33,7 +28,7 @@ public class IndexInner extends Base {
                 if (hasDefault(Constants.PROBLEM_SETS)) {
                     log.debug("has defaults");
                     getRequest().setAttribute(Constants.PROBLEM_SETS, getDefault(Constants.PROBLEM_SETS));
-                    setNextPage(successPage);
+                    setNextPage(Constants.PAGE_INDEX_INNER);
                     setIsNextPageInContext(true);
                 }
             }

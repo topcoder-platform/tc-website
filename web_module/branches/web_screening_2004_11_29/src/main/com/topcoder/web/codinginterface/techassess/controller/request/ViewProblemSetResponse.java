@@ -12,7 +12,7 @@ public class ViewProblemSetResponse extends Base {
 
     protected static final Logger log = Logger.getLogger(ViewProblemSetResponse.class);
 
-    protected void businessProcessing() throws Exception {
+    protected void techAssessProcessing() throws Exception {
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
                     new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));

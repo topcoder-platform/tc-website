@@ -21,7 +21,7 @@ public class ViewProblemSet extends Base {
      * if it's too slow making them distinct requests, we can starting throwing
      * the problem sets in the session so we don't have to retrieve them.
      */
-    protected void businessProcessing() throws Exception {
+    protected void techAssessProcessing() throws Exception {
 
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
@@ -43,9 +43,7 @@ public class ViewProblemSet extends Base {
             send(request);
 
             //need the problem type id in there so that one can hit refresh and have it work on the response.
-            showProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET_RESPONSE,
-                    new String[] {Constants.MESSAGE_ID, Constants.PROBLEM_TYPE_ID},
-                    new String[]{String.valueOf(getMessageId()), String.valueOf(problemType)}));
+            showProcessingPage();
 
             ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse)receive(5000);
 
@@ -62,7 +60,9 @@ public class ViewProblemSet extends Base {
             setDefault(Constants.PROBLEMS, problems);
             setDefault(Constants.PROBLEM_TYPE_ID, new Integer(problemType));
 
-            closeProcessingPage();
+            closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET_RESPONSE,
+                    new String[] {Constants.MESSAGE_ID, Constants.PROBLEM_TYPE_ID},
+                    new String[]{String.valueOf(getMessageId()), String.valueOf(problemType)}));
 
         }
     }

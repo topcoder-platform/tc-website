@@ -16,7 +16,7 @@ public class Logout extends Base {
 
     protected static Logger log = Logger.getLogger(Logout.class);
 
-    protected void businessProcessing() throws Exception {
+    protected void techAssessProcessing() throws Exception {
 
         ScreeningLogoutRequest request = new ScreeningLogoutRequest();
         request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);

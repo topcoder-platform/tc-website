@@ -11,7 +11,7 @@ public class CurrentTime extends Base {
 
     protected static Logger log = Logger.getLogger(CurrentTime.class);
 
-    protected void businessProcessing() throws Exception {
+    protected void techAssessProcessing() throws Exception {
 
         getRequest().setAttribute("currentTime", String.valueOf(System.currentTimeMillis()));
         setNextPage(Constants.PAGE_CURRENT_TIME);

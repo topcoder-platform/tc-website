@@ -16,9 +16,6 @@ import com.topcoder.shared.language.*;
 import java.util.*;
 import java.io.IOException;
 
-
-
-
 /**
  * @author  dok
  * @version  $Revision$ $Date$
@@ -33,6 +30,18 @@ public abstract class Base extends BaseProcessor {
     private long sessionId = -1;
     private long companyId = -1;
     private List languages = null;
+
+
+    protected void businessProcessing() throws Exception {
+        try {
+            techAssessProcessing();
+        } catch (TimeOutException e) {
+            closeProcessingPage(buildProcessorRequestString(Constants.RP_TIMEOUT, null, null));
+        }
+    }
+
+    protected abstract void techAssessProcessing() throws Exception;
+
 
 
     public void setReceiver(WebQueueResponseManager receiver) {
@@ -200,7 +209,7 @@ public abstract class Base extends BaseProcessor {
     }
 
 
-    protected void showProcessingPage(String nextPage) throws IOException {
+    protected void showProcessingPage() throws IOException {
         getResponse().setStatus(200);
         getResponse().setContentType("text/html");
 

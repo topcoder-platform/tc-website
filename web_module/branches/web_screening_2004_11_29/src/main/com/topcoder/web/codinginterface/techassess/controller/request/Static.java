@@ -10,7 +10,7 @@ import com.topcoder.web.codinginterface.techassess.Constants;
  */
 public class Static extends Base {
 
-    protected void businessProcessing() throws Exception {
+    protected void techAssessProcessing() throws Exception {
 
         StringBuffer path = new StringBuffer(100);
         for(int i=1; ; i++) {
