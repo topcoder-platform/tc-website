@@ -97,7 +97,7 @@
                 </tr>
 
 
-                <xsl:for-each select="/TC/DEVELOPMENT/projects/project"> 
+                <xsl:for-each select="/TC/DEVELOPMENT/multiplier/status"> 
                     <xsl:if test="./phase=$design-phase">
                         <tr>
                             <td class="formTextOdd" align="center">
@@ -170,7 +170,7 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Multiplier</td>
                 </tr>
                 
-                <xsl:for-each select="/TC/DEVELOPMENT/projects/project"> 
+                <xsl:for-each select="/TC/DEVELOPMENT/multiplier/status"> 
                     <xsl:if test="./phase=$dev-phase">
                         <tr>
                             <td class="formTextOdd" align="center">
