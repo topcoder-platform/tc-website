@@ -80,7 +80,7 @@
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/handle"/></xsl:attribute>
               </INPUT>
               <INPUT TYPE="hidden" NAME="To">
-                <xsl:attribute name="VALUE">development@topcoder.com</xsl:attribute>
+                <xsl:attribute name="VALUE">service@topcodersoftware.com</xsl:attribute>
               </INPUT>
               <table width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
