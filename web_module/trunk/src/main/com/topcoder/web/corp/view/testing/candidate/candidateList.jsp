@@ -47,27 +47,27 @@
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                  <tr>
                    <td align="left" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=handle">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=1">
                             Candidate
                         </A>
                    </td>
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=profile_sort">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=14">
                             Profile
                         </A>
                    </td>               
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=begin_time">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=3">
                             Begin
                         </a>
                    </td>               
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=end_time">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=4">
                             End
                         </A>
                    </td>
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=status_sort">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=15">
                             Status
                         </A>
                    </td>
@@ -75,7 +75,7 @@
                    <td align="center" class="screeningHeader">Preference Level</td>
                    <% } %>--%>
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=notes_sort">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=16">
                             Notes
                         </A>
                    </td>                                          

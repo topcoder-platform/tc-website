@@ -62,7 +62,7 @@ public class BuildCandidateList extends BaseScreeningProcessor {
             
             Map map = dAccess.getData(dataRequest);
 
-            if (map != null && map.size() == 1) {
+            if (map != null && map.size() == 2) {
                 ResultSetContainer result =
                         (ResultSetContainer) map.get(Constants.CANDIDATE_LIST_QUERY_KEY);
                 
