@@ -226,7 +226,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected boolean hasParameter(String param) {
-        return !"".equals(getRequest().getParameter(param));
+        return !"".equals(StringUtils.checkNull(getRequest().getParameter(param)));
     }
 
 
