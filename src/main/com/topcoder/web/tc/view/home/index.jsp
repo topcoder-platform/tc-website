@@ -142,12 +142,12 @@
 			<tr>
 				<td class=homeArrow>&#160;</td>
 				<td class=homeText><br/>
+				Google's creative search for elite programmers <A href="/?&t=news_events&c=art_10_25_04">...more</A><br/>[October 25 - Associated Press]<br/><br/>
 				Google holds coding contest <A href="/?&t=news_events&c=art_10_19_04">...more</A><br/>[October 19 - SJ Mercury]<br/><br/>
 				Dream Job and Juicy Premiums for Young, Crackshot Programmers [Translation] <A href="/i/pressroom/tendances_tomek.pdf">...more</A><br/>[October - Tendances Carriere]<br/><br/>
 				Google announces 50 Google Code Jam Finalists <A href="/?&t=news_events&c=pr_10_05_04">...more</A><br/>[October 5]<br/><br/>
 				Coders win, winners code <A href="http://www.newsforge.com/article.pl?sid=04/09/30/187225" target="_blank">...more</A><br/>[October 5 - NewsForge]<br/><br/>
 				Triple Threat <A href="/?&t=news_events&c=art_10_03_04">...more</A><br/>[October - SD Magazine]<br/><br/>
-				Hometown hero <A href="http://www.brainerddispatch.com/stories/100204/bus_1002040018.shtml" target="_blank">...more</A><br/>[October 2 - Brainerd Dispatch]<br/><br/>
 				</td>
 			</tr>
 		</table>
