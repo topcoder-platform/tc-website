@@ -62,22 +62,14 @@
 
 
 
-<P><B>GRAPHICS ARCHITECTURE ENGINEER</B></P>
-<p>Roles include some or all of the below:</p>
-<ul>
-<li>Develop algorithms and design hardware extending the state of the art in hardware support for computer graphics. Working within a team, graphics architects document, design, develop functional and performance simulators, validate, and verify each new chip.</li>
-<li>Develop tests, testplans, and testing infrastructure for new graphics architectures. Develop methodologies and tools for validating test results. Design and implement automated testing strategies. Test and debug CMODELs, RTL simulation and real silicon.</li>
-<li>Write and run low-level graphics tests which expose architectural performance characteristics of competitors' graphics chips. Compare results with nVidia graphics chips. Find shortcomings and strong points of each.  Work with architects to determine underlying causes. Publish and maintain results.</li>
-</ul>
+<P><B>3D GRAPHICS APPLICATION SOFTWARE ENGINEER</B><BR/><BR/> 
+Responsible for the development of small applications and demonstrations to highlight the features and performance of NVIDIA products.  Duties will include new in-house application development as well as consultation to outside development firms to enhance their products.  A strong emphasis is placed on application performance.  Ideal candidates will have working experience with Direct3D and OpenGL graphics APIs.  Additionally, experience with PC hardware performance analysis is desired.
+<BR/><BR/>
+Minimum GPA: 3.5
+<BR/><BR/>
+BS in Computer Science or equivalent.  Experience with graphics application development experience and familiarity with PC development environments.</P>
 
-<p>Requirements:</p>
-<ul>
-<li>Degree in relevant discipline (CS, EE, Math). Advanced degrees helpful.</li>
-<li>Relevant industrial experience preferred. Relevant industries include PC or workstation graphics hardware or software development, digital video or image processing, video game software development, rendering software or tools development.</li>
-<li>Strong programming ability: C, C++ and Perl preferred.</li>
-</ul>
-
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=199&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=200&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           

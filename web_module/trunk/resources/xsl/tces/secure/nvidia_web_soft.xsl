@@ -62,22 +62,16 @@
 
 
 
-<P><B>GRAPHICS ARCHITECTURE ENGINEER</B></P>
-<p>Roles include some or all of the below:</p>
-<ul>
-<li>Develop algorithms and design hardware extending the state of the art in hardware support for computer graphics. Working within a team, graphics architects document, design, develop functional and performance simulators, validate, and verify each new chip.</li>
-<li>Develop tests, testplans, and testing infrastructure for new graphics architectures. Develop methodologies and tools for validating test results. Design and implement automated testing strategies. Test and debug CMODELs, RTL simulation and real silicon.</li>
-<li>Write and run low-level graphics tests which expose architectural performance characteristics of competitors' graphics chips. Compare results with nVidia graphics chips. Find shortcomings and strong points of each.  Work with architects to determine underlying causes. Publish and maintain results.</li>
-</ul>
+<P><B>WEB SOFTWARE ENGINEER</B>
+<p>Role/Responsibilities:</p>
+<UL><li>Develop business applications to automate key internal business processes at NVIDIA.  This involves building web-based user interfaces, designing database schemas, coding business rules and workflow logic, and creating dynamically driven reports. Typical projects combine workflow automation, complex user interfaces, database design, and reporting.</li></UL>
 
-<p>Requirements:</p>
-<ul>
-<li>Degree in relevant discipline (CS, EE, Math). Advanced degrees helpful.</li>
-<li>Relevant industrial experience preferred. Relevant industries include PC or workstation graphics hardware or software development, digital video or image processing, video game software development, rendering software or tools development.</li>
-<li>Strong programming ability: C, C++ and Perl preferred.</li>
-</ul>
+<p>Minimum GPA: GPA 3.5 </p>
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=199&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<p>Candidates should have solid programming background with an emphasis on current web technologies.  Required Skills: Visual Basic.Net, ASP.Net, JavaScript, DHTML, XML, Microsoft SQL database design and T-SQL programming.</p>
+
+
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=201&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           
