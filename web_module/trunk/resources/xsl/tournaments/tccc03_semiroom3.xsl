@@ -132,12 +132,12 @@
 
                          <table border="0" cellspacing="10" cellpadding="0">
                             <tr>
-                                <td width="100" class="bodyText" nowrap="nowrap">ante</td>
+                                <td width="100" class="bodyText" nowrap="nowrap">sjelkjd</td>
                                  <td width="30" class="bodyText" align="right" nowrap="nowrap">1548.59</td>
                              </tr>
                                			
                             <tr>
-                                <td width="100" class="bodyText" nowrap="nowrap">sjelkjd</td>
+                                <td width="100" class="bodyText" nowrap="nowrap">ante</td>
                                  <td width="30" class="bodyText" align="right" nowrap="nowrap">1445.98</td>
                              </tr>
                                			
