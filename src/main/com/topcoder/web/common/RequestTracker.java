@@ -9,6 +9,7 @@ import com.topcoder.web.ejb.requestservices.RequestServices;
 
 import javax.naming.InitialContext;
 import java.util.*;
+import java.sql.Timestamp;
 
 /**
  * User: dok
@@ -69,9 +70,9 @@ public class RequestTracker {
             for (Iterator it = a.iterator(); it.hasNext();) {
                 UserRequest r = (UserRequest) it.next();
                 if (r.u.isAnonymous()) {
-                    rs.createRequest(makeUrl(r.r), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    rs.createRequest(makeUrl(r.r), new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 } else {
-                    rs.createRequest(r.u.getId(), makeUrl(r.r), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    rs.createRequest(r.u.getId(), makeUrl(r.r), new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 }
             }
 
@@ -98,10 +99,12 @@ public class RequestTracker {
     private static class UserRequest {
         private User u;
         private TCRequest r;
+        private long time;
 
         private UserRequest(User u, TCRequest r) {
             this.u = u;
             this.r = r;
+            this.time=System.currentTimeMillis();
         }
     }
 
