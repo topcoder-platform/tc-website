@@ -13,6 +13,7 @@
 
 <%
 List prefList = (List)request.getAttribute("groups");
+boolean isEdit = ((String)request.getAttribute("isEdit")).equals("true");
 %>
 
 <SCRIPT TYPE="text/javascript">
@@ -134,7 +135,8 @@ return false;
 			</tr>
 		</table> 
 
-		<div width="100%" align=center><br/><br/><a href="javascript:goToPage('ContractingLanguages');"><img src="/i/submit.jpg" border=0/></a></div>
+		<div width="100%" align=center><br/><br/><a href="javascript:goToPage('ContractingLanguages');"><img src="/i/submit.jpg" border=0/></a>
+		<%if(isEdit) {%><a href="javascript:goToPage('ContractingConfirm');"><img src="/i/jumpToEnd.jpg" border=0/></a><%}%></div>
 
 		</FORM>
 

@@ -13,6 +13,7 @@
 
 <%
 List skillList = (List)request.getAttribute("skills");
+boolean isEdit = ((String)request.getAttribute("isEdit")).equals("true");
 %>
 
 <SCRIPT TYPE="text/javascript">
@@ -111,7 +112,9 @@ return false;
 				<tc-webtag:textArea name="<%=Constants.NOTE_PREFIX + Constants.NOTE_OS%>" rows="3" cols="40"/>
 				</td>
 			</tr>
-			<tr><td class=bodyText colspan=12 align=center><br/><br/><a href="javascript:goToPage('ContractingDatabases');"><img src="/i/submit.jpg" border=0/></a></td></tr>
+			<tr><td class=bodyText colspan=12 align=center><br/><br/><a href="javascript:goToPage('ContractingDatabases');"><img src="/i/submit.jpg" border=0/></a>
+			<%if(isEdit) {%><a href="javascript:goToPage('ContractingConfirm');"><img src="/i/jumpToEnd.jpg" border=0/></a><%}%>
+			</td></tr>
 		</table>
 		</FORM>
 
