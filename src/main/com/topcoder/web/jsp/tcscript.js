@@ -57,7 +57,7 @@ function infoWindow(url) {
 }
 
 function openProblemRating(id) {
-    var width = Math.round(screen.availWidth / 2);
+    var width = Math.round(screen.availWidth * 2 / 3);
     var height = Math.round(screen.availHeight * 2 / 3);
     var left = Math.round((screen.availWidth - width) / 2);
     var top = 0;
