@@ -5,6 +5,7 @@
    <property name="build"         value="build" />
    <property name="war.dir"       value="${build}/wars" />
    <property name="email.war.name"      value="email.war"/>
+   <property name="query.war.name"      value="query.war"/>
    <property name="resume.war.name"     value="resume.war"/>
    <property name="tces.war.name" value="tces.war"/>
    <property name="stat.war.name" value="stat.war"/>
@@ -548,6 +549,7 @@
         <delete dir="${war.dir}"/>
         <mkdir  dir="${war.dir}"/>
         <antcall target="war_email"/>
+        <antcall target="war_query"/>
 <!--        <antcall target="war_tces"/> -->
 <!--        <antcall target="war_stat"/> -->
 <!--        <antcall target="war_resume"/> -->
@@ -597,6 +599,18 @@
             </zipfileset>
         </war>
     </target>
+    <target name="war_query" depends="compile">
+        <war warfile="${war.dir}/${query.war.name}" webxml="${resources}/query/web.xml">
+            <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/query/**"/>
+            </classes>
+        </war>
+    </target>
+
+
     <target name="war_tces" depends="compile">
         <war warfile="${war.dir}/${tces.war.name}" webxml="${resources}/tces/web.xml">
             <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
