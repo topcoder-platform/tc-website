@@ -24,8 +24,8 @@ public class ProjectDetail extends Base {
 
             Map resultMap = getDataAccess().getData(r);
 
-            ResultSetContainer details = (ResultSetContainer)resultMap.get("project_detail");
-            getRequest().setAttribute("projectDetail", details);
+            getRequest().setAttribute("projectDetail", resultMap.get("project_detail"));
+            getRequest().setAttribute("technologies", resultMap.get("project_technologies"));
 
             setNextPage(Constants.DESIGN_DETAIL);
             setIsNextPageInContext(true);

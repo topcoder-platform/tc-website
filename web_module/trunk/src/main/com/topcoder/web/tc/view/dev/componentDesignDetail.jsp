@@ -10,6 +10,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail= (ResultSetContainer)request.getAttribute("projectDetail");%>
+<% ResultSetContainer technologies= (ResultSetContainer)request.getAttribute("technologies");%>
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 
@@ -77,8 +78,9 @@
 <!-- Technologies -->
                         <p><strong>Technologies</strong></p>
                         <ul>
-                                 <li>tech1</li>
-                                 <li>tech2</li>
+                            <rsc:iterator list="<%=technologies%>" id="item">
+                                <li><rsc:item row="<%=item%>" name="technology_name"/></li>
+                            </rsc:iterator>
                         </ul>
 
 <!-- Documentation -->
@@ -156,7 +158,7 @@
                             use Project Submit &amp; Review to check timelines, submit solutions and final fixes, and review your scorecards.</p>
                             <!-- Learn more about Project Submit & Review (link to future How-to guide -->
 
-                           <p align="center"><strong><A href="http://software.topcoder.com/review">Project Submit &amp; Review</A> &gt;</strong></p>
+                           <p align="center"><strong><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit &amp; Review</A> &gt;</strong></p>
                     </td>
                 </tr>
             </table>
