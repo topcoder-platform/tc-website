@@ -84,6 +84,7 @@
 <!-- Right Column begins -->
                     <jsp:include page="../includes/right.jsp">
                         <jsp:param name="level1" value="testing"/>
+                        <jsp:param name="level2" value="attributes"/> 
                     </jsp:include>
 <!-- Right Column ends -->
 
