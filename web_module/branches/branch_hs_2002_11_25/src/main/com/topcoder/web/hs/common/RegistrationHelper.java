@@ -343,10 +343,12 @@ public class RegistrationHelper {
       user.setFirstName(user_id,_srb.getFirstName());
       user.setLastName(user_id,_srb.getLastName());
 
-      UserTermsOfUseHome utouh=(UserTermsOfUseHome)
-                                    ctx.lookup(UserTermsOfUseHome.EJB_REF_NAME);
-      UserTermsOfUse user_terms_of_use=utouh.create();
-      user_terms_of_use.createUserTermsOfUse(user_id,TERMS_OF_USE_ID);
+      UserSchoolHome ush=(UserSchoolHome)
+                                        ctx.lookup(UserSchoolHome.EJB_REF_NAME);
+      UserSchool user_school=ush.create();
+      user_school.createUserSchool(user_id,_srb.getSchoolId().longValue());
+      user_school.setCurrentUserSchoolId(user_id,
+                                         _srb.getSchoolId().longValue());
 
       EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
       Email email=eh.create();
@@ -361,6 +363,11 @@ public class RegistrationHelper {
       coder.setMemberSince(user_id,new java.sql.Date(new Date().getTime()));
       coder.setEditorId(user_id,_srb.getEditorId().intValue());
       coder.setLanguageId(user_id,_srb.getLanguageId().intValue());
+
+      UserTermsOfUseHome utouh=(UserTermsOfUseHome)
+                                    ctx.lookup(UserTermsOfUseHome.EJB_REF_NAME);
+      UserTermsOfUse user_terms_of_use=utouh.create();
+      user_terms_of_use.createUserTermsOfUse(user_id,TERMS_OF_USE_ID);
 
       RatingHome rh=(RatingHome)ctx.lookup(RatingHome.EJB_REF_NAME);
       Rating rating=rh.create();
@@ -417,6 +424,14 @@ public class RegistrationHelper {
       User user=uh.create();
       user.setFirstName(_srb.getUserId().longValue(),_srb.getFirstName());
       user.setLastName(_srb.getUserId().longValue(),_srb.getLastName());
+
+      UserSchoolHome ush=(UserSchoolHome)
+                                        ctx.lookup(UserSchoolHome.EJB_REF_NAME);
+      UserSchool user_school=ush.create();
+      user_school.createUserSchool(_srb.getUserId().longValue(),
+                                   _srb.getSchoolId().longValue());
+      user_school.setCurrentUserSchoolId(_srb.getUserId().longValue(),
+                                         _srb.getSchoolId().longValue());
 
       EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
       Email email=eh.create();
@@ -674,10 +689,12 @@ public class RegistrationHelper {
       user.setFirstName(user_id,_crb.getFirstName());
       user.setLastName(user_id,_crb.getLastName());
 
-      UserTermsOfUseHome utouh=(UserTermsOfUseHome)
-                                    ctx.lookup(UserTermsOfUseHome.EJB_REF_NAME);
-      UserTermsOfUse user_terms_of_use=utouh.create();
-      user_terms_of_use.createUserTermsOfUse(user_id,TERMS_OF_USE_ID);
+      UserSchoolHome ush=(UserSchoolHome)
+                                        ctx.lookup(UserSchoolHome.EJB_REF_NAME);
+      UserSchool user_school=ush.create();
+      user_school.createUserSchool(user_id,_crb.getSchoolId().longValue());
+      user_school.setCurrentUserSchoolId(user_id,
+                                         _crb.getSchoolId().longValue());
 
       EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
       Email email=eh.create();
@@ -692,6 +709,11 @@ public class RegistrationHelper {
       coder.setMemberSince(user_id,new java.sql.Date(new Date().getTime()));
       coder.setEditorId(user_id,_crb.getEditorId().intValue());
       coder.setLanguageId(user_id,_crb.getLanguageId().intValue());
+
+      UserTermsOfUseHome utouh=(UserTermsOfUseHome)
+                                    ctx.lookup(UserTermsOfUseHome.EJB_REF_NAME);
+      UserTermsOfUse user_terms_of_use=utouh.create();
+      user_terms_of_use.createUserTermsOfUse(user_id,TERMS_OF_USE_ID);
 
       RatingHome rh=(RatingHome)ctx.lookup(RatingHome.EJB_REF_NAME);
       Rating rating=rh.create();
