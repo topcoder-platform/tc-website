@@ -15,7 +15,7 @@
                 </tr>    
                              
                <tr valign="top">
-                    <td class="bodyText">03.13.2002</td>
+                    <td class="bodyText">03.13.2003</td>
                     <td class="bodyText" width="99%"><a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_03_13_03</xsl:attribute>Sun Microsystems and TopCoder Highlight Field for 2003 Collegiate Challenge</a></td>
                 </tr>    
                              
