@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.corp.common.Constants,
                  java.util.List,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.corp.common.JSPUtils"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -18,9 +19,9 @@
 
 <!-- Sort the list of results by desired column if required -->
 <%
+    ResultSetContainer results = (ResultSetContainer) request.getAttribute(Constants.CAMPAIGN_RESULTS_LIST);
     String sortBy = request.getParameter(Constants.SORT_BY);
     if (sortBy != null) {
-        ResultSetContainer results = (ResultSetContainer) request.getAttribute(Constants.CAMPAIGN_RESULTS_LIST);
         if (results != null) {
             results.sortByColumn(sortBy, true);
         }
@@ -39,26 +40,30 @@
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
                     <td class="bodyText">
+                        <%
+                            List info = (List) request.getAttribute(Constants.COMPANY_INFO);
+                            ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) info.get(0);
+                        %>
                         <p><span class="testHead">Campaign Results</span><br/>
-                        <screen:resultSetRowIterator id="row"
-                                list="<%=(List) request.getAttribute(Constants.COMPANY_INFO)%>">
-                        Company Name: <screen:resultSetItem row="<%=row%>" name="company_name" /><br/>
-                        </screen:resultSetRowIterator>
-                        <screen:resultSetRowIterator id="row"
-                                list="<%=(List) request.getAttribute(Constants.CAMPAIGN_INFO)%>">
-                        Campaign Name: <screen:resultSetItem row="<%=row%>" name="campaign_name" /><br/>
-                        </screen:resultSetRowIterator>
+                        Company Name: <%=row.getStringItem("company_name")%><br/>
+                        <%
+                            info = (List) request.getAttribute(Constants.COMPANY_INFO);
+                            row = (ResultSetContainer.ResultSetRow) info.get(0);
+                        %>
+                        Campaign Name: <%=row.getStringItem("campaign_name")%><br/>
                         </p>
                     </td>
                 </tr>
             </table>
 
             <br/>
-
+            <%
+                info = (List) request.getAttribute(Constants.CAMPAIGN_RESULTS_LIST);
+            %>
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
                     <td class="bodyText">Total Candidates:
-                        <b><%= ((List) request.getAttribute(Constants.CAMPAIGN_RESULTS_LIST)).size()%></b>
+                        <b><%= info.size()%></b>
                     </td>
                     <td class="bodyText" align=right>Showing 1-20:&#160;&#160;&#160;<A href="/">Prev 20</A> | <A href="/">Next 20</a></td>
                 </tr>
@@ -110,52 +115,51 @@
                     int counter = 0;
                     String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
                     String[] swfFiles = {"/i/corp/screeningRatingEven.swf", "/i/corp/screeningRatingOdd.swf"};
+
+                    for (int i = 0; i < info.size(); i++) {
+                        row = (ResultSetContainer.ResultSetRow) info.get(i);
                 %>
-
-
-<%--                <screen:resultSetRowIterator id="row"
-                        list="<%=(List) request.getAttribute(Constants.CAMPAIGN_RESULTS_LIST)%>"> --%>
-
                 <tr>
 
                     <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
-                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POPULATE_CANDIDATE_PROCESSOR%>&<%=Constants.CANDIDATE_ID%>=<screen:resultSetItem row="<%=row%>" name="user_id" />'>
-                            <screen:resultSetItem row="<%=row%>" name="first_name" />
-                            <screen:resultSetItem row="<%=row%>" name="middle_name" />
-                            <screen:resultSetItem row="<%=row%>" name="last_name" />
+                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POPULATE_CANDIDATE_PROCESSOR%>&<%=Constants.CANDIDATE_ID%>=<%=row.getStringItem("user_id")%>'>
+                            <%=row.getStringItem("first_name") + " " + row.getStringItem("middle_name") + " "
+                               + row.getStringItem("last_name") %>
                         </A>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>'>
-                        <screen:resultSetItem row="<%=row%>" name="state_code" />
+                        <%=row.getStringItem("state_code")%>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
-                        <screen:resultSetItem row="<%=row%>" name="country_name" />
+                        <%=row.getStringItem("country_name")%>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
-                        <screen:resultSetItem row="<%=row%>" name="coder_type_desc" />
+                        <%=row.getStringItem("coder_type_desc")%>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>'>
-                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.JOB_POSITION_ID%>=<screen:resultSetItem row="<%=row%>" name="job_id" />'>
-                            <screen:resultSetItem row="<%=row%>" name="job_desc" />
+                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.JOB_POSITION_ID%>=<%=row.getStringItem("job_id")%>'>
+                            <%=row.getStringItem("job_desc")%>
                         </A>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>'>
-                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.PROBLEM_DETAIL_PAGE%>&<%=Constants.PROBLEM_ID%>=<screen:resultSetItem row="<%=row%>" name="problem_id" />'>
-                            <screen:resultSetItem row="<%=row%>" name="problem_name" />
+                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.PROBLEM_DETAIL_PAGE%>&<%=Constants.PROBLEM_ID%>=<%=row.getStringItem("problem_id")%>'>
+                            <%=row.getStringItem("problem_name")%>
                         </A>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
-                         <screen:resultSetItem row="<%=row%>" name="total_time" />
+                        <%=JSPUtils.timeFormat(row.getLongItem("total_time"))%>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
-                        <A href='/corp/testing/?<%=Constants.MODULE_KEY%>=PopulateProblemDetail&<%=Constants.ROUND_PROBLEM_ID%>=<screen:resultSetItem row="<%=row%>" name="problem_id" />'>view</A>
+                        <A href='/corp/testing/?<%=Constants.MODULE_KEY%>=PopulateProblemDetail&<%=Constants.ROUND_PROBLEM_ID%>=<%=row.getStringItem("problem_id")%>'>
+                            view
+                        </A>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
@@ -191,11 +195,14 @@
                     </td>
 
                     <td class='<%=cssClasses[counter++ % 2]%>' align=center>
-                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POPULATE_CANDIDATE_PROCESSOR%>&<%=Constants.CANDIDATE_ID%>=<screen:resultSetItem row="<%=row%>" name="user_id" />'>
+                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POPULATE_CANDIDATE_PROCESSOR%>&<%=Constants.CANDIDATE_ID%>=<%=row.getStringItem("user_id")%>'>
                         view
                         </A>
                     </td>
                 </tr>
+                <%
+                    }
+                %>
 
             </table>
 
