@@ -93,9 +93,6 @@ public class GoogleRegSubmit extends FullRegSubmit {
             buf.append(Constants.MODULE_KEY);
             buf.append("=");
             buf.append(Constants.STATIC);
-            buf.append("&");
-            buf.append(Constants.STATIC_PREFIX);
-            buf.append("1=");
             buf.append(Constants.GOOGLE_REG_SUCCESS_PAGE);
             setNextPage(buf.toString());
             setIsNextPageInContext(false);
