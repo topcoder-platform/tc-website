@@ -33,6 +33,23 @@ if ( plugin ) {
 //-->
 ?</SCRIPT>
 
+<script type="text/javascript" language="Javascript">
+<!--
+function getProblemDetail(id) {
+    var width = screen.availWidth * 2 / 3;
+    var height = screen.availHeight / 2;
+    var left = (screen.availWidth - width) / 2;
+    var top = 0;
+    var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
+    var name="problemDetail";
+
+    <% String url = "/corp/testing/?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
+    window.open('<%=url%>&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
+    return;
+  }
+-->
+</script>
+
 </HEAD>
 <body>
 
@@ -190,7 +207,7 @@ if ( plugin ) {
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>'>
-                        <A href='?<%=Constants.MODULE_KEY%>=PopulateProblemDetail&<%=Constants.ROUND_PROBLEM_ID%>=<%=row.getStringItem("problem_id")%>'>
+                        <A href='JavaScript:getProblemDetail(<%=row.getStringItem("problem_id")%>)'>
                             <%=row.getStringItem("problem_name")%>
                         </A>
                     </td>
