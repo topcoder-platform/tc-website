@@ -68,6 +68,7 @@ public class HTMLRenderer {
         byte[] result = null;
         try {
             cache = XSLTransformerCache.getInstance();
+            log.info("removing " + cache.size() + " items from the cache");
             cache.clear();
             java.net.InetAddress localHost = java.net.InetAddress.getLocalHost();
             result = localHost.getAddress();
