@@ -76,6 +76,12 @@
 
                             <ol>
                                 <li>
+                                    <p><strong>UPDATE YOUR MEMBER PROFILE</strong> - your member profile <u>must be</u>
+                                        accurate <u>and complete</u>.  You will not receive a cash prize or a t-shirt
+                                        unless your profile is complete.
+                                    </p>
+                                </li>
+                                <li>
                                 <p><strong>AFFIDAVIT</strong> - must be postmarked on or before Midnight, Eastern Time, Wednesday, November 12th.</p>
                                 <p>
                                 <xsl:choose>
