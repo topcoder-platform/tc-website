@@ -2,14 +2,16 @@ package com.topcoder.web.corp.request;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import com.topcoder.shared.security.User;
+import com.topcoder.shared.security.*;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.shared.util.DBMS;
 
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
+
 import java.util.*;
+import javax.naming.InitialContext;
 
 /**
 * Processor for user list page, contains logic for setting up a
@@ -39,7 +41,7 @@ public class UserList extends BaseProcessor {
         log.debug("Attempting to set up user list");
         pageInContext = true;
         BasicAuthentication authToken = getAuthenticityToken();
-        if (!authToken.isLoggedIn(true)) {
+        if (!authToken.isLoggedIn()) {
             throw new AuthenticationException("You must be logged in to perform this action");
         }
 
@@ -59,7 +61,7 @@ public class UserList extends BaseProcessor {
         dataRequest.setProperty("cm", Long.toString(companyId) );
         
         DataAccessInt dai = new DataAccess(
-            (javax.sql.DataSource)getInitialContext().lookup("CORP_OLTP"));
+            (javax.sql.DataSource)new InitialContext().lookup("CORP_OLTP"));
 
         Map resultMap = dai.getData(dataRequest);
         
