@@ -101,20 +101,14 @@ All four requirements must be met for TopCoder to release payment.
           You cannot affirm this affidavit online for the following reason(s):
           <ul>
       <% if (!a.hasNotarizedAffidavit()) { %>
-<%System.out.println("not notarized");%>
         <li>You do not have a notarized affidavit on file.</li>
       <% } else if (!a.hasTaxForm()) { %>
-<%System.out.println("missing tax form");%>
         <li>You do not have a tax form on file.</li>
       <% } else if (!a.hasAllDemographicAnswers()) { %>
-<%System.out.println("missing demographics");%>
         <li>Your demographic answers are incomplete.</li>
       <% } else if (a.affidavit._daysLeftToAffirm<=0) { %>
-<%System.out.println("no time");%>
         <li>This affidavit has expired.</li>
-      <% } else {
-          System.out.println("somethinge else");
-      } %>
+      <% } %>
 
       </ul>
         </p></b>
@@ -122,12 +116,14 @@ All four requirements must be met for TopCoder to release payment.
 	} else {
 		if(!a.affidavit._header._affirmed) {
 a.affidavitText = new String("<form action=PactsMemberServlet?t=affidavit&c=affirm_affidavit  method=post>") + a.affidavitText;
+/*
 			if(a.payment._country.equals("India")) {
 				int idx = a.affidavitText.indexOf("FILL IN AGED");
 				a.affidavitText = a.affidavitText.substring(0,idx) + "<input type=\"text\" name=\"aged\" size=15 maxlength=15>" + a.affidavitText.substring(idx+(new String("FILL IN AGED")).length());
 				idx = a.affidavitText.indexOf("FILL IN BELOW");
 				a.affidavitText = a.affidavitText.substring(0,idx) + "<input type=\"text\" name=\"family_name\" size=25 maxlength=25>" + a.affidavitText.substring(idx+(new String("FILL IN BELOW")).length());
 			}
+*/
 out.print("<p>" + a.affidavitText + "</p>");
 out.print("<center><table><tr><td class=\"bodyText\">");
 out.print("<input type=hidden name=" + PactsConstants.AFFIDAVIT_ID);
