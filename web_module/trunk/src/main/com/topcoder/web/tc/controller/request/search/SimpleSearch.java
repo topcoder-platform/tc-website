@@ -16,34 +16,9 @@ import java.util.Map;
 public class SimpleSearch extends Base {
     protected void businessProcessing() throws TCWebException {
 
-        Request r = new Request();
-        r.setContentHandle("member_search");
         try {
 
-            MemberSearch m = buildMemberSearch();
-
-            r.setProperty(DataAccessConstants.START_RANK, m.getStart().toString());
-            r.setProperty(DataAccessConstants.END_RANK, m.getEnd().toString());
-            if (m.getHandle()!=null) r.setProperty(Constants.HANDLE, m.getHandle());
-            if (m.getStateCode()!=null) r.setProperty(Constants.STATE_CODE, m.getStateCode());
-            if (m.getMinRating()!=null) r.setProperty(Constants.MIN_RATING, m.getMinRating().toString());
-            if (m.getMaxRating()!=null) r.setProperty(Constants.MAX_RATING, m.getMaxRating().toString());
-            if (m.getMinNumRatings()!=null) r.setProperty(Constants.MIN_NUM_RATINGS, m.getMinNumRatings().toString());
-            if (m.getMaxNumRatings()!=null) r.setProperty(Constants.MAX_NUM_RATINGS, m.getMaxNumRatings().toString());
-
-            CachedDataAccess cda = (CachedDataAccess)getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
-            cda.setExpireTime(15*60*1000); //cache for 15 minutes
-            Map res = cda.getData(r);
-
-            ResultSetContainer rsc = (ResultSetContainer)res.get("member_search");
-            ResultSetContainer count = (ResultSetContainer)res.get("count");
-            m.setResults(rsc);
-            m.setTotal(count.getIntItem(0, "count"));
-            if (m.getEnd().intValue()>m.getTotal()) {
-                m.setEnd(new Integer(m.getTotal()));
-            }
-            getRequest().setAttribute("memberSearch", m);
-
+            getRequest().setAttribute("memberSearch", getResults());
             setNextPage(Constants.SIMPLE_SEARCH_RESULTS);
             setIsNextPageInContext(true);
 
@@ -82,29 +57,6 @@ public class SimpleSearch extends Base {
         if (!handle.equals(""))
             ret.setHandle(handle);
 
-        String stateCode = StringUtils.checkNull(getRequest().getParameter(Constants.STATE_CODE));
-        if (!stateCode.equals(""))
-            ret.setStateCode(stateCode);
-
-        String minRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_RATING));
-        if (!minRating.equals(""))
-            ret.setMinRating(new Integer(minRating));
-
-        String maxRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_RATING));
-        if (!maxRating.equals(""))
-            ret.setMaxRating(new Integer(maxRating));
-
-        String minNumRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_NUM_RATINGS));
-        if (!minNumRatings.equals(""))
-            ret.setMinNumRatings(new Integer(minNumRatings));
-
-        String maxNumRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_NUM_RATINGS));
-        if (!maxNumRatings.equals(""))
-            ret.setMaxNumRatings(new Integer(maxNumRatings));
-
-        ret.setStateList(getStateList());
-        ret.setCountryList(getCountryList());
-
         return ret;
     }
 
@@ -135,6 +87,26 @@ public class SimpleSearch extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    protected MemberSearch getResults() throws Exception {
+        MemberSearch m = buildMemberSearch();
+        Request r = new Request();
+        r.setContentHandle("member_search");
+        r.setProperty(DataAccessConstants.START_RANK, m.getStart().toString());
+        r.setProperty(DataAccessConstants.END_RANK, m.getEnd().toString());
+        if (m.getHandle()!=null) r.setProperty(Constants.HANDLE, m.getHandle());
+        CachedDataAccess cda = (CachedDataAccess)getDataAccess(DBMS.DW_DATASOURCE_NAME, true);
+        cda.setExpireTime(15*60*1000); //cache for 15 minutes
+        Map res = cda.getData(r);
+        ResultSetContainer rsc = (ResultSetContainer)res.get("member_search");
+        ResultSetContainer count = (ResultSetContainer)res.get("count");
+        m.setResults(rsc);
+        m.setTotal(count.getIntItem(0, "count"));
+        if (m.getEnd().intValue()>m.getTotal()) {
+            m.setEnd(new Integer(m.getTotal()));
+        }
+        return m;
     }
 
 }
