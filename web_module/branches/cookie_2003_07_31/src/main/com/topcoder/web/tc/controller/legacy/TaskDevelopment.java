@@ -115,7 +115,7 @@ public final class TaskDevelopment {
 
     static String process(HttpServletRequest request, HttpServletResponse response,
                           HTMLRenderer HTMLmaker, Navigation nav, XMLDocument document)
-            throws NavigationException {
+            throws Exception {
         String result = null;
         String cacheKey = null;
         try {
@@ -167,7 +167,7 @@ public final class TaskDevelopment {
             }
             /********************** tcs_inquire *******************/
             else if (command.equals("tcs_inquire") || command.equals("tcs_app_inquire")) {
-                if (nav.nav.isLoggedIn()) {
+                if (nav.isLoggedIn()) {
                     Request dataRequest = null;
                     ResultSetContainer rsc = null;
                     Map resultMap = null;
