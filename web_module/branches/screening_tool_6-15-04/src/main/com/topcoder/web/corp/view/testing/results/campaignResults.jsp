@@ -200,7 +200,7 @@ function getProblemDetail(id) {
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
                         <A href='?<%=Constants.MODULE_KEY%>=ProblemResult&<%=Constants.ROUND_ID%>=<%=row.getStringItem("session_round_id")%>&<%=Constants.PROBLEM_ID%>=<%=row.getStringItem("problem_id")%>&<%=Constants.SESSION_ID%>=<%=row.getStringItem("session_id")%>&<%=Constants.PROBLEM_TYPE_ID%>=<%=row.getStringItem("problem_type_id")%><%--&<%=Constants.ROUND_ID%>=<%=row.getStringItem("session_round_id")%>--%>'>
-                            view
+                            <%=row.getStringItem("problem_text")%>
                         </A>
                     </td>
 

@@ -175,7 +175,7 @@ function getProblemDetail(id) {
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=preference_level&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">Preference<br/>Level</A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
-                        <A class=screeningHeader href="">Notes</A>
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=note_text&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">Notes</A>
                     </td>
                 </tr>
 
