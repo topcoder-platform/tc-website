@@ -19,12 +19,12 @@
 <% ResultSetContainer rscProject = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_details"); %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_results"); %>
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_details"); %>
-<%--<%
+<%
     boolean isComplete = false;
     if(rscProject.getIntItem(0, "complete_status") == 1) {
         isComplete = true;
     }
-%>--%>
+%>
 <body>
 
 <jsp:include page="../top.jsp" >
