@@ -24,7 +24,7 @@
                     <tr>
                         <td align="center">
                             <a href="JavaScript:document.paymentForm.submit();">Generate SRM Payments</a> <br />
-                            <a href="JavaScript:document.paymentForm.<%=PactsConstants.AFFIDAVIT_TYPE_ID%>.value='<%=PactsConstants.TCCC05_ALGORITHM_AFFIDAVIT%>';document.paymentForm.submit();">submit</a> <br />
+                            <a href="JavaScript:document.paymentForm.<%=PactsConstants.AFFIDAVIT_TYPE_ID%>.value='<%=PactsConstants.TCCC05_ALGORITHM_AFFIDAVIT%>';document.paymentForm.submit();">Generate TCCC 05 Payments</a> <br />
                         </td>
                     </tr>
                 </table>
