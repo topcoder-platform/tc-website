@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.web.email.servlet.*" %>
-<jsp:useBean id="AddressList" scope="request" class="com.topcoder.web.email.bean.AddressListForm" />
+<jsp:useBean id="AddressList" scope="sessionz" class="com.topcoder.web.email.bean.AddressListForm" />
 
 <html>
 <head>

@@ -68,7 +68,7 @@ public class Controller
                   && userPass.equals("bypass"))) {
                     loggedin = new boolean[1];
                     loggedin[0] = true;
-                    request.setAttribute("IsUserLoggedIn", loggedin);
+                    request.getSession().setAttribute("IsUserLoggedIn", loggedin);
                 }
 */
 
