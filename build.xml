@@ -32,8 +32,6 @@
    <property name="debug"   value="true" />
    <property name="junitsummary" value="on" />
 
-
-
    <path id="class.path">
       <pathelement location="${classes}" />
       <pathelement location="${testclasses}" />
