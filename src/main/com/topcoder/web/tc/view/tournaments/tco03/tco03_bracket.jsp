@@ -62,7 +62,7 @@
                <tr>
                   <td width = "10%" align = "right" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=seed">Seed</a></td>
                   <td width = "15%" align = "left" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=handle_sort">Handle</a></td>
-                  <td width = "15%" align = "right" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=rating">Rating</a></td>
+                  <td width = "15%" align = "right" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=desc&sc=rating">Rating</a></td>
                   <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=round1_sort">Round 1</a></td>
                   <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=round2_sort">Round 2</a></td>
                   <td width = "10%" align = "center" class="bracket_header"><a class="topLink" href="?module=SimpleStats&c=tco03_bracket&trans=true&sd=asc&sc=round3_sort">Round 3</a></td>
