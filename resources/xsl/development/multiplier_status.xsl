@@ -84,7 +84,7 @@
 
 <!-- Component Design Projects begin -->
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="design"></a><font size="3"><strong>Component Design Multiplier Status</strong></font></td></tr>
+                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="7"><a name="design"></a><font size="3"><strong>Component Design Multiplier Status</strong></font></td></tr>
 
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" width="35" class="statTextLarge" align="center">Catalog</td>
@@ -93,6 +93,7 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Design<br />Rating</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Inquiry<br />Date</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submission<br />Date</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Multiplier</td>
                 </tr>
 
 
@@ -136,32 +137,37 @@
                                 <xsl:when test="./submission_date != ''"> 
                                     <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="submission_date"/></xsl:call-template>
 
-                                    <xsl:if test="./submission_date = ./min_sub_date">
-                                        <BR/>MULTIPLIER 
-        			    </xsl:if>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     -
                                 </xsl:otherwise>
                             </xsl:choose>
                             </td>
+                            <td>
+                                 <CENTER>
+                                    <xsl:if test="./submission_date = ./min_sub_date">
+                                        MULTIPLIER 
+        			    </xsl:if>
+                                 </CENTER>
+                            </td>
                         </tr>                 
                     </xsl:if>
                 </xsl:for-each> 
 
-                <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
 <!-- Component Design Projects ends -->
 
 <!-- Component Dev Projects begin -->
-                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="6"><a name="development"></a><font size="3"><strong>Component Development Multiplier Status</strong></font></td></tr>
+                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="7"><a name="development"></a><font size="3"><strong>Component Development Multiplier Status</strong></font></td></tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" width ="10%" class="statTextLarge" align="center">Catalog</td>
+                    <td background="/i/graybv_bg.gif" width ="35" class="statTextLarge" align="center">Catalog</td>
                     <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Development Projects</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Developer</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Developer<br />Rating</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Inquiry<br />Date</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submission<br />Date</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Multiplier</td>
                 </tr>
                 
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project"> 
@@ -204,14 +210,18 @@
                             <xsl:choose>
                                 <xsl:when test="./submission_date != ''"> 
                                     <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="submission_date"/></xsl:call-template>
-                                    <xsl:if test="./submission_date = ./min_sub_date">
-                                        MULTIPLIER 
-        			    </xsl:if>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     -
                                 </xsl:otherwise>
                             </xsl:choose>
+                            </td>
+                            <td>
+                                 <CENTER>
+                                    <xsl:if test="./submission_date = ./min_sub_date">
+                                        MULTIPLIER 
+        			    </xsl:if>
+                                 </CENTER>
                             </td>
                         </tr>                 
                     </xsl:if>
