@@ -177,92 +177,30 @@
 
 <IMG SRC="/i/es/ge/ge_logo.gif" WIDTH="39" HEIGHT="41" ALT="" BORDER="0"/>
 
-<P><B>IMLP<BR/>
- (Information Management Leadership Program)</B></P>
+<P><B>Program Summary and Candidate Criteria</B></P>
 
-<A HREF="#imlp" CLASS="bodyText">What is IMLP?</A><BR/>
-<A HREF="#process" CLASS="bodyText">How does the IMLP recruiting process work?</A><BR/>
-<A HREF="#which" CLASS="bodyText">Which GE Business am I interviewing for?</A><BR/>
-<A HREF="#choose" CLASS="bodyText">Can I choose the GE Business where I want to work?</A><BR/>
-<A HREF="#differ" CLASS="bodyText">Does the program differ between GE businesses?</A><BR/>
-<A HREF="#work" CLASS="bodyText">What kind of work will I be doing as an IMLP?</A><BR/>
-<A HREF="#training" CLASS="bodyText">What is IMLP training like?  What will I be learning?</A><BR/>
-<A HREF="#rotation" CLASS="bodyText">Can I do a cross-functional or cross-business rotation?</A><BR/>
-<A HREF="#relocate" CLASS="bodyText">Will I relocate while on program?  Are moving expenses reimbursed?</A><BR/>
-<A HREF="#international" CLASS="bodyText">Is there an opportunity for an international assignment during IMLP?</A><BR/>
-<A HREF="#path" CLASS="bodyText">What type of career path will IMLP set me on?</A><BR/>
-<A HREF="#benefits" CLASS="bodyText">What benefits does GE offer?</A><BR/>
+<BLOCKQUOTE>
+<P><B>Program Summary</B></P>
+<UL>
+<LI>A 2-year program consisting of four 6-month rotational assignments through different areas of a GE business.</LI>
+<LI>On-the-job training in business dynamics, career strategies, communication skills, problem solving, decision making and project leadership</LI>
+<LI>Formal coursework in advanced information technology and systems, and their strategic application within GE</LI>
+<LI>Develops strong technical foundation, project management skills and process knowledge that cuts across functions to support GE's boundaryless culture</LI>
+</UL>
 
-<A NAME="imlp"></A>
-<P><B>What is IMLP?</B></P>
-<P>The IMLP is GE's premiere entry-level training program for high potential individuals seeking an accelerated career in Information Technology. The program consists of four 6 month rotational assignments at a GE Business combined with training. </P>
+<P><B>Candidate Criteria</B></P>
+<UL>
+<LI>Strong interest in information technology applications</LI>
+<LI>Solid analytical abilities and sharp business acumen</LI>
+<LI>BA in Computer Science, Information Systems or Engineering preferred; Business and Liberal Arts degrees or other related experience may be applicable</LI>
+</UL>
+</BLOCKQUOTE>
 
-<A HREF="#top" CLASS="bodyText">top of page</A>
+<P><A HREF="/?t=jobs&amp;c=ge_faq">Read our Frequently Asked Questions</A></P>
 
-<A NAME="process"></A>
-<P><B>How does the IMLP recruiting process work?</B></P>
-<P>GE recruits for IMLP candidates at 35 U.S. universities. The on-campus process consists of one 45- minute interview per candidate that is preceded by an education session the evening before. Candidates selected from the on-campus interviews will be invited to the GE business that they have expressed an interest in for a site visit. The site visit interview allows students to get a better sense of the business. </P>
+<P>If you are interested in IMLP or an IMLP internship apply below"</P>
 
-<A HREF="#top" CLASS="bodyText">top of page</A>
-
-<A NAME="which"></A>
-<P><B>Which GE Business am I interviewing for?</B></P>
-<P>On campus, we recruit for positions on GE's Information Management Leadership Program in the U.S., not for a one specific Business, unless one particular business is sponsoring a given event. After the initial interview, candidates are queried as to the GE business they have an interest in exploring further. Students are then invited to a GE Business for a second round of interviews. At this point, the candidate will be interviewing for a specific GE Business. </P>
-
-<A HREF="#top" CLASS="bodyText">top of page</A>
-
-<A NAME="choose"></A>
-<P><B>Can I choose the GE Business where I want to work?</B></P>
-<P>Yes. We look for the best combined fit. At GE Capital, students are required to rotate across the different GE Capital businesses. The first rotation is assigned and the next three rotations are elected by the student. </P>
-
-<A HREF="#top" CLASS="bodyText">top of page</A>
-
-<A NAME="differ"></A>
-<P><B>Does the program differ between GE businesses?</B></P>
-<P>The program's philosophy, goals and basic structure of a combination of rotational assignments and course curriculum are the same across all GE businesses worldwide. What may differ between Businesses are the size of the program, evaluation process, assignment selection and off-program assignment process. </P>
-
-<A HREF="#top" CLASS="bodyText">top of page</A>
-
-<A NAME="work"></A>
-<P><B>What kind of work will I be doing as an IMLP?</B></P>
-<P>The nature of the work will depend upon the assignment; however, many similar experiences exist across businesses. IMLP's will be given challenging assignments that may include responsibilities ranging from project management, technical development and design, infrastructure management, process re-engineering, telecommunications. </P>
-
-<A HREF="#top" CLASS="bodyText">top of page</A>
-
-<A NAME="training"></A>
-<P><B>What is IMLP training like? What will I be learning?</B></P>
-<P>The training focuses both on developing leadership skill as well as your technical acumen through courses such as our 6-week boot camp, distance learning, and independent studies. Program members learn skills in teambuilding, presentation and business writing, database design and deployment, network components and functional design. </P>
-
-<A HREF="#top" CLASS="bodyText">top of page</A>
-
-<A NAME="rotation"></A>
-<P><B>Can I do a cross-functional or cross-business rotation?</B></P>
-<P>In general, yes most businesses allow for one or two cross-functional rotations as part of their program. Cross-business rotations are possible depending on the different businesses. </P>
-
-<A HREF="#top" CLASS="bodyText">top of page</A>
-
-<A NAME="relocate"></A>
-<P><B>Will I relocate while on program? Are moving expenses reimbursed?</B></P>
-<P>Businesses with IMLP assignments in multiple locations may require relocation from every 6 months to 1 year. However, assignment locations are based on Business needs. If a move is required, GE will pay for most basic moving expenses and provide relocation assistance. Rent subsidies and some other expense reimbursements differ by business and are often driven by cost of living differences between locations. </P>
-
-<A HREF="#top" CLASS="bodyText">top of page</A>
-
-<A NAME="international"></A>
-<P><B>Is there an opportunity for an international assignment during IMLP?</B></P>
-<P>This depends on the GE Businesses and whether they have international assignments; however, they only represent a small percent of the total assignments available. Therefore, a relatively small number of IMLP's will have an international assignment while on program. </P>
-
-<A HREF="#top" CLASS="bodyText">top of page</A>
-
-<A NAME="path"></A>
-<P><B>What type of career path will IMLP set me on?</B></P>
-<P>IMLP prepares graduates to become future information technology leaders. Off-program, graduates are hired into challenging positions with a significant level of responsibility. </P>
-
-<A HREF="#top" CLASS="bodyText">top of page</A>
-
-<A NAME="#benefits"></A>
-<P><B>What benefits does GE offer?</B></P>
-<P><A HREF="http://www.gecareers.com/AboutGE/e_ben.cfm">GE Benefits</A></P>
-
+<P><B><A HREF="http://www.gecareers.com/campus/filled.cfm?FilledDate=September%202">Apply</A></B></P>
 
 <!--end contextual links-->
 
