@@ -429,18 +429,14 @@
                         <td width="35%" class="statText" nowrap="nowrap">
                             <A>
                             <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
-                            <xsl:attribute name="CLASS">bodyText</xsl:attribute>
-
-                            <font>
-                            <xsl:attribute name="color">
-                                <xsl:call-template name="GetRatingColor">
+                            <xsl:attribute name="CLASS">
+                                <xsl:call-template name="GetRatingClass">
                                     <xsl:with-param name="rating">
                                     <xsl:value-of select="rating"/>
                                     </xsl:with-param>
                                 </xsl:call-template>
                             </xsl:attribute>
                             <xsl:value-of select="handle"/>
-                            </font>
                             </A>
                         </td>
                         <td width="15%" class="statText" align="center"><xsl:value-of select="change"/></td>
