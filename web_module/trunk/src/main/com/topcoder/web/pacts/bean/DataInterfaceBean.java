@@ -1,7 +1,7 @@
 package com.topcoder.web.pacts.bean;
 
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.pacts.common.*;
 import com.topcoder.web.pacts.ejb.PactsServices.*;
 

@@ -16,7 +16,7 @@
 package com.topcoder.web.pacts.common;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.pacts.bean.pacts_internal.dispatch.*;
 
 import java.util.Map;
