@@ -30,6 +30,10 @@ public class DBMS {
     public final static String JMA_INFORMIX_POOL_JTS = getProperty("JMA_INFORMIX_POOL_JTS", "jdbc:weblogic:jts:JMAInformixPool");
     public final static String JMA_INFORMIX_DW_POOL = getProperty("JMA_INFORMIX_DW_POOL", "jdbc:weblogic:pool:JMAInformixDWPool");
     public final static String JMA_INFORMIX_DW_POOL_JTS = getProperty("JMA_INFORMIX_DW_POOL_JTS", "jdbc:weblogic:jts:JMAInformixDWPool");
+    public final static String HS_OLTP_POOL = getProperty("HS_OLTP_POOL","jdbc:weblogic:pool:HSOLTPPool");
+    public final static String HS_OLTP_POOL_JTS = getProperty("HS_OLTP_POOL_JTS","jdbc:weblogic:jts:HSOLTPPool");
+    public final static String HS_DW_POOL = getProperty("HS_DW_POOL","jdbc:weblogic:pool:HSDWPool");
+    public final static String HS_DW_POOL_JTS = getProperty("HS_DW_POOL_JTS","jdbc:weblogic:jts:HSDWPool");
     public final static String JMA_POOL = getProperty("JMA_POOL", "jdbc:weblogic:pool:JMAPool");
     public final static String JMA_POOL_JTS = getProperty("JMA_POOL_JTS", "jdbc:weblogic:jts:JMAPool");
     public final static String JMS_FACTORY = getProperty("JMS_FACTORY", "jms.connection.jmsFactory");
@@ -161,6 +165,16 @@ public class DBMS {
         java.sql.Connection result = null;
         result = DriverManager.getConnection(DBMS.JMA_INFORMIX_POOL_JTS);
         return result;
+    }
+
+    /**
+     * Gets a database connection to the high school database.
+     *
+     * @return A database connection to the high school database.
+     */
+    public static final java.sql.Connection getHighSchoolConnection()
+                                                           throws SQLException {
+        return(DriverManager.getConnection(DBMS.HS_OLTP_POOL_JTS));
     }
 
     /**
