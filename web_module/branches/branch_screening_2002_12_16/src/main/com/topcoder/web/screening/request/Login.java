@@ -4,6 +4,7 @@ import javax.servlet.*;
 import com.topcoder.shared.security.*;
 import com.topcoder.web.common.security.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.screening.common.Constants;
 
 /**
  * Processes a login request.
@@ -13,13 +14,6 @@ public class Login extends BaseProcessor {
     
     private static Logger log = Logger.getLogger(Login.class);
 
-    static String HANDLE_PARAM = "handle";
-    static String PASSWORD_PARAM = "password";
-    static String REDIRECT_PARAM = "redir";
-    static String MESSAGE_PARAM = "msg";
-    static String FIRSTVISIT_PARAM = "firstVisit";
-    static String LOGIN_DEFAULT_URL = "/screening";
-    
     /** Implements the processing step.
      * @throws Exception
      */
@@ -27,19 +21,19 @@ public class Login extends BaseProcessor {
         log.debug("Processing login");
         ServletRequest request = getRequest();
         
-        String handle = request.getParameter(HANDLE_PARAM);
-        String password = request.getParameter(PASSWORD_PARAM);
+        String handle = request.getParameter(Constants.HANDLE);
+        String password = request.getParameter(Constants.PASSWORD);
         
         if( handle == null || password == null ||
             handle.equals("") || password.equals("") )
         {
-            String firstVisit = request.getParameter(FIRSTVISIT_PARAM);
+            String firstVisit = request.getParameter(Constants.FIRST_ATTEMPT);
             if( firstVisit!=null && firstVisit.equals("false") ){
                 log.debug("No username and/or password");
-                request.setAttribute(MESSAGE_PARAM,
+                request.setAttribute(Constants.MESSAGE_PARAMETER,
                     "Please enter both a username and a password.");
             }
-            setNextPage("/login.jsp");
+            setNextPage(Constants.LOGIN_PAGE);
             setNextPageInContext(true);
             return;
         }
@@ -48,16 +42,16 @@ public class Login extends BaseProcessor {
             getAuthentication().login(new SimpleUser(-1,handle,password));
         }catch(AuthenticationException ae){
             log.debug("Login failed");
-            setNextPage("/login.jsp");
+            setNextPage(Constants.LOGIN_PAGE);
             setNextPageInContext(true);
-            request.setAttribute(MESSAGE_PARAM,
+            request.setAttribute(Constants.MESSAGE_PARAMETER,
                 "Incorrect username and/or password.");
             return;
         }
 
-        String redirect = request.getParameter(REDIRECT_PARAM);
+        String redirect = request.getParameter(Constants.REDIRECT);
         if(redirect == null || redirect.equals(""))
-            redirect = LOGIN_DEFAULT_URL;
+            redirect = Constants.CONTROLLER_URL;
         log.debug("Login succeeded, redirecting to " + redirect);
         setNextPage(redirect);
         setNextPageInContext(false);

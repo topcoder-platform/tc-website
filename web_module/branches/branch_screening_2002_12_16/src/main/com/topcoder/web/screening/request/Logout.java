@@ -1,22 +1,24 @@
 package com.topcoder.web.screening.request;
 
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.screening.common.Constants;
+
 /**
  * Processes a logout request.
  * @author  Porgery
  */
 public class Logout extends BaseProcessor {
     
-    /** Creates a new instance of Logout */
-    public Logout() {
-    }
-    
+    private static Logger log = Logger.getLogger(Logout.class);
+
     /** Implements the processing step.
      * @throws Exception
      */
     public void process() throws Exception {
+        log.debug("Logging out user " + getAuthentication().getUser().getId());
         getAuthentication().logout();
         
-        setNextPage("/");
+        setNextPage(Constants.CONTROLLER_URL);
         setNextPageInContext(false);
     }
     
