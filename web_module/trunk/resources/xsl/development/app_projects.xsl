@@ -121,19 +121,52 @@
                </tr>
                -->
                <tr valign="top">
+                    <td class="formTextOdd" colspan="4"><a href="?&amp;t=development&amp;c=single_sign_on_v10_dev">Single Sign-On (SSO)</a></td>
+               </tr>    
+               <tr valign="top">
+                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Security Server EJB Interface</td>
+                    <td class="formTextOdd" align="center">$980</td>
+                    <td class="formTextOdd" align="center">$350</td>
+                    <td class="formTextOdd" align="center">12.26.2003</td>
+               </tr>
+               <tr valign="top">
+                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Security Server SAML Interface</td>
+                    <td class="formTextOdd" align="center">$980</td>
+                    <td class="formTextOdd" align="center">$350</td>
+                    <td class="formTextOdd" align="center">12.26.2003</td>   
+               </tr>                 
+               <tr valign="top">
+                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Portal Adapter</td>
+                    <td class="formTextOdd" align="center">$630</td>
+                    <td class="formTextOdd" align="center">$225</td>
+                    <td class="formTextOdd" align="center">12.26.2003</td>   
+               </tr>                 
+               <tr valign="top">
+                    <td class="formTextOdd">&#160;&#160;&#160;&#160;JSP-Based Application Authenticators</td>
+                    <td class="formTextOdd" align="center">$805</td>
+                    <td class="formTextOdd" align="center">$287</td>
+                    <td class="formTextOdd" align="center">12.26.2003</td>   
+               </tr>                 
+               <tr valign="top">
+                    <td class="formTextOdd">&#160;&#160;&#160;&#160;WebConnect-based Application Authentication</td>
+                    <td class="formTextOdd" align="center">$805</td>
+                    <td class="formTextOdd" align="center">$287</td>
+                    <td class="formTextOdd" align="center">12.26.2003</td>   
+               </tr>                 
+               <tr valign="top">
                     <td class="formTextOdd" colspan="4"><a href="?&amp;t=development&amp;c=online_gift_card_v10_dev">Online Gift Card Sales</a></td>
                </tr>    
                <tr valign="top">
                     <td class="formTextOdd">&#160;&#160;&#160;&#160;Site Development</td>
                     <td class="formTextOdd" align="center">$833</td>
                     <td class="formTextOdd" align="center">$313</td>
-                    <td class="formTextOdd" align="center">12.19.2003</td>
+                    <td class="formTextOdd" align="center">closed</td>
                </tr>
                <tr valign="top">
                     <td class="formTextOdd">&#160;&#160;&#160;&#160;Supporting Operations</td>
                     <td class="formTextOdd" align="center">$333</td>
                     <td class="formTextOdd" align="center">$125</td>
-                    <td class="formTextOdd" align="center">12.19.2003</td>   
+                    <td class="formTextOdd" align="center">closed</td>   
                </tr>                 
                <tr valign="top">
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements_dev">Admin Tool Enhancements</a></td>
