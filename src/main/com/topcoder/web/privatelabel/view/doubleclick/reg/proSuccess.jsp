@@ -18,20 +18,21 @@
    <jsp:param name="tabLev2" value="registration"/>
 </jsp:include>
 
-<div class="dc_bodyTable">
-   <div CLASS="dc_headerPic">
-      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
-   </div>
-
-   <div CLASS="dc_bodyText">
+<table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="dc_headerPic">
+	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
+	  	</td>
+		<td class="dc_bodyText">
          <p class="pageTitle">Registration</p>
          <p>Registration Successful!</p>
          <p>Be sure to spend time in the Practice Room by clicking the Practice Arena link on the left.<br/><br/>
 
             Good luck to you in the Arena!</p>
 
-   </div>
-</div>
+		</td>
+	</tr>
+</table>
 
 <jsp:include page="../foot.jsp" />
 

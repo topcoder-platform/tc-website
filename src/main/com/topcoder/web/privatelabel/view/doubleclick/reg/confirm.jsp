@@ -34,12 +34,12 @@
     </jsp:include>
 <% } %>
 
-<div class="dc_bodyTable">
-   <div CLASS="dc_headerPic">
-      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
-   </div>
-
-   <div CLASS="dc_bodyText">
+<table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="dc_headerPic">
+	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
+	  	</td>
+		<td class="dc_bodyText">
          <p class="pageTitle">Registration</p>
          <p>Description of registration goes here</p>
 
@@ -150,8 +150,9 @@
 
              </table>
         </form>
-   </div>
-</div>
+		</td>
+	</tr>
+</table>
 
 <jsp:include page="../foot.jsp" />
 

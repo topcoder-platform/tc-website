@@ -20,31 +20,32 @@
    <jsp:param name="tabLev2" value="registration"/>
 </jsp:include>
 
-<div class="dc_bodyTable">
-   <div CLASS="dc_headerPic">
-      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
-   </div>
-
-   <div CLASS="dc_bodyText">
+<table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="dc_headerPic">
+	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
+	  	</td>
+		<td class="dc_bodyText">
          <p class="pageTitle">Registration</p>
          <p>Registration Successful!</p>
          <p>
             In order to be eligible to compete in the DoubleClick Coding Challenge,
             you must activate your account by following the directions sent to the email
-            address provided during registration. You <u>will not</u> be able to compete if you
+            address provided during registration. You <b>will not</b> be able to compete if you
             do not activate your account.
         </p>
          <b><font color="#FF0000">OPTIONAL:</font></b> If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=2998','Resume_Upload','top=2,left=2,width=350,height=300,status=0');">here</a><br/><br/>
 
-<br/><br/>
+			<br/><br/>
         <p>
         Be sure to spend time in the Practice Room by clicking the Practice Arena link on the left.<br/><br/>
 
         Good luck to you in the Arena!
         </p>
 
-   </div>
-</div>
+		</td>
+	</tr>
+</table>
 
 <jsp:include page="../foot.jsp" />
 
