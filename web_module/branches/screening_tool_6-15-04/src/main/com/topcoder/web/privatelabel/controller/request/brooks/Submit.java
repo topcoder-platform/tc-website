@@ -167,6 +167,7 @@ public class Submit extends FullRegSubmit {
                 dataRequest.setProperty(DataAccessConstants.COMMAND,
                         "company_reg_problem_assignment");
                 dataRequest.setProperty("cm", String.valueOf(companyId));
+                dataRequest.setProperty("jpid", String.valueOf(super.getJobId()));
                 Map map = access.getData(dataRequest);
                 ResultSetContainer rsc = (ResultSetContainer)
                         map.get("company_reg_problem_assignment");
