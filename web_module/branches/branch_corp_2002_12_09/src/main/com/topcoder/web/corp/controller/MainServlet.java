@@ -160,7 +160,7 @@ public class MainServlet extends HttpServlet {
             fetchRegularPage(request, response, destination, forward);
         }
         catch(NotAuthorizedException nae) {
-            if (authToken.getActiveUser().isAnonymous()) {
+            if (authToken.getUser().isAnonymous()) {
                 /* If the user is anonymous and tries to access a resource they
                    are not authorized to access, send them to login page.    */
                 log.debug("user unauthorized to access resource and user " +

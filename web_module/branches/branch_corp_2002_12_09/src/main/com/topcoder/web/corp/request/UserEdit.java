@@ -80,7 +80,12 @@ public class UserEdit extends BaseProcessor {
             "user modification initiated"
         );
 
-        verifyAllowed();  
+        verifyAllowed();
+        if( authToken.getActiveUser().getId() != authToken.getUser().getId() ) {
+            throw new NotAuthorizedException(
+                "Log in if logged off, and vice versa"
+            );
+        }
         
         InitialContext icEJB = null;
         PrincipalMgrRemote mgr = secTok.man;
