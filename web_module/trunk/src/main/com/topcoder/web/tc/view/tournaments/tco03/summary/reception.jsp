@@ -10,16 +10,30 @@
 	.leadPhoto
 	{
 		float: right;
-		position: absolute;
+		position: relative;
 		top: 0px;
+		width: 200px;
+		margin-left: 10px;
+		margin-top: 0px;
+		margin-right: 2px;
+		margin-bottom: 4px;
+	}
+	
+	.leadPhotoCaption
+	{
+		font-size: 10px;
+		font-weight: bold;
+		color: #333333;
 	}
 	
 	.pointsName, .pointsScore
 	{
+		font-size: 12px;
+		font-weight: normal;
+		color: #333333;
 		background-color: #EEEEEE;
-		font: normal normal normal 12px/14px;
 		text-align: left;
-		padding: 10px;
+		padding: 8px;
 		margin: 1px;
 		width: 100px;
 		white-space: nowrap;
@@ -29,6 +43,51 @@
 	{
 		text-align: right;
 		width: 30px;
+	}
+	
+	.pointsTable
+	{
+		background-color: #FFFFFF;
+		border-style: solid;
+		border-color: #CCCCCC;
+		border-width: 1px;
+	}
+	
+	.terciary
+	{
+		color: #666666;
+		font-size: 12px;
+		font-weight: bold;
+		font-style: normal;
+		text-align: right;
+	}
+	
+	.terciary A:link
+	{
+		color: #00F;
+		font-weight: normal;
+		text-decoration: underline;
+	}
+	
+	.terciary A:visited
+	{
+		color: #006;
+		font-weight: normal;
+		text-decoration: underline;
+	}
+	
+	.terciary A:hover
+	{
+		color: #F00;
+		font-weight: normal;
+		text-decoration: none;
+	}
+	
+	.terciary A:active
+	{
+		color: #F00;
+		font-weight: normal;
+		text-decoration: none;
 	}
 </style>
 
@@ -63,7 +122,7 @@
 <!-- Tab bar links-->
 <jsp:include page="../tco03Links.jsp" >
    <jsp:param name="selectedContest" value="coding"/>
-   <jsp:param name="selectedTab" value="coding_onsite"/>
+   <jsp:param name="selectedTab" value="coding_summary"/>
 </jsp:include>
 
 <!-- Tab bar sublinks-->
@@ -72,14 +131,19 @@
    <jsp:param name="selectedTab" value="reception"/>
 </jsp:include>
 
-            <h2>Opening Night Reception</h2>
-            <div class="leadPhoto">
-            <img src="/i/tournament/tccc03/champ_main.jpg" alt="" width="200" height="350" hspace="8" vspace="4" class="photoFrameBig" /><br/>
-            <span class="smallText">dgarthur contemplates a question during the Semi-final Round.</span>
-            </div
+            <p class="terciary">
+                Play-by-Play&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=reception_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=reception_analysis">Problem Analysis</a>
+            </p>
             
-            <p>by MaryBeth Biondi, <em>TopCoder Staff</em><br />
-            Saturday, April 5, 2003<br />
+            <div class="leadPhoto">
+            <img src="/i/tournament/tccc03/champ_main.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
+            <span class="leadPhotoCaption">dgarthur contemplates a question during the Semi-final Round.<br/><br/></span>
+            </div>
+            
+            <h2>Opening Night Reception</h2>
+
+            <p>by Matt Murphy, <em>TopCoder Staff</em><br />
+            Wednesday, December 4, 2003</p>
 
             <p>In a final round that saw 11 out of a possible 12 submissions, it was <strong>dgarthur</strong> who posted the highest 
             score and walked away $50,000 richer as the Champion.</p>
@@ -94,34 +158,18 @@
             <strong>dgarthur</strong> made up some ground by receiving 381.34 points for his 450-point submission, and moved 
             to the 950.</p>
 
-            <table border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td class="pointsName">dgarthur</td>
-                    <td class="pointsScore">1447.71</td>
-                </tr>
-                               			
-                <tr>
-                    <td class="pointsName">Yarin</td>
-                    <td class="pointsScore">1382.79</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">dmwright</td>
-                    <td class="pointsScore">1245.14</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">sjelkjd</td>
-                    <td class="pointsScore">446.08</td>
-                </tr>
-            </table>		
+            <p>The contest started off with <strong>Yarin, </strong><strong>dgarthur</strong> and <strong>sjelkjd</strong> all opening the 250-point problem and 
+            <strong>dmwright</strong> opting to go with the 450.  <strong>Yarin</strong> took the early lead with a quick submission of the 250-pointer 
+            for 237.49 points.  He then moved on to the 450.  <strong>sjelkjd</strong> was in next with his submission to the 250, 
+            getting 213.97 points.  <strong>dgarthur</strong> brought in the lowest score on the 250 with his submission for 
+            202.96 points.  He and <strong>sjelkjd</strong> both moved on to the 450.  Even before <strong>dmwright</strong> could log his first 
+            submission, <strong>Yarin</strong> sent in his second, adding 385.26 points from his 450.  <strong>dmwright</strong> finally sent in 
+            his first submission for 303.43 points on the 450.  He moved on to the 950, leaving the 250 for last.  
+            <strong>dgarthur</strong> made up some ground by receiving 381.34 points for his 450-point submission, and moved 
+            to the 950.</p>
 
-            <p><strong>sjelkjd</strong> offered the only action of the Challenge Phase by unsuccessfully challenging all 3 950-point 
-            submissions and <strong>Yarin's</strong> 450-point submission.  System tests proved that challenging any of the other 
-            competitor's submissions was in vain, as all submissions passed.  The final scores looked quite similar 
-            to those at the end of the Coding Phase:</p>
-
-            <table border="0" cellspacing="0" cellpadding="0">
+            <div align="center">
+            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
                 <tr>
                     <td  class="pointsName">dgarthur</td>
                     <td class="pointsScore">1447.71</td>
@@ -141,7 +189,37 @@
                     <td  class="pointsName">sjelkjd</td>
                     <td class="pointsScore">246.08</td>
                 </tr>
-            </table>		
+            </table>
+            </div>	
+
+            <p><strong>sjelkjd</strong> offered the only action of the Challenge Phase by unsuccessfully challenging all 3 950-point 
+            submissions and <strong>Yarin's</strong> 450-point submission.  System tests proved that challenging any of the other 
+            competitor's submissions was in vain, as all submissions passed.  The final scores looked quite similar 
+            to those at the end of the Coding Phase:</p>
+
+            <div align="center">
+            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
+                <tr>
+                    <td  class="pointsName">dgarthur</td>
+                    <td class="pointsScore">1447.71</td>
+                </tr>
+                               			
+                <tr>
+                    <td  class="pointsName">Yarin</td>
+                    <td class="pointsScore">1382.79</td>
+                </tr>
+                               			
+                <tr>
+                    <td  class="pointsName">dmwright</td>
+                    <td class="pointsScore">1245.14</td>
+                </tr>
+                               			
+                <tr>
+                    <td  class="pointsName">sjelkjd</td>
+                    <td class="pointsScore">246.08</td>
+                </tr>
+            </table>
+            </div>	
 
             <p><strong>dgarthur</strong> was all smiles during the media hour, and rightfully so.  He performed perfectly through 
             two onsite rounds and beat six very worthy competitors in two days.  Congratulations to dgarthur and 
