@@ -2245,7 +2245,7 @@ public class TCLoadRound extends TCLoad {
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append("DELETE FROM problem_component_xref");
+            query.append("DELETE FROM problem_category_xref");
             query.append(" WHERE round_id = ? ");
             psDel = prepareStatement(query.toString(), TARGET_DB);
 
