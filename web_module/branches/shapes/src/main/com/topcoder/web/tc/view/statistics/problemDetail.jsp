@@ -243,7 +243,7 @@
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td class="statText" align="right">
                      <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
-                         <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
+                         <tc:ratingImage link='<%=sLink + resultRow.getIntItem("coder_id")%>' bg='B' cid='<%=resultRow.getIntItem("coder_id")%>' />
                      <% } %>
                      </td>
                    </rsc:iterator>
@@ -364,14 +364,14 @@
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
                      <td class="statText" align="right">
                      <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
-                         <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
+                         <tc:ratingImage link='<%=sLink + resultRow.getIntItem("coder_id")%>' bg='B' cid='<%=resultRow.getIntItem("coder_id")%>' />
                      <% } %>
                      </td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
                      <td class="statText" align="right">
                      <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
-                         <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
+                         <tc:ratingImage link='<%=sLink + resultRow.getIntItem("coder_id")%>' bg='B' cid='<%=resultRow.getIntItem("coder_id")%>' />
                      <% } %>
                      </td>
                    </rsc:iterator>
