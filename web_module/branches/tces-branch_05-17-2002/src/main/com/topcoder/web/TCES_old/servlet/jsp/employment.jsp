@@ -149,7 +149,7 @@ String endYear = "";
 <tr>
 <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Company&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
-<td class="statTextBig" align="left" valign="middle"><input type="text" name="firstName" value="<%= company %>" size="30" maxlength="30"></td>
+<td class="statTextBig" align="left" valign="middle"><input type="text" name="company" value="<%= company %>" size="30" maxlength="30"></td>
 </tr>
 </table>
 </td>
@@ -161,6 +161,102 @@ String endYear = "";
 </tr>
 
 
+
+<% // city %>
+
+<tr>
+<td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
+<tr>
+<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Cotu&nbsp;</td>
+<td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
+<td class="statTextBig" align="left" valign="middle"><%= cities.getSelectBox("", "", "", "") %></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td colspan="3" class="errorText" align="left" valign="middle"></td>
+</tr>
+
+
+<% // states %>
+
+<tr>
+<td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
+<tr>
+<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">State&nbsp;</td>
+<td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
+<td class="statTextBig" align="left" valign="middle"><%= states.getSelectBox("", "", "", "") %></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td colspan="3" class="errorText" align="left" valign="middle"></td>
+</tr>
+
+
+<% // country %>
+
+<tr>
+<td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
+<tr>
+<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Country&nbsp;</td>
+<td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
+<td class="statTextBig" align="left" valign="middle"><%= countries.getSelectBox("", "", "", "") %></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td colspan="3" class="errorText" align="left" valign="middle"></td>
+</tr>
+
+
+
+<% // industry %>
+
+<tr>
+<td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
+<tr>
+<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Industry&nbsp;</td>
+<td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
+<td class="statTextBig" align="left" valign="middle"><%= industries.getSelectBox("", "", "", "") %></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td colspan="3" class="errorText" align="left" valign="middle"></td>
+</tr>
+
+
+
+<% // URL %>
+
+<tr>
+<td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
+<tr>
+<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">URL&nbsp;</td>
+<td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
+<td class="statTextBig" align="left" valign="middle"><input type="text" name="url" value="<%= url %>" size="30" maxlength="30"></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td colspan="3" class="errorText" align="left" valign="middle"></td>
+</tr>
 
 
 <tr valign="middle">
