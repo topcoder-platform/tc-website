@@ -204,7 +204,7 @@ public class PDFGenerator extends BaseProcessor {
             MyPageEvents events = new MyPageEvents();
             writer.setPageEvent(events);
             
-            Phrase hp = new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.BLACK));
+            Phrase hp = new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black));
             
             HeaderFooter header = new HeaderFooter(new Phrase("  "), false);
             header.setBackgroundColor(new Color(204,0,0)); //#cc0000
@@ -255,7 +255,7 @@ public class PDFGenerator extends BaseProcessor {
         t.getDefaultCell().setPadding(3);
         t.getDefaultCell().setBorderWidth(0);
         t.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
-        t.addCell(new Phrase("Presented to:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.BLACK)));
+        t.addCell(new Phrase("Presented to:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
         
         if(info.getCompanyLogo().getFile() != null) {
             byte[] b = new byte[(int)info.getCompanyLogo().getSize()];
@@ -264,19 +264,19 @@ public class PDFGenerator extends BaseProcessor {
 
             t.addCell(companyLogo);
         } else {
-            t.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.BLACK)));
+            t.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
         }
 
-        t.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.BLACK)));
-        t.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.BLACK)));
+        t.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
+        t.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
 
-        t.addCell(new Phrase("Presented By:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.BLACK)));
+        t.addCell(new Phrase("Presented By:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
 
         Phrase email = new Phrase();
-        email.add(new Chunk(info.getPresentedBy(), FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        email.add(new Chunk(info.getPresentedBy(), FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
         t.addCell(email);
 
-        t.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.BLACK)));
+        t.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
 
         email = new Phrase();
 
@@ -288,14 +288,14 @@ public class PDFGenerator extends BaseProcessor {
         t.addCell(email);
 
 
-        t.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.BLACK)));
-        t.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.BLACK)));
+        t.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
+        t.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
 
-        t.addCell(new Phrase("Member Name:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.BLACK)));
-        t.addCell(new Phrase(info.getName(), FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        t.addCell(new Phrase("Member Name:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
+        t.addCell(new Phrase(info.getName(), FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
 
-        t.addCell(new Phrase("Handle:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.BLACK)));
-        t.addCell(new Phrase(info.getHandle(), FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        t.addCell(new Phrase("Handle:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
+        t.addCell(new Phrase(info.getHandle(), FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
 
         doc.add(t);
 
@@ -322,7 +322,7 @@ public class PDFGenerator extends BaseProcessor {
         skills.getDefaultCell().setBorderWidth(0);
         skills.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
 
-        skills.addCell(new Phrase("Skills", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        skills.addCell(new Phrase("Skills", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
 
         java.util.List groups = info.getSkillGroups();
         
@@ -333,14 +333,14 @@ public class PDFGenerator extends BaseProcessor {
             inner.getDefaultCell().setBorderWidth(1);
             inner.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 
-            PdfPCell cell = new PdfPCell(new Phrase((String)groups.get(i), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+            PdfPCell cell = new PdfPCell(new Phrase((String)groups.get(i), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
             cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
             inner.addCell(cell);
             
             java.util.List skillsList = info.getSkills((String)groups.get(i));
 
             for(int j = 0 ; j < skillsList.size(); j++) {
-                inner.addCell(new Phrase((String)skillsList.get(j), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+                inner.addCell(new Phrase((String)skillsList.get(j), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
             }
 
             skills.addCell(inner);
@@ -356,7 +356,7 @@ public class PDFGenerator extends BaseProcessor {
         ranking.getDefaultCell().setBorderWidth(0);
         ranking.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
 
-        ranking.addCell(new Phrase("Rating Position Among Members", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        ranking.addCell(new Phrase("Rating Position Among Members", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
 
         //coder ranking table
         PdfPTable inner = new PdfPTable(4);
@@ -365,36 +365,36 @@ public class PDFGenerator extends BaseProcessor {
         inner.getDefaultCell().setBorderWidth(1);
         inner.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 
-        PdfPCell cell = new PdfPCell(new Phrase("Coder Ranking (Based on " + info.getNumContests() + " Events)", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        PdfPCell cell = new PdfPCell(new Phrase("Coder Ranking (Based on " + info.getNumContests() + " Events)", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         cell.setColspan(4);
 
         inner.addCell(cell);
 
-        cell = new PdfPCell(new Phrase("Rating", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Rating", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         inner.addCell(cell);
 
-        inner.addCell(new Phrase("" + info.getRating(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        inner.addCell(new Phrase("" + info.getRating(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
-        cell = new PdfPCell(new Phrase("Division", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Division", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         inner.addCell(cell);
 
-        inner.addCell(new Phrase(info.getRating() >= 1200 ? "1" : "2", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        inner.addCell(new Phrase(info.getRating() >= 1200 ? "1" : "2", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
-        cell = new PdfPCell(new Phrase("Rank", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Rank", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         inner.addCell(cell);
 
-        inner.addCell(new Phrase(info.getRank(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        inner.addCell(new Phrase(info.getRank(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
-        cell = new PdfPCell(new Phrase("Rank %", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Rank %", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         inner.addCell(cell);
 
-        inner.addCell(new Phrase("" + info.getRankPercentile(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        inner.addCell(new Phrase("" + info.getRankPercentile(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
         ranking.addCell(inner);
         ranking.addCell(" ");
@@ -412,7 +412,7 @@ public class PDFGenerator extends BaseProcessor {
         lifetime.getDefaultCell().setBorderWidth(0);
         lifetime.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
 
-        cell = new PdfPCell(new Phrase("Lifetime Competition Statistics", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Lifetime Competition Statistics", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
         cell.setColspan(2);
         cell.setBorderWidth(0);
         lifetime.addCell(cell);
@@ -423,7 +423,7 @@ public class PDFGenerator extends BaseProcessor {
         competitors.getDefaultCell().setBorderWidth(1);
         competitors.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 
-        cell = new PdfPCell(new Phrase("Challenges Against Competitors", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Challenges Against Competitors", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         cell.setBorderWidth(1);
@@ -431,17 +431,17 @@ public class PDFGenerator extends BaseProcessor {
 
         competitors.addCell(cell);
 
-        cell = new PdfPCell(new Phrase("Total Challenged", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Total Challenged", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setBorderWidth(1);
         competitors.addCell(cell);
 
-        competitors.addCell(new Phrase(info.getTotalChallenged(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        competitors.addCell(new Phrase(info.getTotalChallenged(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
-        cell = new PdfPCell(new Phrase("Challenge Success Ratio", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Challenge Success Ratio", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setBorderWidth(1);
         competitors.addCell(cell);
 
-        competitors.addCell(new Phrase(info.getChallengeSuccessRatio(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        competitors.addCell(new Phrase(info.getChallengeSuccessRatio(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
         lifetime.addCell(competitors);
 
@@ -451,7 +451,7 @@ public class PDFGenerator extends BaseProcessor {
         solutions.getDefaultCell().setBorderWidth(1);
         solutions.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 
-        cell = new PdfPCell(new Phrase("Solutions Submitted", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Solutions Submitted", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         cell.setBorderWidth(1);
@@ -459,17 +459,17 @@ public class PDFGenerator extends BaseProcessor {
 
         solutions.addCell(cell);
 
-        cell = new PdfPCell(new Phrase("Submission Ratio", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Submission Ratio", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setBorderWidth(1);
         solutions.addCell(cell);
 
-        solutions.addCell(new Phrase(info.getSubmissionRatio(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        solutions.addCell(new Phrase(info.getSubmissionRatio(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
-        cell = new PdfPCell(new Phrase("Submission Success Ratio", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Submission Success Ratio", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setBorderWidth(1);
         solutions.addCell(cell);
 
-        solutions.addCell(new Phrase(info.getSubmissionSuccessRatio(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        solutions.addCell(new Phrase(info.getSubmissionSuccessRatio(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
         lifetime.addCell(solutions);
 
@@ -493,60 +493,60 @@ public class PDFGenerator extends BaseProcessor {
         problemStats.getDefaultCell().setBorderWidth(1);
         problemStats.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 
-        PdfPCell cell = new PdfPCell(new Phrase("Code Sample For:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        PdfPCell cell = new PdfPCell(new Phrase("Code Sample For:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
         cell.setBorderWidth(1);
         problemStats.addCell(cell);
 
-        cell = new PdfPCell(new Phrase(info.getProblemName(), FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase(info.getProblemName(), FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
         cell.setBorderWidth(1);
         cell.setColspan(2);
         problemStats.addCell(cell);
 
-        cell = new PdfPCell(new Phrase("Division Statistics", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Division Statistics", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setBorderWidth(1);
         cell.setColspan(2);
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         problemStats.addCell(cell);
 
-        cell = new PdfPCell(new Phrase("[" + info.getHandle() + "]'s Statistics", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("[" + info.getHandle() + "]'s Statistics", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
         cell.setBorderWidth(1);
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         problemStats.addCell(cell);
 
-        problemStats.addCell(new Phrase("Average Elapsed Time to Submit", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        problemStats.addCell(new Phrase("Average Elapsed Time to Submit", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
 
-        cell = new PdfPCell(new Phrase(info.getAvgTimeToSubmit(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        cell = new PdfPCell(new Phrase(info.getAvgTimeToSubmit(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         cell.setBorderWidth(1);
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         problemStats.addCell(cell);
 
-        cell = new PdfPCell(new Phrase(info.getSubmissionTime(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        cell = new PdfPCell(new Phrase(info.getSubmissionTime(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         cell.setBorderWidth(1);
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         problemStats.addCell(cell);
 
-        problemStats.addCell(new Phrase("Total Submission %", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        problemStats.addCell(new Phrase("Total Submission %", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
 
-        cell = new PdfPCell(new Phrase(info.getSubmissionPercent(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        cell = new PdfPCell(new Phrase(info.getSubmissionPercent(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         cell.setBorderWidth(1);
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         problemStats.addCell(cell);
 
-        cell = new PdfPCell(new Phrase("Submitted", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Submitted", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         cell.setBorderWidth(1);
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         problemStats.addCell(cell);
 
-        problemStats.addCell(new Phrase("Successful Submission %", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        problemStats.addCell(new Phrase("Successful Submission %", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
 
-        cell = new PdfPCell(new Phrase(info.getSuccessfulSubmissionPercent(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        cell = new PdfPCell(new Phrase(info.getSuccessfulSubmissionPercent(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         cell.setBorderWidth(1);
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         problemStats.addCell(cell);
 
-        cell = new PdfPCell(new Phrase("Successful", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Successful", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         cell.setBorderWidth(1);
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         problemStats.addCell(cell);
@@ -561,7 +561,7 @@ public class PDFGenerator extends BaseProcessor {
         problem.getDefaultCell().setBorderWidth(0);
         problem.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 
-        cell = new PdfPCell(new Phrase("Problem Statement", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Problem Statement", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
         cell.setBorderWidth(0);
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         problem.addCell(cell);
@@ -569,11 +569,11 @@ public class PDFGenerator extends BaseProcessor {
         TextElementRenderer tr = new TextElementRenderer((TextElement)info.getProblem().getComponent(0).getIntro());
         
         Phrase statement = new Phrase();
-        statement.add(new Paragraph(tr.toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        statement.add(new Paragraph(tr.toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
         problem.addCell(statement);
 
-        cell = new PdfPCell(new Phrase("Definition", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Definition", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
         cell.setBorderWidth(0);
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         problem.addCell(cell);
@@ -585,13 +585,13 @@ public class PDFGenerator extends BaseProcessor {
         def.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
         def.setWidths(new int[] {5, 20, 75});
 
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        def.addCell(new Phrase("Class:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        def.addCell(new Phrase(info.getProblem().getComponent(0).getClassName(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        def.addCell(new Phrase("Class:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        def.addCell(new Phrase(info.getProblem().getComponent(0).getClassName(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        def.addCell(new Phrase("Method:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        def.addCell(new Phrase(info.getProblem().getComponent(0).getMethodName(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        def.addCell(new Phrase("Method:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        def.addCell(new Phrase(info.getProblem().getComponent(0).getMethodName(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
         String params = "";
         DataType[] paramTypes = info.getProblem().getComponent(0).getParamTypes();
@@ -601,28 +601,28 @@ public class PDFGenerator extends BaseProcessor {
             params += new DataTypeRenderer(paramTypes[i]).toPlainText(info.getLanguage());
         }
         
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        def.addCell(new Phrase("Parameters:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        def.addCell(new Phrase(params, FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        def.addCell(new Phrase("Parameters:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        def.addCell(new Phrase(params, FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        def.addCell(new Phrase("Returns:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        def.addCell(new Phrase(new DataTypeRenderer(info.getProblem().getComponent(0).getReturnType()).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        def.addCell(new Phrase("Returns:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        def.addCell(new Phrase(new DataTypeRenderer(info.getProblem().getComponent(0).getReturnType()).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        def.addCell(new Phrase("Method Signature:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        def.addCell(new Phrase("Method Signature:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         def.addCell(new Phrase(info.getLanguage().getMethodSignature(info.getProblem().getComponent(0).getMethodName(),
                 info.getProblem().getComponent(0).getReturnType(),
                 info.getProblem().getComponent(0).getParamTypes(),
-                info.getProblem().getComponent(0).getParamNames()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+                info.getProblem().getComponent(0).getParamNames()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
         problem.addCell(def);
 
-        cell = new PdfPCell(new Phrase("Notes", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Notes", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
         cell.setBorderWidth(0);
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         problem.addCell(cell);
@@ -637,16 +637,16 @@ public class PDFGenerator extends BaseProcessor {
         com.topcoder.shared.problem.Element[] notesElements = info.getProblem().getComponent(0).getNotes();
         
         for(int i = 0; i < notesElements.length; i++) {
-            notes.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-            notes.addCell(new Phrase(new TextElementRenderer((TextElement)notesElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+            notes.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            notes.addCell(new Phrase(new TextElementRenderer((TextElement)notesElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         }
 
-        notes.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        notes.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        notes.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        notes.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
         problem.addCell(notes);
 
-        cell = new PdfPCell(new Phrase("Constraints", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Constraints", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
         cell.setBorderWidth(0);
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         problem.addCell(cell);
@@ -661,16 +661,16 @@ public class PDFGenerator extends BaseProcessor {
         com.topcoder.shared.problem.Element[] constraintsElements = info.getProblem().getComponent(0).getNotes();
         
         for(int i = 0; i < constraintsElements.length; i++) {
-            constraints.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-            constraints.addCell(new Phrase(new TextElementRenderer((TextElement)constraintsElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+            constraints.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            constraints.addCell(new Phrase(new TextElementRenderer((TextElement)constraintsElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         }
 
-        constraints.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        constraints.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        constraints.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        constraints.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
         problem.addCell(constraints);
 
-        cell = new PdfPCell(new Phrase("Examples", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        cell = new PdfPCell(new Phrase("Examples", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
         cell.setBorderWidth(0);
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         problem.addCell(cell);
@@ -681,7 +681,7 @@ public class PDFGenerator extends BaseProcessor {
         
         for(int i =0; i < testCases.length; i++) {
             if(testCases[i].isExample()) {
-                cell = new PdfPCell(new Phrase(j + ")", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+                cell = new PdfPCell(new Phrase(j + ")", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
                 j++;
                 cell.setBorderWidth(0);
                 problem.addCell(cell);
@@ -694,25 +694,25 @@ public class PDFGenerator extends BaseProcessor {
                 example.setWidths(new int[] {5, 95});
                 
                 for(int k = 0; k < testCases[i].getInput().length; k++) {
-                    example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.BLACK)));
-                    example.addCell(new Phrase(testCases[i].getInput()[k], FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.BLACK)));
+                    example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
+                    example.addCell(new Phrase(testCases[i].getInput()[k], FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
                 }
 
 
-                example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.BLACK)));
-                example.addCell(new Phrase(testCases[i].getOutput(), FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.BLACK)));
+                example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
+                example.addCell(new Phrase(testCases[i].getOutput(), FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
 
                 if(testCases[i].getAnnotation() != null) {
-                    example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-                    example.addCell(new Phrase(new TextElementRenderer((TextElement)testCases[i].getAnnotation()).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+                    example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+                    example.addCell(new Phrase(new TextElementRenderer((TextElement)testCases[i].getAnnotation()).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
                 }
                 
                 problem.addCell(example);
             }
         }
 
-        problem.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
-        problem.addCell(new Phrase("This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without prior written consent of TopCoder, Inc. is strictly prohibited.  (c) 2004 TopCoder, Inc.  All rights reserved.", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.BLACK)));
+        problem.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        problem.addCell(new Phrase("This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without prior written consent of TopCoder, Inc. is strictly prohibited.  (c) 2004 TopCoder, Inc.  All rights reserved.", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
         doc.add(problem);
 
@@ -726,12 +726,12 @@ public class PDFGenerator extends BaseProcessor {
         submission.getDefaultCell().setBorderWidth(0);
         submission.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 
-        PdfPCell cell = new PdfPCell(new Phrase("[" + info.getHandle() + "]'s Submission", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLACK)));
+        PdfPCell cell = new PdfPCell(new Phrase("[" + info.getHandle() + "]'s Submission", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
         cell.setBorderWidth(0);
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         submission.addCell(cell);
 
-        submission.addCell(new Phrase(info.getSubmissionText(), FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.BLACK)));
+        submission.addCell(new Phrase(info.getSubmissionText(), FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
 
         doc.add(submission);
 
