@@ -39,7 +39,7 @@
 
                             <tr>
                                 <td class="devProjectWinner">Winning Designer:</td>
-                                <td class="devProjectWinnerMoney"><rsc:item row="<%=resultRow%>" name="price" format="#,###.00"/></td>
+                                <td class="devProjectWinnerMoney">$<rsc:item row="<%=resultRow%>" name="price" format="#,###.00"/></td>
                             </tr>
 
                             <tr>
@@ -95,7 +95,7 @@
 
                             <tr>
                                 <td class="devProjectWinner">Winning Developer:</td>
-                                <td class="devProjectWinnerMoney"><rsc:item row="<%=resultRow%>" name="price" format="#,###.00"/></td>
+                                <td class="devProjectWinnerMoney">$<rsc:item row="<%=resultRow%>" name="price" format="#,###.00"/></td>
                             </tr>
 
                             <tr>
