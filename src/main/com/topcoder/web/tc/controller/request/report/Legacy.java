@@ -1164,7 +1164,7 @@ public class Legacy extends Base {
              " WHERE u.user_id = c.coder_id "+
              " and c.coder_id = cr.coder_id" +
              " AND c.coder_type_id = 2 "+
-             " AND DATE(member_since) >= today-7 "+
+             " AND DATE(member_since) >= today-14 "+
              " AND handle NOT LIKE 'guest%' "+
              " AND co.country_code = c.country_code "+
              " AND LOWER(u.email) NOT LIKE '%topcoder.com' "+
@@ -1203,7 +1203,7 @@ public class Legacy extends Base {
         " WHERE u.user_id = c.coder_id" +
         " and cr.coder_id = c.coder_id" +
         " AND c.coder_type_id = 1" +
-        " AND date(member_since) >= today-7" +
+        " AND date(member_since) >= today-14" +
         " AND handle not like 'guest%'" +
         " AND co.country_code = c.country_code" +
         " AND lower(u.email) not like '%topcoder.com'" +
