@@ -398,7 +398,8 @@ public final class TaskDevelopment {
                     long version = Long.parseLong(request.getParameter("version"));
                     long phase = Long.parseLong(request.getParameter("phase"));
                     long componentId = Long.parseLong(request.getParameter("comp"));
-                    if (!isProjectLockedOut(componentId, version, phase)) {
+                    if (!isProjectLockedOut(componentId, version, phase) ||
+                            isTournamentComponent(componentId, version, phase)) {
 
                         long userId;
                         devTag.addTag(new ValueTag("Project", project));
