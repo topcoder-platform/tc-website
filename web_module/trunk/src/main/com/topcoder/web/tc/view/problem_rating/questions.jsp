@@ -12,21 +12,8 @@
 </head>
 <body>
 
-<jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value="competition"/>
-</jsp:include>
-
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
-
-<!-- Left Column Begins -->
-        <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value=""/>
-                <jsp:param name="level2" value=""/> 
-            </jsp:include>
-        </td>
-<!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
         <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
@@ -46,7 +33,8 @@
 <input type="hidden" name="module" value="SubmitRatings">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table BORDER="0" CELLSPACING="1" CELLPADDING="5" WIDTH="100%">
-        <tr><td class="bodyTextBig" colspan="2">Question</td>
+        <tr><td class="bodyTextBig">Question</td>
+            <td class="bodyTextBig">Description</td>
             <% for(int i = 1; i<=10; i++){ %>
                 <td class="bodyTextBig" align="center">
                     <%=i%>
@@ -55,10 +43,10 @@
         </tr>
         <tc:problemRatingIterator list="<%=problemRatingQuestions%>" id="quest">
         <tr>
-            <td class="bodyText" width="15" valign="top"><A href="javascript:infoWindow('/tc?&module=ProblemRatingInfo&qid=<%=quest.getID()%>')" class="statTextBig"><img src="/i/icon_help_white.gif" width="15" height="11" border="0"></A></td>
-            <td class="bodyText" width="100%">
+            <td class="bodyText">
                 <jsp:getProperty name="quest" property="question"/>
             </td>
+            <td class="bodyText" width="100%">question description goes here</td>
             <tc:counter min="1" max="10" inc="1" id="rating">
             <td valign="top">
                 <% boolean checked = rating.equals(request.getParameter("q"+quest.getID())); %>
@@ -74,9 +62,8 @@
             <a href="/tc?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>"><img src="/i/results.gif" width="60" height="18" border="0"></a>
         </td>
         </tr>
-    </table>
-</form>
-      <br/><br/>
+      </table>
+      </form>
       </td>
 <!-- Center Column Ends -->
 
@@ -84,23 +71,7 @@
       <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
 <!-- Gutter Ends -->
 
-<!-- Right Column Begins -->
-       <td width="170">
-            <jsp:include page="../public_right.jsp">
-                <jsp:param name="level1" value="review_board"/>
-                <jsp:param name="level2" value="competition"/> 
-            </jsp:include>
-        </td>
-<!-- Right Column Ends -->
-
-<!-- Gutter -->
-      <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
     </tr>
 </table>
-
-<jsp:include page="../foot.jsp" />
-
 </body>
-
 </html>
