@@ -4,11 +4,8 @@
  */
 --%>
 <%@  page 
-  contentType="text/html"
-  buffer="512"
-  autoflush="true"
+  language="java"
   import="java.util.*,
-          common.*,
           com.topcoder.common.web.data.report.*"
 
 %>
