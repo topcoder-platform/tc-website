@@ -233,6 +233,7 @@ Ipsuma dipiscing elit, sed diam nonummy nibh euismod tincidunt sit amet, consect
 </TABLE> 
 
     </TD>
+  <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="220"><IMG SRC="/i/clear.gif" ALT="" WIDTH="220" HEIGHT="1" BORDER="0"/><BR/>
 <IMG SRC="/i/sun_promo2.gif" ALT="" WIDTH="244" HEIGHT="161" BORDER="0"/><BR/><BR/>
 <xsl:call-template name="top_10_coders"/>
@@ -274,15 +275,9 @@ Ipsuma dipiscing elit, sed diam nonummy nibh euismod tincidunt sit amet, consect
             </TABLE>    
     </TD>
     <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-  <!-- Center Column Ends -->
-
 <!-- Body Area Ends -->
-
   </TR>   
-
 </TABLE>
-
   </xsl:template>
-
 </xsl:stylesheet>
 
