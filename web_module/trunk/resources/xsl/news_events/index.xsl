@@ -66,6 +66,37 @@
 <!-- CRPF Announcement -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_12_08_03"><img src="/i/pressroom/tco03_winner.jpg" alt="CRPF" width="135" height="100" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_12_08_03">Winners Announced in 2003 TopCoder Open sponsored by Intel&#174;</A></strong></font><br />
+                        TopCoder announced Tomasz Czajka of Warsaw, Poland, Tim Roberts of Cary, NC, and Rob Nielsen of Carters Ridge, Australia have won the Coding and Component Tournaments.<span class="prHead"> [December 8]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- Seattle Times
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?c=1&amp;slug=btdownload08&amp;date=20031208&amp;query=geek+olympics" target="_blank"><img src="/i/pressroom/seattle_times_logo.gif" alt="The Seattle Times" width="135" height="36" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?c=1&amp;slug=btdownload08&amp;date=20031208&amp;query=geek+olympics" target="_blank">'Geek Olympics' features 2 locals</A></strong></font><br />
+                        The TopCoder Open - quite possibly thegeek equivalent of the Olympics - was held in Connecticut last week and featured two Seattle programmers, 
+                        Ben Wilhelm and Mathijs Vogelzang. Both placed in the top 16 out of 1,000 competitors and were able to maintain their rankings in the global-coding 
+                        organization.<span class="prHead">[December 8]</span></p>
+                        
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+-->
+<!-- CRPF Announcement -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
                     <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_12_01_03"><img src="/i/pressroom/crpf_winners.gif" alt="CRPF" width="135" height="40" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
