@@ -494,13 +494,13 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      *  coder for a given round
      *****************************************************************************************
      **/
-    public void removeSystemTestResult(int roundId, int coderId, int problemId, int testCaseId) throws RemoteException {
-        log.info("Contest: removeSystemTestResult(roundId, coderId, problemId, testCaseId) called ... ");
+    public void removeSystemTestResult(int roundId, int coderId, int componentId, int testCaseId) throws RemoteException {
+        log.info("Contest: removeSystemTestResult(roundId, coderId, componentId, testCaseId) called ... ");
         int result = 0;
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         StringBuffer query = new StringBuffer(120);
-        query.append(" delete from system_test_result where round_id = ? and coder_id = ? and problem_id = ? ");
+        query.append(" delete from system_test_result where round_id = ? and coder_id = ? and component_id = ? ");
         query.append(" and test_case_id = ? ");
 
         try {
@@ -550,12 +550,12 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         float challengerPoints = 0.0f, defendantPoints = 0.0f;
 
         StringBuffer queryGetChallengeInfo = new StringBuffer(200);
-        queryGetChallengeInfo.append(" select round_id, challenger_id, defendant_id, succeeded, problem_id ")
+        queryGetChallengeInfo.append(" select round_id, challenger_id, defendant_id, succeeded, component_id ")
                 .append(" , challenger_points, defendant_points from challenge where challenge_id = ? ");
 
         StringBuffer queryUpdatePSSucessful = new StringBuffer(200);
         queryUpdatePSSucessful.append(" update problem_state set status_id = ? , points = points - ? ")
-                .append(" where round_id =  ? and coder_id = ? and problem_id = ? ");
+                .append(" where round_id =  ? and coder_id = ? and component_id = ? ");
 
         StringBuffer queryUpdateRR = new StringBuffer(200);
         queryUpdateRR.append(" update room_result set point_total = point_total - ? ")
@@ -563,7 +563,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         StringBuffer queryUpdateChallenge = new StringBuffer(200);
         queryUpdateChallenge.append(" update challenge set status_id = ? where ")
-                .append(" round_id =  ? and problem_id = ? and defendant_id = ? and challenger_id = ? and challenge_id = ? ");
+                .append(" round_id =  ? and component_id = ? and defendant_id = ? and challenger_id = ? and challenge_id = ? ");
 
         try {
             try {
@@ -760,15 +760,16 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         StringBuffer txtGetSystemTestResult = new StringBuffer(500);
         txtGetSystemTestResult.append(" select str.coder_id, str.round_id, p.problem_id, str.test_case_id,    ");
-        txtGetSystemTestResult.append("  u.handle, rs.room_id, r.name, p.class_name,  ");
+        txtGetSystemTestResult.append("  u.handle, rs.room_id, r.name, c.class_name,  ");
         txtGetSystemTestResult.append("  str.num_iterations, str.processing_time,  ");
         txtGetSystemTestResult.append("  str.deduction_amount, str.timestamp, str.viewable, stc.args, stc.expected_result, str.received    ");
         txtGetSystemTestResult.append("  from system_test_result str, system_test_case stc , room_result rs, room r , problem p, ");
-        txtGetSystemTestResult.append("       user u  ");
+        txtGetSystemTestResult.append("       user u, component c  ");
         txtGetSystemTestResult.append("  where  ");
         txtGetSystemTestResult.append("  str.test_case_id = stc.test_case_id  ");
-        txtGetSystemTestResult.append("  and str.problem_id = stc.problem_id  ");
-        txtGetSystemTestResult.append("  and stc.problem_id = p.problem_id  ");
+        txtGetSystemTestResult.append("  and str.component_id = stc.component_id  ");
+        txtGetSystemTestResult.append("  and stc.component_id = c.component_id  ");
+        txtGetSystemTestResult.append("  and c.problem_id = p.problem_id  ");
         txtGetSystemTestResult.append("  and str.round_id = ?  ");
         txtGetSystemTestResult.append("  and str.round_id = rs.round_id  ");
         txtGetSystemTestResult.append("  and str.coder_id = rs.coder_id  ");
@@ -869,20 +870,21 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         StringBuffer txtGetChallenges = new StringBuffer();
         txtGetChallenges.append(" SELECT c.round_id, r.room_id, c.challenge_id, c.challenger_id, ")
-                .append(" c.defendant_id, c.problem_id, d.data_type_desc, p.class_name, c.succeeded, ")
-                .append(" c.submit_time, p.method_name, c.args, c.message, c.expected, ")
+                .append(" c.defendant_id, p.problem_id, d.data_type_desc, cp.class_name, c.succeeded, ")
+                .append(" c.submit_time, cp.method_name, c.args, c.message, c.expected, ")
                 .append(" c.received, c.challenger_points, c.defendant_points, ")
                 .append(" u1.handle, u2.handle, r.name, st.status_desc, c.status_id ")
                 .append(" FROM challenge c, room_result rs, user u1, user u2, room r, problem p, data_type d ")
-                .append(" , status_lu st ")
+                .append(" , status_lu st, component cp ")
                 .append(" WHERE c.round_id  = ?  ")
                 .append("   and c.round_id = rs.round_id ")
                 .append("   and c.challenger_id = rs.coder_id ")
                 .append("   and c.challenger_id = u1.user_id ")
                 .append("   and c.defendant_id = u2.user_id ")
                 .append("   and rs.room_id = r.room_id ")
-                .append("   and c.problem_id = p.problem_id ")
-                .append("   and p.result_type_id = d.data_type_id ")
+                .append("   and c.component_id = cp.component_id ")
+                .append("   and cp.problem_id = p.problem_id ")
+                .append("   and cp.result_type_id = d.data_type_id ")
                 .append("   and c.status_id = st.status_id ");
         switch (constraintType) {
             case 1:
@@ -1212,18 +1214,18 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         try {
             query = new StringBuffer(300);
-            query.append(" SELECT ps.round_id");
-            query.append(" ,ps.problem_id");
-            query.append(" ,p.class_name");
-            query.append(" ,p.method_name");
+            query.append(" SELECT cs.round_id");
+            query.append(" ,cs.problem_id");
+            query.append(" ,cp.class_name");
+            query.append(" ,cp.method_name");
             query.append(" ,d.difficulty_desc");
-            query.append(" ,ps.coder_id");
+            query.append(" ,cs.coder_id");
             query.append(" ,u.handle");
             query.append(" ,c.compilation_text");
-            query.append(" ,pstat.status_desc");
+            query.append(" ,csl.status_desc");
             query.append(" ,c.open_time");
             query.append(" ,s.submit_time");
-            query.append(" ,ps.points");
+            query.append(" ,cs.points");
             query.append(" ,s.submission_points");
             query.append(" ,s.submission_text");
             query.append(" ,l.language_name");
@@ -1233,21 +1235,23 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             query.append(" ,user u");
             query.append(" ,compilation c");
             query.append(" ,problem p");
-            query.append(" ,problem_status pstat");
+            query.append(" ,component_status_lu csl");
             query.append(" ,language l");
             query.append(" ,difficulty d");
             query.append(" ,round_problem rp");
             query.append(" ,room r");
             query.append(" ,room_result rr");
-            query.append(" WHERE ps.problem_state_id = s.problem_state_id");
-            query.append(" AND u.user_id = ps.coder_id");
-            query.append(" AND c.problem_state_id = ps.problem_state_id");
-            query.append(" AND ps.problem_id = p.problem_id");
-            query.append(" AND ps.status_id = pstat.problem_status_id");
+            query.append(" ,component cp");
+            query.append(" WHERE cs.problem_state_id = s.problem_state_id");
+            query.append(" AND u.user_id = cs.coder_id");
+            query.append(" AND c.component_state_id = cs.component_state_id");
+            query.append(" AND cp.problem_id = p.problem_id");
+            query.append(" AND cs.component_id = cp.component_id");
+            query.append(" AND ps.status_id = csl.component_status_id");
             query.append(" AND ps.round_id = ?");
             query.append(" AND u.user_id = ?");
-            query.append(" AND ps.language_id = l.language_id");
-            query.append(" AND ps.round_id = rp.round_id");
+            query.append(" AND cs.language_id = l.language_id");
+            query.append(" AND cs.round_id = rp.round_id");
             query.append(" AND rp.problem_id = p.problem_id");
             query.append(" AND rp.difficulty_id = d.difficulty_id");
             query.append(" AND rr.room_id = r.room_id");
@@ -1399,11 +1403,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         try {
             query = new StringBuffer(300);
-            query.append(" SELECT distinct ps.coder_id, u.handle");
+            query.append(" SELECT distinct cs.coder_id, u.handle");
             query.append("   FROM user u");
-            query.append("  JOIN problem_state ps");
-            query.append("     ON ps.coder_id = u.user_id");
-            query.append("   AND ps.round_id = ?");
+            query.append("  JOIN component_state cs");
+            query.append("     ON cs.coder_id = u.user_id");
+            query.append("   AND cs.round_id = ?");
             DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
             conn = ds.getConnection();
             log.debug("\n" + query.toString());
@@ -1579,7 +1583,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         ResultSet rs = null;
 
         StringBuffer txtGetCoders = new StringBuffer();
-        txtGetCoders.append(" SELECT coder_id, handle, lower(handle) as u2 from problem_state, user where round_id = ? and problem_id = ? and ");
+        txtGetCoders.append(" SELECT coder_id, handle, lower(handle) as u2 from component_state, user where round_id = ? and component_id = ? and ");
         txtGetCoders.append(" coder_id = user_id ORDER BY u2 ");
 
         try {
@@ -1638,10 +1642,10 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         ResultSet rs = null;
 
         StringBuffer txtGetProblems = new StringBuffer();
-        txtGetProblems.append(" SELECT p.problem_id, p.class_name, d.difficulty_desc, r.round_id, r.division_id, dv.division_desc  ")
-                .append(" , p.method_name from round_problem r, problem p, difficulty d , division dv where d.difficulty_id = r.difficulty_id ")
-                .append(" and r.round_id = ?  and r.problem_id = p.problem_id and r.division_id = dv.division_id ")
-                .append(" group by p.problem_id, p.class_name, d.difficulty_desc, r.round_id, r.division_id, dv.division_desc, p.method_name ")
+        txtGetProblems.append(" SELECT p.problem_id, cp.class_name, d.difficulty_desc, r.round_id, r.division_id, dv.division_desc  ")
+                .append(" , cp.method_name from round_problem r, problem p, component cp, difficulty d , division dv where d.difficulty_id = r.difficulty_id ")
+                .append(" and r.round_id = ?  and r.problem_id = p.problem_id and cp.problem_id = p.problem_id and r.division_id = dv.division_id ")
+                .append(" group by p.problem_id, cp.class_name, d.difficulty_desc, r.round_id, r.division_id, dv.division_desc, cp.method_name ")
                 .append(" ORDER BY p.problem_id ");
 
 
@@ -1716,16 +1720,17 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         ResultSet rs = null;
 
         StringBuffer txtGetSystemTestResult = new StringBuffer(500);
-        txtGetSystemTestResult.append(" select str.coder_id, str.round_id, str.problem_id, str.test_case_id,    ");
-        txtGetSystemTestResult.append("  u.handle, rs.room_id, p.problem_id, p.class_name,  ");
+        txtGetSystemTestResult.append(" select str.coder_id, str.round_id, str.component_id, str.test_case_id,    ");
+        txtGetSystemTestResult.append("  u.handle, rs.room_id, p.problem_id, cp.class_name,  ");
         txtGetSystemTestResult.append("  str.num_iterations, str.processing_time,  ");
         txtGetSystemTestResult.append("  str.deduction_amount, str.timestamp, str.viewable, stc.args, stc.expected_result, str.received ");
-        txtGetSystemTestResult.append("  from system_test_result str, system_test_case stc , room_result rs, room r , problem p, user u ");
+        txtGetSystemTestResult.append("  from system_test_result str, system_test_case stc , room_result rs, room r , problem p, user u, component c ");
         txtGetSystemTestResult.append("  where  ");
         txtGetSystemTestResult.append("  str.test_case_id = stc.test_case_id  ");
         txtGetSystemTestResult.append("  and str.coder_id = ?  ");
-        txtGetSystemTestResult.append("  and str.problem_id = stc.problem_id  ");
-        txtGetSystemTestResult.append("  and stc.problem_id = p.problem_id  ");
+        txtGetSystemTestResult.append("  and str.component_id = stc.component_id  ");
+        txtGetSystemTestResult.append("  and stc.component_id = cp.component_id  ");
+        txtGetSystemTestResult.append("  and cp.problem_id = p.problem_id  ");
         txtGetSystemTestResult.append("  and str.round_id = ?  ");
         txtGetSystemTestResult.append("  and str.round_id = rs.round_id  ");
         txtGetSystemTestResult.append("  and str.coder_id = rs.coder_id  ");
@@ -1836,13 +1841,13 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
             conn = ds.getConnection();
 
-            sqlStr.append(" SELECT c.problem_id, c.round_id, c.defendant_id, c.challenger_id, ").
+            sqlStr.append(" SELECT c.component_id, c.round_id, c.defendant_id, c.challenger_id, ").
                     append("        c.succeeded, c.message, s.submission_points ").
                     append(" FROM challenge c, submission s ").
                     append(" WHERE c.challenge_id = ? ").
-                    append(" AND s.problem_state_id = (SELECT ps.problem_state_id FROM problem_state ps ").
+                    append(" AND s.component_state_id = (SELECT cs.component_state_id FROM component_state ps ").
                     append("                           WHERE ps.round_id = c.round_id ").
-                    append("                           AND ps.problem_id = c.problem_id ").
+                    append("                           AND cs.component_id = c.component_id ").
                     append("                           AND ps.coder_id = c.defendant_id) ");
 
             ps = conn.prepareStatement(sqlStr.toString());
@@ -1922,7 +1927,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             conn.setAutoCommit(false);
             updateChallenge(conn, 0, -50.00, 0.00, message, challenge_id);
             updateRoomResult(conn, round_id, defendant_id, submission_points);
-            updateProblemState(conn, submission_points, CHALLENGE_FAILED, round_id, defendant_id, problem_id);
+            updateComponentState(conn, submission_points, CHALLENGE_FAILED, round_id, defendant_id, problem_id);
             updateRoomResult(conn, round_id, challenger_id, -100.00);
             conn.commit();
         } catch (Exception e) {
@@ -1964,7 +1969,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             conn.setAutoCommit(false);
             updateChallenge(conn, 1, 50.00, submission_points, message, challenge_id);
             updateRoomResult(conn, round_id, defendant_id, submission_points);
-            updateProblemState(conn, 0.00, CHALLENGE_SUCCEEDED, round_id, defendant_id, problem_id);
+            updateComponentState(conn, 0.00, CHALLENGE_SUCCEEDED, round_id, defendant_id, problem_id);
             updateRoomResult(conn, round_id, challenger_id, 100.00);
             conn.commit();
         } catch (Exception e) {
@@ -2095,16 +2100,16 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * @param problem_id - int representing a unique problem
      * @author ademich
      */
-    private static void updateProblemState(java.sql.Connection conn, double submission_points, int status_id,
-                                           int round_id, int coder_id, int problem_id)
+    private static void updateComponentState(java.sql.Connection conn, double submission_points, int status_id,
+                                           int round_id, int coder_id, int component_id)
             throws RemoteException {
 
         PreparedStatement ps = null;
         StringBuffer sqlStr = new StringBuffer(150);
 
         try {
-            sqlStr.append(" UPDATE problem_state SET points = ?, status_id = ? ").
-                    append(" WHERE  round_id = ? AND coder_id = ? AND problem_id = ?");
+            sqlStr.append(" UPDATE component_state SET points = ?, status_id = ? ").
+                    append(" WHERE  round_id = ? AND coder_id = ? AND component_id = ?");
 
 
             ps = conn.prepareStatement(sqlStr.toString());
@@ -2112,17 +2117,17 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             ps.setInt(2, status_id);
             ps.setInt(3, round_id);
             ps.setInt(4, coder_id);
-            ps.setInt(5, problem_id);
+            ps.setInt(5, component_id);
 
             if (ps.executeUpdate() == -1) {
-                throw new RemoteException("Error in updateProblemState: record not updated for coder_id: " +
-                        coder_id + " round_id: " + round_id + " problem_id: " + problem_id);
+                throw new RemoteException("Error in updateComponentState: record not updated for coder_id: " +
+                        coder_id + " round_id: " + round_id + " problem_id: " + component_id);
             }
 
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException("Error in updateProblemState: " + e.getMessage());
+            throw new RemoteException("Error in updateComponentState: " + e.getMessage());
         } finally {
             try {
                 if (ps != null) {
