@@ -106,7 +106,6 @@ INSERT INTO input_lu VALUES(1, "rd", 1001, "Round ID");
 INSERT INTO input_lu VALUES(2, "rm", 1001, "Room ID");
 INSERT INTO input_lu VALUES(3, "cr", 1001, "Coder ID");
 INSERT INTO input_lu VALUES(4, "pm", 1001, "Problem ID");
-INSERT INTO input_lu VALUES(5, "sd", 1003, "Start date");
 INSERT INTO input_lu VALUES(6, "ed", 1003, "End date");
 INSERT INTO input_lu VALUES(7, "nr", 1001, "Number of records");
 INSERT INTO input_lu VALUES(8, "sr", 1001, "Start rank");

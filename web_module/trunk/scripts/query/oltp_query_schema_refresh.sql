@@ -87,12 +87,10 @@ INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(22,
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(23,"rd",1001,"Round ID");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(24,"ct",1001,"Coder Type Id");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(25,"dq",1001,"Demographic Question Id");
-INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(26,"ct",1001,"coder type");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(27,"rn",1001,"min rating");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(28,"rx",1001,"max rating");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(29,"ha",1005,"handle");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(30,"scs",1005,"state codes");
-INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(31,"ccs",1005,"country codes");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(32,"nrn",1001,"min num ratings");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(33,"nrx",1001,"max num ratings");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(34,"gn",1001,"min grad year");
