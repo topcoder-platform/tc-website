@@ -50,14 +50,6 @@
 							%>
 							User is <%= l_user %><BR>
 							<%= l_user.getHandle() %> (<%= l_user.getUserId() %>)
-							<%
-									CoderBean beanHandle = new CoderBean();
-									CoderObject obj = new CoderObject();
-									obj.coder_id = new Long( (long)l_user.getUserId() );
-									obj = beanHandle.request( Coder.SELECT, obj );
-							%>
-							
-							<%= obj.last_name %>, <%= obj.first_name %>
 							<BR><BR>
 
 <!--trj insert 6/11/2002 1943 -->
