@@ -82,17 +82,17 @@
 					<P>Through TCES, employers are given access to review member statistics, history, submissions and more. Personal information such as first and last name, means of contact, and address are not available without the interaction of TCES and consent of the member.</P>
 					<B>Membership Employment Demographics</B><BR/><UL>
 					All members:
-					<LI>82&#37; have opted for notification of employment opportunities</LI>
-					<LI>79&#37; have indicated an interest in new employment</LI>
-					<LI>64&#37; are willing to relocate</LI><BR/>
+					<LI>79&#37; have opted for notification of employment opportunities</LI>
+					<LI>78&#37; have indicated an interest in new employment</LI>
+					<LI>66&#37; are willing to relocate</LI><BR/>
 					Professionals:
-					<LI>59&#37; are looking for full-time work</LI>
+					<LI>60&#37; are looking for full-time work</LI>
 					<LI>8&#37;&#160;&#160;&#160;are looking for full-time contract work</LI>
-					<LI>10&#37; are looking for part-time contract work</LI><BR/>
+					<LI>8&#37; are looking for part-time contract work</LI><BR/>
 					Students:
 					<LI>31&#37; are looking for full-time work</LI>
-					<LI>22&#37; are looking for part-time work</LI>
-					<LI>38&#37; are looking for an internship</LI>
+					<LI>23&#37; are looking for part-time work</LI>
+					<LI>35&#37; are looking for an internship</LI>
 					</UL><BR/>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
