@@ -318,7 +318,7 @@
         </attribute>
     </tag>
 
-
+    <tag>
         <name>multiRSCSelect</name>
         <tagclass>com.topcoder.web.common.tag.MultiRSCSelectTag</tagclass>
         <attribute>
