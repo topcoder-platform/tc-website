@@ -29,7 +29,7 @@ public class InternalDispatchUserProfileHeader implements PactsConstants {
 	HttpServletResponse response;
 
 	public static Category log =
-		PactsLog.getInstance(InternalDispatchUserProfileHeader.class.getName());
+		Category.getInstance(InternalDispatchUserProfileHeader.class.getName());
 
 	public InternalDispatchUserProfileHeader (HttpServletRequest request,
 			HttpServletResponse response) {

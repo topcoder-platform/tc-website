@@ -16,7 +16,7 @@ import org.apache.log4j.*;
    
 public class ContractHeaderList implements PactsConstants {
     private static Category log = 
-	PactsLog.getInstance(ContractHeaderList.class.getName()); 
+	Category.getInstance(ContractHeaderList.class.getName()); 
 
     public ContractHeader[] headerList=null;
 

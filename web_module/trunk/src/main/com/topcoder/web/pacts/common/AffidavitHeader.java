@@ -24,7 +24,7 @@ import java.util.*;
 public class AffidavitHeader implements PactsConstants, java.io.Serializable {
 
 	private static Category log =
-		PactsLog.getInstance(AffidavitHeader.class.getName());
+		Category.getInstance(AffidavitHeader.class.getName());
 /*  Explanation of Members
 *
 *  _id           - DB id of the affidavit

@@ -38,7 +38,7 @@ import org.apache.log4j.*;
  */   
 public class ContractHeader implements PactsConstants, java.io.Serializable {
     private static Category log = 
-	PactsLog.getInstance(ContractHeader.class.getName()); 
+	Category.getInstance(ContractHeader.class.getName()); 
 
 	public String _statusDesc;
         public int _statusId;

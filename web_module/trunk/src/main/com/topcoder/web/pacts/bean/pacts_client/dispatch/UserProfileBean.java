@@ -11,7 +11,7 @@ import com.topcoder.web.pacts.common.*;
 import org.apache.log4j.*;
 
 public class UserProfileBean {
-        private static Category log = PactsLog.getInstance(UserProfileBean.class.getName());
+        private static Category log = Category.getInstance(UserProfileBean.class.getName());
     /**
      * contructor.  Does nothing, the class is stateless
      */

@@ -16,7 +16,7 @@ import org.apache.log4j.*;
 
 public class AffidavitHeaderList implements PactsConstants {
     private static Category log =
-	PactsLog.getInstance(AffidavitHeaderList.class.getName());
+	Category.getInstance(AffidavitHeaderList.class.getName());
 
     public AffidavitHeader[] headerList=null;
 
