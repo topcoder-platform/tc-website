@@ -241,8 +241,8 @@
 <tr class=sidebarText><td>ragnabot</td><td>Problem Sets 2 and 8</td><td align="right">283.06</td></tr>
 <tr class=sidebarText><td>asif_coder</td><td>Problem Sets 2 and 8</td><td align="right">259.56</td></tr>
 <tr class=sidebarText><td>Dan-0411</td><td>Problem Sets 2 and 8</td><td align="right">254.44</td></tr>
-<tr class=sidebarText><td>villiros</td><td>Problem Sets 2 and 8</td><td align="right">249.74</td></tr>
 <tr class=sidebarText><td>cz</td><td>Problem Sets 2 and 8</td><td align="right">249.74</td></tr>
+<tr class=sidebarText><td>villiros</td><td>Problem Sets 2 and 8</td><td align="right">249.74</td></tr>
 <tr class=sidebarText><td>Crystal</td><td>Problem Sets 2 and 8</td><td align="right">237.22</td></tr>
 <tr class=sidebarText><td>jkraju</td><td>Problem Sets 2 and 8</td><td align="right">233.33</td></tr>
 <tr class=sidebarText><td>tmkarthi</td><td>Problem Sets 2 and 8</td><td align="right">233.14</td></tr>
@@ -270,10 +270,7 @@
 <tr class=sidebarText><td>FatClimber</td><td>Problem Sets 3 and 10</td><td align="right">738.21</td></tr>
 <tr class=sidebarText><td>TexWiller</td><td>Problem Sets 3 and 10</td><td align="right">731.02</td></tr>
 <tr class=sidebarText><td>maze_pallas</td><td>Problem Sets 3 and 10</td><td align="right">718.32</td></tr>
-<tr class=sidebarText><td>BrijeshGowda</td><td>Problem Sets 3 and 10</td><td align="right">395.99</td></tr>
 <tr class=sidebarText><td>ankit_dube</td><td>Problem Sets 3 and 10</td><td align="right">390.35</td></tr>
-<tr class=sidebarText><td>arunmanian</td><td>Problem Sets 3 and 10</td><td align="right">389.55</td></tr>
-<tr class=sidebarText><td>fqaisranispy</td><td>Problem Sets 3 and 10</td><td align="right">386.10</td></tr>
 <tr class=sidebarText><td>doeth</td><td>Problem Sets 3 and 10</td><td align="right">385.41</td></tr>
 <tr class=sidebarText><td>Kawigi</td><td>Problem Sets 3 and 10</td><td align="right">382.90</td></tr>
 <tr class=sidebarText><td>daveagp</td><td>Problem Sets 3 and 10</td><td align="right">382.75</td></tr>
@@ -333,8 +330,8 @@
 <tr class=sidebarText><td>she</td><td>Problem Sets 3 and 10</td><td align="right">341.27</td></tr>
 <tr class=sidebarText><td>aylex</td><td>Problem Sets 3 and 10</td><td align="right">340.84</td></tr>
 <tr class=sidebarText><td>dario</td><td>Problem Sets 3 and 10</td><td align="right">340.59</td></tr>
-<tr class=sidebarText><td>Zaknafein</td><td>Problem Sets 3 and 10</td><td align="right">340.37</td></tr>
 <tr class=sidebarText><td>coshx</td><td>Problem Sets 3 and 10</td><td align="right">340.37</td></tr>
+<tr class=sidebarText><td>Zaknafein</td><td>Problem Sets 3 and 10</td><td align="right">340.37</td></tr>
 <tr class=sidebarText><td>scott</td><td>Problem Sets 3 and 10</td><td align="right">340.17</td></tr>
 <tr class=sidebarText><td>Trap</td><td>Problem Sets 3 and 10</td><td align="right">339.69</td></tr>
 <tr class=sidebarText><td>mktong</td><td>Problem Sets 3 and 10</td><td align="right">339.25</td></tr>
@@ -359,6 +356,9 @@
 <tr class=sidebarText><td>xmux</td><td>Problem Sets 3 and 10</td><td align="right">331.09</td></tr>
 <tr class=sidebarText><td>lincetto</td><td>Problem Sets 3 and 10</td><td align="right">330.90</td></tr>
 <tr class=sidebarText><td>cowtowncoder</td><td>Problem Sets 3 and 10</td><td align="right">330.72</td></tr>
+<tr class=sidebarText><td>Vovka</td><td>Problem Sets 3 and 10</td><td align="right">330.25</td></tr>
+<tr class=sidebarText><td>CodeDrJ</td><td>Problem Sets 3 and 10</td><td align="right">329.26</td></tr>
+<tr class=sidebarText><td>tomek2</td><td>Problem Sets 3 and 10</td><td align="right">329.01</td></tr>
 <tr class=sidebarText><td>gunnark</td><td>Problem Sets 4 and 9</td><td align="right">933.94</td></tr>
 <tr class=sidebarText><td>superjoel</td><td>Problem Sets 4 and 9</td><td align="right">917.10</td></tr>
 <tr class=sidebarText><td>overwise</td><td>Problem Sets 4 and 9</td><td align="right">901.01</td></tr>
@@ -378,8 +378,6 @@
 <tr class=sidebarText><td>theflea</td><td>Problem Sets 4 and 9</td><td align="right">728.89</td></tr>
 <tr class=sidebarText><td>along</td><td>Problem Sets 4 and 9</td><td align="right">568.26</td></tr>
 <tr class=sidebarText><td>jinxidoru</td><td>Problem Sets 4 and 9</td><td align="right">524.60</td></tr>
-<tr class=sidebarText><td>sqaisrani</td><td>Problem Sets 4 and 9</td><td align="right">398.94</td></tr>
-<tr class=sidebarText><td>qaisranifarrukh</td><td>Problem Sets 4 and 9</td><td align="right">398.37</td></tr>
 <tr class=sidebarText><td>Jwalk</td><td>Problem Sets 4 and 9</td><td align="right">391.71</td></tr>
 <tr class=sidebarText><td>futo</td><td>Problem Sets 4 and 9</td><td align="right">388.48</td></tr>
 <tr class=sidebarText><td>anomaly</td><td>Problem Sets 4 and 9</td><td align="right">388.25</td></tr>
@@ -424,8 +422,8 @@
 <tr class=sidebarText><td>netspade</td><td>Problem Sets 4 and 9</td><td align="right">362.46</td></tr>
 <tr class=sidebarText><td>msdawy</td><td>Problem Sets 4 and 9</td><td align="right">362.05</td></tr>
 <tr class=sidebarText><td>nullspace</td><td>Problem Sets 4 and 9</td><td align="right">361.71</td></tr>
-<tr class=sidebarText><td>groovymother</td><td>Problem Sets 4 and 9</td><td align="right">361.43</td></tr>
 <tr class=sidebarText><td>qoqo</td><td>Problem Sets 4 and 9</td><td align="right">361.43</td></tr>
+<tr class=sidebarText><td>groovymother</td><td>Problem Sets 4 and 9</td><td align="right">361.43</td></tr>
 <tr class=sidebarText><td>toschek</td><td>Problem Sets 4 and 9</td><td align="right">360.85</td></tr>
 <tr class=sidebarText><td>lebedev.kirill</td><td>Problem Sets 4 and 9</td><td align="right">360.10</td></tr>
 <tr class=sidebarText><td>kalmakka</td><td>Problem Sets 4 and 9</td><td align="right">359.74</td></tr>
@@ -459,6 +457,8 @@
 <tr class=sidebarText><td>wstubbs</td><td>Problem Sets 4 and 9</td><td align="right">344.03</td></tr>
 <tr class=sidebarText><td>ordinaryHuman</td><td>Problem Sets 4 and 9</td><td align="right">343.33</td></tr>
 <tr class=sidebarText><td>Ulan</td><td>Problem Sets 4 and 9</td><td align="right">342.87</td></tr>
+<tr class=sidebarText><td>nosnickid</td><td>Problem Sets 4 and 9</td><td align="right">342.83</td></tr>
+<tr class=sidebarText><td>tomek</td><td>Problem Sets 4 and 9</td><td align="right">342.13</td></tr>
 <tr class=sidebarText><td>AdrianKuegel</td><td>Problem Sets 5 and 6</td><td align="right">1056.03</td></tr>
 <tr class=sidebarText><td>pparys</td><td>Problem Sets 5 and 6</td><td align="right">1015.19</td></tr>
 <tr class=sidebarText><td>viktoras</td><td>Problem Sets 5 and 6</td><td align="right">873.48</td></tr>
