@@ -92,7 +92,7 @@ public class PlacementProfile extends BaseProcessor {
     
     protected static DataAccessInt getDataAccess() throws Exception { 
        DataAccessInt dAccess = null;
-       dAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+       dAccess = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
        return dAccess;
     }
 }
