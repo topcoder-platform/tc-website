@@ -38,9 +38,9 @@
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 			
-			<h2>Development Tutuorial</h2>
+			<h2>Development Tutorial</h2>
 
-			<a name="intro"></a>
+			<a name="sectionI"></a>
 			<h2>I. Introduction</h2>
 			<span class=bodySubtitle>Developing at TopCoder</span>
 			<p>TopCoder develops components in C# and Java.  Though the languages may 
@@ -102,14 +102,14 @@
 							<td class=projectCells valign=top>
 								<p>NAnt is a utility that executes custom, extensible build scripts.  
 									You will need this tool to compile your project and submit your code 
-									to TopCoder.  Build scripts are covered in more detail in <a href="http://www.desult.com/tcs/tc-tutorial.html#setupenv">Section III</a>.</p>
+									to TopCoder.  Build scripts are covered in more detail in <a href="#setupenv">Section III</a>.</p>
 							</td>
 						</tr>
 						<tr>
 							<td class=projectCells valign=top nowrap=nowrap>NUnit</td>
 							<td class=projectCells valign=top nowrap=nowrap><a href="http://www.nunit.org/" target="_blank">Homepage</a></td>
 							<td class=projectCells valign=top>NUnit is a framework that will allow you to quickly and concisely test your 
-								code. Unit testing is covered in more detail in <a href="http://www.desult.com/tcs/tc-tutorial.html#unittests">Section VI</a>.</td>
+								code. Unit testing is covered in more detail in <a href="#unittests">Section VI</a>.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -139,14 +139,14 @@
 						<td class=projectCells valign=top>
 							<p>Ant is a utility that executes custom, extensible build scripts.  
 								You will need this tool to compile your project and submit your code 
-								to TopCoder.  Build scripts are covered in more detail in <a href="http://www.desult.com/tcs/tc-tutorial.html#setupenv">Section III</a>.</p>
+								to TopCoder.  Build scripts are covered in more detail in <a href="#setupenv">Section III</a>.</p>
 						</td>
 					</tr>
 					<tr>
 						<td class=projectCells valign=top nowrap=nowrap>JUnit</td>
 						<td class=projectCells valign=top nowrap=nowrap><a href="http://www.junit.org/" target="_blank">Homepage</a></td>
 						<td class=projectCells valign=top>JUnit is a framework that will allow you to quickly and concisely test your 
-							code. Unit testing is covered in more detail in <a href="http://www.desult.com/tcs/tc-tutorial.html#unittests">Section VI</a>.</td>
+							code. Unit testing is covered in more detail in <a href="#unittests">Section VI</a>.</td>
 					</tr>
 					<tr>
 						<td class=projectCells valign=top nowrap=nowrap>Sun J2SE JRE 1.3</td>
@@ -194,7 +194,7 @@
 				development solutions, but also allows you to compete in TopCoder competitions 
 				and get in touch with employers via the TopCoder Employment Service.  To 
 				register, follow this <a href="/reg/index.jsp" target="_blank">link</a>.</p>
-			<h2><a name="#i">II. Picking A Project</a></h2>
+			<h2><A name="#sectionII"></A>II. Picking A Project</h2>
 			<p>Picking a project is the first step to a winning development submission.  
 				You can quickly find open development projects at <a href="/?t=development&amp;c=comp_projects" target="_blank">
 					this page</a>.  From that page, you can see which projects are open, 
@@ -237,7 +237,7 @@
 			<p>Now that you've found a project you're comfortable with, and you have the time 
 				to complete it, you're ready to register!  Click on the Register link on 
 				the project details page to register for the project.</p>
-			<h2>III. Getting Started - Environment</h2>
+			<h2><A name="sectionIII"></A>III. Getting Started - Environment</h2>
 			<p>After registration, you'll have access to the project submission application, as 
 				well as a forum for your component. </p>
 			<span class=bodySubtitle>Project Submit and Review</span>
@@ -281,7 +281,7 @@
 			<p><font face="Courier New">/docs - </font>This directory contains all current 
 				documentation for your component.  This includes a .zargo or .zuml UML 
 				design specification, as well as the requirements and component specification. 
-				The design documents are covered in more detail in <a href="http://www.desult.com/tcs/tc-tutorial.html#startdev">Section IV</a>.</p>
+				The design documents are covered in more detail in <a href="#startdev">Section IV</a>.</p>
 			<font face="Courier New">
 				<p><font face="Courier New">/lib - </font><font face="Times New Roman">Here you 
 						will find all required components level libraries that your component will 
@@ -293,7 +293,7 @@
 			<p><font face="Courier New">/src - </font>This directory will contain all your 
 				source, when you complete your project.  In the distribution, normally 
 				only a directory skeleton will be created here.  Developers are 
-				responsible for source file generation, covered in more detail in <a href="http://www.desult.com/tcs/tc-tutorial.html#stubs">Section IV</a>.</p>
+				responsible for source file generation, covered in more detail in <a href="#stubs">Section IV</a>.</p>
 			<p><font face="Courier New">/test_files - </font> This directory contains 
 				all files used by your component during testing.  This can include special 
 				or extreme configuration files, input and output samples, database schema, and 
@@ -306,12 +306,12 @@
 			</font>
 			<p><font face="Courier New">/build.xml - </font><font face="Times New Roman">This 
 					is a default, possibly unconfigured build script.  Build scripts are 
-					covered in more detail in <a href="http://www.desult.com/tcs/tc-tutorial.html#setupenv">Section III</a>.</font></p>
+					covered in more detail in <a href="#setupenv">Section III</a>.</font></p>
 			<h4></h4>
 			<h4>C#</h4>
 			<p><font face="Courier New">/default.build - </font><font face="Times New Roman">This 
 					is a default, possibly unconfigured build script.  Build scripts are 
-					covered in more detail in <a href="http://www.desult.com/tcs/tc-tutorial.html#setupenv">Section III</a>.</font></p>
+					covered in more detail in <a href="#setupenv">Section III</a>.</font></p>
 			<span class=bodySubtitle><a name="#setupenv">Setting Up Your Environment</a></span>
 			<p>First off, you'll need to decide on a working directory.  Appropriate 
 				examples include <font face="Courier New"><font size="2">C:\working\</font><font face="Times New Roman">,</font>
@@ -433,7 +433,8 @@
 			<p><font face="Courier New" size="2">&lt;property 
 					value="${tcs_bin}\generic_parser\1.0\TopCoder.Util.GenericParser.dll" 
 					name="generic_parser.dll"/&gt; </font></p>
-			<h2>IV.<a name="#startdev"> Getting Started - Development</a></h2>
+			<a name="sectionIV"></A>
+			<h2>IV. Getting Started - Development</h2>
 			<p>You've got your environment ready, your distribution extracted, your build 
 				script configured.  Now what?  Well, the first step is reading the 
 				design documentation.</p>
@@ -543,23 +544,23 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class=projectCells valign=top nowrap=nowrap>conf/</font></td>
+						<td class=projectCells valign=top nowrap=nowrap><font face="Courier New">conf/</font></td>
 						<td class=projectCells valign=top>Any configuration files necessary to your component.</td>
 					</tr>
 					<tr>
-						<td class=projectCells valign=top nowrap=nowrap>docs/</td>
+						<td class=projectCells valign=top nowrap=nowrap><font face="Courier New">docs/</font></td>
 						<td class=projectCells valign=top>All the documentation for your project.</td>
 					</tr>
 					<tr>
-						<td class=projectCells valign=top nowrap=nowrap>lib/</font></td>
+						<td class=projectCells valign=top nowrap=nowrap><font face="Courier New">lib/</font></td>
 						<td class=projectCells valign=top>All your local libraries.</td>
 					</tr>
 					<tr>
-						<td class=projectCells valign=top nowrap=nowrap>src/</font></td>
+						<td class=projectCells valign=top nowrap=nowrap><font face="Courier New">src/</font></td>
 						<td class=projectCells valign=top>All your source code will be placed here (including test code).</td>
 					</tr>
 					<tr>
-						<td class=projectCells valign=top nowrap=nowrap>test_files/</font></td>
+						<td class=projectCells valign=top nowrap=nowrap><font face="Courier New">test_files/</font></td>
 						<td class=projectCells valign=top>All non-compiled files used in testing will be placed here.</td>
 					</tr>
 				</tbody>
@@ -580,16 +581,16 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class=projectCells valign=top nowrap=nowrap>lib/tcs/spell_check/1.0/spell_check.jar</font></td>
+						<td class=projectCells valign=top nowrap=nowrap><font face="Courier New">lib/tcs/spell_check/1.0/spell_check.jar</font></td>
 						<td class=projectCells valign=top>In this example, a component that the Tutorial Generator relies on. Your 
 							component may not depend on any components, or it may depend on many.</td>
 					</tr>
 					<tr>
-						<td class=projectCells valign=top nowrap=nowrap>src/java/main/</font></td>
+						<td class=projectCells valign=top nowrap=nowrap><font face="Courier New">src/java/main/</font></td>
 						<td class=projectCells valign=top>Your component code will reside in this directory.</td>
 					</tr>
 					<tr>
-						<td class=projectCells valign=top nowrap=nowrap>src/java/main/com/topcoder/util/tutorial/</font></td>
+						<td class=projectCells valign=top nowrap=nowrap><font face="Courier New">src/java/main/com/topcoder/util/tutorial/</font></td>
 						<td class=projectCells valign=top>In this example, this is the appropriate place for stubs. In your project, the 
 							path will be different.</td>
 					</tr>
@@ -613,16 +614,16 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class=projectCells valign=top nowrap=nowrap>lib/TopCoder.Util.SpellCheck.dll</font></td>
+						<td class=projectCells valign=top nowrap=nowrap><font face="Courier New">lib/TopCoder.Util.SpellCheck.dll</font></td>
 						<td class=projectCells valign=top>In this example, a component that the Tutorial Generator relies on. Your 
 							component may not depend on any components, or it may depend on many.</td>
 					</tr>
 					<tr>
-						<td class=projectCells valign=top nowrap=nowrap>src/csharp/main/</font></td>
+						<td class=projectCells valign=top nowrap=nowrap><font face="Courier New">src/csharp/main/</font></td>
 						<td class=projectCells valign=top>Your component code will reside in this directory.</td>
 					</tr>
 					<tr>
-						<td class=projectCells valign=top nowrap=nowrap>src/csharp/main/TopCoder/Util/Tutorial/</font></td>
+						<td class=projectCells valign=top nowrap=nowrap><font face="Courier New">src/csharp/main/TopCoder/Util/Tutorial/</font></td>
 						<td class=projectCells valign=top>In this example, this is the appropriate place for stubs. In your project, the 
 							path will be different.</td>
 					</tr>
@@ -636,7 +637,7 @@
 			<table border="0" cellpadding="0" width="100%" class="formFrame">
 				<thead>
 					<tr>
-						<td class=projectHeaders><strong>Target<br>
+						<td class=projectHeaders nowrap=nowrap><strong>Target<br>
 								Name</strong></td>
 						<td class=projectHeaders><strong>Description</strong></td>
 					</tr>
@@ -696,6 +697,7 @@
 				strategy is beyond the scope of this document.  However, for the next few 
 				sections, we'll walk you through documentation, unit testing, and common 
 				problems during development, common to all projects.</p>
+			<a name="sectionV"></A>
 			<h2>V. Working Towards Your Submission - Documentation</h2>
 			<p>Documentation is critical to a useful, maintainable component.  If you 
 				document your code as you write it, you probably won't even notice the burden 
@@ -807,7 +809,9 @@
 						Documentation must be professional in tone and quality.</li></ul>
 			<p>Keep in mind the guidelines in this section, and you should score well on your 
 				documentation!</p>
-			<h2><a name="#unittests">VI. Working Towards Your Submission - Unit Tests</a></h2>
+			
+			<A name="sectionVI"></A>
+			<h2>VI. Working Towards Your Submission - Unit Tests</h2>
 			<p>Every component, big or small, requires a set of tests.  These tests are 
 				meant to probe the component for correct behavior when given proper input, as 
 				well as correct failure when given improper input. Our style of unit 
@@ -903,6 +907,7 @@
 					and to its interface-typed fields and method arguments, and that it reacts 
 					correctly to exceptions thrown by methods invoked on such arguments.</li>
 			</ul>
+			<A name="sectionVII"></A>
 			<h2>VII. Working Towards Your Submission - Problems</h2>
 			<p>During the course of development, you may run into any number of problems.  
 				You may need a component from the catalog.  There may be some flaw in the 
@@ -934,11 +939,13 @@
 			<p>The proper method of communication is NOT a readme file. If you need to make any 
 				significant deviation from the design, you need to get in touch with the 
 				designer and PM.</p>
+				
+			<A name="sectionVIII"></A>
 			<h2>VIII. Submission!</h2>
 			<p>The hard work is over, and you've got 150 successful unit tests.  You're 
 				ready to submit your solution!</p>
 			<p>First, you should review your code.  Make sure that your submission meets 
-				the review guidelines (<a href="http://www.desult.com/tcs/tc-tutorial.html#review">Section IX</a>) as fully as possible.  <span style="font-size: 12pt; font-family: 'Times New Roman';">
+				the review guidelines (<a href="#review">Section IX</a>) as fully as possible.  <span style="font-size: 12pt; font-family: 'Times New Roman';">
 					Finding small issues now will save you points later in the review 
 					process.  Make sure that your directory structure is appropriate as above.</span></p>
 			<p>Secondly, make sure your code compiles.  If you're writing a Java solution, 
@@ -995,7 +1002,8 @@
 					design, give your submission desirable properties such as these.
 				</li>
 			</ul>
-			<h2><a name="#review">IX. Review</a></h2>
+			<A name="sectionIX"></A>
+			<h2>IX. Review</h2>
 			<p>The submission is out of your hands, and the Review Board will judge it on the 
 				following criteria.  You can find a very detailed summary of the scorecard 
 				here: <a href="/tc?module=Static&amp;d1=dev&amp;d2=devScoreSheet" target="_blank">
@@ -1112,7 +1120,8 @@
 				stress. Your component will be awarded a score based on each of the above 
 				points, and those tests.</p>
 
-			<h2>XI. Appeals</h2>
+			<A name="sectionX"></A>
+			<h2>X. Appeals</h2>
 			<p>After review is complete, you will have a few days to view and appeal the score 
 				your component was given.  You'll see the comments from the Board on each 
 				point above, and you can dispute any score.  Please keep in mind that you 
@@ -1123,6 +1132,7 @@
 				you will have the opportunity to discuss reviewers' judgments in Final 
 				Fixes...</p>
 
+			<A name="sectionXI"></A>
 			<h2>XI. Final Fixes</h2>
 			<p>Congratulations!  You're the winning developer!</p>
 			<p>However, there is probably still work to be done.  Your review scorecard 
@@ -1151,6 +1161,7 @@
 				Review Board doesn't know that you're working on the fixes, and can't clarify 
 				their requirements.</p>
 			
+			<A name="sectionXII"></A>
 			<h2>XII. Final Submission and Review</h2>
 			<p>This is just another dev_submission build.  Follow the same guidelines 
 				above for ensuring all your files are uploaded properly.  Try to be as 
@@ -1161,6 +1172,7 @@
 				catalog.  Your work is complete!</p>
 			<p>If anything is not done, you've earned a return trip to Final Fixes.</p>
 			
+			<A name="sectionXIII"></A>
 			<h2>XIII. Conclusion</h2>
 			<p>That concludes this development tutorial.  You've registered, developed, 
 				tested, submitted, been reviewed, appealed, won, fixed, and finally submitted 
