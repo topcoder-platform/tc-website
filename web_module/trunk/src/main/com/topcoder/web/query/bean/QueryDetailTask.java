@@ -56,6 +56,10 @@ public class QueryDetailTask extends BaseTask implements Task, Serializable {
         buf.setLength(0);
         buf.append(begin);
         buf.append(Constants.COMMAND_LIST_TASK);
+        buf.append("&");
+        buf.append(Constants.DB_PARAM);
+        buf.append("=");
+        buf.append(getDb());
         super.getNavLinks().add(new Link(buf.toString(), Constants.COMMAND_LIST_NAME));
         super.getNavLinks().add(new Link("","")); //spacer
         buf.setLength(0);
