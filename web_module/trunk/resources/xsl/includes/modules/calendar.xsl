@@ -40,8 +40,8 @@
                             <tr> 
                                 <td id="calendarMini">9</td>
                                 <td id="calendarMini">10</td>
-                                <td id="calendarMini">11</td>
-                                <td id="calendarMini">12</td>
+                                <td id="calendarTCCC05Mini"><A id="miniSRMDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=alg_schedule">11</A></td>
+                                <td id="calendarTCCC05Mini"><A id="miniSRMDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=alg_schedule">12</A></td>
                                 <td id="calendarMini">13</td>
                                 <td id="calendarMini">14</td>
                                 <td id="calendarMini">15</td>
