@@ -113,13 +113,13 @@
                 <rsc:item row="<%=result%>" name="question"/> :
             </td>
             <td class="bodyText" align="right">
-                <rsc:item row="<%=result%>" name="average" format="#.##"/>
+                <rsc:item row="<%=result%>" name="average" format="0.00"/>
             </td>
             <td class="bodyText" align="right">
-                <rsc:item row="<%=result%>" name="div1_average" format="#.##"/>
+                <rsc:item row="<%=result%>" name="div1_average" format="0.00"/>
             </td>
             <td class="bodyText" align="right">
-                <rsc:item row="<%=result%>" name="div2_average" format="#.##"/>
+                <rsc:item row="<%=result%>" name="div2_average" format="0.00"/>
             </td>
         </tr>
         </rsc:iterator>
