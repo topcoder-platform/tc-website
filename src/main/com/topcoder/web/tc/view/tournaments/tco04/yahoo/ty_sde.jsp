@@ -54,6 +54,8 @@
 					development opportunities... If you are interested in working on a specific Yahoo! product and/or service, or really 
 					LOVE one of our tools, please feel free to indicate this extra information in your response to us in case that team 
 					is looking for new software developers!</p>
+					
+					<p><span class="bodySubtitle"><a href="/tc?module=JobHit&jid=221&jt=1">Apply Now!</a></span></p>
 
 
 				   </td>

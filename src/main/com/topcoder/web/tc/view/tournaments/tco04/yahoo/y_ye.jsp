@@ -49,7 +49,7 @@
 					your resume and list examples of the technical skills throughout your resume.  Yahoo! looks for candidates 
 					who possess a strong working knowledge of what it means to work on highly scalable and reliable web applications.</p>
 
-
+					<p><span class="bodySubtitle"><a href="/tc?module=JobHit&jid=225&jt=1">Apply Now!</a></span></p>
 				   </td>
    				</tr>
    			</table>

@@ -24,7 +24,7 @@
 					<td class="bodyText">
                     <img src="/i/tournament/tco04/yahoo_header.gif" width="510" height="75" border="0" alt="Yahoo!" />
                     <p><span class="bodySubtitle">Thank you for applying to Yahoo!</span></p>
-					<p>Click <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=joblisting">here</a> to view more jobs at Yahoo!</p>
+					<p>Click <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=joblisting">here</a> to view more jobs at Yahoo!</p>
 					
 				   </td>
    				</tr>
