@@ -70,13 +70,13 @@
                                     <td class="statText">
                                         <select name="<%=Constants.MAX_DAYS_SINCE_LAST_COMP%>" size="1">
                                             <option value="">None Specified</option>
-                                            <option value="30" <%=memberSearch.getMaxDaysSinceLastComp().equals(new Integer(30))?"selected":""%>>
+                                            <option value="30" <%=memberSearch.getMaxDaysSinceLastComp()!=null&&memberSearch.getMaxDaysSinceLastComp().equals(new Integer(30))?"selected":""%>>
                                                 30 Days
                                             </option>
-                                            <option value="90" <%=memberSearch.getMaxDaysSinceLastComp().equals(new Integer(60))?"selected":""%>>
+                                            <option value="90" <%=memberSearch.getMaxDaysSinceLastComp()!=null&&memberSearch.getMaxDaysSinceLastComp().equals(new Integer(30))?"selected":""%>>
                                                 90 Days
                                             </option>
-                                            <option value="180" <%=memberSearch.getMaxDaysSinceLastComp().equals(new Integer(180))?"selected":""%>>
+                                            <option value="180" <%=memberSearch.getMaxDaysSinceLastComp()!=null&&memberSearch.getMaxDaysSinceLastComp().equals(new Integer(30))?"selected":""%>>
                                                 180 Days
                                             </option>
                                         </select>
