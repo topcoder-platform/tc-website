@@ -24,14 +24,15 @@ public interface ProfileEducation extends javax.ejb.EJBObject {
 	 * @param profile_id profile_id
 	 * @param degree_type_id degree_type_id
 	 * @param school_id school_id
-	 * @param date_graduation date_graduation
+	 * @param graduation_year graduation_year
+	 * @param graduation_month graduation_month
 	 * @param gpa_id gpa_id
 	 * @exception SQLException if a database error occurs
 	 * @exception RemoteException if a system error occurs
 	 * @author Phil Selby, May 22nd, 2002
 	 */
 
-	public void create( Long education_id, Long profile_id, Integer degree_type_id, Integer school_id, Date date_graduation, Integer gpa_id ) throws RemoteException, SQLException;
+	public void create( Long education_id, Long profile_id, Integer degree_type_id, Long school_id, Integer graduation_year, Integer graduation_month, Integer gpa_id ) throws RemoteException, SQLException;
 
 	/**
 	 * Create a new record with a pre-existing database connection.
@@ -40,14 +41,15 @@ public interface ProfileEducation extends javax.ejb.EJBObject {
 	 * @param profile_id profile_id
 	 * @param degree_type_id degree_type_id
 	 * @param school_id school_id
-	 * @param date_graduation date_graduation
+	 * @param graduation_year graduation_year
+	 * @param graduation_month graduation_month
 	 * @param gpa_id gpa_id
 	 * @exception SQLException if a database error occurs
 	 * @exception RemoteException if a system error occurs
 	 * @author Phil Selby, May 22nd, 2002
 	 */
 
-	public void create( java.sql.Connection conn, Long education_id, Long profile_id, Integer degree_type_id, Integer school_id, Date date_graduation, Integer gpa_id ) throws RemoteException, SQLException;
+	public void create( java.sql.Connection conn, Long education_id, Long profile_id, Integer degree_type_id, Long school_id, Integer graduation_year, Integer graduation_month, Integer gpa_id ) throws RemoteException, SQLException;
 
 	/**
 	 * Delete a record.
@@ -137,7 +139,7 @@ public interface ProfileEducation extends javax.ejb.EJBObject {
 	 * @author Phil Selby, May 22nd, 2002
 	 */
 
-	public void setSchoolId( Long education_id, Integer school_id ) throws RemoteException, SQLException;
+	public void setSchoolId( Long education_id, Long school_id ) throws RemoteException, SQLException;
 
 	/**
 	 * Get the school_id field from the profile_education table corresponding to the given key.
@@ -148,21 +150,21 @@ public interface ProfileEducation extends javax.ejb.EJBObject {
 	 * @author Phil Selby, May 22nd, 2002
 	 */
 
-	public Integer getSchoolId( Long education_id ) throws RemoteException, SQLException;
+	public Long getSchoolId( Long education_id ) throws RemoteException, SQLException;
 
 	/**
-	 * Set the date_graduation field in the profile_education table corresponding to the given key.
+	 * Set the graduation_year field in the profile_education table corresponding to the given key.
 	 * @param education_id the table primary key
-	 * @param date_graduation the new field value
+	 * @param graduation_year the new field value
 	 * @exception SQLException if a database error occurs
 	 * @exception RemoteException if a system error occurs
 	 * @author Phil Selby, May 22nd, 2002
 	 */
 
-	public void setDateGraduation( Long education_id, Date date_graduation ) throws RemoteException, SQLException;
+	public void setGraduationYear( Long education_id, Integer graduation_year ) throws RemoteException, SQLException;
 
 	/**
-	 * Get the date_graduation field from the profile_education table corresponding to the given key.
+	 * Get the graduation_year field from the profile_education table corresponding to the given key.
 	 * @param education_id the table primary key
 	 * @return the current field value
 	 * @exception SQLException if a database error occurs
@@ -170,7 +172,29 @@ public interface ProfileEducation extends javax.ejb.EJBObject {
 	 * @author Phil Selby, May 22nd, 2002
 	 */
 
-	public Date getDateGraduation( Long education_id ) throws RemoteException, SQLException;
+	public Integer getGraduationYear( Long education_id ) throws RemoteException, SQLException;
+
+	/**
+	 * Set the graduation_month field in the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @param graduation_month the new field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public void setGraduationMonth( Long education_id, Integer graduation_month ) throws RemoteException, SQLException;
+
+	/**
+	 * Get the graduation_month field from the profile_education table corresponding to the given key.
+	 * @param education_id the table primary key
+	 * @return the current field value
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, May 22nd, 2002
+	 */
+
+	public Integer getGraduationMonth( Long education_id ) throws RemoteException, SQLException;
 
 	/**
 	 * Set the gpa_id field in the profile_education table corresponding to the given key.

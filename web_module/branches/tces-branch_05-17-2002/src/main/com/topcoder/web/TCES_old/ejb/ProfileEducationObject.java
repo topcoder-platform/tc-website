@@ -15,7 +15,8 @@ public class ProfileEducationObject
 	public Long	education_id;
 	public Long	profile_id;
 	public Integer	degree_type_id;
-	public Integer	school_id;
-	public Date	date_graduation;
+	public Long	school_id;
+	public Integer	graduation_year;
+	public Integer	graduation_month;
 	public Integer	gpa_id;
 }

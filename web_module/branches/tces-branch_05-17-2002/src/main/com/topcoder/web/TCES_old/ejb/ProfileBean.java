@@ -29,10 +29,10 @@ public class ProfileBean implements javax.ejb.SessionBean {
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
-	public void create( java.sql.Connection conn, Long profile_id, Long coder_id, Date date_available, Integer profile_status_id, Integer preference_travel_level_id, Integer preference_travel_time_id, Integer preference_salary_id ) throws SQLException {
+	public void create( java.sql.Connection conn, Long profile_id, Date date_available, Integer profile_status_id, Integer preference_travel_level_id, Integer preference_travel_time_id, Integer preference_salary_id ) throws SQLException {
 		PreparedStatement	ps = null;
 
-		String	insert = "INSERT INTO PROFILE VALUES (  " + profile_id + ", " + coder_id + ", ?, " + profile_status_id + ", " + preference_travel_level_id + ", " + preference_travel_time_id + ", " + preference_salary_id + " )";
+		String	insert = "INSERT INTO PROFILE VALUES (  " + profile_id + ", ?, " + profile_status_id + ", " + preference_travel_level_id + ", " + preference_travel_time_id + ", " + preference_salary_id + " )";
 
 		try {
 			ps = conn.prepareStatement( insert );
@@ -50,12 +50,12 @@ public class ProfileBean implements javax.ejb.SessionBean {
 		}
 	}
 
-	public void create( Long profile_id, Long coder_id, Date date_available, Integer profile_status_id, Integer preference_travel_level_id, Integer preference_travel_time_id, Integer preference_salary_id ) throws SQLException {
+	public void create( Long profile_id, Date date_available, Integer profile_status_id, Integer preference_travel_level_id, Integer preference_travel_time_id, Integer preference_salary_id ) throws SQLException {
 		Connection	conn = null;
 
 		try {
 			conn = getConnection();
-			create( conn, profile_id, coder_id, date_available, profile_status_id, preference_travel_level_id, preference_travel_time_id, preference_salary_id );
+			create( conn, profile_id, date_available, profile_status_id, preference_travel_level_id, preference_travel_time_id, preference_salary_id );
 		} catch( SQLException e ) {
 			if( conn != null )
 				try { conn.close(); } catch( Exception f ) {}
@@ -91,7 +91,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 		switch( cmd ) {
 
 		case Profile.INSERT:
-			create( obj.profile_id, obj.coder_id, obj.date_available, obj.profile_status_id, obj.preference_travel_level_id, obj.preference_travel_time_id, obj.preference_salary_id );
+			create( obj.profile_id, obj.date_available, obj.profile_status_id, obj.preference_travel_level_id, obj.preference_travel_time_id, obj.preference_salary_id );
 			break;
 
 		case Profile.SELECT:
@@ -102,7 +102,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 			break;
 
 		case Profile.UPDATE:
-			putRecord( obj.profile_id, obj.coder_id, obj.date_available, obj.profile_status_id, obj.preference_travel_level_id, obj.preference_travel_time_id, obj.preference_salary_id );
+			putRecord( obj.profile_id, obj.date_available, obj.profile_status_id, obj.preference_travel_level_id, obj.preference_travel_time_id, obj.preference_salary_id );
 			break;
 
 		case Profile.DELETE:
@@ -113,22 +113,8 @@ public class ProfileBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public void setCoderId( Long profile_id, Long coder_id ) throws SQLException {
-		putRecord( profile_id, coder_id, null, null, null, null, null );
-	}
-
-	public Long getCoderId( Long profile_id ) throws SQLException {
-		ProfileObject	obj = null;
-		Long	result;
-
-		obj = getRecord( profile_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
-		return( obj.coder_id );
-	}
-
 	public void setDateAvailable( Long profile_id, Date date_available ) throws SQLException {
-		putRecord( profile_id, null, date_available, null, null, null, null );
+		putRecord( profile_id, date_available, null, null, null, null );
 	}
 
 	public Date getDateAvailable( Long profile_id ) throws SQLException {
@@ -142,7 +128,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 	}
 
 	public void setProfileStatusId( Long profile_id, Integer profile_status_id ) throws SQLException {
-		putRecord( profile_id, null, null, profile_status_id, null, null, null );
+		putRecord( profile_id, null, profile_status_id, null, null, null );
 	}
 
 	public Integer getProfileStatusId( Long profile_id ) throws SQLException {
@@ -156,7 +142,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 	}
 
 	public void setPreferenceTravelLevelId( Long profile_id, Integer preference_travel_level_id ) throws SQLException {
-		putRecord( profile_id, null, null, null, preference_travel_level_id, null, null );
+		putRecord( profile_id, null, null, preference_travel_level_id, null, null );
 	}
 
 	public Integer getPreferenceTravelLevelId( Long profile_id ) throws SQLException {
@@ -170,7 +156,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 	}
 
 	public void setPreferenceTravelTimeId( Long profile_id, Integer preference_travel_time_id ) throws SQLException {
-		putRecord( profile_id, null, null, null, null, preference_travel_time_id, null );
+		putRecord( profile_id, null, null, null, preference_travel_time_id, null );
 	}
 
 	public Integer getPreferenceTravelTimeId( Long profile_id ) throws SQLException {
@@ -184,7 +170,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 	}
 
 	public void setPreferenceSalaryId( Long profile_id, Integer preference_salary_id ) throws SQLException {
-		putRecord( profile_id, null, null, null, null, null, preference_salary_id );
+		putRecord( profile_id, null, null, null, null, preference_salary_id );
 	}
 
 	public Integer getPreferenceSalaryId( Long profile_id ) throws SQLException {
@@ -206,7 +192,7 @@ public class ProfileBean implements javax.ejb.SessionBean {
 		ProfileObject	obj = null;
 
 		obj = new ProfileObject();
-		String	query = "SELECT profile_id, coder_id, date_available, profile_status_id, preference_travel_level_id, preference_travel_time_id, preference_salary_id FROM PROFILE WHERE PROFILE_ID = " + profile_id;
+		String	query = "SELECT profile_id, date_available, profile_status_id, preference_travel_level_id, preference_travel_time_id, preference_salary_id FROM PROFILE WHERE PROFILE_ID = " + profile_id;
 		InputStream	is = null;
 
 		try {
@@ -218,22 +204,19 @@ public class ProfileBean implements javax.ejb.SessionBean {
 			obj.profile_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.profile_id = null;
-			obj.coder_id = new Long( rs.getLong( 2 ) );
-			if( rs.wasNull() )
-				obj.coder_id = null;
-			obj.date_available  = rs.getDate( 3 );
+			obj.date_available  = rs.getDate( 2 );
 			if( rs.wasNull() )
 				obj.date_available = null;
-			obj.profile_status_id = new Integer( rs.getInt( 4 ) );
+			obj.profile_status_id = new Integer( rs.getInt( 3 ) );
 			if( rs.wasNull() )
 				obj.profile_status_id = null;
-			obj.preference_travel_level_id = new Integer( rs.getInt( 5 ) );
+			obj.preference_travel_level_id = new Integer( rs.getInt( 4 ) );
 			if( rs.wasNull() )
 				obj.preference_travel_level_id = null;
-			obj.preference_travel_time_id = new Integer( rs.getInt( 6 ) );
+			obj.preference_travel_time_id = new Integer( rs.getInt( 5 ) );
 			if( rs.wasNull() )
 				obj.preference_travel_time_id = null;
-			obj.preference_salary_id = new Integer( rs.getInt( 7 ) );
+			obj.preference_salary_id = new Integer( rs.getInt( 6 ) );
 			if( rs.wasNull() )
 				obj.preference_salary_id = null;
 			rs.close();
@@ -249,19 +232,13 @@ public class ProfileBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord( Long profile_id, Long coder_id, Date date_available, Integer profile_status_id, Integer preference_travel_level_id, Integer preference_travel_time_id, Integer preference_salary_id ) throws SQLException {
+	public int putRecord( Long profile_id, Date date_available, Integer profile_status_id, Integer preference_travel_level_id, Integer preference_travel_time_id, Integer preference_salary_id ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();
 		int	count = 0;
 
 		update.append( "UPDATE PROFILE SET " );
-		if( coder_id != null ) {
-			if( count > 0 )
-				update.append( ", " );
-			update.append( "CODER_ID = " + coder_id.intValue() );
-			count++;
-		}
 		if( date_available != null ) {
 			if( count > 0 )
 				update.append( ", " );

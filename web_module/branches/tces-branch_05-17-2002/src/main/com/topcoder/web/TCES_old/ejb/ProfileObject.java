@@ -13,7 +13,6 @@ import	java.io.Serializable;
 public class ProfileObject 
   implements Serializable {
 	public Long	profile_id;
-	public Long	coder_id;
 	public Date	date_available;
 	public Integer	profile_status_id;
 	public Integer	preference_travel_level_id;

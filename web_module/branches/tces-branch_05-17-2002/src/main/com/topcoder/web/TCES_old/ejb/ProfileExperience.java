@@ -33,7 +33,6 @@ public interface ProfileExperience extends javax.ejb.EJBObject {
 	 * @param job_role_id job_role_id
 	 * @param job_type_id job_type_id
 	 * @param organization_size_id organization_size_id
-	 * @param management_level_id management_level_id
 	 * @param city city
 	 * @param state_code state_code
 	 * @param country_code country_code
@@ -42,7 +41,7 @@ public interface ProfileExperience extends javax.ejb.EJBObject {
 	 * @author Phil Selby, May 22nd, 2002
 	 */
 
-	public void create( Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, Integer management_level_id, String city, String state_code, String country_code ) throws RemoteException, SQLException;
+	public void create( Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, String city, String state_code, String country_code ) throws RemoteException, SQLException;
 
 	/**
 	 * Create a new record with a pre-existing database connection.
@@ -60,7 +59,6 @@ public interface ProfileExperience extends javax.ejb.EJBObject {
 	 * @param job_role_id job_role_id
 	 * @param job_type_id job_type_id
 	 * @param organization_size_id organization_size_id
-	 * @param management_level_id management_level_id
 	 * @param city city
 	 * @param state_code state_code
 	 * @param country_code country_code
@@ -69,7 +67,7 @@ public interface ProfileExperience extends javax.ejb.EJBObject {
 	 * @author Phil Selby, May 22nd, 2002
 	 */
 
-	public void create( java.sql.Connection conn, Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, Integer management_level_id, String city, String state_code, String country_code ) throws RemoteException, SQLException;
+	public void create( java.sql.Connection conn, Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, String city, String state_code, String country_code ) throws RemoteException, SQLException;
 
 	/**
 	 * Delete a record.
@@ -369,28 +367,6 @@ public interface ProfileExperience extends javax.ejb.EJBObject {
 	 */
 
 	public Integer getOrganizationSizeId( Long experience_id ) throws RemoteException, SQLException;
-
-	/**
-	 * Set the management_level_id field in the profile_experience table corresponding to the given key.
-	 * @param experience_id the table primary key
-	 * @param management_level_id the new field value
-	 * @exception SQLException if a database error occurs
-	 * @exception RemoteException if a system error occurs
-	 * @author Phil Selby, May 22nd, 2002
-	 */
-
-	public void setManagementLevelId( Long experience_id, Integer management_level_id ) throws RemoteException, SQLException;
-
-	/**
-	 * Get the management_level_id field from the profile_experience table corresponding to the given key.
-	 * @param experience_id the table primary key
-	 * @return the current field value
-	 * @exception SQLException if a database error occurs
-	 * @exception RemoteException if a system error occurs
-	 * @author Phil Selby, May 22nd, 2002
-	 */
-
-	public Integer getManagementLevelId( Long experience_id ) throws RemoteException, SQLException;
 
 	/**
 	 * Set the city field in the profile_experience table corresponding to the given key.

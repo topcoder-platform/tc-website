@@ -29,10 +29,10 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
-	public void create( java.sql.Connection conn, Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, Integer management_level_id, String city, String state_code, String country_code ) throws SQLException {
+	public void create( java.sql.Connection conn, Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, String city, String state_code, String country_code ) throws SQLException {
 		PreparedStatement	ps = null;
 
-		String	insert = "INSERT INTO PROFILE_EXPERIENCE VALUES (  " + experience_id + ", ?, ?, '" + job_title + "', '" + organization_name + "', '" + organization_url + "', '" + job_description + "', " + profile_id + ", " + salary_id + ", " + industry_id + ", " + job_role_id + ", " + job_type_id + ", " + organization_size_id + ", " + management_level_id + ", '" + city + "', '" + state_code + "', '" + country_code + "' )";
+		String	insert = "INSERT INTO PROFILE_EXPERIENCE VALUES (  " + experience_id + ", ?, ?, '" + job_title + "', '" + organization_name + "', '" + organization_url + "', '" + job_description + "', " + profile_id + ", " + salary_id + ", " + industry_id + ", " + job_role_id + ", " + job_type_id + ", " + organization_size_id + ", '" + city + "', '" + state_code + "', '" + country_code + "' )";
 
 		try {
 			ps = conn.prepareStatement( insert );
@@ -51,12 +51,12 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 		}
 	}
 
-	public void create( Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, Integer management_level_id, String city, String state_code, String country_code ) throws SQLException {
+	public void create( Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, String city, String state_code, String country_code ) throws SQLException {
 		Connection	conn = null;
 
 		try {
 			conn = getConnection();
-			create( conn, experience_id, date_start, date_end, job_title, organization_name, organization_url, job_description, profile_id, salary_id, industry_id, job_role_id, job_type_id, organization_size_id, management_level_id, city, state_code, country_code );
+			create( conn, experience_id, date_start, date_end, job_title, organization_name, organization_url, job_description, profile_id, salary_id, industry_id, job_role_id, job_type_id, organization_size_id, city, state_code, country_code );
 		} catch( SQLException e ) {
 			if( conn != null )
 				try { conn.close(); } catch( Exception f ) {}
@@ -92,7 +92,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 		switch( cmd ) {
 
 		case ProfileExperience.INSERT:
-			create( obj.experience_id, obj.date_start, obj.date_end, obj.job_title, obj.organization_name, obj.organization_url, obj.job_description, obj.profile_id, obj.salary_id, obj.industry_id, obj.job_role_id, obj.job_type_id, obj.organization_size_id, obj.management_level_id, obj.city, obj.state_code, obj.country_code );
+			create( obj.experience_id, obj.date_start, obj.date_end, obj.job_title, obj.organization_name, obj.organization_url, obj.job_description, obj.profile_id, obj.salary_id, obj.industry_id, obj.job_role_id, obj.job_type_id, obj.organization_size_id, obj.city, obj.state_code, obj.country_code );
 			break;
 
 		case ProfileExperience.SELECT:
@@ -103,7 +103,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 			break;
 
 		case ProfileExperience.UPDATE:
-			putRecord( obj.experience_id, obj.date_start, obj.date_end, obj.job_title, obj.organization_name, obj.organization_url, obj.job_description, obj.profile_id, obj.salary_id, obj.industry_id, obj.job_role_id, obj.job_type_id, obj.organization_size_id, obj.management_level_id, obj.city, obj.state_code, obj.country_code );
+			putRecord( obj.experience_id, obj.date_start, obj.date_end, obj.job_title, obj.organization_name, obj.organization_url, obj.job_description, obj.profile_id, obj.salary_id, obj.industry_id, obj.job_role_id, obj.job_type_id, obj.organization_size_id, obj.city, obj.state_code, obj.country_code );
 			break;
 
 		case ProfileExperience.DELETE:
@@ -115,7 +115,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setDateStart( Long experience_id, Date date_start ) throws SQLException {
-		putRecord( experience_id, date_start, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
+		putRecord( experience_id, date_start, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
 
 	public Date getDateStart( Long experience_id ) throws SQLException {
@@ -129,7 +129,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setDateEnd( Long experience_id, Date date_end ) throws SQLException {
-		putRecord( experience_id, null, date_end, null, null, null, null, null, null, null, null, null, null, null, null, null, null );
+		putRecord( experience_id, null, date_end, null, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
 
 	public Date getDateEnd( Long experience_id ) throws SQLException {
@@ -143,7 +143,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setJobTitle( Long experience_id, String job_title ) throws SQLException {
-		putRecord( experience_id, null, null, job_title, null, null, null, null, null, null, null, null, null, null, null, null, null );
+		putRecord( experience_id, null, null, job_title, null, null, null, null, null, null, null, null, null, null, null, null );
 	}
 
 	public String getJobTitle( Long experience_id ) throws SQLException {
@@ -157,7 +157,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setOrganizationName( Long experience_id, String organization_name ) throws SQLException {
-		putRecord( experience_id, null, null, null, organization_name, null, null, null, null, null, null, null, null, null, null, null, null );
+		putRecord( experience_id, null, null, null, organization_name, null, null, null, null, null, null, null, null, null, null, null );
 	}
 
 	public String getOrganizationName( Long experience_id ) throws SQLException {
@@ -171,7 +171,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setOrganizationUrl( Long experience_id, String organization_url ) throws SQLException {
-		putRecord( experience_id, null, null, null, null, organization_url, null, null, null, null, null, null, null, null, null, null, null );
+		putRecord( experience_id, null, null, null, null, organization_url, null, null, null, null, null, null, null, null, null, null );
 	}
 
 	public String getOrganizationUrl( Long experience_id ) throws SQLException {
@@ -185,7 +185,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setJobDescription( Long experience_id, String job_description ) throws SQLException {
-		putRecord( experience_id, null, null, null, null, null, job_description, null, null, null, null, null, null, null, null, null, null );
+		putRecord( experience_id, null, null, null, null, null, job_description, null, null, null, null, null, null, null, null, null );
 	}
 
 	public String getJobDescription( Long experience_id ) throws SQLException {
@@ -199,7 +199,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setProfileId( Long experience_id, Long profile_id ) throws SQLException {
-		putRecord( experience_id, null, null, null, null, null, null, profile_id, null, null, null, null, null, null, null, null, null );
+		putRecord( experience_id, null, null, null, null, null, null, profile_id, null, null, null, null, null, null, null, null );
 	}
 
 	public Long getProfileId( Long experience_id ) throws SQLException {
@@ -213,7 +213,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setSalaryId( Long experience_id, Integer salary_id ) throws SQLException {
-		putRecord( experience_id, null, null, null, null, null, null, null, salary_id, null, null, null, null, null, null, null, null );
+		putRecord( experience_id, null, null, null, null, null, null, null, salary_id, null, null, null, null, null, null, null );
 	}
 
 	public Integer getSalaryId( Long experience_id ) throws SQLException {
@@ -227,7 +227,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setIndustryId( Long experience_id, Integer industry_id ) throws SQLException {
-		putRecord( experience_id, null, null, null, null, null, null, null, null, industry_id, null, null, null, null, null, null, null );
+		putRecord( experience_id, null, null, null, null, null, null, null, null, industry_id, null, null, null, null, null, null );
 	}
 
 	public Integer getIndustryId( Long experience_id ) throws SQLException {
@@ -241,7 +241,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setJobRoleId( Long experience_id, Integer job_role_id ) throws SQLException {
-		putRecord( experience_id, null, null, null, null, null, null, null, null, null, job_role_id, null, null, null, null, null, null );
+		putRecord( experience_id, null, null, null, null, null, null, null, null, null, job_role_id, null, null, null, null, null );
 	}
 
 	public Integer getJobRoleId( Long experience_id ) throws SQLException {
@@ -255,7 +255,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setJobTypeId( Long experience_id, Integer job_type_id ) throws SQLException {
-		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, job_type_id, null, null, null, null, null );
+		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, job_type_id, null, null, null, null );
 	}
 
 	public Integer getJobTypeId( Long experience_id ) throws SQLException {
@@ -269,7 +269,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setOrganizationSizeId( Long experience_id, Integer organization_size_id ) throws SQLException {
-		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, null, organization_size_id, null, null, null, null );
+		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, null, organization_size_id, null, null, null );
 	}
 
 	public Integer getOrganizationSizeId( Long experience_id ) throws SQLException {
@@ -282,22 +282,8 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 		return( obj.organization_size_id );
 	}
 
-	public void setManagementLevelId( Long experience_id, Integer management_level_id ) throws SQLException {
-		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, null, null, management_level_id, null, null, null );
-	}
-
-	public Integer getManagementLevelId( Long experience_id ) throws SQLException {
-		ProfileExperienceObject	obj = null;
-		Integer	result;
-
-		obj = getRecord( experience_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
-		return( obj.management_level_id );
-	}
-
 	public void setCity( Long experience_id, String city ) throws SQLException {
-		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, null, null, null, city, null, null );
+		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, null, null, city, null, null );
 	}
 
 	public String getCity( Long experience_id ) throws SQLException {
@@ -311,7 +297,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setStateCode( Long experience_id, String state_code ) throws SQLException {
-		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, state_code, null );
+		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, null, null, null, state_code, null );
 	}
 
 	public String getStateCode( Long experience_id ) throws SQLException {
@@ -325,7 +311,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 	}
 
 	public void setCountryCode( Long experience_id, String country_code ) throws SQLException {
-		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, country_code );
+		putRecord( experience_id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, country_code );
 	}
 
 	public String getCountryCode( Long experience_id ) throws SQLException {
@@ -347,7 +333,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 		ProfileExperienceObject	obj = null;
 
 		obj = new ProfileExperienceObject();
-		String	query = "SELECT experience_id, date_start, date_end, job_title, organization_name, organization_url, job_description, profile_id, salary_id, industry_id, job_role_id, job_type_id, organization_size_id, management_level_id, city, state_code, country_code FROM PROFILE_EXPERIENCE WHERE EXPERIENCE_ID = " + experience_id;
+		String	query = "SELECT experience_id, date_start, date_end, job_title, organization_name, organization_url, job_description, profile_id, salary_id, industry_id, job_role_id, job_type_id, organization_size_id, city, state_code, country_code FROM PROFILE_EXPERIENCE WHERE EXPERIENCE_ID = " + experience_id;
 		InputStream	is = null;
 
 		try {
@@ -395,16 +381,13 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 			obj.organization_size_id = new Integer( rs.getInt( 13 ) );
 			if( rs.wasNull() )
 				obj.organization_size_id = null;
-			obj.management_level_id = new Integer( rs.getInt( 14 ) );
-			if( rs.wasNull() )
-				obj.management_level_id = null;
-			obj.city = rs.getString( 15 );
+			obj.city = rs.getString( 14 );
 			if( rs.wasNull() )
 				obj.city = null;
-			obj.state_code = rs.getString( 16 );
+			obj.state_code = rs.getString( 15 );
 			if( rs.wasNull() )
 				obj.state_code = null;
-			obj.country_code = rs.getString( 17 );
+			obj.country_code = rs.getString( 16 );
 			if( rs.wasNull() )
 				obj.country_code = null;
 			rs.close();
@@ -420,7 +403,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord( Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, Integer management_level_id, String city, String state_code, String country_code ) throws SQLException {
+	public int putRecord( Long experience_id, Date date_start, Date date_end, String job_title, String organization_name, String organization_url, String job_description, Long profile_id, Integer salary_id, Integer industry_id, Integer job_role_id, Integer job_type_id, Integer organization_size_id, String city, String state_code, String country_code ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();
@@ -497,12 +480,6 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 			if( count > 0 )
 				update.append( ", " );
 			update.append( "ORGANIZATION_SIZE_ID = " + organization_size_id.intValue() );
-			count++;
-		}
-		if( management_level_id != null ) {
-			if( count > 0 )
-				update.append( ", " );
-			update.append( "MANAGEMENT_LEVEL_ID = " + management_level_id.intValue() );
 			count++;
 		}
 		if( city != null ) {

@@ -25,7 +25,6 @@ public class ProfileExperienceObject
 	public Integer	job_role_id;
 	public Integer	job_type_id;
 	public Integer	organization_size_id;
-	public Integer	management_level_id;
 	public String	city;
 	public String	state_code;
 	public String	country_code;

@@ -22,28 +22,28 @@ public interface AdditionalSkill extends javax.ejb.EJBObject {
 	 * Create a new record.
 	 * @param additional_skill_id additional_skill_id
 	 * @param profile_id profile_id
-	 * @param skill_type_id skill_type_id
+	 * @param skill_type skill_type
 	 * @param description description
 	 * @exception SQLException if a database error occurs
 	 * @exception RemoteException if a system error occurs
 	 * @author Phil Selby, May 22nd, 2002
 	 */
 
-	public void create( Long additional_skill_id, Long profile_id, Integer skill_type_id, String description ) throws RemoteException, SQLException;
+	public void create( Long additional_skill_id, Long profile_id, String skill_type, String description ) throws RemoteException, SQLException;
 
 	/**
 	 * Create a new record with a pre-existing database connection.
 	 * @param conn an open database connection
 	 * @param additional_skill_id additional_skill_id
 	 * @param profile_id profile_id
-	 * @param skill_type_id skill_type_id
+	 * @param skill_type skill_type
 	 * @param description description
 	 * @exception SQLException if a database error occurs
 	 * @exception RemoteException if a system error occurs
 	 * @author Phil Selby, May 22nd, 2002
 	 */
 
-	public void create( java.sql.Connection conn, Long additional_skill_id, Long profile_id, Integer skill_type_id, String description ) throws RemoteException, SQLException;
+	public void create( java.sql.Connection conn, Long additional_skill_id, Long profile_id, String skill_type, String description ) throws RemoteException, SQLException;
 
 	/**
 	 * Delete a record.
@@ -103,18 +103,18 @@ public interface AdditionalSkill extends javax.ejb.EJBObject {
 	public Long getProfileId( Long additional_skill_id ) throws RemoteException, SQLException;
 
 	/**
-	 * Set the skill_type_id field in the additional_skill table corresponding to the given key.
+	 * Set the skill_type field in the additional_skill table corresponding to the given key.
 	 * @param additional_skill_id the table primary key
-	 * @param skill_type_id the new field value
+	 * @param skill_type the new field value
 	 * @exception SQLException if a database error occurs
 	 * @exception RemoteException if a system error occurs
 	 * @author Phil Selby, May 22nd, 2002
 	 */
 
-	public void setSkillTypeId( Long additional_skill_id, Integer skill_type_id ) throws RemoteException, SQLException;
+	public void setSkillType( Long additional_skill_id, String skill_type ) throws RemoteException, SQLException;
 
 	/**
-	 * Get the skill_type_id field from the additional_skill table corresponding to the given key.
+	 * Get the skill_type field from the additional_skill table corresponding to the given key.
 	 * @param additional_skill_id the table primary key
 	 * @return the current field value
 	 * @exception SQLException if a database error occurs
@@ -122,7 +122,7 @@ public interface AdditionalSkill extends javax.ejb.EJBObject {
 	 * @author Phil Selby, May 22nd, 2002
 	 */
 
-	public Integer getSkillTypeId( Long additional_skill_id ) throws RemoteException, SQLException;
+	public String getSkillType( Long additional_skill_id ) throws RemoteException, SQLException;
 
 	/**
 	 * Set the description field in the additional_skill table corresponding to the given key.

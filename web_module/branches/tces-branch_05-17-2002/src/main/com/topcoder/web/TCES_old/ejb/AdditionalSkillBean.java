@@ -29,10 +29,10 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
-	public void create( java.sql.Connection conn, Long additional_skill_id, Long profile_id, Integer skill_type_id, String description ) throws SQLException {
+	public void create( java.sql.Connection conn, Long additional_skill_id, Long profile_id, String skill_type, String description ) throws SQLException {
 		PreparedStatement	ps = null;
 
-		String	insert = "INSERT INTO ADDITIONAL_SKILL VALUES (  " + additional_skill_id + ", " + profile_id + ", " + skill_type_id + ", '" + description + "' )";
+		String	insert = "INSERT INTO ADDITIONAL_SKILL VALUES (  " + additional_skill_id + ", " + profile_id + ", '" + skill_type + "', '" + description + "' )";
 
 		try {
 			ps = conn.prepareStatement( insert );
@@ -49,12 +49,12 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 		}
 	}
 
-	public void create( Long additional_skill_id, Long profile_id, Integer skill_type_id, String description ) throws SQLException {
+	public void create( Long additional_skill_id, Long profile_id, String skill_type, String description ) throws SQLException {
 		Connection	conn = null;
 
 		try {
 			conn = getConnection();
-			create( conn, additional_skill_id, profile_id, skill_type_id, description );
+			create( conn, additional_skill_id, profile_id, skill_type, description );
 		} catch( SQLException e ) {
 			if( conn != null )
 				try { conn.close(); } catch( Exception f ) {}
@@ -90,7 +90,7 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 		switch( cmd ) {
 
 		case AdditionalSkill.INSERT:
-			create( obj.additional_skill_id, obj.profile_id, obj.skill_type_id, obj.description );
+			create( obj.additional_skill_id, obj.profile_id, obj.skill_type, obj.description );
 			break;
 
 		case AdditionalSkill.SELECT:
@@ -101,7 +101,7 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 			break;
 
 		case AdditionalSkill.UPDATE:
-			putRecord( obj.additional_skill_id, obj.profile_id, obj.skill_type_id, obj.description );
+			putRecord( obj.additional_skill_id, obj.profile_id, obj.skill_type, obj.description );
 			break;
 
 		case AdditionalSkill.DELETE:
@@ -126,18 +126,18 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 		return( obj.profile_id );
 	}
 
-	public void setSkillTypeId( Long additional_skill_id, Integer skill_type_id ) throws SQLException {
-		putRecord( additional_skill_id, null, skill_type_id, null );
+	public void setSkillType( Long additional_skill_id, String skill_type ) throws SQLException {
+		putRecord( additional_skill_id, null, skill_type, null );
 	}
 
-	public Integer getSkillTypeId( Long additional_skill_id ) throws SQLException {
+	public String getSkillType( Long additional_skill_id ) throws SQLException {
 		AdditionalSkillObject	obj = null;
-		Integer	result;
+		String	result;
 
 		obj = getRecord( additional_skill_id );
 		if( obj == null )
 			throw new EJBException( "record not found" );
-		return( obj.skill_type_id );
+		return( obj.skill_type );
 	}
 
 	public void setDescription( Long additional_skill_id, String description ) throws SQLException {
@@ -163,7 +163,7 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 		AdditionalSkillObject	obj = null;
 
 		obj = new AdditionalSkillObject();
-		String	query = "SELECT additional_skill_id, profile_id, skill_type_id, description FROM ADDITIONAL_SKILL WHERE ADDITIONAL_SKILL_ID = " + additional_skill_id;
+		String	query = "SELECT additional_skill_id, profile_id, skill_type, description FROM ADDITIONAL_SKILL WHERE ADDITIONAL_SKILL_ID = " + additional_skill_id;
 		InputStream	is = null;
 
 		try {
@@ -178,9 +178,9 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 			obj.profile_id = new Long( rs.getLong( 2 ) );
 			if( rs.wasNull() )
 				obj.profile_id = null;
-			obj.skill_type_id = new Integer( rs.getInt( 3 ) );
+			obj.skill_type = rs.getString( 3 );
 			if( rs.wasNull() )
-				obj.skill_type_id = null;
+				obj.skill_type = null;
 			obj.description = rs.getString( 4 );
 			if( rs.wasNull() )
 				obj.description = null;
@@ -197,7 +197,7 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord( Long additional_skill_id, Long profile_id, Integer skill_type_id, String description ) throws SQLException {
+	public int putRecord( Long additional_skill_id, Long profile_id, String skill_type, String description ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();
@@ -210,10 +210,10 @@ public class AdditionalSkillBean implements javax.ejb.SessionBean {
 			update.append( "PROFILE_ID = " + profile_id.intValue() );
 			count++;
 		}
-		if( skill_type_id != null ) {
+		if( skill_type != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "SKILL_TYPE_ID = " + skill_type_id.intValue() );
+			update.append( "SKILL_TYPE = '" + skill_type + "'" );
 			count++;
 		}
 		if( description != null ) {

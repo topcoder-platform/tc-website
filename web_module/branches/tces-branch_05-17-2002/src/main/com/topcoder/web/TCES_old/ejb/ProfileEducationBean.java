@@ -29,14 +29,13 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 	public SessionContext	context = null;
 	public static final DecimalFormat	fmt0 = new DecimalFormat( "0000000000" );
 
-	public void create( java.sql.Connection conn, Long education_id, Long profile_id, Integer degree_type_id, Integer school_id, Date date_graduation, Integer gpa_id ) throws SQLException {
+	public void create( java.sql.Connection conn, Long education_id, Long profile_id, Integer degree_type_id, Long school_id, Integer graduation_year, Integer graduation_month, Integer gpa_id ) throws SQLException {
 		PreparedStatement	ps = null;
 
-		String	insert = "INSERT INTO PROFILE_EDUCATION VALUES (  " + education_id + ", " + profile_id + ", " + degree_type_id + ", " + school_id + ", ?, " + gpa_id + " )";
+		String	insert = "INSERT INTO PROFILE_EDUCATION VALUES (  " + education_id + ", " + profile_id + ", " + degree_type_id + ", " + school_id + ", " + graduation_year + ", " + graduation_month + ", " + gpa_id + " )";
 
 		try {
 			ps = conn.prepareStatement( insert );
-			ps.setDate( 1, date_graduation );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
 			if( ps != null )
@@ -50,12 +49,12 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		}
 	}
 
-	public void create( Long education_id, Long profile_id, Integer degree_type_id, Integer school_id, Date date_graduation, Integer gpa_id ) throws SQLException {
+	public void create( Long education_id, Long profile_id, Integer degree_type_id, Long school_id, Integer graduation_year, Integer graduation_month, Integer gpa_id ) throws SQLException {
 		Connection	conn = null;
 
 		try {
 			conn = getConnection();
-			create( conn, education_id, profile_id, degree_type_id, school_id, date_graduation, gpa_id );
+			create( conn, education_id, profile_id, degree_type_id, school_id, graduation_year, graduation_month, gpa_id );
 		} catch( SQLException e ) {
 			if( conn != null )
 				try { conn.close(); } catch( Exception f ) {}
@@ -91,7 +90,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		switch( cmd ) {
 
 		case ProfileEducation.INSERT:
-			create( obj.education_id, obj.profile_id, obj.degree_type_id, obj.school_id, obj.date_graduation, obj.gpa_id );
+			create( obj.education_id, obj.profile_id, obj.degree_type_id, obj.school_id, obj.graduation_year, obj.graduation_month, obj.gpa_id );
 			break;
 
 		case ProfileEducation.SELECT:
@@ -102,7 +101,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 			break;
 
 		case ProfileEducation.UPDATE:
-			putRecord( obj.education_id, obj.profile_id, obj.degree_type_id, obj.school_id, obj.date_graduation, obj.gpa_id );
+			putRecord( obj.education_id, obj.profile_id, obj.degree_type_id, obj.school_id, obj.graduation_year, obj.graduation_month, obj.gpa_id );
 			break;
 
 		case ProfileEducation.DELETE:
@@ -114,7 +113,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 	}
 
 	public void setProfileId( Long education_id, Long profile_id ) throws SQLException {
-		putRecord( education_id, profile_id, null, null, null, null );
+		putRecord( education_id, profile_id, null, null, null, null, null );
 	}
 
 	public Long getProfileId( Long education_id ) throws SQLException {
@@ -128,7 +127,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 	}
 
 	public void setDegreeTypeId( Long education_id, Integer degree_type_id ) throws SQLException {
-		putRecord( education_id, null, degree_type_id, null, null, null );
+		putRecord( education_id, null, degree_type_id, null, null, null, null );
 	}
 
 	public Integer getDegreeTypeId( Long education_id ) throws SQLException {
@@ -141,13 +140,13 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		return( obj.degree_type_id );
 	}
 
-	public void setSchoolId( Long education_id, Integer school_id ) throws SQLException {
-		putRecord( education_id, null, null, school_id, null, null );
+	public void setSchoolId( Long education_id, Long school_id ) throws SQLException {
+		putRecord( education_id, null, null, school_id, null, null, null );
 	}
 
-	public Integer getSchoolId( Long education_id ) throws SQLException {
+	public Long getSchoolId( Long education_id ) throws SQLException {
 		ProfileEducationObject	obj = null;
-		Integer	result;
+		Long	result;
 
 		obj = getRecord( education_id );
 		if( obj == null )
@@ -155,22 +154,36 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		return( obj.school_id );
 	}
 
-	public void setDateGraduation( Long education_id, Date date_graduation ) throws SQLException {
-		putRecord( education_id, null, null, null, date_graduation, null );
+	public void setGraduationYear( Long education_id, Integer graduation_year ) throws SQLException {
+		putRecord( education_id, null, null, null, graduation_year, null, null );
 	}
 
-	public Date getDateGraduation( Long education_id ) throws SQLException {
+	public Integer getGraduationYear( Long education_id ) throws SQLException {
 		ProfileEducationObject	obj = null;
-		Date	result;
+		Integer	result;
 
 		obj = getRecord( education_id );
 		if( obj == null )
 			throw new EJBException( "record not found" );
-		return( obj.date_graduation );
+		return( obj.graduation_year );
+	}
+
+	public void setGraduationMonth( Long education_id, Integer graduation_month ) throws SQLException {
+		putRecord( education_id, null, null, null, null, graduation_month, null );
+	}
+
+	public Integer getGraduationMonth( Long education_id ) throws SQLException {
+		ProfileEducationObject	obj = null;
+		Integer	result;
+
+		obj = getRecord( education_id );
+		if( obj == null )
+			throw new EJBException( "record not found" );
+		return( obj.graduation_month );
 	}
 
 	public void setGpaId( Long education_id, Integer gpa_id ) throws SQLException {
-		putRecord( education_id, null, null, null, null, gpa_id );
+		putRecord( education_id, null, null, null, null, null, gpa_id );
 	}
 
 	public Integer getGpaId( Long education_id ) throws SQLException {
@@ -192,7 +205,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		ProfileEducationObject	obj = null;
 
 		obj = new ProfileEducationObject();
-		String	query = "SELECT education_id, profile_id, degree_type_id, school_id, date_graduation, gpa_id FROM PROFILE_EDUCATION WHERE EDUCATION_ID = " + education_id;
+		String	query = "SELECT education_id, profile_id, degree_type_id, school_id, graduation_year, graduation_month, gpa_id FROM PROFILE_EDUCATION WHERE EDUCATION_ID = " + education_id;
 		InputStream	is = null;
 
 		try {
@@ -210,13 +223,16 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 			obj.degree_type_id = new Integer( rs.getInt( 3 ) );
 			if( rs.wasNull() )
 				obj.degree_type_id = null;
-			obj.school_id = new Integer( rs.getInt( 4 ) );
+			obj.school_id = new Long( rs.getLong( 4 ) );
 			if( rs.wasNull() )
 				obj.school_id = null;
-			obj.date_graduation  = rs.getDate( 5 );
+			obj.graduation_year = new Integer( rs.getInt( 5 ) );
 			if( rs.wasNull() )
-				obj.date_graduation = null;
-			obj.gpa_id = new Integer( rs.getInt( 6 ) );
+				obj.graduation_year = null;
+			obj.graduation_month = new Integer( rs.getInt( 6 ) );
+			if( rs.wasNull() )
+				obj.graduation_month = null;
+			obj.gpa_id = new Integer( rs.getInt( 7 ) );
 			if( rs.wasNull() )
 				obj.gpa_id = null;
 			rs.close();
@@ -232,7 +248,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		return( obj );
 	}
 
-	public int putRecord( Long education_id, Long profile_id, Integer degree_type_id, Integer school_id, Date date_graduation, Integer gpa_id ) throws SQLException {
+	public int putRecord( Long education_id, Long profile_id, Integer degree_type_id, Long school_id, Integer graduation_year, Integer graduation_month, Integer gpa_id ) throws SQLException {
 		PreparedStatement	ps = null;
 		Connection	conn = null;
 		StringBuffer	update = new StringBuffer();
@@ -257,10 +273,16 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 			update.append( "SCHOOL_ID = " + school_id.intValue() );
 			count++;
 		}
-		if( date_graduation != null ) {
+		if( graduation_year != null ) {
 			if( count > 0 )
 				update.append( ", " );
-			update.append( "DATE_GRADUATION = '" + date_graduation + "'" );
+			update.append( "GRADUATION_YEAR = " + graduation_year.intValue() );
+			count++;
+		}
+		if( graduation_month != null ) {
+			if( count > 0 )
+				update.append( ", " );
+			update.append( "GRADUATION_MONTH = " + graduation_month.intValue() );
 			count++;
 		}
 		if( gpa_id != null ) {

@@ -14,6 +14,6 @@ public class AdditionalSkillObject
   implements Serializable {
 	public Long	additional_skill_id;
 	public Long	profile_id;
-	public Integer	skill_type_id;
+	public String	skill_type;
 	public String	description;
 }
