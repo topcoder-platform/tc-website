@@ -186,9 +186,9 @@ public class MainServlet extends HttpServlet {
         }
         else {
             // redirected pages *must* contain servlet context path
-            if( ! startsWithContextPath ) {
-                dest = contextPrefix+dest;
-            }
+//            if( ! startsWithContextPath ) {
+//                dest = contextPrefix+dest;
+//            }
             resp.sendRedirect(dest);
         }
     }                                    
