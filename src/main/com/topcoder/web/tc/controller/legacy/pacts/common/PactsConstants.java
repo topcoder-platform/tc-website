@@ -426,6 +426,7 @@ public interface PactsConstants {
     public static final String INTERNAL_UPDATE_PAYMENT_JSP = INTERNAL_JSP_DIR + "/updatePayment.jsp";
     public static final String INTERNAL_AFFIRM_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/affirmAffidavit.jsp";
     public static final String INTERNAL_ERROR_JSP = INTERNAL_JSP_DIR + "/error.jsp";
+    public static final String INTERNAL_GENERATE_PAYMENTS = INTERNAL_JSP_DIR + "/generatePayments.jsp";
 
     /*
       veredox - Don't get your panties in a knot.
