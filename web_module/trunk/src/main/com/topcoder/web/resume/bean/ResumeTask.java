@@ -1,18 +1,20 @@
 package com.topcoder.web.resume.bean;
 
-import com.topcoder.servlet.request.FileUpload;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.servlet.request.FileUpload;
 import com.topcoder.web.common.BaseProcessor;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
+import javax.rmi.PortableRemoteObject;
 import java.util.Map;
 
 public abstract class ResumeTask {
@@ -58,12 +60,23 @@ public abstract class ResumeTask {
         this.fileUpload = fileUpload;
     }
 
+    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+    }
+
+    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+    }
+
     public void setNextPageInternal(boolean nextPageInternal) {
         this.nextPageInternal = nextPageInternal;
     }
 
     public boolean getNextPageInternal() {
         return this.nextPageInternal;
+    }
+
+    public void setAttributes(String paramName, String paramValues[]) {
     }
 
     protected String getCompanyDb(long companyId) throws Exception {

@@ -1,16 +1,18 @@
 package com.topcoder.web.resume.bean;
 
-import com.topcoder.common.web.data.Navigation;
+import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.common.web.data.Navigation;
 import com.topcoder.web.resume.common.Constants;
+import com.topcoder.web.common.BaseProcessor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.util.Iterator;
+import java.util.Map;
 
 public class UploadTask extends ResumeTask{
     private byte file[] = null;
