@@ -2,8 +2,6 @@
 <%@ page import="com.topcoder.web.corp.common.Constants,
                  com.topcoder.web.corp.model.ProblemInfo" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
-<%@ page autoFlush="false"%>
-<%@ page buffer="64kb"%>
 <HTML>
 <HEAD>
 <title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>

@@ -1,7 +1,5 @@
 <%@ page import="com.topcoder.web.corp.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
-<%@ page autoFlush="false"%>
-<%@ page buffer="64kb"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>

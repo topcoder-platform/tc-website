@@ -3,8 +3,6 @@
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.common.BaseServlet" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
-<%@ page autoFlush="false"%>
-<%@ page buffer="64kb"%>
 
 <HTML>
 <HEAD>
