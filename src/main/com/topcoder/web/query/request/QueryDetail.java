@@ -1,14 +1,11 @@
 package com.topcoder.web.query.request;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
+import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Query;
-import com.topcoder.web.query.ejb.QueryServices.QueryHome;
 import com.topcoder.web.query.ejb.QueryServices.QueryInput;
-import com.topcoder.web.query.ejb.QueryServices.QueryInputHome;
 import com.topcoder.web.common.BaseProcessor;
 
 import java.util.Enumeration;
@@ -48,11 +45,9 @@ public class QueryDetail extends BaseProcessor {
  	}
 
     protected void businessProcessing() throws Exception {
-        QueryInputHome qiHome = (QueryInputHome) getInitialContext().lookup(ApplicationServer.Q_QUERY_INPUT);
-        QueryInput qi = qiHome.create();
+        QueryInput qi = (QueryInput)Util.createEJB(getInitialContext(), QueryInput.class);
+        Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
 
-        QueryHome qHome = (QueryHome) getInitialContext().lookup(ApplicationServer.Q_QUERY);
-        Query q = qHome.create();
 
         setQueryText(q.getText(getQueryId(), getDb()));
         setQueryName(q.getName(getQueryId(), getDb()));

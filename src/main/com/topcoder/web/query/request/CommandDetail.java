@@ -1,10 +1,9 @@
 package com.topcoder.web.query.request;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
+import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.*;
 import com.topcoder.web.common.BaseProcessor;
 
@@ -44,17 +43,10 @@ public class CommandDetail extends BaseProcessor {
     }
 
     public void businessProcessing() throws Exception {
-        CommandQueryHome cqHome = (CommandQueryHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_QUERY);
-        CommandQuery cq = cqHome.create();
-
-        CommandHome cHome = (CommandHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND);
-        Command c = cHome.create();
-
-        CommandGroupHome cgHome = (CommandGroupHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_GROUP);
-        CommandGroup cg = cgHome.create();
-
-        QueryInputHome qiHome = (QueryInputHome) getInitialContext().lookup(ApplicationServer.Q_QUERY_INPUT);
-        QueryInput qi = qiHome.create();
+        CommandQuery cq = (CommandQuery)Util.createEJB(getInitialContext(), CommandQuery.class);
+        Command c = (Command)Util.createEJB(getInitialContext(), Command.class);
+        CommandGroup cg = (CommandGroup)Util.createEJB(getInitialContext(), CommandGroup.class);
+        QueryInput qi = (QueryInput)Util.createEJB(getInitialContext(), QueryInput.class);
 
         setQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
         setGroupId(c.getCommandGroupId(getCommandId(), getDb()));

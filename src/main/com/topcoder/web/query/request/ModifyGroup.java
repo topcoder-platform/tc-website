@@ -1,11 +1,9 @@
 package com.topcoder.web.query.request;
 
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
+import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
-import com.topcoder.web.query.ejb.QueryServices.CommandGroupHome;
 import com.topcoder.web.common.BaseProcessor;
 
 import java.util.Enumeration;
@@ -45,8 +43,8 @@ public class ModifyGroup extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
         String step = request.getParameter(Constants.STEP_PARAM);
-        CommandGroupHome cgHome = (CommandGroupHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_GROUP);
-        CommandGroup cg = cgHome.create();
+        CommandGroup cg = (CommandGroup)Util.createEJB(getInitialContext(), CommandGroup.class);
+
 
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             checkGroupDesc(getGroupDesc());

@@ -1,7 +1,6 @@
 package com.topcoder.web.query.request;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.common.BaseProcessor;
 

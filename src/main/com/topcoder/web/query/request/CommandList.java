@@ -1,11 +1,10 @@
 package com.topcoder.web.query.request;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.Constants;
+import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Command;
-import com.topcoder.web.query.ejb.QueryServices.CommandHome;
 import com.topcoder.web.common.BaseProcessor;
 
 import java.util.Enumeration;
@@ -41,8 +40,8 @@ public class CommandList extends BaseProcessor {
  	}
 
     protected void businessProcessing() throws Exception {
-        CommandHome cHome = (CommandHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND);
-        Command c = cHome.create();
+        Command c = (Command)Util.createEJB(getInitialContext(), Command.class);
+
         setCommandList(c.getCommandList(getDb()));
 
         request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);

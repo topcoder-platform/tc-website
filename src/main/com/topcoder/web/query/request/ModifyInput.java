@@ -1,11 +1,9 @@
 package com.topcoder.web.query.request;
 
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
+import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Input;
-import com.topcoder.web.query.ejb.QueryServices.InputHome;
 import com.topcoder.web.common.BaseProcessor;
 
 import java.util.Enumeration;
@@ -49,8 +47,7 @@ public class ModifyInput extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
         String step = request.getParameter(Constants.STEP_PARAM);
-        InputHome iHome = (InputHome) getInitialContext().lookup(ApplicationServer.Q_INPUT);
-        Input i = iHome.create();
+        Input i = (Input)Util.createEJB(getInitialContext(), Input.class);
 
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             checkInputCode(getInputCode(), i);

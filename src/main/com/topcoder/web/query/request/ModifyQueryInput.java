@@ -1,10 +1,9 @@
 package com.topcoder.web.query.request;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Constants;
+import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.bean.InputBean;
 import com.topcoder.web.query.bean.QueryInputBean;
 import com.topcoder.web.query.ejb.QueryServices.*;
@@ -58,14 +57,10 @@ public class ModifyQueryInput extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
         String step = request.getParameter(Constants.STEP_PARAM);
-        InputHome iHome = (InputHome) getInitialContext().lookup(ApplicationServer.Q_INPUT);
-        Input i = iHome.create();
 
-        QueryInputHome qiHome = (QueryInputHome) getInitialContext().lookup(ApplicationServer.Q_QUERY_INPUT);
-        QueryInput qi = qiHome.create();
-
-        QueryHome qHome = (QueryHome) getInitialContext().lookup(ApplicationServer.Q_QUERY);
-        Query q = qHome.create();
+        Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
+        QueryInput qi = (QueryInput)Util.createEJB(getInitialContext(), QueryInput.class);
+        Input i = (Input)Util.createEJB(getInitialContext(), Input.class);
 
         processAttributeQueue();
 
@@ -294,8 +289,7 @@ public class ModifyQueryInput extends BaseProcessor {
      */
     public ArrayList getCurrentInputList() throws Exception {
         if (currentInputList==null) {
-            QueryInputHome qiHome = (QueryInputHome) getInitialContext().lookup(ApplicationServer.Q_QUERY_INPUT);
-            QueryInput qi = qiHome.create();
+            QueryInput qi = (QueryInput)Util.createEJB(getInitialContext(), QueryInput.class);
             setCurrentInputList(qi.getInputsForQuery(getQueryId(), getDb()));
         }
         return currentInputList;
