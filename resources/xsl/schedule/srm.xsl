@@ -127,6 +127,8 @@
 
                             <xsl:choose>
                             <xsl:when test="$roundId=5849">
+                                TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, 
+                                Asia and Australia.  The dates and times are as follows:<br/><br/>
                                 August 10:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/>
                                 September 14:&#160;Register - 6:00AM ET Compete - 9:00AM ET<br/>
                                 October 4:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/>
@@ -134,21 +136,29 @@
                                 December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/><br/>
                             </xsl:when>
                             <xsl:when test="$roundId=5853">
+                                TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, 
+                                Asia and Australia.  The dates and times are as follows:<br/><br/>
                                 September 14:&#160;Register - 6:00AM ET Compete - 9:00AM ET<br/>
                                 October 4:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/>
                                 November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET<br/>
                                 December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/><br/>
                             </xsl:when>
                             <xsl:when test="$roundId=5857">
+                                TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, 
+                                Asia and Australia.  The dates and times are as follows:<br/><br/>
                                 October 4:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/>
                                 November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET<br/>
                                 December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/><br/>
                             </xsl:when>
                             <xsl:when test="$roundId=5860">
+                                TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, 
+                                Asia and Australia.  The dates and times are as follows:<br/><br/>
                                 November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET<br/>
                                 December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/><br/>
                             </xsl:when>
                             <xsl:when test="$roundId=5864">
+                                TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, 
+                                Asia and Australia.  The dates and times are as follows:<br/><br/>
                                 December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET<br/><br/>
                             </xsl:when>
                             </xsl:choose>
