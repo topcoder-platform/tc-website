@@ -55,7 +55,7 @@
             <span class="leadPhotoCaption">Photo caption.<br/><br/></span>
             </div>
             
-            <h2>Final Round</h2>
+            <h2>Room 1</h2>
 
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
             
