@@ -73,7 +73,7 @@ Online Review Application Persistence Layer Development Project The Online Revie
 Test cases are to use test data implementations of that found in the provided HTML mock-ups.  Successful completion of this project requires submission of DDL for the supporting database schema as well as scripts to populate those tables required to support the system's operation and scripts to populate the required test data for the test cases to properly run.
 						</p>
 						<p>
-All developers are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp" target="NEW">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.
+All developers are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/catalog/c_showroom.jsp" target="NEW">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.
 						</p>
 
 <!-- Project Type -->

@@ -74,7 +74,7 @@ Online Review Application Business Logic Development Project The Online Review A
 The business logic development will be completed following the APIs as described in the UML provided in the design distribution.  The deliverable must include a fully functional business logic tier using stub classes, which should include test data as described in HTML mockup.  The stub classes will implement the persistence layer API.  In addition to the stubb classes, the developer must also implement unit test cases to emulate the front-end.  These test cases should also use test data as described in the HTML mock ups provided.
 						</p>
 						<p>
-All developers are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp" target="NEW">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.
+All developers are encouraged to use as many completed TopCoder Software components as appropriate (from the <a class="statText" href="http://software.topcoder.com/catalog/c_showroom.jsp" target="NEW">Component Catalog</a>).  Effective use of these components will be taken into account during the review period.  Design documentation is available on the TopCoder Software website.
 						</p>
 
 <!-- Project Type -->

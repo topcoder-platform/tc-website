@@ -158,7 +158,7 @@
                             <li>TopCoder members selected for the design are phase are required to submit incremental deliverables defined by the TopCoder Product Manager.</li>
                             <li>An Architecture Review Board reviews each incremental deliverable and provides feedback to the designers after each phase of the design.</li>
                             <li>The Design Specification Document is expected to specify both generic components that can be mapped
-                                to the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp" target="_blank">TopCoder Software Component Catalog</a>,
+                                to the <a class="statText" href="http://software.topcoder.com/catalog/c_showroom.jsp" target="_blank">TopCoder Software Component Catalog</a>,
                                 new components and component extensions necessary to implement functionality specific to the application.</li>
                             <li>The Architecture Review Board reviews and scores each final design submission.</li>
                             <li>Submissions passing the minimum requirements or a review score greater than 50, will be compensated for their submissions.</li>

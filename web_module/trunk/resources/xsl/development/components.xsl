@@ -58,7 +58,7 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="captionText" width="49%"><img src="/i/development/royalty_payments.gif" alt="Royalty Payments" width="276" height="49" border="0" /><br />
                         We're proud to announce our first round of royalty payments totaling $3500. The TopCoder members to the right 
-                        developed the components that make up the <a href="http://software.topcoder.com/pages/c_component.jsp?comp=600191" class="statText">Rules Engine Tool.</a> 
+                        developed the components that make up the <a href="http://software.topcoder.com/catalog/c_component.jsp?comp=600191" class="statText">Rules Engine Tool.</a> 
                         Inquire about <a href="?t=development&amp;c=comp_projects" class="statText">open projects</a> so you can earn royalties too.</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td width="49%">
@@ -277,7 +277,7 @@
                 <tr valign="middle">
                     <td class="statText">
                         <p><strong>Bar Graph</strong><br />
-                        Data structure to store data to represent various bar graph types.  Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=7338647" target="parent" class="statText">Bar Graph</a> on the TopCoder Software web site.</p>
+                        Data structure to store data to represent various bar graph types.  Check out <a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7338647" target="parent" class="statText">Bar Graph</a> on the TopCoder Software web site.</p>
 
 
                         
@@ -313,7 +313,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=7338647" class="statText" target="parent">Bar Graph</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7338647" class="statText" target="parent">Bar Graph</a></td>
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261390"><strong>Sharakan</strong></a></td>
                     <td class="statText" height="15" align="center">89.25</td>
@@ -325,7 +325,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5711016" class="statText" target="parent">SQL Parser</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/catalog/c_component.jsp?comp=5711016" class="statText" target="parent">SQL Parser</a></td>
                     <td class="statText" height="15" align="center">2</td>
                     <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=152342"><strong>kyky</strong></a></td>
                     <td class="statText" height="15" align="center">83.70</td>
@@ -347,7 +347,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=7361823" class="statText" target="parent">Type Safe Enum</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7361823" class="statText" target="parent">Type Safe Enum</a></td>
                     <td class="statText" height="15" align="center">2</td>
                     <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145"><strong>srowen</strong></a></td>
                     <td class="statText" height="15" align="center">88.80</td>
@@ -387,7 +387,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5800878" class="statText" target="parent">Standard Class</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/catalog/c_component.jsp?comp=5800878" class="statText" target="parent">Standard Class</a></td>
                     <td class="statText" height="15" align="center">2</td>
                     <td class="statText" height="15"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=264803"><strong>zimmy</strong></a></td>
                     <td class="statText" height="15" align="center">87.48</td>
@@ -397,7 +397,7 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5800878" class="statText" target="parent"></a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/catalog/c_component.jsp?comp=5800878" class="statText" target="parent"></a></td>
                     <td class="statText" height="15" align="center"></td>
                     <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=343613"><strong>phark4evr</strong></a></td>
                     <td class="statText" height="15" align="center">75.63</td>
