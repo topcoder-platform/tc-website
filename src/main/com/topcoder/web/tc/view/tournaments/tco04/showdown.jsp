@@ -8,7 +8,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<META HTTP-EQUIV="refresh" content="15">
+<META HTTP-EQUIV="refresh" content="60">
 <title>2004 TopCoder Open - Computer Programming Tournament</title>
 
  <STYLE TYPE="text/css">
