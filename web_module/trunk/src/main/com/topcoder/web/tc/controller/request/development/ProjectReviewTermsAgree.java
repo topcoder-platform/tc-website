@@ -6,6 +6,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.SoftwareComponent;
 import com.topcoder.web.ejb.rboard.RBoardApplication;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.shared.util.DBMS;
 
 /**
@@ -17,6 +18,13 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
    protected void applicationProcessing() throws TCWebException {
         try {
             if ("on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
+                UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
+                if (!userTerms.hasTermsOfUse(getUser().getId(),
+                                    Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+                    userTerms.createUserTermsOfUse(getUser().getId(),
+                            Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                }
+
                 apply();
                 setNextPage("/tc?" + Constants.MODULE_KEY + "=ReviewProjectDetail&" +
                         Constants.PROJECT_ID + "=" + projectId + "&" + Constants.PHASE_ID + "=" + phaseId);
