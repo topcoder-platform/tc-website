@@ -81,7 +81,7 @@
    <TD></TD>
    <TD></TD>
    <TD CLASS="errorText" ALIGN="left" VALIGN="middle">
-    <adv:errorIterator id="error" name="SchoolCode"><%=error%><BR></adv:errorIterator>
+    <adv:errorIterator id="error" name="StateCode"><%=error%><BR></adv:errorIterator>
    </TD>
   </TR>
   <TR>
