@@ -24,7 +24,7 @@
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="tournaments"/>
-                <jsp:param name="level2" value="charity"/> 
+                <jsp:param name="level2" value="charity"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -33,12 +33,12 @@
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
+<!-- Center Column Begins -->
          <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
                <jsp:include page="../body_top.jsp" >
-                  <jsp:param name="image" value="events"/>  
-                  <jsp:param name="image1" value="white"/>  
-                  <jsp:param name="title" value="TopCoder Charity Challenge"/>  
+                  <jsp:param name="image" value="events"/>
+                  <jsp:param name="image1" value="white"/>
+                  <jsp:param name="title" value="TopCoder Charity Challenge"/>
                </jsp:include>
 
 <!--CRPF Header-->
@@ -47,7 +47,7 @@
                      <td><img src="/i/tournament/crpf03/crpf_banner.gif" width="601" height="152" border="0"  vspace="15"/></td>
                   </tr>
                </table>
-               
+
 <!-- Tab bar links-->
 <jsp:include page="crpfLinks.jsp" >
    <jsp:param name="selectedTab" value="fundraisers"/>
@@ -59,7 +59,7 @@
    <jsp:param name="selectedTab" value=""/>
 </jsp:include>
 
-               
+
 
                <blockquote>
 
@@ -90,7 +90,7 @@
                         <rsc:item row="<%=info%>" name="rating"/>
                     </td>
                     <td class="tourney_subnav" align="center">
-                        $<rsc:item row="<%=info%>" name="amount" format="#.##"/>
+                        $<rsc:item row="<%=info%>" name="amount" format="0.00"/>
                     </td>
                 </tr>
             </rsc:iterator>
@@ -101,7 +101,7 @@
                   Total:
                 </td>
                 <td>
-                    $<rsc:item row="<%=info%>" name="amount" format="#.##"/>
+                    $<rsc:item row="<%=info%>" name="amount" format="0.00"/>
                 </td>
             </tr>
             </rsc:iterator>
