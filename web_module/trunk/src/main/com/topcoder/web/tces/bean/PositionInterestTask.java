@@ -138,7 +138,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
     }
 
     /** Setter for property jobID.
-     * @param jobID New value of property jobID.
+     * @param jid New value of property jobID.
      */
     public void setJobID(int jid) {
         this.jid=jid;

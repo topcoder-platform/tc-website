@@ -540,7 +540,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         columns = new ResultColumn[rsmd.getColumnCount()];
         for (int i = 1; i <= columns.length; i++) {
             int precision = 0, scale = 0, colType = rsmd.getColumnType(i);
-            String colName = rsmd.getColumnName(i);
+            String colName = rsmd.getColumnLabel(i);
             String colSourceType = rsmd.getColumnTypeName(i);
 
             if (colType == Types.DECIMAL || colType == Types.NUMERIC) {
