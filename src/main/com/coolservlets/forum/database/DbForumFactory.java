@@ -79,6 +79,7 @@ public class DbForumFactory extends ForumFactory {
          "AND userID=?";
     //By default, cache is enabled.
     private boolean cacheEnabled = false;
+    private boolean userPermCacheEnabled = true;
     //Cache forum objects for faster access.
     protected Cache forumCache;
     protected Cache threadCache;
@@ -210,7 +211,7 @@ public class DbForumFactory extends ForumFactory {
 
         //Simple case: if cache is turned on and the user is already cached,
         //we can simply return the cached permissions.
-        if (cacheEnabled && userPermissionsCache.containsKey(userID)) {
+        if (userPermCacheEnabled && userPermissionsCache.containsKey(userID)) {
             return (ForumPermissions)userPermissionsCache.get(userID);
         }
 
@@ -230,7 +231,7 @@ public class DbForumFactory extends ForumFactory {
         }
         //Add in anonymous perms.
         ForumPermissions anonyPermissions;
-        if (cacheEnabled && userPermissionsCache.containsKey(-1)) {
+        if (userPermCacheEnabled && userPermissionsCache.containsKey(-1)) {
             anonyPermissions = (ForumPermissions)userPermissionsCache.get(-1);
         }
         //Otherwise, do our own lookup.
@@ -244,14 +245,14 @@ public class DbForumFactory extends ForumFactory {
         if (isUser) {
             ForumPermissions specialUserPermissions;
             //Check for cache
-            if (cacheEnabled && userPermissionsCache.containsKey(0)) {
+            if (userPermCacheEnabled && userPermissionsCache.containsKey(0)) {
                 specialUserPermissions = (ForumPermissions)userPermissionsCache.get(0);
             }
             //Otherwise, do our own lookup.
             else {
                 specialUserPermissions = getUserPermissions(0, -1);
                 //Add to cache so it will be there next time.
-                if (cacheEnabled) {
+                if (userPermCacheEnabled) {
                     userPermissionsCache.add(0, specialUserPermissions);
                 }
             }
@@ -260,7 +261,7 @@ public class DbForumFactory extends ForumFactory {
         }
 
         //Finally, add user to cache so it will be there next time.
-        if (cacheEnabled) {
+        if (userPermCacheEnabled) {
             userPermissionsCache.add(userID, finalPermissions);
         }
         
