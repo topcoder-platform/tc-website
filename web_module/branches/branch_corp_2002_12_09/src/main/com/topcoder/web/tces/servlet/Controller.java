@@ -12,7 +12,7 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.TCESAuthorization;
-
+import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
@@ -107,9 +107,9 @@ public class Controller extends HttpServlet {
                 Authorization authorize = new TCESAuthorization(tcUser);
                 Resource taskResource = new ProcessorResource(task);
                 if (!authorize.hasPermission(taskResource)) {
-                    throw new NotAuthorizedException(uid + 
-                        ": not Authorized for access to resource: "
-                            " + taskName);
+                    throw new NotAuthorizedException(
+                        "User not Authorized for access to resource: "
+                            + taskName);
                 }
 
 //----------

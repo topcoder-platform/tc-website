@@ -22,9 +22,23 @@
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
       <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
-        <!-- Gutter Ends -->
-
-<!-- Body Area -->
+    <!-- Gutter Ends -->
+	<!-- Body Area -->
+    <!-- Center Column Begins -->
+      <TD class="statText" width="100%" bgcolor="#001935" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+        <jsp:include page="/body_top.jsp" >
+           <jsp:param name="image" value="tces"/>
+           <jsp:param name="image1" value="steelblue"/>
+           <jsp:param name="title" value="<%=MainTask.getCompanyName()%>"/>
+        </jsp:include><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
+        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+          <TR>
+            <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+            <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+              <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
+              <P><BR></P>
+		</TABLE>
+    </TD>
 
  <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
    <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
