@@ -1,12 +1,12 @@
                         <table cellspacing="0" cellpadding="0" border="0" width="550">
-                            <tr valign="middle">
-                                <td class="statText"><img src="/i/tournament/tchs03/tchs03_logo_large.gif" alt="TopCoder High School Challenge" width="208" height="179" hspace="10" border="0"></td>
+                            <tr align="top">
+                                <td class="statText"><img src="/i/tournament/tchs03/tchs03_logo_medium.gif" alt="TopCoder High School Challenge" width="123" height="102" hspace="10" border="0"></td>
                                 <td class="statTextBig" width="99%">
                                     <h3>Welcome to our first programming tournament for high school students!</h3>
                                     
-                                    <p>Online elmination rounds began on <strong>March 20th</strong>. The final field of schools will be brought to Homer Babbidge
+                                    <p>Online elmination rounds began on <strong>March 20, 2003</strong>. The final field of schools were brought to Homer Babbidge
                                     Library at the <a href="http://www.uconn.edu" target="_blank" class="statTextBig"><strong>University of Connecticut</strong></a> in Storrs, CT 
-                                    where they will compete head-to-head on <strong>May 20th</strong>.</font></p>
+                                    to compete head-to-head on <strong>May 20, 2003.</strong>.</p>
                                 </td>
                             </tr>
                         </table>

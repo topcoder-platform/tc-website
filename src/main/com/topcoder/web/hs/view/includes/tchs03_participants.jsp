@@ -375,22 +375,22 @@
                             </tr>
                             
                             <tr>
-                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000310" class="coderTextBlue">noseBOY</td>
+                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000310" class="coderTextBlue">noseBOY</a></td>
                                 <td class="statScore">1248</td>
                             </tr>
 
                             <tr>
-                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000316" class="coderTextGray">Xzafire</td>
+                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000316" class="coderTextGray">Xzafire</a></td>
                                 <td class="statScore">969</td>
                             </tr>
 
                             <tr>
-                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000337" class="coderTextGray">callia888</td>
+                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000337" class="coderTextGray">callia888</a></td>
                                 <td class="statScore">828</td>
                             </tr>
 
                             <tr>
-                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000375" class="coderTextGray">RaceFreak21</td>
+                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000375" class="coderTextGray">RaceFreak21</a></td>
                                 <td class="statScore">761</td>
                             </tr>
 
@@ -405,22 +405,22 @@
                             </tr>
                             
                             <tr>
-                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2057953" class="coderTextGreen">Alex2086</td>
+                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2057953" class="coderTextGreen">Alex2086</a></td>
                                 <td class="statScore">909</td>
                             </tr>
 
                             <tr>
-                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000368" class="coderTextGray">ksobel</td>
+                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000368" class="coderTextGray">ksobel</a></td>
                                 <td class="statScore">820</td>
                             </tr>
 
                             <tr>
-                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000314" class="coderTextGray">ownz0r</td>
+                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000314" class="coderTextGray">ownz0r</a></td>
                                 <td class="statScore">772</td>
                             </tr>
 
                             <tr>
-                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000360" class="coderTextGray">Zfire</td>
+                                <td class="coderText"><a href="?module=Statistics&c=member_profile&cr=2000360" class="coderTextGray">Zfire</a></td>
                                 <td class="statScore">587</td>
                             </tr>
 
