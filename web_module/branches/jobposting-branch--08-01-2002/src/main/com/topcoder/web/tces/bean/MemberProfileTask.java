@@ -364,8 +364,8 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         for (int rowI=0;rowI<dwRSC.getRowCount();rowI++) {
             memStatLangRow = dwRSC.getRow(rowI);
 
-            ttlSubmitted+=((BigInteger)memStatLvlRow.getItem("submitted").getResultData()).intValue();
-            ttlCorrect+=((BigInteger)memStatLvlRow.getItem("num_correct").getResultData()).intValue();
+            ttlSubmitted+=((BigInteger)memStatLangRow.getItem("submitted").getResultData()).intValue();
+            ttlCorrect+=((BigInteger)memStatLangRow.getItem("num_correct").getResultData()).intValue();
         }
 
 
