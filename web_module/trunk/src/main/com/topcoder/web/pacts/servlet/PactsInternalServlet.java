@@ -247,7 +247,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 				 Long.parseLong(request.getParameter("user_id")),
 				 request.getParameter("payment_desc"),
 				 Integer.parseInt(request.getParameter("payment_type_id")),
-				 Double.parseDouble(request.getParameter(net)),
+                 // dpecora 05/03 - fix
+				 // Double.parseDouble(request.getParameter(net)),
+				 Double.parseDouble(net),
 				 Double.parseDouble(request.getParameter("gross_amount")),
 				 Integer.parseInt(request.getParameter("payment_status_id")));
 
@@ -2213,7 +2215,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			payment._header._description = request.getParameter("payment_desc");
 			payment._header._typeID = Integer.parseInt(request.getParameter("payment_type_id"));
 			payment._grossAmount = Double.parseDouble(request.getParameter("gross_amount"));
-			payment._netAmount = Double.parseDouble(request.getParameter(net));
+            // dpecora 05/03 - fix
+			// payment._netAmount = Double.parseDouble(request.getParameter(net));
+			payment._netAmount = Double.parseDouble(net);
 			payment._statusId = Integer.parseInt(request.getParameter("status_id"));
 			payment._printDate = TCData.dateForm(request.getParameter("date_printed"));
 			payment._payDate = TCData.dateForm(request.getParameter("date_paid"));
@@ -2831,7 +2835,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     private void processException(Exception e, HttpServletRequest request, HttpServletResponse response) {
 		 StringTokenizer t = new StringTokenizer((e.getMessage() == null) ? e.toString() : e.getMessage(),"\n");
-		 log.debug("Exception Caught:\n" + ((e.getMessage() == null) ? e.toString() : e.getMessage()));
+         // dpecora - i need to see a stack trace to track down null pointer exception
+		 //log.debug("Exception Caught:\n" + ((e.getMessage() == null) ? e.toString() : e.getMessage()));
+		 log.debug("Exception Caught:\n" + ((e.getMessage() == null) ? e.toString() : e.getMessage()), e);
 		 String ex = "No description available.";
 		 try {
 			 while (t.hasMoreElements()) {

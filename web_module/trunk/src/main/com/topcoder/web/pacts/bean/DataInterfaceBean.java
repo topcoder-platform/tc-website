@@ -288,7 +288,7 @@ public class DataInterfaceBean implements PactsConstants {
      *
      * @param   objectId  The ID of the object.
      * @param   objectType The type of the object, as defined in
-     * <tt>java</tt>
+     * <tt>PactsConstants.java</tt>
      * @param   taxFormUserId If the object is a tax form, the user ID of
      * the tax form.  This parameter is otherwise disregarded.
      * @return  The note header list.
@@ -323,7 +323,7 @@ public class DataInterfaceBean implements PactsConstants {
      *
      * @param   objectId  The ID of the object.
      * @param   objectType The type of the object, as defined in
-     * <tt>java</tt>
+     * <tt>PactsConstants.java</tt>
      * @return  The text associated with the object.
      * @throws  RemoteException If there is some communication problem with the EJB
      * @throws  IllegalArgumentException if the object type does not exist or does not have
@@ -478,7 +478,7 @@ public class DataInterfaceBean implements PactsConstants {
      *
      * @param   input  The input in question.
      * @param   inputType  Crtierion input type as specified in
-     * <tt>java</tt>.  Currently integer, decimal,
+     * <tt>PactsConstants.java</tt>.  Currently integer, decimal,
      * boolean, and date inputs can be checked for compliance.
      * @return  Whether or not the given input is valid.
      * @throws  IllegalArgumentException if the input type is not a valid type.
@@ -999,7 +999,7 @@ public class DataInterfaceBean implements PactsConstants {
      *
      * @param   objectId The ID of the object with which to associate the new note.
      * @param   objectType The type of the object with which to associate the new note.
-     * Must be a type defined in <tt>java</tt> and must be an object that
+     * Must be a type defined in <tt>PactsConstants.java</tt> and must be an object that
      * can have associated notes.
      * @param   taxFormUserId If the object is a tax form, the user ID of
      * the tax form.  This parameter is otherwise disregarded.
@@ -1025,7 +1025,7 @@ public class DataInterfaceBean implements PactsConstants {
      *
      * @param   objectId The ID of the object with which to associate the note.
      * @param   objectType The type of the object with which to associate the note.
-     * Must be a type defined in <tt>java</tt> and must allow notes.
+     * Must be a type defined in <tt>PactsConstants.java</tt> and must allow notes.
      * @param   taxFormUserId If the object is a tax form, the user ID of
      * the tax form.  This parameter is otherwise disregarded.
      * @param   noteId The ID of the note to attach.
@@ -1302,7 +1302,7 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Sets the status on all affidavits older than a specified time
      * to Expired, and set the status on their associated payment (if any) 
-     * to Canceled.  The time limit is specified in <tt>java</tt> 
+     * to Canceled.  The time limit is specified in <tt>PactsConstants.java</tt> 
      * and is currently set to 60 days.  Any payments that were already paid
      * that would here have been canceled are logged.
      *

@@ -818,7 +818,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param   objectId  The ID of the object.
      * @param   objectType The type of the object, as defined in
-     * <tt>java</tt>
+     * <tt>PactsConstants.java</tt>
      * @param   taxFormUserId If the object is a tax form, the user ID of
      * the tax form.  This parameter is otherwise disregarded.
      * @return  The note header list.
@@ -893,7 +893,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param   objectId  The ID of the object.
      * @param   objectType The type of the object, as defined in
-     * <tt>java</tt>
+     * <tt>PactsConstants.java</tt>
      * @return  The text associated with the object.
      * @throws  SQLException If there is some problem retrieving the data
      */
@@ -1789,9 +1789,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (a._roundID != null)
                 roundStr = "" + a._roundID.longValue();
 
-            // null value is date_affirmed
-            insertAffidavit.append("INSERT INTO affidavit VALUES(" + roundStr + ",?,?,?,?,?," + paymentStr);
-            insertAffidavit.append(",?,?,?,?,null)");
+            insertAffidavit.append("INSERT INTO affidavit ");
+            insertAffidavit.append(" (round_id, affidavit_id, user_id, status_id, notarized, affirmed, ");
+            insertAffidavit.append("  payment_id, affidavit_desc, affidavit_type_id, text, date_created, date_affirmed) ");
+            insertAffidavit.append(" VALUES(" + roundStr + ",?,?,?,?,?," + paymentStr + ",?,?,?,?,null)");
             ps = c.prepareStatement(insertAffidavit.toString());
             ps.setLong(1, affidavitId);
             ps.setLong(2, a._header._user._id);
@@ -1833,7 +1834,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             long contractId = (long) DBMS.getSeqId(con, DBMS.CONTRACT_SEQ);
 
             StringBuffer insertContract = new StringBuffer(300);
-            insertContract.append("INSERT INTO contract VALUES(?,?,?,?,?,?,?,?,?,?)");
+            insertContract.append("INSERT INTO contract ");
+            insertContract.append(" (name, contract_id, contracted_user_id, text, creation_date, ");
+            insertContract.append("  start_date, end_date, contract_desc, status_id, contract_type_id) ");
+            insertContract.append(" VALUES(?,?,?,?,?,?,?,?,?,?)");
             ps = con.prepareStatement(insertContract.toString());
             ps.setString(1, c._header._name);
             ps.setLong(2, contractId);
@@ -2033,7 +2037,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 long paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
                 addrStr = "" + paymentAddressId;
 
-                ps = c.prepareStatement("INSERT INTO payment_address VALUES(?,?,?,?,?,?,?,?,?,?)");
+                StringBuffer addAddress = new StringBuffer(300);
+                addAddress.append("INSERT INTO payment_address ");
+                addAddress.append(" (payment_address_id, first_name, middle_name, last_name, ");
+                addAddress.append("  address1, address2, city, state_code, zip, country_code) ");
+                addAddress.append(" VALUES(?,?,?,?,?,?,?,?,?,?)");
+                ps = c.prepareStatement(addAddress.toString());
                 ps.setLong(1, paymentAddressId);
                 ps.setString(2, (String) rsc.getItem(0, "first_name").getResultData());
                 ps.setString(3, (String) rsc.getItem(0, "middle_name").getResultData());
@@ -2073,9 +2082,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             StringBuffer insertPaymentDetail = new StringBuffer(300);
-            // nulls are date_paid, date_printed respectively
-            insertPaymentDetail.append("INSERT INTO payment_detail VALUES(?,?,null,null,?,?,");
-            insertPaymentDetail.append(addrStr + ",?,?,?,?,?)");
+            insertPaymentDetail.append("INSERT INTO payment_detail ");
+            insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, date_printed, ");
+            insertPaymentDetail.append("  gross_amount, status_id, payment_address_id, modification_rationale_id, ");
+            insertPaymentDetail.append("  payment_desc, payment_type_id, date_modified, date_due) ");
+            insertPaymentDetail.append(" VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?)");
             ps = c.prepareStatement(insertPaymentDetail.toString());
             ps.setLong(1, paymentDetailId);
             ps.setDouble(2, p._netAmount);
@@ -2092,7 +2103,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // Add the payment record
             StringBuffer insertPayment = new StringBuffer(300);
-            insertPayment.append("INSERT INTO payment VALUES(?,?,?,?,?," + referralStr + ")");
+            insertPayment.append("INSERT INTO payment ");
+            insertPayment.append(" (payment_id, user_id, most_recent_detail_id, print_count, review, ");
+            insertPayment.append("  referral_payment_id) ");
+            insertPayment.append(" VALUES(?,?,?,?,?," + referralStr + ")");
             ps = c.prepareStatement(insertPayment.toString());
             ps.setLong(1, paymentId);
             ps.setLong(2, p._header._user._id);
@@ -2105,7 +2119,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // Add the xref record
             StringBuffer insertXref = new StringBuffer(300);
-            insertXref.append("INSERT INTO payment_detail_xref VALUES(?,?)");
+            insertXref.append("INSERT INTO payment_detail_xref ");
+            insertXref.append(" (payment_id, payment_detail_id) ");
+            insertXref.append(" VALUES(?,?)");
             ps = c.prepareStatement(insertXref.toString());
             ps.setLong(1, paymentId);
             ps.setLong(2, paymentDetailId);
@@ -2174,8 +2190,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // Now add the contract_payment_xref entry
             StringBuffer insertXref = new StringBuffer(300);
-            insertXref.append("INSERT INTO contract_payment_xref VALUES(" + contractId);
-            insertXref.append("," + paymentId + ")");
+            insertXref.append("INSERT INTO contract_payment_xref ");
+            insertXref.append(" (contract_id, payment_id) ");
+            insertXref.append(" VALUES(" + contractId + "," + paymentId + ")");
             runUpdateQuery(c, insertXref.toString(), false);
 
             c.commit();
@@ -2228,7 +2245,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             long taxFormId = (long) DBMS.getSeqId(c, DBMS.TAX_FORM_SEQ);
 
             StringBuffer insertTaxForm = new StringBuffer(300);
-            insertTaxForm.append("INSERT INTO tax_form VALUES(?,?,?,?,?,?,?,?)");
+            insertTaxForm.append("INSERT INTO tax_form ");
+            insertTaxForm.append(" (name, tax_form_id, text, status_id, tax_form_desc, default_withholding_amount, ");
+            insertTaxForm.append("  default_withholding_percentage, use_percentage) ");
+            insertTaxForm.append(" VALUES(?,?,?,?,?,?,?,?)");
             ps = c.prepareStatement(insertTaxForm.toString());
             ps.setString(1, t._header._name);
             ps.setLong(2, taxFormId);
@@ -2281,7 +2301,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             int usePercent = TCData.getTCInt(rsc.getRow(0), "use_percentage");
 
             StringBuffer insertTaxForm = new StringBuffer(300);
-            insertTaxForm.append("INSERT INTO user_tax_form_xref VALUES(?,?,?,?,?,?,?)");
+            insertTaxForm.append("INSERT INTO user_tax_form_xref ");
+            insertTaxForm.append(" (tax_form_id, user_id, date_filed, withholding_amount, withholding_percentage, ");
+            insertTaxForm.append("  status_id, use_percentage) ");
+            insertTaxForm.append(" VALUES(?,?,?,?,?,?,?)");
             ps = c.prepareStatement(insertTaxForm.toString());
             ps.setLong(1, t._header._id);
             ps.setLong(2, t._header._user._id);
@@ -2311,7 +2334,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param   objectId The ID of the object with which to associate the new note.
      * @param   objectType The type of the object with which to associate the new note.
-     * Must be a type defined in <tt>java</tt> and must be an object that
+     * Must be a type defined in <tt>PactsConstants.java</tt> and must be an object that
      * can have associated notes.
      * @param   taxFormUserId If the object is a tax form, the user ID of
      * the tax form.  This parameter is otherwise disregarded.
@@ -2335,7 +2358,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // Add the note, then add to the appropriate xref table
             StringBuffer insertNote = new StringBuffer(300);
-            insertNote.append("INSERT INTO note VALUES(?,?,?,?,?,?)");
+            insertNote.append("INSERT INTO note ");
+            insertNote.append(" (text, note_type_id, note_id, submitted_by, date_created, user_id) ");
+            insertNote.append(" VALUES(?,?,?,?,?,?)");
             ps = c.prepareStatement(insertNote.toString());
             ps.setBytes(1, DBMS.serializeTextString(n._text));
             ps.setInt(2, n._header._typeId);
@@ -2349,16 +2374,25 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             StringBuffer insertXref = new StringBuffer(300);
             if (objectType == AFFIDAVIT_OBJ) {
-                insertXref.append("INSERT INTO affidavit_note_xref VALUES(" + noteId + "," + objectId + ")");
+                insertXref.append("INSERT INTO affidavit_note_xref ");
+                insertXref.append(" (affidavit_id, note_id) ");
+                insertXref.append(" VALUES(" + objectId + "," + noteId + ")");
             } else if (objectType == CONTRACT_OBJ) {
-                insertXref.append("INSERT INTO contract_note_xref VALUES(" + objectId + "," + noteId + ")");
+                insertXref.append("INSERT INTO contract_note_xref ");
+                insertXref.append(" (contract_id, note_id) ");
+                insertXref.append(" VALUES(" + objectId + "," + noteId + ")");
             } else if (objectType == PAYMENT_OBJ) {
-                insertXref.append("INSERT INTO payment_note_xref VALUES(" + noteId + "," + objectId + ")");
+                insertXref.append("INSERT INTO payment_note_xref ");
+                insertXref.append(" (payment_id, note_id) ");
+                insertXref.append(" VALUES(" + objectId + "," + noteId + ")");
             } else if (objectType == USER_PROFILE_OBJ) {
-                insertXref.append("INSERT INTO user_note_xref VALUES(" + objectId + "," + noteId + ")");
+                insertXref.append("INSERT INTO user_note_xref ");
+                insertXref.append(" (user_id, note_id) ");
+                insertXref.append(" VALUES(" + objectId + "," + noteId + ")");
             } else if (objectType == USER_TAX_FORM_OBJ) {
-                insertXref.append("INSERT INTO user_tax_form_note_xref VALUES(" + taxFormUserId + ",");
-                insertXref.append(objectId + "," + noteId + ")");
+                insertXref.append("INSERT INTO user_tax_form_note_xref ");
+                insertXref.append(" (user_id, tax_form_id, note_id) ");
+                insertXref.append(" VALUES(" + taxFormUserId + "," + objectId + "," + noteId + ")");
             }
 
             ps = c.prepareStatement(insertXref.toString());
@@ -2389,7 +2423,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param   objectId The ID of the object with which to associate the note.
      * @param   objectType The type of the object with which to associate the note.
-     * Must be a type defined in <tt>java</tt> and must allow notes.
+     * Must be a type defined in <tt>PactsConstants.java</tt> and must allow notes.
      * @param   taxFormUserId If the object is a tax form, the user ID of
      * the tax form.  This parameter is otherwise disregarded.
      * @param   noteId The ID of the note to attach.
@@ -2399,16 +2433,25 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     throws SQLException {
         StringBuffer insertXref = new StringBuffer(300);
         if (objectType == AFFIDAVIT_OBJ) {
-            insertXref.append("INSERT INTO affidavit_note_xref VALUES(" + noteId + "," + objectId + ")");
+            insertXref.append("INSERT INTO affidavit_note_xref ");
+            insertXref.append(" (affidavit_id, note_id) ");
+            insertXref.append(" VALUES(" + objectId + "," + noteId + ")");
         } else if (objectType == CONTRACT_OBJ) {
-            insertXref.append("INSERT INTO contract_note_xref VALUES(" + objectId + "," + noteId + ")");
+            insertXref.append("INSERT INTO contract_note_xref ");
+            insertXref.append(" (contract_id, note_id) ");
+            insertXref.append(" VALUES(" + objectId + "," + noteId + ")");
         } else if (objectType == PAYMENT_OBJ) {
-            insertXref.append("INSERT INTO payment_note_xref VALUES(" + noteId + "," + objectId + ")");
+            insertXref.append("INSERT INTO payment_note_xref ");
+            insertXref.append(" (payment_id, note_id) ");
+            insertXref.append(" VALUES(" + objectId + "," + noteId + ")");
         } else if (objectType == USER_PROFILE_OBJ) {
-            insertXref.append("INSERT INTO user_note_xref VALUES(" + objectId + "," + noteId + ")");
+            insertXref.append("INSERT INTO user_note_xref ");
+            insertXref.append(" (user_id, note_id) ");
+            insertXref.append(" VALUES(" + objectId + "," + noteId + ")");
         } else if (objectType == USER_TAX_FORM_OBJ) {
-            insertXref.append("INSERT INTO user_tax_form_note_xref VALUES(" + taxFormUserId + ",");
-            insertXref.append(objectId + "," + noteId + ")");
+            insertXref.append("INSERT INTO user_tax_form_note_xref ");
+            insertXref.append(" (user_id, tax_form_id, note_id) ");
+            insertXref.append(" VALUES(" + taxFormUserId + "," + objectId + "," + noteId + ")");
         }
         runUpdateQuery(insertXref.toString(), true);
     }
@@ -2712,7 +2755,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 long paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
                 addrStr = "" + paymentAddressId;
 
-                ps = c.prepareStatement("INSERT INTO payment_address VALUES(?,?,?,?,?,?,?,?,?,?)");
+                StringBuffer addAddress = new StringBuffer(300);
+                addAddress.append("INSERT INTO payment_address ");
+                addAddress.append(" (payment_address_id, first_name, middle_name, last_name, ");
+                addAddress.append("  address1, address2, city, state_code, zip, country_code) ");
+                addAddress.append(" VALUES(?,?,?,?,?,?,?,?,?,?)");
+                ps = c.prepareStatement(addAddress.toString());
                 ps.setLong(1, paymentAddressId);
                 ps.setString(2, (String) addressData.getItem("first_name").getResultData());
                 ps.setString(3, (String) addressData.getItem("middle_name").getResultData());
@@ -2733,8 +2781,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // Insert the detail record
             StringBuffer insertPaymentDetail = new StringBuffer(300);
-            // nulls are date_paid, date_printed respectively
-            insertPaymentDetail.append("INSERT INTO payment_detail VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?)");
+            insertPaymentDetail.append("INSERT INTO payment_detail ");
+            insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, date_printed, ");
+            insertPaymentDetail.append("  gross_amount, status_id, payment_address_id, modification_rationale_id, ");
+            insertPaymentDetail.append("  payment_desc, payment_type_id, date_modified, date_due) ");
+            insertPaymentDetail.append(" VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?)");
             ps = c.prepareStatement(insertPaymentDetail.toString());
             ps.setLong(1, paymentDetailId);
             ps.setDouble(2, p._netAmount);
@@ -2760,7 +2811,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // Insert the xref
             StringBuffer insertXref = new StringBuffer(300);
-            insertXref.append("INSERT INTO payment_detail_xref VALUES(?,?)");
+            insertXref.append("INSERT INTO payment_detail_xref ");
+            insertXref.append(" (payment_id, payment_detail_id) ");
+            insertXref.append(" VALUES(?,?)");
             ps = c.prepareStatement(insertXref.toString());
             ps.setLong(1, p._header._id);
             ps.setLong(2, paymentDetailId);
@@ -3045,8 +3098,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 c.commit();
             } catch(Exception e) {
                 // Record error and keep going, unless there's a database problem
-                if (e instanceof SQLException)
-                    throw (SQLException) e;
+                // dpecora 05/03 - a database problem is probably a lock timeout which
+                // is a transient problem.  Furthermore throwing an exception here will
+                // mean that earlier payment modifications in this loop which did go through
+                // will be incorrectly reported as having had this same exception thrown.
+                // (If the higher level functions get an exception from here, they construct
+                // an UpdateResults object with that same exception associated with ALL
+                // payments.)
+                //
+                // Therefore, this is now commented out.
+                //
+                //if (e instanceof SQLException)
+                //    throw (SQLException) e;
                 ur.put(paymentId[i], e);
             }
         } // end for loop over the payments

@@ -71,7 +71,14 @@ public interface PactsConstants {
     public static final String ACTIVE_CODER_STATUS = "A";
 
     // How long database queries wait for a table lock to clear, in seconds
-    public static final int LOCK_TIMEOUT_VALUE = 10;
+    // dpecora - This needs to be > than time to do a print payments, batch
+    // review, batch mark paid, and generate round payments.  In stress tests
+    // the first three tasks took 17, 11, and 20 seconds for 3000 payments,
+    // while payment generation for a contest with 75 rooms took 24 seconds.
+    // At the same time, this needs to be < than browser timeouts (when I tried,
+    // Netscape died at 1 minute, IE at 2 minutes).  This value seems to be
+    // a good compromise.
+    public static final int LOCK_TIMEOUT_VALUE = 50;
     
     // Account names
     public static final String CONTEST_ACCOUNT = "Prize Money";
@@ -289,6 +296,7 @@ public interface PactsConstants {
     public static final String AFFIDAVIT_PAYMENT_DETAILS_CMD = "affidavit_payment_details";
     public static final String AFFIDAVIT_DETAILS_CMD = "affidavit_details";
     public static final String AFFIRM_AFFIDAVIT_CMD = "affirm_affidavit";
+    public static final String AFFIDAVIT_RENDER_CMD = "render_affidavit";
     public static final int INDIA_COUNTRY_CODE = 356;
 
     // contract member jsps
@@ -370,7 +378,7 @@ public interface PactsConstants {
     public static final String PAYMENT_DETAILS_JSP = MEMBER_JSP_DIR + "PaymentDetails.jsp";
     public static final String TAX_FORM_HISTORY_JSP = MEMBER_JSP_DIR + "TaxFormHistory.jsp";
     public static final String TAX_FORM_DETAILS_JSP = MEMBER_JSP_DIR + "TaxFormDetails.jsp";
-
+    public static final String AFFIDAVIT_RENDER_JSP = MEMBER_JSP_DIR + "AffidavitRender.jsp";
 
     // internal jsp page names (and loccations)
     public static final String INTERNAL_SEARCH_JSP = INTERNAL_JSP_DIR + "/search.jsp";
