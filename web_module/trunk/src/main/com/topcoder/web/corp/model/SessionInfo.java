@@ -89,7 +89,5 @@ public class SessionInfo implements Serializable {
             setHandle("");  // anonymous looks nameless to the jsps
         }
 
-        if (isGuest() || isAdmin()) return;
-
     }
 }
