@@ -1,6 +1,5 @@
 <%@  page 
   language="java"
-  errorPage="errorPage.jsp"
   import="java.util.*,
           com.topcoder.web.tces.common.*,
           com.topcoder.web.tces.bean.*" %>
@@ -32,7 +31,7 @@ function openWnd(pageUrl) {
     <jsp:include page="script.jsp"/>
   </HEAD>
   <body>
-  <jsp:include page="top.jsp" />             
+  <jsp:include page="top.jsp" />
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR valign="top">
     <!-- Left Column Begins -->
