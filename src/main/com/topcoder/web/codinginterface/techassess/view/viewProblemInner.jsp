@@ -116,7 +116,7 @@
                     </iframe>
 
                     <br/><br/>
-                    <p class=pL><span class=bigRed><%=StringUtils.checkNull((String)request.getAttribute(Constants.MESSAGE))%></span></p>
+                    <p class=pL><span class=bigRed><%=StringUtils.htmlEncode(StringUtils.checkNull((String)request.getAttribute(Constants.MESSAGE)))%></span></p>
                     <p class=pL><span class=bodySmallTitle>Input Area</span></p>
                     <textarea class=codingArea name="<%=Constants.CODE%>" rows="20" cols="40" wrap="off"><jsp:getProperty name="problemInfo" property="code"/></textarea>
 
