@@ -274,11 +274,11 @@
                                         <br/>
                                         The Application Integration Deliverables provides an overview of the integration process including
                                         the deliverables required of a complete submission and the responsibilities of a winning
-                                        developer.  The Application Development Review Board will not review submissions that do not meet
+                                        integrator.  The Application Development Review Board will not review submissions that do not meet
                                         the screening requirements.
                                         <br/>
                                         <br/>
-                                        The Application Integration Specification is to be completed by the Developers as part of
+                                        The Application Integration Specification is to be completed by the Integrators as part of
                                         their submission for the design project.
                                     </td>
                                     <td></td>
