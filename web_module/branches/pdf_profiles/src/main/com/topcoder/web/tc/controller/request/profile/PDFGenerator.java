@@ -582,7 +582,6 @@ public class PDFGenerator extends BaseProcessor {
         problem.addCell(cell);
 
         NodeElementRenderer nr = new NodeElementRenderer((NodeElement)info.getProblem().getComponent(0).getIntro());
-        TextElementRenderer tr;
         
         Phrase statement = new Phrase();
         statement.add(new Paragraph(nr.toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
@@ -678,7 +677,7 @@ public class PDFGenerator extends BaseProcessor {
         
         for(int i = 0; i < constraintsElements.length; i++) {
             constraints.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-            constraints.addCell(new Phrase(new TextElementRenderer((TextElement)constraintsElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            constraints.addCell(new Phrase(new NodeElementRenderer((NodeElement)constraintsElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         }
 
         constraints.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
@@ -720,7 +719,7 @@ public class PDFGenerator extends BaseProcessor {
 
                 if(testCases[i].getAnnotation() != null) {
                     example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-                    example.addCell(new Phrase(new TextElementRenderer((TextElement)testCases[i].getAnnotation()).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+                    example.addCell(new Phrase(new NodeElementRenderer((NodeElement)testCases[i].getAnnotation()).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
                 }
                 
                 problem.addCell(example);
