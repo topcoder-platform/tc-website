@@ -146,6 +146,7 @@ public final class TaskDevelopment {
 
             devTag.addTag(new ValueTag("date", date));
             devTag.addTag(new ValueTag("version", request.getParameter("version")));
+            devTag.addTag(new ValueTag("tccc", request.getParameter("tccc")));
             devTag.addTag(new ValueTag("tco", request.getParameter("tco")));
             devTag.addTag(new ValueTag("phase", request.getParameter("phase")));
             devTag.addTag(new ValueTag("posting_date", request.getParameter("posting_date")));
@@ -295,7 +296,7 @@ public final class TaskDevelopment {
                 Map resultMap = null;
                 log.debug("getting dai");
                 dataRequest = new Request();
-                dataRequest.setContentHandle("Multiplier_Status");
+                dataRequest.setContentHandle("open_projects");
 
                 DataAccessInt dai = new DataAccess(
                                 dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
@@ -303,11 +304,27 @@ public final class TaskDevelopment {
 
                 resultMap = dai.getData(dataRequest);
                 log.debug("got map");
-                rsc = (ResultSetContainer) resultMap.get("submission_status");
+                rsc = (ResultSetContainer) resultMap.get("Retrieve open projects");
+
+                ResultSetContainer rscStatus = null;
+                resultMap = null;
+                dataRequest = new Request();
+                dataRequest.setContentHandle("Multiplier_Status");
+
+                dai = new DataAccess(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
+
+                resultMap = dai.getData(dataRequest);
+                log.debug("got map");
+                rscStatus = (ResultSetContainer) resultMap.get("submission_status");
 
 
                 devTag.addTag(rsc.getTag("projects", "project"));
+                devTag.addTag(rscStatus.getTag("multiplier", "status"));
                 xsldocURLString = XSL_DIR + command + ".xsl";
+
+
+
 
             } else if (command.equals("comp_archive")) {
                 Request dataRequest = null;
