@@ -3,6 +3,7 @@
    <property name="targetVersion"       value="1.3" />
    <property name="build"         value="build" />
    <property name="war.dir"       value="${build}/wars" />
+   <property name="hs.war.name"      value="hs"/>
    <property name="email.war.name"      value="email"/>
    <property name="query.war.name"      value="query"/>
    <property name="ejb_jars"      value="${build}/ejb_jars" />
