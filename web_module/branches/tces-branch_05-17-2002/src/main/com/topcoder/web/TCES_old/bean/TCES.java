@@ -69,7 +69,7 @@ public class TCES extends Task implements Serializable {
  		public CoderObject getCoderObject() { return coderObject; }
 
     public void process() throws TaskException {
-    	Log.msg(VERBOSE,"TCES.process()");
+      Log.msg(" => TCES.process()");
 			if (currentNav == null) {
 				throw new TaskException("TCES.process(): No current task");
 			}
@@ -80,11 +80,42 @@ public class TCES extends Task implements Serializable {
 					coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.SELECT, coderObject);
 					boolean doUpdate = false;
 					if (htParams.get("firstName") != null) {
-      			Log.msg(" => TCES.process():first_name='" + "" + htParams.get("first_name") + "'");
+      			Log.msg(" => TCES.process():first_name='" + "" + htParams.get("firstName") + "'");
 						coderObject.first_name = "" + htParams.get("firstName");
 						doUpdate = true;
 					}
+					if (htParams.get("lastName") != null) {
+      			Log.msg(" => TCES.process():last_name='" + "" + htParams.get("lastName") + "'");
+						coderObject.last_name = "" + htParams.get("lastName");
+						doUpdate = true;
+					}
 					if (doUpdate) {
+						coderObject.state_code=null;
+						coderObject.country_code=null;
+						//coderObject.first_name=null;
+						//coderObject.last_name=null;
+						coderObject.home_phone=null;
+						coderObject.work_phone=null;
+						coderObject.address1=null;
+						coderObject.address2=null;
+						coderObject.city=null;
+						coderObject.zip=null;
+						coderObject.middle_name=null;
+						coderObject.activation_code=null;
+						coderObject.member_since=null;
+						coderObject.notify=null;
+						coderObject.quote=null;
+						coderObject.employer_search=null;
+						coderObject.relocate=null;
+						coderObject.modify_date=null;
+						coderObject.referral_id=null;
+						coderObject.editor_id=null;
+						coderObject.notify_inquiry=null;
+						coderObject.referral_user_id=null;
+						coderObject.language_id=null;
+						coderObject.coder_type_id=null;
+						coderObject.image=null;
+						coderObject.date_of_birth=null;
 						coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.UPDATE, coderObject);
 					}
 		/*
