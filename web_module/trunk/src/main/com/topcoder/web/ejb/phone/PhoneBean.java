@@ -111,9 +111,7 @@ public class PhoneBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in insert: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException creating phone");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating phone");

@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.note;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.naming.Context;
@@ -69,6 +70,7 @@ public class NoteBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in createNote noteId: " + noteId + " text: " + text);
         } catch (NamingException e) {
             throw new EJBException("NamingException in createNote noteId: " + noteId + " text: " + text);
@@ -113,6 +115,7 @@ public class NoteBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in setText noteId: " + noteId + " text: " + text);
         } catch (NamingException e) {
             throw new EJBException("NamingException in setText noteId: " + noteId + " text: " + text);
@@ -156,6 +159,7 @@ public class NoteBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in setSubmittedBy noteId: " + noteId + " submittedBy: " + submittedBy);
         } catch (NamingException e) {
             throw new EJBException("NamingException in setSubmittedBy noteId: " + noteId + " submittedBy: " + submittedBy);
@@ -199,6 +203,7 @@ public class NoteBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in setNoteTypeId noteId: " + noteId + " noteTypeId: " + noteTypeId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in setNoteTypeId noteId: " + noteId + " noteTypeId: " + noteTypeId);
@@ -245,6 +250,7 @@ public class NoteBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getText noteId: " + noteId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getText noteId: " + noteId);
@@ -294,6 +300,7 @@ public class NoteBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getSubmittedBy noteId: " + noteId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getSubmittedBy noteId: " + noteId);
@@ -343,6 +350,7 @@ public class NoteBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getNoteTypeId noteId: " + noteId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getNoteTypeId noteId: " + noteId);
@@ -392,6 +400,7 @@ public class NoteBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getNoteTypeDesc noteId: " + noteId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getNoteTypeDesc noteId: " + noteId);

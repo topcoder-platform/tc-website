@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.email;
 
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
+import com.topcoder.shared.util.DBMS;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -84,7 +85,7 @@ public class EmailBean implements SessionBean {
                         "Inserted " + rc + ", should have inserted 1."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -150,7 +151,7 @@ public class EmailBean implements SessionBean {
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -202,7 +203,7 @@ public class EmailBean implements SessionBean {
                         "with user_id=" + _user_id + "."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -253,7 +254,7 @@ public class EmailBean implements SessionBean {
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -306,7 +307,7 @@ public class EmailBean implements SessionBean {
                         "with email_id=" + _email_id + "."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -357,7 +358,7 @@ public class EmailBean implements SessionBean {
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
@@ -410,7 +411,7 @@ public class EmailBean implements SessionBean {
                         "with email_id=" + _email_id + "."));
             }
         } catch (SQLException _sqle) {
-            _sqle.printStackTrace();
+            DBMS.printSqlException(true,_sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();

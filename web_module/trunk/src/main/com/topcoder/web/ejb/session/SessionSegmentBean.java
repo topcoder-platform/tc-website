@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.session;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -63,6 +64,7 @@ public class SessionSegmentBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in createSessionSegment sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
         } catch (NamingException e) {
             throw new EJBException("NamingException in createSessionSegment sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
@@ -113,6 +115,7 @@ public class SessionSegmentBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in setStartTime sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " startTime: " + startTime);
         } catch (NamingException e) {
             throw new EJBException("NamingException in setStartTime sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " startTime: " + startTime);
@@ -162,6 +165,7 @@ public class SessionSegmentBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in setEndTime sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " endTime: " + endTime);
         } catch (NamingException e) {
             throw new EJBException("NamingException in setEndTime sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " endTime: " + endTime);
@@ -211,6 +215,7 @@ public class SessionSegmentBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in setSegmentLength sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
         } catch (NamingException e) {
             throw new EJBException("NamingException in setSegmentLength sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
@@ -266,6 +271,7 @@ public class SessionSegmentBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getStartTime sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getStartTime sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
@@ -322,6 +328,7 @@ public class SessionSegmentBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getEndTime sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getEndTime sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
@@ -378,6 +385,7 @@ public class SessionSegmentBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getSegmentLength sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getSegmentLength sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
@@ -439,6 +447,7 @@ public class SessionSegmentBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             throw new EJBException("SQLException in getSessionSegmentDesc sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
         } catch (NamingException e) {
             throw new EJBException("NamingException in getSessionSegmentDesc sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);

@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.session;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.naming.Context;
@@ -101,6 +102,7 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in createSession. ");
             exceptionBuf.append(varBuf.toString());
@@ -166,6 +168,7 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in setSessionProfileId. ");
             exceptionBuf.append(varBuf.toString());
@@ -230,6 +233,7 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in setUserId. ");
             exceptionBuf.append(varBuf.toString());
@@ -294,6 +298,7 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in setBeginTime. ");
             exceptionBuf.append(varBuf.toString());
@@ -357,6 +362,7 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in setEndTime. ");
             exceptionBuf.append(varBuf.toString());
@@ -420,6 +426,7 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in setSendRepEmail. ");
             exceptionBuf.append(varBuf.toString());
@@ -484,6 +491,7 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in setSendCandidateEmail. ");
             exceptionBuf.append(varBuf.toString());
@@ -547,6 +555,7 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in setCreateUserId. ");
             exceptionBuf.append(varBuf.toString());
@@ -612,6 +621,7 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in getSessionProfileId. ");
             exceptionBuf.append(varBuf.toString());
@@ -679,6 +689,7 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in getUserId. ");
             exceptionBuf.append(varBuf.toString());
@@ -746,6 +757,7 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in getBeginTime. ");
             exceptionBuf.append(varBuf.toString());
@@ -813,6 +825,7 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in getEndTime. ");
             exceptionBuf.append(varBuf.toString());
@@ -881,6 +894,7 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in getSendRepEmail. ");
             exceptionBuf.append(varBuf.toString());
@@ -949,6 +963,7 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in getSendCandidateEmail. ");
             exceptionBuf.append(varBuf.toString());
@@ -1017,6 +1032,7 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(500);
             exceptionBuf.append("SQLException in getCreateUserId. ");
             exceptionBuf.append(varBuf.toString());
