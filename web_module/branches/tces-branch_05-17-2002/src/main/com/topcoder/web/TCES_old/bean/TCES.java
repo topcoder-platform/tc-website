@@ -55,7 +55,7 @@ public class TCES extends Task implements Serializable {
 			super();
       Log.msg(" => TCES.Constructor(User, String)");
 			currentUser = userIn;
-			currentTask = navs.getTCESNav(taskName);
+			currentNav = navs.getTCESNav(taskName);
 		}
 		    
 		public void setAttributes(String param, String[] values) {
@@ -67,7 +67,7 @@ public class TCES extends Task implements Serializable {
 				
     public void process() throws TaskException {
     	Log.msg(VERBOSE,"TCES.process()");
-			if (currentTask == null) {
+			if (currentNav == null) {
 				throw new TaskException("TCES.process(): No current task");
 			}
 /*
