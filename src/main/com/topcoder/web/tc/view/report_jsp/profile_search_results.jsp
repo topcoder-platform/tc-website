@@ -17,11 +17,11 @@
   <body>
   <table>
 <%
-    Map m = (Map)request.getAttribte("XYZ");
+    Map m = (Map)request.getAttribute("XYZ");
     Iterator it = m.keySet().iterator();
     while(it.hasNext()){
-        String key = it.next();
-        String[] s = (String[])key;
+        String key = (String)it.next();
+        String[] s = (String[])m.get(key);
         out.print("<tr><td>"+key+"</td><td>{");
         for(int i = 0; i<s.length; i++){
             if(i == 0)
