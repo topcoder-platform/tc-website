@@ -39,6 +39,7 @@ public class Login extends BaseProcessor {
 
                     /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
                     String dest = StringUtils.checkNull(request.getParameter(KEY_DESTINATION_PAGE));
+                    if (dest==null) dest = StringUtils.checkNull((String)request.getAttribute(Login.KEY_DESTINATION_PAGE));
                     log.debug("on successfull login, going to " + dest);
                     setNextPage(dest);
                     setIsNextPageInContext(false);

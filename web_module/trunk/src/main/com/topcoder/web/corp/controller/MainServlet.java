@@ -84,6 +84,7 @@ public class MainServlet extends HttpServlet {
         request.setAttribute(Constants.KEY_INTERNAL_EXC_PAGE, errorPageInternal);
 
         String processorName = request.getParameter(Constants.KEY_MODULE);
+        if (processorName==null) processorName = (String)request.getAttribute(Constants.KEY_MODULE);
         WebAuthentication authToken = null;
         RequestProcessor processorModule = null;
         SessionInfo info = null;
