@@ -90,6 +90,7 @@ public class ProblemStatementTag extends TagSupport {
                     "Language is not set or set to invalid value");
         }
         if (problem==null) {
+            problem = new Problem();
             StringReader reader = new StringReader(text);
             ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
             arrProblemComponent[0] =

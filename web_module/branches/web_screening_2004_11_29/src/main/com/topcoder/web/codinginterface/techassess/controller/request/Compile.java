@@ -7,6 +7,7 @@ import com.topcoder.shared.netCommon.screening.request.ScreeningCompileRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningCompileResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.problem.Problem;
+import com.topcoder.shared.problem.ProblemComponent;
 
 /**
  * User: dok
@@ -67,8 +68,9 @@ public class Compile extends Base {
             ScreeningCompileResponse response = (ScreeningCompileResponse)receive(5000);
 
             addError(Constants.CODE, response.getMessage());
-            //todo pull problem from response
-            setDefault(Constants.PROBLEM, new ProblemInfo(code, componentId, languageId, new Problem(), problemTypeId));
+            Problem p = new Problem();
+            p.setProblemComponents(new ProblemComponent[] {response.getProblemComponent()});
+            setDefault(Constants.PROBLEM, new ProblemInfo(code, componentId, languageId, p, problemTypeId));
 
             closeProcessingPage();
 

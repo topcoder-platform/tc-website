@@ -50,12 +50,8 @@ public class ViewProblem extends Base {
 
             ScreeningOpenComponentResponse response = (ScreeningOpenComponentResponse)receive(5000);
 
-            //todo
-            //hmmm, what if they have two browser's going with the same session and they open two different problems?
-            setProblem(response.getProblem());
-
             setDefault(Constants.PROBLEM, new ProblemInfo(response.getCode(), response.getComponentID(),
-                    response.getLanguageID().intValue(), getProblem(), response.getProblemType() ));
+                    response.getLanguageID().intValue(), response.getProblem(), response.getProblemType() ));
 
             closeProcessingPage();
 

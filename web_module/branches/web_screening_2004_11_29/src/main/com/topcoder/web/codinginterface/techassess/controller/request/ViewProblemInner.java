@@ -20,13 +20,19 @@ public class ViewProblemInner extends Base {
             if (hasParameter(Constants.MESSAGE_ID)) {
                 String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
                 loadSessionDefaultsIntoRequest(messageId, false);
-                if (hasParameter(Constants.PROBLEM_TYPE_ID) &&
-                        hasParameter(Constants.COMPONENT_ID) &&
-                        hasDefault(Constants.PROBLEM)) {
+                if (hasDefault(Constants.PROBLEM)) {
                     getRequest().setAttribute(Constants.MESSAGE_ID, messageId);
                     getRequest().setAttribute(Constants.PROBLEM, getDefault(Constants.PROBLEM));
                     setNextPage(Constants.PAGE_VIEW_PROBLEM_INNER);
                     setIsNextPageInContext(true);
+                //this logic is mostly for the case that they hit refresh
+                } else if (hasParameter(Constants.PROBLEM_TYPE_ID) && hasParameter(Constants.COMPONENT_ID)) {
+                    setNextPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM,
+                            new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
+                            new String[] {getRequest().getParameter(Constants.PROBLEM_TYPE_ID),
+                                          getRequest().getParameter(Constants.COMPONENT_ID)}));
+                    setIsNextPageInContext(false);
+
                 }
             }
         }
