@@ -196,7 +196,7 @@ public class RatingQubits {
         public int num_ratings;
         public double vol;
         public double rating_no_vol;
-        public int last_component_rated = 0;
+        public int last_project_rated = 0;
         
         public rating(long user_id, double rating, int num_ratings, double vol, double rating_no_vol)
         {
@@ -373,7 +373,7 @@ public class RatingQubits {
                 r.vol = newvol;
                 r.rating_no_vol = newratingnovol;
                 r.num_ratings++;
-                r.last_component_rated = rs.getInt("comp_vers_id");
+                r.last_project_rated = rs.getInt("project_id");
                 
                 ratings.put("" + coder, r);
                 
@@ -395,14 +395,14 @@ public class RatingQubits {
             
             //System.out.println(r.user_id + "\t" + r.rating);
             
-            sqlStr.replace(0, sqlStr.length(), "UPDATE user_rating set rating = ?, vol = ?, rating_no_vol = ?, last_component_rated = ?, num_ratings = ?, mod_date_time = CURRENT ");
+            sqlStr.replace(0, sqlStr.length(), "UPDATE user_rating set rating = ?, vol = ?, rating_no_vol = ?, last_rated_project_id = ?, num_ratings = ?, mod_date_time = CURRENT ");
             sqlStr.append(" where phase_id = ? and user_id = ?");
             
             ps = conn.prepareStatement(sqlStr.toString());
             ps.setDouble(1, r.rating);
             ps.setDouble(2, r.vol);
             ps.setDouble(3, r.rating_no_vol);
-            ps.setInt(4, r.last_component_rated);
+            ps.setInt(4, r.last_project_rated);
             ps.setInt(5, r.num_ratings);
             ps.setInt(6, phaseId);
             ps.setDouble(7, r.user_id);
@@ -415,7 +415,7 @@ public class RatingQubits {
             if(retVal == 0)
             {
 
-                sqlStr.replace(0, sqlStr.length(), "INSERT INTO user_rating (user_id, phase_id, rating, vol, rating_no_vol, last_component_rated, num_ratings, mod_date_time, create_date_time) ");
+                sqlStr.replace(0, sqlStr.length(), "INSERT INTO user_rating (user_id, phase_id, rating, vol, rating_no_vol, last_rated_project_id, num_ratings, mod_date_time, create_date_time) ");
                 sqlStr.append(" values (?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT )");
                 ps = conn.prepareStatement(sqlStr.toString());
                 ps.setDouble(1, r.user_id);
@@ -423,7 +423,7 @@ public class RatingQubits {
                 ps.setDouble(3, r.rating);
                 ps.setDouble(4, r.vol);
                 ps.setDouble(5, r.rating_no_vol);
-                ps.setInt(6, r.last_component_rated);
+                ps.setInt(6, r.last_project_rated);
                 ps.setInt(7, r.num_ratings);
 
                 ps.execute();
