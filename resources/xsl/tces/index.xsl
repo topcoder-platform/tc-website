@@ -44,33 +44,25 @@
 
 <!-- Center Column Begins -->  
         <td class="bodyText" width="100%">
-            <xsl:call-template name="BodyTop">
-                <xsl:with-param name="image1">white</xsl:with-param>
-                <xsl:with-param name="image">jobs</xsl:with-param>
-                <xsl:with-param name="title">Jobs for Members</xsl:with-param>
-            </xsl:call-template>
-            
-            <table border="0" cellspacing="10" cellpadding="0" width="100%">
+ <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText" width="100%"> 
                     <table>
                         <tr>
-                            <td colspan="2"><div align="center" valign="middle"> <img src="/i/es/header_looking_for.gif" alt="" width="510" height="84" border="0"/></div></td>
-                        </tr>
-                        <tr>
-                            <td class="bodyText">
-                                <p>Our clients are interested in hiring and retaining the industry's top talent. They all believe that their most valuable asset is their 
+                            <td colspan="2" class="bodyText">
+                            
+                            <div align="center" valign="middle"> <img src="/i/es/header_looking_for.gif" alt="" width="510" height="84" border="0"/></div>
+                       
+                                <p><img src="/i/es/quote_member.gif" alt="" width="246" height="194" border="0" align="right"/>Our clients are interested in hiring and retaining the industry's top talent. They all believe that their most valuable asset is their 
                                 employees. And, like us, they understand the value of making hiring decisions based on an objective measure of coding skill.</p>
 
                                 <p>Only rated members can apply for jobs posted by TCES. This allows companies to differentiate coders 
                                 who otherwise look the same on paper. Non-rated members wishing to obtain a rating should review the competition calendar 
                                 for the <a class="bodyText"><xsl:attribute name="HREF">/?&amp;t=schedule&amp;c=srm&amp;RoundId=<xsl:value-of select="/TC/TCES/NextSRM/Info/round_id"/></xsl:attribute>next Single Round Match</a> 
                                 or <a href="/?&amp;t=schedule&amp;c=index" class="bodyText">click here</a> for a complete list of upcoming Single 
-                                Round Matches.</p> </td>
-                        
-                                <td><img src="/i/es/quote_member.gif" alt="" width="216" height="195" border="0"/></td>
-                            </tr>
-                        </table>
+                                Round Matches.</p> 
+                                
+                            
 
                         <table border="0" cellspacing="0" cellpadding="3" width="100%">
                             <tr valign="middle"><td bgcolor="#43515E" class="statText">Employers</td></tr>
