@@ -128,6 +128,39 @@ public class AutoPilotTimer
                                 logger.debug("ERROR " + result.toString() );
                             }
                         }
+// by cucu
+                    // if in appeals phase and it ended, move to appeals response
+                    if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
+                        if(projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
+                            logger.debug("SELECTED: " + projs[i].getProjectName());
+
+                            //move to appeals response
+                            OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
+                            ProjectForm form = new ProjectForm();
+
+                            Project p = projectTracker.getProject(projs[i], user.getTCSubject());
+
+                            if(!p.getAutoPilot()) continue;
+
+                            form.fromProject(p);
+
+                            form.setSendMail(true);
+
+                            form.setScorecardTemplates(docManager.getScorecardTemplates());
+
+                            form.setCurrentPhase("Appeals Response");
+
+                            form.setReason("auto pilot advancing to Appeals Response");
+
+
+                            ProjectData data = form.toActionData(orpd);
+                            ResultData result = new BusinessDelegate().projectAdmin(data);
+                            if(!(result instanceof SuccessResult)) {
+                                logger.debug("ERROR " + result.toString() );
+                            }
+                        }
+// end by cucu
+
 /* by cucu
                     } else if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
 */
