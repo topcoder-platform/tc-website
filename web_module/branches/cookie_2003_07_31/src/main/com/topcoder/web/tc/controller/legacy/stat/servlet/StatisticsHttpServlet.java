@@ -132,7 +132,7 @@ public class StatisticsHttpServlet extends HttpServlet {
                 accessMap = (Map) this.getServletContext().getAttribute(ACCESS_MAP_KEY);
                 accessLevel = (String) accessMap.get(dataRequest.getContentHandle());
                 nav = (Navigation) request.getSession().getAttribute("navigation");
-                if (nav == null) nav = new Navigation();
+                if (nav == null) nav = new Navigation(request, response);
 
                 if (nav.getLoggedIn())
                     com.topcoder.common.web.util.Data.loadUser(nav);
