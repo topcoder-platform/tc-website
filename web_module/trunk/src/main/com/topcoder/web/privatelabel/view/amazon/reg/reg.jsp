@@ -8,101 +8,106 @@
 <html>
 <head>
 
-<title>Brooks Automation, Inc. - Screening</title>
+<title>Amazon.com: Jobs</title>
 
-<jsp:include page="../../script.jsp" />
-<link type="text/css" rel="stylesheet" href="/css/brooks.css"/>
+<link type="text/css" rel="stylesheet" href="/css/amazon.css"/>
 
 </head>
-<body>
+<body bgcolor="#FFFFFF" link="#003399" alink="#FF9933" vlink="#996633" topmargin=0 text="#000000">
 
-<table width="770" align="left" valign="top" cellpadding=0 cellspacing=0 border=0>
-	<tr><td><img src="/i/events/brooks/brooks_logo.gif" border="0" width="122" height="66"/><img src="/i/events/brooks/header.gif" border="0" width="409" height="66"/></td></tr>
-	<tr><td><div class=brHead><img src="/i/clear.gif" height="23" width="1"></div></td></tr>
-	<tr><td><div class=brHeadSpacer><img src="/i/clear.gif" height="4" width="1"></div></td></tr>
+<table width="100%" valign=top cellpadding=0 cellspacing=0 border=0 class=bodyFrame>
 	<tr>
-		<td>
-			<table cellspacing="0" cellpadding="0" border="0" width="100%"> 
-				<tr> 
-<%--
-                    <td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
---%>
-					<td width="100%" valign="top">
+		<td colspan=4 align=center valign=bottom><jsp:include page="../head.jsp" /></td>
+	</tr>
+	<tr>
+		<td class=blueBar colspan=4><img src="/i/clear.gif" width=1 height=29 border=0/></td>
+	</tr>
+	<tr>
+		<td class=foilTop colspan=4><img src="/i/screening/amazon/foil_top.gif" border=0/></td>
+	</tr>
+	<tr>
+		<td class=foilLeft><img src="/i/clear.gif" width=13 height=1 border=0 /></td>
+		<td class=foilCorner><img src="/i/screening/amazon/foil_corner.gif" border=0 /></td>
+		<td class=bodyCol>
+			<div class=bodySpacer>
+
+			<span class=pageTitle>Registration</span>
+			<br/><br/>
+
+
 						<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
-            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.AMAZON_REG_CONFIRM%>"/>
-            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
-            <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
+			            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.AMAZON_REG_CONFIRM%>"/>
+			            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
+			            <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
                             <tr>
-                                <td class="brBodyTitle" align=left>Application Information
-                                </td>
-                                <td class="brBodyTitle" align=right width="50%" nowrap=nowrap><A href="http://www.brooks.com/pages/2730_software.cfm" target="_blank" class="brBodyTitle">Learn about Brooks Software</A>
+                                <td align=left colspan=2>Application Information
                                 </td>
                            </tr>
                         <tr>
-                            <td class="brBody" colspan="2" align=center>
-                            If you encounter any technical problems while using the <br/>Technical Assessment Tool, please contact us at <A href="mailto:brooks@topcoder.com?subject=Question regarding the Brooks Automation Technical Assessment Tool">brooks@topcoder.com</A><br/>.
+                            <td colspan="2" align=center>
+                            If you encounter any technical problems while using the <br/>Technical Assessment Tool, please contact us at <A href="mailto:amazon@topcoder.com?subject=Question regarding the Amazon Technical Assessment Tool">amazon@topcoder.com</A><br/>.
                             </td>
                         </tr>
                         <tr>
-                            <td class="brErrorText" colspan="2">
+                            <td class="errorText" colspan="2">
                                 <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> First Name</td>
-                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.FIRST_NAME%>"  size="15" maxlength="50"/></td>
+                            <td class="regTableQuestion"><span class="errorText">*</span> First Name</td>
+                            <td class="regTableAnswer"><tc-webtag:textInput name="<%=Constants.FIRST_NAME%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
-                            <td class="brErrorText" colspan="2">
+                            <td class="errorText" colspan="2">
                                 <tc-webtag:errorIterator id="err" name="<%=Constants.MIDDLE_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">Middle Initial</td>
-                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.MIDDLE_NAME%>"  size="1" maxlength="1"/></td>
+                            <td class="regTableQuestion">Middle Initial</td>
+                            <td class="regTableAnswer"><tc-webtag:textInput name="<%=Constants.MIDDLE_NAME%>"  size="1" maxlength="1"/></td>
                         </tr>
                         <tr>
-                            <td class="brErrorText" colspan="2">
+                            <td class="errorText" colspan="2">
                                 <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> Last Name</td>
-                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/></td>
+                            <td class="regTableQuestion"><span class="errorText">*</span> Last Name</td>
+                            <td class="regTableAnswer"><tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
-                            <td class="brErrorText" colspan="2">
+                            <td class="errorText" colspan="2">
                                 <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> Email</td>
-                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="30" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/></td>
+                            <td class="regTableQuestion"><span class="errorText">*</span> Email</td>
+                            <td class="regTableAnswer"><tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="30" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/></td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">
-                                <span class="brErrorText">* Required</span> 
+                            <td class="regTableQuestion">
+                                <span class="errorText">* Required</span> 
                             </td>
-                            <td class="brRegTableAnswer">
+                            <td class="regTableAnswer">
                                 &nbsp;
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion"></td>
-                            <td class="brRegTableAnswer">
-                            <br/><a class="brRegTableAnswer" href="javascript: document.regForm.submit();">Submit</a>
+                            <td class="regTableQuestion"></td>
+                            <td class="regTableAnswer">
+                            <br/><a href="javascript: document.regForm.submit();">Submit</a>
                             </td>
                         </tr>
                         </table>
                         </form>
-						
-						<p><br/></p>
-					</td> 
 
-				</tr>
-			</table>
+ 			</div>
 		</td>
+		<td valign=top width="100%">&#160;</td>
+	</tr>
+	<tr>
+		<td colspan=4 class=foot align=center><jsp:include page="../foot.jsp" /></td>
 	</tr>
 </table>
 
