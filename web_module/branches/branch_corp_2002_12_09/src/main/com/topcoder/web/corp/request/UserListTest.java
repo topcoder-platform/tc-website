@@ -18,6 +18,8 @@ import java.sql.ResultSet;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 
+package com.topcoder.web.ejb.user;
+
 
 /**
 * ---------------------------------------------------------------------------
@@ -35,7 +37,9 @@ import java.sql.SQLException;
 */
 
 public class UserListTest extends BaseProcessor {
+    private SessionContext ctx;
     private static Logger log = Logger.getLogger(UserListTest.class);
+    private static final String dataSourceName = "CORP_OLTP";
 
 	public UserListTest() {
         pageInContext = true;
@@ -74,7 +78,6 @@ public class UserListTest extends BaseProcessor {
 //        if (companyId == null || companyId.length() == 0) { 
 //            throw new Exception("Error getting company attribute");
 //        }
-        final String dataSourceName = "CORP_OLTP";
         Context ctx = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -82,8 +85,9 @@ public class UserListTest extends BaseProcessor {
         DataSource ds = null;
         ResultSetContainer ret = null;
 
-        StringBuffer query = new StringBuffer();
-        query.append("SELECT u.first_name, u.last_name, u.user_id FROM user u");
+        try {
+            StringBuffer query = new StringBuffer();
+            query.append("SELECT u.first_name, u.last_name, u.user_id FROM user u");
 
 //        query.append("SELECT u.user_id 
 //                           , su.user_id AS handle
@@ -95,14 +99,18 @@ public class UserListTest extends BaseProcessor {
 //                       WHERE su.login_id = u.user_id
 //                         AND u.user_id = c.contact_id"
 //                         AND c.company_id = ");
-
 //        query.append(companyId.toString());
-        try {
+
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
+            if (rs.next()) {
+                ret = new ResultSetContainer(rs);
+                request.setAttribute("companyUsers",ret);
+            }
+
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new Exception("SQLException processing users query: " +
@@ -117,8 +125,5 @@ public class UserListTest extends BaseProcessor {
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getFirstName");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getFirstName");}}
         }
-        // resultSet rs 
-        ret = new ResultSetContainer(rs);
-        request.setAttribute("companyUsers",ret);
     }
 }
