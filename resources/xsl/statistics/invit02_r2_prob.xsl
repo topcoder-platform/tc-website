@@ -179,7 +179,7 @@ Used as: Level 1<BR/>
 
 <P>Addition is easy, and nobody should have trouble with it. Multiplication can be a bit harder, and anyone who didn't already know it was probably doomed. I personally am not an expert in matrices - I've never gotten the hang of them for some reason - but your basic algorithm will look like three nested for loops. Unfortunately this is exactly where the glitch in the problem description was, and it went unnoticed for a long time because people who knew matrix multiplication simply skipped it, whereas people who didn't know it obviously had some trouble.</P>
 
-<P>In any case, once those were completed, there was still the order-of-operations to deal with. Quite honestly, my expression parsing technique is horrible - in this case I made one pass through the string to take care of multiplication, adding new matrix names as I went ( &amp;A*B&amp; would be replaced with &amp;D&amp;, and I'd add a D matrix to my matrix database), then passed through again for addition. There are doubtless better ways, but for this situation, this worked beautifully.</P>
+<P>In any case, once those were completed, there was still the order-of-operations to deal with. Quite honestly, my expression parsing technique is horrible - in this case I made one pass through the string to take care of multiplication, adding new matrix names as I went ( &quot;A*B&quot; would be replaced with &quot;D&quot;, and I'd add a D matrix to my matrix database), then passed through again for addition. There are doubtless better ways, but for this situation, this worked beautifully.</P>
 
 <P>After all that, of course, you've got to take your 2-d array format and turn it back into strings, being very careful to avoid terminating spaces on the end of each string.</P>
 
@@ -228,7 +228,7 @@ Used as: Level 1<BR/>
     </blockquote>
 <P>This is one of those problems where the only thing that saves you is the problem restrictions. Luckily, we only need to deal with six doorknobs, and that's what makes this problem possible.</P>
 
-<P>First off, a bit of semantics. I realized pretty early on that it would simply things enormously if I considered the start position a &amp;doorknob&amp;. No, it isn't a doorknob, but if we consider it one, the question changes from &amp;find the shortest distance from start to any doorknob, then n-1 more doorknobs&amp; to &amp;starting at doorknob 0, find the shortest distance to n more&amp;, which is much much easier.</P>
+<P>First off, a bit of semantics. I realized pretty early on that it would simply things enormously if I considered the start position a &quot;doorknob&quot;. No, it isn't a doorknob, but if we consider it one, the question changes from &quot;find the shortest distance from start to any doorknob, then n-1 more doorknobs&quot; to &quot;starting at doorknob 0, find the shortest distance to n more&quot;, which is much much easier.</P>
 
 <P>So we're going to call the start position a doorknob.</P>
 
