@@ -29,7 +29,7 @@ function checkInputs(){
           ||(q.type=="select-multiple"&&q.selectedIndex==-1)
         )
       ){
-        alert("Please choose a value for '"+qName+"'.");
+        alert("Please choose a value for '"+brToSlashN(qName)+"'.");
         q.focus();
         return false;
       }
@@ -49,6 +49,10 @@ function lookupText(qId){
     }
   }
   return "";
+}
+function brToSlashN(text) {
+  text.replace(/<br/>/i, "\n");
+  return text;
 }
 </SCRIPT>
     <SCRIPT type="text/javascript">reg=window.document.frmReg;</SCRIPT>
