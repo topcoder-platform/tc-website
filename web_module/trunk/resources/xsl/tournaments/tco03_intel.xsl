@@ -96,7 +96,7 @@ function openWin(url, name, w, h) {
                             						<tr>
                             							<td><img src="/i/spacer.gif" height="13" width="13"/></td>
                             								<td class="bodyText" > <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino 
-                            									mobile-technology- based notebook! <A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_specs','comp',530,700,scrollbars=auto);"><strong>View Specs</strong></A>.
+                            									mobile-technology- based notebook! <A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_specs','comp',540,700);"><strong>View Specs</strong></A>.
                             									<br/><br/><strong><a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">Register Now!</a> Use promotion code TCO2003. </strong></p></td>
                             						</tr>
                             					</table>
@@ -118,7 +118,7 @@ function openWin(url, name, w, h) {
                         	<td colspan="2">
                     <p class="promoCallout">
                     
-                    <A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_sample','comp',530,700,scrollbars=auto);"><strong>Check out a sample</strong></A> of what Intel Developer 
+                    <A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_sample','comp',540,700);"><strong>Check out a sample</strong></A> of what Intel Developer 
                     Services offers you.  Then join <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel Developer Services</strong> </a> today and get FREE technical resources designed to help you capitalize on today's technology trends, optimize solutions and fulfill your customers' growing demands. <br/>
                     <br/>Remember to use promotion code TCO2003 and compete in the TCO to be entered for a chance to win an Intel Centrino mobile-technology based notebook! </p>
                     <p class="promoCallout"><A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_rules','comp',540,700);"><strong>Official Drawing Rules for Intel&#174; Centrino&#153; Mobile Technology-based Notebook.</strong></A></p>

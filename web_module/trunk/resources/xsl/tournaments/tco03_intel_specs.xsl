@@ -34,7 +34,9 @@
                 <tr valign="top">
                     <td align="left" width="100%" class="bodyText">
 
-                        
+                         <tr><td><table><tr><td align="center"><img src="/i/sponsor/intel_ids/specs_header.gif" width="510" height="64"/></td></tr> </table></td></tr>
+                        <tr>
+                        <td align="left" width="100%" class="bodyText">
                         <table border="1" cellpadding="4" cellspacing="1">
                             <tr class="promoText"><td>Base Unit:</td><td>Latitude D600, 1.60GHz, Pentium M, 14.1 SXGA+, English (221-1832)</td> </tr>
                             <tr class="promoText"><td>Memory:</td><td>512MB, 1 Dimm, Double Data Rate for Dell Latitude D-FAM Notebooks, Factory Install (311-1875)</td> </tr>
