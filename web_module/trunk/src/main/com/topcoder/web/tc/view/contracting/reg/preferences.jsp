@@ -87,8 +87,8 @@ return false;
                           int i = 0;%>
                         <tc:preferenceIterator id="pref" list="<%=prefGroup.getPrefs()%>">
                         <tr>
-				<td width="100%" class=<%=cssClasses[i]%>><%=pref.getText()%>:</td>
-				<td class=<%=cssClasses[i++]%>>
+				<td width="100%" class=<%=cssClasses[i % 2]%>><%=pref.getText()%>:</td>
+				<td class=<%=cssClasses[i++ % 2]%>>
 					<%=pref.getType()%>
 				</td>
 			</tr>
