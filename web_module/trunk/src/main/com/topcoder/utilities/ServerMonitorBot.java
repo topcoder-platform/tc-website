@@ -169,6 +169,9 @@ public class ServerMonitorBot {
                 em.addToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("mlydon@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("thaas@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("ivern@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("javier-topcoder-alarm@ivern.org", TCSEmailMessage.TO);
                 em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
 
                 em.setSubject("Server Error");
