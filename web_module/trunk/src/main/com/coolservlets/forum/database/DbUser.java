@@ -112,7 +112,7 @@ public class DbUser implements User, Serializable {
     private String email;
     private int rating;
     private boolean emailVisible = true;
-    private static Logger log = Logger.getLogger(DbUser.class);
+    private transient static Logger log = Logger.getLogger(DbUser.class);
 
     /**
      * Create a new DbUser with all required fields.
