@@ -75,7 +75,7 @@ public class CachedDataAccess implements DataAccessInt {
         Connection conn = null;
         try {
             boolean cached = true;
-            String key = request.toString();
+            String key = request.getCacheKey();
             Map map = null;
             DataRetriever dr = null;
             try {

@@ -1,7 +1,5 @@
 package com.topcoder.shared.dataAccess;
 
-import com.topcoder.shared.util.TCResourceBundle;
-
 import java.util.*;
 
 /**
@@ -160,4 +158,27 @@ public class Request implements RequestInt {
         }
         return sb.toString();
     }
+
+    /**
+     * Generate a string from this object sutable for using
+     * as a key for some key/value pair construct.
+     * @return
+     */
+    public String getCacheKey() {
+        Map.Entry me = null;
+        StringBuffer sb = new StringBuffer(100);
+        //using a tree map so that the keys are always in the same order
+        //we want the cache to pick it up regardless of order
+        TreeMap t = new TreeMap(mProp);
+
+        for (Iterator it = t.entrySet().iterator(); it.hasNext();) {
+            me = (Map.Entry) it.next();
+            sb.append(me.getKey().toString());
+            sb.append("=");
+            sb.append(me.getValue().toString());
+            sb.append("|");
+        }
+        return sb.toString();
+    }
+
 }
