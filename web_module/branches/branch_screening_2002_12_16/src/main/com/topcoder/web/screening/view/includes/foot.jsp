@@ -3,7 +3,7 @@
 <P><BR/></P>
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
   <TR>
-    <TD VALIGN="top"><screen:img page="/ev/clear.gif" width="22" height="1" border="0"/></TD>
+    <TD VALIGN="top"><img page="/i/ev/clear.gif" width="22" height="1" border="0"/></TD>
     <TD WIDTH="100%" VALIGN="top" ALIGN="center"><BR>
     <!-- <A HREF="/eval/sess_o_setup.jsp" CLASS="bodyText">Session Outline</A> | 
     <A HREF="/eval/sess_setup.jsp" CLASS="bodyText">Session Set-Up</A> |   
