@@ -44,7 +44,9 @@ public class ProjectReviewApply extends Base {
                 ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
                 int catalog = detail.getIntItem(0, "category_id");
 
-                if (rba.exists(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, phaseId)) {
+                if (rbu.getStatus(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)!=Constants.ACTIVE_REVIEWER) {
+                    throw new NavigationException("Sorry, you are not authorized to perform reviews at this time.");
+                } else if (rba.exists(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, phaseId)) {
                     throw new NavigationException("You have already applied to review this project.");
                 } else {
                     try {
