@@ -652,7 +652,7 @@ public class PLLoadCoders extends TCLoad {
             query = new StringBuffer(100);
             query.append("SELECT s.school_id ");
             query.append(      " ,s.state_code ");
-            query.append(      " ,s.name ");
+            query.append(      " ,s.full_name ");
             query.append(      " ,s.short_name ");
             query.append( " FROM school s ");
             query.append(" WHERE s.modify_date > ?");
