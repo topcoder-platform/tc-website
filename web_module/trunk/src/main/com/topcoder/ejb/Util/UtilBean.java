@@ -22,14 +22,17 @@ public class UtilBean extends BaseEJB {
 
 
   ////////////////////////////////////////////////////////////////////////////
-  public java.sql.Date getCurrentDate () throws TCException {
+  public java.sql.Date getCurrentDate () throws RemoteException {
   ////////////////////////////////////////////////////////////////////////////
     java.sql.Date result     = null;
     java.sql.Connection conn = null;
     PreparedStatement ps     = null;
     ResultSet rs             = null;
+    javax.naming.Context ctx = null;
     try {
-      conn                   = DBMS.getConnection();
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       /*********************************************************/
       /*************************Postgres************************/
       /*********************************************************/
@@ -46,25 +49,29 @@ public class UtilBean extends BaseEJB {
       if ( rs.next() ) result = rs.getDate(1);
     } catch (Exception e) {
       e.printStackTrace();
-      throw new TCException("ejb.Util:getCurrentDate:ERROR:"+e);
+      throw new RemoteException("ejb.Util:getCurrentDate:ERROR:"+e);
     } finally {
       if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
       if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
       if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
     }
     return result;
   }
 
 
   ////////////////////////////////////////////////////////////////////////////
-  public java.sql.Time getCurrentTime () throws TCException {
+  public java.sql.Time getCurrentTime () throws RemoteException {
   ////////////////////////////////////////////////////////////////////////////
     java.sql.Time result     = null;
     java.sql.Connection conn = null;
     PreparedStatement ps     = null;
     ResultSet rs             = null;
+    javax.naming.Context ctx = null;
     try {
-      conn                   = DBMS.getConnection();
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       /*********************************************************/
       /*************************Postgres************************/
       /*********************************************************/
@@ -81,25 +88,29 @@ public class UtilBean extends BaseEJB {
       if ( rs.next() ) result = rs.getTime(1);
     } catch (Exception e) {
       e.printStackTrace();
-      throw new TCException("ejb.Util:getCurrentTime:ERROR:"+e);
+      throw new RemoteException("ejb.Util:getCurrentTime:ERROR:"+e);
     } finally {
       if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
       if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
       if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
     }
     return result;
   }
 
 
   ////////////////////////////////////////////////////////////////////////////
-  public java.sql.Timestamp getCurrentTimestamp () throws TCException {
+  public java.sql.Timestamp getCurrentTimestamp () throws RemoteException {
   ////////////////////////////////////////////////////////////////////////////
     java.sql.Timestamp result = null;
     java.sql.Connection conn  = null;
     PreparedStatement ps      = null;
     ResultSet rs              = null;
+    javax.naming.Context ctx = null;
     try {
-      conn                    = DBMS.getConnection();
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       /*********************************************************/
       /*************************Postgres************************/
       /*********************************************************/
@@ -116,11 +127,12 @@ public class UtilBean extends BaseEJB {
       if ( rs.next() ) result = rs.getTimestamp(1);
     } catch (Exception e) {
       e.printStackTrace();
-      throw new TCException("ejb.Util:getCurrentTimestamp:ERROR:"+e);
+      throw new RemoteException("ejb.Util:getCurrentTimestamp:ERROR:"+e);
     } finally {
       if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
       if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
       if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
     }
     return result;
   }
@@ -135,8 +147,11 @@ public class UtilBean extends BaseEJB {
     /*********************************************************/
     PreparedStatement ps     = null;
     java.sql.Connection conn = null;
+    javax.naming.Context ctx = null;
     try {
-      conn = DBMS.getConnection ();
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       conn.setAutoCommit ( true );
       ps = conn.prepareStatement ( query );
       ps.setInt    ( 1, coderId                               );
@@ -151,6 +166,7 @@ public class UtilBean extends BaseEJB {
     } finally {
       if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
       if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
       query = null;
     }
   }
@@ -158,13 +174,16 @@ public class UtilBean extends BaseEJB {
 
   ////////////////////////////////////////////////////////////
   public void incrementAdvertiserHitCount ( int advertiserId ) 
-    throws TCException {
+    throws RemoteException {
   ////////////////////////////////////////////////////////////
     java.sql.Connection conn = null;
     PreparedStatement   ps   = null;
     ResultSet rs = null;
+    javax.naming.Context ctx = null;
     try {
-      conn                   = DBMS.getConnection();
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       StringBuffer query     = new StringBuffer ( 150  );
       /*********************************************************/
       query.append ( " SELECT"                         );
@@ -213,24 +232,28 @@ public class UtilBean extends BaseEJB {
       msg.append ( advertiserId                                        );
       msg.append ( ":"                                                 );
       msg.append ( e.getMessage()                                      );
-      throw new TCException ( msg.toString()              );
+      throw new RemoteException ( msg.toString()              );
     } finally {
       if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
       if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
       if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
     }
   }
 
 
   ////////////////////////////////////////////////////////////
   public void incrementPressReleaseHitCount ( int id, String host )
-    throws TCException {
+    throws RemoteException {
   ////////////////////////////////////////////////////////////
     java.sql.Connection conn = null;
     PreparedStatement   ps   = null;
     ResultSet rs             = null;
+    javax.naming.Context ctx = null;
     try {
-      conn                   = DBMS.getConnection();
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       StringBuffer query     = new StringBuffer ( 175  );
       /*********************************************************/
       query.append ( " SELECT"                         );
@@ -282,24 +305,28 @@ public class UtilBean extends BaseEJB {
       msg.append ( host                                                 );
       msg.append ( ":"                                                  );
       msg.append ( e.getMessage()                                       );
-      throw new TCException ( msg.toString()               );
+      throw new RemoteException ( msg.toString()               );
     } finally {
       if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
       if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
       if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
     }
   }
 
 
   ////////////////////////////////////////////////////////////
   private void insertPressReleaseHit ( int id, String host )
-    throws TCException {
+    throws RemoteException {
   ////////////////////////////////////////////////////////////
     java.sql.Connection conn = null;
     PreparedStatement ps     = null;
     ResultSet rs             = null;
+    javax.naming.Context ctx = null;
     try {
-      conn                   = DBMS.getConnection();
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       StringBuffer query     = new StringBuffer ( 150 );
       /*********************************************************/
       query.append ( " INSERT"                  );
@@ -326,24 +353,28 @@ public class UtilBean extends BaseEJB {
       msg.append ( host                                         );
       msg.append ( ":"                                          );
       msg.append ( e.getMessage()                               );
-      throw new TCException ( msg.toString()       );
+      throw new RemoteException ( msg.toString()       );
     } finally {
       if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
       if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
       if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
     }
   }
 
 
   ////////////////////////////////////////////////////////////
   private void updatePressReleaseHit ( int id, String host )
-    throws TCException {
+    throws RemoteException {
   ////////////////////////////////////////////////////////////
     java.sql.Connection conn = null;
     PreparedStatement ps     = null;
     ResultSet rs             = null;
+    javax.naming.Context ctx = null;
     try {
-      conn                   = DBMS.getConnection();
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       StringBuffer query     = new StringBuffer ( 150 );
       /*********************************************************/
       query.append ( " UPDATE"                          );
@@ -369,24 +400,28 @@ public class UtilBean extends BaseEJB {
       msg.append ( host                                         );
       msg.append ( ":"                                          );
       msg.append ( e.getMessage()                               );
-      throw new TCException ( msg.toString()       );
+      throw new RemoteException ( msg.toString()       );
     } finally {
       if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
       if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
       if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
     }
   }
 
 
   ////////////////////////////////////////////////////////////
   private void insertPressRelease ( int id )
-    throws TCException {
+    throws RemoteException {
   ////////////////////////////////////////////////////////////
     java.sql.Connection conn = null;
     PreparedStatement ps     = null;
     ResultSet rs             = null;
+    javax.naming.Context ctx = null;
     try {
-      conn                   = DBMS.getConnection();
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       StringBuffer query     = new StringBuffer ( 150 );
       /*********************************************************/
       query.append ( " INSERT"                 );
@@ -407,11 +442,12 @@ public class UtilBean extends BaseEJB {
       msg.append ( id                                        );
       msg.append ( ":"                                       );
       msg.append ( e.getMessage()                            );
-      throw new TCException ( msg.toString()    );
+      throw new RemoteException ( msg.toString()    );
     } finally {
       if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
       if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
       if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
     }
   }
 
@@ -420,13 +456,16 @@ public class UtilBean extends BaseEJB {
 
   ////////////////////////////////////////////////////////////
   public void incrementJobPostingHits ( int jobPostingId, int userId )
-    throws TCException {
+    throws RemoteException {
   ////////////////////////////////////////////////////////////
     java.sql.Connection conn = null;
     PreparedStatement   ps   = null;
     ResultSet rs             = null;
+    javax.naming.Context ctx = null;
     try {
-      conn                   = DBMS.getConnection();
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       StringBuffer query     = new StringBuffer ( 150  );
       /*********************************************************/
       query.append ( " SELECT"               );
@@ -482,25 +521,29 @@ public class UtilBean extends BaseEJB {
       msg.append ( userId                                             );
       msg.append ( ":"                                                );
       msg.append ( e.getMessage()                                     );
-      throw new TCException ( msg.toString()             );
+      throw new RemoteException ( msg.toString()             );
     } finally {
       if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
       if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
       if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
     }
   }
 
 
   ////////////////////////////////////////////////////////////
   public String getRegionCode ( String stateCode, int userTypeId )
-    throws TCException {
+    throws RemoteException {
   ////////////////////////////////////////////////////////////
     String result            = null;
     java.sql.Connection conn = null;
     PreparedStatement ps     = null;
     ResultSet rs             = null;
+    javax.naming.Context ctx = null;
     try {
-      conn                   = DBMS.getConnection();
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       /*********************************************************/
       StringBuffer query = new StringBuffer ( 200 );
       query.append ( " SELECT"                 );
@@ -518,11 +561,12 @@ public class UtilBean extends BaseEJB {
       if ( rs.next() ) result = rs.getString(1);
     } catch (Exception e) {
       e.printStackTrace();
-      throw new TCException("ejb.Util:getRegionCode:ERROR:"+e);
+      throw new RemoteException("ejb.Util:getRegionCode:ERROR:"+e);
     } finally {
       if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
       if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
       if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
     }
     return result;
   }
@@ -530,14 +574,17 @@ public class UtilBean extends BaseEJB {
 /* 
   ////////////////////////////////////////////////////////////
   public JobPostingAttributes getJobPosting ( int jobPostingId )
-    throws TCException {
+    throws RemoteException {
   ////////////////////////////////////////////////////////////
     JobPostingAttributes result = null;
     java.sql.Connection conn    = null;
     PreparedStatement ps        = null;
     ResultSet rs                = null;
+    javax.naming.Context ctx = null;
     try {
-      conn                      = DBMS.getConnection();
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       StringBuffer query = new StringBuffer ( 200 );
       query.append ( " SELECT"                 );
       query.append (   " subscriber_id"        );
@@ -565,11 +612,12 @@ public class UtilBean extends BaseEJB {
       }
     } catch (Exception e) {
       e.printStackTrace();
-      throw new TCException("ejb.Util:getRegionCode:ERROR:"+e);
+      throw new RemoteException("ejb.Util:getRegionCode:ERROR:"+e);
     } finally {
       if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
       if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
       if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
     }
     return result;
   }
@@ -577,14 +625,17 @@ public class UtilBean extends BaseEJB {
  
   ////////////////////////////////////////////////////////////
   public boolean allowFullResume ( int subscriberId, int coderId )
-    throws TCException {
+    throws RemoteException {
   ////////////////////////////////////////////////////////////
     boolean result = false;
     java.sql.Connection conn    = null;
     PreparedStatement ps        = null;
     ResultSet rs                = null;
+    javax.naming.Context ctx = null;
     try {
-      conn                      = DBMS.getConnection();
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       /*********************************************************/
       StringBuffer query = new StringBuffer ( 200 );
       query.append ( " SELECT"              );
@@ -613,11 +664,12 @@ public class UtilBean extends BaseEJB {
       msg.append ( coderId                            );
       msg.append ( ":"                                );
       msg.append ( e.getMessage()                     );
-      throw new TCException ( msg.toString() );
+      throw new RemoteException ( msg.toString() );
     } finally {
       if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
       if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
       if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
     }
     return result;
   }
@@ -634,9 +686,11 @@ public class UtilBean extends BaseEJB {
     Connection conn = null;
     PreparedStatement ps = null;
     int RetVal = 0;
-
-    try{
-      conn = DBMS.getConnection();
+    javax.naming.Context ctx = null;
+    try {
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
       ps = conn.prepareStatement("INSERT INTO mail_log (coder_id, reason, timestamp) VALUES (?,?,?)");
       // coder_mail
       ps.setInt(1, mail.getCoderId());
@@ -653,11 +707,97 @@ public class UtilBean extends BaseEJB {
     } finally {
       try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "ps   close problem");}
       try { if (conn   != null) conn.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "conn   close problem");}
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
       ps = null;
       conn = null;
     }
     return RetVal;
   }
+
+
+  ////////////////////////////////////////////////////////////
+  public void incrementSponsorHitCount ( String link, String refer )
+    throws RemoteException {
+  ////////////////////////////////////////////////////////////
+    java.sql.Connection conn = null;
+    PreparedStatement   ps = null;
+    ResultSet rs = null;
+    javax.naming.Context ctx = null;
+    try {
+      ctx = new javax.naming.InitialContext();
+      javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
+      conn = ds.getConnection();
+      StringBuffer query = new StringBuffer ( 150  );
+      /*********************************************************/
+      query.append ( " SELECT" );
+      query.append (   " link_id" );
+      query.append ( " FROM" );
+      query.append (   " link_hit" );
+      query.append ( " WHERE" );
+      query.append (   " link = ?" );
+      query.append (   " AND refer = ?" );
+      /*********************************************************/
+      ps = conn.prepareStatement ( query.toString() );
+      query.delete ( 0, 150 );
+      ps.setString ( 1, link );
+      ps.setString ( 2, refer );
+      rs = ps.executeQuery();
+      ps.clearParameters();
+      if ( rs.next() ) {
+        /*********************************************************/
+        query.append ( " UPDATE" );
+        query.append (   " link_hit" );
+        query.append (     " SET" );
+        query.append (       " hit = hit + 1" );
+        query.append ( " WHERE" );
+        query.append (   " link_id = ?" );
+        /*********************************************************/
+        ps = conn.prepareStatement ( query.toString() );
+        query.delete ( 0, 150 );
+        ps.setInt ( 1, rs.getInt(1) );
+        ps.executeUpdate();
+      } else {
+        if ( rs != null ) rs.close();
+        javax.naming.Context env = (javax.naming.Context) ctx.lookup ( "java:comp/env" );
+        int seq = ((java.lang.Integer)env.lookup("LINK_SEQ")).intValue();
+        /*********************************************************/
+        query.append ( " EXECUTE PROCEDURE nextval(?)" );
+        /*********************************************************/
+        ps = conn.prepareStatement ( query.toString() );
+        query.delete ( 0, 150 );
+        ps.setInt ( 1, seq );
+        rs = ps.executeQuery();
+        ps.clearParameters();
+        if ( rs.next() ) {
+          /*********************************************************/
+          query.append ( " INSERT" );
+          query.append (   " INTO" );
+          query.append (     " link_hit (" );
+          query.append (       " link_id" );
+          query.append (       " ,link" );
+          query.append (       " ,refer" );
+          query.append (       " ,hit" );
+          query.append (     " )" );
+          query.append ( " VALUES (?,?,?,1)" );
+          /*********************************************************/
+          ps = conn.prepareStatement ( query.toString() );
+          ps.setInt ( 1, rs.getInt(1) );
+          ps.setString ( 2, link );
+          ps.setString ( 3, refer );
+          ps.executeUpdate();
+        }
+      }
+    } catch ( Exception e ) {
+      e.printStackTrace();
+      throw new RemoteException ( e.getMessage() );
+    } finally {
+      if (ps != null)   { try { ps.close();   } catch (Exception ignore) {} }
+      if (rs != null)   { try { rs.close();   } catch (Exception ignore) {} }
+      if (conn != null) { try { conn.close(); } catch (Exception ignore) {} }
+      if (ctx != null)  { try { ctx.close(); } catch (Exception ignore) {} }
+    }
+  }
+
 
 
 }
