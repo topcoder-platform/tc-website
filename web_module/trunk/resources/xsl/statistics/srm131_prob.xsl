@@ -179,6 +179,7 @@
                                                 </table>
                                             </blockquote>
                                         </font>
+                                        <P> Reference Solution: brett1479 in the practice room</P>
                                         <h4>Implementation</h4>
                                         <p>
                                             In this problem, coders were asked to determine the final letter grade a
