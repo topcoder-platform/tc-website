@@ -1,5 +1,11 @@
 <table class=smallBoxTable align=right cellspacing=0 cellpadding=0>
 	<tr>
+		<td align=center class=smallBlackBox>
+		<A href=""><img src="/i/events/google2004/pbtc_logo.gif" border=0/></A>
+		</td>
+	</tr>
+	<tr><td>&#160;</td></tr>
+	<tr>
 		<td align=center nowrap=nowrap class=smallBlueBox>
 		<span class=bodyTextBlue>Important Dates</span>
 		<br/><br/>

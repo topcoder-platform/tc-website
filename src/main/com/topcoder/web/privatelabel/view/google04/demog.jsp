@@ -39,7 +39,7 @@ function submitEnter(e) {
 				<tr>
 					<td width="49%"></td>
 					<td valign=bottom align=center><img border=0 src="/i/events/google2004/codejamLogo.gif" alt="Google Code Jam logo"></td>
-					<td width="49%" valign=bottom align=right><a href="/"><img align="right" src="/i/events/google2003/google_pbtc.gif" border="0"></a></td>
+					<td width="49%"></td>
 				</tr>
 			</table>
 		</td>
@@ -60,6 +60,9 @@ function submitEnter(e) {
 
 			<br/><br/>
 			<span class=bigTitle>Registration</span>
+			<span valign=top>
+			<jsp:include page="right_reg.jsp" />
+			</span>
 
 			<table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
 			<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm" enctype="multipart/form-data">
