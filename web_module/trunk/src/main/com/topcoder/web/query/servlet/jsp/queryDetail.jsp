@@ -33,7 +33,14 @@
       <TD CLASS="statText" WIDTH="100%" BGCOLOR="#001935" VALIGN="top">
         <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <TR><TD CLASS="statTextBig" COLSPAN="2">Query Detail</TD></TR>
-          <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">Query: <jsp:getProperty name="QueryDetailTask" property="QueryName"/></TD></TR>
+          <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">
+            Query: <jsp:getProperty name="QueryDetailTask" property="QueryName"/>
+          </TD></TR>
+          <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">
+            <A HREF="<jsp:getProperty name="QueryDetailTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QueryDetailTask" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="QueryDetailTask" property="QueryId"/>" class="statText">
+              [edit]
+            </A>
+          </TD></TR>
           <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR>
             <TD VALIGN="top" WIDTH="100%" CLASS="statText">
