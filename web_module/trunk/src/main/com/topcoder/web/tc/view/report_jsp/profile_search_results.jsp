@@ -24,11 +24,11 @@
     function sort(i){
         document.revise['module'].value = 'ProfileSearch';
         if(i == document.revise['order'].value){
-            document.revise['sort'].sort = -document.revise['order'].sort;
+            document.revise['sort'].sort = ""+(-parseInt(document.revise['order'].sort));
         }else{
-            document.revise['sort'].sort = 1;
+            document.revise['sort'].sort = "1";
         }
-        document.revise['order'].value = i+1;
+        document.revise['order'].value = (parseInt(i)+1)+"";
         document.revise.submit();
     }
     function revise(){
