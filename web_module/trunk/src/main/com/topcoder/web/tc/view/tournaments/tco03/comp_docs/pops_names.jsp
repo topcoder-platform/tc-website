@@ -19,7 +19,7 @@
     <% if (time.equals("initial")) { %>
                 <tr><td class="compDocsSmall">The following files will open in the window to the right</td></tr>
                 <tr><td class="<%=doc.equals("doc1")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial_doc1">Timer_Class_Diagram.gif</td></tr>
-                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial_doc2">Timer_Sequence_Diagram.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial_doc2">Timer_Sequence_Diagram_1.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc3")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial_doc3">Timer_Sequence_Diagram_2.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc4")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial_doc4">Timer_Sequence_Diagram_3.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc5")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial_doc5">Timer_Sequence_Diagram_4.gif</a></td></tr>
@@ -36,7 +36,7 @@
     <% } else if (time.equals("830")) { %>
                 <tr><td class="compDocsSmall">The following files will open in the window to the right</td></tr>
                 <tr><td class="<%=doc.equals("doc1")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_830_doc1">Timer_Class_Diagram.gif</td></tr>
-                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_830_doc2">Timer_Sequence_Diagram.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_830_doc2">Timer_Sequence_Diagram_1.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc3")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_830_doc3">Timer_Sequence_Diagram_2.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc4")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_830_doc4">Timer_Sequence_Diagram_3.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc5")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_830_doc5">Timer_Sequence_Diagram_4.gif</a></td></tr>
@@ -53,7 +53,7 @@
     <% } else if (time.equals("900")) { %>
                 <tr><td class="compDocsSmall">The following files will open in the window to the right</td></tr>
                 <tr><td class="<%=doc.equals("doc1")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_900_doc1">Timer_Class_Diagram.gif</td></tr>
-                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_900_doc2">Timer_Sequence_Diagram.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_900_doc2">Timer_Sequence_Diagram_1.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc3")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_900_doc3">Timer_Sequence_Diagram_2.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc4")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_900_doc4">Timer_Sequence_Diagram_3.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc5")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_900_doc5">Timer_Sequence_Diagram_4.gif</a></td></tr>
@@ -70,7 +70,7 @@
     <% } else if (time.equals("930")) { %>
                 <tr><td class="compDocsSmall">The following files will open in the window to the right</td></tr>
                 <tr><td class="<%=doc.equals("doc1")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_930_doc1">Timer_Class_Diagram.gif</td></tr>
-                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_930_doc2">Timer_Sequence_Diagram.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_930_doc2">Timer_Sequence_Diagram_1.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc3")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_930_doc3">Timer_Sequence_Diagram_2.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc4")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_930_doc4">Timer_Sequence_Diagram_3.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc5")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_930_doc5">Timer_Sequence_Diagram_4.gif</a></td></tr>
@@ -87,7 +87,7 @@
     <% } else if (time.equals("1000")) { %>
                 <tr><td class="compDocsSmall">The following files will open in the window to the right</td></tr>
                 <tr><td class="<%=doc.equals("doc1")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1000_doc1">Timer_Class_Diagram.gif</td></tr>
-                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1000_doc2">Timer_Sequence_Diagram.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1000_doc2">Timer_Sequence_Diagram_1.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc3")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1000_doc3">Timer_Sequence_Diagram_2.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc4")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1000_doc4">Timer_Sequence_Diagram_3.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc5")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1000_doc5">Timer_Sequence_Diagram_4.gif</a></td></tr>
@@ -104,7 +104,7 @@
     <% } else if (time.equals("1030")) { %>
                 <tr><td class="compDocsSmall">The following files will open in the window to the right</td></tr>
                 <tr><td class="<%=doc.equals("doc1")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1030_doc1">Timer_Class_Diagram.gif</td></tr>
-                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1030_doc2">Timer_Sequence_Diagram.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1030_doc2">Timer_Sequence_Diagram_1.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc3")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1030_doc3">Timer_Sequence_Diagram_2.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc4")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1030_doc4">Timer_Sequence_Diagram_3.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc5")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1030_doc5">Timer_Sequence_Diagram_4.gif</a></td></tr>
@@ -121,7 +121,7 @@
     <% } else if (time.equals("1100")) { %>
                 <tr><td class="compDocsSmall">The following files will open in the window to the right</td></tr>
                 <tr><td class="<%=doc.equals("doc1")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc1">Timer_Class_Diagram.gif</td></tr>
-                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc2">Timer_Sequence_Diagram.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc2">Timer_Sequence_Diagram_1.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc3")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc3">Timer_Sequence_Diagram_2.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc4")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc4">Timer_Sequence_Diagram_3.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc5")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc5">Timer_Sequence_Diagram_4.gif</a></td></tr>
@@ -138,7 +138,7 @@
     <% } else if (time.equals("1130")) { %>
                 <tr><td class="compDocsSmall">The following files will open in the window to the right</td></tr>
                 <tr><td class="<%=doc.equals("doc1")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc1">Timer_Class_Diagram.gif</td></tr>
-                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc2">Timer_Sequence_Diagram.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc2">Timer_Sequence_Diagram_1.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc3")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc3">Timer_Sequence_Diagram_2.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc4")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc4">Timer_Sequence_Diagram_3.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc5")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc5">Timer_Sequence_Diagram_4.gif</a></td></tr>
@@ -155,7 +155,7 @@
     <% } else if (time.equals("final")) { %>
                 <tr><td class="compDocsSmall">The following files will open in the window to the right</td></tr>
                 <tr><td class="<%=doc.equals("doc1")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc1">Timer_Class_Diagram.gif</td></tr>
-                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc2">Timer_Sequence_Diagram.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc2">Timer_Sequence_Diagram_1.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc3")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc3">Timer_Sequence_Diagram_2.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc4")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc4">Timer_Sequence_Diagram_3.gif</a></td></tr>
                 <tr><td class="<%=doc.equals("doc5")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc5">Timer_Sequence_Diagram_4.gif</a></td></tr>
