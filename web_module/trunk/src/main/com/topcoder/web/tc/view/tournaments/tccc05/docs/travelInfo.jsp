@@ -9,7 +9,7 @@
 <link type="text/css" rel="stylesheet" href="/css/TCCC05style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 </head>
-<%--<%ResultSetContainer info = (ResultSetContainer)((Map)request.getAttribute("info")).get("Affidavit_Info");%>--%>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <body>
 
@@ -66,7 +66,7 @@
 
 
         <TABLE border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
-    <FORM name="questForm" method="POST" action="/">
+    <FORM name="questForm" method="POST" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
         <INPUT TYPE="hidden" NAME="<%=Constants.MODULE_KEY%>" VALUE="TCCC05TravelInfoSubmit"/>
             <TR><TD COLSPAN="2"><H1 align="center">Travel Form</H1></TD></TR>
             <TR><TD COLSPAN="2"><U><B>COMPETITOR INFORMATION:</B></U><BR/></TD></TR>
