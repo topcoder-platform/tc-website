@@ -91,8 +91,8 @@
           <tr>
             <td valign="top" width="50%" colspan="2">
               <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr colspan="3">
-                  <td class="statTextBig" ALIGN="left">Commands that use this Query</td>
+                <tr>
+                  <td class="statTextBig" ALIGN="left" colspan="3">Commands that use this Query</td>
                 </tr>
                 <tr><td><img src="/i/clear.gif" width="1" height="8"></td></tr>
                 <tr bgcolor="#333333">
