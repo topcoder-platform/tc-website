@@ -30,6 +30,13 @@ public class Constants {
 
     private static final String KEY_CORP_PRINCIPAL      = "corp-web-app-principal";
 
+    public  static final String KEY_CCTX_LOGIN          = "cctx-login";
+    public  static final String KEY_CCTX_PARTNER        = "cctx-partner";
+    public  static final String KEY_CCTX_CONFIRM        = "cctx-showconfirm";
+    public  static final String KEY_CCTX_URL            = "cctx-payflow-url";
+    public  static final String KEY_CCTX_TYPE           = "cctx-type";
+    public  static final String KEY_CCTX_SUM            = "cctx-sum";
+
     // and their defaults
     private static final String DEF_SECURITY_CONTEXT_FACTORY =
         "org.jnp.interfaces.NamingContextFactory";
@@ -102,6 +109,11 @@ public class Constants {
     public static String NDS_DATA_SOURCE = null;
 
     public static String CORP_PRINCIPAL = null;
+    
+    public static String CCTX_LOGIN   = null;
+    public static String CCTX_PARTNER = null;
+    public static String CCTX_CONFIRM = null;
+    public static String CCTX_URL     = null;
 
     static {
         store = new TCResourceBundle("CorpConstants");
@@ -186,5 +198,10 @@ public class Constants {
             javax.naming.Context.PROVIDER_URL,
             value
         );
+        
+        CCTX_LOGIN   = store.getProperty(KEY_CCTX_LOGIN, null);
+        CCTX_PARTNER = store.getProperty(KEY_CCTX_PARTNER, null);
+        CCTX_CONFIRM = store.getProperty(KEY_CCTX_CONFIRM, null);
+        CCTX_URL     = store.getProperty(KEY_CCTX_URL, null);
     }
 }

@@ -11,6 +11,8 @@ import java.rmi.RemoteException;
  * @version $Revision$
  */
 public interface UnitHome extends javax.ejb.EJBHome {
+    public static final String EJB_REF_NAME = UnitHome.class.getName();
+    
     /**
      * Creates the remote Unit EJB object
      *

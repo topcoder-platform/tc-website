@@ -280,4 +280,81 @@ public class UnitBean implements SessionBean {
             }
         }
     }
+    
+    /**
+     * 
+     * @param unitTypeId
+     * @return String
+     * @throws RemoteException
+     * @throws EJBException
+     */
+    public String getUnitDescription(long unitTypeId)
+    throws RemoteException, EJBException
+    {
+        log.debug("getUnitDescription called... unitTypeId: " + unitTypeId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        String ret = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup(
+                (String)ctx.lookup("java:comp/env/datasource_name")
+            );
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement(
+                "SELECT unit_type_desc FROM unit_type_lu WHERE unit_type_id = ?"
+            );
+            ps.setLong(1, unitTypeId);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                ret = rs.getString("unit_type_desc");
+            }
+        }
+        catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
+            throw new EJBException("SQLException getting unit_type_desc");
+        }
+        catch (NamingException e) {
+            throw new EJBException("NamingException getting unit_type_desc");
+        }
+        catch (Exception e) {
+            throw new EJBException("Exception getting unit_type_desc\n" +
+                                   e.getMessage());
+        }
+        finally {
+            if (rs != null) {
+                try { rs.close(); } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getUnitDescription");
+                }
+            }
+
+            if (ps != null) {
+                try { ps.close(); } catch (Exception ignore) {
+                    log.error(
+                        "FAILED to close PreparedStatement in getUnitDescription"
+                    );
+                }
+            }
+
+            if (conn != null) {
+                try { conn.close(); } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getUnitDescription");
+                }
+            }
+
+            if (ctx != null) {
+                try { ctx.close(); } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getUnitDescription");
+                }
+            }
+        }
+        return (ret);
+    }
 }

@@ -18,7 +18,7 @@ public interface Purchase extends EJBObject {
      *
      * @see com.topcoder.web.ejb.product.PurchaseBean#createPurchase
      */
-    long createPurchase(long companyId, long productId, long contactId)
+    long createPurchase(long companyId, long productId, long contactId, double sum)
                  throws RemoteException, EJBException;
 
     /**

@@ -210,7 +210,7 @@ public class UserEdit extends BaseRegistration {
             }
             else { // modification of existent user
                 securityUser = mgr.getUser(userID);
-                log.debug("edit password");
+//                log.debug("edit password");
                 mgr.editPassword(securityUser, password, primaryContact);
             }
 
@@ -244,11 +244,11 @@ public class UserEdit extends BaseRegistration {
             Email emailTable = (
                 (EmailHome)icEJB.lookup(EmailHome.EJB_REF_NAME)
             ).create();
-            long emailID;
+            long emailID = -1;
             if( ! createNewUser ) {
                 emailID = emailTable.getPrimaryEmailId(userID);
             }
-            else {
+            if( emailID <= 0 ) {
                 emailID = emailTable.createEmail(userID);
                 emailTable.setPrimaryEmailId(userID, emailID);
             }
@@ -258,11 +258,11 @@ public class UserEdit extends BaseRegistration {
             Phone phoneTable = (
                 (PhoneHome)icEJB.lookup(PhoneHome.EJB_REF_NAME)
             ).create();
-            long phoneID;
+            long phoneID = -1;
             if( !createNewUser ) {
                 phoneID = phoneTable.getPrimaryPhoneId(userID);
             }
-            else {
+            if( phoneID <= 0 ) {
                 phoneID = phoneTable.createPhone(userID);
                 phoneTable.setPrimaryPhoneId(userID, phoneID);
             }

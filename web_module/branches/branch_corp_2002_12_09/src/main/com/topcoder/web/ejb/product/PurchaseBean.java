@@ -70,7 +70,7 @@ public class PurchaseBean implements SessionBean {
      * @return a long with the unique purchase ID created
      */
     public long createPurchase(long companyId, long productId,
-                               long contactId) {
+                               long contactId, double sum) {
         log.debug("createPurchase called...");
 
         Context ctx = null;
@@ -101,13 +101,15 @@ public class PurchaseBean implements SessionBean {
                 "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("INSERT INTO purchase (purchase_id, " +
-                                       "company_id, product_id, contact_id) " +
-                                       "VALUES (?,?,?,?)");
+            ps = conn.prepareStatement(
+                "INSERT INTO purchase (purchase_id, company_id, product_id, "+
+                "contact_id, paid) VALUES (?,?,?,?,?)"
+            );
             ps.setLong(1, ret);
             ps.setLong(2, companyId);
             ps.setLong(3, productId);
             ps.setLong(4, contactId);
+            ps.setDouble(5, sum);
 
             int rows = ps.executeUpdate();
 

@@ -35,4 +35,14 @@ public interface Unit extends EJBObject {
      */
     void setNumUnits(long productId, long unitTypeId, int numUnits)
         throws RemoteException, EJBException;
+
+    /**
+     * 
+     * @param unitTypeId
+     * @return String
+     * @throws RemoteException
+     * @throws EJBException
+     */        
+    public String getUnitDescription(long unitTypeId)
+    throws RemoteException, EJBException;
 }
