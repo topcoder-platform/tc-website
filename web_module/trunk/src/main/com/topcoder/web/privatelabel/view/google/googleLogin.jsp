@@ -84,68 +84,56 @@ function openWin(url, name, w, h) {
 <%--                     <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>--%>
                   </font>
                   </div><br><br>
+                  <b><font size="+1">Registration</font></b>
 
                   <table border=0 cellspacing=0 width="100%">
                      <tr>
                         <td valign="top">
-                        <b><font size="+1">Registration</font></b>
                         <img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0" align="right" valign="top">
 
-                        <p><font size="-1"><br/>Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.</font></p>
+                        <p><font size="-1"><br/>Registration will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.  If you are currently a TopCoder member,
+                        please enter your handle and password below to use your member profile information.  If you are not currently a TopCoder member, please click
+                        <a href="/pl/?&module=GoogleReg&cid=1865&eid=1">here</a>.</font></p>
 
+                        <form method="post" name="frmLogin" action="<%=sessionInfo.getServletPath()%>">
+                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_LOGIN%>">
+                        <input type="hidden" name="<%=Constants.EVENT_ID%>" value="1">
+                        <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="1865">
+                           <table border="0" cellpadding="3" cellspacing="0" align="center">
+                              <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
+
+                              <tr valign="top">
+                                 <td class="errorText" colspan="3" align="center">
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator>
+                                 </td>
+                              </tr>
+                              <tr valign="middle">
+                                 <td nowrap class="bodyText" align="right">Handle:</td>
+                                 <td colspan="2" align="left"><input type="text" name="<%=Constants.HANDLE%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
+                              </tr>
+
+                              <tr valign="middle">
+                                 <td nowrap class="bodyText" align="right">Password:</td>
+                                 <td align="left"><input type="password" name="<%=Constants.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
+                                 <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a></td>
+                              </tr>
+                              <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
+                           </table>
+                           <p><br/></p>
+
+                           <script>
+                              document.frmLogin.<%=Constants.HANDLE%>.focus();
+                           </script>
+
+                        </form>
                         </td>
                      </tr>
+
                      <tr>
                         <td><p><br /></p>
                               <p><a href="http://www.topcoder.com"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
-                              <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_rules_overview">Terms and Conditions</a>.
+                              <font size="-1">This tournament is brought to you by Google Inc. (<a href="http://www.google.com">http://www.google.com</a>) 2400 Bayshore Parkway, Mountain View, CA 94043 and powered by TopCoder, Inc. (<a href="http://www.topcoder.com">http://www.topcoder.com</a>) 703 Hebron Avenue, Glastonbury, CT 06033.
                               </font></p>
-
-                        </td>
-                     </tr>
-                  </table>
-                  <table border=0 cellspacing=0 width="100%">
-                     <tr>
-                        <td valign="top">
-
-
-                  <form method="post" name="frmLogin" action="<%=sessionInfo.getServletPath()%>">
-                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_LOGIN%>">
-                    <input type="hidden" name="<%=Constants.EVENT_ID%>" value="1">
-                    <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="1865">
-                    <td class="bodyText" align="center">
-                        <table border="0" cellpadding="3" cellspacing="0">
-                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
-                            <tr valign="top">
-                                <td class="errorText" colspan="3">
-                                    <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator>
-                                </td>
-                            </tr>
-
-                            <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">Handle:</td>
-                                <td colspan="2" align="left"><input type="text" name="<%=Constants.HANDLE%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
-                            </tr>
-
-                            <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">Password:</td>
-                                <td align="left"><input type="password" name="<%=Constants.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
-                                <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a></td>
-                            </tr>
-
-                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
-                        </table>
-                        <p><br/></p>
-
-                    <script>
-                      document.frmLogin.<%=Constants.HANDLE%>.focus();
-                    </script>
-
-                    </td>
-                  </form>
-
-
-
                         </td>
                      </tr>
                   </table>
@@ -157,12 +145,12 @@ function openWin(url, name, w, h) {
    </tr>
 </table>
 </div>
-<p><div class=footer>
-<small> &copy;2003 Google -
-<a href="http://www.google.com/">Home</a> -
-<a href="http://www.google.com/about.html">All About Google</a> -
-<a href="http://www.topcoder.com/?t=about_tc&c=index">About TopCoder</a> -
-<a href="http://www.google.com/jobs/">We're Hiring</a>
+<p><div class=footer> 
+<small> &copy;2003 Google - 
+<a href="http://www.google.com/">Home</a> - 
+<a href="http://www.google.com/about.html">All About Google</a> - 
+<a href="http://www.topcoder.com/?t=about_tc&c=index">About TopCoder</a> - 
+<a href="http://www.google.com/jobs/">We're Hiring</a> 
 </small>
 </p>
 </div>
