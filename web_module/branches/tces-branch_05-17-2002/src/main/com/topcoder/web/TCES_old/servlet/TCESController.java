@@ -40,7 +40,7 @@ public class TCESController extends HttpServlet {
             if (taskName == null || !TCES.navs.getHash().containsKey(taskName)) {
                 Log.msg(TASK+" not found in request. Going to default nav.");
 								if (TCES.navs.getDefaultNav() != null) {
-									forward(request,response, TCES.navs.getDefaultNav().getFullPageName());
+									//forward(request,response, TCES.navs.getDefaultNav().getFullPageName());
 									response.sendRedirect(TCESController.ALIAS + "?" + TASK + "=" + TCES.navs.getDefaultNav().getTaskKey());
 								} else {
 									response.sendRedirect("/index");

@@ -792,8 +792,7 @@ BORDER="0"></TD>
   </TR>
     <TR ALIGN="right" VALIGN="middle">
         <TD ALIGN="right" VALIGN="middle"></TD>
-        <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="statText"><INPUT TYPE="button" 
-ONCLICK="if(checkInputs())reg.submit();" NAME="continueButton" VALUE="[ continue &gt;" /></TD>
+        <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="statText"><INPUT TYPE="SUBMIT" NAME="butSubmit" VALUE="[ SAVE &gt;" /></TD>
     </TR>
   </TABLE>
 
