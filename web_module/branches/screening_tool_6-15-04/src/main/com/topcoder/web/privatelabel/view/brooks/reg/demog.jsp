@@ -72,6 +72,14 @@
                                     <input type=file name="Resume">
                                 </td>
                            </tr>
+                           <tr>
+                            <td class="brRegTableQuestion">
+                                <span class="brErrorText">* Required</span> 
+                            </td>
+                            <td class="brRegTableAnswer">
+                                &nbsp;
+                            </td>
+                        </tr>
                         <tr>
                             <td class="brRegTableQuestion"></td>
                             <td class="brRegTableAnswer" nowrap=nowrap>

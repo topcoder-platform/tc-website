@@ -167,6 +167,14 @@
                             </td>
                         </tr>
                         <tr>
+                            <td class="brRegTableQuestion">
+                                <span class="brErrorText">* Required</span> 
+                            </td>
+                            <td class="brRegTableAnswer">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
                             <td class="brRegTableQuestion"></td>
                             <td class="brRegTableAnswer">
                             <br/><a class="brRegTableAnswer" href="javascript: document.regForm.submit();">Submit</a>
