@@ -114,6 +114,21 @@
                <li>Cumulative score = Highest individual component score from Online Round #1 + (Highest individual component score from Online Round #2 x 1.3)</li>
             </ul>
             </ul>
+            <ul>
+              <li>
+            Note:  In the event of a tie in Round #2, the tie will be resolved in the following manner (in order):
+              </li>
+              <li>
+              <ul>
+              <li>
+                   By the highest individual Online Round #2 submission score
+              </li>
+              <li>
+                   If a tie still remains, the earliest submitter for the Online Round #2 contest will advance 
+              </li>
+              </ul>
+              </li>
+            </ul>
 
             <p><span class="bodySubtitle">Onsite Championship Round #3</span><br/>
              Four (4) members will compete in each competition.  The member with the highest individual component score in Round #3 will be declared the winner.</p>
