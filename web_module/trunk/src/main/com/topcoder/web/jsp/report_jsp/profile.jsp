@@ -42,6 +42,8 @@
       <input type="text" onKeyPress="submitEnter(event)" name="<%=Constants.REPORT_FIRST_NAME_KEY%>"/><br/>
       <b>Last Name: </b>
       <input type="text" onKeyPress="submitEnter(event)" name="<%=Constants.REPORT_LAST_NAME_KEY%>"/><br/><br/>
+      <b>Email Address: </b>
+      <input type="text" onKeyPress="submitEnter(event)" name="<%=Constants.REPORT_EMAIL_KEY%>"/><br/><br/>
       <a href="Javascript:document.profileForm.submit()">Submit</a>
     </form>
     <script language="javascript">
