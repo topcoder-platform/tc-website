@@ -235,10 +235,10 @@ public class PDFGenerator extends BaseProcessor {
             header.setBackgroundColor(new Color(204,0,0)); //#cc0000
             header.setBorder(Rectangle.NO_BORDER);
             
-            HeaderFooter footer = new HeaderFooter(hp,hp);
+            HeaderFooter footer = new HeaderFooter(new Phrase("  "), false);
             footer.setAlignment(Element.ALIGN_RIGHT);
             footer.setBorder(Rectangle.NO_BORDER);
-            footer.setBackgroundColor(new Color(204,204,204)); //#cccccc
+            footer.setBackgroundColor(new Color(255,255,255)); //#cccccc
             doc.setHeader(header);
             doc.setFooter(footer);
             
@@ -432,7 +432,7 @@ public class PDFGenerator extends BaseProcessor {
         ranking.addCell(inner);
         ranking.addCell(" ");
 
-        Image chart = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/graph?c=rating_distribution_graph&width=600&height=400&rt=" + info.getRating());
+        Image chart = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/graph?c=rating_distribution_graph_profile&width=600&height=400&rt=" + info.getRating());
         ranking.addCell(chart);
         ranking.addCell(new Phrase("* line indicates " + info.getHandle() + "'s rating", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
