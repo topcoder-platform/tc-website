@@ -21,18 +21,13 @@ import javax.servlet.http.Cookie;
  *
  * @author Greg Paul, Ambrose Feinstein
  */
-public class BasicAuthentication implements WebAuthentication {
+public class BasicAuthentication extends PersistorAuthentication implements WebAuthentication {
 
     private static Logger log = Logger.getLogger(BasicAuthentication.class);
 
-    private static final String USER_PERSISTOR_KEY = "user_obj";
-    private static final String USER_COOKIE_NAME = "user_id";
+    protected static final String USER_COOKIE_NAME = "user_id";
 
-    private Persistor persistor;
-    private TCRequest request;
-    private TCResponse response;
-    private User guest = SimpleUser.createGuest();
-    private Resource defaultCookiePath;
+    protected Resource defaultCookiePath;
 
     public static final Resource CORP_SITE = new SimpleResource("/corp");
     public static final Resource MAIN_SITE = new SimpleResource("/");
@@ -45,10 +40,7 @@ public class BasicAuthentication implements WebAuthentication {
      * and HTTP request and response.
      */
     public BasicAuthentication(Persistor userPersistor, TCRequest request, TCResponse response) throws Exception {
-        this.defaultCookiePath = MAIN_SITE;
-        this.persistor = userPersistor;
-        this.request = request;
-        this.response = response;
+        super(userPersistor, request, response);
         log.debug("cookie path: " + defaultCookiePath.getName());
     }
 
@@ -57,9 +49,7 @@ public class BasicAuthentication implements WebAuthentication {
      * and HTTP request, response and cookie path resource.
      */
     public BasicAuthentication(Persistor userPersistor, TCRequest request, TCResponse response, Resource r) throws Exception {
-        this.persistor = userPersistor;
-        this.request = request;
-        this.response = response;
+        super(userPersistor, request, response);
         this.defaultCookiePath = r;
     }
 
@@ -105,9 +95,8 @@ public class BasicAuthentication implements WebAuthentication {
      * 2.  clear their identifying cookies
      */
     public void logout() {
-        log.info("logging out");
+        super.logout();
         clearCookie();
-        setUserInPersistor(guest);
     }
 
 
@@ -145,16 +134,6 @@ public class BasicAuthentication implements WebAuthentication {
         } else {
             //log.debug("*** they were live***");
         }
-        return u;
-    }
-
-    /**
-     * Get the user for this session, only if they have logged in during
-     * this session.  Otherwise returns an anonymous user.
-     */
-    public User getUser() {
-        User u = getUserFromPersistor();
-        if(u == null) u = guest;
         return u;
     }
 
@@ -257,19 +236,5 @@ public class BasicAuthentication implements WebAuthentication {
         return null;
     }
 
-    private User getUserFromPersistor() {
-        return (User)persistor.getObject(request.getSession().getId()+USER_PERSISTOR_KEY);
-    }
-
-    /**
-     * Record information about who is logged in and at what level in the
-     * persistor.  Done to avoid expensive rechecking of the cookie, and to
-     * handle logins which expire with the session.
-     *
-     * @param user
-     */
-    private void setUserInPersistor(User user) {
-        persistor.setObject(request.getSession().getId()+USER_PERSISTOR_KEY, user);
-    }
 
 }
