@@ -146,31 +146,39 @@ public final class TaskStatic {
                     dataRequest = new Request();
                     dataRequest.setContentHandle("regional_tourney_competitors");
                     dataRequest.setProperty("rds", roundids.trim());
-                    for (int i=0; i<5; i++) {
+                    for (int i = 0; i < 5; i++) {
                         String regionCode = null;
-                        switch(i) {
-                            case 0: regionCode = "STH"; break;
-                            case 1: regionCode = "N"; break;
-                            case 2: regionCode = "W"; break;
-                            case 3: regionCode = "MW"; break;
-                            case 4: regionCode = "INT"; break;
+                        switch (i) {
+                            case 0:
+                                regionCode = "STH";
+                                break;
+                            case 1:
+                                regionCode = "N";
+                                break;
+                            case 2:
+                                regionCode = "W";
+                                break;
+                            case 3:
+                                regionCode = "MW";
+                                break;
+                            case 4:
+                                regionCode = "INT";
+                                break;
                         }
                         dataRequest.setProperty("rc", regionCode);
                         resultMap = dai.getData(dataRequest);
                         rsc = (ResultSetContainer) resultMap.get("Regional_Tourney_Competitors");
                         if (sortCol != null && sortDir != null)
                             rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
-                        tournamentTag.addTag(rsc.getTag(regionCode+"_Competitors", "Competitor"));
+                        tournamentTag.addTag(rsc.getTag(regionCode + "_Competitors", "Competitor"));
                     }
-                    log.debug(requestCommand);
-                    log.debug("tco03_top100");
                     if (requestCommand.equals("tco03_top100")) {
                         log.debug("in here");
                         dataRequest = new Request();
                         dataRequest.setContentHandle(requestCommand);
                         DataAccessInt dwdai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
 
-                        Map top100Map= dwdai.getData(dataRequest);
+                        Map top100Map = dwdai.getData(dataRequest);
                         ResultSetContainer top100Rsc = (ResultSetContainer) top100Map.get(requestCommand);
                         tournamentTag.addTag(top100Rsc.getTag("Competitors", "Competitor"));
 
@@ -185,6 +193,26 @@ public final class TaskStatic {
                 e.printStackTrace();
             }
         }
+
+        RecordTag tournamentTag = new RecordTag("TOURNAMENTS");
+        try {
+            if (requestCommand.equals("tco03_top100")) {
+                log.debug("in here");
+                dataRequest = new Request();
+                dataRequest.setContentHandle(requestCommand);
+                DataAccessInt dwdai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
+
+                Map top100Map = dwdai.getData(dataRequest);
+                ResultSetContainer top100Rsc = (ResultSetContainer) top100Map.get(requestCommand);
+                tournamentTag.addTag(top100Rsc.getTag("Competitors", "Competitor"));
+
+            }
+            document.addTag(tournamentTag);
+        } catch (Exception e) {
+            log.error("failed to get tco03 top 100 from db");
+            e.printStackTrace();
+        }
+
         /* getting this here for the tces/hiring page */
         try {
             ctx = TCContext.getInitial();
