@@ -466,7 +466,7 @@ SELECT c.coder_id,
        jh.job_id,
        u.handle,
        r.rating,
-       c.state_code,
+       (CASE WHEN c.state_code = 'ZZ' THEN '' ELSE c.state_code END) as state_code,
        country.country_name AS country_code,
        ct.coder_type_desc,
        (CASE WHEN c.coder_type_id = 1 THEN cs.school_name
@@ -504,7 +504,7 @@ SELECT c.coder_id,
        jh.job_id,
        u.handle,
        r.rating,
-       c.state_code,
+       (CASE WHEN c.state_code = 'ZZ' THEN '' ELSE c.state_code END) as state_code,
        country.country_name AS country_code,
        ct.coder_type_desc,
        (CASE WHEN c.coder_type_id = 1 THEN cs.school_name
@@ -681,7 +681,7 @@ SELECT c.coder_id
      , c.address1
      , c.address2
      , c.city
-     , c.state_code
+     , (CASE WHEN c.state_code = 'ZZ' THEN '' ELSE c.state_code END) as state_code
      , c.zip
      , cy.country_name
      , u.email
