@@ -57,15 +57,17 @@ public class SearchBean extends BaseEJB {
         query.append(" ,CASE WHEN r.rating > 0 THEN 1 ELSE 2 END AS rating_order");
         query.append(" FROM coder c");
         query.append(" ,rating r");
-        if (search.getMonthsSinceLastComp() == -1)
+        if (search.getMonthsSinceLastComp() == -1) {
             query.append(" ,OUTER round ro");
-        else
+        } else {
             query.append(" ,round ro");
-        query.append(" ,calendar cal");
+            query.append(" ,calendar cal");
+        }
         query.append(" WHERE r.coder_id = c.coder_id");
         query.append(" AND r.last_rated_round_id = ro.round_id");
         query.append(" AND c.status = 'A'");
-        query.append(" AND ro.calendar_id = cal.calendar_id");
+        if (search.getMonthsSinceLastComp() != -1) {
+            query.append(" AND ro.calendar_id = cal.calendar_id");
         if (!search.getHandle().equals("%")) {
             query.append(" AND LOWER(c.handle) LIKE LOWER('");
             query.append(search.getHandle());
