@@ -90,14 +90,24 @@
                                                         The existing system is now outdated, slow and the user interface
                                                         is hard to navigate.  Utilizing the latest Microsoft .NET technologies,
                                                         a new faster, more extensible and user friendly application will be
-                                                        designed.  Not only will the new system be easier to navigate, but
-                                                        the maintenance of the system will be dramatically improved.  All
-                                                        business, data access and presentation logic will be properly separated
-                                                        into distinct tiers.  Separating each tier into a different layer will
-                                                        reduce maintenance costs and increase reusability.  Furthermore, the
-                                                        old application resides on a soon to be unsupported environment, NT4;
-                                                        the new environment will be hosted on Windows Server 2003.  This technology
-                                                        will increase the speed and scalability of the application.
+                                                        designed.  Not only will the new system be easier to navigate, but the
+                                                        maintenance of the system will be dramatically improved.  All business,
+                                                        data access and presentation logic will be properly separated into distinct
+                                                        tiers.  Separating each tier into a different layer will reduce maintenance
+                                                        costs and increase reusability.  Furthermore, the old application resides
+                                                        on a soon to be unsupported environment, NT4; the new environment will be
+                                                        hosted on Windows Server 2003.  This technology will increase the speed
+                                                        and scalability of the application.
+                                                        <br/>
+                                                        <br/>
+                                                        The new system will provide an electronic web based interface to remove all
+                                                        paperwork associated with processing orders.  Internal sales representatives
+                                                        will enter order information for external customers into the new system.
+                                                        Once these orders have been entered the orders will be sent to the factories.
+                                                        The factories will receive the order and transmit a record back to the system
+                                                        stating the order was received and an expected completion date.  Users of the
+                                                        system will be able to view all orders to determine an order’s status and completion times.
+                                                        Communication between the system and the factories is not in scope for this application.
                                                         <br/>
                                                         <br/>
                                                     </p>
@@ -109,17 +119,11 @@
                                                         <li>Deliver the ability to scale through the addition of hardware, not requiring changes to the underlying software.</li>
                                                         <li>Deliver an improved user experience and site navigation.</li>
                                                     </ul>
-
-
-
-
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
                                                         View the <a target="_new" class="bodyText" href="/i/development/downloads/Palm_Common_Remote_Connectivity_App_Req_Spec2.pdf">Business Requirement Specification</a> for this application project.
                                                     </p>
-
-
                                                     <!-- Technologies -->
                                                     <p class="noSpListTitle">
                                                         <strong>Technical Architecture Requirements</strong>
