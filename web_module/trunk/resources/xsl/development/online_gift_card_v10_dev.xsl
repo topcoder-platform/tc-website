@@ -81,7 +81,7 @@
                                             <a href="#eligibility">Eligibility</a> |
                                             <a href="#timeline">Timeline</a> |
                                             <a target="_new" href="/i/development/downloads/GiftCardApplicationSpec_v10.pdf">Requirement Specification</a> |
-                                            <a target="#Inquiry">Inquire</a>
+                                            <a target="#Inquire">Inquire</a>
                                         </p>
 
                                         <!-- Overview -->
