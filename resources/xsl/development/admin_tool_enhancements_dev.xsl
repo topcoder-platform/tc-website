@@ -151,7 +151,7 @@
                                         <br/>
                                         <p>Compensation for the second place developer will be paid in one installment following the completion of the development project.</p>
                                         <p>
-                                            <strong>Winning Developer</strong>
+                                            <strong>Winning Developer (1 Per Group)</strong>
                                             <br/>
                                             Total Payment - $2,200.00
                                             <br/>
@@ -160,7 +160,7 @@
                                             Final Payment - $875.00
                                             <br/>
                                         </p>
-                                        <strong>Second Place Developer</strong>
+                                        <strong>Second Place Developer (1 Per Group)</strong>
                                         <br/>
                                         Total Payment - 665.00
                                         <!-- Definition of Completion -->
