@@ -58,9 +58,22 @@ abstract public class ContractingBase extends BaseProcessor {
             
             setDefaults(info);
             
-            contractingProcessing();  
+            //check for errors based on previous page, hand off processing to
+            //original processor if errors occur
+            if(errorCheck()) {
+                //errors occured
+                ContractingBase errorProcessor = getOldProcessor();
+                errorProcessor.setRequest(getRequest());
+                errorProcessor.setResponse(getResponse());
+                
+                errorProcessor.contractingProcessing();
+                errorProcessor.setNextPage();
+            } else {
             
-            setNextPage();
+                contractingProcessing();  
+            
+                setNextPage();
+            }
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
@@ -68,7 +81,61 @@ abstract public class ContractingBase extends BaseProcessor {
         }
     }
     
-    protected static DataAccessInt getDataAccess() throws Exception {
+    protected ContractingBase getOldProcessor() {
+        if(getRequestParameter("previouspage").equals("preferences"))
+        {
+            return new Preferences();
+        }
+        return null;
+    }
+    
+    protected final static String[] contractingPreferences = new String[] { "3", "4", "5", "6"};
+    protected final static String[] permanentPreferences = new String[] { "8", "9"};
+    
+    protected boolean errorCheck() {
+        if(getRequestParameter("previouspage") == null)
+            return false;
+        
+        if(getRequestParameter("previouspage").equals("preferences"))
+        {
+            //if each checkbox is checked, they have to supply values to every
+            //preference underneath it
+            boolean good = false;
+            if(info.getPreference(Constants.PREFERENCE_CONTRACTING) != null &&
+                info.getPreference(Constants.PREFERENCE_CONTRACTING).equals(Constants.PREFERENCE_CONTRACTING_TRUE))
+            {
+                good = true;
+                //ids to check are 3,4,5,6
+                for(int i = 0 ; i < contractingPreferences.length; i++) {
+                    if(info.getPreference(contractingPreferences[i]) == null) {
+                        addError(Constants.PREFERENCE_PREFIX + contractingPreferences[i], "This question is required.");
+                    }
+                }
+            }
+            
+            if(info.getPreference(Constants.PREFERENCE_PERMANENT) != null &&
+                info.getPreference(Constants.PREFERENCE_PERMANENT).equals(Constants.PREFERENCE_PERMANENT_TRUE))
+            {
+                good = true;
+                //ids to check are 3,4,5,6
+                for(int i = 0 ; i < permanentPreferences.length; i++) {
+                    if(info.getPreference(permanentPreferences[i]) == null) {
+                        addError(Constants.PREFERENCE_PREFIX + permanentPreferences[i], "This question is required.");
+                    }
+                }
+            }
+            
+            if(!good) {
+                addError(Constants.PREFERENCE_PREFIX + Constants.PREFERENCE_CONTRACTING, "Please indicate interest in either contract or permanent positions.");
+            }
+            
+            if(hasErrors())
+                return true;
+        }
+        return false; 
+    }
+    
+    protected static DataAccessInt getDataAccess() throws Exception { 
        DataAccessInt dAccess = null;
        dAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
        return dAccess;
@@ -87,7 +154,7 @@ abstract public class ContractingBase extends BaseProcessor {
     protected abstract void setNextPage();
     
     protected ContractingInfo updateContractingInfo(ContractingInfo info) {
-        if(getRequestParameter("dataToLoad") != null && getRequestParameter("dataToLoad").equals("preferences")) {
+        if(getRequestParameter("previouspage") != null && getRequestParameter("previouspage").equals("preferences")) {
             log.debug("LOADING DATA FROM REQUEST");
             info.clearPreferences();
             
