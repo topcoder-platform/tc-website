@@ -400,11 +400,6 @@ public final class TaskDevelopment {
                     long componentId = Long.parseLong(request.getParameter("comp"));
                     if (!isProjectLockedOut(componentId, version, phase)) {
 
-
-                        log.debug("component status " + getComponentManager(componentId, version).getComponentInfo().getStatus());
-
-
-
                         long userId;
                         devTag.addTag(new ValueTag("Project", project));
 
@@ -632,6 +627,17 @@ public final class TaskDevelopment {
         r.setProperty("ph", String.valueOf(phase));
         ResultSetContainer rsc = (ResultSetContainer)dAccess.getData(r).get("inquiry_count");
         return rsc.getIntItem(0,"count")>=Constants.MAX_INQUIRIES;
+    }
+
+    static boolean isTournamentComponent(long componentId, long version, long phase) throws Exception {
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("component_dates_status");
+        r.setProperty("cd", String.valueOf(componentId));
+        r.setProperty("vid", String.valueOf(version));
+        r.setProperty("ph", String.valueOf(phase));
+        ResultSetContainer rsc = (ResultSetContainer)dAccess.getData(r).get("component_dates_status");
+        return rsc.getIntItem(0,"status_id")==Constants.TOURNAMENT_COMPONENT;
     }
 
     static ComponentManager getComponentManager(long componentId) {

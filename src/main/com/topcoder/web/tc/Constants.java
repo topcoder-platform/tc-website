@@ -97,6 +97,7 @@ public class Constants {
     public static int FLASH_CATALOG_ID;
     public static int MAX_INQUIRIES;
     public static int REVIEWER_TERMS_ID;
+    public static int TOURNAMENT_COMPONENT;
 
 
     static {
