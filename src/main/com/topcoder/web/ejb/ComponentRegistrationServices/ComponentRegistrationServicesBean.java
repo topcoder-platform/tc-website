@@ -11,9 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * @author Nathan Egge (negge@vt.edu)
- */
 public class ComponentRegistrationServicesBean extends BaseEJB {
 
     private final static Logger log = Logger.getLogger(ComponentRegistrationServicesBean.class);
@@ -189,7 +186,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             query.append("and pi1.project_id = p.project_id ");
             query.append("and pi1.phase_id = 1 ");
             query.append("and pi1.cur_version = 1 ");
-            query.append("and EXTEND(pi1.start_date, YEAR to HOUR) + 2 units day + 9 units hour < current");
+            query.append("and EXTEND(pi1.start_date, YEAR to HOUR) + 3 units day + 9 units hour < current");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, projectId);
