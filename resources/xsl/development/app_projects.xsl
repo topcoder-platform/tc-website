@@ -73,6 +73,23 @@
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
 
+				                <tr valign="top">
+				                    <td class="projectCells" colspan="4"><a href="?t=development&amp;c=PMD_v10_des">Project Management Dashboard</a></td>
+				                </tr>
+				                <tr valign="top">
+				                    <td class="projectCells">&#160;&#160;&#160;&#160;Dashboard Service</td>
+				                    <td class="projectCells" align="center">$1,770</td>
+				                    <td class="projectCells" align="center">$570</td>
+				                    <td class="projectCells" align="center">07.09.2004 9:00 AM ET</td>
+				                </tr>
+
+				                <tr valign="top">
+				                    <td class="projectCells">&#160;&#160;&#160;&#160;Dashboard Reports</td>
+				                    <td class="projectCells" align="center">$2,250</td>
+				                    <td class="projectCells" align="center">$720</td>
+				                    <td class="projectCells" align="center">07.09.2004 9:00 AM ET</td>
+				                </tr>
+
                                 <tr valign="top">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=GeneChip_Data_Interface">GeneChip Data Interface</a>
