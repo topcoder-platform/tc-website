@@ -19,7 +19,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.web.reg.bean.Registration;
+import com.topcoder.web.tc.controller.legacy.reg.bean.Registration;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.BaseServlet;

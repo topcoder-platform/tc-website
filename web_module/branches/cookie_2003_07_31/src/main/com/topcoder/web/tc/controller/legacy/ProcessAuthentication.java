@@ -7,7 +7,7 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.reg.bean.Registration;
+import com.topcoder.web.tc.controller.legacy.reg.bean.Registration;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.common.web.data.Sector;
 import com.topcoder.common.web.data.User;

@@ -19,6 +19,9 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.tc.model.CoderSessionInfo;
 
 import javax.naming.Context;
 import javax.servlet.RequestDispatcher;
@@ -323,6 +326,35 @@ public final class MainServlet extends HttpServlet {
                     //out.print ( HTMLString );
                 }
             }
+        } catch (PermissionException pe) {
+            log.debug("caught PermissionException");
+            try {
+                if (!nav.isIdentified()) {
+                    CoderSessionInfo info = nav.getSessionInfo();
+                    /* forward to the login page, with a message and a way back */
+                    request.setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name " +
+                            "and password.");
+                    request.setAttribute(BaseServlet.NEXT_PAGE_KEY, info.getRequestString());
+
+                    request.setAttribute("module", "Login");
+                    fetchRegularPage(request, response, info.getServletPath(), true);
+                    return;
+
+                 } else {
+                    log.info("already logged in, rethrowing");
+                    throw pe;
+                 }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    showInternalError(request, response);
+                } catch (Exception end) {
+                    try {
+                        goTo("general_error.html", request, response);
+                    } catch (Exception ignore) {
+                    }
+                }
+            }
         } catch (NavigationException ne) {
             try {
                 out = response.getWriter();
@@ -387,6 +419,27 @@ public final class MainServlet extends HttpServlet {
 
     private Navigation getNav(HttpServletRequest request) {
         return (Navigation)request.getSession(true).getAttribute("navigation");
+    }
+
+    protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
+                                  boolean forward) throws Exception {
+
+        String contextPrefix = request.getContextPath();
+        boolean startsWithContextPath = dest.startsWith(contextPrefix);
+        if (forward) {
+            // forwarded pages *must not* contain servlet context path
+            if (startsWithContextPath) {
+                dest = dest.substring(contextPrefix.length());
+            }
+            if (!dest.startsWith("/")) {
+                dest = "/" + dest;
+            }
+            log.debug("forwarding to " + dest);
+            getServletContext().getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
+        } else {
+            log.debug("redirecting to " + dest);
+            response.sendRedirect(response.encodeRedirectURL(dest));
+        }
     }
 
 
