@@ -1,7 +1,7 @@
 /*
  * Common.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.persistence;
@@ -29,8 +29,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import java.util.Hashtable;
-
 import javax.ejb.CreateException;
 
 import javax.naming.Context;
@@ -50,7 +48,7 @@ import javax.sql.DataSource;
 public class Common {
     public static int MAX_FIELD_SIZE = 20000;
     private static UserManagerLocal userManager = null;
-    private static PolicyRemote policy = null;
+//    private static PolicyRemote policy = null;
     private static Log log;
 
     public static boolean tooBig(String s) {
@@ -308,7 +306,7 @@ public class Common {
 
     /**
      * @param project
-     * @param requestor
+     * @param requestorId
      * @return
      */
     public static boolean isRole(Project project, long requestorId, long role) {
