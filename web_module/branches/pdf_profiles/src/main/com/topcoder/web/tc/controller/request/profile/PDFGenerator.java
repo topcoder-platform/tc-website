@@ -78,7 +78,7 @@ public class PDFGenerator extends BaseProcessor {
         if(getRequest() instanceof MultipartRequest) {
             MultipartRequest request = (MultipartRequest)getRequest();
             log.debug("RYAN");
-            log.debug(request.getUploadedFile("logo"));
+            log.debug(request.getUploadedFile("logo").getSize());
             config.setCompanyLogo(request.getUploadedFile("logo"));
         }
 
@@ -123,7 +123,7 @@ public class PDFGenerator extends BaseProcessor {
         if(rsc.getIntItem(0, "challenge_attempts_made") == 0) {
             config.setChallengeSuccessRatio("N/A");
         } else {
-            config.setChallengeSuccessRatio(formater.format(rsc.getDoubleItem(0, "challenge_attempts_made")/rsc.getDoubleItem(0, "challenges_made_successful")) + "%" );
+            config.setChallengeSuccessRatio(formater.format(rsc.getDoubleItem(0, "challenge_attempts_made")/rsc.getDoubleItem(0, "challenges_made_successful")*100.0) + "%" );
         }
         
         config.setSubmissionRatio(rsc.getStringItem(0, "problems_submitted") + " out of " + rsc.getStringItem(0, "problems_presented") + " (" + formater.format(rsc.getDoubleItem(0, "problems_submitted")/rsc.getDoubleItem(0, "problems_presented")*100.0) + "%)" );
