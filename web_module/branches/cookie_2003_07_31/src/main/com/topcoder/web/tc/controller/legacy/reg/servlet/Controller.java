@@ -6,6 +6,9 @@ import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.controller.legacy.reg.bean.Task;
 import com.topcoder.web.tc.controller.legacy.reg.bean.TaskException;
+import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.BaseServlet;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -77,7 +80,6 @@ public class Controller
                         return;
                     }
                 }
-                com.topcoder.web.tc.controller.legacy.reg.bean.Registration r = (com.topcoder.web.tc.controller.legacy.reg.bean.Registration)task;
                 task.setUser(getUser(session));
                 task.setStep(request.getParameter(STEP));  //the only use for this seems to be to clear notifications
 
@@ -101,6 +103,28 @@ public class Controller
             }
         } catch (ServletException se) {
             throw se;
+        } catch (PermissionException pe) {
+            log.debug("caught PermissionException");
+            try {
+                Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
+                if (nav!=null && !nav.isLoggedIn()) {
+                    CoderSessionInfo info = nav.getSessionInfo();
+                    /* forward to the login page, with a message and a way back */
+                    request.setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name " +
+                            "and password.");
+                    request.setAttribute(BaseServlet.NEXT_PAGE_KEY, info.getRequestString());
+
+                    request.setAttribute("module", "Login");
+                    fetchRegularPage(request, response, "/tc", true);
+                    return;
+
+                 } else {
+                    log.info("already logged in, rethrowing");
+                    throw pe;
+                 }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             throw new ServletException(e.getMessage());
@@ -108,6 +132,27 @@ public class Controller
             if (session != null) {
                 setNavigation(session);
             }
+        }
+    }
+
+    protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
+                                  boolean forward) throws Exception {
+
+        String contextPrefix = request.getContextPath();
+        boolean startsWithContextPath = dest.startsWith(contextPrefix);
+        if (forward) {
+            // forwarded pages *must not* contain servlet context path
+            if (startsWithContextPath) {
+                dest = dest.substring(contextPrefix.length());
+            }
+            if (!dest.startsWith("/")) {
+                dest = "/" + dest;
+            }
+            log.debug("forwarding to " + dest);
+            getServletContext().getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
+        } else {
+            log.debug("redirecting to " + dest);
+            response.sendRedirect(response.encodeRedirectURL(dest));
         }
     }
 
@@ -157,7 +202,7 @@ public class Controller
             if (navigation == null) { 
                 log.debug("navigation object was null");
                 navigation = new Navigation();
-                session.setAttribute(NAVIGATION, (Navigation)navigation);
+                session.setAttribute(NAVIGATION, navigation);
             }
             log.debug("navigation isserializable: " + ((Navigation)navigation).userIsSerializable());
             if (navigation instanceof Navigation) {
