@@ -80,7 +80,7 @@ public class Submit extends FullRegSubmit {
     }
 
     protected void setNextPage() {
-        setNextPage(Constants.GOOGLE_INDIA_05_REG_SUCCESS_PAGE);
+        setNextPage("/"+Constants.MODULE_KEY+"="+Constants.STATIC+Constants.GOOGLE_INDIA_05_REG_SUCCESS_PAGE);
         setIsNextPageInContext(false);
     }
 
