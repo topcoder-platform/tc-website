@@ -1,4 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <%@  page
   language="java"
   import="java.util.*,
@@ -26,10 +25,6 @@
 					
 					
 			%>	
-			
-			
-
-
 <table width="100%" class="srmFrame">
 <tr><td colspan="2" class="srmQuestion">Repeat Participant Aging</td></tr>
 <tr>

@@ -28,11 +28,7 @@
 					ResultSetContainer rsc2 = (ResultSetContainer)dataMap.get("srm_survey_groups");
 					ResultSetContainer rsc3 = (ResultSetContainer)dataMap.get("srm_survey_total");
 					ResultSetContainer rsc4 = (ResultSetContainer)dataMap.get("srm_survey_answers");
-					ResultSetContainer rsc5 = (ResultSetContainer)dataMap.get("srm_qry_chooser");
-					
-					
-					
-			%>		
+%>		
 					
                     
 <%! 
@@ -45,9 +41,6 @@ private String getPercentage (ResultSetContainer total, ResultSetContainer.Resul
    
 }
 %>
-<jsp:include page="css.jsp" />
-<jsp:include page="../script.jsp" />
-
 
  <table width="100%" class="srmFrame">
  

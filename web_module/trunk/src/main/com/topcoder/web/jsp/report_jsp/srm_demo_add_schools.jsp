@@ -11,7 +11,6 @@
 		  java.text.DecimalFormat,
 		  java.math.BigInteger
 		  "
-
 %>
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%
@@ -28,33 +27,26 @@
 
 String avg_rating_stg;
 			%>	
-			
-			
-
-
-	
 <table width="100%" class="srmFrame">	
-<tr><td colspan="3" class="srmQuestion">School Represented (students)</td></tr>
-<tr>
-<td class="bodyText"><strong>School</strong></td>
-<td class="bodyText"><strong>Coders</strong></td>
-<td class="bodyText"><strong>Avg Rating</strong></td>
-</tr>
-<%boolean even=false;%>
+  <tr>
+    <td colspan="3" class="srmQuestion">School Represented (students)</td>
+  </tr>
+  <tr>
+    <td class="bodyText"><strong>School</strong></td>
+    <td class="bodyText"><strong>Coders</strong></td>
+    <td class="bodyText"><strong>Avg Rating</strong></td>
+  </tr>
+  <%boolean even=false;%>
   <rsc:iterator list="<%=rsc%>" id="Row" >
- <tr>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="school_name"%>' row="<%=Row%>"/></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="cnt"%>' row="<%=Row%>"/></td>
-  <td align = right class="<%=even?"srmTableEven":"srmTableOdd"%>" >
-  <% 
-  DecimalFormat df = new DecimalFormat("0.00");
-  avg_rating_stg = df.format(Float.parseFloat(Row.getItem("avg_rating").toString()));
-  df = null;
-   %>
-   <%= avg_rating_stg %>
-  </td>
- </tr>
- <%even=!even;%>
+    <tr>
+      <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="school_name"%>' row="<%=Row%>"/></td>
+      <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="cnt"%>' row="<%=Row%>"/></td>
+      <td align = right class="<%=even?"srmTableEven":"srmTableOdd"%>" >
+      <% DecimalFormat df = new DecimalFormat("0.00");
+        avg_rating_stg = df.format(Float.parseFloat(Row.getItem("avg_rating").toString()));
+        df = null;%>
+      <%= avg_rating_stg %></td>
+    </tr>
+    <%even=!even;%>
   </rsc:iterator>
-
 </table>

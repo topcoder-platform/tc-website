@@ -1,4 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <%@  page
   language="java"
   import="java.util.*,
@@ -43,8 +42,6 @@ long tot_succ =0;
 long lang_tot_subs = 0;
 long lang_tot_succ = 0;
 %>	
-<jsp:include page="css.jsp" />
-<jsp:include page="../script.jsp" />
 <%! 
 private String getPercentage (ResultSetContainer total, int total_row, String total_col, int valu_row, String valu_col){
 //System.out.println(total.toString());

@@ -14,16 +14,23 @@
 
 %>
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
-
-					
-                    
-
 <jsp:include page="css.jsp" />
 <jsp:include page="../script.jsp" />
 
 
 <html>
   <head>
+  <script language="JavaScript">
+  <!--
+    function goTo(selection){
+      sel = selection.options[selection.selectedIndex].value;
+      if (sel && sel != '#'){
+        window.location=sel;
+      }
+    }
+  // -->
+  </script>  
+  
     <title>TopCoder SRM Reports</title>
   </head>
   <body>

@@ -24,7 +24,21 @@
 
 <html>
   <head>
+  <script language="JavaScript">
+  <!--
+    function goTo(selection){
+      sel = selection.options[selection.selectedIndex].value;
+      if (sel && sel != '#'){
+        window.location=sel;
+      }
+    }
+  // -->
+  </script> 
+  
+  
+  
     <title>TopCoder SRM Reports</title>
+
   </head>
   <body>
   <table width=100%>

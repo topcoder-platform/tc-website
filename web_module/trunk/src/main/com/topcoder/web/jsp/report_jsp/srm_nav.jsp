@@ -1,7 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<jsp:include page="css.jsp" />
-
-
 <table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="170">
 	<tr>
 		<td bgcolor="#222222" valign="top"><img border="0" src="/i/clear.gif" height="1" width="6" alt=""></td>

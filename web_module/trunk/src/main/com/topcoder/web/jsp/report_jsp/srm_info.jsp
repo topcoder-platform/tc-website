@@ -12,7 +12,7 @@
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%
                 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
-				dataRequest.setContentHandle("srm_survey_report");
+				dataRequest.setContentHandle("srm_match_info");
 				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
 				
 				           DataAccessInt dai = new DataAccess(
@@ -25,4 +25,8 @@
 					
 					
 			%>		
-<table><tr><td class=sectionTitle><%= rsc.getItem(0,"contest_name") %> on <%= rsc.getItem(0,"contest_date") %></td></tr></table>			
+<table>
+  <tr>
+    <td class=sectionTitle><%= rsc.getItem(0,"contest_name") %> on <%= rsc.getItem(0,"contest_date") %></td>
+  </tr>
+</table>			
