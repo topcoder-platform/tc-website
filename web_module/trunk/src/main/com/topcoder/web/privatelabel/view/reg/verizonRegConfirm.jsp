@@ -166,7 +166,7 @@
                 </td>
             </tr>
 
-            <pl:responseIterator id="response" list="responseList">
+            <pl:responseIterator id="response" list="<%=responseList%>">
                 <tr>
                     <td align="right">
                         <pl:demographicQuestionText questions="<%=questionMap%>" response="<%=response%>"/>
