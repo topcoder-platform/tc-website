@@ -101,7 +101,12 @@ public class AppealProject implements Model {
                 }
 
                 // check project phase
+/* by cucu
                 if (project.getCurrentPhase().getId() != Phase.ID_APPEALS) {
+*/
+
+                if ((project.getCurrentPhase().getId() != Phase.ID_APPEALS) &&
+                    (project.getCurrentPhase().getId() != Phase.ID_APPEALS_RESPONSE)) {
                     return new FailureResult("You can appeal only during the appeal phase");
                 }
 
@@ -109,15 +114,15 @@ public class AppealProject implements Model {
                         PermissionHelper.isAdmin(user)) {
                     appeal.setResolved(true);
                 }
-                
+
                 Context initial = new InitialContext();
                 UserTransaction ut = (UserTransaction) initial.lookup("java:comp/UserTransaction");
                 try {
                     ut.begin();
-    
+
                     // Save appeal (and modified question)
                     documentManager.saveAppeal(appeal, project, user.getTCSubject());
-    
+
                     // Mail changes to appealer/reviewer
                     if (appeal.isResolved()) {
                         // compute score and save the ReviewScorecard
@@ -130,9 +135,9 @@ public class AppealProject implements Model {
                             return new FailureResult("Error while calculating the score: ", e);
                         }
                         documentManager.saveReviewScorecard(scorecard, user.getTCSubject());
-                    	MailHelper.appealResolved(project, appeal);
+                        MailHelper.appealResolved(project, appeal);
                     } else {
-                    	MailHelper.appealCreated(project, appeal);
+                        MailHelper.appealCreated(project, appeal);
                     }
                     if (ut != null) {
                         ut.commit();
