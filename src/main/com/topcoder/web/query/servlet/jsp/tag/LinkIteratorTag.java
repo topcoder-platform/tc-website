@@ -13,7 +13,7 @@ public class LinkIteratorTag extends IteratorTag {
     
      List linkList;
 
-    public void setLinkList(List linkList) {
+    public void setList(List linkList) {
         this.linkList = linkList;
     }
 
