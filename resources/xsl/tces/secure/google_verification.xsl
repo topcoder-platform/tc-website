@@ -70,24 +70,28 @@
 
                            <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
 
-<p><B>Software Engineering</B><br/>
+<p><B>Verification</B><br/>
+Google is looking for experienced software engineers to develop regression testbeds that rigorously and automatically verify the correct operation of large software systems. We need people who have a passion for correctness, write great software, and naturally think of the tough corner cases and race conditions where software might fail. </p>
 
-Positions available in Mountain View, CA, New York, NY, and Santa Monica, CA.</p>
+<p>If you have a background in verifying networking products or ASICs, this position is a good match for you (although experience in the networking or ASIC areas is not required). </p>
 
-<p>Google is growing! We need world-class engineers to develop the next generation search engine. Our engineering team is working on problems 
-in a number of areas, including cutting-edge information retrieval algorithms, scalability issues related to dealing with huge amounts of data and 
-a rapidly increasing user population, and a variety of novel search features. If you have a need to bring order to a chaotic web, contact us.</p>
+<p>ou should have a strong understanding and appreciation of good software development processes. You will be working as a member of a project team to improve the quality and process of our software. </p>
+
+<p>Responsibilities include: Writing automated regression and unit tests, tracking defects, managing project documentation, and maintaining liaison to manual and exploratory testing. Here's an excellent opportunity for you to use your talents to help us provide quality products that improve the web experience for millions of users. </p>
 
 <p><B>Requirements</B></p>
 <ul>
-<li>BS or MS in Computer Science or equivalent (PhD a plus)</li>
-<li>Several years of software development experience</li>
-<li>Enthusiasm for solving interesting problems</li>
-<li>Experience with Unix/Linux or Windows environments, C++ development, distributed systems, machine learning, information retrieval, network programming and/or developing large software systems a plus</li>
+<li>3+ years of development experience, preferably in verifying software (including Verilog, ASIC, or embedded systems verifications)</li>
+<li>Excellent Java or C++ programming skills </li>
+<li>Excellent Unix/Linux and shell scripting skills </li>
+<li>Outstanding communication skills </li>
+<li>Strong theoretical and practical interest in SW quality measurement and improvement </li>
+<li>Extreme attention to detail </li>
+<li>MS/PhD in CS or EE desirable </li>
 </ul>
-	
-<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=138&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
 
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=141&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+<br/><br/>
                            
 
                         </TD>

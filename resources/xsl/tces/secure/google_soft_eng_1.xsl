@@ -70,24 +70,19 @@
 
                            <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
 
-<p><B>Software Engineering</B><br/>
-
-Positions available in Mountain View, CA, New York, NY, and Santa Monica, CA.</p>
-
-<p>Google is growing! We need world-class engineers to develop the next generation search engine. Our engineering team is working on problems 
-in a number of areas, including cutting-edge information retrieval algorithms, scalability issues related to dealing with huge amounts of data and 
-a rapidly increasing user population, and a variety of novel search features. If you have a need to bring order to a chaotic web, contact us.</p>
+<p><B>Software Engineering #1</B><br/>
+Use skills in Java, object oriented programming and user interface design to research, develop and design Web-based applications for a search engine company. Duties include: resolving database and scalability issues related to large-scale Web Applications and designing and implementing a complex Web-based user interface.</p>
 
 <p><B>Requirements</B></p>
 <ul>
-<li>BS or MS in Computer Science or equivalent (PhD a plus)</li>
-<li>Several years of software development experience</li>
-<li>Enthusiasm for solving interesting problems</li>
-<li>Experience with Unix/Linux or Windows environments, C++ development, distributed systems, machine learning, information retrieval, network programming and/or developing large software systems a plus</li>
+<li>MS CS</li>
+<li>3 yrs exp in the job offered or as a Software Analyst </li>
+<li>Experience in Java web application programming, SQL (including database design) </li>
+<li>Development in UNIX/LINUX environment </li>
 </ul>
 	
-<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=138&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
-
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=145&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+<br/><br/>
                            
 
                         </TD>

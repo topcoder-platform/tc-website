@@ -70,24 +70,23 @@
 
                            <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
 
-<p><B>Software Engineering</B><br/>
+<p><B>Java</B><br/>
 
-Positions available in Mountain View, CA, New York, NY, and Santa Monica, CA.</p>
+We are hiring Java software engineers to write server-side code for web-based applications for both internal and external use. We are 
+looking for well-rounded developers who know how to create robust production applications and can also develop prototypes quickly. You 
+should have a good understanding of, and practical production experience with, Java web application development. </p>
 
-<p>Google is growing! We need world-class engineers to develop the next generation search engine. Our engineering team is working on problems 
-in a number of areas, including cutting-edge information retrieval algorithms, scalability issues related to dealing with huge amounts of data and 
-a rapidly increasing user population, and a variety of novel search features. If you have a need to bring order to a chaotic web, contact us.</p>
-
-<p><B>Requirements</B></p>
+<p><B>Requirements: </B></p>
 <ul>
-<li>BS or MS in Computer Science or equivalent (PhD a plus)</li>
-<li>Several years of software development experience</li>
-<li>Enthusiasm for solving interesting problems</li>
-<li>Experience with Unix/Linux or Windows environments, C++ development, distributed systems, machine learning, information retrieval, network programming and/or developing large software systems a plus</li>
+<li>BS/MS in Computer Science or equivalent </li>
+<li>3+ years Java web application programming experience, 5+ years industry experience </li>
+<li>Experience using SQL including some database design </li>
+<li>Significant development experience in a Unix/Linux environment </li>
+<li>Experience with Python, C++, JavaScript desired </li>
 </ul>
-	
-<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=138&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
 
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=139&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+<br/><br/>
                            
 
                         </TD>

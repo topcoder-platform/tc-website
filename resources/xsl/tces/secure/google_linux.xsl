@@ -70,24 +70,22 @@
 
                            <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
 
-<p><B>Software Engineering</B><br/>
-
-Positions available in Mountain View, CA, New York, NY, and Santa Monica, CA.</p>
-
-<p>Google is growing! We need world-class engineers to develop the next generation search engine. Our engineering team is working on problems 
-in a number of areas, including cutting-edge information retrieval algorithms, scalability issues related to dealing with huge amounts of data and 
-a rapidly increasing user population, and a variety of novel search features. If you have a need to bring order to a chaotic web, contact us.</p>
+<p><B>Linux Kernel</B><br/>
+Google is growing! We need world-class engineers to develop the next generation search engine. Our engineering team is working on problems in a number of areas, including cutting-edge information retrieval algorithms, scalability issues related to dealing with huge amounts of data and a rapidly increasing user population, and a variety of novel search features. If you have a need to bring order to a chaotic web, contact us.</p>
 
 <p><B>Requirements</B></p>
 <ul>
-<li>BS or MS in Computer Science or equivalent (PhD a plus)</li>
-<li>Several years of software development experience</li>
-<li>Enthusiasm for solving interesting problems</li>
-<li>Experience with Unix/Linux or Windows environments, C++ development, distributed systems, machine learning, information retrieval, network programming and/or developing large software systems a plus</li>
+<li>BS or MS in Computer Science or equivalent (Ph.D. a plus) </li>
+<li>Several years of software development experience </li>
+<li>Extensive experience programming in C++ </li>
+<li>Extensive knowledge of Unix/Linux or Windows environments </li>
+<li>Knowledge of TCP/IP and network programming </li>
+<li>Experience developing/designing large software systems </li>
+<li>Experience programming in Python a plus </li>
 </ul>
 	
-<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=138&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
-
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=143&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+<br/><br/>
                            
 
                         </TD>

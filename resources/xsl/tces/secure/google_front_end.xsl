@@ -70,24 +70,20 @@
 
                            <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
 
-<p><B>Software Engineering</B><br/>
-
-Positions available in Mountain View, CA, New York, NY, and Santa Monica, CA.</p>
-
-<p>Google is growing! We need world-class engineers to develop the next generation search engine. Our engineering team is working on problems 
-in a number of areas, including cutting-edge information retrieval algorithms, scalability issues related to dealing with huge amounts of data and 
-a rapidly increasing user population, and a variety of novel search features. If you have a need to bring order to a chaotic web, contact us.</p>
+<p><B>Front End Focus</B><br/>
+Help shape the way Google looks and works! As a software engineer with a UI focus, you will work on new Google products and features, developing and designing both the underlying system and the front-end interface to that system. If you're a strong coder who's interested in building interfaces that will be used by millions of users, this is the job for you.</p>
 
 <p><B>Requirements</B></p>
 <ul>
-<li>BS or MS in Computer Science or equivalent (PhD a plus)</li>
-<li>Several years of software development experience</li>
-<li>Enthusiasm for solving interesting problems</li>
-<li>Experience with Unix/Linux or Windows environments, C++ development, distributed systems, machine learning, information retrieval, network programming and/or developing large software systems a plus</li>
+<li>BS/MS in Computer Science or equivalent</li>
+<li>Significant development experience in a Unix/Linux environment using C/C++ or Java </li>
+<li>Expert HTML skills; background in UI/HCI issues helpful </li>
+<li>JavaScript and/or web server development experience a big plus </li>
+<li>Proven track record for being detail-oriented with a demonstrated ability to self-motivate and follow-through on projects </li>
 </ul>
 	
-<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=138&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
-
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=144&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+<br/><br/>
                            
 
                         </TD>
