@@ -55,7 +55,7 @@ public class BasicAuthentication implements WebAuthentication {
 
     /**
      * Construct an authentication instance backed by the given persistor
-     * and HTTP request, response and resource.
+     * and HTTP request, response and cookie path resource.
      */
     public BasicAuthentication(Persistor userPersistor, ServletRequest request, ServletResponse response, Resource r) throws Exception {
         this.persistor = userPersistor;
