@@ -699,8 +699,8 @@ is both happy since he did so well, and sad since he is a mutant
             </table><br/>
 <!-- <A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
 <IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A> -->           
-			<!-- <a href="/stat?c=member_profile&amp;cr=302185">
-			<img src="/i/codermonth_nov.gif" alt="Coder of the Month" width="244" height="156" vspace="10" border="0"/></a> -->
+			<a href="/stat?c=member_profile&amp;cr=304168">
+			<img src="/i/codermonth_dec.gif" alt="Coder of the Month" width="244" height="116" vspace="10" border="0"/></a>
     </td>
 <!-- Body Area Ends -->
   </tr>   
