@@ -234,7 +234,9 @@ public class Controller
                 ((Navigation) navigation).makeUserSerializable();
                 Data.loadUser((Navigation)navigation);
                 User user = ((Navigation) navigation).getUser();
+                log.debug("loaded user " + user.getUserId());
                 if (user.getUserId() == 0) {
+                    log.debug("returning a null user");
                     return null;
                 }
                 return user;
