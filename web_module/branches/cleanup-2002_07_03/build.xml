@@ -215,7 +215,6 @@
         <antcall target="package-EJB-UtilBean"/>
         <antcall target="package-EJB-AuthenticationServicesBean"/>
         <antcall target="package-EJB-CoderStatisticsBean"/>
-        <antcall target="package-EJB-StatisticsBean"/>
         <antcall target="package-EJB-EmailServicesBean"/>
         <antcall target="package-EJB-ContestAdminServicesBean"/>
         <antcall target="package-EJB-SearchBean"/>
@@ -326,19 +325,6 @@
         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
    </target>
-
-
-   <target name="package-EJB-StatisticsBean" depends="compile,init-StatisticsBean-properties,package-EJB-GenericBean"/>
-
-   <target name="init-StatisticsBean-properties" >
-       <property name="bean.dir"          value="Statistics" />
-        <property name="bean.jar.name"     value="Statistics.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/stat/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
-
 
 
    <target name="package-EJB-DataCacheBean" depends="compile,init-DataCacheBean-properties,package-EJB-GenericBean"/>
