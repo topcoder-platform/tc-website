@@ -72,7 +72,7 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
-
+<!--
                                 <tr valign="top">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Palm_StockCount_App_Design">Palm Stock Count Application</a>
@@ -80,25 +80,8 @@
                                     <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">Closed</td>
-                                </tr>	
-                                
-				                <tr valign="top">
-				                    <td class="projectCells" colspan="4"><a href="?t=development&amp;c=PMD_v10_des">Project Management Dashboard</a></td>
-				                </tr>
-				                <tr valign="top">
-				                    <td class="projectCells">&#160;&#160;&#160;&#160;Dashboard Service</td>
-				                    <td class="projectCells" align="center">$2,730</td>
-				                    <td class="projectCells" align="center">$870</td>
-				                    <td class="projectCells" align="right">Closed</td>
-				                </tr>
-
-				                <tr valign="top">
-				                    <td class="projectCells">&#160;&#160;&#160;&#160;Dashboard Reports</td>
-				                    <td class="projectCells" align="center">$2,634</td>
-				                    <td class="projectCells" align="center">$840</td>
-				                    <td class="projectCells" align="right">Closed</td>
-				                </tr>
-				                
+                                </tr>
+-->
 
                             </table>
 
@@ -122,7 +105,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$1,350 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$600 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">08.06.2004</td>
+                                    <td class="projectCells" align="right">08.09.2004</td>
                                 </tr>
 
                                 <tr valign="top">
@@ -131,25 +114,9 @@
                                     </td>
                                     <td class="projectCells" align="right">$1,250 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">08.06.2004</td>
+                                    <td class="projectCells" align="right">08.09.2004</td>
                                 </tr>
 
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Universal_Registration_Development-FE">Universal Registration Development - Front End</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$2,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Universal_Registration_Development-Services">Universal Registration Development - Services</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$1,500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>
 
 
                             </table>
