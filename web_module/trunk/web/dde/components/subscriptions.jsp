@@ -81,7 +81,7 @@
                                  <ul>
                                  <li>Unlimited access to download components from either catalog</li>
                                  <li>Unlimited access to the Component Catalog customer forums for either catalog</li>
-                                 <li>Use the components in your personal applications, educational applications, or in the development cycle of commercial applications.</li>
+                                 <li>Use the components in your personal applications, educational applications, or in the development cycle of pre-commercial applications. </li>
                                  <li>See the <A href="/components/license_agreement.jsp" target="_blank">Developer Subscription License Agreement</A> for details</li>
                                  </ul>
 
