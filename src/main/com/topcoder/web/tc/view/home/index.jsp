@@ -141,16 +141,16 @@
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>December Events:</A></td>
+				<td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>January Events:</A></td>
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
 				<td class=homeText><br/>
-				<b>12/01</b> - SRM 221<br/><br/>
-				<b>12/07</b> - SRM 222<br/><br/>
-				<b>12/18</b> - SRM 223<br/><br/>
-				<b>12/22</b> - SRM 224<br/><br/>
-				<b>12/28</b> - SRM 225
+				<b>1/05</b> - SRM 226<br/><br/>
+				<b>1/11-1/12</b> - TCCC05 Qualification Round<br/><br/>
+				<b>1/22</b> - SRM 227<br/><br/>
+				<b>1/27</b> - SRM 228<br/><br/>
+				<b>1/31</b> - SRM 229
 				</td>
 			</tr>
 			<tr>
