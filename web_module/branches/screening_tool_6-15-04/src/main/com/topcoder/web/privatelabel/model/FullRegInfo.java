@@ -65,6 +65,11 @@ public class FullRegInfo extends SimpleRegInfo {
             }
         }
     }
+    
+    public void clearResponses()
+    {
+        responses = new ArrayList();
+    }
 
     public void addResponse(DemographicResponse response) {
         responses.add(response);
