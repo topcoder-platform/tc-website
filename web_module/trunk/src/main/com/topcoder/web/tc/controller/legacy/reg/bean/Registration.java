@@ -122,7 +122,7 @@ public class Registration
     //public static final String ACTIVATION_URL = PROTOCOL+"://"+HOST+PAGE_4;
     public static final String ACTIVATION_URL = PROTOCOL + "://" + HOST + "/tc?module=Activate&" + CODE + "=";
     public static final int DEFAULT_RATING = 0;
-    
+
     public static final String REFERRAL_PASS_IN = "ref";
 
     // referral ids
@@ -164,7 +164,7 @@ public class Registration
     private static final String DEMOGRAPHIC_QUESTION_EMPLOYER = "15";
     private static final String DEMOGRAPHIC_QUESTION_EMPLOYED = "21";
     private static final String DEMOGRAPHIC_ANSWER_EMPLOYED_YES = "141";
-    
+
     private static final String DEMOGRAPHIC_QUESTION_OTHER_SCHOOL = "20";
 
     protected String firstName;
@@ -495,7 +495,7 @@ public class Registration
                     log.debug("this.school is not a number =>" + this.school);
                     addError(SCHOOL, "Please select your school.");
                 }
-               
+
                 if ((!isEmpty(this.gpa) && !isNumber(this.gpa, true)) ||
                        (isEmpty(this.gpa) && !isEmpty(this.gpaScale))) {
                     addError(GPA, "Please enter a valid GPA.");
@@ -504,7 +504,7 @@ public class Registration
                        (!isEmpty(this.gpa) && isEmpty(this.gpaScale))) {
                     addError(GPA_SCALE, "Please enter a valid GPA Scale.");
                 }
-                if (!isEmpty(this.gpa) && isNumber(this.gpa, true) && 
+                if (!isEmpty(this.gpa) && isNumber(this.gpa, true) &&
                     !isEmpty(this.gpaScale) && isNumber(this.gpaScale, true) &&
                     Float.parseFloat(this.gpa) > Float.parseFloat(this.gpaScale)) {
                     addError(GPA, "GPA must be less than or equal to the GPA scale.");
@@ -571,25 +571,25 @@ public class Registration
         } else if (isStep(STEP_5)) {
             clearErrors();
             setAutoActivate(true);
-            
+
         }
     }
-    
-    
+
+
     static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
     static final char[] UNACTIVE_STATI = {'U', '2'};
     static final char[] ACTIVE_STATI = {'1', 'A'};
-       
+
     static {
         Arrays.sort(ACTIVE_STATI);
         Arrays.sort(UNACTIVE_STATI);
         Arrays.sort(INACTIVE_STATI);
     }
-    
+
     public void setAutoActivate(boolean b) {
         autoActivate = b;
     }
-    
+
     public boolean getAutoActivate() {
         return autoActivate;
     }
@@ -667,32 +667,32 @@ public class Registration
 
         return PAGE_1;
     }
-    
+
     public String getHandle(String memberId) {
         try {
             InitialContext ctx = TCContext.getInitial();
             com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
-        
+
             return userbean.getHandle(Long.parseLong(memberId), DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception ignore) {}
-        
+
         return "";
     }
-    
+
     public boolean memberExists(String memberId) {
         try {
             InitialContext ctx = TCContext.getInitial();
             com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
-                   
+
             if(!userbean.userExists(Long.parseLong(memberId), DBMS.OLTP_DATASOURCE_NAME))
                 return false;
-            
+
             char status = userbean.getStatus(Long.parseLong(memberId), DBMS.COMMON_OLTP_DATASOURCE_NAME);
             if(Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
                 return true;
             }
         } catch (Exception ignore) {}
-        
+
         return false;
     }
 
@@ -710,7 +710,7 @@ public class Registration
                 this.referralOther = getHandle(value);
             }
         }
-        
+
         if (isStep(STEP_1)) {
             if (name.equalsIgnoreCase(FIRST_NAME))
                 setFirstName(value);
@@ -1358,7 +1358,7 @@ public class Registration
         }
         return result;
     }
-    
+
     public static int getSchoolId(String schoolName) throws TaskException {
         int result = 0;
         try {
@@ -1650,13 +1650,13 @@ public class Registration
             }
         }
 
-        
+
         Context context = null;
         String activationCode = "";
         UserTransaction transaction = null;
         try {
             context = TCContext.getInitial();
-            
+
             UserServicesHome userServicesHome = (UserServicesHome) context.lookup(ApplicationServer.USER_SERVICES);
             transaction = Transaction.get();
             if (Transaction.begin(transaction)) {
@@ -1669,7 +1669,7 @@ public class Registration
                     coder.setActivationCode(activationCode);
                     coder.setModified("U");
                 }
-                
+
                 if (this.coderType.equals(CODER_TYPE_STUDENT)) {
                     School currentSchool = coder.getCurrentSchool();
                     // SB -- added country.equals(USA) to fix problem with foreign student changing their school
@@ -1699,7 +1699,7 @@ public class Registration
 
                     currentSchool.setUserId(coder.getCoderId());
                     currentSchool.setSchoolId((int)schoolId);
-                    currentSchool.setName(schoolName);  
+                    currentSchool.setName(schoolName);
 
                     if (!this.gpa.equals("")) {
                         currentSchool.setGpa(Float.parseFloat(this.gpa));
@@ -1708,16 +1708,17 @@ public class Registration
                         currentSchool.setGpaScale(Float.parseFloat(this.gpaScale));
                     }
                 }
-                
+
                 userServices.setUser(user);
-                
+
             }
             if (!Transaction.commit(transaction)) {
                 throw new TaskException("Unable to commit transaction");
             }
 
-            
-            
+
+
+            //we're working outsite a transaction now...
             if (isRegister()) {
                 Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
                 PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
@@ -1739,7 +1740,6 @@ public class Registration
                     }
                 }
 
-                //we're in a transaction on the security user table, so we can't select out the user principal object.
                 UserPrincipal up = new UserPrincipal("", user.getUserId());
                 pmr.addUserToGroup(anonGroup, up, tcs);
                 pmr.addUserToGroup(userGroup, up, tcs);
@@ -1747,13 +1747,12 @@ public class Registration
 
             user.setModified("S");
             coder.setAllModifiedStable();
-            
+
             //auto activate
             if(isRegister() && autoActivate) {
                 InitialContext ctx = TCContext.getInitial();
                 com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
-                char status = userbean.getStatus(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                doLegacyCrap((int)coder.getCoderId());
+                doLegacyCrap(coder.getCoderId());
                 Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
                 email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
                         1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
@@ -1787,7 +1786,7 @@ public class Registration
                 StringBuffer msgText = new StringBuffer(3000);
 
                 if(autoActivate) {
-                    
+
                     msgText.append("TOPCODER ACCOUNT ACTIVATION INFORMATION\n\n");
                     msgText.append("Your TopCoder activation code is " + activationCode + "\n\n");
                     msgText.append("To activate your account, navigate to the following WWW URL:\n");
@@ -1842,7 +1841,7 @@ public class Registration
                     mail.setFromAddress("competitions@topcoder.com");
                     EmailEngine.send(mail);
                 } else {
-                
+
 
                     msgText.append("TOPCODER ACCOUNT ACTIVATION INFORMATION\n\n");
                     msgText.append("Your TopCoder activation code is " + activationCode + "\n\n");
@@ -1905,7 +1904,7 @@ public class Registration
             }
         }
     }
-    
+
     private void doLegacyCrap(int userId) {
         Context ctx = null;
         com.topcoder.common.web.data.User user = null;
