@@ -314,8 +314,10 @@ public abstract class Base extends BaseProcessor {
         log.debug("setting up session defaults");
         getRequest().getSession().setAttribute(DEFAULTS_KEY + messageId, defaults);
         getRequest().removeAttribute(DEFAULTS_KEY);
+/*
         log.debug("defaults: " + getRequest().getSession().getAttribute(DEFAULTS_KEY + messageId));
         log.debug("errors: " + getRequest().getSession().getAttribute(ERRORS_KEY + messageId));
+*/
 
         return (Message) receiver.receive(waitTime, messageId, getResponse());
     }
