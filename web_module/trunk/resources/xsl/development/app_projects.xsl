@@ -70,7 +70,7 @@
                                     <td class="projectHeaders" nowrap="nowrap" width="75%">Project</td>
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Winning Designer</td>
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
-                                    <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Inquire By</td>
+                                    <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
 
                                 <tr valign="top">
@@ -79,7 +79,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$1,050 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">04/02/2004</td>
+                                    <td class="projectCells" align="right">04/02/2004 12:00PM </td>
                                 </tr>
 <!--
                                 <tr valign="top">
