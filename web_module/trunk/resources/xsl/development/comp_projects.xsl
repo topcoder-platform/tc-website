@@ -483,7 +483,7 @@
                 </tr>
             </table>
 
-            <p>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/s_subscriptions.jsp">Subscriptions</A>
+            <p>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A>
             we sell, the more royalties we pay out to our winners!</p>
 
             <p><br/></p>
