@@ -25,6 +25,33 @@
 <a name="top"></a>
 
 
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var MM_contentVersion = 6;
+var MM_FlashCanPlay = false;
+var plugin = (navigator.mimeTypes
+              && navigator.mimeTypes["application/x-shockwave-flash"])
+            ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
+if ( plugin ) {
+  var words = navigator.plugins["Shockwave Flash"].description.split(" ");
+  for (var i = 0; i < words.length; ++i) {
+    if (isNaN(parseInt(words[i])))
+      continue;
+    var MM_PluginVersion = words[i];
+  }
+  MM_FlashCanPlay = MM_PluginVersion >= MM_contentVersion;
+} else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
+           && (navigator.appVersion.indexOf("Win") != -1)) {
+  document.write('<SCR' + 'IPT LANGUAGE=VBScript\> \n');
+  document.write('on error resume next \n');
+  document.write('MM_FlashCanPlay = ( IsObject(CreateObject');
+  document.write('("ShockwaveFlash.ShockwaveFlash." & MM_contentVersion)))\n');
+  document.write('</SCR' + 'IPT\> \n');
+}
+//-->
+</SCRIPT>
+
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr>
         <td width="15"><img src="/i/corp/clear.gif" width="15" height="1" border="0"/></td>
