@@ -1,5 +1,7 @@
 <%@ include file="head.inc" %>
-<%@ page import="java.awt.Color"%>
+<%@ page import="java.awt.Color,
+                 com.topcoder.common.web.render.ProblemRenderer,
+                 com.topcoder.shared.language.JavaLanguage"%>
 
 <%@ include file="body.inc" %>
 
@@ -52,10 +54,9 @@ if (rsc!=null && !rsc.isEmpty()) {
                  </TR>
                  <TR>
                    <TD  CLASS="statText" VALIGN="middle" ALIGN="left">
-                      <% if (problem!=null) {
-                           ProblemRenderer pr = new ProblemRenderer(problem);
-                           pr.setForegroundColor(Color.white);
-                      %>
+                    <% if (problem!=null) {
+                        ProblemRenderer pr = new ProblemRenderer(problem);
+                        pr.setTdClass("statText");%>
               		<%= pr.toHTML(JavaLanguage.JAVA_LANGUAGE) %>
                       <% } else { %>
                         Problem Statement not available.
