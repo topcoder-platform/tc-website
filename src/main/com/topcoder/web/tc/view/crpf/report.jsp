@@ -99,7 +99,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                 <td width="25%" align="center">
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="2"/>"><img src="/i/tournament/crpf03/rating.gif" width="55" height="26" border="0"></a>
                 </td>
--->                
+-->
                 <td width="50%" align="right">
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="1"/>"><img src="/i/tournament/crpf03/total_donation.gif" width="115" height="26" border="0"></a>
                 </td>
@@ -112,28 +112,28 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                     <td class="tourney_subnav" >
                         <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
                     </td>
-<!--                    
+<!--
                     <td class="tourney_subnav"  align="center">
                         <rsc:item row="<%=info%>" name="rating"/>
                     </td>
--->                    
+-->
                     <td class="tourney_subnav" align="right">
                         $<rsc:item row="<%=info%>" name="amount" format="0.00"/>
                     </td>
                 </tr>
-                
+
             </rsc:iterator>
 
         </table>
         <table>
                   <tr>
                      <td class="bodyText">* Please note that online donations will take approximately 24 hours to process and appear on the Top Fundraisers list.  Mailed in donations will appear on the Top Fundraisers list as they are processed.</td>
-                  </tr>   
+                  </tr>
 
             <tr><td><img src="/i/clear.gif" width="500" height="10" border="0"></td></tr>
         </table>
          </blockquote>
-         
+
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
@@ -143,7 +143,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Right Column Begins -->
          <td width="170">
             <img src="/i/clear.gif" width="170" height="1" border="0"><br/>
-            <jsp:include page="crfp_right.jsp" />
+            <jsp:include page="crpf_right.jsp" />
          </td>
 <!-- Right Column Ends -->
 

@@ -34,7 +34,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="charity"/> 
+                <jsp:param name="level2" value="charity"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -43,7 +43,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
+<!-- Center Column Begins -->
          <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
 <!--CRPF Header-->
@@ -54,7 +54,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                      <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
                   </tr>
                </table>
-               
+
 <!-- Tab bar links-->
 <jsp:include page="crpfLinks.jsp" >
    <jsp:param name="selectedTab" value="schedule"/>
@@ -66,13 +66,13 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
    <jsp:param name="selectedTab" value=""/>
 </jsp:include>
 
-               
+
 
                <blockquote>
 </html>            <h2>Schedule</h2>
                </blockquote>
 <!-- Online Rounds begins -->
-           
+
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -116,7 +116,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
                 <tr valign="top">
                     <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate" 
+                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate"
                         will be the following day at the same time.
                     </td>
                 </tr>
@@ -131,7 +131,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Right Column Begins -->
          <td width="170">
             <img src="/i/clear.gif" width="170" height="1" border="0"><br/>
-            <jsp:include page="crfp_right.jsp" />
+            <jsp:include page="crpf_right.jsp" />
          </td>
 <!-- Right Column Ends -->
 
