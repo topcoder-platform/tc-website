@@ -54,33 +54,9 @@
 <!-- Center Column Begins -->
         <td class="bodyText">
 
-            <div align="center">
-                <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
-                <img src="/i/promos/tco03/tco_home_comp_start_a.gif" alt="Component Competition starts Sept 2" width="540" height="165" border="0"/><br/>
-                <A href="/index?t=development&amp;c=comp_projects" target="_top"><img src="/i/promos/tco03/tco_home_comp_start_b.gif" alt="Start submitting projects today" width="185" height="21" border="0" /></A><br/>
-                <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
-            </div>
-
-            <table border="0" cellspacing="0" cellpadding="0" align="center">
-                <tr>
-                    <td width="50%" align="center"><img src="/i/tournament/tco03/coding_start.gif" alt="Coding Start" width="219" height="15" border="0" vspace="5"/></td>
-                    <td width="50%" align="center"><img src="/i/tournament/tco03/component_start.gif" alt="Component Start" width="222" height="15" border="0" vspace="5"/></td>
-                </tr>
-                <tr>
-                    <td width="50%" align="center"><a href="/index?t=tournaments&amp;c=tco03_overview"><img src="/i/tournament/tco03/coding_tab_off.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></a></td>
-                    <td width="50%" align="center"><a href="/index?t=tournaments&amp;c=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></a></td>
-                </tr>
-                <tr><td align="center" colspan="2">
-                <img src="/i/tournament/tco03/bracket_left.gif" alt="bracket" width="25" height="19" border="0" vspace="0"/>
-                <img src="/i/tournament/tco03/bracket_middle.gif" alt="bracket" width="240" height="19" border="0" vspace="0"/>
-                <img src="/i/tournament/tco03/bracket_right.gif" alt="bracket" width="25" height="19" border="0" vspace="0"/></td></tr>
-            </table>
-
-
-<!-- Tab bar suplinks
-            <xsl:call-template name="tco03_suplinks">
-                <xsl:with-param name="selectedTab">component</xsl:with-param>
-            </xsl:call-template>-->
+<!-- TCO Head Begins -->
+<xsl:call-template name="tco03_head"/>
+<!-- TCO Head Ends -->
 
 <!-- Tab bar links-->
             <xsl:call-template name="tco03_links">
