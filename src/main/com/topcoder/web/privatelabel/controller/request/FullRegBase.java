@@ -100,7 +100,6 @@ abstract class FullRegBase extends SimpleRegBase {
         for (Iterator it = questions.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
             q = makeQuestion(row);
-            log.debug("adding: " + q.getText());
             ret.put(new Long(q.getId()), q);
         }
         return ret;
