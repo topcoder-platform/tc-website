@@ -158,7 +158,7 @@ public class ProjectReviewApply extends Base {
                         }
 
                         tm.commit();
-                        
+
                         // Put the terms text in the request.
                         TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
                         setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
