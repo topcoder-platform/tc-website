@@ -45,8 +45,10 @@
                                 <p>
                                     <span class=bodySubtitle>QUESTIONNAIRE</span> - Form must be completed and submitted by 9:00 PM EST on Wednesday, February 2.
                                     View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=206">2005 TopCoder Collegiate Challenge Questionnaire</a>.
-                                    NOTE: All questions are mandatory.  The answers to the free form questions may be included in the 2005 TCCC
-                                    Program, at TopCoder's discretion.  Answers to the multiple choice questions will be provided to Yahoo!.
+                                    NOTE: All questions are mandatory.  The answers to questions 1-17 may be included in the 2005 TCCC Program or
+                                    used in onsite introductions, at TopCoder's discretion.  The answers to questions 18 - 22 will be
+                                    provided to Yahoo!.
+
                                 </p>
                                 </li>
                                 <li>
