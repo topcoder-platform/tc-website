@@ -196,9 +196,10 @@ function goTo(selection){
                                 <TD></TD>
                                 <TD></TD>
                                 <TD></TD>
+                                <TD></TD>
                             
                             <%} else {%>
-                                <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="statText">
+                                <TD VALIGN="middle" HEIGHT="15" CLASS="statText">
                                     <A HREF="/stat?c=coder_room_stats&rd=<%=roundID %>&cr=<%= coderIDs[j][i] %>" CLASS="statText">
                                        <IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0">
                                     </A>
