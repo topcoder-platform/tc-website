@@ -88,16 +88,19 @@
 <!-- Body Area -->
 
   <!-- Center Column Begins -->  
-    <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/> 
+    <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"><!-- <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/> --> 
 
 <!-- TC top special promo --> 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">          
   <TR>  
-    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="middle" COLSPAN="9" WIDTH="100%" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="40" CLASS="bodyText"><FONT SIZE="5" COLOR="#000000" FACE="tahoma,verdana,arial"><B>The&#160;Sun/TopCoder Collegiate&#160;Challenge&#160;is&#160;Underway!</B></FONT><BR/>
-    Semifinal Rounds begin today April 19th. A new TCCC Champion will be named tomorrow.</TD>    
-    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>   
   </TR>  
+  <TR>  
+    <!-- <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
+    <TD VALIGN="middle" COLSPAN="11" WIDTH="100%" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="50" CLASS="bodyText"><FONT SIZE="5" COLOR="#000000" FACE="tahoma,verdana,arial"><B>The&#160;Sun/TopCoder Collegiate&#160;Challenge&#160;is&#160;Underway!</B></FONT><BR/>
+    Semifinal Rounds begin today April 19th. A new TCCC Champion will be named tomorrow.</TD>    
+    <!-- <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
+  </TR>   
   <TR>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="35%" ALIGN="left" CLASS="bodyText">
