@@ -162,7 +162,6 @@ public class TCLoadAggregate extends TCLoad {
     public void performLoad() throws Exception {
         try {
 
-/*
             loadRoomResult2();
 
             loadCoderDivision();
@@ -188,7 +187,6 @@ public class TCLoadAggregate extends TCLoad {
             loadRoundProblem();
 
             loadProblemLanguage();
-*/
 
             loadCoderProblem();
 
@@ -1963,7 +1961,6 @@ public class TCLoadAggregate extends TCLoad {
                 psSel.setInt(3, row.getIntItem("division_id"));
                 rs = psSel.executeQuery();
                 rankList = new ResultSetContainer(rs, 0, Integer.MAX_VALUE, 5);
-                log.debug(rankList);
 
                 for (Iterator it1 = rankList.iterator(); it1.hasNext();) {
                     innerRow = (ResultSetContainer.ResultSetRow)it1.next();
