@@ -45,6 +45,7 @@ public class Constants {
     public static String JSP_ROOT = null;
 
     public static String REGISTRATION_PAGE_SUCCESS = null;
+    public static String REGISTRATION_UPDATE_SUCCESS = null;
     public static String REGISTRATION_PAGE_RETRY = null;
     public static String USEREDIT_PAGE_SUCCESS = null;
     public static String USEREDIT_PAGE_RETRY = null;
@@ -66,6 +67,7 @@ public class Constants {
         JSP_ROOT = cfg.getInitParameter("jsp_root");
 
         REGISTRATION_PAGE_SUCCESS = JSP_ROOT+cfg.getInitParameter("page-Registration-success");
+        REGISTRATION_UPDATE_SUCCESS = cfg.getInitParameter("page-Registration-update");
         REGISTRATION_PAGE_RETRY = JSP_ROOT+cfg.getInitParameter("page-Registration-retry");
         USEREDIT_PAGE_SUCCESS = JSP_ROOT+cfg.getInitParameter("page-UserEdit-success");
         USEREDIT_PAGE_RETRY = JSP_ROOT+cfg.getInitParameter("page-UserEdit-retry");
