@@ -61,7 +61,7 @@
                                           </select>
                                           </td>
                                           <td valign="middle" class="bodyText" width="100%">
-                                          <input type="button" onClick="window.open(document.sizeSelect.menu.options[document.sizeSelect.menu.selectedIndex].value);" value="Buy Now" class="bodyText">
+                                          <input type="button" onClick="window.open(document.sizeSelect.menu.options[document.sizeSelect.menu.selectedIndex].value, 'buyWindow');" value="Buy Now" class="bodyText">
                                           </td>
                                         </form>
                                     </tr>
