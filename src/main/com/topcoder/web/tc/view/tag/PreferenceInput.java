@@ -63,7 +63,7 @@ public class PreferenceInput extends BaseTag {
     
     private String buildText() {
         StringBuffer s = new StringBuffer(500);
-        s.append("<input type=\"text\" ");
+        s.append("<input type=\"text\" size=50 ");
         s.append(" name=\"");
         s.append(name);
         s.append("\"");

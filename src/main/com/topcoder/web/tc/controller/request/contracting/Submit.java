@@ -60,8 +60,13 @@ public class Submit  extends ContractingBase {
                             prefbean.removeUserPreference(info.getUserID(), rscPrefs.getIntItem(j, "preference_id"), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                         } else {
                             //update
-                            prefbean.setPreferenceValueID(info.getUserID(), rscPrefs.getIntItem(j, "preference_id"),
-                                Integer.parseInt(info.getPreference(rscPrefs.getStringItem(j, "preference_id"))), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                            if(rscPrefs.getIntItem(j, "preference_type_id") == Constants.PREFERENCE_TEXT_ANSWER) {
+                                prefbean.setValue(info.getUserID(), rscPrefs.getIntItem(j, "preference_id"),
+                                    info.getPreference(rscPrefs.getStringItem(j, "preference_id")), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                            } else {
+                                prefbean.setPreferenceValueID(info.getUserID(), rscPrefs.getIntItem(j, "preference_id"),
+                                    Integer.parseInt(info.getPreference(rscPrefs.getStringItem(j, "preference_id"))), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                            }
                             info.removePref(rscPrefs.getStringItem(j, "preference_id"));
                         }
                     }
@@ -72,7 +77,13 @@ public class Submit  extends ContractingBase {
                 while(it.hasNext()) {
                     String s = (String)it.next();
                     prefbean.createUserPreference(info.getUserID(), Integer.parseInt(s), DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    prefbean.setPreferenceValueID(info.getUserID(), Integer.parseInt(s), Integer.parseInt(info.getPreference(s)), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    try {
+                        prefbean.setPreferenceValueID(info.getUserID(), Integer.parseInt(s), Integer.parseInt(info.getPreference(s)), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    } catch(NumberFormatException ne) {
+                        //text field
+                        prefbean.setValue(info.getUserID(), Integer.parseInt(s), info.getPreference(s), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    }
+                    
                 }
                 
                 //resume
