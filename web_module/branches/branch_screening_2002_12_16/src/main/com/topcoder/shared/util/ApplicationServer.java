@@ -21,7 +21,6 @@ public class ApplicationServer {
     public static String CONTEST_HOST_URL = bundle.getProperty("CONTEST_HOST_URL", "t3://172.16.20.40:9003");
     public static String[] WEBLOGIC_CLUSTER_IP = getClusterArray(bundle.getProperty("WEBLOGIC_CLUSTER_IP", "172.16.20.41"));
     public static String BASE_DIR = bundle.getProperty("BASE_DIR", "/usr/web/build/classes");
-    public static String SECURITY_CONTEXT_FACTORY = bundle.getProperty("SECURITY_CONTEXT_FACTORY", "org.jnp.interfaces.NamingContextFactory");
     public static String SECURITY_PROVIDER_URL = bundle.getProperty("SECURITY_PROVIDER_URL", "172.16.20.40:1099");
 
     public static String IAGREE = bundle.getProperty("IAGREE", BASE_DIR + "/com/topcoder/common/terms.txt");
@@ -29,7 +28,8 @@ public class ApplicationServer {
     public final static String JMS_FACTORY = bundle.getProperty("JMS_FACTORY", "jms.connection.jmsFactory");
     public final static String JMS_BKP_FACTORY = bundle.getProperty("JMS_BKP_FACTORY", "jms.connection.jmsFactory_BKP");
     public final static String TRANS_FACTORY = bundle.getProperty("TRANS_FACTORY", "javax.transaction.UserTransaction");
-
+    public final static String SECURITY_FACTORY = bundle.getProperty("SECURITY_FACTORY", "org.jnp.interfaces.NamingContextFactory");
+    
     public static String AUTHENTICATION_SERVICES = bundle.getProperty("AUTHENTICATION_SERVICES", "com.topcoder.ejb.AuthenticationServicesHome");
     public static String CODER_STATISTICS = bundle.getProperty("CODER_STATISTICS", "com.topcoder.ejb.CoderStatisticsHome");
     public static String DATA_CACHE = bundle.getProperty("DATA_CACHE", "com.topcoder.ejb.DataCacheHome");
