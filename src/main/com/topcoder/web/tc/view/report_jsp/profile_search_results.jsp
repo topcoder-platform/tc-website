@@ -20,7 +20,7 @@
 <html>
   <head>
   <!--
-  <%= request.getAttribute("QUERY"); %>
+  <%= request.getAttribute("QUERY") %>
   -->
 <style type="text/css">
     TABLE.entry TD{ 
