@@ -29,7 +29,7 @@
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
-                        <h1 class="testHead">Candidate List</h1>
+                        <h1 class="testHead">Candidate Status</h1>
                         <p>Below is a list of all candidates.  Clicking on a candidate's email address will bring you to the Candidate Info page.<br></p>
                     </td>
                 </tr>

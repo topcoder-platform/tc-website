@@ -44,7 +44,7 @@
         <td width="1" class="testTop">&#160;</td>
         <td nowrap class="testTop"><screen:servletLink processor="ProblemList" styleclass="topLink">Problem Sets</screen:servletLink></td>
         <td width="1" class="testTop">&#160;</td>
-        <td nowrap class="testTop"><screen:servletLink processor="BuildCandidateList" styleclass="topLink">Candidates</screen:servletLink></td>
+        <td nowrap class="testTop"><screen:servletLink processor="BuildCandidateList" styleclass="topLink">Candidate Status</screen:servletLink></td>
         <td class="testTop" width="49%">&#160;</td>
    </tr>
 </table>
