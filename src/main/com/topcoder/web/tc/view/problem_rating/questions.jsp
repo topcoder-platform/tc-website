@@ -68,10 +68,12 @@
         </tc:problemRatingIterator>
         <tr><td></td>
         <td align="center" colspan="5" nowrap>
-            <a href="/tc?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>" class="button">View Results</a>
-        </td><td align="center" colspan="5" nowrap>
             <a href="javascript:document.ratings.submit()" class="button">Submit Ratings</a>
-        </td></tr>
+        </td>
+        <td align="center" colspan="5" nowrap>
+            <a href="/tc?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>" class="button">View Results</a>
+        </td>
+        </tr>
     </table>
 </form>
       </td>
