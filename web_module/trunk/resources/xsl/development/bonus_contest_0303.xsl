@@ -103,6 +103,7 @@
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
+                 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <tr valign="top">
@@ -143,7 +144,7 @@
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
-                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -163,17 +164,7 @@
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261822">bodrius</a></td>
-                    <td class="statText" align="center">3</td>
-                    <td class="statText" align="center">88.59</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -193,23 +184,13 @@
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150498">ThinMan</a></td>
-                    <td class="statText" align="center">4</td>
-                    <td class="statText" align="center">87.62</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                
-                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-                
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
-                    <td class="statText" align="center">4</td>
-                    <td class="statText" align="center">85.80</td>
+                    <td class="statText" align="center">5</td>
+                    <td class="statText" align="center">87.90</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
@@ -218,8 +199,28 @@
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304697">ozzie</a></td>
-                    <td class="statText" align="center">2</td>
-                    <td class="statText" align="center">85.76</td>
+                    <td class="statText" align="center">3</td>
+                    <td class="statText" align="center">87.87</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+                
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261822">bodrius</a></td>
+                    <td class="statText" align="center">4</td>
+                    <td class="statText" align="center">87.77</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+                
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
+                    <td class="statText" align="center">5</td>
+                    <td class="statText" align="center">85.77</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
@@ -247,16 +248,6 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=280167">ttsuchi</a></td>
-                    <td class="statText" align="center">4</td>
-                    <td class="statText" align="center">84.91</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-                
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=273100">wf</a></td>
                     <td class="statText" align="center">2</td>
                     <td class="statText" align="center">84.87</td>
@@ -264,7 +255,15 @@
                 </tr>
                 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
+                
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
+                    <td class="statText" align="center">4</td>
+                    <td class="statText" align="center">83.78</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+                
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=155381">djFD</a></td>
@@ -283,13 +282,13 @@
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-                
+                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
-                    <td class="statText" align="center">3</td>
-                    <td class="statText" align="center">82.35</td>
+                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=280167">ttsuchi</a></td>
+                    <td class="statText" align="center">7</td>
+                    <td class="statText" align="center">82.04</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
@@ -324,22 +323,22 @@
                 </tr>
                 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
+                
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304976">giginim</a></td>
-                    <td class="statText" align="center">4</td>
-                    <td class="statText" align="center">79.55</td>
+                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=156618">mckavity</a></td>
+                    <td class="statText" align="center">1</td>
+                    <td class="statText" align="center">79.35</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-                
+
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=156618">mckavity</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">79.35</td>
+                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304976">giginim</a></td>
+                    <td class="statText" align="center">5</td>
+                    <td class="statText" align="center">78.58</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
@@ -363,7 +362,7 @@
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
-                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -502,9 +501,6 @@
                     <td class="statText" align="center">60.71</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
-                
-                
-                
                 
                 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
