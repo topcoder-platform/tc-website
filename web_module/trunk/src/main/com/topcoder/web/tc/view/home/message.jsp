@@ -2,9 +2,14 @@
         <tr><td><img src="/i/messageBoxTop.gif" width="180" height="11" border="0"/></td></tr>
         <tr><td><img src="/i/important_message.gif" width="180" height="20" border="0"/></td></tr>
     </table>
-    <table cellspacing="0" cellpadding="5" class="messageBoxFrame">
+    <table cellspacing="0" cellpadding="0" class="messageBoxFrame">
         <tr>
-            <td class="messageBoxText">The <b>Project Management Dashboard</b> application project is looking for .NET designers!  Total member payments total more than $10,000, so get <A href="/?t=development&c=PMD_v10_des">more details</A> now.</A>
+            <td class="tc04Message" align=center>
+            <img src="/i/tournament/tco04/message.gif" border=0 /><br/><br/>
+			You have not yet registered for the<br/>
+			<b>Algorithm Competition</b><br/>
+			You have not yet registered for the<br/>
+			<b>Component Competition</b>
             </td>
         </tr>
     </table>
