@@ -62,9 +62,9 @@ function openWin(url, name, w, h) {
                   <div class=content> 
                   <div align="center">
 	            <font size="-1">
-                     <a href="/pl/?&module=Static&d1=google&d2=google_overview">Overview</a> &nbsp;|&nbsp; 
-                     <a href="/pl/?&module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp; 
-                     <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp; 
+                     <a href="google_overview.jsp">Overview</a> &nbsp;|&nbsp; 
+                     <a href="google_sched.jsp">Schedule</a> &nbsp;|&nbsp; 
+                     <a href="google_rules_overview.jsp">Rules</a> &nbsp;|&nbsp; 
                      <font color="006633">Register Now</font> &nbsp;|&nbsp; 
                      <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
                   </font>
@@ -73,11 +73,10 @@ function openWin(url, name, w, h) {
 
                   <table border=0 cellspacing=0 width="100%">
                      <tr>
-                        <td><p><font size="-1"><br/>Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.</font></p></td>
-                        <td><img align="right" valign="top" hspace="10" vspace="5" src="http://www.google.com/codejam/codejam_info.gif" width="150" height="390" border="0"></td>
+                        <td valign="top"><p><font size="-1"><br/>Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.</font></p></td>
+                        <td align="right" valign="top"><img hspace="10" vspace="5" src="http://www.google.com/codejam/codejam_info.gif" width="150" height="390" border="0"></td>
                      </tr>
                   </table
-                  <p><font size="-1"><br/>Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.</font></p>
                   <p><br /></p>
                   <p><a href="http://www.topcoder.com"><img align="right" src="http://www.google.com/codejam/topcoder.gif" width="100" height="33" border="0"></a>
                   <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_rules_conditions">Terms and Conditions</a>.

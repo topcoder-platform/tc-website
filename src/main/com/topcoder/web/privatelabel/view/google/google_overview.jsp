@@ -50,29 +50,29 @@ function openWin(url, name, w, h) {
     <body class=corporate bgcolor="#ffffff" text="#000000" link="#0000CC" vlink="#800080" alink="#ff0000" topmargin=2>
 	
 	<div align="center">
+<%-- Google Header--%>
 <img width="276" height="110" src="http://www.google.com/codejam/codejam_logo.gif" alt="Google Code Jam logo">
-    <table border=0 cellspacing=5 width="740">
-              <tr> 
-                <td style="background-color: #006633"> <table class=sidebar bgcolor="#ffffff" cellpadding=15 cellspacing=0 border=0 width="100%">
-                    <tr>
-    <td valign="top"> <div class=content> 
-<div align="center">
-	<font size="-1">
-<font color="006633">
-<!-- a href="google_overview.html" -->Overview
-</font> &nbsp;|&nbsp; 
-<a href="/pl/?&module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp; 
-<a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp; 
-<a href="/pl/?&module=Static&d1=google&d2=google_registration">Register Now</a> &nbsp;|&nbsp; 
-<a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
-</font>
-</div>
-	<br><br>
-<b><font size="+1">Tough problems. Intense competition. No pressure.</font></b>
 
-            <img align="right" hspace="10" vspace="5" src="http://www.google.com/codejam/codejam_info.gif" width="150" height="390" border="0">
-        <p><font size="-1">Do you have exceptional programming skills? Can you make computers perform like silicon puppets with just a few well-expressed commands? Are you at ease when faced with a  hard stop and a group of peers evaluating every line of your code? Here’s your opportunity to display the grace of the true professional in a reward-rich environment.
-		<br><br>
+<table border=0 cellspacing=5 width="740">
+   <tr> 
+      <td style="background-color: #006633">
+         <table class=sidebar bgcolor="#ffffff" cellpadding=15 cellspacing=0 border=0 width="100%">
+            <tr>
+               <td valign="top">
+                  <div class=content> 
+                  <div align="center">
+	            <font size="-1">
+                     <font color="006633">Overview</font> &nbsp;|&nbsp; 
+                     <a href="google_sched.jsp">Schedule</a> &nbsp;|&nbsp; 
+                     <a href="google_rules_overview.jsp">Rules</a> &nbsp;|&nbsp; 
+                     <a href="google_registration.jsp">Register Now</a> &nbsp;|&nbsp; 
+                     <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
+                  </font>
+                  </div><br><br>
+                  <b><font size="+1">Tough problems. Intense competition. No pressure.</font></b>
+                  <img align="right" hspace="10" vspace="5" src="http://www.google.com/codejam/codejam_info.gif" width="150" height="390" border="0">
+                  <p><font size="-1">Do you have exceptional programming skills? Can you make computers perform like silicon puppets with just a few well-expressed commands? Are you at ease when faced with a  hard stop and a group of peers evaluating every line of your code? Here’s your opportunity to display the grace of the true professional in a reward-rich environment.
+		    <br><br>
 Google is looking for engineers with the programming skill to rewrite the world’s information infrastructure. The Google Code Jam 2003 is one way we hope to find them. Your participation in this contest gives us a chance to observe how you operate in conditions similar to the all-out environment within the Googleplex. Think of it as a job interview with a large potential cash bonus just for showing up. 
 <br><br>
 <font color="006633" size="3"><b>Say it your way</b></font><br><br>
@@ -170,21 +170,26 @@ The 500 participants in Round 1 will receive a "Google Code Jam 2003" t-shirt. T
 4th Place - $1,250<br>
 </ul>
 Those finalists not finishing as one of the top four scorers in the Championship Round will each receive $250.
-<br><br>
-<a href="http://www.topcoder.com"><img align="right" src="http://www.google.com/codejam/topcoder.gif" width="100" height="33" border="0">
-</a>
-To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_rules_conditions">Terms and Conditions</a>.
-</font></p>
-      </div></td>
-                    </tr>
-                  </table></td>
-              </tr>
-            </table>
-	
-	</div>
-<p><div class=footer> <small> &copy;2003 Google - <a href="http://www.google.com/">Home</a> 
-        - <a href="http://www.google.com/about.html">All About Google</a> - <a href="http://www.topcoder.com/?t=about_tc&c=index">About TopCoder</a> - <a href="http://www.google.com/jobs/">We're
-        Hiring</a> </small> </div></p>
-
+                  <p><br /></p>
+                  <p><a href="http://www.topcoder.com"><img align="right" src="http://www.google.com/codejam/topcoder.gif" width="100" height="33" border="0"></a>
+                  <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_rules_conditions">Terms and Conditions</a>.
+                  </font></p>
+                  </div>
+               </td>
+            </tr>
+         </table>
+      </td>
+   </tr>
+</table>
+</div>
+<p><div class=footer> 
+<small> &copy;2003 Google - 
+<a href="http://www.google.com/">Home</a> - 
+<a href="http://www.google.com/about.html">All About Google</a> - 
+<a href="http://www.topcoder.com/?t=about_tc&c=index">About TopCoder</a> - 
+<a href="http://www.google.com/jobs/">We're Hiring</a> 
+</small>
+</p>
+</div>
 </body>
 </html>
