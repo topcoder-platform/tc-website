@@ -34,10 +34,9 @@
 			<span class=pageTitle>Registration</span>
 			<br/><br/>
 
-<%--
             Registration has now closed.
---%>
 
+<%--
 						<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
 			            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.AMAZON_REG_CONFIRM%>"/>
 			            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
@@ -104,6 +103,7 @@
                         </tr>
                         </table>
                         </form>
+--%>
 
 
  			</div>

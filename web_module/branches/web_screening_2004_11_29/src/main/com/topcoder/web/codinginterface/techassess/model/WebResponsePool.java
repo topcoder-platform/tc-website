@@ -33,6 +33,7 @@ public class WebResponsePool extends ResponsePool {
             } else {
                 try {
                     response.getWriter().print("X");
+                    Thread.sleep(1000);
                     wait(waitTime);
                 } catch (InterruptedException e) {
                     //ignore
