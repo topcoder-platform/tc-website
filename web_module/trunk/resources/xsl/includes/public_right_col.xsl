@@ -18,10 +18,13 @@
             <xsl:choose>
                 <xsl:when test="$sectionSubname='intel'">
 
+                </xsl:when>
+                <xsl:otherwise>
+
             <A href="/?t=tournaments&amp;c=tco03_intel"><img src="/i/tournament/tco03/promo_sm_intel.gif" alt="Intel Developer Services" width="171" height="104" border="0" /></A><br />
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
-                </xsl:when>
+                </xsl:otherwise>
             </xsl:choose>
             
             <A href="/?t=tournaments&amp;c=tco03_revelation"><img src="/i/tournament/tco03/promo_sm_revelation.gif" alt="Revelation Software" width="170" height="84" border="0" /></A><br/>
@@ -31,7 +34,7 @@
             
             <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br/>
             
-            <xsl:call-template name="calendar"/>
+            <xsl:call-template name="calendar"/>  
             
             <p><br/></p>
     </xsl:when>

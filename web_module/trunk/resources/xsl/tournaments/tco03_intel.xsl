@@ -53,21 +53,19 @@ function openWin(url, name, w, h) {
             <table border="0" cellspacing="15" cellpadding="0" width="540">
                 <tr valign="top">
                     <td colspan="2" class="bodyText">
-                        <p>Intel&#174; is the title sponsor of the 2003 TopCoder Open. Below is information provided by Intel Developer Services.</p>
-
-                        <p><img src="/i/sponsor/intel_ids/IDS_TC-header.gif" width="510" height="115" /></p>
+                        <p><img src="/i/sponsor/intel_ids/IDS_TC-header.gif" width="510" height="140" alt="Intel Developer Services" /></p>
                     </td>
                 </tr> 
                 
                 <tr align="left">
                     <td class="bodyText" valign="top" width="280" > 
-                        <p>With technology complexity increasing at a blistering pace, <strong>Intel Developer Services</strong> offers the resources and 
+                        <p>With technology complexity increasing at a blistering pace, <strong>Intel&#174; Developer Services</strong> offers the resources and 
                         opportunities you need to keep in stride with industry innovations, take advantage of emerging technologies and accelerate the successful 
                         development and delivery of your solutions.</p>
                                              
-                        <p>How? With offerings such as emerging code samples, demos, software documentation, online training, developer forums and 
+                        <p>How? With offerings such as code samples, demos, software documentation, online training, developer forums and 
                         technical content. Membership with <strong>Intel Developer Services</strong> gives you FREE access to tools and resources that can 
-                        maximize your code's performance, give you time-to-market advantage and make your software sing. Fast.<br/>
+                        maximize your code's performance, give you a time-to-market advantage and make your software sing.<br/>
                         <img src="/i/clear.gif" width="280" height="1" border="0"/></p>
                      </td>
                      
@@ -77,7 +75,9 @@ function openWin(url, name, w, h) {
                         <p>Register for Intel Developer Services and compete in the TopCoder Open for a chance to win an Intel&#174; Centrino&#8482;  
                         mobile technology-based notebook! <A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_specs','comp',545,655);">View Specs.</A></p>
                         
-                        <p><strong><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">Register Now!</A> Use promotion code TCO2003.</strong><br/>
+                        <p class="bodyText"><strong><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">Register Now!</A></strong></p>
+                        
+                        <p class="bodyText"><strong>Use promotion code <font color="#CC0000">TCO2003.</font></strong><br/>
                         <img src="/i/clear.gif" width="205" height="1" border="0"/></p>
                     </td>
                 </tr>
@@ -85,14 +85,16 @@ function openWin(url, name, w, h) {
                 <tr>
                     <td colspan="2" class="bodyText">
                         <p><strong><A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_sample','comp',545,655);">Check out</A> what Intel Developer 
-                        Services offers you.  Then join <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">Intel Developer Services</A> 
+                        Services offers you.</strong></p>
+                        
+                        <p><strong>Then join <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">Intel Developer Services</A> 
                         today and get FREE technical resources designed to help you capitalize on today's technology trends, optimize solutions and fulfill your customers' growing demands.</strong></p>
                     
-                        <p><strong>Remember to use promotion code <strong>TCO2003</strong> and compete in the TopCoder Open for a chance to win an Intel&#174; Centrino&#8482; 
+                        <p><strong>Remember to use promotion code <font color="#CC0000"><strong>TCO2003</strong></font> and compete in the TopCoder Open for a chance to win an Intel&#174; Centrino&#8482; 
                         mobile technology-based notebook!</strong></p>
                     
-                        <p><A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_rules','comp',545,655);">Official Drawing Rules</A> for Intel&#174; 
-                        Centrino&#8482; mobile technology-based notebook.</p>
+<!--                        <p><A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_rules','comp',545,655);">Official Drawing Rules</A> for Intel&#174; 
+                        Centrino&#8482; mobile technology-based notebook.</p> -->
                     
                         <p class="smallText">*Intel, the Intel Inside logo, Intel Centrino and the Intel Centrino logo are trademarks or registered trademarks of Intel Corporation or its subsidiaries in the United States and other countries.</p>
                     
