@@ -93,6 +93,12 @@
             <description></description>
         </init-param>
 
+        <init-param>
+            <param-name>SurveyList</param-name>
+            <param-value>survey.SurveyList</param-value>
+            <description></description>
+        </init-param>
+
         <!-- request parameters -->
         <init-param>
             <param-name>survey_id</param-name>
