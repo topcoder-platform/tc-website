@@ -5,11 +5,10 @@
           java.util.Map,com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils"
 %>
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
-<META HTTP-EQUIV="refresh" content="15">
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-
+<META HTTP-EQUIV="refresh" content="15">
 <title>2004 TopCoder Open - Computer Programming Tournament</title>
 
  <STYLE TYPE="text/css">
