@@ -9,6 +9,7 @@
           weblogic.common.T3Services,
           com.topcoder.common.web.data.Navigation,
           com.topcoder.common.*,
+          com.topcoder.web.tces.common.*,
           com.topcoder.web.tces.bean.*" %>
 
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
@@ -66,7 +67,7 @@
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Status</b></TD>
                 </TR>
 
-                <tces:mapIterator id="campaignInfo" MapList="<%=(List) request.getAttribute(CampaignInfo)%>">
+                <tces:mapIterator id="campaignInfo" MapList="<%= (List) request.getAttribute("CampaignInfo") %>">
                 <TR>
                   <TD class="statText" HEIGHT="18">&#160;
                     <%= (String)campaignInfo.get("campaign_name") %>
