@@ -55,6 +55,7 @@
 						<TR><TD VALIGN="middle" CLASS="smallText" COLSPAN="2" HEIGHT="18">&#160;<!--<A HREF="/index?t=news_events&amp;c=index" CLASS="smallText">&#160;Press Release 2002</A>--></TD></TR>
 						<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BGCOLOR="#333333" HEIGHT="18">&#160;LATEST NEWS</TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+        <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;08.13.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_08_13_02" CLASS="bodyText">Sun Microsystems and TopCoder Host SunNetwork(SM) Coding Challenge</A></TD></TR>
         <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;07.01.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_07_01_02" CLASS="bodyText">TopCoder Expands Development Projects and Other Services to Citizens of all Countries to Work as Independent Contractors</A></TD></TR>
         <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;07.01.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_07_01_02b" CLASS="bodyText">TopCoder Reduces Single Round Matches to Once Per Week and Removes Prize Money</A></TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
