@@ -12,7 +12,7 @@
         <font color=orange> Hello, <jsp:getProperty name="SessionInfo" property="Handle" />! </font>
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Logout" CLASS="globalNavSmall">Logout</A>
 <% } else { %>
-        &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=login&d2=login" CLASS="globalNavSmall">Login</A>
+        &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Login" CLASS="globalNavSmall">Login</A>
 <% } %> 
 
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=about&d2=about" CLASS="globalNavSmall">about [TCHS]</A>   

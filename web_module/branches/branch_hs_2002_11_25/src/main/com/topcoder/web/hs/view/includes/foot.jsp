@@ -29,7 +29,7 @@
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=contacts&d2=contacts" CLASS="globalNavSmall">contacts</A>
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=home&d2=privacy" CLASS="globalNavSmall">privacy</A>
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=home&d2=terms" CLASS="globalNavSmall">terms</A>             
-        &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=home&d2=index" CLASS="globalNavSmall">[TCHS] home</A>   
+        &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Home" CLASS="globalNavSmall">[TCHS] home</A>   
         &nbsp;&nbsp;::&nbsp;&nbsp;   <A HREF="?module=Static&d1=coaches_corner&d2=coaches_corner" CLASS="globalNavSmall">Coach's Corner</A>&nbsp;&nbsp;</SPAN><BR><SPAN CLASS="smallText">Copyright &copy; 2002, TopCoder, Inc. All rights reserved.</SPAN></TD></TR></TABLE>
 <!-- Footer Include Ends -->
 

@@ -20,7 +20,7 @@ public abstract class Base implements RequestProcessor {
     protected User user;
     protected HSAuthorization hsa;
     private boolean nextPageInContext = false;
-    private String nextPage = null;
+    private String nextPage = "";
 
     public Base() {
     }
@@ -40,7 +40,7 @@ public abstract class Base implements RequestProcessor {
     protected void buildSessionInfo() {
         SessionInfoBean si = new SessionInfoBean();
         si.setUserId((int)user.getId());
-        si.setHandle(user.getUserName());
+        si.setHandle(isUserGuest() ? "" : user.getUserName());
         si.setGroup(isUserGuest() ? 'G' : 'S');  //@@@
         si.setRating(2500);  //@@@
         request.setAttribute("SessionInfo", si);

@@ -55,7 +55,7 @@ pageContext.setAttribute("prev_e", Integer.toString(iTemp));
 iTemp = Math.max(1,(iTemp-Integer.parseInt(sNumRow)+1));
 pageContext.setAttribute("prev_s", Integer.toString(iTemp));
 
-String sortString = "";  //@@@ add hs here
+String sortString = "";  //@@@ add hs here if we are going to support school and sorted together
 if(srb.getProperty("sq")!=null){
   sortString+="&sq=" + srb.getProperty("sq");
   sortString+="&sc=" + srb.getProperty("sc");

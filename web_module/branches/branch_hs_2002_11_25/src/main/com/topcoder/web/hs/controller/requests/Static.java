@@ -19,6 +19,7 @@ public class Static extends Base {
             if(!Constants.isLegal(p)) throw new IllegalArgumentException("disallowed path component: "+p);
             path += "/"+p;
         }
+        if(path.equals("")) throw new IllegalArgumentException("path must have at least one component");
         path += ".jsp";
 
         /* check whether the path is allowed for this type of user */
