@@ -219,10 +219,7 @@ This approach could be optimized in the following ways:
 If time for one of the assistants is more then current best, exit from the function. 
 Always assign job 1 to assistant one 
 (it would reduce number of iterations to 3^9=19683).
-Always assign job 2 (if there is one) to assistant two 
-(it would reduce number of iterations to 3^8=6561).
-Always assign job 3 (if there is one) to assistant three 
-(it would reduce number of iterations to 3^7=2187). </PRE>
+</PRE>
 
 <P>None of the optimizations are necessary because the problem would work 
 fine without them. There are other ways to solve this problem but they would probably involve more typing.
