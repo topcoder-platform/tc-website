@@ -403,33 +403,3 @@ WHERE u.status = 'A'
 AND handle not like '%guest%'
 ORDER BY 1
 "
-
-java com.topcoder.utilities.QueryLoader TC_EMAIL 74 "Notify Active" 0 0 "
-SELECT
-  LOWER(u.email) AS email_address
-  ,u.handle
-FROM
-  user u
-  ,coder c
-WHERE
-  u.user_id = c.coder_id
-  AND u.status = 'A'
-  AND c.notify = 'Y'
-ORDER BY
-  1"
-
-
-java com.topcoder.utilities.QueryLoader TC_EMAIL 75 "Notify Active US" 0 0 "
-SELECT
-  LOWER(u.email) AS email_address
-  ,u.handle
-FROM
-  user u
-  ,coder c
-WHERE
-  u.user_id = c.coder_id
-  AND u.status = 'A'
-  AND c.notify = 'Y'
-  AND c.country_code = '840'
-ORDER BY
-  1"
