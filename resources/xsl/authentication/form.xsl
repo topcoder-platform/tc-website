@@ -27,7 +27,7 @@
   function sendMail() {login.Command.value="MailActivation";setBrowser();login.submit(); }
   function setBrowser() {
     nav=window.navigator;
-    login.AppName.value=nav.appName;
+    login.AppName.value=nav.appName;F
     login.AppVersion.value=nav.appVersion;
     login.UserAgent.value=nav.userAgent;
   }

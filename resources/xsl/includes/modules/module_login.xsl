@@ -29,7 +29,7 @@
                 Forget your password? 
                 <A HREF="index?t=authentication&amp;c=recover_password" CLASS="smallText">Click here</A>.
               <BR/>New to TopCoder?
-<A HREF="/reg/index.jsp" CLASS="smallText">Register now</A>. 
+	      <A CLASS="smallText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register now</A>. 
               </DIV><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/>  -->   		
   </xsl:template>
 </xsl:stylesheet>

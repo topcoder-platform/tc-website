@@ -80,7 +80,7 @@
 <!--end contextual links-->
 					<P>TopCoder conducts twice weekly matches online and twice annual tournaments that take place both online and ultimately on location &#40;for the Semifinals and Championship matches&#41;.</P>
 					<BR/>
-					<DIV ALIGN="center"><B>- There is no cost to <A HREF="/reg/index.jsp" CLASS="bodyText">register</A> or participate in any match or tournament -</B></DIV><BR/>
+					<DIV ALIGN="center"><B>- There is no cost to <A CLASS="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>register</A> or participate in any match or tournament -</B></DIV><BR/>
 					<B>Single Round Match</B>
 					<P>Twice weekly, a match is held online at TopCoder.com. Taking part in a match requires only an activated account and pre-match registration &#40;opens 1.5 hours before the start 
 					time of any match&#41;. Once these are done, you need only to log into the TC Arena Applet to participate in the match. Each match consists of a Coding, Challenge and System Testing phase.

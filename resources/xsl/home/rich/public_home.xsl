@@ -31,7 +31,7 @@
 	<TR>
 		<TD WIDTH="20" VALIGN="top" BGCOLOR="#666666" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="20" HEIGHT="1" BORDER="0"/></TD>
 		<TD WIDTH="100%" VALIGN="top" ALIGN="left" BGCOLOR="#666666" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
-		<SPAN CLASS="smallFoot"><A HREF="/reg/index.jsp" CLASS="smallFoot">register</A>&#160;&#160;::&#160;&#160;<!-- <A HREF="#" CLASS="smallFoot">login</A>&#160;&#160;::&#160;&#160; --><A HREF="/?t=about_tc&amp;c=index" CLASS="smallFoot">about [TC]</A>&#160;&#160;::&#160;&#160;<A HREF="/?t=contacts&amp;c=index" CLASS="smallFoot">contacts</A>&#160;&#160;::&#160;&#160;<A HREF="/?t=&amp;c=privacy" CLASS="smallFoot">privacy</A>&#160;&#160;::&#160;&#160;<A HREF="/?t=&amp;c=terms" CLASS="smallFoot">terms</A>&#160;&#160;::&#160;&#160;
+		<SPAN CLASS="smallFoot"><A CLASS="smallFoot"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>register</A>&#160;&#160;::&#160;&#160;<!-- <A HREF="#" CLASS="smallFoot">login</A>&#160;&#160;::&#160;&#160; --><A HREF="/?t=about_tc&amp;c=index" CLASS="smallFoot">about [TC]</A>&#160;&#160;::&#160;&#160;<A HREF="/?t=contacts&amp;c=index" CLASS="smallFoot">contacts</A>&#160;&#160;::&#160;&#160;<A HREF="/?t=&amp;c=privacy" CLASS="smallFoot">privacy</A>&#160;&#160;::&#160;&#160;<A HREF="/?t=&amp;c=terms" CLASS="smallFoot">terms</A>&#160;&#160;::&#160;&#160;
 		<A HREF="/?t=home&amp;c=public_home" CLASS="smallFoot">[TC] home</A></SPAN><BR/><SPAN CLASS="smallText">Copyright &#169; 2000, TopCoder Inc. All rights reserved.</SPAN><BR/><BR/><BR/></TD>
 	</TR>
 </TABLE>

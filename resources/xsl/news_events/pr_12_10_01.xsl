@@ -63,7 +63,7 @@
 <P>About TopCoder, Inc.TopCoder, Inc. organizes and hosts online and onsite programming competitions for its members. With a global membership database, TopCoder members extend across all professional and collegiate levels. The attraction of competition and the associated rewards create a powerful community of programmers. Access to this community is granted to corporate partners who both promote and profit from the relationship. For more information and registration details visit www.topcoder.com/?r=17.</P>
 <P CLASS="smallText">About the Sun Developer Connection ProgramBuilding on Sun's vision to enable services on demand with the latest open technologies, the Sun Developer Connection (SDC) offers individual developers and software development partners a single, worldwide entry point to build a technical and business relationship with Sun. As one of the largest developer communities in the world, the SDC is the connection to Sun for comprehensive resources to build and market solutions leveraging Sun's open technologies, products, business development, and community forums.###</P>
 <P CLASS="smallText">Sun, Sun Microsystems, the Sun logo, Sun Developer Connection, Java, Solaris, and The Network Is The Computer are trademarks of Sun Microsystems in the United States and other countries.</P>
-<A HREF="/reg/index.jsp" CLASS="bodyText">:: Register with TopCoder to compete</A> 
+<A CLASS="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>:: Register with TopCoder to compete</A>
  <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

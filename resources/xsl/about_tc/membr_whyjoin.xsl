@@ -88,7 +88,7 @@
 					<P>As you look through the site, you will see color coding with member's handles. These colors indicate the rating level of that member. Participating members (those who compete versus spectate) are able to view each other's profiles, past code submissions, stats and more.</P>
 					<P><B>Prizes</B><BR/>
 					Competition, peer interaction, skills development, employment opportunities, and the overall fun of a Single Round Match are all great, but let's not forget there are significant cash prizes awarded every week. Winners split $10,000 per Single Round Match. Tournaments offer a much higher total purse. For example, the 2001 Collegiate Challenge and 2001 Invitational Tournament were both $250,000 purses.</P>
-					<P><B><DIV ALIGN="center">- There is no cost to <A HREF="/reg/index.jsp" CLASS="bodyText">register</A> or participate in any match or tournament -</DIV></B></P>
+					<P><B><DIV ALIGN="center">- There is no cost to <A CLASS="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>register</A> or participate in any match or tournament -</DIV></B></P>
 					<BR/><BR/>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

@@ -83,9 +83,9 @@ if (!bEmpty) {
 <% if (vieweeHasImage) { %>
                      <IMG SRC="<bean:write name="resultRow" property='<%= "item[" + 22 /*"image path"*/ + "]" %>'/>" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
 <% } else if (nav.getLoggedIn()) { %>
-                     <A HREF="/reg/index.jsp"><IMG SRC="/i/m/nophoto_submit.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
+                     <A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>"><IMG SRC="/i/m/nophoto_submit.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
 <% } else { %>
-                     <A HREF="?t=authentication&c=login&errorMsg=You must log in to submit your photo.&errorURL=/reg/index.jsp"><IMG SRC="/i/m/nophoto_login.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
+                     <A HREF="<%="?t=authentication&c=login&errorMsg=You must log in to submit your photo.&errorURL=https://"+request.getServerName()+"/reg/index.jsp"%>"><IMG SRC="/i/m/nophoto_login.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
 <% } %>
                      <IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
                    </TD>
@@ -140,7 +140,7 @@ if (!bEmpty) {
                 </TR>                
                 <TR>
                   <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">
-                  <% if ( nav.getLoggedIn() && Integer.parseInt(rsr.getItem(1).toString())==nav.getUserId() ) { %><A HREF="/reg/index.jsp" CLASS="statText" TARGET="_parent">Update your profile</A>
+                  <% if ( nav.getLoggedIn() && Integer.parseInt(rsr.getItem(1).toString())==nav.getUserId() ) { %><A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="statText" TARGET="_parent">Update your profile</A>
 <% } else { %>&#160;</xsl:otherwise><%}%>
                   </TD>
                 </TR>                

@@ -65,7 +65,7 @@ the international appeal of TopCoder."</P>
 According to Hughes, the company's next expansion effort is Ireland.</P>
 <P CLASS="smallText">About TopCoder, Inc.<BR/>TopCoder, Inc. organizes and hosts online and onsite programming competitions for its members. With a global membership database, TopCoder members extend across all professional and collegiate levels. 
 The best performing members are invited to compete in annual tournaments.  The attraction of competition and the associated rewards create a powerful community of programmers.  Access to this community is granted to 
-corporate partners who both promote and profit from the relationship. For more information and registration details <A HREF="/?t=registration" CLASS="smallText">click here</A>.</P>
+corporate partners who both promote and profit from the relationship. For more information and registration details <A CLASS="smallText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>click here</A>.</P>
 <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
