@@ -56,7 +56,7 @@
 <table cellpadding="4" cellspacing="0" align="center" border="0" width="100%">
 <tr>
 <td class="rh1" align="left" colspan="4"></td>
-<td class="rh2" align="center" colspan="4">Probability of advancing to:</td>
+<td class="rh2" align="center" colspan="3">Probability of advancing to:</td>
 <td class="rh3" align="center" colspan="4">Probability of finishing as:</td>
 </tr>
 <tr>
