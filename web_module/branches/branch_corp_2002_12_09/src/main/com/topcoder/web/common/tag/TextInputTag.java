@@ -3,12 +3,14 @@ package com.topcoder.web.common.tag;
 public class TextInputTag extends BaseTag {
 	private String value;
 	private int size = -1;
-	private int maxlength = -1;	
+	private int maxlength = -1;
+    private boolean passw = false;	
 	
 	public int doStartTag() {
 		StringBuffer ret = new StringBuffer();
 		try {
-			ret.append("<input type=\"text\" name=\"").append(name).append("\" ");
+			ret.append("<input type=\"").append(passw?"password":"text")
+            .append("\" name=\"").append(name).append("\" ");
 			if( size >= 0 ) {
 				ret.append("size=\"").append(size).append("\" ");
 			}
@@ -53,4 +55,12 @@ public class TextInputTag extends BaseTag {
 	public void setSize(int size) {
 		this.size = size;
 	}
+    
+    /**
+     * Sets the passw.
+     * @param passw The passw to set
+     */
+    public void setPassw(boolean passw) {
+        this.passw = passw;
+    }
 }

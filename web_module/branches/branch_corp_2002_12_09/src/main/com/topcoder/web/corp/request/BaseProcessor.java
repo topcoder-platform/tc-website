@@ -27,9 +27,9 @@ public abstract class BaseProcessor implements RequestProcessor {
     
     // form based processors must set it to new HashMap() inside
     // constructor, while others are allowed leave it as is
-    protected HashMap formErrors = null;
+    private HashMap formErrors = null;
     // same for form defaults
-	protected HashMap formDefaults = null;
+	private HashMap formDefaults = null;
     
     /**
      * Performs generic pre-processing, then calls businessProcessing() method
@@ -97,4 +97,28 @@ public abstract class BaseProcessor implements RequestProcessor {
      * 
      */
     abstract void businessProcessing() throws Exception;
+    
+    /**
+     * Set default value for field of form. Intended to be used in form
+     * processors.
+     * @param fieldKey name of the form field
+     * @param value its deefault value
+     */
+    protected void setFormFieldDefault(String fieldKey, Object value) {
+        if( formDefaults == null ) {
+            formDefaults = new HashMap();
+        }
+        formDefaults.put(fieldKey, value);
+    }
+    
+    /**
+     * Marks form field as invalid.
+     * @param fieldKey name of field to be marked as invalid
+     */
+    protected void markFormFieldAsInvalid(String fieldKey) {
+        if(formErrors == null) {
+            formErrors = new HashMap();
+        }
+        formErrors.put(fieldKey, new Object());
+    }
 }

@@ -32,6 +32,8 @@
 </P><BR>
 <FORM action="" method="POST">
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+
+<!-- FIRST NAME -->
     <TR>
       <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>First Name</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
       <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-first-name" maxlength="30" size="30"/></TD>
@@ -45,6 +47,8 @@
           <img width="20" height="20" src="" alt="$e"/>
         </tc-webtag:error></TD>
     </TR>
+
+<!-- LAST NAME -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Last Name</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-last-name" size="30" maxlength="30"/></TD>
@@ -58,6 +62,8 @@
           <img width="20" height="20" src="" alt="$e"/>
         </tc-webtag:error></TD>
     </TR>
+
+<!-- TITLE -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Title</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-title" size="30" maxlength="30"/></TD>
@@ -71,6 +77,8 @@
             <img width="20" height="20" src="" alt="$e"/>
         </tc-webtag:error></TD>
     </TR>    
+
+<!-- ADDR LINE1 -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">Company Address&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-address-1" size="30" maxlength="50"/></TD>
@@ -84,6 +92,8 @@
           <img width="20" height="20" src="" alt="$e"/>
         </tc-webtag:error></TD>
     </TR>
+
+<!-- ADDR LINE2 -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-address-2" size="30" maxlength="50"/></TD>
@@ -97,6 +107,8 @@
           <img width="20" height="20" src="" alt="$e"/>
         </tc-webtag:error></TD>
     </TR>
+
+<!-- CITY -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">City&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-city" size="30" maxlength="30"/></TD>
@@ -110,6 +122,8 @@
           <img width="20" height="20" src="" alt="$e"/>
         </tc-webtag:error></TD>
     </TR>
+
+<!-- STATE/PROVINCE -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">State&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText"><tc-webtag:textInput name="prim-company-state" size="30" maxlength="30"/></TD>
@@ -123,6 +137,8 @@
           <img width="20" height="20" src="" alt="$e"/>
         </tc-webtag:error></TD>
     </TR>
+
+<!-- ZIP CODE -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">Zip&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-zip" size="10" maxlength="10"/></TD>
@@ -136,6 +152,8 @@
           <img width="20" height="20" src="" alt="$e"/>
         </tc-webtag:error></TD>
   </TR>
+
+<!-- COUNTRY -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">Country&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText"></TD>
@@ -143,13 +161,21 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
     </TR>
+
+<!-- PHONE -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Phone</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="" value ="" size="30" maxlength="100"></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-phone" size="30" maxlength="100"/></TD>
   </TR>
-  <TR valign="middle">
-    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle">&#160;</TD>
-  </TR>  
+   <TR>
+     <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+     <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error
+            refname="prim-phone"
+            text="Ensure phone is not empty and, consists of digits only">
+          <img width="16" height="16" src="err-mark.gif" alt="$e"/>
+        </tc-webtag:error></TD>
+  </TR>
   <TR valign="middle">
     <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" background="/i/p/graybv_lite_bg.gif" HEIGHT="16">&#160;<FONT COLOR="#FFFFFF"><B>User Name &amp; Password</B></FONT></TD>
   </TR>
@@ -159,16 +185,26 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
     </TR>
+
+<!-- LOGIN -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>User Name</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="" value ="" size="30" maxlength="15"></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-username" size="30" maxlength="15"/></TD>
   </TR>
     <TR>
-        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+        <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error
+            refname="prim-username"
+            text="Ensure username is not empty and, consists of letters and digits only. Also it is possible, user with given name already exists">
+          <img width="16" height="16" src="err-mark.gif" alt="$e"/>
+        </tc-webtag:error></TD>
     </TR>
+
+<!-- PASSWORD -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Password</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="password" name="" value ="" size="30" maxlength="15"></TD>
+    <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput passw="true" name="prim-password" size="30" maxlength="15"/></TD>
     <TD CLASS="bodyText" ALIGN="left" VALIGN="top">&#160;</TD>
   </TR>
   <TR>
@@ -176,15 +212,31 @@
     <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="top">Minimum&#160;of&#160; &#160;characters, maximum of <BR></TD>
   </TR>  
     <TR>
-        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+        <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error
+            refname="prim-password"
+            text="Ensure password is not empty and, consists of letters and digits only">
+          <img width="16" height="16" src="" alt="$e"/>
+        </tc-webtag:error></TD>
     </TR>
+
+<!-- PASSWORD VERIFICATION -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Re-type Password</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="password" name="" value ="" size="30" maxlength=""></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput passw="true" name="prim-password-once-more" size="30"/></TD>
   </TR>
     <TR>
-        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+        <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error
+            refname="prim-password-once-more"
+            text="Both of passwords must match">
+          <img width="16" height="16" src="" alt="$e"/>
+        </tc-webtag:error></TD>
     </TR>
+
+<!-- EMAIL -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Email</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-email" size="30" maxlength="100"/></TD>
@@ -198,6 +250,8 @@
           <img width="20" height="20" src="" alt="$e"/>
         </tc-webtag:error></TD>
     </TR>
+
+<!-- EMAIL VERIFICATION -->
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Re-type Email</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-email-once-more" size="30" maxlength="100"/></TD>

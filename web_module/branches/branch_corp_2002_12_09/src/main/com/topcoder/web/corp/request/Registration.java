@@ -1,7 +1,5 @@
 package com.topcoder.web.corp.request;
 
-import java.util.HashMap;
-
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 
@@ -23,7 +21,11 @@ public class Registration extends BaseProcessor {
 	public static final String KEY_CITY = "prim-company-city";
 	public static final String KEY_STATE = "prim-company-state";
 	public static final String KEY_ZIP = "prim-company-zip";
-
+    public static final String KEY_COUNTRY = "prim-company-country";
+    public static final String KEY_PHONE = "prim-phone";
+    public static final String KEY_LOGIN = "prim-username";
+    public static final String KEY_PASSWORD1 = "prim-password";
+    public static final String KEY_PASSWORD2 = "prim-password-once-more";
 	public static final String KEY_EMAIL1 = "prim-email";
 	public static final String KEY_EMAIL2 = "prim-email-once-more";
 
@@ -45,8 +47,6 @@ public class Registration extends BaseProcessor {
 	private String email2;
 
 	public Registration() {
-		formErrors = new HashMap();
-		formDefaults = new HashMap();
         pageInContext = true;
         // For this processor next page is always in the context. It is either same
         // form page (if any errors were encountered) or next workflow page
@@ -76,12 +76,11 @@ public class Registration extends BaseProcessor {
     	city = (String) request.getParameter(KEY_CITY);
     	state = (String) request.getParameter(KEY_STATE);
     	zip = (String) request.getParameter(KEY_ZIP);
-    	country = (String) request.getParameter("prim-company-country");
-    	phone = (String) request.getParameter("prim-phone");
-    	userName = (String) request.getParameter("prim-username");
-    	password = (String) request.getParameter("prim-password");
-    	password2 = (String) request.getParameter("prim-password-once-more");
-
+    	country = (String) request.getParameter(KEY_COUNTRY);
+    	phone = (String) request.getParameter(KEY_PHONE);
+    	userName = (String) request.getParameter(KEY_LOGIN);
+    	password = (String) request.getParameter(KEY_PASSWORD1);
+    	password2 = (String) request.getParameter(KEY_PASSWORD2);
     	email = (String) request.getParameter(KEY_EMAIL1);
     	email2 = (String) request.getParameter(KEY_EMAIL2);
         
@@ -128,17 +127,36 @@ public class Registration extends BaseProcessor {
 
     	ret &= // zip validity (optional)
     	checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_DIGITS_EN, false, 1);
+        
+        // insert country validity check here
+        
+        ret &= // phone validity
+        checkItemValidity(KEY_PHONE, phone, StringUtils.ALPHABET_NUM_PUNCT_EN, true, 1);
 
-    	ret &= // email validity
-    	checkItemValidity(KEY_EMAIL1, email, StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 1);
+        ret &= // username validity
+        checkUsernameValidity();
+
+        ret &= // password validity
+        checkItemValidity(KEY_PASSWORD1, password, StringUtils.ALPHABET_ALPHA_NUM_EN, true, 1);
+
+        // password2 validity
+        if( password2 == null ) password2 = "";
+        setFormFieldDefault(KEY_PASSWORD2, password2);
+        if( ! password2.equals(password) ) {
+            markFormFieldAsInvalid(KEY_PASSWORD2);
+            ret = false;
+        }
     	
+        ret &= // email validity
+        checkItemValidity(KEY_EMAIL1, email, StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 1);
+
     	// email2 validity
     	if( email2 == null ) email2 = "";
-    	formDefaults.put(KEY_EMAIL2, email2);
+        setFormFieldDefault(KEY_EMAIL2, email2);
     	if( ! email2.equals(email) ) {
-	    	formErrors.put(KEY_EMAIL2, new Object());
+            markFormFieldAsInvalid(KEY_EMAIL2);
+            ret = false;
 	    }
-    	ret = false; 
         return ret;
     }
     
@@ -149,7 +167,7 @@ public class Registration extends BaseProcessor {
     	boolean ret = true;
     	boolean chkMore = true;
     	
-    	formDefaults.put(itemKey, itemValue == null ? "" : itemValue);
+        setFormFieldDefault(itemKey, itemValue == null ? "" : itemValue);
     	
     	if( !required ) {
     		if( itemValue == null || itemValue.length() == 0 ) {
@@ -161,20 +179,20 @@ public class Registration extends BaseProcessor {
     	// either this field is required or (optional and not empty)
     	if( itemValue == null || itemValue.length() == 0 ) {
     		ret = false;
-			formErrors.put(itemKey, new Object());
+            markFormFieldAsInvalid(itemKey);
     	}
     	else {
 	    	//  alphabet check
 			if( (! StringUtils.consistsOf(itemValue, alphabet, true )) )  {
 				ret = false;
- 				formErrors.put(itemKey, new Object());
+                markFormFieldAsInvalid(itemKey);
 			}
 			else {
 				if( maxWords <= 1 ) maxWords = 1;
 				
 				if( ! StringUtils.hasNotMoreWords(itemValue, maxWords) ) {
 					ret = false;
-	    			formErrors.put(itemKey, new Object());
+                    markFormFieldAsInvalid(itemKey);
 				}
 			}
     	}
@@ -186,5 +204,20 @@ public class Registration extends BaseProcessor {
      * ready).
      */
     private void makePersistent() throws Exception {
+    }
+    
+    /**
+     * Checks if login consists of valid symbols and will it be allowed by DB
+     * rules (uniquiness)
+     * @return boolean true if allowed
+     */
+    private boolean checkUsernameValidity() {
+        boolean ret = true;
+        //as usually check against char set 
+        ret &= checkItemValidity(KEY_LOGIN, userName, StringUtils.ALPHABET_ALPHA_EN, true, 1);
+
+        // and additionally against DB - not implemented for now
+        // ret &= chkAgainstDB();       
+        return ret;
     }
 }

@@ -684,6 +684,8 @@
             <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="error.jsp" prefix="" />
 			<zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="index.jsp" prefix="" />
 
+            <zipfileset dir="${resources}/${corp.war.name}/images/" includes="*.gif" prefix="images" />
+
 <!--
             <zipfileset dir="${java}/com/topcoder/web/corp/jsp">
                 <include name="**/*.jpg"/>

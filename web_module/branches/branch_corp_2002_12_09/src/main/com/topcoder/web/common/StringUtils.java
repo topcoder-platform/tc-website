@@ -36,6 +36,10 @@ public final class StringUtils {
     public static final String ALPHABET_ALPHA_NUM_PUNCT_EN =
         ALPHABET_ALPHA_NUM_EN +
         ALPHABET_PUNCTUATION_EN;
+
+    public static final String ALPHABET_NUM_PUNCT_EN =
+        ALPHABET_DIGITS_EN +
+        ALPHABET_PUNCTUATION_EN;
     
     /**
      * Checks if string has all its charachters in alphabet given.

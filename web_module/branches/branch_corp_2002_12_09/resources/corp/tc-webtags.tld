@@ -28,6 +28,12 @@
     </attribute>
 
     <attribute>
+      <name>passw</name>
+      <required>false</required>
+    </attribute>
+
+
+    <attribute>
       <name>maxlength</name>
       <required>false</required>
     </attribute>
