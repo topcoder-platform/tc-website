@@ -78,7 +78,7 @@ public class PDFGenerator extends BaseProcessor {
         if(getRequest() instanceof MultipartRequest) {
             MultipartRequest request = (MultipartRequest)getRequest();
             log.debug("RYAN");
-            log.debug(request.getUploadedFile("logo").getSize());
+            log.debug(""+request.getUploadedFile("logo").getSize());
             config.setCompanyLogo(request.getUploadedFile("logo"));
         }
 
