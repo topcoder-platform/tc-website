@@ -40,7 +40,7 @@
     <table width="550" border="0" cellpadding="0" cellspacing="0">
     
                 <tr><td class="bodyText"><img src="/i/tournament/tccc04/tccc04_logo.gif" alt="2004 TopCoder Collegiate Challenge" width="257" height="117" border="0" />
-                                                          <img src="/i/tournament/tccc04/download_sponsor_pdf.gif" alt="Download the TCCC PDF" width="288" height="117" border="0" />
+                                                          <A href="/i/downlaods/tccc04_binder.pdf"><img src="/i/tournament/tccc04/download_sponsor_pdf.gif" alt="Download the TCCC PDF" width="288" height="117" border="0" />
                 </td></tr>
                                                           
                 <tr><td class="bodyText" valign="center"><p><img src="/i/tournament/tccc04/sponsor_intel.jpg" alt="Intel" width="152" height="153" border="0" align="left"/><strong>Intel - Drive Traffic</strong></p>
