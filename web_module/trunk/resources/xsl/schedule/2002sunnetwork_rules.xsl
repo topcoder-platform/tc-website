@@ -57,102 +57,90 @@
 
 	<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">      
       <TR>
-        <TD COLSPAN="5"><DIV ALIGN="center"><A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/sun_network_logo.gif" ALT="" WIDTH="284" HEIGHT="80" BORDER="0"/></A><A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You must log in to view this portion of the site.&amp;errorURL=/reg/index.jsp" TARGET="_blank"><IMG SRC="/i/tournament/sun_challenge_logo.gif" ALT="" WIDTH="174" HEIGHT="65" BORDER="0"/></A></DIV></TD>
+        <TD COLSPAN="3"><DIV ALIGN="center"><A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/sun_network_logo.gif" ALT="" WIDTH="284" HEIGHT="80" BORDER="0"/></A><A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You must log in to view this portion of the site.&amp;errorURL=/reg/index.jsp" TARGET="_blank"><IMG SRC="/i/tournament/sun_challenge_logo.gif" ALT="" WIDTH="174" HEIGHT="65" BORDER="0"/></A></DIV></TD>
       </TR>      
       
       <TR>
-        <TD COLSPAN="5" ALIGN="center" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;SunNetwork Coding Challenge Features</TD>
+        <TD COLSPAN="3" ALIGN="center" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;SunNetwork Coding Challenge Features</TD>
       </TR>                    						
 	  <TR>
 		<!-- <TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" >
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
 		<A HREF="/index?t=schedule&amp;c=2002sunnetwork_rules#4" CLASS="statTextBig">Rounds</A></TD> -->
 		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-			<xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-			<xsl:when test="/TC/Command='tourny_regions_ne'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_se'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_w'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_mw'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_ne32'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_se32'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_w32'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_mw32'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_ne128'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_se128'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_w128'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_mw128'">orangebv_bg</xsl:when>
-			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+			<!-- <xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_regions_ne'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute> -->		
 		<A HREF="/index?t=schedule&amp;c=" CLASS="statTextBig"></A><FONT COLOR="#666666">Round Updates</FONT></TD>
 		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
 		<A HREF="/index?t=schedule&amp;c=2002sunnetwork_rules" CLASS="statTextBig">Rules &amp; Regulations</A></TD>
-		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig">
-			<xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-			<xsl:when test="/TC/Command='2002sunnetwork_rules'">steel_bluebv_bg</xsl:when>
-			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>	
+		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
+			<!-- <xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>	-->
 		<A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You must log in to view this portion of the site.&amp;errorURL=/reg/index.jsp" CLASS="statTextBig">Sign-Up!</A></TD>
 	  </TR>
     </TABLE>
-<UL>
-	<LI><A HREF="#1" CLASS="statText">Overview of the Tournament</A></LI>
-	<UL>
-	<LI><A HREF="#2" CLASS="statText">Eligibility</A></LI>
-</UL>
+<UL CLASS="statText">
+	<LI><A HREF="#1" CLASS="statText"><FONT COLOR="#FFCC00">Overview of the Tournament</FONT></A></LI>
+	<UL CLASS="statText">
+	<LI><A HREF="#2" CLASS="statText"><FONT COLOR="#FFCC00">Eligibility</FONT></A></LI>
+   </UL>
 </UL>
 
 
-<UL>
+<UL CLASS="statText">
 	<LI>About the Tournament</LI>
-	<UL>
-	<LI><A HREF="#4" CLASS="statText">Qualification Round and Qualification Period</A></LI>
-	<LI><A HREF="#6" CLASS="statText">Quarterfinal, Semifinal and Championship Rounds</A></LI>
-	<LI><A HREF="#7" CLASS="statText">Competition Round Structure</A></LI>
-	<LI><A HREF="#8" CLASS="statText">About the Prizes</A></LI>
-	<LI><A HREF="#9" CLASS="statText">Conditions of Participation</A></LI>
-	<LI><A HREF="#10" CLASS="statText">Other</A></LI>
+	<UL CLASS="statText">
+	<LI><A HREF="#4" CLASS="statText"><FONT COLOR="#FFCC00">Qualification Round and Qualification Period</FONT></A></LI>
+	<LI><A HREF="#6" CLASS="statText"><FONT COLOR="#FFCC00">Quarterfinal, Semifinal and Championship Rounds</FONT></A></LI>
+	<LI><A HREF="#7" CLASS="statText"><FONT COLOR="#FFCC00">Competition Round Structure</FONT></A></LI>
+	<LI><A HREF="#8" CLASS="statText"><FONT COLOR="#FFCC00">About the Prizes</FONT></A></LI>
+	<LI><A HREF="#9" CLASS="statText"><FONT COLOR="#FFCC00">Conditions of Participation</FONT></A></LI>
+	<LI><A HREF="#10" CLASS="statText"><FONT COLOR="#FFCC00">Other</FONT></A></LI>
 </UL>
 </UL>
 
-<P><BR/></P>
+<P CLASS="statText"><BR/></P>
 
-<P>
+<P CLASS="statText">
 <A NAME="1"></A><B>Overview of the Tournament</B>
 </P>
 
-<P>
+<P CLASS="statText">
 The 2002 SunNetwork<sup>sm</sup> Coding Challenge computer programming tournament will take place at the SunNetwork<sup>sm</sup> 
 Conference at the Moscone Center in San Francisco, CA from September 18th through September 20th. All 
 rounds of the tournament, consisting of Qualification, Quarterfinal, Semifinal and Championship rounds, 
 will be held onsite at the conference. The total prize purse for the tournament will be $80,000, with the final four 
-(4) competitors in the Championship round receiving prize money. For more information about the prizes <A HREF="#8" CLASS="statText">click here</A>.
+(4) competitors in the Championship round receiving prize money. For more information about the prizes <A HREF="#8" CLASS="statText"><FONT COLOR="#FFCC00">click here</FONT></A>.
 </P>
 
-<P>
+<P CLASS="statText">
 All expenses to attend the SunNetwork<sup>sm</sup> conference, including the conference registration fee, 
 and the SunNetwork<sup>sm</sup> Coding Challenge are the responsibility of the competitor.
 </P>
 
-<P><A HREF="#top" CLASS="statText">Back to Top</A></P>
-<P>
+<P CLASS="statText"><A HREF="#top" CLASS="statText"><FONT COLOR="#FFCC00">Back to Top</FONT></A></P>
+<P CLASS="statText">
 <A NAME="2"></A><B>Eligibility</B><BR/>
 Contestants must be a TopCoder member and a registered attendee of the SunNetwork<sup>sm</sup> Conference 
 in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.  To become a TopCoder member, 
-visit TopCoder's website at <A HREF="www.topcoder.com" CLASS="statText">www.topcoder.com</A>.  To register for the SunNetwork<sup>sm</sup> Conference, visit 
-the SunNetwork<sup>sm</sup> website at <A HREF="http://sunnetwork.sun.com/sf2002/reg/general/index.en.jsp" CLASS="statText">http://sunnetwork.sun.com</A>.
+visit TopCoder's website at <A HREF="www.topcoder.com" CLASS="statText"><FONT COLOR="#FFCC00">www.topcoder.com</FONT></A>.  To register for the SunNetwork<sup>sm</sup> Conference, visit 
+the SunNetwork<sup>sm</sup> website at <A HREF="http://sunnetwork.sun.com/sf2002/reg/general/index.en.jsp" CLASS="statText"><FONT COLOR="#FFCC00">http://sunnetwork.sun.com</FONT></A>.
 </P>
 
-<P>
+<P CLASS="statText">
 The SunNetwork<sup>sm</sup> Coding Challenge is open to citizens and lawful permanent residents of the United States*, and 
 to all non-immigrants currently in the United States* with a valid Visa, who
 are at least 18 years of age and who did not win prize money in the 2002 Sun Microsystems and TopCoder Collegiate Challenge.  
 </P>
 
-<P>
+<P CLASS="statText">
 *Including the U.S. territories of Guam, Puerto Rico and the U.S. Virgin Islands
 </P>
-<P><A HREF="#top" CLASS="statText">Back to Top</A></P>
+<P CLASS="statText"><A HREF="#top" CLASS="statText"><FONT COLOR="#FFCC00">Back to Top</FONT></A></P>
 
-<P>
+<P CLASS="statText">
 Employees and former employees of TopCoder, Inc. and Sun Microsystems, Inc. and those involved in the 
 production (including prize suppliers), implementation and distribution of this tournament and their advertising or 
 promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other 
@@ -161,15 +149,15 @@ living in the same household as such persons, are ineligible to enter the tourna
 </P>
 
 
-<P>
+<P CLASS="statText">
 <B>About the Tournament</B>
 </P>
 
-<P>
+<P CLASS="statText">
 <A NAME="4"></A><B>Qualification Round and Qualification Period</B><BR/>
 In order to participate in the Qualification round, contestants must first sign-up for the SunNetwork<sup>sm</sup> 
 Coding Challenge.  Competitors may sign-up prior to the SunNetwork<sup>sm</sup> Conference via the TopCoder website 
-at <A HREF="www.topcoder.com/sunnetworkchallenge" CLASS="statText">www.topcoder.com/sunnetworkchallenge</A>, or at
+at <A HREF="www.topcoder.com/sunnetworkchallenge" CLASS="statText"><FONT COLOR="#FFCC00">www.topcoder.com/sunnetworkchallenge</FONT></A>, or at
 the SunNetwork<sup>sm</sup> Conference.  
  To register at the SunNetwork<sup>sm</sup> Conference, contestants should proceed to the 
  TopCoder pavilion at the Moscone Center to sign-up at any time during the Qualification Period.  (Please note:  
@@ -217,7 +205,7 @@ the SunNetwork<sup>sm</sup> Conference.
 </tr>
 </table>
 
-<P>
+<P CLASS="statText">
 At the conference, registered individuals may participate in the Qualification round any 
 time during the Qualification Period.  To participate in the 
 Qualification round, contestants should go to the TopCoder pavilion, where they will be seated at a computer terminal, 
@@ -226,22 +214,22 @@ will have 45 minutes to submit the solution to the problem.  Solutions will be t
 System Test at the end of the Qualification Period.  After the System Test has been completed, TopCoder 
 will announce the 32 highest overall scoring competitors based upon the scores' standard deviation 
 from the mean scores.  The handles of the 32 top-scorers will be posted on TopCoder's website at 
-<A HREF="http://www.topcoder.com/sunnetworkchallenge" CLASS="statText">www.topcoder.com/sunnetworkchallenge</A> 
-and on Sun's website at <A HREF="http://sunnetwork.sun.com/sf2002/topcoder" CLASS="statText">http://sunnetwork.sun.com/sf2002/topcoder</A> and at the TopCoder pavilion in 
+<A HREF="http://www.topcoder.com/sunnetworkchallenge" CLASS="statText"><FONT COLOR="#FFCC00">www.topcoder.com/sunnetworkchallenge</FONT></A> 
+and on Sun's website at <A HREF="http://sunnetwork.sun.com/sf2002/topcoder" CLASS="statText"><FONT COLOR="#FFCC00">http://sunnetwork.sun.com/sf2002/topcoder</FONT></A> and at the TopCoder pavilion in 
 the Moscone Center.   Those 32 top-scoring individuals will advance to the Quarterfinal round of 
 the tournament.  In the event of a tie for the 32<sup>nd</sup> spot, the first competitor to achieve the 
 tied score will advance to the next round of competition. Individuals may only participate once in 
 the Qualification Round.
 </P>
 
-<P><A HREF="#top" CLASS="statText">Back to Top</A></P>
+<P CLASS="statText"><A HREF="#top" CLASS="statText"><FONT COLOR="#FFCC00">Back to Top</FONT></A></P>
 
 
-<P>
+<P CLASS="statText">
 <A NAME="6"></A><B>Quarterfinal, Semifinal and Championship Rounds</B>
 </P>
 
-<P>
+<P CLASS="statText">
 The 32 top-scoring individuals from the Qualification round will advance to the Quarterfinal round 
 of the tournament.  If a contestant who has advanced to the Quarterfinal round 
 does not participate in the Quarterfinal round, he/she will forfeit his/her spot in the tournament.  TopCoder will maintain a 
@@ -251,16 +239,16 @@ advancing competitors forfeits his/her spot, the next person on the stand-by lis
 opportunity to compete.
 </P>
 
-<P>
+<P CLASS="statText">
 Coder advancement in the Quarterfinal, Semifinal and Championship rounds is determined by comparing 
 the total point values from three phases of the round (see Competition Round Structure below) for each 
 coder. In order to advance, a coder must finish with a greater-than-zero point total.  Tournament advancement 
-will be published on TopCoder's website at <A HREF="http://www.topcoder.com/sunnetworkchallenge" CLASS="statText">www.topcoder.com/sunnetworkchallenge</A> 
-and on Sun's website at <A HREF="http://sunnetwork.sun.com/sf2002/topcoder" CLASS="statText">http://sunnetwork.sun.com/sf2002/topcoder</A> 
+will be published on TopCoder's website at <A HREF="http://www.topcoder.com/sunnetworkchallenge" CLASS="statText"><FONT COLOR="#FFCC00">www.topcoder.com/sunnetworkchallenge</FONT></A> 
+and on Sun's website at <A HREF="http://sunnetwork.sun.com/sf2002/topcoder" CLASS="statText"><FONT COLOR="#FFCC00">http://sunnetwork.sun.com/sf2002/topcoder</FONT></A> 
 for the duration of the tournament.
 </P>
 
-<P>
+<P CLASS="statText">
 Using the results of the Qualification Round, TopCoder will determine the room assignments for the Quarterfinal 
 round.  Room assignments for the Quarterfinal round will be based on the score of each competitor in the 
 Qualification round compared to the mean score of all of the competitors who answered the same problem.  
@@ -293,7 +281,7 @@ there were 16 competitors to be assigned in four rooms of four coders each:
 	</TR>		
 </TABLE>
 
-<P>
+<P CLASS="statText">
 The dates and times of the Quarterfinal, Semifinal and Championship rounds are as follows: 
 </P>
  
@@ -363,64 +351,64 @@ The dates and times of the Quarterfinal, Semifinal and Championship rounds are a
 </tr>
 </table>
 
-<P>
+<P CLASS="statText">
 <B>The Quarterfinal Round</B> will consist of one group of 32 coders, grouped into 8 rooms of 4 coders each.  
-The top 16 scorers across all rooms in the Quarterfinal Round will advance to the Semifinal Round.
+The top 8 scorers across all rooms in the Quarterfinal Round will advance to the Semifinal Round.
 </P>
 
-<P>
+<P CLASS="statText">
 <B>The Semifinal Round</B> 
 will be one group of 16 coders, consisting of 4 rooms of 4 coders each.  The top 4 scorers across all rooms will advance to the Championship Round.
 </P>
 
-<P>
+<P CLASS="statText">
 <B>The Championship Round</B> 
 will be one group of 4 coders. First, second, third and fourth place in the Championship round are determined by comparing the total points of each coder, with the highest point value placing first. The winner of the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Quarterfinal, Semifinal and/or Championship rounds, the tie will be resolved in the following manner (in order):
 
-<UL>
+<UL CLASS="statText">
 	<LI> Total points acquired (higher is better) during the rounds of the tournament in which all of the tied participants were presented with the same set of problems</LI>
 	<LI> If a tie still remains in the Semifinal round, then all tied coders will advance to the Championship Round</LI>
 	<LI> If a tie still remains in the Championship round, then the prize money will be distributed equally amongst the tied coders</LI>
 </UL>
 </P>
-<P><A HREF="#top" CLASS="statText">Back to Top</A></P>
+<P CLASS="statText"><A HREF="#top" CLASS="statText"><FONT COLOR="#FFCC00">Back to Top</FONT></A></P>
 
 
-<P>
+<P CLASS="statText">
 <A NAME="7"></A><B>Competition Round Structure</B>
 </P>
 
-<P>
+<P CLASS="statText">
 Java will be the only allowable programming language in the tournament. 
 The following describes the different phases of competition:
 </P>
 
-<P>
-<UL>
+<P CLASS="statText">
+<UL CLASS="statText">
 	<LI> <B>The Coding Phase</B> is a timed event where all contestants are presented with the same question(s).  If more than one (1) question is presented during a round of competition, the questions have varying levels of complexity and, accordingly, varying levels of point earnings potential. Multiple problems may be worked on in any order, and at the same time.  A solution to a problem may be submitted multiple times, however a point penalty of 10% of the maximum value of the problem will be assessed for each submission.  Points for a problem are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the problem was opened to the time it was submitted, regardless of the time it took to submit any previous solutions to that problem, if any.  (NOTE:  Only one (1) question will be presented during the Quarterfinal and Semifinal rounds of the tournament.  Three (3) questions will be presented during the Championship round.)</LI>
 	<LI> <B>The Challenge Phase</B> is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 50 points as a penalty, applied against their total score in that round of competition. </LI> 
 	<LI> <B>The System Testing Phase</B> is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</LI>
 </UL>
 </P>
-<P>
+<P CLASS="statText">
 During the Quarterfinal and Semifinal rounds, the Coding phase will last 40 minutes.  After a five-minute intermission, the Challenge Phase will commence and will last 10 minutes.  The System Testing Phase begins immediately following the end of the Challenge Phase.
 </P>
 
-<P>
+<P CLASS="statText">
 During the Championship round, the Coding Phase will last 75 minutes.  After a five-minute intermission, the Challenge Phase will commence and will last 15 minutes.  The System Testing Phase begins immediately following the end of the Challenge Phase.
 </P>
 
-<P><A HREF="#top" CLASS="statText">Back to Top</A></P>
+<P CLASS="statText"><A HREF="#top" CLASS="statText"><FONT COLOR="#FFCC00">Back to Top</FONT></A></P>
 
 
 
 
 
-<P>
+<P CLASS="statText">
 <A NAME="8"></A><B>About the Prizes</B>
 </P>
 
-<P>
+<P CLASS="statText">
 Prizes will be awarded to the four (4) competitors who advance to, and compete in, the Championship Round. Prize money will be distributed as follows:
 </P>
 
@@ -491,34 +479,34 @@ Prizes will be awarded to the four (4) competitors who advance to, and compete i
 </tr>
 </table>
 
-<P>
+<P CLASS="statText">
  All prizes will be awarded on Friday, September 20, 2002.  All winners must be present at the 
  keynote presentation on Friday, September 20<sup>th</sup> at 9:00AM to receive their prizes. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.
 </P>
-<P><A HREF="#top" CLASS="statText">Back to Top</A></P>
+<P CLASS="statText"><A HREF="#top" CLASS="statText"><FONT COLOR="#FFCC00">Back to Top</FONT></A></P>
 
-<P>
+<P CLASS="statText">
 <A NAME="9"></A><B>Conditions of Participation</B>
 </P>
 
-<P>
+<P CLASS="statText">
 By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder and Sun Microsystems, which are final, binding and conclusive in all matters.
 </P>
 
-<P>
+<P CLASS="statText">
 <B>Contestants must not cheat. All ideas for any code and/or challenge submitted must be the contestant's alone.</B>
 </P>
 
-<P>
+<P CLASS="statText">
 Winners in each round of competition will be those competitors who win the most points in their respective rounds of competition. All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designees and shall be final and binding in all respects.
 </P>
 
-<P>
+<P CLASS="statText">
 If a competitor advances to the Championship round, he/she must attend the keynote presentation on Friday, September 20, 2002.
 Finalists should be at the TopCoder pavilion no later than 8:45AM on Friday, September 20<sup>th</sup>.
 </P>
 
-<P>
+<P CLASS="statText">
 Prizewinners will be notified in person within 24 hours of the completion of the Championship 
 round that they have won a prize.  The final results of the Championship round will be announced 
 at the beginning of the keynote presentations on Friday, September 20<sup>th</sup> at 9:00AM. If 
@@ -527,7 +515,7 @@ Affidavit of Eligibility and Liability and Publicity Release to be completed and
 TopCoder no later than 3:00PM on Thursday, September 19<sup>th</sup>. Unclaimed or undeliverable prizes will not be awarded.  
 </P>
 
-<P>
+<P CLASS="statText">
 As a condition of winning and redeeming a prize, winners will be required to provide TopCoder a completed (i) 
 Affidavit of Eligibility and Liability and Publicity Release, and (ii) IRS Form W-9 or W-8BEN, as appropriate, 
 if one is not already on file with TopCoder. In completing the Affidavit of Eligibility and Liability and 
@@ -536,40 +524,40 @@ not cheated; that the idea for the code and/or challenge submitted is his/hers a
 accuracy of the demographic information contained within the TopCoder member database, (iv) authorizes TopCoder to publicize the tournament's results, (v) agrees to sign any applicable forms required by tax authorities, (vi) licenses to TopCoder rights to all information submitted during the tournament (including rights to source code and other executables), and (vii) releases TopCoder from liability arising out of any prize won. TopCoder requires contestants to complete the Form W-9 or W-8BEN for tax reporting purposes. If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit, or the W-9 or W-8BEN, as specified, the winner will be disqualified and the prize money won by the disqualified winner will be forfeited. Providing false information in the registration process or in the required forms described in this paragraph will disqualify a winner.
 </P>
 
-<P>
+<P CLASS="statText">
 By participating in a tournament and redeeming a prize, a winner releases and agrees to hold harmless TopCoder, its affiliates, subsidiaries, advertising and promotion agencies, sponsors, including Sun Microsystems, Inc., and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this tournament, or participation in any tournament-related activity, or the receipt, use or misuse of a prize. TopCoder specifically disclaims all liability associated with, and makes no warranties with regard to, any prize given.
 </P>
 
-<P>
+<P CLASS="statText">
 In addition, all prizewinners agree to cooperate with TopCoder, Inc.'s and Sun Microsystems, Inc.'s publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to TopCoder and any and all rights to said use, without further compensation.  Furthermore, all prizewinners agree to promptly notify TopCoder if a third-party contacts the prizewinner regarding employment opportunities and/or media interest as a result of the prizewinner's participation in the tournament.
 </P>
 
-<P>
+<P CLASS="statText">
 TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the tournament process, or otherwise being in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the tournament if it is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
 </P>
 
-<P><A HREF="#top" CLASS="statText">Back to Top</A></P>
+<P CLASS="statText"><A HREF="#top" CLASS="statText"><FONT COLOR="#FFCC00">Back to Top</FONT></A></P>
 
-<P>
+<P CLASS="statText">
 <A NAME="10"></A><B>Other</B>
 </P>
 
-<P>
+<P CLASS="statText">
 The tournament is void in whole or in part where prohibited by law.
 </P>
 
-<P>
-A list of tournament winners by coder handles will be available on the web site at <A HREF="http://www.topcoder.com/sunnetworkchallenge" CLASS="statText">www.topcoder.com/sunnetworkchallenge</A>, and will be displayed for at least 3 months after the end of the tournament.
+<P CLASS="statText">
+A list of tournament winners by coder handles will be available on the web site at <A HREF="http://www.topcoder.com/sunnetworkchallenge" CLASS="statText"><FONT COLOR="#FFCC00">www.topcoder.com/sunnetworkchallenge</FONT></A>, and will be displayed for at least 3 months after the end of the tournament.
 </P>
 
-<P>
-This tournament is brought to you by: <BR/><BR/>Sun Microsystems, Inc. (<A HREF="http://www.sun.com/" CLASS="statText">http://www.sun.com</A>)<BR/> 
+<P CLASS="statText">
+This tournament is brought to you by: <BR/><BR/>Sun Microsystems, Inc. (<A HREF="http://www.sun.com/" CLASS="statText"><FONT COLOR="#FFCC00">http://www.sun.com</FONT></A>)<BR/> 
 901 San Antonio Road<BR/> 
-Palo Alto, CA 94303<BR/><BR/>  and <BR/><BR/> TopCoder, Inc. (<A HREF="http://www.topcoder.com" CLASS="statText">www.topcoder.com</A>)<BR/> 703 Hebron Avenue<BR/> Glastonbury, CT 06033
+Palo Alto, CA 94303<BR/><BR/>  and <BR/><BR/> TopCoder, Inc. (<A HREF="http://www.topcoder.com" CLASS="statText"><FONT COLOR="#FFCC00">www.topcoder.com</FONT></A>)<BR/> 703 Hebron Avenue<BR/> Glastonbury, CT 06033
 </P>
-<P><A HREF="#top" CLASS="statText">Back to Top</A></P>
+<P CLASS="statText"><A HREF="#top" CLASS="statText"><FONT COLOR="#FFCC00">Back to Top</FONT></A></P>
 
-<P><BR/></P>
+<P CLASS="statText"><BR/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>

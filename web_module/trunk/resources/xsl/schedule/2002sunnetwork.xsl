@@ -55,10 +55,9 @@
     <TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <BR/>
 <!-- <DIV ALIGN="center"><A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/sun_network_logo.gif" ALT="" WIDTH="284" HEIGHT="80" BORDER="0"/></A></DIV> -->
-
 	<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
       <TR>
-        <TD><DIV ALIGN="center"><A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/sun_network_logo.gif" ALT="" WIDTH="284" HEIGHT="80" BORDER="0"/></A><A HREF="/reg/index.jsp" TARGET="_blank"><IMG SRC="/i/tournament/sun_challenge_logo.gif" ALT="" WIDTH="174" HEIGHT="65" BORDER="0"/></A></DIV></TD>
+        <TD><DIV ALIGN="center"><A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/sun_network_logo.gif" ALT="" WIDTH="284" HEIGHT="80" BORDER="0"/></A><A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You must log in to view this portion of the site.&amp;errorURL=/reg/index.jsp" TARGET="_blank"><IMG SRC="/i/tournament/sun_challenge_logo.gif" ALT="" WIDTH="174" HEIGHT="65" BORDER="0"/></A></DIV></TD>
       </TR>      
       
       <!-- <TR>
@@ -86,43 +85,33 @@ Challenge powered by TopCoder. This is <B>NOT</B> a rated event. </P>
 	
 	<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">      
       <TR>
-        <TD COLSPAN="5" ALIGN="center" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;SunNetwork Coding Challenge Features</TD>
+        <TD COLSPAN="3" ALIGN="center" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;SunNetwork Coding Challenge Features</TD>
       </TR>                    						
 	  <TR>
 		<!-- <TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" >
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
 		<A HREF="/index?t=schedule&amp;c=2002sunnetwork_rules#4" CLASS="statTextBig">Rounds</A></TD> -->
 		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_regions_ne'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_se'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_w'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_mw'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_ne32'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_se32'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_w32'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_mw32'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_ne128'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_se128'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_w128'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_mw128'">orangebv_bg</xsl:when>
-			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+			<!-- <xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_regions_ne'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute> -->		
 		<A HREF="/index?t=schedule&amp;c=" CLASS="statTextBig"></A><FONT COLOR="#666666">Round Updates</FONT></TD>
 		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
-		<A HREF="/index?t=schedule&amp;c=2002sunnetwork_rules" CLASS="statTextBig">Rules &amp; Regulations</A></TD>
-		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig">
-			<xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-			<xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when>
-			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>	
-		<A HREF="/reg/index.jsp" CLASS="statTextBig">Sign-Up!</A></TD>
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
+		<A HREF="/index?t=schedule&amp;c=2002sunnetwork_rules" CLASS="statTextBig"><FONT COLOR="#FFCC00">Rules &amp; Regulations</FONT></A></TD>
+
+		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
+			<!-- <xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when>
+			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>	-->
+		<A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You must log in to view this portion of the site.&amp;errorURL=/reg/index.jsp" CLASS="statTextBig"><FONT COLOR="#FFCC00">Sign-Up!</FONT></A></TD>
 	  </TR>
     </TABLE>
     <BR/>
 <DIV ALIGN="center">
 	<TABLE WIDTH="80%" BORDER="0" CELLPADDING="0" CELLSPACING="6" BGCOLOR="#093158">      
       <TR>
-        <TD VALIGN="top" CLASS="statText">
-<P>
+        <TD VALIGN="top">
+<P CLASS="statText">
 <B>TopCoder members</B><BR/>
 <xsl:choose>
   <xsl:when test="/TC/LoggedIn='true'">
@@ -132,11 +121,10 @@ Please <A HREF="/reg/index.jsp" CLASS="statText">update</A> your member profile 
 Please <A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You must log in to view this portion of the site.&amp;errorURL=/reg/index.jsp" CLASS="statText">login</A> to update your member profile to sign-up.
   </xsl:otherwise>
 </xsl:choose>
-
 </P>
 
 <xsl:if test="not(/TC/LoggedIn='true')">
-<P>
+<P CLASS="statText">
 <B>New to TopCoder?</B><BR/>
 Click here to <A HREF="/reg/index.jsp" CLASS="statText">register</A> as a TopCoder member and sign-up. 
 After you complete the registration process, we will send your account activation code via email.
@@ -146,12 +134,12 @@ After you complete the registration process, we will send your account activatio
       </TR>                    						
     </TABLE>
 </DIV>
-<P>
+<P CLASS="statText">
 For more information, please read the 
-<A HREF="/?&amp;t=schedule&amp;c=2002sunnetwork_rules" CLASS="statText">Official Rules &amp; Regulations</A> prior to registration.
+<A HREF="/?&amp;t=schedule&amp;c=2002sunnetwork_rules" CLASS="statText"><FONT COLOR="#FFCC00">Official Rules &amp; Regulations</FONT></A> prior to registration.
 </P>
-<P>
-Remember to visit the <A HREF="/?&amp;t=schedule&amp;c=practice_room" CLASS="statText">Practice Room</A>
+<P CLASS="statText">
+Remember to visit the <A HREF="/?&amp;t=schedule&amp;c=practice_room" CLASS="statText"><FONT COLOR="#FFCC00">Practice Room</FONT></A>
 to sharpen your skills or simply to get familiar with the Competition Arena.
 </P>
 <P><BR/></P>
