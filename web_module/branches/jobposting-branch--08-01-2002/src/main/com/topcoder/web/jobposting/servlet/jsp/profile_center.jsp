@@ -1,3 +1,5 @@
+<%@ page import="java.util.Map,
+                 java.util.Iterator"%>
 <%@ page errorPage="/errorPage.jsp" %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <jsp:useBean id="JobHitTask" scope="request" class="com.topcoder.web.jobposting.bean.JobHitTask" />
@@ -87,9 +89,14 @@
     </tr>
 <%}%>
 
-        <tc:demographic coderType="<%=coderType%>" selectedValues="<%=JobHitTask.getDemographics()%>" selectedOnly="true">
-          <tr><td class="statText"><%=demographicQuestion%>:</td><td class="statText"><%=demographicAnswer%></td></tr>
-        </tc:demographic>
+        <% Map demograhics = JobHitTask.getDemograhics();
+            Iterator it = demographics.entrySet().iterator();
+            Map.Entry me = null;
+            while (it.hasNext()) {
+              me = (Map.Entry) it.next();
+         %>
+          <tr><td class="statText"><%=me.getKey().toString()%>:</td><td class="statText"><%=me.getValue().toString()%></td></tr>
+        <% } %>
       </table>
     </td>
   </tr>

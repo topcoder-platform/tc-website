@@ -9,13 +9,10 @@ import com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServicesHome
 import com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServices;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
-import com.topcoder.common.web.util.Cache;
 import com.topcoder.common.web.data.*;
 import com.topcoder.ejb.AuthenticationServices.User;
-import com.topcoder.ejb.DataCache.DataCache;
 
 import javax.servlet.http.*;
-import javax.naming.Context;
 import java.io.Serializable;
 import java.util.*;
 
@@ -51,7 +48,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     private String major;
     private String gradYear;
     private String gradMonth;
-    private HashMap demographics;
+    private Map demographics;
     private boolean hasResume;
 
 
@@ -78,7 +75,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         setMajor("");
         setGradYear("");
         setGradMonth("");
-        setDemographics(new HashMap());
+        setDemographics(new TreeMap());
         setHasResume(false);
     }
 
@@ -186,25 +183,24 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
             setGradMonth(rsc.getItem(0, "grad_month").toString());
         }
 
-        ArrayList assignments = getDemographicAssignments(coder.getCoderType().getCoderTypeId());
-        for (int i = 0; i < assignments.size(); i++) {
-            DemographicAssignment assignment = (DemographicAssignment) assignments.get(i);
-            DemographicQuestion question = assignment.getDemographicQuestion();
-            String questionId = Integer.toString(question.getDemographicQuestionId());
-            ArrayList responseList = getDemographicResponses(coder.getDemographicResponses(), question.getDemographicQuestionId());
-            if (responseList != null) {
-                for (int j = 0; j < responseList.size(); j++) {
-                    DemographicResponse response = (DemographicResponse) responseList.get(j);
-                    String answer = null;
-                    if (question.getSelectable().equals("Y") || question.getSelectable().equals("M")) {
-                        answer = Integer.toString(response.getDemographicAnswerId());
-                    } else {
-                        answer = response.getDemographicResponseText();
-                    }
-                    setDemographic(questionId, answer);
-                }
-             }
+
+        oltpDataRequest = new Request();
+        oltpDataRequest.setContentHandle("member_demographics");
+        oltpDataRequest.setProperty("mid", ""+getUserId());
+        data = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        resultMap = data.getData(oltpDataRequest);
+        rsc = (ResultSetContainer)resultMap.get("TCES_Member_Demographics");
+
+
+        ResultSetContainer.ResultSetRow qrListRow = null;
+
+        for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
+            qrListRow = rsc.getRow(rowI);
+
+            demographics.put(qrListRow.getItem("demographic_question_text").toString(),
+                    qrListRow.getItem("demographic_answer_text").toString());
         }
+
 
         ResumeServicesHome rHome = null;
         ResumeServices rServices = null;
@@ -346,11 +342,11 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         this.email = email;
     }
 
-    public HashMap getDemographics() {
+    public Map getDemographics() {
         return demographics;
     }
 
-    public void setDemographics(HashMap demographics) {
+    public void setDemographics(Map demographics) {
         this.demographics = demographics;
     }
 
@@ -408,88 +404,5 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
 
     public void setGradMonth(String gradMonth) {
         this.gradMonth = gradMonth;
-    }
-
-
-
-    private ArrayList getDemographicAssignments(int coderType)
-            throws Exception {
-        ArrayList demographicAssignments = new ArrayList();
-        Context context = null;
-        try {
-            DataCache cache = Cache.get();
-            demographicAssignments.addAll(cache.getDemographicAssignments(coderType));
-        } catch (Exception e) {
-            log.error(e.toString());
-            throw e;
-        } finally {
-            if (context != null) {
-                try {
-                    context.close();
-                } catch (Exception e) {
-                }
-            }
-        }
-        return demographicAssignments;
-    }
-
-
-    private ArrayList getDemographicResponses(ArrayList responses, int questionId) {
-        ArrayList result = null;
-        for (int i = 0; i < responses.size(); i++) {
-            DemographicResponse response = (DemographicResponse) responses.get(i);
-            if (response.getDemographicQuestionId() == questionId) {
-                if (result == null) {
-                    result = new ArrayList(responses.size());
-                }
-                result.add(response);
-            }
-        }
-        if (result != null) {
-            result.trimToSize();
-        }
-        return result;
-    }
-
-
-
-     private void setDemographic(String questionId, String value) {
-        try {
-            Integer.parseInt(questionId);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return;
-        }
-
-        ArrayList answers = null;
-        if (this.demographics.containsKey(questionId)) {
-            answers = (ArrayList) this.demographics.get(questionId);
-            log.debug("setDemographic: demographics hash: found QId for: " + questionId);
-        } else {
-            answers = new ArrayList();
-            if (!questionId.equals("1") && !questionId.equals("2") && !questionId.equals("12")) {
-                this.demographics.put(questionId, answers);
-                log.debug("setDemographic: demographics hash: did not find QId for: " + questionId);
-            }
-        }
-
-        int pos = answers.indexOf(value);
-        log.debug("setDemographic: found in answer list: " + value + " at " + pos);
-
-        if (pos > -1) {
-            answers.remove(pos);
-            log.debug("setDemographic: answer list removed: " + pos);
-        }
-
-        //if ( !isEmpty(value) ) {
-        answers.add(value);
-        log.debug("setDemographic: answer list added: " + value);
-        //}
-
-        if (answers.size() == 0) {
-            this.demographics.remove(questionId);
-            log.debug("setDemographic: questionId removed from demographics hash: " + questionId);
-        }
-
     }
 }
