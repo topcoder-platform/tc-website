@@ -11,28 +11,11 @@
                       <TR> 
                         <TD CLASS="data" BGCOLOR="#990000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="statText"  BGCOLOR="#990000" VALIGN="top">
-                          <FORM NAME="searchForm" METHOD="post" onSubmit="return doCheckLogin()">
+                          <FORM NAME="searchForm" METHOD="post" > 
                             <xsl:attribute name="action">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>
                             <INPUT TYPE="hidden" NAME="t" VALUE="search"/>
                             <INPUT TYPE="hidden" NAME="c" VALUE="simple_search"/>
-                              <SCRIPT type="text/javascript"><![CDATA[
-                                var search=document.searchForm;
-                                function checkEnter(e) {
-                                  var keycode;
-                                  if (window.event) keycode = window.event.keyCode;
-                                  else if (e) keycode = e.which;
-                                  else return true;
-                                  if (keycode == 13) {
-                                   submitSearch();
-                                   return false;
-                                  } else return true;
-                                }
-                                function submitSearch() {
-                                  search.submit();
-                                }
-                              ]]></SCRIPT>
-
-                          <INPUT TYPE="text" NAME="SearchHandle" SIZE="15" MAXLENGTH="20" onKeyPress="checkEnter(event)"/>
+                          <INPUT TYPE="text" NAME="SearchHandle" SIZE="15" MAXLENGTH="20" />
                           <A HREF="javascript:submitSearch()"><xsl:attribute name="CLASS">statText</xsl:attribute>&#160;[ submit ]</A>
                           </FORM>
                         </TD>
