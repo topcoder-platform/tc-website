@@ -41,7 +41,7 @@
         </jsp:include>
 
 <p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
-    <table BORDER="0" CELLSPACING="1" CELLPADDING="5" WIDTH="100%">
+    <table BORDER="0" CELLSPACING="0" CELLPADDING="5" WIDTH="100%">
         <tr><td class="bodyTextBig">Question</td><td class="bodyTextBig" align="right">Average Rating</td></tr>
         <rsc:iterator list="<%=problemRatingResults%>" id="result">
         <% count = result.getIntItem("count"); %>
