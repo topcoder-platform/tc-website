@@ -230,6 +230,11 @@ public class TCLoadEmpty extends TCLoad {
         fSql.append("       ,rt.eligible ");        //9
         fSql.append("       ,rt.unrated ");        //10
         fSql.append("  FROM room rt ");
+        fSql.append("   WHERE NOT EXISTS ");
+        fSql.append("       (SELECT * ");
+        fSql.append("          FROM room ro ");
+        fSql.append("         WHERE ro.room_id = rt.room_id ");
+        fSql.append("           AND ro.room_type_id <> 1)");
 
         psSel = prepareStatement(fSql.toString(), SOURCE_DB);
         // Our insert statement
