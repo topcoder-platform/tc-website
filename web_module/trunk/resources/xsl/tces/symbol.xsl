@@ -83,7 +83,7 @@
                         solutions.  To ensure Symbol's continuing leadership in the integrated data management industry, the company 
                         gives its associates the resources they need, the freedom they crave and the encouragement they deserve.</p>
                         
-                       <p>Come on... <a href="/?&amp;t=tces&amp;c=solipsys_openings&amp;a=secure" class="bodyText">join our team.</a></p>
+                       <p>Come on... <a href="/?&amp;t=tces&amp;c=symbol_openings&amp;a=secure" class="bodyText">join our team.</a></p>
 <!-- Client Message Ends -->
 
                         <p><br/></p>
