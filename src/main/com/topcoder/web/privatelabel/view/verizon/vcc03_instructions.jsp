@@ -235,7 +235,7 @@ End Class </pre><br/><br/>
                             when the submission is subjected to the system tests.  <i>Submit will not necessarily use the code that appears in the coding window.  You must compile first 
                             before you submit.</i><br/><br/>
                            
-                           <dd>You do have the option of submitting a problem multiple times.  If you’ve already submitted a problem and you choose to submit again, your score 
+                           <dd>You do have the option of submitting a problem multiple times.  If you've already submitted a problem and you choose to submit again, your score 
                             for that submission will be adjusted to account for the additional lapsed time, as well as an additional penalty of 10% of the maximum point 
                             value for the problem.<br/><br/>
                        </dl>
