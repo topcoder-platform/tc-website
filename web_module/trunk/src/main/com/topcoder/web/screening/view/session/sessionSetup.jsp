@@ -7,7 +7,7 @@
 <head>
 <title>Topcoder | Testing Application Management Tool</title>
 
-<jsp:include page="/script.jsp" />
+<jsp:include page="../includes/script.jsp" />
 
 <script type="text/javascript" language="Javascript">
 <!--

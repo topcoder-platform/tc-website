@@ -6,7 +6,7 @@
 <HTML>
 <HEAD>
 <title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
-<jsp:include page="/script.jsp"/>
+<jsp:include page="../includes/script.jsp"/>
 <SCRIPT TYPE="text/javascript">
 function getProblemDetail(id) {
     var width = screen.availWidth * 2 / 3;
