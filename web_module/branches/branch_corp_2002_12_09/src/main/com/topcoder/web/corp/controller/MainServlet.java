@@ -19,7 +19,7 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCESAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.corp.Util;
-import java.net.URLEncoder;
+
 
 /**
  * Only two methods are supported GET & POST (identical behaviour in
@@ -111,12 +111,12 @@ public class MainServlet extends HttpServlet {
                 log.debug("user [id="+tcUser.getUserId()+"] has not enough "+
                     "permissions to work with module "+processorClassName
                 );
-                if (authToken.getActiveUser().isAnonymous()) {
-                    log.debug("unauthorized user not logged in, forwarding"+
-                               "to login page");
-                    fetchLoginPage(request,response);
-                    return;
-                }
+//                if (authToken.getActiveUser().isAnonymous()) {
+//                    log.debug("unauthorized user not logged in, forwarding"+
+//                               "to login page");
+//                    fetchLoginPage(request,response);
+//                    return;
+//                }
                 throw new NotAuthorizedException("Not enough permissions to "+
                     "work with requested module"
                 );
@@ -244,14 +244,14 @@ public class MainServlet extends HttpServlet {
      * @throws IOException
      */
     private void fetchLoginPage(
-        HttpServletRequest request,
-        HttpServletResponse response
+        HttpServletRequest req,
+        HttpServletResponse resp
     )
     throws ServletException, IOException 
     {
-        String originatingPage = request.getRequestURI();
-        if( request.getQueryString() != null ) {
-            originatingPage += "?"+request.getQueryString();
+        String originatingPage = req.getRequestURI();
+        if( req.getQueryString() != null ) {
+            originatingPage += "?"+req.getQueryString();
         }
         String destParam = 
             com.topcoder.web.corp.request.Login.KEY_DESTINATION_PAGE;
@@ -259,8 +259,8 @@ public class MainServlet extends HttpServlet {
             PFX_PAGE + KEY_LOGINPAGE
         );
         String loginPageDest = loginPage + "&" + destParam + "="
-                               + URLEncoder.encode(originatingPage);
-        fetchRegularPage(request, response, loginPageDest, true);
+                               + java.net.URLEncoder.encode(originatingPage);
+        fetchRegularPage(req, resp, loginPageDest, true);
     }
 
 
