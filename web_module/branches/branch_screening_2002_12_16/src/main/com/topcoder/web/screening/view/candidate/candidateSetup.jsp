@@ -28,7 +28,7 @@
 <P>
             Create a new candidate or update the existing one.
 </P><BR>
-<jsp:useBean id="candidateInfo" class="CandidateInfo" />
+<jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
 
 <%
     String referrer = request.getParameter("referrer");
