@@ -29,7 +29,7 @@ public class WriterReport {
     ArrayList div2Counts = null;
   
     try {
-      conn = DBMS.getDirectConnection();
+      conn = DBMS.getConnection();
       query = new StringBuffer(300);
       
       query = new StringBuffer(300);

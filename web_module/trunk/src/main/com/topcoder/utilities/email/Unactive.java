@@ -40,7 +40,7 @@ public class Unactive
     query.append(  " AND u.user_id > 267940" );
     query.append( " ORDER BY 2" );
     /****************************************************/
-    Connection conn = DBMS.getDirectConnection();
+    Connection conn = DBMS.getConnection();
     PreparedStatement ps = null;
     ResultSet rs = null;
     int coderId = 0;

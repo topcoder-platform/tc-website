@@ -264,18 +264,7 @@ final class UserDb {
     PreparedStatement ps = null;
     Connection conn = null;
     String query = null;
-    /**************************************************************/
-    /***********************Postgres*******************************/
-    /**************************************************************/
-    if ( DBMS.DB == DBMS.POSTGRES ) {
-      query = "SELECT user_id FROM users WHERE user_id=?";
-    }
-    /**************************************************************/
-    /***********************Informix*******************************/
-    /**************************************************************/
-    else if ( DBMS.DB == DBMS.INFORMIX ) {
-      query = "SELECT user_id FROM user WHERE user_id=?";
-    }
+    query = "SELECT user_id FROM user WHERE user_id=?";
     try {
       conn = DBMS.getConnection();
       ps = conn.prepareStatement(query);

@@ -213,7 +213,7 @@ public class Mass {
     String actCode = "";
     String msgText = "";
     try {
-      conn = DBMS.getDirectConnection();
+      conn = DBMS.getConnection();
       ps = conn.prepareStatement(query.toString());
       ps.executeQuery();
       rs = ps.getResultSet();

@@ -932,61 +932,26 @@ public class DataCacheBean extends BaseEJB {
     Language lang = null;
     Group group     = null;
     StringBuffer query        = new StringBuffer(400);
-    /*************************************************************************************/
-    /********************************** Postgres *****************************************/
-    /*************************************************************************************/
-    if (DBMS.DB == DBMS.POSTGRES) {
-      query.append ( " SELECT"                            );
-      query.append (   " c.contest_id"                    );
-      query.append (   " ,c.contest_name"                 );
-      query.append (   " ,c.contest_start"                );
-      query.append (   " ,c.contest_end"                  );
-      query.append (   " ,c.status"                       );
-      query.append (   " ,s.subject_id"                   );
-      query.append (   " ,s.subject_name"                 );
-      query.append (   " ,g.group_id"                     );
-      query.append (   " ,g.group_desc"                   );
-      query.append (   " ,c.ad_text"                      );
-      query.append (   " ,c.ad_start"                     );
-      query.append (   " ,c.ad_end"                       );
-      query.append ( " FROM"                              );
-      query.append (   " groups g"                        );
-      query.append (   " ,subjects s"                     );
-      query.append (   " ,contest c"                      );
-      query.append ( " WHERE"                             );
-      query.append (   " g.group_id = c.group_id"         );
-      query.append (   " AND s.subject_id = c.subject_id" );
-      query.append (   " AND ("                           );
-      query.append (     " c.status = 'A'"                );
-      query.append (     " OR c.status = 'P'"             );
-      query.append (   " )"                               );
-    }
-    /*************************************************************************************/
-    /********************************** Informix *****************************************/
-    /*************************************************************************************/
-    else if (DBMS.DB == DBMS.INFORMIX) {
-      query.append ( " SELECT c.contest_id");
-      query.append (        " ,c.name");
-      query.append (        " ,c.start_date");
-      query.append (        " ,c.end_date");
-      query.append (        " ,c.status");
-      query.append (        " ,l.language_id");
-      query.append (        " ,l.language_name");
-      query.append (        " ,g.group_id");
-      query.append (        " ,g.group_desc");
-      query.append (        " ,c.ad_text");
-      query.append (        " ,c.ad_start");
-      query.append (        " ,c.ad_end");
-      query.append (   " FROM group g");
-      query.append (        " ,language l");
-      query.append (        " ,contest c");
-      query.append (  " WHERE g.group_id = c.group_id");
-      query.append (    " AND l.language_id = c.language_id");
-      query.append (    " AND (c.status = 'A'");
-      query.append (     " OR c.status = 'P')");
-      query.append (  " ORDER BY c.start_date");
-    }
-    /*************************************************************************************/
+    query.append ( " SELECT c.contest_id");
+    query.append (        " ,c.name");
+    query.append (        " ,c.start_date");
+    query.append (        " ,c.end_date");
+    query.append (        " ,c.status");
+    query.append (        " ,l.language_id");
+    query.append (        " ,l.language_name");
+    query.append (        " ,g.group_id");
+    query.append (        " ,g.group_desc");
+    query.append (        " ,c.ad_text");
+    query.append (        " ,c.ad_start");
+    query.append (        " ,c.ad_end");
+    query.append (   " FROM group g");
+    query.append (        " ,language l");
+    query.append (        " ,contest c");
+    query.append (  " WHERE g.group_id = c.group_id");
+    query.append (    " AND l.language_id = c.language_id");
+    query.append (    " AND (c.status = 'A'");
+    query.append (     " OR c.status = 'P')");
+    query.append (  " ORDER BY c.start_date");
 
     try {
       conn = DBMS.getConnection();
@@ -1146,49 +1111,22 @@ public class DataCacheBean extends BaseEJB {
     query.append(        " jp.ad_fax,");                        //37
     query.append(        " jp.ad_email,");                      //38
     query.append(        " jp.ad_company_name");                //39
-    /*************************************************************************************/
-    /********************************** Postgres *****************************************/
-    /*************************************************************************************/
-    if ( DBMS.DB == DBMS.POSTGRES ) {
-      query.append( " FROM job_posting jp");
-      query.append(      " LEFT OUTER JOIN states s1");
-      query.append(        " ON jp.state_code = s1.state_code");
-      query.append(      " INNER JOIN countries c1");
-      query.append(        " ON jp.country_code = c1.country_code");
-      query.append(      " LEFT OUTER JOIN states s2");
-      query.append(        " ON jp.ad_state_code = s2.state_code");
-      query.append(      " LEFT OUTER JOIN countries c2");
-      query.append(        " ON jp.ad_country_code = c2.country_code");
-      query.append(      " INNER JOIN pay_period pp");
-      query.append(        " ON jp.pay_period_id = pp.pay_period_id");
-      query.append(      " INNER JOIN job_level jl");
-      query.append(        " ON jp.job_level_id = jl.job_level_id");
-      query.append(      " INNER JOIN job_type jt");
-      query.append(        " ON jp.job_type_id = jt.job_type_id");
-      query.append( " WHERE jp.ad = 'Y'");
-    }
-    /*************************************************************************************/
-    /********************************** Informix *****************************************/
-    /*************************************************************************************/
-    else if ( DBMS.DB == DBMS.INFORMIX ) {
-      query.append( " FROM job_posting jp,");
-      query.append(      " country c1,");
-      query.append(      " OUTER country c2,");
-      query.append(      " pay_period pp,");
-      query.append(      " job_level jl,");
-      query.append(      " job_type jt,");
-      query.append(      " OUTER state s1,");
-      query.append(      " OUTER state s2");
-      query.append( " WHERE jp.ad = 'Y'");
-      query.append(   " AND jp.country_code = c1.country_code");
-      query.append(   " AND jp.state_code = s1.state_code");
-      query.append(   " AND jp.ad_country_code = c2.country_code");
-      query.append(   " AND jp.ad_state_code = s2.state_code");
-      query.append(   " AND jp.pay_period_id = pp.pay_period_id");
-      query.append(   " AND jp.job_level_id = jl.job_level_id");
-      query.append(   " AND jp.job_type_id = jt.job_type_id");
-    }
-    /*************************************************************************************/
+    query.append( " FROM job_posting jp,");
+    query.append(      " country c1,");
+    query.append(      " OUTER country c2,");
+    query.append(      " pay_period pp,");
+    query.append(      " job_level jl,");
+    query.append(      " job_type jt,");
+    query.append(      " OUTER state s1,");
+    query.append(      " OUTER state s2");
+    query.append( " WHERE jp.ad = 'Y'");
+    query.append(   " AND jp.country_code = c1.country_code");
+    query.append(   " AND jp.state_code = s1.state_code");
+    query.append(   " AND jp.ad_country_code = c2.country_code");
+    query.append(   " AND jp.ad_state_code = s2.state_code");
+    query.append(   " AND jp.pay_period_id = pp.pay_period_id");
+    query.append(   " AND jp.job_level_id = jl.job_level_id");
+    query.append(   " AND jp.job_type_id = jt.job_type_id");
     try {
       conn = DBMS.getConnection ();
       ps = conn.prepareStatement( query.toString() ) ;
@@ -1652,11 +1590,7 @@ public class DataCacheBean extends BaseEJB {
         news.setNewsId      ( rs.getInt       (1) );
         news.setNewsTypeId  ( rs.getString    (2) );
         news.setHeadline    ( rs.getString    (3) );
-        if ( DBMS.DB == DBMS.INFORMIX) {
-          news.setNews ( DBMS.getTextString(rs,4) );
-        } else {
-          news.setNews ( rs.getString           (4) );
-        }
+        news.setNews ( DBMS.getTextString(rs,4) );
         news.setNewPosting  ( rs.getString    (5) );
         news.setPostingDate ( rs.getTimestamp (6) );
         news.setStatus      ( rs.getString    (7) );
@@ -1952,48 +1886,22 @@ public class DataCacheBean extends BaseEJB {
     try {
       skconn = DBMS.getConnection(); //sk stands for skills connection
       StringBuffer query = new StringBuffer(222);
-      /*************************************************************************************/
-      /********************************** Postgres *****************************************/
-      /*************************************************************************************/
-      if (DBMS.DB == DBMS.POSTGRES) {
-        query.append("SELECT S.SKILL_ID, ");
-        query.append(      " S.SKILL_TYPE_ID, ");
-        query.append(      " S.SKILL_DESC, ");
-        query.append(      " LOWER(S.SKILL_DESC) AS LOWER_SKILL_DESC, ");
-        query.append(      " S.ACTIVE_IND, ");
-        query.append(      " S.SKILL_ORDER, ");
-        query.append(      " T.SKILL_TYPE_ID, "); 
-        query.append(      " T.SKILL_TYPE_DESCRIPTION, "); 
-        query.append(      " T.SKILL_TYPE_ORDER, ");
-        query.append(      " T.ACTIVE_IND ");
-        query.append( " FROM SKILLS S, ");
-        query.append(      " SKILL_TYPE T ");
-        query.append(" WHERE S.SKILL_TYPE_ID = T.SKILL_TYPE_ID ");
-        query.append(" ORDER BY ");
-        query.append(      " T.SKILL_TYPE_ID, ");
-        query.append(      " LOWER_SKILL_DESC ");
-      }
-      /*************************************************************************************/
-      /********************************** Informix *****************************************/
-      /*************************************************************************************/
-      else if (DBMS.DB == DBMS.INFORMIX) {
-        query.append("SELECT s.skill_id");                                     //1
-        query.append(      " ,s.skill_type_id");                               //2
-        query.append(      " ,s.skill_desc");                                  //3
-        query.append(      " ,LOWER(s.skill_desc) AS lower_skill_desc");       //4
-        query.append(      " ,s.status");                                      //5
-        query.append(      " ,s.skill_order");                                 //6
-        query.append(      " ,t.skill_type_id");                               //7
-        query.append(      " ,t.skill_type_desc");                             //8
-        query.append(      " ,t.skill_type_order");                            //9
-        query.append(      " ,t.status");                                      //10
-        query.append( " FROM skill s");
-        query.append(      " ,skill_type t");
-        query.append(" WHERE s.skill_type_id = t.skill_type_id");
-        query.append(" ORDER BY");
-        query.append(      " t.skill_type_id");                                
-        query.append(      " ,lower_skill_desc");
-      }
+      query.append("SELECT s.skill_id");                                     //1
+      query.append(      " ,s.skill_type_id");                               //2
+      query.append(      " ,s.skill_desc");                                  //3
+      query.append(      " ,LOWER(s.skill_desc) AS lower_skill_desc");       //4
+      query.append(      " ,s.status");                                      //5
+      query.append(      " ,s.skill_order");                                 //6
+      query.append(      " ,t.skill_type_id");                               //7
+      query.append(      " ,t.skill_type_desc");                             //8
+      query.append(      " ,t.skill_type_order");                            //9
+      query.append(      " ,t.status");                                      //10
+      query.append( " FROM skill s");
+      query.append(      " ,skill_type t");
+      query.append(" WHERE s.skill_type_id = t.skill_type_id");
+      query.append(" ORDER BY");
+      query.append(      " t.skill_type_id");                                
+      query.append(      " ,lower_skill_desc");
       ps = skconn.prepareStatement( query.toString() );
       rs = ps.executeQuery();        
       while ( rs.next() )  {
@@ -2221,16 +2129,7 @@ public class DataCacheBean extends BaseEJB {
     String query = null;
     try {
       conn = DBMS.getConnection();
-      /*************************************************************************************/
-      /********************************** Postgres *****************************************/
-      /*************************************************************************************/
-      if (DBMS.DB == DBMS.POSTGRES) 
-        query = "SELECT job_type_id, job_type_desc FROM job_type ORDER BY job_type_desc";
-      /*************************************************************************************/
-      /********************************** Informix *****************************************/
-      /*************************************************************************************/
-      else if (DBMS.DB == DBMS.INFORMIX) 
-        query = "SELECT job_id, job_desc FROM job ORDER BY job_desc";
+      query = "SELECT job_id, job_desc FROM job ORDER BY job_desc";
       ps           = conn.prepareStatement ( query );
       rs           = ps.executeQuery();
       while ( rs.next() ) {
@@ -2282,16 +2181,7 @@ public class DataCacheBean extends BaseEJB {
     String query = null;
     try {
       conn = DBMS.getConnection();
-      /*************************************************************************************/
-      /********************************** Postgres *****************************************/
-      /*************************************************************************************/
-      if (DBMS.DB == DBMS.POSTGRES) 
-        query = "SELECT editor_type_id, editor_type_desc FROM editor_type ORDER BY editor_type_desc";
-      /*************************************************************************************/
-      /********************************** Informix *****************************************/
-      /*************************************************************************************/
-      else if (DBMS.DB == DBMS.INFORMIX) 
-        query = "SELECT editor_id, editor_desc FROM editor ORDER BY editor_desc";
+      query = "SELECT editor_id, editor_desc FROM editor ORDER BY editor_desc";
       ps           = conn.prepareStatement ( query );
       rs           = ps.executeQuery();
       while ( rs.next() ) {
@@ -2339,29 +2229,12 @@ public class DataCacheBean extends BaseEJB {
     try {
       conn = DBMS.getConnection();
       StringBuffer query = new StringBuffer(); 
-      /*************************************************************************************/
-      /********************************** Postgres *****************************************/
-      /*************************************************************************************/
-      if (DBMS.DB == DBMS.POSTGRES) {
-        query.append( " SELECT skill_type_id");
-        query.append(        " ,skill_type_description");
-        query.append(        " ,skill_type_order");
-        query.append(        " ,active_ind");
-        query.append(   " FROM skill_type");
-        query.append( "  ORDER BY skill_type_description"); 
-      }
-      /*************************************************************************************/
-      /********************************** Informix *****************************************/
-      /*************************************************************************************/
-      else if (DBMS.DB == DBMS.INFORMIX) {
-        query.append( " SELECT skill_type_id");
-        query.append(        " ,skill_type_desc");
-        query.append(        " ,skill_type_order");
-        query.append(        " ,status");
-        query.append(   " FROM skill_type");
-        query.append( "  ORDER BY skill_type_desc"); 
-      }
-      /*************************************************************************************/
+      query.append( " SELECT skill_type_id");
+      query.append(        " ,skill_type_desc");
+      query.append(        " ,skill_type_order");
+      query.append(        " ,status");
+      query.append(   " FROM skill_type");
+      query.append( "  ORDER BY skill_type_desc"); 
 
       ps = conn.prepareStatement(query.toString());
       rs = ps.executeQuery();
@@ -2418,16 +2291,7 @@ public class DataCacheBean extends BaseEJB {
     String query  = null;
     try {
       conn = DBMS.getConnection();
-      /*************************************************************************************/
-      /********************************** Postgres *****************************************/
-      /*************************************************************************************/
-      if (DBMS.DB == DBMS.POSTGRES)
-        query  = "SELECT degree_level_id, degree, degree_desc FROM degree_levels"; 
-      /*************************************************************************************/
-      /********************************** Informix *****************************************/
-      /*************************************************************************************/
-      else if (DBMS.DB == DBMS.INFORMIX)
-        query  = "SELECT degree_id, degree_desc FROM degree"; 
+      query  = "SELECT degree_id, degree_desc FROM degree"; 
       ps = conn.prepareStatement(query);
       rs = ps.executeQuery();
       while ( rs.next() )  {
@@ -2483,17 +2347,7 @@ public class DataCacheBean extends BaseEJB {
     try {
       conn         = DBMS.getConnection();
       String query = null;
-      /*************************************************************************************/
-      /********************************** Postgres *****************************************/
-      /*************************************************************************************/
-      if (DBMS.DB == DBMS.POSTGRES)
-        query = "SELECT subject_id, subject_desc, active_ind, order_by FROM contact_subjects ORDER BY order_by";
-      /*************************************************************************************/
-      /********************************** Informix *****************************************/
-      /*************************************************************************************/
-      else if (DBMS.DB == DBMS.INFORMIX)
-        query = "SELECT contact_us_subject_id, subject_desc, status FROM contact_us_subject";
-      /*************************************************************************************/
+      query = "SELECT contact_us_subject_id, subject_desc, status FROM contact_us_subject";
 
       ps           = conn.prepareStatement(query);
       rs           = ps.executeQuery();
@@ -2553,17 +2407,7 @@ public class DataCacheBean extends BaseEJB {
     try {
       conn         = DBMS.getConnection();
       String query = null;
-      /*************************************************************************************/
-      /********************************** Postgres *****************************************/
-      /*************************************************************************************/
-      if (DBMS.DB == DBMS.POSTGRES)
-        query = "SELECT subject_id, subject_name, active_ind FROM subjects WHERE active_ind = 'Y' ORDER BY subject_id";
-      /*************************************************************************************/
-      /********************************** Informix *****************************************/
-      /*************************************************************************************/
-      else if (DBMS.DB == DBMS.INFORMIX)
-        query = "SELECT language_id, language_name, status FROM language WHERE status = 'Y' ORDER BY language_id";
-      /*************************************************************************************/
+      query = "SELECT language_id, language_name, status FROM language WHERE status = 'Y' ORDER BY language_id";
       
       ps = conn.prepareStatement ( query );
       rs = ps.executeQuery();
@@ -2892,30 +2736,13 @@ public class DataCacheBean extends BaseEJB {
     Connection conn = null; 
     try {   
       StringBuffer query = new StringBuffer(300);
-      /*************************************************************************************/
-      /********************************** Postgres *****************************************/
-      /*************************************************************************************/
-      if (DBMS.DB == DBMS.POSTGRES) {
-        query.append(" SELECT c.user_name, cr.rating, c.coder_id");
-        query.append(  " FROM coder_rating cr,");
-        query.append(       " coder c");
-        query.append( " WHERE cr.coder_id = c.coder_id");
-        query.append(   " AND cr.num_ratings > 0");
-        query.append(   " AND c.status = 'A'");
-        query.append( " ORDER BY cr.rating DESC");
-      }
-      /*************************************************************************************/
-      /********************************** Informix *****************************************/
-      /*************************************************************************************/
-      else if (DBMS.DB == DBMS.INFORMIX) { 
-        query.append(" SELECT c.handle, r.rating, c.coder_id");
-        query.append(  " FROM rating r,");
-        query.append(       " coder c");
-        query.append( " WHERE r.coder_id = c.coder_id");
-        query.append(   " AND r.num_ratings > 0");
-        query.append(   " AND c.status = 'A'");
-        query.append( " ORDER BY r.rating DESC");
-      }
+      query.append(" SELECT c.handle, r.rating, c.coder_id");
+      query.append(  " FROM rating r,");
+      query.append(       " coder c");
+      query.append( " WHERE r.coder_id = c.coder_id");
+      query.append(   " AND r.num_ratings > 0");
+      query.append(   " AND c.status = 'A'");
+      query.append( " ORDER BY r.rating DESC");
 
       conn = DBMS.getDWConnection();
       ps = conn.prepareStatement(query.toString());
