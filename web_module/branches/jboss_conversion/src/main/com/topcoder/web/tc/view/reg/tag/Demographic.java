@@ -121,7 +121,7 @@ public class Demographic
             pageContext.setAttribute(QUESTION, question.getDemographicQuestionText(), PageContext.PAGE_SCOPE);
             pageContext.setAttribute(ANSWER, answer, PageContext.PAGE_SCOPE);
             pageContext.setAttribute(DESCRIPTION, description, PageContext.PAGE_SCOPE);
-            return EVAL_BODY_TAG;
+            return EVAL_BODY_AGAIN;
         } else {
             if (bodyContent != null && bodyContent.getEnclosingWriter() != null) {
                 try {

@@ -10,7 +10,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Static;
 
-import javax.servlet.http.HttpUtils;
 import java.util.Map;
 import java.util.MissingResourceException;
 
@@ -22,7 +21,7 @@ public class Simple extends Static {
 
     protected void businessProcessing() throws Exception {
         Request dataRequest = new Request();
-        Map map = HttpUtils.parseQueryString(getRequest().getQueryString());
+        Map map = getRequest().getParameterMap();
         map.remove(Constants.MODULE_KEY); //no need to include this one
         map.remove(DataAccessConstants.SORT_COLUMN);
         map.remove(DataAccessConstants.SORT_DIRECTION);

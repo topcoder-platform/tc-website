@@ -10,24 +10,19 @@ import java.awt.Color;
 import java.text.DecimalFormat;
 
 import com.lowagie.text.*;
-import com.lowagie.text.pdf.*; 
-
-import java.util.List;
+import com.lowagie.text.pdf.*;
 
 import com.topcoder.shared.util.ApplicationServer;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.PlacementConfig;
-import com.topcoder.common.web.render.*;
+import com.topcoder.web.common.render.*;
 import com.topcoder.shared.problem.DataType;
-import com.topcoder.shared.problem.TextElement;
 import com.topcoder.shared.problem.NodeElement;
 import com.topcoder.shared.problem.UserConstraint;
 import com.topcoder.shared.problem.TestCase;
-import java.io.FileOutputStream;
 
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.fileconversion.*;
@@ -36,7 +31,6 @@ import com.topcoder.shared.language.*;
 import com.topcoder.web.common.MultipartRequest;
 
 import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
 
 import com.topcoder.shared.dataAccess.*;
@@ -50,7 +44,6 @@ import com.topcoder.shared.problemParser.ProblemComponentFactory;
 
 import com.topcoder.web.tc.model.Skill;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.util.Arrays;
 
@@ -61,11 +54,11 @@ import com.topcoder.shared.security.ClassResource;
  *
  * @author rfairfax
  */
-public class PDFGenerator extends BaseProcessor { 
-    
+public class PDFGenerator extends BaseProcessor {
+
     PlacementConfig info;
     private boolean inResume = false;
-    
+
     private PlacementConfig getConfig() throws Exception {
         int uid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("uid")));
 
@@ -73,16 +66,15 @@ public class PDFGenerator extends BaseProcessor {
 
         config.setUserID(uid);
 
-        InitialContext ctx = TCContext.getInitial(); 
+        InitialContext ctx = TCContext.getInitial();
         User userbean = (User)createEJB(ctx, User.class);
-        Email emailbean = (Email)createEJB(ctx, Email.class);
 
         config.setHandle(userbean.getHandle(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
         config.setName(userbean.getFirstName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME) + " " + userbean.getLastName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
 
         config.setPresentedBy(StringUtils.checkNull(getRequest().getParameter("presentedBy")));
         config.setPresentedByEmail(StringUtils.checkNull(getRequest().getParameter("presentedByEmail")));
-        
+
         if(getRequest() instanceof MultipartRequest) {
             MultipartRequest request = (MultipartRequest)getRequest();
             config.setCompanyLogo(request.getUploadedFile("logo"));
@@ -99,9 +91,9 @@ public class PDFGenerator extends BaseProcessor {
             ResultSetContainer rscSkills = skillbean.getSkillsByType(config.getUserID(), rsc.getIntItem(i, "skill_type_id"),DBMS.OLTP_DATASOURCE_NAME);
             for(int j = 0; j < rscSkills.size(); j++) {
                 int sid = rscSkills.getIntItem(j, "skill_id");
-                
+
                 if(Arrays.asList(getRequest().getParameterValues("skills")).contains(String.valueOf(sid))) {
-                    Skill s = new Skill(); 
+                    Skill s = new Skill();
                     s.setID(sid);
                     s.setText(rscSkills.getStringItem(j, "skill_desc"));
 
@@ -109,41 +101,41 @@ public class PDFGenerator extends BaseProcessor {
                 }
             }
         }
-        
+
         //load competition stats
         r = new Request();
         r.setContentHandle("placement_profile_stats");
         r.setProperty("cr", String.valueOf(uid));
-        
+
         DecimalFormat formater = new DecimalFormat("#.##");
-        
+
         rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("placement_profile_stats");
-        
+
         config.setNumContests(rsc.getStringItem(0, "num_ratings"));
         config.setRating(rsc.getIntItem(0, "rating"));
         config.setRank(rsc.getStringItem(0, "rank") + " out of " + rsc.getStringItem(0, "lowest_rank"));
         config.setRankPercentile(formater.format(rsc.getDoubleItem(0, "percentile")) + "%" );
-        
+
         config.setTotalChallenged(rsc.getStringItem(0, "challenge_attempts_made"));
-        
+
         if(rsc.getIntItem(0, "challenge_attempts_made") == 0) {
             config.setChallengeSuccessRatio("N/A");
         } else {
             config.setChallengeSuccessRatio(formater.format(rsc.getDoubleItem(0, "challenges_made_successful")/rsc.getDoubleItem(0, "challenge_attempts_made")*100.0) + "%" );
         }
-        
+
         config.setSubmissionRatio(rsc.getStringItem(0, "problems_submitted") + " out of " + rsc.getStringItem(0, "problems_presented") + " (" + formater.format(rsc.getDoubleItem(0, "problems_submitted")/rsc.getDoubleItem(0, "problems_presented")*100.0) + "%)" );
         config.setSubmissionSuccessRatio(rsc.getStringItem(0, "problems_correct") + " out of " + rsc.getStringItem(0, "problems_submitted") + " (" + formater.format(rsc.getDoubleItem(0, "problems_correct")/rsc.getDoubleItem(0, "problems_submitted")*100.0) + "%)" );
-        
-        //load problem stats        
+
+        //load problem stats
         int cid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("component")));
-        
+
         //load solution?
         r = new Request();
         r.setContentHandle("placement_problem_details");
         r.setProperty("cr", String.valueOf(uid));
         r.setProperty("pm", String.valueOf(cid));
-        
+
         rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("placement_problem_details");
         config.setProblemName(rsc.getStringItem(0, "desc"));
         config.setAvgTimeToSubmit(formatTime(rsc.getIntItem(0, "avg_time")));
@@ -151,14 +143,14 @@ public class PDFGenerator extends BaseProcessor {
         config.setSuccessfulSubmissionPercent(formater.format(rsc.getDoubleItem(0, "problems_correct")*100.0) + "%");
         config.setSubmissionTime(formatTime(rsc.getIntItem(0, "time_elapsed")));
         config.setSubmissionText(rsc.getStringItem(0, "submission_text"));
-        
+
         ProblemComponent[] arrProblemComponent = new ProblemComponent[1];
         arrProblemComponent[0] = new ProblemComponentFactory().build(rsc.getStringItem(0, "problem_text"), true);
         Problem problem = new Problem();
         problem.setProblemComponents(arrProblemComponent);
-        
+
         config.setProblem(problem);
-        
+
         if(rsc.getIntItem(0, "language_id") == 1) {
             config.setLanguage(JavaLanguage.JAVA_LANGUAGE);
         } else if(rsc.getIntItem(0, "language_id") == 3) {
@@ -168,103 +160,101 @@ public class PDFGenerator extends BaseProcessor {
         } else if(rsc.getIntItem(0, "language_id") == 5) {
             config.setLanguage(VBLanguage.VB_LANGUAGE);
         }
-                
+
         return config;
     }
-    
+
     private String formatTime(int t) {
         String ret = "";
-        
-        int current = t;
+
         t /= 1000;
-        
+
         int secs = t % 60;
         t -= secs;
         t /= 60;
-        
+
         ret = ":" + (secs < 10 ? "0" : "") + secs + ret;
-        
+
         int mins = t % 60;
         t -= mins;
         t /= 60;
-        
+
         if(t > 0) {
             ret = t + ":" + (mins < 10 ? "0" : "") + mins + ret;
         } else {
             ret = mins + ret;
         }
-        
+
         return ret;
     }
-     
-    protected static DataAccessInt getDWDataAccess() throws Exception { 
+
+    protected static DataAccessInt getDWDataAccess() throws Exception {
        DataAccessInt dAccess = null;
        dAccess = new DataAccess(DBMS.DW_DATASOURCE_NAME);
        return dAccess;
     }
-    
-    protected static DataAccessInt getDataAccess() throws Exception { 
+
+    protected static DataAccessInt getDataAccess() throws Exception {
        DataAccessInt dAccess = null;
        dAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
        return dAccess;
     }
-    
+
     protected void businessProcessing() throws TCWebException {
         if (!((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        
+
         try {
-            //load config values    
+            //load config values
             info = getConfig();
-            
+
             //create document
             Document doc = new Document(PageSize.A4, 35,35,35,35);
-            
+
             getResponse().setContentType("application/pdf");
             getResponse().addHeader("content-disposition", "inline; filename=" + info.getHandle() + ".pdf");
-            
+
             PdfWriter writer = PdfWriter.getInstance(doc,  getResponse().getOutputStream());
-            
+
             //atach events class
             MyPageEvents events = new MyPageEvents();
             writer.setPageEvent(events);
-            
-            Phrase hp = new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black));
-            
+
+
             HeaderFooter header = new HeaderFooter(new Phrase("  "), false);
             header.setBackgroundColor(new Color(0,51,102)); //#cc0000
             header.setBorder(Rectangle.NO_BORDER);
-            
+
             HeaderFooter footer = new HeaderFooter(new Phrase("  "), false);
             footer.setAlignment(Element.ALIGN_RIGHT);
             footer.setBorder(Rectangle.NO_BORDER);
             footer.setBackgroundColor(new Color(0,0,0)); //#cccccc
             doc.setHeader(header);
             doc.setFooter(footer);
-            
+
             doc.open();
-            
+
             drawPageOne(doc, info);
             drawPageTwo(doc, info);
             drawPageThree(doc, info);
             drawPageFour(doc, info);
-            
+
             drawResume(doc, info, writer);
-            
+
             doc.close();
-            
+
             //write out the document
             getResponse().getOutputStream().flush();
             getResponse().getOutputStream().close();
 
             getResponse().flushBuffer();
-            
+
             log.debug("DONE PDFING");
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-    }    
-    
+    }
+
     private void drawPageOne(Document doc, PlacementConfig info) throws Exception {
         Image logo = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_tagline.jpg");
         logo.setAlignment(Element.ALIGN_CENTER);
@@ -283,7 +273,7 @@ public class PDFGenerator extends BaseProcessor {
         t.getDefaultCell().setBorderWidth(0);
         t.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
         t.addCell(new Phrase("Presented to:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
-        
+
         if(info.getCompanyLogo() != null) {
             byte[] b = new byte[(int)info.getCompanyLogo().getSize()];
             info.getCompanyLogo().getInputStream().read(b);
@@ -294,7 +284,7 @@ public class PDFGenerator extends BaseProcessor {
 
             PdfPCell cell = new PdfPCell(companyLogo, false);
             cell.setBorder(0);
-            
+
             t.addCell(cell);
         } else {
             t.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
@@ -315,7 +305,7 @@ public class PDFGenerator extends BaseProcessor {
 
         Anchor anchor = new Anchor(info.getPresentedByEmail(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255)));
         anchor.setReference("mailto:" + info.getPresentedByEmail());
-        anchor.setName(info.getPresentedByEmail()); 
+        anchor.setName(info.getPresentedByEmail());
 
         email.add(anchor);
         t.addCell(email);
@@ -334,12 +324,12 @@ public class PDFGenerator extends BaseProcessor {
 
         doc.newPage();
     }
-    
+
     private void drawPageTwo(Document doc, PlacementConfig info) throws Exception {
         Paragraph p = new Paragraph(" ");
-        
+
         doc.add(p);
-            
+
         PdfPTable t = new PdfPTable(2);
         t.setWidthPercentage(100);
         t.setWidths(new int[] {35, 65});
@@ -358,7 +348,7 @@ public class PDFGenerator extends BaseProcessor {
         skills.addCell(new Phrase("Skills", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
 
         java.util.List groups = info.getSkillGroups();
-        
+
         for(int i = 0; i < groups.size(); i++) {
             PdfPTable inner = new PdfPTable(1);
             inner.setWidthPercentage(100);
@@ -370,7 +360,7 @@ public class PDFGenerator extends BaseProcessor {
             cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
             cell.setBorderWidth(1);
             inner.addCell(cell);
-            
+
             java.util.List skillsList = info.getSkills((String)groups.get(i));
 
             for(int j = 0 ; j < skillsList.size(); j++) {
@@ -521,11 +511,11 @@ public class PDFGenerator extends BaseProcessor {
 
         doc.newPage();
     }
-    
+
     public void drawPageThree(Document doc, PlacementConfig info) throws Exception {
         //selected problem
         Paragraph p = new Paragraph(" ");
-        
+
         PdfPTable problemStats = new PdfPTable(3);
         problemStats.setWidthPercentage(100);
         problemStats.getDefaultCell().setPadding(2);
@@ -606,7 +596,7 @@ public class PDFGenerator extends BaseProcessor {
         problem.addCell(cell);
 
         NodeElementRenderer nr = new NodeElementRenderer((NodeElement)info.getProblem().getComponent(0).getIntro());
-        
+
         Phrase statement = new Phrase();
         statement.add(new Paragraph(nr.toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
@@ -639,7 +629,7 @@ public class PDFGenerator extends BaseProcessor {
                 params += ", ";
             params += new DataTypeRenderer(paramTypes[i]).toPlainText(info.getLanguage());
         }
-        
+
         def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         def.addCell(new Phrase("Parameters:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         def.addCell(new Phrase(params, FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
@@ -674,7 +664,7 @@ public class PDFGenerator extends BaseProcessor {
         notes.setWidths(new int[] {5, 95});
 
         com.topcoder.shared.problem.Element[] notesElements = info.getProblem().getComponent(0).getNotes();
-        
+
         for(int i = 0; i < notesElements.length; i++) {
             notes.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
             notes.addCell(new Phrase(new NodeElementRenderer((NodeElement)notesElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
@@ -696,9 +686,9 @@ public class PDFGenerator extends BaseProcessor {
         constraints.getDefaultCell().setBorderWidth(0);
         constraints.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
         constraints.setWidths(new int[] {5, 95});
-        
+
         com.topcoder.shared.problem.Constraint[] constraintsElements = info.getProblem().getComponent(0).getConstraints();
-        
+
         for(int i = 0; i < constraintsElements.length; i++) {
             constraints.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
             constraints.addCell(new Phrase(new UserConstraintRenderer((UserConstraint)constraintsElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
@@ -713,11 +703,11 @@ public class PDFGenerator extends BaseProcessor {
         cell.setBorderWidth(0);
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         problem.addCell(cell);
-        
+
         TestCase[] testCases = info.getProblem().getComponent(0).getTestCases();
 
         int j = 0;
-        
+
         for(int i =0; i < testCases.length; i++) {
             if(testCases[i].isExample()) {
                 cell = new PdfPCell(new Phrase(j + ")", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
@@ -731,7 +721,7 @@ public class PDFGenerator extends BaseProcessor {
                 example.getDefaultCell().setBorderWidth(0);
                 example.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
                 example.setWidths(new int[] {5, 95});
-                
+
                 for(int k = 0; k < testCases[i].getInput().length; k++) {
                     example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
                     example.addCell(new Phrase(testCases[i].getInput()[k], FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
@@ -745,7 +735,7 @@ public class PDFGenerator extends BaseProcessor {
                     example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
                     example.addCell(new Phrase(new NodeElementRenderer((NodeElement)testCases[i].getAnnotation()).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
                 }
-                
+
                 problem.addCell(example);
             }
         }
@@ -757,7 +747,7 @@ public class PDFGenerator extends BaseProcessor {
 
         doc.newPage();
     }
-    
+
     public void drawPageFour(Document doc, PlacementConfig info) throws Exception {
         PdfPTable submission = new PdfPTable(1);
         submission.setWidthPercentage(100);
@@ -774,19 +764,19 @@ public class PDFGenerator extends BaseProcessor {
         doc.add(new Phrase(info.getSubmissionText(), FontFactory.getFont(FontFactory.COURIER, 10, Font.NORMAL, Color.black)));
 
     }
-    
+
     public void drawResume(Document doc, PlacementConfig info, PdfWriter writer) throws Exception {
-        InitialContext ctx = TCContext.getInitial(); 
+        InitialContext ctx = TCContext.getInitial();
         ResumeServices resumebean = (ResumeServices)createEJB(ctx, ResumeServices.class);
-        
+
         if(resumebean.hasResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME)) {
             String ext = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName().substring(resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName().lastIndexOf('.')+1);
             log.debug(ext);
-            
+
             doc.resetFooter();
             doc.resetHeader();
             inResume = true;
-            
+
             byte[] rawBytes = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFile();
             //pass through the converter
             byte[] result;
@@ -794,18 +784,18 @@ public class PDFGenerator extends BaseProcessor {
                 result = rawBytes;
             } else {
                 ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.FILE_CONVERSION_PROVIDER_URL);
-            
+
                 FileConversion filebean = (FileConversion)createEJB(ctx, FileConversion.class);
                 result = filebean.convertDoc(rawBytes,ext);
             }
-            
+
             PdfReader reader = new PdfReader(result);
-            
+
             int n = reader.getNumberOfPages();
-            
+
             PdfImportedPage page;
             PdfContentByte cb = writer.getDirectContent();
-            
+
             for (int i = 0; i < n; ) {
                 ++i;
                 doc.newPage();
@@ -813,16 +803,16 @@ public class PDFGenerator extends BaseProcessor {
                 page = writer.getImportedPage(reader, i);
 
                 cb.addTemplate(page, 0,0);
-                
+
             }
-            
+
         }
     }
-    
+
     final class MyPageEvents extends PdfPageEventHelper {
         // This is the contentbyte object of the writer
         PdfContentByte cb;
-        
+
         boolean bFirstFooter = true;
 
         public void onStartPage(PdfWriter writer, Document document) {
@@ -842,12 +832,12 @@ public class PDFGenerator extends BaseProcessor {
                 e.printStackTrace();
                 System.err.println(e.getMessage());
             }
-            
+
         }
-        
+
         // we override the onEndPage method
         public void onEndPage(PdfWriter writer, Document document) {
-            
+
             try {
                 if(!inResume) {
                     //super.onEndPage(writer, document);
@@ -856,7 +846,7 @@ public class PDFGenerator extends BaseProcessor {
                     footerimg.scalePercent(70f);
 
                     footerimg.setAbsolutePosition(45,30);
-                    
+
                     cb = writer.getDirectContent();
                     cb.beginText();
                     cb.setColorFill(Color.white);
@@ -869,11 +859,11 @@ public class PDFGenerator extends BaseProcessor {
                     cb.addImage(footerimg);
                 } else if(bFirstFooter) {
                     bFirstFooter = false;
-                    
+
                     Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
                     footerimg.setAlignment(Element.ALIGN_LEFT);
                     footerimg.scalePercent(70f);
-                    
+
                     footerimg.setAbsolutePosition(45,30);
 
                     cb = writer.getDirectContent();
@@ -887,7 +877,7 @@ public class PDFGenerator extends BaseProcessor {
 
                     cb.addImage(footerimg);
                 }
-            
+
             }
             catch(Exception e) {
                 e.printStackTrace();
@@ -897,5 +887,5 @@ public class PDFGenerator extends BaseProcessor {
 
     }
 
-    
+
 }

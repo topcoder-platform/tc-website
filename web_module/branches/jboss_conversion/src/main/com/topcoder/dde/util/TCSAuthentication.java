@@ -1,17 +1,17 @@
 package com.topcoder.dde.util;
 
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.shared.security.LoginException;
-import com.topcoder.shared.security.User;
-import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.dde.user.UserManagerRemote;
+import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.security.TCSubject;
+import com.topcoder.shared.security.LoginException;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.User;
+import com.topcoder.web.common.security.WebAuthentication;
 
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.rmi.PortableRemoteObject;
-import javax.naming.InitialContext;
 
 /**
  * @author  dok

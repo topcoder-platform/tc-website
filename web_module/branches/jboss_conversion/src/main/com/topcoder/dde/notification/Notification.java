@@ -15,11 +15,9 @@ import com.topcoder.util.TCException;
 import java.sql.Date;
 */
 
-import java.util.Properties;
-
-import java.rmi.RemoteException;
-
 import javax.ejb.EJBObject;
+import java.rmi.RemoteException;
+import java.util.Properties;
 
 
 /**

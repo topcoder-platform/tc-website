@@ -21,7 +21,10 @@ import org.w3c.dom.Document;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Properties;
@@ -119,10 +122,7 @@ public class StatisticsHttpServlet extends HttpServlet {
     public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String sQueryString = request.getQueryString();
         if (sQueryString != null) {
-            // the next line works for Servlet.jar pre Servlet 2.3
-            Map map = HttpUtils.parseQueryString(sQueryString);
-            // the next line works for Servlet 2.3
-            // Map map = request.getParameterMap();
+            Map map = request.getParameterMap();
 
             ServletContext sctx = null;
             Map accessMap = null;

@@ -1,17 +1,17 @@
 package com.topcoder.dde.util;
 
-import com.topcoder.security.TCSubject;
-import com.topcoder.dde.user.UserManagerRemote;
-import com.topcoder.dde.user.User;
 import com.topcoder.dde.admin.AdminLogin;
+import com.topcoder.dde.user.User;
+import com.topcoder.dde.user.UserManagerRemote;
+import com.topcoder.security.TCSubject;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
-import java.util.HashMap;
-import java.security.NoSuchAlgorithmException;
+import javax.servlet.http.HttpServletResponse;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class is shameful cuz it totally screws up the dependency structure between

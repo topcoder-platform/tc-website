@@ -4,9 +4,6 @@ import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.logging.Logger;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /*
  * CacheTest.java
  *

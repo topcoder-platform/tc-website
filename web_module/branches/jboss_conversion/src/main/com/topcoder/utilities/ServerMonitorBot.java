@@ -9,8 +9,8 @@ package com.topcoder.utilities;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 
-import java.io.InputStream;
 import java.io.File;
+import java.io.InputStream;
 
 /**
  *
@@ -31,7 +31,7 @@ public class ServerMonitorBot {
     public boolean fivetwo = true;
 
     public void run() {
-        
+
         while (true) {
             try {
                 Runtime r = Runtime.getRuntime();
@@ -46,7 +46,7 @@ public class ServerMonitorBot {
 
                 Process p = r.exec(callAndArgs);
                 p.waitFor();
-                
+
                 String ret = getData(p.getErrorStream());
                 p.destroy();
 
@@ -72,13 +72,13 @@ public class ServerMonitorBot {
                 } else {
                     fiveone = true;
                 }
-                
+
                 //delete file
                 try {
                     File f = new File("index.html");
                     f.delete();
                 } catch (Exception e) {
-                    
+
                 }
 
                 /*String[] callAndArgs2 = {"wget",
@@ -144,7 +144,7 @@ public class ServerMonitorBot {
         errorText += message + "\n";
         errorTextLarge += message + "\n";
     }
-    
+
     public static void addErrorLarge(String message) {
         errorTextLarge += message + "\n";
     }
@@ -164,7 +164,7 @@ public class ServerMonitorBot {
                 em.setFromAddress("rfairfax@topcoder.com");
 
                 EmailEngine.send(em);
-                
+
                 em = new TCSEmailMessage();
                 em.addToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("mlydon@topcoder.com", TCSEmailMessage.TO);

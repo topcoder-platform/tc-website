@@ -1,19 +1,19 @@
 package com.topcoder.util.idgenerator;
 
+import com.topcoder.util.idgenerator.sql.DB;
+
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.sql.DataSource;
-
-import com.topcoder.util.idgenerator.sql.DB;
 
 /**
- * High value fetcher implementation.  
- * 
- * @version     1.0  
+ * High value fetcher implementation.
+ *
+ * @version     1.0
  * @author      Timur Zambalayev
- */ 
+ */
 final class HighValueFetcherImpl implements HighValueFetcher {
 
     private final DB db;
@@ -28,7 +28,7 @@ final class HighValueFetcherImpl implements HighValueFetcher {
 
     /**
      * Creates an instance of this class.
-     * 
+     *
      * @param db                    db.
      * @param dataSource            data source.
      * @param tableName             table name.
@@ -36,7 +36,7 @@ final class HighValueFetcherImpl implements HighValueFetcher {
      * @param highValueColumnName   high value column name.
      * @param maxHi                 the maximum high value.
      * @param autoInit              if there's auto initialization
-     */ 
+     */
     HighValueFetcherImpl(DB db, DataSource dataSource, String tableName, String userDefColumnName, String highValueColumnName,
             long maxHi, boolean autoInit) {
         this.db=db;
@@ -100,7 +100,7 @@ final class HighValueFetcherImpl implements HighValueFetcher {
                 resultSet=preparedStatement.executeQuery();
                 if (!resultSet.next()) {
                     throw new RuntimeException("no such row in the id generation table, tableId="+tableId);
-                } 
+                }
                 long highValue=resultSet.getLong(highValueColumnName);
                 if (resultSet.next()) {
                     throw new RuntimeException("more than one row in the id generation table, tableId="+tableId);

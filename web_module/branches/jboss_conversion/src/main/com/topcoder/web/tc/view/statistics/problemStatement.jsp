@@ -6,7 +6,7 @@
          ,com.topcoder.shared.problem.*
          ,com.topcoder.shared.language.*
          ,com.topcoder.shared.problemParser.*
-         ,com.topcoder.common.web.render.ProblemRenderer,
+         ,com.topcoder.web.common.render.ProblemRenderer,
           java.awt.*,
           java.io.StringReader"
 %>

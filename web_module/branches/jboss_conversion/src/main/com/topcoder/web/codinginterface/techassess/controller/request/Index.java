@@ -5,9 +5,9 @@ import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsR
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo;
-import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.NavigationException;
 
 import java.util.ArrayList;

@@ -91,7 +91,7 @@ public class Notification
             pageContext.setAttribute(NOTIFY_ID, notifyId, PageContext.PAGE_SCOPE);
             pageContext.setAttribute(NOTIFY_NAME, notify.getName(), PageContext.PAGE_SCOPE);
             pageContext.setAttribute(NOTIFY, control, PageContext.PAGE_SCOPE);
-            return EVAL_BODY_TAG;
+            return EVAL_BODY_AGAIN;
         } else {
             if (bodyContent != null && bodyContent.getEnclosingWriter() != null) {
                 try {

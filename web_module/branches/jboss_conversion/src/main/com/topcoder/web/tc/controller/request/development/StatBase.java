@@ -6,7 +6,6 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
-import javax.servlet.http.HttpUtils;
 import java.util.Map;
 
 /**
@@ -25,7 +24,7 @@ public abstract class StatBase extends Base {
     protected void developmentProcessing() throws TCWebException {
 
         Request dataRequest = new Request();
-        Map map = HttpUtils.parseQueryString(getRequest().getQueryString());
+        Map map = getRequest().getParameterMap();
         map.remove(Constants.MODULE_KEY);
         map.remove(DataAccessConstants.SORT_COLUMN);
         map.remove(DataAccessConstants.SORT_DIRECTION);

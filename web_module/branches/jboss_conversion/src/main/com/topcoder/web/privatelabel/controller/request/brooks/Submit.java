@@ -1,5 +1,7 @@
 package com.topcoder.web.privatelabel.controller.request.brooks;
 
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -26,8 +28,6 @@ import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.UserPrincipal;
 
 import javax.rmi.PortableRemoteObject;
 import javax.transaction.UserTransaction;

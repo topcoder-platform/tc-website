@@ -1,24 +1,16 @@
 package com.topcoder.web.privatelabel.controller.request.dc05;
 
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.BaseActivate;
 import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
-import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * @author  dok
@@ -42,7 +34,7 @@ public class Submit extends FullRegSubmit {
         }
 
         //handleActivation(regInfo, regInfo.getUserId());
-        
+
         return userId;
     }
 
@@ -76,12 +68,12 @@ public class Submit extends FullRegSubmit {
             buf.append("If you have any questions about how to participate, please email them to dccc@topcoder.com.\n\n");
             buf.append("Thank you for registering for the DoubleClick 2005 Coding Challenge.  We look forward to seeing you in the Arena!\n\n");
             buf.append("- TopCoder Competitions Team");
-            
+
             mail.setBody(buf.toString());
             mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
             mail.setFromAddress("dccc@topcoder.com", "DoubleClick Coding Challenge Team");
             log.info("sent registration email to " + info.getEmail());
-            
+
             EmailEngine.send(mail);
         } catch (Exception e) {
             throw new TCWebException(e);

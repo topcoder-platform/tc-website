@@ -3,16 +3,13 @@
  */
 package com.topcoder.apps.review;
 
+import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.security.TCSubject;
 import com.topcoder.util.format.DateFormatMethod;
 import com.topcoder.util.format.FormatMethodFactory;
 import org.apache.struts.util.RequestUtils;
 import org.apache.struts.util.ResponseUtils;
-
-import com.topcoder.apps.review.document.DocumentManagerLocal;
-
-import com.topcoder.security.TCSubject;
-
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

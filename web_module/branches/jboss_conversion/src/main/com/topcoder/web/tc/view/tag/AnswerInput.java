@@ -57,7 +57,7 @@ public class AnswerInput extends BaseTag {
                 pageContext.setAttribute(ANSWER_TEXT, "", PageContext.PAGE_SCOPE);
                 pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
                 processed = true;
-                return EVAL_BODY_TAG;
+                return EVAL_BODY_AGAIN;
             }
         } else if (answers != null && answers.hasNext()) {
             answer = (Answer) answers.next();
@@ -68,7 +68,7 @@ public class AnswerInput extends BaseTag {
             }
             pageContext.setAttribute(ANSWER_TEXT, answer.getText(), PageContext.PAGE_SCOPE);
             pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
-            return EVAL_BODY_TAG;
+            return EVAL_BODY_AGAIN;
         } else {
             return wrapItUp();
         }

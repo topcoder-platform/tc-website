@@ -35,11 +35,11 @@
      * Ug, can't think of any other way to do this...
      * Go through the request and pull out all the parameters that would otherwise be lost by
      * clicking on one of the sort links.
-     * @param queryString
+     * @param request
      * @return
      */
-    String addParams(String queryString) {
-        Hashtable h = HttpUtils.parseQueryString(queryString);
+    String addParams(HttpServletRequest request) {
+        Map h = request.getParameterMap();
         StringBuffer buf = new StringBuffer(100);
         Map.Entry me = null;
         for (Iterator it = h.entrySet().iterator(); it.hasNext();) {
@@ -217,14 +217,14 @@
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="13%" HEIGHT="18"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="0"/><%=addParams(sessionInfo.getQueryString())%>" class="statText"><b>Problem&nbsp;Name</b></a></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="15%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="1"/><%=addParams(sessionInfo.getQueryString())%>" class="statText"><b>Contest</b></a></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="10%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="2"/><%=addParams(sessionInfo.getQueryString())%>" class="statText"><b>Date</b></a></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="13%" HEIGHT="18"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="0"/><%=addParams(request)%>" class="statText"><b>Problem&nbsp;Name</b></a></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="15%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="1"/><%=addParams(request)%>" class="statText"><b>Contest</b></a></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="10%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="2"/><%=addParams(request)%>" class="statText"><b>Date</b></a></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="20%"><b>Categories</b></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="5%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="4" ascColumn="8" descColumn="9"/><%=addParams(sessionInfo.getQueryString())%>" class="statText"><b>Div. 1<br/>Level</b></a></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="15%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="6" ascColumn="12" descColumn="13"/><%=addParams(sessionInfo.getQueryString())%>" class="statText"><b>Div. 1<br/>Success Rate</b></a></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="10%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="5" ascColumn="10" descColumn="11"/><%=addParams(sessionInfo.getQueryString())%>" class="statText"><b>Div. 2<br/>Level</b></a></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="15%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="7" ascColumn="14" descColumn="15"/><%=addParams(sessionInfo.getQueryString())%>" class="statText"><b>Div. 2<br/>Success Rate</b></a></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="5%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="4" ascColumn="8" descColumn="9"/><%=addParams(request)%>" class="statText"><b>Div. 1<br/>Level</b></a></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="15%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="6" ascColumn="12" descColumn="13"/><%=addParams(request)%>" class="statText"><b>Div. 1<br/>Success Rate</b></a></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="10%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="5" ascColumn="10" descColumn="11"/><%=addParams(request)%>" class="statText"><b>Div. 2<br/>Level</b></a></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="15%"><a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc:sort column="7" ascColumn="14" descColumn="15"/><%=addParams(request)%>" class="statText"><b>Div. 2<br/>Success Rate</b></a></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="5%" HEIGHT="18"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>

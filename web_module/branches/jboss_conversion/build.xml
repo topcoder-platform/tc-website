@@ -598,8 +598,12 @@
          <antcall target="deploy-query"/>
          <antcall target="deploy-email"/>
          <antcall target="deploy-corp"/>
-         <!--<antcall target="deploy-hs"/>-->
          <antcall target="deploy-privatelabel"/>
+
+<!--
+         copy over the libs     including shared.`
+-->
+
      </target>
 
      <target name="move">

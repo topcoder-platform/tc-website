@@ -1,61 +1,61 @@
 package com.topcoder.util.idgenerator.bean;
 
-import java.sql.SQLException;
+import com.topcoder.util.idgenerator.IdGenerator;
+import com.topcoder.util.idgenerator.sql.DB;
+
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-
-import com.topcoder.util.idgenerator.IdGenerator;
-import com.topcoder.util.idgenerator.sql.DB;
+import java.sql.SQLException;
 
 /**
- * The bean implementation for the id generator bean.  
- * 
- * @version 1.0  
+ * The bean implementation for the id generator bean.
+ *
+ * @version 1.0
  * @author Timur Zambalayev
- */ 
+ */
 public class IdGenBean implements SessionBean {
 
     /**
      * A default constructor.
-     */ 
+     */
     public IdGenBean() {
     }
-    
+
     /**
-     * No-op method required by the SessionBean interface. 
-     * 
+     * No-op method required by the SessionBean interface.
+     *
      * @param sessionContext    a SessionContext interface for the instance.
-     */ 
+     */
     public void setSessionContext(SessionContext sessionContext) {
     }
 
     /**
      * No-op method required by the SessionBean interface.
-     */ 
+     */
     public void ejbRemove() {
     }
 
     /**
      * No-op method required by the SessionBean interface.
-     */ 
+     */
     public void ejbActivate() {
     }
 
     /**
      * No-op method required by the SessionBean interface.
-     */ 
+     */
     public void ejbPassivate() {
     }
 
     /**
-     * The method is called when the instance is being created. 
-     * 
+     * The method is called when the instance is being created.
+     *
      * @throws IdGenException   if there is an id generator problem.
-     */ 
+     */
     public void ejbCreate() throws IdGenException {
         synchronized (IdGenerator.class) {
             if (!IdGenerator.isInitialized()) {
@@ -86,21 +86,21 @@ public class IdGenBean implements SessionBean {
 
     /**
      * Returns the next id.
-     *  
+     *
      * @return the next id.
      * @throws SQLException     if a database access error occurs.
-     */ 
+     */
     public long nextId() throws SQLException {
         return IdGenerator.nextId();
     }
 
     /**
      * Returns the next id for the given table id.
-     *  
-     * @param tableId           the table/sequence name. 
+     *
+     * @param tableId           the table/sequence name.
      * @return the next id.
      * @throws SQLException     if a database access error occurs.
-     */ 
+     */
     public long nextId(String tableId) throws SQLException {
         return IdGenerator.nextId(tableId);
     }

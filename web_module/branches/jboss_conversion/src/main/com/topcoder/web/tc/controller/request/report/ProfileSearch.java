@@ -1,15 +1,13 @@
 package com.topcoder.web.tc.controller.request.report;
 
-import com.topcoder.common.web.data.report.*;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.common.web.data.report.Constants;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.tc.controller.request.Base;
 
-import javax.servlet.http.HttpUtils;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 
 /**
  * User: lars
@@ -37,7 +35,7 @@ public class ProfileSearch extends Base {
         }
 
     }
-    
+
     private String buildQuery(TCRequest request){
         List[] skills = buildSkillsQuery(request);
         boolean skill = skills[0].size() > 0;
