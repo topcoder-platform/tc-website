@@ -59,7 +59,7 @@ public class Save extends Base {
 
             send(request);
 
-            showProcessingPage(buildProcessorRequestString(Constants.RP_SAVE_RESPONSE,
+            showProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
                     new String[] {Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
                     new String[]{String.valueOf(getMessageId()), String.valueOf(componentId), String.valueOf(problemTypeId)}));
 
