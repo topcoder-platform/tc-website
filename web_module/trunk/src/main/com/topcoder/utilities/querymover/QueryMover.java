@@ -1,9 +1,6 @@
 package com.topcoder.utilities.querymover;
 
 import com.topcoder.web.query.bean.*;
-import com.topcoder.web.query.bean.QueryBean;
-import com.topcoder.web.query.bean.InputBean;
-import com.topcoder.web.query.bean.QueryInputBean;
 import com.topcoder.web.query.ejb.QueryServices.Query;
 import com.topcoder.web.query.ejb.QueryServices.QueryInput;
 import com.topcoder.web.query.ejb.QueryServices.CommandQuery;
