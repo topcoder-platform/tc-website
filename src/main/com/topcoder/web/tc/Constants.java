@@ -91,6 +91,7 @@ public class Constants {
     public static int JAVA_CATALOG_ID;
     public static int DOT_NET_CATALOG_ID;
     public static int FLASH_CATALOG_ID;
+    public static int MAX_INQUIRIES;
 
 
     static {
