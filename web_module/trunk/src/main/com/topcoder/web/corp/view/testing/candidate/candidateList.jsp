@@ -141,7 +141,7 @@
                    <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:sessionStatus row="<%=row%>" /></td>
                    <% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-                   <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap>><screen:servletLink processor="DownloadResume" param="<%=rparams%>"> <screen:resultSetItem row="<%=row%>" name="resume_text" /> </screen:servletLink></td>
+                   <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:servletLink processor="DownloadResume" param="<%=rparams%>"><screen:resultSetItem row="<%=row%>" name="resume_text" /> </screen:servletLink></td>
                    <% }%>
                    <%--<% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap>
