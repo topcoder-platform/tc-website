@@ -84,16 +84,12 @@ public class UserListTest extends BaseProcessor {
 
         try {
             StringBuffer query = new StringBuffer();
-            query.append("SELECT u.user_id 
-                               , su.user_id AS handle
-                               , u.first_name
-                               , u.last_name
-                            FROM security_user su
-                               , user u
-                               , contact c
-                           WHERE su.login_id = u.user_id
-                             AND u.user_id = c.contact_id
-                             AND c.company_id = ");
+            query.append( "SELECT u.user_id, su.user_id AS handle," );
+            query.append( " u.first_name, u.last_name" );
+            query.append( " FROM security_user su, user u, contact c" );
+            query.append( " WHERE su.login_id = u.user_id" );
+            query.append( " AND u.user_id = c.contact_id" );
+            query.append( " AND c.company_id = " );
             query.append(companyId);
 
             ctx = new InitialContext();
