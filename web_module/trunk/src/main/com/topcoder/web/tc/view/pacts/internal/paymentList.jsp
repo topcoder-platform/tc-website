@@ -39,15 +39,19 @@
 <h2>Payment List</h2>
 <%
 	if (paymentList.length == 0) {
-		out.println("no results matched your query<br>");
+		%>no results matched your query<br><%
 	}
-	else {
-		out.print("<form name=\"thislist\" action=\""+PactsConstants.INTERNAL_SERVLET_URL+"\" method=POST>");
-		out.print("<input type=hidden name=\""+PactsConstants.TASK_STRING+"\" value=\""+PactsConstants.PAYMENT_TASK+"\">");
-		out.print("<input type=hidden name=\"query\" value=\""+(String) request.getAttribute("query")+"\">");
-%>
+	else { %>
+      <form name="thislist" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="POST">
+		<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">
+		<input type=hidden name="query" value="<%=(String) request.getAttribute("query")%>">
 
 		<table id="datatable" border="0" cellpadding="5" cellspacing="0">
+        <tr>
+            <td colspan="8">
+                <a href="Javascript:checkAll(true)">check</a>
+            </td>
+        </tr>
 		<tr>
 		<td></td>
 		<td><b>ID</b></td>
