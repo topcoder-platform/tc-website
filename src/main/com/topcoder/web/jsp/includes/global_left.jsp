@@ -18,7 +18,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
             
 <!-- TopCoder Info begins *************************** -->
-<% if ((level1.equals("about")) || (level1.equals("review_board")) || (level1.equals("press_room")) || (level1.equals("contacts"))) { %>
+<% if ((level1.equals("about")) || (level1.equals("review_board"))) { %>
                 <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
 
 <!-- About TopCoder begins -->
@@ -52,16 +52,6 @@
                 <tr><td id="<%=level1.equals("contacts")?"leftNavOn":"leftNav"%>"><a href="/?&t=contacts&c=index" class="<%=level1.equals("contacts")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("contacts")?"bottom":"right"%>.gif" border="0"/>Contacts</a></td></tr>
 <!-- Contacts ends -->
 <!-- TopCoder Info ends *************************** -->
-
-<!-- PACTS begins *************************** -->
-<% } else if (request.getServletPath().indexOf("pacts")>-1) { %>
-                <tr><td id="leftNavTitle">P.A.C.T.s:</td>
-                <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=payments&amp;c=payment_history">Payments</a></td></tr>
-                <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=affidavit&amp;c=affidavit_history">Affidavits</a></td></tr>
-                <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=contracts&amp;c=contract_history">Contracts</a></td></tr>
-                <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=tax_forms&amp;c=tax_forms_history">Tax Forms</a></td></tr>
-            <% } %>
-<!-- PACTS ends *************************** -->
 
 <!-- Competition begins *************************** -->
 <% } else { %>
@@ -146,14 +136,23 @@
                 int messageCount = f.getMessageCount(); %>
 
                 <tr><td id="<%=paramFid>0&&paramFid==fID?"leftSubnavOn":"leftSubnav"%>"><a href="/rtables/viewForum.jsp?forum=<%= fID %>&mc=<%=messageCount%>" class="leftOn"><%=(fName!=null)?fName:"&nbsp;"%></a></td></tr>
-
             <% } %>
 <!-- Round Tables ends -->
 
 <!-- Support/FAQs begins -->
-                <tr><td id="<%=level1.equals("support")?"leftNavOn":"leftNav"%>"><a class="left" href="/?&t=support&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Support/FAQs</a></td></tr>
+                <tr><td id="<%=level1.equals("support")?"leftNavOn":"leftNav"%>"><a href="/?&t=support&c=index" class="<%=level1.equals("support")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("support")?"bottom":"right"%>.gif" border="0"/>Support/FAQs</a></td></tr>
 <!-- Support/FAQs ends -->
+<!-- Competition ends *************************** -->
+<% } %>
 
+<!-- PACTS begins *************************** -->
+<% } if (request.getServletPath().indexOf("pacts")>-1) { %>
+                <tr><td id="leftNavTitle">P.A.C.T.s:</td>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=payments&amp;c=payment_history">Payments</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=affidavit&amp;c=affidavit_history">Affidavits</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=contracts&amp;c=contract_history">Contracts</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=tax_forms&amp;c=tax_forms_history">Tax Forms</a></td></tr>
+<!-- PACTS ends *************************** -->
 <% } %>
 
                 <tr><td bgcolor="#990000"><jsp:include page="../includes/modules/simpleSearch.jsp"/></td></tr>
