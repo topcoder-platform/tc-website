@@ -6,6 +6,7 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLoginRequest;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.QueueMessageReceiver;
+import com.topcoder.shared.messaging.QueueResponseManager;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.screening.common.ScreeningContext;
 
@@ -17,7 +18,7 @@ import java.util.HashMap;
  * User: dok
  * Date: Dec 6, 2004
  */
-public class Login extends BaseProcessor {
+public class Login extends Base {
 
 
     protected void businessProcessing() throws Exception {
@@ -43,27 +44,13 @@ public class Login extends BaseProcessor {
 
         ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
         request.setServerID(993);
-
-
-        log.debug("instantiate queue message sender");
-        String jmsFactory = ScreeningApplicationServer.JMS_FACTORY;
-        Context context = ScreeningContext.getJMSContext();
-
-        QueueMessageSender qms = new QueueMessageSender(jmsFactory,
-                ScreeningApplicationServer.REQUEST_QUEUE, context);
-        qms.setPersistent(false);
-        qms.setDBPersistent(false);
-        qms.setFaultTolerant(false);
         log.debug("send message");
-        String messageId = qms.sendMessageGetID(new HashMap(), request);
+        String messageId = send(request);
         log.debug("sent message " + messageId);
 
-        QueueMessageReceiver qmr = new QueueMessageReceiver(jmsFactory,
-                ScreeningApplicationServer.RESPONSE_QUEUE, context, request.getSelector());
-        qmr.setPersistent(false);
-        qmr.setFaultTolerant(false);
-        ObjectMessage response = qmr.getMessage(2000);
+        ObjectMessage response = receive(2000, messageId);
         log.debug("response " + response);
+
 
         setNextPage(Constants.PAGE_INDEX);
         setIsNextPageInContext(true);
