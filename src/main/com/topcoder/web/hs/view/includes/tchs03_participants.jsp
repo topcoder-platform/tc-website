@@ -311,18 +311,6 @@
 
                             <tr><td colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
 
-                            <tr><td class="statSubtitle" colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
-                        </table>
-                        
-<!-- All other participating schools -->
-                        <h3>Congratulations to the following schools for participating this year</h3>
-                        
-                        <table cellspacing="0" cellpadding="3" border="0" width="300">
-                            <tr>
-                                <td class="statTitle" width="80%">School</td>
-                                <td class="statTitleScore" width="20%">Rating</td>
-                            </tr>
-                            
 <!-- Ellington -->
                             <tr><td class="statSubtitle" colspan="2">Ellington</td></tr>
                                 
