@@ -99,7 +99,7 @@
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.24.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=statistics&amp;c=2002tccc_feature" CLASS="bodyGeneric">A Matter of Time</A></TD></TR>
             </TABLE>
 <P>
-Have an interesting human interest story idea for the weekly feature?  Please send to <A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">editorial@topcoder.com</A>
+<A HREF="/index?t=news_events&amp;c=feat_topics" CLASS="bodyGeneric">Want to write?</A>
 </P>
             
 <P><BR/></P>
