@@ -1,5 +1,3 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
             <table border="0" cellspacing="0" cellpadding="3" width="530">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Feature</font></td>

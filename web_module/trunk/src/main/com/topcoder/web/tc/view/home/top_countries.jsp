@@ -15,11 +15,13 @@
         <td align="left" background="/i/graybv_lite_bg.gif" class="statText" width="45%">Name</td>
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText" width="45%">Rating</td>
     </tr>
+    <% boolean even = true;%>
     <rsc:iterator list="<%=countries%>" id="resultRow">
         <tr>
-            <td align="right" class="formHandleEven"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
-            <td align="left" class="formHandleEven" nowrap="nowrap"><rsc:item name="name" row="<%=resultRow%>"/></td>
-            <td align="right" class="formHandleEven" nowrap="nowrap"><rsc:item name="avg_rating" row="<%=resultRow%>"/></td>
+            <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
+            <td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><rsc:item name="name" row="<%=resultRow%>"/></td>
+            <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><rsc:item name="avg_rating" row="<%=resultRow%>"/></td>
         </tr>
+        <% even = !even;%>
     </rsc:iterator>
 </table>

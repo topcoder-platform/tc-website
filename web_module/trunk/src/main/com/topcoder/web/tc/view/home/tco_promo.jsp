@@ -1,5 +1,3 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <!-- TCO Promo Starts -->
             <img src="/i/promos/tco_promo_right.gif" alt="Next 2003 TCO Round" width="244" height="132" border="0" usemap="#tco03_home" /><br />
             <map name="tco03_home">

@@ -1,5 +1,3 @@
-<%@  page language="java"  %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
@@ -50,30 +48,30 @@
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                <tr><td><img src="/i/clear.gif" width="180" height="10" border="0"></td></tr>
                <tr><td><jsp:include page="coder_of_month.jsp" /></td></tr>
-               
+
                <tr><td><jsp:include page="member_surveys.jsp" /></td></tr>
                <tr><td><img src="/i/clear.gif" width="1" height="10" border="0" /></td></tr>
-               
+
                <tr><td><img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="180" height="20" border="0" /><br/></td></tr>
                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-               
+
                <tr><td><jsp:include page="top_coders.jsp" /></td></tr>
                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-               
+
                <tr><td><jsp:include page="top_designers.jsp" /></td></tr>
                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-               
+
                <tr><td><jsp:include page="top_developers.jsp" /></td></tr>
                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-               
+
                <tr><td><jsp:include page="top_schools.jsp" /></td></tr>
                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-               
+
                <tr><td><jsp:include page="top_countries.jsp" /></td></tr>
                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
             </table>
             <img src="/i/home_right_bottom.gif" width="180" height="20" border="0" />
-            
+
             <p><br/></p>
          </td>
 <!-- Right Column Ends -->

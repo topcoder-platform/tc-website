@@ -1,5 +1,3 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
             <table border="0" cellspacing="0" cellpadding="0" width="530">
                 <tr valign="top">
                     <td height="42" align="center"><A href="/corp/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=index"  target="_top"><IMG src="/i/header_marketing_oppor.gif" alt="Marketing Opportunities" width="170" height="20" border="0" /></A><br/>

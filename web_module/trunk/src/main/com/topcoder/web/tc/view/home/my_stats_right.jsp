@@ -1,5 +1,3 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr valign="middle">

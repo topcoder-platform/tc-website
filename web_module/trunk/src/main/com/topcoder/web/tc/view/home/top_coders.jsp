@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="/tc.tld" prefix="tc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer coders = (ResultSetContainer)request.getAttribute("top_coders");%>
 
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
@@ -16,21 +16,13 @@
         <td align="left" background="/i/graybv_lite_bg.gif" class="statText" width="45%">Handle</td>
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText" width="45%">Rating</td>
     </tr>
+    <% boolean even= true; %>
     <rsc:iterator list="<%=coders%>" id="resultRow">
-
-<%-- Comment out until color iterator is ready 
-                <% i++;
-                   currCoder = Integer.parseInt(coderInfo.getItem("coder_id").toString()); 
-                   if (currCoder != lastCoder || (coders.hasManyCoders() && i==1)) { %> 
-                
-                <% lastCoder = currCoder;
-                   } %>
---%>
-
         <tr>
-            <td align="right" class="formHandleEven"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
-            <td align="left" class="formHandleEven" nowrap="nowrap"><a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a></td>
-            <td align="right" class="formHandleEven" nowrap="nowrap"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+            <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
+            <td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a></td>
+            <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><rsc:item name="rating" row="<%=resultRow%>"/></td>
         </tr>
+        <% even = !even;%>
     </rsc:iterator>
 </table>

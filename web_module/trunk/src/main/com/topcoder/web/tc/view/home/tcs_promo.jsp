@@ -1,5 +1,3 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
             <A href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_winners.gif" alt="Component Design Contest 2" border="0" width="244" height="150" /></A><br />
 
 <%--            <A href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></A><br />
