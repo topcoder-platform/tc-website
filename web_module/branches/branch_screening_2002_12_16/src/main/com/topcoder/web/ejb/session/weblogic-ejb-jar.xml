@@ -13,6 +13,10 @@
                 <res-ref-name>datasource</res-ref-name>
                 <jndi-name>SCREENING_OLTP</jndi-name>
             </resource-description>
+            <resource-description>
+                <res-ref-name>txdatasource</res-ref-name>
+                <jndi-name>JTS_SCREENING_OLTP</jndi-name>
+            </resource-description>
         </reference-descriptor>
         <jndi-name>com.topcoder.web.ejb.session.SessionHome</jndi-name>
     </weblogic-enterprise-bean>
@@ -26,6 +30,10 @@
             <resource-description>
                 <res-ref-name>datasource</res-ref-name>
                 <jndi-name>SCREENING_OLTP</jndi-name>
+            </resource-description>
+            <resource-description>
+                <res-ref-name>txdatasource</res-ref-name>
+                <jndi-name>JTS_SCREENING_OLTP</jndi-name>
             </resource-description>
         </reference-descriptor>
         <jndi-name>com.topcoder.web.ejb.session.SessionSegmentHome</jndi-name>

@@ -22,6 +22,7 @@ public class SessionBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(SessionBean.class);
     private static final String dataSourceName = "java:comp/env/datasource";
+    private static final String txDataSourceName = "java:comp/env/txdatasource";
 
     /**
      *
@@ -82,7 +83,7 @@ public class SessionBean extends BaseEJB {
             query.append("VALUES(?,?,?,?,?,?,?,?) ");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(txDataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 

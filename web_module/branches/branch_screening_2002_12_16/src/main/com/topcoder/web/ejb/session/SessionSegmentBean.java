@@ -21,6 +21,7 @@ public class SessionSegmentBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(SessionSegmentBean.class);
     private static final String dataSourceName = "java:comp/env/datasource";
+    private static final String txDataSourceName = "java:comp/env/txdatasource";
 
     /**
      *
@@ -51,7 +52,7 @@ public class SessionSegmentBean extends BaseEJB {
             query.append(" VALUES(?,?,?) ");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(txDataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 

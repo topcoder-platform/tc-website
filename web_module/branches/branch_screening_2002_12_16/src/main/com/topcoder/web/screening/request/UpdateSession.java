@@ -5,12 +5,14 @@ import java.util.Map;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
+import javax.transaction.UserTransaction;
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.Transaction;
 
 import com.topcoder.web.ejb.session.Session;
 import com.topcoder.web.ejb.session.SessionHome;
@@ -41,7 +43,11 @@ public class UpdateSession extends BaseSessionProcessor {
         long sessionProfileId = Long.parseLong(info.getProfileId());
         long userId = Long.parseLong(info.getCandidateId());
         User requestor = getAuthentication().getUser();
-        
+
+        UserTransaction ut = Transaction.get(context);
+        ut.begin();
+
+        try {
         long sessionId = 
             session.createSession(sessionProfileId, 
                                   userId, 
@@ -58,7 +64,7 @@ public class UpdateSession extends BaseSessionProcessor {
                 Constants.SESSION_SEGMENT_COMMAND);
         dataRequest.setProperty("sid", String.valueOf(sessionId));
 
-        DataAccess access = getDataAccess();
+        DataAccess access = getDataAccess(Constants.TX_DATA_SOURCE);
 
         Map map = access.getData(dataRequest);
 
@@ -92,6 +98,12 @@ public class UpdateSession extends BaseSessionProcessor {
         if(info.useCandidateEmail() || info.useRepEmail()) {
             EmailInfo.createEmailInfo(info, requestor).sendEmail();
         }
+        }
+        catch(Exception e) {
+            ut.rollback();
+            throw e;
+        }
+        ut.commit();
 
         setNextPage(Constants.DEFAULT_PAGE);
         setNextPageInContext(false);

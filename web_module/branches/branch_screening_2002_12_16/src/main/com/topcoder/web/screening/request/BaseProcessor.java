@@ -121,9 +121,14 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
     
     protected DataAccess getDataAccess() throws Exception {
+        return getDataAccess(Constants.DATA_SOURCE);
+    }
+    
+    protected DataAccess getDataAccess(String datasource) throws Exception {
+        if(datasource == null) return null;
         InitialContext context = new InitialContext();
         DataSource ds = (DataSource)
-            PortableRemoteObject.narrow(context.lookup(Constants.DATA_SOURCE),
+            PortableRemoteObject.narrow(context.lookup(datasource),
                                         DataSource.class);
         DataAccess dAccess = new DataAccess(ds);
         return dAccess;
