@@ -49,6 +49,7 @@
                             </tr>
                             <tr>
                                 <td class="brRegTableQuestion">
+                                <%if(question.isRequired()) {%><span class="brErrorText">*</span><%}%>
                                     <%=question.getText()%>
                                 </td>
                                 <td class="brRegTableAnswer">
@@ -63,7 +64,7 @@
                             </tr>
                            <tr>
                                 <td class="brRegTableQuestion">
-                                    <span class="brErrorText"><b>OPTIONAL:</b></span> Resume
+                                    <span class="brErrorText">*</span> Resume
                                 </td>
                                 <td class="brRegTableAnswer">
                                     <input type=file name="Resume">

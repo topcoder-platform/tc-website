@@ -62,6 +62,8 @@ public class Constants {
     public static String BROOKS_REG_CONFIRM_PAGE;
     public static String BROOKS_REG_SUCCESS_PAGE;
     public static String BROOKS_ACTIVATION_PAGE;
+    
+    public static int QUESTION_AREAS_OF_INTEREST;
 
     //main reg parameters
     public static String HANDLE;
