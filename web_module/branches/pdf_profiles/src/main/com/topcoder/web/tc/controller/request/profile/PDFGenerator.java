@@ -682,7 +682,7 @@ public class PDFGenerator extends BaseProcessor {
         
         for(int i = 0; i < constraintsElements.length; i++) {
             constraints.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-            constraints.addCell(new Phrase(constraintsElements[i].getRenderer().getClass().toString(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            constraints.addCell(new Phrase(constraintsElements[i].getClass().toString(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         }
 
         constraints.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
