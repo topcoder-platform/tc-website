@@ -21,7 +21,8 @@
       <td width="49%" align="left"><img src="/i/clear.gif" alt="" width="5" height="10" border="0"  vspace="0"/></td>
    </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
+
+<!-- <table border="0" cellspacing="0" cellpadding="0" width="100%">
       <tr>
          <td width="49%" align="right"><img src="/i/clear.gif" alt="" width="5" height="10" border="0"  vspace="0"/></td>
            <td align="center" valign="top"><img src="/i/tournament/tco03/bracket_left.gif" alt="bracket" width="25" height="19" border="0" vspace="0" hspace="0"/></td>
@@ -29,7 +30,7 @@
            <td align="center" valign="top"><img src="/i/tournament/tco03/bracket_right.gif" alt="bracket" width="25" height="19" border="0" vspace="0" hspace="0"/></td>
          <td width="49%" align="left"><img src="/i/clear.gif" alt="" width="5" height="10" border="0"  vspace="0"/></td>
       </tr>
-</table>
+</table> -->
 
 <% if (selectedContest.equals("coding")) {%>
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
