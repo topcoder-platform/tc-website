@@ -1955,7 +1955,7 @@ public class ProjectTrackerBean implements SessionBean {
             result [i] = new Date(phases[i].getStartDate().getTime());
 
         }
-        result[10] = new Date (phases [10].calcEndDate().getTime());
+        result[10] = new Date (phases [9].calcEndDate().getTime());
         return result;
 
 
