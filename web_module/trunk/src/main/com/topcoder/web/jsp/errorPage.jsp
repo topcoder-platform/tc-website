@@ -12,7 +12,7 @@ isErrorPage="true"
    <TITLE>TopCoder</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="/script.jsp" />
+   <jsp:include page="script.jsp" />
 </HEAD>
 
 <body>
