@@ -42,10 +42,8 @@
                 </tces:trailIterator>
               </P>
         <p>
-        <b>
-        <FONT SIZE="5" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">Member Profile: <jsp:getProperty name="CompetitionStatisticsTask" property="Handle"/></FONT>
-        </b>
-        </p>                  
+        <h2>Member Profile: <jsp:getProperty name="CompetitionStatisticsTask" property="Handle"/></h2>
+        </p>
                   <TABLE ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
                     <TR>
                         <TD class="bodyText" ALIGN="center" WIDTH="33%">
@@ -64,7 +62,7 @@
                   </TABLE>              
               
               <p>
-              <FONT SIZE="5" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">Coder Problem Submissions &gt; Competition Statistics</FONT>
+              <h2>Coder Problem Submissions &gt; Competition Statistics</h2>
               <br>
               <B>Competition:</B> <%= CompetitionStatisticsTask.getStatistic("contest_name") %>
               <br>
@@ -76,47 +74,47 @@
                   <TD width='50%'>
                     <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width='50%'>
                       <TR>
-                        <TD class='statText' colspan='2'>
+                        <TD class='bodyText' colspan='2'>
                           <b>Overall</b>
                         </TD>
                       </TR>
                       <TR>
-                        <TD class='statText'>
+                        <TD class='bodyText'>
                           <b># of Competitors</b>
                         </TD>
-                        <TD class='statText' align='right'>
+                        <TD class='bodyText' align='right'>
                           <%= CompetitionStatisticsTask.getStatistic("num_competitors") %>
                         </TD>
                       </TR>
                       <TR>
-                        <TD class='statText'>
+                        <TD class='bodyText'>
                           <b>Average Score</b>
                         </TD>
-                        <TD class='statText' align='right'>
+                        <TD class='bodyText' align='right'>
                           <%= CompetitionStatisticsTask.getStatistic("overall_avg_points") %>
                         </TD>
                       </TR>
                       <TR>
-                        <TD class='statText'>
+                        <TD class='bodyText'>
                           <b>Std. Deviation</b>
                         </TD>
-                        <TD class='statText' align='right'>
+                        <TD class='bodyText' align='right'>
                           <%= CompetitionStatisticsTask.getStatistic("overall_std_dev") %>
                         </TD>
                       </TR>
                       <TR>
-                        <TD class='statText'>
+                        <TD class='bodyText'>
                           <b># Submissions</b>
                         </TD>
-                        <TD class='statText' align='right'>
+                        <TD class='bodyText' align='right'>
                           <%= CompetitionStatisticsTask.getStatistic("overall_problems_submitted") %>
                         </TD>
                       </TR>
                       <TR>
-                        <TD class='statText'>
+                        <TD class='bodyText'>
                           <b>Percent Correct</b>
                         </TD>
-                        <TD class='statText' align='right'>
+                        <TD class='bodyText' align='right'>
                           <%= CompetitionStatisticsTask.getStatistic("overall_submission_accuracy") %>%
                         </TD>
                       </TR>
@@ -125,39 +123,39 @@
                   <TD width='50%'>
                     <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width='50%'>
                       <TR>
-                        <TD class='statText' colspan='2'>
+                        <TD class='bodyText' colspan='2'>
                           <b>Individual [ <jsp:getProperty name="CompetitionStatisticsTask" property="Handle"/> ]</b>
                         </TD>
                       </TR>
                       <TR>
-                        <TD class='statText'>
+                        <TD class='bodyText'>
                           <B>Score</B>
                         </TD>
-                        <TD class='statText' align='right'>
+                        <TD class='bodyText' align='right'>
                           <%= CompetitionStatisticsTask.getStatistic("final_points") %>
                         </TD>
                       </TR>
                       <TR>
-                        <TD class='statText'>
+                        <TD class='bodyText'>
                           <B># Std. Deviations</B>
                         </TD>
-                        <TD class='statText' align='right'>
+                        <TD class='bodyText' align='right'>
                           <%= CompetitionStatisticsTask.getStatistic("point_standard_deviation") %>
                         </TD>
                       </TR>
                       <TR>
-                        <TD class='statText'>
+                        <TD class='bodyText'>
                           <B># Submissions</B>
                         </TD>
-                        <TD class='statText' align='right'>
+                        <TD class='bodyText' align='right'>
                           <%= CompetitionStatisticsTask.getStatistic("problems_submitted") %>
                         </TD>
                       </TR>
                       <TR>
-                        <TD class='statText'>
+                        <TD class='bodyText'>
                           <B># Correct</B>
                         </TD>
-                        <TD class='statText' align='right'>
+                        <TD class='bodyText' align='right'>
                           <%= CompetitionStatisticsTask.getStatistic("problems_correct") %>
                         </TD>
                       </TR>
@@ -215,69 +213,51 @@
               <P><BR></P>
 
               <P><B>Overall Stats</B></P>
-              <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
+              <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
                 <TR>
-                  <TD class="testTableTitle" HEIGHT="18">&#160;<b></b></TD>
-                  <TD class="testTableTitle">&#160;&#160;</TD>
-                  <TD class="testTableTitle"><b>Presented</b></TD>
-                  <TD class="testTableTitle">&#160;&#160;</TD>
-                  <TD class="testTableTitle"><b>Submitted</b></TD>
-                  <TD class="testTableTitle">&#160;&#160;</TD>
-                  <TD class="testTableTitle"><b>Submit %</b></TD>
-                  <TD class="testTableTitle">&#160;&#160;</TD>
-                  <TD class="testTableTitle"><b>Correct</b></TD>
-                  <TD class="testTableTitle">&#160;&#160;</TD>
-                  <TD class="testTableTitle"><b>Submission<br>Accuracy</b></TD>
-                  <TD class="testTableTitle">&#160;&#160;</TD>
-                  <TD class="testTableTitle"><b>Overall<br>Accuracy</b></TD>
-                  <TD class="testTableTitle">&#160;&#160;</TD>
-                  <TD class="testTableTitle"><b>Avg Points for<br>Submissions</b></TD>
-                  <TD class="testTableTitle">&#160;&#160;</TD>
-                  <TD class="testTableTitle"><b>Avg Points<br>Overall</b></TD>
-                  <TD class="testTableTitle">&#160;&#160;</TD>
-                  <TD class="testTableTitle"><b>Avg Time<br>to Submit</b></TD>
+                  <TD class="testTableTitle" width="7%">&#160;</TD>
+                  <TD class="testTableTitle" width="7%"><b>Presented</b></TD>
+                  <TD class="testTableTitle" width="7%"><b>Submitted</b></TD>
+                  <TD class="testTableTitle" width="7%"><b>Submit %</b></TD>
+                  <TD class="testTableTitle" width="7%"><b>Correct</b></TD>
+                  <TD class="testTableTitle" width="13%"><b>Submission<br>Accuracy</b></TD>
+                  <TD class="testTableTitle" width="13%"><b>Overall<br>Accuracy</b></TD>
+                  <TD class="testTableTitle" width="13%"><b>Avg Points for<br>Submissions</b></TD>
+                  <TD class="testTableTitle" width="13%"><b>Avg Points<br>Overall</b></TD>
+                  <TD class="testTableTitle" width="13%"><b>Avg Time<br>to Submit</b></TD>
                 </TR>
 
                 
 
-                <tces:rowIterator id="level" rowList="<%=(List)CompetitionStatisticsTask.getOverallStatsByLevel()%>">
+                <tces:rowIterator id="level" rowList="<%=CompetitionStatisticsTask.getOverallStatsByLevel()%>">
                   <TR>
-                    <TD class="bodyText" HEIGHT="18">
+                    <TD class="bodyText">
                         <nobr>&#160;<b><%= level.getItem("level_desc").toString() %></b></nobr>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= level.getItem("problems_presented").toString() %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= level.getItem("problems_submitted").toString() %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("submit_percent")) %>%
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= level.getItem("problems_correct").toString() %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("submission_accuracy")) %>%
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("overall_accuracy")) %>%
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= JSPUtils.autoFormat(level.getItem("avg_submission_points")) %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= level.getItem("average_points").toString() %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= JSPUtils.timeFormat(level.getItem("avg_time_elapsed")) %>
                     </TD>
@@ -285,42 +265,33 @@
                 </tces:rowIterator>
 
                   <TR>
-                    <TD class="bodyText" HEIGHT="18">
+                    <TD class="bodyText">
                         &#160;<b>All</b>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= CompetitionStatisticsTask.getStatistic("overall_problems_presented") %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= CompetitionStatisticsTask.getStatistic("overall_problems_submitted") %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= CompetitionStatisticsTask.getStatistic("overall_submit_percent") %>%
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= CompetitionStatisticsTask.getStatistic("overall_problems_correct") %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= CompetitionStatisticsTask.getStatistic("overall_submission_accuracy") %>%
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= CompetitionStatisticsTask.getStatistic("overall_accuracy") %>%
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= CompetitionStatisticsTask.getStatistic("overall_points_per_submission") %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= CompetitionStatisticsTask.getStatistic("overall_points_per_problem") %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="bodyText">
                         <%= JSPUtils.timeFormat(CompetitionStatisticsTask.getCompetitionStats().getItem("overall_time_per_problem")) %>
                     </TD>

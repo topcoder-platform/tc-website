@@ -70,15 +70,15 @@
             <table id="linksTable" cellspacing="0" cellpadding="0" border="0">
                 <tr valign="middle">
                     <td class="bodyText" align="center" width="33%">
-                        <p class="button"><A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>" class="button">Coder Demographic Info</A></p>
+                        <A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
                     </td>
                     
                     <td class="bodyText" align="center" width="33%">
-                        <p><font size="3">Coder Competition History</font></p>
+                        Coder Competition History
                     </td>
                     
                     <td class="bodyText" align="center" width="33%">
-                        <p class="button"><A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>" class="button">Coder Problem Submissions</A></p>
+                        <A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>" class="bodyText">Coder Problem Submissions</A>
                     </td>
                 </tr>
             </table>             
@@ -102,33 +102,18 @@
                 </tr>
                 
                 <% int i=0; %>
-                    <tces:mapIterator id="comp" mapList="<%=(List)CompetitionHistoryTask.getCompetitionList()%>">
-                <% i++; %>
-                            
-                <tr>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= (String)comp.get("date") %></td>
-                    
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                      <A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>&<%=TCESConstants.ROUND_ID_PARAM%>=<%= (String)comp.get("round_id") %>" class="bodyText"><%= (String)comp.get("contest_name") %></A>
-                    </td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                        <%= (String)comp.get("division_name") %>
-                    </td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>" align="right">
-                        <%= (String)comp.get("final_points") %>&#160;&#160;
-                    </td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>" align="right">
-                        <%= (String)comp.get("avg_points") %>&#160;&#160;
-                    </td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>" align="right">
-                        <%= (String)comp.get("old_rating") %>&#160;&#160;
-                    </td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>" align="right">
-                        <%= (String)comp.get("new_rating") %>&#160;&#160;
-                    </td>
-                  </TR>
-                </tces:mapIterator>
-
+                <%--not indenting to save some space on the download cuz this can be a big loop
+                    and the spaces significantly impact the size of the html source
+                --%>
+                    <tces:mapIterator id="comp" mapList="<%=CompetitionHistoryTask.getCompetitionList()%>"><% i++; %><tr>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= (String)comp.get("date") %></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>&<%=TCESConstants.ROUND_ID_PARAM%>=<%= (String)comp.get("round_id") %>" class="bodyText"><%= (String)comp.get("contest_name") %></A></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= (String)comp.get("division_name") %></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>" align="right"><%= (String)comp.get("final_points") %>&#160;&#160;</td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>" align="right"><%= (String)comp.get("avg_points") %>&#160;&#160;</td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>" align="right"><%= (String)comp.get("old_rating") %>&#160;&#160;</td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>" align="right"><%= (String)comp.get("new_rating") %>&#160;&#160;</td>
+</TR></tces:mapIterator>
             </table>
                         
             <p><br></p>
