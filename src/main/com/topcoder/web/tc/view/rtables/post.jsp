@@ -361,7 +361,7 @@
                <td valign="middle" class="statText">Message: (8000 character max)</td>
              </tr>
              <tr>
-               <td valign="middle" class="statText">&lt;pre&gt;&lt;/pre&gt; tags may be used to format your post.  This is the only tag that is enabled, please use it with care.</td>
+               <td valign="middle" class="statText">If necessary, you may use &lt;pre&gt;&lt;/pre&gt; tags to format your post.  This is the only tag that is enabled, please use it with care.</td>
              </tr>
              <tr>
                <td><textarea cols="60" rows="15" name="body" wrap="virtual"></textarea></td>
