@@ -1,8 +1,6 @@
 package com.topcoder.web.common;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.Cookie;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -15,12 +13,12 @@ import java.io.IOException;
 /**
  * @author rfairfax
  */
-public class MultipartRequest implements TCRequest {
+public class MultipartRequest extends SimpleRequest {
 
-    private HttpServletRequest request = null;
     private FileUpload file = null;
 
     public MultipartRequest(HttpServletRequest request) throws IOException {
+        super(request);
         //create new fileupload object
         this.request = request;
 
@@ -31,32 +29,8 @@ public class MultipartRequest implements TCRequest {
         return file.getParameter(name);
     }
 
-    public String getServletPath() {
-        return request.getServletPath();
-    }
-
-    public String getContextPath() {
-        return request.getContextPath();
-    }
-
-    public void setAttribute(String name, Object o) {
-        request.setAttribute(name, o);
-    }
-
-    public Object getAttribute(String name) {
-        return request.getAttribute(name);
-    }
-
-    public String getMethod() {
-        return request.getMethod();
-    }
-
     public Enumeration getParameterNames() {
         return new ParameterEnums(file.getParameterNames());
-    }
-
-    public String getQueryString() {
-        return request.getQueryString();
     }
 
     public String[] getParameterValues(String name) {
@@ -72,26 +46,6 @@ public class MultipartRequest implements TCRequest {
         }
 
         return ret;
-    }
-
-    public HttpSession getSession() {
-        return request.getSession();
-    }
-
-    public HttpSession getSession(boolean create) {
-        return request.getSession(create);
-    }
-
-    public String getServerName() {
-        return request.getServerName();
-    }
-
-    public Cookie[] getCookies() {
-        return request.getCookies();
-    }
-
-    public String getProtocol() {
-        return request.getProtocol();
     }
 
     public String[] getFormFileNames() {
@@ -158,4 +112,6 @@ public class MultipartRequest implements TCRequest {
             return it.next();
         }
     }
+
+
 }

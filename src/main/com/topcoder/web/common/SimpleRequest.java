@@ -72,4 +72,13 @@ public class SimpleRequest implements TCRequest {
     public String getProtocol() {
         return request.getProtocol();
     }
+
+    public String getRemoteAddr() {
+        return request.getRemoteAddr();
+    }
+
+    public String getRemoteHost() {
+        return request.getRemoteHost();
+    }
+
 }
