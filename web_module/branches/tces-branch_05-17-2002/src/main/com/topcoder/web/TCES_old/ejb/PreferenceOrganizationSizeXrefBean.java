@@ -18,6 +18,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.PreferenceOrganizationSizeXref;
 import	com.topcoder.web.TCES.ejb.PreferenceOrganizationSizeXrefObject;
+import	com.topcoder.web.TCES.common.*;
 
 /**
  * This is the implementation of the PreferenceOrganizationSizeXref class.
@@ -40,14 +41,11 @@ public class PreferenceOrganizationSizeXrefBean implements javax.ejb.SessionBean
 			ps = conn.prepareStatement( insert );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
-			ps = null;
 			throw( e );
 		} catch( Exception e ) {
-		} finally {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
+		}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {};
 		}
 	}
 
@@ -58,9 +56,6 @@ public class PreferenceOrganizationSizeXrefBean implements javax.ejb.SessionBean
 			conn = getConnection();
 			create( conn, profile_id, organization_size_id );
 		} catch( SQLException e ) {
-			if( conn != null )
-				try { conn.close(); } catch( Exception f ) {}
-			conn = null;
 			throw( e );
 		} catch( Exception e ) {
 		} finally {
@@ -79,12 +74,12 @@ public class PreferenceOrganizationSizeXrefBean implements javax.ejb.SessionBean
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 	}
 
 	public PreferenceOrganizationSizeXrefObject request( int cmd, PreferenceOrganizationSizeXrefObject obj ) throws SQLException {
@@ -97,9 +92,6 @@ public class PreferenceOrganizationSizeXrefBean implements javax.ejb.SessionBean
 
 		case PreferenceOrganizationSizeXref.SELECT:
 			obj = getRecord( obj.profile_id, obj.organization_size_id );
-			if( obj == null )
-				throw new EJBException(
-				  "no matching record" );
 			break;
 
 		case PreferenceOrganizationSizeXref.UPDATE:
@@ -113,8 +105,6 @@ public class PreferenceOrganizationSizeXrefBean implements javax.ejb.SessionBean
 		}
 		return( obj );
 	}
-
-	private class RecordNotFoundException extends Exception {}
 
 	private PreferenceOrganizationSizeXrefObject getRecord( Long profile_id, Integer organization_size_id ) throws SQLException {
 		Connection	conn = null;
@@ -131,7 +121,7 @@ public class PreferenceOrganizationSizeXrefBean implements javax.ejb.SessionBean
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new RecordNotFoundException();
+				throw new NoRecordFoundException();
 			obj.profile_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.profile_id = null;
@@ -140,14 +130,13 @@ public class PreferenceOrganizationSizeXrefBean implements javax.ejb.SessionBean
 				obj.organization_size_id = null;
 			rs.close();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
-			obj = null;
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( rs != null ) try { rs.close(); } catch( Exception f ) {}
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( obj );
 	}
 
@@ -168,13 +157,12 @@ public class PreferenceOrganizationSizeXrefBean implements javax.ejb.SessionBean
 			int	index = 1;
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( rc );
 	}
 
@@ -192,18 +180,18 @@ public class PreferenceOrganizationSizeXrefBean implements javax.ejb.SessionBean
 			while( rs.next() )
 				results.put( new Long( rs.getLong( 1 ) ), new Integer( rs.getInt( 2 ) ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( results );
 	}
 
 	public String findByOrganizationSizeId( Integer organization_size_id ) throws SQLException {
-		PreparedStatement	ps = null;
 		Connection	conn = null;
+		PreparedStatement	ps = null;
 		ResultSet	rs = null;
 		Vector	results = new Vector();
 		String	query = null;
@@ -217,12 +205,12 @@ public class PreferenceOrganizationSizeXrefBean implements javax.ejb.SessionBean
 				results.add( new Long( rs.getLong( 1 ) ) );
 			rs.close();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( flatten( results ) );
 	}
 

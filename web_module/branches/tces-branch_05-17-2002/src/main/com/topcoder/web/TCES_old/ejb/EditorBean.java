@@ -18,6 +18,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.Editor;
 import	com.topcoder.web.TCES.ejb.EditorObject;
+import	com.topcoder.web.TCES.common.*;
 import	com.topcoder.web.TCES.common.Lookup;
 
 /**
@@ -40,14 +41,11 @@ public class EditorBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( insert );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
-			ps = null;
 			throw( e );
 		} catch( Exception e ) {
-		} finally {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
+		}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {};
 		}
 	}
 
@@ -58,9 +56,6 @@ public class EditorBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			create( conn, editor_id, editor_desc );
 		} catch( SQLException e ) {
-			if( conn != null )
-				try { conn.close(); } catch( Exception f ) {}
-			conn = null;
 			throw( e );
 		} catch( Exception e ) {
 		} finally {
@@ -79,12 +74,12 @@ public class EditorBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 	}
 
 	public EditorObject request( int cmd, EditorObject obj ) throws SQLException {
@@ -97,9 +92,6 @@ public class EditorBean implements javax.ejb.SessionBean {
 
 		case Editor.SELECT:
 			obj = getRecord( obj.editor_id );
-			if( obj == null )
-				throw new EJBException(
-				  "no matching record" );
 			break;
 
 		case Editor.UPDATE:
@@ -123,12 +115,8 @@ public class EditorBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( editor_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.editor_desc );
 	}
-
-	private class RecordNotFoundException extends Exception {}
 
 	private EditorObject getRecord( Integer editor_id ) throws SQLException {
 		Connection	conn = null;
@@ -145,7 +133,7 @@ public class EditorBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new RecordNotFoundException();
+				throw new NoRecordFoundException();
 			obj.editor_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.editor_id = null;
@@ -154,14 +142,13 @@ public class EditorBean implements javax.ejb.SessionBean {
 				obj.editor_desc = null;
 			rs.close();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
-			obj = null;
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( rs != null ) try { rs.close(); } catch( Exception f ) {}
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( obj );
 	}
 
@@ -190,13 +177,12 @@ public class EditorBean implements javax.ejb.SessionBean {
 				ps.setString( index++, editor_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( rc );
 	}
 
@@ -214,12 +200,12 @@ public class EditorBean implements javax.ejb.SessionBean {
 			while( rs.next() )
 				results.add( new Integer( rs.getInt( 1 ) ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( flatten( results ) );
 	}
 
@@ -237,12 +223,12 @@ public class EditorBean implements javax.ejb.SessionBean {
 			while( rs.next() )
 				results.put( new Integer( rs.getInt( 1 ) ), rs.getString( 2 ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( results );
 	}
 
@@ -280,12 +266,9 @@ public class EditorBean implements javax.ejb.SessionBean {
 			throw( e );
 		}
 		finally {
-			if( rs != null )
-				try { rs.close(); } catch( Exception e ) {};
-			if( stmt != null )
-				try { stmt.close(); } catch( Exception e ) {};
-			if( conn != null )
-				try { conn.close(); } catch( Exception e ) {};
+			if( rs != null ) try { rs.close(); } catch( Exception e ) {};
+			if( stmt != null ) try { stmt.close(); } catch( Exception e ) {};
+			if( conn != null ) try { conn.close(); } catch( Exception e ) {};
 		}
 		return( result );
 	}

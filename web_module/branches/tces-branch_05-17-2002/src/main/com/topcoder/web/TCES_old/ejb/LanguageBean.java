@@ -18,6 +18,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.Language;
 import	com.topcoder.web.TCES.ejb.LanguageObject;
+import	com.topcoder.web.TCES.common.*;
 import	com.topcoder.web.TCES.common.Lookup;
 
 /**
@@ -40,14 +41,11 @@ public class LanguageBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( insert );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
-			ps = null;
 			throw( e );
 		} catch( Exception e ) {
-		} finally {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
+		}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {};
 		}
 	}
 
@@ -58,9 +56,6 @@ public class LanguageBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			create( conn, language_id, language_name, status, language_desc );
 		} catch( SQLException e ) {
-			if( conn != null )
-				try { conn.close(); } catch( Exception f ) {}
-			conn = null;
 			throw( e );
 		} catch( Exception e ) {
 		} finally {
@@ -79,12 +74,12 @@ public class LanguageBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 	}
 
 	public LanguageObject request( int cmd, LanguageObject obj ) throws SQLException {
@@ -97,9 +92,6 @@ public class LanguageBean implements javax.ejb.SessionBean {
 
 		case Language.SELECT:
 			obj = getRecord( obj.language_id );
-			if( obj == null )
-				throw new EJBException(
-				  "no matching record" );
 			break;
 
 		case Language.UPDATE:
@@ -123,8 +115,6 @@ public class LanguageBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( language_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.language_name );
 	}
 
@@ -137,8 +127,6 @@ public class LanguageBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( language_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.status );
 	}
 
@@ -151,12 +139,8 @@ public class LanguageBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( language_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.language_desc );
 	}
-
-	private class RecordNotFoundException extends Exception {}
 
 	private LanguageObject getRecord( Integer language_id ) throws SQLException {
 		Connection	conn = null;
@@ -173,7 +157,7 @@ public class LanguageBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new RecordNotFoundException();
+				throw new NoRecordFoundException();
 			obj.language_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.language_id = null;
@@ -188,14 +172,13 @@ public class LanguageBean implements javax.ejb.SessionBean {
 				obj.language_desc = null;
 			rs.close();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
-			obj = null;
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( rs != null ) try { rs.close(); } catch( Exception f ) {}
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( obj );
 	}
 
@@ -240,13 +223,12 @@ public class LanguageBean implements javax.ejb.SessionBean {
 				ps.setString( index++, language_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( rc );
 	}
 
@@ -264,12 +246,12 @@ public class LanguageBean implements javax.ejb.SessionBean {
 			while( rs.next() )
 				results.add( new Integer( rs.getInt( 1 ) ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( flatten( results ) );
 	}
 
@@ -307,12 +289,9 @@ public class LanguageBean implements javax.ejb.SessionBean {
 			throw( e );
 		}
 		finally {
-			if( rs != null )
-				try { rs.close(); } catch( Exception e ) {};
-			if( stmt != null )
-				try { stmt.close(); } catch( Exception e ) {};
-			if( conn != null )
-				try { conn.close(); } catch( Exception e ) {};
+			if( rs != null ) try { rs.close(); } catch( Exception e ) {};
+			if( stmt != null ) try { stmt.close(); } catch( Exception e ) {};
+			if( conn != null ) try { conn.close(); } catch( Exception e ) {};
 		}
 		return( result );
 	}

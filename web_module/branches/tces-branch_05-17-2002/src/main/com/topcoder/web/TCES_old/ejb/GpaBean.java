@@ -18,6 +18,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.Gpa;
 import	com.topcoder.web.TCES.ejb.GpaObject;
+import	com.topcoder.web.TCES.common.*;
 
 /**
  * This is the implementation of the Gpa class.
@@ -39,14 +40,11 @@ public class GpaBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( insert );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
-			ps = null;
 			throw( e );
 		} catch( Exception e ) {
-		} finally {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
+		}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {};
 		}
 	}
 
@@ -57,9 +55,6 @@ public class GpaBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			create( conn, gpa_id, gpa_type_id, gpa_desc, gpa_value );
 		} catch( SQLException e ) {
-			if( conn != null )
-				try { conn.close(); } catch( Exception f ) {}
-			conn = null;
 			throw( e );
 		} catch( Exception e ) {
 		} finally {
@@ -78,12 +73,12 @@ public class GpaBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 	}
 
 	public GpaObject request( int cmd, GpaObject obj ) throws SQLException {
@@ -96,9 +91,6 @@ public class GpaBean implements javax.ejb.SessionBean {
 
 		case Gpa.SELECT:
 			obj = getRecord( obj.gpa_id );
-			if( obj == null )
-				throw new EJBException(
-				  "no matching record" );
 			break;
 
 		case Gpa.UPDATE:
@@ -122,8 +114,6 @@ public class GpaBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( gpa_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.gpa_type_id );
 	}
 
@@ -136,8 +126,6 @@ public class GpaBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( gpa_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.gpa_desc );
 	}
 
@@ -150,12 +138,8 @@ public class GpaBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( gpa_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.gpa_value );
 	}
-
-	private class RecordNotFoundException extends Exception {}
 
 	private GpaObject getRecord( Integer gpa_id ) throws SQLException {
 		Connection	conn = null;
@@ -172,7 +156,7 @@ public class GpaBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new RecordNotFoundException();
+				throw new NoRecordFoundException();
 			obj.gpa_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.gpa_id = null;
@@ -187,14 +171,13 @@ public class GpaBean implements javax.ejb.SessionBean {
 				obj.gpa_value = null;
 			rs.close();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
-			obj = null;
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( rs != null ) try { rs.close(); } catch( Exception f ) {}
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( obj );
 	}
 
@@ -235,13 +218,12 @@ public class GpaBean implements javax.ejb.SessionBean {
 				ps.setString( index++, gpa_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( rc );
 	}
 
@@ -259,12 +241,12 @@ public class GpaBean implements javax.ejb.SessionBean {
 			while( rs.next() )
 				results.add( new Integer( rs.getInt( 1 ) ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( flatten( results ) );
 	}
 

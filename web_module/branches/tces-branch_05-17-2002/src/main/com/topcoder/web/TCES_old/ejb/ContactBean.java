@@ -30,30 +30,30 @@ public class ContactBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	CoderHome	coderHome = null;
-	UserHome	userHome = null;
 	CoderNotifyHome	coderNotifyHome = null;
 	CountryHome	countryHome = null;
-	StateHome	stateHome = null;
 	EditorHome	editorHome = null;
 	LanguageHome	languageHome = null;
+	StateHome	stateHome = null;
+	UserHome	userHome = null;
 
 	public void ejbCreate() {
 		try {
-			Context	context = new InitialContext();
+			Context context = new InitialContext();
 			coderHome = (CoderHome) context.lookup(
 			  "com.topcoder.web.TCES.ejb.Coder" );
-			userHome = (UserHome) context.lookup(
-			  "com.topcoer.web.TCES.ejb.User" );
 			coderNotifyHome = (CoderNotifyHome) context.lookup(
 			  "com.topcoder.web.TCES.ejb.CoderNotify" );
 			countryHome = (CountryHome) context.lookup(
 			  "com.topcoder.web.TCES.ejb.Country" );
-			stateHome = (StateHome) context.lookup(
-			  "com.topcoder.web.TCES.ejb.State" );
 			editorHome = (EditorHome) context.lookup(
 			  "com.topcoder.web.TCES.ejb.Editor" );
 			languageHome = (LanguageHome) context.lookup(
 			  "com.topcoder.web.TCES.ejb.Language" );
+			stateHome = (StateHome) context.lookup(
+			  "com.topcoder.web.TCES.ejb.State" );
+			userHome = (UserHome) context.lookup(
+			  "com.topcoder.web.TCES.ejb.User" );
 		}
 		catch( NamingException e ) {
 			throw new EJBException( e );
@@ -62,12 +62,12 @@ public class ContactBean implements javax.ejb.SessionBean {
 
 	public void ejbRemove() {
 		coderHome = null;
-		userHome = null;
 		coderNotifyHome = null;
 		countryHome = null;
-		stateHome = null;
 		editorHome = null;
 		languageHome = null;
+		stateHome = null;
+		userHome = null;
 	}
 
 	public String getFirstName( Long profileId )
@@ -609,17 +609,11 @@ public class ContactBean implements javax.ejb.SessionBean {
 
 		try {
 			coderBean = coderHome.create();
-			Integer	I = new Integer( s );
-			coderBean.setEditorId( profileId, I );
+			coderBean.setEditorId( profileId, new Integer( s ) );
 		}
 		catch( CreateException e ) {
 			throw new EJBException( e );
 		}
-/*
-		catch( NumberFormatException e )
-			throw new EJBException( e );
-		}
- */
 	}
 
 	public void setSelectedLanguage( Long profileId, String s )
@@ -628,8 +622,7 @@ public class ContactBean implements javax.ejb.SessionBean {
 
 		try {
 			coderBean = coderHome.create();
-			Integer	I = new Integer( s );
-			coderBean.setLanguageId( profileId, I );
+			coderBean.setLanguageId( profileId, new Integer( s ) );
 		}
 		catch( CreateException e ) {
 			throw new EJBException( e );

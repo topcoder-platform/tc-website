@@ -18,6 +18,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.Skill;
 import	com.topcoder.web.TCES.ejb.SkillObject;
+import	com.topcoder.web.TCES.common.*;
 
 /**
  * This is the implementation of the Skill class.
@@ -40,14 +41,11 @@ public class SkillBean implements javax.ejb.SessionBean {
 			ps.setDate( 1, modify_date );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
-			ps = null;
 			throw( e );
 		} catch( Exception e ) {
-		} finally {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
+		}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {};
 		}
 	}
 
@@ -58,9 +56,6 @@ public class SkillBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			create( conn, skill_id, skill_type_id, skill_desc, skill_order, status, modify_date, profile_id );
 		} catch( SQLException e ) {
-			if( conn != null )
-				try { conn.close(); } catch( Exception f ) {}
-			conn = null;
 			throw( e );
 		} catch( Exception e ) {
 		} finally {
@@ -79,12 +74,12 @@ public class SkillBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 	}
 
 	public SkillObject request( int cmd, SkillObject obj ) throws SQLException {
@@ -97,9 +92,6 @@ public class SkillBean implements javax.ejb.SessionBean {
 
 		case Skill.SELECT:
 			obj = getRecord( obj.skill_id );
-			if( obj == null )
-				throw new EJBException(
-				  "no matching record" );
 			break;
 
 		case Skill.UPDATE:
@@ -123,8 +115,6 @@ public class SkillBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( skill_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.skill_type_id );
 	}
 
@@ -137,8 +127,6 @@ public class SkillBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( skill_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.skill_desc );
 	}
 
@@ -151,8 +139,6 @@ public class SkillBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( skill_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.skill_order );
 	}
 
@@ -165,8 +151,6 @@ public class SkillBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( skill_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.status );
 	}
 
@@ -179,8 +163,6 @@ public class SkillBean implements javax.ejb.SessionBean {
 		Date	result;
 
 		obj = getRecord( skill_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.modify_date );
 	}
 
@@ -193,12 +175,8 @@ public class SkillBean implements javax.ejb.SessionBean {
 		Long	result;
 
 		obj = getRecord( skill_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.profile_id );
 	}
-
-	private class RecordNotFoundException extends Exception {}
 
 	private SkillObject getRecord( Integer skill_id ) throws SQLException {
 		Connection	conn = null;
@@ -215,7 +193,7 @@ public class SkillBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new RecordNotFoundException();
+				throw new NoRecordFoundException();
 			obj.skill_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.skill_id = null;
@@ -239,14 +217,13 @@ public class SkillBean implements javax.ejb.SessionBean {
 				obj.profile_id = null;
 			rs.close();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
-			obj = null;
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( rs != null ) try { rs.close(); } catch( Exception f ) {}
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( obj );
 	}
 
@@ -309,13 +286,12 @@ public class SkillBean implements javax.ejb.SessionBean {
 				ps.setDate( index++, modify_date );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( rc );
 	}
 
@@ -333,12 +309,12 @@ public class SkillBean implements javax.ejb.SessionBean {
 			while( rs.next() )
 				results.add( new Integer( rs.getInt( 1 ) ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( flatten( results ) );
 	}
 
@@ -377,12 +353,9 @@ public class SkillBean implements javax.ejb.SessionBean {
 			throw( e );
 		}
 		finally {
-			if( rs != null )
-				try { rs.close(); } catch( SQLException e ) {};
-			if( ps != null )
-				try { ps.close(); } catch( SQLException e ) {};
-			if( conn != null )
-				try { conn.close(); } catch( Exception e ) {};
+			if( rs != null ) try { rs.close(); } catch( SQLException e ) {};
+			if( ps != null ) try { ps.close(); } catch( SQLException e ) {};
+			if( conn != null ) try { conn.close(); } catch( Exception e ) {};
 		}
 		return( result );
 	}

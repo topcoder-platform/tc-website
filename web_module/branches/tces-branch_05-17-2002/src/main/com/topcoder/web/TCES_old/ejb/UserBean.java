@@ -18,6 +18,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.User;
 import	com.topcoder.web.TCES.ejb.UserObject;
+import	com.topcoder.web.TCES.common.*;
 
 /**
  * This is the implementation of the User class.
@@ -40,14 +41,11 @@ public class UserBean implements javax.ejb.SessionBean {
 			ps.setDate( 1, last_login );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
-			ps = null;
 			throw( e );
 		} catch( Exception e ) {
-		} finally {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
+		}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {};
 		}
 	}
 
@@ -58,9 +56,6 @@ public class UserBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			create( conn, user_id, handle, password, status, user_type_id, email, logged_in, terms, last_login );
 		} catch( SQLException e ) {
-			if( conn != null )
-				try { conn.close(); } catch( Exception f ) {}
-			conn = null;
 			throw( e );
 		} catch( Exception e ) {
 		} finally {
@@ -79,12 +74,12 @@ public class UserBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 	}
 
 	public UserObject request( int cmd, UserObject obj ) throws SQLException {
@@ -97,9 +92,6 @@ public class UserBean implements javax.ejb.SessionBean {
 
 		case User.SELECT:
 			obj = getRecord( obj.user_id );
-			if( obj == null )
-				throw new EJBException(
-				  "no matching record" );
 			break;
 
 		case User.UPDATE:
@@ -123,8 +115,6 @@ public class UserBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( user_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.handle );
 	}
 
@@ -137,8 +127,6 @@ public class UserBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( user_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.password );
 	}
 
@@ -151,8 +139,6 @@ public class UserBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( user_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.status );
 	}
 
@@ -165,8 +151,6 @@ public class UserBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( user_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.user_type_id );
 	}
 
@@ -179,8 +163,6 @@ public class UserBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( user_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.email );
 	}
 
@@ -193,8 +175,6 @@ public class UserBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( user_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.logged_in );
 	}
 
@@ -207,8 +187,6 @@ public class UserBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( user_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.terms );
 	}
 
@@ -221,12 +199,8 @@ public class UserBean implements javax.ejb.SessionBean {
 		Date	result;
 
 		obj = getRecord( user_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.last_login );
 	}
-
-	private class RecordNotFoundException extends Exception {}
 
 	private UserObject getRecord( Long user_id ) throws SQLException {
 		Connection	conn = null;
@@ -243,7 +217,7 @@ public class UserBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new RecordNotFoundException();
+				throw new NoRecordFoundException();
 			obj.user_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.user_id = null;
@@ -273,14 +247,13 @@ public class UserBean implements javax.ejb.SessionBean {
 				obj.last_login = null;
 			rs.close();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
-			obj = null;
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( rs != null ) try { rs.close(); } catch( Exception f ) {}
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( obj );
 	}
 
@@ -363,13 +336,12 @@ public class UserBean implements javax.ejb.SessionBean {
 				ps.setDate( index++, last_login );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( rc );
 	}
 
@@ -387,12 +359,12 @@ public class UserBean implements javax.ejb.SessionBean {
 			while( rs.next() )
 				results.add( new Long( rs.getLong( 1 ) ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( flatten( results ) );
 	}
 

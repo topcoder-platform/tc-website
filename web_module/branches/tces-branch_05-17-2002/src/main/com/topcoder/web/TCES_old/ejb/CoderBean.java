@@ -18,6 +18,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.Coder;
 import	com.topcoder.web.TCES.ejb.CoderObject;
+import	com.topcoder.web.TCES.common.*;
 
 /**
  * This is the implementation of the Coder class.
@@ -42,14 +43,11 @@ public class CoderBean implements javax.ejb.SessionBean {
 			ps.setDate( 3, date_of_birth );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
-			ps = null;
 			throw( e );
 		} catch( Exception e ) {
-		} finally {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
+		}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {};
 		}
 	}
 
@@ -60,9 +58,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			create( conn, coder_id, state_code, country_code, first_name, last_name, home_phone, work_phone, address1, address2, city, zip, middle_name, activation_code, member_since, notify, quote, employer_search, relocate, modify_date, referral_id, editor_id, notify_inquiry, referral_user_id, language_id, coder_type_id, image, date_of_birth );
 		} catch( SQLException e ) {
-			if( conn != null )
-				try { conn.close(); } catch( Exception f ) {}
-			conn = null;
 			throw( e );
 		} catch( Exception e ) {
 		} finally {
@@ -81,12 +76,12 @@ public class CoderBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 	}
 
 	public CoderObject request( int cmd, CoderObject obj ) throws SQLException {
@@ -99,9 +94,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 
 		case Coder.SELECT:
 			obj = getRecord( obj.coder_id );
-			if( obj == null )
-				throw new EJBException(
-				  "no matching record" );
 			break;
 
 		case Coder.UPDATE:
@@ -125,8 +117,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.state_code );
 	}
 
@@ -139,8 +129,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.country_code );
 	}
 
@@ -153,8 +141,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.first_name );
 	}
 
@@ -167,8 +153,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.last_name );
 	}
 
@@ -181,8 +165,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.home_phone );
 	}
 
@@ -195,8 +177,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.work_phone );
 	}
 
@@ -209,8 +189,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.address1 );
 	}
 
@@ -223,8 +201,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.address2 );
 	}
 
@@ -237,8 +213,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.city );
 	}
 
@@ -251,8 +225,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.zip );
 	}
 
@@ -265,8 +237,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.middle_name );
 	}
 
@@ -279,8 +249,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.activation_code );
 	}
 
@@ -293,8 +261,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		Date	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.member_since );
 	}
 
@@ -307,8 +273,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.notify );
 	}
 
@@ -321,8 +285,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.quote );
 	}
 
@@ -335,8 +297,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.employer_search );
 	}
 
@@ -349,8 +309,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.relocate );
 	}
 
@@ -363,8 +321,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		Date	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.modify_date );
 	}
 
@@ -377,8 +333,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.referral_id );
 	}
 
@@ -391,8 +345,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.editor_id );
 	}
 
@@ -405,8 +357,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.notify_inquiry );
 	}
 
@@ -419,8 +369,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		Long	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.referral_user_id );
 	}
 
@@ -433,8 +381,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.language_id );
 	}
 
@@ -447,8 +393,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.coder_type_id );
 	}
 
@@ -461,8 +405,6 @@ public class CoderBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.image );
 	}
 
@@ -475,12 +417,8 @@ public class CoderBean implements javax.ejb.SessionBean {
 		Date	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.date_of_birth );
 	}
-
-	private class RecordNotFoundException extends Exception {}
 
 	private CoderObject getRecord( Long coder_id ) throws SQLException {
 		Connection	conn = null;
@@ -497,7 +435,7 @@ public class CoderBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new RecordNotFoundException();
+				throw new NoRecordFoundException();
 			obj.coder_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.coder_id = null;
@@ -581,14 +519,13 @@ public class CoderBean implements javax.ejb.SessionBean {
 				obj.date_of_birth = null;
 			rs.close();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
-			obj = null;
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( rs != null ) try { rs.close(); } catch( Exception f ) {}
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( obj );
 	}
 
@@ -805,13 +742,12 @@ public class CoderBean implements javax.ejb.SessionBean {
 				ps.setDate( index++, date_of_birth );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( rc );
 	}
 
@@ -829,12 +765,12 @@ public class CoderBean implements javax.ejb.SessionBean {
 			while( rs.next() )
 				results.add( new Long( rs.getLong( 1 ) ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( flatten( results ) );
 	}
 

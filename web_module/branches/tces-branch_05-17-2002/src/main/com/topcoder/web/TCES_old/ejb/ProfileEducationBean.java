@@ -18,6 +18,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.ProfileEducation;
 import	com.topcoder.web.TCES.ejb.ProfileEducationObject;
+import	com.topcoder.web.TCES.common.*;
 
 /**
  * This is the implementation of the ProfileEducation class.
@@ -39,14 +40,11 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( insert );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
-			ps = null;
 			throw( e );
 		} catch( Exception e ) {
-		} finally {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
+		}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {};
 		}
 	}
 
@@ -57,9 +55,6 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			create( conn, education_id, profile_id, degree_type_id, school_id, graduation_year, graduation_month, gpa_id );
 		} catch( SQLException e ) {
-			if( conn != null )
-				try { conn.close(); } catch( Exception f ) {}
-			conn = null;
 			throw( e );
 		} catch( Exception e ) {
 		} finally {
@@ -78,12 +73,12 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 	}
 
 	public ProfileEducationObject request( int cmd, ProfileEducationObject obj ) throws SQLException {
@@ -96,9 +91,6 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 
 		case ProfileEducation.SELECT:
 			obj = getRecord( obj.education_id );
-			if( obj == null )
-				throw new EJBException(
-				  "no matching record" );
 			break;
 
 		case ProfileEducation.UPDATE:
@@ -122,8 +114,6 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		Long	result;
 
 		obj = getRecord( education_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.profile_id );
 	}
 
@@ -136,8 +126,6 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( education_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.degree_type_id );
 	}
 
@@ -150,8 +138,6 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		Long	result;
 
 		obj = getRecord( education_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.school_id );
 	}
 
@@ -164,8 +150,6 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( education_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.graduation_year );
 	}
 
@@ -178,8 +162,6 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( education_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.graduation_month );
 	}
 
@@ -192,12 +174,8 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( education_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.gpa_id );
 	}
-
-	private class RecordNotFoundException extends Exception {}
 
 	private ProfileEducationObject getRecord( Long education_id ) throws SQLException {
 		Connection	conn = null;
@@ -214,7 +192,7 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new RecordNotFoundException();
+				throw new NoRecordFoundException();
 			obj.education_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.education_id = null;
@@ -238,14 +216,13 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 				obj.gpa_id = null;
 			rs.close();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
-			obj = null;
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( rs != null ) try { rs.close(); } catch( Exception f ) {}
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( obj );
 	}
 
@@ -302,13 +279,12 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 			int	index = 1;
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( rc );
 	}
 
@@ -326,12 +302,12 @@ public class ProfileEducationBean implements javax.ejb.SessionBean {
 			while( rs.next() )
 				results.add( new Long( rs.getLong( 1 ) ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( flatten( results ) );
 	}
 

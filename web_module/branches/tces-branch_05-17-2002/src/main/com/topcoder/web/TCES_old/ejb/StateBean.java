@@ -18,6 +18,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.State;
 import	com.topcoder.web.TCES.ejb.StateObject;
+import	com.topcoder.web.TCES.common.*;
 import	com.topcoder.web.TCES.common.Lookup;
 
 /**
@@ -39,14 +40,11 @@ public class StateBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( insert );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
-			ps = null;
 			throw( e );
 		} catch( Exception e ) {
-		} finally {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
+		}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {};
 		}
 	}
 
@@ -57,9 +55,6 @@ public class StateBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			create( conn, state_code, state_name, region_code, demographic_decline );
 		} catch( SQLException e ) {
-			if( conn != null )
-				try { conn.close(); } catch( Exception f ) {}
-			conn = null;
 			throw( e );
 		} catch( Exception e ) {
 		} finally {
@@ -78,12 +73,12 @@ public class StateBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 	}
 
 	public StateObject request( int cmd, StateObject obj ) throws SQLException {
@@ -96,9 +91,6 @@ public class StateBean implements javax.ejb.SessionBean {
 
 		case State.SELECT:
 			obj = getRecord( obj.state_code );
-			if( obj == null )
-				throw new EJBException(
-				  "no matching record" );
 			break;
 
 		case State.UPDATE:
@@ -122,8 +114,6 @@ public class StateBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( state_code );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.state_name );
 	}
 
@@ -136,8 +126,6 @@ public class StateBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( state_code );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.region_code );
 	}
 
@@ -150,12 +138,8 @@ public class StateBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( state_code );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.demographic_decline );
 	}
-
-	private class RecordNotFoundException extends Exception {}
 
 	private StateObject getRecord( String state_code ) throws SQLException {
 		Connection	conn = null;
@@ -172,7 +156,7 @@ public class StateBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new RecordNotFoundException();
+				throw new NoRecordFoundException();
 			obj.state_code = rs.getString( 1 );
 			if( rs.wasNull() )
 				obj.state_code = null;
@@ -187,14 +171,13 @@ public class StateBean implements javax.ejb.SessionBean {
 				obj.demographic_decline = null;
 			rs.close();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
-			obj = null;
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( rs != null ) try { rs.close(); } catch( Exception f ) {}
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( obj );
 	}
 
@@ -237,13 +220,12 @@ public class StateBean implements javax.ejb.SessionBean {
 				ps.setString( index++, region_code );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( rc );
 	}
 
@@ -261,12 +243,12 @@ public class StateBean implements javax.ejb.SessionBean {
 			while( rs.next() )
 				results.add( new Integer( rs.getInt( 1 ) ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( flatten( results ) );
 	}
 
@@ -301,12 +283,9 @@ public class StateBean implements javax.ejb.SessionBean {
 			throw( e );
 		}
 		finally {
-			if( rs != null )
-				try { rs.close(); } catch( Exception e ) {};
-			if( stmt != null )
-				try { stmt.close(); } catch( Exception e ) {};
-			if( conn != null )
-				try { conn.close(); } catch( Exception e ) {};
+			if( rs != null ) try { rs.close(); } catch( Exception e ) {};
+			if( stmt != null ) try { stmt.close(); } catch( Exception e ) {};
+			if( conn != null ) try { conn.close(); } catch( Exception e ) {};
 		}
 		return( result );
 	}

@@ -18,6 +18,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.CoderNotify;
 import	com.topcoder.web.TCES.ejb.CoderNotifyObject;
+import	com.topcoder.web.TCES.common.*;
 
 /**
  * This is the implementation of the CoderNotify class.
@@ -39,14 +40,11 @@ public class CoderNotifyBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( insert );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
-			ps = null;
 			throw( e );
 		} catch( Exception e ) {
-		} finally {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
+		}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {};
 		}
 	}
 
@@ -57,9 +55,6 @@ public class CoderNotifyBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			create( conn, coder_id, notify_id );
 		} catch( SQLException e ) {
-			if( conn != null )
-				try { conn.close(); } catch( Exception f ) {}
-			conn = null;
 			throw( e );
 		} catch( Exception e ) {
 		} finally {
@@ -78,12 +73,12 @@ public class CoderNotifyBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 	}
 
 	public CoderNotifyObject request( int cmd, CoderNotifyObject obj ) throws SQLException {
@@ -96,9 +91,6 @@ public class CoderNotifyBean implements javax.ejb.SessionBean {
 
 		case CoderNotify.SELECT:
 			obj = getRecord( obj.coder_id );
-			if( obj == null )
-				throw new EJBException(
-				  "no matching record" );
 			break;
 
 		case CoderNotify.UPDATE:
@@ -122,12 +114,8 @@ public class CoderNotifyBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( coder_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.notify_id );
 	}
-
-	private class RecordNotFoundException extends Exception {}
 
 	private CoderNotifyObject getRecord( Long coder_id ) throws SQLException {
 		Connection	conn = null;
@@ -144,7 +132,7 @@ public class CoderNotifyBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new RecordNotFoundException();
+				throw new NoRecordFoundException();
 			obj.coder_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.coder_id = null;
@@ -153,14 +141,13 @@ public class CoderNotifyBean implements javax.ejb.SessionBean {
 				obj.notify_id = null;
 			rs.close();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
-			obj = null;
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( rs != null ) try { rs.close(); } catch( Exception f ) {}
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( obj );
 	}
 
@@ -187,13 +174,12 @@ public class CoderNotifyBean implements javax.ejb.SessionBean {
 			int	index = 1;
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( rc );
 	}
 
@@ -211,12 +197,12 @@ public class CoderNotifyBean implements javax.ejb.SessionBean {
 			while( rs.next() )
 				results.add( new Long( rs.getLong( 1 ) ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( flatten( results ) );
 	}
 
@@ -332,12 +318,9 @@ public class CoderNotifyBean implements javax.ejb.SessionBean {
 			throw( e );
 		}
 		finally {
-			if( rs != null )
-				try { rs.close(); } catch( Exception e ) {};
-			if( stmt != null )
-				try { stmt.close(); } catch( Exception e ) {};
-			if( conn != null )
-				try { conn.close(); } catch( Exception e ) {};
+			if( rs != null ) try { rs.close(); } catch( Exception e ) {};
+			if( stmt != null ) try { stmt.close(); } catch( Exception e ) {};
+			if( conn != null ) try { conn.close(); } catch( Exception e ) {};
 		}
 		return( found );
 	}

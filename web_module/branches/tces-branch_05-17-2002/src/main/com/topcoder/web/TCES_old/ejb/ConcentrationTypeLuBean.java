@@ -18,6 +18,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.ConcentrationTypeLu;
 import	com.topcoder.web.TCES.ejb.ConcentrationTypeLuObject;
+import	com.topcoder.web.TCES.common.*;
 
 /**
  * This is the implementation of the ConcentrationTypeLu class.
@@ -39,14 +40,11 @@ public class ConcentrationTypeLuBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( insert );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
-			ps = null;
 			throw( e );
 		} catch( Exception e ) {
-		} finally {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
+		}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {};
 		}
 	}
 
@@ -57,9 +55,6 @@ public class ConcentrationTypeLuBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			create( conn, concentration_type_id, concentration_type_desc );
 		} catch( SQLException e ) {
-			if( conn != null )
-				try { conn.close(); } catch( Exception f ) {}
-			conn = null;
 			throw( e );
 		} catch( Exception e ) {
 		} finally {
@@ -78,12 +73,12 @@ public class ConcentrationTypeLuBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 	}
 
 	public ConcentrationTypeLuObject request( int cmd, ConcentrationTypeLuObject obj ) throws SQLException {
@@ -96,9 +91,6 @@ public class ConcentrationTypeLuBean implements javax.ejb.SessionBean {
 
 		case ConcentrationTypeLu.SELECT:
 			obj = getRecord( obj.concentration_type_id );
-			if( obj == null )
-				throw new EJBException(
-				  "no matching record" );
 			break;
 
 		case ConcentrationTypeLu.UPDATE:
@@ -122,12 +114,8 @@ public class ConcentrationTypeLuBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( concentration_type_id );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.concentration_type_desc );
 	}
-
-	private class RecordNotFoundException extends Exception {}
 
 	private ConcentrationTypeLuObject getRecord( Integer concentration_type_id ) throws SQLException {
 		Connection	conn = null;
@@ -144,7 +132,7 @@ public class ConcentrationTypeLuBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new RecordNotFoundException();
+				throw new NoRecordFoundException();
 			obj.concentration_type_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.concentration_type_id = null;
@@ -153,14 +141,13 @@ public class ConcentrationTypeLuBean implements javax.ejb.SessionBean {
 				obj.concentration_type_desc = null;
 			rs.close();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
-			obj = null;
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( rs != null ) try { rs.close(); } catch( Exception f ) {}
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( obj );
 	}
 
@@ -189,13 +176,12 @@ public class ConcentrationTypeLuBean implements javax.ejb.SessionBean {
 				ps.setString( index++, concentration_type_desc );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( rc );
 	}
 
@@ -213,12 +199,12 @@ public class ConcentrationTypeLuBean implements javax.ejb.SessionBean {
 			while( rs.next() )
 				results.add( new Integer( rs.getInt( 1 ) ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( flatten( results ) );
 	}
 
@@ -236,12 +222,12 @@ public class ConcentrationTypeLuBean implements javax.ejb.SessionBean {
 			while( rs.next() )
 				results.put( new Integer( rs.getInt( 1 ) ), rs.getString( 2 ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( results );
 	}
 

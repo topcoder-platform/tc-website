@@ -18,6 +18,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.Country;
 import	com.topcoder.web.TCES.ejb.CountryObject;
+import	com.topcoder.web.TCES.common.*;
 import	com.topcoder.web.TCES.common.Lookup;
 
 /**
@@ -39,14 +40,11 @@ public class CountryBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( insert );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
-			ps = null;
 			throw( e );
 		} catch( Exception e ) {
-		} finally {
-			if( ps != null )
-				try { ps.close(); } catch( Exception f ) {};
+		}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {};
 		}
 	}
 
@@ -57,9 +55,6 @@ public class CountryBean implements javax.ejb.SessionBean {
 			conn = getConnection();
 			create( conn, country_code, country_name, participating, default_taxform_id );
 		} catch( SQLException e ) {
-			if( conn != null )
-				try { conn.close(); } catch( Exception f ) {}
-			conn = null;
 			throw( e );
 		} catch( Exception e ) {
 		} finally {
@@ -78,12 +73,12 @@ public class CountryBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 	}
 
 	public CountryObject request( int cmd, CountryObject obj ) throws SQLException {
@@ -96,9 +91,6 @@ public class CountryBean implements javax.ejb.SessionBean {
 
 		case Country.SELECT:
 			obj = getRecord( obj.country_code );
-			if( obj == null )
-				throw new EJBException(
-				  "no matching record" );
 			break;
 
 		case Country.UPDATE:
@@ -122,8 +114,6 @@ public class CountryBean implements javax.ejb.SessionBean {
 		String	result;
 
 		obj = getRecord( country_code );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.country_name );
 	}
 
@@ -136,8 +126,6 @@ public class CountryBean implements javax.ejb.SessionBean {
 		Integer	result;
 
 		obj = getRecord( country_code );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.participating );
 	}
 
@@ -150,12 +138,8 @@ public class CountryBean implements javax.ejb.SessionBean {
 		Long	result;
 
 		obj = getRecord( country_code );
-		if( obj == null )
-			throw new EJBException( "record not found" );
 		return( obj.default_taxform_id );
 	}
-
-	private class RecordNotFoundException extends Exception {}
 
 	private CountryObject getRecord( String country_code ) throws SQLException {
 		Connection	conn = null;
@@ -172,7 +156,7 @@ public class CountryBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new RecordNotFoundException();
+				throw new NoRecordFoundException();
 			obj.country_code = rs.getString( 1 );
 			if( rs.wasNull() )
 				obj.country_code = null;
@@ -187,14 +171,13 @@ public class CountryBean implements javax.ejb.SessionBean {
 				obj.default_taxform_id = null;
 			rs.close();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
-			obj = null;
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( rs != null ) try { rs.close(); } catch( Exception f ) {}
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( obj );
 	}
 
@@ -235,13 +218,12 @@ public class CountryBean implements javax.ejb.SessionBean {
 				ps.setString( index++, country_name );
 			rc = ps.executeUpdate();
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
-		} catch( Exception e ) {
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( rc );
 	}
 
@@ -259,12 +241,12 @@ public class CountryBean implements javax.ejb.SessionBean {
 			while( rs.next() )
 				results.add( new Integer( rs.getInt( 1 ) ) );
 		} catch( SQLException e ) {
-			try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-			try { if( conn != null ) conn.close(); } catch( Exception f ) {}
 			throw( e );
 		}
-		try { if( ps != null ) ps.close(); } catch( Exception f ) {}
-		try { if( conn != null ) conn.close(); } catch( Exception f ) {}
+		finally {
+			if( ps != null ) try { ps.close(); } catch( Exception f ) {}
+			if( conn != null ) try { conn.close(); } catch( Exception f ) {}
+		}
 		return( flatten( results ) );
 	}
 
@@ -299,12 +281,9 @@ public class CountryBean implements javax.ejb.SessionBean {
 			throw( e );
 		}
 		finally {
-			if( rs != null )
-				try { rs.close(); } catch( Exception e ) {};
-			if( stmt != null )
-				try { stmt.close(); } catch( Exception e ) {};
-			if( conn != null )
-				try { conn.close(); } catch( Exception e ) {};
+			if( rs != null ) try { rs.close(); } catch( Exception e ) {};
+			if( stmt != null ) try { stmt.close(); } catch( Exception e ) {};
+			if( conn != null ) try { conn.close(); } catch( Exception e ) {};
 		}
 		return( result );
 	}
