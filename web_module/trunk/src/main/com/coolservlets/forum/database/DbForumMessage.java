@@ -144,7 +144,7 @@ public final class DbForumMessage implements ForumMessage {
         saveToDb();
     }
     public String getSubject() {
-        return subject;
+        return StringUtils.escapeHTMLTags(subject);
     }
     public void setSubject(String subject) throws UnauthorizedException {
         this.subject = subject;

@@ -59,6 +59,7 @@ package com.coolservlets.forum.filter;
 import java.util.*;
 
 import com.coolservlets.forum.*;
+import com.coolservlets.util.StringUtils;
 
 /**
  * A ForumMessageFilter that replaces profanity.
@@ -213,7 +214,7 @@ public class FilterProfanity extends ForumMessageFilter {
      * filtered out.
      */
     public String getSubject() {
-        return filterProfanity(message.getSubject());
+        return StringUtils.escapeHTMLTags(filterProfanity(message.getSubject()));
     }
 
     /**

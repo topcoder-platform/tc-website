@@ -59,6 +59,7 @@ package com.coolservlets.forum.filter;
 import java.util.*;
 
 import com.coolservlets.forum.*;
+import com.coolservlets.util.StringUtils;
 
 /**
  * A ForumMessageFilter that converts ASCII faces into images.
@@ -201,7 +202,7 @@ public class FilterSmileyFace extends ForumMessageFilter {
      * faces converted to images.
      */
     public String getSubject() {
-        return addSmileyFace(message.getSubject());
+        return StringUtils.escapeHTMLTags(addSmileyFace(message.getSubject()));
     }
 
     /**
