@@ -414,7 +414,7 @@ smallest positive integer congruent to x mod keys[i].
 </font>
 <A href="Javascript:openProblemRating(2332)"><img hspace="10" border="0" height=
 "18" width="60" src="/i/rate_it.gif"/></A><br/>
-Used as: Division One - Level One: <blockquote><table cellspacing="2">
+Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
