@@ -19,6 +19,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Map;
 import java.util.Properties;
 
@@ -141,9 +142,15 @@ public class StatisticsHttpServlet extends HttpServlet {
                         request.getRemoteHost() + " ****]");
 
                 //hoke so that we can reload the properties file on the fly
-                if (nav.getSessionInfo().isAdmin() && dataRequest.getContentHandle().equals("reload")) {
-                    this.reload(sctx);
-                    return;
+                if (dataRequest.getContentHandle().equals("reload")) {
+                    if (nav.getSessionInfo().isAdmin()) {
+                        this.reload(sctx);
+                        response.getOutputStream().write("reloaded".getBytes());
+                        return;
+                    } else {
+                        response.getOutputStream().write("failed".getBytes());
+                        return;
+                    }
                 }
 
                 if (accessLevel.equals(LOGGED_IN_ONLY) && (!nav.isIdentified())) {
