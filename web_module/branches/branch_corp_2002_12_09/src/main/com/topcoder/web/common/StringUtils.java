@@ -11,7 +11,7 @@ package com.topcoder.web.common;
 public final class StringUtils {
     public static final String ALPHABET_ALPHA_UPPER_EN = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     
-    public static final String ALPHABET_ALPHA_LOWER_EN = "abcdefghijklmnopqrstuvwxyz";
+    public static final String ALPHABET_ALPHA_LOWER_EN = "@abcdefghijklmnopqrstuvwxyz";
 
     public static final String ALPHABET_ALPHA_EN =
         ALPHABET_ALPHA_LOWER_EN +
@@ -90,6 +90,6 @@ public final class StringUtils {
     
     public static void main(String[] args) {
         String blabla = "bla-bla";
-        System.out.println(consistsOf(blabla, ALPHABET_ALPHA_EN, true));
+        System.out.println(hasNotMoreWords(blabla, 1));
     }
 }

@@ -7,14 +7,14 @@ import javax.servlet.jsp.tagext.BodyTag;
 public class ErrorTag extends BaseTag implements BodyTag {
     private BodyContent content;
     private String msg = null;
+    private String text = null;
 
     /**
      * 
      * @see javax.servlet.jsp.tagext.Tag#doStartTag()
      */	
 	public int doStartTag() {
-        msg = (String)getErrorMessage();
-        if( msg != null && msg.length() != 0 ) {
+		if( getErrorMessage() != null ) {
             return EVAL_BODY_TAG;
         }
         else {
@@ -54,7 +54,7 @@ public class ErrorTag extends BaseTag implements BodyTag {
         int k = body.indexOf("$e");
         if( k < 0 ) return SKIP_BODY;
             
-        msg = body.substring(0, k) + msg + body.substring(k+2);
+        msg = body.substring(0, k) + text + body.substring(k+2);
         return SKIP_BODY;
     }
 
@@ -70,4 +70,12 @@ public class ErrorTag extends BaseTag implements BodyTag {
     public void setBodyContent(BodyContent bc) {
         content = bc;
     }
+    
+	/**
+	 * Sets the text.
+	 * @param text The text to set
+	 */
+	public void setText(String text) {
+		this.text = text;
+	}
 }

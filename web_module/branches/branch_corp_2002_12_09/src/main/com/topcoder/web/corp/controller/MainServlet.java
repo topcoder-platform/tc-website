@@ -227,7 +227,7 @@ public class MainServlet extends HttpServlet {
     private static boolean isLegal(String s) {
         for (int i=0; i<s.length(); i++) {
             char ch = s.charAt(i);
-            if ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_".indexOf(ch) < 0) {
+            if ("-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_".indexOf(ch) < 0) {
                 return false;
             }
         }

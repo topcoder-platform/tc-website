@@ -33,7 +33,7 @@
 		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>
 <FORM action="" method="POST">
-<TABLE BORDER="1" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
     <TR>
       <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>First Name</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
       <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-first-name" maxlength="30" size="30"/></TD>
@@ -41,7 +41,11 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error refname="prim-first-name"><img width="20" height="20" src="" alt="$e"/></tc-webtag:error></TD>
+        <tc-webtag:error
+            refname="prim-first-name"
+            text="Ensure first name is not empty, consists of letters and has not spaces inside">
+          <img width="20" height="20" src="" alt="$e"/>
+        </tc-webtag:error></TD>
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Last Name</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -50,7 +54,11 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error refname="prim-last-name"><img width="20" height="20" src="" alt="$e"/></tc-webtag:error></TD>
+        <tc-webtag:error
+            refname="prim-last-name"
+            text="Ensure last name is not empty, consists of letters and has not spaces inside">
+          <img width="20" height="20" src="" alt="$e"/>
+        </tc-webtag:error></TD>
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Title</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -59,7 +67,11 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error refname="prim-title"><img width="20" height="20" src="" alt="$e"/></tc-webtag:error></TD>
+        <tc-webtag:error
+            refname="prim-title"
+            text="Ensure title is not empty, consists of letters and punctuation signs only">
+            <img width="20" height="20" src="" alt="$e"/>
+        </tc-webtag:error></TD>
     </TR>    
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">Company Address&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -68,45 +80,68 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-        <tc-webtag:error refname="prim-company-address-1"><img width="20" height="20" src="" alt="$e"/></tc-webtag:error></TD>
+        <tc-webtag:error
+            refname="prim-company-address-1"
+            text="Ensure address line 1 is not empty, consists of letters, digits and punctuation signs only (no more than 7 words)">
+          <img width="20" height="20" src="" alt="$e"/>
+        </tc-webtag:error></TD>
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="" value ="" size="30" maxlength="50"></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-address-2" size="30" maxlength="50"/></TD>
   </TR>
     <TR>
-        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+        <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error
+            refname="prim-company-address-2"
+            text="Ensure address line 2 is not empty, consists of letters, digits and punctuation signs only (no more than 7 words)">
+          <img width="20" height="20" src="" alt="$e"/>
+        </tc-webtag:error></TD>
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">City&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="" value ="" size="30" maxlength="30"></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-city" size="30" maxlength="30"/></TD>
   </TR>
-
     <TR>
-        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+        <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error
+            refname="prim-company-city"
+            text="Ensure city is not empty, consists of letters, digits and punctuation signs only (no more than 3 words)">
+          <img width="20" height="20" src="" alt="$e"/>
+        </tc-webtag:error></TD>
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">State&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText"></TD>
+    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText"><tc-webtag:textInput name="prim-company-state" size="30" maxlength="30"/></TD>
   </TR>
     <TR>
-        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+        <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error
+            refname="prim-company-state"
+            text="Ensure state is not empty, consists of letters only (no more than 2 words)">
+          <img width="20" height="20" src="" alt="$e"/>
+        </tc-webtag:error></TD>
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">Zip&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="" value ="" size="10" maxlength="10"></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-zip" size="10" maxlength="10"/></TD>
   </TR>
-
-
    <TR>
-     <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+     <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+     <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error
+            refname="prim-company-zip"
+            text="Ensure ZIP code is not empty and, consists of digits only">
+          <img width="20" height="20" src="" alt="$e"/>
+        </tc-webtag:error></TD>
   </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">Country&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText"></TD>
   </TR>
-
-
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
     </TR>
@@ -154,21 +189,39 @@
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Email</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="" value ="" size="30" maxlength="100"></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-email" size="30" maxlength="100"/></TD>
   </TR>
     <TR>
-        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+        <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error
+            refname="prim-email"
+            text="Ensure email address is not empty and, has written correct">
+          <img width="20" height="20" src="" alt="$e"/>
+        </tc-webtag:error></TD>
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Re-type Email</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="" value ="" size="30" maxlength="100"></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-email-once-more" size="30" maxlength="100"/></TD>
   </TR>
   <TR>
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="top">An email will be sent to authorize your account activation.<BR></TD>
+    <TD COLSPAN="2">
+        <TABLE BORDER="0"><TR>
+        <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error
+            refname="prim-email-once-more"
+            text="Ensure both of email addresses match">
+          <img width="20" height="20" src="" alt="$e"/>
+        </tc-webtag:error></TD>
+        <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="top">An email will be sent to authorize your account activation.<BR></TD>
+        </TR></TABLE>
+    </TD>
+<!--    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="top">An email will be sent to authorize your account activation.<BR></TD>
+-->
   </TR>
     <TR>
-        <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+        <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0" /></TD>
     </TR>  
   <TR ALIGN="right" VALIGN="middle">
      <TD COLSPAN="3" ALIGN="center" VALIGN="middle" CLASS="statText"><input type="button" onClick="" name="clear" value=" Clear ">&#160;<input type="submit" onClick="" name="submit" value=" Submit "></td>

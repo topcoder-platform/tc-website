@@ -42,5 +42,10 @@
       <name>refname</name>
       <required>true</required>
     </attribute>
+
+    <attribute>
+      <name>text</name>
+      <required>true</required>
+    </attribute>
   </tag>
 </taglib>
