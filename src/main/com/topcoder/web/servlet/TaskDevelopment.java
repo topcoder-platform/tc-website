@@ -237,13 +237,13 @@ public final class TaskDevelopment {
                     msgText.append(" inquiry for project:  ");
                     msgText.append(project);
                     msgText.append("\n\n");
-                    int agreedToTerms = 0;
+                    boolean agreedToTerms = false;
                     if (request.getParameter("terms") == null) {
                         msgText.append("\n\nDid not agree to terms.\n");
-                        agreedToTerms = 0;
+                        agreedToTerms = false;
                     } else {
                         msgText.append("\n\nAgreed to terms.\n");
-                        agreedToTerms = 1;
+                        agreedToTerms = true;
                     }
                     msgText.append("\n\nComment:\n");
                     msgText.append(comment);
@@ -376,7 +376,7 @@ public final class TaskDevelopment {
                     RolePrincipal[] roles = (RolePrincipal[])rolesSet.toArray(new RolePrincipal[0]);
                     //String formattedProject = project.substring(0, project.lastIndexOf(' ')-1);
 
-                    USER_MANAGER.registerInquiry(userId, componentId, rating, comment, agreedToTerms);
+                    USER_MANAGER.registerInquiry(userId, componentId, rating, comment, agreedToTerms, 1);
 
                     //log.debug("FormattedProject: " + formattedProject);
 
