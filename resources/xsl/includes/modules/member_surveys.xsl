@@ -5,7 +5,7 @@
       <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
          <tr>
              <td class="bodyText" valign="middle" background="/i/surveyBorderLeft.gif"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-             <td class="bodyText"><br/><font size="3"><b>09.16.2003 - </b></font>
+             <td class="bodyText"><br/><font size="3"><b><xsl:value-of select="/TC/HOME/SurveyInfo/QuestionInfo/date"/> - </b></font>
                   <xsl:value-of select="/TC/HOME/SurveyInfo/QuestionInfo/question_text"/></td>
              <td class="bodyText" valign="middle" background="/i/surveyBorderRight.gif"><img src="/i/clear.gif" width="10" height="1" border="0"/></td></tr>
 <!--         <tr><td class="bodyText" align="center"><a href="/">Submit</a> | <a href="/">View Results</a></td></tr>-->
