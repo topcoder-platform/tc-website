@@ -53,7 +53,7 @@
 
 <p class="bodyText">For 3-based questions, the reviewer must include comments when giving a question a score of 1, 2 and 4.  1 and 2 should be obvious, the comments should indicate what is wrong.  For a score of 4 the comment should explain what the competitor did to exceed the requirements.  For a score of 3, the reviewer is not required to make significant comments other than "yes" or "ok", but an appropriate comment would be to indicate what the competitor could have done to achieve a 4.</p>
 
-<p><span class="bodySubtitle">List of 4-based Questions</span></p>
+<p><center><span class="bodySubtitle">4-based Questions</span></center></p>
 <p class="bodyText"><span class="bodySubtitle">Component Development</span><br/>
 
 <ul>
