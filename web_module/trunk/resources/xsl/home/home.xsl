@@ -10,6 +10,8 @@
 <html>
 <head>
 
+<title>Computer Programming Competitions, Software Development, and Employment Services at TopCoder</title>
+        
 <script language="JavaScript">
   function changeImage(image, newImage) {
     document[image].src=newImage;
@@ -19,8 +21,6 @@
      
 <xsl:call-template name="Preload"/>      
 
-<title>TopCoder Home</title>
-        
 <xsl:call-template name="CSS"/>      
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
@@ -28,7 +28,7 @@
 
 </head>
 
-<body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<body>
 
 <xsl:call-template name="Top"/>
 
