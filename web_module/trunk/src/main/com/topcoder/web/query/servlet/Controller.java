@@ -52,6 +52,9 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
 
         String taskName = request.getParameter(Constants.TASK_PARAM);
+        if (!isLegal(taskName)) {
+            throw new ServletException("Illegal task: " + taskName);
+        }
 
         InitialContext ctx = null;
         try {
@@ -124,6 +127,16 @@ public class Controller extends HttpServlet {
         request.setAttribute("Exception", exception);
         getServletContext().getRequestDispatcher(
                 response.encodeURL("/"+Constants.ERROR_PAGE)).forward(request, response);
+    }
+
+    private static boolean isLegal(String s) {
+        for (int i=0; i<s.length(); i++) {
+            char ch = s.charAt(i);
+            if ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_".indexOf(ch) < 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 

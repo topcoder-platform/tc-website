@@ -31,8 +31,8 @@
 <jsp:getProperty name="LoginTask" property="Message" />
 </p>
 
-<FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="LoginTask" property="ServletPath"/>" onSubmit="">
-<INPUT TYPE="HIDDEN" NAME="<%= Constants.TASK_PARAM %>" VALUE="<%= Constants.LOGIN_TASK %>">
+<FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="LoginTask" property="ServletPath"/>">
+   <INPUT TYPE="HIDDEN" NAME="<%= Constants.TASK_PARAM %>" VALUE="<%= Constants.LOGIN_TASK %>">
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="132" ALIGN="center">
                   <TR>
                     <TD CLASS="statTextBig" VALIGN="top" HEIGHT="14">Handle:</TD>
