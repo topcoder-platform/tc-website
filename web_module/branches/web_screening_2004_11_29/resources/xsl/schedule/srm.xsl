@@ -260,7 +260,6 @@
                         </xsl:otherwise>
                         </xsl:choose>
                         - Coders must place with a positive point total to collect their prize.<BR/><BR/>
-                        <A HREF="/index?t=support&amp;c=divisions" CLASS="bodyText">More about the Prize structure</A><BR/><BR/>
                         <B>Single Round Match Description</B><UL>
                       <LI>Maximum of 10 coders per room</LI>
                       <LI>Ratings will be adjusted post-match</LI>
@@ -275,7 +274,6 @@
                       <LI>Room assignments place members of like divisions together</LI>
                       <LI>Rating changes go into effect in next participated match</LI>
                       <LI>In the event that any member who is ineligible to receive prizes (due to age or country restrictions) places in a position in which they would receive a prize, they will be asked to pick a charity to which to donate their prize.  In the event that the member does not pick a charity, TopCoder will pick a charity to which the ineligible member's prize will be paid.</LI></UL>
-                      <A HREF="/index?t=support&amp;c=divisions" CLASS="bodyText">More about the Division structure</A><BR/><BR/>
                       <B>Eligibility:</B><BR/><BR/>
                       Open to members meeting the following eligibility requirements:<UL>
             <LI>Ages 13 and up can compete in any match</LI>
