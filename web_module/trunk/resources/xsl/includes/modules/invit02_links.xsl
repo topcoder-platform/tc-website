@@ -11,18 +11,13 @@
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_spons'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
 		<A HREF="/index?t=schedule&amp;c=tourny_spons" CLASS="statTextBig">Sponsor</A></TD> -->
 		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_regions_ne'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_se'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_w'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_mw'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_ne32'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_se32'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_w32'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_mw32'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_ne128'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_se128'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_w128'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='tourny_regions_mw128'">orangebv_bg</xsl:when>
+			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='invit02_pt1'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_pt2'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd2'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd3'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_rnd4'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_semi'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='invit02_champ'">orangebv_bg</xsl:when>
 			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
 		<A HREF="/index?t=schedule&amp;c=tourny_regions_ne" CLASS="statTextBig"></A><FONT COLOR="#999999">Round Updates</FONT></TD>
 		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
