@@ -14,6 +14,7 @@ import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.List;
+import java.util.Collections;
 
 /**
  *
@@ -33,7 +34,9 @@ abstract class FullRegConfirm extends FullRegBase {
 
         try {
             if (hasErrors()) {
-                getRequest().setAttribute("questionList", getQuestionList());
+                List l = getQuestionList();
+                Collections.sort(l);
+                getRequest().setAttribute("questionList", l);
                 setDefaults(regInfo);
             } else {
                 getRequest().setAttribute("responseList", ((FullRegInfo) regInfo).getResponses());
