@@ -599,6 +599,17 @@
         </jar>
     </target>
 
+    <target name="package-EJB-CoderSkillBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="CoderSkill"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/coderskill"/>
+        </antcall>
+        <jar jarfile="${ejb_jars}/CoderSkill.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/coderskill/*"/>
+        </jar>
+    </target>
+
     <target name="package-EJB-ComponentRegistrationServicesBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="ComponentRegistrationServices"/>
@@ -1038,6 +1049,7 @@
         <!-- Since Screening Tool 1.1 -->
         <antcall target="package-EJB-PreferenceLevelBean"/>
         <antcall target="package-EJB-ComponentRegistrationServicesBean"/>
+	<antcall target="package-EJB-CoderSkillBean"/>
         <antcall target="war-tc"/>
     </target>
 
