@@ -931,7 +931,7 @@ private Log log = null;
      * @param adjust true if it must adjust its start date to the end date of the previous phase.
      */
     public void setAdjustStartDate(int index, String adjust) {
-        adjustStartDates[index] = Boolean.getBoolean(adjust);
+        adjustStartDates[index] = Boolean.valueOf(adjust).booleanValue();
         log(Level.INFO, "setAdjustStartDate("+index+","+adjust+"): " +adjustStartDates[index]);
 /*
         if (adjustStartDates[index]) {
