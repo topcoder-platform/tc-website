@@ -109,7 +109,7 @@ public class TransactionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String op = req.getParameter(KEY_OPERATION);
-        req.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage(req));
+        req.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
         if (OP_TX_STATUS.equals(op)) {
             try {
                 // put prefix of the url into request
@@ -155,7 +155,7 @@ public class TransactionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String op = req.getParameter(KEY_OPERATION);
-        req.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage(req));
+        req.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage());
         if (OP_TX_STATUS.equals(op)) {
             try {
                 String retPage = txStatus(req, resp);
