@@ -8,14 +8,7 @@
                     <td class="statTextBig">
                         <input type="hidden" name="t" value="search" />
                         <input type="hidden" name="c" value="simple_search" />
-                        
-                        <!--
-                        <script type="text/javascript" language="Javascript">
-                        document.write("<input type=text name=search size=12 maxlength=15 value=\"Handle\" onFocus=\"if (document.simpleSearchForm.search.value == 'Handle') document.simpleSearchForm.search.value = '';\"; onBlur=\"if (document.simpleSearchForm.search.value == '') document.simpleSearchForm.search.value = 'Handle';\">");
-                        </script>
-                        -->
-
-                        <input type="text" name="SearchHandle" size="12" maxlength="15" />
+                        <input type="text" name="SearchHandle" value="Handle:" size="12" maxlength="15" onFocus="javascript: if (document.simpleSearchForm.SearchHandle.value=='Handle:') document.simpleSearchForm.SearchHandle.value = '';" onBlur="javascript: if (document.simpleSearchForm.SearchHandle.value == '') document.simpleSearchForm.SearchHandle.value = 'Handle:';" />
                     </td>
                     <td class="statTextBig"><A href="javascript:void document.simpleSearchForm.submit();"><img src="/i/button_go_member_search.gif" alt="Go" width="24" height="18" vspace="3" border="0" /></A></td>
                     <td width="99%"><img src="/i/clear.gif" alt="" width="5" height="5" border="0" /></td>
