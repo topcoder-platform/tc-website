@@ -109,6 +109,14 @@ public final class GraphServlet extends HttpServlet {
                 addToCache(dataRequest, result);
             }
             /***********************************************************************/
+            else if (dataRequest.getContentHandle().equals("rating_distribution_graph_profile")) {
+                result = getFromCache(dataRequest);
+                if (result == null) {
+                    result = getRatingsDistributionProfile(dataRequest);
+                }
+                addToCache(dataRequest, result);
+            }
+            /***********************************************************************/
             else if (dataRequest.getContentHandle().equals("rating_distribution_graph_dark")) {
                 result = getFromCache(dataRequest);
                 if (result == null) {
@@ -893,6 +901,89 @@ public final class GraphServlet extends HttpServlet {
             baos = new ByteArrayOutputStream();
             PNGOutput out = new PNGOutput(600, 400, Color.black, baos);
             out.setMargin(10, 10, 10, 10);
+            out.render(g);
+            return baos.toByteArray();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new NavigationException(e);
+        }
+    }
+    
+    private static byte[] getRatingsDistributionProfile(RequestInt dataRequest)
+            throws NavigationException {
+
+        log.debug("taskGraph:getRatingsDistributionProfile called...");
+
+        BarGraph g = null;
+        ByteArrayOutputStream baos = null;
+        Iterator it = null;
+        Map resultMap = null;
+        DataAccessInt dai = null;
+        ResultSetContainer rsc = null;
+        ResultSetContainer.ResultSetRow rsr = null;
+
+        try {
+            dai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+            resultMap = dai.getData(dataRequest);
+            rsc = (ResultSetContainer) resultMap.get("Rating_Distribution_Graph");
+
+            g = new BarGraph();
+            g.optionTitle("Rating Distribution");
+            g.optionTitleStyle(titleStyle);
+            g.optionXAxisLabel("Rating - line indicates " + dataRequest.getProperty("hn") + "'s rating");
+            g.optionYAxisLabel("Number of Coders");
+            g.optionXAxisLabelStyle(labelStyle);
+            g.optionYAxisLabelStyle(labelStyle);
+            g.optionYAxisStyle(axisStyle);
+            g.optionXAxisStyle(axisStyle);
+            g.optionXAxisTextRotation(45);
+
+            g.optionAxisStyle(new Style(YELLOW));
+
+            it = rsc.iterator();
+            while (it.hasNext()) {  //there's only gonna be one
+                rsr = (ResultSetContainer.ResultSetRow) it.next();
+                for (int i = 0; i < rsc.getColumnCount(); i++) {
+                    g.set(rating_segments[i],
+                            ((java.math.BigInteger) (rsr.getItem(i)).getResultData()).doubleValue());
+                    if (i < 9)
+                        g.setColor(rating_segments[i], GRAY);
+                    else if (i >= 9 && i < 12)
+                        g.setColor(rating_segments[i], GREEN);
+                    else if (i >= 12 && i < 15)
+                        g.setColor(rating_segments[i], BLUE);
+                    else if (i >= 15 && i < 22)
+                        g.setColor(rating_segments[i], GOLD);
+                    else if (i >= 22 && i < 30)
+                        g.setColor(rating_segments[i], RED);
+                }
+            }
+            
+            int rating = Integer.parseInt(dataRequest.getProperty("rt"));
+            
+            int rs = rating / 100;
+            if(rating > 2900)
+                rs = 29;
+            
+            baos = new ByteArrayOutputStream();
+            PNGOutput out = new PNGOutput(600, 400, Color.black, baos);
+            
+            out.setMargin(10, 10, 10, 10);
+            
+            if (rs < 9)
+                out.setColor(GRAY);
+            else if (rs >= 9 && rs < 12)
+                out.setColor(GREEN);
+            else if (rs >= 12 && rs < 15)
+                out.setColor(BLUE);
+            else if (rs >= 15 && rs < 22)
+                out.setColor(GOLD);
+            else if (rs >= 22 && rs < 30)
+                out.setColor(RED);
+            
+            out.line(78+ (16*rs),79,78+ (16*rs),348);
+            out.line(77+ (16*rs),79,77+ (16*rs),348);
             out.render(g);
             return baos.toByteArray();
 
