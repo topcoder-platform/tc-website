@@ -38,7 +38,7 @@ function find(n) {
                 </xsl:when>
                 <xsl:otherwise>
 
-            <A href="/?t=tournaments&amp;c=tco03_intel"><img src="/i/tournament/tco03/promo_sm_intel.gif" alt="Intel Developer Services" width="171" height="104" border="0" /></A><br />
+            <A href="/?t=tournaments&amp;c=tco03_intel"><img src="/i/tournament/tco03/promo_sm_intel.gif" alt="Intel Developer Services" width="170" height="104" border="0" /></A><br />
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
