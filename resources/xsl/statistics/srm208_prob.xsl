@@ -452,39 +452,30 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 </table></blockquote>
 <p>
 In nearly all applicable problems, I favor memoization over dynamic programming since I find it
-easier to code.  Here I decided to try dynamic programming, but memoization would have worked too.
-I broke the problem into 2 cases, in order to make the coding simpler.  The first case occurs when
-there are only 2 rows, in which case every spot is reachable, and we simply return a sum taken over
-the entire input.  <br/> 
+easier to code.  Here I decided to try dynamic programming, but memoization would have worked too. I
+broke the problem into 2 cases, in order to make the coding simpler. The first case occurs when
+there are only 2 rows, in which case every spot is reachable, and we simply return a sum taken over 
+the entire input (this could be done in the 3 row case as well). <br/>
 <br/>
-The second case is the bulk of the code.  The first important thing to realize is that we can assume
-all paths begin in the upper left and finish in the lower right corner of the map.  This way our
-solution will model 3 paths leaving the upper left corner.  Next we can assume, without loss of
-generality, that the 3 paths will proceed horizontally along different rows, never crossing.  In
-other words, the 3 paths will only ever meet in the leftmost column and the rightmost column.
-During the majority of the trip, one path will always be on top, another path on the bottom, and a
-final path strictly in between.  Focusing on such a setup allows us to considerably optimize our
-algorithm.<br/> 
+The second case is the bulk of the code. The first important thing to realize is that we can assume
+all paths begin in the upper left and finish in the lower right corner of the map. This way our
+solution will model 3 paths leaving the upper left corner. Next we can assume, without loss of
+generality, that the 3 paths will proceed horizontally along different rows, never crossing. In
+other words, the 3 paths will only ever meet in the leftmost column and the rightmost column. During 
+the majority of the trip, one path will always be on top, another path on the bottom, and a final
+path strictly in between. Focusing on such a setup allows us to considerably optimize our algorithm.<br/>
 <br/>
 The dp algorithm outlined here proceeds rightward across the board, considering one column at a
-time.  The leftmost column is setup with values based on how low the lowest path begins.  During
-each iteration of the algorithm we proceed rightward one column, assuming each path moves rightward
-one step.  Upon arriving at a column, the paths can move downward as they please, but will never cross.  We
-are done when we reach the rightmost column.  Each step of the algorithm is based on the following
-recurrences:<pre>	
-	{  dp[col-1][top][mid][bot] + val[top][col]
-	{		+ val[mid][col] + val[bot][col]
-	{ 
-	{  dp[col][top-1][mid][bot] + val[top][col]  if top-1 &gt; mid
-dp[col][top][mid][bot] = max {
-	{  dp[col][top][mid-1][bot] + val[mid][col]  if mid-1 &gt; bot
-	{
-	{  dp[col][top][mid][bot-1] + val[bot][col]  if bot-1 >= 0
-</pre>
-where 0 &lt; col, and 0 &lt;=  top &lt; mid &lt; bot &lt; height.   Here dp stores the best possible score achievable
-once you have made it from the left side of the map to a particular column, given that the 3
-separate paths are currently at specific heights.  This can be easily optimized such that only a
-single column need be stored at any time. 
+time.  The leftmost column is setup with values based on how low the lowest path begins. During each 
+iteration of the algorithm we proceed rightward one column, assuming each path moves rightward one
+step. Upon arriving at a column, the paths can move downward as they please, but will never cross. 
+We are done when we reach the rightmost column. <br/>
+<br/>
+In order to guarantee we do not cross paths during the algorithm, me must handle each column
+carefully.  To accomplish this, first handle all possible cases where you can move the highest path
+downward without crossing the middle path.  Secondly, once the top path is done, do the same for the
+middle path.  Finally move the lowest path.  To see code that implements this algorithm, look at my
+solution in the practice room. 
 </p>
 
 					 <p>
