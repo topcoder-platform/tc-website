@@ -60,14 +60,25 @@
             </TR>
             <TR>
               <TD VALIGN="middle" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-              <TD BGCOLOR="#000000" ALIGN="center" NOWRAP="0"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><!-- <A TARGET="_parent" HREF="/index?t=jobs&amp;c=index"><IMG SRC="/i/jobs_banner2.gif" ALT="" WIDTH="170" HEIGHT="46" VSPACE="5" BORDER="0"/></A><A TARGET="_parent" HREF="/index?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/teams_banner.gif" ALT="" WIDTH="170" HEIGHT="46" VSPACE="5" BORDER="0"/></A><IMG SRC="/i/clear.gif" WIDTH="72" HEIGHT="1" BORDER="0" VSPACE="20"/> --></TD>
+              <TD BGCOLOR="#000000" ALIGN="center" NOWRAP="0"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/>
+<!--
+<A TARGET="_parent">
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=jobs&amp;c=index</xsl:attribute>
+  <IMG SRC="/i/jobs_banner2.gif" ALT="" WIDTH="170" HEIGHT="46" VSPACE="5" BORDER="0"/>
+</A>
+<A TARGET="_parent">
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_teams</xsl:attribute>
+  <IMG SRC="/i/teams_banner.gif" ALT="" WIDTH="170" HEIGHT="46" VSPACE="5" BORDER="0"/>
+</A>
+<IMG SRC="/i/clear.gif" WIDTH="72" HEIGHT="1" BORDER="0" VSPACE="20"/>
+-->
+              </TD>
               <TD CLASS="time" VALIGN="middle" NOWRAP="" ALIGN="right">
                  <xsl:choose>
                   <xsl:when test="/TC/LoggedIn='true'"><BR/>
                     Welcome Back <SPAN CLASS="smallBrackets">[ </SPAN> 
-                    <A>
-                      <xsl:attribute name="HREF">index?t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="/TC/UserId"/></xsl:attribute>
-                      <xsl:attribute name="CLASS">statText</xsl:attribute>
+                    <A CLASS="statText">
+                      <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="/TC/UserId"/></xsl:attribute>
                       <FONT>
                         <xsl:attribute name="color">
                           <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="/TC/Rating"/></xsl:with-param></xsl:call-template>
@@ -81,7 +92,11 @@
                     </span>
                   </xsl:when>             
                   <xsl:otherwise><BR/>             
-                    <SPAN CLASS="smallBrackets">[ </SPAN> <A TARGET="_parent" HREF="/reg/index.jsp" CLASS="registerToday">Register Today</A> :
+                    <SPAN CLASS="smallBrackets">[ </SPAN> 
+                    <A TARGET="_parent" CLASS="registerToday">
+                      <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
+                      Register Today
+                    </A> :
                     <span class="time">
                       <xsl:call-template name="DateTime"/>
                     </span>
@@ -101,14 +116,17 @@
       <TR>    
         <!-- <TD COLSPAN="2" BGCOLOR="#000000" VALIGN="bottom"><IMG SRC="/i/logo_btm_tab.gif" ALT="" WIDTH="187" HEIGHT="6" BORDER="0"/></TD> -->  
         <TD COLSPAN="4" BGCOLOR="#000000" ALIGN="right">
-
-<A TARGET="_parent" HREF="Javascript:arena()" CLASS="registerNav"><IMG SRC="/i/label_download_applet.gif" ALT="Download the Applet" WIDTH="134" HEIGHT="17" BORDER="0"/></A><A TARGET="_parent" HREF="/index?t=schedule&amp;c=practice_room" CLASS="registerNav"><IMG SRC="/i/label_visit_practice_room.gif" ALT="Visit the Practice Room" WIDTH="141" HEIGHT="17" BORDER="0"/></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/>
+          <A TARGET="_parent" HREF="Javascript:arena()" CLASS="registerNav">
+            <IMG SRC="/i/label_download_applet.gif" ALT="Download the Applet" WIDTH="134" HEIGHT="17" BORDER="0"/>
+          </A>
+          <A TARGET="_parent" CLASS="registerNav">
+            <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=practice_room</xsl:attribute>
+            <IMG SRC="/i/label_visit_practice_room.gif" ALT="Visit the Practice Room" WIDTH="141" HEIGHT="17" BORDER="0"/>
+          </A>
+          <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/>
         </TD> 
       </TR>              
     </TABLE>
     <xsl:call-template name="TopMenu"/>
   </xsl:template>
 </xsl:stylesheet>
-
-
-

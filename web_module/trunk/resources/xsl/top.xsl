@@ -130,6 +130,3 @@
     <xsl:call-template name="TopMenu"/>
   </xsl:template>
 </xsl:stylesheet>
-
-
-
