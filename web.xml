@@ -27,60 +27,6 @@
   	    <servlet-name>SubmissionDownload</servlet-name>
   	    <servlet-class>com.topcoder.dde.servlet.DDESubmissionDownload</servlet-class>
     </servlet>
-
-
-    <!-- Action Servlet Mapping -->
-    <servlet-mapping>
-        <servlet-name>SubmissionDownload</servlet-name>
-        <url-pattern>/catalog/submission</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>JavadocViewing</servlet-name>
-        <url-pattern>/catalog/javadoc/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CatalogDownload</servlet-name>
-        <url-pattern>/catalog/download</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CatalogDocument</servlet-name>
-        <url-pattern>/catalog/document</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ForumAttachment</servlet-name>
-        <url-pattern>/forum/attachment</url-pattern>
-    </servlet-mapping>
-
-    <session-config>
-        <session-timeout>60</session-timeout>
-    </session-config>
-
-    <!-- The Welcome File List -->
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-        <welcome-file>../index.jsp</welcome-file>
-    </welcome-file-list>
-
-    <!-- ERROR Pages -->
-    <error-page>
-        <error-code>404</error-code>
-        <location>/attention/pagenotfound.html</location>
-    </error-page>
-<!--
-    <error-page>
-        <exception-type>java.lang.NullPointerException</exception-type>
-        <location>/login.jsp?errors=Your+session+is+no+longer+valid.+Please+log+in+again.</location>
-    </error-page>
-    <error-page>
-        <exception-type>java.lang.IllegalStateException </exception-type>
-        <location>/login.jsp?errors=Your+session+is+no+longer+valid.+Please+log+in+again.</location>
-    </error-page>
-    <error-page>
-        <exception-type>javax.servlet.ServletException</exception-type>
-        <location>/login.jsp?errors=A+system+error+occurred.+Please+log+in+again.</location>
-    </error-page>
--->
-
     <servlet>
         <servlet-name>tcs</servlet-name>
         <display-name>tcs</display-name>
@@ -128,10 +74,48 @@
     </servlet>
 
 
+    <!-- Action Servlet Mapping -->
+    <servlet-mapping>
+        <servlet-name>SubmissionDownload</servlet-name>
+        <url-pattern>/catalog/submission</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>JavadocViewing</servlet-name>
+        <url-pattern>/catalog/javadoc/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CatalogDownload</servlet-name>
+        <url-pattern>/catalog/download</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CatalogDocument</servlet-name>
+        <url-pattern>/catalog/document</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForumAttachment</servlet-name>
+        <url-pattern>/forum/attachment</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>tcs</servlet-name>
         <url-pattern>/tcs</url-pattern>
     </servlet-mapping>
+
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+
+    <!-- The Welcome File List -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>../index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- ERROR Pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/attention/pagenotfound.html</location>
+    </error-page>
+
 
 
 
