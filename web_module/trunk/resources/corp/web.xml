@@ -515,13 +515,13 @@
 
         <init-param>
             <param-name>controller_url</param-name>
-            <param-value>/</param-value>
+            <param-value>/testing/</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>default_page</param-name>
-            <param-value>/screening/index.jsp</param-value>
+            <param-value>/screening/home.jsp</param-value>
             <description></description>
         </init-param>
 
