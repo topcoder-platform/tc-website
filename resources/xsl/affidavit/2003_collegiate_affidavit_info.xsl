@@ -96,7 +96,7 @@
                                 <p><strong>To be completed by everyone:</strong></p>
 
                                 <p>
-                                    <strong>2003 TOPCODER COLLEGIATE CHALLENGE QUESTIONNAIRE</strong> - Form must be completed by 12:00 PM EST on Monday, March 28th:
+                                    <strong>2003 TOPCODER COLLEGIATE CHALLENGE QUESTIONNAIRE</strong> - Form must be completed by 12:00 PM EST on Friday, March 28th:
                                     View the <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_questionaire">2003 TopCoder Collegiate Challenge Questionnaire</a>.  Complete ALL questions.
                                 </p>
                             </li>
