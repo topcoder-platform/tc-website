@@ -17,7 +17,7 @@ if (document.images) {
   image2on = new Image();
   image2on.src = "/i/menu_sched_on.gif";
   image3on = new Image();
-  image3on.src = "/i/menu_teams_on.gif";
+  image3on.src = "/i/menu_applet_on.gif";
   image4on = new Image();
   image4on.src = "/i/menu_stats_on.gif";
   image5on = new Image();
@@ -33,7 +33,7 @@ if (document.images) {
   image2off = new Image();
   image2off.src = "/i/menu_sched_off.gif";
   image3off = new Image();
-  image3off.src = "/i/menu_teams_off.gif";
+  image3off.src = "/i/menu_applet_off.gif";
   image4off = new Image();
   image4off.src = "/i/menu_stats_off.gif";
   image5off = new Image();

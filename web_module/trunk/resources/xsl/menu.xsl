@@ -24,18 +24,15 @@
           <IMG SRC="/i/top_bar_left.gif" WIDTH="21" HEIGHT="21" BORDER="0"/>
         </TD> -->
         <TD CLASS="globalNav" WIDTH="100%" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000" NOWRAP="0">
+          <A HREF="Javascript:arena()" CLASS="registerNav" onMouseOver="changeImages('image3', 'image3on')" onMouseOut="changeImages('image3', 'image3off')" TARGET="_parent">
+            <IMG SRC="/i/menu_applet_off.gif" NAME="image3" ALT="Competition Applet" WIDTH="127" HEIGHT="21" BORDER="0"/>
+          </A>         
           <A onMouseOver="changeImages('image2', 'image2on')" onMouseOut="changeImages('image2', 'image2off')" TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>
             <IMG NAME="image2" ALT="Schedule" WIDTH="69" HEIGHT="21" BORDER="0">
               <xsl:attribute name="SRC">/i/menu_sched_<xsl:choose><xsl:when test="/TC/Task='schedule'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             </IMG>
-          </A>
-          <!-- <A onMouseOver="changeImages('image3', 'image3on')" onMouseOut="changeImages('image3', 'image3off')" TARGET="_parent">
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_teams</xsl:attribute>
-            <IMG NAME="image3" ALT="Teams" WIDTH="49" HEIGHT="21" BORDER="0">
-              <xsl:attribute name="SRC">/i/menu_teams_<xsl:choose><xsl:when test="/TC/Task='about_tc'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-            </IMG>
-          </A> -->         
+          </A>         
           <A onMouseOver="changeImages('image4', 'image4on')" onMouseOut="changeImages('image4', 'image4off')" TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute>
             <IMG NAME="image4" ALT="Statistics" WIDTH="69" HEIGHT="21" BORDER="0">
