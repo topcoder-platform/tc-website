@@ -114,8 +114,9 @@
                                                         <li>Provide an operation report of new users.</li>
                                                     </ul>
                                                     <p>
-                                                        The utility layer consists of helper classes used by the services implementation classes.  The developer
-                                                        will develop SQL, JDBC, and LDAP utilities
+                                                        The front end layer consists of a Login, Registration and MemberProfile controller servlets along with 
+                                                        the accompanying Action and Constant classes as well as the JSP pages.  The developer
+                                                        will require knowlege of cookies, http sessions, JSPs and servlets.
 
 
                                                     </p>
@@ -131,9 +132,9 @@
                                                     </p>
                                                     <ul class="noSpList">
                                                         <li>Solaris</li>
-                                                        <li>LDAP</li>
-                                                        <li>SQL</li>
-                                                        <li>JDBC</li>
+                                                        <li>Servlets</li>
+                                                        <li>JSP</li>
+                                                        <li>Cookies</li>
                                                         <li>Java 1.4</li>
                                                     </ul>
 
