@@ -41,13 +41,14 @@ public class Static extends BaseProcessor {
         if(path.equals("")) throw new NavigationException("path must have at least one component");
         path.append(".jsp");
 
+        log.debug("next page: " + path.toString());
+
         //using a shell of a tc subject object here, cuz we don't need the whole thing
         Authorization authorization = new TCSAuthorization(new TCSubject(authToken.getActiveUser().getId()));
         /* check whether the path is allowed for this type of user */
         if(!authorization.hasPermission(new PathResource(path.toString())))
             throw new NotAuthorizedException("access to page denied");
 
-        log.debug("next page: " + path.toString());
         setNextPage(path.toString());
         setIsNextPageInContext(true);
     }
