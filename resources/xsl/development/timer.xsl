@@ -1,4 +1,4 @@
-l<?xml version="1.0"?>
+<?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
@@ -53,95 +53,63 @@ l<?xml version="1.0"?>
                                     <FORM method="POST" name="frmInquire" ACTION="/">
                                         <INPUT VALUE="development" NAME="t" TYPE="hidden"/><INPUT VALUE="inquire" NAME="c" TYPE="hidden"/><INPUT VALUE="" NAME="Project" TYPE="hidden"/><INPUT VALUE="" NAME="To" TYPE="hidden"/>
                                     </FORM>
-                                    <B>Email Engine Component Design</B>
+                                    <B>Timer Component Design</B>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Email Engine';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
+                                    <a href="Javascript:document.frmInquire.Project.value='Timer';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
                                     <BR/>
-<P>
-<B>Overview</B>
-</P>
+<P><B>Overview</B></P>
 
-<P>
-The Email Engine component provides basic and advanced email functionality through Java API's.  As with any email software, the component supports one or more primary (TO), carbon copy (CC) and blind carbon copy (BCC) recipients, a subject line and file attachment capabilities.
-As its name suggests, the Email Engine is used to send email messages.  This is not a GUI-based component such as Outlook Express or Yahoo Mail that manages user email accounts.  Rather, the Email Engine is a set of Java API's that enables a developer to send emails directly from application code.
-</P>
+<P>The Timer component provides "stopwatch" type functionality to existing and new software. This component allows for run-time performance analysis by enabling developers to clock the execution speed of specified code blocks. As with existing logging solutions, implementing the timer solution is configurable so as to enable real-time configuration modifications. In addition, the timer component is designed to have minimal impact on processing speed.</P>
 
-<P>
-<B>Project Type</B>
-</P>
-<P>
-Component Design Project: Provide design enhancements to the existing Email Engine component.
-Please review the <a href="http://www.topcoder.com/?&amp;t=development&amp;c=index" CLASS="statText">TopCoder Software Component Development Methodology</a> for further details regarding this project type.	
-</P>
+<P><B>Project Type</B></P>
 
-<B>Technologies</B>
+<P>Component Design: Provide a complete design for the Timer component.<BR/>
+Please review the <a href=" http://www.topcoder.com/?&amp;t=development&amp;c=index" CLASS="statText">TopCoder Software Component Development Methodology</a> for further details regarding this project type.</P>
 
+<P><B>Technologies</B></P>
 <UL>
-	<LI>Java 1.4</LI>
+<LI>Java 1.4</LI>
 </UL>
+<P><B>Payment</B></P>
 
-
-<P>
-<B>Payment</B>
-</P>
-<P>
-TopCoder will compensate the member with the winning solution.  Compensation will consist of both initial payments and royalties on the sale of the component.  The initial payment will be distributed in three installments.
+<P>TopCoder will compensate the member with the winning solution.  Compensation will consist of both initial payments and royalties on the sale of the component.  The initial payment will be distributed in three installments.<BR/>
 First Milestone: When the winning solution is submitted and review board suggestions are integrated.
-Second Milestone: At the completion of the development project.  
+Second Milestone: At the completion of the development project. </P> 
+
+<P>Members will also collect royalties on the revenue generated from the sale of the component.  This amount is determined using the company royalty pool percentage, currently set as 10% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase. </P>
+
+<P><B>Architect</B><BR/>
+Total Payment	$180.00<BR/>
+First Payment	$135.00<BR/>
+Second Payment	$45.00<BR/>
 </P>
 
-<P>
-Members will also collect royalties on the revenue generated from the sale of the component.  This amount is determined using the company royalty pool percentage, currently set as 10% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase.  
-</P>
-
-
-<P>
-<B>Architect</B>
-</P>
-<P>
-Total Payment - $120.00<BR/>
-First Deliverable - $90.00<BR/>
-Project Completion - $30.00<BR/>
-</P>
-
-<P>
-<SUP>*</SUP>Completion of the project is defined as follows: 
-</P>
-
+<P>*Completion of the project is defined as follows:
 <UL>
-	<LI>All tasks assigned by the product manager have been completed. </LI>
-	<LI>The deliverables are functioning properly and integrated within the other project software deliverables. </LI>
-	<LI>The product manager has signed off on all delivered components. </LI>
-	<LI>Project/task completion is not defined by the timeline listed above. The dates are to be used as guidelines and may change throughout the project. </LI>
-	<LI>Final payment is conditional on the fully functional component as defined in the requirements and by the product manager.</LI>
+<LI>All tasks assigned by the product manager have been completed. </LI>
+<LI>The deliverables are functioning properly and integrated within the other project software deliverables. </LI>
+<LI>The product manager has signed off on all delivered components.</LI>
+<LI>Project/task completion is not defined by the timeline listed above.  The dates are to be used as guidelines and may change throughout the project.  Final payment is conditional on the fully functional component as defined in the requirements and by the product manager.</LI>
 </UL>
-
-<P>
-<B>Eligibility</B>
-</P>
-<P>
-You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:
 </P>
 
-<OL>
-	<LI>A US Citizen </LI>
-	<LI>A Lawful Permanent Resident of the US (i.e., a Green Card holder) </LI>
-	<LI>Currently lawfully residing in the US with valid employment authorization to act as an independent contractor.</LI>
-	<LI>A Non US Citizen working in their country of residence.</LI>
-</OL>
+<P><B>Eligibility</B></P>
 
-<P>
-<B>Time Line</B>
+<P>You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:
+<UL>
+<LI>A US Citizen</LI>
+<LI>A Lawful Permanent Resident of the US (i.e., a Green Card holder) </LI>
+<LI>Currently lawfully residing in the US with valid employment authorization to act as an independent contractor.</LI>
+<LI>A Non US Citizen working in their country of residence.</LI>
+</UL>
 </P>
 <P>
-Component Posting: 10/25/2002<BR/>	
-Initial Submission Date: 11/6/2002<BR/>
-Final Submission Date: 11/7/2002<BR/>
-Estimated Development End Date: 11/18/2002<BR/>
+Component Posting: 10/25/2002<BR/>
+Component Submission Due Date: 11/7/2002<BR/>
+Component Enhancement Date: 11/8/2002<BR/>
+Estimated Development End Date: 11/27/2002
 </P>
-
-
-                                    <a href="Javascript:document.frmInquire.Project.value='Email Engine';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+<a href="Javascript:document.frmInquire.Project.value='Timer';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
           <P><BR/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

@@ -53,7 +53,7 @@
                                     <FORM method="POST" name="frmInquire" ACTION="/">
                                         <INPUT VALUE="development" NAME="t" TYPE="hidden"/><INPUT VALUE="inquire" NAME="c" TYPE="hidden"/><INPUT VALUE="" NAME="Project" TYPE="hidden"/><INPUT VALUE="" NAME="To" TYPE="hidden"/>
                                     </FORM>
-                                    <B>Object Pool</B>
+                                    <B>Object Pool Component Design</B>
                                     <BR/>
                                     <a href="Javascript:document.frmInquire.Project.value='Object Pool';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
                                     <BR/>

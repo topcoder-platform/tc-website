@@ -83,7 +83,40 @@ Component Development Project
 <TABLE BORDER="0" CELLSPACING="5" CELLPADDING="5" WIDTH="100%">
 	<TR>
 		<TD  VALIGN="top">
+<P>
+Project: <A HREF="/index?t=development&amp;c=utg" CLASS="statText">Unit Test Generator Component Design</A><BR/>
+Component Posting: 10/25/2002<BR/>
+Component Submission Due Date: 11/7/2002<BR/>
+Member Selection: Open<BR/>
+</P>   
+
+<P>
+Project: <A HREF="/index?t=development&amp;c=timer" CLASS="statText">Timer Component Design</A><BR/>
+Component Posting: 10/25/2002<BR/>
+Component Submission Due Date: 11/7/2002<BR/>
+Member Selection: Open<BR/>
+</P>   
         
+<P>
+Project: <A HREF="/index?t=development&amp;c=object_pool" CLASS="statText">Object Pool Component Design</A><BR/>
+Component Posting: 10/25/2002<BR/>
+Component Submission Due Date: 11/11/2002<BR/>
+Member Selection: Open<BR/>
+</P>   
+
+<P>
+Project: <A HREF="/index?t=development&amp;c=log_interface" CLASS="statText">Logging Wrapper Component Design</A><BR/>
+Component Posting: 10/25/2002<BR/>
+Component Submission Due Date: 11/6/2002<BR/>
+Member Selection: Open<BR/>
+</P>   
+
+<P>
+Project: <A HREF="/index?t=development&amp;c=email_engine" CLASS="statText">Email Engine Component Design</A><BR/>
+Component Posting: 10/25/2002<BR/>
+Component Submission Due Date: 11/6/2002<BR/>
+Member Selection: Open<BR/>
+</P>        
         </TD>
     </TR>
 	<TR>
