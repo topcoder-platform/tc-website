@@ -470,7 +470,7 @@ else if (command.equals("send")) {
                                                 xsldocURLString = XSL_DIR + "reg_full_unrated.xsl";
                                             } else if (rating != 0 && projBean.getRatedRegistrantCount(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= projBean.getMaxRatedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                                 //reg full - rated
-                                                devTag.addTag(new ValueTag("max_reg", projBean.getMaxUnratedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
+                                                devTag.addTag(new ValueTag("max_reg", projBean.getMaxRatedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
                                                 xsldocURLString = XSL_DIR + "reg_full_rated.xsl";
                                             } else {
 
