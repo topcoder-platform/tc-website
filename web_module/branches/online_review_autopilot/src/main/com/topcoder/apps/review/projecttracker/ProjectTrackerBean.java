@@ -161,7 +161,7 @@ public class ProjectTrackerBean implements SessionBean {
                     "cv.comp_vers_id, " +
                     "pcat.category_name catalog_name," +
                     "p.level_id, " +
-                    "p.auto_pilot_ind  " +
+                    "p.autopilot_ind  " +
                     "FROM project p, comp_versions cv, " +
                     "comp_catalog cc, " +
                     "comp_categories ccat, categories cat, categories pcat " +
@@ -647,7 +647,7 @@ public class ProjectTrackerBean implements SessionBean {
                         "(project_v_id, project_id, comp_vers_id, phase_instance_id, " +
                         "winner_id, overview, " +
                         "notes, project_type_id, project_stat_id, notification_sent, " +
-                        "modify_user, modify_reason, level_id, auto_pilot_ind, " +
+                        "modify_user, modify_reason, level_id, autopilot_ind, " +
                         "cur_version) VALUES " +
                         "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
 
@@ -1620,7 +1620,7 @@ public class ProjectTrackerBean implements SessionBean {
                     + "winner_id, overview, "
                     + "notes, project_type_id, "
                     + "project_stat_id, notification_sent, "
-                    + "modify_user, modify_reason, level_id, auto_pilot_ind,  "
+                    + "modify_user, modify_reason, level_id, autopilot_ind,  "
                     + "cur_version) VALUES "
                     + "(0, ?, ?, ?, null, ?, ?, ?, ?, 0, ?, 'Created', ?, 1, 1)");
 
