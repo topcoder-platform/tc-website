@@ -35,7 +35,7 @@ public class ResumeServicesBean extends BaseEJB {
         ResultSet rs = null;
         Resume ret = null;
         try{
-            conn = DBMS.getTransConnection();
+            conn = DBMS.getConnection();
             ps = conn.prepareStatement(GET_RESUME_QUERY);
             ps.setInt(1,userID);
             rs = ps.executeQuery();
