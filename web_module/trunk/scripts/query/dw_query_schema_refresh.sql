@@ -177,12 +177,12 @@ INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (24, "Y", "1", 8, 2);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (24, "Y", "50", 9, 3);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (24, "Y", "3", 15, 4);
-INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (24, "Y", "ASC", 16, 5);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (24, "Y", "DESC", 16, 5);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (25, "N", null, 3, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (25, "Y", "1", 8, 2);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (25, "Y", "50", 9, 3);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (25, "Y", "3", 15, 4);
-INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (25, "Y", "ASC", 16, 5);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (25, "Y", "DESC", 16, 5);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (28, "Y", "$42", 1, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (29, "Y", "$42", 1, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (29, "Y", "$43", 2, 2);
