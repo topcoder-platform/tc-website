@@ -66,7 +66,14 @@ The Grant Processing application is a web-based tool designed to facilitate the 
 </P>
 
 <P>
-A static html mock-up has already been completed to provide detailed insight into the required functionality of the system.  While this mock-up is not all-inclusive, it does cover all major functional requirements.  The purpose of this project is to design the technical infrastructure to support these requirements.  This infrastructure extends from front-end JSP design to back-end database schema design, as well as integration with existing TCS components.
+A static html mock-up has already been completed to provide detailed insight into 
+the required functionality of the system.  While this mock-up is not all-inclusive, 
+it does cover all major functional requirements.  
+The purpose of this project is to design the technical infrastructure to support 
+these requirements.  This infrastructure extends from front-end JSP design to 
+back-end database schema design, as well as integration with the following TCS components: 
+Email Engine, PDF Conversion, Document Generation, Configuration
+Manager, Calendar and File Upload.
 </P>
 
 <P>
