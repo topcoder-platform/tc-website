@@ -104,17 +104,17 @@ START: 12:00 PM <BR/></TD>
 						<TR>
 							<TD VALIGN="top" BGCOLOR="#666666" class="statText"> - Regional Quarterfinals</TD>
 							<TD VALIGN="top" BGCOLOR="#666666" class="statText">Wednesday, February 26th<BR/> 
-START:  9:00PM</TD>
+START:  9:00 PM</TD>
 						</TR>
 						<TR>
 							<TD VALIGN="top" BGCOLOR="#666666" class="statText"> - Regional Semifinals</TD>
 							<TD VALIGN="top" BGCOLOR="#666666" class="statText">Wednesday, March 5th<BR/> 
-START:  9:00PM</TD>
+START:  9:00 PM</TD>
 						</TR>																								
 						<TR>
 							<TD VALIGN="top" BGCOLOR="#666666" class="statText"> - Regional Championship</TD>
 							<TD VALIGN="top" BGCOLOR="#666666" class="statText">Wednesday, March 12th<BR/> 
-START:  9:00PM</TD>
+START:  9:00 PM</TD>
 						</TR>												
 						<TR>
 							<TD COLSPAN="2" VALIGN="top" BGCOLOR="#666666" class="statText">*NOTE:  In the event that a round must be cancelled for any reason, the "raindate" for the cancelled match will be the following day at the same time.</TD>
@@ -172,26 +172,30 @@ are the responsibility of the contestant and his/her guest.
 						TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in a manner such that the average competitor rating 
 						(as of February 17, 2003) for each room will be similar.  The dates and times of the onsite Semifinal and 
 						Championship rounds are as follows: <BR/><BR/>
-						<DIV ALIGN="center"><TABLE WIDTH="75%" BORDER="1" CELLPADDING="6" CELLSPACING="0">
+						<DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="1" CELLPADDING="6" CELLSPACING="0">
 						<TR>
 							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Round of Competition</TD>
-							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Date</TD>
-						</TR>	
+							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Date &amp; *Time</TD>
+						</TR>
 						<TR>
-							<TD WIDTH="50%" ALIGN="left" VALIGN="top" BGCOLOR="#666666"><FONT FACE="arial, helvetica, sans-serif" SIZE="1" COLOR="#ffffff">
-							- Semifinal Room #1<BR/><BR/>
-							- Semifinal Room #2<BR/><BR/>
-							- Semifinal Room #3<BR/><BR/>
-							- Semifinal Room #4<BR/><BR/>
-							- Championship Round<BR/>
-							</FONT></TD>
-							<TD WIDTH="50%" ALIGN="left" VALIGN="top" BGCOLOR="#666666"><FONT FACE="arial, helvetica, sans-serif" SIZE="1" COLOR="#ffffff">
-							April 4, 2003 at 8:00am EST<BR/><BR/>	
-							April 4, 2003 at 11:00am EST<BR/><BR/>
-							April 4, 2003 at 2:00pm EST<BR/><BR/>
-							April 4, 2003 at 6:00pm EST<BR/><BR/>
-							April 5, 2003 at 11:00am EST<BR/>
-							</FONT></TD>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">- Semifinal Room #1</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 4, 2003 at 8:00 AM EST</TD>
+						</TR>						
+						<TR>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">- Semifinal Room #2</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 4, 2003 at 11:00 AM EST</TD>
+						</TR>						
+						<TR>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">- Semifinal Room #3</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 4, 2003 at 2:00 PM EST</TD>
+						</TR>						
+						<TR>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">- Semifinal Room #4</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 4, 2003 at 6:00 PM EST</TD>
+						</TR>						
+						<TR>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">- Championship Round</TD>
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 5, 2003 at 11:00 AM EST</TD>
 						</TR>	
 						</TABLE></DIV><BR/>
 						The Semifinal Round will consist of four (4) rooms of four (4) coders each.  The winner in each room will advance to the Championship Round.<BR/><BR/>
