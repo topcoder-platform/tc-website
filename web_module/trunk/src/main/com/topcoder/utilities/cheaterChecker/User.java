@@ -36,4 +36,8 @@ public class User {
     public boolean equals(Object o) {
         return ((User)o).getUserId()==userId;
     }
+
+    public String toString() {
+        return handle+"("+userId+")";
+    }
 }

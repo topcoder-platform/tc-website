@@ -104,6 +104,7 @@ public class Contest {
                 log.info("**********************************************************");
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
 
+                log.debug(allPotentialViolators);
                 Histogram h = new Histogram(allPotentialViolators);
                 Set worst = h.getSortedSet();
                 StringBuffer worstBuf = new StringBuffer(1000);
