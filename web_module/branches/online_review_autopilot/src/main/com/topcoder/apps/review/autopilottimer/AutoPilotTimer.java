@@ -88,6 +88,7 @@ public class AutoPilotTimer
                 }
             } catch(Exception e) {
                 logger.error(e.getMessage());
+                e.printStackTrace();
             }
         }
     }
