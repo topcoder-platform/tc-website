@@ -187,10 +187,10 @@
       <%idx=0;%>
       <tr><td><hr/><center><h2>Placement Information</h2></center></td></tr>
       <tr><td>Placement Indicator: <select name="placement">
-      <option value="none"<%= request.getParameter("placement").equals("none") ? " selected" : "" %>>No preference</option>
-      <option value="either"<%= request.getParameter("placement").equals("either") ? " selected" : "" %>>Either</option>
-      <option value="contract"<%= request.getParameter("placement").equals("contract") ? " selected" : "" %>>Contract</option>
-      <option value="full"<%= request.getParameter("placement").equals("full") ? " selected" : "" %>>Full time</option>
+      <option value="none"<%= "none".equals(request.getParameter("placement") ? " selected" : "" %>>No preference</option>
+      <option value="either"<%= "either".equals(request.getParameter("placement") ? " selected" : "" %>>Either</option>
+      <option value="contract"<%= "contract".equals(request.getParameter("placement") ? " selected" : "" %>>Contract</option>
+      <option value="full"<%= "full".equals(request.getParameter("placement") ? " selected" : "" %>>Full time</option>
       </select>
       </td></tr>
       <tr><td>Resume: <INPUT type="checkbox" name="resume" <%= "on".equals(request.getParameter("resume")) ? " checked" : "" %>/></td></tr>
