@@ -41,6 +41,10 @@ public class Constants {
 
     //other
     public static int SERVER_ID;
+    public static int TEST_SET_A_ID;
+    public static int TEST_SET_B_ID;
+    public static int EXAMPLE_ID;
+
 
 
     static {
