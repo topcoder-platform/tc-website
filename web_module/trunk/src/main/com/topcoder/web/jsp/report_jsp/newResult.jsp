@@ -29,11 +29,9 @@
     <TABLE WIDTH="100%" BORDER="1" CELLPADDING="0" CELLSPACING="0">
       <TR><TD colspan="<%=columns.length%>" ALIGN="left"><FONT size="4"><b><%=me.getKey().toString()%> Results</b></FONT></TD></TR>
       <TR>
-        <TD></TD>
 <%      for (int i=0; i<columns.length; i++) { %>
           <TD><b><%=columns[i].getName()%></b></TD>
 <%      } %>
-        <TD></TD>
       </TR>
 <%
       int k=0;
@@ -46,7 +44,7 @@
         rsr = (ResultSetContainer.ResultSetRow)rows.next();
         for (int j=0; j<columns.length; j++) {
 %>
-          <TD><%=rsr.getItem(j).toString()%>"></TD>
+          <TD><%=rsr.getItem(j).toString()%></TD>
 <%      }  %>
         </TR>
 <%
