@@ -71,7 +71,7 @@ public class CommandList extends BaseProcessor {
                 log.debug("setting group id: " + Integer.parseInt(value));
                 setCommandGroupId(Integer.parseInt(value));
             } catch (NumberFormatException e) {
-                addError(Constants.COMMAND_GROUP_ID_PARAM, e);
+                addError(Constants.GROUP_ID_PARAM, e);
             }
         }
     }

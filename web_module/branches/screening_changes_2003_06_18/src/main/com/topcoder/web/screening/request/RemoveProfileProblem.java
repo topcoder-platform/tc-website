@@ -15,7 +15,7 @@ public class RemoveProfileProblem extends BaseProfileProcessor {
 
         request.setAttribute(Constants.PROFILE_INFO, info);
         setNextPage(Constants.CONTROLLER_URL + "?" + 
-                Constants.REQUEST_PROCESSOR + "=" + 
+                Constants.MODULE_KEY + "=" +
                 Constants.POPULATE_PROFILE_PROCESSOR);
         setNextPageInContext(true);
     }

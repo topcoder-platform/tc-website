@@ -28,6 +28,7 @@ public abstract class BaseServlet extends HttpServlet {
     private static String PATH = null;
     private static String DEFAULT_PROCESSOR = null;
     private static String LOGIN_PROCESSOR = null;
+    private static String LOGIN_SERVLET = null;
     public static final String MESSAGE_KEY = "message";
     public static final String NEXT_PAGE_KEY = "nextpage";
 
@@ -44,6 +45,12 @@ public abstract class BaseServlet extends HttpServlet {
         PATH = config.getInitParameter("processor_path");
         DEFAULT_PROCESSOR = config.getInitParameter("default_processor");
         LOGIN_PROCESSOR = config.getInitParameter("login_processor");
+        try {
+            LOGIN_SERVLET = config.getInitParameter("login_servlet");
+        } catch (Exception e) {
+            //ignore and set it to be null as default
+            LOGIN_SERVLET = null;
+        }
         StringBuffer buf = new StringBuffer(200);
         buf.append("Servlet Initialized with the following:\n");
         buf.append(" ERROR_PAGE = ");
@@ -60,6 +67,9 @@ public abstract class BaseServlet extends HttpServlet {
         buf.append("\n");
         buf.append(" LOGIN_PROCESSOR = ");
         buf.append(LOGIN_PROCESSOR);
+        buf.append("\n");
+        buf.append(" LOGIN_SERVLET = ");
+        buf.append(LOGIN_SERVLET);
         log.info(buf);
     }
 
@@ -132,8 +142,7 @@ public abstract class BaseServlet extends HttpServlet {
                         request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
 
                         request.setAttribute(MODULE, LOGIN_PROCESSOR);
-                        /* forward to self */
-                        fetchRegularPage(request, response, info.getServletPath(), true);
+                        fetchRegularPage(request, response, LOGIN_SERVLET==null?info.getServletPath():LOGIN_SERVLET, true);
                         return;
                     }
                 }
@@ -216,6 +225,7 @@ public abstract class BaseServlet extends HttpServlet {
         if (s.equals("")) return false;
         char[] c = s.toCharArray();
         for (int i = 0; i < c.length; i++)
+            //TODO make an init param?
             if (0 > "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_".indexOf(c[i]))
                 return false;
         return true;
@@ -234,5 +244,6 @@ public abstract class BaseServlet extends HttpServlet {
         request.setAttribute("exception", e);
         fetchRegularPage(request, response, ERROR_PAGE, true);
     }
+
 
 }

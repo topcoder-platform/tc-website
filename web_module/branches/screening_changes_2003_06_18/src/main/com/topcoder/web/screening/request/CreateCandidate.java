@@ -7,7 +7,7 @@ public class CreateCandidate extends BaseSessionProcessor {
         requireLogin();
         updateSessionInfo();
         setNextPage(Constants.CONTROLLER_URL + "?" +
-                    Constants.REQUEST_PROCESSOR + "=" + 
+                    Constants.MODULE_KEY + "=" +
                     Constants.POPULATE_CANDIDATE_PROCESSOR + "&" +
                     Constants.REFERRER + "=" + 
                     Constants.POPULATE_SESSION_PROCESSOR);

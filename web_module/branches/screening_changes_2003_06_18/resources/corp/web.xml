@@ -467,31 +467,45 @@
         <description>The main controller servlet</description>
         <servlet-class>com.topcoder.web.screening.controller.MainServlet</servlet-class>
 
-        <!-- Controller parameters -->
+        <!-- begin parameters required by BaseServlet -->
         <init-param>
-            <param-name>processors_package</param-name>
-            <param-value>com.topcoder.web.screening.request</param-value>
-            <description></description>
+            <param-name>module_key</param-name>
+            <param-value>rp</param-value>
+            <description>the url parameter that defines which processor to execute</description>
         </init-param>
+        <init-param>
+            <param-name>default_processor</param-name>
+            <param-value>Default</param-value>
+            <description>the processor to execute if non is specified in the request</description>
+        </init-param>
+        <init-param>
+            <param-name>login_processor</param-name>
+            <param-value>Login</param-value>
+            <description>the processor to execute when we need to direct the user to login</description>
+        </init-param>
+        <init-param>
+            <param-name>login_servlet</param-name>
+            <param-value>/</param-value>
+            <description>the servlet path to use when we need to direct the user to login</description>
+        </init-param>
+        <init-param>
+            <param-name>processor_path</param-name>
+            <param-value>com.topcoder.web.query.request.</param-value>
+            <description>the path to the processors for this app</description>
+        </init-param>
+        <init-param>
+            <param-name>error_page</param-name>
+            <param-value>errorPage.jsp</param-value>
+            <description>where to forward for errors</description>
+        </init-param>
+        <!-- end  parameters required by BaseServlet -->
 
+        <!-- Controller parameters -->
         <init-param>
             <param-name>jsp_root</param-name>
             <param-value>/testing/</param-value>
             <description></description>
         </init-param>
-
-        <init-param>
-            <param-name>error_page</param-name>
-            <param-value>errorPage.jsp</param-value>
-            <description></description>
-        </init-param>
-
-        <init-param>
-            <param-name>perm_error_page</param-name>
-            <param-value>permErrorPage.jsp</param-value>
-            <description></description>
-        </init-param>
-
 
         <init-param>
             <param-name>valid_char_list</param-name>
@@ -514,12 +528,6 @@
         <init-param>
             <param-name>default_page</param-name>
             <param-value>home.jsp</param-value>
-            <description></description>
-        </init-param>
-
-        <init-param>
-            <param-name>request_info_attribute</param-name>
-            <param-value>requestInfo</param-value>
             <description></description>
         </init-param>
 
@@ -557,12 +565,6 @@
         <init-param>
             <param-name>first_attempt_parameter</param-name>
             <param-value>firstVisit</param-value>
-            <description></description>
-        </init-param>
-
-        <init-param>
-            <param-name>request_processor_parameter</param-name>
-            <param-value>rp</param-value>
             <description></description>
         </init-param>
 

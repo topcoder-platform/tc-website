@@ -32,7 +32,7 @@ public class UpdateSession extends BaseSessionProcessor {
         //setup page and commit no info from confirm page
         if(!validateSessionInfo()) {
             setNextPage(Constants.CONTROLLER_URL + "?" +
-                        Constants.REQUEST_PROCESSOR + "=" + 
+                        Constants.MODULE_KEY + "=" +
                         Constants.POPULATE_SESSION_PROCESSOR);
             setNextPageInContext(true);
             return;

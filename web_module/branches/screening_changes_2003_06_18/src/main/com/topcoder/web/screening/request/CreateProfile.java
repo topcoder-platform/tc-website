@@ -39,7 +39,7 @@ public class CreateProfile extends BaseSessionProcessor {
         }
 
         setNextPage(Constants.CONTROLLER_URL + "?" +
-                    Constants.REQUEST_PROCESSOR + "=" +
+                    Constants.MODULE_KEY + "=" +
                     Constants.POPULATE_PROFILE_PROCESSOR);
         setNextPageInContext(true);
     }

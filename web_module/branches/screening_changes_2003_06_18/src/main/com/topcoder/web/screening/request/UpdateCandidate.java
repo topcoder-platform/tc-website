@@ -332,7 +332,7 @@ public class UpdateCandidate extends BaseProcessor
         }
 
         setNextPage(Constants.CONTROLLER_URL + "?" +
-                    Constants.REQUEST_PROCESSOR + "=" + referrer);
+                    Constants.MODULE_KEY + "=" + referrer);
         //redirect because we are done
         setNextPageInContext(false);
     }
