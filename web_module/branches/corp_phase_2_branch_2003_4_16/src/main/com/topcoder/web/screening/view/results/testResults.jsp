@@ -126,7 +126,7 @@ function getProblemDetail(id) {
                 </screen:resultSetRowIterator>
             </table>
 
-            <p><br></p>
+            <p></p>
 
 <% } // isSessionComplete %>
 

@@ -1,6 +1,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page errorPage="../errorPage.jsp" %>
-<%@ page import="com.topcoder.web.screening.common.Constants" %>
+<%@ page import="com.topcoder.web.screening.common.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.List,
+                 com.topcoder.web.screening.model.ProblemInfo" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <html>
 <head>
@@ -18,7 +21,21 @@
 <body>
 
 <!-- Header begins -->
-<jsp:include page="../includes/top.jsp" />
+<a name="top"></a>
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
+    <tr>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="206">
+            <img src="/i/logo_testing.gif" width="206" height="49" border="0" vspace="5"/>
+        </td>
+        <td width="99%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+   </tr>
+    <tr><td height="3" class="headStripe" colspan="3"><img src="/images/clear.gif" alt="" height="3" alt="" border="0"></td></tr>
+</table>
+
+
 <!-- Header ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -101,7 +118,7 @@
                 </screen:resultSetRowIterator>
             </table>
 
-            <p><br></p>
+            <p></p>
 
 <% } // isSessionComplete %>
 
@@ -188,79 +205,33 @@
 	        </TR>
 	        </TABLE>
     <% } // getProblemSetBCount() > 0 %>
-<% } else { //isSessionComplete %>
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="4" CLASS="bodyText"><B>Problems</B></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="4" CLASS="bodyText"><B>Problem Set A</B></TD>
-           </TR>
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Name</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Categories</B></TD>
-<%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
-	        </TR>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>
-            <screen:problemInfoIterator id="problem" list="<%=profileInfo.getTestSetAList()%>">
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='problemName' /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='divisionDesc' /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='difficultyDesc' /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>
-<%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='businessCategoryList' /></TD> --%>
-	        </TR>
-            </screen:problemInfoIterator>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>
-         </TABLE>
-
-<% if(testResultsInfo.getProblemSetBCount() > 0){ %>
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="4" CLASS="bodyText"><B>Problem Set B</B></TD>
-           </TR>
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Name</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Categories</B></TD>
-<%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
-	        </TR>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>
-            <screen:problemInfoIterator id="problem" list="<%=profileInfo.getTestSetBList()%>">
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='problemName' /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='divisionDesc' /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='difficultyDesc' /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>
-<%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='businessCategoryList' /></TD> --%>
-	        </TR>
-            </screen:problemInfoIterator>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>
-         </TABLE>
-<% } // getProblemSetBCount() > 0 %>
-<% } // !isSessionComplete() %>
-
             <p><br></p>
+
+            <% ResultSetContainer solutions = (ResultSetContainer)request.getAttribute("problemSolutionList"); %>
+            <% List statements = (List)request.getAttribute("problemStatementList"); %>
+            <% ProblemInfo problem = null; %>
+
+            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+	          <tr>
+		        <td class="testHeadSmall">Problems:</td>
+	          </tr>
+
+              <% int i=0; %>
+              <screen:resultSetRowIterator id="row" list="<%=solutions%>">
+                <tr>
+                  <% String color = i%2==0 ? "bgcolor='#EEEEEE'" : "";
+                     problem = (ProblemInfo)statements.get(i); %>
+		          <td class="bodyText" <%= color %>>&#160;<screen:resultSetItem row="<%=row%>" name="submission_text" /></td>
+                </tr>
+                <tr>
+		          <td class="bodyText" <%= color %>>&#160;<%=problem.getProblemStatement()%></td>
+                </tr>
+                <% i++; %>
+              </screen:resultSetRowIterator>
+            </table>
+
+<% } %>
+
         </td>
 <!-- Middle Column ends -->
 
