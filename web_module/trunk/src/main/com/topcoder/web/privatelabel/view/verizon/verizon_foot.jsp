@@ -5,12 +5,9 @@
 
 <!-- Footer Include Begins -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#666666">
-    <tr>
-        <td height="15" background="/i/footer_graphic_tile.gif" align="left"><img src="/i/footer_graphic.gif" width="710" height="16" border="0"/></td>
-    </tr>
 
     <tr valign="top">
-        <td width="100%" align="center" bgcolor="#43515E"><img src="/i/clear.gif" width="1" height="5" border="0"/><br/>
+        <td width="100%" align="center" bgcolor="#000000"><img src="/i/clear.gif" width="1" height="5" border="0"/><br/>
             <div class="smallFoot">
             <A href="http://www.verizon.com" class="smallFoot">Home</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=about_tc&c=index" class="smallFoot">About TopCoder</A>&#160;&#160;|&#160;&#160;

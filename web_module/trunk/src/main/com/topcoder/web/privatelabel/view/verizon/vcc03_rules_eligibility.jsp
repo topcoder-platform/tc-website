@@ -51,7 +51,7 @@
             <tr><td bgcolor="#666666" valign="top"><img src="/i/clear.gif" width="127" height="10" border="0"/></td></tr>
             <tr><td>      
                      <jsp:include page="verizonLinks.jsp" >
-                        <jsp:param name="selectedTab" value="overview"/>
+                        <jsp:param name="selectedTab" value="rules"/>
                         <jsp:param name="selectedSubtab" value="eligibility"/>
                      </jsp:include>
             </tr>
@@ -65,7 +65,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column -->
-      <td class="bodyText">
+      <td class="bodyText" valign="top">
             <img src="/i/clear.gif" width="100%" height="10" border="0"/><br />
             <h2>Registration</h2>
             
