@@ -3,6 +3,7 @@ package com.topcoder.web.codinginterface.view.tag;
 import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.language.Language;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.codinginterface.CodingInterfaceConstants;
@@ -20,6 +21,8 @@ import java.util.HashMap;
  */
 public class ArgumentIterator extends BodyTagSupport {
 
+    protected static final Logger log = Logger.getLogger(ArgumentIterator.class);
+
     public static final String INDEX = "argumentIndex";
     public static final String ARGUMENT = "argument";
     public static final String INPUT = "inputElement";
@@ -36,6 +39,7 @@ public class ArgumentIterator extends BodyTagSupport {
 
     public void setProblem(String problem) {
         this.problem = (Problem) pageContext.findAttribute(problem);
+        log.debug("problem set to " + this.problem);
         setArguments(this.problem);
     }
 
