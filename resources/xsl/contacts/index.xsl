@@ -24,16 +24,17 @@
       <body>
         <xsl:call-template name="Top"/>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
+
 <!-- Left Column Begins -->
-        <td width="170" bgcolor="#CCCCCC">
+        <td width="180">
             <xsl:call-template name="global_left"/>
         </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
+        <td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->    
@@ -46,7 +47,7 @@
             
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr valign="top">
-                    <td class="bodyText" width="100%">
+                    <td class="bodyText" width="100%"><br />
 
                         <p class="bodyText">TopCoder is dedicated to servicing members, partnering companies, the media and anyone else interested in what 
                         TopCoder is about. Please contact the appropriate individuals below for more information or assistance.</p>
@@ -54,57 +55,88 @@
                         <div align="center">
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr valign="top">
-                                <td colspan="3" class="bodyText">
-                                    <p><strong>Please direct general questions or concerns to</strong></p>
+                                <td width="50%" align="left" class="bodyText">
+                                    <p><strong>Corporate Address</strong><br />
+                                    TopCoder, Inc.<br/>
+                                    703 Hebron Avenue<br/>
+                                    Glastonbury, CT 06033 U.S.A.<br/>
+                                    tel: 860.633.5540<br/>
+                                    fax: 860.657.4276<br/>
+                                    &#160;</p>
+                                </td>
                                     
-                                    <p>TopCoder, Inc.<br/>
-                                    703 Hebron Avenue<br/>Glastonbury, CT 06033 U.S.A.<br/>
-                                    Phone: 860.633.5540<br/>Fax: 860.657.4276<br/>
-                                    Email:<a href="mailto:service@topcoder.com" class="bodyText">TopCoder General Inbox</a></p>
-                                    
-                                    <p><a href="mailto:mlydon@topcoder.com" class="bodyText"><strong>NEED TECH SUPPORT?</strong></a></p>
-                            
-                                    <p><strong>Questions regarding sponsorships, membership, employment services and technology</strong><br />&#160;</p></td>
+                                <td width="50%" align="left" class="bodyText">
+                                    <p><strong>Contact us by email</strong><br />
+                                    <A href="mailto:service@topcoder.com" class="bodyText">General Questions</A><br />
+                                    <A href="mailto:mlydon@topcoder.com" class="bodyText">Competition Tech Support</A><br />
+                                    <A href="mailto:service@topcodersoftware.com" class="bodyText">Software Tech Support</A></p>
+                                </td>
                             </tr>
                             
                             <tr valign="top">
                                 <td width="50%" align="left" class="bodyText">
-                                    <a href="mailto:dvaughn@topcoder.com" class="bodyText">Sponsorship Sales</a><br/>
-                                    Drew Vaughn, VP of Sales<br/>
-                                    Corporate Office<br/>
-                                    703 Hebron Avenue<br/>
-                                    Glastonbury, CT 06033<br/>
-                                    ph: 860.633.5540<br/>
-                                    fx: 860.657.4276<br />&#160;</td>
+                                    <p><a href="mailto:dvaughn@topcoder.com" class="bodyText">Sponsorship and Private Label Events</a><br/>
+                                    Drew Vaughn, VP of Sales<br />
+                                    tel: 860.633.5540<br />
+                                    fax: 860.657.4276<br />
+                                    &#160;</p>
+                                </td>
                                     
                                 <td width="50%" align="left" class="bodyText">
-                                    <a href="mailto:mlydon@topcoder.com" class="bodyText">Competition Applet/Website</a><br/>
-                                    Mike Lydon, CTO<br/>
-                                    Corporate Office<br/>
-                                    703 Hebron Avenue<br/>
-                                    Glastonbury, CT 06033<br/>
-                                    ph: 860.633.5540<br/>
-                                    fx: 860.657.4276<br />&#160;</td>
+                                    <p><a href="mailto:jmorris@fitzgerald.com" class="bodyText">Public Relations</a><br />
+                                    Jessica Morris<br />
+                                    FitzGerald Communications<br />
+                                    tel: 617.585.2227<br />
+                                    &#160;</p>
+                                </td>
                             </tr>
 
                             <tr valign="top">
                                 <td width="50%" align="left" class="bodyText">
-                                    <a href="mailto:tlongo@topcoder.com" class="bodyText">Membership/College Relations</a><br/>
-                                    Tom Longo, VP of Membership<br/>
-                                    Corporate Office<br/>
-                                    703 Hebron Avenue<br/>
-                                    Glastonbury, CT 06033<br/>
-                                    ph: 860.633.5540<br/>
-                                    fx: 860.657.4276<br />&#160;</td>
+                                    <p><a href="mailto:mlydon@topcoder.com" class="bodyText">Competition Applet/Website</a><br />
+                                    Mike Lydon, CTO<br />
+                                    tel: 860.633.5540<br />
+                                    fax: 860.657.4276<br />
+                                    &#160;</p>
+                                </td>
                                     
                                 <td width="50%" align="left" class="bodyText">
-                                    <a href="mailto:tces@topcoder.com" class="bodyText">Employment Services</a><br/>
-                                    Paul Moriarty, Director of Employment Services<br/>
-                                    Corporate Office<br/>
-                                    703 Hebron Avenue<br/>
-                                    Glastonbury, CT 06033<br/>
-                                    ph: 860.633.5540<br/>
-                                    fx: 860.657.4276<br />&#160;</td>
+                                    <p><a href="mailto:tces@topcoder.com" class="bodyText">Recruiting and Testing Services</a><br />
+                                    Paul Moriarty, Director of Employment Services<br />
+                                    tel: 860.633.5540<br />
+                                    fax: 860.657.4276<br />
+                                    &#160;</p>
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td width="50%" align="left" class="bodyText">
+                                    <p><a href="mailto:sales@topcodersoftware.com" class="bodyText">Software Sales</a><br />
+                                    Dave Tanacea<br />
+                                    tel: 866.TOP.CODE<br />
+                                    fax: 860.657.4276<br />
+                                    &#160;</p>
+                                </td>
+                                    
+                                <td width="50%" align="left" class="bodyText">
+                                    <p><a href="mailto:tlongo@topcoder.com" class="bodyText">Membership / College Relations</a><br />
+                                    Tom Longo, VP of Membership<br />
+                                    tel: 860.633.5540<br />
+                                    fax: 860.657.4276<br />
+                                    &#160;</p>
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td width="50%" align="left" class="bodyText">
+                                    <p><a href="mailto:tces@topcoder.com" class="bodyText">Software Service</a><br />
+                                    Mike Morris<br />
+                                    tel: 866.TOP.CODE<br />
+                                    fax: 860.657.4276<br />
+                                    &#160;</p>
+                                </td>
+                                    
+                                <td width="50%" align="left" class="bodyText">&#160;</td>
                             </tr>
                         </table>
                     </div>
@@ -116,22 +148,24 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
+        <td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
+        <td width="170">
             <xsl:call-template name="public_right_col"/>       
         </td>
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
-        <td width="25"><img src="/i/clear.gif" width="25" height="1" border="0"/></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
+
     </tr>
 </table>
 <!-- Body Ends -->
-        <xsl:call-template name="Foot"/>
+
+<xsl:call-template name="Foot"/>
         
       </body>
     </html>
