@@ -9,6 +9,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
+import java.util.*;
 
 /**
 * Processor for user list page, contains logic for setting up a
