@@ -1,10 +1,19 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.web.tc.Constants,
+                 com.topcoder.web.tc.model.Skill,
+                 java.util.List" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>TopCoder Contracting</title>
 
 <jsp:include page="../../../script.jsp" />
+
+<%
+List skillList = (List)request.getAttribute("skills");
+%>
 
 <SCRIPT TYPE="text/javascript">
 <!--
@@ -53,6 +62,17 @@ return false;
         </jsp:include>
 
 <!-- Breadcrumb-->
+    <script language="javascript">
+        function goToPage(s)
+        {
+            document.frmIndustries.module.value = s;
+            document.frmIndustries.submit();
+        }
+    </script>
+
+		<FORM ACTION="/tc" METHOD=POST onSubmit="" name="frmIndustries">
+		<input type="hidden" name="module" value="ContractingIndustries"/>
+		<input type="hidden" name="previouspage" value="skills" />
         <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
 			<tr>
 				<td class=oppDesc width="100%" valign=top>
@@ -78,112 +98,18 @@ return false;
                 </td>
             <% } %>
 			</tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Automotive</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Construction, Building</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Education</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Energy, Oil, Gas</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Federal, State, Local Governments</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Financial Services, Banks, Credit Unions</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Games</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Healthcare, Pharmaceuticals, Life Sciences, Biotechnology</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Hotels, Restaurants, Clubs, Other Leisure</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Information Technology, Software, Hardware, Electronics</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Media, Advertising, Publishing, Entertainment</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Non-profit, Social Sector</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Real Estate, Insurance</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Retail, Wholesale</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Telecommunications</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Transportation, Rail, Road, Air, Marine</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Utilities</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
+	    <%String[] cssClasses = new String[] {"formTextEven", "formTextOdd" };
+                          int i = 0;%>
+                <tc:skillIterator id="skill" list="<%=skillList%>">
+                <tr>
+	            <td class=<%=cssClasses[i % 2]%> valign=top><%=skill.getText()%></td>
+	            <tc:skillInput class="<%=cssClasses[i++ % 2]%>" skill="<%=skill%>" />
+                </tr>
+                </tc:skillIterator>
 			<tr>
 	            <td class=bodyText valign=middle>Additional Comments:</td>
 				<td class=bodyText colspan=11>
-				<TEXTAREA NAME="comments" ROWS="3" COLS="40"></TEXTAREA>
+				<tc-webtag:textArea name="<%=Constants.NOTE_PREFIX + Constants.NOTE_INDUSTRIES%>" rows="3" cols="40"/>
 				</td>
 			</tr>
 			<tr><td colspan=12 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=confirm"><img src="/i/submit.jpg" border=0/></a></td></tr>
