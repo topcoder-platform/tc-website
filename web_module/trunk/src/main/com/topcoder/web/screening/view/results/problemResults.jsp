@@ -123,8 +123,8 @@ function getTCProblemResults(coderId, roundId, problemId) {
            <screen:resultSetRowIterator id="testResult" list="<%= submissionInfo.getTestResults() %>">
 	        <TR>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("args").getResultData())%></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="expected_result" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="received" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("expected_result").getResultData())%></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("received").getResultData())%></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="status" /></TD>
 	        </TR>
             <% even = !even; %>
