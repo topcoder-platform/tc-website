@@ -40,6 +40,8 @@ public class Constants {
     public static String MIN_NUM_RATINGS;
     public static String MAX_NUM_RATINGS;
     public static String MAX_DAYS_SINCE_LAST_COMP;
+    public static String NOTE_TEXT;
+
 
     public static String PROJECT_ID;
     public static String PHASE_ID;
@@ -125,7 +127,6 @@ public class Constants {
     public static int FLASH_CATALOG_ID;
     public static int APPLICATIONS_CATALOG_ID;
     public static int INTERNAL_NOTE_TYPE_ID;
-    public static int NOTE_TEXT;
     public static int MAX_RATED_INQUIRIES;
     public static int MAX_UNRATED_INQUIRIES;
     public static int REVIEWER_TERMS_ID;
