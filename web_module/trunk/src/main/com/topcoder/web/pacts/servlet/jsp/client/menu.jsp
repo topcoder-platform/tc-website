@@ -7,8 +7,8 @@ contentType="text/html"
 <TD CLASS="registerNav" WIDTH="50" HEIGHT="21" BACKGROUND="/i/steel_gray_bg.gif" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="20" HEIGHT="1" BORDER="0"/></TD>
 <TD CLASS="registerNav" WIDTH="120" HEIGHT="21" BACKGROUND="/i/steel_gray_bg.gif" VALIGN="middle" ALIGN="center">
 <IMG SRC="/i/clear.gif" WIDTH="120" HEIGHT="1" BORDER="0"/><BR CLEAR="all"/>
-<% if ( nav.getLoggedIn() ) { %><A HREF="/reg/index.jsp" CLASS="registerNav">Update your Profile</A>&#160;&#160;&#160;&#160;
-<% } else { %><A CLASS="registerNav" HREF="/reg/index.jsp">REGISTRATION</A>&#160;&#160;&#160;&#160;</xsl:otherwise><%}%>
+<% if ( nav.getLoggedIn() ) { %><A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="registerNav">Update your Profile</A>&#160;&#160;&#160;&#160;
+<% } else { %><A CLASS="registerNav" HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>">REGISTRATION</A>&#160;&#160;&#160;&#160;</xsl:otherwise><%}%>
 </TD>
 <TD WIDTH="5" HEIGHT="21" BACKGROUND="/i/steel_gray_bg.gif" ALIGN="right"><IMG SRC="/i/top_bar_left.gif" WIDTH="21" HEIGHT="21" BORDER="0"/></TD>
 <TD CLASS="globalNav" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000" VALIGN="middle">

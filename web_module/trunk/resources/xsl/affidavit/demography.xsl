@@ -37,7 +37,7 @@
                 Unable to generate Affidavit.  The <b>demographic information</b> in your profile is incomplete.
                 Please go to the Registration -- 
                 General Information screen, complete and update the demographic information at the bottom of the form.<br/><br/>
-                <a href="/reg/index.jsp"><b>Registration &gt;&gt;</b></a>
+                <A CLASS="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute><b>Registration &gt;&gt;</b></a>
               </DIV>
             </TD>
             <!-- Center Column Ends -->

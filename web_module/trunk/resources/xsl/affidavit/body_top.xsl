@@ -31,7 +31,7 @@
     <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <P CLASS="statText" ALIGN="center">
-<A CLASS="statText" TARGET="_top" HREF="/?t=affidavit&amp;c=list">Click here to return to affidavit list.</A>  |   <A CLASS="statText" TARGET="_top" HREF="/reg/index.jsp">Click here to update your profile</A>
+<A CLASS="statText" TARGET="_top" HREF="/?t=affidavit&amp;c=list">Click here to return to affidavit list.</A>  |  <A CLASS="statText" TARGET="_top"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Click here to update your profile</A>
 </P>
 <P CLASS="statText">
 To print the affidavit click on the affidavit frame below and use one of the following commands:<BR/>

@@ -60,7 +60,7 @@
               </P>
               <P CLASS="statText"><SPAN CLASS="statTextBig">New to TopCoder?</SPAN><BR/>
                 Click here to 
-                <A HREF="/reg/index.jsp" CLASS="statText">register now</A>. 
+		<A CLASS="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>register now</A>. 
                 After you complete the registration process, we will
                 send your account activation code via email.
               </P>

@@ -63,7 +63,7 @@
                     <B>Process:</B>
                     <UL CLASS="bodyText">
                       <LI>
-                        <A HREF="/?t=registration" CLASS="bodyText">Register</A> as a TopCoder member.
+                        <A CLASS="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register</A> as a TopCoder member.
                       </LI>
                       <LI>Successfully qualify for a tournament.</LI>
                       <LI>

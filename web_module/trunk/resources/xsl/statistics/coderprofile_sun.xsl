@@ -79,7 +79,7 @@
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/index?t=statistics&amp;c=2002tccc_eyeon" CLASS="bodyText">"Keep Your Eye on"</A></TD>
 		</TR>
 		<TR>
-			<TD COLSPAN="2" VALIGN="top" CLASS="bodyText"><A HREF="/reg/index.jsp" CLASS="bodyText">&#160;&#160;<B>Become a Member today!</B></A></TD>
+			<TD COLSPAN="2" VALIGN="top" CLASS="bodyText"><A CLASS="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>&#160;&#160;<B>Become a Member today!</B></A></TD>
 		</TR>
 		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
 		</TABLE>
