@@ -1,4 +1,4 @@
-<%
+<%!
     String phase = request.getParameter("phase")==null?"":request.getParameter("phase");
     final String[] phases = new String[] {"preferences", "languages", "technologies", "os", "databases", "industries", "confirm", "success"};
     
