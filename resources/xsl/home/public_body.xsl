@@ -43,6 +43,7 @@
                 <img src="/i/logo_ghosted_bracket.gif" width="160" height="77" border="0" alt="[ TopCoder ]" vspace="5"/><br />
 <!-- Do Not Delete This Line --><font size="1" color="#000000" face="tahoma">HiddenWord</font>
             </td>
+
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
@@ -89,17 +90,21 @@
                         <td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td>
                         <td valign="middle" align="center" bgcolor="#CCCCCC" width="33%" nowrap="0" height="15">
                             <a class="bodyGeneric">
+
 <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview#leaders</xsl:attribute>
                             Div. Leaders</a>
                         </td>
                         <td valign="middle" align="center" bgcolor="#CCCCCC" width="43%" nowrap="0">
                             <a class="bodyGeneric">
 <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview#problem_stats</xsl:attribute>
+
                             Problem Stats</a>
                         </td>
                         <td valign="middle" align="center" bgcolor="#CCCCCC" width="23%" nowrap="0">
                             <a class="bodyGeneric">
+
 <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute>
+
                             Results</a>
                         </td>
                         <td valign="top" width="6"><img src="/i/clear.gif" alt="" width="6" height="1" border="0"/></td>
@@ -113,12 +118,15 @@
                             <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#001935">
                                 <tr><td valign="middle" height="17" align="center" colspan="5" class="statTextBig" background="/i/steel_bluebv_bg.gif">Best/Worst Rating Change</td></tr>
                                 <tr><td colspan="5" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+
 <xsl:for-each select="/TC/HOME/GainersAndLosers/Coder">
+
                                 <tr>
                                     <td height="14" valign="middle" width="20%" class="statTextBig" nowrap="0">&#160;&#160;&#160;<xsl:value-of select="division"/></td>
                                     <td valign="middle" width="10%" class="statText">&#160;&#160;<xsl:value-of select="change_type"/>:</td>
                                     <td valign="middle" width="35%" class="statText" nowrap="0">&#160;&#160;
                                         <a>
+
 <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
 <xsl:attribute name="CLASS">bodyText</xsl:attribute>
                                         <font>
@@ -126,12 +134,15 @@
     <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
 </xsl:attribute>
 <xsl:value-of select="handle"/>
+
                                         </font></a>
                                     </td>
                                     <td valign="middle" width="15%" class="statText" align="center"><xsl:value-of select="change"/></td>
                                     <td valign="middle" width="20%" class="statText" nowrap="0">&#160;<xsl:value-of select="room_name"/></td>
                                 </tr>
+
 </xsl:for-each>
+
                                 <tr><td colspan="5" valign="top" width="100%"><img src="/i/clear.gif" alt="" width="1" height="6" border="0"/></td></tr>
                             </table>
                         </td>
@@ -140,6 +151,7 @@
 
                     <tr><td colspan="3" valign="top" width="100%"><img src="/i/clear.gif" alt="" width="1" height="8" border="0"/></td></tr>
                 </table>
+
 <!-- Summary/Best/Worst Ends -->
 
 <!-- Coder Point of View Begins -->
@@ -159,8 +171,10 @@
   </tr>
   <tr>
     <td valign="top" class="bodyText" width="100%">
+
     <a class="bodyGeneric">
         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm132_prob</xsl:attribute>
+
         <strong>Problem Set Analysis &amp; Opinion</strong>
       </a><br />
 
@@ -278,6 +292,7 @@ be a user interface that has never been seen before...<a class="bodyGeneric"><xs
         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>employment services</a>.<br /></td>
     <td valign="top" width="6"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
   <tr><td valign="top" colspan="5"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+
 </table>
         </td>
   <!-- Center Column Ends -->
@@ -287,8 +302,8 @@ be a user interface that has never been seen before...<a class="bodyGeneric"><xs
 <!--SRM Sponsor Starts-->
             <img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0"/><br />
             <map name="srmanimation_home">
-                <area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=tces&amp;c=index"/>
-                <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4456&amp;t=schedule&amp;c=srm"/>
+                <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" />
+                <area shape="poly" alt="SRM Match 133" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4455&amp;t=schedule&amp;c=srm" />
             </map>
 <!--SRM Sponsor Ends-->
 
