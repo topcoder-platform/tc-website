@@ -92,12 +92,15 @@
   </TR>
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD CLASS="bodyText" VALIGN="top" ><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/> <IMG SRC="/i/tournament/invit02/home_invt02champ.jpg" BORDER="0" WIDTH="400" HEIGHT="105" ALT=""/></A><BR/>
-<P><B>The Land Down Under comes out On Top!</B><BR/>
+    <TD CLASS="bodyText" VALIGN="top" ><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute><IMG SRC="/i/tournament/invit02/home_invt02champ.jpg" BORDER="0" WIDTH="250" HEIGHT="122" ALT=""/></A><BR/>
+<P><A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute><B>The Land Down Under comes out On Top!</B></A><BR/>
 by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
 Saturday, November 23, 2002</P>
 
-<P>Forever concerned about the integrity of the competition results, the four finalists were asked to compete twice today as we sought to crown the 2002 TopCoder Invitational champion.  <B>John Dethridge</B> became TopCoder's new highest rated member, defeating <B>SnapDragon</B>, <B>dgarthur</B>, and <B>moira</B> in the Championship round... <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute>read&#160;more</A></P>
+Forever concerned about the integrity of the competition results, the four finalists were asked to 
+compete twice today as we sought to crown the 2002 TopCoder Invitational champion.  <B>John Dethridge</B> 
+became TopCoder's new highest rated member, defeating <B>SnapDragon</B>, <B>dgarthur</B>, and <B>moira</B> 
+in the Championship round...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute>read&#160;more</A><BR/><BR/>
 
 
 <!--<B>When:</B> November 22nd and 23rd<BR/>
@@ -264,7 +267,7 @@ Saturday, November 23, 2002<BR/><BR/>
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
   </TR>
   
-<!-- Uncomment for invit02 -->
+<!-- Uncomment for invit02
  
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
@@ -285,8 +288,9 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-  </TR>   
+  </TR> -->   
 </TABLE>
+
 <!-- Summary/Best/Worst Ends -->
 
 <!-- Coder Point of View Begins -->
@@ -438,18 +442,16 @@ type of challenge designed to make your code run longer than 8 seconds. Immediat
 </TABLE> 
     </TD>
   <!-- Center Column Ends -->    
-    <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
-
-<!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=fbi</xsl:attribute></A>  
-<IMG USEMAP="#artifact_home" SRC="/i/artifact/artifact_home.gif" alt="" width="244" height="160" border="0"/>  
-  <BR/> -->
-<MAP NAME="artifact_home">
-<AREA ALT="Artifact Software" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact"/>
-<!--<AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4365&amp;t=schedule&amp;c=srm"/>-->
-<AREA ALT="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
+    <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/> 
+<IMG USEMAP="#cryptic_home" SRC="/i/es/cryptic/cryptic_home.gif" alt="" width="244" height="160" border="0"/>  
+  <BR/>
+<MAP NAME="cryptic_home">
+<AREA ALT="Cryptic Studios" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=tces&amp;c=cryptic"/>
+<AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4380&amp;t=schedule&amp;c=srm"/>
+<!-- <AREA ALT="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/> -->
 </MAP>
-<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
-<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A>
+<!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
+<IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A> -->
 <A HREF="/?&amp;t=development&amp;c=components">
 <IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="156" VSPACE="1" BORDER="0"/></A>
 <!-- <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
