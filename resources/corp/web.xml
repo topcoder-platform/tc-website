@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+ "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+<web-app>
+    <servlet>
+        <servlet-name>MainServlet</servlet-name>
+        <display-name>MainServlet</display-name>
+        <description>Main Controller of Topcoder Corporate</description>
+        <servlet-class>com.topcoder.web.corp.controller.MainServlet</servlet-class>
+        <!--
+        |
+        | Requests' processors descriptors
+        | Name must be <prefix><name> where prefix == 'processor-'
+        | and name it that will be specified in target url as 'module=<name>' parameter.
+        | Value is class name for RequestProcessor implementor
+        |
+        -->
+        <init-param>
+            <param-name>processor-Static</param-name>
+            <param-value>com.topcoder.web.corp.request.Static</param-value>
+            <description>handles static pages</description>
+        </init-param>
+        <init-param>
+            <param-name>processor-Registration</param-name>
+            <param-value>com.topcoder.web.corp.request.Registration</param-value>
+            <description>handles primary registration page</description>
+        </init-param>
+        <init-param>
+            <param-name>processor-UserList</param-name>
+            <param-value>com.topcoder.web.corp.request.UserList</param-value>
+            <description>handles user list page</description>
+        </init-param>
+        <init-param>
+            <param-name>processor-UserEdit</param-name>
+            <param-value>com.topcoder.web.corp.request.UserEdit</param-value>
+            <description>creates/edit user/permissions</description>
+        </init-param>
+        <init-param>
+            <param-name>processor-Login</param-name>
+            <param-value>com.topcoder.web.corp.request.Login</param-value>
+            <description>handles user list page</description>
+        </init-param>
+        <init-param>
+            <param-name>processor-Logout</param-name>
+            <param-value>com.topcoder.web.corp.request.Logout</param-value>
+            <description>handles user list page</description>
+        </init-param>
+        <!--
+        |
+        |       T E S T I N G   T I M E   P R O C E S S O R S
+        |
+        -->
+
+        <!--
+        |
+        |  Controller's pages set
+        |  All error pages have the 'caught-exception' attribute set
+        |
+        -->
+        <init-param>
+            <param-name>page-welcome</param-name>
+            <param-value>/index.jsp</param-value>
+            <description>all unresolved requests will go here</description>
+        </init-param>
+        <init-param>
+            <param-name>page-login</param-name>
+            <param-value>/LoginPage.jsp</param-value>
+            <description>unauthorized anonymous users will go here</description>
+        </init-param>
+        <init-param>
+            <param-name>page-error-navigation</param-name>
+            <param-value>/exc/NavigationError.jsp</param-value>
+            <description>navigation errors like rc404, file not found, etc. will go here</description>
+        </init-param>
+        <init-param>
+            <param-name>page-error-security</param-name>
+            <param-value>/exc/SecurityError.jsp</param-value>
+            <description>security exceptions (authentification, authorization) will fetch this page</description>
+        </init-param>
+        <init-param>
+            <param-name>page-error-internal</param-name>
+            <param-value>/exc/InternalError.jsp</param-value>
+            <description>unexpected (null pointer and similar) exceptions will fed this page</description>
+        </init-param>
+
+        <!--
+        |
+        |  Registration/UserEdit processors' pages set
+        |  (may depend on context path and/or servlet path. These must
+        |   be reviewed carefully upon redeployment)
+        |
+        -->
+        <init-param>
+            <param-name>page-Registration-success</param-name>
+            <param-value>/reg/RegSuccess.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>page-Registration-retry</param-name>
+            <param-value>/reg/Registration.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>page-UserEdit-success</param-name>
+            <param-value>/corp/bfix/?module=UserList</param-value> <!-- redirect -->
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>page-UserEdit-retry</param-name>
+            <param-value>/acc_admin/AddUser.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <!--
+        |
+        |  UserList processor's set of pages
+        |
+        -->
+        <init-param>
+            <param-name>page-UserList</param-name>
+            <param-value>/acc_admin/UserListView.jsp</param-value>
+            <description></description>
+        </init-param>
+
+
+    </servlet>
+
+    <servlet>
+        <servlet-name>TransactionServlet</servlet-name>
+        <display-name>TransactionServlet</display-name>
+        <description>VeriSign's feedback processor</description>
+        <servlet-class>com.topcoder.web.corp.controller.TransactionServlet</servlet-class>
+
+        <init-param>
+            <param-name>page-success</param-name>
+            <param-value>/Tx/Accepted.jsp</param-value>
+            <description>Default CC transaction success page</description>
+        </init-param>
+
+        <init-param>
+            <param-name>page-failure</param-name>
+            <param-value>/Tx/Rejected.jsp</param-value>
+            <description>CC transaction failure page</description>
+        </init-param>
+
+        <init-param>
+            <param-name>intermediate-form</param-name>
+            <param-value>/Tx/helper_form.jsp</param-value>
+            <description>intermediate form used to organize user to VeriSign interaction</description>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MainServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TransactionServlet</servlet-name>
+        <url-pattern>/Tx/</url-pattern>
+    </servlet-mapping>
+
+    <taglib>
+        <taglib-uri>tc-webtags.tld</taglib-uri>
+        <taglib-location>/WEB-INF/classes</taglib-location>
+    </taglib>
+</web-app>

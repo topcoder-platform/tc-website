@@ -8,7 +8,7 @@ import com.topcoder.web.common.security.WebAuthentication;
  * business logic to process a request from a servlet controller.
  *
  * Call {@link #setRequest(javax.servlet.ServletRequest)}
- * and {@link #setAuthentication(com.topcoder.shared.security.WebAuthentication)}
+ * and {@link #setAuthentication(com.topcoder.web.common.security.WebAuthentication)}
  * first, then {@link #process()} to process the request, and finally use
  * the accessor methods to see the result.
  *
