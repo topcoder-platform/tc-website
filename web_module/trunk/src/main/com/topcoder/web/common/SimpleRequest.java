@@ -12,7 +12,7 @@ import java.util.Enumeration;
  */
 public class SimpleRequest implements TCRequest {
 
-    private HttpServletRequest request = null;
+    protected HttpServletRequest request = null;
     public SimpleRequest(HttpServletRequest request) {
         this.request = request;
     }

@@ -21,6 +21,11 @@ public class RequestTracker {
     private static final User GUEST = SimpleUser.createGuest();
     private static final int BATCH_PERIOD = 60 * 1000;
     private static final int SESSION_ID_LENGTH = 50;
+    private static final String[] IGNORE_LIST = {"65.112.118.194", "172.16.1.182"};
+
+    static {
+        Arrays.sort(IGNORE_LIST);
+    }
 
     private static Queue q = new Queue();
 
@@ -44,7 +49,7 @@ public class RequestTracker {
      * @param request
      */
     public static void trackRequest(TCRequest request) {
-        q.add(new UserRequest(GUEST, request));
+        trackRequest(GUEST, request);
     }
 
     /**
@@ -53,7 +58,8 @@ public class RequestTracker {
      * @param request
      */
     public static void trackRequest(User u, TCRequest request) {
-        q.add(new UserRequest(u, request));
+        if (Arrays.binarySearch(IGNORE_LIST, request.getRemoteAddr())<0)
+            q.add(new UserRequest(u, request));
     }
 
     /**
