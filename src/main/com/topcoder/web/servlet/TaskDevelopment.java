@@ -88,7 +88,6 @@ public final class TaskDevelopment {
                     String from = nav.getUser().getEmail();
                     String project = Conversion.checkNull(request.getParameter("Project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
-                    String tcsHandle = Conversion.clean(request.getParameter("TCSHandle"));
                     String comment = Conversion.clean(request.getParameter("Comment"));
                     TCSEmailMessage mail = new TCSEmailMessage();
                     mail.setSubject(project + " -- " + handle);
@@ -97,8 +96,6 @@ public final class TaskDevelopment {
                     msgText.append(" inquiry for project:  ");
                     msgText.append(project);
                     msgText.append("\n\n");
-                    msgText.append("\n\nTCS Handle:\n");
-                    msgText.append(tcsHandle);
                     if (request.getParameter("terms")==null) {
                       msgText.append("\n\nDid not agree to terms.\n");
                     } else { 
