@@ -70,8 +70,8 @@ with "Coach" in the subject line.
 
 <p><span class="bodySubtitle">Compensation</span><br/>
 <ul>
-<li>Coaches will receive 10% of the competitor’s winnings for all submissions made during the Component Competition and submitted after the coaching agreement was signed.  This includes both component earnings and Contest prizes.</li>
-<li>Future royalties received by the winning competitor are not subject to the coach’s percentage.</li>
+<li>Coaches will receive 10% of the competitor's winnings for all submissions made during the Component Competition and submitted after the coaching agreement was signed.  This includes both component earnings and Contest prizes.</li>
+<li>Future royalties received by the winning competitor are not subject to the coach's percentage.</li>
 </ul>
 
 <p><span class="bodySubtitle">Responsibilities</span><br/>
