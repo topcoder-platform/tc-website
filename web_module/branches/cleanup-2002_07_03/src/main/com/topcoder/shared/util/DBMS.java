@@ -51,7 +51,7 @@ public class DBMS {
     public static final int PT_PROJ_TASK_SEQ            = getIntProperty("PT_PROJ_TASK_SEQ", 22);
     public static final int PT_PROJ_USR_UPDATE_SEQ      = getIntProperty("PT_PROJ_USR_UPDATE_SEQ", 23);
     public static final int PT_PROJ_USR_SEQ             = getIntProperty("PT_PROJ_USR_SEQ", 24);
-    public static final int PT_PROJ_USR_TASK_SEQ        = getIntProperty("PT_PROJ_USR_MESSAGE_SEQ", 25);
+    public static final int PT_PROJ_USR_TASK_SEQ        = getIntProperty("PT_PROJ_USR_TASK_SEQ", 25);
     public static final int PT_USR_MESSAGE_SEQ          = getIntProperty("PT_USR_MESSAGE_SEQ", 26);
     public static final int PT_PROJ_ISSUE_SEQ           = getIntProperty("PT_PROJ_ISSUE_SEA", 27);
     public static final int AFFIDAVIT_SEQ               = getIntProperty("AFFIDAVIT_SEQ", 50);
