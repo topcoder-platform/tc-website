@@ -306,5 +306,10 @@
       <taglib-uri>tc-taglib.tld</taglib-uri>
       <taglib-location>/WEB-INF/tc-taglib.tld</taglib-location>
    </taglib>
+    <taglib>
+       <taglib-uri>rsc-taglib.tld</taglib-uri>
+       <taglib-location>/WEB-INF/rsc-taglib.tld</taglib-location>
+    </taglib>
+
 
 </web-app>
