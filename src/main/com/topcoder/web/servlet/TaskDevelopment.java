@@ -142,6 +142,7 @@ public final class TaskDevelopment {
             else{
                 devTag.addTag(new ValueTag("payment", payment));
             }
+
             devTag.addTag(new ValueTag("date", date));
             devTag.addTag(new ValueTag("version", request.getParameter("version")));
             devTag.addTag(new ValueTag("phase", request.getParameter("phase")));
@@ -206,9 +207,10 @@ public final class TaskDevelopment {
             else if (command.equals("tcs_inquire-design")) {
                 if(comp != null)
                 {
+                    log.debug("here");
                     long componentId = Long.parseLong(comp);
 
-                    ComponentManager componentManager  = getComponentManager(componentId, Long.parseLong(request.getParameter("phase")));
+                    ComponentManager componentManager  = getComponentManager(componentId, Long.parseLong(request.getParameter("version")));
                     ComponentInfo componentInfo  = componentManager.getComponentInfo();
                     Collection technologies = componentManager.getTechnologies();
                     Technology summaries[] = (Technology[])technologies.toArray(new Technology[0]);
