@@ -65,36 +65,6 @@
         <td width="206"><a href="/" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/></a></td>
         <td width="99%" nowrap>
 
-<% if ( !sessionInfo.isAnonymous() ) { %>
-            <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">
-                <tr valign="middle"><form name="selectform">
-                <% if (rating > 1199) { %>
-                    <td width="99%" align="left"><img src="/i/top_div1_badge.jpg" width="370" height="75" border="0"/></td>
-                <% } else if (rating < 1) { %>
-                    <td width="99%" align="left"><img src="/i/top_nonrated_badge.jpg" width="370" height="75" border="0"/></td>
-                <% } else { %>
-                    <td width="99%" align="left"><img src="/i/top_div2_badge.jpg" width="390" height="75" border="0"/></td>
-                <% } %>
-                    <td align="right">
-                        <select name="quickstat" size="1" class="dropdown" onchange="window.location=this.options[this.selectedIndex].value">
-                            <option value="SELECTED"> Select a Feature: </option>
-                            <option value="/stat?c=member_profile&amp;cr=<%=sessionInfo.getUserId()%>">Profile</option>
-                            <option value="/stat?c=ratings_history&amp;cr=<%=sessionInfo.getUserId()%>">Rating History</option>
-                            <option value="/stat?c=earnings_history&amp;cr=<%=sessionInfo.getUserId()%>">Earnings History</option>
-                            <option value="/stat?c=coder_room_stats&amp;cr=<%=sessionInfo.getUserId()%>">Room Statistics</option>
-                            <option value="/stat?c=round_stats">Round Statistics</option>
-                            <option value="/index?t=search">Advanced Member Search</option>
-                            <option value="/PactsMemberServlet">Affidavits</option>
-                            <option value="/index?t=search&amp;c=refer">My Referrals</option>
-                            <option value="/index?t=development&amp;c=index">Development</option>
-                            <option value="/index?t=tces&amp;c=index">TCES (jobs)</option>
-                        </select>
-                    </td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="75" border="0"/></td></form>
-                </tr>
-            </table>
-
-<% } else { %>
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td><img src="/i/clear.gif" width="1" height="75" border="0"/></td></tr>
