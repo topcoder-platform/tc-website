@@ -1,6 +1,8 @@
 package com.topcoder.web.forums;
 
 import com.jivesoftware.base.AuthToken;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.User;
 
 import java.io.Serializable;
 
@@ -11,7 +13,7 @@ import java.io.Serializable;
  */
 public class TCAuthToken implements AuthToken, Serializable {
 
-    private long userID;
+    private User u;
 
     /**
      * Constucts a new auth token with the specified userID.
@@ -19,17 +21,17 @@ public class TCAuthToken implements AuthToken, Serializable {
      * @param userID the userID to create an authToken token with.
      */
     protected TCAuthToken(long userID) {
-        this.userID = userID;
+        this.u = new SimpleUser(userID, "", "");
     }
 
     // AuthToken Interface
 
     public long getUserID() {
-        return userID;
+        return u.getId();
     }
 
     public boolean isAnonymous() {
-        return userID == -1;
+        return u.isAnonymous();
     }
 
 }

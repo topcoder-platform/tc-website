@@ -8,6 +8,7 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.shared.security.SimpleUser;
 
 import javax.sql.DataSource;
 import javax.naming.Context;
@@ -22,15 +23,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class TCAuthFactory extends AuthFactory {
 
-    // Database Queries.
-
-    private static final String AUTHORIZE =
-        "SELECT personid FROM user_id WHERE login=? AND password=?";
 
     /**
      * The same token can be used for all anonymous users, so cache it.
      */
-    private static final AuthToken anonymousAuth = new TCAuthToken(-1);
+    private static final AuthToken anonymousAuth = new TCAuthToken(SimpleUser.createGuest().getId());
 
     /**
      *
