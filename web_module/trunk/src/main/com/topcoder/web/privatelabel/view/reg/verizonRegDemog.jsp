@@ -65,7 +65,8 @@
 </jsp:include>   
 
       <blockquote>
-      <table cellpadding="1" cellspacing="3" class="bodyText">
+      <h2>Registration</h2>
+      <table cellpadding="1" cellspacing="3" class="bodyText" align="center">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.FULL_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
@@ -74,13 +75,6 @@
                 <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
-            </tr>
-            <tr>
-               <td>
-               </td>
-               <td align="left" class="bodyTitle">
-                  Registration<br /><br />
-               </td>
             </tr>
             <tr>
                 <td align="right">
