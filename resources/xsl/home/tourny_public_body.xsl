@@ -384,19 +384,30 @@ problem (arguably the easiest Division-I problem of the match)...
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
-<IMG SRC="/i/m/Penwiper_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
-By&#160;Penwiper<BR/><I>[TC] Member</I><BR/><BR/>
+<IMG SRC="/i/m/RevenantChaos_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
+By&#160;RevenantChaos<BR/><I>[TC] Member</I><BR/><BR/>
 <A HREF="/?&amp;t=news_events&amp;c=feat_topics"><IMG SRC="/i/writers_wanted.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="15"/></A></TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText"><BR/>
 <A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_100902</xsl:attribute>
-  <B>Graphics Programming for Motion Capture</B></A><BR/>
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_111302</xsl:attribute>
+  <B>King of the Silicon Hill:<BR/>Today's High-End Microprocessors</B></A><BR/>
 <!-- <I>"If you take it slow you'll move up."</I><BR/> -->
-October 9, 2002<BR/>
+November 13, 2002<BR/>
 
 <P>
-If you have ever played a video game, gone to a movie, or just watched a bit of television at some point in the last ten years, chances are you have already seen the end results of what motion capture (mocap) technology can help to produce. Mocap technology as we know it today probably first came into widespread use in the late 1970s and early 1980s when biomechanics labs began to use computers to analyze human motion. Throughout the late 1980s and early 1990s mocap was adopted by the film and entertainment industries, often on an experimental basis. Although they were initially designed to save time and obviate the need for hiring scores of key-frame animators, many of the early systems were difficult to use, and did not work very well. The early optical systems which required markers placed on an actor's body and multiple cameras, would often suffer from occlusion, requiring animators to painstakingly edit the captured motion data by hand...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_100902</xsl:attribute>full&#160;story</A></P>
+All of the optimizations in the world are nothing compared to one simple truth: your code is only as good as the microprocessor 
+that's chewing on it.  In the CPU game, there are two (well, maybe three) major players: 
+AMD, Intel, and (if you're feeling generous) Cyrix
+</P>
+
+<P>
+AMD is best known for its high-end "Athlon" line (which utilizes the Thoroughbred core), which currently is topped by the 
+XP 2600+ at 2.133 gigahertz.  The XP 2800+ is currently being launched.</P>
+
+<P>
+Intel, which is AMD's major competition largely because of their advertising budget and deals with prefab system makers, 
+produces the Pentium line, which is currently in its fourth generation...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_111302</xsl:attribute>full&#160;story</A></P>
 <!-- <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P> -->
   </TD>
     <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
