@@ -866,12 +866,12 @@
      </target>
 
      <target name="deploy-techassess" depends="war-techassess">
-         <copy todir="../jboss-4.0.0/server/default/lib">
+         <copy todir="../jboss-4.0.0/server/default/lib" overwrite="true">
              <fileset dir="${lib.dir}">
                  <include name="${shared.jar}"/>
              </fileset>
          </copy>
-         <copy todir="../jboss-4.0.0/server/default/deploy">
+         <copy todir="../jboss-4.0.0/server/default/deploy" overwrite="true">
              <fileset dir="${war.dir}">
                  <include name="techassess.war"/>
              </fileset>
