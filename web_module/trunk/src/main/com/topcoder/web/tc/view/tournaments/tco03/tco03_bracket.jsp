@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 java.util.Map"%>
+                 java.util.Map,
+                 com.topcoder.web.common.StringUtils"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -78,32 +79,32 @@
                       <td align="right" class="advancers_list"><rsc:item name="seed" row="<%=resultRow%>"/></td>
                       <td align="left" class="advancers_list"><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
                       <td align="right" class="advancers_list"><rsc:item name="rating" row="<%=resultRow%>"/></td>
-                      <% if (resultRow.getStringItem("round1").equals("Eliminated")) { %>
+                      <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
                           <td class="sidebarText"><font color="#CC0000"><rsc:item name="round1" row="<%=resultRow%>"/></font></td>
                       <% } else { %>
                           <td class="sidebarText"><rsc:item name="round1" row="<%=resultRow%>"/></td>
                       <% } %>
-                      <% if (resultRow.getStringItem("round2").equals("Eliminated")) { %>
+                      <% if (StringUtils.checkNull(resultRow.getStringItem("round2")).equals("Eliminated")) { %>
                           <td class="sidebarText"><font color="#CC0000"><rsc:item name="round2" row="<%=resultRow%>"/></font></td>
                       <% } else { %>
                           <td class="sidebarText"><rsc:item name="round2" row="<%=resultRow%>"/></td>
                       <% } %>
-                      <% if (resultRow.getStringItem("round3").equals("Eliminated")) { %>
+                      <% if (StringUtils.checkNull(resultRow.getStringItem("round3")).equals("Eliminated")) { %>
                           <td class="sidebarText"><font color="#CC0000"><rsc:item name="round3" row="<%=resultRow%>"/></font></td>
                       <% } else { %>
                           <td class="sidebarText"><rsc:item name="round3" row="<%=resultRow%>"/></td>
                       <% } %>
-                      <% if (resultRow.getStringItem("round4").equals("Eliminated")) { %>
+                      <% if (StringUtils.checkNull(resultRow.getStringItem("round4")).equals("Eliminated")) { %>
                           <td class="sidebarText"><font color="#CC0000"><rsc:item name="round4" row="<%=resultRow%>"/></font></td>
                       <% } else { %>
                           <td class="sidebarText"><rsc:item name="round4" row="<%=resultRow%>"/></td>
                       <% } %>
-                      <% if (resultRow.getStringItem("semi").equals("Eliminated")) { %>
+                      <% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
                           <td class="sidebarText"><font color="#CC0000"><rsc:item name="semi" row="<%=resultRow%>"/></font></td>
                       <% } else { %>
                           <td class="sidebarText"><rsc:item name="semi" row="<%=resultRow%>"/></td>
                       <% } %>
-                      <% if (resultRow.getStringItem("final").equals("Eliminated")) { %>
+                      <% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
                           <td class="sidebarText"><font color="#CC0000"><rsc:item name="final" row="<%=resultRow%>"/></font></td>
                       <% } else { %>
                           <td class="sidebarText"><rsc:item name="final" row="<%=resultRow%>"/></td>
