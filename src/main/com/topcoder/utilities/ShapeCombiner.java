@@ -26,7 +26,7 @@ public class ShapeCombiner {
      * @param args the command line arguments
      */
     
-    private static final String[] colorNames = {"o", "w", "g", "n", "b", "y", "r"};
+    private static final String[] colorNames = {"w", "g", "n", "b", "y", "r"};
     
     private static final String[] bgNames = { "B", "W" };
     private static final String[] bgFolders = {"onBlue", "onWhite" };
