@@ -174,7 +174,7 @@ public class MainServlet extends HttpServlet {
         if( !found ) {
             log.debug( "doGet: module not found" );
             /* Not sure what to do when no modules can be used to complete this request */
-            sendToPage( request, response, "/", false );
+            sendToPage( request, response, "index.jsp", false );
         }
         /*
     	// I suppose for testing purposes that 'pr' request parameter defines
