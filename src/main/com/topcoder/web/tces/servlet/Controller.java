@@ -208,8 +208,9 @@ public class Controller extends HttpServlet {
         }
         String destParam = Login.KEY_DESTINATION_PAGE;
         String loginPageDest = TCESConstants.LOGIN_PAGE + "&" + destParam
-                + "=" + URLEncoder.encode(originatingPage);
-        response.sendRedirect(loginPageDest);
+                + "=" +originatingPage;
+
+        response.sendRedirect(response.encodeRedirectURL(loginPageDest));
     }
 
     /**
