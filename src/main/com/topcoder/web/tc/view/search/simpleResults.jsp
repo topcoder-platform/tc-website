@@ -82,7 +82,7 @@
               <tr valign="middle">
                   <td class="statText" height="16" colspan="7" align="center">
                     <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"&gt;&gt; next")%>
+                    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                   </td>
               </tr>
 
