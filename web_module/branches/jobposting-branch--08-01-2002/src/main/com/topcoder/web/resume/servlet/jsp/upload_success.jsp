@@ -1,16 +1,17 @@
-<%@ page import="com.topcoder.web.resume.servlet.Controller"%>
+<%@ page import="com.topcoder.web.resume.common.Constants"%>
 <%@ page language="java"%>
 <%@ page errorPage="/errorPage.jsp"%>
 
 <HTML>
-<HEAD><TITLE>Resume Uploaded Successfully</TITLE>
-    <%@ include file="../script.jsp" %>
-    </HEAD>
+<HEAD><TITLE>Resume Uploaded Successfully</TITLE></HEAD>
+   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
+   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+
   <BODY BGCOLOR="#CCCCCC">
     <TABLE WIDTH="100%" HEIGHT="100%" BACKGROUND="/i/steel_darkblue_bg.gif">
       <TR>
         <TD class="statTextBig">
-         Upload successful!<br/><a href="<%= Controller.ALIAS %>?<%= Controller.TASK %>=<%= Controller.RESUME_DOWNLOAD_TASK %>" class="statTextBig">Click here to download your resume</a>
+         Upload successful!<br/><a href="/Resume?&<%=Constants.TASK_KEY%>=DownloadTask" class="statTextBig">Click here to download your resume</a>
         </TD>
       </TR>
     </TABLE>
