@@ -34,7 +34,7 @@
    }
 %>
 
-<A NAME="top"/>
+<a name="top"/>
 <table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">    
     <tr valign="middle">
         <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
@@ -42,14 +42,16 @@
         <td width="99%" align="right" class="login" nowrap="0">
 
 <% if ( nav.getLoggedIn() ) { %>
-            <A href="/?t=authentication&amp;c=submit_logout" class="loginLinks" target="_parent">Logout</A>
-            &#160;&#160;|&#160;&#160;<A href="/reg/index.jsp" class="loginLinks" target="_parent">Update Profile</A>
+            <strong>Hello, </strong>
+            <a href="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=<%=nav.getUser().getUserId()%>" class="statText" target="_parent"><font color="<%=color%>"><b><%=nav.getUser().getHandle()%></b></font></a>
+            &#160;&#160;|&#160;&#160;<a href="/?t=authentication&amp;c=submit_logout" class="loginLinks" target="_parent">Logout</a>
+            &#160;&#160;|&#160;&#160;<a href="/reg/index.jsp" class="loginLinks" target="_parent">Update Profile</a>
 <% } else { %>
-            <A href="/?t=authentication&amp;c=login" class="loginLinks" target="_parent">Login</A>
-            &#160;&#160;|&#160;&#160;<A href="/reg/index.jsp" class="loginLinks" target="_parent">Register</A>
+            <a href="/?t=authentication&amp;c=login" class="loginLinks" target="_parent">Login</a>
+            &#160;&#160;|&#160;&#160;<a href="/reg/index.jsp" class="loginLinks" target="_parent">Register</a>
 <%}%>
             
-            &#160;&#160;|&#160;&#160;<A href="/" class="loginLinks" target="_parent">Home</A>
+            &#160;&#160;|&#160;&#160;<a href="/" class="loginLinks" target="_parent">Home</a>
         </td>
         <td><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
     </tr>
@@ -59,87 +61,53 @@
     <tr><td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>                
 </table> 
 
-    <!-- Logo Bar Include Begins -->       
-    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">            
-      <TR valign="middle">
-        <TD WIDTH="15" BGCOLOR="#000000"><A NAME="top"></A><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
-        <TD WIDTH="206" BGCOLOR="#000000"><A HREF="/?&amp;t=home&amp;c=public_home" TARGET="_parent"><IMG SRC="/i/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="5"/></A></TD>
-        <TD WIDTH="20" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" HSPACE="15"/></TD>
-        <TD CLASS="time" VALIGN="bottom" NOWRAP="" ALIGN="right"><!-- <BR/>
-              <SPAN CLASS="registerToday">&#160;&#160;&#160;&#160;Current Member Count</SPAN>&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> -->
+<!-- Logo Bar Include Begins -->       
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
+    <tr valign="middle">
+        <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="206"><a href="/?&amp;t=home&amp;c=public_home" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/></a></td>
+        <td width="20"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15"/></td>
+        <td nowrap align="right">
+
 <% if ( nav.getLoggedIn() ) { %>
-                    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">            
-                       <TR valign="middle">
-                          <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
-                          <% if (rating > 1199) { %>
-                          <TD BACKGROUND="/i/top_div1_badge.jpg" WIDTH="100%" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
-                          <% } else { %>
-                          <TD BACKGROUND="/i/top_div2_badge.jpg" WIDTH="100%" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="75" BORDER="0"/></TD>
-                          <% } %>
-                          <TD CLASS="time" ALIGN="right" VALIGN="middle" WIDTH="150" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/><BR/>
-                             <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">            
-                                <TR>
-                                   <TD class="time" HEIGHT="18" VALIGN="middle" ALIGN="center" BGCOLOR="#000000">                                                                           
-                    <!-- Welcome <SPAN CLASS="smallBrackets">[ </SPAN> --> 
-<A href="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=<%=nav.getUser().getUserId()%>" class="statText" TARGET="_parent"><FONT color="<%=color%>"><B><%=nav.getUser().getHandle()%></B></FONT></A>  
-                    <!-- <SPAN CLASS="smallBrackets">]</SPAN> -->
-                                   </TD>
-                                 </TR>
-                                <TR>
-                                   <TD class="time" HEIGHT="18" VALIGN="middle" ALIGN="center">                                                                         
-    <form name="selectform">
-<select name="quickstat" size="1" class="dropdown" onchange="window.location=this.options[this.selectedIndex].value">      
-        <OPTION value="SELECTED"> Select a Feature: </OPTION>
-        <OPTION value="/stat?c=member_profile&amp;cr=<%=nav.getUser().getUserId()%>">Profile</OPTION>
-        <OPTION value="/stat?c=ratings_history&amp;cr=<%=nav.getUser().getUserId()%>">Rating History</OPTION>
-        <OPTION value="/stat?c=earnings_history&amp;cr=<%=nav.getUser().getUserId()%>">Earnings History</OPTION>
-        <OPTION value="/stat?c=coder_room_stats&amp;cr=<%=nav.getUser().getUserId()%>">Room Statistics</OPTION> 
-        <OPTION value="/stat?c=round_stats">Round Statistics</OPTION>
-        <OPTION value="/index?t=search">Advanced Member Search</OPTION> 
-        <OPTION value="/PactsMemberServlet">Affidavits</OPTION> 
-        <OPTION value="/index?t=search&amp;c=refer">My Referrals</OPTION>
-        <OPTION value="/index?t=development&amp;c=index">Development</OPTION>
-        <OPTION value="/index?t=tces&amp;c=index">TCES (jobs)</OPTION> 
-      </select>
-    </form>
-                                   </TD>                                   
-                                 </TR>                                 
-                               </TABLE>
-                          </TD>
-                          <TD WIDTH="10" BGCOLOR="#333333"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                       </TR>             
-                    </TABLE>
+            <table width="99%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">            
+                <tr valign="middle"><form name="selectform">
+                <% if (rating > 1199) { %>
+                    <td background="/i/top_div1_badge.jpg" width="99%"><img src="/i/clear.gif" width="1" height="75" border="0"/></td>
+                <% } else { %>
+                    <td background="/i/top_div2_badge.jpg" width="99%"><img src="/i/clear.gif" width="1" height="75" border="0"/></td>
+                <% } %>
+                    <td align="right">
+                        <select name="quickstat" size="1" class="dropdown" onchange="window.location=this.options[this.selectedIndex].value">      
+                            <option value="SELECTED"> Select a Feature: </option>
+                            <option value="/stat?c=member_profile&amp;cr=<%=nav.getUser().getUserId()%>">Profile</option>
+                            <option value="/stat?c=ratings_history&amp;cr=<%=nav.getUser().getUserId()%>">Rating History</option>
+                            <option value="/stat?c=earnings_history&amp;cr=<%=nav.getUser().getUserId()%>">Earnings History</option>
+                            <option value="/stat?c=coder_room_stats&amp;cr=<%=nav.getUser().getUserId()%>">Room Statistics</option> 
+                            <option value="/stat?c=round_stats">Round Statistics</option>
+                            <option value="/index?t=search">Advanced Member Search</option> 
+                            <option value="/PactsMemberServlet">Affidavits</option> 
+                            <option value="/index?t=search&amp;c=refer">My Referrals</option>
+                            <option value="/index?t=development&amp;c=index">Development</option>
+                            <option value="/index?t=tces&amp;c=index">TCES (jobs)</option> 
+                        </select>
+                    </td>                                   
+                    <td width="10" bgcolor="#333333"><img src="/i/clear.gif" width="10" height="1" border="0"/></td></form>
+                </tr>             
+            </table>
+
 <% } else { %>
-                    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">            
-                       <TR>
-                          <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                          <TD WIDTH="100%" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                          <TD CLASS="time" ALIGN="right" VALIGN="bottom" WIDTH="190" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="190" HEIGHT="1" BORDER="0"/><BR/>     
-                    <!-- <SPAN CLASS="smallBrackets">[ </SPAN> 
-                    <A TARGET="_parent" CLASS="registerToday">
-                      <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
-                      Register Today
-                    </A> : -->
 
-                    <!-- <SPAN CLASS="smallBrackets">]</SPAN> -->
-                          </TD>
-                          <TD WIDTH="10" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                       </TR> 
-                       <TR>
-                          <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="74" BORDER="0"/></TD>
-                          <TD WIDTH="100%" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="74" BORDER="0"/></TD>
-                          <TD CLASS="time" ALIGN="right" VALIGN="middle" WIDTH="190" BGCOLOR="#000000">     
-&#160;
-                          </TD>
-                          <TD WIDTH="10" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                       </TR>           
-                    </TABLE>                    
+            <table width="99%" border="0" cellpadding="0" cellspacing="0">            
+                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>           
+            </table>                    
+
 <% }%>
-        </TD>
-      </TR>
-    </TABLE>
+        </td>
+    </tr>
+</table>
 
-    <% String location = request.getParameter("location"); %>
+<% String location = request.getParameter("location"); %>
 <jsp:include page="menu.jsp" >
   <jsp:param name="isReg" value='<%="registration".equals(location)%>'/>
 </jsp:include>
