@@ -59,7 +59,7 @@
   <!-- Coder of the Week Pulldown Ends -->
   <BR/><BR/>
   <P CLASS="statText">The following competitors have advanced from Round 4 to the Semifinals. <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4355" CLASS="statText">Back to Advancers</A></P>
- <TABLE WIDTH="508" CELLSPACING="0" CELLPADDING="0" BORDER="0" ALIGN="center">
+ <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" ALIGN="center">
     <TR>
         <TD VALIGN="top"><IMG SRC="/i/invite02_final16.jpg" BORDER="0"/></TD>
     </TR>
