@@ -21,7 +21,7 @@ import java.util.Iterator;
 abstract class FullRegBase extends SimpleRegBase {
 
     private FileUpload fu = null;
-    private boolean hasResume;
+    private boolean hasResume = false;
     protected static Logger log = Logger.getLogger(FullRegBase.class);
 
     protected abstract void registrationProcessing() throws TCWebException;

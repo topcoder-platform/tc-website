@@ -1,13 +1,17 @@
 package com.topcoder.web.privatelabel.controller;
 
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.servlet.request.FileUpload;
+import com.topcoder.servlet.request.InvalidContentTypeException;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -26,5 +30,20 @@ public class MainServlet extends BaseServlet {
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         return true;
+    }
+
+    protected String getParameter(HttpServletRequest request, String name) throws Exception {
+        String ret = null;
+        try {
+            String contentType = StringUtils.checkNull(request.getContentType().toLowerCase());
+            if (contentType.startsWith("multipart/form-data")) {
+                FileUpload fu = new FileUpload(request, false);
+                ret = fu.getParameter(name);
+            }
+        } catch (InvalidContentTypeException ignore) {
+            //that's ok, we'll just procede with out
+        }
+        ret = request.getParameter(name);
+        return ret;
     }
 }
