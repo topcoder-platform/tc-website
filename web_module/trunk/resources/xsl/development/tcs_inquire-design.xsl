@@ -83,7 +83,9 @@
 <!-- Technologies -->
 						<p><strong>Technologies</strong></p>
 						<ul>
-							<li>Java 1.4</li>
+                                                        <xsl:for-each select="/TC/DEVELOPMENT/technologies">
+							     <li><xsl:value-of select="./techName"/></li>
+                                                        </xsl:for-each>
 						</ul>
 
 <!-- Documentation -->
@@ -106,8 +108,8 @@
 						Royalty Percentage - 25%</p>
 							
 						<p>Total Payment - <xsl:value-of select="/TC/DEVELOPMENT/payment"/><br/>
-						First Deliverable - <xsl:value-of select="/TC/DEVELOPMENT/first_payment"/><br/>
-					    Project Completion - <xsl:value-of select="/TC/DEVELOPMENT/second_payment"/></p>
+						   First Deliverable - <xsl:value-of select="/TC/DEVELOPMENT/first_payment"/><br/>
+					           Project Completion - <xsl:value-of select="/TC/DEVELOPMENT/second_payment"/></p>
 
 <!-- Definition of Completion -->
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
@@ -134,10 +136,11 @@
 						All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
 						<p><br/>
+						Posting Date: <xsl:value-of select="/TC/DEVELOPMENT/posting_date"/><br/>
 						Initial Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
-						Winner Announced: <xsl:value-of select="/TC/DEVELOPMENT/DesWinner"/><br/>
-						Final Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/DesFinal"/><br/>
-						Estimated Development End Date: <xsl:value-of select="/TC/DEVELOPMENT/DesDevFinal"/></p>
+						Winner Announced: <xsl:value-of select="/TC/DEVELOPMENT/winner_announced"/><br/>
+						Final Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/final_submission"/><br/>
+						Estimated Development End Date: <xsl:value-of select="/TC/DEVELOPMENT/estimated_dev"/></p>
 
 
 <!-- Register at TCS -->
