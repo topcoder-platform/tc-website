@@ -8,14 +8,14 @@
 
 <body class="compDocs">
 
-<h2>2003 TCO Component Finals - Pops</h2>
+<h2 class="compDocs">2003 TCO Component Finals - Pops</h2>
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tr valign="top">
         <td width="190">
             <jsp:include page="pops_names.jsp">
                 <jsp:param name="time" value="initial" />
-                <jsp:param name="doc" value="doc8" />
+                <jsp:param name="doc" value="doc9" />
             </jsp:include>
         </td>
 
