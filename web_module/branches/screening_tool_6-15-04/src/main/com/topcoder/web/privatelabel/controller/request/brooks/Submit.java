@@ -279,7 +279,7 @@ public class Submit extends FullRegSubmit {
 
                 buf.append("Thank you for your interest in employment opportunities with Brooks Automation Private Limited in Chennai, India.  As part of our candidate selection and evaluation process, we would like you to participate in the Brooks Automation Technical Assessment Tool, powered by TopCoder.  Through this Technical Assessment Tool, you will be asked to solve algorithmic problems as an objective measure of your programming and technical problem solving ability.\n\n");
                 buf.append("Please review the Help Manual before getting started:\n");
-                buf.append("<a href='http://www.topcoder.com/corp/testing/help/index.jsp'>http://www.topcoder.com/corp/testing/help/index.jsp</a>");
+                buf.append("http://www.topcoder.com/corp/testing/help/index.jsp");
                 buf.append("\n\n");
                 buf.append("The following session has been scheduled for you:\n\n");
                 buf.append("Begin: ");

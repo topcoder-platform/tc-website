@@ -37,6 +37,7 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
             session.setAttribute(Constants.USAGE_TYPE, usageType);
         }
 
+        log.info("USAGE TYPE:" + usageType.longValue());
         return usageType.longValue();
     }
 
