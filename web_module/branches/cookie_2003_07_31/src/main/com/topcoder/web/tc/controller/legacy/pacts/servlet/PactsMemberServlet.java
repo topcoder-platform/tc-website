@@ -235,7 +235,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             request.setAttribute(PACTS_MEMBER_RESULT, affidavits);
         }
 
-        forward("/" + AFFIDAVIT_HISTORY_JSP, request, response);
+        forward(AFFIDAVIT_HISTORY_JSP, request, response);
     }
 
     /**
@@ -291,7 +291,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             request.setAttribute(PACTS_MEMBER_RESULT, contracts);
         }
 
-        forward("/" + CONTRACT_HISTORY_JSP, request, response);
+        forward(CONTRACT_HISTORY_JSP, request, response);
     }
 
     /**
@@ -323,7 +323,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
                 }
 
                 request.setAttribute(PACTS_MEMBER_RESULT, c);
-                forward("/" + CONTRACT_DETAILS_JSP, request, response);
+                forward(CONTRACT_DETAILS_JSP, request, response);
             }
         } catch (Exception e) {
             log.error("we got excepted");
@@ -370,7 +370,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
         request.setAttribute(PACTS_MEMBER_RESULT, payments);
 
 
-        forward("/" + PAYMENT_HISTORY_JSP, request, response);
+        forward(PAYMENT_HISTORY_JSP, request, response);
     }
 
     /**
@@ -416,7 +416,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
         //if we got here, everything must by ok, pass the request to the jsp
         request.setAttribute(PACTS_MEMBER_RESULT, a);
 
-        forward("/" + AFFIDAVIT_DETAILS_JSP, request, response);
+        forward(AFFIDAVIT_DETAILS_JSP, request, response);
     }
 
     private void doAffidavitRender(HttpServletRequest request,
@@ -452,7 +452,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
         //if we got here, everything must by ok, pass the request to the jsp
         request.setAttribute(PACTS_MEMBER_RESULT, a.affidavitText);
 
-        forward("/" + AFFIDAVIT_RENDER_JSP, request, response);
+        forward(AFFIDAVIT_RENDER_JSP, request, response);
     }
 
     /**
@@ -474,7 +474,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             request.setAttribute(PACTS_MEMBER_RESULT, payments);
         }
 
-        forward("/" + PAYMENT_HISTORY_JSP, request, response);
+        forward(PAYMENT_HISTORY_JSP, request, response);
     }
 
 
@@ -529,7 +529,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             log.debug("just returned from specific payment details");
             // just a generic payment
             request.setAttribute(PACTS_MEMBER_RESULT, payment);
-            forward("/" + PAYMENT_DETAILS_JSP, request, response);
+            forward(PAYMENT_DETAILS_JSP, request, response);
             return;
         } catch (Exception e) {
             log.error("we got excepted");
@@ -558,7 +558,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             request.setAttribute(PACTS_MEMBER_RESULT, taxForms);
         }
 
-        forward("/" + TAX_FORM_HISTORY_JSP, request, response);
+        forward(TAX_FORM_HISTORY_JSP, request, response);
     }
 
     /**
@@ -582,7 +582,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
                 log.error("got null returned from get tax form with text");
             } else {
                 request.setAttribute(PACTS_MEMBER_RESULT, tf);
-                forward("/" + TAX_FORM_DETAILS_JSP, request, response);
+                forward(TAX_FORM_DETAILS_JSP, request, response);
             }
         } catch (Exception e) {
             log.error("we got excepted");
