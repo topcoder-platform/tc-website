@@ -278,7 +278,7 @@
 
     <servlet-mapping>
         <servlet-name>legacyMain</servlet-name>
-        <url-pattern>/main</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
@@ -300,5 +300,11 @@
         <servlet-name>jobposting</servlet-name>
         <url-pattern>/jobposting</url-pattern>
     </servlet-mapping>
+
+
+   <taglib>
+      <taglib-uri>tc-taglib.tld</taglib-uri>
+      <taglib-location>/WEB-INF/tc-taglib.tld</taglib-location>
+   </taglib>
 
 </web-app>
