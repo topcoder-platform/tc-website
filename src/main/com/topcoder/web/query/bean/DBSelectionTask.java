@@ -1,11 +1,14 @@
 package com.topcoder.web.query.bean;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.*;
+import com.topcoder.web.query.common.Authentication;
+import com.topcoder.web.query.common.AuthenticationException;
+import com.topcoder.web.query.common.Constants;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.Serializable;
-import java.util.*;
 
 /**
  * @author Greg Paul

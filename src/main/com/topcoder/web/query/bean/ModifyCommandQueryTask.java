@@ -1,16 +1,17 @@
 package com.topcoder.web.query.bean;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.*;
-import com.topcoder.web.query.ejb.QueryServices.CommandQueryHome;
 import com.topcoder.web.query.ejb.QueryServices.CommandQuery;
-import com.topcoder.web.query.ejb.QueryServices.QueryHome;
+import com.topcoder.web.query.ejb.QueryServices.CommandQueryHome;
 import com.topcoder.web.query.ejb.QueryServices.Query;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.query.ejb.QueryServices.QueryHome;
 
-
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -47,6 +48,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
 	}
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        super.setNavLinks(super.buildNavLinks(getServletPath(), getDb()));
     }
 
     public void process(String step) throws Exception {
