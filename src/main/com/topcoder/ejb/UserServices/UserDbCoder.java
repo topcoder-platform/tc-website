@@ -739,8 +739,8 @@ final class UserDbCoder {
                     ps.setNull(3, Types.FLOAT);
                     ps.setNull(4, Types.FLOAT);
                 }
-                ps.setInt(5, currentSchool.getUserId());
-                ps.setInt(6, currentSchool.isViewable()?1:0);
+                ps.setInt(5, currentSchool.isViewable()?1:0);
+                ps.setInt(6, currentSchool.getUserId());
                 ps.executeUpdate();
                 currentSchool.setModified("S");
             } else {
