@@ -309,6 +309,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
+        log.debug("setAttributes name: " + paramName + " value: " + value);
 
         if (paramName.equalsIgnoreCase(TCESConstants.SORT_PARAM))
             sortBy = value;
