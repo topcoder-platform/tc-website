@@ -1,0 +1,501 @@
+%!PS-Adobe-3.0
+%%Creator: form.Z by auto.des.sys Inc.
+%%Title: cube.ai
+%%CreationDate: 02/21/102  11:42:03
+%%BoundingBox: 0 0 731 614
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%DocumentFonts: Monaco
+%%DocumentNeededResources: procset Adobe_packedarray 2.0 0
+%%+ procset Adobe_cmykcolor 1.1 0
+%%+ procset Adobe_cshow 1.1 0
+%%+ procset Adobe_customcolor 1.0 0
+%%+ procset Adobe_IllustratorA_AI3 1.0 1
+%AI3_ColorUsage: Color
+%AI3_TemplateBox: 306 396 306 396
+%AI3_TileBox: 30 31 582 761
+%AI3_DocumentPreview: None
+%%EndComments
+%%BeginProlog
+%%IncludeResource: procset Adobe_packedarray 2.0 0
+Adobe_packedarray /initialize get exec
+%%IncludeResource: procset Adobe_cmykcolor 1.1 0
+%%IncludeResource: procset Adobe_cshow 1.1 0
+%%IncludeResource: procset Adobe_customcolor 1.0 0
+%%IncludeResource: procset Adobe_IllustratorA_AI3 1.0 1
+%%EndProlog
+%%BeginSetup
+Adobe_cmykcolor /initialize get exec
+Adobe_cshow /initialize get exec
+Adobe_customcolor /initialize get exec
+Adobe_IllustratorA_AI3 /initialize get exec
+%%IncludeFont: Monaco
+[
+39/quotesingle 96/grave 128/Adieresis/Aring/Ccedilla/Eacute/Ntilde/Odieresis
+/Udieresis/aacute/agrave/acircumflex/adieresis/atilde/aring/ccedilla/eacute
+/egrave/ecircumflex/edieresis/iacute/igrave/icircumflex/idieresis/ntilde
+/oacute/ograve/ocircumflex/odieresis/otilde/uacute/ugrave/ucircumflex
+/udieresis/dagger/degree/cent/sterling/section/bullet/paragraph/germandbls
+/registered/copyright/trademark/acute/dieresis/.notdef/AE/Oslash
+/.notdef/plusminus/.notdef/.notdef/yen/mu/.notdef/.notdef
+/.notdef/.notdef/.notdef/ordfeminine/ordmasculine/.notdef/ae/oslash
+/questiondown/exclamdown/logicalnot/.notdef/florin/.notdef/.notdef
+/guillemotleft/guillemotright/ellipsis/.notdef/Agrave/Atilde/Otilde/OE/oe
+/endash/emdash/quotedblleft/quotedblright/quoteleft/quoteright/divide
+/.notdef/ydieresis/Ydieresis/fraction/currency/guilsinglleft/guilsinglright
+/fi/fl/daggerdbl/periodcentered/quotesinglbase/quotedblbase/perthousand
+/Acircumflex/Ecircumflex/Aacute/Edieresis/Egrave/Iacute/Icircumflex
+/Idieresis/Igrave/Oacute/Ocircumflex/.notdef/Ograve/Uacute/Ucircumflex
+/Ugrave/dotlessi/circumflex/tilde/macron/breve/dotaccent/ring/cedilla
+/hungarumlaut/ogonek/caron
+TE
+%AI3_BeginEncoding: _Monaco Monaco
+[/_Monaco/Monaco 0 0 1 TZ
+%AI3_EndEncoding TrueType
+%%EndSetup
+0 A 0 i 1 j 1 J 4 M []0 d
+0 D
+0.5000 w
+0.2441 0.0000 0.0000 0.2370 K
+0 79.9570 m
+276.9792 0 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 100.7416 m
+348.9792 0 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 121.5262 m
+420.9792 0 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 142.3108 m
+492.9792 0 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+0 163.0954 m
+564.9792 0 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 183.8801 m
+636.9792 0 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 204.6647 m
+684.3306 7.1154 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 225.4493 m
+702.3306 22.7039 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+0 246.2339 m
+720.3306 38.2923 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+-0.0000 267.0185 m
+731 55.9970 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 287.8031 m
+731 76.7816 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 308.5877 m
+731 97.5662 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+0 329.3723 m
+731 118.3508 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 350.1569 m
+731 139.1354 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 370.9415 m
+731 159.9200 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 391.7262 m
+731 180.7046 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+0 412.5108 m
+731 201.4892 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 433.2954 m
+731 222.2738 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 454.0800 m
+731 243.0585 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 474.8646 m
+731 263.8431 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+0 495.6492 m
+731 284.6277 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 516.4338 m
+731 305.4123 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 537.2184 m
+731 326.1969 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 558.0031 m
+731 346.9815 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+10.6694 575.7076 m
+731 367.7661 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+28.6694 591.2961 m
+731 388.5507 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+46.6694 606.8846 m
+731 409.3353 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+94.0208 614 m
+731 430.1199 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+166.0208 614 m
+731 450.9045 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+238.0208 614 m
+731 471.6892 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+310.0208 614 m
+731 492.4738 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+382.0208 614 m
+731 513.2584 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+454.0208 614 m
+731 534.0430 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+0 566.4677 m
+54.8856 614 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 530.4677 m
+96.4548 614 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 494.4677 m
+138.0240 614 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 458.4677 m
+179.5932 614 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+-0.0000 422.4677 m
+221.1624 614 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 386.4677 m
+262.7317 614 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 350.4677 m
+304.3009 614 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 314.4677 m
+345.8701 614 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+0 278.4677 m
+387.4393 614 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 242.4677 m
+429.0085 614 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 206.4677 m
+466.4385 610.4153 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 170.4677 m
+497.6154 601.4153 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+0 134.4677 m
+528.7924 592.4153 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+0 98.4677 m
+559.9692 583.4153 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+15.1462 75.5847 m
+591.1462 574.4153 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+46.3231 66.5847 m
+622.3231 565.4153 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+77.5000 57.5847 m
+653.5000 556.4153 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+108.6769 48.5847 m
+684.6769 547.4153 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+139.8538 39.5847 m
+715.8538 538.4153 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+171.0307 30.5847 m
+731 515.5323 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+202.2077 21.5847 m
+731 479.5323 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+233.3846 12.5847 m
+731 443.5323 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+264.5615 3.5847 m
+731 407.5323 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+301.9915 0 m
+731 371.5323 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+343.5607 0 m
+731 335.5323 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+385.1299 0 m
+731 299.5323 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+426.6991 0 m
+731 263.5323 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+468.2683 0 m
+731 227.5323 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+509.8376 0 m
+731 191.5323 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+551.4068 0 m
+731 155.5323 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+592.9760 0 m
+731 119.5323 L
+S
+0.1831 0.0000 0.0000 0.0845 K
+634.5452 0 m
+731 83.5323 L
+S
+0.2441 0.0000 0.0000 0.2370 K
+676.1144 0 m
+731 47.5323 L
+S
+0.4782 0.0203 0.0000 0.4692 K
+0 412.5108 m
+731 201.4892 L
+S
+0.4782 0.0203 0.0000 0.4692 k
+0 To
+1 0 0 1 0 412.5108 0 Tp
+TP
+0 Tr
+0 O 0 i 0 J 0 j 1 w 4 M []0 d 0 D
+0 Ts 100 Tz 0 Tt 0 TA 0 0 5 TC 100 100 200 TW
+0 Tq 9.00 0 Tl 0 Tc 0 Tw
+0 Ta
+/_Monaco 9 Tf
+(-x) Tj
+TO
+0.4782 0.0203 0.0000 0.4692 k
+0 To
+1 0 0 1 731 201.4892 0 Tp
+TP
+0 Tr
+0 O 0 i 0 J 0 j 1 w 4 M []0 d 0 D
+0 Ts 100 Tz 0 Tt 0 TA 0 0 5 TC 100 100 200 TW
+0 Tq 9.00 0 Tl 0 Tc 0 Tw
+0 Ta
+/_Monaco 9 Tf
+(+x) Tj
+TO
+0.4782 0.0203 0.0000 0.4692 K
+77.5000 57.5847 m
+653.5000 556.4153 L
+S
+0.4782 0.0203 0.0000 0.4692 K
+365.5000 0 m
+365.5000 614 L
+S
+0.4782 0.0203 0.0000 0.4692 k
+0 To
+1 0 0 1 365.5000 0 0 Tp
+TP
+0 Tr
+0 O 0 i 0 J 0 j 1 w 4 M []0 d 0 D
+0 Ts 100 Tz 0 Tt 0 TA 0 0 5 TC 100 100 200 TW
+0 Tq 9.00 0 Tl 0 Tc 0 Tw
+0 Ta
+/_Monaco 9 Tf
+(-z) Tj
+TO
+0.4782 0.0203 0.0000 0.4692 k
+0 To
+1 0 0 1 365.5000 614 0 Tp
+TP
+0 Tr
+0 O 0 i 0 J 0 j 1 w 4 M []0 d 0 D
+0 Ts 100 Tz 0 Tt 0 TA 0 0 5 TC 100 100 200 TW
+0 Tq 9.00 0 Tl 0 Tc 0 Tw
+0 Ta
+/_Monaco 9 Tf
+(+z) Tj
+TO
+0.0000 0.5341 0.5341 0.1608 K
+0 412.5108 m
+731 201.4892 L
+S
+0.0000 0.5341 0.5341 0.1608 k
+0 To
+1 0 0 1 0 412.5108 0 Tp
+TP
+0 Tr
+0 O 0 i 0 J 0 j 1 w 4 M []0 d 0 D
+0 Ts 100 Tz 0 Tt 0 TA 0 0 5 TC 100 100 200 TW
+0 Tq 9.00 0 Tl 0 Tc 0 Tw
+0 Ta
+/_Monaco 9 Tf
+(-x) Tj
+TO
+0.0000 0.5341 0.5341 0.1608 k
+0 To
+1 0 0 1 731 201.4892 0 Tp
+TP
+0 Tr
+0 O 0 i 0 J 0 j 1 w 4 M []0 d 0 D
+0 Ts 100 Tz 0 Tt 0 TA 0 0 5 TC 100 100 200 TW
+0 Tq 9.00 0 Tl 0 Tc 0 Tw
+0 Ta
+/_Monaco 9 Tf
+(+x) Tj
+TO
+0.0000 0.5341 0.5341 0.1608 K
+77.5000 57.5847 m
+653.5000 556.4153 L
+S
+0.0000 0.5341 0.5341 0.1608 k
+0 To
+1 0 0 1 77.5000 57.5847 0 Tp
+TP
+0 Tr
+0 O 0 i 0 J 0 j 1 w 4 M []0 d 0 D
+0 Ts 100 Tz 0 Tt 0 TA 0 0 5 TC 100 100 200 TW
+0 Tq 9.00 0 Tl 0 Tc 0 Tw
+0 Ta
+/_Monaco 9 Tf
+(-y) Tj
+TO
+0.0000 0.5341 0.5341 0.1608 k
+0 To
+1 0 0 1 653.5000 556.4153 0 Tp
+TP
+0 Tr
+0 O 0 i 0 J 0 j 1 w 4 M []0 d 0 D
+0 Ts 100 Tz 0 Tt 0 TA 0 0 5 TC 100 100 200 TW
+0 Tq 9.00 0 Tl 0 Tc 0 Tw
+0 Ta
+/_Monaco 9 Tf
+(+y) Tj
+TO
+0.0000 0.5341 0.5341 0.1608 K
+365.5000 0 m
+365.5000 614 L
+S
+0.0000 0.5341 0.5341 0.1608 k
+0 To
+1 0 0 1 365.5000 0 0 Tp
+TP
+0 Tr
+0 O 0 i 0 J 0 j 1 w 4 M []0 d 0 D
+0 Ts 100 Tz 0 Tt 0 TA 0 0 5 TC 100 100 200 TW
+0 Tq 9.00 0 Tl 0 Tc 0 Tw
+0 Ta
+/_Monaco 9 Tf
+(-z) Tj
+TO
+0.0000 0.5341 0.5341 0.1608 k
+0 To
+1 0 0 1 365.5000 614 0 Tp
+TP
+0 Tr
+0 O 0 i 0 J 0 j 1 w 4 M []0 d 0 D
+0 Ts 100 Tz 0 Tt 0 TA 0 0 5 TC 100 100 200 TW
+0 Tq 9.00 0 Tl 0 Tc 0 Tw
+0 Ta
+/_Monaco 9 Tf
+(+z) Tj
+TO
+0.0000 0.0000 0.0000 0.0000 K
+0.3815 0.4578 0.0000 0.2370 K
+365.5000 307 m
+490.2077 271 L
+562.2076 333.3538 L
+437.5000 369.3538 L
+365.5000 307 L
+S
+437.5000 494.0615 m
+562.2076 458.0615 L
+490.2077 395.7077 L
+365.5000 431.7077 L
+437.5000 494.0615 L
+S
+365.5000 307 m
+365.5000 431.7077 L
+S
+490.2077 395.7077 m
+490.2077 271 L
+S
+562.2076 458.0615 m
+562.2076 333.3538 L
+S
+437.5000 494.0615 m
+437.5000 369.3538 L
+S
+%%PageTrailer
+gsave annotatepage grestore showpage
+%%Trailer
+Adobe_IllustratorA_AI3 /terminate get exec
+Adobe_typography_AI3 /terminate get exec
+Adobe_customcolor /terminate get exec
+Adobe_cshow /terminate get exec
+Adobe_cmykcolor /terminate get exec
+Adobe_packedarray /terminate get exec
+%%EOF
