@@ -10,6 +10,10 @@
     Calendar beginning = Calendar.getInstance();
     end.set(2004, 0, 1, 0, 0);
 
+    System.out.println("now: " + now);
+    System.out.println("begin: " + beginning);
+    System.out.println("end: " + end);
+
 %>
 
 
