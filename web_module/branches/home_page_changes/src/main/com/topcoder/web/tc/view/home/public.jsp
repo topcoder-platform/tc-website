@@ -49,8 +49,10 @@
             <jsp:include page="coder_pov.jsp" />
             <a name="feature"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></a>
             <jsp:include page="feature_home.jsp" />
-            <a name="pressRoom"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></a>
-            <jsp:include page="press_room_highlights.jsp" />
+<%--
+			<a name="pressRoom"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></a>
+			<jsp:include page="press_room_highlights.jsp" />
+--%>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
          </td>
 <!-- Center Column Ends -->

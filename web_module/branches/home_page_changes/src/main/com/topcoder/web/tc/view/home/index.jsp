@@ -73,7 +73,7 @@
 <%-- Center Column --%>
 		<td class=homeCentCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
-			<tr><td class=homeBigPromo><A href="/corp/?module=Static&d1=corp&d2=testing&d3=index"><img src="/i/promos/techAssessTool.jpg" border=0 /></A></td></tr>
+			<tr><td class=homeBigPromo><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/promos/techAssessTool.jpg" border=0 /></A></td></tr>
 			<tr><td class=homeSmallPromo><A href="http://software.topcoder.com/components/subscriptions.jsp"><img src="/i/promos/compSubscriptions.jpg" border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
