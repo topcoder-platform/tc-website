@@ -13,10 +13,20 @@ public class SortTag extends TagSupport {
 
     private static Logger log = Logger.getLogger(SortTag.class);
 
-    private int column;
+    private int column = -1;
+    private int ascColumn = -1;
+    private int descColumn = -1;
 
     public void setColumn(int column) {
         this.column = column;
+    }
+
+    public void setAscColumn(int ascColumn) {
+        this.ascColumn = ascColumn;
+    }
+
+    public void setDescColumn(int descColumn) {
+        this.descColumn = descColumn;
     }
 
     public int doStartTag() throws JspException {
@@ -27,12 +37,19 @@ public class SortTag extends TagSupport {
         if (sortDir==null) sortDir = "asc";
 
         if (!(currCol.equals("") || currDir.equals(""))) {
-            if (Integer.parseInt(currCol)==column) {
+            int inputCol = Integer.parseInt(currCol);
+            if (inputCol==column) {
                 if (currDir.equals("desc")) {
                     sortDir = "asc";
                 } else {
                     sortDir = "desc";
                 }
+            } else if (inputCol == ascColumn) {
+                column = descColumn;
+                sortDir = "desc";
+            } else if (inputCol == descColumn) {
+                column = ascColumn;
+                sortDir = "asc";
             }
         }
 
