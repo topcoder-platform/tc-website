@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/Eeyore_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=273434"><strong>Eeyore</strong></a><br/>
+                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,14 +19,18 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm214_prob">SRM 214 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, October 6, 2004</p>
+                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm215_prob">SRM 215 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Saturday, October 16, 2004</p>
 
                         <p>
 
-						It is safe to say that few TopCoder members suffer from fear of math, but the results of the latest Single Round Match suggest that fear of text is epidemic. Both divisions were caught off guard by a set of problems in which parsing did not act as an obstacle to performing a task, as it usually does, but constituted the task itself.
+In division 1, coders had a pretty easy time with the easy and medium problems,
+but no one was able to get a tricky hard problem.  As a result, the top scores
+were quite close going into the challenge phase.  Not surprisingly, the results
+ended up being determined by challenges, and wleite was able to get 4 of them,
+to take first.
                         
-						<a href="/index?t=statistics&c=srm214_prob" class="bodyText"><strong>full&#160;story</strong></a>
+						<a href="/index?t=statistics&c=srm215_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
