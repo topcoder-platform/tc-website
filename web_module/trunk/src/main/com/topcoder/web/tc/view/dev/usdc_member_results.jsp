@@ -50,7 +50,7 @@
    <jsp:param name="selectedTab" value="results"/>
 </jsp:include>
 
-<h2><rsc:item name="handle" row="<%=rscUser.getRow(0)%>" /> <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> Results</h2>
+<h2><rsc:item name="handle" row="<%=rscUser.getRow(0)%>" /> <br><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> Results</h2>
 
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
