@@ -65,13 +65,13 @@
             <tr><td colpsn="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
             <tr>
                <td width=15>&nbsp;</td>
-               <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><b>Overview</b></font></td>
+               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_overview"><font size=-1>Overview</font></a></td>
                <td width=15>&nbsp;</td>
                <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_sched"><font size=-1>Schedule</font></a></td>
                <td width=15>&nbsp;</td>
                <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview"><font size=-1>Rules</font></a></td>
                <td width=15>&nbsp;</td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview"><font size=-1>Register Now</font></a></td>
+               <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><b>Register Now</b></font></td>
                <td width=15>&nbsp;</td>
             </tr>
             <tr>
@@ -79,11 +79,9 @@
             </tr>
          </table>
        
-            <h2>Overview</h2>
+            <h2>Registration</h2>
             
-            <p>The $25,000 Google/TopCoder Extreme Challenge is designed as a premiere online recruiting event for Google.  Google will 
-            utilize the technology platform and expertise developed by TopCoder, Inc. for the exclusive purpose of objectively assessing 
-            programming ability.</p>
+            <p>Registration will open on Wednesday, October 1 at 8:00AM and will close on Wednesday, October 15 at 5:00PM.  Registration is unlimited.</p>
             
             <p><br /></p>
                         
