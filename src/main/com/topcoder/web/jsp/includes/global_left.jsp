@@ -52,7 +52,7 @@
 <%-- Press Room ends --%>
 
 <%-- Contacts begins --%>
-                <tr><td id="<%=level1.equals("contacts")?"leftNavOn":"leftNav"%>"><a href="/?&t=contacts&c=index" class="<%=level1.equals("contacts")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("contacts")?"bottom":"right"%>.gif" border="0"/>Contacts</a></td></tr>
+                <tr><td id="<%=level1.equals("contacts")?"leftNavOn":"leftNav"%>"><a href="/?&t=contacts&c=index" class="<%=level1.equals("contacts")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("contacts")?"bottom":"right"%>.gif" border="0"/>Contact Us</a></td></tr>
 <%-- Contacts ends --%>
 
             </table>
