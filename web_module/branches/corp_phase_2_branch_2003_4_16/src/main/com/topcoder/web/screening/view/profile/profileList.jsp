@@ -54,7 +54,7 @@ function getProblemDetail(id) {
 
             <jsp:useBean id="profileList" type="java.util.List" scope="request" />
 
-            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+            <table cellspacing="1" cellpadding="3" width="70%" class="testFrame">
                 <tr>
                     <td class="testTableTitleSmall">&#160;</td>
                     <td colspan="2" align="center" class="testTableTitleSmall">Candidates</td>
@@ -70,7 +70,7 @@ function getProblemDetail(id) {
                 </tr>
                 <% if(profileList.isEmpty()){ %>
                     <tr>
-                       <td colspan="4" align="center" class="testTableOdd">No Test Profiles have been created.</td>
+                       <td colspan="4" align="center" class="testTableOdd">No test profiles have been created.</td>
                     </tr>
                 <% } else { %>
                     <% int i = 0;
@@ -82,10 +82,10 @@ function getProblemDetail(id) {
                        cparam = Constants.PROFILE_ID + '=' + row.getItem("session_profile_id");
                     %>
                     <tr>
-                        <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:servletLink processor="ProfileDetail" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></screen:servletLink></td>
-                        <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:resultSetItem row="<%=row%>" name="num_sessions" /></td>
-                        <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:resultSetItem row="<%=row%>" name="num_complete" /></td>
-                        <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:resultSetItem row="<%=row%>" name="create_date" /></td>
+                        <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:servletLink processor="ProfileDetail" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></screen:servletLink></td>
+                        <td align="center" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:resultSetItem row="<%=row%>" name="num_sessions" /></td>
+                        <td align="center" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:resultSetItem row="<%=row%>" name="num_complete" /></td>
+                        <td align="center" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><screen:resultSetItem row="<%=row%>" name="create_date" format='MM/dd/yyyy hh:mm a'/></td>
                     </tr>
                     </screen:resultSetRowIterator>
                 <% } %>

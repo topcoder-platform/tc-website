@@ -84,28 +84,40 @@ function getProblemDetail(id) {
                     </td>
 	        </tr>
 	    </table>
-
+        <p></p>
    <% if(testResultsInfo.isSessionComplete()) { %>
+
+            <table cellspacing="1" cellpadding="0" width="100%" border="0">
+              <tr>
+                    <td class="bodyText">
+                        <% String trparams = Constants.SESSION_ID + "=" + testResultsInfo.getSessionId(); %>
+                        <screen:servletLink processor="PrinterTestResults" param="<%=trparams%>">View Printer Friendly Version</screen:servletLink>
+                    </td>
+	        </tr>
+            </table>
+
+        <p></p>
+
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <tr>
-		       <td colspan="8" class="testHeadSmall">Test Set A Results:</td>
+		       <td colspan="9" class="testHeadSmall">Test Set A Results:</td>
 	        </tr>
 	        
 	        <tr>
-		       <td width="15%" class="testFormHeader">Problem</td>
-		       <td width="15%" align="center" class="testFormHeader">Language</td>
-		       <td width="15%" align="center" class="testFormHeader">Status</td>
-		       <td width="15%" align="center" class="testFormHeader">Test Passed</td>
-		       <td width="15%" align="center" class="testFormHeader">Test Failed</td>
-		       <td width="15%" align="center" class="testFormHeader">% Test Passed</td>
-		       <td width="15%" align="center" class="testFormHeader">Time</td>
-		       <td width="15%" align="center" class="testFormHeader">&#160;</td>
+		       <td width="11%" class="testFormHeader">Problem</td>
+		       <td width="11%" align="center" class="testFormHeader">Language</td>
+		       <td width="11%" align="center" class="testFormHeader">Status</td>
+		       <td width="11%" align="center" class="testFormHeader">Test Passed</td>
+		       <td width="11%" align="center" class="testFormHeader">Test Failed</td>
+		       <td width="11%" align="center" class="testFormHeader">% Test Passed</td>
+		       <td width="11%" align="center" class="testFormHeader">Points</td>
+		       <td width="11%" align="center" class="testFormHeader">Time</td>
+		       <td width="11%" align="center" class="testFormHeader">&#160;</td>
                 </tr>
 	        
-                <% boolean even = true; %>
+                <% boolean even = false; %>
                 <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetAResults()%>">
                     <%
-                     String color = even ? "bgcolor='#EEEEEE'" : "";
                      String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' +
                      Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
                      Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
@@ -113,14 +125,15 @@ function getProblemDetail(id) {
                      %>
                      
                 <tr>
-		       <td class="bodyText" <%= color %>>&#160;<a href="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" class="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></a></td>
-		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="language_name" /></td>
-		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="status_desc" /></td>
-		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></td>
-		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="num_failed" /></td>
-		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</td>
-		       <td align="center" class="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="elapsed" /></td>
-		       <td align="center" class="bodyText" <%= color %>><screen:servletLink processor="ProblemResult" param="<%=prparam%>" >Details</screen:servletLink></td>
+		       <td class="<%=even?"testTableEven":"testTableOdd"%>">&#160;<a href="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" class="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></a></td>
+		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="language_name" /></td>
+		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="status_desc" /></td>
+		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></td>
+		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></td>
+		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</td>
+		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="points" format="#.##" ifNull="N/A" /></td>
+		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></td>
+		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:servletLink processor="ProblemResult" param="<%=prparam%>" >Details</screen:servletLink></td>
                 </tr>
                 <% even = !even; %>
                 </screen:resultSetRowIterator>
@@ -128,168 +141,124 @@ function getProblemDetail(id) {
 
             <p></p>
 
-<% } // isSessionComplete %>
-
-<% if(testResultsInfo.isSessionComplete()) { %>
-	        <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+`            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
-		       <TD COLSPAN="10" VALIGN="top" CLASS="bodyTextBold"><B>TopCoder Stats</B></TD>
+		       <TD COLSPAN="10" VALIGN="top" CLASS="testHeadSmall">TopCoder Stats</TD>
 	        </TR>
 	        <TR>
-		       <TD COLSPAN="10"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1"></TD>
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" ALIGN="center" WIDTH="10%" CLASS="statText" BGCOLOR="#666666"><B>Name</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="10%" CLASS="statText" BGCOLOR="#666666"><B>Division</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="10%" CLASS="statText" BGCOLOR="#666666"><B>Difficulty</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="10%" CLASS="statText" BGCOLOR="#666666"><B>Coders</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="10%" CLASS="statText" BGCOLOR="#666666"><B>Submissions</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="10%" CLASS="statText" BGCOLOR="#666666"><B>Sub %</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="10%" CLASS="statText" BGCOLOR="#666666"><B>Correct</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="10%" CLASS="statText" BGCOLOR="#666666"><B>Submit Corr. %</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="10%" CLASS="statText" BGCOLOR="#666666"><B>Overall Corr. %</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="10%" CLASS="statText" BGCOLOR="#666666"><B>Time</B></TD>
+		       <TD WIDTH="10%" CLASS="testFormHeader"><B>Name</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Division</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Difficulty</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Submissions</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Sub %</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Correct</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Submit Corr. %</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Overall Corr. %</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Avg. Pts.</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Time</B></TD>
 	        </TR>
                 <% if(testResultsInfo.getProblemSetATCStats().isEmpty()){ %>
 	             <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" colspan='10'>No statistics available for this round.</TD>
 	             </TR>
-                <% }else{ boolean even = true; %>
+                <% } else{ even = false; %>
                    <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetATCStats()%>">
-                     <% String color = even ? "BGCOLOR='#CCCCCC'" : ""; %>
 	             <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <%= color %>>&#160;<screen:resultSetItem row="<%=row%>" name="name" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="division_desc" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="level_desc" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="coders" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="submissions" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="submit_pct" />%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="correct" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="submit_pct_correct" />%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="overall_pct_correct" />%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="time_elapsed" /></TD>
+		       <TD VALIGN="middle" HEIGHT="15" CLASS="<%=even?"testTableEven":"testTableOdd"%>">&#160;<screen:resultSetItem row="<%=row%>" name="name" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="division_desc" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="level_desc" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="submissions" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="submit_pct" />%</TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="correct" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="submit_pct_correct" />%</TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="overall_pct_correct" />%</TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="avg_points" format="#.##"/></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="time_elapsed" /></TD>
 	             </TR>
                      <% even = !even; %>
                    </screen:resultSetRowIterator>
                 <% } %>
-         </TABLE>
+         </table>
+         <p></p>
     <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="30"></TD>
+		       <TD COLSPAN="8" VALIGN="top" CLASS="testHeadSmall">Test Set B Results:</TD>
 	        </TR>
 	        <TR>
-		       <TD COLSPAN="8" VALIGN="top" CLASS="bodyTextBold"><B>Test Set B Results:</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Problem</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Language</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Status</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Test Passed</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Test Failed</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>% Test Passed</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Time</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader">&#160;</TD>
 	        </TR>
-	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1"></TD>
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Problem</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Language</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Status</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Test Passed</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Test Failed</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>% Test Passed</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Time</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666">&#160;</TD>
-	        </TR>
-                <% { boolean even = true; %>
+                <% { even = false; %>
                    <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetBResults()%>">
                      <%
-                        String color = even ? "BGCOLOR='#CCCCCC'" : "";
                         String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' +
                                          Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
                                          Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
                                          Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
                      %>
 	             <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <%= color %>>&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="language_name" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="status_desc" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" <%= color %>><screen:servletLink processor="ProblemResult" param="<%=prparam%>" styleClass="bodyText">Details</screen:servletLink></TD>
+		       <TD VALIGN="middle" CLASS="<%=even?"testTableEven":"testTableOdd"%>">&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="language_name" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="status_desc" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:servletLink processor="ProblemResult" param="<%=prparam%>" styleClass="bodyText">Details</screen:servletLink></TD>
 	             </TR>
                      <% even = !even; %>
                    </screen:resultSetRowIterator>
                 <% } %>
-	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="30"></TD>
-	        </TR>
-	        </TABLE>
+	        </table>
     <% } // getProblemSetBCount() > 0 %>
 <% } else { //isSessionComplete %>
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
            <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="4" CLASS="bodyText"><B>Problems</B></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="4" CLASS="bodyText"><B>Problem Set A</B></TD>
+              <TD COLSPAN="4" CLASS="testHeadSmall">Test Set A</TD>
            </TR>
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Name</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Categories</B></TD>
-<%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testFormHeader">&#160;Name</TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testFormHeader">&#160;Division</TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testFormHeader">&#160;Difficulty</TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testFormHeader">&#160;Algorithmic Categories</TD>
 	        </TR>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>
             <screen:problemInfoIterator id="problem" list="<%=profileInfo.getTestSetAList()%>">
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<screen:beanWrite name='problem' property='roundId' />,<screen:beanWrite name='problem' property='problemId' />')" CLASS="bodyText"><screen:beanWrite name='problem' property='problemName' /></A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='divisionDesc' /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='difficultyDesc' /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>
-<%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='businessCategoryList' /></TD> --%>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testTableOdd">&#160;<A HREF="JavaScript:getProblemDetail('<screen:beanWrite name='problem' property='roundId' />,<screen:beanWrite name='problem' property='problemId' />')" CLASS="bodyText"><screen:beanWrite name='problem' property='problemName' /></A></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testTableOdd">&#160;<screen:beanWrite name='problem' property='divisionDesc' /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testTableOdd">&#160;<screen:beanWrite name='problem' property='difficultyDesc' /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testTableOdd">&#160;<screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>
 	        </TR>
             </screen:problemInfoIterator>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>
-         </TABLE>
-
+         </table>
+         <p></p>
 <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
            <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>
-           <TR>
-              <TD COLSPAN="4" CLASS="bodyText"><B>Problem Set B</B></TD>
+              <TD COLSPAN="4" CLASS="testHeadSmall"><B>Test Set B</B></TD>
            </TR>
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Name</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Categories</B></TD>
-<%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testFormHeader" BGCOLOR="#CCCCCC">&#160;Name</TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testFormHeader" BGCOLOR="#CCCCCC">&#160;Division</TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testFormHeader" BGCOLOR="#CCCCCC">&#160;Difficulty</TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testFormHeader" BGCOLOR="#CCCCCC">&#160;Algorithmic Categories</TD>
 	        </TR>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>
             <screen:problemInfoIterator id="problem" list="<%=profileInfo.getTestSetBList()%>">
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<screen:beanWrite name='problem' property='roundId' />,<screen:beanWrite name='problem' property='problemId' />')" CLASS="bodyText"><screen:beanWrite name='problem' property='problemName' /></A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='divisionDesc' /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='difficultyDesc' /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>
-<%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name='problem' property='businessCategoryList' /></TD> --%>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testTableOdd">&#160;<A HREF="JavaScript:getProblemDetail('<screen:beanWrite name='problem' property='roundId' />,<screen:beanWrite name='problem' property='problemId' />')" CLASS="bodyText"><screen:beanWrite name='problem' property='problemName' /></A></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testTableOdd">&#160;<screen:beanWrite name='problem' property='divisionDesc' /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testTableOdd">&#160;<screen:beanWrite name='problem' property='difficultyDesc' /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="testTableOdd">&#160;<screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>
 	        </TR>
             </screen:problemInfoIterator>
-           <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-           </TR>
-         </TABLE>
+         </table>
 <% } // getProblemSetBCount() > 0 %>
 <% } // !isSessionComplete() %>
 

@@ -82,28 +82,29 @@
                 </screen:listIterator>
 
                 <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
-            
-                <tr><td class="testTableTitle" colspan="6">Test Set B</td></tr>
+                <% if (!profile.getTestSetBList().isEmpty()) { %>
+                    <tr><td class="testTableTitle" colspan="6">Test Set B</td></tr>
 
-                <tr>
-                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <td width="20%" class="testFormHeader">Name</td>
-                    <td width="20%" align="center" class="testFormHeader">Division</td>
-                    <td width="20%" align="center" class="testFormHeader">Difficulty</td>
-                    <td width="40%" align="center" class="testFormHeader">Algorithmic Categories</td>
-                    <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                 </tr>
+                    <tr>
+                        <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                        <td width="20%" class="testFormHeader">Name</td>
+                        <td width="20%" align="center" class="testFormHeader">Division</td>
+                        <td width="20%" align="center" class="testFormHeader">Difficulty</td>
+                        <td width="40%" align="center" class="testFormHeader">Algorithmic Categories</td>
+                        <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                     </tr>
 
-                <screen:listIterator id="testB" list="<%=profile.getTestSetBList()%>">
-                <tr>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <td class="testTableOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testB" property="problemName"/></a></td>
-                    <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="divisionDesc" /></td>
-                    <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="difficultyDesc" /></td>
-                    <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="algorithmicCategoryList" /></td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                </tr>
-                </screen:listIterator>
+                    <screen:listIterator id="testB" list="<%=profile.getTestSetBList()%>">
+                    <tr>
+                        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                        <td class="testTableOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testB" property="problemName"/></a></td>
+                        <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="divisionDesc" /></td>
+                        <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="difficultyDesc" /></td>
+                        <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="algorithmicCategoryList" /></td>
+                        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+                    </tr>
+                    </screen:listIterator>
+                <%}%>
 
                 <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
 
@@ -114,19 +115,18 @@
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 
                 <tr>
-                   <td colspan="2" align="center" class="testHeadSmall">&#160;</td>
-                   <td align="center" class="testHeadSmall">&#160;</td>
-                   <td align="center" class="testHeadSmall">PROBLEMS</td>
-                   <td colspan="2" align="center" class="testHeadSmall">&#160;</td>
+                   <td colspan="2" align="center" class="testTableTitle">&#160;</td>
+                   <td colspan="3" align="center" class="testTableTitle">PROBLEMS</td>
+                   <td align="center" class="testTableTitle">&#160;</td>
                 </tr>
 
                 <tr>
-                   <td align="center" class="testHeadSmall">Candidate</td>
-                   <td align="center" class="testHeadSmall">Status</td>
+                   <td align="center" class="testFormHeader">Candidate</td>
+                   <td align="center" class="testFormHeader">Status</td>
                    <td align="center" class="testFormHeader">Presented</td>
                    <td align="center" class="testFormHeader">Submitted</td>
                    <td align="center" class="testFormHeader">Passed</td>
-                   <td align="center" class="testHeadSmall">&#160;</td>
+                   <td align="center" class="testFormHeader">&#160;</td>
                 </tr>
 
                 <% boolean even = true; %>
@@ -134,7 +134,7 @@
 
                 <%-- Do a table body row --%>
                 <% if(row.getItem("num_sessions").toString().equals("0")){ %>
-                <tr><td colspan="6" align="center" class="bodyText" bgcolor="#EEEEEE">No sessions scheduled for this profile.</td></tr>
+                <tr><td colspan="6" align="center" class="bodyText" bgcolor="#EEEEEE">No sessions have been scheduled for this test profile.</td></tr>
 
                 <% } else { %>
                 <%
