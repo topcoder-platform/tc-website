@@ -184,11 +184,15 @@ body,td,font,p,a
 <tr><td class="sidebarText" align="left" >O_O</td><td class="sidebarText" align="right">740.45</td></tr>
 <tr><td class="sidebarText" align="left" >indigo9</td><td class="sidebarText" align="right">739.16</td></tr>
 <tr><td class="sidebarText" align="left" >qubits</td><td class="sidebarText" align="right">727.73</td></tr>
+<tr><td class="sidebarText" align="left" >ChristopherH</td><td class="sidebarText" align="right">725.64</td></tr>
 <tr><td class="sidebarText" align="left" >tjq</td><td class="sidebarText" align="right">721.47</td></tr>
 <tr><td class="sidebarText" align="left" >antimatter</td><td class="sidebarText" align="right">719.10</td></tr>
 <tr><td class="sidebarText" align="left" >jdmetz</td><td class="sidebarText" align="right">718.97</td></tr>
 <tr><td class="sidebarText" align="left" >ragnabot</td><td class="sidebarText" align="right">713.33</td></tr>
+<tr><td class="sidebarText" align="left" >moggy</td><td class="sidebarText" align="right">712.89</td></tr>
+<tr><td class="sidebarText" align="left" >DjinnKahn</td><td class="sidebarText" align="right">712.53</td></tr>
 <tr><td class="sidebarText" align="left" >jshute</td><td class="sidebarText" align="right">709.49</td></tr>
+<tr><td class="sidebarText" align="left" >jvohome</td><td class="sidebarText" align="right">706.92</td></tr>
 <tr><td class="sidebarText" align="left" >port6000</td><td class="sidebarText" align="right">702.14</td></tr>
 <tr><td class="sidebarText" align="left" >PurpleBob</td><td class="sidebarText" align="right">700.58</td></tr>
 <tr><td class="sidebarText" align="left" >solman</td><td class="sidebarText" align="right">700.04</td></tr>
@@ -197,6 +201,7 @@ body,td,font,p,a
 <tr><td class="sidebarText" align="left" >bokbok</td><td class="sidebarText" align="right">694.54</td></tr>
 <tr><td class="sidebarText" align="left" >WhiteShadow</td><td class="sidebarText" align="right">694.53</td></tr>
 <tr><td class="sidebarText" align="left" >doeth</td><td class="sidebarText" align="right">694.52</td></tr>
+<tr><td class="sidebarText" align="left" >mlcastle</td><td class="sidebarText" align="right">694.50</td></tr>
 <tr><td class="sidebarText" align="left" >TheOneSmiley</td><td class="sidebarText" align="right">694.41</td></tr>
 <tr><td class="sidebarText" align="left" >b0b0b0b</td><td class="sidebarText" align="right">692.37</td></tr>
 <tr><td class="sidebarText" align="left" >coshx</td><td class="sidebarText" align="right">692.24</td></tr>
@@ -257,15 +262,18 @@ body,td,font,p,a
 <tr><td class="sidebarText" align="left" >vivek_vedagiri</td><td class="sidebarText" align="right">634.33</td></tr>
 <tr><td class="sidebarText" align="left" >yaniv</td><td class="sidebarText" align="right">633.59</td></tr>
 <tr><td class="sidebarText" align="left" >quangkhaiv</td><td class="sidebarText" align="right">632.34</td></tr>
+<tr><td class="sidebarText" align="left" >mmsa</td><td class="sidebarText" align="right">632.20</td></tr>
 <tr><td class="sidebarText" align="left" >axlrosen</td><td class="sidebarText" align="right">632.06</td></tr>
 <tr><td class="sidebarText" align="left" >p1nbaLL</td><td class="sidebarText" align="right">631.06</td></tr>
 <tr><td class="sidebarText" align="left" >Fred[dy]</td><td class="sidebarText" align="right">630.64</td></tr>
+<tr><td class="sidebarText" align="left" >saagar734</td><td class="sidebarText" align="right">627.04</td></tr>
 <tr><td class="sidebarText" align="left" >cgu</td><td class="sidebarText" align="right">626.21</td></tr>
 <tr><td class="sidebarText" align="left" >xb95</td><td class="sidebarText" align="right">625.72</td></tr>
 <tr><td class="sidebarText" align="left" >zorg</td><td class="sidebarText" align="right">625.27</td></tr>
 <tr><td class="sidebarText" align="left" >gizzywump</td><td class="sidebarText" align="right">624.91</td></tr>
 <tr><td class="sidebarText" align="left" >dzadza</td><td class="sidebarText" align="right">620.96</td></tr>
 <tr><td class="sidebarText" align="left" >sliu</td><td class="sidebarText" align="right">620.81</td></tr>
+<tr><td class="sidebarText" align="left" >HardCoder</td><td class="sidebarText" align="right">620.60</td></tr>
 <tr><td class="sidebarText" align="left" >netspade</td><td class="sidebarText" align="right">619.14</td></tr>
 <tr><td class="sidebarText" align="left" >Mosher</td><td class="sidebarText" align="right">617.68</td></tr>
 <tr><td class="sidebarText" align="left" >harisuthan</td><td class="sidebarText" align="right">617.14</td></tr>
@@ -288,6 +296,7 @@ body,td,font,p,a
 <tr><td class="sidebarText" align="left" >coderlemming</td><td class="sidebarText" align="right">597.50</td></tr>
 <tr><td class="sidebarText" align="left" >Humbug</td><td class="sidebarText" align="right">597.41</td></tr>
 <tr><td class="sidebarText" align="left" >ktong</td><td class="sidebarText" align="right">597.01</td></tr>
+<tr><td class="sidebarText" align="left" >csernak</td><td class="sidebarText" align="right">593.94</td></tr>
 <tr><td class="sidebarText" align="left" >rotoZOOM</td><td class="sidebarText" align="right">593.77</td></tr>
 <tr><td class="sidebarText" align="left" >onnellinen</td><td class="sidebarText" align="right">592.59</td></tr>
 <tr><td class="sidebarText" align="left" >ChaiBot</td><td class="sidebarText" align="right">592.38</td></tr>
@@ -336,15 +345,6 @@ body,td,font,p,a
 <tr><td class="sidebarText" align="left" >amorosov</td><td class="sidebarText" align="right">517.41</td></tr>
 <tr><td class="sidebarText" align="left" >flozell</td><td class="sidebarText" align="right">513.62</td></tr>
 <tr><td class="sidebarText" align="left" >peru</td><td class="sidebarText" align="right">513.07</td></tr>
-<tr><td class="sidebarText" align="left" >eug</td><td class="sidebarText" align="right">512.45</td></tr>
-<tr><td class="sidebarText" align="left" >puzzlehacker</td><td class="sidebarText" align="right">512.33</td></tr>
-<tr><td class="sidebarText" align="left" >maa_t</td><td class="sidebarText" align="right">510.91</td></tr>
-<tr><td class="sidebarText" align="left" >guru_cyp</td><td class="sidebarText" align="right">509.98</td></tr>
-<tr><td class="sidebarText" align="left" >akibare</td><td class="sidebarText" align="right">507.30</td></tr>
-<tr><td class="sidebarText" align="left" >sasulzer</td><td class="sidebarText" align="right">507.27</td></tr>
-<tr><td class="sidebarText" align="left" >kresho</td><td class="sidebarText" align="right">499.41</td></tr>
-<tr><td class="sidebarText" align="left" >JayTea</td><td class="sidebarText" align="right">498.00</td></tr>
-<tr><td class="sidebarText" align="left" >scorbett</td><td class="sidebarText" align="right">495.34</td></tr>
 
 
 
