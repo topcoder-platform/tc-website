@@ -42,7 +42,7 @@ function back() {
                 </tr>
             </table>
 
-             <table border="0" cellspacing="0" cellpadding="0" width="70%">
+             <table border="0" cellspacing="0" cellpadding="0" width="50%">
                 <tr><screen:form name="candidateSetupForm" action="<%= Constants.CONTROLLER_URL %>" method="GET">
                     <INPUT type="hidden" name="rp" value="UpdateCandidate" />
                     <INPUT type="hidden" name="referrer" value="<jsp:getProperty name="candidateInfo" property="referrer" />" />
@@ -50,13 +50,13 @@ function back() {
                 </tr>
             </table>
  
-            <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
+            <table cellspacing="0" cellpadding="3" width="50%" class="testFrame">
                 <tr>
                     <td class="testTableTitle" colspan="3">Candidate</td>
                 </tr>
                     
                 <tr>
-                    <td class="testTableSubtitleOdd">Email Address:</td>
+                    <td width="60" class="testTableSubtitleOdd">Email Address:</td>
                         <% if (candidateInfo.isNew()) { %>
                     <td class="testTableOdd"><input type="text" name="emailAddress" size="30" maxlength="30" value="<jsp:getProperty name="candidateInfo" property="userName" />"></td>
                         <% } else { %>
@@ -73,10 +73,10 @@ function back() {
                 </tr>
                     <% } %>
                     
-                <tr><td colspan="2"><img src="/i/clear.gif" width="1" height="10" border="0" /></td></tr>
+                <tr><td colspan="3"><img src="/i/clear.gif" width="1" height="10" border="0" /></td></tr>
             </table>
                     
-            <table border="0" cellspacing="10" cellpadding="0" width="70%">
+            <table border="0" cellspacing="10" cellpadding="0" width="50%">
                 <%
                      if(!candidateInfo.isNew())
                     { 
