@@ -198,7 +198,6 @@ public class Registration
         validSteps = new String[]{STEP_0, STEP_1, STEP_2, STEP_3, STEP_4};
 
         if (user == null || user.getUserId() == 0) {
-            log.debug("user = " + user==null?"null":""+user.getUserId());
             firstName = "";
             lastName = "";
             address1 = "";
@@ -250,8 +249,6 @@ public class Registration
             gpaScale = "";
             hasResume = false;
             resetUser();
-        } else {
-            loadUser();
         }
     }
 
