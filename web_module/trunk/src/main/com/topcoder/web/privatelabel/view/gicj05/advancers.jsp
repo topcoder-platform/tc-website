@@ -55,6 +55,10 @@
 			<td class="advancersRound"><a href="/pl/?&module=Static&d1=gicj05&d2=advRound1" class="topLink">Round 1</a></td>
 			<td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=gicj05&d2=advRound1">50</a></td>
 			</tr>
+			<tr valign="top">
+			<td class="advancersRound"><a href="/pl/?&module=Static&d1=gicj05&d2=advFinal" class="topLink">Onsite Finals</a></td>
+			<td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=gicj05&d2=advFinal">winners</a></td>
+			</tr>
 			</table>
 
 
