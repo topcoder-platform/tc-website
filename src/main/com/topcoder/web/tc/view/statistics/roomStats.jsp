@@ -28,36 +28,8 @@ function goTo(selection){
  </HEAD>
  <BODY>
    <jsp:include page="../top.jsp" />
-   <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-     <TR>
-       <TD WIDTH="180" VALIGN="top">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-            </jsp:include>
-       </TD>
-       <TD WIDTH="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-       <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
-         <!-- BEGIN BODY -->
-         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-           <TR>
-             <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
-             <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
-             <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
-               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Room Statistics&#160;&#160;</SPAN>
-             </TD>
-             <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
-           </TR>
-         </TABLE>
-         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
-           <TR>
-             <TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"><BR/>
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
-                 <TR>
-                   <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>
-
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
-<% 
+<%
 //common code that pulls out the request bean.
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 String sContentHandle = srb.getContentHandle();
@@ -83,7 +55,43 @@ if (resultRow_0 != null) {
 pageContext.setAttribute("rd", currRound);
 pageContext.setAttribute("rm", currRoom);
 
-%>           
+%>
+   <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+     <TR>
+       <TD WIDTH="180" VALIGN="top">
+            <% if (sContentHandle.startsWith("coder_")&&!srb.getProperties().containsKey("rd")) { %>
+                <jsp:include page="../includes/global_left.jsp">
+                    <jsp:param name="level1" value="statistics"/>
+                    <jsp:param name="level2" value="my_last_match"/>
+                </jsp:include>
+            <% } else { %>
+                <jsp:include page="../includes/global_left.jsp">
+                    <jsp:param name="level1" value="statistics"/>
+                </jsp:include>
+            <% } %>
+       </TD>
+       <TD WIDTH="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+       <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
+         <!-- BEGIN BODY -->
+         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+           <TR>
+             <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
+             <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
+             <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
+               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Room Statistics&#160;&#160;</SPAN>
+             </TD>
+             <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
+           </TR>
+         </TABLE>
+         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
+           <TR>
+             <TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"><BR/>
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
+                 <TR>
+                   <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                 </TR>
+
+
                     <FORM name="">
                 <TR>
                   <TD COLSPAN="4" CLASS="statText">
