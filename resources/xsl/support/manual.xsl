@@ -96,7 +96,6 @@ For additional questions regarding the Competition Arena, take a look at the <A 
                                             <B><A HREF="/index?t=support&amp;c=editor_info" CLASS="bodyText">Competition Arena: Editor Information</A></B>
                                             <UL CLASS="bodyText">
                                                 <LI>Standard</LI>
-                                                <LI>JVI</LI>
                                             </UL>
                                         </LI>
                                         <BR/>
