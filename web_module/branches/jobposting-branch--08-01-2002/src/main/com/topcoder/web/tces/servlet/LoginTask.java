@@ -106,7 +106,7 @@ log.debug("getting handleinput "+handleInput);
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_user_and_pw");
         dataRequest.setProperty("hn", getHandleInput() );
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+        DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
 
