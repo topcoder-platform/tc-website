@@ -155,7 +155,7 @@ public class StudentRegistration extends Base {
     }
 
     /* When the user confirms his registration information, perform data
-     * validation again, and commit it to the database
+     * validation again, and persist it to the database
      */
     else if (cmd.equals(CONFIRM_CMD)) {
       StudentRegistrationBean srb=new StudentRegistrationBean();
@@ -164,7 +164,7 @@ public class StudentRegistration extends Base {
       request.setAttribute("student",srb);
 
       if (isValidStudent(srb)) {
-        commitStudent(srb);
+        persistStudent(srb);
         setNextPage(REGISTRATION_BASE+THANK_YOU_PAGE);
       }
       else {
@@ -499,10 +499,11 @@ public class StudentRegistration extends Base {
     return(is_valid);
   }
 
-  private void commitStudent(StudentRegistrationBean _srb) throws Exception {
+  private void persistStudent(StudentRegistrationBean _srb) throws Exception {
     UserTransaction utx=null;
     try {
       utx=Transaction.get();
+      System.out.println("utx="+utx);
       Transaction.begin(utx);
 
       Context ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
@@ -554,6 +555,8 @@ public class StudentRegistration extends Base {
       Transaction.commit(utx);
     }
     catch (Exception _e) {
+      _e.printStackTrace();
+      System.out.println("utx:="+utx);
       if (utx!=null) {
         Transaction.rollback(utx);
       }
