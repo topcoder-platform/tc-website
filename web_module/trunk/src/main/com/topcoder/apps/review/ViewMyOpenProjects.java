@@ -1,15 +1,11 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
-import com.topcoder.apps.review.document.DocumentManagerLocal;
-import com.topcoder.apps.review.document.InitialSubmission;
-import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-import com.topcoder.apps.review.projecttracker.UserRole;
 
 /**
  * This Model provides business logic through which users view their open projects.
@@ -48,7 +44,7 @@ public class ViewMyOpenProjects implements Model {
 
         try {
             ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
-            DocumentManagerLocal documentManager = EJBHelper.getDocumentManager();
+            //DocumentManagerLocal documentManager = EJBHelper.getDocumentManager();
             UserProjectInfo[] projects = projectTracker.getProjectInfo(user.getTCSubject());
 
             // strip closed projects
@@ -57,6 +53,7 @@ public class ViewMyOpenProjects implements Model {
                 if (!PhaseHelper.isClosed(projects[i])) {
 
                     // in non-submit phase we have to filter projects for 'fake' submitters
+/*
                     if (!PhaseHelper.canSubmit(projects[i])) {
                         // determine if the user has only the role of submitter
                         boolean isSubmitterOnly = false;
@@ -91,6 +88,7 @@ public class ViewMyOpenProjects implements Model {
 //                            }
 //                        }
                     }
+*/
 
                     // for admins the project tracker returns all projects so we have to retain only those for which
                     // the admin is a product manager
