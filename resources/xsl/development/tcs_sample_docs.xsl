@@ -83,8 +83,8 @@
                     				<td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                     				<td class="statText" valign="top">
                     				<br />
-                    				00.00.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Designer_Component_Deliverables.pdf" class="statText">Java Design Deliverables.pdf</a><br />
-									00.00.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/.NET_Designer_Component_Deliverables.pdf" class="statText">.NET Design Deliverables.pdf</a>
+                    				02.13.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Designer_Component_Deliverables.pdf" class="statText">Java Design Deliverables.pdf</a><br />
+									02.13.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/.NET_Designer_Component_Deliverables.pdf" class="statText">.NET Design Deliverables.pdf</a>
                     				</td>
                     				
                 				</tr>
@@ -102,7 +102,7 @@
                     				<td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                     				<td class="statText" valign="top">
                     				<br />
-                    				00.00.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Developer_Component_Deliverables.pdf" class="statText">Development Deliverables.pdf</a>
+                    				02.13.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Developer_Component_Deliverables.pdf" class="statText">Development Deliverables.pdf</a>
                     				</td>
                 				</tr>
                 				
@@ -122,8 +122,8 @@
 									<td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                     				<td class="statText" valign="top">
                     				<br />
-                    				00.00.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Component_Specification.dot" class="statText">Component Specification.dot</a><br />
-                    				00.00.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Component_Specification.pdf" class="statText">Component Specification.pdf</a>
+                    				03.11.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Component_Specification.dot" class="statText">Component Specification.dot</a><br />
+                    				03.11.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Component_Specification.pdf" class="statText">Component Specification.pdf</a>
                     				</td>
                 				</tr>
                 				
@@ -143,8 +143,8 @@
 									<td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                     				<td class="statText" valign="top">
                     				<br />
-                    				00.00.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Deployment_Guide.dot" class="statText">Deployment Guide.dot</a><br />
-                    				00.00.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Deployment_Guide.pdf" class="statText">Deployment Guide.pdf</a>
+                    				01.19.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Deployment_Guide.dot" class="statText">Deployment Guide.dot</a><br />
+                    				01.19.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Deployment_Guide.pdf" class="statText">Deployment Guide.pdf</a>
                     				</td>
                 				</tr>
                 				
@@ -162,10 +162,10 @@
 									<td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                     				<td class="statText" height="15" valign="top">
                     				<br />
-                    				00.00.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Screening_Scorecard.pdf" class="statText">Design Screening Scorecard.pdf</a><br />
-                    				00.00.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Review_Scorecard.pdf" class="statText">Design Review Scorecard.pdf</a><br />
-                    				00.00.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Screening_Scorecard.pdf" class="statText">Development Screening Scorecard.pdf</a><br />
-									00.00.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Review_Scorecard.pdf" class="statText">Development Review Scorecard.pdf</a>
+                    				03.06.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Screening_Scorecard.pdf" class="statText">Design Screening Scorecard.pdf</a><br />
+                    				03.06.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Review_Scorecard.pdf" class="statText">Design Review Scorecard.pdf</a><br />
+                    				03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Screening_Scorecard.pdf" class="statText">Development Screening Scorecard.pdf</a><br />
+									03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Review_Scorecard.pdf" class="statText">Development Review Scorecard.pdf</a>
                     				</td>
                 				</tr>
                 				
