@@ -130,7 +130,7 @@ public class UpdateSession extends BaseSessionProcessor {
             }
             clearSessionInfo();
 
-            setNextPage(Constants.DEFAULT_PAGE);
+            setNextPage("/");
             setIsNextPageInContext(false);
         }
     }

@@ -7,6 +7,8 @@
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
 %>
 
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" />
+
             <img src="/i/corp/clear.gif" width="180" height="6" border="0" alt=""><br>
             <img src="/i/corp/left_nav_top.gif" width="180" height="11" border="0" alt=""><br>
 
@@ -31,7 +33,7 @@
                 <tr><td id="<%=level2.equals("attributes")?"leftSubnavOn":"leftSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=testing_attributes" target="_parent" class="leftOn">Attributes</a></td></tr>
                 <tr><td id="<%=level2.equals("management")?"leftSubnavOn":"leftSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=management_tool" target="_parent" class="leftOn">Management Tool</a></td></tr>
                 <tr><td id="<%=level2.equals("pricing")?"leftSubnavOn":"leftSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=pricing" target="_parent" class="leftOn">Pricing</a></td></tr>
-                <tr><td id="leftNavApplet"><img alt="" width="10" height="10" src="/i/corp/clear.gif" border="0"/><A href="/testing/" class="left">Launch Testing App Tool</A></td></tr>
+                <tr><td id="leftNavApplet"><img alt="" width="10" height="10" src="/i/corp/clear.gif" border="0"/><A href="<jsp:getProperty name='sessionInfo' property='ServletPath'/>testing/" class="left">Launch Testing App Tool</A></td></tr>
             <% } %>
 <!-- Testing ends -->
 
