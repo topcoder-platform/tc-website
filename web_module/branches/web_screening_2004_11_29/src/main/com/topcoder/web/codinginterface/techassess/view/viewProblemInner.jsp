@@ -5,6 +5,14 @@
 <title>Technical Assessment</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <link type="text/css" rel="stylesheet" href="/css/screening.css" >
+
+<SCRIPT type="text/javascript">
+    function submit(module) {
+      document.problemForm.<%=Constants.MODULE%>.value=module;
+      document.problemForm.submit();
+    }
+</SCRIPT>
+
 </head>
 <body>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -40,44 +48,48 @@
 <%-- CONTENT --%>
             <td class=bodyContent>
 
-            <table cellspacing=0 cellpadding=0 border=0 width="100%">
-               <tr>
-                  <td align=left><span class=bodySmallTitle>Problem Statement</span></td>
-                  <td align=right>
-                  Choose your language:
-                  <tc-webtag:listIterator id="language" list="languages" type="com.topcoder.shared.language.Language">
-                    <input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="<jsp:getProperty name="language" property="id"/>">&#160;<jsp:getProperty name="language" property="name"/>&#160;
-                  </tc-webtag:listIterator>
-                  </td>
-               </tr>
-            </table>
+                <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="problemForm" target="_top">
+                    <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE%>"/>
 
-            <iframe src="<jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=<%=Constants.RP_PROBLEM_STATEMENT%>&<%=Constants.MESSAGE_ID%>=<%=request.getParameter(Constants.MESSAGE_ID)%>" width="100%" height="200px" scrolling="auto" frameborder="1">
-            [Your user agent does not support frames or is currently configured not to display frames. However, you may visit <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=<%=Constants.RP_PROBLEM_STATEMENT%>&<%=Constants.MESSAGE_ID%>=<%=request.getParameter(Constants.MESSAGE_ID)%>" target="_top">the related document.</a>]
-            </iframe>
+                    <table cellspacing=0 cellpadding=0 border=0 width="100%">
+                       <tr>
+                          <td align=left><span class=bodySmallTitle>Problem Statement</span></td>
+                          <td align=right>
+                          Choose your language:
+                          <tc-webtag:listIterator id="language" list="languages" type="com.topcoder.shared.language.Language">
+                            <input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="<jsp:getProperty name="language" property="id"/>">&#160;<jsp:getProperty name="language" property="name"/>&#160;
+                          </tc-webtag:listIterator>
+                          </td>
+                       </tr>
+                    </table>
 
-            <br/><br/>
-            <p class=pL><span class=bodySmallTitle>Input Area</span></p>
-            <textarea class=codingArea name="code" rows="20" cols="40" wrap="off">
-                <jsp:getProperty name="problemInfo" property="code"/>
-            </textarea>
+                    <iframe src="<jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=<%=Constants.RP_PROBLEM_STATEMENT%>&<%=Constants.MESSAGE_ID%>=<%=request.getParameter(Constants.MESSAGE_ID)%>" width="100%" height="200px" scrolling="auto" frameborder="1">
+                    [Your user agent does not support frames or is currently configured not to display frames. However, you may visit <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=<%=Constants.RP_PROBLEM_STATEMENT%>&<%=Constants.MESSAGE_ID%>=<%=request.getParameter(Constants.MESSAGE_ID)%>" target="_top">the related document.</a>]
+                    </iframe>
 
-            <br /><br />
+                    <br/><br/>
+                    <p class=pL><span class=bodySmallTitle>Input Area</span></p>
+                    <textarea class=codingArea name="<%=Constants.CODE%>" rows="20" cols="40" wrap="off">
+                        <jsp:getProperty name="problemInfo" property="code"/>
+                    </textarea>
 
-            <table cellspacing=0 cellpadding=0 border=0 class=codingButtons>
-               <tr>
-                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonResize.gif" alt="" /></a></td>
-                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonFind.gif" alt="" /></a></td>
-                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonGoTo.gif" alt="" /></a></td>
-                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonSave.gif" alt="" /></a></td>
-                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
-                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
-                  <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonClear.gif" alt="" /></a></td>
-                  <td><a href="/mockup/exampleDirections.jsp" target="_top"><img src="/i/corp/screening/buttonClose.gif" alt="" /></a></td>
-                  <td><a href="/mockup/exampleDirections.jsp" target="_top"><img src="/i/corp/screening/buttonSubmit.gif" alt="" /></a></td>
-               </tr>
-            </table>
+                    <br /><br />
 
+                    <table cellspacing=0 cellpadding=0 border=0 class=codingButtons>
+                       <tr>
+                          <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonResize.gif" alt="" /></a></td>
+                          <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonFind.gif" alt="" /></a></td>
+                          <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonGoTo.gif" alt="" /></a></td>
+                          <td><a href="javascript:submit(<%=Constants.RP_SAVE%>)" target="_top"><img src="/i/corp/screening/buttonSave.gif" alt="" /></a></td>
+                          <td><a href="javascript:submit(<%=Constants.RP_COMPILE%>)" target="_top"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
+                          <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
+                          <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonClear.gif" alt="" /></a></td>
+                          <td><a href="/mockup/exampleDirections.jsp" target="_top"><img src="/i/corp/screening/buttonClose.gif" alt="" /></a></td>
+                          <td><a href="/mockup/exampleDirections.jsp" target="_top"><img src="/i/corp/screening/buttonSubmit.gif" alt="" /></a></td>
+                       </tr>
+                    </table>
+                </form>
             </td>
             <td class=bodyR>&#160;</td>
          </tr>
