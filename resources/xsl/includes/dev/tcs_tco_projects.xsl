@@ -28,8 +28,18 @@
             <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
 
 <!-- Component Design Projects begins -->
-            <img src="/i/development/tco_sidebar_top.gif" alt="2003 TCO Component Contest" width="238" height="157" border="0" /><br />
-            <img src="/i/development/tco_sidebar_round1_des.gif" alt="Elimination Round 1: Design" width="238" height="47" border="0" />
+            <A href="/index?t=tournaments&amp;c=tco03_comp_overview"><img src="/i/development/tco_sidebar_top.gif" alt="2003 TCO Component Contest" width="238" height="157" border="0" /></A>
+
+            <table width="238" border="0" cellspacing="0" cellpadding="12" bgcolor="#999999">
+                <tr valign="middle">
+                    <td background="/i/development/tco_sidebar_background.gif" class="smallText">
+                        <p><strong>Only projects from the list below qualify for the 2003 TCO Component Contest. See the 
+                        <A href="/index?t=tournaments&amp;c=tco03_comp_rules_structure">Rules</A> page for for full entry requirements.</strong></p>
+                    </td>
+                </tr>
+            </table>
+
+            <A href="/index?t=development&amp;c=comp_projects#tco_des"><img src="/i/development/tco_sidebar_round1_des.gif" alt="Elimination Round 1: Design" width="238" height="47" border="0" /></A>
 
             <table width="238" border="0" cellspacing="0" cellpadding="0" bgcolor="#999999">
                 <tr valign="middle">
@@ -99,7 +109,7 @@
                         <table border="0" cellspacing="3" cellpadding="0">
                             <tr valign="middle">
                                 <td width="99%">&#160;</td>
-                                <td width="1%" class="statText" nowrap="nowrap"><a class="statText" href="/index?t=development&amp;c=comp_projects"><strong>View all Projects</strong></a></td>
+                                <td width="1%" class="statText" nowrap="nowrap"><a class="statText" href="/index?t=development&amp;c=comp_projects#tco_des"><strong>View all Projects</strong></a></td>
                             </tr>
                         </table>
                     </td>
@@ -107,7 +117,7 @@
             </table>
 <!-- Component Design Projects ends -->
 
-            <img src="/i/development/tco_sidebar_round1_dev.gif" alt="Elimination Round 1: Development" width="238" height="63" border="0" />
+            <A href="/index?t=development&amp;c=comp_projects#tco_dev"><img src="/i/development/tco_sidebar_round1_dev.gif" alt="Elimination Round 1: Development" width="238" height="63" border="0" /></A>
 
 <!-- Component Development Projects begins -->
             <table width="238" border="0" cellspacing="0" cellpadding="0" bgcolor="#999999">
@@ -175,7 +185,7 @@
                         <table border="0" cellspacing="3" cellpadding="0">
                             <tr valign="middle">
                                 <td width="99%">&#160;</td>
-                                <td width="1%" class="statText" nowrap="nowrap"><a class="statText" href="/index?t=development&amp;c=comp_projects"><strong>View all Projects</strong></a></td>
+                                <td width="1%" class="statText" nowrap="nowrap"><a class="statText" href="/index?t=development&amp;c=comp_projects#tco_dev"><strong>View all Projects</strong></a></td>
                             </tr>
                         </table>
                     </td>
