@@ -77,170 +77,187 @@
               
               <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">               
                 <TR valign='top'>
-                <TD width='50%'>
-                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
-                    <TR>
-                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
-                    </TR>
-
-                    <TR>
-                      <TD class="statText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
-                    </TR>                
-                    
-                    <tces:mapIterator id="responseRow" MapList="<%=(List)StudentResponseList%>">                    
+                <TD width='40%'>
+                
+                  <% if (DemographicTask.getStudentCoderCount() > 0) { %>    
+                
+                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                         <TR>
-                          <TD class="statText" HEIGHT="18">
-                            <%=(String)responseRow.get("title")%>
-                          </TD>
-                          <TD class="statText">
-                            <%=(String)responseRow.get("percent")%>
-                          </TD>
-                          <TD class="statText">
-                            <%=(String)responseRow.get("count")%>
-                          </TD>                  
-                        </TR>                     
-                    </tces:mapIterator>
+                          <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
+                        </TR>
 
-                    <TR>
-                      <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
-                    </TR>                
-
-                    <TR>
-                      <TD class="statText" HEIGHT="18" COLSPAN="3"><B>Receive Notification Emails?</B></TD>                  
-                    </TR>                
-                    
-                    <tces:mapIterator id="notify" MapList="<%=(List)StudentNotifyList%>">                    
                         <TR>
-                          <TD class="statText" HEIGHT="18">
-                            <%=(String)notify.get("title")%>
-                          </TD>
-                          <TD class="statText">
-                            <%=(String)notify.get("percent")%>
-                          </TD>
-                          <TD class="statText">
-                            <%=(String)notify.get("count")%>
-                          </TD>                  
-                        </TR>                     
-                    </tces:mapIterator>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
+                        </TR>                
 
+                        <tces:mapIterator id="responseRow" MapList="<%=(List)StudentResponseList%>">                    
+                            <TR>
+                              <TD class="statText" HEIGHT="18">
+                                <%=(String)responseRow.get("title")%>
+                              </TD>
+                              <TD class="statText">
+                                <%=(String)responseRow.get("percent")%>
+                              </TD>
+                              <TD class="statText">
+                                <%=(String)responseRow.get("count")%>
+                              </TD>                  
+                            </TR>                     
+                        </tces:mapIterator>
 
-                    <%
-                      while (StudentQuestionIterator.hasNext()) {
-                        String question = (String)StudentQuestionIterator.next();
-                        List StudentResponsesList = (List)StudentQuestionMap.get(question);
-                    %>
-            
-                    <TR>
-                      <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
-                    </TR>                
-
-                    <TR>
-                      <TD class="statText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
-                    </TR>                
-
-            
-                    <tces:mapIterator id="resp" MapList="<%=(List)StudentResponsesList%>">                                
                         <TR>
-                          <TD class="statText" HEIGHT="18">
-                            <%=(String)resp.get("title")%>
-                          </TD>
-                          <TD class="statText">
-                            <%=(String)resp.get("percent")%>
-                          </TD>
-                          <TD class="statText">
-                            <%=(String)resp.get("count")%>
-                          </TD>                  
-                        </TR>                     
-                    </tces:mapIterator>
-                        
-                    <%            
-                      }
-                    %>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                        </TR>                
 
-                  </TABLE>
+                        <TR>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3"><B>Receive Notification Emails?</B></TD>                  
+                        </TR>                
+
+                        <tces:mapIterator id="notify" MapList="<%=(List)StudentNotifyList%>">                    
+                            <TR>
+                              <TD class="statText" HEIGHT="18">
+                                <%=(String)notify.get("title")%>
+                              </TD>
+                              <TD class="statText">
+                                <%=(String)notify.get("percent")%>
+                              </TD>
+                              <TD class="statText">
+                                <%=(String)notify.get("count")%>
+                              </TD>                  
+                            </TR>                     
+                        </tces:mapIterator>
+
+
+                        <%
+                          while (StudentQuestionIterator.hasNext()) {
+                            String question = (String)StudentQuestionIterator.next();
+                            List StudentResponsesList = (List)StudentQuestionMap.get(question);
+                        %>
+
+                        <TR>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                        </TR>                
+
+                        <TR>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
+                        </TR>                
+
+
+                        <tces:mapIterator id="resp" MapList="<%=(List)StudentResponsesList%>">                                
+                            <TR>
+                              <TD class="statText" HEIGHT="18">
+                                <%=(String)resp.get("title")%>
+                              </TD>
+                              <TD class="statText">
+                                <%=(String)resp.get("percent")%>
+                              </TD>
+                              <TD class="statText">
+                                <%=(String)resp.get("count")%>
+                              </TD>                  
+                            </TR>                     
+                        </tces:mapIterator>
+
+                        <%            
+                          }
+                        %>
+
+                      </TABLE>
+                      
+                   <% 
+                     }
+                   %>
+                   
                 </TD>
                     
-                <TD width="50%">
-                  <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
-                    <TR>
-                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="DemographicTask" property="ProCoderCount"/>)</b></TD>
-                    </TR>
-
-                    <TR>
-                      <TD class="statText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
-                    </TR>                
+                <TD WIDTH="10%"><BR></TD>
+                
                     
-                    <tces:mapIterator id="responseRow" MapList="<%=(List)ProResponseList%>">                    
+                <TD width="40%">
+                  
+                  <% if (DemographicTask.getProCoderCount() > 0) { %>
+                  
+                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                         <TR>
-                          <TD class="statText" HEIGHT="18">
-                            <%=(String)responseRow.get("title")%>
-                          </TD>
-                          <TD class="statText">
-                            <%=(String)responseRow.get("percent")%>
-                          </TD>
-                          <TD class="statText">
-                            <%=(String)responseRow.get("count")%>
-                          </TD>                  
-                        </TR>                     
-                    </tces:mapIterator>
+                          <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="DemographicTask" property="ProCoderCount"/>)</b></TD>
+                        </TR>
 
-                    <TR>
-                      <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
-                    </TR>                
-
-                    <TR>
-                      <TD class="statText" HEIGHT="18" COLSPAN="3"><B>Receive Notification Emails?</B></TD>                  
-                    </TR>                
-                    
-                    <tces:mapIterator id="notify" MapList="<%=(List)ProNotifyList%>">                    
                         <TR>
-                          <TD class="statText" HEIGHT="18">
-                            <%=(String)notify.get("title")%>
-                          </TD>
-                          <TD class="statText">
-                            <%=(String)notify.get("percent")%>
-                          </TD>
-                          <TD class="statText">
-                            <%=(String)notify.get("count")%>
-                          </TD>                  
-                        </TR>                     
-                    </tces:mapIterator>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
+                        </TR>                
 
+                        <tces:mapIterator id="responseRow" MapList="<%=(List)ProResponseList%>">                    
+                            <TR>
+                              <TD class="statText" HEIGHT="18">
+                                <%=(String)responseRow.get("title")%>
+                              </TD>
+                              <TD class="statText">
+                                <%=(String)responseRow.get("percent")%>
+                              </TD>
+                              <TD class="statText">
+                                <%=(String)responseRow.get("count")%>
+                              </TD>                  
+                            </TR>                     
+                        </tces:mapIterator>
 
-                    <%
-                      while (StudentQuestionIterator.hasNext()) {
-                        String question = (String)ProQuestionIterator.next();
-                        List ProResponsesList = (List)ProQuestionMap.get(question);
-                    %>
-            
-                    <TR>
-                      <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
-                    </TR>                
-
-                    <TR>
-                      <TD class="statText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
-                    </TR>                
-
-            
-                    <tces:mapIterator id="resp" MapList="<%=(List)ProResponsesList%>">                                
                         <TR>
-                          <TD class="statText" HEIGHT="18">
-                            <%=(String)resp.get("title")%>
-                          </TD>
-                          <TD class="statText">
-                            <%=(String)resp.get("percent")%>
-                          </TD>
-                          <TD class="statText">
-                            <%=(String)resp.get("count")%>
-                          </TD>                  
-                        </TR>                     
-                    </tces:mapIterator>
-                        
-                    <%            
-                      }
-                    %>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                        </TR>                
 
-                  </TABLE>                  
+                        <TR>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3"><B>Receive Notification Emails?</B></TD>                  
+                        </TR>                
+
+                        <tces:mapIterator id="notify" MapList="<%=(List)ProNotifyList%>">                    
+                            <TR>
+                              <TD class="statText" HEIGHT="18">
+                                <%=(String)notify.get("title")%>
+                              </TD>
+                              <TD class="statText">
+                                <%=(String)notify.get("percent")%>
+                              </TD>
+                              <TD class="statText">
+                                <%=(String)notify.get("count")%>
+                              </TD>                  
+                            </TR>                     
+                        </tces:mapIterator>
+
+
+                        <%
+                          while (StudentQuestionIterator.hasNext()) {
+                            String question = (String)ProQuestionIterator.next();
+                            List ProResponsesList = (List)ProQuestionMap.get(question);
+                        %>
+
+                        <TR>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                        </TR>                
+
+                        <TR>
+                          <TD class="statText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
+                        </TR>                
+
+
+                        <tces:mapIterator id="resp" MapList="<%=(List)ProResponsesList%>">                                
+                            <TR>
+                              <TD class="statText" HEIGHT="18">
+                                <%=(String)resp.get("title")%>
+                              </TD>
+                              <TD class="statText">
+                                <%=(String)resp.get("percent")%>
+                              </TD>
+                              <TD class="statText">
+                                <%=(String)resp.get("count")%>
+                              </TD>                  
+                            </TR>                     
+                        </tces:mapIterator>
+
+                        <%            
+                          }
+                        %>
+
+                      </TABLE>                  
+                  
+                    <% } %>
+                   
                 </TD>
                 </TR>
               </TABLE>

@@ -270,20 +270,23 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 setProDemoInfo(demoInfoMap);
         }
 
-        rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
-        if (rsc.getRowCount() == 0) {
-            throw new Exception (" cid="+Integer.toString(getCampaignID())+
-                                 "does not belong to uid="+Integer.toString(uid) );
-        }
-
         if (getJobID()>=0) {
             // Position Demographics
 
-            rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Position_Access");
+            rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
             if (rsc.getRowCount() == 0) {
                 throw new Exception (" cid="+Integer.toString(getCampaignID())+
                                      " pid="+Integer.toString(getJobID())+
                                      " does not belong to uid="+Integer.toString(uid) );
+            }
+        }
+        else {
+            // Campaign Demographics
+
+            rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
+            if (rsc.getRowCount() == 0) {
+                throw new Exception (" cid="+Integer.toString(getCampaignID())+
+                                     "does not belong to uid="+Integer.toString(uid) );
             }
         }
 
