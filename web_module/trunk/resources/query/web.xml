@@ -146,8 +146,14 @@
   </init-param>
 
   <init-param>
-    <param-name>db_task</param-name>
-    <param-value>LoginTask</param-value>
+    <param-name>db_selection_task</param-name>
+    <param-value>DBTask</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>command_list_task</param-name>
+    <param-value>CommandListTask</param-value>
     <description></description>
   </init-param>
 

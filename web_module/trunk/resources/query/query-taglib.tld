@@ -10,12 +10,12 @@
   </info>
 
   <tag>
-    <name>setIterator</name>
-    <tagclass>com.topcoder.web.query.servlet.jsp.tag.SetIteratorTag</tagclass>
-    <teiclass>com.topcoder.web.query.servlet.jsp.tag.SetIteratorTagInfo</teiclass>
+    <name>listIterator</name>
+    <tagclass>com.topcoder.web.query.servlet.jsp.tag.ListIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.query.servlet.jsp.tag.ListIteratorTagInfo</teiclass>
     <bodycontent>JSP</bodycontent>
     <info>
-      Tag to iterate through a Set
+      Tag to iterate through a List
     </info>
     <attribute>
       <name>id</name>
@@ -23,7 +23,7 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
     <attribute>
-      <name>set</name>
+      <name>list</name>
       <required>true</required>
       <rtexprvalue>true</rtexprvalue>
     </attribute>
