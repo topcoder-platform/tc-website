@@ -30,7 +30,7 @@
                             <tr> 
                                 <td id="calendarMini">4</td>
                                 <td id="calendarMini">5</td>
-                                <td id="calendarSRMMini"><a href="/?RoundId=4530&amp;t=schedule&amp;c=srm">6</a></td>
+                                <td id="calendarSRMMini"><a id="miniSRMDate" href="/?RoundId=4530&amp;t=schedule&amp;c=srm">6</a></td>
                                 <td id="calendarMini">7</td>
                                 <td id="calendarMini">8</td>
                                 <td id="calendarMini">9</td>
@@ -41,7 +41,7 @@
                                 <td id="calendarMini">11</td>
                                 <td id="calendarMini">12</td>
                                 <td id="calendarMini">13</td>
-                                <td id="calendarSRMMini"><a href="/?RoundId=4535&amp;t=schedule&amp;c=srm">14</a></td>
+                                <td id="calendarSRMMini"><a id="miniSRMDate" href="/?RoundId=4535&amp;t=schedule&amp;c=srm">14</a></td>
                                 <td id="calendarMini">15</td>
                                 <td id="calendarMini">16</td>
                                 <td id="calendarMini">17</td>
@@ -52,7 +52,7 @@
                                 <td id="calendarMini">19</td>
                                 <td id="calendarMini">20</td>
                                 <td id="calendarMini">21</td>
-                                <td id="calendarSRMMini"><a href="/?RoundId=4540&amp;t=schedule&amp;c=srm">22</a></td>
+                                <td id="calendarSRMMini"><a id="miniSRMDate" href="/?RoundId=4540&amp;t=schedule&amp;c=srm">22</a></td>
                                 <td id="calendarMini">23</td>
                                 <td id="calendarMini">24</td>
                             </tr>
@@ -61,7 +61,7 @@
                                 <td id="calendarMini">25</td>
                                 <td id="calendarMini">26</td>
                                 <td id="calendarMini">27</td>
-                                <td id="calendarSRMMini"><a href="/?RoundId=4545&amp;t=schedule&amp;c=srm">28</a></td>
+                                <td id="calendarSRMMini"><a id="miniSRMDate" href="/?RoundId=4545&amp;t=schedule&amp;c=srm">28</a></td>
                                 <td id="calendarMini">29</td>
                                 <td id="calendarMini">30</td>
                                 <td id="calendarMini">31</td>
