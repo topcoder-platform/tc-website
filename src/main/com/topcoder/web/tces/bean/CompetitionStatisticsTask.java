@@ -107,7 +107,7 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
         a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
             "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MEMBER_PROFILE_TASK + "&" + 
             TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
-            TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.JOB_ID_PARAM + 
+            TCESConstants.JOB_ID_PARAM + "=" + getJobID() + "&" + TCESConstants.MEMBER_ID_PARAM + 
             "=" + getMemberID(), TCESConstants.MEMBER_PROFILE_NAME));
         setTrail(a);
 
