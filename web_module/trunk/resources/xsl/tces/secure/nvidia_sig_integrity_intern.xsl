@@ -58,20 +58,19 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_soft_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
+<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_hard_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
 
 
 
-<P><B>WEB SOFTWARE ENGINEER</B></P>
+<P><B>SIGNAL INTEGRITY ENGINEER (INTERN/CO-OP POSITION ONLY)</B></P>
 <P><B>Role/Responsibilities:</B></P>
-<P>Develop business applications to automate key internal business processes at NVIDIA.  This involves building web-based user interfaces, 
-designing database schemas, coding business rules and workflow logic, and creating dynamically driven reports. Typical projects combine 
-workflow automation, complex user interfaces, database design, and reporting.</P>
+<P>You will support the hardware development groups to aggressively design and develop high performance 3D graphics accelerators and PC motherboards.  You will also work with 3rd party vendors to maintain a high level of model accuracy. The members that will be a part of this growing group are outstanding individuals that will need to handle challenging high-speed designs, model generation, verification and pre/post layout simulation and constraint management of high-speed digital busses.  Work as part of a team with logic, module designers, PCB and component engineers to characterize packages and define termination strategies. 
+</P>
+ 
+
 
 <P><B>Qualifications: GPA: 3.5</B></P>
-<P>Candidates should have solid programming background with an emphasis on current web technologies. 
-Required Skills: Visual Basic.Net, ASP.Net, JavaScript, DHTML, XML, Microsoft SQL database design and T-SQL programming.  
-</P>
+<P>MSEE (PhD preferred) with combined lab or internship related experience.  Must be proficient with signal integrity simulation tools using SpecctraQuest, ANSOFT, XTK, HSPICE.  Must have good interpersonal skills and the ability to explain results and methods to other engineers.  Preferred experience in model validation software such as IConnect. </P>
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
 

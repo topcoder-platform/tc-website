@@ -15,7 +15,7 @@
     <HTML>
       <HEAD>
         <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Employment Services</TITLE>
+        <TITLE>Job Listings for NVIDIA on TopCoder</TITLE>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
@@ -25,7 +25,7 @@
       <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
         <xsl:call-template name="Top"/>
 <!-- Body Begins -->
-<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
+<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" >
   <TR>
     <!-- Left Column Begins -->
     <TD WIDTH="180" VALIGN="top">
@@ -58,8 +58,24 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-<IMG SRC="/i/es/nvidia/intern_soft_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" ALIGN="CENTER" /><BR/>       
+<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_soft_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10"/></DIV>     
 
+                <p>We are reinventing the visual experience beyond the bleeding-edge with the best hardware and software innovation.  The culture promotes 
+                        and inspires our driven team of world-class engineers and developers to be at the top of their game...and to have fun along the way!  We are shaping 
+                        the world of tomorrow...today.  Are you ready?</p>
+            
+                        <p>At NVIDIA, we thrive on innovation, we're passionate about developing revolutionary technology, and we have the most brilliant minds in graphics, 
+                        hardware, and software.  If this sounds like the place you want to be, see what opportunities are waiting for you! </p>
+            
+                        <p>Positions are available in our Santa Clara, CA headquarters in the following areas:</p>
+                        <ul>
+                            <li>Architecture</li>
+                            <li>Marketing - Demo &#38; Performance Teams</li>
+                            <li>Software Engineering</li>
+                            <li>IT Business Development &#40;Engineering&#41;</li>
+                        </ul>
+                
+                
                 <P>All positions are for New College Graduate &#40;NCG&#41;, Internship, and Co-op opportunities, unless otherwise indicated:</P>
  <TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
    <TR>
@@ -103,6 +119,19 @@
     </TD>
   </TR>
 </TABLE>
+
+<p>As an New College Grad at NVIDIA, your career starts faster than the speed of light!  You will be working side by side with some of the world's best engineers, 
+                        and you will have an opportunity of a lifetime to make your mark in history.  Where your career will go...only you can tell!</p>
+            
+                        <p>As an intern&#47; co-op at NVIDIA, you will be empowered to show what you can do.  You are a valuable member of our team and play a critical role in the development 
+                        of our latest products.  Your success will be determined by your technical strength and undisputed proactive attitude.</p>
+            
+                        <p>If you are highly motivated and passionate about winning, check out the possibilities waiting for you.</p>
+            
+                        <p>At NVIDIA, the sky's the limit! Visualize your future...We do.</p>
+
+                        <p><strong>YOUR FUTURE BEGINS HERE...</strong></p>
+                        
 <!--end contextual links-->
           
           

@@ -58,20 +58,24 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_soft_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
+<DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_hard_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
 
 
 
-<P><B>WEB SOFTWARE ENGINEER</B></P>
+<P><B>SYSTEMS ENGINEER</B></P>
 <P><B>Role/Responsibilities:</B></P>
-<P>Develop business applications to automate key internal business processes at NVIDIA.  This involves building web-based user interfaces, 
-designing database schemas, coding business rules and workflow logic, and creating dynamically driven reports. Typical projects combine 
-workflow automation, complex user interfaces, database design, and reporting.</P>
+<P>Systems Engineers are members of the team responsible for developing Nvidia's cutting edge graphics board products.  Primary responsibilities are to work hands on with new Nvidia hardware to ensure it meets design, feature and quality objectives.  Specific responsibilities include:
+<ul><li>Hardware Bringup - As a member of the board "bring-up" team, you and your teammates will bring-up and test Nvidia's graphics board and chip products.  You will experience the world's fastest 3D graphics products 4-6 months before arriving on the store shelves.  Expect to learn pc architecture, graphics architecture, laboratory methodologies, lab experimentation and measurement techniques.</li>
+<li>Hardware Qualification  - Working along side the chip & board designers, you will verify new Nvidia hardware meets design objectives and is ready for mass production.  It is here that you will learn state of the art techniques for ensuring hardware designs meet specification and the highest quality standards.</li>
+<li>Design Review - Participate in the design reviews of new products to provide feedback to designers and to better understand the product before prototypes are built.  Here you will learn about schematic circuit design as well as high-speed PCB layout techniques.</li>
+<li>Troubleshoot - When Nvidia HW design or product issue is encountered, your task will be to understand the problem and work on innovative solutions to reach resolution.  This involves working with the various organizations within Nvidia to learn more details about the product and working in the lab to test and prove hypothesis.</li>
+</ul></P>
+<p>This position provides excellent exposure to the many engineering activities required to design and deliver world-class graphics products.  It is especially beneficial to Co-op and interns who desire to become hardware design engineers. Systems Engineers are exposed to a wide range of engineering activities and is an excellent way to help determine the engineering path that is right for you.</p>
+ 
+
 
 <P><B>Qualifications: GPA: 3.5</B></P>
-<P>Candidates should have solid programming background with an emphasis on current web technologies. 
-Required Skills: Visual Basic.Net, ASP.Net, JavaScript, DHTML, XML, Microsoft SQL database design and T-SQL programming.  
-</P>
+<P>Successful candidates will have strong fundamentals in electrical engineering and an insatiable appetite to learn as well as the discipline to perfect your engineering skills.  </P>
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
 
