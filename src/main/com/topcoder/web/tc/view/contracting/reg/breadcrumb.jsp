@@ -8,7 +8,7 @@
         isEdit = b;
     }
     
-    boolean showLink(String ph, isEdit) {
+    boolean showLink(String ph) {
         if(isEdit) {
            return true;
         }
