@@ -172,7 +172,7 @@ String selectedGradYear = "";
 <br><br>
 </td>
 <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-<td align="center" valign="top"><font color="#ffffff">&gt;&gt;</font></td>
+<td align="center" valign="middle"><font color="#ffffff">&gt;&gt;</font></td>
 <td align="center"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
 <td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 4: Select Major</b><br>
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
