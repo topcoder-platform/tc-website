@@ -1602,7 +1602,6 @@ public class TCLoadRound extends TCLoad {
             query.append(" group by rr2.coder_id");
 
             psSel2 = prepareStatement(query.toString(), TARGET_DB);
-            log.debug("prepared statement");
 
             query = new StringBuffer(100);
             query.append("INSERT INTO room_result ");
@@ -1657,14 +1656,11 @@ public class TCLoadRound extends TCLoad {
             rs = psSel.executeQuery();
 
             psSel2.setInt(1, fRoundId);
-            log.debug("set round id");
             rs2 = psSel2.executeQuery();
-            log.debug("executed query");
 
             HashMap ratingsMap = new HashMap();
 
             while (rs2.next()) {
-                log.debug("iterate");
                 ratingsMap.put(new Long(rs2.getLong("coder_id")), new Integer(rs2.getInt("count")));
             }
 
@@ -1738,6 +1734,9 @@ public class TCLoadRound extends TCLoad {
             DBMS.printSqlException(true, sqle);
             throw new Exception("Load of 'room_result' table failed.\n" +
                     sqle.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
         } finally {
             close(rs);
             close(rs2);
