@@ -93,7 +93,7 @@ just do what they said. I suppose some people might have made mistakes with
 floating-point, but if you read the notes it turned out that it was simple
 standard integer division. Do the steps and return the answer, about as
 simple as it gets. Look at basically anybody in the first room for a good
-solution - <A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=1" CLASS="bodyGeneric">dmwright's</A> is perhaps better laid out than some (though slightly
+solution - <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">dmwright's</A> is perhaps better laid out than some (though slightly
 slower to write).</P>
 
 <P>The 550, on the other hand, was messy and hateful. Look at five people and

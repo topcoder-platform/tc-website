@@ -108,23 +108,22 @@
 <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>
 -->
 <P>The top-two Rating Point Gains of all-time were established in Division-I during Single Round Match 83.</P>
-
-<P>In Room 22, <A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=1" CLASS="bodyGeneric">Yarin</A> was the winner with 1226.13 final points, which 
+<P>In Room 22, <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">Yarin</A> was the winner with 1226.13 final points, which 
 produced the highest rating point gain ever, 530 (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="bodyGeneric">View the list of Division-I Rating Point Gain</A>).  
 <B>Yarin</B> earned 193.96 points on the Level One problem, 269.96 on the Level Two problem, and 762.21 on the Level Three problem.  <B>Yarin</B> neither challenged nor 
 was challenged during the "Challenge Phase".</P>
 
-<P>Right next door in Room 21, <A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=1" CLASS="bodyGeneric">frenetic</A> earned a 339-point rating gain, 
+<P>Right next door in Room 21, <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">frenetic</A> earned a 339-point rating gain, 
 which is the division's second highest mark.  Strangely, <B>frenetic</B> won the room with similar total of 339.56 points.  During the "Coding Phase", 
 <B>frenetic</B> coded all three problems for 1046.34 points, which was the second highest total in the room.  During a very active "Challenge Phase", 
 <B>frenetic</B> gained 150 points with three successful challenges, but ended up losing 856.78, when the Level Two and Three problems submitted were 
 successfully challenged.  All but one participant ended up having at least one of his or her codes successfully challenged or failed the system test, 
 which is how a 339.56 final point total won the room.</P>
 
-<P>In Room 19, <A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=1" CLASS="bodyGeneric">Ba'al</A> only submitted code for the Level One problem, but a 
+<P>In Room 19, <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">Ba'al</A> only submitted code for the Level One problem, but a 
 100-point gain in the "Challenge Phase", produced a come-from-behind win.  <B>Ba'al</B> coded the Level One problem for 183.27 points in the "Coding 
 Phase", good enough for sixth place in the room.  In the "Challenge Phase", <B>Ba'al</B> successfully challenged the Level Two problems of 
-<A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=1" CLASS="bodyGeneric">sosonel</A> and <A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=1" CLASS="bodyGeneric">FatlXception</A> 
+<A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">sosonel</A> and <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">FatlXception</A> 
 for the win.</P>
                  </TD>
             </TR>             
@@ -133,24 +132,24 @@ for the win.</P>
             <TR><TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD></TR>
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
-<P>In Room 29, <A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=2" CLASS="bodyGeneric">bhakar</A> used four successful challenges to hold on for the 
+<P>In Room 29, <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">bhakar</A> used four successful challenges to hold on for the 
 room win.  <B>bhakar</B> led the room after the "Coding Phase", submitting code for all three problems for a total of 1072.50 points.  <B>bhakar</B> 
-successfully challenged the Level Two problems of <A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=2" CLASS="bodyGeneric">asahoo</A>, 
-<A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=2" CLASS="bodyGeneric">Radgast</A>, <A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=2" CLASS="bodyGeneric">akhil_bansal</A>, 
-and <A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=2" CLASS="bodyGeneric">alexn</A> for 200 points in the "Challenge Phase", to increase the lead.  
+successfully challenged the Level Two problems of <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">asahoo</A>, 
+<A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">Radgast</A>, <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">akhil_bansal</A>, 
+and <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">alexn</A> for 200 points in the "Challenge Phase", to increase the lead.  
 Those challenge points ended up coming in handy as the Level Three submission of <B>bhakar</B> failed the system test and resulted in a loss of the 
 498.28 points earned on that problem.  <B>bhakar</B> won the room with 774.22 points.</P>
 
-<P><A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=2" CLASS="bodyGeneric">satyaravindra</A> needed to only successfully code the Level One problem for 
+<P><A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">satyaravindra</A> needed to only successfully code the Level One problem for 
 the upset win in Room 46.  <B>satyaravindra</B> started the match with a rating of 579 points, which was tied for the lowest in the room.  <B>satyaravindra</B> 
 earned 150.80 points on the Level One problem during the "Coding Phase". In the "Challenge Phase", <B>satyaravindra</B> first lost 50 points with an unsuccessful 
-challenge of the Level Two submission of <A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=2" CLASS="bodyGeneric">weberchen</A>, but then gained that 50 points 
-right back by successfully challenging the Level Two submission of <A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=2" CLASS="bodyGeneric">cocoapi</A>.</P>
+challenge of the Level Two submission of <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">weberchen</A>, but then gained that 50 points 
+right back by successfully challenging the Level Two submission of <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">cocoapi</A>.</P>
 
-<P><A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=2" CLASS="bodyGeneric">radeye</A> won Room 54 with 653.18 final points, and earned a debut rating of 1762, 
+<P><A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">radeye</A> won Room 54 with 653.18 final points, and earned a debut rating of 1762, 
 which is the 23rd highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="bodyGeneric">View the list of Impressive Debuts</A>).  <B>radeye</B> submitted code for 
 all three problems in the "Coding Phase", earning 1193.80 points.  <B>radeye</B> added 50 points to that total with a successful challenge of the Level Two submission 
-of <A HREF="/stat?c=last_match&amp;rd=4140&amp;dn=2" CLASS="bodyGeneric">Kabhinandan</A> in the "Challenge Phase".  The Level Three submission of <B>radeye</B> ended 
+of <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">Kabhinandan</A> in the "Challenge Phase".  The Level Three submission of <B>radeye</B> ended 
 up failing the system test, but <B>radeye</B> had accumulated enough points to win the room.</P>
           </TD>
             </TR>            
