@@ -81,8 +81,9 @@
                      <p><br/></p>
                   </tc:questionIterator>
                      <table class="bodyText" align="center">
-                        <tr><td><div><p class="button" align="center"><a href="javascript: document.surveyForm.submit();"class="button">Submit</a>
-                        </p></div></td>
+                        <tr><td><a href="javascript: document.surveyForm.submit();"><img src="/i/submit.gif" width="101" height="20"/></a>
+                               <a href="http://wwwwwwwww.doksucks.tv"><img src="/i/view_results.gif" width="101" height="20"/></a>
+                               </td>
                         </tr> 
                      </table>
                   </form>
