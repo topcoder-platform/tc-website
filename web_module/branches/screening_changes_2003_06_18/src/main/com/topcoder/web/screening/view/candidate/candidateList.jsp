@@ -1,4 +1,3 @@
-<%@ page errorPage="../errorPage.jsp" %>
 <%@ page import="com.topcoder.web.screening.common.Constants,
                  com.topcoder.web.screening.model.SessionInfo,
                  java.util.Date" %>
