@@ -234,14 +234,14 @@
                  <tr>
                    <td class="statText">High Scorer</td>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <td class="statText" align="right">
+                     <td class="statText" align="right" nowrap=nowrap>
                      <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
                          <tc:ratingImage link='<%=sLink + resultRow.getIntItem("coder_id")%>' bg='B' cid='<%=resultRow.getIntItem("coder_id")%>' />
                      <% } %>
                      </td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-                     <td class="statText" align="right">
+                     <td class="statText" align="right" nowrap=nowrap>
                      <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
                          <tc:ratingImage link='<%=sLink + resultRow.getIntItem("coder_id")%>' bg='B' cid='<%=resultRow.getIntItem("coder_id")%>' />
                      <% } %>
@@ -362,14 +362,14 @@
                  <tr>
                    <td class="statText">High Scorer</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td class="statText" align="right">
+                     <td class="statText" align="right" nowrap=nowrap>
                      <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
                          <tc:ratingImage link='<%=sLink + resultRow.getIntItem("coder_id")%>' bg='B' cid='<%=resultRow.getIntItem("coder_id")%>' />
                      <% } %>
                      </td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td class="statText" align="right">
+                     <td class="statText" align="right" nowrap=nowrap>
                      <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
                          <tc:ratingImage link='<%=sLink + resultRow.getIntItem("coder_id")%>' bg='B' cid='<%=resultRow.getIntItem("coder_id")%>' />
                      <% } %>
