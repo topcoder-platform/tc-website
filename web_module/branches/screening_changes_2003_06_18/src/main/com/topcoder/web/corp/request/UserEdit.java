@@ -370,7 +370,7 @@ public class UserEdit extends BaseProcessor {
                 );
         valid &=
                 checkItemValidity(KEY_EMAIL, email,
-                        StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 1,
+                        StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN+"@", true, 1,
                         "Please enter a valid email address."
                 );
 

@@ -32,6 +32,7 @@ public class TermsOfUseBean extends BaseEJB {
 
         try {
 
+            ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
 
             if (!IdGenerator.isInitialized()) {
@@ -83,6 +84,7 @@ public class TermsOfUseBean extends BaseEJB {
 
         try {
 
+            ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
 
             StringBuffer query = new StringBuffer(1024);
@@ -127,6 +129,7 @@ public class TermsOfUseBean extends BaseEJB {
 
         try {
 
+            ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
 
             StringBuffer query = new StringBuffer(1024);
@@ -170,6 +173,7 @@ public class TermsOfUseBean extends BaseEJB {
 
         try {
 
+            ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
 
             StringBuffer query = new StringBuffer(1024);
@@ -217,6 +221,7 @@ public class TermsOfUseBean extends BaseEJB {
 
         try {
 
+            ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
 
             StringBuffer query = new StringBuffer(1024);
