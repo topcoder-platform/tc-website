@@ -15,7 +15,7 @@
     <TABLE WIDTH="100%" HEIGHT="100%" BACKGROUND="/i/steel_darkblue_bg.gif">
       <TR>
         <TD>
-        <font color="#FFFFFF">
+         <font color="#FFFFFF">
           <form name="upload_form" enctype="multipart/form-data" method="POST" action="<%=Controller.ALIAS%>">
             <input type="hidden" name="<%=Controller.TASK%>" value="<%=Controller.RESUME_UPLOAD_TASK%>">
             <br/>Resume: <input type=file name=file1>

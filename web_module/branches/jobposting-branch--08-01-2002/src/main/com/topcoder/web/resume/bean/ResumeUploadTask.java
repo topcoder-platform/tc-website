@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public class ResumeUploadTask extends ResumeTask{
     private byte file[] = null;
-    private int fileType = null;
+    private int fileType = -1;
     private String fileName = null;
     private static final String SUCCESS = "/";
     public ResumeUploadTask(FileUpload fu) throws ResumeTaskException{
