@@ -12,8 +12,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/antimatter_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=275071"><strong>antimatter</strong></a><br/>
+                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> 
 
@@ -22,16 +22,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm170_prob">SRM 170 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Saturday, November 8, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=crpf_rd1_prob">CRPF Round 1 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Tuesday, November 11, 2003</p>
 
 <p> 
-The submissions started quickly as many Divison 2 coders finished their 250-point problem in just a few minutes, but 
-many of them ran into trouble with their 500-pointer, and only a handful finished the 1000 successfully, leaving the median 
-score for Division 2 at just over 215 points.  On the Division 1 side, things were slow out of the gate for most coders as they 
-worked on their 250, which was the same problem as the Division 2 500, and the median score there was about 240.
+I always love watching, and writing about tournaments, but tonight's competition was better than usual.  
+The first round of the TopCoder Charity Challenge united coders to help a great cause.  Everyone was in 
+high spirits, and it seemed to affect their performance.  Coders were in top form, with 23 people scoring 
+over 1000. 
 
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm170_prob</xsl:attribute><strong>full&#160;story</strong></a>
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=crpf_rd1_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
