@@ -2003,7 +2003,7 @@ public class ProjectTrackerBean implements SessionBean {
             
             ps = conn.prepareStatement(
                     "INSERT INTO project_result " +
-                    "(project_id, user_id, rating_ind, valid_sumbmission_ind, reliability_ind, old_reliability, old_rating) " +
+                    "(project_id, user_id, rating_ind, valid_submission_ind, reliability_ind, old_reliability, old_rating) " +
                     "values (?, ?, ?, ?, ?, ?, ?)"
                     );
             
