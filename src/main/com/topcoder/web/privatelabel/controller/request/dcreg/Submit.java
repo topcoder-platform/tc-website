@@ -20,13 +20,6 @@ public class Submit extends FullRegSubmit {
 
 
     protected void setNextPage() {
-        if (regInfo.getEventId()==1) {
-            setNextPage("/doubleclick/col_reg.jsp");
-        } else {
-            setNextPage("/doubleclick/int_reg.jsp");
-        }
-        setIsNextPageInContext(true);
-/*
         if (isEligible((FullRegInfo)regInfo)) {
             if (hasErrors()) {
                 setNextPage(Constants.DC_REG_PAGE);
@@ -50,7 +43,6 @@ public class Submit extends FullRegSubmit {
         } else {
             throw new RuntimeException("impossible, isEligible returned false, fix the code");
         }
-*/
     }
 
     protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
