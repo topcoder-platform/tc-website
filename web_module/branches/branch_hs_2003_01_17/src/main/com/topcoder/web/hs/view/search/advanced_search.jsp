@@ -115,9 +115,9 @@
       <TD>School</TD>
       <TD>Last Competed</TD>
      </TR>
-    <% List member_list=search.getMemberList();
-       for (int i=0;i<member_list.size();i++) {
-         SearchMemberBean smb=(SearchMemberBean)member_list.get(i); %>
+      <% List member_list=search.getMemberList();
+         for (int i=0;i<member_list.size();i++) {
+           SearchMemberBean smb=(SearchMemberBean)member_list.get(i); %>
      <TR>
       <TD><%=smb.getHandle()%></TD>
       <TD><%=smb.getRating().toString()%></TD>
@@ -125,10 +125,11 @@
       <TD><%=smb.getSchoolName()%></TD>
       <TD><%=smb.getLastCompeted()%></TD>
      </TR>
-    <% } %>
+      <% } %>
     </TABLE>
   </TR>
-  <% } %>
+    <% }
+     } %>
  </TABLE>
  <SCRIPT type="text/javascript">
   function changeState() {
