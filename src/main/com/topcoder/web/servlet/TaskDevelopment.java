@@ -204,7 +204,7 @@ public final class TaskDevelopment {
 
             }
             /********************** tcs_inquire-design *******************/
-            else if (command.equals("tcs_inquire-design")) {
+            else if (command.equals("tcs_inquire-design")|| command.equals("tcs_inquire-dev")) {
                 if(comp != null)
                 {
                     log.debug("here");
