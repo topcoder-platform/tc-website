@@ -75,11 +75,12 @@ function goTo(selection){
 
 	// row 3
 	tableData.setElement(3,0,"Net Amount");
-	tableData.setElement(3,1,payment._netAmount + "");
+	DecimalFormat decf = new DecimalFormat("0.00");
+	tableData.setElement(3,1,"$" + decf.format(payment._netAmount));
 
 	// row 4
 	tableData.setElement(4,0,"Gross Amount");	
-	tableData.setElement(4,1,payment._grossAmount + "");
+	tableData.setElement(4,1,"$" + decf.format(payment._grossAmount));
 
 	// row 5
 	tableData.setElement(5,0,"Date");
