@@ -52,7 +52,7 @@
            <TR>
               <TD CLASS="statText" ALIGN="right">Data Type: </TD>
               <TD CLASS="statText" ALIGN="left">
-                <query:dataTypeSelect name="<%=Constants.DATA_TYPE_ID_PARAM%>" class="dropdown" selectedValue="<%=ModifyInputTask.getDataTypeId()%>"/>
+                <query:dataTypeSelect name="<%=Constants.DATA_TYPE_ID_PARAM%>" class="dropdown" selectedValue='<%=""+ModifyInputTask.getDataTypeId()%>'/>
               </TD>
             </TR>
             <TR>
