@@ -108,6 +108,11 @@
             <description></description>
         </init-param>
         <init-param>
+            <param-name>activate</param-name>
+            <param-value>/authentication/unactive.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
             <param-name>recover_password</param-name>
             <param-value>/authentication/recoverPassword.jsp</param-value>
             <description></description>

@@ -57,7 +57,7 @@ public class Login extends Base {
                                 throw new LoginException("Sorry, your account is not active.  " +
                                         "If you believe this is an error, please contact TopCoder.");
                             } else if (hasUnactiveAccount(status)) {
-                                setNextPage(Constants.ACTIVATE);
+                                setNextPage(Constants.UNACTIVE);
                                 setIsNextPageInContext(true);
                             } else {
                                 throw new NavigationException("Invalid account status");

@@ -42,6 +42,7 @@ public class Constants {
 
     public static String LOGIN;
     public static String ACTIVATE;
+    public static String UNACTIVE;
     public static String RECOVER_PASSWORD;
     public static String EMAIL_SENT;
 
