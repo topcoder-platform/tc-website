@@ -8,8 +8,6 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.common.web.data.report.Constants;
-import com.topcoder.common.web.data.report.Query;
 
 import java.util.Map;
 import java.util.Iterator;
