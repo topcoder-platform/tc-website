@@ -43,18 +43,15 @@
             <td width="100%" align="center"><img src="/i/clear.gif" alt="" width="1" height="4" border="0" /><br />
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" id="tccc_banner">
                     <tr valign="top">
-                        <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_reception"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="110" height="90" border="0" /></a></td>
+                        <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_semiroom2"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="110" height="90" border="0" /></a></td>
                         <td valign="middle" class="statText" width="99%">
                             <p><img src="/i/clear.gif" alt="" width="1" height="5" border="0" /><br />
-                            <strong>When:</strong> Feb. 18th - April 5th, 2003<br />
-                            <strong>Where:</strong> the University Park Hotel @ MIT in Cambridge, MA<br />
-                            <strong>Total Purse:</strong> $100,000</p>
-
-                            <p><strong>All members of TopCoder and their guests are welcome to attend the onsite rounds on April 4th and 5th</strong><br />
+                            <font size="3"><strong>The 2003 TopCoder Collegiate Challenge is going on right now! Experience the competition in real time by loading the 
+                            <a class="statText" href="Javascript:arena()"><font size="3">tournament applet</font></a></strong></font><br />
                             <a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>Get more information</a><br />
                             <img src="/i/clear.gif" alt="" width="1" height="5" border="0" /></p>
                         </td>
-                        <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_reception"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
+                        <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_semiroom2"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
                     </tr>
                 </table>
 
@@ -382,7 +379,129 @@
 
 <img src="/i/clear.gif" alt="" width="1" height="1" border="0"/><br />
 
-<!-- Summary/Best/Worst Begins -->
+<!-- TCCC03 Room 2 begins-->
+            <table border="0" cellspacing="0" cellpadding="3" width="100%">
+                <tr><td height="1"><img src="/i/clear.gif" alt="" width="10" height="3" border="0"/></td></tr>
+                <tr><td class="tourney_subnav"><strong>Semifinal Room 2 Summary</strong></td></tr>
+                <tr valign="top">
+                    <td width="99%" class="bodyText">
+                        <table border="0" cellspacing="5" cellpadding="0" align="right" width="200">
+                            <tr valign="top"><td align="left"><img src="/i/tournament/tccc03/room2_main.jpg" alt="" width="200" height="350" class="photoFrameBig" /></td></tr>
+                            <tr valign="top"><td align="left" class="smallText">dmwright at his workstation during Round 2.</td></tr>
+                        </table>
+                                
+                        <h2>dmright!</h2>
+                        <p>by MaryBeth Biondi, <em>TopCoder Staff</em><br />
+                        Friday, April 4, 2003<br />
+                        <a href="/index?t=tournaments&amp;c=tccc03_brackets">View current bracket</a></p>
+
+                        <p>Consistently calm, <strong>dmwright</strong> showed why this is his 5th straight appearance at the onsite finals by outpacing 
+                        his competitors in Round 2. Everyone started the round by opening the 200 pointer first. <strong>niteneb</strong> inched out 
+                        <strong>dmwright</strong> with the first submission for 183.76 points&#151;<strong>dmwright</strong> came in right behind with 183.56 points.  
+                        <strong>axch</strong> followed closely behind with 179.47 points, with <strong>mathewsb</strong> rounding off the 200 pointers with 174.94 points.</p>
+
+                        <p>Everyone stayed with the ascending order and opened the 500 next.  <strong>dmwright</strong> was the first to submit this 
+                        time, getting 364.04 points.  He immediately moved on to the 1050 pointer.  <strong>mathewsb</strong> picked up the pace and 
+                        submitted next on the 500 for 336.93 points.  <strong>axch</strong> had the 7th submission of the round for 255.86 points.  
+                        Before <strong>niteneb</strong> could turn in an answer for his 500, <strong>dmwright</strong> submitted his solution to the 1050 for 657.00.  
+                        <strong>niteneb</strong> sent in the last 2 submissions of the round with 225.73 points on his 500 and 792.41 points on his 
+                        1050.  With just a few seconds left in the coding phase, <strong>niteneb</strong> resubmitted his 1050 pointer, losing an 
+                        additional 158.77 points.  The end of the coding phase saw the following scores:</p>
+
+                         <table border="0" cellspacing="10" cellpadding="0">
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">dmwright</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1204.60</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">niteneb</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1042.13</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">mathewsb</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">511.87</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">axch</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">435.33</td>
+                             </tr>
+                        </table>		
+
+                        <p>The Challenge Phase brought a bit more excitement this round, but no score increases.  <strong>mathewsb</strong> 
+                        unsuccessfully challenged <strong>axch's</strong> 500 pointer, while <strong>dmwright</strong> unsuccessfully challenged <strong>niteneb's</strong> 1050 
+                        pointer.  Both coders lost 50 points.</p>
+
+                        <p>System tests broke the 1050 submissions of both <strong>dmwright</strong> and <strong>niteneb,</strong> and left all other submissions 
+                        standing.  The final scores for Round 2 were as follows:</p>
+
+                         <table border="0" cellspacing="10" cellpadding="0">
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">dmwright</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">497.60</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">niteneb</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">461.87</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">mathewsb</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">435.33</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">axch</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">409.49</td>
+                             </tr>
+                        </table>		
+
+                        <p>Great job, <strong>dmwright!</strong>  May next round's competitors learn from your experience.</p>
+
+                        <p>Up next:<br />
+                        <strong>ante</strong><br />
+                        <strong>bstanescu</strong><br />
+                        <strong>sjelkjd</strong><br />
+                        <strong>WhiteShadow</strong></p>
+                    </td>
+                </tr>
+            </table>
+                      
+            <table border="0" cellspacing="0" cellpadding="3" width="100%">            
+                <tr><td valign="middle"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/><a name="photo"></a></td></tr>          
+            
+                <tr><td class="tourney_subnav"><strong>Semifinal Room 2 Photos</strong></td></tr>
+
+                <tr>
+                    <td class="bodyText" align="center">
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/room2_01.jpg');"><img src="/i/tournament/tccc03/room2_01_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/room2_02.jpg');"><img src="/i/tournament/tccc03/room2_02_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/room2_03.jpg');"><img src="/i/tournament/tccc03/room2_03_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/room2_04.jpg');"><img src="/i/tournament/tccc03/room2_04_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/room2_05.jpg');"><img src="/i/tournament/tccc03/room2_05_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText" align="center"><img src="/i/tournament/tccc03/room2_01.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig" /></td>
+                </tr>            
+                
+                <tr>
+                    <td class="bodyText" align="center">
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/room2_06.jpg');"><img src="/i/tournament/tccc03/room2_06_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/room2_07.jpg');"><img src="/i/tournament/tccc03/room2_07_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/room2_08.jpg');"><img src="/i/tournament/tccc03/room2_08_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/room2_09.jpg');"><img src="/i/tournament/tccc03/room2_09_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/room2_10.jpg');"><img src="/i/tournament/tccc03/room2_10_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                    </td>
+                </tr>            
+            </table>
+<!-- TCCC03 Room 2 ends -->            
+            
+<!-- Summary/Best/Worst Begins
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                     <tr>
                         <td valign="middle" width="184"><img src="/i/label_srm_summary.gif" alt="Last Match Summary" width="184" height="26" border="0" align="left"/></td>
@@ -452,7 +571,6 @@
                         </td>
                     </tr>
 
-<!-- Uncomment for invit02
   <TR>
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><br />
@@ -465,14 +583,14 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
-  </TR> -->
+  </TR>
 
                 <tr><td colspan="3" valign="top" width="100%"><img src="/i/clear.gif" alt="" width="1" height="8" border="0"/></td></tr>
             </table>
-<!-- Summary/Best/Worst Ends -->
+ Summary/Best/Worst Ends -->
 
 
-<!-- Coder Point of View Begins -->
+<!-- Coder Point of View Begins
             <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                 <tr><td valign="top" colspan="3"><img src="/i/label_coders_pov.gif" alt="Coder's Point of View" width="154" height="30" border="0" /></td></tr>
 
@@ -494,7 +612,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                     </td>
                 </tr>
             </table>
-<!-- End of Point of View -->
+ End of Point of View -->
 
             <hr width="100%" size="1" color="#43515E" />
 
