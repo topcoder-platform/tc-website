@@ -95,7 +95,29 @@
                         <TR><TD><A HREF="#170" CLASS="bodyText">How do I get paid after I've won money in a TopCoder competition?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                        
                         <TR><TD><A HREF="#180" CLASS="bodyText">I'm having a problem with font properties on Linux platforms.</A></TD></TR>
+
+
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>Java</B></TD></TR>                        
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#java1" CLASS="bodyText">How is my submission judged?</A></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#java2" CLASS="bodyText">What hardware does TopCoder use?</A></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#java3" CLASS="bodyText">What software does TopCoder use?</A></TD></TR>                        
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#java4" CLASS="bodyText">What options are set when starting up the VM?</A></TD></TR>                                                
                         
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C#</B></TD></TR>                        
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#c1" CLASS="bodyText">How is my submission judged?</A></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#c2" CLASS="bodyText">What hardware does TopCoder use?</A></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#c3" CLASS="bodyText">What software does TopCoder use?</A></TD></TR>                       
+                        
+                                                
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C++</B></TD></TR>                        
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
@@ -106,7 +128,9 @@
                         <TR><TD><A HREF="#183" CLASS="bodyText">What software does TopCoder use?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#184" CLASS="bodyText">What compiler options are used?</A></TD></TR>
-                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                                                                        
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR> 
+                        <TR><TD><A HREF="#188" CLASS="bodyText">Why doesn't my code compile anymore under gcc 3.1?</A></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                                                                       
                         <TR><TD><A HREF="#185" CLASS="bodyText">What libraries are available?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#186" CLASS="bodyText">How do i get 64-bit integers?</A></TD></TR>
@@ -248,7 +272,54 @@ cost-effectively.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                        
                        
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>Java</B></TD></TR>
+                        <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                                                                                                
+                        <TR><TD CLASS="bodyText"><A NAME="java1"><B>How is my submission judged?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText"><P>TopCoder submissions typically consist of a single class definition. For each test, one instance of the class is constructed; then the method described in the problem is called with the test arguments. Therefore, your method must be public, and your class must be instantiable: public default constructor, no abstract methods, etc.</P>
+<P>Each Java test is performed in a separate thread. The process is forcibly terminated after consuming 8 seconds of System time. At most 64 megabytes of memory may be mapped.</P>
+<P>If your method does return a value, that is the only basis for judging correctness.</P></TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
+                        <TR><TD CLASS="bodyText"><A NAME="java2"><B>What hardware does TopCoder use?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">We use 3 4-way 500 Mhz Pentium III Xeon systems. Each processor has separate 16kb level one caches for instructions and data, and its own 1024kb level two cache clocked at core speed.</TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                        
+                        <TR><TD CLASS="bodyText"><A NAME="java3"><B>What software does TopCoder use?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">Linux 2.4, Java 1.4 (build 1.4.0_01-b03).</TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                       
+                        <TR><TD CLASS="bodyText"><A NAME="java4"><B>What options are set when starting up the VM?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">java -client -Xmx64m &lt;main class&gt;</TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
+                        
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C#</B></TD></TR>
+                        <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                                                
+                        <TR><TD CLASS="bodyText"><A NAME="c1"><B>How is my submission judged?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">
+<P>TopCoder submissions typically consist of a single class definition. For each test, one instance of the class is constructed; then the method described in the problem is called with the test arguments. Therefore, your method must be public, and your class must be instantiable: public default constructor, no abstract methods, etc. </P>
+<P>Each C# test is performed in a separate thread. The process is forcibly terminated after consuming 8 seconds of System time.</P>
+<P>If your method does return a value, that is the only basis for judging correctness.</P>
+                        </TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD CLASS="bodyText"><A NAME="c2"><B>What hardware does TopCoder use?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">
+<P>We use 2 4-way 500 Mhz Pentium III Xeon systems. Each processor has separate 16kb level one caches for instructions and data, and its own 1024kb level two cache clocked at core speed.</P>
+                        </TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>                        
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD CLASS="bodyText"><A NAME="c3"><B>What software does TopCoder use?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">
+<P>Microsoft Windows 2000 5.00.2195 SP2, .NET Framework version 1.0.3705</P>
+                        </TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
+                        
+                                                                                               
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C++</B></TD></TR>
+                        <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                                                
                         <TR><TD CLASS="bodyText"><A NAME="181"><B>How is my submission judged?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 <P>TopCoder submissions typically consist of a single class definition.  For each test, one instance of the class is constructed; then the method described in the problem is called with the test arguments.  Therefore, your method must be public, and your class must be instantiable: public default constructor, no abstract methods, etc.</P>
@@ -265,7 +336,7 @@ cost-effectively.</TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
                         <TR><TD CLASS="bodyText"><A NAME="183"><B>What software does TopCoder use?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
-<P>Linux 2.4, gcc 2.96 (Redhat 7.1 default), glibc-2.2.2, and libstdc++-3.</P>
+<P>Linux 2.4, gcc 3.1 (Redhat 7.1 default), glibc-2.2.2, and libstdc++-3.</P>
 <P>
 pointers to appropriate docs for each<BR/>
 <A HREF="http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html</A><BR/>
@@ -281,7 +352,52 @@ pointers to appropriate docs for each<BR/>
 <P>g++ -Wall -W -s -pipe</P>           
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR> 
+                        
+                        <TR><TD CLASS="bodyText"><A NAME="188"><B>Why doesn't my code compile anymore under gcc 3.1?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">
+The upgrade to GCC 3.1 may require some changes to C++ submissions to
+make them conform to standards that weren't implemented prior to 3.x,
+but are now enforced:
+<UL>
+<P>
+	<LI>Everything in the C++ standard library (a.k.a. Standard Template
+	  Library or STL) is declared in the namespace std; previously they
+were all declared globally.  The most convenient way to use standard
+library symbols is to add the declaration "using namespace std;"
+before any code that uses identifiers from the library.</LI>
+</P>
+
+<P>
+<LI>It is also possible to simply prefix every affected identifier with
+"std::"; e.g. "std::vector&lt;std::string&gt; d;" or "r=std::max(r,x);".
+Or only a few select symbols can be imported into the global scope
+with a directive like "using std::string;" or "using std::find;".</LI>
+</P>
+
+<P>
+	<LI>Make sure that you really do include all the headers you use.
+Previously certain library headers would include other headers
+(e.g. &lt;algorithm&gt; would pull in &lt;iostream&gt;), but the new gcc is
+somewhat tidier about such things.</LI>
+</P>
+
+<P>
+	<LI>Non-standard library extensions present with the old GCC may no
+longer be available; for details see the library documentation at
+<A HREF="http://gcc.gnu.org/onlinedocs/libstdc%2B%2B/libstdc%2B%2B-html-USERS-3.1" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/libstdc++/libstdc++-html-USERS-3.1</A>                        
+ </LI> 
+</P>
+
+    
+</UL>
+                   
+                        
+                        </TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR> 
+                        
+                                                                       
                         <TR><TD CLASS="bodyText"><A NAME="185"><B>What libraries are available?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">Only default libraries will be linked with your code.  Math functions requiring libm on some platforms, eg cos(), are automatically linked if needed.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
@@ -320,6 +436,8 @@ Some extensions are also present, including most of those from SGI's STL, such a
 
                         
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>MAC OSX</B></TD></TR> 
+                        <TR><TD HEIGHT="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                                               
                         <TR><TD CLASS="bodyText"><A NAME="mac1"><B>The small HTML window that holds the contest applet does not load up the applet in MAC OSX</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">A workaround is to load the arena through Java Web Start (JWS).  A link that allows you to load the arena through JWS and more info on JWS is available on TopCoder home page.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
