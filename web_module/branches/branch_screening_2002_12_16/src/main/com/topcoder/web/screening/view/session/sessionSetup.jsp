@@ -232,7 +232,7 @@ function submitSession() {
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Day&#160;</TD>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
-              <select value ="endDay">
+              <select name="endDay">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -270,7 +270,7 @@ function submitSession() {
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Year&#160;</TD>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle" COLSPAN="2">
-              <select value ="endYear">
+              <select name ="endYear">
               	<option>2003</option>
               	<option>2004</option>
               	<option>2005</option>
