@@ -191,7 +191,7 @@ public class AffidavitBean implements PactsConstants {
         try {
             a.setHasAllDemographicAnswers(dbean.hasAllDemographicAnswers(a.affidavit._header._user._id));
             a.setHasNotarizedAffidavit(dbean.hasNotarizedAffidavit(a.affidavit._header._user._id, a.affidavit._header._typeID));
-            a.setHasTaxForm(dbean.hasTaxForm(a.affidavit._header._user_id));
+            a.setHasTaxForm(dbean.hasTaxForm(a.affidavit._header._user._id));
 
             if (!a.affidavit._header._affirmed) {
                 // replace the xml tags with proper values
