@@ -12,12 +12,20 @@
    <tr>
       <td class=logoBox rowspan=2><img src="/i/corp/screening/clientLogo.gif" alt=""/></td>
       <%-- colspan must equal # of tabs --%>
-      <td class=titleBar colspan=4><img src="/i/corp/screening/pbtcLogo.gif" alt=""/></td>
+      <% if (tabLev1.equals("login")) { %>
+        <td class=titleBar colspan=1><img src="/i/corp/screening/pbtcLogo.gif" alt=""/></td>
+      <% } else {%>
+        <td class=titleBar colspan=3><img src="/i/corp/screening/pbtcLogo.gif" alt=""/></td>
+      <% }%>
       <td class=tabBarEnd align=right rowspan=2><img src="/i/corp/screening/tabBarEnd.gif" alt=""/></td>
    </tr>
    <tr>
+   <% if (!tabLev1.equals("login")) { %>
       <td class=tabBar><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_INDEX%>"><img src="/i/corp/screening/mainTab.gif" alt=""/></a></td>
+   <% } %>
       <td class=tabBar><a href="/mockup/help.jsp"><img src="/i/corp/screening/helpTab.gif" alt=""/></a></td>
+   <% if (!tabLev1.equals("login")) { %>
       <td class=tabBar><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_LOGOUT%>"><img src="/i/corp/screening/logoutTab.gif" alt=""/></a></td>
+   <% } %>
    </tr>
 </table>
