@@ -195,8 +195,11 @@ are the responsibility of the contestant and his/her guest.
 						</TR>						
 						<TR>
 							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">- Championship Round</TD>
-							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 5, 2003 at 11:00 AM EST</TD>
-						</TR>	
+							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 5, 2003 at 12:00 PM EST</TD>
+						</TR>
+						<TR>
+							<TD COLSPAN="2" VALIGN="top" BGCOLOR="#666666" CLASS="statText">*Times are subject to change.</TD>
+						</TR>							
 						</TABLE></DIV><BR/>
 						The Semifinal Round will consist of four (4) rooms of four (4) coders each.  The winner in each room will advance to the Championship Round.<BR/><BR/>
 
