@@ -54,6 +54,7 @@ public class AnswerInput extends BaseTag {
             if (processed) {
                 return wrapItUp();
             } else {
+                pageContext.setAttribute(ANSWER_TEXT, "", PageContext.PAGE_SCOPE);
                 pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
                 processed = true;
                 return EVAL_BODY_TAG;

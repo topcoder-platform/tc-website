@@ -19,12 +19,12 @@
         <tc:questionIterator list="<%=questionInfo%>" id="question">
             <table width="100%" border="0" cellpadding="3" cellspacing="0">
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <jsp:getProperty name="question" property="text"/>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
                     </td>
                 </tr>
