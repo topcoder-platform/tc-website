@@ -64,7 +64,7 @@ public final class TaskSchedule {
             schedTag.addTag(new ValueTag("RoundId", roundId));
 
             String command = Conversion.checkNull(request.getParameter("c"));
-            if (command.equals("srm")) {
+            if (command.equals("srm") || command.equals("srm_rules")) {
                 ctx = TCContext.getInitial();
                 dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                 dataRequest = new Request();
