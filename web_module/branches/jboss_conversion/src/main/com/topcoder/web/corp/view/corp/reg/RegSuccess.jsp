@@ -8,6 +8,7 @@
 <title>TopCoder | Registration</title>
 
 <jsp:include page="../includes/css.jsp" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <script language="JavaScript" type="text/javascript" src="/js/script.js"></script>
 
@@ -60,7 +61,7 @@
                 </tr>
 
                 <tr valign=middle>
-                    <td class="bodyText" width="200"><a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/" class="bodyText"><img src="/i/corp/icon_corp_serv.gif" alt="Corporate Services" width="200" height="75" border="0"></a></td>
+                    <td class="bodyText" width="200"><a href="<jsp:getProperty name="sessionInfo" property="servletPath" />" class="bodyText"><img src="/i/corp/icon_corp_serv.gif" alt="Corporate Services" width="200" height="75" border="0"></a></td>
                     <td class="bodyText">Take advantage of our <a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=testing&d3=index" class="bodyText">Testing</a> and <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/?module=Static&d1=corp&d2=recruiting&d3=index" class="bodyText">Recruiting</a> programs</td>
                 </tr>
 
