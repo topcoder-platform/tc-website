@@ -1,0 +1,154 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+ 
+<script language="JavaScript" type="text/javascript" src="../scripts/javascript.js">
+</script>
+
+</head>
+
+<link rel="stylesheet" type="text/css" href="../includes/tcs_style.css">
+
+<body class="body" marginheight="0" marginwidth="0">
+
+<form action="#" method="#">
+
+<!--#include virtual="../includes/headerNotLogged.shtml" -->
+<!--#include virtual="../includes/navActive.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="../images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><strong>Collaboration Search Results</strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="../images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<!-- Middle Column begins -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="middle">
+	<tr><td colspan="2" height="10"><img src="../images/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+	<tr valign="middle">
+		<td width="85%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr valign="middle">
+					<td width="15"><img src="../images/clear.gif" alt="" width="15" height="10" border="0"/></td>
+					<td><img src="../images/headCollaboration.gif" alt="Collaboration" width="214" height="35" border="0" /></td>
+				</tr>
+				<tr>
+					<td width="15"><img src="../images/clear.gif" alt="" width="15" height="10" border="0"/></td>
+					<td class="searchResults">Search Results for "interface"</td>
+				</tr>
+			</table>
+		</td>
+		<td width="15%">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr><td><img src="../images/compSearchHead.gif" alt="" width="245" height="11" border="0" /></td></tr>
+				<tr>
+					<td class="compSearch">
+						<table border="0" cellpadding="0" cellspacing="5">
+							<tr valign="middle">
+								<td><img src="../images/clear.gif" alt="" width="1" height="1" border="0"/></td>
+								<td class="compSearch"><input class="compSearchForm" type="text" size="24" name="siteSearch" value="Search Messages" maxlength="40"></td>
+								<td class="compSearch" align="left"><input class="compSearchButton" type="submit" name="go" value="&nbsp;Go&nbsp;"></input></td>
+								<td><img src="../images/clear.gif" alt="" width="1" height="1" border="0"/></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr><td><img src="../images/compSearchFoot.gif" alt="" width="245" height="11" border="0" /></td></tr>
+			</table>
+		</td>
+	</tr>
+	<tr><td colspan="2" height="10"><img src="../images/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
+	<tr valign="top">
+		<td width="2%" class="forumTitleCenter">New</td>
+		<td width="98%" class="forumTitle">Collaboration</td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="../images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+		<td class="forumText"><p><strong><a href="collabSubtopics.shtml">Calendar > Topics > Component Interface Requirements</a></strong></p></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="../images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+		<td class="forumText"><p><strong><a href="collabThreads.shtml">Calendar > Topics > Component Interface Requirements > GUI Interfaces</a></strong></p></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="../images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+		<td class="forumText"><p><strong><a href="collabThreads.shtml">Calendar > Topics > Component Interface Requirements > External Interfaces</a></strong></p></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="../images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+		<td class="forumText"><strong><a href="collabMessages.shtml">Forum > Topics > Scope > Logic Requirements > Overview</a></strong></p>
+			<p>Message Posted: 2002-09-30 09:50 PM by <strong>mmorris</strong></p>
+			<p>Forums provide collaborative functionality similar to Internet newsgroups. Users post messages to the forum. Posts are viewable by 
+			anyone who has access to that specific forum. Authenticated users can then read the messages and reply to ones where they might have 
+			input or questions.</p></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="../images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+		<td class="forumText"><strong><a href="collabMessages.shtml">Forum > Topics > Scope > Logic Requirements > Functional Requirements</a></strong></p>
+			<p>Message Posted: 2002-09-30 09:51 PM by <strong>mmorris</strong></p>
+			<p>-Read messages<br />
+			-Post new messages<br />
+			-Edit and delete existing messages<br />
+			-Start and stop forum sessions<br />
+			-Create new forum sessions<br />
+			-Create, edit and delete forum topics</p></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="../images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+		<td class="forumText"><p><strong><a href="collabSubtopics.shtml">Configuration Manager > Topics > Component Interface Requirements</a></strong></p></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="../images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+		<td class="forumText"><p><strong><a href="collabThreads.shtml">Configuration Manager > Topics > Component Interface Requirements > GUI Interfaces</a></strong></p></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="../images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+		<td class="forumText"><p><strong><a href="collabThreads.shtml">Configuration Manager > Topics > Component Interface Requirements > External Interfaces</a></strong></p></td>
+	</tr>
+
+	<tr valign="top">
+		<td class="forumTextCenter"><img src="../images/iconStatusCollabSm.gif" alt="" width="17" height="12" border="0" /></td>
+		<td class="forumText"><strong><a href="collabMessages.shtml">Single Sign On > Topics > Interface Requirements > API Requirements > SSO Administration</a></strong></p>
+			<p>Message Posted: 2002-10-21 03:34 PM by <strong>marc_grzeskowiak</strong></p>
+			<p>- registerUser(): Accepts a list of username/password/application information and the global id to which this information should be associated. Throws invalidApplicationException and invalidUserIdException<br />
+			- setUserStatus(): Accepts the global user id and the new status(active/inactive). Throws invalidUserIdException and invalidStatusException.</p></td>
+	</tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top"><td class="forumTitle"><img src="../images/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+	<tr valign="top"><td colspan="5" class="forumSearch" align="left"><img src="../images/iconStatusCollabSm.gif" alt="*" width="17" height="12" border="0" /> New messages since your last visit</td></tr>
+</table>
+<!--Middle Column ends -->
+	
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="../images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><strong>Collaboration Search Results</strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="../images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<!-- Footer begins -->
+<!--#include virtual="../includes/footer.shtml" -->
+<!-- Footer ends -->
+
+</body>
+</html>
