@@ -283,6 +283,13 @@
             <description></description>
         </init-param>
 
+        <!-- other -->
+        <init-param>
+            <param-name>school_question</param-name>
+            <param-value>102</param-value>
+            <description></description>
+        </init-param>
+
 
     </servlet>
 

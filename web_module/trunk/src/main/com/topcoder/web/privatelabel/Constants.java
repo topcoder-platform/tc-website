@@ -86,6 +86,7 @@ public class Constants {
     //various constants
     public static final int STUDENT = 1;
     public static final int PROFESSIONAL = 2;
+    public static int SCHOOL_QUESTION;
 
     private Constants() {
     }

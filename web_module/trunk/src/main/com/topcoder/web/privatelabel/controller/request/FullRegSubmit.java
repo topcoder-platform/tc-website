@@ -5,6 +5,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
+import com.topcoder.web.ejb.currentschool.CurrentSchool;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.model.DemographicResponse;
@@ -54,7 +55,14 @@ public class FullRegSubmit extends SimpleRegSubmit {
             } else {
                 response.setResponseText(ret.getId(), r.getQuestionId(), r.getText(), db);
             }
+            //if this is the "what school did you go to" question, add a record to the current school table for TCES
+            if (q.getId()==Constants.SCHOOL_QUESTION && ((FullRegInfo)regInfo).isStudent()) {
+                CurrentSchool cs = (CurrentSchool) createEJB(getInitialContext(), CurrentSchool.class);
+                cs.createCurrentSchool(ret.getId(), r.getText(), db);
+            }
         }
+
+
         //log them is so that they can upload a resume
         //this is really sketchy if they we are requiring an activation email to activate their account
         getAuthentication().login(new SimpleUser(ret.getId(), regInfo.getHandle(), regInfo.getPassword()));
@@ -72,6 +80,5 @@ public class FullRegSubmit extends SimpleRegSubmit {
 
         return info;
     }
-
 
 }
