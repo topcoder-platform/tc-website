@@ -26,6 +26,7 @@ public class ArgumentIterator extends BodyTagSupport {
     public static final String INDEX = "argumentIndex";
     public static final String ARGUMENT = "argument";
     public static final String INPUT = "inputElement";
+    public static final String DESCRIPTION = "argumentDesc";
 
     private Problem problem = null;
     private Language language = null;
