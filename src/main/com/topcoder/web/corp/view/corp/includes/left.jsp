@@ -31,6 +31,7 @@
             <% if (level1.equals("testing")) { %>
                 <tr><td id="<%=level2.equals("attributes")?"leftSubnavOn":"leftSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=testing_attributes" target="_parent" class="leftOn">Process</a></td></tr>
                 <tr><td id="<%=level2.equals("management")?"leftSubnavOn":"leftSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=management_tool" target="_parent" class="leftOn">Attributes</a></td></tr>
+<!--            <tr><td id="<%=level2.equals("demo")?"leftSubnavOn":"leftSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=demo" target="_parent" class="leftOn">Testing Demo</a></td></tr> -->
                 <tr><td id="leftNavApplet"><img alt="" width="10" height="10" src="/i/corp/clear.gif" border="0"/><A href="<jsp:getProperty name='sessionInfo' property='ServletPath'/>testing/" class="left">Launch Testing App Tool</A></td></tr>
             <% } %>
 <!-- Testing ends -->
