@@ -12,8 +12,8 @@
 <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#333333">
     <tr valign="middle">
         <td align="center" background="/i/graybv_lite_bg.gif" class="statText" width="10%">&#160;Rank</td>
-        <td align="left" background="/i/graybv_lite_bg.gif" class="statText" width="45%">Name</td>
-        <td align="right" background="/i/graybv_lite_bg.gif" class="statText" width="45%">Rating</td>
+        <td align="left" background="/i/graybv_lite_bg.gif" class="statText" width="80%">Name</td>
+        <td align="right" background="/i/graybv_lite_bg.gif" class="statText" width="10%">Rating</td>
     </tr>
     <% boolean even = true;%>
     <rsc:iterator list="<%=countries%>" id="resultRow">
