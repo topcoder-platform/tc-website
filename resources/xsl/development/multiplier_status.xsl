@@ -75,40 +75,33 @@
                         <p>
                         View who has inquired and submitted for each project!  The multiplier graphic displays who
                         currently has the multiplier, if the multiplier is still up for grabs, the project will not have a graphic.   Read below for the multiplier rules.
-                        
+
                         </p>
                     </td>
                 </tr>
                 <tr><td><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
                 <tr>
                     <td class="bodyText" colspan="5">
-                         
+
                         <ul><strong>Multiplier Rules</strong>
                         <li>
-                            The multiplier is active only for the TopCoder Collegiate Challenge Component Competition.
+                            The member with the first submission for each component will be given the multiplier.
                         </li>
                         <li>
-                            The multiplier will only be active during the online rounds.  <br />
-                            It will not be active for the final competition.
-                        </li>
-                        <li>
-                            The member with the first submission for each component will be given the multiplier.  
-                        </li>
-                        <li>
-                            The multiplier will be used to double the component prize <strong>IF</strong> the member places in 1st or 2nd place for that component.  <br />
-                            There will be no 3rd place prizes. 
+                            The multiplier will be used to double the component payment <strong>IF</strong> the member places in 1st or 2nd place for that component.  <br />
+                            There will be no 3rd place prizes.
                         </li>
                         <li>
                             If a member resubmits a solution, the new submission date is used to determine who has recieved the multiplier.
                         </li>
                         <li>
                             As with the standard competition, 1st and 2nd place is limited to those submissions that pass screening <br />
-                           and receive a review score greater than 75.   
+                           and receive a review score greater than 75.
                         </li>
                         </ul>
 
-                        <p>If you have specific questions about any projects, 
-                        email <a href="mailto:service@topcodersoftware.com" class="bodyText">service@topcodersoftware.com</a>.</p> 
+                        <p>If you have specific questions about any projects,
+                        email <a href="mailto:service@topcodersoftware.com" class="bodyText">service@topcodersoftware.com</a>.</p>
                     </td>
                 </tr>
 
@@ -131,7 +124,7 @@
                 </tr>
 
 
-                <xsl:for-each select="/TC/DEVELOPMENT/multiplier/status"> 
+                <xsl:for-each select="/TC/DEVELOPMENT/multiplier/status">
                         <tr>
                             <td class="formTextOdd" align="center">
                             <xsl:choose>
@@ -143,9 +136,9 @@
                                </xsl:otherwise>
                             </xsl:choose>
                             </td>
-                            <td class="formTextOdd" >                            
+                            <td class="formTextOdd" >
                                 <a target="_new">
-                                    <xsl:attribute name="href"> 
+                                    <xsl:attribute name="href">
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
@@ -156,18 +149,18 @@
                             <td class="formTextOdd" align="center"><xsl:value-of select="./user_id"/></td>
                             <td class="formTextOdd" align="center">
                             <xsl:choose>
-                                <xsl:when test="./rating != ''"> 
+                                <xsl:when test="./rating != ''">
                                    <xsl:value-of select="./rating"/>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                   Not Rated 	
+                                   Not Rated
                                 </xsl:otherwise>
                             </xsl:choose>
                             </td>
                             <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="inquiry_date"/></xsl:call-template></td>
                             <td class="formTextOdd" align="center">
                             <xsl:choose>
-                                <xsl:when test="./submission_date != ''"> 
+                                <xsl:when test="./submission_date != ''">
                                     <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="submission_date"/></xsl:call-template>
 
                                 </xsl:when>
@@ -179,12 +172,12 @@
                             <td>
                                  <CENTER>
                                     <xsl:if test="./submission_date = ./min_sub_date and not(./submission_date='')">
-                                        <img src="/i/development/multiplier.gif" width="23" height="21" alt="" border="0" />  
+                                        <img src="/i/development/multiplier.gif" width="23" height="21" alt="" border="0" />
         			    </xsl:if>
                                  </CENTER>
                             </td>
-                        </tr>                 
-                </xsl:for-each> 
+                        </tr>
+                </xsl:for-each>
 
                 <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
 <!-- Component Design Projects ends -->
@@ -203,8 +196,8 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submission<br />Date</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Multiplier</td>
                 </tr>
-                
-                <xsl:for-each select="/TC/DEVELOPMENT/multiplier/status"> 
+
+                <xsl:for-each select="/TC/DEVELOPMENT/multiplier/status">
                         <tr>
                             <td class="formTextOdd" align="center">
                             <xsl:choose>
@@ -217,9 +210,9 @@
                             </xsl:choose>
                             </td>
 
-                            <td class="formTextOdd" >                            
+                            <td class="formTextOdd" >
                                 <a target="_new">
-                                    <xsl:attribute name="href"> 
+                                    <xsl:attribute name="href">
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                     <xsl:if test="number(./version) &gt;  number('1')">
@@ -230,18 +223,18 @@
                             <td class="formTextOdd" align="center"><xsl:value-of select="./user_id"/></td>
                             <td class="formTextOdd" align="center">
                             <xsl:choose>
-                                <xsl:when test="./rating != ''"> 
+                                <xsl:when test="./rating != ''">
                                    <xsl:value-of select="./rating"/>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                   Not Rated 	
+                                   Not Rated
                                 </xsl:otherwise>
                             </xsl:choose>
                             </td>
                             <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="inquiry_date"/></xsl:call-template></td>
                             <td class="formTextOdd" align="center">
                             <xsl:choose>
-                                <xsl:when test="./submission_date != ''"> 
+                                <xsl:when test="./submission_date != ''">
                                     <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="submission_date"/></xsl:call-template>
                                 </xsl:when>
                                 <xsl:otherwise>
@@ -252,12 +245,12 @@
                             <td>
                                  <CENTER>
                                     <xsl:if test="./submission_date = ./min_sub_date and not(./submission_date='')">
-                                        <img src="/i/development/multiplier.gif" width="23" height="21" alt="" border="0" /> 
+                                        <img src="/i/development/multiplier.gif" width="23" height="21" alt="" border="0" />
         			    </xsl:if>
                                  </CENTER>
                             </td>
-                        </tr>                 
-                </xsl:for-each> 
+                        </tr>
+                </xsl:for-each>
                     </xsl:if>
             </table>
 <!-- Component Dev Projects ends -->
