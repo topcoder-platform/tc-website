@@ -8,15 +8,12 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -232,7 +229,7 @@ public abstract class BaseTask implements Task {
         return dAccess;
     }
 
-    public boolean isRestrictedCampaign(long campaignId) throws Exception {
+    protected boolean isRestrictedCampaign(long campaignId) throws Exception {
         Request r = new Request();
         r.setContentHandle("restricted_campaign");
         r.setProperty("cid", String.valueOf(campaignId));
