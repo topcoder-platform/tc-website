@@ -95,20 +95,10 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
             }
         } else if (step!=null && step.equals(Constants.NEW_STEP)) {
             checkInputId(getInputId(), i);
-            if (isInputAssociated(getQueryId(), getInputId(), qi)) {
-                super.addError(Constants.INPUT_ID_PARAM, "Input already associated with Query");
-            }
-            if (!super.hasErrors()) {
-                qi.createQueryInput(getQueryId(), getInputId());
-            }
+            qi.createQueryInput(getQueryId(), getInputId());
         } else if (step!=null && step.equals(Constants.REMOVE_STEP)) {
             checkInputId(getInputId(), i);
-            if (!isInputAssociated(getQueryId(), getInputId(), qi)) {
-                super.addError(Constants.INPUT_ID_PARAM, "Input not associated with Query");
-            }
-            if (!super.hasErrors()) {
-                qi.removeQueryInput(getQueryId(), getInputId());
-            }
+            qi.removeQueryInput(getQueryId(), getInputId());
         }
 
         setCurrentInputList(qi.getInputsForQuery(getQueryId()));
@@ -197,10 +187,6 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
         if (i.getInputCode(inputId)==null) {
             super.addError(Constants.INPUT_ID_PARAM, "Invalid input id");
         }
-    }
-
-    private boolean isInputAssociated(long queryId, long inputId, QueryInput qi) throws Exception {
-        return qi.getSortOrder(queryId, inputId)!=0;
     }
 
     /**
