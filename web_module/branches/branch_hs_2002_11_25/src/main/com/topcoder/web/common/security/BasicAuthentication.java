@@ -104,7 +104,7 @@ public class BasicAuthentication implements WebAuthentication {
         try {
             UserPrincipal up = pmgr.getUser(id);
             return new SimpleUser(id, up.getName(), "");
-        } catch(java.rmi.RemoteException e) {
+        } catch(Exception e) {
             throw new RuntimeException(e.getMessage());
         }
     }
