@@ -49,7 +49,7 @@ return false;
         <div class="myTCBody">
 		<br/>
 		<div align=center>
-		<A href="/tc?module=ContractingPreferences"><img src="/i/contracting/empOppsBanner.jpg" border=0/></A>
+		<A href="/tc?module=ContractingPreferences"><img src="/i/contracting/contracting_logo.gif" border=0/></A>
 		</div>
 
 			<span valign=top>
