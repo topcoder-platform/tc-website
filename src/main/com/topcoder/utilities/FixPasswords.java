@@ -65,20 +65,23 @@ public class FixPasswords {
             int count = 0;
             rs = ps1.executeQuery();
             while (rs.next()) {
-                userId = rs.getLong("user_id");
-                String pass = pmr.getPassword(userId);
-                ps.setString(1, pass);
-                ps.setLong(2, userId);
+                try {
+                    userId = rs.getLong("user_id");
+                    String pass = pmr.getPassword(userId);
+                    ps.setString(1, pass);
+                    ps.setLong(2, userId);
 
-                ps2.setString(1, StringUtils.getActivationCode(userId));
-                ps2.setLong(2, userId);
-                count += ps.executeUpdate();
-                ps2.executeUpdate();
-                if (count%25==0) System.out.println(""+count + " records updated");
+                    ps2.setString(1, StringUtils.getActivationCode(userId));
+                    ps2.setLong(2, userId);
+                    count += ps.executeUpdate();
+                    ps2.executeUpdate();
+                    if (count%25==0) System.out.println(""+count + " records updated");
+                } catch (Exception e) {
+                    System.out.println("user " + userId);
+                    e.printStackTrace();
+                }
+
             }
-        } catch (Exception e) {
-            System.out.println("user " + userId);
-            e.printStackTrace();
         } finally {
             try {rs.close();} catch (Exception e) {};
             try {ps.close();} catch (Exception e) {};
