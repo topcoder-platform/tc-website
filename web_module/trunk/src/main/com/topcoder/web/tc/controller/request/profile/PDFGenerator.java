@@ -54,6 +54,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.util.Arrays;
 
+import java.util.Collections;
+
 import com.topcoder.web.common.*;
 import com.topcoder.shared.security.ClassResource;
 
