@@ -22,7 +22,7 @@ public class ComponentTermsAgree extends BaseProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
             UserManagerLocalHome userManagerHome = (UserManagerLocalHome)
-                    PortableRemoteObject.narrow(getInitialContext().lookup("dde/UserManager"), UserManagerLocalHome.class);
+                    getInitialContext().lookup(UserManagerLocalHome.EJB_REF_NAME);
             UserManagerLocal userManager = userManagerHome.create();
 
             userManager.agreeToComponentTerms(getUser().getId());
