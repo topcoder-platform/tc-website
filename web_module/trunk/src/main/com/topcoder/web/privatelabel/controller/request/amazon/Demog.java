@@ -24,12 +24,8 @@ public class Demog extends FullRegDemog {
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);
         
-        log.debug("CODER TYPE: " + ((FullRegInfo)info).getCoderType() );
+        ((FullRegInfo)info).setCoderType(Constants.PROFESSIONAL);
         
-        if(((FullRegInfo)info).getCoderType() == 0)
-        {
-            addError(Constants.CODER_TYPE, "Please select your Student/Professional status.");
-        }
         //remove handle error
         removeError(Constants.HANDLE);
         //state is not required
@@ -93,13 +89,10 @@ public class Demog extends FullRegDemog {
         
         log.debug("CHOSEN PASSWORD IS " + info.getPassword());
         
-        if(info.getPhoneNumber().trim().length()==0)
-        {
-            addError(Constants.PHONE_NUMBER, "Please enter your phone number.");
-        }
-        
         //we're not bothering with an email confirmation field, so don't require it 
         removeError(Constants.EMAIL_CONFIRM);
+        removeError(Constants.ADDRESS1);
+        removeError(Constants.CITY);
     }
     
     private String generatePassword() {
