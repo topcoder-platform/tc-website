@@ -131,7 +131,7 @@
                     </xsl:attribute><xsl:value-of select="./component_name"/>
 
                     <xsl:if test="number(./version) &gt;  number('1')">
-                        v <xsl:value-of select="./version"/>
+                        v <xsl:value-of select="./version_text"/>
                     </xsl:if>
 
                                     </A>
@@ -208,7 +208,7 @@
                         </xsl:attribute><xsl:value-of select="./component_name"/>
 
                         <xsl:if test="number(./version) &gt;  number('1')">
-                            v <xsl:value-of select="./version"/>
+                            v <xsl:value-of select="./version_text"/>
                         </xsl:if>
 
                                     </A>
