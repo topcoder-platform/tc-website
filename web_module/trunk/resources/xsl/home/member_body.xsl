@@ -411,8 +411,8 @@ for more information.<BR/><BR/>
 <tr> 
     <td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td> 
     <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><b>Single Round Match 127</b></a><br/>
-Thursday, January 2, 2003<br/><br/>
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><b>Single Round Match 128</b></a><br/>
+Monday, January 6, 2003<br/><br/>
 
 
     </td>    
@@ -506,42 +506,35 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
   </tr>  
   <tr>
     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>  
-    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/slavik_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br/> 
-    By&#160;slavik<br/><i>[TC]&#160;Member</i><br/></td>
+    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br/> 
+    By&#160;brett1479<br/><i>[TC]&#160;Member</i><br/></td>
     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td> 
     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-    <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 127</b></font>
+    <font size="2" color="#000000" face="tahoma, verdana"><b>SRM 128</b></font>
     </td>
   </tr>      
   <tr>
     <td valign="top" class="bodyText" width="100%">
 	<a class="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm127_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm128_prob</xsl:attribute>
         <b>Problem Set Analysis &amp; Opinion</b>
       </a><br/>
 <P>
-SRM 127 was one of those SRM where 0 was not such a bad score compared to everybody else. There were only 26 
-coders in Div-I with a score greater then 0. The problem set was a blood bath for Div-I coders where about only 1 
-out of 4 coders got a positive score. The problem set for Div-II on the other hand was much nicer and was well balanced. 
-So more people in Div-II had positive scores.
+Over 350 competitors registered for Single Round Match 128, one of the largest turnouts in 
+months.  The match's problem writer awarded them for their attendance with problems both 
+beautifully worded and interesting to solve.
 </P>
-
-<P>
-The strongest Division-I performance of this match came from <B>radeye</B> (660.00 points, 70 rating points gain), 
-who beat the next runner up - <B>ambrose</B> by 103 points. <B>radeye</B>  was the only coder who completed three problems 
-in Div-I and only 1 out 2 coders who submitted the hard problem (even thought his solution for the hard problem didn't pass 
-the system test) 
-</P>
-
-<P>
-There was only one successful submission for the hard problem in Div-I by <B>niteneb</B> which gave him the forth best result 
-overall.
-</P>
-
 
 <p>
-Division-II had only one coder, <B>Dr. Gluk</B> (SRM127 was the first competition for <B>Dr. Gluk</B>) who completed all three 
-problems and was placed in Div-I...<a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm127_prob</xsl:attribute>Get the analysis</a>
+<B>Ambrose</B>, who claimed the Division-I crown, has been leaping up and down since, stopping 
+every 10 minutes to catch his breath.  "This was the best competition ever" is what he 
+probably would have said had I asked.  <B>Coshx</B>, who had the highest score in Division-II, 
+would be ecstatic but he is a hyperbolic trig function, and thus has no emotions.  
+Perhaps, due to the occasion, he will take his own derivative.  <B>WishingBone</B>, who had 
+the second highest score in Division-I, is now broken in two.  Hopefully he will be back 
+in one piece by next competition.  <B>HappyMutant</B>, one of the top scoring Division-II competitors, 
+is both happy since he did so well, and sad since he is a mutant
+...<a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm128_prob</xsl:attribute>Get the analysis</a>
 </p>
     </td>
     <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0"/></td>     
