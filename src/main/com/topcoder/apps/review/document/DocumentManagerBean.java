@@ -263,7 +263,7 @@ public class DocumentManagerBean implements SessionBean {
                         "s.submission_id = sub.submission_id AND " +
                         "rur.project_id = s.project_id AND " +
                         "rur.login_id = sub.submitter_id AND " +
-                        "rur.current_version = 1 AND " +
+                        "rur.cur_version = 1 AND " +
                         "rur.r_role_id = 1 AND " +
                         "s.project_id = ? AND " +
                         "s.scorecard_type = ? AND " +
@@ -311,7 +311,7 @@ public class DocumentManagerBean implements SessionBean {
                         "sub.cur_version = 1 AND " +
                         "rur.project_id = s.project_id AND " +
                         "rur.login_id = sub.submitter_id AND " +
-                        "rur.current_version = 1 AND " +
+                        "rur.cur_version = 1 AND " +
                         "rur.r_role_id = 1 AND " +
                         "s.submission_id = sub.submission_id AND " +
                         "s.project_id = ? AND " +
