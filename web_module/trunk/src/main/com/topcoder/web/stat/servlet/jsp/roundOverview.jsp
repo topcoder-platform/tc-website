@@ -133,7 +133,7 @@ DATE<BR/>
     <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="bodyText" ALIGN="right"><B>Average Pts.</B></TD>
   </TR>
   <%
-      currentRow = percents.getRow(currentRowPtr++);
+      currentRow = percents.getRow(currentRowPtr);
       int currentDivID = Integer.parseInt(currentRow.getItem("division_id").toString());
       for(;currentRowPtr<percents.size()&&Integer.parseInt(currentRow.getItem("division_id").toString())==currentDivID;
           currentRow = percents.getRow(currentRowPtr++)){
