@@ -50,12 +50,17 @@
             <div align="right" class="bodyText"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_dev_rd1">Round 1</A>&#160;&#160;|&#160;&#160;Round 2</div>
             <br/>
 
+                  <p>Round 2 was quite suspenseful.  Almost all development competitors submitted for the same two components, DNS Query and Generic Event Manager.  The race was on and it was neck and neck the whole way.  Aksonov and rnielsen emerged the winners but it was a great showing from all submitters.</p>
+                  
+            <br/><br/>
+            
     <!-- Design Winners Begins -->
             <table border="0" cellspacing="0" cellpadding="3" width="500" align="center">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999"><font size="3">Development Advancers</font></td>
                 </tr>
             </table>
+
 
             <table border="0" cellspacing="0" cellpadding="3" width="500" align="center" class="formFrame">
                 <tr valign="middle">
@@ -221,7 +226,7 @@
                     <td class="formHandleEven" align="center"></td>
                     <td class="formHandleEven" align="center">5</td>
                     <td class="formHandleEven"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=292290">preben</a></td>
-                    <td class="formHandleEven" align="right">84.04</td>
+                    <td class="formHandleEven" align="right">63.42</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7323082" class="statText" target="_blank">Generic Event Manager</a></td>

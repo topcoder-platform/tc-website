@@ -50,6 +50,14 @@
             <div align="right" class="bodyText"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_des_rd1">Round 1</A>&#160;&#160;|&#160;&#160;Round 2</div>
             <br/>
 
+                  <p>Design was just as enthralling as development.  Pops took the lead early with two superb submissions that gave 
+                  him a round score of 93.92 which was hard to beat.  However, aksonov scratched and clawed his way through appeals 
+                  and brought his overall up to 94.82, making him the round leader.  Unfortunately, due to contest rules we will not 
+                  see Pops and aksonov go head to head since aksonov will be competing in the development contest where he had an even 
+                  higher average score!</p>
+            
+            <br/><br/>
+
 <!-- Design Winners Begins -->
             <table border="0" cellspacing="0" cellpadding="3" width="500" align="center">
                 <tr valign="middle">
@@ -75,7 +83,7 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formHandleEven" align="center">2</td>
+                    <td class="formHandleEven" align="center">1</td>
                     <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
                     <td class="formHandleEven" align="right">93.92</td>
                     <td class="formHandleEven" align="right">98.17,89.67</td>
@@ -83,7 +91,7 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formHandleOdd" align="center">3</td>
+                    <td class="formHandleOdd" align="center">2</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
                     <td class="formHandleOdd" align="right">90.62</td>
                     <td class="formHandleOdd" align="right">91.90,89.34</td>
@@ -91,14 +99,14 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formHandleEven" align="center">4</td>
+                    <td class="formHandleEven" align="center">3</td>
                     <td class="formHandleEven" align="left"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
                     <td class="formHandleEven" align="right">87.92</td>
                     <td class="formHandleEven" align="right">87.65,88.18</td>
                     <td class="formHandleEven" align="right">$252.00</td>
                 </tr>
 
-                <tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="5">*the average of the two highest scores, including at least one level II score<br/>**as stated in the rules, a participant can not advance to the finals in both Design and Development</td></tr>
+                <tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="5">*the average of the two highest scores, including at least one level II score<br/>**aksonov finished 1st in both design and development, as stated in the rules he advances in Development due to a higher average score</td></tr>
 
             </table>
 
@@ -181,15 +189,15 @@
                     <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7476786" class="statText" target="_blank">String Distance</a></td>
                     <td class="formHandleEven" align="center">2</td>
                     <td class="formHandleEven" align="center">1</td>
-                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
-                    <td class="formHandleEven" align="right">96.06</td>
+                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
+                    <td class="formHandleEven" align="right">94.74</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd"></td>
                     <td class="formHandleOdd" align="center"></td>
                     <td class="formHandleOdd" align="center">2</td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
-                    <td class="formHandleOdd" align="right">99.20</td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
+                    <td class="formHandleOdd" align="right">89.34</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7410031" class="statText" target="_blank">Tail</a></td>
