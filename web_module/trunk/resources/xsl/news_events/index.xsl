@@ -63,6 +63,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                  
+<!-- 2003 TCO Announcment -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_11_12_03"><img src="/i/pressroom/2003_tco_announce.gif" alt="2003 TopCoder Open" width="135" height="40" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_11_12_03">Finalists Announced for TCO</A></strong></font><br />
+                        20 of the World's Best Programmers Will Vie for $130,000 Prize Purse at the 2003 TopCoder Open, Sponsored by Intel&#174;<span class="prHead"> [November 12]</span></p>
+                        
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- OSS-->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

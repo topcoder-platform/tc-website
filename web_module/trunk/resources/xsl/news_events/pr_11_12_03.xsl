@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>AT&amp;T Foundation to Sponsor TopCoder Charity Tournament</title>
+<title>TopCoder Announces Finalists in International Programming Tournament</title>
 
 <xsl:call-template name="CSS"/>      
 
