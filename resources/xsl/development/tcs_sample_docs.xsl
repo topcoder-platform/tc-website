@@ -163,7 +163,7 @@ The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder
                             <tr valign="top">
                                 <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Sample_Design_Review_Scorecard.pdf" class="bodyText">Sample Design Review Scorecard.pdf</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/tc?module=Static&amp;d1=dev&amp;d2=desReviewSample" class="bodyText">Sample Design Review Scorecard</a></td>
                             </tr>
                             <tr valign="top">
                                 <td class="bodyText">11.10.2003</td>
@@ -173,7 +173,7 @@ The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder
                             <tr valign="top">
                                 <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Sample_Development_Review_Scorecard.pdf" class="bodyText">Sample Development Review Scorecard.pdf</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/tc?module=Static&amp;d1=dev&amp;d2=devReviewSample" class="bodyText">Sample Development Review Scorecard</a></td>
                             </tr>
                         </table>
                     </td>
