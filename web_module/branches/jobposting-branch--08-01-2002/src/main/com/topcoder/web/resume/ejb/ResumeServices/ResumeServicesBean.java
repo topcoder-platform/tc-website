@@ -136,8 +136,9 @@ public class ResumeServicesBean extends BaseEJB {
     private static final String GET_FILE_TYPES_QUERY =
             "SELECT file_type_id AS file_type_id " +
                   " ,file_type_desc AS file_type_desc " +
-            "FROM " +
-            "   file_type_lu";
+                  " ,sort " +
+             " FROM file_type_lu" +
+            " ORDER BY sort ASC";
     public ArrayList getFileTypes() throws RemoteException{
         log.debug("ejb:ResumeServices:getFileTypes() called...");
         Connection conn = null;
