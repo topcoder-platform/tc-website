@@ -147,73 +147,73 @@
   </init-param>
 
   <init-param>
-    <param-name>command_desc_param
+    <param-name>command_desc_param</param-name>
     <param-value>CommandDesc</param-value>
     <description></description>
   </init-param>
 
   <init-param>
-    <param-name>query_name_param
+    <param-name>query_name_param</param-name>
     <param-value>Name</param-value>
     <description></description>
   </init-param>
 
   <init-param>
-    <param-name>column_index_param
+    <param-name>column_index_param</param-name>
     <param-value>ColumnIndex</param-value>
     <description></description>
   </init-param>
 
   <init-param>
-    <param-name>query_text_param
+    <param-name>query_text_param</param-name>
     <param-value>Text</param-value>
     <description></description>
   </init-param>
 
   <init-param>
-    <param-name>input_code_param
+    <param-name>input_code_param</param-name>
     <param-value>InputCode</param-value>
     <description></description>
   </init-param>
 
   <init-param>
-    <param-name>input_desc_param
+    <param-name>input_desc_param</param-name>
     <param-value>InputDesc</param-value>
     <description></description>
   </init-param>
 
   <init-param>
-    <param-name>data_type_id_param
+    <param-name>data_type_id_param</param-name>
     <param-value>DataTypeId</param-value>
     <description></description>
   </init-param>
 
   <init-param>
-    <param-name>group_desc_param
+    <param-name>group_desc_param</param-name>
     <param-value>GroupDesc</param-value>
     <description></description>
   </init-param>
 
   <init-param>
-    <param-name>optional_param
+    <param-name>optional_param</param-name>
     <param-value>Optional</param-value>
     <description></description>
   </init-param>
 
   <init-param>
-    <param-name>default_value_param
+    <param-name>default_value_param</param-name>
     <param-value>DefaultValue</param-value>
     <description></description>
   </init-param>
 
   <init-param>
-    <param-name>sort_order_param
+    <param-name>sort_order_param</param-name>
     <param-value>SortOrder</param-value>
     <description></description>
   </init-param>
 
   <init-param>
-    <param-name>ranking_param
+    <param-name>ranking_param</param-name>
     <param-value>Ranking</param-value>
     <description></description>
   </init-param>

@@ -1,6 +1,8 @@
 <%@  page
   language="java"
   errorPage="errorPage.jsp"
+  import= "com.topcoder.web.query.common.*,
+          com.topcoder.web.query.bean.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
 <jsp:useBean id="CommandListTask" scope="request" class="com.topcoder.web.query.bean.CommandListTask" />

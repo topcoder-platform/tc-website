@@ -33,7 +33,7 @@
   <tag>
     <name>resultSetRowIterator</name>
     <tagclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetRowIteratorTag</tagclass>
-    <teiclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetRowteratorTagInfo</teiclass>
+    <teiclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetRowIteratorTagInfo</teiclass>
     <bodycontent>JSP</bodycontent>
     <info>
       Tag to iterate through a ResultSetContainer
