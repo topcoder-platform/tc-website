@@ -85,9 +85,10 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                      $<rsc:item row="<%=info%>" name="amount" format="0.00"/></h2>
                 </td>
             </tr>
+             </rsc:iterator>
         </table>
         <table width="500" border="0" cellpadding="0" cellspacing="0" align="center" class="sidebarBox">
-             </rsc:iterator>
+
             <tr class="sidebarTitle">
                 <td width="20%" align="left">
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="5"/>"><img src="/i/tournament/crpf03/rank.gif" width="43" height="26" border="0"></a>
