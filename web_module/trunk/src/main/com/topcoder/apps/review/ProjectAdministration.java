@@ -506,6 +506,7 @@ public class ProjectAdministration implements Model {
             if ((changeType & MailHelper.ROLE_CHANGE) != MailHelper.NO_CHANGE) {
                 LogHelper.log("ROLE CHANGE DETECTED");
             }
+            LogHelper.log("CHANGE TYPE = " + changeType);
             
             // if all old roles are unassigned then set the weekly notification flag to false
             // (in case it isn't set that way by default for a new project)
