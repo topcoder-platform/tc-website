@@ -42,7 +42,7 @@
                         </jsp:include>
 
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                            <tr><td width="100%" class="tourney_subnav"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
+                            <tr><td width="100%" class="tourney_subnav"><img src="/i/hs/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
                         </table>
 
                         </div>
@@ -70,7 +70,7 @@
                         </table>
                         
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                            <tr><td width="100%" class="tourney_subnav"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
+                            <tr><td width="100%" class="tourney_subnav"><img src="/i/hs/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
                         </table>
 
                     </td>

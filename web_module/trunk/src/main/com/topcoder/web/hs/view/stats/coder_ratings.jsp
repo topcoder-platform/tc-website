@@ -40,8 +40,8 @@
 
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"   WIDTH="100%">
            <TR>
-             <TD BGCOLOR="#001934"   VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-             <TD COLSPAN="2" VALIGN="top" BGCOLOR="#001934" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDE
+             <TD BGCOLOR="#001934"   VALIGN="top" WIDTH="11"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+             <TD COLSPAN="2" VALIGN="top" BGCOLOR="#001934" WIDTH="100%"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDE
 R="0"/><BR>
 
 <%
@@ -65,7 +65,7 @@ try{
 <form name="coderRankForm" action="" method="get">
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"   WIDTH="100%">
                  <TR>
-                   <TD BGCOLOR="#1B2E5D" COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
+                   <TD BGCOLOR="#1B2E5D" COLSPAN="6"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD BGCOLOR="#1B2E5D"  COLSPAN="6" CLASS="statText">
@@ -73,7 +73,7 @@ try{
                    </TD>
                  </TR>
                  <TR>
-                   <TD BGCOLOR="#1B2E5D"   COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
+                   <TD BGCOLOR="#1B2E5D"   COLSPAN="6"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/blue_heading_bg.gif"  CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
@@ -91,10 +91,10 @@ try{
                    </TD>
                  </TR>
                  <TR>
-                   <TD   COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+                   <TD   COLSPAN="6"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BGCOLOR="#1B2E5D" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD BGCOLOR="#1B2E5D" VALIGN="middle" WIDTH="10"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="20">Rank</TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="30%">
 				   <A HREF="?module=Statistics&c=coder_ratings&sq=Coder_Ratings&pg=<%= iCurrentPage%>&First=<%= iFirst%>&Last=<%=iLast%>&sr=<%=srb.getProperty("sr","1")%>&er=<%=srb.getProperty("er","50")%>&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("asc") ?"desc":"asc"%>" CLASS="statText">Handle</a>
@@ -105,15 +105,15 @@ try{
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="20%">
 				   <A HREF="?module=Statistics&c=coder_ratings&sq=Coder_Ratings&pg=<%= iCurrentPage%>&First=<%= iFirst%>&Last=<%=iLast%>&sr=<%=srb.getProperty("sr","1")%>&er=<%=srb.getProperty("er","50")%>&sc=2&sd=<%= "2".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Rating</a>
 				   </TD>
-                   <TD BGCOLOR="#1B2E5D" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD BGCOLOR="#1B2E5D" VALIGN="top" WIDTH="10"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD   COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+                   <TD   COLSPAN="6"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
        <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
 	        <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 2 /*"coder_score"*/ + "]" %>'/>
                  <TR>
-                   <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD VALIGN="middle" WIDTH="10"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" HEIGHT="13"><bean:write name="resultRow" property='<%= "item[" + 5 /* order */ + "]" %>'/></TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="left">
 					<A HREF="?module=Statistics&c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 0 /* coder_id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 1 /* handle */ + "]" %>'/></A>
@@ -122,11 +122,11 @@ try{
 					<A HREF="?module=Statistics&c=school_round_stats&hs=<bean:write name="resultRow" property='<%= "item[" + 3 /* school_id */ + "]" %>'/>" CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 4 /* school full_name */ + "]" %>'/></A>
                    </TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="right"><%= coderrank.toString() %></TD>
-                   <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD VALIGN="top" WIDTH="10"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
 		</logic:iterate>
                  <TR>
-                   <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
+                   <TD COLSPAN="6"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
@@ -144,7 +144,7 @@ try{
                    </TD>
                  </TR>
                  <TR>
-                   <TD BGCOLOR="#1B2E5D" COLSPAN="6" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                   <TD BGCOLOR="#1B2E5D" COLSPAN="6" VALIGN="middle"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD BGCOLOR="#1B2E5D" COLSPAN="6" ALIGN="center" CLASS="statText">
@@ -156,7 +156,7 @@ try{
                    </TD>
                  </TR>
                  <TR>
-                   <TD BGCOLOR="#1B2E5D" COLSPAN="6" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                   <TD BGCOLOR="#1B2E5D" COLSPAN="6" VALIGN="middle"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
                </TABLE>
 			   <input type="hidden" name="sr" value="">
@@ -171,7 +171,7 @@ try{
    			   <input type="hidden" name="module" value="Statistics">
 			   </form>
              </TD>
-             <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+             <TD VALIGN="top" WIDTH="10"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
            </TR>
          </TABLE>
          <!-- END BODY -->

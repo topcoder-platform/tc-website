@@ -30,11 +30,11 @@
 <!-- Center Column begins -->
         <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
-                <tr><td width="100%" bgcolor="001934"><img src="/i/headinginside_sponsor.gif" width="348" height="44" border="0"></td></tr>
+                <tr><td width="100%" bgcolor="001934"><img src="/i/hs/headinginside_sponsor.gif" width="348" height="44" border="0"></td></tr>
                 
                 <tr>
                     <td width="100%" class="bodyText">
-                        <a href="http://www.casciac.org" target="_blank"><img src="/i/logo_cas.gif" width="86" height="85" alt="" border="0" hspace="8" vspace="8" align="right"></a>
+                        <a href="http://www.casciac.org" target="_blank"><img src="/i/hs/logo_cas.gif" width="86" height="85" alt="" border="0" hspace="8" vspace="8" align="right"></a>
                         <h3>The Connecticut Association of Schools (C.A.S.)</h3>
 
                         <p>Unique among the fifty state associations functioning within our national borders, the Connecticut Association of Schools 

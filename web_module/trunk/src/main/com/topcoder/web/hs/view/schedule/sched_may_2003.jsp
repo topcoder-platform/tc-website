@@ -29,7 +29,7 @@
                 
                 <tr valign="top">
                     <td align="left" width="99%" class="statTextBig">
-                        <img src="/i/headinginside_sched.gif" width="348" height="44" alt="Schedule" border="0">
+                        <img src="/i/hs/headinginside_sched.gif" width="348" height="44" alt="Schedule" border="0">
 
                         <h3>May 2003</h3>
                         <div align="right"><form name="selectform">
@@ -66,7 +66,7 @@
                                     <strong>Match 7</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
-                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
+                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
                                 <td id="calendar">2</td>
                                 <td id="calendar">3</td>
                             </tr>
@@ -84,7 +84,7 @@
                                     <strong>Match 8</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
-                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
+                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
                                 <td id="calendar">9</td>
                                 <td id="calendar">10</td>
                             </tr>
@@ -113,7 +113,7 @@
                                     <strong>Championship</strong><br>
                                     at UConn Storrs Campus<br>
                                     Compete: 12:00&nbsp;PM<br>
-                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
+                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
                                 <td id="calendar">21</td>
                                 <td id="calendar">22</td>
                                 <td id="calendar">23</td>
@@ -145,7 +145,7 @@
 <!-- Gutter -->
         
         
-        <td width="10" bgcolor="#001934"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10" bgcolor="#001934"><img src="/i/hs/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
     </tr>
 </table>

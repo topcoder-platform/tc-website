@@ -33,7 +33,7 @@
                 <tr>
                     <td width="100%" class="statText">
                         
-                        <img src="/i/headinginside_login.gif" width="348" height="44" alt="Login" border="0">
+                        <img src="/i/hs/headinginside_login.gif" width="348" height="44" alt="Login" border="0">
 
                         <p>New to TopCoder? <a href="?module=Static&d1=registration&d2=registration" class="statText">Click here</a> to register now.</p><br>
 

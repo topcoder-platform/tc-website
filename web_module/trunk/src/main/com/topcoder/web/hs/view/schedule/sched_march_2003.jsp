@@ -29,7 +29,7 @@
                 
                 <tr valign="top">
                     <td align="left" width="99%" class="statTextBig">
-                        <img src="/i/headinginside_sched.gif" width="348" height="44" alt="Schedule" border="0">
+                        <img src="/i/hs/headinginside_sched.gif" width="348" height="44" alt="Schedule" border="0">
 
                         <h3>March 2003</strong></h3>
                         <div align="right"><form name="selectform">
@@ -71,7 +71,7 @@
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">6</span><br>
                                     Match postponed due to snow day.<br>
-                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
+                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
                                 <td id="calendar">7</td>
                                 <td id="calendar">8</td>
                             </tr>
@@ -84,7 +84,7 @@
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">13</span><br>
                                     Match postponed due to snow day.<br>
-                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
+                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
                                 <td id="calendar">14</td>
                                 <td id="calendar">15</td>
                             </tr>
@@ -99,7 +99,7 @@
                                     <strong>Match 1</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
-                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
+                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
                                 <td id="calendar">21</td>
                                 <td id="calendar">22</td>
                             </tr>
@@ -114,7 +114,7 @@
                                     <strong>Match 2</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
-                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
+                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
                                 <td id="calendar">28</td>
                                 <td id="calendar">29</td>
                             </tr>
@@ -141,7 +141,7 @@
 <!-- Gutter -->
         
         
-        <td width="10" bgcolor="#001934"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10" bgcolor="#001934"><img src="/i/hs/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
     </tr>
 </table>

@@ -30,7 +30,7 @@
                 
                 <tr valign="top">
                     <td align="left" width="99%" class="statText">
-                        <img src="/i/headinginside_hscompete.gif" width="348" height="44" border="0">
+                        <img src="/i/hs/headinginside_hscompete.gif" width="348" height="44" border="0">
 
                         <p><strong><font size="3">What schools can participate?</font></strong><br>
                         All high schools in Connecticut are eligible to participate in TopCoder High School.  Consistent with the CIAC, the high schools 

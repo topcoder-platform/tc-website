@@ -49,14 +49,14 @@ function openWin(url, name, w, h) {
 <!-- Logo begins -->
 <table border="0" cellspacing="0" cellpadding="0" bgcolor="#000000" width="100%">
     <tr valign="middle">
-        <td width="168" height="50"><a href="?module=Home"><img src="/i/top_tchs_logo.gif" width="175" height="36" alt="TopCoder High School" hspace="10" border="0"></a></td>
-        <td width="99%" height="50" align="right"><img src="/i/top_banner2.gif" width="500" height="50" alt="" border="0"></td>
+        <td width="168" height="50"><a href="?module=Home"><img src="/i/hs/top_tchs_logo.gif" width="175" height="36" alt="TopCoder High School" hspace="10" border="0"></a></td>
+        <td width="99%" height="50" align="right"><img src="/i/hs/top_banner2.gif" width="500" height="50" alt="" border="0"></td>
     </tr>
 </table>
 <!-- Logo ends -->
 
 <table cellspacing="0" cellpadding="0" width="100%" border="0">
-    <tr><td height="4" bgcolor="#7B89C5" width="100%"><img src="/i/clear.gif" alt="" height="4" border="0" /></td></tr>
+    <tr><td height="4" bgcolor="#7B89C5" width="100%"><img src="/i/hs/clear.gif" alt="" height="4" border="0" /></td></tr>
 </table>
 
 <!-- Main Links begins -->
@@ -86,7 +86,7 @@ function openWin(url, name, w, h) {
 <!-- Main Links ends -->
 
 <table cellspacing="0" cellpadding="0" width="100%" border="0">
-    <tr><td height="2" bgcolor="#000000" width="100%"><img src="/i/clear.gif" alt="" height="2" border="0" /></td></tr>
+    <tr><td height="2" bgcolor="#000000" width="100%"><img src="/i/hs/clear.gif" alt="" height="2" border="0" /></td></tr>
 </table>
 
 <!-- Top Include Ends -->

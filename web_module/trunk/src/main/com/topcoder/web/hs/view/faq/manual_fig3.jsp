@@ -30,7 +30,7 @@
 <!-- Center Column begins -->
         <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
-                <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
+                <tr><td width="100%" bgcolor="#001934"><img src="/i/hs/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td width="100%" class="bodyText">
@@ -46,7 +46,7 @@
                         
                         <p class="bodyText"><b>Figure 3: Problem Selection</b></p>
                         
-                        <img border="0" height="434" width="619" alt="Problem Selection" src="/i/select_problem.gif">
+                        <img border="0" height="434" width="619" alt="Problem Selection" src="/i/hs/select_problem.gif">
                         
                         <ol class="bodyText" type="1">
                             <li><b>Rooms:</b> Lists all rooms including the <b>Practice Room</b>.</li><br>

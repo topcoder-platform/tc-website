@@ -61,7 +61,7 @@ function openWin(url, name, w, h) {
                         </table>
                         
                         <table border="0" cellspacing="5" cellpadding="0">            
-                            <tr><td width="500"><img src="/i/tournament/tchs03/team_danbury.jpg" alt="Danbury" width="500" height="400" class="photoFrameSmall"></td></tr>
+                            <tr><td width="500"><img src="/i/hs/tournament/tchs03/team_danbury.jpg" alt="Danbury" width="500" height="400" class="photoFrameSmall"></td></tr>
                             <tr><td width="500" class="photoCaptionSmall">(left to right) mavinalim, MattVZ*, alanschmitt*, Coach Ramos and Astyrrian*</td></tr>
                         </table>
                         
@@ -69,9 +69,9 @@ function openWin(url, name, w, h) {
                             <tr><td class="photoDirections">[Click the photos below for a larger view]</td></tr>
                             <tr>
                                 <td>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/danbury_MattVZ.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/danbury_MattVZ.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/danbury_alanschmitt.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/danbury_alanschmitt.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/danbury_Astyrrian.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/danbury_Astyrrian.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/danbury_MattVZ.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/danbury_MattVZ.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/danbury_alanschmitt.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/danbury_alanschmitt.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/danbury_Astyrrian.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/danbury_Astyrrian.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
                                 </td>
                             </tr>
                         </table>
@@ -84,7 +84,7 @@ function openWin(url, name, w, h) {
                         </table>
                         
                         <table border="0" cellspacing="5" cellpadding="0">            
-                            <tr><td width="500"><img src="/i/tournament/tchs03/team_nfa.jpg" alt="Norwich Free Academy" width="500" height="376" class="photoFrameSmall"></td></tr>
+                            <tr><td width="500"><img src="/i/hs/tournament/tchs03/team_nfa.jpg" alt="Norwich Free Academy" width="500" height="376" class="photoFrameSmall"></td></tr>
                             <tr><td width="500" class="photoCaptionSmall">(left to right) Coach Clendennin, colgate*, trueIdiotz*, HarlingtoxAD, bahamutneo* and Coach Joslin</td></tr>
                         </table>
                         
@@ -92,9 +92,9 @@ function openWin(url, name, w, h) {
                             <tr><td class="photoDirections">[Click the photos below for a larger view]</td></tr>
                             <tr>
                                 <td>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/norwich_colgate.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/norwich_colgate.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/norwich_trueIdiotz.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/norwich_trueIdiotz.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/norwich_bahamutneo.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/norwich_bahamutneo.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/norwich_colgate.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/norwich_colgate.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/norwich_trueIdiotz.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/norwich_trueIdiotz.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/norwich_bahamutneo.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/norwich_bahamutneo.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
                                 </td>
                             </tr>
                         </table>
@@ -107,7 +107,7 @@ function openWin(url, name, w, h) {
                         </table>
                         
                         <table border="0" cellspacing="5" cellpadding="0">            
-                            <tr><td width="500"><img src="/i/tournament/tchs03/team_redding_barlow.jpg" alt="Redding - Joel Barlow" width="500" height="351" class="photoFrameSmall"></td></tr>
+                            <tr><td width="500"><img src="/i/hs/tournament/tchs03/team_redding_barlow.jpg" alt="Redding - Joel Barlow" width="500" height="351" class="photoFrameSmall"></td></tr>
                             <tr><td width="500" class="photoCaptionSmall">(left to right) behrian, challenged, samwise*, ub3rN1ck, goggles*, Deathscythe* and Coach Huot</td></tr>
                         </table>
                         
@@ -115,9 +115,9 @@ function openWin(url, name, w, h) {
                             <tr><td class="photoDirections">[Click the photos below for a larger view]</td></tr>
                             <tr>
                                 <td>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/redding_samwise.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/redding_samwise.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/redding_goggles.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/redding_goggles.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/redding_Deathscythe.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/redding_Deathscythe.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/redding_samwise.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/redding_samwise.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/redding_goggles.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/redding_goggles.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/redding_Deathscythe.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/redding_Deathscythe.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
                                 </td>
                             </tr>
                         </table>
@@ -130,7 +130,7 @@ function openWin(url, name, w, h) {
                         </table>
                         
                         <table border="0" cellspacing="5" cellpadding="0">            
-                            <tr><td width="500"><img src="/i/tournament/tchs03/team_southington.jpg" alt="Southington" width="500" height="336" class="photoFrameSmall"></td></tr>
+                            <tr><td width="500"><img src="/i/hs/tournament/tchs03/team_southington.jpg" alt="Southington" width="500" height="336" class="photoFrameSmall"></td></tr>
                             <tr><td width="500" class="photoCaptionSmall">(left to right) Elyssium*, RickTrunks12*, Yodude565, radishio*, Coach Cipollini and Coach Lucia (not pictured)</td></tr>
                         </table>
                         
@@ -138,9 +138,9 @@ function openWin(url, name, w, h) {
                             <tr><td class="photoDirections">[Click the photos below for a larger view]</td></tr>
                             <tr>
                                 <td>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/southington_Elyssium.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/southington_Elyssium.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/southington_RickTrunks12.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/southington_RickTrunks12.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/southington_radishio.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/southington_radishio.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/southington_Elyssium.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/southington_Elyssium.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/southington_RickTrunks12.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/southington_RickTrunks12.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/southington_radishio.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/southington_radishio.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
                                 </td>
                             </tr>
                         </table>
@@ -153,7 +153,7 @@ function openWin(url, name, w, h) {
                         </table>
                         
                         <table border="0" cellspacing="5" cellpadding="0">            
-                            <tr><td width="500"><img src="/i/tournament/tchs03/team_tolland.jpg" alt="Tolland" width="500" height="424" class="photoFrameSmall"></td></tr>
+                            <tr><td width="500"><img src="/i/hs/tournament/tchs03/team_tolland.jpg" alt="Tolland" width="500" height="424" class="photoFrameSmall"></td></tr>
                             <tr><td width="500" class="photoCaptionSmall">(left to right) RanciD*, Coach Mickiewicz, Nomad, MasterMargie*, Sellout*</td></tr>
                         </table>
                         
@@ -161,9 +161,9 @@ function openWin(url, name, w, h) {
                             <tr><td class="photoDirections">[Click the photos below for a larger view]</td></tr>
                             <tr>
                                 <td>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/tolland_RanciD.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/tolland_RanciD.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/tolland_MasterMargie.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/tolland_MasterMargie.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/tolland_Sellout.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/tolland_Sellout.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/tolland_RanciD.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/tolland_RanciD.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/tolland_MasterMargie.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/tolland_MasterMargie.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/tolland_Sellout.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/tolland_Sellout.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
                                 </td>
                             </tr>
                         </table>
@@ -176,7 +176,7 @@ function openWin(url, name, w, h) {
                         </table>
                         
                         <table border="0" cellspacing="5" cellpadding="0">            
-                            <tr><td width="500"><img src="/i/tournament/tchs03/team_nw_catholic.jpg" alt="West Hartford - Northwest Catholic" width="500" height="386" class="photoFrameSmall"></td></tr>
+                            <tr><td width="500"><img src="/i/hs/tournament/tchs03/team_nw_catholic.jpg" alt="West Hartford - Northwest Catholic" width="500" height="386" class="photoFrameSmall"></td></tr>
                             <tr><td width="500" class="photoCaptionSmall">(left to right) RaceFreak21*, noseBOY*, Xzafire*, callia888 and Coach Avery (substituting for Coach Hart)</td></tr>
                         </table>
                         
@@ -184,9 +184,9 @@ function openWin(url, name, w, h) {
                             <tr><td class="photoDirections">[Click the photos below for a larger view]</td></tr>
                             <tr>
                                 <td>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/nw_catholic_RaceFreak21.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/nw_catholic_RaceFreak21.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/nw_catholic_noseBOY.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/nw_catholic_noseBOY.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/nw_catholic_Xzafire.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/nw_catholic_Xzafire.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/nw_catholic_RaceFreak21.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/nw_catholic_RaceFreak21.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/nw_catholic_noseBOY.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/nw_catholic_noseBOY.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/nw_catholic_Xzafire.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/nw_catholic_Xzafire.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
                                 </td>
                             </tr>
                         </table>
@@ -199,7 +199,7 @@ function openWin(url, name, w, h) {
                         </table>
                         
                         <table border="0" cellspacing="5" cellpadding="0">            
-                            <tr><td width="500"><img src="/i/tournament/tchs03/team_woodbridge_amity.jpg" alt="Woodbridge - Amity" width="500" height="342" class="photoFrameSmall"></td></tr>
+                            <tr><td width="500"><img src="/i/hs/tournament/tchs03/team_woodbridge_amity.jpg" alt="Woodbridge - Amity" width="500" height="342" class="photoFrameSmall"></td></tr>
                             <tr><td width="500" class="photoCaptionSmall">(left to right) Coach Barretta, hexedit, kevinowns, Z-Zonebyun, nathanbp*, PolariStarII*, Rahde and lazira*</td></tr>
                         </table>
                         
@@ -207,9 +207,9 @@ function openWin(url, name, w, h) {
                             <tr><td class="photoDirections">[Click the photos below for a larger view]</td></tr>
                             <tr>
                                 <td>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/woodbridge_nathanbp.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/woodbridge_nathanbp.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/woodbridge_PolaristarII.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/woodbridge_PolaristarII.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
-                                    <a href="Javascript:openWin('/i/tournament/tchs03/woodbridge_lazira.jpg','photowin',350,350);" class="statText"><img src="/i/tournament/tchs03/woodbridge_lazira.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/woodbridge_nathanbp.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/woodbridge_nathanbp.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/woodbridge_PolaristarII.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/woodbridge_PolaristarII.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
+                                    <a href="Javascript:openWin('/i/tournament/tchs03/woodbridge_lazira.jpg','photowin',350,350);" class="statText"><img src="/i/hs/tournament/tchs03/woodbridge_lazira.jpg" alt="" width="120" height="120" class="photoFrameSmall" /></a>
                                 </td>
                             </tr>
                         </table>
@@ -220,7 +220,7 @@ function openWin(url, name, w, h) {
                 </tr>
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr><td width="100%" class="tourney_subnav"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
+                <tr><td width="100%" class="tourney_subnav"><img src="/i/hs/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
             </table>
 
             <p><br/></p>

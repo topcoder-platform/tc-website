@@ -30,7 +30,7 @@
 <!-- Center Column begins -->
         <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
-                <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
+                <tr><td width="100%" bgcolor="#001934"><img src="/i/hs/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td width="100%" class="bodyText">
@@ -46,7 +46,7 @@
                        
                         <p><b>Figure 5: Status Window - Challenge Phase</b></p>
                        
-                        <img border="0" height="434" width="619" alt="Status Window" src="/i/status_window.gif">
+                        <img border="0" height="434" width="619" alt="Status Window" src="/i/hs/status_window.gif">
                        
                         <p>Once the Challenge Phase begins, the timer will reset itself for that phase and the Status window will open. To access 
                         another user's code, right-click on the user's point total. "Source" and "Challenge will be the two choices. Here, a user 
