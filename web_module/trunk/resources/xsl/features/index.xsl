@@ -14,7 +14,7 @@
 <html>
 
 <head>
-
+ 
 <xsl:call-template name="Preload" />      
 
 <title>Feature articles written by TopCoder members</title>
