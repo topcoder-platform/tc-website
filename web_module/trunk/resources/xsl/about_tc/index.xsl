@@ -66,7 +66,7 @@
 					Reaching the developer community is a difficult task at best. Marketing budgets are limited and with the advent of the Internet, the expectation for 
 					measuring results has only grown. TopCoder offers companies a means of targeting this desired community through the <A HREF="/index?t=about_tc&amp;c=spons_target" CLASS="bodyText">targeted sponsorship</A> of Single 
 					Round Matches and Tournaments.</LI><BR/><BR/>
-					<LI><A HREF="/index?t=about_tc&amp;c=empl_tces" CLASS="bodyText">Employers</A><BR/>
+					<LI><A HREF="/index?t=tces&amp;c=index" CLASS="bodyText">Employers</A><BR/>
 					The market for developers is either feast or famine. Regardless of how many developers there are or how many are available, the issue remains the same 
 					- how to determine which candidate is best suited to the needs of your organization. While certification has offered some credibility, competitions that 
 					test a developer's skills in real-world challenges goes much further to differentiating one candidate from another.</LI></UL><BR/>
