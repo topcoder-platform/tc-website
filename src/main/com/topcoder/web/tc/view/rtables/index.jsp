@@ -46,9 +46,17 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
     <jsp:include page="../script.jsp" />
     <%@ include file="rating.jsp" %>
+
   </HEAD>
   <BODY>
   <jsp:include page="../top.jsp" />
+
+<!-- Menu begins -->
+<jsp:include page="../menu.jsp">
+    <jsp:param name="level1" value="competition"/>
+</jsp:include>
+<!-- Menu ends -->
+
   <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
 <!-- Left Column Begins -->
