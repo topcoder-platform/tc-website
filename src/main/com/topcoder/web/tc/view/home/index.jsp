@@ -136,7 +136,6 @@
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 
 <%-- TCO homepage --%>
-			<tr><td class=homeBigPromo><img src="/i/home/promos/tco04_onsite.gif" border=0 usemap="#tco04_onsite" />
 	            <map name="tco04_onsite">
 	            <area shape="rect" alt="TCO04" coords="1,1,269,175" href="/tc" />
 	            <area shape="rect" alt="Results" coords="40,180,100,205" href="/tc" />
@@ -144,7 +143,7 @@
 	            <area shape="rect" alt="Videos" coords="180,180,230,205" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=movies" />
 	            <area shape="rect" alt="Videos" coords="50,205,220,230" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=spec_showdown" />
 	            </map>                        
-			</td></tr>
+			<tr><td class=homeBigPromo><img src="/i/home/promos/tco04_onsite.gif" border=0 usemap="#tco04_onsite" /></td></tr>
 
 <%-- Regular homepage
 			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/home/promos/tco04Finals.gif" border=0 /></A></td></tr>
