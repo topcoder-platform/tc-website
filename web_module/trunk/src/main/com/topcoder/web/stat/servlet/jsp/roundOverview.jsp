@@ -161,18 +161,18 @@
     <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="problem_stats"></A>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif">
   <TR>
-    <TD VALIGN="middle" COLSPAN="5" BGCOLOR="#CCCCCC" WIDTH="100%" NOWRAP="0" HEIGHT="16" CLASS="registerNav"  BACKGROUND="/i/steel_bluebv_bg.gif">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Problem Stats</B></TD>
+    <TD VALIGN="middle" COLSPAN="6" BGCOLOR="#CCCCCC" WIDTH="100%" NOWRAP="0" HEIGHT="16" CLASS="registerNav"  BACKGROUND="/i/steel_bluebv_bg.gif">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Problem Stats</B></TD>
   </TR>
   <TR>
     <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
   </TR>
   <TR>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="statText"">&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="statText">&#160;<B>Problem Name</B></TD>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<B>Submissions</B></TD>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<B>Correct %&#160;&#160;</B></TD>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="statText" ALIGN="right"><B>Average Pts.</B></TD>
-    <TD></TD>
+    <TD VALIGN="middle" NOWRAP="0" WIDTH="17%" HEIGHT="15" CLASS="statText"">&#160;</TD>
+    <TD VALIGN="middle" NOWRAP="0" WIDTH="25%" HEIGHT="15" CLASS="statText">&#160;<B>Problem Name</B></TD>
+    <TD VALIGN="middle" NOWRAP="0" WIDTH="9%" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<B>Submissions</B></TD>
+    <TD VALIGN="middle" NOWRAP="0" WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right">&#160;<B>Correct %&#160;&#160;</B></TD>
+    <TD VALIGN="middle" NOWRAP="0" WIDTH="17%" HEIGHT="15" CLASS="statText" ALIGN="right"><B>Average Pts.</B></TD>
+    <TD VALIGN="middle" NOWRAP="0" WIDTH="15%" HEIGHT="15" CLASS="statText" ALIGN="right"></TD>
   </TR>
   <%
       currentRow = percents.getRow(currentRowPtr);
