@@ -19,10 +19,9 @@
    <property name="resources"     value="resources" />
    <property name="images"        value="images" />
    <property name="Jive.jar"      value="${bin}/Jive.jar"/>
-   <property name="wl_jvmargs"    value="-Dweblogic.home=${WL_HOME}"  />
    <property name="servlets"      value="${build}/servlets" />
    <property name="web"           value="src/main/com/topcoder/web" />
-   <property name="public_html"   value="/home/weblog5/weblogic1/tc_cluster/public_html" />
+   <property name="public_html"   value="${WL1_HOME}/tc_cluster/public_html" />
    <property environment="env"/>
 
    <property name="deprecation"   value="false" />
