@@ -32,7 +32,7 @@
             </TR>
             <TR>
               <TD VALIGN="middle" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-              <TD BGCOLOR="#000000" ALIGN="center" NOWRAP="0"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><A TARGET="_parent" HREF="/index?t=jobs&amp;c=index"><IMG SRC="/i/jobs_banner2.gif" ALT="" WIDTH="170" HEIGHT="46" VSPACE="5" BORDER="0"/></A><A TARGET="_parent" HREF="/index?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/teams_banner.gif" ALT="" WIDTH="170" HEIGHT="46" VSPACE="5" BORDER="0"/></A><!-- <IMG SRC="/i/clear.gif" WIDTH="72" HEIGHT="1" BORDER="0" VSPACE="20"/> --></TD>
+              <TD BGCOLOR="#000000" ALIGN="center" NOWRAP="0"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><!-- <A TARGET="_parent" HREF="/index?t=jobs&amp;c=index"><IMG SRC="/i/jobs_banner2.gif" ALT="" WIDTH="170" HEIGHT="46" VSPACE="5" BORDER="0"/></A><A TARGET="_parent" HREF="/index?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/teams_banner.gif" ALT="" WIDTH="170" HEIGHT="46" VSPACE="5" BORDER="0"/></A><IMG SRC="/i/clear.gif" WIDTH="72" HEIGHT="1" BORDER="0" VSPACE="20"/> --></TD>
               <TD CLASS="time" VALIGN="middle" NOWRAP="" ALIGN="right">
                  <xsl:choose>
                   <xsl:when test="/TC/LoggedIn='true'"><BR/>
