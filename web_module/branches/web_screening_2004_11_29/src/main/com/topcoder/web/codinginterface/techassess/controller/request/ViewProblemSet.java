@@ -7,7 +7,8 @@ import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsR
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * User: dok
@@ -46,16 +47,17 @@ public class ViewProblemSet extends Base {
 
             ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse)receive(5000);
 
-            ScreeningProblemSet[] problemSets = response.getProblemSets();
-            ArrayList sets = new ArrayList();
+            ScreeningProblemSet[] problemSets= response.getProblemSets();
+            List problems = null;
             for (int i=0; i<problemSets.length; i++) {
-                if (problemSets[i].getType().intValue()==problemType)
-                    sets.add(problemSets[i]);
+                if (problemSets[i].getType().intValue()==problemType) {
+                    //ok, we found the set, now we need to get the actual problems
+                    problems = Arrays.asList(problemSets[i].getProblemLabels());
+                }
             }
-            log.debug("there are " + sets.size() + " problem sets");
+            log.debug("there are " + problems.size() + " problems");
 
-            setDefault(Constants.PROBLEM_SETS, sets);
-            setDefault(Constants.LANGUAGES, getLanguages(response.getAllowedLanguages()));
+            setDefault(Constants.PROBLEMS, problems);
             setDefault(Constants.PROBLEM_TYPE_ID, new Integer(problemType));
 
             closeProcessingPage();
