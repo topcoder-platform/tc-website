@@ -63,7 +63,7 @@ Thank you for registering<br/>
 <br/>
 </p>
 <p>
-If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=UploadResume&<%=Constants.COMPANY_ID%>=1747','Resume_Upload','top=2,left=2,width=300,height=300,status=0');">here</a>
+If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=1747','Resume_Upload','top=2,left=2,width=300,height=300,status=0');">here</a>
 </p>
             <p><br /></p>
       </td>
