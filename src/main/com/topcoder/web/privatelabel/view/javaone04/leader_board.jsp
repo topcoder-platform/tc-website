@@ -131,6 +131,8 @@ H3 { font-size: 125%; }
                 </tr>
                 <tr>
                     <td valign=top class="leaderParentL" style="border-collapse: collapse">
+
+<%-- Problem A Leaders --%>
                         <table cellspacing=0 align=center>
                             <tr>
                                 <td class="leaderTitle" colspan="2">Current Leaders</td>
@@ -154,6 +156,8 @@ H3 { font-size: 125%; }
                         </table>
                     </td>
                     <td valign=top class="leaderParentR" style="border-collapse: collapse">
+
+<%-- Problem A Recent Submissions --%>
                         <table cellspacing=0 align=center>
                             <tr>
                                 <td class="leaderTitle" colspan="2">Recent Submissions</td>
@@ -178,6 +182,9 @@ H3 { font-size: 125%; }
                     </td>
                     <td class="spacer">&#160;</td>
                     <td valign=top class="leaderParentL" style="border-collapse: collapse">
+
+
+<%-- Problem B Leaders --%>
                         <table cellspacing=0 align=center>
                             <tr>
                                 <td class="leaderTitle" colspan="2">Current Leaders</td>
@@ -193,6 +200,8 @@ H3 { font-size: 125%; }
                         </table>
                     </td>
                     <td valign=top class="leaderParentR" style="border-collapse: collapse">
+
+<%-- Problem B Recent Submissions --%>
                         <table cellspacing=0 align=center>
                             <tr>
                                 <td class="leaderTitle" colspan="2">Recent Submissions</td>
