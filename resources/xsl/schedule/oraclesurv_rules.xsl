@@ -56,7 +56,7 @@
 <DIV ALIGN="center">
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="80%">
 	<TR>
-		<TD ALIGN="center" WIDTH="81"><A HREF="http://oracle.com/oracleworld/index.html" CLASS="statTextBig" TARGET="_blank"><IMG SRC="/i/oracleworld_logo.gif" ALT="" WIDTH="81" HEIGHT="80" BORDER="0" VSPACE="10"/></A><BR/>
+		<TD ALIGN="center" WIDTH="81"><A HREF="http://www.oracle.com/go/?&amp;Src=1393108&amp;Act=95" CLASS="statTextBig" TARGET="_blank"><IMG SRC="/i/oracleworld_logo.gif" ALT="" WIDTH="81" HEIGHT="80" BORDER="0" VSPACE="10"/></A><BR/>
 		<A HREF="http://www.oracle.com/go/?&amp;Src=1393108&amp;Act=95" CLASS="statTextBig" TARGET="_blank">Register!</A></TD>
 		<TD ALIGN="center"><IMG SRC="/i/oracle_cs1.gif" ALT="" WIDTH="150" HEIGHT="150" BORDER="0" VSPACE="10"/></TD>
 	</TR>
