@@ -50,7 +50,7 @@
   <TR>
     <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-                                    <B>Spell Check Component Development</B>
+                                    <B>Spell Check Component Design</B>
                                     <BR/>
                                     <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Spell Check Design" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
                                     <BR/>
@@ -67,7 +67,7 @@ The Spell Check component provides spelling validation to Java applications. The
 <B>Project Type</B>
 </P>
 <P>
-Component Development Project: Provide a complete design for the Spell Check component.<br/>
+Component Design Project: Provide a complete design for the Spell Check component.<br/>
 Please review the <a href="http://www.topcoder.com/?&amp;t=development&amp;c=index" CLASS="statText">TopCoder Software Component Development Methodology</a> for further details regarding this project type.
 </P>
 
