@@ -24,7 +24,7 @@
           com.topcoder.web.common.TCResponse"
 
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
 
     TCRequest tcRequest = HttpObjectFactory.createRequest(request);
@@ -43,18 +43,18 @@
                 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
 				dataRequest.setContentHandle("srm_demo_part");
 				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
-								
+
 				           DataAccessInt dai = new CachedDataAccess(
                                     dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
-					
+
 					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demo_part_by_country");
-					
-			%>	
-			
-			
-<%! 
+
+			%>
+
+
+<%!
 private String getPercentage (ResultSetContainer total, ResultSetContainer.ResultSetRow val, String col, String col2){
    long tot = Long.parseLong(total.getItem(0,"total").toString());
    long valu = Long.parseLong(val.getItem(col).toString());
@@ -62,7 +62,7 @@ private String getPercentage (ResultSetContainer total, ResultSetContainer.Resul
    double ret = (double)valu2 / valu*100;
    DecimalFormat df = new DecimalFormat("0.00");
    return df.format(ret);
-   
+
 }
 %>
 <script language="JavaScript">
@@ -74,9 +74,9 @@ function goTo(selection){
   }
 }
 // -->
-</script>  
-	
-<table width="100%" class="srmFrame">	
+</script>
+
+<table width="100%" class="srmFrame">
 <tr><td colspan="4" class="srmQuestion">Participation Counts (by country)</td></tr>
 <tr>
 <td class="bodyText"><strong>Country</strong></td>

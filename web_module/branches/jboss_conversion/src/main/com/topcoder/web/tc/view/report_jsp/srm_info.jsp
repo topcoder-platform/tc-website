@@ -18,7 +18,7 @@
           com.topcoder.security.TCSubject,
           com.topcoder.web.common.SessionInfo"
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
 	    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
     TCResponse tcResponse = HttpObjectFactory.createResponse(response);
@@ -44,11 +44,11 @@
     dataMap = dai.getData(dataRequest);
 	ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_match_info");
 
-    
 
-%>		
+
+%>
 <table>
   <tr>
     <td class=sectionTitle><%= rsc.getItem(0,"contest_name") %> on <%= rsc.getItem(0,"contest_date") %></td>
   </tr>
-</table>			
+</table>

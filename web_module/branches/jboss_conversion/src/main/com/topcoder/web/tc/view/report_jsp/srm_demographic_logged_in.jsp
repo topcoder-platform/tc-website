@@ -20,7 +20,7 @@
           com.topcoder.web.common.SessionInfo"
 
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
     TCRequest tcRequest = HttpObjectFactory.createRequest(request);
     TCResponse tcResponse = HttpObjectFactory.createResponse(response);
@@ -37,15 +37,15 @@
                 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
 				dataRequest.setContentHandle("srm_demographic");
 				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
-				
+
 				           DataAccessInt dai = new CachedDataAccess(dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
-					
+
 					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demo_logged_in");
-					
-					
-			%>	
+
+
+			%>
 
 
 
@@ -66,4 +66,3 @@
 </tr><%even=!even;%>
 </rsc:iterator>
 </table>
-  

@@ -1,18 +1,18 @@
-<%@ page 
+<%@ page
   language="java"
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
 
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Ratings History</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="baseHRef.jsp" />   
+   <jsp:include page="baseHRef.jsp" />
    <jsp:include page="../script.jsp" />
  </HEAD>
  <BODY>
@@ -47,7 +47,7 @@
 
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 
-<% 
+<%
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 
@@ -58,11 +58,11 @@ ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
 pageContext.setAttribute("resultRow", rsr);
 %>
 
-		<bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>			
+		<bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
                    <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>  
+                 </TR>
                  <TR>
                    <TD COLSPAN="4" CLASS="statTextLarge">
 <B>Coder:</B>&#160;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><B><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></B></SPAN>
@@ -71,15 +71,15 @@ pageContext.setAttribute("resultRow", rsr);
                  <TR>
                    <TD COLSPAN="4" CLASS="statText" VALIGN="middle" HEIGHT="16">
                      <A HREF="/stat?c=member_profile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
-                     |   
+                     |
                      <A HREF="/stat?c=earnings_history&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Earnings History</A>
                    </TD>
                  </TR>
                  <TR>
                      <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
-                 </TR>      
+                 </TR>
                </TABLE>
-<% 
+<%
 } //end if not empty
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Ratings_History");
 pageContext.setAttribute("resultSet", rsc2);
@@ -109,12 +109,12 @@ String sortString = "";
 if (srb.getProperty("sq")!=null){
 	sortString="&sq=" + srb.getProperty("sq");
 	sortString+="&sc=" + srb.getProperty("sc");
-	sortString+="&sd=" + srb.getProperty("sd", "desc");	
+	sortString+="&sd=" + srb.getProperty("sd", "desc");
 }
 String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratings_History";
 %>
-          
-               
+
+
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
   		<% if (!bEmpty) { %>
                  <TR>

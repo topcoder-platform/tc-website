@@ -19,7 +19,7 @@
           com.topcoder.web.common.SessionInfo"
 
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
 
     TCRequest tcRequest = HttpObjectFactory.createRequest(request);
@@ -37,12 +37,12 @@
                 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
 				dataRequest.setContentHandle("srm_demo_new_part_aging_pro");
 				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
-				
+
 				           DataAccessInt dai = new CachedDataAccess(
                                     dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
-					
+
 					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demo_new_part_aging_pro");
 
 long zerotwo_total = 0;
@@ -54,7 +54,7 @@ long sixtyoneninety_total = 0;
 long ninetyplus_total = 0;
 long total = 0;
 long row_total =0;
-%>	
+%>
 <table width="100%" class="srmFrame">
 <tr><td colspan="9" class="srmQuestion">Professionals</td></tr>
 <tr>
@@ -80,7 +80,7 @@ long row_total =0;
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="thirtyonesixty"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="sixtyoneninety"%>' row="<%=Row%>"/></td>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="ninetyplus"%>' row="<%=Row%>"/></td>
-<% 
+<%
 row_total =  Long.parseLong(Row.getItem("zerotwo").toString()) + Long.parseLong(Row.getItem("threeseven").toString()) + Long.parseLong(Row.getItem("eightfourteen").toString()) + Long.parseLong(Row.getItem("fifteenthirty").toString()) + Long.parseLong(Row.getItem("thirtyonesixty").toString()) + Long.parseLong(Row.getItem("sixtyoneninety").toString()) + Long.parseLong(Row.getItem("ninetyplus").toString());
 zerotwo_total = zerotwo_total + Long.parseLong(Row.getItem("zerotwo").toString());
 threeseven_total = threeseven_total + Long.parseLong(Row.getItem("threeseven").toString());
@@ -107,4 +107,3 @@ ninetyplus_total = ninetyplus_total + Long.parseLong(Row.getItem("ninetyplus").t
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong><%= total %></strong></td>
 </tr>
 </table>
-  

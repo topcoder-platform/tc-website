@@ -29,13 +29,13 @@
          <td width="100%" align="center">
 
          <div class="tutorBody">
-            
+
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="alg_tut"/>
             <jsp:param name="title" value=""/>
         </jsp:include>
 
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 			<table width="100%" border="0" cellspacing="0" cellpadding="3">
 				<tr valign=top><td class="bodyText"><b>Author</b></td><td class="bodyText" nowrap=nowrap width="100%"><b>Title</b></td></tr>

@@ -13,7 +13,7 @@
 		  "
 
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <jsp:include page="css.jsp" />
 <jsp:include page="../script.jsp" />
 
@@ -29,8 +29,8 @@
       }
     }
   // -->
-  </script>  
-  
+  </script>
+
     <title>TopCoder SRM Reports</title>
   </head>
   <body>
@@ -47,7 +47,7 @@
 		</tr>
 	    <tr>
 		  <td><jsp:include page="srm_demo_questions.jsp" /></td>
-		</tr>  
+		</tr>
 	  </table>
 	</td>
   </tr>

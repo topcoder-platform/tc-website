@@ -22,7 +22,7 @@
           com.topcoder.web.common.SessionInfo"
 
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
 
     TCRequest tcRequest = HttpObjectFactory.createRequest(request);
@@ -40,12 +40,12 @@
                 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
 				dataRequest.setContentHandle("srm_demo_lang");
 				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
-				
+
 				           DataAccessInt dai = new CachedDataAccess(
                                     dataRequest.getProperty(Constants.DB_KEY, Query.WAREHOUSE));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
-					
+
 					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demo_language_stats_count_div1");
 					ResultSetContainer rsc1 = (ResultSetContainer)dataMap.get("srm_demo_language_stats_count_div2");
 					ResultSetContainer rsc2 = (ResultSetContainer)dataMap.get("srm_demo_language_stats_count_new");
@@ -63,8 +63,8 @@ long tot_subs = 0;
 long tot_succ =0;
 long lang_tot_subs = 0;
 long lang_tot_succ = 0;
-%>	
-<%! 
+%>
+<%!
 private String getPercentage (ResultSetContainer total, int total_row, String total_col, int valu_row, String valu_col){
 //System.out.println(total.toString());
    long tot = Long.parseLong(total.getItem(total_row,total_col).toString());
@@ -78,7 +78,7 @@ private String getPercentage (ResultSetContainer total, int total_row, String to
     {
 	ret = (double)valu / tot;
 	}
-	NumberFormat df = NumberFormat.getPercentInstance();	
+	NumberFormat df = NumberFormat.getPercentInstance();
    	df.setMinimumFractionDigits(2);
    	df.setMaximumFractionDigits(2);
    	return df.format(ret);
@@ -95,7 +95,7 @@ private String getPercent (long subs, long succ)
     {
 	ret2 = (double)succ / subs;
 	}
-	NumberFormat df = NumberFormat.getPercentInstance();	
+	NumberFormat df = NumberFormat.getPercentInstance();
    	df.setMinimumFractionDigits(2);
    	df.setMaximumFractionDigits(2);
    	return df.format(ret2);
@@ -137,7 +137,7 @@ private String getPercent (long subs, long succ)
 i=0;
 %>
   <rsc:iterator list="<%=rsc3%>" id="Row" >
-<% 
+<%
 lang_tot_subs=0;
 lang_tot_succ=0;
 lang_tot_subs = Long.parseLong(rsc3.getItem(i,"lev1_subs").toString()) + Long.parseLong(rsc3.getItem(i,"lev2_subs").toString()) + Long.parseLong(rsc3.getItem(i,"lev3_subs").toString());
@@ -228,7 +228,7 @@ tot_lev3_subs = 0;
 tot_lev3_succ = 0;
 %>
   <rsc:iterator list="<%=rsc4%>" id="Row" >
-<% 
+<%
 lang_tot_subs=0;
 lang_tot_succ=0;
 lang_tot_subs = Long.parseLong(rsc4.getItem(i,"lev1_subs").toString()) + Long.parseLong(rsc4.getItem(i,"lev2_subs").toString()) + Long.parseLong(rsc4.getItem(i,"lev3_subs").toString());
@@ -320,7 +320,7 @@ tot_subs = 0;
 tot_succ = 0;
 %>
   <rsc:iterator list="<%=rsc5%>" id="Row" >
-<% 
+<%
 lang_tot_subs=0;
 lang_tot_succ=0;
 
@@ -375,4 +375,3 @@ i++;
 
 
 </table>
-  

@@ -1,18 +1,18 @@
-<%@ page 
+<%@ page
   language="java"
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,com.topcoder.shared.util.ApplicationServer"
 
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
 
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Component Rating History</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="baseHRef.jsp" />   
+   <jsp:include page="baseHRef.jsp" />
    <jsp:include page="../script.jsp" />
  </HEAD>
  <BODY>
@@ -43,7 +43,7 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
             <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
             <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
             <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
-              &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Component 
+              &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Component
 <% if(srb.getProperty("pi").equals("113")){
 %>
        Development
@@ -68,7 +68,7 @@ Rating History&#160;&#160;</SPAN>
 
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 
-<% 
+<%
 
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Basic_Coder_Information");
 boolean bEmpty = (rsc == null || rsc.size()!=1);
@@ -77,20 +77,20 @@ ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
 pageContext.setAttribute("resultRow", rsr);
 %>
 
-		<bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>			
+		<bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>
                         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                             <TR>
                                 <TD colspan="2" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                            </TR>  
-                
+                            </TR>
+
                             <TR VALIGN="middle">
                                 <TD CLASS="statTextLarge">
                                     <B>Coder:</B>&#160;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><B><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></B></SPAN>
                                 </TD>
-                            
+
                                 <TD width="99%" CLASS="statText" HEIGHT="16" align="right">
                      <A HREF="/stat?c=member_profile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
-                     |   
+                     |
 
 <% if(srb.getProperty("pi").equals("112")) { %>
                      <strong>Design Rating</strong>
@@ -98,9 +98,9 @@ pageContext.setAttribute("resultRow", rsr);
                      <A HREF="/stat?c=tcs_ratings_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Rating</A>
 <%}%>
 
-                     |   
+                     |
                      <A HREF="/stat?c=component_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Earnings</A>
-                     |   
+                     |
 
 <% if(srb.getProperty("pi").equals("113")) { %>
                       <strong>Development Rating</strong>
@@ -108,16 +108,16 @@ pageContext.setAttribute("resultRow", rsr);
                      <A HREF="/stat?c=tcs_ratings_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Rating</A>
 <%}%>
 
-                     |   
+                     |
                      <A HREF="/stat?c=component_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Earnings</A>
                                 </TD>
                             </TR>
-                            
+
                             <TR>
                                 <TD COLSPAN="2" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
-                            </TR>      
+                            </TR>
                         </TABLE>
-<% 
+<%
 } //end if not empty
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("TCS_Ratings_History");
 pageContext.setAttribute("resultSet", rsc2);
@@ -147,12 +147,12 @@ String sortString = "";
 if (srb.getProperty("sq")!=null){
 	sortString="&sq=" + srb.getProperty("sq");
 	sortString+="&sc=" + srb.getProperty("sc");
-	sortString+="&sd=" + srb.getProperty("sd", "desc");	
+	sortString+="&sd=" + srb.getProperty("sd", "desc");
 }
 String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=tcs_ratings_history&pi=" + srb.getProperty("pi");
 %>
-          
-               
+
+
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="3" BGCOLOR="#001B35" WIDTH="100%">
   		<% if (!bEmpty) { %>
                  <TR>
@@ -163,7 +163,7 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
 -->
                     </TD>
                 </TR>
-                 
+
 			<% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
 				 <TR><TD CLASS="statText" BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="7" HEIGHT="16" align="center">
 				<% if (rsc2.croppedDataBefore()) { %>
