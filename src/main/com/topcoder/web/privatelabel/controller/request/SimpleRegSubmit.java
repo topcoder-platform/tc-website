@@ -67,7 +67,11 @@ public class SimpleRegSubmit extends SimpleRegBase {
             tx = Transaction.get();
             Transaction.begin(tx);
             PrincipalMgrRemote mgr = getPrincipalManager();
-            newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
+            if (regInfo.isNew()) {
+                newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
+            } else {
+                newUser = mgr.getUser(regInfo.getHandle());
+            }
             store(regInfo, newUser);
             Transaction.commit(tx);
         } catch (Exception e) {
@@ -106,37 +110,53 @@ public class SimpleRegSubmit extends SimpleRegBase {
         PrincipalMgrRemote mgr = getPrincipalManager();
 
         //add user to groups
-        Collection groups = mgr.getGroups(CREATE_USER);
-        GroupPrincipal group = null;
-        boolean anonFound = false;
-        boolean userFound = false;
-        for (Iterator it = groups.iterator(); it.hasNext() && !(anonFound && userFound);) {
-            group = (GroupPrincipal) it.next();
-            if (group.getName().equals(ANON_GROUP)) {
-                mgr.addUserToGroup(group, newUser, CREATE_USER);
-                anonFound = true;
-            } else if (group.getName().equals(SOFTWARE_GROUP)) {
-                mgr.addUserToGroup(group, newUser, CREATE_USER);
-                userFound = true;
+        if (regInfo.isNew()) {
+            Collection groups = mgr.getGroups(CREATE_USER);
+            GroupPrincipal group = null;
+            boolean anonFound = false;
+            boolean userFound = false;
+            for (Iterator it = groups.iterator(); it.hasNext() && !(anonFound && userFound);) {
+                group = (GroupPrincipal) it.next();
+                if (group.getName().equals(ANON_GROUP)) {
+                    mgr.addUserToGroup(group, newUser, CREATE_USER);
+                    anonFound = true;
+                } else if (group.getName().equals(SOFTWARE_GROUP)) {
+                    mgr.addUserToGroup(group, newUser, CREATE_USER);
+                    userFound = true;
+                }
+            }
+
+
+            if (!anonFound) {
+                throw new Exception("Can't find anonymous group '" + ANON_GROUP + "'");
+            } else if (!userFound) {
+                throw new Exception("Can't find software user group '" + SOFTWARE_GROUP + "'");
             }
         }
 
-
-        if (!anonFound) {
-            throw new Exception("Can't find anonymous group '" + ANON_GROUP + "'");
-        } else if (!userFound) {
-            throw new Exception("Can't find software user group '" + SOFTWARE_GROUP + "'");
-        }
-
         //create user
-        user.createUser(newUser.getId(), regInfo.getHandle(), getNewUserStatus(), transDb);
+        if (regInfo.isNew()) {
+            user.createUser(newUser.getId(), regInfo.getHandle(), getNewUserStatus(), transDb);
+        }
         user.setFirstName(newUser.getId(), regInfo.getFirstName(), transDb);
         user.setMiddleName(newUser.getId(), regInfo.getMiddleName(), transDb);
         user.setLastName(newUser.getId(), regInfo.getLastName(), transDb);
         user.setActivationCode(newUser.getId(), StringUtils.getActivationCode(newUser.getId()), transDb);
 
         //create address
-        long addressId = address.createAddress(transDb, db);
+        long addressId = 0;
+        if (regInfo.isNew()) {
+            addressId = address.createAddress(transDb, db);
+            userAddress.createUserAddress(newUser.getId(), addressId, transDb);
+        } else {
+            ResultSetContainer rsc = userAddress.getUserAddresses(newUser.getId(), transDb);
+            if (rsc.isEmpty()) {
+                addressId = address.createAddress(transDb, db);
+                userAddress.createUserAddress(newUser.getId(), addressId, transDb);
+            } else {
+                addressId = rsc.getLongItem(0, "address_id");
+            }
+        }
         address.setAddress1(addressId, regInfo.getAddress1(), transDb);
         address.setAddress2(addressId, regInfo.getAddress2(), transDb);
         address.setAddress3(addressId, regInfo.getAddress3(), transDb);
@@ -149,24 +169,26 @@ public class SimpleRegSubmit extends SimpleRegBase {
         }
         address.setZip(addressId, regInfo.getZip(), transDb);
 
-        //associate address with user
-        userAddress.createUserAddress(newUser.getId(), addressId, transDb);
 
         //create email
-        long emailId = email.createEmail(newUser.getId(), transDb, db);
+        long emailId = 0;
+        if (regInfo.isNew()) {
+            emailId = email.createEmail(newUser.getId(), transDb, db);
+        } else {
+            emailId = email.getPrimaryEmailId(newUser.getId(), transDb);
+        }
         email.setAddress(emailId, regInfo.getEmail(), transDb);
         email.setEmailTypeId(emailId, EMAIL_TYPE, transDb);
         email.setPrimaryEmailId(newUser.getId(), emailId, transDb);
 
+
         //create coder
-        coder.createCoder(newUser.getId(), transDb);
+        if (!coder.exists(newUser.getId(), transDb)) { // check if the user exists in registration database already as a coder
+            rating.createRating(newUser.getId(), transDb);
+            coder.createCoder(newUser.getId(), transDb);
+        }
         coder.setEditorId(newUser.getId(), DEFAULT_EDITOR, transDb);
         coder.setLanguageId(newUser.getId(), DEFAULT_LANGUAGE, transDb);
-
-        //create rating
-        rating.createRating(newUser.getId(), transDb);
-
-
 
         return newUser;
 
