@@ -7,7 +7,6 @@ import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
-import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -238,6 +237,59 @@ public class AddressBean extends BaseEJB {
 
         return (ret);
     }
+
+
+    /**
+     *
+     *
+     * @param addressId the address ID of the entry
+     *
+     * @return a String with the entry's address line 2
+     *
+     * @throws EJBException
+     */
+    public String getAddress3(long addressId) {
+        log.debug("getAddress3 called...address_id: " + addressId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        String ret = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT address3 FROM address " +
+                    "WHERE address_id = ?");
+            ps.setLong(1, addressId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getString("address3");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException getting address3");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting address 3");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting address2\n" +
+                    e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+
+        return (ret);
+    }
+
+
 
     /**
      *
@@ -588,6 +640,57 @@ public class AddressBean extends BaseEJB {
             close(ctx);
         }
     }
+
+    /**
+     *
+     *
+     * @param addressId address ID of entry to set
+     * @param address3 the address line 3 to set to
+     *
+     * @throws EJBException
+     */
+    public void setAddress3(long addressId, String address3) {
+        log.debug("setAddress3 called...addressId: " + addressId +
+                " address3: " + address3);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        DataSource ds = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("UPDATE address SET address3 = ? " +
+                    "WHERE address_id = ?");
+            ps.setString(1, address3);
+            ps.setLong(2, addressId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong number of rows in update: " +
+                        rows + " for address_id: " + addressId +
+                        " address3: " + address3);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException updating address_id: " +
+                    addressId + " address3: " + address3);
+        } catch (NamingException e) {
+            throw new EJBException("NamingException updating address 3");
+        } catch (Exception e) {
+            throw new EJBException("Exception updating address_id: " +
+                    addressId + " address3: " + address3 +
+                    "\n" + e.getMessage());
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+
 
     /**
      *

@@ -43,6 +43,13 @@ public interface Address extends EJBObject {
     /**
      *
      *
+     * @see com.topcoder.web.ejb.address.AddressBean#getAddress3
+     */
+    String getAddress3(long addressId) throws RemoteException, EJBException;
+
+    /**
+     *
+     *
      * @see com.topcoder.web.ejb.address.AddressBean#getCity
      */
     String getCity(long addressId) throws RemoteException, EJBException;
@@ -90,6 +97,14 @@ public interface Address extends EJBObject {
      * @see com.topcoder.web.ejb.address.AddressBean#setAddress2
      */
     void setAddress2(long addressId, String address2)
+            throws RemoteException, EJBException;
+
+    /**
+     *
+     *
+     * @see com.topcoder.web.ejb.address.AddressBean#setAddress3
+     */
+    void setAddress3(long addressId, String address3)
             throws RemoteException, EJBException;
 
     /**
