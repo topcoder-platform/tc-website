@@ -6,13 +6,12 @@ package com.topcoder.web.corp.request;
 * any directory (below the root) The request processor gets the list of 
 * parameters out of the request, validates them, and then processes them. 
 *
-* @version   1.1.2.20
+* @version   1.1.2.21
 * @author    Daniel Cohn
 */
 
 public class Static extends BaseProcessor { 
 
-    private static final String HOME_PAGE = "/index"; 
     private static final String STATIC_PREFIX = "d";  // Prefix for parameters
     private static final String VALID_PARAMETER_CHARS = 
         "_-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -50,9 +49,10 @@ public class Static extends BaseProcessor {
         for (int i=1; !found; i++) {
             cur = request.getParameter(STATIC_PREFIX+i);
             if (cur == null) {
-                /* if there is not a (STATIC_PREFIX+1) go to home page */
+                /* if there is not a (STATIC_PREFIX+1) go to home page 
+                   (set in web.xml MainServlet init parameter "page-main") */
                 if (i==1) {
-                    ret.append(HOME_PAGE);
+                    return (String)request.getAttribute("homePage");
                 }
                 found = true;
             }

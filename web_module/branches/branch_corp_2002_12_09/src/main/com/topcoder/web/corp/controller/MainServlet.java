@@ -27,7 +27,7 @@ import com.topcoder.web.common.security.WebAuthentication;
  * server errors.
  * 
  * @author Greg Paul , modified by djFD
- * @version 1.1.2.2
+ * @version 1.1.2.35
  *
  */
 public class MainServlet extends HttpServlet {
@@ -69,10 +69,11 @@ public class MainServlet extends HttpServlet {
             request.getRequestURI()+"["+request.getQueryString()+"]" 
         );
 
+        String dest = servletConfig.getInitParameter(PFX_PAGE+KEY_MAINPAGE);
         String processorName = request.getParameter(KEY_MODULE);
+
         if( processorName == null ) {
             log.warn("processing module not specified");
-            String dest = servletConfig.getInitParameter(PFX_PAGE+KEY_MAINPAGE);
             fetchRegularPage(request, response, dest, true);
             return;
         }
@@ -96,6 +97,8 @@ public class MainServlet extends HttpServlet {
         }
 
         try {
+            // set main page in web.xml as homePage Attribute for Static Processor
+            request.setAttribute("homePage",dest);
             processorModule.setRequest(request);
             SessionPersistor persistor = SessionPersistor.getInstance(
                 request.getSession(true)
