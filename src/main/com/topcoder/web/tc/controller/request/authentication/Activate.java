@@ -89,6 +89,7 @@ public class Activate extends Base {
             log.debug("tc: user loaded from entity bean");
 
             user.setStatus(String.valueOf(ACTIVE_STATI[1]));
+            user.setModified("U");
 
             uTx = Transaction.get();
             uTx.begin();
