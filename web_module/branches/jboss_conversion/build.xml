@@ -16,6 +16,7 @@
      <property name="shared" value="../shared/src/main"/>
      <property name="testjava" value="${src.dir}/testcases"/>
      <property name="resources" value="resources"/>
+     <property name="conf" value="conf"/>
      <property name="taglib" value="${resources}/taglib"/>
      <property name="images" value="images"/>
      <property name="Jive.jar" value="${bin}/Jive.jar"/>
@@ -647,6 +648,11 @@
          <copy todir="${jboss_conf}">
              <fileset dir="${resources}/stat">
                  <include name="statServlet.xml"/>
+             </fileset>
+         </copy>
+         <copy todir="${jboss_conf}/com/topcoder/security">
+             <fileset dir="${conf}/com/topcoder/security">
+                 <include name="Util.properties"/>
              </fileset>
          </copy>
      </target>
