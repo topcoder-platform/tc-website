@@ -21,12 +21,12 @@
   <jsp:include page="top.jsp" >
     <jsp:param name="level1" value="employment_services"/>
 </jsp:include>
-<table width=100% border=1 cellpadding=0 cellspacing=0 align=center>
+<table width=100% border=0 cellpadding=0 cellspacing=0 align=center>
 	<TR valign="top">
 		<td width="50%">&#160;</td>
 <!-- Center Column Begins -->
         <td class=recruitingBody>
-			<img src="/i/corp/clear.gif" width="700" height="11" alt="" border=1><br/>
+			<img src="/i/corp/clear.gif" width="700" height="11" alt="" border=0><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
                     <td class=bodyText colspan=2>
