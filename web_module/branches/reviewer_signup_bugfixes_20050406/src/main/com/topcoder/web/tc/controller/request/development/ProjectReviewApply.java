@@ -5,8 +5,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.TCTimestampResult;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.rboard.RBoardApplication;
 import com.topcoder.web.ejb.rboard.RBoardUser;
@@ -17,8 +17,10 @@ import com.topcoder.web.tc.model.SoftwareComponent;
 
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
+import java.util.Iterator;
 import java.util.Map;
-import javax.transaction.UserTransaction;
+import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 
 /**
  * @author dok
@@ -64,10 +66,11 @@ public class ProjectReviewApply extends Base {
                     }
                 }
 
-                UserTransaction ut = Transaction.get(getInitialContext());
-                ut.begin();
+                TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 
                 try {
+                    tm.begin();
+                    
                     if (status != Constants.ACTIVE_REVIEWER) {
                         throw new NavigationException("Sorry, you are not authorized to perform reviews at this time.");
                     } else if (rba.exists(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, phaseId)) {
@@ -88,23 +91,31 @@ public class ProjectReviewApply extends Base {
                                     + DateTime.timeStampToString(new Timestamp(lastReviewApp.getTime() + APPLICATION_DELAY)));
                         }
 
-                        if (rba.getReviewers(DBMS.TCS_OLTP_DATASOURCE_NAME, projectId, phaseId).size() == 3) {
+                        ResultSetContainer reviewers = rba.getReviewers(DBMS.TCS_OLTP_DATASOURCE_NAME, projectId, phaseId);
+                        
+                        if (reviewers.size() == 3) {
                             throw new NavigationException("Sorry, the project's review positions are already full.");
                         }
 
-                        /*
                         boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
-                        if (primary && rba.projectHasPrimaryReviewer(DBMS.TCS_OLTP_DATASOURCE_NAME, projectId)) {
-                            throw new NavigationException("Sorry, this review position is already taken.");
+                        if (primary) {
+                            for (Iterator it = reviewers.iterator(); it.hasNext();) {
+                                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
+                                if (row.getIntItem("primary") == 1) {
+                                    throw new NavigationException("Sorry, this review position is already taken.");
+                                }
+                            }
                         }
 
                         if (phaseId == SoftwareComponent.DEV_PHASE) {
                             int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
-                            if (rba.projectHasReviewType(DBMS.TCS_OLTP_DATASOURCE_NAME, projectId, reviewTypeId)) {
-                                throw new NavigationException("Sorry, this review position is already taken.");
+                            for (Iterator it = reviewers.iterator(); it.hasNext();) {
+                                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
+                                if (row.getIntItem("review_resp_id") == reviewTypeId) {
+                                    throw new NavigationException("Sorry, this review position is already taken.");
+                                }
                             }
                         }
-                        */
 
                         try {
                             if (catalog == Constants.JAVA_CATALOG_ID || catalog == Constants.CUSTOM_JAVA_CATALOG_ID) {
@@ -146,14 +157,16 @@ public class ProjectReviewApply extends Base {
                             }
                         }
 
-                        ut.commit();
+                        tm.commit();
                         
                         // Put the terms text in the request.
                         TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
                         setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
                     }
                 } catch (Exception e) {
-                    ut.rollback();
+                    if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                        tm.rollback();
+                    }
                     throw e;
                 }
             } else {
