@@ -39,24 +39,10 @@
 </P><BR>
 <FORM>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
-           <TR><%
-if(emailInfo.getSessionInfo() != null) {%>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><%
-    if(emailInfo.getSessionInfo().useCandidateEmail() && emailInfo.getSessionInfo().useRepEmail()) {
-    %>The follow will be sent to <jsp:getProperty name="emailInfo" property="candidateAddress" /> and <jsp:getProperty name="emailInfo" property="repAddress" /><%
-    } 
-    else if(emailInfo.getSessionInfo().useCandidateEmail()) {
-    %>The follow will be sent to <jsp:getProperty name="emailInfo" property="candidateAddress" /><%
-    }
-    else if(emailInfo.getSessionInfo().useRepEmail()) { 
-    %>The follow will be sent to <jsp:getProperty name="emailInfo" property="repAddress" /><%
-    }%>
-              </TD>
-           </TR>
-           <TR><%
-    if(emailInfo.getSessionInfo().useCandidateEmail() || emailInfo.getSessionInfo().useRepEmail()) {%>
+           <TR>
+ <% if(emailInfo.getSessionInfo().useCandidateEmail() || emailInfo.getSessionInfo().useRepEmail()) {%>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-<strong>Subject:</strong> <jsp:getProperty name="emailInfo" property="subject" />
+<strong>Subject:</strong> <jsp:getProperty name="emailInfo" property="subject" /><br /><br />
 <jsp:getProperty name="emailInfo" property="HTMLMsgText" />
 </TD>
     <%}
