@@ -61,6 +61,9 @@
 							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Heartbeat:%20Design&amp;comp=4201389&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
+                        <INPUT TYPE="hidden" NAME="comp">
+                            <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/DesInitialSub"/></xsl:attribute>
+                        </INPUT>
 							<p><strong>Overview</strong><br />
 							The Heartbeat component sends a message to keep a connection or session active. Most network communication is configured to timeout after a specified period of inactivity. The Heartbeat component is intended to bypass this configuration. The message sent is dependent upon the protocol being used.
 							</p>
