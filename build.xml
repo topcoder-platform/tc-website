@@ -427,6 +427,21 @@
         </jar>
     </target>
 
+    <target name="package-EJB-UserEvent" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Product"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/userevent"/>
+        </antcall>
+        <jar jarfile="${ejb_jars}/UserEvent.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+        </jar>
+    </target>
+
+
     <target name="package-EJB-NoteBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="Note"/>
