@@ -228,14 +228,14 @@
         </select>
         <select multiple size=10 name="skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
             <% 
-                List skillsList = new ArrayList();
                 sa = request.getParameterValues("skillset"+resultRow.getStringItem("skill_type_id")); 
-                if(sa != null)skillsList.addAll(Arrays.asList(sa));%>
-            <logic:iterate id="skill_selection" name="skillsList">
+                for(int i = 0; sa!=null && i<sa.length; i++){
+                    String skill_selection = sa[i];
+            %>
                 <option value="<%=skill_selection%>">
                     <%= skillNames.get(new Integer(skill_selection.toString().substring(0,skill_selection.toString().indexOf("_")))) %>
                 </option>
-            </logic:iterate>
+            <%}%>
         </select>
         <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</a><br/>
         <a href="JavaScript:remove('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Remove skills</a>
