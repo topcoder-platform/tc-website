@@ -293,8 +293,7 @@ The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder
                            <xsl:attribute name="href"> 
                            	<xsl:value-of select="concat('http://',/TC/SoftwareHost, '/components/free_components.jsp')"/>
                            </xsl:attribute>Free Components
-                        </a> 
-                        page for samples of completed components. You are encouraged to download and install these components 
+                        </a> page for samples of completed components. You are encouraged to download and install these components 
                         for personal, non-commercial use and to incorporate them into future TopCoder Software components.</p>
                     </td>
                 </tr>
