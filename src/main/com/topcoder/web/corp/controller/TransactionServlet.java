@@ -596,7 +596,7 @@ public class TransactionServlet extends HttpServlet {
         request.setAttribute("message", "In order to continue, you must provide your user name and "+
                 "password, even if you’ve logged in already.");
         log.debug("login nextpage will be: " + HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
-        request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
+        request.setAttribute(Login.KEY_DESTINATION_PAGE, HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
         Login l = new Login();
         l.setRequest(request);
         l.setAuthentication(authToken);
