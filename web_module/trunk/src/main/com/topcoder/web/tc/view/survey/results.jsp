@@ -15,7 +15,7 @@
                     <jsp:getProperty name="question" property="text"/>
                 </td>
             </tr>
-            <rsc:iterator list="<%=questionInfo.getAnswerInfo()%>" id="answer">
+            <rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer">
             <tr>
                 <td>
                     <rsc:item row="<%=answer%>" name="answer_text"/>
