@@ -78,6 +78,8 @@ public class SimpleRegInfo extends Base {
         setCompanyId(info.getCompanyId());
         setEventId(info.getEventId());
         setPhoneNumber(info.getPhoneNumber());
+        
+        setNew(info.isNew());
     }
 
     public String getPhoneNumber()
