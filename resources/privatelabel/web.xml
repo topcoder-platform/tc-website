@@ -127,6 +127,11 @@
             <description></description>
         </init-param>
         <init-param>
+            <param-name>middle_name</param-name>
+            <param-value>mn</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
             <param-name>last_name</param-name>
             <param-value>ln</param-value>
             <description></description>
@@ -139,6 +144,11 @@
         <init-param>
             <param-name>address2</param-name>
             <param-value>a2</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>address3</param-name>
+            <param-value>a3</param-value>
             <description></description>
         </init-param>
         <init-param>
