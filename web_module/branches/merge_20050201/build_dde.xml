@@ -48,6 +48,7 @@
     <property name="catalogdir" value="${packagedir}/catalog" />
     <property name="admindir" value="${packagedir}/admin" />
     <property name="ddeforumdir" value="${packagedir}/forum" />
+    <property name="notificationdir" value="${packagedir}/notification" />
     <property name="wrapperdir" value="${packagedir}/sql/wrapper" />
     <property name="ddeservletdir" value="${packagedir}/servlet" />
     <property name="ddeutildir" value="${packagedir}/util" />
@@ -85,6 +86,8 @@
     <property name="admin.jar" value="${dist.jars.dir}/admin.jar"/>
     <property name="ddeforum.src.dir" value="${src.package.dir}/forum"/>
     <property name="ddeforum.jar" value="${dist.jars.dir}/ddeforum.jar"/>
+    <property name="notification.src.dir" value="${src.package.dir}/notification"/>
+    <property name="notification.jar" value="${dist.jars.dir}/notification.jar"/>
     <property name="ddeservlet.src.dir" value="${src.package.dir}/servlet"/>
     <property name="ddeservlet.jar" value="${dist.jars.dir}/ddeservlet.jar"/>
     <property name="ddesubmission.src.dir" value="${src.package.dir}/submission"/>
@@ -346,6 +349,12 @@
                 basedir="${build_classdir}"
                 includes="${ddeforumdir}/**">
             <metainf dir="${ddeforum.src.dir}" includes="*.xml"/>
+        </jar>
+
+        <jar    jarfile="${notification.jar}"
+                basedir="${build_classdir}"
+                includes="${notificationdir}/**">
+            <metainf dir="${notification.src.dir}" includes="*.xml"/>
         </jar>
 
         <jar    jarfile="${ddeservlet.jar}"

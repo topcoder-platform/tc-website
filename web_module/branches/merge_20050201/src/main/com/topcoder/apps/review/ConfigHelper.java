@@ -77,6 +77,11 @@ public class ConfigHelper implements ConfigManagerInterface {
      */
     private static final String MINIMUM_SCORE = "minimum_score";
 
+    /**
+     * The path where the mail templates are stored.
+     */
+    private static final String MAIL_TEMPLATE_PATH = "mail_template_path";
+
     static final String SCREEN_FAIL_XSL = "_screen_fail_xsl";
     static final String WINNER_XSL = "_winner_xsl";
     static final String LOOSER_XSL = "_looser_xsl";
@@ -289,5 +294,13 @@ public class ConfigHelper implements ConfigManagerInterface {
         return ConfigManager.getInstance().getString(NAMESPACE, APPEAL_RESOLVED_XSL);
     }
 
+    /**
+     * Get the xsl mail template path.
+     *
+     * @return the xsl mail template path.
+     */
+    public static String getMailTemplatePath() throws UnknownNamespaceException {
+        return ConfigManager.getInstance().getString(NAMESPACE, MAIL_TEMPLATE_PATH);
+    }
 }
 
