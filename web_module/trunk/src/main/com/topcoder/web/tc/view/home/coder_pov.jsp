@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
+                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,16 +19,13 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm207_prob">SRM 207 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Tuesday, August 10, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm208_prob">SRM 208 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, August 18, 2004</p>
 
                         <p>
-						In division 2, today, coders were faced with a relatively simple easy problem,
-						but many fell to a couple of special cases.  The medium problem involved sorting
-						of Strings based on a separate criteria, and proved to be a bit difficulty for
-						both divisions.
+						With the TopCoder Open only a few weeks off, familiar faces are beginning to resurface in order to regain their competition form.  snewman, who only started competing again recently,  doesn't seem to need much practice.  He placed second in a relatively tight race.
 
-                        <a href="/?t=statistics&amp;c=srm207_prob" class="bodyText"><strong>full&#160;story</strong></a>
+                        <a href="/?t=statistics&amp;c=srm208_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
