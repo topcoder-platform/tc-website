@@ -27,6 +27,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Iterator;
 import java.util.Collection;
+import java.rmi.UnmarshalException;
 
 public class UserMover {
     private static Logger log = Logger.getLogger(UserMover.class);
@@ -80,6 +81,7 @@ public class UserMover {
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
             String handle = null;
+            long userId = 0;
 
 
             User userEJB = ((UserHome) ctx.lookup("main:" + UserHome.EJB_REF_NAME)).create();
@@ -95,54 +97,59 @@ public class UserMover {
             int count = 0;
             while (rs.next()) {
 
-                long userId = rs.getLong(1);
-                handle = rs.getString(2);
-                char status = rs.getString(3).charAt(0);
-                String firstName = rs.getString(7);
-                String lastName = rs.getString(8);
-                String email = rs.getString(4);
-                String address1 = rs.getString(10);
-                String address2 = rs.getString(11);
-                String city = rs.getString(12);
-                String state = rs.getString(5);
-                String country = rs.getString(6);
-                String zip = rs.getString(13);
-                String phone = rs.getString(9);
+                try {
+                    userId = rs.getLong(1);
+                    handle = rs.getString(2);
+                    char status = rs.getString(3).charAt(0);
+                    String firstName = rs.getString(7);
+                    String lastName = rs.getString(8);
+                    String email = rs.getString(4);
+                    String address1 = rs.getString(10);
+                    String address2 = rs.getString(11);
+                    String city = rs.getString(12);
+                    String state = rs.getString(5);
+                    String country = rs.getString(6);
+                    String zip = rs.getString(13);
+                    String phone = rs.getString(9);
 
 
-                userEJB.createUser(userId, handle, status);
-                userEJB.setFirstName(userId, firstName);
-                userEJB.setLastName(userId, lastName);
+                    userEJB.createUser(userId, handle, status);
+                    userEJB.setFirstName(userId, firstName);
+                    userEJB.setLastName(userId, lastName);
 
-                long emailId = emailEJB.createEmail(userId);
-                emailEJB.setAddress(emailId, email);
-                emailEJB.setPrimaryEmailId(userId, emailId);
-                emailEJB.setEmailTypeId(emailId, 1);
+                    long emailId = emailEJB.createEmail(userId);
+                    emailEJB.setAddress(emailId, email);
+                    emailEJB.setPrimaryEmailId(userId, emailId);
+                    emailEJB.setEmailTypeId(emailId, 1);
 
-                long addressId = addressEJB.createAddress();
-                addressEJB.setAddress1(addressId, address1);
-                addressEJB.setAddress2(addressId, address2);
-                addressEJB.setCity(addressId, city);
-                addressEJB.setStateCode(addressId, state);
-                addressEJB.setCountryCode(addressId, country);
-                addressEJB.setZip(addressId, zip);
-                addressEJB.setAddressTypeId(addressId, 2);
+                    long addressId = addressEJB.createAddress();
+                    addressEJB.setAddress1(addressId, address1);
+                    addressEJB.setAddress2(addressId, address2);
+                    addressEJB.setCity(addressId, city);
+                    addressEJB.setStateCode(addressId, state);
+                    addressEJB.setCountryCode(addressId, country);
+                    addressEJB.setZip(addressId, zip);
+                    addressEJB.setAddressTypeId(addressId, 2);
 
-                userAddressEJB.createUserAddress(userId, addressId);
+                    userAddressEJB.createUserAddress(userId, addressId);
 
-                long phoneId = phoneEJB.createPhone(userId);
-                phoneEJB.setNumber(phoneId, phone);
-                phoneEJB.setPrimaryPhoneId(userId, phoneId);
-                phoneEJB.setPhoneTypeId(phoneId, 2);
+                    long phoneId = phoneEJB.createPhone(userId);
+                    phoneEJB.setNumber(phoneId, phone);
+                    phoneEJB.setPrimaryPhoneId(userId, phoneId);
+                    phoneEJB.setPhoneTypeId(phoneId, 2);
 
-                UserPrincipal up = pmr.getUser(userId);
-                TCSubject tcs = new TCSubject(132456);
-                Collection groups = pmr.getGroups(tcs);
-                for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
-                    GroupPrincipal gp = (GroupPrincipal) iterator.next();
-                    if (gp.getName().equals("Anonymous")) {
-                        pmr.addUserToGroup(gp, up, tcs);
+                    UserPrincipal up = pmr.getUser(userId);
+                    TCSubject tcs = new TCSubject(132456);
+                    Collection groups = pmr.getGroups(tcs);
+                    for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                        GroupPrincipal gp = (GroupPrincipal) iterator.next();
+                        if (gp.getName().equals("Anonymous")) {
+                            pmr.addUserToGroup(gp, up, tcs);
+                        }
                     }
+                } catch (Exception e) {
+                    log.error("error moving over " + handle + "(" + userId + ")");
+                    e.printStackTrace();
                 }
 
                 count++;
