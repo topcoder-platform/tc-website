@@ -643,6 +643,7 @@
             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/Group.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
         </jar>
         <war warfile="${war.dir}/admin.war" webxml="${resources}/admin/web.xml">
             <fileset dir="${java}/com/topcoder/web/admin/view">
