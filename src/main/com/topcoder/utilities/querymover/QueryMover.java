@@ -69,7 +69,7 @@ public class QueryMover {
         Context ctx = null;
         try {
             ctx = TCContext.getContext(targetContextFactory, targetContextURL);
-            utx=(UserTransaction)ctx.lookup("javax.transaction.UserTransaction");
+            utx = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
             utx.begin();
             for (int i = 0; i < args.length; i++) {
                 long command = Long.parseLong(args[i]);
@@ -510,80 +510,63 @@ public class QueryMover {
     /**
      *
      */
-    private void initTarget() {
-        try {
-            Context ctx = TCContext.getContext(targetContextFactory, targetContextURL);
+    private void initTarget() throws RemoteException, CreateException, NamingException {
+        Context ctx = TCContext.getContext(targetContextFactory, targetContextURL);
 
-            QueryHome qHome = (QueryHome) ctx.lookup(ApplicationServer.Q_QUERY);
-            targetQ = qHome.create();
-            targetQ.setDataSource(targetDataSourceName);
+        QueryHome qHome = (QueryHome) ctx.lookup(ApplicationServer.Q_QUERY);
+        targetQ = qHome.create();
+        targetQ.setDataSource(targetDataSourceName);
 
-            QueryInputHome qiHome = (QueryInputHome) ctx.lookup(ApplicationServer.Q_QUERY_INPUT);
-            targetQI = qiHome.create();
-            targetQI.setDataSource(targetDataSourceName);
+        QueryInputHome qiHome = (QueryInputHome) ctx.lookup(ApplicationServer.Q_QUERY_INPUT);
+        targetQI = qiHome.create();
+        targetQI.setDataSource(targetDataSourceName);
 
-            CommandQueryHome cqHome = (CommandQueryHome) ctx.lookup(ApplicationServer.Q_COMMAND_QUERY);
-            targetCQ = cqHome.create();
-            targetCQ.setDataSource(targetDataSourceName);
+        CommandQueryHome cqHome = (CommandQueryHome) ctx.lookup(ApplicationServer.Q_COMMAND_QUERY);
+        targetCQ = cqHome.create();
+        targetCQ.setDataSource(targetDataSourceName);
 
-            CommandHome cHome = (CommandHome) ctx.lookup(ApplicationServer.Q_COMMAND);
-            targetC = cHome.create();
-            targetC.setDataSource(targetDataSourceName);
+        CommandHome cHome = (CommandHome) ctx.lookup(ApplicationServer.Q_COMMAND);
+        targetC = cHome.create();
+        targetC.setDataSource(targetDataSourceName);
 
-            InputHome iHome = (InputHome) ctx.lookup(ApplicationServer.Q_INPUT);
-            targetI = iHome.create();
-            targetI.setDataSource(targetDataSourceName);
+        InputHome iHome = (InputHome) ctx.lookup(ApplicationServer.Q_INPUT);
+        targetI = iHome.create();
+        targetI.setDataSource(targetDataSourceName);
 
-            CommandGroupHome cgHome = (CommandGroupHome) ctx.lookup(ApplicationServer.Q_COMMAND_GROUP);
-            targetCG = cgHome.create();
-            targetCG.setDataSource(targetDataSourceName);
-
-        } catch (NamingException e) {
-            e.printStackTrace();
-        } catch (CreateException e) {
-            e.printStackTrace();
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+        CommandGroupHome cgHome = (CommandGroupHome) ctx.lookup(ApplicationServer.Q_COMMAND_GROUP);
+        targetCG = cgHome.create();
+        targetCG.setDataSource(targetDataSourceName);
     }
 
     /**
      *
      */
-    private void initSource() {
-        try {
-            Context ctx = TCContext.getContext(sourceContextFactory, sourceContextURL);
+    private void initSource() throws RemoteException, NamingException, CreateException {
+        Context ctx = TCContext.getContext(sourceContextFactory, sourceContextURL);
 
-            QueryHome qHome = (QueryHome) ctx.lookup(ApplicationServer.Q_QUERY);
-            sourceQ = qHome.create();
-            sourceQ.setDataSource(sourceDataSourceName);
+        QueryHome qHome = (QueryHome) ctx.lookup(ApplicationServer.Q_QUERY);
+        sourceQ = qHome.create();
+        sourceQ.setDataSource(sourceDataSourceName);
 
-            QueryInputHome qiHome = (QueryInputHome) ctx.lookup(ApplicationServer.Q_QUERY_INPUT);
-            sourceQI = qiHome.create();
-            sourceQI.setDataSource(sourceDataSourceName);
+        QueryInputHome qiHome = (QueryInputHome) ctx.lookup(ApplicationServer.Q_QUERY_INPUT);
+        sourceQI = qiHome.create();
+        sourceQI.setDataSource(sourceDataSourceName);
 
-            CommandQueryHome cqHome = (CommandQueryHome) ctx.lookup(ApplicationServer.Q_COMMAND_QUERY);
-            sourceCQ = cqHome.create();
-            sourceCQ.setDataSource(sourceDataSourceName);
+        CommandQueryHome cqHome = (CommandQueryHome) ctx.lookup(ApplicationServer.Q_COMMAND_QUERY);
+        sourceCQ = cqHome.create();
+        sourceCQ.setDataSource(sourceDataSourceName);
 
-            CommandHome cHome = (CommandHome) ctx.lookup(ApplicationServer.Q_COMMAND);
-            sourceC = cHome.create();
-            sourceC.setDataSource(sourceDataSourceName);
+        CommandHome cHome = (CommandHome) ctx.lookup(ApplicationServer.Q_COMMAND);
+        sourceC = cHome.create();
+        sourceC.setDataSource(sourceDataSourceName);
 
-            InputHome iHome = (InputHome) ctx.lookup(ApplicationServer.Q_INPUT);
-            sourceI = iHome.create();
-            sourceI.setDataSource(sourceDataSourceName);
+        InputHome iHome = (InputHome) ctx.lookup(ApplicationServer.Q_INPUT);
+        sourceI = iHome.create();
+        sourceI.setDataSource(sourceDataSourceName);
 
-            CommandGroupHome cgHome = (CommandGroupHome) ctx.lookup(ApplicationServer.Q_COMMAND_GROUP);
-            sourceCG = cgHome.create();
-            sourceCG.setDataSource(sourceDataSourceName);
+        CommandGroupHome cgHome = (CommandGroupHome) ctx.lookup(ApplicationServer.Q_COMMAND_GROUP);
+        sourceCG = cgHome.create();
+        sourceCG.setDataSource(sourceDataSourceName);
 
-        } catch (NamingException e) {
-            e.printStackTrace();
-        } catch (CreateException e) {
-            e.printStackTrace();
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
     }
 }
