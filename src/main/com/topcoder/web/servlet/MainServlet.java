@@ -129,7 +129,8 @@ public final class MainServlet extends HttpServlet {
             }
             String loggedIn = Conversion.checkNull(request.getParameter("LoggedIn"));
             if (timedOut && loggedIn.equals("true")) {
-                throw new NavigationException("MainServlet:processCommands:ERROR:session timeout:", SESSION_TIMEOUT_PAGE);
+                throw new NavigationException("Your session has been idle for more that 30 minutes.",
+                        SESSION_TIMEOUT_PAGE);
             }
             // INIT SESSION AND XML DOCUMENT
             session = request.getSession(true);
