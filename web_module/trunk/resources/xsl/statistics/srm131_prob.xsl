@@ -98,13 +98,38 @@
                                         <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/>
                                         <BR/>
                                         <!--<A HREF="stat?c=round_stats&amp;rd=4165&amp;dn=2" CLASS="bodyGeneric">-->
-                                        <B>Single Round Match 130</B>
+                                        <B>Single Round Match 131</B>
                                         <BR/>
-                                        Saturday, January 25, 2003
+                                        Thursday, January 30, 2003
                                         <P>
                                             <B>Problem Set Analysis &amp; Opinion</B>
                                         </P>
+                                        <P>
+                                            With the Collegiate Championship only a few weeks down the road,
+                                            competition attendance is growing steadily.  Over 400 coders registered
+                                            for SRM 131 including top ranked competitors Yarin, John Dethridge,
+                                            SnapDragon, and ZorbaTHut.  Competition was fierce, with the top scoring
+                                            spot changing hands multiple times in the coding, challenge, and system
+                                            test phases.  In the end, Yarin prevailed with SnapDragon and John Dethridge
+                                            close behind.
 
+                                            As a departure from the standard types of problems used, this competition
+                                            featured an assorted set of algorithmic solutions unlike those seen in
+                                            previous competitions.  It is very exciting to see competitors struggle with
+                                            problems that challenge their minds, forcing them to develop innovative
+                                            techniques with little time to think.  For example, the division 1 hard
+                                            problem required the efficient generation of minimum weight Steiner trees,
+                                            a topic none of the top ranked coders seemed to have experience with.  It was
+                                            this problem that ended up deciding who won SRM 131.
+
+                                            The writer for this SRM, pmadden, is a Professor of Computer Science at
+                                            Binghamton University.  In addition to making TopCoder competitions mandatory
+                                            homework for his undergraduate algorithms course, he has created a TopCoder
+                                            independent study program allowing students to discuss their problem solutions
+                                            in an open forum.  Professor Madden maintains that TopCoder both sharpens his
+                                            students' coding abilities, and lets them know who they are going up against in
+                                            the real world.
+                                        </P>
                                         <a name="Collatz"></a>
                                         <font size="+2">
                                             <b>Collatz</b>
