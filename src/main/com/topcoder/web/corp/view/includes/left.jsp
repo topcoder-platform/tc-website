@@ -18,7 +18,7 @@
                 <tr><td id="<%=level1.equals("testing")?(level2.equals("overview")?"myServicesNavSelect":"myServicesNavOn"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("testing")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=index" target="_parent" class="corpLeft">Testing</a></td></tr>
 <% if (level1.equals("testing")) { %>
                 <tr><td id="<%=level2.equals("attributes")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=testing_attributes" target="_parent" class="corpLeft">Testing Attributes</a></td></tr>
-                <tr><td id="<%=level2.equals("managment")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=management_tool" target="_parent" class="corpLeft">Management Tool</a></td></tr>
+                <tr><td id="<%=level2.equals("management")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=management_tool" target="_parent" class="corpLeft">Management Tool</a></td></tr>
                 <tr><td id="<%=level2.equals("pricing")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=pricing" target="_parent" class="corpLeft">Pricing</a></td></tr>
 <% } %>
 <!-- Candidate Testing ends -->
