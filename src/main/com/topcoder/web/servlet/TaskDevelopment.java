@@ -212,11 +212,11 @@ public final class TaskDevelopment {
                     ComponentInfo componentInfo  = componentManager.getComponentInfo();
                     Collection technologies = componentManager.getTechnologies();
                     Technology summaries[] = (Technology[])technologies.toArray(new Technology[0]);
-                    RecordTag techonolgiesTag = new RecordTag("technologies");
+                    RecordTag techonolgyTag = new RecordTag("technologies");
                     for(int i =0;i < summaries.length;i++){
-                       technologiesTag.addTag(new ValueTag("techName", summaries[i].getName());
+                       techonolgyTag.addTag(new ValueTag("techName", summaries[i].getName()));
                     }
-                    devTag.addTag(technologiesTag);
+                    devTag.addTag(technologyTag);
 
                     devTag.addTag(new ValueTag("componentName", componentInfo.getName()));
                     devTag.addTag(new ValueTag("formattedName", formatName("This is a test")));
