@@ -134,7 +134,8 @@ DATE<BR/>
     <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="bodyText" ALIGN="right">&#160;<B>Correct %&#160;&#160;</B></TD>
     <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="bodyText" ALIGN="right"><B>Average Pts.</B></TD>
   </TR>
-  <%while(Integer.parseInt(currentRow.getItem("division_id").toString())==currentDivID&&currentRowPtr<percents.size()){
+  <%do{
+      currentRow = percents.getRow(currentRowPtr++);
       String problemLevel = currentRow.getItem("problem_level").toString();
       String problemName = currentRow.getItem("problem_name").toString();
       int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
@@ -142,7 +143,6 @@ DATE<BR/>
       double total = Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
       String perCor = df.format((((double)correct)/submissions));
       String avgPoints = df.format(total/correct);
-      currentRow = percents.getRow(++currentRowPtr);
   %>
 
   <TR>
@@ -153,7 +153,7 @@ DATE<BR/>
     <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%=avgPoints%></TD>
   </TR>
   <%
-    }
+    }while(Integer.parseInt(currentRow.getItem("division_id").toString())==currentDivID&&currentRowPtr<percents.size());
   }%>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR>
