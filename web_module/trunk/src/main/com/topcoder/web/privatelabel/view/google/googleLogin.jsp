@@ -96,7 +96,7 @@ function openWin(url, name, w, h) {
                         Registration will close on Wednesday, October 15 at 5:00PM EDT.<br/><br/>
                         If you are currently a TopCoder member, you may enter your handle and password below to use your TopCoder account for the Google Code Jam 2003.<br/><br/>
 
-                        <form method="post" name="frmLogin" action="<%=sessionInfo.getServletPath()%>">
+                        <form method="post" name="frmLogin" action="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_LOGIN%>">
                         <input type="hidden" name="<%=Constants.EVENT_ID%>" value="1">
                         <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="1865">
