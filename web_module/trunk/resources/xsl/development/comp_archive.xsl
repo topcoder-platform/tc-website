@@ -87,8 +87,8 @@
                 <tr valign="middle"><td class="projectTitles" colspan="6"><a name="design"></a>Component Design Project Status</td></tr>
 
                 <tr valign="middle">
-                    <td width="30%" class="projectHeaders">Design Projects</td>
                     <td class="projectHeaders" align="center">Catalog</td>
+                    <td width="30%" class="projectHeaders">Projects</td>
                     <td class="projectHeaders" align="center">Initial<br />Submit</td>
                     <td class="projectHeaders" align="center">Review<br />Complete</td>
                     <td class="projectHeaders" align="center">Final<br />Submit</td>
@@ -99,6 +99,16 @@
                 <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
                     <xsl:if test="./phase_id=$design-phase">
                         <tr>
+                            <td class="projectCells" align="center">
+                            <xsl:choose>
+                               <xsl:when test="./catalog_name = 'Java' ">
+                                  <img src="/i/development/smJava.gif"/>
+                               </xsl:when>
+                               <xsl:otherwise>
+                                  <img src="/i/development/netSm.gif"/>
+                               </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
                             <td class="projectCells" >                            
                                 <a target="_new">
                                     <xsl:attribute name="href"> 
@@ -109,7 +119,6 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="projectCells" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
@@ -127,8 +136,8 @@
                 <tr valign="middle"><td class="projectTitles" colspan="6"><a name="development"></a>Component Development Project Status</td></tr>
 
                 <tr valign="middle">
-                    <td width="30%" class="projectHeaders">Development Projects</td>
                     <td class="projectHeaders" align="center">Catalog</td>
+                    <td width="30%" class="projectHeaders">Projects</td>
                     <td class="projectHeaders" align="center">Initial<br />Submit</td>
                     <td class="projectHeaders" align="center">Review<br />Complete</td>
                     <td class="projectHeaders" align="center">Final<br />Submit</td>
@@ -138,6 +147,16 @@
                 <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
                     <xsl:if test="./phase_id=$dev-phase">
                         <tr>
+                            <td class="projectCells" align="center">
+                            <xsl:choose>
+                               <xsl:when test="./catalog_name = 'Java' ">
+                                  <img src="/i/development/smJava.gif"/>
+                               </xsl:when>
+                               <xsl:otherwise>
+                                  <img src="/i/development/netSm.gif"/>
+                               </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
                             <td class="projectCells" >                            
                                 <a target="_new">
                                     <xsl:attribute name="href"> 
@@ -148,7 +167,6 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="projectCells" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
