@@ -85,7 +85,7 @@
             destdir="${classes}"
             classpathref="class.path"
             deprecation="${deprecation}"
-            version="${version}"
+            target="${targetVersion}"
             debug="${debug}"
             >
             <exclude
