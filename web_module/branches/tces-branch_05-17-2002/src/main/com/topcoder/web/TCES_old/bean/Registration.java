@@ -15,7 +15,7 @@ import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.ejb.DataCache.*;
 import com.topcoder.ejb.UserServices.*;
 import com.topcoder.web.tces.servlet.*;
-import com.topcoder.web.reg.servlet.jsp.tag.*;
+import com.topcoder.web.tces.servlet.jsp.tag.*;
 
 
 public class Registration
