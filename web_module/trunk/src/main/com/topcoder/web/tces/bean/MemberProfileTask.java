@@ -49,9 +49,6 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     /* Indicates whether the coder is a student */
     private boolean isStudent;
 
-    /* Holds the relative URI to an image of the coder, if one is available */
-    private String imagePath;
-
     /* Indicates whether the coder is ranked in competition */
     private boolean isRanked;
 
@@ -126,20 +123,6 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
      */
     public void setIsRanked(boolean isRanked) {
         this.isRanked = isRanked;
-    }
-
-    /** Getter for property imagePath
-     * @return Value of property imagePath
-     */
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    /** Setter for property imagePath.
-     * @param imagePath New value of property imagePath.
-     */
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
     }
 
     /** Getter for property companyName.
@@ -379,8 +362,6 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         setJobName(oltpRSC.getItem(0, "job_desc").toString());
 
         setMemberInfo((ResultSetContainer) oltpResultMap.get("TCES_Member_Profile"));
-
-        setImagePath(getMemberInfo().getItem(0, "image_path").toString());
 
         if (getMemberInfo().getItem(0, "coder_type_desc").toString().toUpperCase().indexOf("STUDENT") >= 0)
             setIsStudent(true);
