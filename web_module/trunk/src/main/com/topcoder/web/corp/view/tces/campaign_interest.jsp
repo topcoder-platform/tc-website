@@ -94,7 +94,7 @@
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->
-		<td width="50%">&#160;</td>
+		<td class=homeRightPromos width="50%"><jsp:include page="right.jsp" /></td>
     </tr>
 </table>
 
