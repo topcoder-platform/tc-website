@@ -7,14 +7,6 @@
   <xsl:template name="Foot">
 
 <!-- Footer Include Begins -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr>
-        <td bgcolor="#666666" width="160"><img src="/i/clear.gif" width="160" height="1" border="0"/></td>
-        <td bgcolor="#CCCCCC" width="10"><img src="/i/footer_top_angle.gif" width="10" height="10" border="0"/></td>
-        <td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
-    </tr>
-</table>
-
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#666666">
     <tr>
         <td colspan="2" height="15" background="/i/footer_graphic_tile.gif" align="left"><img src="/i/footer_graphic.gif" width="710" height="16" border="0"/></td>

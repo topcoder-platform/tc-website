@@ -33,9 +33,9 @@
 
 <!-- Left Column Begins -->
     <tr valign="top">
-        <td width="170" bgcolor="#CCCCCC">
+        <td width="180">
             <xsl:call-template name="global_left"/><br />
-<!-- Do Not Delete This Line --><font size="1" color="#CCCCCC" face="tahoma">HiddenWord</font>
+<!-- Do Not Delete This Line --><font size="1" color="#FFFFFF" face="tahoma">HiddenWord</font>
         </td>
 <!-- Left Column Ends -->
 

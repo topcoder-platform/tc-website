@@ -27,9 +27,9 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
     <tr valign="top">
 <!-- Left Column Begins -->
-        <td width="170" bgcolor="#CCCCCC">
+        <td width="180">
             <xsl:call-template name="global_left"/><br />
-<!-- Do Not Delete This Line --><font size="1" color="#CCCCCC" face="tahoma">HiddenWord</font>
+<!-- Do Not Delete This Line --><font size="1" color="#FFFFFF" face="tahoma">HiddenWord</font>
         </td>
 <!-- Left Column Ends -->
 

@@ -28,7 +28,7 @@
 <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
           <TR>
             <!-- Left Column Begins -->
-            <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+            <TD WIDTH="180" VALIGN="top">
               <!-- Left Column Include Begins -->  
               <!-- Global Seconday Nav Begins -->  
               <xsl:call-template name="global_left"/>
