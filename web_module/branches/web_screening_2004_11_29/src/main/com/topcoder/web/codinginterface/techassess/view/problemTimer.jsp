@@ -9,8 +9,8 @@
         <%
             Object o = request.getAttribute(Constants.PROBLEMS);
 if (o!=null) {
+    List problems = (List)o;
         %>
-            List problems = (List)o;
 
                 var ids = new Array(<%=problems.size()%>);
                 var startTimes = new Array(<%=problems.size()%>);

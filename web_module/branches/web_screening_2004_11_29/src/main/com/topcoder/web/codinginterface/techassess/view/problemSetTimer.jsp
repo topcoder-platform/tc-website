@@ -8,8 +8,8 @@
         <%
             Object o = request.getAttribute(Constants.PROBLEM_SETS);
 if (o!=null) {
-        %>
             List problems = (List)o;
+        %>
 
                 var times= new Array(<%=problems.size()%>);
                 var ids = new Array(<%=problems.size()%>);

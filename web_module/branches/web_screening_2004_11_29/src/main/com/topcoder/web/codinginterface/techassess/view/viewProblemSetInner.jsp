@@ -8,6 +8,7 @@
 <title>Technical Assessment</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <link type="text/css" rel="stylesheet" href="/css/screening.css" >
+<jsp:include page="problemTimer.jsp"/>
 </head>
 <body>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
