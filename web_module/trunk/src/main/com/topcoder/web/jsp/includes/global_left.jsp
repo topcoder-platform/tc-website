@@ -108,9 +108,9 @@
             <tr><td id="leftNavTitle" >Competition:</td></tr>
             <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
             <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Schedule</a></td></tr>
-            <tr><td id="leftNav"><a class="left" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Statistics</a></td></tr>
+            <tr><td id="leftNav"><a class="left" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Statistics</a></td></tr>
             <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Features</a></td></tr>
-            <tr><td id="leftNavOn"><a class="leftOn" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Events</a></td></tr>
+            <tr><td id="leftNavOn"><a class="leftOn" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Events</a></td></tr>
             <tr><td id="<%=level2.equals("tournaments")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&amp;t=tournaments&amp;c=tourny_index">Tournaments</A></td></tr>
             <tr><td id="<%=level2.equals("charity")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?&amp;module=Static&amp;d1=crpf&amp;d2=index">Charity</A></td></tr>
             <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Round Tables</a></td></tr>
