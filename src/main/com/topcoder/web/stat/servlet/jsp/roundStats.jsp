@@ -125,11 +125,8 @@ function goTo(selection){
              <TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
 <%
-if (!bRequireLogin){
-com.topcoder.web.stat.common.ResultSetContainer rscRound = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Most_Recent_Round");
-pageContext.setAttribute("rd",rscRound.getRow(0).getItem(0).toString());
-}else {
-pageContext.setAttribute("rd",srb.getProperty("rd", ""));
+String currRound = resultRow_0.getItem("round_id").toString();
+if (bRequireLogin){
 com.topcoder.web.stat.common.ResultSetContainer rsc = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Rounds_By_Date");
 pageContext.setAttribute("resultSetDates", rsc);
 %>           
@@ -143,7 +140,7 @@ pageContext.setAttribute("resultSetDates", rsc);
                      <SELECT NAME="Contest" onchange="goTo(this)">
            <OPTION value="#">Select a Round:</OPTION>
          <logic:iterate name="resultSetDates" id="resultRow" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
-         <% if (resultRow.getItem(0).toString().equals(pageContext.getAttribute("rd"))) { %>
+         <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
            <OPTION value="/stat?c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
                <% } else { %>
            <OPTION value="/stat?c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
@@ -163,7 +160,7 @@ pageContext.setAttribute("resultSetDates", rsc);
                  </TR>
          <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="16" CLASS="statText">
-           <a href="/stat?c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&dn=1" class="statTextBig">Division-I</a>&nbsp;|&nbsp;<a href="/stat?c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&dn=2" class="statTextBig">Division-II</a></TD>
+           <a href="/stat?c=<%=sContentHandle%>&rd=<%=currRound %>&dn=1" class="statTextBig">Division-I</a>&nbsp;|&nbsp;<a href="/stat?c=<%=sContentHandle%>&rd=<%=currRound %>&dn=2" class="statTextBig">Division-II</a></TD>
                  </TR>
 
          <TR>
@@ -195,13 +192,13 @@ pageContext.setAttribute("resultSetDates", rsc);
          <% if (!bSorted || (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter())) { %>
          <TR valign="middle"><TD CLASS="statText" BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="16" HEIGHT="16" align="center">
         <% if ((!bSorted && !sStartRow.equals("1")) || rsc2.croppedDataBefore()) { %>
-          <a href="/stat?c=<%=sContentHandle%><%=bSorted?"_sorted":""%>&rd=<%=pageContext.getAttribute("rd") %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>   
+          <a href="/stat?c=<%=sContentHandle%><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>   
         <% } else { %>
           &lt;&lt; previous  
         <% } %>
           &nbsp;|&nbsp;
         <% if ((!bSorted && bHasNextScroll) || rsc2.croppedDataAfter()) { %>
-          <a href="/stat?c=<%=sContentHandle %><%=bSorted?"_sorted":""%>&rd=<%=pageContext.getAttribute("rd") %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">next &gt;&gt;</a>
+          <a href="/stat?c=<%=sContentHandle %><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">next &gt;&gt;</a>
         <% } else { %>
            next &gt;&gt;           
         <% } %>
@@ -215,36 +212,36 @@ pageContext.setAttribute("resultSetDates", rsc);
                  <TR VALIGN="middle">    
                    <TD BACKGROUND="/i/steel_blue_bg.gif"  WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" WIDTH="15%" HEIGHT="18">
-             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=pageContext.getAttribute("rd")%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Coders</A>
+             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Coders</A>
            </TD>  
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
-             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=pageContext.getAttribute("rd")%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=7&sd=<%= "7".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Coding<br>Phase</A>
+             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=7&sd=<%= "7".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Coding<br>Phase</A>
            </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">+</TD>    
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
-             <A HREf="/stat?c=<%=sContentHandle%>_sorted&rd=<%=pageContext.getAttribute("rd")%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Challenge<br>Phase</A>
+             <A HREf="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Challenge<br>Phase</A>
            </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">+</TD>    
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
-             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=pageContext.getAttribute("rd")%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=9&sd=<%= "9".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Testing<br>Phase</A>
+             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=9&sd=<%= "9".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Testing<br>Phase</A>
            </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">=</TD>    
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
-             <A HREf="/stat?c=<%=sContentHandle%>_sorted&rd=<%=pageContext.getAttribute("rd")%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=10&sd=<%= "10".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Final<br>Points</A>
+             <A HREf="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=10&sd=<%= "10".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Final<br>Points</A>
            </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
              Adv.
            </TD>  
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
-             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=pageContext.getAttribute("rd")%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=12&sd=<%= "12".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Old<br>Rating</A>
+             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=12&sd=<%= "12".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Old<br>Rating</A>
            </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">+</TD>    
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
-             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=pageContext.getAttribute("rd")%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=13&sd=<%= "13".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Rating<br>Change</A>
+             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=13&sd=<%= "13".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Rating<br>Change</A>
            </TD>    
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">=</TD>    
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="center">
-             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=pageContext.getAttribute("rd")%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=14&sd=<%= "14".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">New<br>Rating</A>
+             <A HREF="/stat?c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&dn=<%=sDivision%>&sq=Round_Statistics_Data&sc=14&sd=<%= "14".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">New<br>Rating</A>
            </TD>    
                    <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
@@ -258,7 +255,7 @@ pageContext.setAttribute("resultSetDates", rsc);
   pageContext.setAttribute("roomDivision",resultRow_0.getItem(15)); 
  %>
                  <TR>    
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="16" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="/stat?c=room_stats&rd=<%= pageContext.getAttribute("rd") %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %> - <%= pageContext.getAttribute("roomDivision") %></A></TD>
+                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="16" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="/stat?c=room_stats&rd=<%= currRound %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %> - <%= pageContext.getAttribute("roomDivision") %></A></TD>
                  </TR>   
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>    
@@ -278,7 +275,7 @@ pageContext.setAttribute("resultSetDates", rsc);
                    <TD COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
                  </TR>   
                  <TR>    
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="16" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="/stat?c=room_stats&rd=<%= pageContext.getAttribute("rd") %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %> - <%= pageContext.getAttribute("roomDivision") %></A></TD>
+                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="16" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="/stat?c=room_stats&rd=<%= currRound %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %> - <%= pageContext.getAttribute("roomDivision") %></A></TD>
                  </TR>   
                  <TR>
                    <TD COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>    
@@ -286,7 +283,7 @@ pageContext.setAttribute("resultSetDates", rsc);
         <% } %>
                  <TR VALIGN="middle">
                    <TD CLASS="statText"  HEIGHT="13" WIDTH="10">
-                     <A HREF="/stat?c=coder_room_stats&rd=<%= pageContext.getAttribute("rd") %>&rm=<bean:write name="resultRow" property='<%= "item[" + 4 /* id */ + "]" %>'/>&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"/></A>
+                     <A HREF="/stat?c=coder_room_stats&rd=<%= currRound %>&rm=<bean:write name="resultRow" property='<%= "item[" + 4 /* id */ + "]" %>'/>&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"/></A>
                    </TD>
                    <TD CLASS="statText"><A HREF="/stat?c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A></TD>
                    <TD CLASS="statText"ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /* coding pts */ + "].resultData" %>'/></TD>
@@ -314,13 +311,13 @@ pageContext.setAttribute("resultSetDates", rsc);
            <% if (!bSorted || (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter())) { %>
          <TR valign="middle"><TD CLASS="statText" BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="16" HEIGHT="16" align="center">
         <% if ((!bSorted && !sStartRow.equals("1")) || rsc2.croppedDataBefore()) { %>
-          <a href="/stat?c=<%=sContentHandle%><%=bSorted?"_sorted":""%>&rd=<%=pageContext.getAttribute("rd") %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>   
+          <a href="/stat?c=<%=sContentHandle%><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>   
         <% } else { %>
           &lt;&lt; previous  
         <% } %>
           &nbsp;|&nbsp;
         <% if ((!bSorted && bHasNextScroll) || rsc2.croppedDataAfter()) { %>
-          <a href="/stat?c=<%=sContentHandle %><%=bSorted?"_sorted":""%>&rd=<%=pageContext.getAttribute("rd") %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">next &gt;&gt;</a>
+          <a href="/stat?c=<%=sContentHandle %><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">next &gt;&gt;</a>
         <% } else { %>
            next &gt;&gt;           
         <% } %>
