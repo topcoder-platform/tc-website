@@ -105,7 +105,7 @@
                                 <td id="calendar">9</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">10</span><br />
-                                    <strong>Match 186</strong><br />
+                                    <strong>Match 190</strong><br />
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
                                     <!--Sponsor: <A href="/?t=tces&amp;c=index">NVIDIA</A><br />-->
@@ -118,8 +118,20 @@
                                 <td id="calendar">12</td>
                                 <td id="calendar">13</td>
                                 <td id="calendar">14</td>
-                                <td id="calendar">15</td>
-                                <td id="calendar">16</td>
+                                <td id="calendarTourney">
+                                    <span id="calendarSRMDate">15</span><br/>
+                                    <strong>2004 TopCoder Collegiate Challenge</strong><br/>
+                                    Finals<br/>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
+                                <td id="calendarTourney">
+                                    <span id="calendarSRMDate">16</span><br/>
+                                    <strong>2004 TopCoder Collegiate Challenge</strong><br/>
+                                    Finals<br/>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
                                 <td id="calendar">17</td>
                             </tr>
                             
@@ -127,7 +139,14 @@
                                 <td id="calendar">18</td>
                                 <td id="calendar">19</td>
                                 <td id="calendar">20</td>
-                                <td id="calendar">21</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">21</span><br />
+                                    <strong>Match 191</strong><br />
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    Sponsor: <A href="/?t=tces&amp;c=index">NVIDIA</A><br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?RoundId=4775&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">22</td>
                                 <td id="calendar">23</td>
                                 <td id="calendar">24</td>
@@ -135,7 +154,14 @@
                             
                             <tr> 
                                 <td id="calendar">25</td>
-                                <td id="calendar">26</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">26</span><br />
+                                    <strong>Match 192</strong><br />
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    <!--Sponsor: <A href="/?t=tces&amp;c=index">NVIDIA</A><br />-->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?RoundId=4780&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">27</td>
                                 <td id="calendar">28</td>
                                 <td id="calendar">29</td>
