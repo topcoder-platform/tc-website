@@ -201,24 +201,33 @@
 
                             <tr>
 
-                            <xsl:choose>
-                            <xsl:when test="/TC/Ranking>0">
+                                <xsl:choose>
+                                 <xsl:when test="/TC/Ranking>0">
 
-                                <td class="statText" valign="middle" align="right" height="13"><xsl:value-of select="/TC/Ranking"/>&#160;&#160;</td>
+                                     <td class="statText" valign="middle" align="right" height="13"><xsl:value-of select="/TC/Ranking"/>&#160;&#160;</td>
 
-                            </xsl:when>
-                            <xsl:otherwise>
+                                 </xsl:when>
+                                 <xsl:otherwise>
 
-                                <td class="statText" valign="middle" align="right" height="13">Not Ranked&#160;&#160;</td>
+                                     <td class="statText" valign="middle" align="right" height="13">Not Ranked&#160;&#160;</td>
 
-                            </xsl:otherwise>
-                            </xsl:choose>
+                                 </xsl:otherwise>
+                                 </xsl:choose>
 
-                                <td class="statText" valign="middle" align="right"><xsl:value-of select="/TC/Rating"/>&#160;&#160;</td>
-                                <td class="statText" valign="middle" align="right">$<xsl:value-of select="format-number(/TC/HOME/Coder/TotalEarnings, '0.00')"/>&#160;&#160;</td>
-                                <td class="statText" valign="middle" align="right"><xsl:value-of select="/TC/HOME/Coder/NumCompetitions"/>&#160;&#160;</td>
-                                <td class="statText" valign="middle" align="right" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                            </tr>
+                                     <td class="statText" valign="middle" align="right"><xsl:value-of select="/TC/Rating"/>&#160;&#160;</td>
+                                     <xsl:choose>
+                                         <xsl:when test="count(/TC/HOME/Coder/Coder)!='0'">
+                                             <td class="statText" valign="middle" align="right">$<xsl:value-of select="format-number(/TC/HOME/Coder/Coder/total_earnings, '0.00')"/>&#160;&#160;</td>
+                                             <td class="statText" valign="middle" align="right"><xsl:value-of select="/TC/HOME/Coder/Coder/num_competitions"/>&#160;&#160;</td>
+                                         </xsl:when>
+                                         <xsl:otherwise>
+                                             <td class="statText" valign="middle" align="right">$0.00&#160;&#160;</td>
+                                             <td class="statText" valign="middle" align="right">0&#160;&#160;</td>
+                                         </xsl:otherwise>
+                                     </xsl:choose>
+                                     <td class="statText" valign="middle" align="right" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                                 </tr>
+
 
                             <tr><td  colspan="5" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" class="smallText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
                         </table>
@@ -255,85 +264,81 @@
 
                             <tr><td background="/i/steel_darkblue_bg.gif" colspan="16"><img src="/i/clear.gif" alt="" width="1" height="2" border="0"/></td></tr>
 
-                        <xsl:for-each select="/TC/HOME/Last3Comps/RoomResult">
+                            <xsl:for-each select="/TC/HOME/Last3Comps/RoomResult">
 
-                            <tr>
+                                <tr>
 
-                        <xsl:choose><xsl:when test="/TC/LoggedIn='true'">
+                            <xsl:choose><xsl:when test="/TC/LoggedIn='true'">
 
-                                <td background="/i/steel_darkblue_bg.gif" valign="middle" width="10">
-                                    <a>
+                                    <td background="/i/steel_darkblue_bg.gif" valign="middle" width="10">
+                                        <a>
 
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_room_stats&amp;rd=<xsl:value-of select="RoundId"/>&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
+                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_room_stats&amp;rd=<xsl:value-of select="roundid"/>&amp;cr=<xsl:value-of select="coderid"/></xsl:attribute>
 
-                                    <img src="/i/coders_icon.gif" alt="" width="10" height="10" hspace="2" border="0"/>
-                                    </a>
-                                </td>
-                                <td background="/i/steel_darkblue_bg.gif" class="statText" align="left">
-                                    <a>
-                                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
-                                            <xsl:attribute name="CLASS">
-                                              <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="PostRoundRating"/></xsl:with-param></xsl:call-template>
-                                            </xsl:attribute>
-                                        <xsl:value-of select="Handle"/>
-                                    </a>
-                                </td>
+                                        <img src="/i/coders_icon.gif" alt="" width="10" height="10" hspace="2" border="0"/>
+                                        </a>
+                                    </td>
+                                    <td background="/i/steel_darkblue_bg.gif" class="statText" align="left">
+                                        <a>
+                                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="coderid"/></xsl:attribute>
+                                                <xsl:attribute name="CLASS">
+                                                  <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="postroundrating"/></xsl:with-param></xsl:call-template>
+                                                </xsl:attribute>
+                                            <xsl:value-of select="handle"/>
+                                        </a>
+                                    </td>
 
-                        </xsl:when>
-                        <xsl:otherwise>
+                            </xsl:when>
+                            <xsl:otherwise>
 
-                                <td><img src="/i/coders_icon.gif" alt="" width="10" height="10" hspace="4" border="0"/></td>
-                                <td>
-                                <xsl:attribute name="CLASS">
-                                <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="PostRoundRating"/></xsl:with-param></xsl:call-template>
-                                </xsl:attribute>
-                                <xsl:value-of select="Handle"/>
-                                </td>
+                                    <td><img src="/i/coders_icon.gif" alt="" width="10" height="10" hspace="4" border="0"/></td>
+                                    <td>
+                                    <xsl:attribute name="CLASS">
+                                    <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="postroundrating"/></xsl:with-param></xsl:call-template>
+                                    </xsl:attribute>
+                                    <xsl:value-of select="handle"/>
+                                    </td>
 
-                        </xsl:otherwise></xsl:choose>
+                            </xsl:otherwise></xsl:choose>
 
-                                <td class="statText" valign="middle" align="right"><xsl:value-of select="format-number(CodingPoints, '0.00')"/></td>
-                                <td class="statText" valign="middle" align="right">&#160;&#160;</td>
-                                <td class="statText" valign="middle" align="right"><xsl:value-of select="format-number(ChallengePoints, '0.00')"/></td>
-                                <td class="statText" valign="middle" align="right">&#160;&#160;</td>
-                                <td class="statText" valign="middle" align="right"><xsl:value-of select="format-number(TestPoints, '0.00')"/></td>
-                                <td class="statText" valign="middle" align="right">&#160;&#160;</td>
-                                <td class="statText" valign="middle" align="right"><xsl:value-of select="format-number(FinalPoints, '0.00')"/></td>
-                                <td class="statText" valign="middle" align="right">
+                                    <td class="statText" valign="middle" align="right"><xsl:value-of select="format-number(codingpoints, '0.00')"/></td>
+                                    <td class="statText" valign="middle" align="right">&#160;&#160;</td>
+                                    <td class="statText" valign="middle" align="right"><xsl:value-of select="format-number(challengepoints, '0.00')"/></td>
+                                    <td class="statText" valign="middle" align="right">&#160;&#160;</td>
+                                    <td class="statText" valign="middle" align="right"><xsl:value-of select="format-number(testpoints, '0.00')"/></td>
+                                    <td class="statText" valign="middle" align="right">&#160;&#160;</td>
+                                    <td class="statText" valign="middle" align="right"><xsl:value-of select="format-number(finalpoints, '0.00')"/></td>
+                                    <td class="statText" valign="middle" align="right">
 
-                        <xsl:choose>
-                        <xsl:when test="Advanced='Y'">
+                            <xsl:choose>
+                            <xsl:when test="advanced='Y'">
+                                        Yes
+                            </xsl:when>
+                            <xsl:otherwise>
+                                        No
+                            </xsl:otherwise>
+                            </xsl:choose>
 
-                                    Yes
+                                    </td>
+                                    <td class="statText" valign="middle" align="right">
 
-                        </xsl:when>
-                        <xsl:otherwise>
+                            <xsl:call-template name="GetRatingToDisplay"><xsl:with-param name="rating"><xsl:value-of select="format-number(preroundrating, '0')"/></xsl:with-param></xsl:call-template>
 
-                                    No
+                                    </td>
+                                    <td class="statText" valign="middle" align="right">&#160;&#160;</td>
+                                    <td class="statText" valign="middle" align="right"><xsl:value-of select="format-number(ratingdifference, '0.00')"/></td>
+                                    <td class="statText" valign="middle" align="right">&#160;&#160;</td>
+                                    <td class="statText" valign="middle" align="right">
 
-                        </xsl:otherwise>
-                        </xsl:choose>
+                            <xsl:call-template name="GetRatingToDisplay"><xsl:with-param name="rating"><xsl:value-of select="format-number(postroundrating, '0')"/></xsl:with-param></xsl:call-template>
 
-                                </td>
-                                <td class="statText" valign="middle" align="right">
+                                    </td>
+                                    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                                </tr>
 
-                        <xsl:call-template name="GetRatingToDisplay"><xsl:with-param name="rating"><xsl:value-of select="format-number(PreRoundRating, '0')"/></xsl:with-param></xsl:call-template>
+                                <tr><td colspan="16"><img src="/i/clear.gif" alt="" width="1" height="2" border="0"/></td></tr>
 
-                                </td>
-                                <td class="statText" valign="middle" align="right">&#160;&#160;</td>
-                                <td class="statText" valign="middle" align="right"><xsl:value-of select="format-number(RatingDifference, '0.00')"/></td>
-                                <td class="statText" valign="middle" align="right">&#160;&#160;</td>
-                                <td class="statText" valign="middle" align="right">
-
-                        <xsl:call-template name="GetRatingToDisplay"><xsl:with-param name="rating"><xsl:value-of select="format-number(PostRoundRating, '0')"/></xsl:with-param></xsl:call-template>
-
-                                </td>
-                                <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                            </tr>
-
-                            <tr><td colspan="16"><img src="/i/clear.gif" alt="" width="1" height="2" border="0"/></td></tr>
-
-                        </xsl:for-each>
+                            </xsl:for-each>
 
                             <tr><td colspan="16"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
 
@@ -370,7 +375,7 @@
 <!-- Coder Point of View Begins-->
             <xsl:call-template name="coder_pov"/>
 <!-- Coder of Point of View Ends -->
- 
+
 <!-- Java Web Start Begins -->
             <xsl:call-template name="arena"/>
 <!-- Java Web Start Ends -->
@@ -408,35 +413,35 @@
                     <td width="20%" class="statText" align="center" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Submissions</td>
                     <td width="39%" class="statText" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Avg. Score</td>
                 </tr>
-               
+
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="right">98.75</td>
                 </tr>
-                
+
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=304697">ozzie</a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="right">90.83</td>
                 </tr>
-                
+
                  <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
                     <td class="statText" align="center">2</td>
                     <td class="statText" align="right">89.26</td>
                 </tr>
-                
+
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
                     <td class="statText" align="center">2</td>
                     <td class="statText" align="right">89.16</td>
                 </tr>
-                
+
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=268546">TangentZ</a></td>
@@ -456,7 +461,7 @@
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
-            </table> 
+            </table>
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
                 <tr valign="top"><td height="17" class="moduleTitle" bgcolor="#093158"><img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="244" height="20" border="0" /></td></tr>
