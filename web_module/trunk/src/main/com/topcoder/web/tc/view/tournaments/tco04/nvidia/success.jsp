@@ -22,7 +22,7 @@
 			<table width="510" border=0 cellpadding=20 cellspacing=0>
 				<tr>
 					<td class="bodyText">
-                    <A href="http://www.nvidia.com/page/home" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_banner.gif" alt="NVIDA" width="510" height="100" border="0" /></A>
+                    <A href="/?t=sponsor&c=link&link=http://www.nvidia.com/page/home&refer=tco_minisite" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_banner.gif" alt="NVIDA" width="510" height="100" border="0" /></A>
                     <p><span class="bodySubtitle">Thank you for applying to NVIDIA.</span></p>
 					<p>Click <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=joblisting">here</a> to view more jobs at NVIDIA.</p>
 					
