@@ -58,7 +58,7 @@
                 <tr>
                     <td class="<%=cssClasses[counter % 2]%>" nowrap="nowrap">
                         <a href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.JOB_POSITION_ID%>=<screen:resultSetItem row="<%=row%>" name="job_id" />">
-                            <screen:resultSetItem row="<%=row%>" name="job_name" />
+                            <screen:resultSetItem row="<%=row%>" name="job_desc" />
                         </a>
                     </td>
                     <td class="<%=cssClasses[counter % 2]%>" align="center">
