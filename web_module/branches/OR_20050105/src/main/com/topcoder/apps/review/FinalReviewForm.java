@@ -241,7 +241,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
 
             //  if the reviewer approved the project but there are not fixed items, show error
             if (finalReview.isApproved() && mustReject) {
-                setValid(false)
+                setValid(false);
                 errors.add("approved", new ActionError("error.reject.required"));
                 approvedValid = false;
             }
