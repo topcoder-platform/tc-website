@@ -174,12 +174,12 @@
 			<tr>
 				<td class=homeArrow>&#160;</td>
 				<td class=homeText><br/>
+				Champions Announced In 2004 TopCoder&#174; Open Sponsored by Microsoft&#174; <A href="/?&t=news_events&c=pr_11_15_04">...more</A><br/>[November 15]<br/><br/>
 				Brain teasers help Google recruit workers <A href="http://www.cnn.com/2004/TECH/internet/11/04/us.googlingen.ap/index.html" target="_blank">...more</A><br/>[November 4 - CNN]<br/><br/>
 				Finalists for 2004 TopCoder Open Sponsored by Microsoft&#174; <A href="/?&t=news_events&c=pr_11_01_04">...more</A><br/>[November 1]<br/><br/>
 				Google's creative search for elite programmers <A href="/?&t=news_events&c=art_10_25_04">...more</A><br/>[October 25 - Associated Press]<br/><br/>
 				Google holds coding contest <A href="/?&t=news_events&c=art_10_19_04">...more</A><br/>[October 19 - SJ Mercury]<br/><br/>
 				Dream Job and Juicy Premiums for Young, Crackshot Programmers [Translation] <A href="/i/pressroom/tendances_tomek.pdf">...more</A><br/>[October - Tendances Carriere]<br/><br/>
-				Google announces 50 Google Code Jam Finalists <A href="/?&t=news_events&c=pr_10_05_04">...more</A><br/>[October 5]<br/><br/>
 				</td>
 			</tr>
 		</table>
