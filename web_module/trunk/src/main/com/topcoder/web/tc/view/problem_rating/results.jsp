@@ -9,7 +9,8 @@
 <jsp:useBean id="div2Distribution" scope="request" class="java.util.List" />
 <%
     int count = 0;
-    int compCount = 0;
+    int div1Count = 0;
+    int div2Count = 0;
 %>
 <html>
 <head>
@@ -102,7 +103,8 @@
         </tr>
         <%  if (!problemRatingResults.isEmpty()) {
                 count = problemRatingResults.getIntItem(0,"count");
-                compCount = problemRatingResults.getIntItem(0,"comp_count");
+                div1Count = problemRatingResults.getIntItem(0,"div1_count");
+                div2Count = problemRatingResults.getIntItem(0,"div2_count");
             }
         %>
         <rsc:iterator list="<%=problemRatingResults%>" id="result">
@@ -121,7 +123,7 @@
             </td>
         </tr>
         </rsc:iterator>
-        <tr><td class="bodyTextBig" colspan="3" align="center"><%=count%> Total votes | <%=compCount%> Competitor Votes</td></tr>
+        <tr><td class="bodyTextBig" colspan="3" align="center"><%=count%> Total votes | <%=div1Count%> Division I Competitor Votes | <%=div2Count%> Division II Competitor Votes</td></tr>
     </table><br/>
          <center>
 <SCRIPT language="JavaScript">
