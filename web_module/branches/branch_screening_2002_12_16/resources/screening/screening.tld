@@ -120,6 +120,41 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
   </tag>
+
+  <tag>
+    <name>servletLink</name>
+    <tagclass>com.topcoder.web.screening.view.tag.ServletLinkTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Tag to make it easier to link to the servlet
+    </info>
+    <attribute>
+      <name>processor</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>param</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>onClick</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>styleClass</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>target</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
   <tag>
     <name>listIterator</name>
     <tagclass>com.topcoder.web.jsp.tag.ListIteratorTag</tagclass>
