@@ -155,7 +155,7 @@ public class Login extends FullLogin {
 
             Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
             info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
-            log.error(info.getCoderType());
+            log.error(info.getCoderType() + "");
 
             //load up the demographic information
             Response response = (Response) createEJB(getInitialContext(), Response.class);
