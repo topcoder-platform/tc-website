@@ -25,9 +25,10 @@ public class RequestTracker {
     private static List q = Collections.synchronizedList(new LinkedList());
 
     private static Logger log = Logger.getLogger(RequestTracker.class);
+    private static Thread t = null;
 
     static {
-        RequestTrackerThread t = new RequestTrackerThread();
+        t = new RequestTrackerThread();
         t.run();
     }
 

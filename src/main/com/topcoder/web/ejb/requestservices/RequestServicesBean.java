@@ -1,14 +1,9 @@
 package com.topcoder.web.ejb.requestservices;
 
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
-import javax.naming.Context;
-import java.sql.PreparedStatement;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 /**
  * User: dok

@@ -36,24 +36,24 @@ public class MainServlet extends BaseServlet {
         return true;
     }
 
-    protected void process(HttpServletRequest request, HttpServletResponse response )
-            throws IOException  {
+    protected void process(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
         //just trying to protect against invalid requests getting to the
         //app server.  currently, we don't have a way to stop this ad the web
         //server layer.
-            if ((ApplicationServer.PROD==ApplicationServer.ENVIRONMENT &&
-                    request.getServerName().startsWith(ApplicationServer.SERVER_NAME)) ||
-                    ApplicationServer.ENVIRONMENT!=ApplicationServer.PROD) {
-                    super.process(request, response);
-            } else {
-                log.error(request.getRemoteHost() + " Made an Invalid Request - Wrong Server Name " + request.getServerName());
-                response.setStatus(400);
-                PrintWriter out = response.getWriter();
-                out.println("<html><head><title>IInvalid Request - Wrong Server Name</title></head>");
-                out.println("<body><h4>Your request was invalid for this server.</h4>");
-                out.println("</body></html>");
-                out.flush();
-            }
+        if ((ApplicationServer.PROD == ApplicationServer.ENVIRONMENT &&
+                request.getServerName().startsWith(ApplicationServer.SERVER_NAME)) ||
+                ApplicationServer.ENVIRONMENT != ApplicationServer.PROD) {
+            super.process(request, response);
+        } else {
+            log.error(request.getRemoteHost() + " Made an Invalid Request - Wrong Server Name " + request.getServerName());
+            response.setStatus(400);
+            PrintWriter out = response.getWriter();
+            out.println("<html><head><title>IInvalid Request - Wrong Server Name</title></head>");
+            out.println("<body><h4>Your request was invalid for this server.</h4>");
+            out.println("</body></html>");
+            out.flush();
+        }
 
     }
 
@@ -62,7 +62,7 @@ public class MainServlet extends BaseServlet {
                                             WebAuthentication auth, Set groups) throws Exception {
         //todo get rid of this junk, we end up doing all the same stuff anyway, when the navigation object
         //goes, so does this crap
-        Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
+        Navigation nav = (Navigation) request.getSession(true).getAttribute("navigation");
         CoderSessionInfo ret = null;
         ret = new CoderSessionInfo(request, auth, groups);
         if (nav == null) {
