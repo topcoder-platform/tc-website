@@ -13,35 +13,33 @@
     <HTML>
       <HEAD>
         <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Schedule</TITLE>
+        <TITLE>Single Round Match (SRM) Schedule at TopCoder</TITLE>
         <xsl:call-template name="CSS"/>      
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
         <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
       </HEAD>
-      <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+      <BODY>
         <a name="top_page"></a>
         <xsl:variable name="roundId">
           <xsl:value-of select="/TC/SCHEDULE/Round/Details/round_id"/>
         </xsl:variable>
         <xsl:call-template name="Top"/>
         <!-- Body Begins -->
-<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
-          <TR>
-            <!-- Left Column Begins -->
-            <TD WIDTH="180" VALIGN="top">
-              <!-- Left Column Include Begins -->  
-              <!-- Global Seconday Nav Begins -->  
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+    <TR valign="top">
+
+<!-- Left Column Begins -->
+        <TD WIDTH="180" VALIGN="top">
               <xsl:call-template name="global_left"/>
-              <!-- Global Seconday Nav Ends -->      
-              <!-- Left Column Include Ends -->          
-            </TD>
-            <!-- Left Column Ends -->
-	<!-- Gutter Begins -->
-		<TD WIDTH="4" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-<!-- Body Area -->
-	<!-- Center Column Begins -->	
-		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
+        </TD>
+<!-- Left Column Ends -->
+
+<!-- Gutter Begins -->
+        <TD WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="5" BORDER="0"/></TD>
+<!-- Gutter Ends -->
+
+<!-- Center Column Begins -->    
+        <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
               <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">schedule</xsl:with-param>
@@ -53,7 +51,7 @@
                   <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%">
                     <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
-                    <TABLE WIDTH="400" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="center">
+                    <TABLE WIDTH="428" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="center">
                       <TR><TD COLSPAN="3" ALIGN="center"><IMG SRC="/i/clear.gif" ALT="" WIDTH="428" HEIGHT="10" BORDER="0" /></TD></TR>
 
 
@@ -103,13 +101,28 @@
                         </TD></TR>
                       </xsl:if>
                       
-                      <TR><TD COLSPAN="3" ALIGN="center" class="bodyText">
-                        <BR/>All times are Eastern Time unless otherwise noted<BR/><BR/></TD></TR>
-                      <TR><TD COLSPAN="3" ALIGN="center">
-                        <A HREF="JavaScript:arena();" CLASS="bodyTextBig"><b>DOWNLOAD THE ARENA APPLET</b></A><BR/><BR/>
-                          
-                      </TD></TR>
-
+                      <TR>
+                        <TD COLSPAN="3" ALIGN="center" class="bodyText">
+                            <BR/>All times are Eastern Time unless otherwise noted<BR/><BR/>
+                        </TD>
+                </TR>
+                      
+                <TR>
+                    <TD COLSPAN="3" ALIGN="center">
+                        <table width="100%" cellspacing="0" cellpadding="3" border="0" bgcolor="#EEEEEE">
+                            <tr valign="middle"><td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Getting started in the Competition Arena</font></td></tr>
+                            <tr> 
+                                <td class="bodyText"> 
+                                    <p style="padding: 3px">Load the Competition Arena as an <A class="bodyText" href="Javascript:arena()">Applet</A><br/>
+                                    Load the Competition Arena as a <A class="bodyText" href="/contest/arena/ContestAppletProd.jnlp">Java Web Start Application</A><br/>
+                                    Don't have JWS? <A class="bodyText" href="http://java.sun.com/products/javawebstart/index.html" target="_blank">Download</A> it on java.sun.com<br/>
+                                    Check out the <A class="bodyText" href="/?t=arena&amp;c=plugins">plugins</A> available for the Competition Arena</p>
+                                </td>
+                            </tr>
+                        </table><br/>
+                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/><BR/>
+                    </TD>
+                </TR>
 
                  <xsl:choose>
                  <xsl:when test="$roundId&lt;4230">
@@ -183,65 +196,41 @@
                       Anyone who is at least 13 years of age may compete in any Single Round Match.<BR/><BR/>
                       <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;RoundId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
                       </TD></TR>
-
-
               </xsl:otherwise>
               </xsl:choose>
 
+                        </TABLE>
+            
+                        <P><BR/></P>
+                        
+                    </TD>
+                </TR>
+            </TABLE>
+        </TD>
+<!-- Center Column Ends -->
 
+<!-- Gutter -->
+            <TD WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
+<!-- Gutter Ends -->
 
+<!-- Right Column Begins -->
+        <TD WIDTH="170"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
+            <xsl:call-template name="public_right_col"/>       
+        </TD>
+<!-- Right Column Ends -->
 
+<!-- Gutter Begins -->
+        <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+<!-- Gutter Ends -->
+    </TR>
+</TABLE>
 
+<xsl:call-template name="Foot"/>
 
+</BODY>
 
+</HTML>
 
-
-
-
-
-                    </TABLE>
-                    <P><BR/></P>
-					</TD>
-					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
-	<!-- Center Column Ends -->
-<!-- Body Area Ends -->
-            <!-- Gutter -->
-            <TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
-            <!-- Gutter Ends -->
-            <!-- Right Column Begins -->
-            <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-              <!-- Right Column Include Begins --> 
-              <xsl:call-template name="public_right_col"/>       
-              <!-- Right Column Include Ends -->        
-            </TD>
-            <!-- Right Column Ends -->
-            <!-- Gutter -->
-            <TD WIDTH="25" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-            <!-- Gutter Ends -->
-          </TR>
-        </TABLE>
-        <!-- Body Ends -->
-        <xsl:call-template name="Foot"/>
-      </BODY>
-    </HTML>
   </xsl:template>
 </xsl:stylesheet>
 
