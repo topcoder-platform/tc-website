@@ -94,6 +94,7 @@ public class ResumeServicesBean extends BaseEJB {
         ResultSet rs = null;
         InitialContext ctx = null;
         try{
+            if (file==null || file.length==0) throw new EJBException("invalid file, it was either null or empty");
             ctx = new InitialContext();
             DataSource ds = (DataSource)
                 PortableRemoteObject.narrow(ctx.lookup(dataSource),
@@ -102,8 +103,8 @@ public class ResumeServicesBean extends BaseEJB {
             psSel = conn.prepareStatement(GET_RESUME_ID);
             psSel.setLong(1,userId);
             rs = psSel.executeQuery();
-           
-            int numUpdated = 0; 
+
+            int numUpdated = 0;
             if (rs.next()) {
                 psUpd = conn.prepareStatement(UPDATE_RESUME_QUERY);
                 psUpd.setString(1, fileName);
