@@ -119,6 +119,7 @@ public final class SavePMReviewAction extends ReviewAction {
                                     try {
                                         documentManager.saveInitialSubmission((InitialSubmission)((SubmissionForm) form).getSubmission(), data.getUser().getTCSubject());
                                     } catch(Exception e) {
+                                        log(Level.ERROR, e.getMessage());
                                         return null;
                                     }
                                     
