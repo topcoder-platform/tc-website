@@ -223,18 +223,18 @@ public class BasicAuthentication implements WebAuthentication {
      */
     public void setCookie(long uid, boolean rememberUser) throws Exception {
         String hash = hashForUser(uid);
-        Cookie c = new Cookie(USER_COOKIE_NAME, "" + uid + "|" + hash);
-        c.setPath(defaultCookiePath.getName());
+        Cookie c = new Cookie(defaultCookiePath+"_"+USER_COOKIE_NAME, "" + uid + "|" + hash);
+        //c.setPath(defaultCookiePath.getName());
         c.setMaxAge(rememberUser ? Integer.MAX_VALUE : -1);  // this should fit comfortably, since the expiration date is a string on the wire
-        log.debug("cookie: " + c.getName() + " " + c.getPath() + " " + c.getValue());
+        log.debug("cookie: " + c.getName() + " " + c.getValue());
         response.addCookie(c);
     }
 
     /** Remove any cookie previously set on the client by the method above. */
     private void clearCookie() {
-        Cookie c = new Cookie(USER_COOKIE_NAME, "");
+        Cookie c = new Cookie(defaultCookiePath+"_"+USER_COOKIE_NAME, "");
         c.setMaxAge(0);
-        c.setPath(defaultCookiePath.getName());
+        //c.setPath(defaultCookiePath.getName());
         response.addCookie(c);
     }
 
@@ -243,9 +243,9 @@ public class BasicAuthentication implements WebAuthentication {
         log.debug("checkCookie called...");
         Cookie[] ca = request.getCookies();
         for (int i = 0; ca != null && i < ca.length; i++) {
-            log.debug(ca[i].getName() + " " + ca[i].getPath() + " " + ca[i].getValue());
+            log.debug(ca[i].getName() + " " + ca[i].getValue());
 //            if (ca[i].getName().equals(USER_COOKIE_NAME) && defaultCookiePath.getName().equals(ca[i].getPath())) {
-            if (ca[i].getName().equals(USER_COOKIE_NAME)) {
+            if (ca[i].getName().equals(defaultCookiePath+"_"+USER_COOKIE_NAME)) {
 
                 try {
                     StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");
