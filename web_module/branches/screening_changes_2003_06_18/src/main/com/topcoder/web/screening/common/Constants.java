@@ -155,9 +155,10 @@ public class Constants
         Field[] f = Constants.class.getFields();
         for (int i = 0; i < f.length; i++) {
             try {
+                log.debug(f[i].getType());
                 f[i].set(null, config.getInitParameter(f[i].getName().toLowerCase()));
                 if (f[i].get(null)==null)
-                    log.debug("did not load " + f[i].getName() + " constant");
+                    log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
                 else log.debug("loaded " + f[i].getName() + " constant with value " + f[i].get(null));
             } catch (Exception e) {
                 /* probably harmless, could just be a type or modifier mismatch */
