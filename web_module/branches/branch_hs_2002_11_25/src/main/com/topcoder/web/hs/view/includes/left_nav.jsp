@@ -12,9 +12,9 @@ String sibbg = "BACKGROUND=\"/i/hs/steel_gray_bg.gif\"";  // sib for sibling
 String defbg = "";
 
 // indent root items which are not or cannot open into submenus with this
-String itemind = "<IMG SRC=\"/i/hs/nav_arrow_right.gif\" WIDTH=\"9\" HEIGHT=\"9\" ALT=\"\" BORDER=\"0\">";
+String itemind = "<IMG SRC=\"/i/hs/nav_arrow_right.gif\" WIDTH=\"10\" HEIGHT=\"10\" ALT=\"\" BORDER=\"0\">";
 // indent titles of open submenus with this
-String openind = "<IMG SRC=\"/i/hs/nav_arrow_bottom.gif\" WIDTH=\"9\" HEIGHT=\"9\" ALT=\"\" BORDER=\"0\">";
+String openind = "<IMG SRC=\"/i/hs/nav_arrow_bottom.gif\" WIDTH=\"10\" HEIGHT=\"10\" ALT=\"\" BORDER=\"0\">";
 // indent submenu items with this
 String subind = "<IMG SRC=\"/i/hs/11x9.gif\" WIDTH=\"11\" HEIGHT=\"9\" ALT=\"\" BORDER=\"0\">";
 
@@ -29,7 +29,7 @@ String root, sub;
 
 // formats a table row for a section header on the root menu
 String rootheader(String text) {
-    return "<TR><TH HEIGHT=\"15\" VALIGN=\"middle\" CLASS=\"titlesidenav\">&nbsp;" + text + "</TH></TR>";
+    return "<TR><TH ALIGN=\"left\" HEIGHT=\"15\" VALIGN=\"middle\" CLASS=\"titlesidenav\">&nbsp;" + text + "</TH></TR>";
 }
 
 // formats a table row for an item on the root menu
