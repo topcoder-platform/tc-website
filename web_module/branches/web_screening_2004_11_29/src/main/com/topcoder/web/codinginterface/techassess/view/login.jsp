@@ -69,7 +69,7 @@ function submitEnter(e) {
                                 <tr><td class=tableText colspan=2><p class=pC><span class=bigRed><tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br/></tc-webtag:errorIterator></span></p></td></tr>
                                 <tr>
                                     <td class=loginLeft>Password:</td>
-                                    <td class=loginRight><tc-webtag:textInput name="<%=Constants.PASSWORD%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
+                                    <td class=loginRight><tc-webtag:textInput name="<%=Constants.PASSWORD%>" passw="true" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
                                 </tr>
                                 <tr>
                                     <td class=tableText align=right>&#160;</td>
