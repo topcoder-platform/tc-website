@@ -73,7 +73,7 @@
                                         </p>
                                         <p>
                                             Members that are chosen for the Admin Tool Enhancements project will be given full access
-                                            to the current TopCoder code base and access to our development environemnts.
+                                            to the current TopCoder code base and access to our development environments.
                                         </p>
                                         <!-- Project Type -->
                                         <p>
