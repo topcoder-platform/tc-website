@@ -276,37 +276,33 @@ public class AutoPilot {
                 if(!appeals[i].isResolved())
                     return new SuccessResult();
             }
-            
-            //move to aggregation
-            ProjectForm form = new ProjectForm();
-                            
-            form.fromProject(project);
-            
-            form.setSendMail(true);
 
-            form.setScorecardTemplates(docManager.getScorecardTemplates());
-
-            form.setCurrentPhase("Aggregation");
-
-            form.setReason("auto pilot advancing to aggregation");
-            
-            UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
-            UserProjectInfo info = null;
-            for(int i = 0; i < projs.length; i++) {
-                if(projs[i].getId() == project.getId()) {
-                    info = projs[i];
+            //lookup pm
+            String email = "";
+            UserRole[] participants = project.getParticipants(); 
+            for(int i = 0; i < participants.length;i++) {
+                if( participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER ) { 
+                    email = participants[i].getUser().getEmail();
                 }
             }
-            
-            if(info == null) return new FailureResult("Project not found");
-            
-            OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
 
-            ProjectData new_data = form.toActionData(orpd);
-            ResultData result = new BusinessDelegate().projectAdmin(new_data); 
-            if(!(result instanceof SuccessResult)) {
-                return result;
+            if(email.equals("")) {
+                return new FailureResult("Cannot locate PM for Auto Pilot");
             }
+
+            //override, change me
+            //email = "rfairfax@topcoder.com";
+
+
+            //check if nothing passed, send email
+
+            StringBuffer mail = new StringBuffer();
+            mail.append("The following project: \n\n");
+            mail.append(project.getName());
+            mail.append("\n\nhas completed appeals");
+
+            sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Notification", mail.toString());
+            
 
         } catch(Exception e) {
             return new FailureResult(e.toString());
