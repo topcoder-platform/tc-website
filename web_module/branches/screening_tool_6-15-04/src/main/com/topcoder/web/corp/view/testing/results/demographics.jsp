@@ -115,7 +115,7 @@
                   
                       <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
                         <TR>
-                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="DemographicTask" property="ProCoderCount"/>)</b></TD>
+                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="demographicInfo" property="ProCount"/>)</b></TD>
                         </TR>
                         <%
                           while (ProQuestionIterator.hasNext()) {
