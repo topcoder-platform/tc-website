@@ -215,6 +215,21 @@
                                 
                             </TD>
                         </TR>
+
+
+                        <TR>
+                            <TD VALIGN="top" HEIGHT="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+                        </TR>
+                        <TR>
+                            <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
+
+                                    <A HREF="#17" CLASS="bodyText"><B>
+              Can I re-submit my code during the coding phase if I find an error?
+              </B></A>
+
+                            </TD>
+                        </TR>
+
                         <TR>
                             <TD VALIGN="top" HEIGHT="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
                         </TR>
@@ -414,6 +429,31 @@ After each match or tournament round TopCoder creates a practice room with the s
                                     <A HREF="#top" CLASS="bodyText">[back to top]</A>
                                     <BR/>
                                     <BR/>
+
+                                        <A NAME="17" CLASS="bodyText"><B>
+            Can I re-submit my code during the coding phase if I find an error?
+          </B></A>
+
+                                    <BR/>
+
+Yes, TopCoder allows multiple submissions during the coding phase.<BR/>
+Here are the rules:
+<ul>
+<li>You can submit the same problem as many times as you like.</li>
+<li>For every submission past the first one you will incur a 10% penalty of the problem point total potential.<br/>
+Example:  Coder A's 1st submission of the 500pt problem results in 400pts bc they took approximately 15 minutes to solve it.<br/>
+Coder A's 2nd submission of the 500pt problem results in 280pts bc they took an additional 8 minutes to solve (a total of 23) and we penalized 50pts (50 = 500*.10)</li>
+<li>You can never go below 3/10 of the problems point total potential.<br/>
+Example:  Coder B's 29th submission of the 500pt problem will result in 150pts<br/>
+Coder B's 55th submission of the 500pt problem will result in 150pts</li>
+</ul>
+**Some of the numbers in the examples above are rounded.
+
+      <BR/>
+                                    <A HREF="#top" CLASS="bodyText">[back to top]</A>
+                                    <BR/>
+                                    <BR/>
+
                             </TD>
                         </TR>
                     </TABLE>
