@@ -116,7 +116,7 @@ final class UserDb {
                 emailEJB.setAddress(emailId, user.getEmail(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 emailEJB.setPrimaryEmailId(user.getUserId(), emailId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 emailEJB.setEmailTypeId(emailId, DEFAULT_EMAIL_TYPE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                emailEJB.setStatusId(emailId, 1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                emailEJB.setStatusId(emailId, 2, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
 
                 UserDbCoder.insertCoder(conn, coder);
