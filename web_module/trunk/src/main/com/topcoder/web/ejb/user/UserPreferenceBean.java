@@ -13,8 +13,7 @@ public class UserPreferenceBean extends BaseEJB {
 
     private final static Logger log = Logger.getLogger(UserPreferenceBean.class);
 
-    public void createUserPreference(long userId, int preferenceId, String dataSource)
-            throws EJBException {
+    public void createUserPreference(long userId, int preferenceId, String dataSource) {
         int ret = insert("user_preference",
                 new String[] {"user_id", "preference_id"},
                 new String[] {String.valueOf(userId), String.valueOf(preferenceId)},
@@ -62,23 +61,31 @@ public class UserPreferenceBean extends BaseEJB {
 */
     }
 
-    public void removeUserPreference(long userId, int preferenceId, String dataSource) throws EJBException {
+    public void removeUserPreference(long userId, int preferenceId, String dataSource) {
         int ret = delete("user_preference",
                 new String[] {"user_id", "preference_id"},
                 new String[] {String.valueOf(userId), String.valueOf(preferenceId)},
                 dataSource);
-        log.debug("removed " + ret + " rows");
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows deleted from " +
+                    "'user_preference'. Deleted " + ret + ", " +
+                    "should have deleted 1."));
+        }
     }
 
-    public void setValue(long userId, int preferenceId, String value, String dataSource) throws EJBException {
+    public void setValue(long userId, int preferenceId, String value, String dataSource) {
         int ret = update("user_preference",
                 new String[] {"value"},
                 new String[] {value},
                 dataSource);
-        log.debug("updated " + ret + " rows");
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows updated in " +
+                    "'user_preference'. Updated " + ret + ", " +
+                    "should have updated 1."));
+        }
     }
 
-    public String getValue(long userId, int preferenceId, String dataSource) throws EJBException {
+    public String getValue(long userId, int preferenceId, String dataSource) {
         return selectString("user_preference",
                 "value",
                 new String[] {"user_id", "preference_id"},

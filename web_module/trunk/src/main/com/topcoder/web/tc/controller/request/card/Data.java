@@ -18,6 +18,7 @@ import javax.xml.transform.OutputKeys;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.text.DecimalFormat;
+import java.rmi.RemoteException;
 
 import org.xml.sax.helpers.AttributesImpl;
 import org.xml.sax.Attributes;
@@ -42,8 +43,10 @@ public class Data extends Base {
                 UserPreference up = (UserPreference)createEJB(getInitialContext(), UserPreference.class);
                 try {
                     up.getValue(Long.parseLong(coderId), Constants.UNLOCK_CARD_PREFERENCE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                } catch (RowNotFoundException e) {
-                    throw new TCWebException("user has not unlocked their card.");
+                } catch (RemoteException e) {
+                    if (e.detail instanceof RowNotFoundException)
+                        throw new TCWebException("user has not unlocked their card.");
+                    else throw e;
                 }
             }
 
