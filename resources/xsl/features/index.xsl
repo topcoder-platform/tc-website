@@ -68,6 +68,12 @@
                             </tr>
                             
                             <tr>
+                                <td valign="middle" class="bodyText" height="14">April 1</td>
+                                <td valign="middle" class="bodyText">vorthys</td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_040104" class="bodyText">Dynamic Programming</A></td>
+                            </tr>
+                            
+                            <tr>
                                 <td valign="middle" class="bodyText" height="14">March 1</td>
                                 <td valign="middle" class="bodyText">pmadden</td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_030104" class="bodyText">The Educational Component of TopCoding</A></td>
