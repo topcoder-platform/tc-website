@@ -58,26 +58,41 @@
 
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
-                            <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Sony Jobs</b></td></tr>
-                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=sony_openings&amp;a=secure" class="bodyText">Jobs</A></td></tr>
+                            <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Sony Computer Entertainment Jobs</b></td></tr>
+                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=scea_openings&amp;a=secure" class="bodyText">Jobs</A></td></tr>
                         </table>
 
 <!-- Client Job List begins -->
-                        <p><A href="/?&amp;t=tces&amp;c=sony" class="bodyText"><img src="/i/es/sony/sony_logo.gif" width="133" height="32" alt="Sony" border="0" /></A></p>
+                        <p><A href="/?&amp;t=tces&amp;c=scea" class="bodyText"><img src="/i/es/scea/scea_logo.gif" width="90" height="119" alt="Sony Computer Entertainment Computer Entertainment" border="0" /></A></p>
 
-                        <h3>Software Engineer</h3>
+                        <h3>Senior Designer</h3>
                         
                         <p><strong>Job Description</strong><br />
-                        Sony Computer Entertainment America, Inc. has positions available for Software Engineers in Foster City, CA.</p>
+                        Sony Computer Entertainment Computer Entertainment America's (SCEA) Santa Monica Product Development Studio is currently looking 
+                        for a Sr. Designer to join its team. The Level Designer is a specialist in the creation of game levels and 
+                        gameplay scenarios. Level designers are responsible for contributing to level concept, layout, prototype 
+                        modeling, scenario creation, event scripting, game balance, pacing, and gameplay tuning. As part of the 
+                        design team, level designers are also expected to contribute to general game design. </p>
 
                         <p><strong>Required Skills</strong><br />
-                        Develop, write and debug code for new and upgraded software products. Participate in the design and testing of 
-                        products. Perform programming of tools and utilities to support work on projects.</p>
+                        Experience is necessary</p>
+                        
+                        <ul>
+                            <li>Having shipped at least two console games in a designer/senior designer role</li>
+                            <li>Will possess strong hands-on experience with level design utilizing a 3D software package&#151;preferably Maya</li>
+                            <li>Demonstrate solid writing skills&#151;possess the ability to clearly and concisely define game areas and feature sets</li>
+                            <li>Is able to consider game-wide mechanics including interface, pacing and story, game balance, and difficulty curve</li>
+                            <li>Possesses the ability and desire to contribute to a highly creative environment, provide unique concepts and solutions</li>
+                            <li>Have a good understanding of the game market, can analyze competitive products to identify key strengths and weaknesses</li>
+                            <li>Be able to quickly adapt to changes, finding creative solutions and maintaining positive momentum in the face of adversity</li>
+                            <li>Be able to communicate, evolve, and proactively push the game design</li>
+                            <li>Have a passion for playing / creating quality video games.</li>
+                        </ul>
                         
                         <p><strong>Job Location</strong><br />
-                        Foster City, CA, US</p>
+                        Santa Monica, CA, US</p>
                         
-                        <p align="center"><a href="#" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=sony_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
+                        <p align="center"><a href="#" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=scea_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
 
 <!-- Client Job List ends -->
 
