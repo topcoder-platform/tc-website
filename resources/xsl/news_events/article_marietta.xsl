@@ -60,7 +60,7 @@
 04/06/02<BR/>
 By Michelle Graff<BR/>
 Marietta Daily Journal Staff Writer</P>
-<P>POWDER SPRINGS Ñ Most people don't question how a computer does what it does, as long as it is working properly.</P>
+<P>POWDER SPRINGS : Most people don't question how a computer does what it does, as long as it is working properly.</P>
 <P>But that is not the case with 20-year-old Powder Springs resident Trayton Otto, who has won regional recognition for his ability to make computers work.</P>
 <P>A computer science major at Georgia Tech, Otto is the southeast regional champion of computer programming and later this month will travel to the 2002 SunMicrosystems and TopCoder Collegiate Challenge in Cambridge, Mass., to compete for national recognition in the field of computer coding and a $100,000 cash prize.</P>
 <P>The challenge pits Otto against 16 of the country's best college computer programmers to solve a series of three coding problems in Java or C++ computer languages in 75 minutes or less.</P>
