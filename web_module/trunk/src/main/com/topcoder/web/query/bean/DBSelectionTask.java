@@ -1,10 +1,7 @@
 package com.topcoder.web.query.bean;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.query.common.AuthenticationException;
-import com.topcoder.web.query.common.Authentication;
-import com.topcoder.web.query.common.Link;
+import com.topcoder.web.query.common.*;
 import com.topcoder.shared.util.DBMS;
 
 
@@ -27,8 +24,9 @@ public class DBSelectionTask extends BaseTask implements Task, Serializable {
     public DBSelectionTask() {
         super();
         dbList = new ArrayList();
-        dbList.add(DBMS.OLTP_DATASOURCE_NAME);
-        dbList.add(DBMS.DW_DATASOURCE_NAME);
+        for (int i=0; i<Constants.DB_LIST.length; i++) {
+            dbList.add(new DataBaseBean(Constants.DB_LIST[i][0], Constants.DB_LIST[i][1]));
+        }
     }
 
 
@@ -46,19 +44,19 @@ public class DBSelectionTask extends BaseTask implements Task, Serializable {
         StringBuffer buf = new StringBuffer();
         buf.append(begin);
         buf.append(Constants.DB_SELECTION_TASK);
-        super.getNavLinks().add(new Link(buf.toString(), Constants.DB_SELECTION_NAME));
+        super.getNavLinks().add(new LinkBean(buf.toString(), Constants.DB_SELECTION_NAME));
         buf.setLength(0);
         buf.append(begin);
         buf.append(Constants.MODIFY_COMMAND_TASK);
-        super.getNavLinks().add(new Link(buf.toString(), "New Command"));
+        super.getNavLinks().add(new LinkBean(buf.toString(), "New Command"));
         buf.setLength(0);
         buf.append(begin);
         buf.append(Constants.MODIFY_QUERY_TASK);
-        super.getNavLinks().add(new Link(buf.toString(), "New Query"));
+        super.getNavLinks().add(new LinkBean(buf.toString(), "New Query"));
         buf.setLength(0);
         buf.append(begin);
         buf.append(Constants.MODIFY_INPUT_TASK);
-        super.getNavLinks().add(new Link(buf.toString(), "New Input"));
+        super.getNavLinks().add(new LinkBean(buf.toString(), "New Input"));
     }
 
     public void process(String step) throws Exception {

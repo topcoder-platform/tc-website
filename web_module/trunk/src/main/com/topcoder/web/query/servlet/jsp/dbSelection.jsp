@@ -34,10 +34,10 @@
         <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <TR><TD CLASS="statText"><%=Constants.DB_SELECTION_NAME%></TD></TR>
           <TR><TD CLASS="statText">Select a Database</TD></TR>
-          <query:listIterator id="db" list="<%=DBSelectionTask.getDbList()%>">
+          <query:DBIterator id="db" list="<%=DBSelectionTask.getDbList()%>">
             <TR><TD>
-             <A HREF="<jsp:getProperty name="DBSelectionTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_LIST_TASK%>&<%=Constants.DB_PARAM%>=<%=db%>" class="statText">
-                <%=db%>
+             <A HREF="<jsp:getProperty name="DBSelectionTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_LIST_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="db" property="value"/>" class="statText">
+                <jsp:getProperty name="db" property="DisplayName"/>
               </A>
             </TD></TR>
           </query:listIterator>

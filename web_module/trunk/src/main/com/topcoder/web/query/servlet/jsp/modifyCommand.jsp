@@ -45,6 +45,15 @@
               <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandTask.getGroups()%>" selectedValue='<%=""+ModifyCommandTask.getGroupId()%>'/>
             </TD>
           </TR>
+          <TR>
+            <TD CLASS="statText" ALIGN="right">Group: </TD>
+            <TD CLASS="statText" ALIGN="left">
+              <select name="<%=Constants.
+
+              <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandTask.getGroups()%>" selectedValue='<%=""+ModifyCommandTask.getGroupId()%>'/>
+            </TD>
+          </TR>
+
         </TABLE>
       </TD>
       <TD WIDTH="4" BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>

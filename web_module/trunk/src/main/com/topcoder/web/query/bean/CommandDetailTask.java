@@ -4,7 +4,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Authentication;
-import com.topcoder.web.query.common.Link;
+import com.topcoder.web.query.common.LinkBean;
 import com.topcoder.web.query.ejb.QueryServices.*;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -49,7 +49,7 @@ public class CommandDetailTask extends BaseTask implements Task, Serializable {
         StringBuffer buf = new StringBuffer();
         buf.append(begin);
         buf.append(Constants.DB_SELECTION_TASK);
-        super.getNavLinks().add(new Link(buf.toString(), Constants.DB_SELECTION_NAME));
+        super.getNavLinks().add(new LinkBean(buf.toString(), Constants.DB_SELECTION_NAME));
         buf.setLength(0);
         buf.append(begin);
         buf.append(Constants.COMMAND_LIST_TASK);
@@ -57,19 +57,19 @@ public class CommandDetailTask extends BaseTask implements Task, Serializable {
         buf.append(Constants.DB_PARAM);
         buf.append("=");
         buf.append(getDb());
-        super.getNavLinks().add(new Link(buf.toString(), Constants.COMMAND_LIST_NAME));
+        super.getNavLinks().add(new LinkBean(buf.toString(), Constants.COMMAND_LIST_NAME));
         buf.setLength(0);
         buf.append(begin);
         buf.append(Constants.MODIFY_COMMAND_TASK);
-        super.getNavLinks().add(new Link(buf.toString(), "New Command"));
+        super.getNavLinks().add(new LinkBean(buf.toString(), "New Command"));
         buf.setLength(0);
         buf.append(begin);
         buf.append(Constants.MODIFY_QUERY_TASK);
-        super.getNavLinks().add(new Link(buf.toString(), "New Query"));
+        super.getNavLinks().add(new LinkBean(buf.toString(), "New Query"));
         buf.setLength(0);
         buf.append(begin);
         buf.append(Constants.MODIFY_INPUT_TASK);
-        super.getNavLinks().add(new Link(buf.toString(), "New Input"));
+        super.getNavLinks().add(new LinkBean(buf.toString(), "New Input"));
 
     }
 
