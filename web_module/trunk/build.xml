@@ -387,12 +387,12 @@
         </jar>
     </target>
 
-    <target name="package-EJB-RBoardApplication" depends="compile">
+    <target name="package-EJB-RBoard" depends="compile">
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="RBoardApplication"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/rboardapplication"/>
+            <param name="unit-jar-name" value="RBoard"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/rboard"/>
         </antcall>
-        <jar jarfile="${ejb_jars}/RBoardApplication.jar" update="true">
+        <jar jarfile="${ejb_jars}/RBoard.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
         </jar>
