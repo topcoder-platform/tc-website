@@ -70,7 +70,7 @@
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="1" height="30" border="0" /></td>
 					<td class="statText" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 						<img src="/i/clear.gif" alt="" width="240" height="1" border="0" /><br />
-						<!--<p><strong>Your inquiry has been sent. Thank You!</strong></p>-->
+						<p><strong>Your inquiry has been sent. Thank You!</strong></p>
         
     						Thank you <xsl:value-of select="/TC/DEVELOPMENT/handle"/>, for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> component.  You now have access to the
     						<a class="statText">
