@@ -75,7 +75,7 @@ function arena() {
   d.write ( "\<\/SCRIPT\>" );
   d.write ( "</BODY></HTML>" );
 }
-</SCRIPT><A CLASS="bodyText" HREF="Javascript:openWin('/?module=Static&d1=arena&d2=quick_launch','comp',300,225);">
+</SCRIPT><A CLASS="bodyText" HREF="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',300,225);">
 click here to load the arena &gt;&gt;
 </A></P><P>
 Check <A CLASS="bodyText" HREF="http://www.javasoft.com/products/plugin/1.3/troubleshooting.faq.html">www.javasoft.com/products/plugin/1.3/troubleshooting.faq.html</A> for FAQs regarding plug-in installation problems.

@@ -50,7 +50,7 @@ This applet will provide the same interface as an actual contest, and
 give you a chance to code some practice problems.</LI><BR><LI>Code solutions, view other coders' solutions and challenge the solutions of other coders.
 Normally, these are two separate phases of a competition, and of
 course, we would not allow you to view a competitor's code while the
-coding phase is active.</LI><BR><LI>System Test your solutions just as they would be in a Single Round Match.</LI></UL></P><P CLASS="bodyText"><a href="Javascript:openWin('/?module=Static&d1=arena&d2=quick_launch','comp',310,274);">Ready to practice?</A><BR>
+coding phase is active.</LI><BR><LI>System Test your solutions just as they would be in a Single Round Match.</LI></UL></P><P CLASS="bodyText"><a href="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',310,274);">Ready to practice?</A><BR>
 Click the button below to launch the TopCoder High School Competition Arena. To enter the practice
 area once you log in, select "Practice Room" from the "Active Contests"
 menu. <BR><BR>

@@ -137,7 +137,6 @@ A.bolddate:hover { font-family:arial, verdana, helvetica, sans-serif; font-size:
 A.bolddate:active { font-family:arial, verdana, helvetica, sans-serif; font-size:9px; font-weight: bold; color:#CC0000; text-decoration:none }
 
 .ongray { font-family:verdana,arial,helvetica,sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:none }
-  
 A.ongray:link { font-family:verdana,arial,helvetica,sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:none }
 A.ongray:visited { font-family:verdana,arial,helvetica,sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:none }
 A.ongray:hover { font-family:verdana,arial,helvetica,sans-serif; color:#000000; font-size:10px; font-weight:bold; text-decoration:underline }
@@ -207,6 +206,12 @@ A.sidenav:link { font-family:arial, verdana, helvetica, sans-serif; font-size:10
 A.sidenav:visited { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; color:#ffffff; text-decoration:none }
 A.sidenav:hover { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; color:#9999CC; text-decoration:none }
 A.sidenav:active { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; color:#9999CC; text-decoration:none }
+
+.sidenavopen { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; background-color:#000080; color:#ffffff; text-decoration:none }
+A.sidenavopen:link { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; background-color:#000080; color:#FFFFff; text-decoration:none }
+A.sidenavopen:visited { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; background-color:#000080; color:#ffffff; text-decoration:none }
+A.sidenavopen:hover { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; background-color:#000080; color:#9999CC; text-decoration:none }
+A.sidenavopen:active { font-family:arial, verdana, helvetica, sans-serif; font-size:10.5px; font-weight: bold; background-color:#000080; color:#9999CC; text-decoration:none }
 
 .rednav { font-family:arial, verdana, helvetica, sans-serif; font-size:12px; font-weight: bold; color:#ffffff; text-decoration:none }
 .rednavoff { font-family:arial, verdana, helvetica, sans-serif; font-size:12px; font-weight: bold; color:#FFFFff; text-decoration:none }

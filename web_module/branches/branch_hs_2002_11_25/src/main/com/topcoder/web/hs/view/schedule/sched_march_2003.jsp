@@ -44,13 +44,12 @@
                         <!--<IMG SRC="/i/hs/calendar_holder.gif" BORDER="0">-->
                         
                      
-                        
-<BR><P><B>March 2003</B></P><DIV ALIGN="right"><form name="selectform"><select onchange="window.location='/hs/schedule/'+this.options[this.selectedIndex].value" class="dropdown" size="1" name="quickstat">
+<BR><P><B>March 2003</B></P><DIV ALIGN="right"><form name="selectform"><select onchange="window.location='?module=Static&d1=schedule&d2='+this.options[this.selectedIndex].value" class="dropdown" size="1" name="quickstat">
 <OPTION value="SELECTED">&nbsp;Choose Monthly View</OPTION>
-<OPTION VALUE="schedule.jsp">--- 2003 ---</OPTION>
-<OPTION VALUE="sched_march_2003.jsp">&nbsp;March</OPTION>
-<OPTION VALUE="sched_april_2003.jsp">&nbsp;April</OPTION>
-<OPTION VALUE="sched_may_2003.jsp">&nbsp;May</OPTION>
+<OPTION VALUE="schedule">--- 2003 ---</OPTION>
+<OPTION VALUE="sched_march_2003">&nbsp;March</OPTION>
+<OPTION VALUE="sched_april_2003">&nbsp;April</OPTION>
+<OPTION VALUE="sched_may_2003">&nbsp;May</OPTION>
 </select>
 </form></DIV>
 <TABLE CELLPADDING="1" CELLSPACING="0" BORDER="0" WIDTH="100%" BACKGROUND="/i/steel_gray_bg.gif">
