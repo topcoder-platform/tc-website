@@ -822,7 +822,7 @@
                 <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/index.jsp</xsl:attribute>Round Tables</A></td></tr>
 </xsl:template>
 
-<xsl:template name="tc_gear_rowtc_gear_row">
+<xsl:template name="tc_gear_row">
                 <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=store&amp;d2=store_home</xsl:attribute>TopCoder Gear</A></td></tr>
 </xsl:template>
 
