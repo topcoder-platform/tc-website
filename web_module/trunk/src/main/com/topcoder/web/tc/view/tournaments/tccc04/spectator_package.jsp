@@ -47,25 +47,25 @@
                 <h2><img src="/i/tournament/tccc04/spectator_images.jpg" width="285" height="392" border="0" align="right">Join the excitement onsite!</h2>
 
                 <p>Would you like to see the 2004 Collegiate Challenge finals in-person? Would you like to spend two days with 32 other TopCoder members discussing algorithms, games, and everything TopCoder? 
-                TopCoder is now offering a special discounted spectator package for our members.</p>
+                TopCoder is now offering a special spectator package for our members to join us at the most exciting TopCoder tournament yet!</p>
             
                 <p><span class="bodySubtitle">What does the package include?</span><br/>
                 <ul>
-                <li><b>See the action live and in-person -</b> Attendence to all the onsite rounds of competition.</li>
-                <li><b>Learn tricks of the trade from the experts -</b> Attendance at all onsite events (sponsor and member presentations).</li>
-                <li><b>Stay at a great hotel -</b> 2 nights hotel accomodations at the <A href="http://www.bostonparkplaza.com/default.asp?sID=home" target="_blank">Boston Park Plaza Hotel & Towers.</A></li>
-                <li><b>Hang-out and dine with the semifinalists -</b> 2 meals with the competitors and free beverages throughout the competitions.</li>
-                <li><b>Take home TopCoder collectables -</b> T-shirt, program and other TCCC items.</li> 
+                <li><b>Action!</b> See the competition live and in-person. Attendence to all the onsite rounds of competition.</li>
+                <li><b>Knowledge!</b>Learn tricks of the trade from the experts. Attendance at all onsite events (sponsor and member presentations).</li>
+                <li><b>Hotel!</b> Stay at the same great hotel where the competitors are staying. 2 nights hotel accomodations at the <A href="http://www.bostonparkplaza.com/default.asp?sID=home" target="_blank">Boston Park Plaza Hotel & Towers.</A></li>
+                <li><b>Food!</b>Hang-out and dine with the semifinalists. 2 meals with the competitors and free beverages throughout the competitions.</li>
+                <li><b>TopCoder Gear!</b>Take home TopCoder collectables. T-shirt, program and other TCCC items.</li> 
                 </ul>
             
             
                 <p><span class="bodySubtitle">The details:</span><br/>
 
                 <ul>
-                    <li><strong> April 15 & 16, 2004 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</strong></li>
                     <li><strong>Price: $495.00</strong></li>
+                    <li><strong> April 15 & 16, 2004 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</strong></li>
                     <li><strong>Offer valid until 9:00 AM March 22, 2004</strong></li>
-                    <li><strong>Does not include transportation</strong></li>
+                    <li><strong>Note: Package excludes transportation to and from the hotel.</strong></li>
                </ul>
                <p>Sign up for the spectator package. <strong>Buy Now!</strong></p>
                
