@@ -80,17 +80,13 @@
 <% int jobTypeId = Integer.parseInt(summary.getJobTypeId());
 if (jobTypeId == EmailConstants.JOB_TYPE_PREDETAIL) { %>
 
-	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_EDIT%>', '<%=jobID%>');"
-		onMouseOver="window.status='Edit job'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_EDIT%>', '<%=jobID%>');">
 	[edit]
 	</a>
 
 <% } else { %>
 
-	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_VIEW%>', '<%=jobID%>');"
-		onMouseOver="window.status='View job'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_VIEW%>', '<%=jobID%>');">
 	[view]
 	</a>
 
@@ -98,9 +94,7 @@ if (jobTypeId == EmailConstants.JOB_TYPE_PREDETAIL) { %>
 
 	</td>
 	<td class="bodyText">
-	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_SHOW_LOG%>', '<%=jobID%>');"
-		onMouseOver="window.status='Display log'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_SHOW_LOG%>', '<%=jobID%>');">
 	[log]
 	</a>
 	</td>
@@ -108,9 +102,7 @@ if (jobTypeId == EmailConstants.JOB_TYPE_PREDETAIL) { %>
 <%
 if (statusId == EmailConstants.JOB_STATUS_CANCELLED) { %>
 
-	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_RESUME_JOB%>', '<%=jobID%>', '<%=thisPage%>');"
-		onMouseOver="window.status='Resume job'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_RESUME_JOB%>', '<%=jobID%>', '<%=thisPage%>');">
 	[resume]
 	</a>
 
@@ -120,9 +112,7 @@ else if (statusId == EmailConstants.JOB_STATUS_ACTIVE ||
 	statusId == EmailConstants.JOB_STATUS_CREATING ||
 	statusId == EmailConstants.JOB_STATUS_READY) { %>
 
-	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_CANCEL_JOB%>', '<%=jobID%>', '<%=thisPage%>');"
-		onMouseOver="window.status='Cancel job'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_CANCEL_JOB%>', '<%=jobID%>', '<%=thisPage%>');">
 	[cancel]
 	</a>
 

@@ -28,9 +28,7 @@
 <p class="bodyTextBig"><b>Choose a predefined query</b></p>
 <p class="bodyText">
 <email:commandIterator id="idname">
-	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_CHOOSE_COMMAND_INPUTS_ADD%>', '<%=idname.getId()%>');"
-		onMouseOver="window.status='Choose query'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_CHOOSE_COMMAND_INPUTS_ADD%>', '<%=idname.getId()%>');">
 	<%=idname.getName()%></a><br>
 </email:commandIterator>
 </p>

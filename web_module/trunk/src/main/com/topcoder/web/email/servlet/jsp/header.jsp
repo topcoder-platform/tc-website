@@ -16,9 +16,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 	<input type="hidden" name="<%=EmailConstants.TASK%>" value="<%=EmailConstants.HOME_TASK%>">
 </form>
 
-<a href="javascript:document.forms.frmHome.submit();"
-	onMouseOver="window.status='Main menu'; return true;"
-	onMouseOut="window.status=''; return true;">
+<a href="javascript:document.forms.frmHome.submit();">
 <!-- <img src="<%=EmailConstants.JSP_ROOT%>images/logo.jpg" border=0> -->
 <p class="bodyTextBig"><b>TopCoder Email System</b></p>
 </a>

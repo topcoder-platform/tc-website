@@ -43,9 +43,7 @@
 </form>
 <p class="bodyText">
 <email:templateIterator id="idname" group="<%=(String)request.getAttribute(EmailConstants.GROUP)%>">
-	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_CHOOSE_TEST_LIST%>', '<%=idname.getId()%>');"
-		onMouseOver="window.status='Choose template'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_CHOOSE_TEST_LIST%>', '<%=idname.getId()%>');">
 	<%=idname.getName()%></a><br>
 </email:templateIterator>
 </p>

@@ -35,14 +35,10 @@ function formSubmit(step)
 	<jsp:include page="job-body.jsp" />
 	<p class="bodyText">
 
-	<a href="javascript:formSubmit('<%=EmailConstants.SCHEDULEDJOB_CHOOSE_LIST_ADD%>');"
-		onMouseOver="window.status='Choose static address list'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:formSubmit('<%=EmailConstants.SCHEDULEDJOB_CHOOSE_LIST_ADD%>');">
 	[choose static address list]</a>
 	&nbsp;&nbsp;
-	<a href="javascript:formSubmit('<%=EmailConstants.SCHEDULEDJOB_CHOOSE_QUERY_ADD%>');"
-		onMouseOver="window.status='Choose predefined query'; return true;"
-		onMouseOut="window.status=''; return true;">
+	<a href="javascript:formSubmit('<%=EmailConstants.SCHEDULEDJOB_CHOOSE_QUERY_ADD%>');">
 	[choose predefined query]</a>
         </p>
 <!--	<input type="submit" value="next &gt;&gt;"> -->

@@ -16,16 +16,12 @@
 <b>Send test message?</b>
 </p>
 
-<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_CHOOSE_TEST_LIST%>', '');"
-		onMouseOver="window.status='Send test message'; return true;"
-		onMouseOut="window.status=''; return true;">
+<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_CHOOSE_TEST_LIST%>', '');">
 [send test message]</a>
 
 &nbsp;&nbsp;
 
-<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_ADD%>', '');"
-		onMouseOver="window.status='Finish'; return true;"
-		onMouseOut="window.status=''; return true;">
+<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_ADD%>', '');">
 [finish without sending test message]</a>
 
 
