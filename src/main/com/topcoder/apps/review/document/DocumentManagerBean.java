@@ -4304,18 +4304,18 @@ public class DocumentManagerBean implements SessionBean {
                 Common.close(ps);
                 ps = conn.prepareStatement(
                         "SELECT s.author_id, sub.submitter_id," +
-                        "sub.submission_id, sub2.submission_id " +
-                        "FROM scorecard_question sq, " +
-                        "scorecard s, submission sub, " +
-                        "submission sub2 " +
-                        "WHERE sq.cur_version = 1 AND " +
-                        "s.cur_version = 1 AND " +
-                        "sub.cur_version = 1 AND " +
-                        "sub2.cur_version = 1 AND " +
-                        "sq.scorecard_id = s.scorecard_id AND " +
-                        "s.submission_id = sub.submission_id AND " +
-                        "sub2.submitter_id = ? AND " +
-                        "sq.question_id = ?");
+                        "       sub.submission_id, sub2.submission_id " +
+                        "  FROM scorecard_question sq, " +
+                        "       scorecard s, submission sub, " +
+                        "       submission sub2 " +
+                        " WHERE sub2.submitter_id = ? " +
+                        "   AND sub2.cur_version = 1 " +
+                        "   AND sq.question_id = ? " +
+                        "   AND sq.cur_version = 1 " +
+                        "   AND sq.scorecard_id = s.scorecard_id " +
+                        "   AND s.cur_version = 1 " +
+                        "   AND s.submission_id = sub.submission_id " +
+                        "   AND sub.cur_version = 1");
                 ps.setLong(1, requestor.getUserId());
                 ps.setLong(2, qid);
 
