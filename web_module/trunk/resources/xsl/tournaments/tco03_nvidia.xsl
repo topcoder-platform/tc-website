@@ -47,7 +47,7 @@
         <td class="promoText" width="100%">
             <table width="100%" border="0" cellpadding="15" cellspacing="0">
                 <tr>
-                    <td colspan="2" align="center"><A href="http://www.nvidia.edu" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_banner.gif" alt="NVIDA" width="510" height="100" border="0" /></A>
+                    <td colspan="2" align="center"><A href="http://www.nvidia.com/page/home" target="_blank"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_banner.gif" alt="NVIDA" width="510" height="100" border="0" /></A>
                     </td>
                 </tr>
                 <tr>
