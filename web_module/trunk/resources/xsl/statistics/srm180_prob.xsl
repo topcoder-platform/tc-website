@@ -626,7 +626,7 @@ hole change when the grille undergoes a 90-degree rotation.
 </p>
 
 <p align="center">
-<img src="http://plg.uwaterloo.ca/~mlaszlo/topcoder/coords.png" />
+<img src="/i/srm/srm180_1.png" border="0"/>
 </p>
 
 <p>
@@ -747,7 +747,7 @@ out of the computer screen and toward your mouse (if you're right-handed).
 </p>
 
 <p align="center">
-<img src="http://plg.uwaterloo.ca/~mlaszlo/topcoder/sphere.png" />
+<img src="/i/srm/srm180_2.png" border="0"/>
 </p>
 
 <p>
@@ -804,7 +804,7 @@ the earth as a sphere centered at the origin of the coordinate system.
 
 </p>
 <p align="center">
-<img src="http://plg.uwaterloo.ca/~mlaszlo/topcoder/visible.png" />
+<img src="/i/srm/srm180_3.png" border="0"/>
 </p>
 <p>
 The heavy-duty geometric approach is to draw a line through the satellite
@@ -828,7 +828,7 @@ shows why this is true.
 </p>
 <p>
 <center>
-<img src="http://plg.uwaterloo.ca/~mlaszlo/topcoder/triangles.png" />
+<img src="/i/srm/srm180_4.png" border="0"/>
 </center>
 </p>
 <p>
