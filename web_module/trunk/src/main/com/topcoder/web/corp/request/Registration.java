@@ -422,25 +422,19 @@ public final class Registration extends UserEdit {
 
         // additional fields
         // title item for user
-        Contact contactTable = (
-                (ContactHome) ic.lookup("corp:"+ContactHome.EJB_REF_NAME)
-                ).create();
+        Contact contactTable = ((ContactHome) ic.lookup("corp:"+ContactHome.EJB_REF_NAME)).create();
         long companyID = contactTable.getCompanyId(targetUserID);
         title = contactTable.getTitle(targetUserID);
 
         // company item for user
-        Company companyTable = (
-                (CompanyHome) ic.lookup(CompanyHome.EJB_REF_NAME)
-                ).create();
+        Company companyTable = ((CompanyHome) ic.lookup(CompanyHome.EJB_REF_NAME)).create();
         company = companyTable.getName(companyID);
 
         // address item for user
-        UserAddress xrefUserAddr = (
-                (UserAddressHome) ic.lookup("corp:"+UserAddressHome.EJB_REF_NAME)
-                ).create();
+        UserAddress xrefUserAddr = ((UserAddressHome) ic.lookup("corp:"+UserAddressHome.EJB_REF_NAME)).create();
         long addrID = -1;
         // single address per company so address is to be fetched for primary
-        ResultSetContainer rsc = xrefUserAddr.getUserAddresses(secTok.primaryUserID);
+        ResultSetContainer rsc = xrefUserAddr.getUserAddresses(targetUserID);
         try {
             String tmp = rsc.getItem(0, "address_id").getResultData().toString();
             addrID = Long.parseLong(tmp);
