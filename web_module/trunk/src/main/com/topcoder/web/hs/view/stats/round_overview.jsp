@@ -185,9 +185,6 @@ pageContext.setAttribute("resultSetDates", rsc);
   </TR>
 
 
-</TD>
-<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-</TR>
 </TABLE>
          <!-- END BODY -->
 
