@@ -17,9 +17,6 @@ abstract class SimpleRegBase extends RegistrationBase {
     protected String db;
     protected SimpleRegInfo regInfo;
 
-    public SimpleRegBase() {
-    }
-
     protected abstract void registrationProcessing() throws TCWebException;
 
     protected void setDefaults(SimpleRegInfo info) {
@@ -37,6 +34,7 @@ abstract class SimpleRegBase extends RegistrationBase {
         setDefault(Constants.CITY, info.getCity());
         setDefault(Constants.ZIP, info.getZip());
     }
+
     protected SimpleRegInfo makeRegInfo() {
         return new SimpleRegInfo(getRequest());
     }

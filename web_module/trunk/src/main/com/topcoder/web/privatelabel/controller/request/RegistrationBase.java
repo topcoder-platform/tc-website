@@ -1,21 +1,21 @@
 package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.security.Persistor;
 import com.topcoder.security.TCSubject;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import javax.rmi.PortableRemoteObject;
-import javax.transaction.UserTransaction;
 import java.util.Map;
 import java.util.Iterator;
 
@@ -27,22 +27,30 @@ import java.util.Iterator;
 abstract class RegistrationBase extends BaseProcessor {
 
     protected String db;
+    protected SimpleRegInfo regInfo;
+    private Persistor p;
     protected static final TCSubject CREATE_USER = new TCSubject(100000);
 
-    public RegistrationBase() {
+    protected final void businessProcessing() throws TCWebException {
+        p = new SessionPersistor(getRequest().getSession(true));
+        regInfo = (SimpleRegInfo)p.getObject(Constants.REGISTRATION_INFO);
+        if (regInfo==null) {
+            regInfo = makeRegInfo();
+        }
+        db = getCompanyDb(regInfo.getCompanyId());
+        p.setObject(Constants.REGISTRATION_INFO, regInfo);
+        registrationProcessing();
     }
 
-    protected final void businessProcessing() throws TCWebException {
-        SimpleRegInfo regInfo = makeRegInfo();
-        db = getCompanyDb(regInfo.getCompanyId());
-        registrationProcessing();
-        getRequest().setAttribute("registrationInfo", regInfo);
+    protected void clearRegInfo() {
+        regInfo = null;
+        p.removeObject(Constants.REGISTRATION_INFO);
     }
 
     /**
-     * subclasses must implement this method. it should generate
-     * a registration info object which is will likely
-     * need later in processing.
+     * makeRegInfo() will be called before registrationProcessing()
+     * is called in child classes if there isn't already
+     * a regInfo in the persistor(session).
      * @return
      */
     protected abstract SimpleRegInfo makeRegInfo();

@@ -39,8 +39,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
             setNextPage(Constants.SIMPLE_REG_PAGE);
             setDefaults(regInfo);
         } else {
-            //TODO commit to db
             commit(regInfo);
+            clearRegInfo();
             setNextPage(Constants.SIMPLE_REG_SUCCESS_PAGE);
         }
         setIsNextPageInContext(true);
@@ -154,7 +154,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
 
             //create coder
             //TODO
-
 
             return newUser;
         } finally {
