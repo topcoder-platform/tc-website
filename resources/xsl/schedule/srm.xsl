@@ -134,7 +134,7 @@
                                         Chipset family, Intel<sup>&#174;</sup> PRO/Wireless 2100 network connection (Centrino&#153; Mobile Technology)</td>
                                     </tr>
                                 </table>
-                                    <b>For Official Contest Rules on how to win an Intel&#174; Centrino&#153; Mobile Technology-based Tablet PC click <a href="Javascript:openWin('/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=intel&amp;d4=tablet_rules','comp',545,655)">here</a></b><br/><br/>
+                                    <p><b>For Official Contest Rules on how to win an Intel&#174; Centrino&#153; Mobile Technology-based Tablet PC click <a href="Javascript:openWin('/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=intel&amp;d4=tablet_rules','comp',545,655)">here</a></b></p><br/>
                                </xsl:when>
                                 </xsl:choose>
 
