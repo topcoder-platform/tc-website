@@ -18,6 +18,7 @@ import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCResourceBundle;
 
 import javax.naming.Context;
 import javax.servlet.*;
@@ -35,6 +36,9 @@ public final class MainServlet extends HttpServlet {
     private static final int MAX_REPLACEMENTS = 100;
     private static Logger log = Logger.getLogger(MainServlet.class);
 
+    private static TCResourceBundle bundle = null;
+    private static boolean xslCaching = false;
+
 
     public synchronized void init(ServletConfig config) throws ServletException {
         log.debug("SERVLET INIT CALLED");
@@ -42,6 +46,9 @@ public final class MainServlet extends HttpServlet {
             htmlMaker = new HTMLRenderer();
         }
         super.init(config);
+        bundle = new TCResourceBundle("ApplicationServer");
+        xslCaching = new Boolean(bundle.getProperty("XSL_CACHING", "false")).booleanValue();
+        
     }
 
 
@@ -68,19 +75,15 @@ public final class MainServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //==============================================================
-        // REMOVE THIS CACHE REFRESH BLOCK AFTER TESTING COMPLETED...
-        //==============================================================
-/*
-        try {
-            synchronized (this) {
-                htmlMaker.refresh();
+        if (xslCaching) {
+            try {
+                synchronized (this) {
+                    htmlMaker.refresh();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-*/
-        //==============================================================
 
         processCommands(request, response);
     }
