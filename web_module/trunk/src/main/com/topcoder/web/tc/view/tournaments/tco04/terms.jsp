@@ -25,7 +25,7 @@
 			<table width="500" align="center">
 				<tr>
 					<td>
-						<p align="left">To complete your registration for the 2004 TopCoder Collegiate Challenge you must <b>read and agree to</b> the terms listed below.</p>
+						<p align="left">To complete your registration for the 2004 TopCoder Open you must <b>read and agree to</b> the terms listed below.</p>
 
          			<p align="center"><textarea name="terms" rows="20" cols="80" readonly ><%=request.getAttribute("terms")%></textarea></p>
 
