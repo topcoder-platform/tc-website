@@ -97,14 +97,14 @@ function openWin(url, name, w, h) {
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
 
             <tr style="background: #eee;">
-                 <td align="right" width="49%">Personal
+                 <td align="right">Personal
                  </td>
-                <td align="left"width="49%">
+                <td align="left" width="100%">
                     <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                 </td>
             </tr>
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     Handle
                 </td>
                 <td align="left">
@@ -113,7 +113,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     First Name
                 </td>
                 <td align="left">
@@ -122,7 +122,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     Middle Initial
                 </td>
                 <td align="left">
@@ -131,7 +131,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     Last Name
                 </td>
                 <td align="left">
@@ -140,7 +140,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     Password
                 </td>
                 <td align="left">
@@ -149,7 +149,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     Confirm Password
                 </td>
                 <td align="left">
@@ -158,7 +158,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     Email Address
                 </td>
                 <td align="left">
@@ -167,7 +167,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     Confirm Email Address
                 </td>
                 <td align="left">
@@ -176,7 +176,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     Address1
                 </td>
                 <td align="left">
@@ -185,7 +185,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     Address2
                 </td>
                 <td align="left">
@@ -194,7 +194,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     Address3
                 </td>
                 <td align="left">
@@ -203,7 +203,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     City
                 </td>
                 <td align="left">
@@ -212,7 +212,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     State
                 </td>
                 <td align="left">
@@ -221,7 +221,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     Zip Code
                 </td>
                 <td align="left">
@@ -230,7 +230,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     Country
                 </td>
                 <td align="left">
@@ -252,7 +252,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td align="right">
+                <td align="right" nowrap>
                     Student/Professional
                 </td>
                 <td align="left">
@@ -262,7 +262,7 @@ function openWin(url, name, w, h) {
 
             <pl:responseIterator id="resp" list="<%=responseList%>">
                 <tr>
-                    <td align="right">
+                    <td align="right" nowrap>
                         <pl:demographicQuestionText questions="<%=questionMap%>" response="<%=resp%>"/>
                     </td>
                     <td align="left">
