@@ -82,7 +82,7 @@ TopCoder will compensate the member with the winning solution.  Compensation wil
 
 <P>Members will also collect royalties on the revenue generated from the sale of the component.  This amount is determined using the company royalty pool percentage, currently set as 10% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase. </P>
 
-<P><B>Architect</B><BR/>
+<P><B>DESIGNER</B><BR/>
 Total Payment	$150.00<BR/>
 First Payment	$112.50<BR/>
 Second Payment	$37.50<BR/>

@@ -96,7 +96,7 @@ Members will also collect royalties on the revenue generated from the sale of th
 
 
 <P>
-<B>Architect</B>
+<B>DESIGNER</B>
 </P>
 <P>
 Total Payment - $120.00<BR/>
