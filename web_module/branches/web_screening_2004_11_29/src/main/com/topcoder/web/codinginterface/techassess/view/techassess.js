@@ -117,9 +117,9 @@ function getAttrib(root, name, attribute) {
         return eval(root + ".getElementById('" + name + "')." + attribute + ";");
     } else if(eval(root + ".all")) {
         return eval(root + ".all." + name + "." + attribute + ";");
-    } else {
+    } else if (eval(root + "." + name + "." + attribute + ";")) {
         return eval(root + "." + name + "." + attribute + ";");
-    }
+    } else return null;
 }
 
 function doFocus(root, name) {
