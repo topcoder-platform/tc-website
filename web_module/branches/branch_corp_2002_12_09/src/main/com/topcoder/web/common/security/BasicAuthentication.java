@@ -92,7 +92,7 @@ public class BasicAuthentication implements WebAuthentication {
         ret[0] = new Cookie(KEY_LOGON_COOKIE_ID, clear ? "" : ""+userID);
         int expiresIn = clear ? -10*24*60*60 : 10*24*60*60;
         ret[0].setMaxAge(expiresIn);
-
+        ret[0].setPath("/");
         for( int i=0; i<ret.length; ++i ) {
             response.addCookie(ret[i]);
         }

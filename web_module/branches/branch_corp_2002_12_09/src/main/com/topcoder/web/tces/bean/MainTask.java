@@ -112,6 +112,8 @@ public class MainTask extends BaseTask implements Task, Serializable {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_main");
 
+        log.debug("Database Source: "+DBMS.OLTP_DATASOURCE_NAME+" User ID:"+uid);
+
         dataRequest.setProperty("uid", Long.toString(uid) );
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
