@@ -35,14 +35,13 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins --> 
-
-<td CLASS="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+<td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="review_boards"/>  
            <jsp:param name="image1" value="white"/>  
            <jsp:param name="title" value="Competition"/>  
         </jsp:include>
-<table BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
       <tr>
          <td>
             <p align="right" >
@@ -136,10 +135,12 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
- 
-       <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0">
+       <td width="170">
+            <jsp:include page=".../public_right.jsp">
+                <jsp:param name="level1" value="review_board"/>
+                <jsp:param name="level2" value="competition"/> 
+            </jsp:include>
         </td>
-        
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
