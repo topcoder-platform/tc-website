@@ -25,7 +25,6 @@
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
-<%=rsc.size()%>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">

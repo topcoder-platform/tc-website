@@ -15,7 +15,6 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_details"); %>
-<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_results_most_submissions"); %>
 
 </head>
 
@@ -61,17 +60,12 @@
                                 <td class=header colspan=6><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> Results</td>
                             </tr>
                             <tr>
+                                <td class="sidebarTitle" nowrap=nowrap>Component Name</td>
                                 <td class="sidebarTitle" align=center nowrap=nowrap>Handle</td>
-                                <td class="sidebarTitle" align=center>Submissions</td>
-                                <td class="sidebarTitle" align=center>details</td>
+                                <td class="sidebarTitle" align=center>Submit Date</td>
+                                <td class="sidebarTitle" align=center>Points</td>
+                                <td class="sidebarTitle" align=right>Component Prize</td>
                             </tr>
-                            <rsc:iterator list="<%=rsc%>" id="resultRow">
-                            <tr>
-                                <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
-                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item name="num_submissions" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=center><a href="/tc?module=USDCMemberResults&from=1&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />">details</a></td>
-                            </tr>
-                            </rsc:iterator>
                         </table>
                         
                         <br/>
