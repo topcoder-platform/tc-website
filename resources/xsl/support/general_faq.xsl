@@ -60,6 +60,8 @@
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#30" CLASS="bodyText">Who can participate in TopCoder tournaments?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#35" CLASS="bodyText">Why doesn't TopCoder allow citizens of all countries to participate in TopCoder competitions for prize money?</A></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                        
                         <TR><TD><A HREF="#40" CLASS="bodyText">Who are the creators of the "TopCoder" site?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#45" CLASS="bodyText">What technologies have been used to build TopCoder's site and tournament applications?</A></TD></TR>
@@ -147,6 +149,30 @@
                         <TR><TD CLASS="bodyText">Anyone can be a member of TopCoder.  Some tournaments are open to all programmers; others are for specific groups. For instance, the TopCoder 2001 Collegiate Challenge Tournament is targeted very specifically towards residents of the United States who are matriculated full-time at an accredited American college or university. The details of each tournament will outline the elegibility requirements.</TD></TR>
                         <TR><TD CLASS="bodyText" VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
+                        <TR><TD CLASS="bodyText"><A NAME="35"><B>Why doesn't TopCoder allow citizens of all countries to participate in TopCoder competitions for prize money?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">TopCoder is currently permitted to distribute prize money for our
+competitions in the following countries:  Australia, Canada (excluding
+Quebec), India, Ireland, the United Kingdom, and the United States,
+including the U.S. territories of Guam, Puerto Rico, and the U.S. Virgin
+Islands.  In order to include additional countries, TopCoder must first
+perform a thorough review of the gaming laws in each country to
+determine whether our contests would be considered lawful.  This review
+would include an evaluation of whether our contests would be considered
+a lottery, since we award cash prizes.  It is, as we know, a skills
+contest, however we must review the subtle details of the laws to ensure
+our contests comply with each country's laws.  TopCoder engages a local
+law firm in each country to perform the review, and they report to us
+their findings and opinion as to whether our contests comply with local
+laws.  Their report also includes an affidavit that contest winners must
+execute, as the language in the affidavits varies by country.
+<BR/><BR/>
+TopCoder evaluates the opportunities to open up our competitions to
+other countries based on the representation in our member base.  We must
+also consider language barriers in non-English speaking countries as a
+possible hindrance to performing this process efficiently and
+cost-effectively.</TD></TR>
+                        <TR><TD CLASS="bodyText" VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                        
                         <TR><TD CLASS="bodyText"><A NAME="40"><B>Who are the creators of the "TopCoder" site?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">Jack Hughes, a fellow programmer, came up with the idea for TopCoder. You can get his perspective as well as more About TopCoder if you <A HREF="/?t=about_tc&amp;c=index" CLASS="bodyText">click here</A>. As for what TopCoder is to become, that is in part up to you. We are asking for input from the developer community in order to make this site the best it can be. <A HREF="/?t=contacts&amp;c=index" CLASS="bodyText">Contact us</A> with any suggestions you may have. If you're a member, you can also introduce your ideas in one of our <A TARGET="_top" HREF="/rtables/index.jsp" CLASS="bodyText">roundtable discussions</A>.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
