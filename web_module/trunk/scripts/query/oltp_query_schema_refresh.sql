@@ -14,6 +14,13 @@ INSERT INTO command VALUES(34,'school_membership',1);
 INSERT INTO command VALUES(35,'Competition Results',1);
 INSERT INTO command VALUES(36,'TopCoder News and Events',1);
 INSERT INTO command VALUES(37,'Prize Winner',1);
+INSERT INTO command VALUES(38,'pro_interest_graph',1);
+INSERT INTO command VALUES(39,'student_interest_graph',1);
+INSERT INTO command VALUES(40,'pro_industry_graph',1);
+INSERT INTO command VALUES(41,'pro_title_graph',1);
+INSERT INTO command VALUES(42,'pro_area_interest_graph',1);
+INSERT INTO command VALUES(43,'student_referral_graph',1);
+INSERT INTO command VALUES(44,'pro_referral_graph',1);
 
 INSERT INTO data_type VALUES (1001,'Integer Input');
 INSERT INTO data_type VALUES (1002,'Decimal Input');
@@ -34,6 +41,13 @@ INSERT INTO command_query_xref VALUES(34,63,1);
 INSERT INTO command_query_xref VALUES(35,61,1);
 INSERT INTO command_query_xref VALUES(36,62,1);
 INSERT INTO command_query_xref VALUES(37,64,1);
+INSERT INTO command_query_xref VALUES(38,65,1);
+INSERT INTO command_query_xref VALUES(39,65,1);
+INSERT INTO command_query_xref VALUES(40,65,1);
+INSERT INTO command_query_xref VALUES(41,65,1);
+INSERT INTO command_query_xref VALUES(42,65,1);
+INSERT INTO command_query_xref VALUES(43,66,1);
+INSERT INTO command_query_xref VALUES(44,66,1);
 
 
 INSERT INTO input_lu VALUES(3,"cr",1001,"Coder ID");
@@ -48,6 +62,8 @@ INSERT INTO input_lu VALUES(23, "rd", 1001, "Round ID");
 INSERT INTO input_lu VALUES(7, "nr", 1001, "Number of records");
 INSERT INTO input_lu VALUES(8, "sr", 1001, "Start rank");
 INSERT INTO input_lu VALUES(9, "er", 1001, "End rank");
+INSERT INTO input_lu VALUES(24, "ct", 1001, "Coder Type Id");
+INSERT INTO input_lu VALUES(25, "dq", 1001, "Demographic Question Id");
 
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(50,"N",null,18,1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(52,"N",null,5,1);
@@ -62,4 +78,7 @@ INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(60,'N',null,22,1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(60,'N',null,3,2);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(64,'N',null,23,1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(65,'N',null,24,1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(65,'N',null,25,1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(66,'N',null,24,1);
 

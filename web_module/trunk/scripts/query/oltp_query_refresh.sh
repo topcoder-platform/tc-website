@@ -186,3 +186,54 @@ WHERE
   AND rr.room_id = rm.room_id
 "
 
+java com.topcoder.utilities.QueryLoader "OLTP" 65 "Demographic_Graph" 0 0 "
+SELECT demographic_answer_text as answer
+       ,sort as sort
+       ,COUNT(*) as count
+  FROM coder c
+       ,user u
+       ,rating cr
+       ,demographic_response dr
+       ,demographic_answer da
+ WHERE c.coder_type_id = @ct@
+   AND dr.demographic_question_id = @dq@
+   AND c.coder_id = dr.coder_id
+   AND c.coder_id = cr.coder_id
+   AND u.user_id = c.coder_id 
+   AND u.handle not like 'guest%'
+   AND u.status = 'A'
+   AND u.email not like '%topcoder.com%'
+   AND dr.demographic_answer_id = da.demographic_answer_id
+   AND NOT EXISTS
+       (SELECT *
+          FROM group_user gu
+         WHERE gu.user_id = c.coder_id
+           AND gu.group_id = 13)
+GROUP BY demographic_answer_text, sort
+ORDER BY sort
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 66 "Referral_Graph" 0 0 "
+SELECT r.referral_desc as referral_type
+       ,COUNT(*) as count
+  FROM coder c
+       ,user u
+       ,referral r
+       ,coder_referral cr
+ WHERE c.coder_type_id = @ct@
+   AND c.coder_id = cr.coder_id
+   AND c.coder_id = cr.coder_id
+   AND u.user_id = c.coder_id 
+   AND u.handle not like 'guest%'
+   AND u.status = 'A'
+   AND u.email not like '%topcoder.com%'
+   AND r.referral_id = cr.referral_id
+   AND NOT EXISTS
+       (SELECT *
+          FROM group_user gu
+         WHERE gu.user_id = c.coder_id
+           AND gu.group_id = 13)
+GROUP BY r.referral_desc
+"
+
+
