@@ -3,9 +3,11 @@ package com.topcoder.web.tc.controller.request.report;
 import com.topcoder.web.common.*;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
+import com.topcoder.web.ejb.user.User;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
 
 /**
  * User: dok
@@ -30,6 +32,8 @@ public class ViewNotes extends Base {
 
                 DataAccessInt dai = getDataAccess();
                 getRequest().setAttribute("note_list", dai.getData(r).get("note_list"));
+                User user = (User)createEJB(getInitialContext(), User.class);
+                getRequest().setAttribute("handle", user.getHandle(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));
 
                 setNextPage(Constants.NOTE_LIST);
                 setIsNextPageInContext(true);
