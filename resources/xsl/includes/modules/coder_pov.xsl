@@ -25,7 +25,7 @@
                         <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
                         By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
-                        <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
+                        <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> 
 
                     </td>
                     
