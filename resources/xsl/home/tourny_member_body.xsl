@@ -681,8 +681,8 @@ problems, as two of the problems were shared across divisions...<A CLASS="bodyGe
             </TABLE><BR/>
 <!-- <A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
 <IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A> -->           
-<A HREF="/stat?c=member_profile&amp;cr=294543">
-<IMG SRC="/i/codermonth_oct.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>
+<A HREF="/stat?c=member_profile&amp;cr=302185">
+<IMG SRC="/i/codermonth_nov.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>
     </TD>
 <!-- Body Area Ends -->
   </TR>   
