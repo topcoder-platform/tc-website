@@ -7,8 +7,6 @@
 <!-- Home Page begins -->
     <% if ((level1.equals("index"))) { %>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
-                <A href="/images/movies/DaveOBrien.mov"><img src="/images/promos/DaveObrienMov.jpg" alt="" border="0"></A><br>
-                <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <img src="/images/headFeaturedClients.gif" width="170" height="29" alt="Featured Clients" border="0"><br>
                 <img src="/images/rodale_promo.gif" width="170" height="160" alt="Rodale" border="0"><br>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>

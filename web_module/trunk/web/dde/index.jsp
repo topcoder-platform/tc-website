@@ -102,6 +102,7 @@
 
 <!-- Right Column begins -->
         <td width="170">
+        <jsp:include page="/includes/topDownloads.jsp" />
         <jsp:include page="/includes/right.jsp" >
             <jsp:param name="level1" value="index"/>
         </jsp:include>
