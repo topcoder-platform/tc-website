@@ -59,14 +59,27 @@
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
                             <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Amazon.com Jobs</b></td></tr>
+                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=amazon_openings&amp;a=secure" class="bodyText">Jobs</A></td></tr>
                         </table>
 
 <!-- Client Job List begins -->
-                        <p><a href="/?&amp;t=tces&amp;c=amazon" class="bodyText"><img src="/i/es/amazon/amazon_logo.gif" width="139" height="34" alt="Amazon.com" border="0" /></a></p>
+                        <p><A href="/?&amp;t=tces&amp;c=amazon" class="bodyText"><img src="/i/es/amazon/amazon_logo.gif" width="139" height="34" alt="Amazon.com" border="0" /></A></p>
 
-                        <p><a href="/?&amp;t=tces&amp;c=amazon_sen_soft_dev_eng&amp;a=secure" class="bodyText">Senior Software Development Engineer - Personalized Merchandising</a></p>
+                        <h3>Software Development Engineer - Automated Advertising</h3>
+
+                        <p>Amazon.com's Automated Advertising team is building the Internet's largest-scale fully automated advertising system.  Our 
+                        systems and algorithms automatically generate, target, measure, and optimize tens of millions of individual advertisements.  We 
+                        work with an astounding variety of technologies, ranging from web services to information retrieval, from object workflow to 
+                        natural language processing, from statistical analysis to relational databases.</p>
+
+                        <p>The ideal candidate for our team is a thinker and a doer: someone who loves sophisticated algorithms and mathematical 
+                        precision, enjoys implementing real systems, and is motivated by the prospect of spectacular business returns.  Proficiency 
+                        in C is required, and the ideal candidate is an expert in at least one language (such C, C++, Java, or Perl).  A BS in computer 
+                        science (or equivalent experience) is required; graduate degrees, experience building high-availability or large-scale systems, 
+                        and knowledge of advanced algorithms and data structures are significant plusses.</p>
+
                         
-                        <p><a href="/?&amp;t=tces&amp;c=amazon_soft_dev_eng&amp;a=secure" class="bodyText">Software Development Engineer - Automated Advertising</a></p>
+                        <p align="center"><a href="/jobposting?&amp;t=JobHitTask&amp;jid=130&amp;jt=2" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=amazon_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
 
 <!-- Client Job List ends -->
 

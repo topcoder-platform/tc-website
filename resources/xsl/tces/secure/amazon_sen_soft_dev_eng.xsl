@@ -59,14 +59,39 @@
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
                             <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Amazon.com Jobs</b></td></tr>
+                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=amazon_openings&amp;a=secure" class="bodyText">Jobs</A></td></tr>
                         </table>
 
 <!-- Client Job List begins -->
-                        <p><a href="/?&amp;t=tces&amp;c=amazon" class="bodyText"><img src="/i/es/amazon/amazon_logo.gif" width="139" height="34" alt="Amazon.com" border="0" /></a></p>
+                        <p><A href="/?&amp;t=tces&amp;c=amazon" class="bodyText"><img src="/i/es/amazon/amazon_logo.gif" width="139" height="34" alt="Amazon.com" border="0" /></A></p>
 
-                        <p><a href="/?&amp;t=tces&amp;c=amazon_sen_soft_dev_eng&amp;a=secure" class="bodyText">Senior Software Development Engineer - Personalized Merchandising</a></p>
+                        <h3>Senior Software Development Engineer - Personalized Merchandising</h3>
+                      
+                        <p>When was the last time you walked into a store where the clerk greeted you at the door with an item selected just for you?</p>
+ 
+                        <p>In the world of online commerce we can accomplish the seemingly impossible - building a store for every customer, picking 
+                        perfect items from a universe of millions, all in the blink of an eye, thousands of times each second. Work with the best 
+                        personalization technology on the planet - work at Amazon.com:</p>
                         
-                        <p><a href="/?&amp;t=tces&amp;c=amazon_soft_dev_eng&amp;a=secure" class="bodyText">Software Development Engineer - Automated Advertising</a></p>
+                        <ul>
+                        <li>Build massive scale recommendation systems</li>
+                        <li>Conceive of creative new ways to connect people with things they didn't even know they wanted</li>
+                        <li>Design mechanisms customers can use to make the website *their* website</li>
+                        <li>Help define the business direction of the team.  Life isn't all code, after all.</li>
+                        </ul>
+                        
+                        <p>Do something real, something that matters. Have your work used by millions of people every day. With the largest laboratory 
+                        in internet space, we offer immediate gratification as part of our benefit package.</p>
+  
+                        <p>We are looking for people who love to write code to solve real problems, love to see their solutions in use, and thrive in a 
+                        small cross functional team. If you are an expert in object-oriented techniques, if you have delivered truly scalable and reliable 
+                        solutions which meet the highest performance bar, and if you have designed and built complex distributed systems in C++ on UNIX, 
+                        we want to talk to you.  We look for candidates who are good communicators, flexible, hard working, smart, and have at least five 
+                        years of professional C++ experience. Customer focus, an interest in business, experience in system architecture or AI would 
+                        be nice pluses. Oh, and a degree in computer science, math, or even something more esoteric.</p>
+
+                        
+                        <p align="center"><a href=" /jobposting?&amp;t=JobHitTask&amp;jid=129&amp;jt=2" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=amazon_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
 
 <!-- Client Job List ends -->
 
