@@ -518,8 +518,8 @@ public class StudentRegistration extends Base {
       Context ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
                                        ApplicationServer.SECURITY_HOST);
 
-      utx_common=(UserTransaction)ctx.lookup("java:comp/UserTransaction");
-      utx_common.begin();
+      /*utx_common=(UserTransaction)ctx.lookup("java:comp/UserTransaction");
+      utx_common.begin();*/
 
       PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
                                 ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
@@ -578,7 +578,7 @@ public class StudentRegistration extends Base {
 
       /*utx.commit();*/
 
-      utx_common.commit();
+      /*utx_common.commit();*/
       utx_tchs.commit();
     }
     catch (Exception _e) {
