@@ -108,9 +108,8 @@
                         </TR>
 
 
-                        <% i=0; %>
+                        <% boolean odd = true;; %>
                         <tces:mapIterator id="resp" MapList="<%=StudentResponsesList%>">
-                        <% i++; %>
                             <TR>
                               <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("title")%>
@@ -120,8 +119,9 @@
                               </TD>
                               <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("count")%>
-                              </TD>                  
-                            </TR>                     
+                              </TD>
+                            </TR>
+                            <% odd = !odd; %>
                         </tces:mapIterator>
 
                         <%            
@@ -195,9 +195,8 @@
                           <TD class="testFormHeader" COLSPAN="3"><B><%=question%></B></TD>
                         </TR>                
 
-                        <% i=0; %>
+                        <% boolean odd = true; %>
                         <tces:mapIterator id="resp" MapList="<%=ProResponsesList%>">
-                        <% i++; %>
                             <TR>
                               <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("title")%>
@@ -207,8 +206,9 @@
                               </TD>
                               <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("count")%>
-                              </TD>                  
-                            </TR>                     
+                              </TD>
+                            </TR>
+                        <% odd = !odd; %>
                         </tces:mapIterator>
 
                         <%            
