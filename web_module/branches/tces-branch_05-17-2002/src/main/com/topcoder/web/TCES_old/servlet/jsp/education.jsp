@@ -46,6 +46,52 @@
 							User is <%= user %><BR>
 							<%= user.getHandle() %> (<%= user.getUserId() %>)
 							<BR><BR>
+<!--trj insert 0611 2200 -->
+
+<%@ page import="javax.ejb.*,javax.naming.*,javax.rmi.*,com.topcoder.web.TCES.ejb.*,java.rmi.*,java.util.*" %>
+
+
+
+<%!
+	private ProfileSkillXref	xrefBean = null;
+	private Skill			skillBean = null;
+
+	public void jspInit() {
+		try {
+			InitialContext	context = new InitialContext();
+			Object	obj = context.lookup( "java:comp/env/ejb/ProfileSkillXref" );
+			ProfileSkillXrefHome	xrefHome = (ProfileSkillXrefHome)
+			  PortableRemoteObject.narrow( obj, ProfileSkillXrefHome.class );
+			xrefBean = xrefHome.create();
+			obj = context.lookup( "java:comp/env/ejb/Skill" );
+			SkillHome	skillHome = (SkillHome) PortableRemoteObject.narrow( obj, SkillHome.class );
+			skillBean = skillHome.create();
+		}
+		catch( Exception e ) {
+			e.printStackTrace();
+		}
+	}
+
+	public void jspDestroy() {
+		xrefBean = null;
+		skillBean = null;
+	}
+%>
+
+<%
+
+
+
+
+
+
+
+%>
+
+
+
+<!--trj end insert -->
+
 		    		</TD>
 		    		<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 			  	</TR>
