@@ -30,32 +30,37 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-         <td class="bodyText" WIDTH="100%">
-
-        <h2>Help</h2>
+        <td width="100%" align="left" class="bodyText">
+        <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
+        <jsp:include page="../body_top.jsp" >
+           <jsp:param name="image" value="help"/>  
+           <jsp:param name="image1" value="white"/>  
+           <jsp:param name="title" value="Algorithm Competitions"/>  
+        </jsp:include>
 
         <p><span class="bodySubtitle">Getting Started</span><br/>
-            <span class="outline1">1. <a href="/">What is the TopCoder Arena?</a></span><br/>
+            <span class="outline1">1. <a href="">What is the TopCoder Arena?</a></span><br/>
             <span class="outline1">2. <a href="/">How to Run the TopCoder Arena</a></span><br/>
                 <span class="outline2">2.1. <a href="/">What software will you need to install?</a></span><br/>
                 <span class="outline2">2.2. <a href="/">Run the TopCoder Arena as an Applet or using Java Web Start</a></span><br/>
                 <span class="outline2">2.3. <a href="/">Local Firewall and Network Considerations</a></span><br/>
                 <span class="outline2">2.4. <a href="/">HTTP Tunneling</a></span></p>
 
-        <p><span class="bodySubtitle">General TopCoder Arena Usage</a></span><br/>
-            <span class="outline1">1. <a href="/">General Arena Usage</a></span><br/>
-            <span class="outline1">2. <a href="/">Chatting / Asking Questions</a></span><br/>
-                <span class="outline2">2.1. <a href="/">General Chat</a></span><br/>
-                <span class="outline2">2.2. <a href="/">ReplyTo</a></span><br/>
-                <span class="outline2">2.3. <a href="/">Whisper</a></span><br/>
-                <span class="outline2">2.4. <a href="/">Admin</a></span><br/>
-                <span class="outline2">2.5. <a href="/">Auto-Enhanced Chat</a></span><br/>
-                <span class="outline2">2.6. <a href="/">Emoting</a></span><br/>
-            <span class="outline1">3. <a href="/">Getting Information about another Coder</a></span><br/>
-            <span class="outline1">4. <a href="/">Finding another Coder</a></span><br/>
-            <span class="outline1">5. <a href="/">Moving Around</a></span><br/>
-            <span class="outline1">6. <a href="/">The Leader Board</a></span><br/>
-            <span class="outline1">7. <a href="/">Messages</a></span></p>
+        <p><span class="bodySubtitle">General TopCoder Arena Usage</span><br/>
+            <span class="outline1">1. <a href="/tc?module=Static&d1=help&d2=gen_usage#gen_usage">General Arena Usage</a></span><br/>
+            <span class="outline1">2. <a href="/tc?module=Static&d1=help&d2=gen_usage#chatting">Chatting / Asking Questions</a></span><br/>
+                <span class="outline2">2.1. <a href="/tc?module=Static&d1=help&d2=gen_usage#gen_chat">General Chat</a></span><br/>
+                <span class="outline2">2.2. <a href="/tc?module=Static&d1=help&d2=gen_usage#replyto">ReplyTo</a></span><br/>
+                <span class="outline2">2.3. <a href="/tc?module=Static&d1=help&d2=gen_usage#whisper">Whisper</a></span><br/>
+                <span class="outline2">2.4. <a href="/tc?module=Static&d1=help&d2=gen_usage#admin">Admin</a></span><br/>
+                <span class="outline2">2.5. <a href="/tc?module=Static&d1=help&d2=gen_usage#enhanced">Auto-Enhanced Chat</a></span><br/>
+                <span class="outline2">2.6. <a href="/tc?module=Static&d1=help&d2=gen_usage#emoting">Emoting</a></span><br/>
+            <span class="outline1">3. <a href="/tc?module=Static&d1=help&d2=gen_usage#other_members">Other Members in the Arena</a></span><br/>
+                <span class="outline2">3.1 <a href="/tc?module=Static&d1=help&d2=gen_usage#member_info">Getting Information about another Coder</a></span><br/>
+                <span class="outline2">3.2 <a href="/tc?module=Static&d1=help&d2=gen_usage#member_find">Finding another Coder</a></span><br/>
+                <span class="outline2">3.3 <a href="/tc?module=Static&d1=help&d2=gen_usage#moving">Moving Around</a></span><br/>
+                <span class="outline2">3.4 <a href="/tc?module=Static&d1=help&d2=gen_usage#leader_board">The Leader Board</a></span><br/>
+            <span class="outline1">4. <a href="/tc?module=Static&d1=help&d2=gen_usage#messages">Messages</a></span><br/>
 
         <p><span class="bodySubtitle">Practicing / Training in the TopCoder Arena</a></span><br/>
             <span class="outline1">1. <a href="/">The Practice Rooms</a></span><br/>
@@ -105,6 +110,10 @@
             <span class="outline1">9. <a href="/">Rating Changes</a></span><br/>
             <span class="outline1">10. <a href="/">Web Site Statistics</a></span><br/>
             <span class="outline1">11. <a href="/">Problems in the Practice Rooms</a></span></p>
+            <span class="outline1">12. <a href="/">What if You Do Not Agree with the Results?</a></span></p>
+            <span class="outline1">13. <a href="/">Cheating at TopCoder</a></span></p>
+            <span class="outline1">14. <a href="/">Using Pre-Written Code</a></span></p>
+            
 
          <p><br/></p>
          </td>
