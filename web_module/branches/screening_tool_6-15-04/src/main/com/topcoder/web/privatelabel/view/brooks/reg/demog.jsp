@@ -66,7 +66,7 @@
                             </tr>
                            <tr>
                                 <td class="brRegTableQuestion">
-                                    <span class="brErrorText">*</span> Resume
+                                    Resume
                                 </td>
                                 <td class="brRegTableAnswer">
                                     <input type=file name="Resume">
