@@ -267,7 +267,7 @@ public class ShowDeliverableTag extends BaseTag {
                         finalReview = documentManager.getFinalReview(project, false, new TCSubject(155846));
 
                         if (finalReview.getId() >= 0) isFinalFixAvailable = true;
-                        log(Level.INFO, "finalReview.getId()="+finalReview.getId() ); // qq
+                        //log(Level.INFO, "finalReview.getId()="+finalReview.getId() ); // qq
 
                 } catch (Exception e) {
 //log(Level.INFO, "Exception" ); // qq
