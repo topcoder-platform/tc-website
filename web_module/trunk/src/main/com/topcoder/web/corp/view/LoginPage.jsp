@@ -3,8 +3,10 @@
          buffer="64kb"
          errorPage="exc/InternalError.jsp"
          import="com.topcoder.web.corp.request.Login,
+                 com.topcoder.web.corp.model.SessionInfo,
                  com.topcoder.web.corp.Constants" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:usebean id="SessionInfo" class="com.topcoder.web.corp.model.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -54,7 +56,11 @@
 
 
                         <p><%= message %></p>
-                        <p><b>New to TopCoder? Click <a href="/?module=Registration">here</a> to register now.</b></p>
+                        <% if (!SessionInfo.isGuest()) { %>
+                          <p>If you are not <%=SessionInfo.getHandle()%>, click <a href="/?module=Logout&<%=Login.KEY_DESTINATION_PAGE%>=/?<%=request.getQueryString()%>">here</a>.
+                        <% } else { %>
+                            <p>New to TopCoder? Click <a href="/?module=Registration"><b>here</b></a> to register now.</p>
+                        <% } %>
 
                     </td>
                 </tr>
