@@ -61,6 +61,8 @@ public final class EditProjectAction extends ReviewAction {
 
 // qq coment
 if (Constants.ACTION_STORE.equals(action) || Constants.ACTION_CANCEL.equals(action)) {
+     log(Level.INFO, "QQ HERE");
+    ((ProjectForm) form).setAction(Constants.ACTION_EDIT);
     return new SuccessResult();
 }
 
