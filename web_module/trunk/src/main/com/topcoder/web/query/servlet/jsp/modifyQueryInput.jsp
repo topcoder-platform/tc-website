@@ -66,7 +66,7 @@
                         <input type="text" name="<%=Constants.SORT_ORDER_PARAM+queryInput.getInputId()%>" value ="<jsp:getProperty name="queryInput" property="SortOrder"/>" size="3" maxlength="3"/>
                       </TD>
                       <TD CLASS="statTextBig">
-                        <input type="checkbox" name="<%=Constants.OPTIONAL_PARAM+queryInput.getInputId()%>" class="bodyText" <%=queryInput.isOptional()?"checked=\"true\"":"checked=\"false\""%>/>
+                        <input type="checkbox" name="<%=Constants.OPTIONAL_PARAM+queryInput.getInputId()%>" class="bodyText" <%=queryInput.isOptional()?"checked":""%>/>
                       <TD CLASS="statTextBig">
                         <input type="text" name="<%=Constants.DEFAULT_VALUE_PARAM+queryInput.getInputId()%>" value ="<jsp:getProperty name="queryInput" property="DefaultValue"/>" size="30" maxlength="100"/>
                       </TD>
