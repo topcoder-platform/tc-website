@@ -466,7 +466,7 @@
                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=jobs</xsl:attribute>Working at TopCoder</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=about&amp;d2=jobs</xsl:attribute>Working at TopCoder</A>
                     </td>
                 </tr>
 
