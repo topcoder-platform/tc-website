@@ -1,7 +1,6 @@
 package com.topcoder.web.corp.request;
 
 import java.rmi.RemoteException;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -17,7 +16,6 @@ import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -481,7 +479,7 @@ public class Registration extends BaseProcessor {
      */
     private boolean checkUsernameValidity() {
         boolean success;
-        //as usually check against char set 
+        //as usually check against alphabet 
         success = checkItemValidity(KEY_LOGIN, userName, 
             StringUtils.ALPHABET_ALPHA_EN, true, 1,
             "Handle entered must consist of alpha numeric symbols"
@@ -490,13 +488,10 @@ public class Registration extends BaseProcessor {
             return false;
         }
         // and additionally check against DB - not implemented for now
-        InitialContext ic = null;
         boolean techProblems = false;
         try {
-            ic = new InitialContext(Constants.SECURITY_CONTEXT_ENVIRONMENT);
-            PrincipalMgrRemoteHome rh = (PrincipalMgrRemoteHome)
-                ic.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-            PrincipalMgrRemote mgr = rh.create();
+            PrincipalMgrRemote mgr = Util.getPrincipalManager();
+            
             try {
                 success = false;
                 UserPrincipal user = mgr.getUser(userName);
@@ -531,7 +526,7 @@ public class Registration extends BaseProcessor {
             gse.printStackTrace();
         }
         finally {
-            Util.closeIC(ic);
+//            Util.closeIC(ic);
             if( techProblems ) {
                 markFormFieldAsInvalid(
                     KEY_LOGIN,
@@ -540,7 +535,7 @@ public class Registration extends BaseProcessor {
                 return false;
             }
         }
-        return true;
+        return success;
     }
 
     /**
