@@ -190,6 +190,10 @@ is slated to be the most exciting onsite event yet.  Join me as the scene unfold
 <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
+               <P> <B>UPDATE: Final Round of the 2002 TopCoder Invitational will be re-run at 3:00 PM EST</B></P>
+
+<P>In the interest of maintaining the highest possible level of integrity, TopCoder will be re-running the final round of the Invitational tournament due to a problem with examples in the Level 3 problem statement.  The rescheduled round will be available to watch in the TopCoder competition arena.</P>
+<BR/>
         <xsl:attribute name="HREF">/stat?&amp;c=round_stats&amp;rd=4373</xsl:attribute><B>The 2002 TopCoder Invitational: Room 4</B></A><BR/>
 Friday, November 22, 2002<BR/><BR/>
 
