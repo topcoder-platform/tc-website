@@ -54,7 +54,7 @@
 </jsp:include>
 
             <p class="terciary">
-                <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=comp_final">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;Photos&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=comp_final_analysis">Problem Analysis</a>
+                <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=comp_final">Summary</a>&nbsp;&nbsp;|&nbsp;&nbsp;Photos
             </p>
             
             <h2>Component Final Photos</h2>
