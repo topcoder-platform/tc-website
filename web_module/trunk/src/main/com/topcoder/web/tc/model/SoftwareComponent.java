@@ -108,13 +108,26 @@ public class SoftwareComponent {
      * @return
      */
     private float getPrimaryDevReviewCost() {
+        debug("screeningCost " + getScreeningPrimaryDevReviewCost());
+        debug("aggregationCost " + getAggregationPrimaryDevReviewCost());
+        debug("finalReviewCost " + getFinalPrimaryDevReviewCost());
+        return getScreeningPrimaryDevReviewCost() + getAggregationPrimaryDevReviewCost() +
+                getFinalPrimaryDevReviewCost() + getCoreDevReviewCost();
+    }
+
+    private float getScreeningPrimaryDevReviewCost() {
         float screeningCost = (1f / 3f) * (float)submissionCount * DEV_REVIEW_RATE;  //20 minutes per submission
+        return screeningCost;
+    }
+
+    private float getAggregationPrimaryDevReviewCost() {
         float aggregationCost = (1f / 3f) * DEV_REVIEW_RATE;  //20 minutes to aggregate
+        return aggregationCost;
+    }
+
+    private float getFinalPrimaryDevReviewCost() {
         float finalReviewCost = (3f / 4f) * DEV_REVIEW_RATE;  //45 minutes to do final review
-        debug("screeningCost " + screeningCost);
-        debug("aggregationCost " + aggregationCost);
-        debug("finalReviewCost " + finalReviewCost);
-        return screeningCost + aggregationCost + finalReviewCost + getCoreDevReviewCost();
+        return finalReviewCost;
     }
 
     /**
@@ -161,14 +174,28 @@ public class SoftwareComponent {
      * @return
      */
     private float getPrimaryDesignReviewCost() {
-        float screeningCost = (1f / 3f) * (float)submissionCount * DESIGN_REVIEW_RATE;  //40 minutes per submission
-        float aggregationCost = (1f / 3f) * DESIGN_REVIEW_RATE;  //20 minutes to aggregate
-        float finalReviewCost = (1f / 2f) * DESIGN_REVIEW_RATE;  //30 minutes to do final review
-        debug("screeningCost " + screeningCost);
-        debug("aggregationCost " + aggregationCost);
-        debug("finalReviewCost " + finalReviewCost);
-        return screeningCost + aggregationCost + finalReviewCost + getCoreDesignReviewCost();
+        debug("screeningCost " + getScreeningPrimaryDesignReviewCost());
+        debug("aggregationCost " + getAggregationPrimaryDesignReviewCost());
+        debug("finalReviewCost " + getFinalPrimaryDesignReviewCost());
+        return getScreeningPrimaryDesignReviewCost() + getAggregationPrimaryDesignReviewCost() +
+                getFinalPrimaryDesignReviewCost() + getCoreDesignReviewCost();
     }
+
+    private float getScreeningPrimaryDesignReviewCost() {
+        float screeningCost = (1f / 3f) * (float)submissionCount * DESIGN_REVIEW_RATE;  //40 minutes per submission
+        return screeningCost;
+    }
+
+    private float getAggregationPrimaryDesignReviewCost() {
+        float aggregationCost = (1f / 3f) * DESIGN_REVIEW_RATE;  //20 minutes to aggregate
+        return aggregationCost;
+    }
+
+    private float getFinalPrimaryDesignReviewCost() {
+        float finalReviewCost = (1f / 2f) * DESIGN_REVIEW_RATE;  //30 minutes to do final review
+        return finalReviewCost;
+    }
+
 
     /**
      * Return the base design review cost, this is a number that both
@@ -208,12 +235,28 @@ public class SoftwareComponent {
                 System.out.println("     Dev Review Cost:        |      " + sc.getReviewCost());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("  Dev Primary Review Cost    |      " + sc.getPrimaryReviewCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("  Dev Primary Screen Cost    |      " + sc.getScreeningPrimaryDevReviewCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("    Dev Primary Agg Cost     |      " + sc.getAggregationPrimaryDevReviewCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println(" Dev Primary Final Rev Cost  |      " + sc.getFinalPrimaryDevReviewCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("     Dev Core Review Cost    |      " + sc.getCoreDevReviewCost());
             } else if (sc.phaseId==DESIGN_PHASE) {
                 System.out.println("      Design Cost:           |      " + sc.getCost());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("   Design Review Cost:       |      " + sc.getReviewCost());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println(" Design Primary Review Cost: |      " + sc.getPrimaryReviewCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("  Design Primary Screen Cost |      " + sc.getScreeningPrimaryDesignReviewCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("    Design Primary Agg Cost  |      " + sc.getAggregationPrimaryDesignReviewCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("Design Primary Final Rev Cost|      " + sc.getFinalPrimaryDesignReviewCost());
+                System.out.println("-----------------------------+-------------------------------");
+                System.out.println("   Design Core Review Cost   |      " + sc.getCoreDesignReviewCost());
             } else {
                 System.out.println("INVALID PHASE");
             }
