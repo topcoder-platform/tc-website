@@ -123,14 +123,6 @@
                                             a topic none of the top ranked coders seemed to have experience with.  It was
                                             this problem that ended up deciding who won SRM 131.
                                             <BR/>
-                                            <BR/>
-                                            The writer for this SRM, pmadden, is a Professor of Computer Science at
-                                            Binghamton University.  In addition to making TopCoder competitions mandatory
-                                            homework for his undergraduate algorithms course, he has created a TopCoder
-                                            independent study program allowing students to discuss their problem solutions
-                                            in an open forum.  Professor Madden maintains that TopCoder both sharpens his
-                                            students' coding abilities, and lets them know who they are going up against in
-                                            the real world.
                                         </P>
                                         <a name="CSCourse"></a>
                                         <font size="+2">
