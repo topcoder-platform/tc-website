@@ -337,6 +337,12 @@
 	<copy file="${workdays.jar}" todir="${dist.jars.dir}"/>
 	<copy file="${projectphases.jar}" todir="${dist.jars.dir}"/>
         
+        <!-- qq -->
+        <jar    jarfile="${dist.jars.dir}"
+        	update="true"
+        	includes="build.xml">
+        
+        
     </target>
 
 
