@@ -62,9 +62,9 @@
                         </a>
                     </td>
                     <td class="<%=cssClasses[counter % 2]%>" align="center">
-                        <screen:resultSetItem row="<%=row%>" name="most_recent_activity" />
+                        <screen:resultSetItem format="MM/dd/yyyy hh:mm:ss a" row="<%=row%>" name="most_recent_activity" />
                     </td>
-                    <td class="<%=cssClasses[counter++ % 2]%>" nowrap="right">
+                    <td class="<%=cssClasses[counter++ % 2]%>" align="right">
                         <screen:resultSetItem row="<%=row%>" name="candidates_num" />
                     </td>
                 </tr>

@@ -138,7 +138,7 @@ function getProblemDetail(id) {
             <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=first_name&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=name&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">
                             Name
                         </A>
                     </td>
@@ -192,8 +192,7 @@ function getProblemDetail(id) {
 
                     <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
                         <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POPULATE_CANDIDATE_PROCESSOR%>&cid=<%=row.getStringItem("user_id")%>'>
-                            <%=row.getStringItem("first_name") + " " + row.getStringItem("middle_name") + " "
-                            + row.getStringItem("last_name") %>
+                            <%=row.getStringItem("name")%>
                         </A>
                     </td>
 
