@@ -31,7 +31,7 @@
     </jsp:include>
 <% } %>
 
-<table width="750" align="center" valign="top" cellpadding="0" cellspacing="0"> 
+<table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
 	<tr>
 		<td class="dc_headerPic">
 	      <img src="/i/events/doubleclick/image1.gif" border="0" width="163" height="180"/>
@@ -79,7 +79,7 @@
                    </td>
                 </tr>
                 <tr>
-                   <td class="dc_regTableQuestion">Last Name</td> 
+                   <td class="dc_regTableQuestion">Last Name</td>
                    <td class="dc_regTableAnswer"><tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/>
                 </tr>
                 <tr>
@@ -111,7 +111,9 @@
                    <div class="bodyText">
                       <% if (regInfo.getCoderType()==Constants.STUDENT) { %>
                           (You must provide either a columbia.edu or nyu.edu email address)
-                      <% }%>
+                      <% } else { %>
+                          (You must provide either a doubleclick.net or abacus-direct.com email address)
+                      <% } %>
                    </div>
                    </td>
                 </tr>
