@@ -54,23 +54,23 @@
 <A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="bodyText">Room 1 Review</A> | <A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="bodyText">Rookie Review</A> | <A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="bodyText">Problem Set Analysis &amp; Opinion</A>
 </P>
 <P><B>Problem Set Analysis &amp; Opinion</B></P>
-<P>Algorithms:<BR/>CleanupCrew - 1050<BR/>
+<P>Algorithms:<BR/>PoemCode - 250<BR/>
+Like most 250's the algorithm was straightforward and there were not really any special cases to watch for.  You simply have remove the extra characters (',','.', and ' ') and then loop 
+from 'a' to 'z' and keep a counter outside the loop.  Whenever you hit the letter your loop is on, you set the corresponding spot in your return array to the value of the counter, and 
+increment the counter.  Look at any solution in <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Room 1</A> to see this in action.  This was one of the easier easy problems in recent 
+history, with only 8 out of 215 people not submitting correct solutions.</P>
+<P>Pinball - 450<BR/>
+This problem was pretty straightforward, and in general unsuccessful solutions were due to oversights rather than algorithmic mistakes, of which there were many as evidenced by a 96% 
+submission rate, but only a 52% success rate.  The key points to remember were to reset everything between games, to not raise the multiplier above 5, and not to clear the score after 
+a game until a new game starts.  Other than that, it was just a matter of looping through all the characters in the input and performing the appropriate operations.  See <A HREF="/stat?c=last_match" CLASS="bodyGeneric">John Dethridge's</A> 
+solution for a good, short implementation.</P>
+<P>CleanupCrew - 1050<BR/>
 No matter how many toys your opponent picks up, you can always pick up a number of toys such that there are k+1 less toys in that pile than there were in the pile before your opponents turn.  
 This can easily be seen by noting that player A must first pick up k+1-n toys, for some n between 1 and k.  Player B may then pick up n toys so that a total of k+1 toys have been picked up.  
 If player B does not pick up n toys, but picks up m toys instead, then player A can pick up k+1-n-m or 2k+2-n-m toys (whichever one is between 1 and k).  Thus either player can force the game 
 to come down to the point where the sizes of the piles are all the input size modulo k + 1.  At this point the problem can be solved easily with dynamic programming by working backwards 
 (see <A HREF="/stat?c=last_match" CLASS="bodyGeneric">dmwright's</A> solution) or with memoized recursion (see <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson's</A> solution).  An even simpler but much less obvious solution is malpt's.  For a discussion of why this works go to 
 <A HREF="http://www.cut-the-knot.com/nim_theory.shtml">http://www.cut-the-knot.com/nim_theory.shtml</A></P>
-<P>Pinball - 450<BR/>
-This problem was pretty straightforward, and in general unsuccessful solutions were due to oversights rather than algorithmic mistakes, of which there were many as evidenced by a 96% 
-submission rate, but only a 52% success rate.  The key points to remember were to reset everything between games, to not raise the multiplier above 5, and not to clear the score after 
-a game until a new game starts.  Other than that, it was just a matter of looping through all the characters in the input and performing the appropriate operations.  See <A HREF="/stat?c=last_match" CLASS="bodyGeneric">John Dethridge's</A> 
-solution for a good, short implementation.</P>
-<P>PoemCode - 250<BR/>
-Like most 250's the algorithm was straightforward and there were not really any special cases to watch for.  You simply have remove the extra characters (',','.', and ' ') and then loop 
-from 'a' to 'z' and keep a counter outside the loop.  Whenever you hit the letter your loop is on, you set the corresponding spot in your return array to the value of the counter, and 
-increment the counter.  Look at any solution in <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Room 1</A> to see this in action.  This was one of the easier easy problems in recent 
-history, with only 8 out of 215 people not submitting correct solutions.</P>
 <P><BR/><DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="center">
 <TR>
 	<TD WIDTH="20%" CLASS="bodyText" ALIGN="left" BGCOLOR="#CCCCCC"><B>&#160;Problem<BR/>&#160;</B></TD>
