@@ -103,7 +103,7 @@
             Reception:	6:30 PM<BR/>
             Dinner:		7:30 PM<BR/>
             <BR/>
-            Please Note:  Black Tie is required for the event.  If you need help with your tuxedo requirement, please contact Tom Longo at 866-867-2633 or tlongo@topcoder.com.<BR/>
+            Please Note:  Black Tie is required for the event.  If you need help with your tuxedo requirement, please contact MaryBeth Luce at 866-867-2633 or mluce@topcoder.com.<BR/>
             <BR/>
             CRPF APPRECIATION BRUNCH<BR/>
             <BR/>

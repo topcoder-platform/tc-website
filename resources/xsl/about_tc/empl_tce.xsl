@@ -67,7 +67,7 @@
 					<LI>15&#37; are looking for an internship</LI>
 					</UL><BR/>
 					For more information about the staffing services offered, please contact:<BR/>
-					<A HREF="mailto:tlongo@topcoder.com" CLASS="bodyText">Tom Longo, VP of Membership</A><BR/><BR/>
+					<A HREF="mailto:mluce@topcoder.com" CLASS="bodyText">MaryBeth Luce</A><BR/><BR/>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>

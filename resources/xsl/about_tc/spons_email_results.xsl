@@ -83,9 +83,7 @@
 					<A HREF="#" CLASS="bodyText">More results and match summary</A><BR/><BR/>
 					Don't forget to try out the problems new <A HREF="#" CLASS="bodyText">Practice Room!</A><BR/><BR/>
 					Best of luck in the next match!<BR/>
-					Tom Longo<BR/>
-					Vice President of Membership<BR/>
-					TopCoder, Inc.<BR/>
+					TopCoder Competitions<BR/>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>
