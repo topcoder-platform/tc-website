@@ -1,3 +1,5 @@
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
+<%@ taglib uri="/WEB-INF/tc.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>
@@ -6,6 +8,7 @@
 <link type="text/css" rel="stylesheet" href="/css/screening.css" >
 </head>
 <body>
+<jsp:useBean id="<%=Constants.PROBLEM_SETS%>" class="java.util.ArrayList" scope="session" />
 
 <table class=bodyCenter cellspacing=0 cellpadding=0>
    <tr>
@@ -58,30 +61,16 @@
                   <td class=tableHeader>Test Status</td>
                   <td class=tableHeader align=right>Time Available</td>
                </tr>
-               <tr>
-                  <td class=tableTextOdd><a href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></a></td>
-                  <td class=tableTextOdd>Example Test</td>
-                  <td class=tableTextOdd align=center>0/1</td>
-                  <td class=tableTextOdd>Example Coding Problem Set</td>
-                  <td class=tableTextOdd>Un-Opened</td>
-                  <td class=tableTextOdd align=right>N/A</td>
-               </tr>
-               <tr>
-                  <td class=tableTextEven><a href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></a></td>
-                  <td class=tableTextEven>Example Test</td>
-                  <td class=tableTextEven align=center>0/1</td>
-                  <td class=tableTextEven>Example Coding Problem Set</td>
-                  <td class=tableTextEven>Un-Opened</td>
-                  <td class=tableTextEven align=right>N/A</td>
-               </tr>
-               <tr>
-                  <td class=tableTextOdd><a href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></a></td>
-                  <td class=tableTextOdd>Example Test</td>
-                  <td class=tableTextOdd align=center>0/1</td>
-                  <td class=tableTextOdd>Example Coding Problem Set</td>
-                  <td class=tableTextOdd>Un-Opened</td>
-                  <td class=tableTextOdd align=right>N/A</td>
-               </tr>
+               <tc:listIterator id="problem" list="<%=problem_sets%>">
+                   <tr>
+                      <td class=tableTextOdd><a href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></a></td>
+                      <td class=tableTextOdd>asdfasdf</td>
+                      <td class=tableTextOdd align=center>0/1</td>
+                      <td class=tableTextOdd>Example Coding Problem Set</td>
+                      <td class=tableTextOdd>Un-Opened</td>
+                      <td class=tableTextOdd align=right>N/A</td>
+                   </tr>
+               </tc:listIterator>
             </table>
             </td>
             <td class=bodyR>&#160;</td>
