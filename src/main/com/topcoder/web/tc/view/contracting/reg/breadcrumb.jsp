@@ -1,9 +1,12 @@
-<%!
+<%
     String phase = request.getParameter("phase")==null?"":request.getParameter("phase");
     final String[] phases = new String[] {"preferences", "languages", "technologies", "os", "databases", "industries", "confirm", "success"};
-    
+    boolean isEdit = ((String)request.getAttribute("isEdit")).equals("true");
+%>
+
+<%!
     boolean showLink(String ph) {
-        if(((String)request.getAttribute("isEdit")).equals("true")) {
+        if(isEdit) {
            return true;
         }
         
