@@ -1,6 +1,6 @@
 package com.topcoder.web.ejb.pacts;
 
-import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
@@ -20,7 +20,6 @@ import java.util.*;
  *
  * @author   Dave Pecora
  * @version  1.00, 03/06/2002
- * @see      DataInterfaceBean
  * @see      PactsConstants
  */
 
