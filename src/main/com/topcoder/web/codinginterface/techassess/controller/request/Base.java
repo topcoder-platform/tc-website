@@ -16,10 +16,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ImageInfo;
 import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
@@ -51,7 +48,11 @@ public abstract class Base extends BaseProcessor {
             ImageInfo compImage = new ImageInfo();
             Request dataRequest = new Request();
             dataRequest.setContentHandle("sponsor_image");
-            dataRequest.setProperty(Constants.COMPANY_ID, String.valueOf(getCompanyId()));
+            try {
+                dataRequest.setProperty(Constants.COMPANY_ID, String.valueOf(getCompanyId()));
+            } catch (TCWebException e) {
+                throw new NavigationException("Request missing required parameter cm");
+            }
             dataRequest.setProperty(Constants.IMAGE_TYPE, String.valueOf(Constants.TEST_IMAGE_TYPE));
             DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Map resultMap = dai.getData(dataRequest);
