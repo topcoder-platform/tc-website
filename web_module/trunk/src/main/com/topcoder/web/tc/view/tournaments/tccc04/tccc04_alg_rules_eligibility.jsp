@@ -6,8 +6,8 @@
 
 <jsp:include page="../../script.jsp" />
 
-<link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>');
-
+<link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
+    
 </head>
 
 <body>
@@ -38,30 +38,26 @@
 
 <!-- Tab bar links-->
 <jsp:include page="tccc04links.jsp" >
-   <jsp:param name="selectedTab" value="overview"/>
+   <jsp:param name="tabLev1" value="algorithm"/>
+   <jsp:param name="tabLev2" value="rules"/>
+   <jsp:param name="tabLev3" value="eligibility"/>
 </jsp:include>
 
-<!-- Tab bar sublinks-->
-<jsp:include page="tccc04Sublinks.jsp" >
-   <jsp:param name="selectedList" value="overview"/>
-</jsp:include>
+            <h2>Eligibility</h2>
 
-            <h2>Overview of the Component Competition</h2>
-
+            <p>
+            TopCoder members meeting the following eligibility criteria are eligible to compete in the TCCC: 
+            </p>
             <ul>
-                <li><strong>Dates: </strong><br />
-                    October 7th through December 5th, 2003</li>
-                <li><strong>Rounds: </strong><br />
-                    Two qualification rounds - online<br />
-                    Four elimination rounds - online<br />
-                    The Semifinal and Championship rounds will be held at the Mohegan Sun Casino in Uncasville, CT on December 4th and 5th</li>
-                <li><strong>Prizes: </strong><br />
-                    Total Prize Purse: $100,000 in cash<br />
-                    Up to 500 competitors will receive a prize just for competing in Online Round #1<br />
-                    Up to 200 eligible competitors will receive cash prizes</li>
-                <li><strong>Finalists: </strong><br />
-                    The top 16 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds</li>
+            <li>Must be at least 18 years of age (as of February 23, 2004)</li>
+            <li>Must be matriculated full-time at an accredited college or university</li>
             </ul>
+            <p>
+            TopCoder members who are 18 years of age or older are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Collegiate Challenge is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
+            </p>
+            <p>
+            Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
+            </p>
 
          <p><br/></p>
          </td>
