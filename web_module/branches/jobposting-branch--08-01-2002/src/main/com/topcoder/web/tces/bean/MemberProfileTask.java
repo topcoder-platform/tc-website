@@ -248,7 +248,6 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
                             decFmt.format(Double.parseDouble(memStatsRow.getItem("avg_final_points").toString())) );
 
 
-
         dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Level");
         ResultSetContainer.ResultSetRow memStatLvlRow = null;
         for (int rowI=0;rowI<dwRSC.getRowCount();rowI++) {
@@ -283,51 +282,27 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[0],
                         "All" );
 
-        // sum the appropriate fields
-        int ttlPresented=0, ttlSubmitted=0, ttlCorrect=0;
-        for (int rowI=0;rowI<dwRSC.getRowCount();rowI++) {
-            memStatLvlRow = dwRSC.getRow(rowI);
+        dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats");
+        ResultSetContainer.ResultSetRow memStatRow = dwRSC.getRow(0);
 
-            ttlPresented+=((BigInteger)memStatLvlRow.getItem("presented").getResultData()).intValue();
-            ttlSubmitted+=((BigInteger)memStatLvlRow.getItem("submitted").getResultData()).intValue();
-            ttlCorrect+=((BigInteger)memStatLvlRow.getItem("correct").getResultData()).intValue();
-        }
-
-        // take weighted averages
-        double avgSubPts=0, avgPtsOverall=0, avgTimeToSubmit=0;
-        for (int rowI=0;rowI<dwRSC.getRowCount();rowI++) {
-            memStatLvlRow = dwRSC.getRow(rowI);
-
-            avgSubPts += Double.parseDouble(memStatLvlRow.getItem("avg_submission_points").toString()) *
-                         ((BigInteger)memStatLvlRow.getItem("submitted").getResultData()).doubleValue() /
-                         (double)ttlSubmitted;
-
-            avgPtsOverall += Double.parseDouble(memStatLvlRow.getItem("avg_final_points").toString()) *
-                         ((BigInteger)memStatLvlRow.getItem("presented").getResultData()).doubleValue() /
-                         (double)ttlPresented;
-
-            avgTimeToSubmit += Double.parseDouble(memStatLvlRow.getItem("avg_time_elapsed").toString()) *
-                         ((BigInteger)memStatLvlRow.getItem("submitted").getResultData()).doubleValue() /
-                         (double)ttlSubmitted;
-        }
-
-
-
-        totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[1], Integer.toString(ttlPresented) );
-        totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[2], Integer.toString(ttlSubmitted) );
+        totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[1],
+                   memStatRow.getItem("total_presented").toString() );
+        totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[2],
+                   memStatRow.getItem("total_submitted").toString() );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[3],
-                   decFmt.format( 100.0 * (double)ttlSubmitted / (double)ttlPresented )+"%");
-        totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[4], Integer.toString(ttlCorrect) );
+                   decFmt.format( Double.parseDouble(memStatRow.getItem("total_submit_percent").toString()) )+"%" );
+        totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[4],
+                   memStatRow.getItem("correct").toString() );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[5],
-                   decFmt.format( 100.0 * (double)ttlCorrect / (double)ttlSubmitted)+"%");
+                   decFmt.format( Double.parseDouble(memStatRow.getItem("total_submission_accuracy").toString()) ) +"%");
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[6],
-                   decFmt.format( 100.0 * (double)ttlCorrect / (double)ttlPresented)+"%");
+                   decFmt.format( Double.parseDouble(memStatRow.getItem("total_overall_accuracy").toString()) )+"%" );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[7],
-                   decFmt.format(avgSubPts) );
+                   decFmt.format( Double.parseDouble(memStatRow.getItem("avg_submission_points").toString()) ) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[8],
-                   decFmt.format(avgPtsOverall) );
+                   decFmt.format( Double.parseDouble(memStatRow.getItem("avg_final_points").toString()) ) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[9],
-                   decFmt.format(avgTimeToSubmit) );
+                   memStatRow.getItem("avg_time_elapsed").toString() );
 
         statsByLevel.add(totalLevel);
 
@@ -359,49 +334,18 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         Map totalLang = new HashMap();
         totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[0],
                         "All" );
-        // sum the appropriate fields
-        ttlPresented=ttlSubmitted=ttlCorrect=0;
-        for (int rowI=0;rowI<dwRSC.getRowCount();rowI++) {
-            memStatLangRow = dwRSC.getRow(rowI);
-
-            ttlSubmitted+=((Long)memStatLangRow.getItem("submitted").getResultData()).intValue();
-            ttlCorrect+=((BigInteger)memStatLangRow.getItem("num_correct").getResultData()).intValue();
-        }
-
-
-        // take weighted averages
-        double submitPct=0, submitAcc=0;
-        avgSubPts = avgTimeToSubmit = 0;
-        for (int rowI=0;rowI<dwRSC.getRowCount();rowI++) {
-            memStatLangRow = dwRSC.getRow(rowI);
-
-            submitPct += Double.parseDouble(memStatLangRow.getItem("submit_percent").toString()) *
-                         ((Long)memStatLangRow.getItem("submitted").getResultData()).doubleValue() /
-                         (double)ttlSubmitted;
-
-            submitAcc += Double.parseDouble(memStatLangRow.getItem("submission_accuracy").toString()) *
-                         ((Long)memStatLangRow.getItem("submitted").getResultData()).doubleValue() /
-                         (double)ttlSubmitted;
-
-            avgSubPts += Double.parseDouble(memStatLangRow.getItem("avg_submission_points").toString()) *
-                         ((Long)memStatLangRow.getItem("submitted").getResultData()).doubleValue() /
-                         (double)ttlSubmitted;
-
-            avgTimeToSubmit += Double.parseDouble(memStatLangRow.getItem("avg_submit_time").toString()) *
-                         ((Long)memStatLangRow.getItem("submitted").getResultData()).doubleValue() /
-                         (double)ttlSubmitted;
-        }
-
-        totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[1], Integer.toString(ttlSubmitted) );
+        totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[1],
+                   memStatRow.getItem("total_submitted").toString() );
         totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[2],
-                   decFmt.format( submitPct )+"%");
-        totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[3], Integer.toString(ttlCorrect) );
+                   decFmt.format( Double.parseDouble(memStatRow.getItem("total_submit_percent").toString()) )+"%" );
+        totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[3],
+                   memStatRow.getItem("correct").toString() );
         totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[4],
-                   decFmt.format( submitAcc )+"%");
+                   decFmt.format( Double.parseDouble(memStatRow.getItem("total_submission_accuracy").toString()) ) +"%");
         totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[5],
-                   decFmt.format( avgSubPts ));
+                   decFmt.format( Double.parseDouble(memStatRow.getItem("avg_submission_points").toString()) ) );
         totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[6],
-                   decFmt.format( avgTimeToSubmit ) );
+                   memStatRow.getItem("avg_time_elapsed").toString() );
 
         statsByLang.add(totalLang);
 
