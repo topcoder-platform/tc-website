@@ -17,11 +17,11 @@
                  <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=reception"><img src="/i/tournament/tco03/coding_tab_off.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
 <% } %>
 <% if (selectedContest.equals("component")) {%>
-                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_finals"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
 <% } else if (selectedContest.equals("both")) { %>
-                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_finals"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
 <% } else {%>
-                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_off.gif" alt="Component tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_finals"><img src="/i/tournament/tco03/component_tab_off.gif" alt="Component tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
 <% } %>
       <td width="49%" align="left"><img src="/i/clear.gif" alt="" width="5" height="10" border="0"  vspace="0"/></td>
    </tr>
