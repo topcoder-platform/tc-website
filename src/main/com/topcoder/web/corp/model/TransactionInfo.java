@@ -79,10 +79,6 @@ public class TransactionInfo {
             NotAuthorizedException, Exception
     {
         productID = Long.parseLong(req.getParameter(TransactionServlet.KEY_PRODUCT_ID));
-        userBackPage = req.getParameter(TransactionServlet.KEY_RETPAGE);
-        if (userBackPage != null && userBackPage.trim().length() == 0) {
-            userBackPage = null;
-        }
 
         // find out purchase parameters
         SessionPersistor store = new SessionPersistor(req.getSession(true));
