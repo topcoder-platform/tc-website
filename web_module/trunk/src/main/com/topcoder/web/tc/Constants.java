@@ -17,7 +17,6 @@ public class Constants {
 
     public static String STATIC_PREFIX;
     public static String DEFAULT_PAGE;
-    public static String RESULTS_PAGE;
 
     /* request parameters */
     public static String SURVEY_ID;
@@ -29,6 +28,7 @@ public class Constants {
     public static String SURVEY_LIST;
     public static String SURVEY_THANKS;
 
+    public static String PROBLEM_RATING_RESULTS;
 
     private Constants() {
     }
