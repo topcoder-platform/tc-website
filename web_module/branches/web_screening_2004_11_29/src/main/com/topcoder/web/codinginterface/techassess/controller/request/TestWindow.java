@@ -74,10 +74,10 @@ public class TestWindow extends Base {
         "<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >" +
         "</head>" +
         "<body>" +
-        "<table class=bodyCenter cellspacing=0 cellpadding=0>" +
+        "<table class=bodyTable100 cellspacing=0 cellpadding=0>" +
         "<tr>" +
           " <td align=center>" +
-            " <table cellspacing=0 cellpadding=0 class=bodyTable100>" +
+            " <table cellspacing=0 cellpadding=0 class=bodyTable>" +
               " <tr>" +
                 " <td><img src=\"/i/corp/screening/bodyTL.gif\" alt=\"\"/></td>" +
                 " <td class=bodyT>&#160;</td>" +
