@@ -102,7 +102,7 @@ A.methNav:active {
 <!-- Center Column Begins -->
             <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
-            <xsl:with-param name="image1">steelblue</xsl:with-param>
+            <xsl:with-param name="image1">white</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
             <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
             </xsl:call-template>
@@ -154,12 +154,12 @@ A.methNav:active {
 <!-- Collaboration begins -->
                 <tr valign="top">
                     <td width="100%"><a name="collaboration"></a>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
                             <tr valign="top">
-                                <td class="methNav" width="98%">
-                                    <span class="bodyText"><strong>Collaboration</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="bodyText" width="2%" nowrap="nowrap">
-                                    <div class="topPage"><a href="#top">[Top of Page]</a></div></td>
+                                <td class="smallText" width="98%">
+                                    <span class="bodyText"><strong>Collaboration</strong></span>&#160;&#160;|&#160;&#160;<a href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
+                                <td class="smallText" width="2%" nowrap="nowrap">
+                                    <a href="#top">[Top of Page]</a></td>
                             </tr>
                         </table></td>
                 </tr>
@@ -198,12 +198,12 @@ A.methNav:active {
 <!-- Design begins -->
                 <tr valign="top">
                     <td width="100%"><a name="design"></a>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
                             <tr valign="top">
-                                <td class="methNav" width="98%">
-                                    <a class="methNav" href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>Architecture and Design</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="bodyText" width="2%" nowrap="nowrap">
-                                    <div class="topPage"><a href="#top">[Top of Page]</a></div></td>
+                                <td class="smallText" width="98%">
+                                    <a href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>Architecture and Design</strong></span>&#160;&#160;|&#160;&#160;<a href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<a href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
+                                <td class="smallText" width="2%" nowrap="nowrap">
+                                    <a href="#top">[Top of Page]</a></td>
                             </tr>
                         </table></td>
                 </tr>
@@ -273,12 +273,12 @@ A.methNav:active {
 <!-- Development begins -->
                 <tr valign="top">
                     <td width="100%"><a name="development"></a>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
                             <tr valign="top">
-                                <td class="methNav" width="98%">
-                                    <a class="methNav" href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>Development and Testing</strong></span>&#160;&#160;|&#160;&#160;<a class="methNav" href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
-                                <td class="bodyText" width="2%" nowrap="nowrap">
-                                    <div class="topPage"><a href="#top">[Top of Page]</a></div></td>
+                                <td class="smallText" width="98%">
+                                    <a href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<a href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>Development and Testing</strong></span>&#160;&#160;|&#160;&#160;<a href="#certification">Certification</a>&#160;&#160;&#160;&#160;</td>
+                                <td class="smallText" width="2%" nowrap="nowrap">
+                                    <a href="#top">[Top of Page]</a></td>
                             </tr>
                         </table></td>
                 </tr>
@@ -354,12 +354,12 @@ A.methNav:active {
 <!-- Certification begins -->
                 <tr valign="top">
                     <td width="100%"><a name="certification"></a>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
                             <tr valign="top">
-                                <td class="methNav" width="98%">
-                                    <a class="methNav" href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>Certification</strong></span>&#160;&#160;&#160;&#160;</td>
-                                <td class="bodyText" width="2%" nowrap="nowrap">
-                                    <div class="topPage"><a href="#top">[Top of Page]</a></div></td>
+                                <td class="smallText" width="98%">
+                                    <a href="#collaboration">Collaboration</a>&#160;&#160;|&#160;&#160;<a href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;<a href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;<span class="bodyText"><strong>Certification</strong></span>&#160;&#160;&#160;&#160;</td>
+                                <td class="smallText" width="2%" nowrap="nowrap">
+                                    <a href="#top">[Top of Page]</a></td>
                             </tr>
                         </table></td>
                 </tr>
