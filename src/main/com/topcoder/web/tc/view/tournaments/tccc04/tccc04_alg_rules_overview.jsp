@@ -45,6 +45,8 @@
 
             <h2>Overview of the Tournament</h2>
 
+            <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
+
             <p>
             The 2004 TopCoder Collegiate Challenge ("TCCC") Algorithm Competition will take place between February 
             23rd and April 16th, 2004.  It will consist of one (1) online qualification round, four (4) online elimination 
