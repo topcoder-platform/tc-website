@@ -22,7 +22,7 @@ import com.topcoder.web.TCES.ejb.*;
 public class TCES extends Task implements Serializable {
     boolean VERBOSE = false;
 		
-		private User currentUser = null;
+		private com.topcoder.common.web.data.User currentUser = null;
 		private TCESNav currentNav = null;
 		private TCESNav nextNav = null;
 		private Hashtable htParams = new Hashtable();
@@ -51,14 +51,14 @@ public class TCES extends Task implements Serializable {
     	Log.msg(" => TCES.Constructor()");
     }
     
-		public TCES(User userIn, String taskName) {
+		public TCES(com.topcoder.common.web.data.User userIn, String taskName) {
 			super();
       Log.msg(" => TCES.Constructor(User, String)");
 			currentUser = userIn;
 			currentNav = navs.getTCESNav(taskName);
 		}
 		    
-		public void setAttributes(String param, String[] values) {
+		public boolean setAttributes(String param, String[] values) {
 			htParams.put(param, values);
 			if (currentNav.getTaskKey().equals("contact")) {
 				
@@ -92,12 +92,12 @@ public class TCES extends Task implements Serializable {
 			if (!isTaskValidated) {
 				return currentNav;
 			}
-			if (currentTask.getTaskKey().equals("contact")) { return navs.getTCESNav("employment"); }
-			if (currentTask.getTaskKey().equals("employment")) { return navs.getTCESNav("education"); }
-			if (currentTask.getTaskKey().equals("education")) { return navs.getTCESNav("skills"); }
-			//if (currentTask.getTaskKey().equals("skills") && no rating) { return navs.getTCESNav("norating"); }
-			//if (currentTask.getTaskKey().equals("skills") && rating) { return navs.getTCESNav("job"); }
-			if (currentTask.getTaskKey().equals("job")) { return navs.getTCESNav("done"); }
+			if (currentNav.getTaskKey().equals("contact")) { return navs.getTCESNav("employment"); }
+			if (currentNav.getTaskKey().equals("employment")) { return navs.getTCESNav("education"); }
+			if (currentNav.getTaskKey().equals("education")) { return navs.getTCESNav("skills"); }
+			//if (currentNav.getTaskKey().equals("skills") && no rating) { return navs.getTCESNav("norating"); }
+			//if (currentNav.getTaskKey().equals("skills") && rating) { return navs.getTCESNav("job"); }
+			if (currentNav.getTaskKey().equals("job")) { return navs.getTCESNav("done"); }
 		}
  
     public void setProcess(String ignore) {
