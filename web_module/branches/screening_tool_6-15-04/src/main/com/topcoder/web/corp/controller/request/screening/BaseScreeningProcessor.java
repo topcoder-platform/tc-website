@@ -9,6 +9,8 @@ import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 
 import java.util.Map;
 import javax.servlet.http.HttpSession;
@@ -67,6 +69,28 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
     }
     
     abstract protected void screeningProcessing() throws TCWebException;
+
+    /**
+     * A helper method building the URL string for specified request processor and referrer. This method constructs an
+     * relative URL in form of : <code>?module=processorName&referrer=referrerName</code>.
+     *
+     * @param  processorName a <code>String</code> name of a processor to redirect the request to.
+     * @param  referrer a <code>String</code> name of a referrer redirecting the request to specified processor. May be
+     *         <code>null</code>.
+     * @return a <code>String</code> representing the URL to redirect the request to specified processor.
+     * @since  Screening Tool 1.1
+     */
+    protected String buildProcessorURL(String processorName, String referrer) {
+        StringBuffer buf = new StringBuffer();
+        buf.append(((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath());
+        buf.append("?");
+        buf.append(Constants.MODULE_KEY + "=" + processorName);
+        if (referrer != null) {
+            buf.append("&");
+            buf.append(Constants.REFERRER + "=" + referrer);
+        }
+        return buf.toString();
+    }
 
 
 }
