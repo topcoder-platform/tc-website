@@ -14,7 +14,12 @@
       <TR>
         <TD WIDTH="15" BGCOLOR="#000000"><A NAME="top"></A>
         <IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
-        <TD WIDTH="206" BGCOLOR="#000000"><A TARGET="_parent" HREF="/?t=index"><IMG SRC="/i/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="10"/></A></TD>
+        <TD WIDTH="206" BGCOLOR="#000000">
+          <A TARGET="_parent">
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=home&amp;c=public_home</xsl:attribute>
+            <IMG SRC="/i/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="10"/>
+          </A>
+        </TD>
         <TD WIDTH="10" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" HSPACE="25"/></TD>
         <TD WIDTH="100%" BGCOLOR="#000000" ALIGN="right" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/><BR/>
           <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top" ALIGN="right">
