@@ -14,6 +14,11 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForwards;
 
+import com.topcoder.apps.review.document.AbstractScorecard;
+import com.topcoder.apps.review.document.ScreeningScorecard;
+
+import java.util.*;
+
 /**
  * <p>
  * Extends from <strong>ReviewAction</strong> that let the admin review the 

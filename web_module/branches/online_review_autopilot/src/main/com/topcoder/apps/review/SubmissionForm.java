@@ -40,7 +40,17 @@ public final class SubmissionForm extends ReviewForm {
      */
     private AbstractScorecard[] scorecards = null;
     
+    private boolean advanced = false;
+    
     // ----------------------------------------------------------- Properties
+    
+    public boolean getAdvanced() {
+        return advanced;
+    }
+    
+    public void setAdvanced(boolean b) {
+        advanced = b;
+    }
     
     /**
      * Return the submission.
