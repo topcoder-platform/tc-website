@@ -1,14 +1,16 @@
 package com.topcoder.web.ejb.resume;
 
-import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.resume.bean.Resume;
+import com.topcoder.web.ejb.BaseEJB;
 
-import java.rmi.RemoteException;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+import javax.rmi.PortableRemoteObject;
+import javax.ejb.EJBException;
 import java.sql.*;
-import java.util.ArrayList;
 
 /**
  * Creation Date: 08-19-02
@@ -29,14 +31,19 @@ public class ResumeServicesBean extends BaseEJB {
                " ON ft.file_type_id = r.file_type_id " +
             " WHERE coder_id = ?";
 
-    public Resume getResume(long userId) throws RemoteException{
+    public Resume getResume(long userId, String dataSource) throws EJBException {
         log.debug("ejb:ResumeServices:getResume("+userId+") called...");
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         Resume ret = null;
+        InitialContext ctx = null;
         try{
-            conn = DBMS.getConnection();
+            ctx = new InitialContext();
+            DataSource ds = (DataSource)
+                PortableRemoteObject.narrow(ctx.lookup(dataSource),
+                        DataSource.class);
+            conn = ds.getConnection();
             ps = conn.prepareStatement(GET_RESUME_QUERY);
             ps.setLong(1,userId);
             rs = ps.executeQuery();
@@ -49,14 +56,14 @@ public class ResumeServicesBean extends BaseEJB {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new RemoteException(sqe.getMessage());
+            throw new EJBException(sqe.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
         } finally {
-            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("rs   close problem"); }
-            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("ps   close problem"); }
-            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("conn close problem"); }
-            rs = null;
-            ps = null;
-            conn = null;
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
         return ret;
     }
@@ -77,16 +84,21 @@ public class ResumeServicesBean extends BaseEJB {
               " FROM resume " +
              " WHERE coder_id = ? ";
 
-    public void putResume(long userId, int fileType, String fileName, byte[] file)
-            throws RemoteException{
+    public void putResume(long userId, int fileType, String fileName, byte[] file, String dataSource)
+            throws EJBException{
         log.debug("ejb:ResumeServices:putResume("+userId+","+fileType+","+fileName+","+file.length+") called...");
         Connection conn = null;
         PreparedStatement psSel = null;
         PreparedStatement psUpd = null;
         PreparedStatement psIns = null;
         ResultSet rs = null;
+        InitialContext ctx = null;
         try{
-            conn = DBMS.getConnection();
+            ctx = new InitialContext();
+            DataSource ds = (DataSource)
+                PortableRemoteObject.narrow(ctx.lookup(dataSource),
+                        DataSource.class);
+            conn = ds.getConnection();
             psSel = conn.prepareStatement(GET_RESUME_ID);
             psSel.setLong(1,userId);
             rs = psSel.executeQuery();
@@ -117,21 +129,17 @@ public class ResumeServicesBean extends BaseEJB {
 
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new RemoteException(sqe.getMessage());
+            throw new EJBException(sqe.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException(e.getMessage());
+            throw new EJBException(e.getMessage());
         } finally {
-            try { if (psSel != null) psSel.close(); } catch (Exception ignore) { log.error("psSel   close problem"); }
-            try { if (psUpd != null) psUpd.close(); } catch (Exception ignore) { log.error("psUpd   close problem"); }
-            try { if (psIns != null) psIns.close(); } catch (Exception ignore) { log.error("psIns   close problem"); }
-            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("rs   close problem"); }
-            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("conn close problem"); }
-            psSel = null;
-            psUpd = null;
-            psIns = null;
-            rs = null;
-            conn = null;
+            close(psSel);
+            close(psUpd);
+            close(psIns);
+            close(rs);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -141,42 +149,50 @@ public class ResumeServicesBean extends BaseEJB {
                   " ,sort " +
              " FROM file_type_lu" +
             " ORDER BY sort ASC";
-    public ResultSetContainer getFileTypes() throws RemoteException{
+    public ResultSetContainer getFileTypes(String dataSource) throws EJBException{
         log.debug("ejb:ResumeServices:getFileTypes() called...");
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         ResultSetContainer ret = null;
+        InitialContext ctx = null;
         try{
-            conn = DBMS.getTransConnection();
+            ctx = new InitialContext();
+            DataSource ds = (DataSource)
+                PortableRemoteObject.narrow(ctx.lookup(dataSource),
+                        DataSource.class);
+            conn = ds.getConnection();
             ps = conn.prepareStatement(GET_FILE_TYPES_QUERY);
             rs = ps.executeQuery();
             ret = new ResultSetContainer(rs);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new RemoteException(sqe.getMessage());
+            throw new EJBException(sqe.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException(e.getMessage());
+            throw new EJBException(e.getMessage());
         } finally {
-            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("rs   close problem"); }
-            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("ps   close problem"); }
-            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("conn close problem"); }
-            rs = null;
-            ps = null;
-            conn = null;
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
         return ret;
     }
 
-    public boolean hasResume(long userId) throws RemoteException {
+    public boolean hasResume(long userId, String dataSource) throws EJBException {
         log.debug("ejb:ResumeServices:getFileTypes() called...");
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         boolean ret = false;
+        InitialContext ctx = null;
         try{
-            conn = DBMS.getConnection();
+            ctx = new InitialContext();
+            DataSource ds = (DataSource)
+                PortableRemoteObject.narrow(ctx.lookup(dataSource),
+                        DataSource.class);
+            conn = ds.getConnection();
             ps = conn.prepareStatement(GET_RESUME_ID);
             ps.setLong(1,userId);
             rs = ps.executeQuery();
@@ -187,17 +203,15 @@ public class ResumeServicesBean extends BaseEJB {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new RemoteException(sqe.getMessage());
+            throw new EJBException(sqe.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException(e.getMessage());
+            throw new EJBException(e.getMessage());
         } finally {
-            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("rs   close problem"); }
-            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("ps   close problem"); }
-            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("conn close problem"); }
-            rs = null;
-            ps = null;
-            conn = null;
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
         return ret;
     }

@@ -4,33 +4,23 @@
 
 <ejb-jar>
     <enterprise-beans>
-      <session>
-  <ejb-name>ResumeServices</ejb-name>
-  <home>com.topcoder.web.ejb.resume.ResumeServicesHome</home>
-  <remote>com.topcoder.web.ejb.resume.ResumeServices</remote>
-  <ejb-class>com.topcoder.web.ejb.resume.ResumeServicesBean</ejb-class>
-  <session-type>Stateless</session-type>
-  <transaction-type>Container</transaction-type>
-  <env-entry>
-    <env-entry-name>WEBL</env-entry-name>
-    <env-entry-type>java.lang.Double </env-entry-type>
-    <env-entry-value>10.0</env-entry-value>
-  </env-entry>
-  <env-entry>
-    <env-entry-name>INTL</env-entry-name>
-    <env-entry-type>java.lang.Double </env-entry-type>
-    <env-entry-value>15.0</env-entry-value>
-  </env-entry>
-      </session>
+        <session>
+            <ejb-name>ResumeServices</ejb-name>
+            <home>com.topcoder.web.ejb.resume.ResumeServicesHome</home>
+            <remote>com.topcoder.web.ejb.resume.ResumeServices</remote>
+            <ejb-class>com.topcoder.web.ejb.resume.ResumeServicesBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
     </enterprise-beans>
     <assembly-descriptor>
-      <container-transaction>
-  <method>
-    <ejb-name>ResumeServices</ejb-name>
-    <method-intf>Remote</method-intf>
-    <method-name>*</method-name>
-  </method>
-  <trans-attribute>Required</trans-attribute>
-      </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>ResumeServices</ejb-name>
+                <method-intf>Remote</method-intf>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
     </assembly-descriptor>
-  </ejb-jar>
+</ejb-jar>
