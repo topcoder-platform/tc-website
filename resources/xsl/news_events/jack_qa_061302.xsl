@@ -172,7 +172,7 @@ am wondering what benefits you expect to gain from expanding so quickly?</B></P>
  
 <P><B>Jack Hughes:</B> I can't wait for it.  Beyond that, nothing - have to wait for official announcements.</P>
 
-<P>Logan: <B>A lot of TC initiatives are business focused.  Is there room for more pedagogical initiatives? (the match writeups are a good start)</B></P>
+<P><B>Logan: A lot of TC initiatives are business focused.  Is there room for more pedagogical initiatives? (the match writeups are a good start)</B></P>
 
 <P><B>Jack Hughes:</B> If you have ideas, we'd love to hear them.  We always looking for things to add and attract membership/readership.</P>
 
@@ -259,7 +259,7 @@ then sited manager-type stuff (overruns, etc.)  What, in your opinion, makes a '
 
 <P><B>Jack Hughes:</B> Sorry, they tell me there are a lot more questions... we'll go a little longer.</P>
 
-<P>emcee: <B>You said you previously ran a consulting firm.  In addition to connecting your customers with potential employees, 
+<P><B>emcee: You said you previously ran a consulting firm.  In addition to connecting your customers with potential employees, 
 have you considered hiring coders from the member base and marketing TC as a general-purpose development house?</B></P>
 
 <P><B>Jack Hughes:</B> Not at the moment ... we would rather do components/products.</P>
