@@ -81,10 +81,10 @@
                 <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4355" CLASS="statTextBig">Round 4</A>
               </TD>
               <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=schedule&amp;c=tourney_semi" CLASS="statTextBig">Semi</A>
+                <A HREF="/index?t=tournaments&amp;c=tourney_semi" CLASS="statTextBig">Semi</A>
               </TD>  
               <TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
-                <A HREF="/index?t=schedule&amp;c=tourney_champ" CLASS="statTextBig">Champ</A>
+                <A HREF="/index?t=tournaments&amp;c=tourney_champ" CLASS="statTextBig">Champ</A>
               </TD>                        
             </TR>
           </TABLE>
