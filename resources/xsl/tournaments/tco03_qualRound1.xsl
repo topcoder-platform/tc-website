@@ -68,7 +68,7 @@
 <!-- Tab bar sub links-->
             <xsl:call-template name="tco03_sublinks">
                 <xsl:with-param name="selectedList">coding_advancers</xsl:with-param>
-                <xsl:with-param name="selectedTab">top100</xsl:with-param>
+                <xsl:with-param name="selectedTab">qualRound1</xsl:with-param>
             </xsl:call-template>
 
             <blockquote>
@@ -78,24 +78,9 @@
             
             <table width="300" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
                 <tr>
-                    <td class="header" width="50%">Handle</td>
-                    <td class="header" width="50%" align="right">Rating</td>
+                    <td class="header" width="50%"><a href="sort">Handle</a></td>
+                    <td class="header" width="50%" align="right"><a href="sort">Rating</a></td>
                 </tr>
-
-                          <xsl:for-each select="/TC/TOURNAMENTS/Competitors/Competitor">
-                            <tr>
-                              <td class="formHandleEven" width="50%">
-                                  <a>
-                                    <xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
-                                    <xsl:attribute name="CLASS">
-                                        <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
-                                      </xsl:attribute>
-                                      <xsl:value-of select="handle"/>
-                                  </a>
-                                </td>
-                              <td class="formHandleEven" align="right" width="50%"><xsl:value-of select="rating"/></td>
-                            </tr>
-                          </xsl:for-each>
 
              </table>
             </blockquote>
