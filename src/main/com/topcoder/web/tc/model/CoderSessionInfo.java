@@ -15,6 +15,8 @@ import java.util.Map;
 
 public class CoderSessionInfo extends SessionInfo {
     private int rating;
+    private int devRating;
+    private int designRating;
     private int memberCount;
 
     //these can probably go away when we get away from the legacy controller
@@ -37,6 +39,8 @@ public class CoderSessionInfo extends SessionInfo {
             ResultSetContainer info = getInfo(authentication.getActiveUser().getId());
             if (!info.isEmpty()) {
                 rating = info.getIntItem(0, "rating");
+                devRating = info.getIntItem(0, "dev_rating");
+                designRating = info.getIntItem(0, "design_rating");
                 hasImage = info.getIntItem(0, "has_image")>0;
                 activationCode = info.getStringItem(0, "activation_code");
             } else {
@@ -59,6 +63,14 @@ public class CoderSessionInfo extends SessionInfo {
 
     public int getRating() {
         return rating;
+    }
+
+    public int getDevRating() {
+        return devRating;
+    }
+
+    public int getDesignRating() {
+        return designRating;
     }
 
     public int getRank() {
