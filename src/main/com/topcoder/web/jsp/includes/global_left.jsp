@@ -14,13 +14,6 @@
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
     CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
-    //this can probably go if we can standardize the MVC.  rtables is the current exception
-    if (info==null) {
-        Navigation nav = (Navigation)session.getAttribute("navigation");
-        if (nav==null) info = new Navigation(request, response).getSessionInfo();
-        else info = nav.getSessionInfo();
-    }
-
 %>
 
             <img alt="" width="180" height="5" src="/i/spacer.gif" border="0"><br>
@@ -80,6 +73,14 @@
                 <tr><td id="<%=level1.equals("statistics")?"leftNavOn":"leftNav"%>"><a href="/stat?&c=round_overview" class="<%=level1.equals("statistics")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level1.equals("statistics")?"bottom":"right"%>.gif" alt="" border="0"/>Statistics</a></td></tr>
 
             <% if (level1.equals("statistics")) { %>
+            <%
+                //this can probably go if we can standardize the MVC.  rtables is the current exception
+                if (info==null) {
+                    Navigation nav = (Navigation)session.getAttribute("navigation");
+                    if (nav==null) info = new Navigation(request, response).getSessionInfo();
+                    else info = nav.getSessionInfo();
+                }
+            %>
                 <tr><td id="<%=level2.equals("round_overview")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=round_overview">Round Overview</a></td></tr>
                 <% if (!info.isAnonymous() && info.getRating()>0) { %>
                    <tr><td id="<%=level2.equals("last_match")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=round_stats">Last Match Results</a></td></tr>
