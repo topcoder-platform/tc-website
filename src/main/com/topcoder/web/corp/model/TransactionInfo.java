@@ -4,8 +4,6 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.ejb.product.Product;
 import com.topcoder.web.ejb.product.ProductHome;
-import com.topcoder.web.ejb.product.Unit;
-import com.topcoder.web.ejb.product.UnitHome;
 import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.ejb.user.ContactHome;
 import com.topcoder.web.corp.Util;
@@ -25,7 +23,6 @@ public class TransactionInfo {
     private String userBackPage = null;
 
     private long productID = -1;
-    private long unitTypeID = -1;
     private long contactID = -1;
 
     private long companyID = -1;
@@ -63,7 +60,6 @@ public class TransactionInfo {
     public TransactionInfo(HttpServletRequest req, HttpServletResponse resp)
             throws NamingException, RemoteException, CreateException, Exception {
         productID = Long.parseLong(req.getParameter(TransactionServlet.KEY_PRODUCT_ID));
-        unitTypeID = Long.parseLong(req.getParameter(TransactionServlet.KEY_UNITTYPE_ID));
         userBackPage = req.getParameter(TransactionServlet.KEY_RETPAGE);
         if (userBackPage != null && userBackPage.trim().length() == 0) {
             userBackPage = null;
@@ -88,10 +84,7 @@ public class TransactionInfo {
                 throw new Exception("No valid product found for ID given");
             }
 
-            Unit unitTable = (
-                    (UnitHome) icEJB.lookup(UnitHome.EJB_REF_NAME)
-                    ).create();
-            qtty = unitTable.getNumUnits(productID, unitTypeID);
+            qtty = productTable.getNumUnits(productID);
             if (qtty <= 0) {
                 throw new Exception("No valid unit found for ID given");
             }
@@ -104,7 +97,7 @@ public class TransactionInfo {
             // calculate start date / end date
             int field = -1;
             String unitName;
-            unitName = unitTable.getUnitDescription(productID, unitTypeID);
+            unitName = productTable.getUnitTypeDesc(productID);
             if ("day".equalsIgnoreCase(unitName)) {
                 field = Calendar.DAY_OF_MONTH;
             } else if ("week".equalsIgnoreCase(unitName)) {
@@ -136,7 +129,6 @@ public class TransactionInfo {
     private void verify() throws Exception {
         String msg = "";
         if (productID <= 0) msg += "illegal product ID\n";
-        if (unitTypeID <= 0) msg += "illegal unit type ID\n";
         if (contactID <= 0) {
             msg += "illegal contact ID\n";
         } else if (companyID <= 0) {
@@ -166,14 +158,6 @@ public class TransactionInfo {
 
     public void setProductID(long productID) {
         this.productID = productID;
-    }
-
-    public long getUnitTypeID() {
-        return unitTypeID;
-    }
-
-    public void setUnitTypeID(long unitTypeID) {
-        this.unitTypeID = unitTypeID;
     }
 
     public long getContactID() {

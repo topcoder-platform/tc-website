@@ -62,7 +62,6 @@ public class TransactionServlet extends HttpServlet {
     private static final String KEY_TRANSACTION_INFO = "TransactionInfo";
 
     public static final String KEY_PRODUCT_ID = "prod-id";
-    public static final String KEY_UNITTYPE_ID = "utype-id";
     public static final String KEY_RETPAGE = "back-to";
     public static final String KEY_EXCEPTION = "caught-exception";
 

@@ -44,8 +44,10 @@
    Username/password combination is wrong<br>
 <% }
    else { %>
-     You have not enough priveleges to perform this action<br>
-     If you think this page was shown by mistake, please contact us<br>
+     Your request could not be processed because you do not have permission.
+     If you feel you have reached this page in error and
+     would like to report this to TopCoder click <A CLASS="bodyText" HREF="mailto:service@topcoder.com">here</A>.
+
    </td></tr>
    <tr><td class="bodyText">&nbsp;
 <% }

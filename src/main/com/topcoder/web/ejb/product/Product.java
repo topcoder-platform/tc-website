@@ -15,7 +15,7 @@ public interface Product extends EJBObject {
     /**
      * @see com.topcoder.web.ejb.product.ProductBean#createProduct
      */
-    long createProduct(float cost) throws RemoteException, EJBException;
+    long createProduct(long unitTypeId, int numUnits, float cost) throws RemoteException, EJBException;
 
     /**
      * @see com.topcoder.web.ejb.product.ProductBean#getProductDesc
