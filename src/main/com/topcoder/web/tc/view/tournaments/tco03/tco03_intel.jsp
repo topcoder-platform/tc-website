@@ -74,7 +74,7 @@
                              
 
                         <p><A href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_intel_rules','comp',545,655);">Official Drawing Rules</A> for Intel&#174; 
-                        Centrino&#8482; mobile technology-based notebook.</p>
+                        giveaways.</p>
                         
                         <p><strong>Check the TopCoder site for SRM dates and times. Remember to use promotion code <font color="#CC0000"><strong>TCO2003</strong></font> and 
                         compete in any Intel-sponsored Single Round Match for a chance to win!</strong></p>
