@@ -279,8 +279,8 @@ public class TransactionServlet extends HttpServlet {
             } catch (Exception e) {
                 try {
                     ((TransactionInfo) currentTransactions.get(transactionKey(req))).setTcExc(e);
-                } catch (Exception e) {
-					e.printStackTrace();
+                } catch (Exception ex) {
+					ex.printStackTrace();
                 }
 
                 log.error("Can't complete CC Tx", e);
