@@ -52,7 +52,7 @@
             <p><strong>Website</strong><br/>
 
             <a href="/i/es/paypal/paypal_mockup.gif" class="bodyText" target="_blank">Job Listing Main Page</a><br/>
-            <a href="/?t=tces&amp;c=diversifieddata" class="bodyText" target="_blank">Diversified Data Main Page</a></p>
+            <a href="/?t=tces&amp;c=paypal" class="bodyText" target="_blank">PayPal Main Page</a></p>
 
 
         </td>
