@@ -72,11 +72,10 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
                <blockquote>
                <h2>Advancers</h2>
-               </blockquote>
 <!-- Online Rounds begins -->
 
-            <a name="sched"></a>
-            <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="sidebarBox">
+            <p align="right">Round 1&#160;|&#160;<a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_final">Finals</a></p>
+            <table align="center" border="0" cellpadding="2" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="crpfTitle" width="100%" colspan="2" bgcolor="#4E9DD5">Round 1</td>
                </tr>
@@ -135,6 +134,8 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <tr valign="top"><td class="sidebarText" align="left">Dumitru</td><td class="sidebarText" align="right">240.26</td></tr>
 <tr valign="top"><td class="sidebarText" align="left">kats</td><td class="sidebarText" align="right">238.78</td></tr>
             </table><br />
+               </blockquote>
+            
 <!-- Online Rounds ends -->
 <!-- Center Column Ends -->
 
