@@ -16,7 +16,9 @@
 <body>
 
 <!-- TCO Header -->
+
 <a name="top_page"></a>
+<!--
             <object 
             type="application/x-shockwave-flash"
             data="/i/tournament/vcc03/vcc03.swf"
@@ -27,6 +29,8 @@
             <param name="quality" value="high" />
             <param name="salign" value="t">
             </object>
+-->
+       <img src="/i/tournament/vcc03/vcc03.jpg" width="750" height="120" border="0"/>
 
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
