@@ -171,7 +171,7 @@
 
                 <% int j=0; %>
                 <rsc:iterator list="<%=projectList%>" id="resultRow">
-                    <% pageContext.setAttribute("price", prices.get(i));%>
+                    <% pageContext.setAttribute("price", prices.get(j));%>
                     <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DEV_PHASE) { %>
                     <tr>
                         <% if ((resultRow.getLongItem("category_id"))==Constants.DOT_NET_CATALOG_ID) { %>
