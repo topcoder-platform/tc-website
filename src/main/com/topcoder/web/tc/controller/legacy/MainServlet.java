@@ -40,6 +40,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.*;
 import java.util.zip.GZIPOutputStream;
+import java.text.SimpleDateFormat;
 
 
 public final class MainServlet extends HttpServlet {
@@ -455,7 +456,8 @@ public final class MainServlet extends HttpServlet {
             document.addTag(new ValueTag("SoftwareHost", ApplicationServer.SOFTWARE_SERVER_NAME));
             document.addTag(new ValueTag("Task", Conversion.checkNull(request.getParameter("t"))));
             document.addTag(new ValueTag("Command", Conversion.checkNull(request.getParameter("c"))));
-            document.addTag(new ValueTag("Today", DateTime.getCurrentDate().getTime()));
+            SimpleDateFormat sdf = new SimpleDateFormat("MMMM d, yyyy");
+            document.addTag(new ValueTag("Today", sdf.format(nav.getSessionInfo().getDate())));
             document.addTag(new ValueTag("MemberCount", nav.getSessionInfo().getMemberCount()));
             if (nav.isIdentified()) {
                 document.addTag(new ValueTag("UserId", nav.getUserId()));
