@@ -8,14 +8,16 @@
         <caching-descriptor>
             <max-beans-in-free-pool>20</max-beans-in-free-pool>
         </caching-descriptor>
-        <resource-description>
-            <res-ref-name>jts_datasource</res-ref-name>
-            <jndi-name>JTS_SCREENING_OLTP</jndi-name>
-        </resource-description>
-        <resource-description>
-            <res-ref-name>datasource</res-ref-name>
-            <jndi-name>SCREENING_OLTP</jndi-name>
-        </resource-description>
+        <reference-descriptor>
+            <resource-description>
+                <res-ref-name>jts_datasource</res-ref-name>
+                <jndi-name>JTS_SCREENING_OLTP</jndi-name>
+            </resource-description>
+            <resource-description>
+                <res-ref-name>datasource</res-ref-name>
+                <jndi-name>SCREENING_OLTP</jndi-name>
+            </resource-description>
+        </reference-descriptor>
         <jndi-name>screening:com.topcoder.web.ejb.email.EmailHome</jndi-name>
     </weblogic-enterprise-bean>
 </weblogic-ejb-jar>
