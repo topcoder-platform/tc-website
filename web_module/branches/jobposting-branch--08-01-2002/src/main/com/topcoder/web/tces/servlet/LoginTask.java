@@ -53,6 +53,7 @@ log.debug("Setting HandleInput to "+handleInput);
     }
 
     public String getHandleInput() {
+log.debug("getting handleinput "+handleInput);
         return handleInput;
     }
 
