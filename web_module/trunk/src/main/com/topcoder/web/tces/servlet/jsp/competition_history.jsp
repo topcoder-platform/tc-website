@@ -106,7 +106,7 @@
                 </TR>
 
                 
-                <% int i=0; i%>
+                <% int i=0; %>
                 <tces:mapIterator id="comp" mapList="<%=(List)CompetitionHistoryTask.getCompetitionList()%>">
                 <% i++; %>
                   <TR>

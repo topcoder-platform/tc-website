@@ -104,38 +104,39 @@
                 </TR>
 
                 
-
+                <% int i=0; %>
                 <tces:rowIterator id="submission" rowList="<%=(List)ProblemSubmissionsTask.getSubmissionList()%>">
+                <% i++; %>
                   <TR>
-                    <TD class="bodyText" HEIGHT="18">&#160;
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">&#160;
                         <%= TCESConstants.DATE_FORMAT.format((java.sql.Timestamp)submission.getItem("date").getResultData()) %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="bodyText">
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                       <A HREF="<jsp:getProperty name="ProblemSubmissionsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>&<%=TCESConstants.ROUND_ID_PARAM%>=<%= submission.getItem("round_id").toString() %>" class="bodyText">
                         <%= submission.getItem("name").toString() %>
                       </A>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="bodyText">
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                         <%= submission.getItem("division_desc").toString() %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="bodyText">
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                       <A HREF="<jsp:getProperty name="ProblemSubmissionsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>&<%=TCESConstants.PROBLEM_ID_PARAM%>=<%= submission.getItem("problem_id").toString() %>" class="bodyText">
                         <%= submission.getItem("level_desc").toString() %>
                       </A>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="bodyText">
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                         <%= submission.getItem("final_points").toString() %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="bodyText">
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                         <%= submission.getItem("language_name").toString() %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="bodyText">
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                         <%= submission.getItem("end_status_text").toString() %>
                     </TD>
                   </TR>
