@@ -46,7 +46,6 @@ public class Controller extends HttpServlet {
     public void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String debugMsg = "service called.";
-log.debug(request.toString());
         String command = request.getParameter(DataAccessConstants.COMMAND);
         String taskName = request.getParameter(TCESConstants.TASK_PARAM);
         String taskStepName = request.getParameter(TCESConstants.STEP_PARAM);
@@ -64,14 +63,17 @@ log.debug(request.toString());
                 task.setInitialContext(ctx);
                 task.processStep(taskStepName);
 
+log.debug(">>>params: ");
                 Enumeration parameterNames = request.getParameterNames();
                 while (parameterNames.hasMoreElements()) {
                     String parameterName = parameterNames.nextElement().toString();
                     String[] parameterValues = request.getParameterValues(parameterName);
+log.debug("n: "+parameterName+" v: "+parameterValues[0]);
                     if (parameterValues != null) {
                         task.setAttributes(parameterName, parameterValues);
                     }
                 }
+log.debug("<<<");
 
                 task.servletAction(this, request, response);
 
