@@ -107,7 +107,7 @@ problem, for 568.72 points.  After questioning the admins, tjq realized that his
 submission, and resubmitted his hard.  With two resubmissions, it looked like the victory was out of reach for tjq, but
 his hard resubmission led him to a challenge case that gave him 100 points in the challenge phase.  The last action of
 the round was a submission of the hard by NGBronson, which meant that every coder submitted every problem.
-</p>
+</p> 
 
 <p>
 At the end of the coding phase, ZorbaTHut was winning with 1131.33, NGBronson had 1106.15, snewman had 1067.15, and tjq

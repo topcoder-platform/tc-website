@@ -70,7 +70,7 @@
 
             <p>by Lars Backstrom, (lbackstrom)<em>TopCoder Member</em><br />
             
-            Thursday, December 4, 2003</p>
+            Thursday, December 4, 2003</p> 
 <p>
 In what was by far the most exciting match of the day, tjq edged out three members with little targets next to their
 names and advanced to the finals.  Perhaps the 25 hour flight from Hong Kong allowed him to study up on his algorithms
