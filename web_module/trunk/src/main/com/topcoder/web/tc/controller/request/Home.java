@@ -8,9 +8,6 @@ import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 
-import java.util.Calendar;
-import java.util.Date;
-
 public class Home extends Base {
 
     protected void businessProcessing() throws TCWebException {
