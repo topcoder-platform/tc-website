@@ -174,7 +174,7 @@ List industryList = (List)request.getAttribute("industrySkills");
             </tc:listIterator>
 		</table>
 		</tr>
-		<tr><td colspan=2 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=success"><img src="/i/submit.jpg" border=0/></a></td></tr>
+		<tr><td colspan=2 align=center><br/><br/><a href="javascript:goToPage('ContractingSubmit');"><img src="/i/submit.jpg" border=0/></a></td></tr>
 		</table>
 		</form>
 
