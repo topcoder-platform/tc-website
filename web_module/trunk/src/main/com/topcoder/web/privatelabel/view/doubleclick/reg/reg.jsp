@@ -20,7 +20,7 @@
 <body align="center">
 
 <jsp:include page="links.jsp" >
-   <jsp:param name="tabLev1" value="collegiate"/>
+   <jsp:param name="tabLev1" value="<%=regInfo.getCoderType()==Constants.STUDENT?"collegiate":"internal"%>"/>
    <jsp:param name="tabLev2" value="overview"/>
 </jsp:include>
 
@@ -188,7 +188,7 @@
 		</td>
 	</tr>
 </table>
-   
+
 <jsp:include page="foot.jsp" >
    <jsp:param name="contest" value="collegiate"/>
 </jsp:include>
