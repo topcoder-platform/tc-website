@@ -2,6 +2,9 @@ package com.topcoder.server.distCache;
 
 import java.io.*;
 import java.rmi.RemoteException;
+import java.util.Iterator;
+import java.util.Date;
+import java.util.ArrayList;
 
 public class SimpleClient
 {
@@ -45,7 +48,7 @@ public class SimpleClient
         } else if (line.equals("bulk")) {
             try {
                 for (int i=0; i<100000; i++) {
-                    client.set("foo." + i, new Integer(i));
+                    client.set("foo." + i, new Integer(i), 10000);
                     if (i%10000 == 0) {
                         System.out.print(".");
                     }
@@ -74,14 +77,51 @@ public class SimpleClient
                 System.out.println("Exception: " + e.getMessage());
 		e.printStackTrace();
             }
-            
+
+        } else if (line.startsWith("remove ")) {
+            String key = line.substring(line.indexOf(' ')+1);
+            try {
+                client.remove(key);
+                System.out.println("REMOVED " + key);
+            } catch (RemoteException e) {
+                System.out.println("Exception: " + e.getMessage());
+		e.printStackTrace();
+            }
+
+        } else if (line.equals("clear")) {
+            try {
+                client.clearCache();
+                System.out.println("CLEARED");
+            } catch (RemoteException e) {
+                System.out.println("Exception: " + e.getMessage());
+		e.printStackTrace();
+            }
+        } else if (line.equals("values")) {
+            try {
+                ArrayList al = client.getValues();
+                for(int i = 0; i<al.size();i++)
+                {
+                    CachedValue cv = (CachedValue)(al.get(i));
+                    System.out.println("key = "+cv.getKey()+", value = "+cv.getValue()+", last used = "+new Date(cv.getLastUsed()));
+                }
+            } catch (RemoteException e) {
+                System.out.println("Exception: " + e.getMessage());
+		e.printStackTrace();
+            }
+        } else if (line.equals("size")) {
+            try {
+                    System.out.println("The cache currently holds "+client.size()+" items");
+            } catch (RemoteException e) {
+                System.out.println("Exception: " + e.getMessage());
+		e.printStackTrace();
+            }
         } else {
             try {
                 int pos = line.indexOf('=');
                 if (pos == -1) {
                     System.out.println(line + "=" +  client.get(line));
                 } else {
-                    client.set(line.substring(0,pos), line.substring(pos+1));
+                    client.set(line.substring(0,pos), line.substring(pos+1), 10000);
                 }
             } catch (RemoteException e) {
                 System.out.println("Exception: " + e.getMessage());

@@ -11,17 +11,20 @@ public class CachedValue
     int    _version  = 0;
     int    _priority = 0;
     long   _lastused = 0;
-    
+    long   _expire   = 0;
+
     /**
      *  create a cached value for a key/value pair
      *  @param key   the lookup key for the valuje
      *  @param value the value to store
+     *  @param expire the value to store
      */
-    public CachedValue(String key, Object value) {
+    public CachedValue(String key, Object value, long expire) {
         _key   = key;
         _value = value;
+        _expire = expire;
     }
-    
+
     /**
      * Gets the value of key
      *
@@ -120,6 +123,10 @@ public class CachedValue
         _lastused = lastused;
     }
 
+    public long getExpireTime()
+    {
+        return _expire+_lastused;
+    }
 
     public static class TimeComparator
         implements Comparator,
@@ -131,7 +138,7 @@ public class CachedValue
             CachedValue cached1 = (CachedValue) o1;
             CachedValue cached2 = (CachedValue) o2;
 
-            int result = (int) (cached1.getLastUsed() - cached2.getLastUsed());
+            int result = (int) (cached1.getExpireTime() - cached2.getExpireTime());
             if (result == 0) {
                 result = cached1.getPriority() - cached2.getPriority();
 
@@ -158,7 +165,7 @@ public class CachedValue
 
             int result = result = cached1.getPriority() - cached2.getPriority();
             if (result == 0) {
-                result = (int) (cached1.getLastUsed() - cached2.getLastUsed());
+                result = (int) (cached1.getExpireTime() - cached2.getExpireTime());
 
                 if (result == 0) {
                     result = cached1.getVersion() - cached2.getVersion();
@@ -174,5 +181,4 @@ public class CachedValue
         }
         
     }
-
 }

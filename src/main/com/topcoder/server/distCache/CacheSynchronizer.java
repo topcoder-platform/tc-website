@@ -45,8 +45,10 @@ public class CacheSynchronizer
 
 	try {
 	    CachedValue[] cached = remote.synchronize();
+        boolean cleared = remote.getCleared();
 	    System.out.println("TOSYNC: " + cached.length);
-	    if (cached.length > 0) {
+        if(cleared) cache.clear();
+        else if (cached.length > 0) {
 		cache.integrateChanges(cached);
 	    }
 

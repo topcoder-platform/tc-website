@@ -2,6 +2,9 @@ package com.topcoder.server.distCache;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 /**
  *  The cache client is the interface by which clients connect to
@@ -34,7 +37,7 @@ public interface CacheClient
      *  @param key   the key for the cached value
      *  @param value the value to be stored
      */
-    public void set(String key, Object value) 
+    public void set(String key, Object value, long expire)
         throws RemoteException;
 
     /**
@@ -44,7 +47,7 @@ public interface CacheClient
      *  @param value the value to be stored
      *  @param prio  the priority of the cached value
      */
-    public void set(String key, Object value, int prio) 
+    public void set(String key, Object value, int prio, long expire)
         throws RemoteException;
 
     /**
@@ -73,4 +76,16 @@ public interface CacheClient
 
     public Object getAndLock(String key)
         throws RemoteException;
+
+    public Object remove(String key)
+            throws RemoteException;
+
+    public void clearCache()
+            throws RemoteException;
+
+    public ArrayList getValues()
+            throws RemoteException;
+
+    public int size()
+            throws RemoteException;
 }

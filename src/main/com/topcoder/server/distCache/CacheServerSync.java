@@ -46,4 +46,6 @@ public interface CacheServerSync
      */
     public CachedValue[] synchronize()
         throws RemoteException;
+    public boolean getCleared()
+        throws RemoteException;
 }

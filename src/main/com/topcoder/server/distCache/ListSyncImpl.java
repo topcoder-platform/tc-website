@@ -9,6 +9,7 @@ public class ListSyncImpl
     int        sent  = 0;
     Object    _lock    = new Object();
     ArrayList _changed = new ArrayList();
+    boolean cleared = false;
 
     public void valueUpdated(CachedValue value) {
 	synchronized(_lock) {
@@ -39,5 +40,14 @@ public class ListSyncImpl
 	return result;
     }
 
-
+    public void clear()
+    {
+        cleared = true;
+    }
+    public boolean getCleared()
+    {
+        boolean temp = cleared;
+        cleared = false;
+        return temp;
+    }
 }
