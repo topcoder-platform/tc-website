@@ -62,7 +62,7 @@
                         <font size="3" color="#000000" face="tahoma, verdana"><i>Why Hasn't the Vision Met Reality?</i></font></p>
                         
                         <p>Wednesday, February 20, 2003<br/>
-                        By&#160;David Tanacea,<i>President of TopCoder Software</i></p>
+                        By&#160;David Tanacea, <i>President of TopCoder Software</i></p>
 
                         <p>For years now, we in the software development industry have been extolling the virtues of component-based development (CBD). The 
                         benefits of object-oriented design and component-based development seem obvious: </p>
@@ -119,7 +119,7 @@
                         
                         <p><br/></p>
 
-                        <p>By&#160;David Tanacea<br/><div class="smallText"><i>President of TopCoder Software</i></p>
+                        <p>By&#160;David Tanacea<br/><div class="smallText"><i>President of TopCoder Software</i></div></p>
       
                         <p>Would you like to <a href="/?&amp;t=features&amp;c=feat_topics" class="bodyGeneric">write a feature?</a></p>
                     </td>
