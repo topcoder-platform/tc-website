@@ -15,12 +15,14 @@
     <xsl:param name="level3"></xsl:param>
 
     <xsl:choose>
+<!-- My TopCoder begins -->
 <!-- Schedule begins -->
         <xsl:when test="/TC/Task='schedule'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
+                <xsl:call-template name="my_topcoder_row"/>
 
                 <tr>
                     <td id="leftNavOn">
@@ -53,6 +55,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
+                <xsl:call-template name="my_topcoder_row"/>
                 <xsl:call-template name="sched_row"/>
 
                 <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Statistics</A></td></tr>
@@ -139,6 +142,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
+                <xsl:call-template name="my_topcoder_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
 
@@ -188,6 +192,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="development_row"/>
                 <xsl:call-template name="applet_row"/>
+                <xsl:call-template name="my_topcoder_row"/>
 
 <!-- How to Get Paid -->
                 <tr>
@@ -260,6 +265,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
+                <xsl:call-template name="my_topcoder_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
@@ -316,6 +322,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
+                <xsl:call-template name="my_topcoder_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
@@ -646,6 +653,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="jobs_row"/>
                 <xsl:call-template name="applet_row"/>
+                <xsl:call-template name="my_topcoder_row"/>
 
                 <tr>
                     <td id="leftNavOn">
@@ -691,6 +699,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
+                <xsl:call-template name="my_topcoder_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
@@ -713,6 +722,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
+                <xsl:call-template name="my_topcoder_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
@@ -767,6 +777,10 @@
 
 <xsl:template name="applet_row">
                 <tr><td id="leftNavApplet"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A href="Javascript:arena()" class="left">Launch Arena Applet</A></td></tr>
+</xsl:template>
+
+<xsl:template name="my_topcoder_row">
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/Registration</xsl:attribute>My TopCoder</A></td></tr>
 </xsl:template>
 
 <xsl:template name="sched_row">
