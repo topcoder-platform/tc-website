@@ -120,21 +120,22 @@ public class <class-name> {
     }
 }
 </pre>
-
+<br><br>
 <strong>C++ Code Template</strong><br>
 <pre>
-#include <necessary classes>
+#include 
 using namespace std; //Required for TopCoder gcc compiler
-class <class-name>
+class 
 {
     public:
-    <return-type> <method-name> (<argument-type> arg1)
+      ( arg1)
    {
         //your source here
-        return <result>;
-   } ;
+        return ;
+   } 
 } ; 
 </pre>
+<br>
 
 <strong>Compiling</strong><br>
 Code compilations from within the coding window will take place on TopCoder servers. The language that is chosen in the coding window at the time of the compilation will dictate to which language compiler the compilation request is sent. A compilation request will send the code that is currently in the coding window to the TopCoder compiler. If a compilation is successful, you will be notified of such. If the compilation is not successful, the errors that are returned by the compiler will be displayed to you in the compilation results window. Once a successful compilation is accomplished, the resultant compiled object will be stored on TopCoder's server. Any user test or code submission will always utilize the most recent successfully compiled code.  The following is an example of an unsuccessful Java compilation attempt:
