@@ -5,8 +5,11 @@ import java.util.Date;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.corp.model.BaseModel;
+import com.topcoder.shared.util.logging.Logger;
 
 public class TestSessionInfo extends BaseModel {
+    private final static Logger log = Logger.getLogger(TestSessionInfo.class);
+    
     private static int[] months = 
         new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH,
                   Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY,
@@ -288,6 +291,7 @@ public class TestSessionInfo extends BaseModel {
         if(val == null) {
             val = "NO";
         }
+        log.debug("RYAN2 EMAIL IS " + val);
         candidateEmail = val;
     }
 

@@ -39,6 +39,8 @@ public class UpdateSession extends BaseSessionProcessor {
                 throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
             }
 
+            log.debug("RYAN2 STEP 1");
+            log.debug("RYAN2 VAL IS " + getRequest().getParameter(Constants.CANDIDATE_EMAIL));
             updateSessionInfo(); // we need this just in case of session timeout
 
             try {
