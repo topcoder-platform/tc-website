@@ -61,6 +61,14 @@
 <!-- 2003 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr> 
                             
+                            <tr><td class="newsText"><A href="http://newsobserver.com/business/technology/story/3118862p-2824913c.html" target="_blank">Cary coder wins contest's top prize</A> [December 10 - News &amp; Observer]</td></tr>
+
+                            <tr><td class="newsText"><A href="http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?c=1&amp;slug=btdownload08&amp;date=20031208&amp;query=geek+olympics" target="_blank">'Geek Olympics' features 2 locals</A> [December 8 - Seattle Times]</td></tr>
+
+                            <tr><td class="newsText"><A href="http://www.theage.com.au/articles/2003/12/08/1070732124037.html" target="_blank">NT programmer wins developer's coding competition</A> [December 8 - The Age]</td></tr>
+
+                            <tr><td class="newsText"><A href="http://www.intelligententerprise.com/031210/619celko1_1.shtml" target="_blank">Code Confessions</A> [December 8 - Intelligent Enterprise]</td></tr>
+
                             <tr><td class="newsText"><A href="http://www.bayarea.com/mld/mercurynews/business/7269666.htm" target="_blank">Google puts coders to the test</A> [November 15 - SJM]</td></tr>
 
                             <tr><td class="newsText"><A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=63819" target="_blank">A Call for Leadership</A> [October 20 - MHT]</td></tr>
