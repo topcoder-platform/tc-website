@@ -55,6 +55,7 @@ abstract class TermsBase extends Base {
     }
 
     protected boolean isRegistered() throws Exception {
+        log.debug("checking if " + getUser().getId() + " has agreed to terms " + getTermsId());
         boolean ret = false;
         UserTermsOfUse userTerms = (UserTermsOfUse)createEJB(getInitialContext(), UserTermsOfUse.class);
         ret = userTerms.hasTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME);
