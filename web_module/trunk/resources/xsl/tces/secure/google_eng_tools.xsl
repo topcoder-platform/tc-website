@@ -70,24 +70,26 @@
 
                            <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
 
-<p><B>Software Engineering</B><br/>
+<p><B>Engineering Tools</B><br/>
 
-Positions available in Mountain View, CA, New York, NY, and Santa Monica, CA.</p>
-
-<p>Google is growing! We need world-class engineers to develop the next generation search engine. Our engineering team is working on problems 
-in a number of areas, including cutting-edge information retrieval algorithms, scalability issues related to dealing with huge amounts of data and 
-a rapidly increasing user population, and a variety of novel search features. If you have a need to bring order to a chaotic web, contact us.</p>
+Google is looking for an experienced software engineer to help build the tools we use to ensure the quality of our software. 
+You should have a strong understanding and appreciation of good software development processes. You will be working closely 
+with different project teams to improve our tools for unit testing, regression testing, and problem isolation. Here's an 
+excellent opportunity for you to use your talents to help us develop, test, and maintain quality products that improve the web 
+experience for millions of users.</p>
 
 <p><B>Requirements</B></p>
 <ul>
-<li>BS or MS in Computer Science or equivalent (PhD a plus)</li>
-<li>Several years of software development experience</li>
-<li>Enthusiasm for solving interesting problems</li>
-<li>Experience with Unix/Linux or Windows environments, C++ development, distributed systems, machine learning, information retrieval, network programming and/or developing large software systems a plus</li>
+<li>3+ years of development experience</li>
+<li>Excellent Python or C++ programming skills</li>
+<li>Excellent Unix/Linux and shell scripting skills</li>
+<li>Perl and Java a plus</li>
+<li>Excellent communication skills</li>
+<li>BSCS or MSCS</li>
 </ul>
 	
-<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=138&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
-
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=140&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+<br/><br/>
                            
 
                         </TD>

@@ -70,24 +70,24 @@
 
                            <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
 
-<p><B>Software Engineering</B><br/>
-
-Positions available in Mountain View, CA, New York, NY, and Santa Monica, CA.</p>
-
-<p>Google is growing! We need world-class engineers to develop the next generation search engine. Our engineering team is working on problems 
-in a number of areas, including cutting-edge information retrieval algorithms, scalability issues related to dealing with huge amounts of data and 
-a rapidly increasing user population, and a variety of novel search features. If you have a need to bring order to a chaotic web, contact us.</p>
+<p><B>Windows</B><br/>
+We are looking for Windows developers to join our world-class engineering team to design and develop cutting edge client-based search products, 
+such as the Google Toolbar. If you love to use Google and help build revolutionary client applications, join the Google client team. </p>
 
 <p><B>Requirements</B></p>
 <ul>
-<li>BS or MS in Computer Science or equivalent (PhD a plus)</li>
-<li>Several years of software development experience</li>
-<li>Enthusiasm for solving interesting problems</li>
-<li>Experience with Unix/Linux or Windows environments, C++ development, distributed systems, machine learning, information retrieval, network programming and/or developing large software systems a plus</li>
+<li>Minimum 3 years of Windows product development experience </li>
+<li>Extensive experience programming in C/C++/COM and OO skills </li>
+<li>Extensive knowledge of Windows SDK and Win32 API </li>
+<li>Experience with any of the following is a big plus: UI development, multithreaded software, Windows NT security, and network protocols </li>
+<li>Strong desire to ship products and work in a small team is required</li>
+<li>Expertise in network protocols </li>
+<li>Understanding or experience in the .NET framework (C#)</li>
+<li>A BS or MS in Computer Science or equivalent</li>
 </ul>
 	
-<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=138&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
-
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=142&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+<br/><br/>
                            
 
                         </TD>
