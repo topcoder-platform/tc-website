@@ -56,6 +56,10 @@
 						<br/>
                         <strong>Email:</strong> <A HREF="mailto:<%=MemberInfo.getStringItem(0, "email")%>" class="bodyText"><%= MemberInfo.getStringItem(0, "email")%></A><br/>
                         <strong>Phone:</strong> <%= MemberInfo.getStringItem(0, "home_phone")%>
+						<br/>
+						<% if (MemberProfileTask.hasResume()) { %>
+						<a href="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="bodyText"><B>Resume</B></a>
+						<% } %>
 						<br/><br/>
 					</td>
 					<td width="50%" class="bodyText">
@@ -70,10 +74,7 @@
 						<% } %>
 						<B>Graduation Date:</B> <%=MemberInfo.getItem(0, "grad_month").toString()%>
 						<%=MemberInfo.getItem(0, "grad_month").toString().trim().length()==0?"":", "%>
-						<%=MemberInfo.getItem(0, "grad_year").toString()%><br/>
-						<% } %>
-						<% if (MemberProfileTask.hasResume()) { %>
-						<a href="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="bodyText"><B>Resume</B></a>
+						<%=MemberInfo.getItem(0, "grad_year").toString()%>
 						<% } %>
 						<br/><br/>
 	                </td>
