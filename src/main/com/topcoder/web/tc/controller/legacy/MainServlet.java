@@ -175,8 +175,9 @@ public final class MainServlet extends HttpServlet {
             // FOR SESSION TIMEOUTS TO WARN USER.
             //************************ home ************************
             if (requestTask.equals("home")) {
-                response.sendRedirect(response.encodeRedirectURL("http://" + request.getServerName() + "/tc"));
-                return;
+                getServletContext().getRequestDispatcher(response.encodeURL("/tc")).forward(request, response);
+//                response.sendRedirect(response.encodeRedirectURL("http://" + request.getServerName() + "/tc"));
+//                return;
 //                HTMLString = TaskHome.process(request, response, htmlMaker, nav, document);
             }
             //************************ home ************************
@@ -241,7 +242,7 @@ public final class MainServlet extends HttpServlet {
             else if (requestTask.equals("") || requestCommand.equals("")) {
                 getServletContext().getRequestDispatcher(response.encodeURL("/tc")).forward(request, response);
 //                response.sendRedirect(response.encodeRedirectURL("http://" + request.getServerName() + "/tc"));
-                return;
+//                return;
             }
             else {
                 HTMLString = TaskStatic.process(request, response, htmlMaker, nav, document);
