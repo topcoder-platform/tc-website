@@ -90,7 +90,7 @@ public class UpdateProfile extends BaseProfileProcessor {
         problem.createSessionProfileProblem(sessionProfileId, 
                                             problemId,
                                             problemTypeId,
-                                            0,
+                                            1,
                                             roundId);
         //now do the test set b problems
         problemTypeId = 
@@ -106,7 +106,7 @@ public class UpdateProfile extends BaseProfileProcessor {
             problem.createSessionProfileProblem(sessionProfileId, 
                                                 problemId,
                                                 problemTypeId,
-                                                i,
+                                                i+1,
                                                 roundId);
         }
 
