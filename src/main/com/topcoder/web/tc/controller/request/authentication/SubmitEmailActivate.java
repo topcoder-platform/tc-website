@@ -43,11 +43,13 @@ public class SubmitEmailActivate extends Base {
             try {
                 LoginRemote login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
                 subject = login.login(username, password);
+                log.debug("login success " + subject.getUserId());
             } catch (Exception e) {
                 log.info("login failed", e);
                 getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Handle or password incorrect.");
                 setNextPage(Constants.EMAIL_ACTIVATE);
                 setIsNextPageInContext(true);
+                return;
             }
             try {
                 updateEmail(subject, email);
@@ -94,6 +96,7 @@ public class SubmitEmailActivate extends Base {
     private void updateEmail(TCSubject subject, String email) throws Exception {
         Navigation nav = (Navigation) getRequest().getSession(true).getAttribute("navigation");
         if (nav == null) {
+            log.debug("nav not found, make a new one");
             nav = new Navigation(getRequest(), new CoderSessionInfo(getRequest(),
                     getAuthentication(), subject.getPrincipals()));
         }
@@ -110,8 +113,7 @@ public class SubmitEmailActivate extends Base {
             UserServicesHome userServicesHome = (UserServicesHome) context.lookup(ApplicationServer.USER_SERVICES);
             transaction = Transaction.get();
             if (Transaction.begin(transaction)) {
-                UserServices userServices;
-                userServices = userServicesHome.findByPrimaryKey(new Integer(user.getUserId()));
+                UserServices userServices = userServicesHome.findByPrimaryKey(new Integer(user.getUserId()));
                 userServices.setUser(user);
             }
             if (!Transaction.commit(transaction)) {
