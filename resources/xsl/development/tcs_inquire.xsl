@@ -13,7 +13,7 @@
 
 <head>
         <xsl:call-template name="Preload"/>      
-        <title>TopCoder | Development</title>
+<title>Inquire about the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> project at TopCoder Software Development</title>
         <xsl:call-template name="CSS"/>      
 
         <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>

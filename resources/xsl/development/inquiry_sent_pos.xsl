@@ -15,7 +15,7 @@
 
     <xsl:call-template name="Preload" />      
 
-<title>TopCoder | Development</title>
+<title>Inquire about the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> project at TopCoder Software Development</title>
 
     <xsl:call-template name="CSS" />      
 
