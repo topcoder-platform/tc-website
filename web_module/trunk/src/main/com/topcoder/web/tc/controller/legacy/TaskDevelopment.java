@@ -2,7 +2,6 @@ package com.topcoder.web.tc.controller.legacy;
 
 
 import com.topcoder.common.web.constant.TCServlet;
-import com.topcoder.common.web.data.CoderRegistration;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.report.Constants;
 import com.topcoder.common.web.data.report.Query;
@@ -10,7 +9,6 @@ import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.util.Data;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.common.web.data.User;
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
@@ -19,10 +17,8 @@ import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.*;
@@ -31,21 +27,14 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.PathResource;
 
 import com.topcoder.dde.catalog.Catalog;
-import com.topcoder.dde.catalog.CatalogException;
 import com.topcoder.dde.catalog.CatalogHome;
 import com.topcoder.dde.catalog.ComponentInfo;
 import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.catalog.ComponentManager;
-import com.topcoder.dde.catalog.ComponentSummary;
 import com.topcoder.dde.catalog.ComponentVersionInfo;
-import com.topcoder.dde.catalog.Document;
 import com.topcoder.dde.catalog.Technology;
-import com.topcoder.dde.user.RegistrationInfo;
-import com.topcoder.dde.forum.DDEForumHome;
-import com.topcoder.dde.forum.DDEForum;
 import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.dde.user.UserManagerRemote;
-import com.topcoder.dde.user.PricingTier;
 import com.topcoder.web.common.PermissionException;
 
 import javax.rmi.PortableRemoteObject;
@@ -53,13 +42,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import javax.naming.Context;
-import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 import java.util.Map;
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.text.DateFormat;
 
 public final class TaskDevelopment {
 
@@ -77,6 +62,7 @@ public final class TaskDevelopment {
         }
     }
 
+/*
     private static String[] setFields(String phoneNumber) {
         if (phoneNumber == null) phoneNumber = "";
         StringBuffer phoneFormatted = new StringBuffer("");
@@ -105,6 +91,7 @@ public final class TaskDevelopment {
         }
         return phoneElements;
     }
+*/
 
     static String formatName(String formatName) {
         while (formatName.indexOf(" ") != -1) {
@@ -118,7 +105,7 @@ public final class TaskDevelopment {
                           HTMLRenderer HTMLmaker, Navigation nav, XMLDocument document)
             throws Exception {
         String result = null;
-        String cacheKey = null;
+//        String cacheKey = null;
         try {
             String command = Conversion.checkNull(request.getParameter("c"));
             log.debug("Initial command is: " + command);
@@ -192,7 +179,7 @@ public final class TaskDevelopment {
                     devTag.addTag(rsc.getTag("projects", "project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
                     //String handle = nav.getUser().getHandle();
-                    String handle = nav.getSessionInfo().getHandle();
+                    //String handle = nav.getSessionInfo().getHandle();
                     devTag.addTag(new ValueTag("ProjectName", project));
                     devTag.addTag(new ValueTag("Project", project));
                     devTag.addTag(new ValueTag("To", to));
@@ -271,7 +258,7 @@ public final class TaskDevelopment {
                     msgText.append(workWeek);
 
                     Data.loadUser(nav);
-                    User user = nav.getUser();
+                    //User user = nav.getUser();
                     //CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
                     //int rating = coder.getRating().getRating();
                     int rating = nav.getSessionInfo().getRating();
@@ -469,8 +456,8 @@ public final class TaskDevelopment {
 
 
                         //get forum object
-                        DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(CONTEXT.lookup("dde/DDEForum"), DDEForumHome.class);
-                        DDEForum ddeforum = ddeforumhome.create();
+                        //DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(CONTEXT.lookup("dde/DDEForum"), DDEForumHome.class);
+                        //DDEForum ddeforum = ddeforumhome.create();
 
                         //retrieve the coder registration information
                         log.debug("terms: " + Conversion.checkNull(request.getParameter("terms")));
@@ -484,7 +471,7 @@ public final class TaskDevelopment {
                         try {
                             selectedPrincipal = PRINCIPAL_MANAGER.getUser(handle);
                             userId = selectedPrincipal.getId();
-                            PricingTier pt = new PricingTier(1, 5.0);
+                            //PricingTier pt = new PricingTier(1, 5.0);
                             log.debug("got user");
                         } catch (NoSuchUserException noSuchUserException) {
                             log.error("noSuchUserException: " + handle + noSuchUserException);
@@ -535,7 +522,7 @@ public final class TaskDevelopment {
                                         if (roleName.equalsIgnoreCase("ForumUser " + activeForumId)) {
                                             log.debug("--->got a match");
                                             notFound = false;
-                                            RolePrincipal roleToAdd = roles[i];
+                                            //RolePrincipal roleToAdd = roles[i];
                                             try {
 
                                                 PRINCIPAL_MANAGER.assignRole(selectedPrincipal, roles[i], null);
