@@ -77,7 +77,6 @@ abstract class RegistrationBase extends BaseProcessor {
         //not sure if this db is ok...we'll see
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
         ResultSetContainer rsc = (ResultSetContainer)m.get("company_datasource");
-        log.debug("rsc: " + rsc.toString());
         if (rsc==null || rsc.isEmpty()) {
             throw new Exception("Could not find datasource for company: " + companyId);
         } else {

@@ -34,7 +34,6 @@ abstract class FullRegBase extends SimpleRegBase {
             db = getCompanyDb(companyId);
 
             questions = getQuestions();
-            log.debug("questions" + questions.toString());
             regInfo = makeRegInfo();
             p.setObject(Constants.REGISTRATION_INFO, regInfo);
             registrationProcessing();
@@ -121,7 +120,6 @@ abstract class FullRegBase extends SimpleRegBase {
         Map aMap = dataAccess.getData(r);
         ResultSetContainer answers = (ResultSetContainer) aMap.get("demographic_answer_list");
 
-        log.debug("rsc answers: " + answers.toString());
         ResultSetContainer.ResultSetRow aRow = null;
         List answerList = new ArrayList(answers.size());
         for (Iterator it = answers.iterator(); it.hasNext();) {

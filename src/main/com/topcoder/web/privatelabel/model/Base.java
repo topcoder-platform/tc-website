@@ -34,7 +34,6 @@ abstract public class Base implements Serializable, Cloneable {
         for (int i = 0; i < m.length; i++) {
             try {
                 methodName = m[i].getName();
-                log.debug("method: " + methodName);
                 if (methodName.startsWith("get") && m[i].isAccessible()) {
                     buf.append(m[i].getName().substring(3) + " = " + m[i].invoke(this, null).toString());
                     if (i<m.length-1) buf.append(", ");

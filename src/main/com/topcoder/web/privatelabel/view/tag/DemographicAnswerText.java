@@ -25,9 +25,9 @@ public class DemographicAnswerText  extends TagSupport {
             DemographicQuestion question = (DemographicQuestion)questions.get(new Long(response.getQuestionId()));
             String ret = "";
             if (question.getAnswerType()==DemographicQuestion.FREE_FORM) {
-                ret = question.getAnswer(response.getAnswerId()).getText();
-            } else if (question.getAnswerType()==DemographicQuestion.SINGLE_SELECT) {
                 ret = response.getText();
+            } else if (question.getAnswerType()==DemographicQuestion.SINGLE_SELECT) {
+                ret = question.getAnswer(response.getAnswerId()).getText();
             } else if (question.getAnswerType()==DemographicQuestion.SINGLE_SELECT) {
                 //todo handle multiple select
             }
