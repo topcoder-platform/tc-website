@@ -15,7 +15,7 @@ import com.topcoder.shared.util.logging.Logger;
  */
 abstract class FullRegBase extends SimpleRegBase {
 
-    protected FileUpload fu = null;
+    public FileUpload fu = null;
     /* does this request include a resume, it's possible that there is already
        a resume stored in the reg info in the persistor
     */
@@ -52,6 +52,11 @@ abstract class FullRegBase extends SimpleRegBase {
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
         return new FullRegInfo(super.makeRegInfo());
+    }
+
+
+    public void setResume(FileUpload resume) {
+        fu = resume;
     }
 
 }

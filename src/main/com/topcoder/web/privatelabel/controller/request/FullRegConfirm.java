@@ -4,9 +4,6 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.servlet.request.FileUpload;
-import com.topcoder.servlet.request.InvalidContentTypeException;
 import com.topcoder.servlet.request.UploadedFile;
 
 import java.util.Iterator;
@@ -47,12 +44,7 @@ public class FullRegConfirm extends FullRegBase {
         if (info==null) {
             throw new Exception("Registration info not found in persistor");
         }
-        //gotta create the fileupload object before we can start pulling stuff from the request
-        try {
-              fu = new FileUpload(getRequest(), false);
-        } catch (InvalidContentTypeException ignore) {
-            //that's ok, we'll just procede with out
-        }
+
         if (fu!=null) {
             Iterator it = fu.getAllUploadedFiles();
             //only need to worry about a single resume
