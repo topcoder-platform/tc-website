@@ -187,6 +187,11 @@
             <description></description>
         </init-param>
         <init-param>
+            <param-name>event_id</param-name>
+            <param-value>eid</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
             <param-name>registration_info</param-name>
             <param-value>regInfo</param-value>
             <description></description>
