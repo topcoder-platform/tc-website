@@ -84,7 +84,7 @@
                 </tr>
             </table>
 			         		
-         <p>To find out more detailed information about the DoubleClick 2004 Coding Challenge, please read the <a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_rules">Official Rules and Regulations</a>.</p>
+         <p>To find out more detailed information about the DoubleClick 2004 Coding Challenge, please read the <a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_rules">Official Rules and Regulations</a>.</p>
 
 		</td>
 	</tr>
