@@ -2,7 +2,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
 <jsp:include page="../../script.jsp" />
+<jsp:useBean id="info" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+
 <title>TopCoder Info</title>
 </head>
 <body>
@@ -23,9 +26,11 @@
   <table border="0" cellspacing="0" cellpadding="0" width="100%">
       <tr>
          <td>
-            <p class="bodyText">
-            Info goes here
-            </p>
+            <rsc:iterator list="<%=info%>" id="row">
+                <p class="bodyText">
+                    <rsc:item row="<%=row%>" name="question_desc"/>
+                </p>
+            </rsc:iterator>
          </td>
       </tr>
       <br/>
