@@ -9,25 +9,18 @@ import java.sql.Connection;
 import java.util.Map;
 
 /**
- * This bean processes a Request and returns the data from the data warehouse.
+ * This bean processes a {@link com.topcoder.shared.dataAccess.QueryRequest} and returns the data
+ * from the data warehouse.
  *
  * @author  Greg Paul
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.2  2002/07/23 23:37:21  gpaul
- *           use DataSources rather than DBMS to get connections
- *
- *           Revision 1.1  2002/07/19 00:07:17  gpaul
- *           a DataAccessInt to handle running QueryRequests
- *
- * @see     RequestInt
+ * @see     QueryRequest
  */
 public class DWQueryDataAccess implements DataAccessInt {
     private static Logger log = Logger.getLogger(DWQueryDataAccess.class);
 
     /**
-     * This method passes a query request and passes the contents
+     * This method takes a query request and passes the contents
      * of that request and a connection to the data warehouse
      * to the QueryRunner.
      *
@@ -38,7 +31,7 @@ public class DWQueryDataAccess implements DataAccessInt {
      * @throws  Exception if there was an error encountered while retrieving
      * the data.
      */
-    public Map getData(RequestInt request) throws Exception {
+    public Map getData(QueryRequest request) throws Exception {
         try {
             Context ctx = TCContext.getInitial();
             DataSource ds = (DataSource) ctx.lookup("DW");

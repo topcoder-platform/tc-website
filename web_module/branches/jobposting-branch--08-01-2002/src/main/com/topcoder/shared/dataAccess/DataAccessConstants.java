@@ -6,18 +6,25 @@ import com.topcoder.shared.util.TCResourceBundle;
  * A class to store the constants used for data access.
  * @author Greg Paul
  * @version  $Revision$ $Date$
- * Log of Changes:
- *           $Log$
- *           Revision 1.1  2002/07/18 23:57:53  gpaul
- *           added so that one could dynamically create queries on the front end and then get result sets back
- *
  *
  */
 public class DataAccessConstants {
     private static TCResourceBundle bundle = new TCResourceBundle("DataAccess");
-    /**
-     * A key used to get a query
-     */
+
     public static String QUERY_KEY = bundle.getProperty("QUERY", "query");
+    public static String COMMAND = bundle.getProperty("COMMAND", "c");
+    public static String NUMBER_RECORDS = bundle.getProperty("NUMBER_RECORDS", "nr");
+    public static String START_RANK = bundle.getProperty("START_RANK", "sr");
+    public static String END_RANK = bundle.getProperty("END_RANK", "er");
+    public static String SORT_COLUMN = bundle.getProperty("SORT_COLUMN", "sc");
+    public static String SORT_QUERY = bundle.getProperty("SORT_QUERY", "sq");
+    public static String SORT_DIRECTION = bundle.getProperty("SORT_DIRECTION", "sd");
+    public static int INTEGER_INPUT = bundle.getIntProperty("INTEGER_INPUT", 1001);
+    public static int DECIMAL_INPUT = bundle.getIntProperty("DECIMAL_INPUT", 1002);
+    public static int DATE_INPUT = bundle.getIntProperty("DATE_INPUT", 1003);
+    public static int SORT_DIRECTION_INPUT = bundle.getIntProperty("SORT_DIRECTION_INPUT", 1004);
+    public static int STRING_INPUT = bundle.getIntProperty("STRING_INPUT", 1005);
+    public static String INPUT_DELIMITER = bundle.getProperty("INPUT_DELIMITER", "@");
+    public static String SPECIAL_DEFAULT_MARKER = bundle.getProperty("SPECIAL_DEFAULT_MARKER", "$");
 
 }

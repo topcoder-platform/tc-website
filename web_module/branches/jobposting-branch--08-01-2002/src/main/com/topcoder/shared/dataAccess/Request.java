@@ -10,33 +10,7 @@ import java.util.*;
  * so if you have 2 coder ids, you need coderA and coderB.
  *
  * @author tbone
- *
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.2  2002/07/18 23:58:14  gpaul
- *           changed toString method and throw exception if setProperties goes wrong
- *
- *           Revision 1.1  2002/07/03 00:30:22  gpaul
- *           moving over here
- *
- *           Revision 1.4  2002/06/13 18:53:43  lbackstrom
- *           distributed cache
- *
- *           Revision 1.3  2002/06/12 18:02:56  lbackstrom
- *           added toString method for use as cache key
- *
- *           Revision 1.2  2002/05/30 14:44:47  gpaul
- *           changed StatRequestBean to have a better construstor that would be able to parse the Map produced by HttpUtils on a request.queryString
- *
- *           Revision 1.1.1.1  2002/04/02 17:20:38  steveb
- *           initial web load into cvs
- *
- *           Revision 1.1.2.1  2002/03/16 20:18:09  gpaul
- *           moving these over from the member dev area.
- *
- *           Revision 1.1  2002/02/06 04:11:01  tbone
- *           TCB - added to cvs
  *
  */
 public class Request implements RequestInt {
@@ -46,18 +20,12 @@ public class Request implements RequestInt {
     //var for the c=someStuff
     private String msContentHandle;
 
-    private static TCResourceBundle bundle;
-    private static String COMMAND_KEY;
-
     /**
      * Default constructor
      */
     public Request() {
         msContentHandle = "";
         mProp = new Properties();
-        if (bundle == null)
-            bundle = new TCResourceBundle("DataAccess");
-        COMMAND_KEY = bundle.getProperty("COMMAND", "c");
     }
 
     /**
@@ -69,9 +37,6 @@ public class Request implements RequestInt {
     public Request(Map map) throws Exception {
         this();
         setProperties(map);
-        if (bundle == null)
-            bundle = new TCResourceBundle("DataAccess");
-        COMMAND_KEY = bundle.getProperty("COMMAND", "c");
     }
 
     /**
@@ -102,7 +67,7 @@ public class Request implements RequestInt {
                 sKey = me.getKey().toString(); //maps can't have null-key
                 sValue = (String) me.getValue();
                 sValue = sValue == null?"":sValue; //nulls not allowed in Properties
-                if (sKey.equals(COMMAND_KEY))
+                if (sKey.equals(DataAccessConstants.COMMAND))
                     setContentHandle(sValue);
                 else
                     mProp.put(sKey, sValue);
@@ -113,7 +78,7 @@ public class Request implements RequestInt {
                     sArray = (String[]) me.getValue();
                     sKey = me.getKey().toString();
                     if (sArray.length > 0) {
-                        if (sKey.equals(COMMAND_KEY))
+                        if (sKey.equals(DataAccessConstants.COMMAND))
                             setContentHandle(sArray[0]);
                         else
                             mProp.put(sKey, sArray[0]);
@@ -142,7 +107,7 @@ public class Request implements RequestInt {
      */
     public void setContentHandle(String s) {
         msContentHandle = s;
-        mProp.setProperty(COMMAND_KEY, s);
+        mProp.setProperty(DataAccessConstants.COMMAND, s);
     }
 
     /**
@@ -172,7 +137,7 @@ public class Request implements RequestInt {
      */
     public void setProperty(String sKey, String sVal) {
         mProp.setProperty(sKey, sVal);
-        if (sKey.equals(COMMAND_KEY))
+        if (sKey.equals(DataAccessConstants.COMMAND))
             msContentHandle = sVal;
     }
 

@@ -9,59 +9,10 @@ import java.sql.Connection;
 import java.util.Map;
 
 /**
- * This bean processes a RequestInt and returns the data from the Transactional database.
+ * This bean processes a {@link com.topcoder.shared.dataAccess.RequestInt} and returns the data from the Transactional database.
  *
  * @author  Dave Pecora
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.3  2002/07/23 23:37:21  gpaul
- *           use DataSources rather than DBMS to get connections
- *
- *           Revision 1.2  2002/07/12 17:15:46  gpaul
- *           merged baby
- *
- *           Revision 1.1.2.1  2002/07/11 17:05:55  gpaul
- *           check if connection is closed before attempting to do it.
- *
- *           Revision 1.1  2002/07/03 00:30:22  gpaul
- *           moving over here
- *
- *           Revision 1.2  2002/06/27 18:25:52  gpaul
- *           adjustments for a correct ApplicationSever.properties file and DBMS.properties file
- *
- *           Revision 1.1  2002/06/05 02:45:38  gpaul
- *           this data retrieval bean gets a connection to the transational db instead of the warehouse
- *
- *           Revision 1.1.1.1  2002/04/02 17:20:38  steveb
- *           initial web load into cvs
- *
- *           Revision 1.1.2.1  2002/03/16 20:18:09  gpaul
- *           moving these over from the member dev area.
- *
- *           Revision 1.7  2002/03/05 16:14:37  dpecora
- *           - Renamed and relocated EJB
- *           - Query mods to fix up stuff broken by iron_man changes
- *
- *           Revision 1.6  2002/02/27 10:35:25  dpecora
- *           A number of changes:
- *           - Added support for required input arguments to default input queries
- *           - Added support for data sorting prior to row selection
- *           - Removed exception printout from data retrieval bean; it was a duplicate
- *           of the EJB exception printout info
- *           - Added scrolling by room for round statistics
- *           - Various other query modifications
- *
- *           Revision 1.5  2002/02/13 08:35:22  dpecora
- *           Add javadocs, implement ranklists
- *
- *           Revision 1.4  2002/02/06 11:58:29  dpecora
- *           Got the EJB running successfully.  Also updated the scripts to put the
- *           data in the various query tables, in response to various table structure
- *           changes and column renaming.
- *
- *           Revision 1.3  2002/02/06 04:14:00  tbone
- *           added cvs logging and made a few adjustments
  * @see     RequestInt
  */
 public class OLTPDataAccess implements DataAccessInt {

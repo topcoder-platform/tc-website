@@ -8,18 +8,12 @@ import java.util.*;
  *
  * @author Greg Paul
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.1  2002/07/18 23:57:53  gpaul
- *           added so that one could dynamically create queries on the front end and then get result sets back
- *
- *
+ * @see com.topcoder.shared.dataAccess.QueryRunner
+ * @see com.topcoder.shared.dataAccess.DWQueryDataAccess
+ * @see com.topcoder.shared.dataAccess.OLTPQueryDataAccess
  */
 public class QueryRequest implements RequestInt {
-    //generic container for mappings
     private Map mProp;
-
-    //var for the c=someStuff
     private Map queries;
 
     /**

@@ -3,7 +3,6 @@ package com.topcoder.shared.dataAccess;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.*;
 
-import javax.naming.Context;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.*;
@@ -36,120 +35,87 @@ import java.util.*;
  * <ul>
  *   <li>
  *     Insert the query into the query table. {@link com.topcoder.utilities.QueryLoader} can be
- *     used for this purpose.
- *     <pre>com.topcoder.utilities.QueryLoader "DW" 50 "Query_Metadata" 0 0 "
- *     SELECT c.handle, r.rating
- *       FROM coder c, rating r
- *      WHERE c.coder_id = r.coder_id
- *        AND r.rating @gt; @ra@"</pre>
+ *     used for this purpose (one can not insert into a TEXT coulumn directly).
+ *     <pre>
+ *       com.topcoder.utilities.QueryLoader "DW" 1 "Coder_Ratings" 0 0 "
+ *       SELECT c.handle, r.rating
+ *         FROM coder c, rating r
+ *        WHERE c.coder_id = r.coder_id
+ *          AND r.rating &gt; @ra@"
+ *     </pre>
+ *     <ul>
+ *       <li><strong>query_id</strong> a unique identifier for a query</li>
+ *       <li><strong>text</strong> the actual text of the query</li>
+ *       <li><strong>name</strong> a name for the query, this is used as a key for the resultset of this query</li>
+ *       <li><strong>ranking</strong> 1 if this is a ranking query, 0 if it is not.  If it is a ranking query, another
+ *         column is added to the result set containing the rank of  a particular row.  If there is a tie, all those
+ *         rows that are tied get the same rank, and the next non-tied row will get the next rank as
+ *         if there was no tie.</li>
+ *       <li><strong>column_index</strong> the column that we are ranking on</li>
+ *     </ul>
+ *     <br/>
  *   </li>
- *   <li>Insert into the input_lu table.
+ *   <li>
  *     <pre>
  *       INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc)
- *       VALUES (20, "ra", 1001, "Rating");
+ *       VALUES (2, 'ra', 1001, 'Rating');
  *     </pre>
+ *     <ul>
+ *       <li><strong>input_id</strong> a unique identifier for an input</li>
+ *       <li><strong>input_code</strong> a code used when specifying a particular input in a query</li>
+ *       <li><strong>date_type_id</strong> the id of the data type of this input</li>
+ *       <li><strong>input_desc</strong> a text description of this input</li>
+ *     </ul>
+ *     <br/>
  *   </li>
- *   <li>Insert into the command table.</li>
+ *   <li>
+ *     <pre>
+ *       INSERT INTO command (command_id, command_desc, command_group_id)
+ *       VALUES (3, 'coder_ratings', 1);
+ *     </pre>
+ *     <ul>
+ *       <li><strong>command_id</strong> a unique identifier for a command</li>
+ *       <li><strong>command_desc</strong> a text description of the command</li>
+ *       <li><strong>command_group_id</strong> the id of the group this command belongs to</li>
+ *     </ul>
+ *     <br/>
+ *   </li>
+ *   <li>
+ *     <pre>
+ *       INSERT INTO command_query_xref (command_id, query_id, sort_order)
+ *       VALUES (3, 1, 1);
+ *     </pre>
+ *     <ul>
+ *       <li><strong>command_id</strong> is the id of the command we are setting up</li>
+ *       <li><strong>query_id</strong> is the id of the query we're associating with this command</li>
+ *       <li><strong>sort_order</strong> is simply a way to sort the queriess for a given command, each
+ *         record in command_query_xref for a particular command should have a distinct
+ *         value for sort_order</li>
+ *     </ul>
+ *     <br/>
+ *   </li>
+ *   <li>
+ *     <pre>
+ *       INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order)
+ *       VALUES (1, 'Y', '1500', 2, 1);
+ *     </pre>
+ *     <ul>
+ *       <li><strong>query_id</strong> is the id of the query whose inputs were are setting up</li>
+ *       <li><strong>optional</strong> is a flag that allows us to set defaults for this input</li>
+ *       <li><strong>default_value</strong> is the default value if this input was not specified at execution time</li>
+ *       <li><strong>input_id</strong> is the id of the input we are associating with this query</li>
+ *       <li><strong>sort_order</strong> is simply a way to sort the inputs for a given query, each
+ *         record in query_input_xref for a particular query should have a distinct  value for sort_order</li>
+ *     </ul>
+ *     <br/>
+ *   </li>
  * </ul>
  *
  *
- * @author  Dave Pecora
+ * @author Dave Pecora
+ * @author Greg Paul
  * @see     ResultSetContainer*
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.2  2002/07/12 17:15:46  gpaul
- *           merged baby
- *
- *           Revision 1.1.2.1  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
- *
- *           Revision 1.1  2002/07/03 00:30:22  gpaul
- *           moving over here
- *
- *           Revision 1.5  2002/05/09 03:19:22  steveb
- *           SB -- added check for STRING data type
- *
- *           Revision 1.4  2002/04/03 21:38:41  apps
- *           no message
- *
- *           Revision 1.3  2002/04/03 16:27:17  steveb
- *           SB -- changed name of default data source
- *
- *           Revision 1.2  2002/04/03 04:14:48  steveb
- *           SB configured to allow connections to different DataSources
- *
- *           Revision 1.1.2.2  2002/04/01 22:43:10  apps
- *           SB altered to fix bean structure
- *
- *           Revision 1.1.2.1  2002/04/01 18:00:38  apps
- *           SB  added stat directory for Statistics ejb and related common classes
- *
- *           Revision 1.1.2.2  2002/03/19 01:22:45  gpaul
- *           changed query_input to query_input_xref
- *
- *           Revision 1.1.2.1  2002/03/16 20:18:54  gpaul
- *           moving these over from the member dev area.
- *
- *           Revision 1.4  2002/03/12 06:25:25  dpecora
- *           Remove time dependency in queries
- *
- *           Revision 1.3  2002/03/12 06:05:21  dpecora
- *           Fix any exceptions caused by null database values
- *
- *           Revision 1.2  2002/03/06 11:31:54  dpecora
- *           - Add nr parameter support
- *
- *           Revision 1.1  2002/03/05 16:14:37  dpecora
- *           - Renamed and relocated EJB
- *           - Query mods to fix up stuff broken by iron_man changes
- *
- *           Revision 1.14  2002/02/27 10:35:25  dpecora
- *           A number of changes:
- *           - Added support for required input arguments to default input queries
- *           - Added support for data sorting prior to row selection
- *           - Removed exception printout from data retrieval bean; it was a duplicate
- *           of the EJB exception printout info
- *           - Added scrolling by room for round statistics
- *           - Various other query modifications
- *
- *           Revision 1.13  2002/02/19 07:12:53  dpecora
- *           Add sort functionality driven from URL
- *
- *           Revision 1.12  2002/02/13 08:35:22  dpecora
- *           Add javadocs, implement ranklists
- *
- *           Revision 1.11  2002/02/12 03:41:56  dpecora
- *           IR replies, add a space into the ejb exception for "query info
- *           missing from DB"
- *
- *           Revision 1.10  2002/02/11 23:40:37  dpecora
- *           *** empty log message ***
- *
- *           Revision 1.9  2002/02/11 11:13:26  dpecora
- *           Change ejb to use command descriptions instead of command id as input,
- *           rework some of the queries
- *
- *           Revision 1.8  2002/02/08 22:34:58  dpecora
- *           Get rid of EJB exceptions, better exception messaging if a problem does
- *           occur, move Conversion.makePretty into StringUtilities
- *
- *           Revision 1.7  2002/02/07 10:28:31  dpecora
- *           Minor bug fixes
- *
- *           Revision 1.6  2002/02/06 12:31:17  dpecora
- *           A couple minor fixes
- *
- *           Revision 1.5  2002/02/06 11:58:29  dpecora
- *           Got the EJB running successfully.  Also updated the scripts to put the
- *           data in the various query tables, in response to various table structure
- *           changes and column renaming.
- *
- *           Revision 1.4  2002/02/06 05:43:23  tbone
- *           my bad, dummy me forgot about rmic
- *
- *           Revision 1.3  2002/02/06 04:19:53  tbone
- *           made a change to the interfacing, making implementation a runtime choice
  *
  */
 
@@ -159,7 +125,6 @@ public class DataRetriever implements DataRetrieverInt {
     private ResultSet rs;
     /* Keeps track of the most recent query run, for exception handling purposes */
     private StringBuffer query;
-    private TCResourceBundle dataBundle = new TCResourceBundle("DataAccess");
 
     /**
      * Constructor that takes a connection object.
@@ -229,28 +194,28 @@ public class DataRetriever implements DataRetrieverInt {
      * @return true if the input is valid, false if not
      */
     private boolean validateInput(String input, int dataType) {
-        if (dataType == dataBundle.getIntProperty("INTEGER_INPUT", 1001)) {
+        if (dataType == DataAccessConstants.INTEGER_INPUT) {
             try {
-                BigInteger b = new BigInteger(input);
+                new BigInteger(input);
                 return true;
             } catch (Exception e) {
                 return false;
             }
-        } else if (dataType == dataBundle.getIntProperty("DECIMAL_INPUT", 1002)) {
+        } else if (dataType == DataAccessConstants.DECIMAL_INPUT) {
             try {
-                BigDecimal b = new BigDecimal(input);
+                new BigDecimal(input);
                 return true;
             } catch (Exception e) {
                 return false;
             }
-        } else if (dataType == dataBundle.getIntProperty("DATE_INPUT", 1003)) {
+        } else if (dataType == DataAccessConstants.DATE_INPUT) {
             try {
                 // Check that what we have first in the string is a valid date,
                 // in the expected yyyy-mm-dd format.
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 sdf.setLenient(false);
                 ParsePosition pp = new ParsePosition(0);
-                java.util.Date dt = sdf.parse(input, pp);
+                sdf.parse(input, pp);
 
                 // Check for the presence of unwanted stuff after it
                 if (pp.getIndex() < input.length())
@@ -261,11 +226,11 @@ public class DataRetriever implements DataRetrieverInt {
             } catch (Exception e) {
                 return false;
             }
-        } else if (dataType == dataBundle.getIntProperty("STRING_INPUT", 1005)) {
+        } else if (dataType == DataAccessConstants.STRING_INPUT) {
             try {
                 // Check position of reserved characters
-                int inputDelimiterPos = input.indexOf(dataBundle.getProperty("INPUT_DELIMITER", "@"));
-                int defaultMarkerPos = input.indexOf(dataBundle.getProperty("SPECIAL_DEFAULT_MARKER", "$"));
+                int inputDelimiterPos = input.indexOf(DataAccessConstants.INPUT_DELIMITER);
+                int defaultMarkerPos = input.indexOf(DataAccessConstants.SPECIAL_DEFAULT_MARKER);
                 // Check for the presence of unwanted stuff
                 if (inputDelimiterPos > -1 || defaultMarkerPos > -1)
                     return false;
@@ -275,7 +240,7 @@ public class DataRetriever implements DataRetrieverInt {
             } catch (Exception e) {
                 return false;
             }
-        } else if (dataType == dataBundle.getIntProperty("SORT_DIRECTION_INPUT", 1004)) {
+        } else if (dataType == DataAccessConstants.SORT_DIRECTION_INPUT) {
             String s = input.trim().toUpperCase();
             return (s.equals("ASC") || s.equals("DESC"));
         }
@@ -312,8 +277,8 @@ public class DataRetriever implements DataRetrieverInt {
         // It is assumed that inputs have already passed validation in executeCommand(),
         // which should be the case if the input resolution order is specified properly in
         // query_input_xref.
-        while ((i = specialQuery.indexOf(dataBundle.getProperty("INPUT_DELIMITER", "@"))) >= 0) {
-            j = specialQuery.indexOf(dataBundle.getProperty("INPUT_DELIMITER", "@"), i + 1);
+        while ((i = specialQuery.indexOf(DataAccessConstants.INPUT_DELIMITER)) >= 0) {
+            j = specialQuery.indexOf(DataAccessConstants.INPUT_DELIMITER, i + 1);
             if (j < 0)
                 throw new Exception("Unterminated input in default input query " + defaultQueryId);
             String inputCode = specialQuery.substring(i + 1, j);
@@ -367,7 +332,7 @@ public class DataRetriever implements DataRetrieverInt {
      * @return      The statistical data requested by the command.
      */
     public Map executeCommand(Map inputs) throws Exception {
-        String commandDesc = (String) inputs.get(dataBundle.getProperty("COMMAND", "c"));
+        String commandDesc = (String) inputs.get(DataAccessConstants.COMMAND);
         if (commandDesc == null)
             throw new Exception("Missing command description");
 
@@ -391,7 +356,6 @@ public class DataRetriever implements DataRetrieverInt {
             query.append("AND cqx.command_id = c.command_id ");
             query.append("AND q.query_id = cqx.query_id ");
             query.append("ORDER BY cqx.sort_order ASC ");
-            Context ctx = TCContext.getInitial();
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, commandDesc);
             rs = ps.executeQuery();
@@ -475,7 +439,7 @@ public class DataRetriever implements DataRetrieverInt {
                     }
 
                     // Any special default value processing goes here
-                    if (defaultValue.startsWith(dataBundle.getProperty("SPECIAL_DEFAULT_MARKER", "$"))) {
+                    if (defaultValue.startsWith(DataAccessConstants.SPECIAL_DEFAULT_MARKER)) {
                         // Runs an database query to get the input value.
                         input = runDefaultInputQuery(defaultValue, inputs);
                     } else {
@@ -493,11 +457,11 @@ public class DataRetriever implements DataRetrieverInt {
                 if (!validateInput(input, dataType))
                     throw new Exception("Invalid data for input " + inputCode + ": " + input);
 
-                if (inputCode.equals(dataBundle.getProperty("START_RANK", "sr"))) {
+                if (inputCode.equals(DataAccessConstants.START_RANK)) {
                     queryStartRow.put(tempId, new Integer(input));
                     continue;
-                } else if (inputCode.equals(dataBundle.getProperty("END_RANK", "er")) ||
-                        inputCode.equals(dataBundle.getProperty("NUMBER_RECORDS", "nr"))) {
+                } else if (inputCode.equals(DataAccessConstants.END_RANK) ||
+                        inputCode.equals(DataAccessConstants.NUMBER_RECORDS)) {
                     queryEndRow.put(tempId, new Integer(input));
                     continue;
                 }
@@ -520,14 +484,14 @@ public class DataRetriever implements DataRetrieverInt {
                 // it's always 0-based from the front end's perspective (and
                 // from the perspective of default sort column arguments in
                 // the query_input database).
-                if (inputCode.equals(dataBundle.getProperty("SORT_COLUMN", "sc"))) {
+                if (inputCode.equals(DataAccessConstants.SORT_COLUMN)) {
                     int colValue = Integer.parseInt(input);
                     colValue++;
                     input = new String("" + colValue);
                 }
 
-                String old = dataBundle.getProperty("INPUT_DELIMITER", "@") + inputCode +
-                        dataBundle.getProperty("INPUT_DELIMITER", "@");
+                String old = DataAccessConstants.INPUT_DELIMITER + inputCode +
+                        DataAccessConstants.INPUT_DELIMITER;
                 String queryText = (String) queryTextMap.get(tempId);
                 queryText = StringUtilities.replace(queryText, old, input);
                 queryTextMap.put(tempId, queryText);
@@ -536,7 +500,7 @@ public class DataRetriever implements DataRetrieverInt {
             // Check we filled in all the inputs.
             for (i = 0; i < queryIdList.length; i++) {
                 String queryText = (String) queryTextMap.get(new Integer(queryIdList[i]));
-                if (queryText.indexOf(dataBundle.getProperty("INPUT_DELIMITER", "@")) >= 0)
+                if (queryText.indexOf(DataAccessConstants.INPUT_DELIMITER) >= 0)
                     throw new Exception("Query input entries missing from database: " + queryText);
             }
         } catch (Exception e) {
@@ -547,9 +511,9 @@ public class DataRetriever implements DataRetrieverInt {
         // At this point we've built all queries to run.
         // Execute them and fill the ResultSetContainers.
         String queryText = "", queryName = "";
-        String sortQueryName = (String) inputs.get(dataBundle.getProperty("SORT_QUERY", "sq"));
-        String sortQueryCol = (String) inputs.get(dataBundle.getProperty("SORT_COLUMN", "sc"));
-        String sortDir = (String) inputs.get(dataBundle.getProperty("SORT_DIRECTION", "sd"));
+        String sortQueryName = (String) inputs.get(DataAccessConstants.SORT_QUERY);
+        String sortQueryCol = (String) inputs.get(DataAccessConstants.SORT_COLUMN);
+        String sortDir = (String) inputs.get(DataAccessConstants.SORT_DIRECTION);
         boolean sortCalled = (sortQueryName != null && sortQueryCol != null);
         try {
             resultMap = new HashMap();

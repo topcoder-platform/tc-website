@@ -3,24 +3,13 @@ package com.topcoder.shared.dataAccess;
 import java.util.Map;
 
 /**
- * This interface needs to be implemented for any data-retrievers running
- * in the servlet context.
+ * This interface needs to be implemented for any data-accessors.  A class that implements <tt>DataAccessInt</tt>
+ * is intended to be a layer between the layer containing a <tt>RequestInt</tt> and the actual data layer would
+ * is likely a database.  Classes that implement <tt>DataAccessInt</tt> should know how to connect to a data source
+ * and retrieve data.
  *
  * @author tbone
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.1  2002/07/03 00:30:22  gpaul
- *           moving over here
- *
- *           Revision 1.1.1.1  2002/04/02 17:20:38  steveb
- *           initial web load into cvs
- *
- *           Revision 1.1.2.1  2002/03/16 20:18:40  gpaul
- *           moving these over from the member dev area.
- *
- *           Revision 1.1  2002/02/06 04:14:54  tbone
- *           added to cvs
  *
  */
 

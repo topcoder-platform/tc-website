@@ -11,55 +11,12 @@ import java.sql.Connection;
 import java.util.Map;
 
 /**
- * This bean processes a Request and returns the data from either the cache if it's available
+ * This bean processes a {@link com.topcoder.shared.dataAccess.RequestInt} and returns the data from either the cache if it's available
  * or the data warehouse if what we're looking for is not in the cache.  If we got it from the
  * warehouse, it is added to the cache.
  *
  * @author  Lars Backstrom
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.4  2002/07/31 17:25:36  gpaul
- *           make the default time for a cached item 1 week
- *
- *           Revision 1.3  2002/07/23 23:37:21  gpaul
- *           use DataSources rather than DBMS to get connections
- *
- *           Revision 1.2  2002/07/12 17:15:46  gpaul
- *           merged baby
- *
- *           Revision 1.1.2.3  2002/07/11 17:07:18  gpaul
- *           isClose should be isClosed
- *
- *           Revision 1.1.2.2  2002/07/11 17:05:55  gpaul
- *           check if connection is closed before attempting to do it.
- *
- *           Revision 1.1.2.1  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
- *
- *           Revision 1.1  2002/07/03 00:30:22  gpaul
- *           moving over here
- *
- *           Revision 1.7  2002/06/27 18:25:52  gpaul
- *           adjustments for a correct ApplicationSever.properties file and DBMS.properties file
- *
- *           Revision 1.6  2002/06/25 01:23:13  gpaul
- *           removed so chatter, added a verbose flag
- *
- *           Revision 1.5  2002/06/13 18:54:45  lbackstrom
- *           distributed cache
- *
- *           Revision 1.4  2002/06/13 18:53:51  lbackstrom
- *           distributed cache
- *
- *           Revision 1.3  2002/06/13 15:05:18  lbackstrom
- *           distributed cache
- *
- *           Revision 1.2  2002/06/12 18:52:31  lbackstrom
- *           distributed cache
- *
- *           Revision 1.1  2002/06/12 18:04:16  lbackstrom
- *           cached version of DataRetrievalBean
  * @see     RequestInt
  */
 public class DWCachedDataAccess implements DataAccessInt {
