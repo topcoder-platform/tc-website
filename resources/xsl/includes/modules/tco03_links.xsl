@@ -8,6 +8,10 @@
                 <tr>
                     <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
 
+
+<!-- Coding Tabs-->
+<xsl:choose>
+   <xsl:when test="$selectedContest='coding'">
 <!-- Coding Summary tab -->
             <xsl:choose>
                 <xsl:when test="$selectedTab='coding_overview'">
@@ -38,8 +42,12 @@
                 </xsl:otherwise>
             </xsl:choose>
 
-                    <td width="50"><img src="/i/clear.gif" alt="" width="50" height="10" border="0" /></td> 
+   </xsl:when>
 
+
+
+<!-- Component Tabs-->
+   <xsl:when test="$selectedContest='component'">
 <!-- Component Summary tab -->
             <xsl:choose>
                 <xsl:when test="$selectedTab='component_overview'">
@@ -70,9 +78,13 @@
                 </xsl:otherwise>
             </xsl:choose>
                                 
+   </xsl:when>
+</xsl:choose>
+
                     <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
                 </tr>
             </table>
+          
 
 </xsl:template>
 </xsl:stylesheet>
