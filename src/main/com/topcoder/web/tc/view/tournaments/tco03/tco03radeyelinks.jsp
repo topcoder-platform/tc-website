@@ -23,7 +23,7 @@
             <% if (selectedRound.equals("round3")) {%>
                  Round 3 
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_rd3">Round 3</a> 
+                  <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_radeye_rd3">Round 3</a>  &nbsp;|&nbsp; 
             <% } %>
 
 <!-- round4 -->
