@@ -56,6 +56,16 @@ function infoWindow(url) {
             + ",left=" + left + ",top=" + top);
 }
 
+function openProblemRating(id) {
+    var width = screen.availWidth * 2 / 3;
+    var height = screen.availHeight / 2;
+    var left = (screen.availWidth - width) / 2;
+    var top = 0;
+    var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
+    var name="problemRating";
+    window.open('/tc?module=ProblemRatingQuestions&pid='+id,name,cmd);
+    return;
+  }
 
 
 function goTo(selection) {
