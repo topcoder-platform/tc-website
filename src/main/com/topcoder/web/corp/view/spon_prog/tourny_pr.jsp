@@ -18,10 +18,9 @@
 <body>
 
 <!-- Top begins -->
-<jsp:include page="includes/top.jsp" >
+<jsp:include page="../includes/top.jsp" >
   <jsp:param name="isSponsorPage" value="true"/>
 </jsp:include>
-<jsp:include page="../includes/top.jsp"/>
 <!-- Top ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -58,12 +57,12 @@
                             
                             <tr valign="top">
                                 <td class="sidebarText">
-                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournament Overview</a><br />
-                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_web">Web site coverage</a><br />
-                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_applet">Applet coverage</a><br />
-                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_email">Email distribution</a><br />
-                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_media">Media Coverage</a><br />
-                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_pr">On-site arena</a><br />
+                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournament Overview</a><br />
+                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_web">Web site coverage</a><br />
+                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_applet">Applet coverage</a><br />
+                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_email">Email distribution</a><br />
+                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_media">Media Coverage</a><br />
+                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_onsite">On-site arena</a><br />
                                     <strong>Public relations</strong><br />
                                     <a href="/i/srm_3pgr.pdf">Download Overview (PDF)</a><br />
                                 </td>

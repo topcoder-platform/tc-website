@@ -18,7 +18,7 @@
 <body>
 
 <!-- Top begins -->
-<jsp:include page="includes/top.jsp" >
+<jsp:include page="../includes/top.jsp" >
   <jsp:param name="isSponsorPage" value="true"/>
 </jsp:include>
 <!-- Top ends -->
