@@ -536,7 +536,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 
 <p>
 The concept of the calendar week forms a small part of ISO 8601, a
-standard for representing terrestrial dates and times. (Sharp-eyed
+standard for representing terrestrial dates and times. Sharp-eyed
 readers will have noted that ISO is not a strict abbreviation of
 "International Organization for Standardization", in the same way that
 UTC matches neither the English "Universal Coordinated Time" nor the
