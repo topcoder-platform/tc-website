@@ -101,15 +101,16 @@ if (aString != null && aString.equals("status")) {
     String sidString = request.getParameter("sid");
     long sid = -1;
     if (sidString != null) {
-    sid = Long.parseLong(sidString);
-    ScorecardTemplate template = dmb.getScorecardTemplate(sid);
-    if(template.isDefault())
-    {
-        template.setDefault(false);
-    } else {
-        template.setDefault(true);
+        sid = Long.parseLong(sidString);
+        ScorecardTemplate template = dmb.getScorecardTemplate(sid);
+        if(template.isDefault())
+        {
+            template.setDefault(false);
+        } else {
+            template.setDefault(true);
+        }
+        dmb.saveScorecardTemplate(template, false, false);
     }
-    dmb.saveScorecardTemplate(template, false, false);
 }
 
 ScorecardTemplate[] scorecards = dmb.getScorecardTemplates();
