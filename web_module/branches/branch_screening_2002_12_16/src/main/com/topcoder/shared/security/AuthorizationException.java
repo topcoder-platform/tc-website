@@ -14,10 +14,5 @@ public class AuthorizationException extends Exception {
     public AuthorizationException(String message) {
         super(message);
     }
-    public AuthorizationException(Throwable t) {
-        super(t);
-    }
-    public AuthorizationException(String message, Throwable t) {
-        super(message, t);
-    }
+
 }
