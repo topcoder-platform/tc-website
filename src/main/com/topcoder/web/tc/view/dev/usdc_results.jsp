@@ -48,7 +48,7 @@
    <jsp:param name="selectedTab" value="results"/>
    <jsp:param name="selectedTab2" value="design"/>
 </jsp:include>
-
+<%=request.getParameter("ph")%>
                         <br/>
                         <a name="week"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
