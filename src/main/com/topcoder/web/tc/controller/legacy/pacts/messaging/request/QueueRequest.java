@@ -71,6 +71,7 @@ public class QueueRequest {
                     this.qmr.setAutoCommit(true);
                     this.qmr.setTransacted(false);
                     this.qmr.setFaultTolerant(false);
+                    log.debug("PACTS message receiver initialized...");
                     successfull = true;
                 } catch (Exception e) {
                     e.printStackTrace();
