@@ -112,12 +112,44 @@
 
 
 
+   <target name="build.ejbs" depends="compile">
+        <antcall target="package-EJB-PactsServicesBean"/>
+        <antcall target="package-EJB-UserServicesBean"/>
+        <antcall target="package-EJB-DataCacheBean"/>
+        <antcall target="package-EJB-UtilBean"/>
+        <antcall target="package-EJB-AuthenticationServicesBean"/>
+        <antcall target="package-EJB-CoderStatisticsBean"/>
+        <antcall target="package-EJB-StatisticsBean"/>
+   </target>
+
 <target name="package-EJB-PactsServicesBean" depends="compile,init-PactsServicesBean-properties,package-EJB-GenericBean"/>
 
 <target name="init-PactsServicesBean-properties" >
        <property name="bean.dir"          value="PactsServices" />
         <property name="bean.jar.name"     value="PactsServicesBean.jar" />
         <property name="bean.pkg.dir"      value="com/topcoder/web/pacts/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+<target name="package-EJB-CoderStatisticsBean" depends="compile,init-CoderStatisticsBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-CoderStatisticsBean-properties" >
+       <property name="bean.dir"          value="CoderStatistics" />
+        <property name="bean.jar.name"     value="CoderStatistics.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+<target name="package-EJB-AuthenticationServicesBean" depends="compile,init-AuthenticationServicesBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-AuthenticationServicesBean-properties" >
+       <property name="bean.dir"          value="AuthenticationServices" />
+        <property name="bean.jar.name"     value="AuthenticationServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
