@@ -12,8 +12,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
+                        <img src="/i/m/Running_Wild_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=274760"><strong>Running Wild</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> 
 
@@ -22,15 +22,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm175_prob">SRM 175 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, December 17, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm176_prob">SRM 176 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Monday, December 22, 2003</p>
 
 <p> 
-In a relatively hard SRM, SnapDragon marched to another SRM win, bringing his total to 26.  In a rare 
-appearance from down under, John Dethridge was a close second, less than 20 points behind.  radeye was 
-a distant third, followed by lars, and up-and-comer Eryx in his second SRM.
+SRM 176 Division 1 had a total point value of 2000 for all three problems, probably the highest
+ever.  The presence of a 600 as well as an 1150 may have daunted some coders, but certainly
+not <b>bladerunner</b>, who finished with a score of 1650, almost making it into the top ten 
+highest totals ever.
 
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm175_prob</xsl:attribute><strong>full&#160;story</strong></a>
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm176_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
