@@ -68,4 +68,8 @@ public class SearchMemberBean {
     last_competed=_last_competed;
   }
 
+  public boolean hasMemberList() {
+    return(member_list!=null);
+  }
+
 };

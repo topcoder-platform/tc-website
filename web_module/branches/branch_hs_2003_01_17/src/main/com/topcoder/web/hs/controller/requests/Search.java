@@ -89,17 +89,13 @@ public class Search extends Base {
       HashMap errors=new HashMap();
       request.setAttribute("form_errors",errors);
 
-      List member_list=new ArrayList();
-
       if (isValidSearch(errors,sb)) {
-        int count=findMembers(member_list,sb);
+        int count=findMembers(sb);
         log.debug("Search found '"+count+"' matching members");
       }
       else {
         log.debug("invalid");
       }
-
-      sb.setMemberList(member_list);
 
       setNextPage(SEARCH_BASE+ADVANCED_SEARCH_PAGE);
       setIsNextPageInContext(true);
@@ -109,8 +105,8 @@ public class Search extends Base {
   }
 
   private void populateSearchWithDefaults(SearchBean _sb) {
-    _sb.setPrev(new Integer(0));
-    _sb.setNext(new Integer(SearchBean.getMaxResultsPerPage()));
+    _sb.setStart(new Integer(1));
+    _sb.setEnd(new Integer(SearchBean.getMaxResultsPerPage()));
     _sb.setHandle("");
     _sb.setMinRating("");
     _sb.setMaxRating("");
@@ -120,8 +116,8 @@ public class Search extends Base {
 
   private void populateSearchFromRequest(ServletRequest _request,
                                          SearchBean _sb) {
-    _sb.setPrev(getParameterInteger(_request,"prev",_sb.getPrev()));
-    _sb.setNext(getParameterInteger(_request,"next",_sb.getNext()));
+    _sb.setStart(getParameterInteger(_request,"start",_sb.getStart()));
+    _sb.setEnd(getParameterInteger(_request,"end",_sb.getEnd()));
     _sb.setHandle(getParameter(_request,"handle",_sb.getHandle()));
     _sb.setMinRating(getParameter(_request,"min_rating",_sb.getMinRating()));
     _sb.setMaxRating(getParameter(_request,"max_rating",_sb.getMaxRating()));
@@ -346,7 +342,7 @@ public class Search extends Base {
     return(true);
   }
 
-  private int findMembers(List _member_list,SearchBean _sb) throws Exception {
+  private int findMembers(SearchBean _sb) throws Exception {
     Context ctx=TCContext.getInitial();
     DataSource ds=(DataSource)ctx.lookup(DBMS.DW_DATASOURCE_NAME);
     DataAccessInt dai=new CachedDataAccess(ds);
@@ -387,16 +383,22 @@ public class Search extends Base {
     map.put(MAX_RATING_INPUT_CODE,max_rating.toString());
     map.put(STATE_INPUT_CODE,state_code_pattern);
     map.put(SCHOOL_NAME_INPUT_CODE,school_name_pattern);
-    map.put(START_RANK_INPUT_CODE,_sb.getPrev().toString());
-    map.put(END_RANK_INPUT_CODE,_sb.getNext().toString());
+    map.put(START_RANK_INPUT_CODE,_sb.getStart().toString());
+    map.put(END_RANK_INPUT_CODE,_sb.getEnd().toString());
     Request req=new Request(map);
     Map data=dai.getData(req);
 
     ResultSetContainer rsc;
     ResultSetContainer.ResultSetRow rsr;
 
+    List member_list=new ArrayList();
+
     int count=0;
     rsc=(ResultSetContainer)data.get("member_search");
+
+    _sb.setHasPrev(rsc.croppedDataBefore());
+    _sb.setHasNext(rsc.croppedDataAfter());
+
     for (Iterator i=rsc.iterator();i.hasNext();count++) {
       rsr=(ResultSetContainer.ResultSetRow)i.next();
       SearchMemberBean smb=new SearchMemberBean();
@@ -406,10 +408,15 @@ public class Search extends Base {
       smb.setStateCode((String)rsr.getItem("state_code").getResultData());
       smb.setSchoolName((String)rsr.getItem("school_name").getResultData());
       smb.setLastCompeted((Date)rsr.getItem("last_competed").getResultData());
-      _member_list.add(smb);
+      member_list.add(smb);
     }
+
+    if (count<_sb.getEnd().intValue()-_sb.getStart().intValue()+1) {
+      _sb.setEnd(new Integer(_sb.getStart().intValue()+count-1));
+    }
+
+    _sb.setMemberList(member_list);
 
     return(count);
   }
-
 };
