@@ -13,7 +13,7 @@
     <HTML>
       <HEAD>
         <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Press Room</TITLE>
+        <TITLE>TopCoder :: Features</TITLE>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
@@ -65,8 +65,14 @@
 	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3">XML-based UI description language that allows dynamic building and switching of UI screens at runtime</TD></TR>
 	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3"><A HREF="/index?t=features&amp;c=feat_topics" CLASS="bodyGeneric">Want to write?</A></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR>		
-				
+		
 		<TR><TD VALIGN="middle" BGCOLOR="#CCCCCC" HEIGHT="18" WIDTH="12%" CLASS="bodyText">&#160;&#160;<B>Date</B></TD><TD WIDTH="25%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Author</B></TD><TD WIDTH="63%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Feature</B></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;November</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;11.20.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;leadhyena_inran</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_112002" CLASS="bodyGeneric">The eight seconds of death: Tips on preventing timeout</A></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;11.13.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;RevenantChaos</TD><TD VALIGN="middle" CLASS="bodyText">King of the Silicon Hill: Today's High-End Microprocessors</TD></TR>
+				
+		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;October</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;10.09.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;Penwiper</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_100902" CLASS="bodyGeneric">Graphics Programming for Motion Capture</A></TD></TR>
