@@ -141,18 +141,13 @@
                   </P>    
 
     <% if (MemberProfileTask.hasDivisionI()) { %>
-                  <P>
-                  &nbsp;<BR>
-                  <B>Division I Performance</B>
-                  </P>    
-
-                  <P>
-                  <B>Average Points per Contest:</B> <%= MemberProfileTask.getDivIStatistic("avg_contest_points") %>
-                  </P>    
-
-                  <P>
-                  <B>Statistics by Problem Level:<br></B>
                   <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
+                    <TR><TD BACKGROUND="#43515E" COLSPAN="19"><B>Division-I Performance</B></TD</TR>
+                    <TR><TD COLSPAN="19"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD></TR>
+                    <TR><TD COLSPAN="19"><B>Average Points per Contest:</B> <%= MemberProfileTask.getDivIStatistic("avg_contest_points") %></TD></TR>
+                    <TR><TD COLSPAN="19"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD></TR>
+                    <TR><TD COLSPAN="19"><B>Statistics by Problem Level:</B></TD></TR>
+                    <TR><TD COLSPAN="19"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD></TR>
                     <TR>
                       <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18">&#160;<b></b></TD>
                       <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
@@ -352,18 +347,14 @@
     <% } %>
 
     <% if (MemberProfileTask.hasDivisionII()) { %>
-                  <P>
-                  &nbsp;<BR>
-                  <B>Division II Performance</B>
-                  </P>    
-
-                  <P>
-                  <B>Average Points per Contest:</B> <%= MemberProfileTask.getDivIIStatistic("avg_contest_points") %>
-                  </P>    
-
-                  <P>
-                  <B>Statistics by Problem Level:<br></B>
                   <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
+                    <TR><TD BACKGROUND="#43515E" COLSPAN="19"><B>Division-I Performance</B></TD</TR>
+                    <TR><TD COLSPAN="19"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD></TR>
+                    <TR><TD COLSPAN="19"><B>Average Points per Contest:</B> <%= MemberProfileTask.getDivIIStatistic("avg_contest_points") %></TD></TR>
+                    <TR><TD COLSPAN="19"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD></TR>
+                    <TR><TD COLSPAN="19"><B>Statistics by Problem Level:</B></TD></TR>
+                    <TR><TD COLSPAN="19"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD></TR>
+                    <TR>
                     <TR>
                       <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18">&#160;<b></b></TD>
                       <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
