@@ -96,27 +96,27 @@ function openWnd(pageUrl) {
                 </A>
               </P>
 
-              <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
+              <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">               
                 <TR>
-                  <TD class="testTableTitle" HEIGHT="18">&#160;<b>Language</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="testTableTitle">&#160;<b>Language</b></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
                   <TD class="testTableTitle"><b>Presented</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
                   <TD class="testTableTitle"><b>Submitted</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
                   <TD class="testTableTitle"><b>Submit %</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
                   <TD class="testTableTitle"><b>Correct</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle"><b>Submission Accuracy</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle"><b>Overall Accuracy</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle"><b>Avg. Pts. for Correct Subs.</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle"><b>Avg Points Overall</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle"><b>Avg. Time for Correct Subs.</b></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
+                  <TD class="testTableTitle"><b>Submission<br>Accuracy</b></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
+                  <TD class="testTableTitle"><b>Overall<br>Accuracy</b></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
+                  <TD class="testTableTitle"><b>Avg. Pts. for<br>Correct Subs.</b></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
+                  <TD class="testTableTitle"><b>Avg Points<br>Overall</b></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
+                  <TD class="testTableTitle"><b>Avg. Time for<br>Correct Subs.</b></TD>
                 </TR>
 
                 
@@ -238,7 +238,7 @@ function openWnd(pageUrl) {
       <TD WIDTH="25"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
     </TR>
   </TABLE>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
   <TR>
     <TD WIDTH="11" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="11" HEIGHT="8"></TD>
     <TD COLSPAN="4" VALIGN="top" WIDTH="100%" class="bodyText">
