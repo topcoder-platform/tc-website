@@ -9,7 +9,11 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+  <!--
+  <%= request.getAttribute("QUERY") %>
+  -->
 <%
+  if(!"on".equals("queryOnly")){
     Map m = (Map)request.getAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY);
     ResultSetContainer results = (ResultSetContainer)m.get("results");
     List headers = (List)request.getAttribute("column_headers");
@@ -19,9 +23,6 @@
 
 <html>
   <head>
-  <!--
-  <%= request.getAttribute("QUERY") %>
-  -->
 <style type="text/css">
     TABLE.entry TD{ 
         BORDER-BOTTOM: #777777 1px solid ;
@@ -106,3 +107,4 @@
     <% } %>
   </body>
 </html>
+<%}%>
