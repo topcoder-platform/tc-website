@@ -33,7 +33,8 @@
          <td class="bodyText" width="100%">
 
             <div align="center">
-            <h1><img src="/i/tournament/tccc04/landing_page_A.gif" alt="2004 TopCoder Collegiate Challenge" width="540" height="63"><br/>
+            <h1><img src="/i/clear.gif" width="15" height="15" border="0"><br/>
+            <img src="/i/tournament/tccc04/landing_page_A.gif" alt="2004 TopCoder Collegiate Challenge" width="540" height="63"><br/>
             <img src="/i/tournament/tccc04/landing_page_B.gif" alt="$100,000 prize purse" width="540" height="267"><br/>
             <img src="/i/tournament/tccc04/landing_page_C.gif" alt="Onsite finals April 2004 in Boston" width="540" height="268"></h1>
             </div>
