@@ -21,26 +21,43 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=pageTitle>Page Title</p>
+        <p class=pageTitle>tomek goes to the finals again</p>
 
 		<img src="/i/clear.gif" width="1" height="10" border="0"/><br/>
 		<div class="leadPhoto">
 		<span class="bodyText" align="center"><p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos">See more photos!</a></p></span>
-		<img src="/i/tournament/tco04/onsite_photos/room1.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-		<span class="leadPhotoCaption">Caption<br/><br/></span>
+		<img src="/i/tournament/tco04/onsite_photos/shot_room1.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
+		<span class="leadPhotoCaption">The returning champ<br/><br/></span>
 		</div>
 
 		<a href="/stat?c=member_profile&cr=159052"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
 		<p>by <a href="/stat?c=member_profile&cr=159052">lbackstrom</a>, <br/>
 		<em>TopCoder Member</em><br />
 		Thursday, November 11, 2004<br/>
-<%--
-		introduction by lbackstrom
---%>
 		<br/><br/>
 		</p>
 
 		<p>
+Antimatter was first to submit for 167.75 out of 175, in  about 5 minutes.  tomek was right on 
+his heels though, with 162.25, while the next 3 coders had between 139 and 144.  bstanescu 
+skipped to a tricky hard problem, while tomek submitted the medium first, after about 50 
+minutes.  It didn't take bstanescu too long to give up on the hard problem, and he went back to 
+the medium, submitting it much quicker than tomek, and taking a lead of slightly less than 50 
+points.  qsort was next to submit, but was two challenges behind bstanescu.  antimatter also 
+submitted the medium, and his impressive score on the first problem put him into third.  When 
+the challenge phase started, bstanescu was winning, while tomek was in second, and antimatter 
+was in third.
+<br/><br/>
+RalphFurmaniak was first to submit a challenge, taking down grotmol without reading his code.  
+A few minutes later, grotmol went for broke, and challenged everyone's medium.  3/5 of them 
+passed, giving him a net of -50 points.  bstanescu, tomek and antimatter all played it safe, 
+and at the end of the challenge phase, the top 3 remained unchanged.  However, going into 
+system tests, one has to imagine that they were nervous about their medium solution.
+<br/><br/>
+Yet, their fears were unfounded, as all their medium submissions passed system tests.  However, 
+bstanescu's easy was the only problem to fail, and hence, tomek moved on to the finals, while 
+bstanescu and antimatter will have to fight back from the wildcard round.
+<br/><br/>
 <span class=bodySubtitle>Hex</span>
 <br/><br/>
 The TCO started out with a rather easy problem, rated at only 175 points.  The
