@@ -43,16 +43,11 @@ public class ProfileSearch extends Base {
 
     private Map parseQueryString(TCRequest request) {
         log.debug("parseQueryString called...");
-        Enumeration e = null;
-        String[] values = null;
-        Map m = null;
-
-        e = request.getParameterNames();
-
-        m = new HashMap();
+        Enumeration e = e = request.getParameterNames();
+        Map m = new HashMap();
         while (e.hasMoreElements()) {
-            param = (String) e.nextElement();
-            values = request.getParameterValues(param);
+            String param = (String) e.nextElement();
+            String[] values = request.getParameterValues(param);
             if (values != null && values.length > 0) {
                 m.put(param, request.getParameter(param));
             }

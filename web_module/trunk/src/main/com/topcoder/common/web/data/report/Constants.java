@@ -14,6 +14,7 @@ public class Constants {
     public static String REPORT_PARAM_ADDR = "/param.jsp";
     public static String REPORT_PROFILE_DETAIL_ADDR = "/profile_detail.jsp";
     public static String REPORT_PROFILE_SEARCH_ADDR = "/profile_search.jsp";
+    public static String REPORT_PROFILE_SEARCH_RESULTS_ADDR = "/profile_search_results.jsp";
     public static String REPORT_PROFILE_ADDR = "/profile.jsp";
     public static String REPORT_TCS_PROFILE_ADDR = "/tcs_profile.jsp";
     public static String REPORT_PROFILE_LIST_ADDR = "/profile_list.jsp";
