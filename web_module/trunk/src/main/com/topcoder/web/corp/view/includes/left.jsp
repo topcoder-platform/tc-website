@@ -43,11 +43,9 @@
                 <tr><td id="myServicesNav"><img src="/i/nav_arrow_<%=level1.equals("sponsorship")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=index" class="corpLeft">Sponsorship</a></td></tr>
 <% if (level1.equals("sponsorship")) { %>
                 <tr><td id="<%=level2.equals("overview")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=index" target="_parent" class="corpLeft">Overview</a></td></tr>
-                <tr><td id="<%=level2.equals("targeted")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=targeted" class="corpLeft">Targeted Sponsorship</a></td></tr>
-                <tr><td id="<%=level2.equals("aboutTime")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=about_time" target="_parent" class="corpLeft">It's About Time</a></td></tr>
-                <tr><td id="<%=level2.equals("dotCom")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=dot_com" target="_parent" class="corpLeft">The TopCoder Site</a></td></tr>
-                <tr><td id="<%=level2.equals("surveys")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=surveys" target="_parent" class="corpLeft">Surveys</a></td></tr>
-                <tr><td id="<%=level2.equals("demographics")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=demographics" target="_parent" class="corpLeft">Demographics</a></td></tr>
+                <tr><td id="<%=level2.equals("srm")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=srm" class="corpLeft">Single Round Matches</a></td></tr>
+                <tr><td id="<%=level2.equals("tournament")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=tournament" target="_parent" class="corpLeft">Tournaments</a></td></tr>
+                <tr><td id="<%=level2.equals("highSchool")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=spon_prog&d3=high_school" target="_parent" class="corpLeft">TopCoder High School</a></td></tr>
 <% } %>
 <!-- Sponsorship ends -->
 
@@ -60,13 +58,13 @@
 <% } %>
  Private Label Events ends -->
 
-<!-- Account Admin begins -->
-                <tr><td id="myServicesNav"><img src="/i/nav_arrow_<%=level1.equals("myAccount")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=acc_admin&d3=index" class="corpLeft">Account Administration</a></td></tr>
-<% if (level1.equals("myAccount")) { %>
+<!-- Manage Users begins -->
+                <tr><td id="myServicesNav"><img src="/i/nav_arrow_<%=level1.equals("manageUsers")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserList" class="corpLeft">Manage Users</a></td></tr>
+<% if (level1.equals("manageUsers")) { %>
                 <tr><td id="<%=level2.equals("userList")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserList" target="_parent" class="corpLeft">User List</a></td></tr>
-                <tr><td id="<%=level2.equals("createUser")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" target="_parent" class="corpLeft">Create User</a></td></tr>
+                <tr><td id="<%=level2.equals("addUser")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" target="_parent" class="corpLeft">Add New User</a></td></tr>
 <% } %>
-<!-- Account Admin ends -->
+<!-- Manage Users ends -->
             </table>
 <!-- My Services ends -->
 
