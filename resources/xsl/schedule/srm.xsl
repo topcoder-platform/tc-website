@@ -15,8 +15,6 @@
         <xsl:call-template name="Preload"/>      
         <TITLE>TopCoder :: Schedule</TITLE>
         <xsl:call-template name="CSS"/>      
-        <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
         <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
       </HEAD>
@@ -66,10 +64,13 @@
                           <TD COLSPAN="3" ALIGN="center">
                             <xsl:choose>
                               <xsl:when test="RoundId='4175'">
-                                <a href="Javascript:sponsorLink('/?&amp;t=sponsor&amp;c=link&amp;link=http://apps.citrix.com/CDN/Login.asp&amp;refer=srm')"><IMG SRC="/i/srm91_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
+                                <!--spons,nam,top,lef,wid,hei,sta-->
+                                <a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm','Citrix','1','1','680','489')"><IMG SRC="/i/srm91_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
+                                <!--<a href="Javascript:sponsorLink('/?&amp;t=sponsor&amp;c=link&amp;link=http://apps.citrix.com/CDN/Login.asp&amp;refer=srm')"><IMG SRC="/i/srm91_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>-->
                               </xsl:when>
                               <xsl:when test="RoundId='4185'">
-                                <a href="Javascript:sponsorLink('/?&amp;t=sponsor&amp;c=link&amp;link=http://apps.citrix.com/CDN/Login.asp&amp;refer=srm')"><IMG SRC="/i/srm93_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
+                                <a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm','Citrix','1','1','680','489')"><IMG SRC="/i/srm93_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
+                                <!--<a href="Javascript:sponsorLink('/?&amp;t=sponsor&amp;c=link&amp;link=http://apps.citrix.com/CDN/Login.asp&amp;refer=srm')"><IMG SRC="/i/srm93_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>-->
                               </xsl:when>
                               <xsl:otherwise>
                                 <IMG SRC="/i/srm_banner.jpg" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
