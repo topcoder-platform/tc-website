@@ -77,7 +77,7 @@
            
                         <table border="0" cellpadding="0" cellspacing="0">
                             <tr>
-                        <td valign="top" rowspan="2"><img src="/i/sponsor/intel_ids/intel_centrino.gif" alt="Intel Developer Services--Maximize You Code" width="493" height="174" /></td>
+                        <td valign="top" rowspan="2"  align="left" width="100%"><img src="/i/sponsor/intel_ids/intel_centrino.gif" alt="Intel Developer Services--Maximize You Code" width="493" height="174" /></td>
                         <td></td>
                             </tr>
                         </table>
