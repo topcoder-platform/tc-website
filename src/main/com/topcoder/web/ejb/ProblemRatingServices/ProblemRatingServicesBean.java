@@ -25,7 +25,6 @@ public class ProblemRatingServicesBean implements SessionBean {
     }
     public boolean submitAnswers(int[] questions, int[] ratings, long coderID, int problemID) throws Exception{
         StringBuffer insertQuery = new StringBuffer(250);
-        StringBuffer countQuery = new StringBuffer(250);
         /***********************Informix*******************************/
         insertQuery.append(" INSERT INTO problem_rating ( question_id, coder_id, problem_id, problem_rating)");
         insertQuery.append(" VALUES (?,");
@@ -34,14 +33,14 @@ public class ProblemRatingServicesBean implements SessionBean {
         insertQuery.append(problemID);
         insertQuery.append(",?)");
 
-        countQuery.append("SELECT count(*) from problem_rating_question");
+        String countQuery = "SELECT count(*) FROM problem_rating_question";
         /**************************************************************/
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             conn = DBMS.getConnection();
-            ps = conn.prepareStatement(countQuery.toString());
+            ps = conn.prepareStatement(countQuery);
             rs = ps.executeQuery();
             rs.next();
             if(questions.length!=rs.getInt(1)){
@@ -55,8 +54,10 @@ public class ProblemRatingServicesBean implements SessionBean {
             }
             return true;
         } catch (SQLException ex) {
+            throw new NavigationException("You may only rate a problem once.");
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new NavigationException("You may only rate a problem once,");
+            throw ex;
         } finally {
             if (rs != null) {
                 try {
