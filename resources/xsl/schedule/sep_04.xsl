@@ -157,8 +157,20 @@
                                     Compete: 9:00&#160;AM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=5857&amp;t=schedule&amp;c=srm">Details</A></td>
-                                <td id="calendar" rowspan="2">15</td>
-                                <td id="calendar" rowspan="2">16</td>
+                                <td id="calendarSRM" rowspan="2">
+                                    <span id="calendarSRMDate">15</span><br />
+                                    <strong><font color="#3366cc">G</font><font color="#cc0000">o</font><font color="#ffcc00">o</font><font color="#3366cc">g</font><font color="#339933">l</font><font color="#cc0000">e</font> Code Jam</strong><br />
+                                    Qualification Round Starts<br />
+                                    12:00 PM<br/>
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/pl/?&amp;module=Static&amp;d1=google04&amp;d2=schedule">Details</A></td>
+                                <td id="calendarSRM" rowspan="2">
+                                    <span id="calendarSRMDate">16</span><br />
+                                    <strong><font color="#3366cc">G</font><font color="#cc0000">o</font><font color="#ffcc00">o</font><font color="#3366cc">g</font><font color="#339933">l</font><font color="#cc0000">e</font> Code Jam</strong><br />
+                                    Qualification Round Ends<br />
+                                    12:00 PM<br/>
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/pl/?&amp;module=Static&amp;d1=google04&amp;d2=schedule">Details</A></td>
                                 <td id="calendar" rowspan="2">17</td>
                                 <td id="calendar" rowspan="2">18</td>
                             </tr>
@@ -177,7 +189,14 @@
                             
                             <tr> 
                                 <td id="calendar">19</td>
-                                <td id="calendar">20</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">20</span><br />
+                                    <strong><font color="#3366cc">G</font><font color="#cc0000">o</font><font color="#ffcc00">o</font><font color="#3366cc">g</font><font color="#339933">l</font><font color="#cc0000">e</font> Code Jam</strong><br />
+                                    Online Round 1<br />
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/pl/?&amp;module=Static&amp;d1=google04&amp;d2=schedule">Details</A></td>
                                 <td id="calendar">21</td>
                                 <td id="calendarTCO04">
                                     <span id="calendarTCO04Date">22</span><br/>
@@ -189,7 +208,13 @@
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     <A class="calendarTCO04Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=alg_schedule">Details</A>
                                     </td>
-                                <td id="calendar">23</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">23</span><br />
+                                    <strong><font color="#3366cc">G</font><font color="#cc0000">o</font><font color="#ffcc00">o</font><font color="#3366cc">g</font><font color="#339933">l</font><font color="#cc0000">e</font> Code Jam</strong><br />
+                                    Online Round 2<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/pl/?&amp;module=Static&amp;d1=google04&amp;d2=schedule">Details</A></td>
                                 <td id="calendar">24</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">25</span><br />
