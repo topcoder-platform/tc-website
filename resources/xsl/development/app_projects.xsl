@@ -122,6 +122,14 @@
                                     <td class="projectCells" align="right">$750 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">08.11.2004</td>
                                 </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=PMD_Reports_Execution_Dev">GeneChip Data Interface - Front End</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$1,560 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$625 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">08.11.2004</td>
+                                </tr>
 
 
                             </table>
