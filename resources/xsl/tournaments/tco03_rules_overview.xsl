@@ -64,15 +64,15 @@
 
 <!-- Tab bar links-->
             <xsl:call-template name="tco03_links">
-                <xsl:with-param name="selectedTab">overview</xsl:with-param>
+                <xsl:with-param name="selectedTab">rules</xsl:with-param>
             </xsl:call-template>
 
 <!-- Tab bar sub links-->
             <xsl:call-template name="tco03_sublinks">
-                <xsl:with-param name="selectedTab"></xsl:with-param>
+                <xsl:with-param name="selectedTab">rules</xsl:with-param>
             </xsl:call-template>
     
-            <h2>Overview of the Tournament</h2>
+            <h2>Official Rules and Regulations</h2>
             
             <blockquote>
             <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
