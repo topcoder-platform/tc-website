@@ -451,7 +451,7 @@ public class Registration
                 this.schoolState = state;
                 this.referralSchoolState = state;
             } else {
-                if (isEmpty(this.compCountry)) addError(COMP_COUNTRY, "Please fill in the country you would like to represen.");
+                if (isEmpty(this.compCountry)) addError(COMP_COUNTRY, "Please fill in the country you would like to represent.");
             }
 
 
