@@ -10,92 +10,92 @@ import	com.topcoder.web.TCES.common.Lookup;
  */
 
 public interface Contact extends javax.ejb.EJBObject {
-	String getFirstName( Long profileId )
+	public String getFirstName( Long profileId )
 	  throws RemoteException, SQLException;
-	String getLastName( Long profileId )
+	public String getLastName( Long profileId )
 	  throws RemoteException, SQLException;
-	String getAddress1( Long profileId )
+	public String getAddress1( Long profileId )
 	  throws RemoteException, SQLException;
-	String getAddress2( Long profileId )
+	public String getAddress2( Long profileId )
 	  throws RemoteException, SQLException;
-	String getCity( Long profileId )
+	public String getCity( Long profileId )
 	  throws RemoteException, SQLException;
-	String getSelectedState( Long profileId )
+	public String getSelectedState( Long profileId )
 	  throws RemoteException, SQLException;
-	Lookup getStateList()
+	public Lookup getStateList()
 	  throws RemoteException, SQLException;
-	String getZip( Long profileId )
+	public String getZip( Long profileId )
 	  throws RemoteException, SQLException;
-	String getSelectedCountry( Long profileId )
+	public String getSelectedCountry( Long profileId )
 	  throws RemoteException, SQLException;
-	Lookup getCountryList()
+	public Lookup getCountryList()
 	  throws RemoteException, SQLException;
-	String getPhone( Long profileId )
+	public String getPhone( Long profileId )
 	  throws RemoteException, SQLException;
-	String getHandle( Long profileId )
+	public String getHandle( Long profileId )
 	  throws RemoteException, SQLException;
-	String getEmail( Long profileId )
+	public String getEmail( Long profileId )
 	  throws RemoteException, SQLException;
-	String getQuote( Long profileId )
+	public String getQuote( Long profileId )
 	  throws RemoteException, SQLException;
-	boolean getSendNextCompetition( Long profileId )
+	public boolean getSendNextCompetition( Long profileId )
 	  throws RemoteException, SQLException;
-	boolean getSendCompetitionResults( Long profileId )
+	public boolean getSendCompetitionResults( Long profileId )
 	  throws RemoteException, SQLException;
-	boolean getSendEmploymentOpportunities( Long profileId )
+	public boolean getSendEmploymentOpportunities( Long profileId )
 	  throws RemoteException, SQLException;
-	boolean getSendMemberDevelopmentOpportunities( Long profileId )
+	public boolean getSendMemberDevelopmentOpportunities( Long profileId )
 	  throws RemoteException, SQLException;
-	boolean getSendTopCoderNews( Long profileId )
+	public boolean getSendTopCoderNews( Long profileId )
 	  throws RemoteException, SQLException;
-	Lookup getEditorList()
+	public Lookup getEditorList()
 	  throws RemoteException, SQLException;
-	String getSelectedEditor( Long profileId )
+	public String getSelectedEditor( Long profileId )
 	  throws RemoteException, SQLException;
-	Lookup getLanguagesList()
+	public Lookup getLanguagesList()
 	  throws RemoteException, SQLException;
-	String getSelectedLanguage( Long profileId )
+	public String getSelectedLanguage( Long profileId )
 	  throws RemoteException, SQLException;
-	boolean isStudent( Long profileId )
+	public boolean isStudent( Long profileId )
 	  throws RemoteException, SQLException;
-	void setFirstName( Long profileId, String s )
+	public void setFirstName( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setLastName( Long profileId, String s )
+	public void setLastName( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setAddress1( Long profileId, String s )
+	public void setAddress1( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setAddress2( Long profileId, String s )
+	public void setAddress2( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setCity( Long profileId, String s )
+	public void setCity( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setSelectedState( Long profileId, String s )
+	public void setSelectedState( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setZip( Long profileId, String s )
+	public void setZip( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setSelectedCountry( Long profileId, String s )
+	public void setSelectedCountry( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setPhone( Long profileId, String s )
+	public void setPhone( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setHandle( Long profileId, String s )
+	public void setHandle( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setEmail( Long profileId, String s )
+	public void setEmail( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setQuote( Long profileId, String s )
+	public void setQuote( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setSendNextCompetition( Long profileId, boolean b )
+	public void setSendNextCompetition( Long profileId, boolean b )
 	  throws RemoteException, SQLException;
-	void setSendCompetitionResults( Long profileId, boolean b )
+	public void setSendCompetitionResults( Long profileId, boolean b )
 	  throws RemoteException, SQLException;
-	void setSendEmploymentOpportunities( Long profileId, boolean b )
+	public void setSendEmploymentOpportunities( Long profileId, boolean b )
 	  throws RemoteException, SQLException;
-	void setSendMemberDevelopmentOpportunities( Long profileId, boolean b )
+	public void setSendMemberDevelopmentOpportunities( Long profileId, boolean b )
 	  throws RemoteException, SQLException;
-	void setSendTopCoderNews( Long profileId, boolean b )
+	public void setSendTopCoderNews( Long profileId, boolean b )
 	  throws RemoteException, SQLException;
-	void setSelectedEditor( Long profileId, String s )
+	public void setSelectedEditor( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setSelectedLanguage( Long profileId, String s )
+	public void setSelectedLanguage( Long profileId, String s )
 	  throws RemoteException, SQLException;
-	void setIsStudent( Long profileId )
+	public void setIsStudent( Long profileId )
 	  throws RemoteException, SQLException;
 }
