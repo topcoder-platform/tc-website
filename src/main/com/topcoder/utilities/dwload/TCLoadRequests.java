@@ -130,7 +130,7 @@ public class TCLoadRequests extends TCLoad {
 
 
     private void loadWebRequests() throws Exception {
-        log.debug("calledn loadWebRequests()");
+        log.debug("called loadWebRequests()");
         PreparedStatement psSel = null;
         PreparedStatement psIns = null;
 
@@ -383,7 +383,11 @@ public class TCLoadRequests extends TCLoad {
             } else {
                 trimedUrl = url;
             }
-            this.baseUrl = trimedUrl.substring(0, trimedUrl.indexOf('?'));
+
+            if (trimedUrl.indexOf('?') < 0)
+                this.baseUrl = trimedUrl;
+            else trimedUrl.substring(0, trimedUrl.indexOf('?'));
+
             log.debug("url " + baseUrl);
 
             //we only want the query string for the parameter extraction
