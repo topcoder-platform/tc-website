@@ -9,6 +9,7 @@ import com.topcoder.shared.security.User;
 
 import java.util.HashMap;
 import java.io.PrintWriter;
+import java.io.IOException;
 
 /**
  * User: dok
@@ -43,9 +44,7 @@ public abstract class Base extends BaseProcessor {
 
     }
 
-    protected Message receive(int waitTime, String correlationId) throws TimeOutException, Exception {
-
-        Message ret = null;
+    protected void showProcessingPage(String nextPage) throws IOException {
         getResponse().setStatus(200);
         getResponse().setContentType("text/html");
 
@@ -58,7 +57,7 @@ public abstract class Base extends BaseProcessor {
             out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >");
             out.println("</head>");
             out.print("<body onLoad=\"window.location.href=\'");
-            out.print(getNextPage());
+            out.print(nextPage);
             out.print("\'\">");
             out.println("<table class=bodyCenter cellspacing=0 cellpadding=0>");
             out.println("<tr>");
@@ -92,26 +91,30 @@ public abstract class Base extends BaseProcessor {
             out.println("            <td class=bodyContent>");
             out.println("            <br /><br />");
             out.println("            <p class=pC><span class=bodySmallTitle>Processing...</span></p>");
-            ret = (Message)receiver.receive(waitTime, correlationId, getResponse());
-            postProcessing(ret);
-            out.println("            <br /><br />");
-            out.println("            </td>");
-            out.println("            <td class=bodyR>&#160;</td>");
-            out.println("         </tr>");
-            out.println("         <tr>");
-            out.println("            <td><img src=\"/i/corp/screening/bodyBL.gif\" alt=\"\"/></td>");
-            out.println("            <td class=bodyB>&#160;</td>");
-            out.println("            <td><img src=\"/i/corp/screening/bodyBR.gif\" alt=\"\"/></td>");
-            out.println("         </tr>");
-            out.println("      </table>");
-            out.println("</td>");
-            out.println("   </tr>");
-            out.println("</table>");
-            out.println("</body>");
-            out.println("</html>");
-            out.flush();
+    }
 
-        return ret;
+    protected void closeProcessingPage() throws IOException {
+        PrintWriter out = getResponse().getWriter();
+        out.println("            <br /><br />");
+        out.println("            </td>");
+        out.println("            <td class=bodyR>&#160;</td>");
+        out.println("         </tr>");
+        out.println("         <tr>");
+        out.println("            <td><img src=\"/i/corp/screening/bodyBL.gif\" alt=\"\"/></td>");
+        out.println("            <td class=bodyB>&#160;</td>");
+        out.println("            <td><img src=\"/i/corp/screening/bodyBR.gif\" alt=\"\"/></td>");
+        out.println("         </tr>");
+        out.println("      </table>");
+        out.println("</td>");
+        out.println("   </tr>");
+        out.println("</table>");
+        out.println("</body>");
+        out.println("</html>");
+        out.flush();
+    }
+
+    protected Message receive(int waitTime, String correlationId) throws TimeOutException {
+        return (Message)receiver.receive(waitTime, correlationId, getResponse());
     }
 
 
