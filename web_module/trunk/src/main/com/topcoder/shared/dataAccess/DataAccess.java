@@ -47,16 +47,16 @@ public class DataAccess implements DataAccessInt {
             Connection conn = dataSource.getConnection();
             DataRetriever dr = new DataRetriever(conn);
             Map map = dr.executeCommand(request.getProperties());
+            return map;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        } finally {
             if (conn != null && !conn.isClosed()) {
                 try {
                     conn.close();
                 } catch (Exception ce) {
-                    log.error("Failed to close connection");
-                }
-            }
-            return map;
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
+                log.error("Failed to close connection");
+             }
         }
     }
     /**

@@ -52,10 +52,10 @@ public class QueryRunner implements DataRetrieverInt {
     private void closeConnections() {
         closeObject(rs);
         closeObject(ps);
-        closeObject(conn);
+//        closeObject(conn);
         rs = null;
         ps = null;
-        conn = null;
+//        conn = null;
     }
 
     private void handleException(Exception e, String lastQuery, Map inputs) {
