@@ -3,7 +3,7 @@ package com.topcoder.web.hs.model;
 /**
  * This is not model.  Other JSPs use it to tell left_nav what submenu to render open.
  */
-public class NavZoneBean {
+public class NavZoneBean implements Serializable {
 
   private String zone =  "null";
 

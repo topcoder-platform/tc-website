@@ -3,7 +3,7 @@ package com.topcoder.web.hs.model;
 /**
  * Holds some details about the current user for the benefit of curious JSPs.
  */
-public class SessionInfoBean {
+public class SessionInfoBean implements Serializable {
 
   private String handle = null;
   private int userid = -1;
