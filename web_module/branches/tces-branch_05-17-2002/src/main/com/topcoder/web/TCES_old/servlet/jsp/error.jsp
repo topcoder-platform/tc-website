@@ -1,5 +1,5 @@
 <%@ page isErrorPage="true" %>
-<%@ page import="com.topcoder.web.reg.servlet.*" %>
+<%@ page import="com.topcoder.web.tces.servlet.*" %>
 <%!
 boolean VERBOSE = true;
 %>

@@ -1,7 +1,7 @@
 <%@ include file="nocache.jsp" %>
 <%@ page errorPage="error.jsp" %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
-<jsp:useBean id="Registration" class="com.topcoder.web.reg.bean.Registration" />
+<jsp:useBean id="Registration" class="com.topcoder.web.tces.bean.Registration" />
 <jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 <tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
 <jsp:setProperty name="Registration" property="user" value="<%=user%>" />
