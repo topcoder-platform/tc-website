@@ -19,7 +19,7 @@ import java.sql.SQLException;
 /**
  * @author Nathan Egge (negge@vt.edu)
  */
-public class UserBean implements SessionBean {
+public class    UserBean implements SessionBean {
 
     private final static String DATA_SOURCE = "java:comp/env/datasource_name";
 
@@ -156,6 +156,7 @@ public class UserBean implements SessionBean {
                     ps.close();
                 } catch (Exception _e) {
                     log.debug("setFirstName error. Failed to close PreparedStatement");
+                    _e.printStackTrace();
                 }
             }
         }
