@@ -93,6 +93,10 @@
 </TR>
 </TABLE>
 <IMG SRC="/i/es/apex/apexlogo.gif" WIDTH="82" HEIGHT="94" ALT="Apex" BORDER="0"/>
+<P>
+Positions Located in Herndon, VA.
+</P>
+
 <P>Here is a sample of some of the algorithmically or architecturally challenging problems we're facing now:</P>
 <UL>
 <LI>Image manipulation problems such as image segmentation or automatic zoning of pages of magazines, newspapers, or other publications</LI>
