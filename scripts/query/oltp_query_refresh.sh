@@ -236,4 +236,17 @@ SELECT r.referral_desc as referral_type
 GROUP BY r.referral_desc
 "
 
+java com.topcoder.utilities.QueryLoader "OLTP" 67 "Top Input Rated" 0 0 "
+SELECT FIRST @top@ 
+  u.email as email_address
+  ,u.handle 
+  ,c.rating
+FROM
+  user u
+  ,rating c
+WHERE
+  u.user_id = c.coder_id
+ORDER BY
+  3 DESC
+"
 
