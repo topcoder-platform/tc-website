@@ -15,7 +15,7 @@
         <td width="190">
             <jsp:include page="rnielsen_names.jsp">
                 <jsp:param name="time" value="initial" />
-                <jsp:param name="doc" value="doc6" />
+                <jsp:param name="doc" value="doc1" />
             </jsp:include>
         </td>
 
@@ -31,7 +31,7 @@
                 </tr>
 
                 <tr>
-                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/rnielsen/SequenceDiagram4.gif" alt="" width="1555" height="1074" border="0"></div></td>
+                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/rnielsen/SequenceDiagram2.gif" alt="" width="1340" height="440" border="0"></div></td>
                     <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
                 </tr>
 
