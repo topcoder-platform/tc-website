@@ -31,6 +31,7 @@ public class Login extends BaseProcessor {
         if( handle == null || password == null ||
             handle.equals("") || password.equals("") )
         {
+            log.debug("No username and/or password");
             setNextPage("login.jsp");
             setNextPageInContext(true);
             request.setAttribute(MESSAGE_PARAM,
@@ -41,6 +42,7 @@ public class Login extends BaseProcessor {
         try{
             getAuthentication().login(new SimpleUser(-1,handle,password));
         }catch(AuthenticationException ae){
+            log.debug("Login failed");
             setNextPage("login.jsp");
             setNextPageInContext(true);
             request.setAttribute(MESSAGE_PARAM,
@@ -51,6 +53,7 @@ public class Login extends BaseProcessor {
         String redirect = (String)request.getAttribute(REDIRECT_PARAM);
         if(redirect == null || redirect.equals(""))
             redirect = "/";
+        log.debug("Login succeeded, redirecting to " + redirect);
         setNextPage(redirect);
         setNextPageInContext(false);
     }
