@@ -102,9 +102,23 @@
                     </td>
                 </tr>
 
-
+                <tr valign=top>
 <logic:iterate id="phaseInstance" indexId="pIdx" name="projectForm" property="timeline">
-<%if(pIdx.intValue() % 3 == 0) {%><tr valign=top><%}%>
+<%if(pIdx.intValue() % 3 == 0) {%>
+
+                    <td>
+                        <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
+                            <tr valign="top">
+                                <td class="forumTitleCenter"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+                                <td class="forumTitleCenter">
+                                    Start
+                                </td>
+                                <td class="forumTitleCenter">
+                                    End
+                                </td>
+                            </tr>
+                            <tr valign="top">
+<%}%>
                     <td class="forumTitleCenter">
                         <bean:define id="phaseName" name="phaseInstance" property="phase.name" />
                         <html:radio property="currentPhase" value="<%=phaseName.toString()%>" /><br/><bean:write name="phaseName" /></td>
@@ -113,8 +127,13 @@
                     <td class="forumTextCenterOdd">
                         <html:text property='<%="phaseEnd["+pIdx+"]"%>' size="20" /></td>
 
-<%if(pIdx.intValue() % 3 == 2) {%></tr><%}%>
+<%if(pIdx.intValue() % 3 == 2) {%>
+                            </tr>
+                        </table>
+                    </td>
+<%}%>
 </logic:iterate>
+                 </tr>
                             
             </table>
                         
