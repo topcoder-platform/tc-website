@@ -1,9 +1,6 @@
 package com.topcoder.web.corp.request;
 
-import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.NotAuthorizedException;
-import com.topcoder.security.RolePrincipal;
-import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.*;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -91,6 +88,35 @@ public final class Registration extends UserEdit {
     }
 
 
+    /**
+     * this is a total hack to get this thing working.  what we really
+     * need to do is decouple more of registration and user edit.
+     * this will populate the user's information in the fields if
+     * we know who they are.
+     * @return
+     * @throws Exception
+     */
+    protected boolean loadUserData() throws Exception {
+        InitialContext icEJB = null;
+        PrincipalMgrRemote mgr = Util.getPrincipalManager();
+        if (!"POST".equalsIgnoreCase(request.getMethod())) {
+            if (!secTok.createNew) {
+                try {
+                    password = mgr.getPassword(targetUserID);
+                    password2 = password;
+                    userName = secTok.targetUser.getName();
+                    icEJB = (InitialContext)TCContext.getInitial();
+                    retrieveUserDataFromDB(icEJB);
+                } finally {
+                    Util.closeIC(icEJB);
+                }
+            }
+            setFormFieldsDefaults();
+            nextPage = formPage;
+            return true;
+        }
+        return false;
+    }
 
     /**
      * @see com.topcoder.web.corp.request.UserEdit#setFormFieldsDefaults()
