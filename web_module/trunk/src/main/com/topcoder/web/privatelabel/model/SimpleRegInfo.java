@@ -26,6 +26,7 @@ public class SimpleRegInfo extends Base {
     private String city;
     private String zip;
     private long companyId;
+    private long eventId;
 
     public SimpleRegInfo() {
     }
@@ -51,6 +52,7 @@ public class SimpleRegInfo extends Base {
         setCity(info.getCity());
         setZip(info.getZip());
         setCompanyId(info.getCompanyId());
+        setEventId(info.getEventId());
     }
 
     public long getUserId() {
@@ -211,6 +213,14 @@ public class SimpleRegInfo extends Base {
 
     public void setCompanyId(long companyId) {
         this.companyId = companyId;
+    }
+
+    public long getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(long eventId) {
+        this.eventId = eventId;
     }
 
 }
