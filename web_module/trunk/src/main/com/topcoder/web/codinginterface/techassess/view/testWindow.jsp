@@ -32,7 +32,7 @@
           <input type="hidden" name="arrayDisplayArgType" value="" />
         <table border=0 width="100%">
                <tr><td class="testWinTitle" colspan="2">Test Arguments</td></tr>
-            <ci:argumentIterator problem="prob" language="language">
+            <ci:argumentIterator problem="<%=prob%>" language="language">
                 <tr>
                     <td width="50%" align="right">
                         <%=StringUtils.htmlEncode(argument)%>
