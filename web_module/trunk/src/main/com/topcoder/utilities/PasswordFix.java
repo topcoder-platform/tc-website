@@ -91,6 +91,7 @@ public class PasswordFix {
                 long id;
                 String encPass = null;
                 Map.Entry entry = null;
+                int count = 0;
                 for (Iterator it = hash.entrySet().iterator(); it.hasNext();) {
                     entry = (Map.Entry)it.next();
                     encPass = (String)entry.getValue();
@@ -99,10 +100,11 @@ public class PasswordFix {
                     ps2.setString(1, encPass);
                     ps2.setLong(2, id);
                     ps2.executeUpdate();
+                    count++;
                 }
 
 
-                return 0;
+                return count;
 
             } catch (SQLException e) {
                 throw e;
