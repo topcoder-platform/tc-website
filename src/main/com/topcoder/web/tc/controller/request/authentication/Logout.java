@@ -22,8 +22,8 @@ public class Logout extends Base{
         }
 
         getRequest().getSession().invalidate();
-        setNextPage("/logoutHelper.jsp");
-        setIsNextPageInContext(true);
+        setNextPage(StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)));
+        setIsNextPageInContext(false);
     }
 
     private void doLegacyCrap(TCRequest request) throws Exception {

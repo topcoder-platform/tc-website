@@ -27,8 +27,8 @@ public class Logout extends BaseProcessor {
             String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
             log.debug("on successfull logout, going to " + dest);
             getRequest().getSession().invalidate();
-            setNextPage("/logoutHelper.jsp");
-            setIsNextPageInContext(true);
+            setNextPage(dest);
+            setIsNextPageInContext(false);
             return;
         } catch (Exception e) {
             throw new TCWebException(e);
