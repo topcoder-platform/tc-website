@@ -226,7 +226,8 @@
 <BR/>
 <BR/>
 <OL>
-  <LI>(a) a U.S.* citizen;<BR/>
+  <LI>I am <br/>
+      (a) a U.S.* citizen;<BR/>
       (b) a lawful permanent resident of the U.S.*;<BR/>
       (c) a non-immigrant residing in the U.S.* with a valid visa; or<BR/>
       (d) a non-US citizen participating from my country of citizenship;<BR/>
