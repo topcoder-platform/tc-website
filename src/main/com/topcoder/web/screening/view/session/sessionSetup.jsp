@@ -222,12 +222,12 @@ function submitSession() {
                 <tr>
                     <td class="testTableOdd" colspan="3">To preview the email template <a href="JavaScript:showEmail()" CLASS="bodyText">click here</a></td>
                 </tr>
-                
-                 <tr>
-                    <td class="testTableOdd" colspan="3"><div align="center"><a href="JavaScript:submitSession()" class="testButton">Confirm</a></div></td>
-                </tr>
             </table>
 
+            <table border="0" cellspacing="0" cellpadding="0" width="70%">
+                 <tr>
+                    <td class="buttonBar"><div align="center"><a href="JavaScript:submitSession()" class="testButton">Confirm</a></div></td>
+                </tr>
            </screen:form>
  
              <table border="0" cellspacing="0" cellpadding="0" width="100%">
