@@ -197,7 +197,7 @@
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=3201991" class="statText">Socket Server Manager</a></td>
                     <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299904"><strong>opi</strong></a></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299904"><strong>mishagam</strong></a></td>
                     <td class="formHandleOdd" align="center">94.83</td>
                     <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
                 </tr>
