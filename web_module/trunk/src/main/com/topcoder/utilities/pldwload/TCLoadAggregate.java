@@ -1122,11 +1122,9 @@ public class TCLoadAggregate extends TCLoad {
                     int coder_id = rs2.getInt(1);
                     float final_points = rs2.getFloat(2);
                     float coder_pstddev = 0.0f;
-                    if (pstddev==Float.NaN ||
+                    if (!(pstddev==Float.NaN ||
                         pstddev==Float.NEGATIVE_INFINITY ||
-                        pstddev==Float.POSITIVE_INFINITY)
-                        coder_pstddev = 0;
-                    else 
+                        pstddev==Float.POSITIVE_INFINITY))
                         coder_pstddev = ((final_points - avgpts) / pstddev);
 
                     psUpd.clearParameters();
