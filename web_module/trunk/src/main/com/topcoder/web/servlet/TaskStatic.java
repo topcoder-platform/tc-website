@@ -144,6 +144,7 @@ public final class TaskStatic {
                     if (sortCol != null && sortDir != null)
                         rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
                     tournamentTag.addTag(rsc.getTag("Advancers", "Advancer"));
+                    document.addTag(tournamentTag);
                 }
             } catch (NamingException e) {
                 log.error("failed to get next match from DB");
@@ -171,7 +172,7 @@ public final class TaskStatic {
             e.printStackTrace();
         }
 
-//        log.debug(document.getXML(2));
+        log.debug(document.getXML(2));
         try {
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (Exception e) {
