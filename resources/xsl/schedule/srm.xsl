@@ -244,58 +244,6 @@
                     </TD>
                 </TR>
 
-                        <xsl:choose>
-                 <xsl:when test="$roundId&lt;4230">
-                      <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
-                        <xsl:choose>
-                        <xsl:when test="$roundId=4220">
-                          <B>This match has a total prize purse of $20,000</B><BR/>
-                          - $1000 from each match is donated to <A HREF="/index?t=support&amp;c=charities" CLASS="bodyText">charity</A><BR/>
-                          - $200 is paid to the unrated competitor who has the highest points for the match<BR/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                          <B>This match has a total prize purse of $10,000</B><BR/>
-                          - $500 from each match is donated to <A HREF="/index?t=support&amp;c=charities" CLASS="bodyText">charity</A><BR/>
-                          - $100 is paid to the unrated competitor who has the highest points for the match<BR/>
-                        </xsl:otherwise>
-                        </xsl:choose>
-                        - Coders must place with a positive point total to collect their prize.<BR/><BR/>
-                        <A HREF="/index?t=support&amp;c=divisions" CLASS="bodyText">More about the Prize structure</A><BR/><BR/>
-                        <B>Single Round Match Description</B><UL>
-                      <LI>Maximum of 10 coders per room</LI>
-                      <LI>Ratings will be adjusted post-match</LI>
-                      <LI>Members will be emailed prior to the match with date and time (opt-in)</LI>
-                      <LI>Members will be emailed the match results (opt-in)</LI>
-                      </UL>
-                      The match will feature a mixed programming language format.  For each individual problem, the coder will have the option of using either Java, C++, Microsoft&#174; Visual C#&#174; .NET or Microsoft&#174; Visual Basic&#174; .NET to code the solution.  Syntactical knowledge of all four languages will be helpful during the challenge phase of each round of competition.<BR/><BR/>
-                      <B>Divisions and Room Assignments:</B><UL>
-            <LI>Members rated 1200 or better compete in Division-I</LI>
-            <LI>Members rated 1199 or lower compete in Division-II</LI>
-            <LI>Members not yet rated compete in Division-II</LI>
-                      <LI>Room assignments place members of like divisions together</LI>
-                      <LI>Rating changes go into effect in next participated match</LI>
-                      <LI>In the event that any member who is ineligible to receive prizes (due to age or country restrictions) places in a position in which they would receive a prize, they will be asked to pick a charity to which to donate their prize.  In the event that the member does not pick a charity, TopCoder will pick a charity to which the ineligible member's prize will be paid.</LI></UL>
-                      <A HREF="/index?t=support&amp;c=divisions" CLASS="bodyText">More about the Division structure</A><BR/><BR/>
-                      <B>Eligibility:</B><BR/><BR/>
-                      Open to members meeting the following eligibility requirements:<UL>
-            <LI>Ages 13 and up can compete in any match</LI>
-            <LI>18 and older and meet the following residence requirements to claim cash prizes</LI>
-                      <LI>All US* Citizens</LI>
-                      <LI>All Lawful Permanent Residents of the US (i.e., Green Card Holders)</LI>
-                      <LI>All Citizens and Legal Permanent Residents of Canada, excluding Quebec</LI>
-                      <LI>All Citizens and Legal Permanent Residents of China</LI>
-                      <LI>All Citizens and Legal Permanent Residents of Australia</LI>
-                      <LI>All Citizens and Legal Permanent Residents of India</LI>
-                      <LI>All Citizens and Legal Permanent Residents of Ireland</LI>
-                      <LI>All Citizens and Legal Permanent Residents of New Zealand</LI>
-                      <LI>All Citizens and Legal Permanent Residents of the United Kingdom</LI>
-                      <LI>All non-immigrants** currently residing in the US with a valid Visa</LI></UL>
-                      *(including the US Territories of Guam, Puerto Rico and the US Virgin Islands)<BR/>
-                      ** Non-immigrants refer to people who come to the US, but not permanently (i.e., they are not permanent residents)<BR/><BR/>
-                      <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;RoundId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
-                      </TD></TR>
-                </xsl:when>
-                <xsl:otherwise>
 
                       <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
                         <B>Single Round Match Description</B>
@@ -316,8 +264,6 @@
                       Anyone who is at least 13 years of age may compete in any Single Round Match.<BR/><BR/>
                       <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;RoundId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
                       </TD></TR>
-              </xsl:otherwise>
-              </xsl:choose>
 
                         </TABLE>
 
