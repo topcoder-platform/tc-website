@@ -17,6 +17,7 @@ public class HttpObjectFactory {
             ret = new SimpleRequest(r);
         } else {
             //don't have the implementation for this yet
+            ret = new SimpleRequest(r);
         }
         return ret;
     }
