@@ -56,6 +56,8 @@
 
 package com.coolservlets.util;
 
+import com.topcoder.shared.distCache.CacheClientPool;
+
 import java.util.*;
 //JDK1.1// import com.sun.java.util.collections.*;
 import java.io.*;
@@ -105,22 +107,35 @@ class CachedObject implements java.io.Serializable {
 public class Cache {
 
     private com.topcoder.shared.distCache.CacheClient cache;
-    private static final int MAX_SIZE = 2048;
-    private static final int TIME_OUT = 24*60*60*1000;
+    private static final int MAX_SIZE = 10000;
+    private int timeOut= 1000*24*60*60*1000;
 
     public Cache() {
+        new Cache(MAX_SIZE, timeOut);
+    }
+
+    public Cache(int maxSize) {
+        new Cache(maxSize, timeOut);
+    }
+
+    public Cache(int maxSize, int timeOut) {
         try {
-            cache = new com.topcoder.shared.distCache.SimpleCacheClientImpl(MAX_SIZE);
+            this.timeOut = timeOut;
+            cache = new com.topcoder.shared.distCache.SimpleCacheClientImpl(maxSize);
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
     }
 
-    public Cache(int maxSize) {
-        try {
-            cache = new com.topcoder.shared.distCache.SimpleCacheClientImpl(maxSize);
-        } catch (RemoteException e) {
-            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+    public Cache(boolean isDistributed) {
+        if (isDistributed)
+            cache = CacheClientPool.getPool().getClient();
+        else {
+            try {
+                cache = new com.topcoder.shared.distCache.SimpleCacheClientImpl(MAX_SIZE);
+            } catch (RemoteException e) {
+                e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+            }
         }
     }
 
@@ -144,7 +159,7 @@ public class Cache {
 		cachedObject.setSize(objectSize);
 
         try {
-            cache.set(String.valueOf(uniqueID), cachedObject, TIME_OUT);
+            cache.set(String.valueOf(uniqueID), cachedObject, timeOut);
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
