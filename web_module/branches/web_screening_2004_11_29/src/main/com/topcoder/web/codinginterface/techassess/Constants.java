@@ -44,6 +44,7 @@ public class Constants {
     public static String STATIC_PREFIX;
     public static String MESSAGE_ID;
     public static String SESSION_ID;
+    public static String SUBMIT_FLAG;
 
     //request processors
     public static String RP_CURRENT_TIME;

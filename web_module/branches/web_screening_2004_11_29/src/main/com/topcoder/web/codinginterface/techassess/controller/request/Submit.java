@@ -24,7 +24,7 @@ public class Submit extends Base {
 
             long componentId = 0;
             int problemTypeId = 0;
-            boolean forceSubmit = false;
+            boolean resubmit = false;
 
             if (hasParameter(Constants.COMPONENT_ID)) {
                 componentId = Long.parseLong(getRequest().getParameter(Constants.COMPONENT_ID).trim());
@@ -38,7 +38,9 @@ public class Submit extends Base {
                 throw new NavigationException("Invalid Request, missing parameter");
             }
 
-            ScreeningSubmitRequest request = new ScreeningSubmitRequest(componentId, problemTypeId);
+            resubmit = ("true".equalsIgnoreCase(getRequest().getParameter(Constants.SUBMIT_FLAG)));
+
+            ScreeningSubmitRequest request = new ScreeningSubmitRequest(componentId, problemTypeId, resubmit);
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
             request.setSessionID(getSessionId());
 
@@ -61,8 +63,8 @@ public class Submit extends Base {
             } else if (response.getStatus()==ScreeningSubmitResponse.RESUBMIT) {
                 addError(Constants.CODE, response.getMessage());
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_SUBMIT_RESPONSE,
-                        new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
-                        new String[] {String.valueOf(problemTypeId), String.valueOf(componentId)}));
+                        new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID, Constants.MESSAGE_ID},
+                        new String[] {String.valueOf(problemTypeId), String.valueOf(componentId), String.valueOf(getMessageId())}));
             }
         }
     }
