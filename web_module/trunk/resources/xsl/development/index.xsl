@@ -77,7 +77,7 @@ Project: <A HREF="/index?t=development&amp;c=grant_process" CLASS="statTextBig">
 Start Date: June 14, 2002<BR/>
 End Date: June 24, 2002<BR/>
 Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: TBD<BR/>
+Inquiry Deadline:  June 13, 2002<BR/>
 </P>
 
 <P>
