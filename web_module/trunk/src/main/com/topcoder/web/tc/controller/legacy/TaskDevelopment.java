@@ -445,9 +445,9 @@ public final class TaskDevelopment {
                         long phase = Long.parseLong(request.getParameter("phase"));
 
                         if (!isSuspended(nav.getSessionInfo().getUserId())) {
-                            if (!isProjectLockedOut(componentId, version, phase, nav.getSessionInfo().getUserId()) ||
-                                    isTournamentComponent(componentId, version, phase)) {
-
+                            /*if (!isProjectLockedOut(componentId, version, phase, nav.getSessionInfo().getUserId()) ||
+                                    isTournamentComponent(componentId, version, phase)) {*/
+                             if(!isProjectRegClosed(Long.parseLong(request.getParameter("projectId")))) {
                                 if (!hasRegistered(componentId, version, phase, nav.getSessionInfo().getUserId())) {
 
                                     Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
@@ -639,6 +639,26 @@ public final class TaskDevelopment {
         return result;
     }
 
+    public static boolean isProjectRegClosed(long projectId) throws Exception {
+
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request inquiryRequest = new Request();
+        inquiryRequest.setContentHandle("project_detail");
+        inquiryRequest.setProperty("pj", String.valueOf(projectId));
+        ResultSetContainer detailRsc = (ResultSetContainer) dAccess.getData(inquiryRequest).get("project_detail");
+
+        String closed = detailRsc.getStringItem(0, "project_status");
+        
+        boolean ret = false;
+        if(closed.equals("closed"))
+        {
+            ret = true;
+        }
+        //it's never locked up, we took that out (at least for now)
+        return ret;
+
+    }
+    
     public static boolean isProjectLockedOut(long componentId, long version, long phase, long userId) throws Exception {
 /*
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
