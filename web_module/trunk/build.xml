@@ -488,7 +488,6 @@
         <mkdir dir="${war.dir}"/>
         <antcall target="war_email"/>
         <antcall target="war_query"/>
-        <antcall target="deploy-screening"/>
     </target>
 
     <target name="dev_wars" depends="compile">
