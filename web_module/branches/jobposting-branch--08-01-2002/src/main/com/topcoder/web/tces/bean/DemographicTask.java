@@ -144,14 +144,14 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
     {
         Request dataRequest = new Request();
 
-        if (getPositionID()>0) {
+        if (getPositionID()>=0) {
             // Position Demographics
             dataRequest.setContentHandle("tces_campaign_demographics");
         }
         else {
             // Campaign Demographics
             dataRequest.setContentHandle("tces_position_demographics");
-            dataRequest.setProperty("pid", Integer.toString(getPositionID()) );
+            dataRequest.setProperty("jid", Integer.toString(getPositionID()) );
         }
 
         dataRequest.setProperty("uid", Integer.toString(uid) );
@@ -163,7 +163,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
         ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
         setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
 
-        if (getPositionID()>0) {
+        if (getPositionID()>=0) {
             rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
             ResultSetContainer.ResultSetRow posNameRow = rsc.getRow(0);
             setPositionName( posNameRow.getItem("job_desc").toString() );
@@ -173,7 +173,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                         TCESConstants.STUDENT_CODER_TYPE };
 
         for (int typeI=0;typeI<types.length;typeI++) {
-            if (getPositionID()>0) {
+            if (getPositionID()>=0) {
                 // Position Demographics
                 dataRequest.setProperty("pid", Integer.toString(getPositionID()) );
             }
@@ -184,7 +184,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
             resultMap = dai.getData(dataRequest);
 
-            rsc = (getPositionID()>0)?
+            rsc = (getPositionID()>=0)?
                        (ResultSetContainer) resultMap.get("TCES_Position_Coders_By_Type")
                       : (ResultSetContainer) resultMap.get("TCES_Campaign_Coders_By_Type");
             ResultSetContainer.ResultSetRow coderCountRow = rsc.getRow(0);
@@ -195,7 +195,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
             HashMap demoInfoMap = new HashMap();
 
-            rsc = (getPositionID()>0)?
+            rsc = (getPositionID()>=0)?
                         (ResultSetContainer) resultMap.get("TCES_Position_Referral_Responses")
                        : (ResultSetContainer) resultMap.get("TCES_Campaign_Referral_Responses");
             ResultSetContainer.ResultSetRow refRspRow = null;
@@ -215,7 +215,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             }
             demoInfoMap.put( TCESConstants.DEMOGRAPHIC_REFERRAL_KEY , referralMapList );
 
-            rsc = (getPositionID()>0) ?
+            rsc = (getPositionID()>=0) ?
                         (ResultSetContainer) resultMap.get("TCES_Position_Notify_Responses")
                       :  (ResultSetContainer) resultMap.get("TCES_Campaign_Notify_Responses");
             ResultSetContainer.ResultSetRow notifyRow = null;
@@ -235,7 +235,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             }
             demoInfoMap.put( TCESConstants.DEMOGRAPHIC_NOTIFY_KEY , notifyMapList );
 
-            rsc = (getPositionID()>0) ?
+            rsc = (getPositionID()>=0) ?
                         (ResultSetContainer) resultMap.get("TCES_Position_Demographic_Responses")
                       :  (ResultSetContainer) resultMap.get("TCES_Campaign_Demographic_Responses");
             ResultSetContainer.ResultSetRow demoInfoRow = null;
@@ -276,7 +276,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                                  "does not belong to uid="+Integer.toString(uid) );
         }
 
-        if (getPositionID()>0) {
+        if (getPositionID()>=0) {
             // Position Demographics
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Position_Access");
