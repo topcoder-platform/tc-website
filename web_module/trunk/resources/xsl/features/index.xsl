@@ -66,6 +66,12 @@
                                 <td width="20%" class="bodySubtitle"><strong>Author</strong></td>
                                 <td width="60%" class="bodySubtitle"><strong>Feature</strong></td>
                             </tr>
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">July 10</td>
+                                <td valign="middle" class="bodyText">vorthys</td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_071003" class="bodyText">Immutable Objects</A></td>
+                            </tr>
 
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">June 26</td>
