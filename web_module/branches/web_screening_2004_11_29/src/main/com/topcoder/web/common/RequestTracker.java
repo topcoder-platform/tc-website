@@ -93,6 +93,8 @@ public class RequestTracker {
                     UserRequest r = (UserRequest) it.next();
                     if (ApplicationServer.SESSION_ID_LENGTH>0) {
                         sessionId = r.sessionId.substring(0, ApplicationServer.SESSION_ID_LENGTH);
+                    } else {
+                        sessionId = r.sessionId;
                     }
                     if (r.userId == GUEST.getId()) {
                         createRequest(r.url, new Timestamp(r.time),
