@@ -237,7 +237,6 @@
                         
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" class="forumBkgd">
                 <tr><td width="100%" class="forumTextEven"><strong>Auto Pilot</strong> <html:radio property='<%="autoPilot"%>' value="true" /> Enabled <html:radio property='<%="autoPilot"%>' value="false" /> Disabled  </td></tr>
-                <tr><td class="whiteBkgnd" align="left"><html:textarea property="reason" rows="10" cols="80" /></td></tr>
             </table>
         </td>
     </tr>
