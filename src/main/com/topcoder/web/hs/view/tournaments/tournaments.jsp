@@ -30,7 +30,7 @@
 <!-- Center Column begins -->
         <td valign="top" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
-                <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_tourny.gif" width="348" height="44" border="0"></td></tr>
+                <tr><td width="100%" bgcolor="#001934"><img src="/i/hs/headinginside_tourny.gif" width="348" height="44" border="0"></td></tr>
                 
                 <tr>
                     <td height="100%" class="statTextBig">

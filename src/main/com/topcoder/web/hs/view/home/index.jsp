@@ -48,7 +48,7 @@
                         <h2>Amity Takes First Place in 2003 High School Challenge!</h2>
                         
                         <table border="0" cellspacing="5" cellpadding="0" width="500">
-                            <tr valign="top"><td align="left"><img src="/i/tournament/tchs03/first_place_amity_low_res.jpg" alt="Amity Regional Senior High School" width="500" height="247" border="0" class="photoFrameBig" /></td></tr>
+                            <tr valign="top"><td align="left"><img src="/i/hs/tournament/tchs03/first_place_amity_low_res.jpg" alt="Amity Regional Senior High School" width="500" height="247" border="0" class="photoFrameBig" /></td></tr>
                             <tr valign="top"><td align="left" class="statTextSmall">First Place Amity Regional Team (left to right): Coach Barretta, Z-Zonebyun, 
                             PolaristarII, nathanbp, kevinowns, hexedit, lazira and Rahde, with Rob Hughes, President and COO of TopCoder.</td></tr>
                         </table>
@@ -83,7 +83,7 @@
                         <div align="center">
                         
                         <table border="0" cellspacing="5" cellpadding="0" width="500">
-                            <tr valign="top"><td align="left"><img src="/i/tournament/tchs03/second_place_nfa_low_res.jpg" alt="Norwich Free Academy" width="500" height="283" border="0" class="photoFrameBig"></td></tr>
+                            <tr valign="top"><td align="left"><img src="/i/hs/tournament/tchs03/second_place_nfa_low_res.jpg" alt="Norwich Free Academy" width="500" height="283" border="0" class="photoFrameBig"></td></tr>
                             <tr valign="top"><td align="left" class="statTextSmall">Second Place Norwich Free Academy Team (left to right): bahamutneo, HarlingtoxAD, 
                             trueIdiotz, colgate, Coach Joslin and Coach Clendennin, with Rob Hughes, President and COO of TopCoder.</td></tr>
                         </table>
@@ -215,11 +215,11 @@
                         
                         <table border="0" cellspacing="0" cellpadding="0" width="500">
                             <tr valign="top">
-                                <td align="left" class="statTextBig"><img src="/i/tournament/tchs03/mastermargie_sm.jpg" alt="MasterMargie" width="100" height="100" border="0" class="photoFrameSmall"></td>
-                                <td align="left" class="statTextBig"><img src="/i/tournament/tchs03/nathanbp_sm.jpg" alt="nathanbp" width="100" height="100" border="0" class="photoFrameSmall"></td>
-                                <td align="left" class="statTextBig"><img src="/i/tournament/tchs03/polaristarII_sm.jpg" alt="PolariStarII" width="100" height="100" border="0" class="photoFrameSmall"></td>
-                                <td align="left" class="statTextBig"><img src="/i/tournament/tchs03/lazira_sm.jpg" alt="lazira" width="100" height="100" border="0" class="photoFrameSmall"></td>
-                                <td align="left" class="statTextBig"><img src="/i/tournament/tchs03/xzafire_sm.jpg" alt="Xzafire" width="100" height="100" border="0" class="photoFrameSmall"></td>
+                                <td align="left" class="statTextBig"><img src="/i/hs/tournament/tchs03/mastermargie_sm.jpg" alt="MasterMargie" width="100" height="100" border="0" class="photoFrameSmall"></td>
+                                <td align="left" class="statTextBig"><img src="/i/hs/tournament/tchs03/nathanbp_sm.jpg" alt="nathanbp" width="100" height="100" border="0" class="photoFrameSmall"></td>
+                                <td align="left" class="statTextBig"><img src="/i/hs/tournament/tchs03/polaristarII_sm.jpg" alt="PolariStarII" width="100" height="100" border="0" class="photoFrameSmall"></td>
+                                <td align="left" class="statTextBig"><img src="/i/hs/tournament/tchs03/lazira_sm.jpg" alt="lazira" width="100" height="100" border="0" class="photoFrameSmall"></td>
+                                <td align="left" class="statTextBig"><img src="/i/hs/tournament/tchs03/xzafire_sm.jpg" alt="Xzafire" width="100" height="100" border="0" class="photoFrameSmall"></td>
                             </tr>
                             <tr valign="top">
                                 <td align="left" class="photoCaptionSmall">MasterMargie</td>
@@ -239,7 +239,7 @@
                       
                         
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr><td width="100%" class="tourney_subnav"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
+                <tr><td width="100%" class="tourney_subnav"><img src="/i/hs/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
             </table>
 
             <p><br/></p>
@@ -251,7 +251,7 @@
         <td width="200" bgcolor="#001934">
 
             <jsp:include page="../includes/sponsor_right.jsp" /><br>
-            <img src="/i/cas_quote_home.gif" width="200" height="240" alt="The Connecticut Association of Schools" border="0"><br>
+            <img src="/i/hs/cas_quote_home.gif" width="200" height="240" alt="The Connecticut Association of Schools" border="0"><br>
             <jsp:include page="../includes/right_resources.jsp" /><br><br>
         </td>
     </tr>

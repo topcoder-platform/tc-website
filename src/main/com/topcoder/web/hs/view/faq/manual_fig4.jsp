@@ -30,7 +30,7 @@
 <!-- Center Column begins -->
         <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
-                <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
+                <tr><td width="100%" bgcolor="#001934"><img src="/i/hs/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td width="100%" class="bodyText">
@@ -46,7 +46,7 @@
                         
                         <p><b>Figure 4: Coding Window - Coding Phase</b></p>
                         
-                        <img border="0" height="434" width="619" alt="Coding Window" src="/i/problem_statement.gif">
+                        <img border="0" height="434" width="619" alt="Coding Window" src="/i/hs/problem_statement.gif">
                         
                         <p>The <b>Coding Window</b> consists of:</p>
                         

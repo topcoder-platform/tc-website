@@ -1,7 +1,7 @@
-            <img src="/i/clear.gif" width="200" height="10" alt="" border="0"><br>
+            <img src="/i/hs/clear.gif" width="200" height="10" alt="" border="0"><br>
 
             <table cellspacing="0" cellpadding="0" border="0" width="200">
-                <tr><td><img src="/i/rl_heading.gif" width="200" height="28" alt="" border="0"></td></tr>
+                <tr><td><img src="/i/hs/rl_heading.gif" width="200" height="28" alt="" border="0"></td></tr>
             </table>
             
             <table cellspacing="0" cellpadding="5" border="0" width="200" bgcolor="#1B2E5D">

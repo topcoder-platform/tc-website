@@ -62,7 +62,7 @@
                         team with the highest amount of total points acquired throughout the entire regular season will win.</p>
                         
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                            <tr><td width="100%" class="tourney_subnav"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
+                            <tr><td width="100%" class="tourney_subnav"><img src="/i/hs/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
                         </table>
 
                     </td>

@@ -22,7 +22,7 @@
     <TR>
         <TD>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="" WIDTH="100%">
-             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/headinginside_press.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
+             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG src="/i/hs/headinginside_press.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
              <TD BACKGROUND="/i/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
              </TD></TR>
             </TABLE>
@@ -35,7 +35,7 @@
             <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                 <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD WIDTH="10"><IMG src="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                 </TR>
                 </TABLE>
             </TD>
@@ -43,7 +43,7 @@
             <!--Body starts Here-->
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
 					<TR><TD VALIGN="middle" COLSPAN="2" BACKGROUND="/i/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&nbsp;<B>Press Releases</B> <!--Archive--> - 2002&nbsp;&nbsp;&nbsp;</TD></TR>
-						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 
         <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&nbsp;10.30.02</TD><TD VALIGN="middle" CLASS="bodyText">&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="?module=Static&d1=press&d2=pr_10_30_02" >TopCoder Competitions Expand to High Schools</A></TD></TR>
 		</TABLE>
@@ -51,7 +51,7 @@
 <P><BR></P>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
 					<TR><TD VALIGN="middle" COLSPAN="2" BACKGROUND="/i/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&nbsp;<B>Articles</B> - 2002&nbsp;&nbsp;&nbsp;</TD></TR>
-						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;11.13.02</TD>
 <TD CLASS="bodyText" VALIGN="middle">&nbsp;&nbsp;&nbsp;&nbsp;<A CLASS="bodyText" HREF="http://builder.com.com/article.jhtml?id=u00220021106adm01.htm&rcode=&page=1" TARGET="_blank">You'll find more than competitions at TopCoder these days</A></TD></TR>
 <TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;04.10.02</TD>
@@ -69,11 +69,11 @@
 <P><BR></P>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
 					<TR><TD VALIGN="middle" COLSPAN="3"  BACKGROUND="/i/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&nbsp;<B>Features</B> - 2002&nbsp;&nbsp;&nbsp;</TD></TR>
-						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="top">&nbsp;11.20.02</TD><TD CLASS="bodyText" VALIGN="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leadhyena_inran&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD CLASS="bodyText" VALIGN="top"><A CLASS="bodyGeneric" HREF="http://www.topcoder.com/?&t=features&c=feat_112002" TARGET="_blank">The eight seconds of death: tips on preventing timeout
 </A></TD></TR>
 <TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="top">&nbsp;08.07.02</TD><TD CLASS="bodyText" VALIGN="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KaiEl&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD CLASS="bodyText" VALIGN="top"><A CLASS="bodyGeneric" HREF="http://www.topcoder.com/index?t=features&c=feat_080702" TARGET="_blank">Match Strategy</A></TD></TR>
-<TR><TD COLSPAN="3" CLASS="bodyText" VALIGN="top"><IMG BORDER="0" HEIGHT="15" WIDTH="1" ALT="" SRC="/i/clear.gif"></TD></TR>
+<TR><TD COLSPAN="3" CLASS="bodyText" VALIGN="top"><IMG BORDER="0" HEIGHT="15" WIDTH="1" ALT="" src="/i/hs/clear.gif"></TD></TR>
 
 		</TABLE>
 <P><BR></P>
@@ -82,7 +82,7 @@
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD WIDTH="10"><IMG src="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                 </TABLE>
             </TD>

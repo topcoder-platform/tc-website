@@ -30,7 +30,7 @@
 <!-- Center Column begins -->
         <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
-                <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
+                <tr><td width="100%" bgcolor="#001934"><img src="/i/hs/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td width="100%">
@@ -52,7 +52,7 @@
                         <p><a href="#160">How long do TopCoder competitions last?</a></p>
                         <p><a href="#180">I'm having a problem with font properties on Linux platforms.</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <h4>Java</h4>
                         <p><a href="#java1" >How is my submission judged?</a></p>
@@ -60,14 +60,14 @@
                         <p><a href="#java3" >What software does TopCoder use?</a></p>
                         <p><a href="#java4" >What options are set when starting up the VM?</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <h4>C#</strong></h4>
                         <p><a href="#c1" >How is my submission judged?</a></p>
                         <p><a href="#c2" >What hardware does TopCoder use?</a></p>
                         <p><a href="#c3" >What software does TopCoder use?</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <h4>C++</strong></h4>
                         <p><a href="#181" >How is my submission judged?</a></p>
@@ -79,7 +79,7 @@
                         <p><a href="#186" >How do i get 64-bit integers?</a></p>
                         <p><a href="#187" >What STL types are available?</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <h4>Mac OS X</strong></h4>
                         <p><a href="#mac1" >The small HTML window that holds the contest applet does not load up the applet</a></p>
@@ -88,15 +88,15 @@
                         the applet cannot be loaded.</a></p>
                         <p><a href="#mac4" >How do I copy and paste in the Arena when using Mac OS X?</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <p><strong>More Questions?<a href="?module=Static&d1=contacts&d2=contacts">Contact Us</a></strong></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <p><strong>For FAQs specific to the competition phase, see the <a href="?module=Static&d1=faq&d2=compet_faq">Competition FAQ.</a></strong></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
 <!--end questions-->
 
 <!--begin answers-->
@@ -106,14 +106,14 @@
                         programmers through computer programming competitions.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="20">
                         <p><strong>What's in it for me?</strong></a><br>
                         This site will provide a means for high school coders to prove their coding ability in competitions.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="25">
                         <p><strong>What's in it for TopCoder?</strong></a><br>
@@ -121,21 +121,21 @@
                         who want to promote and support educational programs within their communities.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="30">
                         <p><strong>Who can participate in TopCoder High School?</strong></a><br>
                         High school students and faculty members (coaches) can be members of TopCoder High School.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="40">
                         <p><strong>Who are the creators of the "TopCoder" site?</strong></a><br>
                         Jack Hughes, a fellow programmer, came up with the idea for TopCoder.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="65">
                         <p><strong>Do you really think this is a good way to measure the relative merit of programmers?</strong></a><br>
@@ -145,7 +145,7 @@
                         objectively ratable elements into our tournaments.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="67">
                         <p><strong>Who owns the source code that I write during competitions?</strong></a><br>
@@ -155,14 +155,14 @@
                         and spectators. You can read the complete <a href="?module=Static&d1=home&d2=terms">Terms of Use.</a><br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="80">
                         <p><strong>How does the rating system work?</strong></a><br>
                         The details of the rating formula can be found <a href="?module=Static&d1=faq&d2=ratings_ovrev">here.</a><br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="90">
                         <p><strong>How will I know where I stand in the ratings?</strong></a><br>
@@ -171,7 +171,7 @@
                         and ranking.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="110">
                         <p><strong>How do I find out when the next tournament is being held?</strong></a><br>
@@ -180,7 +180,7 @@
                         home page.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="130">
                         <p><strong>What do I need to do in order to participate in a TopCoder match?</strong></a><br>
@@ -190,7 +190,7 @@
                         match.  If you do not go through this process prior to a match, you will not be assigned to a competition room come match time. <br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <p><a name="140"><strong>If I miss the match registration period, can TopCoder just place me in a room, allowing me to 
                         compete?</strong></a><br>
@@ -199,7 +199,7 @@
                         the balance of all of the room distributions for that division.  This simply would not be fair.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="150">
                         <p><strong>After I register for a TopCoder competition, do I need to stay logged into the applet until the competition 
@@ -207,7 +207,7 @@
                         No.  TopCoder's system will remember that you have registered for the event even if you log out after you've registered.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="160">
                         <p><strong>How long do TopCoder competitions last?</strong></a><br>
@@ -216,7 +216,7 @@
                         so you do not need to stay logged in during this phase.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="180">
                         <p><strong>I'm having a problem with font properties on Linux platforms.</strong></a><br>
@@ -224,7 +224,7 @@
                         is one of them).  The fix is to replace the "font.properties" file with the following: <a href="http://java.sun.com/j2se/1.3/font.properties" target="_blank">http://java.sun.com/j2se/1.3/font.properties</a><br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <h3>Java</h3>
                         
@@ -240,7 +240,7 @@
                         <p>If your method does return a value, that is the only basis for judging correctness.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="java2">
                         <p><strong>What hardware does TopCoder use?</strong></a><br>
@@ -248,14 +248,14 @@
                         and its own 1024kb level two cache clocked at core speed.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="java3">
                         <p><strong>What software does TopCoder use?</strong></a><br>
                         Linux 2.4, Java 1.4 (build 1.4.0_01-b03).<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="java4">
                         <p><strong>What options are set when starting up the VM?</strong></a><br>
@@ -263,7 +263,7 @@
                         <a href="#top">[back to top]</a></p>
 
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <h3>C#</h3>
 
@@ -278,7 +278,7 @@
                         <p>If your method does return a value, that is the only basis for judging correctness.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="c2">
                         <p><strong>What hardware does TopCoder use?</strong></a><br>
@@ -286,14 +286,14 @@
                         and its own 1024kb level two cache clocked at core speed.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="c3">
                         <p><strong>What software does TopCoder use?</strong></a><br>
                         Microsoft Windows 2000 5.00.2195 SP2, .NET Framework version 1.0.3705<<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <h3>C++</strong></h3>
 
@@ -320,7 +320,7 @@
                         testing; you are advised not to leave unnecessary IO in your final submission.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="182">
                         <p><strong>What hardware does TopCoder use?</strong></a><br>
@@ -328,7 +328,7 @@
                         data, and its own 1024kb level two cache clocked at core speed.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="183">
                         <p><strong>What software does TopCoder use?</strong></a><br>
@@ -342,7 +342,7 @@
                         </ul>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="184">
                         <p><strong>What compiler options are used?</strong></a><br>
@@ -355,7 +355,7 @@
                         </ul>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="188">
                         <p><strong>Why doesn't my code compile anymore under gcc 3.1?</strong></a><br>
@@ -378,14 +378,14 @@
                         </ul>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="185">
                         <p><strong>What libraries are available?</strong></a><br>
                         Only default libraries will be linked with your code.  Math functions requiring libm on some platforms, eg cos(), are automatically linked if needed.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="186">
                         <p><strong>How do I get 64-bit integers?</strong></a><br>
@@ -411,7 +411,7 @@
                         <p>The C++ standard libraries do not include support for arbitrary precision arithmetic.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="187">
                         <p><strong>What STL types are available?</strong></a><br>
@@ -419,7 +419,7 @@
                         from SGI's STL, such as rope, hash_set, hash_map, tree, slist, etc.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <h3>MAC OSX</h3>
                         
@@ -429,14 +429,14 @@
                         info on JWS is available on TopCoder home page.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="mac2">
                         <p><strong>Once I log into the Arena the menu's are transparent in MAC OSX </strong></a><br>
                         This bug is currently under investigation.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="mac3">
                         <p><strong>I tried loading the Arena through the JWS link and I'm getting an error when JWS is running that 
@@ -447,7 +447,7 @@
                         on the JWS link. The applet should now load (assuming you are running OSX 10.1).<br>
                         <a href="#top">[back to top]</a></p> 
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <a name="mac4">
                         <p><strong>How do I copy and paste in the Arena when using Mac OSX?</strong></a><br>
@@ -455,12 +455,12 @@
                         paste from within the Arena.<br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <p><strong>More Questions? <a href="mailto:service@topcoder.com">Contact Us</a></strong><br>
                         <a href="#top">[back to top]</a></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                     </td>
                 </tr>

@@ -91,5 +91,5 @@
 <!--Small Calendar ends-->
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><td width="170"><img src="/i/left_bottom_elements.gif" width="170" height="246" alt="" border="0"></td></tr>
+                <tr><td width="170"><img src="/i/hs/left_bottom_elements.gif" width="170" height="246" alt="" border="0"></td></tr>
             </table>

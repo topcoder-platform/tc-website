@@ -39,7 +39,7 @@
 <!-- Center Column begins -->
         <td valign="top" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
-                <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_search.gif" width="348" height="44" alt="" border="0"></td></tr>
+                <tr><td width="100%" bgcolor="#001934"><img src="/i/hs/headinginside_search.gif" width="348" height="44" alt="" border="0"></td></tr>
                 
                 <tr valign="top"><form method="get" name="advForm">
                     <td width="100%">
@@ -66,7 +66,7 @@
                                 </td>
                             </tr>
 
-                            <tr><td colspan="4" class="statText"><img src="/i/clear.gif" height="1" width="1" border="0"></td></tr>
+                            <tr><td colspan="4" class="statText"><img src="/i/hs/clear.gif" height="1" width="1" border="0"></td></tr>
 
                              <tr valign="middle">
                                 <td></td>
@@ -110,15 +110,15 @@
                                 <td></td>
                             </tr>
   
-                            <tr><td colspan="4" height="10"><img src="/i/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
+                            <tr><td colspan="4" height="10"><img src="/i/hs/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
                             
                             <tr valign="middle"><td align="center" class="statText" colspan="4"><input type="button" name="submitButton" value="Submit" onclick="Javascript:submitSearch()"></td></tr>
 
-                            <tr><td colspan="4" height="10"><img src="/i/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
+                            <tr><td colspan="4" height="10"><img src="/i/hs/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
                         </table>
                                 
                         <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                            <tr><td height="10"><img src="/i/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
+                            <tr><td height="10"><img src="/i/hs/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
                         </table>
                         
                         <% if (search.hasMemberList()) { %>
@@ -131,41 +131,41 @@
                                </td></tr>
 
                                 <% if (search.getMemberList().size()==0) { %>
-                            <tr><td><img src="/i/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
+                            <tr><td><img src="/i/hs/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
 
                             <tr><td class="bodyText" align="center">No members found.</td></tr>
                                 
                                 <% } else { %>
                             <tr><td colspan="7" align="center" bgcolor="#1B2E5D" class="statText"><%=(search.getHasPrev()?"<a href=\"Javascript:document.advForm.next.value='false';Javascript:document.advForm.submit()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%> | <%=(search.getHasNext()?"<a href=\"Javascript:document.advForm.next.value='true';Javascript:document.advForm.submit()\" class=\"statText\">next &gt;&gt;</a>":"&gt;&gt; next")%></td></tr>
 
-                            <tr><td colspan="7"><img src="/i/clear.gif" height="3" width="1" alt="" border="0"></td></tr>
+                            <tr><td colspan="7"><img src="/i/hs/clear.gif" height="3" width="1" alt="" border="0"></td></tr>
 
                             <tr>
-                                <td><img src="/i/clear.gif" height="1" width="3" alt="" border="0"></td>
+                                <td><img src="/i/hs/clear.gif" height="1" width="3" alt="" border="0"></td>
                                 <td><strong>Handle</strong></td>
                                 <td><strong>Rating</strong></td>
                                 <td><strong>State</strong></td>
                                 <td><strong>School</strong></td>
                                 <td><strong>Last Competed</strong></td>
-                                <td><img src="/i/clear.gif" height="1" width="3" alt="" border="0"></td>
+                                <td><img src="/i/hs/clear.gif" height="1" width="3" alt="" border="0"></td>
                             </tr>
                                         
                             <adv:resultSetRowIterator id="member" list="<%=search.getMemberList()%>">
         
                             <tr>
-                                <td><img src="/i/clear.gif" height="1" width="3" alt="" border="0"></td>
+                                <td><img src="/i/hs/clear.gif" height="1" width="3" alt="" border="0"></td>
                                 <td><a href="?module=Statistics&c=member_profile&cr=<adv:resultSetItem row='<%=member%>' name="user_id"/>"><adv:resultSetItem row="<%=member%>" name="handle"/></a></td>
                                 <td><adv:resultSetItem row="<%=member%>" name="rating"/></td>
                                 <td><adv:resultSetItem row="<%=member%>" name="state_code"/></td>
                                 <td><adv:resultSetItem row="<%=member%>" name="school_name"/></td>
                                 <td><adv:resultSetItem row="<%=member%>" name="last_competed" format="MM/dd/yyyy" ifnull="N/A"/></td>
-                                <td><img src="/i/clear.gif" height="1" width="3" alt="" border="0"></td>
+                                <td><img src="/i/hs/clear.gif" height="1" width="3" alt="" border="0"></td>
                             </tr>
 
                             </adv:resultSetRowIterator>
                                 <% } %>
                             
-                            <tr><td colspan="7"><img src="/i/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
+                            <tr><td colspan="7"><img src="/i/hs/clear.gif" height="10" width="1" alt="" border="0"></td></tr>
                         </table>
                        
                         <% } %>

@@ -30,7 +30,7 @@
                 
                 <tr valign="top">
                     <td align="left" width="99%" class="statTextBig" colspan="2">
-                        <img src="/i/headinginside_comparena.gif" width="348" height="44" border="0">
+                        <img src="/i/hs/headinginside_comparena.gif" width="348" height="44" border="0">
                     </td>
                 </tr>
                 
@@ -58,11 +58,11 @@
                         Click the button below to launch the TopCoder High School Competition Arena. To enter the practice
                         area once you log in, select "Practice Room" from the "Active Contests" menu.</p>
                                     
-                        <p><a class="statTextLarge" href="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',300,225);"><img border="0" height="30" width="200" alt="Download Arena Applet" src="/i/download_applet_hs.gif"></a></p>
+                        <p><a class="statTextLarge" href="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',300,225);"><img border="0" height="30" width="200" alt="Download Arena Applet" src="/i/hs/download_applet_hs.gif"></a></p>
                     </td>
                                 
                     <td width="250" class="statText">
-                        <img src="/i/screenshot_hs_applet.gif" alt="Applet Screen" width="250" height="179" border="0"><br>&#160;
+                        <img src="/i/hs/screenshot_hs_applet.gif" alt="Applet Screen" width="250" height="179" border="0"><br>&#160;
                     
                         <table width="250" cellpadding="5" cellspacing="0" class="insetFrame">
                             <tr><td class="moduleTitle" colspan="2">Requirements:</td></tr>

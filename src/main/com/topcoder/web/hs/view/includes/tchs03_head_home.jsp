@@ -1,6 +1,6 @@
                         <table cellspacing="0" cellpadding="0" border="0" width="550">
                             <tr align="top">
-                                <td class="statText"><img src="/i/tournament/tchs03/tchs03_logo_medium.gif" alt="TopCoder High School Challenge" width="123" height="102" hspace="10" border="0"></td>
+                                <td class="statText"><img src="/i/hs/tournament/tchs03/tchs03_logo_medium.gif" alt="TopCoder High School Challenge" width="123" height="102" hspace="10" border="0"></td>
                                 <td class="statTextBig" width="99%">
                                     <h3>Welcome to our first programming tournament for high school students!</h3>
                                     
@@ -11,5 +11,5 @@
                             </tr>
                         </table>
                         
-                        <img src="/i/spacer.gif" alt="" width="10" height="10" border="0"><br>
+                        <img src="/i/hs/spacer.gif" alt="" width="10" height="10" border="0"><br>
                         

@@ -84,7 +84,7 @@ pageContext.setAttribute("resultSetDates", rsc);
   </TR>
   <TR>
     <TD   COLSPAN="16">
-      <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR><A NAME="leaders"></A>
+      <IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR><A NAME="leaders"></A>
     </TD>
   </TR>
   <TR>
@@ -95,7 +95,7 @@ pageContext.setAttribute("resultSetDates", rsc);
   <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="20%" NOWRAP HEIGHT="16" class="statText" BACKGROUND="/i/blue_heading_bg.gif">&nbsp;&nbsp;<B>Room</B></TD>
   </TR>
   <TR>
-    <TD   COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+    <TD   COLSPAN="16"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
   </TR>
 
 
@@ -127,7 +127,7 @@ pageContext.setAttribute("resultSetDates", rsc);
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
   <TR>
     <TD   COLSPAN="16">
-      <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR><A NAME="problem_stats"></A>
+      <IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR><A NAME="problem_stats"></A>
     </TD>
   </TR>
   <TR>

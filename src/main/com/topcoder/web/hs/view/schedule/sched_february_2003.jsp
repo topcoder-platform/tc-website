@@ -22,7 +22,7 @@
     <TR>
         <TD>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="" WIDTH="100%">
-             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/headinginside_sched.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
+             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG src="/i/hs/headinginside_sched.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
              <TD BACKGROUND="/i/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
              </TD></TR>
             </TABLE>
@@ -35,13 +35,13 @@
             <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                 <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD WIDTH="10"><IMG src="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                 </TR>
                 </TABLE>
             </TD>
             <TD HEIGHT="100%" CLASS="bodyText">
             <!-- Body Starts-->
-                        <!--<IMG SRC="/i/calendar_holder.gif" BORDER="0">-->
+                        <!--<IMG src="/i/hs/calendar_holder.gif" BORDER="0">-->
                         
                      
 <BR><P><B>February 2003</B></P><DIV ALIGN="right"><form name="selectform"><select onchange="window.location='?module=Static&d1=schedule&d2='+this.options[this.selectedIndex].value" class="dropdown" size="1" name="quickstat">
@@ -98,7 +98,7 @@
 <TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">17</TD>
 <TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">18</TD>
 <TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">19</TD>
-<TD CLASS="smallText" VALIGN="top" ALIGN="left"><FONT COLOR="#FF0000"><B>20</B></FONT><BR><SPAN CLASS="bodyTextBold"><B>Scrimmage</B></SPAN><BR>Register: 2:00&nbsp;PM<BR>Compete: 3:00&nbsp;PM<BR><IMG BORDER="0" HEIGHT="1" WIDTH="50" SRC="/i/clear.gif"><BR></TD>
+<TD CLASS="smallText" VALIGN="top" ALIGN="left"><FONT COLOR="#FF0000"><B>20</B></FONT><BR><SPAN CLASS="bodyTextBold"><B>Scrimmage</B></SPAN><BR>Register: 2:00&nbsp;PM<BR>Compete: 3:00&nbsp;PM<BR><IMG BORDER="0" HEIGHT="1" WIDTH="50" src="/i/hs/clear.gif"><BR></TD>
 <TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">21</TD>
 <TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">22</TD>
 </TR>
@@ -107,7 +107,7 @@
 <TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">24</TD>
 <TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">25</TD>
 <TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">26</TD>
-<TD CLASS="smallText" VALIGN="top" ALIGN="left"><FONT COLOR="#FF0000"><B>27</B></FONT><BR><SPAN CLASS="bodyTextBold"><B>Scrimmage</B></SPAN><BR>Register: 2:00&nbsp;PM<BR>Compete: 3:00&nbsp;PM<BR><IMG BORDER="0" HEIGHT="1" WIDTH="50" SRC="/i/clear.gif"><BR></TD>
+<TD CLASS="smallText" VALIGN="top" ALIGN="left"><FONT COLOR="#FF0000"><B>27</B></FONT><BR><SPAN CLASS="bodyTextBold"><B>Scrimmage</B></SPAN><BR>Register: 2:00&nbsp;PM<BR>Compete: 3:00&nbsp;PM<BR><IMG BORDER="0" HEIGHT="1" WIDTH="50" src="/i/hs/clear.gif"><BR></TD>
 <TD BACKGROUND="/i/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">28</TD>
 <TD BGCOLOR="#CCCCCC" CLASS="smallText" VALIGN="top" ALIGN="left">&nbsp;</TD>
 </TR>
@@ -127,7 +127,7 @@
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD WIDTH="10"><IMG src="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                 </TABLE>    
             </TD>
@@ -141,7 +141,7 @@
         
         
         <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
-<IMG SRC="/i/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
+<IMG src="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
 <BR/>
 <jsp:include page="../includes/right_resources.jsp" /></TD>		
 	</TR>

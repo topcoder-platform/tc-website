@@ -30,7 +30,7 @@
 <!-- Center Column begins -->
         <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
-                <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
+                <tr><td width="100%" bgcolor="#001934"><img src="/i/hs/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td width="100%" class="bodyText">
@@ -56,7 +56,7 @@
                                     </table>
                                 </td>
                                 
-                                <td><img border="0" src="/i/clear.gif" width="10" height="1" alt=""></td>
+                                <td><img border="0" src="/i/hs/clear.gif" width="10" height="1" alt=""></td>
 
                                 <td valign="top">
                                     <table cellspacing="0" cellpadding="0" border="0">

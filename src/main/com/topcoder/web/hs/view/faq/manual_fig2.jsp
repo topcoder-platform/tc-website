@@ -30,7 +30,7 @@
 <!-- Center Column begins -->
         <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
-                <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
+                <tr><td width="100%" bgcolor="#001934"><img src="/i/hs/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td width="100%" class="bodyText">
@@ -46,7 +46,7 @@
                         
                         <p class="bodyText"><b>Figure 2: Lobby</b></p>
                         
-                        <img border="0" height="433" width="619" alt="Lobby" src="/i/lobby.gif">
+                        <img border="0" height="433" width="619" alt="Lobby" src="/i/hs/lobby.gif">
                         
                         <ol class="bodyText">
                             <li><b>Status Panel:</b> Contains user's handle, rank, and status. In a live competition, Status identifies the coder as coding 

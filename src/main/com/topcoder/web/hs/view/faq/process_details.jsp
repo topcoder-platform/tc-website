@@ -30,7 +30,7 @@
 <!-- Center Column begins -->
         <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
-                <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
+                <tr><td width="100%" bgcolor="#001934"><img src="/i/hs/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td width="100%" class="bodyText">
@@ -108,7 +108,7 @@ problem and when a solution is submitted. Keep in mind that these times are capt
 submission actually gets to our server, so network latency may play a minor role in the competition process.<br>
 <br>
 
-Total points awarded = <img width="172" height="37" alt="points" src="/i/pts.gif"/><br>
+Total points awarded = <img width="172" height="37" alt="points" src="/i/hs/pts.gif"/><br>
 <br>
 Where PT is the time spent coding a problem, TT is the total time allocated for coding all problems,
 and MP is the maximum points available for that problem.<br>

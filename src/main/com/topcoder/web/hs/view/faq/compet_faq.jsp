@@ -30,7 +30,7 @@
 <!-- Center Column begins -->
         <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
-                <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
+                <tr><td width="100%" bgcolor="#001934"><img src="/i/hs/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
                 
                 <tr valign="top">
                     <td width="100%">
@@ -54,11 +54,11 @@
                         <p><a href="#16">How can I view problem statements, submissions, or statistics for previous matches or tournament rounds?</a></p>
                         <p><a href="#17">Can I re-submit my code during the coding phase if I find an error?</a></p>
 
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <p><strong>More Questions?<a href="http://www.topcoder.com/?&t=contacts&c=index">Contact Us</a></strong></p>
                         
-                        <img src="/i/clear.gif" width="1" height="10" border="0"/>
+                        <img src="/i/hs/clear.gif" width="1" height="10" border="0"/>
                         
                         <table cellspacing="0" cellpadding="10" border="0" width="100%">
                             <tr valign="top">

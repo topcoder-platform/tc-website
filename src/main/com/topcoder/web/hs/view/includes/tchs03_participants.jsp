@@ -59,7 +59,7 @@
                                 <td class="statScore">726</td>
                             </tr>
 
-                            <tr><td colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
+                            <tr><td colspan="2"><img src="/i/hs/spacer.gif" width="10" height="1" border="0"></td></tr>
 
 <!-- Tolland -->
                             <tr><td class="statSubtitle" colspan="2">Tolland</td></tr>
@@ -99,7 +99,7 @@
                                 <td class="statScore">1044</td>
                             </tr>
 
-                            <tr><td colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
+                            <tr><td colspan="2"><img src="/i/hs/spacer.gif" width="10" height="1" border="0"></td></tr>
 
 <!-- Norwich Free Academy -->
                             <tr><td class="statSubtitle" colspan="2">Norwich Free Academy</td></tr>
@@ -184,7 +184,7 @@
                                 <td class="statScore">567</td>
                             </tr>
                             
-                            <tr><td colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
+                            <tr><td colspan="2"><img src="/i/hs/spacer.gif" width="10" height="1" border="0"></td></tr>
 
 <!-- Danbury -->
                             <tr><td class="statSubtitle" colspan="2">Danbury</td></tr>
@@ -229,7 +229,7 @@
                                 <td class="statScore">688</td>
                             </tr>
                             
-                            <tr><td colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
+                            <tr><td colspan="2"><img src="/i/hs/spacer.gif" width="10" height="1" border="0"></td></tr>
 
 <!-- Redding - Joel Barlow -->
                             <tr><td class="statSubtitle" colspan="2">Redding - Joel Barlow</td></tr>
@@ -279,7 +279,7 @@
                                 <td class="statScore">764</td>
                             </tr>
 
-                            <tr><td colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
+                            <tr><td colspan="2"><img src="/i/hs/spacer.gif" width="10" height="1" border="0"></td></tr>
 
 <!-- Southington -->
                             <tr><td class="statSubtitle" colspan="2">Southington</td></tr>
@@ -309,7 +309,7 @@
                                 <td class="statScore">827</td>
                             </tr>
 
-                            <tr><td colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
+                            <tr><td colspan="2"><img src="/i/hs/spacer.gif" width="10" height="1" border="0"></td></tr>
 
 <!-- Ellington -->
                             <tr><td class="statSubtitle" colspan="2">Ellington</td></tr>
@@ -334,7 +334,7 @@
                                 <td class="statScore">1049</td>
                             </tr>
 
-                            <tr><td colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
+                            <tr><td colspan="2"><img src="/i/hs/spacer.gif" width="10" height="1" border="0"></td></tr>
 
 <!-- Avon -->
                             <tr><td class="statSubtitle" colspan="2">Avon</td></tr>
@@ -364,7 +364,7 @@
                                 <td class="statScore">797</td>
                             </tr>
 
-                            <tr><td colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
+                            <tr><td colspan="2"><img src="/i/hs/spacer.gif" width="10" height="1" border="0"></td></tr>
 
 <!-- West Hartford - NW Catholic -->
                             <tr><td class="statSubtitle" colspan="2">West Hartford - NW Catholic</td></tr>
@@ -394,7 +394,7 @@
                                 <td class="statScore">761</td>
                             </tr>
 
-                            <tr><td colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
+                            <tr><td colspan="2"><img src="/i/hs/spacer.gif" width="10" height="1" border="0"></td></tr>
 
 <!-- Stratford -->
                             <tr><td class="statSubtitle" colspan="2">Stratford</td></tr>
@@ -424,8 +424,8 @@
                                 <td class="statScore">587</td>
                             </tr>
 
-                            <tr><td colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
+                            <tr><td colspan="2"><img src="/i/hs/spacer.gif" width="10" height="1" border="0"></td></tr>
 
-                            <tr><td class="statSubtitle" colspan="2"><img src="/i/spacer.gif" width="10" height="1" border="0"></td></tr>
+                            <tr><td class="statSubtitle" colspan="2"><img src="/i/hs/spacer.gif" width="10" height="1" border="0"></td></tr>
                         </table>
                         
