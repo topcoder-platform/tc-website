@@ -66,6 +66,12 @@
                             </tr>
                             
                             <tr>
+                                <td valign="middle" class="bodyText" height="14">December 7</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=10407399">timmac</A></td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_120704" class="bodyText">More on Encryption and Security</A></td>
+                            </tr>
+
+                            <tr>
                                 <td valign="middle" class="bodyText" height="14">November 2</td>
                                 <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=10407399">timmac</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_110204" class="bodyText">Encryption Algorithms</A></td>
