@@ -36,8 +36,8 @@
             <td class=bodyL>&#160;</td>
 
 <%-- CONTENT --%>
+            <td class=bodyContent>
             <% if (problemType.intValue()==Constants.TEST_SET_A_ID) { %>
-                <td class=bodyContent>
                 <p class=pL>
                 <span class=bodyBigTitle>Test Set A Directions</span>
                 <br /><br />
@@ -62,11 +62,9 @@
                    window to return to the Main room or click the Continue button at the bottom of
                    the window to proceed to Test Set B. For more help, click the Help button at the top of this window.
                 <br /><br />
-                </td>
 
             <% } else if (problemType.intValue()==Constants.TEST_SET_B_ID) { %>
 
-                <td class=bodyContent>
                 <p class=pL>
                 <span class=bodyBigTitle>Test Set B Directions</span>
                 <br /><br />
@@ -91,10 +89,8 @@
                    have completed all portions of the Testing Application.  For more help, click the
                    Help Manual button at the top of this window.
                 <br /><br />
-                </td>
 
             <% } else if (problemType.intValue()==Constants.EXAMPLE_ID) { %>
-                <td class=bodyContent>
                 <p class=pL>
                 <span class=bodyBigTitle>Example Directions</span>
                 <br /><br />
@@ -107,7 +103,6 @@
                 <br /><br />
                 When you are finished with this problem, either click the Main button at the top of this window to return to the Main room or click the Continue button at the bottom of the window to proceed to the next assigned Test Set. For more help, click the Help Manual button at the top of this window.
                 <br /><br />
-                </td>
             <% } %>
 
 
