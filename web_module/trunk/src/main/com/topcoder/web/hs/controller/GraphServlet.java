@@ -8,6 +8,9 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.*;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.*;
+import com.topcoder.common.web.error.NavigationException;
+import com.topcoder.common.web.constant.TCServlet;
+import com.fx4m.plot13.HistoryPlot;
 
 import org.faceless.graph.*;
 import org.faceless.graph.formatter.DateFormatter;
@@ -168,14 +171,12 @@ public class GraphServlet extends HttpServlet {
         }
     }
 
+
+
     private static byte[] getRatingsHistory(RequestInt dataRequest)
             throws NavigationException {
-        log.debug("GraphServlet:getRatingsHistory called...");
+        log.debug("taskGraph:getRatingsHistory called...");
 
-        ByteArrayOutputStream baos = null;
-        LineGraph g = null;
-        DataCurve coderRatingCurve = null;
-        Iterator it = null;
         Map resultMap = null;
         DataAccessInt dai = null;
         ResultSetContainer rsc = null;
@@ -183,46 +184,30 @@ public class GraphServlet extends HttpServlet {
 
         try {
 
-            dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.HS_DW_DATASOURCE_NAME));
+            dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Rating_History_Graph");
 
-            coderRatingCurve = new DataCurve();
-
-            it = rsc.iterator();
-            while (it.hasNext()) {
-                rsr = (ResultSetContainer.ResultSetRow) it.next();
-
-                coderRatingCurve.set(DateFormatter.toDouble((java.sql.Timestamp) (rsr.getItem("date")).getResultData()),
-                        ((Integer) (rsr.getItem("rating")).getResultData()).doubleValue());
+            if (rsc != null) {
+                Date[] dates = new Date[rsc.size()];
+                int[] ratings = new int[rsc.size()];
+                int i = 0;
+                for (Iterator it = rsc.iterator(); it.hasNext(); i++) {
+                    rsr = (ResultSetContainer.ResultSetRow) it.next();
+                    dates[i] = (Date) rsr.getItem("date").getResultData();
+                    ratings[i] = rsr.getIntItem("rating");
+                }
+                return HistoryPlot.plot(ratings, dates, rsc.getItem(0, "handle").toString());
             }
 
-            g = new LineGraph();
-            g.optionYStretchToZero(true);
-            g.setCurve("Coder Rating History", coderRatingCurve, Color.red);
-            g.optionTitle("Rating History");
-            g.optionTitleStyle(titleStyle);
-            g.optionXAxisLabel("Date");
-            g.optionYAxisLabel("Rating");
-            g.optionXAxisLabelStyle(labelStyle);
-            g.optionYAxisLabelStyle(labelStyle);
-            g.optionDisplayKey(Graph.KEY_NONE);
-            g.optionXFormatter(new DateFormatter(new SimpleDateFormat("MM-dd-yyyy")));
-            g.optionYAxisStyle(axisStyle);
-            g.optionXAxisStyle(axisStyle);
-            g.optionXAxisTextRotation(45);
-            g.optionAxisStyle(new Style(YELLOW));
-
-            baos = new ByteArrayOutputStream();
-            PNGOutput out = new PNGOutput(600, 400, Color.black, baos);
-            out.setMargin(10, 10, 10, 10);
-            out.render(g);
-            return baos.toByteArray();
-
         } catch (Exception e) {
-            throw new NavigationException(e);
+            e.printStackTrace();
+            throw new NavigationException("GraphServlet:getRatingDistGraph:ERROR:",
+                    TCServlet.NAVIGATION_ERROR_PAGE);
         }
+        return null;
     }
+
 
     private static byte[] getRatingsDistribution(RequestInt dataRequest)
             throws NavigationException {
