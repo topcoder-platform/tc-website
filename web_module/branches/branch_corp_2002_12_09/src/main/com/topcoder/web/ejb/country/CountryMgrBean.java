@@ -107,6 +107,7 @@ public class CountryMgrBean implements SessionBean {
             log.debug("user transaction "+ic.lookup("javax/transaction/UserTransaction"));
 			ds = (DataSource)ic.lookup(dataSourceName);
 			conn = ds.getConnection();
+            conn.setAutoCommit(false);
 			pstmt = conn.prepareStatement("insert into country(country_code, country_name) values (?, ?)");
 			pstmt.setString(1, countryCode);
 			pstmt.setString(2, countryName);
@@ -150,6 +151,7 @@ public class CountryMgrBean implements SessionBean {
             log.debug("user transaction "+ic.lookup("javax/transaction/UserTransaction"));
 	        ds = (DataSource)ic.lookup(dataSourceName);
 	        conn = ds.getConnection();
+            conn.setAutoCommit(false);
 	        if( byCode ) {
 		        pstmt = conn.prepareStatement("select country_code, country_name from country where country_code like ?");
 	        }

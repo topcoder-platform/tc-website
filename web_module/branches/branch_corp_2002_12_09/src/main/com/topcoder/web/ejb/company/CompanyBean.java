@@ -83,6 +83,7 @@ public class CompanyBean implements SessionBean {
 
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
+            conn.setAutoCommit(false);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, ret);
             Date now = new Date();
