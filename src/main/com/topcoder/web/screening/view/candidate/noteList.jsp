@@ -28,7 +28,7 @@
 
 <!-- Middle column begins -->
         <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Note List</h1>                  
@@ -36,14 +36,14 @@
                 </tr>
             </table>
             
-            <table cellspacing="1" cellpadding="3" width="100%">
+            <table cellspacing="1" cellpadding="3" width="70%">
                 <tr><form><td class="bodyText" align="center"><screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink></td></tr>
             </table>
             
-            <table cellspacing="0" cellpadding="3" width="100%" class="testFrame">
+            <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr>
-                    <td width="60%" class="testTableTitleSmall">Notes</td>
-                    <td width="25%" align="center" class="testTableTitleSmall">Author</td>
+                    <td width="70%" class="testTableTitleSmall">Notes</td>
+                    <td width="15%" align="center" class="testTableTitleSmall">Author</td>
                     <td width="15%" align="center" class="testTableTitleSmall">Date Created</td>
                 </tr>
                 
