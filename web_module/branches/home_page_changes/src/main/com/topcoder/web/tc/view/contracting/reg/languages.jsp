@@ -101,7 +101,9 @@ return false;
 
 		<FORM ACTION="" METHOD=POST onSubmit="">
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
-        	<tr><td class=bodyText valign=top width="100%">&#160;</td>
+        	<tr>
+			<td class=bodyText valign=top>&#160;</td>
+			<td class=bodyText valign=top width="100%">&#160;</td>
             <% for(int i = 0; i<=5; i++){ %>
                 <td class=bodyText align=center valign=top>
                     <span class=bodySubtitle><%=i%></span>
@@ -112,17 +114,18 @@ return false;
                           int i = 0;%>
                 <tc:skillIterator id="skill" list="<%=skillList%>">
                 <tr>
-	            <td class=<%=cssClasses[i % 2]%> valign=top><%=skill.getText()%></td>
+	            <td class=<%=cssClasses[i % 2]%> valign=top nowrap=nowrap><%=skill.getText()%></td>
+				<td class=<%=cssClasses[i % 2]%> valign=top>&#160;</td>
 	            <tc:skillInput class="<%=cssClasses[i++ % 2]%>" skill="<%=skill%>" />
                 </tr>
                 </tc:skillIterator>
 			<tr>
-	            <td class=bodyText valign=middle>Additional Comments:</td>
-				<td class=bodyText colspan=6>
+	            <td class=bodyText valign=middle nowrap=nowrap>Additional Comments:</td>
+				<td class=bodyText colspan=7 align=right>
 				<tc-webtag:textArea name="<%=Constants.NOTE_PREFIX + Constants.NOTE_LANGUAGES%>" rows="3" cols="40"/>
 				</td>
 			</tr>
-			<tr><td colspan=12 align=center><br/><br/><a href="javascript:goToPage('ContractingTechnologies');"><img src="/i/submit.jpg" border=0/></a>
+			<tr><td colspan=8 align=center><br/><br/><a href="javascript:goToPage('ContractingTechnologies');"><img src="/i/submit.jpg" border=0/></a>
 			<%if(isEdit) {%><a href="javascript:goToPage('ContractingConfirm');"><img src="/i/jumpToEnd.jpg" border=0/></a><%}%></td></tr>
 		</table>
 		</FORM>
