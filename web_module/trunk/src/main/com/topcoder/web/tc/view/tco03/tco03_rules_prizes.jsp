@@ -22,7 +22,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
 </head>
 
-<body>
+<body onLoad="timer(1);">
 
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
