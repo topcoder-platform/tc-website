@@ -28,7 +28,7 @@ public class USDCContestDetails extends StatBase {
     
     private int type = 0;
     
-    private void getType()
+    private void getType() throws TCWebException
     {
         if(type != 0)
             return;
