@@ -15,13 +15,13 @@
                     <jsp:getProperty name="question" property="text"/>
                 </td>
             </tr>
-            <tc:answerIterator list="<%=question.getAnswerInfo()%>" id="answer">
+            <tc:answerInput id="answerInput" question="<%=question%>">
             <tr>
                 <td>
-                    <tc:answerInput question="<%=question%>" answer="<%=answer%>"/>
+                    <%=answerInput%>
                 </td>
             </tr>
-            </tc:answerIterator>
+            </tc:answerInput>
         </table>
     </tc:questionIterator>
 </body>
