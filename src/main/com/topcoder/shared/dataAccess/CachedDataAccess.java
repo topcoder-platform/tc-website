@@ -10,8 +10,7 @@ import java.util.Map;
 
 /**
  * This bean processes a {@link com.topcoder.shared.dataAccess.RequestInt} and returns the data from either the cache if it's available
- * or the data warehouse if what we're looking for is not in the cache.  If we got it from the
- * warehouse, it is added to the cache.
+ * or the data source if what we're looking for is not in the cache.  If we got it from the data source, it is added to the cache.
  *
  * @author  Lars Backstrom
  * @version $Revision$

@@ -150,7 +150,7 @@ public final class SystemTestCaseReport {
             log.debug(document.getXML(2));
             String xsldocURLString = SYSTEMTESTCASEREPORT_MENU_PAGE;
             nav.setScreen(xsldocURLString);
-            result = HTMLmaker.render(document, xsldocURLString, null);
+            result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
@@ -225,7 +225,7 @@ public final class SystemTestCaseReport {
             log.debug(document.getXML(2));
             String xsldocURLString = CODERLIST_MENU_PAGE;
             nav.setScreen(xsldocURLString);
-            result = HTMLmaker.render(document, xsldocURLString, null);
+            result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
@@ -296,7 +296,7 @@ public final class SystemTestCaseReport {
             log.debug(document.getXML(2));
             String xsldocURLString = PROBLEMLIST_MENU_PAGE;
             nav.setScreen(xsldocURLString);
-            result = HTMLmaker.render(document, xsldocURLString, null);
+            result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
@@ -382,7 +382,7 @@ public final class SystemTestCaseReport {
             log.debug(document.getXML(2));
             String xsldocURLString = ROUND_MENU_PAGE;
             nav.setScreen(xsldocURLString);
-            result = HTMLmaker.render(document, xsldocURLString, null);
+            result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {

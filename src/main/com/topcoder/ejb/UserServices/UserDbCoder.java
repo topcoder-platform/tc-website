@@ -31,7 +31,7 @@ final class UserDbCoder {
         //ArrayList texts       = null;
         //ArrayList jobPrefs    = null;
         ArrayList demographicResponses = null;
-        ArrayList coderConfirmations = null;
+//        ArrayList coderConfirmations = null;
         StringBuffer query = new StringBuffer(500);
         query.append(" INSERT INTO");
         query.append(" coder (");
@@ -130,7 +130,9 @@ final class UserDbCoder {
             coder.getCurrentSchool().setUserId(coder.getCoderId());
             insertCurrentSchool(conn, coder.getCurrentSchool());
             demographicResponses = coder.getDemographicResponses();
+/*
             coderConfirmations = coder.getCoderConfirmations();
+*/
             HashSet qIdsForCoderType = getDemographicQuestionIds(conn, coder.getCoderType().getCoderTypeId());
             demogError = true;
             //int inserted = 0;
@@ -147,11 +149,13 @@ final class UserDbCoder {
                     }
                 }
             }
+/*
             for (int i = 0; i < coderConfirmations.size(); i++) {
                 CoderConfirmation cc = (CoderConfirmation) coderConfirmations.get(i);
                 cc.setCoderId(coder.getCoderId());
                 insertCoderConfirmation(conn, (CoderConfirmation) coderConfirmations.get(i));
             }
+*/
             //if ( inserted != qIdsForCoderType.size() ) throw new TCException ( "INCORRECT NUMBER OF DEMOG INFO INSERTED!!!" );
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -255,12 +259,20 @@ final class UserDbCoder {
     private static void insertCurrentSchool(Connection conn, School currentSchool) throws TCException {
         log.debug("ejb.User.UserDbCoder:insertCurrentSchool():called.");
         PreparedStatement ps = null;
-        String query = "INSERT INTO current_school ( coder_id, school_id, school_name ) VALUES ( ?, ?, ? )";
+        String query = "INSERT INTO current_school(coder_id, school_id, school_name, gpa, gpa_scale)" +
+                      " VALUES (?, ?, ?, ?, ?)";
         try {
             ps = conn.prepareStatement(query);
             ps.setInt(1, currentSchool.getUserId());
             ps.setInt(2, currentSchool.getSchoolId());
             ps.setString(3, currentSchool.getName());
+            if (currentSchool.getGpa()>0 || currentSchool.getGpaScale()>0) {
+                ps.setFloat(4, currentSchool.getGpa());
+                ps.setFloat(5, currentSchool.getGpaScale());
+            } else {
+                ps.setNull(4, Types.FLOAT);
+                ps.setNull(5, Types.FLOAT);
+            }
             int RetVal = ps.executeUpdate();
             currentSchool.setModified("S");
         } catch (SQLException sqe) {
@@ -408,6 +420,7 @@ final class UserDbCoder {
      * Method to add a confirmation codes for this coder.
      * @author Greg Paul
      */
+/*
     private static void insertCoderConfirmation(Connection conn, CoderConfirmation coderConfirmation)
             throws TCException {
         log.debug("ejb.User.UserDbCoder:insertCoderConfirmation() called ...");
@@ -449,6 +462,7 @@ final class UserDbCoder {
             }
         }
     }
+*/
 
 
 
@@ -548,7 +562,9 @@ final class UserDbCoder {
                 updateCurrentSchool(conn, coder.getCurrentSchool());
                 ArrayList demographicResponses = coder.getDemographicResponses();
                 updateDemographicResponses(conn, coder.getCoderType().getCoderTypeId(), demographicResponses);
+/*
                 updateCoderConfirmations(conn, coder.getCoderConfirmations());
+*/
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -671,12 +687,23 @@ final class UserDbCoder {
             ps.clearParameters();
             if (rs.next()) {
                 /**************************************************************/
-                query = "UPDATE current_school SET school_id=?, school_name=? WHERE coder_id=?";
+                query = "UPDATE current_school SET school_id=?, school_name=?, gpa=?, gpa_scale=? WHERE coder_id=?";
                 /**************************************************************/
                 ps = conn.prepareStatement(query);
                 ps.setInt(1, currentSchool.getSchoolId());
                 ps.setString(2, currentSchool.getName());
-                ps.setInt(3, currentSchool.getUserId());
+                if (currentSchool.getGpa()>0 || currentSchool.getGpaScale()>0) {
+                    log.debug("setting gpa: " + currentSchool.getGpa());
+                    log.debug("setting gpaScale: " + currentSchool.getGpaScale());
+                    ps.setFloat(3, currentSchool.getGpa());
+                    ps.setFloat(4, currentSchool.getGpaScale());
+                } else {
+                    log.debug("setting gpa null");
+                    log.debug("setting gpaScale");
+                    ps.setNull(3, Types.FLOAT);
+                    ps.setNull(4, Types.FLOAT);
+                }
+                ps.setInt(5, currentSchool.getUserId());
                 ps.executeUpdate();
                 currentSchool.setModified("S");
             } else {
@@ -843,6 +870,7 @@ final class UserDbCoder {
      * Update coder_confirmation table for this user.
      * @author Greg Paul
      */
+/*
     private static void updateCoderConfirmations(Connection conn, ArrayList coderConfirmations)
             throws TCException {
         log.debug("ejb.User.UserDbCoder:updateCoderConfirmations():called.");
@@ -886,6 +914,7 @@ final class UserDbCoder {
         }
     }
 
+*/
 
 
 
@@ -1031,7 +1060,9 @@ final class UserDbCoder {
                 loadRanking(conn, coder);
                 loadDemographicResponses(conn, coder);
                 loadCurrentSchool(conn, coder);
+/*
                 loadCoderConfirmations(conn, coder);
+*/
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -1232,6 +1263,8 @@ final class UserDbCoder {
         query.append(" ,st.state_name");
         query.append(" ,s.country_code");
         query.append(" ,ct.country_name");
+        query.append(" ,c.gpa");
+        query.append(" ,c.gpa_scale");
         query.append(" FROM");
         query.append(" current_school c");
         query.append(" ,school s");
@@ -1248,17 +1281,19 @@ final class UserDbCoder {
             rs = ps.executeQuery();
             if (rs.next()) {
                 currentSchool.setUserId(coder.getCoderId());
-                currentSchool.setSchoolId(rs.getInt(1));
+                currentSchool.setSchoolId(rs.getInt("school_id"));
                 if (currentSchool.getSchoolId() == 0) {
-                    currentSchool.setName(rs.getString(2));
+                    currentSchool.setName(rs.getString("school_name"));
                 } else {
-                    currentSchool.setName(rs.getString(3));
+                    currentSchool.setName(rs.getString("name"));
                 }
-                currentSchool.setCity(rs.getString(4));
-                currentSchool.getState().setStateCode(rs.getString(5));
-                currentSchool.getState().setStateName(rs.getString(6));
-                currentSchool.getCountry().setCountryCode(rs.getString(7));
-                currentSchool.getCountry().setCountryName(rs.getString(8));
+                currentSchool.setCity(rs.getString("city"));
+                currentSchool.getState().setStateCode(rs.getString("state_code"));
+                currentSchool.getState().setStateName(rs.getString("state_name"));
+                currentSchool.getCountry().setCountryCode(rs.getString("country_code"));
+                currentSchool.getCountry().setCountryName(rs.getString("country_name"));
+                currentSchool.setGpa(rs.getFloat("gpa"));
+                currentSchool.setGpa(rs.getFloat("gpa_scale"));
                 currentSchool.setModified("S");
             }
             XMLDocument test = new XMLDocument("test");
@@ -1399,6 +1434,7 @@ final class UserDbCoder {
      * Load up information from coder_confirmation for this coder.
      * @author Greg Paul
      */
+/*
     private static void loadCoderConfirmations(Connection conn, CoderRegistration coder)
             throws TCException {
         log.debug("ejb.User.UserDbCoder:loadCoderConfirmations():called.");
@@ -1447,4 +1483,5 @@ final class UserDbCoder {
             }
         }
     }
+*/
 }

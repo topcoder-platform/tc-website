@@ -10,6 +10,8 @@ import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.servlet.jsp.tag.Demographic;
 import com.topcoder.web.reg.servlet.jsp.tag.Notification;
+import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
+import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
 
 import javax.naming.Context;
 import javax.transaction.Status;
@@ -66,7 +68,9 @@ public class Registration
     public static final String LANGUAGE = "language";
     public static final String QUOTE = "quote";
     public static final String CODER_TYPE = "coderType";
+/*
     public static final String SUN_CONFIRMATION = "sunConfirm";
+*/
     public static final String TERMS = "terms";
 
     // step 2 attributes
@@ -80,6 +84,8 @@ public class Registration
     public static final String SCHOOL = "school";
     public static final String SCHOOL_STATE = "schoolState";
     public static final String SCHOOL_NAME = "schoolName";
+    public static final String GPA = "gpa";
+    public static final String GPA_SCALE = "gpaScale";
 
     // step 3 attributes
     public static final String REGISTER = "register"; // error only
@@ -154,7 +160,9 @@ public class Registration
     protected String editor;
     protected String language;
     protected String coderType;
+/*
     protected String sunConfirm;
+*/
     protected String terms;
     protected String referral;
     protected boolean referralChanged;
@@ -168,7 +176,10 @@ public class Registration
     protected boolean schoolStateChanged;
     protected String school;
     protected String schoolName;
+    protected String gpa;
+    protected String gpaScale;
     protected String code;
+    protected boolean hasResume;
 
     public Registration() {
         super();
@@ -200,7 +211,9 @@ public class Registration
             editor = "";
             language = "";
             coderType = "";
+/*
             sunConfirm = "";
+*/
             terms = "";
             referral = "";
             referralChanged = false;
@@ -227,6 +240,9 @@ public class Registration
             school = "";
             schoolName = "";
             code = "";
+            gpa = "";
+            gpaScale = "";
+            hasResume = false;
             resetUser();
         } else {
             loadUser();
@@ -279,7 +295,9 @@ public class Registration
         editor = Integer.toString(coder.getEditor().getEditorId());
         language = Integer.toString(coder.getLanguage().getLanguageId());
         coderType = Integer.toString(coder.getCoderType().getCoderTypeId());
+/*
         sunConfirm = checkNull(getSunConfirmation(coder.getCoderConfirmations()));
+*/
         terms = (checkNull(user.getTerms()).equals("Y")?CHECKBOX_YES:"");
         // referral data only used in Registration
         referral = Integer.toString(coder.getCoderReferral().getReferral().getReferralId());
@@ -332,6 +350,10 @@ public class Registration
             schoolStateChanged = false;
             school = Integer.toString(coder.getCurrentSchool().getSchoolId());
             schoolName = coder.getCurrentSchool().getName();
+            if (coder.getCurrentSchool().getGpa()!=0 && coder.getCurrentSchool().getGpaScale()!=0) {
+                gpa = ""+coder.getCurrentSchool().getGpa();
+                gpaScale = ""+coder.getCurrentSchool().getGpaScale();
+            }
         } else {
             schoolState = "";
             schoolStateChanged = false;
@@ -341,7 +363,18 @@ public class Registration
 
 
         code = "";
+
+        ResumeServicesHome rHome = null;
+        ResumeServices rServices = null;
+        try {
+            rHome = (ResumeServicesHome) TCContext.getInitial().lookup(ApplicationServer.RESUME_SERVICES);
+            rServices = rHome.create();
+            hasResume = rServices.hasResume(user.getUserId());
+        } catch (Exception e) {
+            log.error("could not determine if user has a resume or not");
+        }
     }
+
 
 
     public void process()
@@ -450,6 +483,20 @@ public class Registration
                     log.debug("this.school is not a number =>" + this.school);
                     addError(SCHOOL, "Please select your school.");
                 }
+               
+                if ((!isEmpty(this.gpa) && !isNumber(this.gpa, true)) ||
+                       (isEmpty(this.gpa) && !isEmpty(this.gpaScale))) {
+                    addError(GPA, "Please enter a valid GPA.");
+                }
+                if ((!isEmpty(this.gpaScale) && !isNumber(this.gpaScale, true)) ||
+                       (!isEmpty(this.gpa) && isEmpty(this.gpaScale))) {
+                    addError(GPA_SCALE, "Please enter a valid GPA Scale.");
+                }
+                if (!isEmpty(this.gpa) && isNumber(this.gpa, true) && 
+                    !isEmpty(this.gpaScale) && isNumber(this.gpaScale, true) &&
+                    Float.parseFloat(this.gpa) > Float.parseFloat(this.gpaScale)) {
+                    addError(GPA, "GPA must be less than or equal to the GPA scale.");
+                }
             }
 
             boolean employed = false;
@@ -503,9 +550,7 @@ public class Registration
             else
                 addError(CODE, "Activation complete.  Please continue to the home page to log in.");
         }
-
     }
-
 
     public void setProcess(String ignore) {
         try {
@@ -611,8 +656,10 @@ public class Registration
                 setLanguage(value);
             else if (name.equalsIgnoreCase(CODER_TYPE))
                 setCoderType(value);
+/*
             else if (name.equalsIgnoreCase(SUN_CONFIRMATION))
                 setSunConfirm(value);
+*/
             else if (name.equalsIgnoreCase(TERMS))
                 setTerms(value);
             else if (name.startsWith(NOTIFY_PREFIX)) {
@@ -631,6 +678,10 @@ public class Registration
                 setSchoolState(value);
             else if (name.equalsIgnoreCase(SCHOOL))
                 setSchool(value);
+            else if (name.equalsIgnoreCase(GPA))
+                setGpa(value);
+            else if (name.equalsIgnoreCase(GPA_SCALE))
+                setGpaScale(value);
             else if (name.startsWith(DEMO_PREFIX))
                 setDemographics(name.substring(DEMO_PREFIX.length()), valArray);
             else
@@ -641,6 +692,8 @@ public class Registration
         }
         return true;
     }
+
+
 
     public void setFirstName(String value) {
         this.firstName = checkNull(value);
@@ -720,9 +773,11 @@ public class Registration
         this.coderType = checkNull(value);
     }
 
+/*
     public void setSunConfirm(String value) {
         this.sunConfirm = checkNull(value);
     }
+*/
 
     public void setTerms(String value) {
         this.terms = checkNull(value);
@@ -762,6 +817,16 @@ public class Registration
         this.schoolName = checkNull(value);
     }
 
+
+    public void setGpa(String value) {
+        log.debug("setGpa(" + value + ") called");
+        this.gpa = checkNull(value);
+    }
+
+    public void setGpaScale(String value) {
+        log.debug("setGpaScale(" + value + ") called");
+        this.gpaScale = checkNull(value);
+    }
 
     public void setNotification(String notifyId, String value) {
         try {
@@ -828,6 +893,11 @@ public class Registration
     public void setCode(String value) {
         this.code = checkNull(value);
     }
+
+    public void setHasResume(boolean hasResume) {
+        this.hasResume = hasResume;
+    }
+
 
     String checkNull(String s) {
         return (s == null ? "" : s);
@@ -998,9 +1068,11 @@ public class Registration
         return this.coderType;
     }
 
+/*
     public String getSunConfirm() {
         return this.sunConfirm;
     }
+*/
 
     public String getCoderTypeError() {
         return getError(CODER_TYPE);
@@ -1105,12 +1177,28 @@ public class Registration
         return this.schoolName;
     }
 
+    public String getGpa() {
+        return this.gpa;
+    }
+
+    public String getGpaScale() {
+        return this.gpaScale;
+    }
+
     public String getSchoolError() {
         return getError(SCHOOL);
     }
 
     public String getSchoolNameError() {
         return getError(SCHOOL_NAME);
+    }
+
+    public String getGpaError() {
+        return getError(GPA);
+    }
+
+    public String getGpaScaleError() {
+        return getError(GPA_SCALE);
     }
 
 
@@ -1189,6 +1277,7 @@ public class Registration
         return this.code;
     }
 
+
     public String getCodeError() {
         return getError(CODE);
     }
@@ -1244,7 +1333,6 @@ public class Registration
             }
         }
         if (users != null) {
-            String tempHandle = null;
             Map.Entry me = null;
             for (Iterator i = users.entrySet().iterator(); i.hasNext();) {
                 me = (Map.Entry) i.next();
@@ -1369,6 +1457,9 @@ public class Registration
         return result;
     }
 
+    public boolean hasResume() {
+        return hasResume;
+    }
 
     public boolean isEdit() {
         return this.user != null && this.user.getUserId() > 0;
@@ -1558,8 +1649,15 @@ public class Registration
             currentSchool.setUserId(coder.getCoderId());
             currentSchool.setSchoolId(schoolId);
             currentSchool.setName(getSchoolName(schoolId));
+            if (!this.gpa.equals("")) {
+                currentSchool.setGpa(Float.parseFloat(this.gpa));
+            }
+            if (!this.gpaScale.equals("")) {
+                currentSchool.setGpaScale(Float.parseFloat(this.gpaScale));
+            }
         }
 
+/*
         ArrayList a = coder.getCoderConfirmations();
         boolean found = false;
         for (int i = 0; i < a.size(); i++) {
@@ -1582,6 +1680,7 @@ public class Registration
             }
             a.add(c);
         }
+*/
 
 
         Context context = null;
@@ -1762,6 +1861,7 @@ public class Registration
         return true;
     }
 
+/*
     private static String getSunConfirmation(ArrayList confirmList) {
         CoderConfirmation temp = null;
         boolean found = false;
@@ -1776,4 +1876,5 @@ public class Registration
         else
             return null;
     }
+*/
 }

@@ -16,6 +16,8 @@ public class School
     private State state;
     private Country country;
     private String modified;
+    private float gpa;
+    private float gpaScale;
 
     public School() {
         init("");
@@ -37,6 +39,8 @@ public class School
         country = new Country();
         modified = "";
         userId = 0;
+        gpa = 0;
+        gpaScale = 0;
     }
 
     public boolean equals(Object other) {
@@ -50,6 +54,8 @@ public class School
                 && getUserId() == otherSchool.getUserId()
                 && getSchoolId() == otherSchool.getSchoolId()
                 && getSortLetter().equals(otherSchool.getSortLetter())
+                && getGpa() == otherSchool.getGpa()
+                && getGpaScale() == otherSchool.getGpaScale()
         ) {
             result = true;
         }
@@ -68,6 +74,8 @@ public class School
             result.setCity(getCity());
             result.setState((State) getState().clone());
             result.setCountry((Country) getCountry().clone());
+            result.setGpa(getGpa());
+            result.setGpaScale(getGpaScale());
             result.setModified(getModified());
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,6 +146,14 @@ public class School
         this.userId = userId;
     }
 
+    public void setGpa(float gpa) {
+        this.gpa = gpa;
+    }
+
+    public void setGpaScale(float gpaScale) {
+        this.gpaScale = gpaScale;
+    }
+
 // get
 
     public int getSchoolId() {
@@ -171,6 +187,14 @@ public class School
     public int getUserId() {
         return userId;
     }
+  
+    public float getGpa() {
+        return gpa;
+    }
+
+    public float getGpaScale() {
+        return gpaScale;
+    }
 
     public RecordTag getXML() throws Exception {
         RecordTag result = null;
@@ -184,6 +208,8 @@ public class School
             result.addTag(country.getXML());
             result.addTag(new ValueTag("Modified", modified));
             result.addTag(new ValueTag("UserId", userId));
+            result.addTag(new ValueTag("Gpa", getGpa()));
+            result.addTag(new ValueTag("GpaScale", getGpaScale()));
         } catch (Exception e) {
             throw new Exception("common.web.data.School getXML ERROR: " + e);
         }

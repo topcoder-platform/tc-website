@@ -21,6 +21,7 @@ public class Controller
     public static final String NAVIGATION = "navigation";
     public static final String TASK = "task";
     public static final String STEP = "step";
+    public static final String RESUME = "ResumeUpload";
     static final String CONTROLLER_ERROR_URL = "error.jsp";
     static final String TASK_PACKAGE = "com.topcoder.web.reg.bean";
 

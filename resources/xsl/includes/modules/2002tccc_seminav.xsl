@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:template name="2002tccc_seminav">
+  <xsl:template name="seminav">
 <SPAN>
 <!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top" WIDTH="96" ALIGN="left">
  	<TR>

@@ -602,3 +602,436 @@ where
   u.user_id not in (select user_id from group_user where group_id = 13)
   and rating between 738 and 867
 "
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1000 "TCES_Company_Name" 0 0 "
+SELECT com.company_name
+  FROM contact con,
+       company com
+ WHERE con.contact_id = @uid@
+   AND com.company_id = con.company_id
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1001 "TCES_Campaign_List" 0 0 "
+SELECT c.campaign_id,
+       c.campaign_name,
+       c.start_date,
+       c.end_date
+  FROM contact con,
+       campaign c
+ WHERE con.contact_id = @uid@
+   AND c.company_id = con.company_id
+   AND c.status_id = 1
+ ORDER BY 1
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1002 "TCES_Campaign_Info" 0 0 "
+SELECT c.campaign_name
+  FROM campaign c
+ WHERE c.campaign_id = @cid@
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1003 "TCES_Campaign_Hit_Info" 0 0 "
+SELECT COUNT(*) AS total_hits,
+       MAX(jh.timestamp) AS most_recent
+  FROM job_hit jh,
+       campaign_job_xref cjx
+ WHERE cjx.campaign_id = @cid@
+   AND cjx.status_id = 1
+   AND jh.job_id = cjx.job_id
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1004 "TCES_Position_List" 0 0 "
+SELECT j.job_id,
+       j.job_desc,
+       COUNT(jh.user_id) AS hit_count,
+       MAX(jh.timestamp) AS most_recent
+  FROM job j
+     , campaign_job_xref cjx
+     , OUTER job_hit jh
+ WHERE cjx.campaign_id = @cid@
+   AND cjx.status_id = 1
+   AND j.job_id = cjx.job_id
+   AND jh.job_id = j.job_id
+ GROUP BY j.job_id, j.job_desc
+ ORDER BY 1
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1005 "TCES_Campaign_Hit_List" 0 0 "
+SELECT c.coder_id,
+       jh.job_id,
+       u.handle,
+       r.rating,
+       (CASE WHEN c.state_code = 'ZZ' THEN '' ELSE c.state_code END) as state_code,
+       country.country_name AS country_code,
+       ct.coder_type_desc,
+       (CASE WHEN c.coder_type_id = 1 THEN cs.school_name
+             ELSE 'N/A' END) AS school_name,
+       j.job_desc,
+       jh.timestamp
+  FROM user u,
+       rating r,
+       job j,
+       job_hit jh,
+       coder_type ct,
+       campaign_job_xref cjx,
+       country,
+       coder c,
+       OUTER current_school cs
+ WHERE cjx.campaign_id = @cid@
+   AND cjx.status_id = 1
+   AND j.job_id = cjx.job_id
+   AND jh.job_id = cjx.job_id
+   AND u.user_id = jh.user_id
+   AND r.coder_id = jh.user_id
+   AND c.coder_id = jh.user_id
+   AND cs.coder_id = c.coder_id
+   AND ct.coder_type_id = c.coder_type_id
+   AND country.country_code = c.country_code
+ ORDER BY jh.timestamp DESC
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1006 "TCES_Position_Name" 0 0 "
+SELECT j.job_desc
+  FROM job j
+ WHERE j.job_id = @jid@
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1007 "TCES_Position_Hit_List" 0 0 "
+SELECT c.coder_id,
+       jh.job_id,
+       u.handle,
+       r.rating,
+       (CASE WHEN c.state_code = 'ZZ' THEN '' ELSE c.state_code END) as state_code,
+       country.country_name AS country_code,
+       ct.coder_type_desc,
+       (CASE WHEN c.coder_type_id = 1 THEN cs.school_name
+             ELSE 'N/A' END) AS school_name,
+       jh.timestamp
+  FROM user u,
+       rating r,
+       job_hit jh,
+       coder_type ct,
+       country,
+       coder c,
+       OUTER current_school cs
+ WHERE jh.job_id = @jid@
+   AND u.user_id = jh.user_id
+   AND r.coder_id = jh.user_id
+   AND c.coder_id = jh.user_id
+   AND cs.coder_id = c.coder_id
+   AND ct.coder_type_id = c.coder_type_id
+   AND country.country_code = c.country_code
+ ORDER BY jh.timestamp DESC
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1008 "TCES_Campaign_Coders_By_Type" 0 0 "
+SELECT COUNT(DISTINCT coder.coder_id) AS coder_type_count
+  FROM campaign_job_xref cjx
+     , job_hit jh
+     , coder
+ WHERE cjx.job_id = jh.job_id
+   AND jh.user_id = coder.coder_id
+   AND cjx.status_id = 1
+   AND (cjx.campaign_id = @cid@)
+   AND (coder.coder_type_id = @ct@)
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1009 "TCES_Campaign_Referral_Responses" 0 0 "
+SELECT r.referral_desc AS response
+     , COUNT(DISTINCT coder.coder_id) AS resp_count
+     , r.sort
+  FROM job_hit jh
+     , coder
+     , campaign_job_xref cjx
+     , referral r
+     , coder_referral
+ WHERE jh.job_id = cjx.job_id
+   AND jh.user_id = coder_referral.coder_id
+   AND r.referral_id = coder_referral.referral_id
+   AND coder.coder_id = jh.user_id
+   AND cjx.status_id = 1
+   AND (cjx.campaign_id = @cid@)
+   AND (coder.coder_type_id = @ct@)
+ GROUP BY r.referral_desc
+     , r.referral_id
+     , r.sort
+ ORDER BY r.sort
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1010 "TCES_Campaign_Notify_Responses" 0 0 "
+SELECT (CASE WHEN coder.notify = 'Y' THEN 'Yes' ELSE 'No' END) AS response
+     , COUNT(DISTINCT coder.coder_id) AS resp_count
+  FROM campaign_job_xref cjx
+     , job_hit jh
+     , coder
+ WHERE cjx.job_id = jh.job_id
+   AND jh.user_id = coder.coder_id
+   AND cjx.status_id = 1
+   AND (cjx.campaign_id = @cid@)
+   AND (coder.coder_type_id = @ct@)
+ GROUP BY 1
+ ORDER BY 1 DESC
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1011 "TCES_Campaign_Demographic_Responses" 0 0 "
+SELECT dq.demographic_question_id
+     , dq.demographic_question_text
+     , da.demographic_answer_text AS response
+     , COUNT(DISTINCT coder.coder_id) AS resp_count
+     , da.sort
+  FROM coder
+     , demographic_response dr
+     , job_hit jh
+     , campaign_job_xref cjx
+     , demographic_answer da
+     , demographic_question dq
+ WHERE coder.coder_id = dr.coder_id
+   AND dr.coder_id = jh.user_id
+   AND jh.job_id = cjx.job_id
+   AND dr.demographic_answer_id = da.demographic_answer_id
+   AND dr.demographic_question_id = dq.demographic_question_id
+   AND da.demographic_question_id = dq.demographic_question_id
+   AND dr.demographic_question_id = da.demographic_question_id
+   AND cjx.status_id = 1
+   AND (cjx.campaign_id = @cid@)
+   AND (coder.coder_type_id = @ct@)
+   AND dq.demographic_question_id NOT IN (1,2,12)
+ GROUP BY dr.demographic_answer_id
+     , dq.demographic_question_text
+     , da.sort
+     , dq.demographic_question_id
+     , da.demographic_answer_text
+ ORDER BY dq.demographic_question_id
+     , da.sort
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1012 "TCES_Position_Coders_By_Type" 0 0 "
+SELECT COUNT(DISTINCT coder.coder_id) AS coder_type_count
+  FROM job_hit jh
+     , coder
+ WHERE jh.user_id = coder.coder_id
+   AND (jh.job_id = @jid@)
+   AND (coder.coder_type_id = @ct@)
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1013 "TCES_Position_Referral_Responses" 0 0 "
+SELECT r.referral_desc AS response
+     , COUNT(DISTINCT coder.coder_id) AS resp_count
+     , r.sort
+  FROM job_hit jh
+     , coder
+     , referral r
+     , coder_referral
+ WHERE jh.user_id = coder_referral.coder_id
+   AND r.referral_id = coder_referral.referral_id
+   AND coder.coder_id = jh.user_id
+   AND (jh.job_id = @jid@)
+   AND (coder.coder_type_id = @ct@)
+ GROUP BY r.referral_desc
+     , r.referral_id
+     , r.sort
+ ORDER BY r.sort
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1014 "TCES_Position_Notify_Responses" 0 0 "
+SELECT (CASE WHEN coder.notify = 'Y' THEN 'Yes' ELSE 'No' END) AS response
+     , COUNT(DISTINCT coder.coder_id) AS resp_count
+  FROM job_hit jh
+     , coder
+ WHERE jh.user_id = coder.coder_id
+   AND (jh.job_id = @jid@)
+   AND (coder.coder_type_id = @ct@)
+ GROUP BY 1
+ ORDER BY 1 DESC
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1015 "TCES_Position_Demographic_Responses" 0 0 "
+SELECT dq.demographic_question_id
+     , dq.demographic_question_text
+     , da.demographic_answer_text AS response
+     , COUNT(DISTINCT coder.coder_id) AS resp_count
+     , da.sort
+  FROM coder
+     , demographic_response dr
+     , job_hit jh
+     , demographic_answer da
+     , demographic_question dq
+ WHERE coder.coder_id = dr.coder_id
+   AND dr.coder_id = jh.user_id
+   AND dr.demographic_answer_id = da.demographic_answer_id
+   AND dr.demographic_question_id = dq.demographic_question_id
+   AND da.demographic_question_id = dq.demographic_question_id
+   AND dr.demographic_question_id = da.demographic_question_id
+   AND (jh.job_id = @jid@)
+   AND (coder.coder_type_id = @ct@)
+ GROUP BY dr.demographic_answer_id
+     , dq.demographic_question_text
+     , da.sort
+     , dq.demographic_question_id
+     , da.demographic_answer_text
+ ORDER BY dq.demographic_question_id
+     , da.sort
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1050 "TCES_Member_Handle" 0 0 "
+SELECT u.handle
+  FROM user u
+ WHERE (u.user_id = @mid@)
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1051 "TCES_Member_Profile" 0 0 "
+SELECT c.coder_id
+     , c.first_name
+     , c.last_name
+     , c.address1
+     , c.address2
+     , c.city
+     , (CASE WHEN c.state_code = 'ZZ' THEN '' ELSE c.state_code END) as state_code
+     , c.zip
+     , cy.country_name
+     , u.email
+     , c.home_phone
+     , TO_CHAR(c.member_since, '%m/%d/%iY') as member_since_date
+     , p.path || i.file_name AS image_path
+     , (SELECT COUNT(*)
+          FROM coder_image_xref cix
+             , image i
+         WHERE cix.image_id = i.image_id
+           AND cix.coder_id = c.coder_id
+           AND cix.display_flag = 1
+           AND i.image_type_id = 1) AS has_image
+     , ct.coder_type_desc
+     , cs.school_name
+     ,  (SELECT demographic_answer_text
+           FROM demographic_response dr1 
+              , demographic_answer da1
+          WHERE dr1.coder_id = c.coder_id
+            AND dr1.demographic_question_id = 16
+            AND dr1.demographic_answer_id = da1.demographic_answer_id
+            AND dr1.demographic_question_id = da1.demographic_question_id) AS degree
+     ,  (SELECT demographic_answer_text
+           FROM demographic_response dr1 
+              , demographic_answer da1
+          WHERE dr1.coder_id = c.coder_id
+            AND dr1.demographic_question_id = 17
+            AND dr1.demographic_answer_id = da1.demographic_answer_id
+            AND dr1.demographic_question_id = da1.demographic_question_id) AS major
+     ,  (SELECT demographic_answer_text
+           FROM demographic_response dr1 
+              , demographic_answer da1
+          WHERE dr1.coder_id = c.coder_id
+            AND dr1.demographic_question_id = 23
+            AND dr1.demographic_answer_id = da1.demographic_answer_id
+            AND dr1.demographic_question_id = da1.demographic_question_id) AS grad_month
+     ,  (SELECT demographic_answer_text
+           FROM demographic_response dr1 
+              , demographic_answer da1
+          WHERE dr1.coder_id = c.coder_id
+            AND dr1.demographic_question_id = 18
+            AND dr1.demographic_answer_id = da1.demographic_answer_id
+            AND dr1.demographic_question_id = da1.demographic_question_id) AS grad_year
+  FROM country cy
+     , user u
+     , coder_type ct
+     , coder c
+  LEFT OUTER JOIN (coder_image_xref cix JOIN image i
+                                          ON cix.image_id = i.image_id
+                                        JOIN path p
+                                          ON p.path_id = i.path_id)
+               ON c.coder_id = cix.coder_id
+              AND cix.display_flag = 1
+  LEFT OUTER JOIN current_school cs
+               ON c.coder_id = cs.coder_id
+ WHERE c.country_code = cy.country_code
+   AND u.user_id = c.coder_id
+   AND c.coder_type_id = ct.coder_type_id
+   AND (c.coder_id = @mid@)
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1052 "TCES_Member_Demographics" 0 0 "
+SELECT dq.demographic_question_id
+     , dq.demographic_question_text
+     , da.demographic_answer_text
+     , da.sort
+  FROM demographic_response dr
+     , demographic_answer da
+     , demographic_question dq
+ WHERE dr.demographic_answer_id = da.demographic_answer_id
+   AND dr.demographic_question_id = dq.demographic_question_id
+   AND da.demographic_question_id = dq.demographic_question_id
+   AND dr.demographic_question_id = da.demographic_question_id
+   AND (dr.coder_id = @mid@)
+   AND dq.demographic_question_id NOT IN (1,2,12)
+ ORDER BY dq.demographic_question_id
+     , da.sort
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1053 "TCES_Member_Hit_List" 0 0 "
+SELECT jh.job_id
+     , j.job_desc
+     , jh.timestamp
+  FROM job j
+     , job_hit jh
+     , campaign_job_xref cjx
+ WHERE cjx.campaign_id = @cid@
+   AND cjx.status_id = 1
+   AND j.job_id = cjx.job_id
+   AND jh.job_id = cjx.job_id
+   AND jh.user_id = @mid@
+ ORDER BY jh.timestamp DESC
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1097 "TCES_Verify_Member_Access" 0 0 "
+SELECT jh.user_id
+     , cjx.job_id
+     , c.campaign_id
+     , con.contact_id
+  FROM contact con
+     , campaign c
+     , campaign_job_xref cjx
+     , job_hit jh
+ WHERE con.contact_id = @uid@
+   AND con.company_id = c.company_id
+   AND c.campaign_id = @cid@
+   AND c.status_id = 1
+   AND cjx.campaign_id = c.campaign_id
+   AND cjx.status_id = 1
+   AND cjx.job_id = @jid@
+   AND jh.job_id = cjx.job_id
+   AND jh.user_id = @mid@
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1098 "TCES_Verify_Job_Access" 0 0 "
+SELECT cjx.job_id
+     , c.campaign_id
+     , con.contact_id
+  FROM contact con
+     , campaign c
+     , campaign_job_xref cjx
+ WHERE con.contact_id = @uid@
+   AND con.company_id = c.company_id
+   AND c.campaign_id = @cid@
+   AND c.status_id = 1
+   AND cjx.campaign_id = c.campaign_id
+   AND cjx.status_id = 1
+   AND cjx.job_id = @jid@
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1099 "TCES_Verify_Campaign_Access" 0 0 "
+SELECT c.campaign_id
+     , con.contact_id
+  FROM contact con
+     , campaign c
+ WHERE con.contact_id = @uid@
+   AND con.company_id = c.company_id
+   AND c.campaign_id = @cid@
+   AND c.status_id = 1
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1100 "TCES_User_And_Password" 0 0 "
+SELECT u.user_id, u.password
+  FROM user u
+       ,contact c
+ WHERE c.contact_id = u.user_id
+   AND u.handle = @hn@
+"

@@ -1,5 +1,4 @@
 <%@ include file="nocache.jsp" %>
-<%@ page session="true" %>
 <%@ page errorPage="error.jsp" %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <%@ page import="com.topcoder.web.reg.servlet.*" %>
@@ -63,7 +62,7 @@ function lookupText(qId){
     <%}%>
     </script>
   <tr valign="middle">
-    <td width="33%" class="statText" width="150" align="right" valign="middle">
+    <td class="statText" width="150" align="right" valign="middle">
       <img src="/i/clear.gif" width="150" height="2" border="0">
     </td>
     <td colspan="2" class="statText"  align="left" valign="middle"><b>How did you learn about TopCoder?</b></td>
@@ -151,7 +150,7 @@ function lookupText(qId){
 
 <%if (coderType.equalsIgnoreCase(Registration.CODER_TYPE_STUDENT)) {%>
   <tr valign="middle">
-    <td width="33%" class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td>
+    <td class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td>
     <td colspan="2" class="statText"  align="right" valign="middle"><hr noshadow size="1" color="#666666"></td>
   </tr>
   <tr valign="middle">
@@ -199,36 +198,49 @@ function lookupText(qId){
     <td colspan="3"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
   </tr>
 
+  </tr>
+    <tr>
+        <td></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="GpaError" /></td>
+    </tr>
+  <tr>
+  <tr>
+    <td class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif">GPA&nbsp;</td>
+    <td colspan="2" class="statText" align="left" valign="middle"><input type="text" name="<%=Registration.GPA%>" value ="<jsp:getProperty name="Registration" property="Gpa" />" size="5" maxlength="5"></td>
+  </tr>
+
+  </tr>
+    <tr>
+        <td></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="GpaScaleError" /></td>
+    </tr>
+  <tr>
+
+  <tr>
+    <td class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif">GPA Scale&nbsp;</td>
+    <td colspan="2" class="statText" align="left" valign="middle">
+      <SELECT NAME="<%=Registration.GPA_SCALE%>">
+        <OPTION value=""></OPTION>
+        <OPTION value="4.00"<%=!Registration.getGpaScale().equals("")&&Float.parseFloat(Registration.getGpaScale())==4?" selected=\"true\"":""%>>4</OPTION>
+        <OPTION value="5.00"<%=!Registration.getGpaScale().equals("")&&Float.parseFloat(Registration.getGpaScale())==5?" selected=\"true\"":""%>>5</OPTION>
+      </SELECT>
+    </td>
+  </tr>
+
+  <tr valign="middle">
+    <td colspan="3"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+  </tr>
 <%}%>
 
 
 
 <tc:demographic coderType="<%=coderType%>" optional="<%=new Boolean(Registration.getDemographicDecline()).toString()%>" selectedValues="<%=Registration.getDemographics()%>" class="dropdown">
   <tr>
-    <td width="33%"></td><td colspan="2" class="errorText" align="left" valign="middle"><%=Registration.getDemographicError(demographicQuestionId)%></td>
+    <td></td><td colspan="2" class="errorText" align="left" valign="middle"><%=Registration.getDemographicError(demographicQuestionId)%></td>
   </tr>
-<% if (demographicQuestionId.equals("24")) { %>
-  <tr valign="middle">
-    <td colspan="3"><img src="/i/clear.gif" width="1" height="20" border="0"></td>
-  </tr>
-  <tr valign="middle">
-    <td colspan="3">
-      <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
-        <tr>
-          <td width="33%" class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif" nowrap=""><%=demographicQuestion%>&nbsp;</td>
-          <td class="statText" align="left" valign="middle"><%=demographicAnswer%></td>
-          <td class="statText" align="left" valign="middle">&#160;</td>
-          <td class="statText" align="left" valign="middle"><%=demographicDescription%></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-<% } else { %>
+
   <tr>
     <td class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif" nowrap=""><%=demographicQuestion%>&nbsp;</td>
     <td colspan="2" class="statText" align="left" valign="middle"><%=demographicAnswer%>&#160;<%=demographicDescription%></td>
   </tr>
-<% } %>
   <tr valign="middle">
     <td colspan="3"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
   </tr>
@@ -245,3 +257,4 @@ function lookupText(qId){
   </table>
   </td>
   </form>
+

@@ -84,7 +84,7 @@ public final class Compilation {
             log.debug(document.getXML(2));
             String xsldocURLString = DIR + "get_rounds.xsl";
             nav.setScreen(xsldocURLString);
-            result = HTMLmaker.render(document, xsldocURLString, null);
+            result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
@@ -131,7 +131,7 @@ public final class Compilation {
             log.debug(document.getXML(2));
             String xsldocURLString = DIR + "get_coders.xsl";
             nav.setScreen(xsldocURLString);
-            result = HTMLmaker.render(document, xsldocURLString, null);
+            result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
@@ -179,7 +179,7 @@ public final class Compilation {
             log.debug(document.getXML(2));
             String xsldocURLString = DIR + "get_compilations.xsl";
             nav.setScreen(xsldocURLString);
-            result = HTMLmaker.render(document, xsldocURLString, null);
+            result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {

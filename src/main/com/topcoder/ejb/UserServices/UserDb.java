@@ -206,7 +206,10 @@ final class UserDb {
                 user.setUserTypeDetails(new HashMap(4));
                 loadGroupUsers(conn, user);
                 loadPermissions(conn, user);
-                UserDbCoder.loadCoder(conn, user);
+                // if they have the coder user type, load their coder info
+                if (userType.getUserTypeId()==1) {
+                    UserDbCoder.loadCoder(conn, user);
+                }
             } else {
                 throw new TCException("ejb.User.UserDb:loadUser():empty resultset:\n");
             }

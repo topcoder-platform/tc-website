@@ -22,7 +22,7 @@ public class DBMS {
 
     public final static String DW_DATASOURCE_NAME = getProperty("DW_DATASOURCE_NAME", "DW");
     public final static String OLTP_DATASOURCE_NAME = getProperty("OLTP_DATASOURCE_NAME", "OLTP");
-    public final static String CONTEST_ADMIN_DATASOURCE = getProperty("CONTEST_ADMIN_DATASOURCE", "ORACLE");
+    public final static String CONTEST_ADMIN_DATASOURCE = getProperty("CONTEST_ADMIN_DATASOURCE", "OLTP");
     public final static String JDBC_DRIVER = getProperty("JDBC_DRIVER", "weblogic.jdbc.jts.Driver");
     public final static String POOL_DRIVER = getProperty("POOL_DRIVER", "weblogic.jdbc.pool.Driver");
     public final static String INFORMIX_DRIVER = getProperty("INFORMIX_DRIVER", "com.informix.jdbc.IfxDriver");
@@ -66,6 +66,7 @@ public class DBMS {
     public static final int PAYMENT_ADDRESS_SEQ = getIntProperty("PAYMENT_ADDRESS_SEQ", 54);
     public static final int PAYMENT_DETAIL_SEQ = getIntProperty("PAYMENT_DETAIL_SEQ", 55);
     public static final int TAX_FORM_SEQ = getIntProperty("TAX_FORM_SEQ", 56);
+    public static final int RESUME_SEQ = getIntProperty("RESUME_SEQ", 81);
 
     private static final String getProperty(String key, String defaultValue) {
         return bundle.getProperty(key, defaultValue);
@@ -263,6 +264,8 @@ public class DBMS {
             query = " execute procedure nextval(" + PAYMENT_DETAIL_SEQ + ") ";
         else if (sequence == TAX_FORM_SEQ)
             query = " execute procedure nextval(" + TAX_FORM_SEQ + ") ";
+        else if (sequence == RESUME_SEQ)
+            query = " execute procedure nextval(" + RESUME_SEQ + ") ";
         else
             getSeqId = false;
 
