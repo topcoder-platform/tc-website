@@ -76,8 +76,9 @@ public class PDFGenerator extends BaseProcessor {
         config.setPresentedByEmail(StringUtils.checkNull(getRequest().getParameter("presentedByEmail")));
         
         if(getRequest() instanceof MultipartRequest) {
-            log.debug("HERE");
             MultipartRequest request = (MultipartRequest)getRequest();
+            log.debug("RYAN");
+            log.debug(request.getUploadedFile("logo"));
             config.setCompanyLogo(request.getUploadedFile("logo"));
         }
 
