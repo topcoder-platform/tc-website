@@ -40,8 +40,18 @@
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
 
 <!-- Upcoming Tournaments begins -->
+<%--
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="header">Upcoming Private Label Events</td></tr>
+            </table>
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+--%>
+<!-- Past Tournaments begins -->
+            <table width="100%" border="0" cellpadding="4" cellspacing="0">
+                <tr><td class="header">Past Private Label Events</td></tr>
             </table>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
@@ -53,34 +63,10 @@
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
-                        February 27<br />
+                        February 27, 2004<br />
                         DoubleClick Headquarters<br/>
                         New York<br/>
                         <A href="/pl/?&module=Static&d1=doubleclick&d2=col_overview" target="_blank">Details</A>
-                    </td>
-                </tr>
-            </table>
-
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-
-<!-- Past Tournaments begins -->
-            <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="header">Past Private Label Events</td></tr>
-            </table>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top">
-                    <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=verizon&d2=vcc03_overview" target="_blank"><img src="/i/events/verizon2003/index_verizon.gif" alt="Verizon" width="274" height="100" border="0" /></A></td>
-                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText"><font size="3"><strong>Verizon&#153; Coding Challenge</strong></font></td>
-                </tr>
-                <tr valign="top">
-                    <td class="bodyText">
-                        November 7<br />
-                        Verizon Chennai Facility<br/>
-                        Chennai, India<br />
-                        <A href="/pl/?&module=Static&d1=verizon&d2=vcc03_overview" target="_blank">Summary</A>
                     </td>
                 </tr>
             </table>
@@ -95,10 +81,28 @@
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
-                        November 14<br />
+                        November 14, 2003<br />
                         Google headquarters<br/>
                         Mountain View, California<br />
                         <A href="/pl/?&module=Static&d1=google&d2=google_overview" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+
+                <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=verizon&d2=vcc03_overview" target="_blank"><img src="/i/events/verizon2003/index_verizon.gif" alt="Verizon" width="274" height="100" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>Verizon&#153; Coding Challenge</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        November 7, 2003<br />
+                        Verizon Chennai Facility<br/>
+                        Chennai, India<br />
+                        <A href="/pl/?&module=Static&d1=verizon&d2=vcc03_overview" target="_blank">Summary</A>
                     </td>
                 </tr>
             </table>
@@ -113,7 +117,7 @@
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
-                        June 10-12<br />
+                        June 10-12, 2003<br />
                         Moscone Convention Center<br/>
                         San Francisco, California<br />
                         <A href="/index?t=tournaments&c=javaone2003">Summary</A>
@@ -131,7 +135,7 @@
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
-                        Sept 18-20<br />
+                        Sept 18-20, 2002<br />
                         Moscone Convention Center<br/>
                         San Francisco, California<br />
                         <A href="/index?t=tournaments&c=2002sunnetwork">Summary</A>
