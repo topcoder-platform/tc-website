@@ -46,17 +46,17 @@
             <TR>
                <TD ALIGN="left" CLASS="screeningHeader">Division</TD>
                <TD ALIGN="center" CLASS="screeningHeader">Difficulty</TD>
-		       <TD ALIGN="center" CLASS="screeningHeader">Overall Accuracy %</TD>
-		       <TD ALIGN="center" CLASS="screeningHeader">Sub. Acc. %</TD>
-		       <TD ALIGN="center" CLASS="screeningHeader">Sub. %</TD>
+               <TD ALIGN="center" CLASS="screeningHeader">Sub. %</TD>
+               <TD ALIGN="center" CLASS="screeningHeader">Sub. Acc. %</TD>
+	       <TD ALIGN="center" CLASS="screeningHeader">Overall Accuracy %</TD>       
                <TD ALIGN="center" CLASS="screeningHeader">Algorithmic Categories</TD>
             </TR>
             <TR>
                <TD ALIGN="left" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="divisionDesc" /></TD>
                <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="difficultyDesc" /></TD>
-               <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="overallAccuracy" />%</TD>
-               <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="submissionAccuracy" />%</TD>
                <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="submission" />%</TD>
+               <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="submissionAccuracy" />%</TD>
+               <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="overallAccuracy" />%</TD>
                <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="algorithmicCategoryList" /></TD>
             </TR>
          </table>

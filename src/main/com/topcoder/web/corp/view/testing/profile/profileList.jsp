@@ -56,10 +56,6 @@ function getProblemDetail(id) {
 
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
                 <tr>
-                    <td colspan="4" align="left" class="screeningTitle">Candidates</td>
-                </tr>
-
-                <tr>
                    <td width="25%" align="left" class="screeningHeader">Test Profile</td>
                    <td width="25%" align="center" class="screeningHeader">Total</td>
                    <td width="25%" align="center" class="screeningHeader">Complete</td>

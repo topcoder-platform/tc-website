@@ -119,15 +119,15 @@ public class SearchResults extends BaseScreeningProcessor {
         //additional restrictions here
         if(!"".equals(ret.getFirstName().trim()))
         {
-            query.append("and u.first_name like '" + ret.getFirstName() + "' ");
+            query.append("and lower(u.first_name) like '" + ret.getFirstName().toLowerCase() + "' ");
         }
         if(!"".equals(ret.getLastName().trim()))
         {
-            query.append("and u.last_name like '" + ret.getLastName() + "' ");
+            query.append("and lower(u.last_name) like '" + ret.getLastName().toLowerCase() + "' ");
         }
         if(!"".equals(ret.getEmailAddress().trim()))
         {
-            query.append("and e.address like '" + ret.getEmailAddress() + "' ");
+            query.append("and lower(e.address) like '" + ret.getEmailAddress().toLowerCase() + "' ");
         }
         
         countQuery.append("select count(*) as count from table(multiset( ");
