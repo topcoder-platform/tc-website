@@ -55,7 +55,7 @@
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr" CLASS="bodyText">Edit</A></TD>		
 	</TR>
 	<TR>
-		<TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="add_usr.jsp" CLASS="bodyText">Add</A></TD>		
+		<TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr" CLASS="bodyText">Add</A></TD>		
 	</TR>				
 </TABLE>
 <P><BR/></P>    
