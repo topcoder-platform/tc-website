@@ -211,13 +211,13 @@ TopCoder needs to install and run the SecureWay LDAP server by IBM.  The selecte
                                                             <td class="bodyText" nowrap="nowrap" align="left">05.28.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Documents Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.4.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap">Project Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.04.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Updated Documents Due Date:</td>
+                                                            <td class="bodyText" nowrap="nowrap">Updated Project Due Date:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">06.08.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
