@@ -166,28 +166,27 @@ public class UserEdit extends BaseProcessor {
             contactTable.createContact(secTok.primaryUserCompanyID, targetUserID);
         }
 
+        if (targetUserID != getAuthentication().getActiveUser().getId()) {
+            // set up additional permissions for non primary users
+            Enumeration e = request.getParameterNames();
+            while (e.hasMoreElements()) {
+                String pName = (String) e.nextElement();
+                if (!pName.startsWith("permid-")) continue;
 
-        if (targetUserID == secTok.loggedUserID) return;
-
-        // set up additional permissions for non primary users
-        Enumeration e = request.getParameterNames();
-        while (e.hasMoreElements()) {
-            String pName = (String) e.nextElement();
-            if (!pName.startsWith("permid-")) continue;
-
-            long permID = -1;
-            try {
-                permID = Long.parseLong(pName.substring("permid-".length()));
-            } catch (Exception ignore) {
-                continue;
-            }
-            String pValue = request.getParameter("perm-" + permID);
-            boolean set = "on".equalsIgnoreCase(pValue);
-            RolePrincipal role = mgr.getRole(permID);
-            if (set) {
-                mgr.assignRole(secTok.targetUser, role, secTok.requestor);
-            } else {
-                mgr.unAssignRole(secTok.targetUser, role, secTok.requestor);
+                long permID = -1;
+                try {
+                    permID = Long.parseLong(pName.substring("permid-".length()));
+                } catch (Exception ignore) {
+                    continue;
+                }
+                String pValue = request.getParameter("perm-" + permID);
+                boolean set = "on".equalsIgnoreCase(pValue);
+                RolePrincipal role = mgr.getRole(permID);
+                if (set) {
+                    mgr.assignRole(secTok.targetUser, role, secTok.requestor);
+                } else {
+                    mgr.unAssignRole(secTok.targetUser, role, secTok.requestor);
+                }
             }
         }
     }
@@ -232,23 +231,19 @@ public class UserEdit extends BaseProcessor {
             throws NotAuthorizedException, Exception {
         if (secTok.createNew) { // only primary persons are allowed to do it
             // so all others get switched into editor mode
-            if (secTok.loggedUserID < 0) { // not logged in
-                throw new NotAuthorizedException(
-                        "You must be logged in, in order to create new users"
-                );
+            if (getAuthentication().getUser().isAnonymous()) { // not logged in
+                throw new NotAuthorizedException("You must be logged in, in order to create new users");
             }
 
             // user is logged in
             if (!secTok.isAccountAdmin) { // primary user can create
                 // other are still able to edit themself
                 log.debug("switched to edit mode");
-                targetUserID = secTok.loggedUserID;
+                targetUserID = getAuthentication().getUser().getId();
                 secTok.createNew = false;
                 secTok.renewTargetUser();
             }
-        }
-
-        if (!secTok.createNew) { // edit mode
+        } else { // edit mode
             // modifications is allowed if primary edits own group members
             // or regular user edits self
             if (secTok.isAccountAdmin) {
@@ -259,7 +254,7 @@ public class UserEdit extends BaseProcessor {
                     );
                 }
             } else { // regular member tries to edit user
-                if (targetUserID != secTok.loggedUserID) {
+                if (targetUserID != getAuthentication().getUser().getId()) {
                     throw new NotAuthorizedException(
                             "You are not allowed to modify other users"
                     );
@@ -667,7 +662,6 @@ public class UserEdit extends BaseProcessor {
         boolean isAccountAdmin = false;
         TCSubject requestor = null;
         long primaryUserID = -1;
-        long loggedUserID = -1;
 
         long primaryUserCompanyID = -1;
         long targetUserCompanyID = -1;
@@ -682,7 +676,7 @@ public class UserEdit extends BaseProcessor {
             man = Util.getPrincipalManager();
 
             InitialContext icEJB = null;
-            if (authToken.getUser().isAnonymous()) {
+            if (authToken.getActiveUser().isAnonymous()) {
                 try {
                     requestor = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);
                 } catch (Exception cause) {
@@ -692,16 +686,16 @@ public class UserEdit extends BaseProcessor {
                 }
                 return;
             }
-            loggedUserID = authToken.getUser().getId();
 
             try {
                 icEJB = (InitialContext)TCContext.getInitial();
                 contactTable = ((ContactHome) icEJB.lookup("corp:"+ContactHome.EJB_REF_NAME)).create();
-                loggedUserCompanyID = contactTable.getCompanyId(loggedUserID);
+                loggedUserCompanyID = contactTable.getCompanyId(getAuthentication().getUser().getId());
                 Company companyTable = ((CompanyHome) icEJB.lookup(CompanyHome.EJB_REF_NAME)).create();
                 primaryUserID = companyTable.getPrimaryContactId(loggedUserCompanyID);
 
-                if (man.getRoles(Util.retrieveTCSubject(loggedUserID)).contains(Constants.CORP_ADMIN_ROLE)) {
+                if (man.getRoles(Util.retrieveTCSubject(getAuthentication().getUser().getId())).
+                        contains(Constants.CORP_ADMIN_ROLE)) {
                     isAccountAdmin = true;
                     primaryUserCompanyID = loggedUserCompanyID;
                 } else {
@@ -716,9 +710,10 @@ public class UserEdit extends BaseProcessor {
                 Util.closeIC(icEJB);
             }
             try {
-                requestor = Util.retrieveTCSubject(loggedUserID);
+                requestor = Util.retrieveTCSubject(getAuthentication().getUser().getId());
             } catch (Exception cause) {
-                throw new MisconfigurationException("Can't retrieve TCSubject for: " + loggedUserID + cause.getMessage());
+                throw new MisconfigurationException("Can't retrieve TCSubject for: " +
+                        getAuthentication().getUser().getId() + cause.getMessage());
             }
         }
 
