@@ -84,7 +84,7 @@ The Component Development Methodology combines the best of traditional software 
 </OL>
 <TABLE BORDER="0" CELLSPACING="5" CELLPADDING="5" WIDTH="100%">
 	<TR>
-		<TD  VALIGN="top">
+		<TD  VALIGN="top" CLASS="statText">
 <P>
 Project: <A HREF="/index?t=development&amp;c=utg" CLASS="statText">Unit Test Generator Component Design</A><BR/>
 Component Posting: 10/25/2002<BR/>
@@ -120,9 +120,7 @@ Component Submission Due Date: 11/6/2002<BR/>
 Member Selection: Open<BR/>
 </P>        
         </TD>
-    </TR>
-	<TR>
-		<TD  VALIGN="top">
+		<TD  VALIGN="top" CLASS="statText">
 <P>
 Project: <A HREF="/index?t=development&amp;c=ssoc" CLASS="statText">Single Sign On Components</A><BR/>
 Start Date: September 27, 2002<BR/>
