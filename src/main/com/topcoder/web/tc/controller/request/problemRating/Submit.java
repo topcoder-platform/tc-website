@@ -28,10 +28,11 @@ public class Submit extends Base {
     protected void businessProcessing() throws TCWebException{
         long userID = getUser().getId();
         InitialContext ctx = null;
+        HttpServletRequest request = null;
         try {
             ctx = new InitialContext();
             ProblemRatingServices prs = (ProblemRatingServices)createEJB(ctx, ProblemRatingServices.class);
-            HttpServletRequest request = getRequest();
+            request = getRequest();
             Enumeration en = request.getParameterNames();
             ArrayList al = new ArrayList(10);
             while(en.hasMoreElements()){
@@ -58,7 +59,7 @@ public class Submit extends Base {
             setIsNextPageInContext(true);
         }catch(Exception e){
             if(e.getMessage().equals("Not enough answers")){
-//                request.addAttribute("redoError","Please answer all of the questions.");
+                request.setAttribute("redoError","Please answer all of the questions.");
                 setNextPage("");
                 setIsNextPageInContext(true);
             }else{
