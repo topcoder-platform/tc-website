@@ -105,11 +105,11 @@
         </jsp:include>
 
 <p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
-    <table BORDER="0" CELLSPACING="0" CELLPADDING="5" WIDTH="100%">
+    <table  WIDTH="500" BORDER="0" CELLSPACING="0" CELLPADDING="5"align="center">
         <tr>
-           <td class="bodyTextBig" align="left" valign="bottom">Question</td>
-           <td class="bodyTextBig" align="right" valign="bottom">Overall Average Rating</td>
-           <td class="bodyTextBig" align="right" valign="bottom">Average Rating for Competitors</td>
+           <td class="bodyTextBig" align="left" valign="bottom" nowrap>Question</td>
+           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Overall Average Rating</td>
+           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Average Rating for Competitors</td>
         </tr>
         <rsc:iterator list="<%=problemRatingResults%>" id="result">
         <% count = result.getIntItem("count");
@@ -127,7 +127,7 @@
             </td>
         </tr>
         </rsc:iterator>
-        <tr><td class="bodyTextBig" colspan="3" align="center"><%=count%> Total votes <%=compCount%> Competitor Votes</td></tr>
+        <tr><td class="bodyTextBig" colspan="3" align="center"><%=count%> Total votes | <%=compCount%> Competitor Votes</td></tr>
     </table><br/>
          <center>
 <SCRIPT language="JavaScript">
