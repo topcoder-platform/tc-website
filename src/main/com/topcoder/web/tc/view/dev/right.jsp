@@ -32,7 +32,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
                             <tr>
                                 <td class="devProjectText" colspan="2">
-                                    <A href="/index/?t=development&c=tcs_inquire-design&comp=<rsc:item row="<%=resultRow%>" name="component_id"/>&phase=<rsc:item row="<%=resultRow%>" name="phase_id"/>&docId=<rsc:item row="<%=resultRow%>" name="document_id"/>&version=<rsc:item row="<%=resultRow%>" name="version"/>&payment=<rsc:item row="<%=resultRow%>" name="price"/>&compvers=<rsc:item row="<%=resultRow%>" name="comp_vers_id"/>&date=<rsc:item row="<%=resultRow%>" name="initial_submission_date" format="MM'%2e'dd'%2e'yyyy"/>&final_submission=<rsc:item row="<%=resultRow%>" name="final_submission_date" format="MM'%2e'dd'%2e'yyyy"/>&winner_announced=<rsc:item row="<%=resultRow%>" name="winner_announced_date" format="MM'%2e'dd'%2e'yyyy"/>&posting_date=<rsc:item row="<%=resultRow%>" name="posting_date" format="MM'%2e'dd'%2e'yyyy"/>&estimated_dev=<rsc:item row="<%=resultRow%>" name="estimated_dev_date" format="MM'%2e'dd'%2e'yyyy"/>"/>
+                                    <A href="/tc?module=ProjectDetail&pj=<rsc:item row="<%=resultRow%>" name="project_id"/>">
                                         <rsc:item row="<%=resultRow%>" name="component_name"/> <%=resultRow.getIntItem("version")>1?"v " + resultRow.getStringItem("version_text"):""%>
                                     </A>
                                 </td>
@@ -92,7 +92,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
                             <tr>
                                 <td class="devProjectText" colspan="2">
-                                    <A href="/?t=development&c=tcs_inquire-dev&comp=<rsc:item row="<%=resultRow%>" name="component_id"/>&phase=<rsc:item row="<%=resultRow%>" name="phase_id"/>&docId=<rsc:item row="<%=resultRow%>" name="document_id"/>&version=<rsc:item row="<%=resultRow%>" name="version"/>&payment=<rsc:item row="<%=resultRow%>" name="price"/>&compvers=<rsc:item row="<%=resultRow%>" name="comp_vers_id"/>&date=<rsc:item row="<%=resultRow%>" name="initial_submission_date" format="MM'%2e'dd'%2e'yyyy"/>&final_submission=<rsc:item row="<%=resultRow%>" name="final_submission_date" format="MM'%2e'dd'%2e'yyyy"/>&winner_announced=<rsc:item row="<%=resultRow%>" name="winner_announced_date" format="MM'%2e'dd'%2e'yyyy"/>&posting_date=<rsc:item row="<%=resultRow%>" name="posting_date" format="MM'%2e'dd'%2e'yyyy"/>">
+                                    <A href="/tc?module=ProjectDetail&pj=<rsc:item row="<%=resultRow%>" name="project_id"/>">
                                       <rsc:item row="<%=resultRow%>" name="component_name"/> <%=resultRow.getIntItem("version")>1?"v " + resultRow.getStringItem("version_text"):""%>
                                     </A>
                                 </td>
