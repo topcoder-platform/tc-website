@@ -19,6 +19,8 @@ import javax.ejb.CreateException;
 import java.sql.SQLException;
 
 class ContentResource extends Resource {
+
+    private static final boolean VERBOSE = false;
     protected WebContentObject webContent;
     protected WebContent wc;
 
@@ -67,11 +69,12 @@ class ContentResource extends Resource {
         boolean found = false;
         webContent.content_id = sector.sector_id;
         try {
-          WebContentObject temp = new WebContentObject();
-          System.out.println ( "locating content sector id " + webContent.content_id );
-          temp.content_id = sector.sector_id;
-          wc.request(WebContent.SELECT, temp);
-          found = true;
+          //WebContentObject temp = new WebContentObject();
+          //System.out.println ( "locating content sector id " + webContent.content_id );
+          //temp.content_id = sector.sector_id;
+          //wc.request(WebContent.SELECT, temp);
+          String temp = wc.findByContentName ( webContent.content_name );
+          if ( temp!=null && !temp.equals("") ) found = true;
         } catch ( Exception findException ) {
           //findException.printStackTrace();
           System.out.println ( "ContentResource.storeProd:  content not found... inserting" );

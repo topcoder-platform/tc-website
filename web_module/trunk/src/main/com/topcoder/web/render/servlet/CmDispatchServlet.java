@@ -111,9 +111,15 @@ public class CmDispatchServlet extends HttpServlet {
         if (target == null || target.length() == 0) target = "blank";
         RequestDispatcher rd = null;
         if (targetAdorned)
+        {
             rd = getServletContext().getRequestDispatcher(target);
+            System.out.println ( "TARGET="+target );
+        }
         else
+        {
             rd = getServletContext().getRequestDispatcher(jspPath + target + ".jsp");
+            System.out.println ( jspPath + target + ".jsp" );
+        }
         if (rd == null)
             throw new ServletException("cannot obtain request dispatcher");
         resp.setHeader("Content-type", "text/html");

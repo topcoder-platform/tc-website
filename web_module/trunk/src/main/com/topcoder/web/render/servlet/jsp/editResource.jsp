@@ -100,6 +100,16 @@
         </tr>
         <tr>
           <td colspan="2">
+            <br/><input type="submit" name="submit" value="Move to Development" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <br/><input type="submit" name="submit" value="Move to QA" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
             <br/><input type="submit" name="submit" value="Move to Production" />
           </td>
         </tr>

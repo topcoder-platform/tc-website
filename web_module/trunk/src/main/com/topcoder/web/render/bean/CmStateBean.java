@@ -638,7 +638,7 @@ protected void processEditResourceFormProd(Map params, String url) throws Authen
   }
   try {
     selectedResource.connect ( com.topcoder.common.TCContext.getInitial(url)  );
-System.out.println ( "CONNECTED TO PROD ... " + url );
+    if (VERBOSE) System.out.println ( "CONNECTED TO " + url );
     processEditResourceFormParams ( params );
     selectedResource.storeProd(userid);
   } catch ( Exception e ) {
