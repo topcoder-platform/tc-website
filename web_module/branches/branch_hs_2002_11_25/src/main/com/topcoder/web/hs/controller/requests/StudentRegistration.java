@@ -36,6 +36,8 @@ public class StudentRegistration extends Base {
 
   private final static long EMAIL_TYPE_ID_PRIMARY=1;
 
+  private final static String STUDENT_GROUP_NAME="Student";
+
   private final static String REGISTRATION_BASE="/registration/";
 
   private final static String REGISTRATION_PAGE="registration_student.jsp";
@@ -319,7 +321,8 @@ public class StudentRegistration extends Base {
     msgs.add(_message);
   }
 
-  private boolean isValidStudent(StudentRegistrationBean _srb) {
+  private boolean isValidStudent(StudentRegistrationBean _srb)
+                                                              throws Exception {
     HashMap errors=new HashMap();
     boolean is_valid=true;
 
@@ -423,8 +426,8 @@ public class StudentRegistration extends Base {
           technical_problems=true;
         }
         if (technical_problems) {
-          addErrorMessage(errors,"Handle",TECHNICAL_PROBLEMS);
           is_valid=false;
+          throw(new Exception(TECHNICAL_PROBLEMS));
         }
       }
     }
@@ -500,7 +503,14 @@ public class StudentRegistration extends Base {
   }
 
   private void persistStudent(StudentRegistrationBean _srb) throws Exception {
-    UserTransaction utx=null;
+    /* !!This is a hack!! Because the persisting is done in a web container, or
+    * servlet, its not possible to use EJBContext.getUserTransaction(). Instead
+    * we simply get a UserTransaction object for each database we are accessing.
+    * The problem is that both commits cannot happen atomically. Hence errors in
+    * one database will not force a rollback in another. This should be fixed!
+    */
+    UserTransaction utx_common=null;
+    UserTransaction utx_tchs=null;
     try {
       /*utx=EJBContext.getUserTransaction();
       utx.begin();*/
@@ -508,15 +518,29 @@ public class StudentRegistration extends Base {
       Context ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
                                        ApplicationServer.SECURITY_HOST);
 
+      utx_common=Transaction.get(ctx);
+      utx_common.begin();
+
       PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
                                 ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
       PrincipalMgrRemote pmr=pmrh.create();
 
-      UserPrincipal up;
-      up=pmr.createUser(_srb.getHandle(),_srb.getPassword(),new TCSubject(0));
+      TCSubject tcs=new TCSubject(0);
+      UserPrincipal up=pmr.createUser(_srb.getHandle(),_srb.getPassword(),tcs);
       long user_id=up.getId();
 
+      Collection groups=pmr.getGroups(tcs);
+      for (Iterator iterator=groups.iterator();iterator.hasNext();) {
+        GroupPrincipal gp=(GroupPrincipal)iterator.next();
+        if (gp.getName().equals(STUDENT_GROUP_NAME)) {
+          pmr.addUserToGroup(gp,up,tcs);
+        }
+      }
+
       ctx=TCContext.getInitial();
+
+      utx_tchs=Transaction.get(ctx);
+      utx_tchs.begin();
 
       UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
       User user=uh.create();
@@ -553,15 +577,31 @@ public class StudentRegistration extends Base {
       rating.createRating(user_id);
 
       /*utx.commit();*/
+
+      utx_common.commit();
+      utx_tchs.commit();
     }
     catch (Exception _e) {
       _e.printStackTrace();
-      if (utx!=null) {
+      /*if (utx!=null) {
         try {
           utx.rollback();
         }
         catch (Exception _e1) {
-          /* do nothing */
+       
+      }*/
+      if (utx_common!=null) {
+        try {
+          utx_common.rollback();
+        }
+        catch (Exception _ex) {
+        }
+      }
+      if (utx_tchs!=null) {
+        try {
+          utx_tchs.rollback();
+        }
+        catch (Exception _ex) {
         }
       }
       throw(_e);
