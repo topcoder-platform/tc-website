@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author gpaul 06.26.2003
  */
-public class SimpleRegInfo {
+public class SimpleRegInfo extends Base{
 
     private String handle;
     private String password;
