@@ -14,9 +14,7 @@
 
 <body>
 
-<jsp:include page="includes/top.jsp" >
-  <jsp:param name="isHomePage" value="true"/>
-</jsp:include>
+<jsp:include page="includes/top.jsp" />
 
 <table border=0 cellpadding=0 cellspacing=0 width="100%">
    <tr>
@@ -32,8 +30,8 @@
 				<td class=homeRightPromos width="50%">
 				<table width="170" border=0 cellpadding=0 cellspacing=0 align=right>
 					<tr><td><img src="/i/corp/featClientsHead.gif" border=0 /></td></tr>
-					<tr><td class=homeClientPromo><img src="/i/corp/promos/praxairNrodale.gif" border=0 /></td></tr>
-					<tr><td><img src="/i/es/animated_emp_promo.gif" border=0 /></td></tr>
+					<tr><td class=homeClientPromo><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/corp/promos/praxairNrodale.gif" border=0 /></A></td></tr>
+					<tr><td><A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><img src="/i/es/animated_emp_promo.gif" border=0 /></A></td></tr>
 				</table>
 				</td>
 			</tr>
