@@ -98,8 +98,18 @@ public class DemographicInput extends BaseTag {
                 s.append(answer.getAnswerId());
                 s.append("\"");
                 log.info("DEFAULT:" + getDefaultValue());
-                if (getDefaultValue()!=null && getDefaultValue().equals(String.valueOf(answer.getAnswerId()))) {
-                    s.append(" selected");
+                if(!multiple)
+                {
+                    if (getDefaultValue()!=null && getDefaultValue().equals(String.valueOf(answer.getAnswerId()))) {
+                        s.append(" selected");
+                    }
+                }
+                else
+                {
+                    if(getDefaultValue()!=null && ((ArrayList) getDefaultValue()).contains(String.valueOf(answer.getAnswerId()) ) )
+                    {
+                        s.append(" selected");
+                    }
                 }
                 s.append(">");
                 s.append(answer.getText());

@@ -50,6 +50,8 @@ public abstract class FullRegBase extends SimpleRegBase {
         List responses = ((FullRegInfo) info).getResponses();
         DemographicResponse response = null;
         DemographicQuestion question = null;
+        
+        HashMap multiAnswerMap = new HashMap();
         for (Iterator it = responses.iterator(); it.hasNext();) {
             response = (DemographicResponse) it.next();
             if(questions == null)
@@ -71,9 +73,21 @@ public abstract class FullRegBase extends SimpleRegBase {
                 setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), response.getText());
             } else if (question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                 //todo handle multiple select
+                ArrayList al = new ArrayList();
+                if(multiAnswerMap.containsKey(new Long(response.getQuestionId())))
+                {
+                    al = (ArrayList)multiAnswerMap.get(new Long(response.getQuestionId()));
+                }
+                al.add(String.valueOf(response.getAnswerId()));
+                //setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
             } else {
                 //todo something is wrong, we don't recognize that kind of question
             }
+        }
+        for(Iterator it = multiAnswerMap.keySet().iterator(); it.hasNext();) {
+            String s = (String)it.next();
+            log.info("ADDING MULTIANSWER " + s);
+            setDefault(Constants.DEMOG_PREFIX + s, multiAnswerMap.get(s));
         }
 
     }
