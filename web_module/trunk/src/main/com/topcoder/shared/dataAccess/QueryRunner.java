@@ -121,7 +121,8 @@ public class QueryRunner implements DataRetrieverInt {
                 queryName = (String) me.getKey();
                 ps = conn.prepareStatement(queryText);
                 rs = ps.executeQuery();
-                rsc = new ResultSetContainer(rs, startRank, endRank);
+                rsc = new ResultSetContainer(rs, startRank, endRank, false);
+                log.debug("size: " + rsc.size());
                 rs.close();
                 rs = null;
                 ps.close();
