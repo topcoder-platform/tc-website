@@ -83,7 +83,7 @@
                     <%
                         if (startIndex > 0) {
                     %>
-                    <A href="/corp/testing/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>">
+                    <A href="/corp/testing/results/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>">
                         Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%>
                     </A>
                     <%  } %>
@@ -91,7 +91,9 @@
                     <%
                         if (startIndex + Constants.PAGE_SIZE < info.size()) {
                     %>
-                    | <A href="/corp/testing/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>">Next <%=Math.min(info.size() - startIndex,Constants.PAGE_SIZE)%></a>
+                    | <A href="/corp/testing/results/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>">
+                        Next <%=Math.min(info.size() - startIndex - Constants.PAGE_SIZE,Constants.PAGE_SIZE)%>
+                      </a>
                     <%  } %>
                     </td>
                 </tr>
@@ -157,7 +159,7 @@
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>'>
-                        <%=row.getStringItem("state_code")%>
+                        <%=row.getStringItem("state_code") == null ? row.getStringItem("province") : row.getStringItem("state_code")%>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
@@ -241,7 +243,7 @@
                     <%
                         if (startIndex > 0) {
                     %>
-                    <A href="/corp/testing/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>">
+                    <A href="/corp/testing/results/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>">
                         Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%>
                     </A>
                     <%  } %>
@@ -249,7 +251,9 @@
                     <%
                         if (startIndex + Constants.PAGE_SIZE < info.size()) {
                     %>
-                    | <A href="/corp/testing/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>">Next <%=Math.min(info.size() - startIndex,Constants.PAGE_SIZE)%></a>
+                    | <A href="/corp/testing/results/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>">
+                        Next <%=Math.min(info.size() - startIndex - Constants.PAGE_SIZE,Constants.PAGE_SIZE)%>
+                      </a>
                     <%  } %>
                     </td>
                 </tr>
