@@ -25,6 +25,9 @@
   <xsl:import href="../includes/modules/coder_of_month.xsl"/>
   <xsl:import href="../includes/modules/srm_best_worst.xsl"/>
   <xsl:import href="../includes/modules/coder_pov.xsl"/>
+  <xsl:import href="../includes/modules/big_promo.xsl"/>
+  <xsl:import href="../includes/modules/small_promos.xsl"/>
+  <xsl:import href="../includes/modules/feature_home.xsl"/>
   <xsl:import href="../includes/modules/tcs_promo.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template name="PublicBody">
@@ -48,24 +51,14 @@
         
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
         
-<!-- Catalog Intro begins -->
-            <table border="0" cellspacing="0" cellpadding="0">
-                <tr><td height="42" align="center"><A href="/?t=tournaments&amp;c=tco03_overview" target="_top"><img src="/i/promos/tco03/tco_home_big_a.gif" alt="Save the date!" width="494" height="42" border="0" /></A></td></tr>
-                <tr><td height="119" align="center"><A href="/?t=tournaments&amp;c=tco03_overview" target="_top"><img src="/i/promos/tco03/tco_home_big_b.gif" alt="2003 TopCoder Open" width="494" height="119" border="0" /></A></td></tr>
-                <tr><td height="64" align="center"><A href="/?t=tournaments&amp;c=tco03_overview" target="_top"><img src="/i/promos/tco03/tco_home_big_c.gif" alt="Qualification rounds start online October 7th" width="494" height="64" border="0" /></A></td></tr>
-            </table>
-<!-- Catalog Intro ends -->
+<!-- Big Promo begins -->
+            <xsl:call-template name="big_promo"/>
+<!-- Big Promo ends -->
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
 
 <!-- Small Promos begin -->
-            <table border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td height="42" align="center"><A href="#" target="_top"><img src="/i/promos/sweden_small.gif" alt="Swedish TopCoder members can earn cash" width="263" height="86" border="0" /></A></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td height="64" align="center"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/tcs_catalog_small.gif" alt="TopCoder Software Component Catalog available" width="263" height="86" border="0" /></A></td>
-                </tr>
-            </table>
+            <xsl:call-template name="small_promos"/>
 <!-- Small Promos end -->
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
@@ -74,53 +67,25 @@
             <xsl:call-template name="srm_best_worst"/>
 <!-- Summary/Best/Worst Ends -->
 
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
 
 <!-- Coder Point of View Begins-->
             <xsl:call-template name="coder_pov"/>
 <!-- Coder of Point of View Ends -->
  
 <!-- Feature -->
-            <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr valign="middle">
-                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Feature</font></td>
-                    <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/?t=features&amp;c=index" class="bodyText"><strong>View All</strong></a></td>
-                </tr>
-            </table>
-
-            <table border="0" cellspacing="3" cellpadding="0" width="100%">
-                <tr>
-                    <td width="85" class="bodyText"  valign="top">
-                        <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
-                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><br/>
-                        <span class="smallText"><em>TopCoder Member</em></span><br/>
-                        <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
-                    </td>
-
-                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-
-                    <td  width="99%" class="bodyText"  valign="top">
-                        <p><a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_052703</xsl:attribute><font size="4"><strong>Threads and Atomicity</strong></font></a><br />
-                        Tuesday, May 27, 2003</p>
-
-                        <p>It has been quite a while since I was introduced to the concept of threads. Since then, I have learned many interesting 
-                        features&#151;and headaches&#151;associated with them.  This article discusses probably the most important concept that you as a 
-                        thread programmer need to know: atomicity.
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_052703</xsl:attribute><strong>full&#160;story</strong></a></p>
-                    </td>
-                </tr>
-
-                <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
-            </table>
+            <xsl:call-template name="feature_home"/>
 <!-- Feature ends -->
 
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
 
-<!-- Press Room Highlights Include -->
+<!-- Press Room Highlights Begins -->
             <xsl:call-template name="tc_updates"/>
+<!-- Press Room Highlights Ends -->
 
-<!-- Java Web Start Include -->
+<!-- Java Web Start Begins -->
             <xsl:call-template name="arena"/>
+<!-- Java Web Start Ends -->
 
 <!-- TC special promo -->
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
@@ -144,9 +109,10 @@
                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>employment services</a>.<br />
                     </td>
                 </tr>
-
-                <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
             </table>
+
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
+
         </td>
   <!-- Center Column Ends -->
 
@@ -199,10 +165,13 @@
 
                     </td>
                 </tr>
-                <tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
+                <tr><td><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
             </table>
 <!-- Statistics Ends -->
+
         </td>
+<!-- Right Column Ends -->
+
     </tr>
 </table>
 

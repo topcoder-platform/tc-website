@@ -42,24 +42,14 @@
         
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
         
-<!-- Catalog Intro begins -->
-            <table border="0" cellspacing="0" cellpadding="0">
-                <tr><td height="42" align="center"><A href="/?t=tournaments&amp;c=tco03_overview" target="_top"><img src="/i/promos/tco03/tco_home_big_a.gif" alt="Save the date!" width="494" height="42" border="0" /></A></td></tr>
-                <tr><td height="119" align="center"><A href="/?t=tournaments&amp;c=tco03_overview" target="_top"><img src="/i/promos/tco03/tco_home_big_b.gif" alt="2003 TopCoder Open" width="494" height="119" border="0" /></A></td></tr>
-                <tr><td height="64" align="center"><A href="/?t=tournaments&amp;c=tco03_overview" target="_top"><img src="/i/promos/tco03/tco_home_big_c.gif" alt="Qualification rounds start online October 7th" width="494" height="64" border="0" /></A></td></tr>
-            </table>
-<!-- Catalog Intro ends -->
+<!-- Big Promo begins -->
+            <xsl:call-template name="big_promo"/>
+<!-- Big Promo ends -->
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
 
 <!-- Small Promos begin -->
-            <table border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td height="42" align="center"><A href="#" target="_top"><img src="/i/promos/sweden_small.gif" alt="Swedish TopCoder members can earn cash" width="263" height="86" border="0" /></A></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td height="64" align="center"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/tcs_catalog_small.gif" alt="TopCoder Software Component Catalog available" width="263" height="86" border="0" /></A></td>
-                </tr>
-            </table>
+            <xsl:call-template name="small_promos"/>
 <!-- Small Promos end -->
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
@@ -368,23 +358,58 @@
             </table>
 <!-- My Stats Ends -->
 
-            <img src="/i/clear.gif" alt="" width="1" height="6" border="0"/><br />
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br />
 
 <!-- Summary/Best/Worst Begins  -->
             <xsl:call-template name="srm_best_worst"/>
 <!-- Summary/Best/Worst Ends -->
 
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
 
 <!-- Coder Point of View Begins-->
             <xsl:call-template name="coder_pov"/>
 <!-- Coder of Point of View Ends -->
+ 
+<!-- Feature -->
+            <xsl:call-template name="feature_home"/>
+<!-- Feature ends -->
+
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
+
+<!-- Press Room Highlights Begins -->
+            <xsl:call-template name="tc_updates"/>
+<!-- Press Room Highlights Ends -->
 
 <!-- Java Web Start Begins -->
             <xsl:call-template name="arena"/>
 <!-- Java Web Start Ends -->
 
-            <p><br /></p>
+<!-- TC special promo -->
+            <table border="0" cellspacing="0" cellpadding="3" width="100%">
+                <tr valign="top">
+                    <td class="statTextLarge" bgcolor="#999999" width="49%"><font size="3">Sponsorships</font></td>
+                    <td class="statTextLarge" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
+                    <td class="statTextLarge" bgcolor="#999999" width="49%"><font size="3">Employment Services</font></td>
+                </tr>
+
+                <tr valign="top">
+                    <td width="50%" align="left" class="bodyText">
+                        TopCoder offers sponsorship programs for the weekly <a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_srm</xsl:attribute>Single Round Matches</a>
+                        as well as for <a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_tourny</xsl:attribute>Tournaments</a>. Read
+                        more about our <a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=spons_target</xsl:attribute>sponsorship programs</a>.<br />
+                    </td>
+
+                    <td class="statTextLarge" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
+
+                    <td width="50%" align="left" class="bodyText">
+                        TopCoder works with companies to connect them with top-rated developers. Read more about our <a class="bodyText">
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>employment services</a>.<br />
+                    </td>
+                </tr>
+            </table>
+
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
+
         </td>
   <!-- Center Column Ends -->
 
@@ -447,11 +472,13 @@
 
                     </td>
                 </tr>
-                <tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
+                <tr><td><img src="/i/clear.gif" alt="" width="1" height="15" border="0"/></td></tr>
             </table>
 <!-- Statistics Ends -->
 
         </td>
+<!-- Right Column Ends -->
+
     </tr>
 </table>
 
