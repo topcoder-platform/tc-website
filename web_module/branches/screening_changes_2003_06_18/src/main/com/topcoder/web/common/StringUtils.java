@@ -124,6 +124,7 @@ public final class StringUtils {
     public static String htmlEncode(String s) {
         StringBuffer sb = new StringBuffer();
         char ch = ' ';
+        if (s==null) return "";
         for (int i = 0; i < s.length(); i++) {
             if ((ch = s.charAt(i)) == '>') {
                 sb.append("&gt;");

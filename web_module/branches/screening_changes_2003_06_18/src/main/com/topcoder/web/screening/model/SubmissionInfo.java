@@ -107,7 +107,11 @@ public class SubmissionInfo implements java.io.Serializable {
         if(map == null)
             throw new ScreeningException("getData failed!");
 
-        this.setCode(result.getItem(0,"submission_text").toString());
+        String code = (String)result.getItem(0,"submission_text").getResultData();
+        if (code==null) {
+            code = (String)result.getItem(0,"compilation_text").getResultData();
+        }
+        this.setCode(code);
         this.setTestResults((ResultSetContainer)map.get("systemTestResults"));
         //consider doing this better, ie, limit the results in the db.
         this.setTopTCSolutions(((List)dwMap.get("topProblemSolutions")).subList(0,3));
