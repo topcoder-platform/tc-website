@@ -63,6 +63,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<!--  Javaone -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_05_03_04"><img src="/i/pressroom/javaone_event.gif" alt="javaone" width="135" height="40" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_05_03_04">JavaOne Coding Challenge Powered by TopCoder</A></strong></font><br />
+                        "The TopCoder-powered Coding Challenge was one of the highest rated programs by our attendees last year," said Mike Bellisimo, Senior Director of Sun Developer Outreach. "It's an exciting and fun event that creates a buzz among our community and adds a new dimension of interaction and participation to the JavaOne Conference experience."<span class="prHead"> [May 3]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- BWO -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
