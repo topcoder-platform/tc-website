@@ -55,26 +55,15 @@
 
 <!-- Center Column Begins -->  
         <td class="bodyText">
-            <xsl:call-template name="BodyTop">
-                <xsl:with-param name="image1"></xsl:with-param>
-                <xsl:with-param name="image">tournaments_white</xsl:with-param>
-                <xsl:with-param name="title">2003 TopCoder Open</xsl:with-param>
-            </xsl:call-template>
-        
-<!-- TCO Header -->
-<!--            <div align="center">
-            <img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open" width="550" height="160" border="0" vspace="15" usemap="#tco_links" />
-            <map name="tco_links">
-            <area shape="rect" coords="30,100,220,155" href="/index?t=tournaments&amp;c=tco03_overview" />
-            <area shape="rect" coords="355,100,545,155" href="/index?t=tournaments&amp;c=tco03_comp_overview" />            
-            </map>
+
+            <div align="center">
+                <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
+                <img src="/i/promos/tco03/tco_home_comp_start_a.gif" alt="Component Competition starts Sept 2" width="540" height="165" border="0"/><br/>
+                <A href="/index?t=development&amp;c=comp_projects" target="_top"><img src="/i/promos/tco03/tco_home_comp_start_b.gif" alt="Start submitting projects today" width="185" height="21" border="0" /></A><br/>
+                <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
             </div>
--->
 
             <table border="0" cellspacing="0" cellpadding="0" align="center">
-                <tr>
-                     <td align="center" colspan="2"><img src="/i/tournament/tco03/tco_promo_big.gif" alt="Save the date!" width="503" height="170" border="0" vspace="5"/></td>
-                </tr>
                 <tr>
                     <td width="50%" align="center"><img src="/i/tournament/tco03/coding_start.gif" alt="Coding Start" width="219" height="15" border="0" vspace="5"/></td>
                     <td width="50%" align="center"><img src="/i/tournament/tco03/component_start.gif" alt="Component Start" width="222" height="15" border="0" vspace="5"/></td>
