@@ -93,7 +93,7 @@ return false;
                                         <tc:preferenceInput preference="<%=pref%>" />
 				</td>
 				<% } else { %>
-				<td width="100%" class=<%=cssClasses[i % 2]%>><tc:preferenceInput preference="<%=pref%>" /> <%=pref.getText()%></td>
+				<td width="100%" class=<%=cssClasses[i % 2]%>><label><tc:preferenceInput preference="<%=pref%>" /> <%=pref.getText()%></label></td>
 				<td class=<%=cssClasses[i++ % 2]%>>
                                         &nbsp;
 				</td>
@@ -115,7 +115,7 @@ return false;
 			</tr>
 		</table>
 
-		<div width="100%" align=center><br/><br/><a href="/tc?module=ContactingLanguages"><img src="/i/submit.jpg" border=0/></a></div>
+		<div width="100%" align=center><br/><br/><a href="/tc?module=ContactingPreferences"><img src="/i/submit.jpg" border=0/></a></div>
 
 		</FORM>
 
