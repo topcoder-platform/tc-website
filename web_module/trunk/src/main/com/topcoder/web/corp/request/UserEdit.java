@@ -145,6 +145,9 @@ public class UserEdit extends BaseProcessor {
         if (!"POST".equalsIgnoreCase(request.getMethod())) {
             setFormFieldsDefaults();
             nextPage = formPage;
+            if (!secTok.createNew) {
+                retrieveUserDataFromDB((InitialContext)TCContext.getInitial());
+            }
             return secTok.createNew;
         }
         return false;
@@ -203,25 +206,18 @@ public class UserEdit extends BaseProcessor {
      */
     protected void retrieveUserDataFromDB(InitialContext ic) throws Exception {
         // user first, last names
-        User userTable = (
-                (UserHome) ic.lookup("corp:"+UserHome.EJB_REF_NAME)
-                ).create();
+        User userTable = ((UserHome) ic.lookup("corp:"+UserHome.EJB_REF_NAME)).create();
         firstName = userTable.getFirstName(targetUserID);
         lastName = userTable.getLastName(targetUserID);
-        setFormFieldDefault(KEY_LASTNAME, lastName);
 
         // email for user
-        Email emailTable = (
-                (EmailHome) ic.lookup("corp:"+EmailHome.EJB_REF_NAME)
-                ).create();
+        Email emailTable = ((EmailHome) ic.lookup("corp:"+EmailHome.EJB_REF_NAME)).create();
         long emailID = emailTable.getPrimaryEmailId(targetUserID);
         email = emailTable.getAddress(emailID);
         email2 = email;
 
         // phone
-        Phone phoneTable = (
-                (PhoneHome) ic.lookup(PhoneHome.EJB_REF_NAME)
-                ).create();
+        Phone phoneTable = ((PhoneHome) ic.lookup(PhoneHome.EJB_REF_NAME)).create();
         long phoneID = phoneTable.getPrimaryPhoneId(targetUserID);
         phone = phoneTable.getNumber(phoneID);
     }
@@ -699,14 +695,13 @@ public class UserEdit extends BaseProcessor {
                 }
                 RolePrincipal[] roles = (RolePrincipal[])requestor.getPrincipals().toArray(new RolePrincipal[0]);
                 for (int i=0; i<roles.length && !isAccountAdmin; i++) {
-                    if (roles[i].getName().equals(Constants.CORP_ADMIN_ROLE)) {
-                        isAccountAdmin = true;
-                        primaryUserCompanyID = loggedUserCompanyID;
-                    } else {
-                        isAccountAdmin = false;
-                        primaryUserCompanyID = contactTable.getCompanyId(primaryUserID);
-                    }
+                    isAccountAdmin = (roles[i].getName().equals(Constants.CORP_ADMIN_ROLE));
                 }
+                if (isAccountAdmin)
+                    primaryUserCompanyID = loggedUserCompanyID;
+                else
+                    primaryUserCompanyID = contactTable.getCompanyId(primaryUserID);
+
                 renewTargetUser();
             } catch (Exception ex) {
                 ex.printStackTrace();
