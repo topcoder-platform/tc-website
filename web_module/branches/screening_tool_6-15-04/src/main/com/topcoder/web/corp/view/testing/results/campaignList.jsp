@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.corp.common.Constants"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page import="com.topcoder.web.corp.common.Constants"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>Topcoder | Testing Application Management Tool</title>
@@ -28,7 +29,7 @@
                     <td class="bodyText">
                         <p><span class=testHead>Campaign List</span><br/>
                         <scre>
-                        <screen:resultSetRowIterator id="row" list="<%=request.getAttribute(Constants.COMPANY_INFO)%>">
+                        <screen:resultSetRowIterator id="row" list="<%=(java.util.List) request.getAttribute(Constants.COMPANY_INFO)%>">
                         Company Name: <screen:resultSetItem row="<%=row%>" name="company_name" /><br/>
                         </screen:resultSetRowIterator>
                         </p>
@@ -50,7 +51,7 @@
                     int counter = 0;
                     String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
                 %>
-                <screen:resultSetRowIterator id="row" list="<%=request.getAttribute(Constants.COMPANY_CAMPAIGNS_LIST)%>">
+                <screen:resultSetRowIterator id="row" list="<%=(java.util.List) request.getAttribute(Constants.COMPANY_CAMPAIGNS_LIST)%>">
                 <tr>
                     <td class="<%=cssClasses[counter++ % 2]%>" nowrap="nowrap">
                         <a href="/corp/testing/results/campaignResults.jsp?<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />">
