@@ -29,6 +29,35 @@ public class Submit extends FullRegSubmit {
 
         UserPrincipal newUser = super.commit(regInfo);
         try {
+            
+            ResumeRegInfo info = (ResumeRegInfo)regInfo;
+            if(info.getUploadedFile() != null)
+            {
+                byte[] fileBytes = null;
+                String fileName = "";
+                int fileType = -1;
+
+                fileBytes = new byte[(int) info.getUploadedFile().getSize()];
+                info.getUploadedFile().getInputStream().read(fileBytes);
+                if (fileBytes == null || fileBytes.length == 0)
+                    addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
+                else {
+                    //fileType = Integer.parseInt(file.getParameter("fileType"));
+                    Map types = getFileTypes(transDb);
+                    if(types.containsKey(info.getUploadedFile().getContentType()) )
+                    {
+                        log.debug("FOUND TYPE");
+                        fileType = ((Long) types.get(info.getUploadedFile().getContentType())).intValue();
+                    }
+                    else
+                    {
+                        log.debug("DID NOT FIND TYPE " + info.getUploadedFile().getContentType());
+                    }
+                    fileName = info.getUploadedFile().getRemoteFileName();
+                    ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
+                    resumeServices.putResume(ret.getId(), fileType, fileName, fileBytes, transDb);
+                }
+            }
 
             if (((Coder) createEJB(getInitialContext(), Coder.class)).exists(newUser.getId(), DBMS.OLTP_DATASOURCE_NAME)) {
                 UserTransaction uTx = null;
@@ -82,6 +111,21 @@ public class Submit extends FullRegSubmit {
         }
 
         return newUser;
+    }
+
+    protected Map getFileTypes(String db) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("file_types");
+        Map qMap = getDataAccess(db, true).getData(r);
+        ResultSetContainer questions = (ResultSetContainer) qMap.get("file_types");
+        ResultSetContainer.ResultSetRow row = null;
+
+        Map ret = new HashMap();
+        for (Iterator it = questions.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow) it.next();
+            ret.put(row.getStringItem("mime_type"), new Long( row.getLongItem("file_type_id")) );
+        }
+        return ret;
     }
 
     protected void setNextPage() {
