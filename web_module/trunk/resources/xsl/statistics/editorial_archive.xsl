@@ -46,6 +46,10 @@
                             <tr valign="middle"><td class="statTextLarge" bgcolor="#999999" colspan="2"><font size="3">Match Editorial Archive - 2004</font></td></tr>
 
                             <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+                            <tr><td valign="middle" class="bodyText" colspan="2">&#160;<strong>October</strong></td></tr>
+                            <tr><td class="bodyText">&#160;10.06.04</td><td class="bodyText" nowrap="0">&#160;SRM 214- <a href="/index?t=statistics&amp;c=srm214_prob">Problem Set &amp; Analysis</a></td></tr>
+
+                            <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
                             <tr><td valign="middle" class="bodyText" colspan="2">&#160;<strong>September</strong></td></tr>
                             <tr><td class="bodyText">&#160;09.29.04</td><td class="bodyText" nowrap="0">&#160;TCO04 - Online Round 4 - <a href="/index?t=statistics&amp;c=tco04_online_rd_4">Problem Set &amp; Analysis</a></td></tr>
                             <tr><td class="bodyText">&#160;09.28.04</td><td class="bodyText" nowrap="0">&#160;SRM 213- <a href="/index?t=statistics&amp;c=srm213_prob">Problem Set &amp; Analysis</a></td></tr>
