@@ -21,7 +21,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
         setIsNextPageInContext(true);
     }
 
-    protected boolean handleActivation(SimpleRegInfo info) throws TCWebException {
+    protected void handleActivation(SimpleRegInfo info) throws TCWebException {
         try {
             User user = (User)createEJB(getInitialContext(), User.class);
             StringBuffer buf = new StringBuffer(1000);
