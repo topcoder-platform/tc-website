@@ -149,6 +149,20 @@
                             </td>
                         </tr>
                         <tr>
+                            <td colspan="2" class="brErrorText" align="center">
+                                <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="brRegTableQuestion">
+                                Student/Professional
+                            </td>
+                            <td class="brRegTableAnswer">
+                                Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
+                                Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
+                            </td>
+                        </tr>
+                        <tr>
                             <td class="brRegTableQuestion"></td>
                             <td class="brRegTableAnswer">
                             <br/><a class="brRegTableAnswer" href="javascript: document.regForm.submit();">Submit</a>
