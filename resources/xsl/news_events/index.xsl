@@ -53,14 +53,16 @@
             </xsl:call-template>
             
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
+                <tr><td class="bodyText"><div align="right"><A href="/?t=news_events&amp;c=articles">Go to Articles</A></div></td></tr>
+            
                 <tr valign="top">
-                    <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="10" border="0"/><br />          
+                    <td class="bodyText" width="100%">      
                         <table width="100%" border="0" cellpadding="4" cellspacing="0">
 
 <!-- 2003 -->
-                            <tr><td class="statTextBig" bgcolor="#858B91">2003</td></tr>
+                            <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
                             
-                            <tr><td class="prText"><A href="/?&amp;t=news_events&amp;c=pr_05_14_03">TopCoder and Connecticut Association of Schools Announce 2003 TopCoder High School Challenge</A> [May 14]</td></tr>    
+                            <tr><td class="prText"><A href="/?&amp;t=news_events&amp;c=pr_05_14_03">TopCoder and CAS Announce 2003 TopCoder High School Challenge</A> [May 14]</td></tr>    
                            
                             <tr><td class="prText"><A href="/?&amp;t=news_events&amp;c=pr_04_08_03">Duke University's David Arthur Wins 2003 Collegiate Challenge</A> [April 8]</td></tr>    
                         
@@ -69,7 +71,7 @@
                             <tr><td><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
                         
 <!-- 2002 -->
-                            <tr><td class="statTextBig" bgcolor="#858B91">2002</td></tr>
+                            <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2002</font></td></tr>
                             
                             <tr><td class="prText"><A href="/index?t=news_events&amp;c=pr_11_11_02">Sixteen Finalists Announced in 2002 TopCoder Invitational</A> [November 11]</td></tr>
 
@@ -94,7 +96,7 @@
                             <tr><td><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
                         
 <!-- 2001 -->
-                            <tr><td class="statTextBig" bgcolor="#858B91">2001</td></tr> 
+                            <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2001</font></td></tr> 
 
                             <tr><td class="prText"><A href="/index?t=news_events&amp;c=pr_12_10_01">Sun Sponsoring 2002 Collegiate Challenge</A> [December 10]</td></tr>
            
