@@ -250,10 +250,10 @@
 <!-- SD Times Article - Battle Royal for Jobs -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_05_15_03"><img src="/i/pressroom/sd_times_logo.gif" alt="SD Times" width="135" height="44" border="0" /></A></td>
+                    <td width="274"><A href="http://www.sdtimes.com/cols/industrywatch_078.htm" target="_blank"><img src="/i/pressroom/sd_times_logo.gif" alt="SD Times" width="135" height="44" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_05_15_03">Battle royal for jobs</A></strong></font><br />
+                        <p><font size="3"><strong><A href="http://www.sdtimes.com/cols/industrywatch_078.htm" target="_blank">Battle royal for jobs</A></strong></font><br />
                         David Rubinstein of Software Development Times writes, "All right, so it's not Tyson and Lewis. Heck, it's not even a 'Celebrity Death Match' 
                         starring Gates and McNealy. But to the finalists of the TopCoder Collegiate Challenge, victory can mean as much as $50,000, the undying 
                         respect of programming peers, and a possible fast track to employment with one of the industry heavyweights." <span class="prHead">[May 15]</span></p>
@@ -291,10 +291,10 @@
 <!-- DevX Article - International Collegiate Programming Champion talks shop -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_04_23_03"><img src="/i/pressroom/devx_logo.gif" alt="DevX" width="135" height="92" border="0" /></A></td>
+                    <td width="274"><A href="http://www.devx.com/Java/Article/12009" target="_blank"><img src="/i/pressroom/devx_logo.gif" alt="DevX" width="135" height="92" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_04_23_03">International Collegiate Programming Champion talks shop</A></strong></font><br />
+                        <p><font size="3"><strong><A href="http://www.devx.com/Java/Article/12009" target="_blank">International Collegiate Programming Champion talks shop</A></strong></font><br />
                         What first got me involved [with TopCoder] was the money. That did a lot to get me the first time, but it quickly became a lot more than that. There 
                         was a time when I was doing it for not a lot of money because I felt I was getting better at competing, and also it really is a lot of fun to solve these 
                         problems. They're sort of like little puzzles, and it's enjoyable to see what the tricks are [necessary to solve them]. <span class="prHead">[April 23]</span></p>
@@ -308,10 +308,10 @@
 <!-- Princeton EQuad News Article - Newlyweds earn nest egg -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_04_13_03"><img src="/i/pressroom/princeton_equad_logo.gif" alt="Princeton EQuad News" width="135" height="61" border="0" /></A></td>
+                    <td width="274"><A href="http://www.princeton.edu/~seasweb/eqnews/spring03/feature8.html" target="_blank"><img src="/i/pressroom/princeton_equad_logo.gif" alt="Princeton EQuad News" width="135" height="61" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_04_13_03">Newlyweds earn nest egg</A></strong></font><br />
+                        <p><font size="3"><strong><A href="http://www.princeton.edu/~seasweb/eqnews/spring03/feature8.html" target="_blank">Newlyweds earn nest egg</A></strong></font><br />
                         The couple has high aspirations for the ongoing spring competition, particularly for one another. "I think Zhiyan has more potential in the semifinals 
                         than I do," Ruoming said, ignoring Zhiyan's protests to the contrary. "I'm not very comfortable with that style of competition. She's pretty good under 
                         pressure." <span class="prHead">[April 13]</span></p>
@@ -371,10 +371,10 @@
 <!-- Seattle Times - Ex-slacker, PLU Grad is world's smartest guy -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_02_01_03"><img src="/i/pressroom/seattle_times_logo.gif" alt="The Seattle Times" width="135" height="36" border="0" /></A></td>
+                    <td width="274"><A href="http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=smart010&amp;date=20030201&amp;query=PLU+Grad" target="_blank"><img src="/i/pressroom/seattle_times_logo.gif" alt="The Seattle Times" width="135" height="36" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_02_01_03">Ex-slacker, PLU Grad is world's smartest guy </A></strong></font><br />
+                        <p><font size="3"><strong><A href="http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=smart010&amp;date=20030201&amp;query=PLU+Grad" target="_blank">Ex-slacker, PLU Grad is world's smartest guy </A></strong></font><br />
                         By winning, Nierman receives $500, a plaque he expects to hang in his home office for a laugh, a High IQ T-shirt and a lifetime membership in the society. 
                         The monetary award pales in comparison to the $25,000 he won in 2001 by finishing in the top four of [the TopCoder Collegiate Challenge] 
                         computer-programming competition. <span class="prHead">[February 1]</span></p>
