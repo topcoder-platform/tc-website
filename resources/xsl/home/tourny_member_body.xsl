@@ -536,38 +536,28 @@ Tuesday, September 10, 2002<BR/><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;slavik<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Penwiper_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;Penwiper<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 113</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 114</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
-      <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm113_prob</xsl:attribute>
+	<A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm114_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>
-<P>
-SRM 113 had a very difficult and unbalanced problem set - only 6 Div-I coders have successfully completed 
-all three problems. Div-II had even worse results where only one person has completed all thee problems 
-correctly. Especially hard problem was Div-I medium or Div-II hard problem - Lazy Year. The problem statement 
-was easy enough to understand but extremely hard to implement correctly because of numerous special cases and 
-optimizations required to run within 8 seconds time limit.
-</P>
-
-<P>
-The strongest Division-I performance of this match came from <B>SnapDragon</B> (1401.95 points, 78 rating points gain), 
-who beat the next runner up - <B>venco</B> by 133 points who had 1268.58 points. There were 6 coders in Division-I who 
-have moved to Division-II after this SRM and there was one coder who became red - ntrhieu (3rd best in Div-I). 
-</P>
-
-<P>
-Division-II had only one rookie coder <B>uglyfool</B> who has completed all three problems.  Uglyfool was Div-II leader 
-with impressive 1245.53 points, which is by 517 points more, then the next runner up - <B>leadhyena_inran</B>. SRM113 
-placed 20 Div-II coders into Div-I and there was only one rookie coder who won his room uglyfool
-...<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm113_prob</xsl:attribute>get&#160;analysis
+	  <P>
+	  <B>radeye</B> was the top Division I coder by a good margin in this match. He had the highest score on both the level 2 and level 3 problems and was able to successfully challenge <B>mpa's</B> level 2 problem for an additional 50 points. His performance moved him up to 4<SUP>th</SUP> place in the overall TopCoder rankings.
+	  </P>
+	  <P>
+Someone to watch for in upcoming matches will be <B>vorthys.</B> In his debut match, he was able to beat all other Division II coders, and was one of only three people to solve the Division II, level 3 problem. He also successfully challenged two problems for a total of 1404.82 points, giving him an initial ranking of 1861. That ranks him 11th on the Impressive Rating Debuts list.
+	  </P>
+	  <P>
+This problem set was probably a little bit easy for most of the Division I coders, as was evidenced by the high success percentages on the first and second problems. Even I was actually able to solve the first two Division I problems this time. I can't remember the last time I did that! Oh well, nothing like a little confidence booster before the big Invitational next month... 
+	  <A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm114_prob</xsl:attribute>get&#160;analysis
       </A></P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
