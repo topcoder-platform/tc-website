@@ -10,10 +10,11 @@ import com.topcoder.web.query.ejb.QueryServices.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Greg Paul
@@ -38,9 +39,12 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
 
     private String queryName;
 
+    private HashMap attributeQueue;
+
     /* Creates a new LoginTask */
     public ModifyQueryInputTask() {
         super();
+        attributeQueue = new HashMap();
     }
 
 
@@ -69,6 +73,8 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
         i.setDataSource(getDb());
         qi.setDataSource(getDb());
         q.setDataSource(getDb());
+
+        processAttributeQueue();
 
         setQueryName(q.getName(getQueryId()));
 
@@ -111,36 +117,55 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
             } catch (NumberFormatException e) {
                 super.addError(Constants.INPUT_ID_PARAM, e);
             }
-        } else if (paramName.startsWith(Constants.OPTIONAL_PARAM)) {
-            try {
-                long inputId = Long.parseLong(paramName.substring(Constants.OPTIONAL_PARAM.length()));
-                getQueryInput(getCurrentInputList(), inputId).setOptional(value.equals("on"));
-            } catch (NumberFormatException e) {
-                super.addError(Constants.OPTIONAL_PARAM, e);
-            } catch (Exception e) {
-                super.addError(Constants.OPTIONAL_PARAM, e);
-            }
-        } else if (paramName.startsWith(Constants.DEFAULT_VALUE_PARAM)) {
-            try {
-                long inputId = Long.parseLong(paramName.substring(Constants.DEFAULT_VALUE_PARAM.length()));
-                getQueryInput(getCurrentInputList(), inputId).setDefaultValue(value);
-            } catch (NumberFormatException e) {
-                super.addError(Constants.DEFAULT_VALUE_PARAM, e);
-            } catch (Exception e) {
-                super.addError(Constants.DEFAULT_VALUE_PARAM, e);
-            }
-        } else if (paramName.startsWith(Constants.SORT_ORDER_PARAM)) {
-            try {
-                long inputId = Long.parseLong(paramName.substring(Constants.SORT_ORDER_PARAM.length()));
-                getQueryInput(getCurrentInputList(), inputId).setSortOrder(Integer.parseInt(value));
-            } catch (NumberFormatException e) {
-                super.addError(Constants.SORT_ORDER_PARAM, e);
-            } catch (Exception e) {
-                super.addError(Constants.SORT_ORDER_PARAM, e);
+        } else {
+            /*
+             * queue the rest up, we need these fields populated
+             * before we can figure out what to do with the rest
+             */
+            attributeQueue.put(paramName, value);
+        }
+    }
+
+    private void processAttributeQueue() {
+        Iterator it = attributeQueue.entrySet().iterator();
+
+        String paramName = null;
+        String value = null;
+
+        for ( ; it.hasNext(); ) {
+            paramName = ((Map.Entry)it.next()).getKey().toString();
+            value = ((Map.Entry)it.next()).getValue().toString();
+            if (paramName.startsWith(Constants.OPTIONAL_PARAM)) {
+                try {
+                    long inputId = Long.parseLong(paramName.substring(Constants.OPTIONAL_PARAM.length()));
+                    getQueryInput(getCurrentInputList(), inputId).setOptional(value.equals("on"));
+                } catch (NumberFormatException e) {
+                    super.addError(Constants.OPTIONAL_PARAM, e);
+                } catch (Exception e) {
+                    super.addError(Constants.OPTIONAL_PARAM, e);
+                }
+            } else if (paramName.startsWith(Constants.DEFAULT_VALUE_PARAM)) {
+                try {
+                    long inputId = Long.parseLong(paramName.substring(Constants.DEFAULT_VALUE_PARAM.length()));
+                    getQueryInput(getCurrentInputList(), inputId).setDefaultValue(value);
+                } catch (NumberFormatException e) {
+                    super.addError(Constants.DEFAULT_VALUE_PARAM, e);
+                } catch (Exception e) {
+                    super.addError(Constants.DEFAULT_VALUE_PARAM, e);
+                }
+            } else if (paramName.startsWith(Constants.SORT_ORDER_PARAM)) {
+                try {
+                    long inputId = Long.parseLong(paramName.substring(Constants.SORT_ORDER_PARAM.length()));
+                    getQueryInput(getCurrentInputList(), inputId).setSortOrder(Integer.parseInt(value));
+                } catch (NumberFormatException e) {
+                    super.addError(Constants.SORT_ORDER_PARAM, e);
+                } catch (Exception e) {
+                    super.addError(Constants.SORT_ORDER_PARAM, e);
+                }
             }
         }
-
     }
+
 
     /**
      * Looks through the given list of QueryInputBean objects
