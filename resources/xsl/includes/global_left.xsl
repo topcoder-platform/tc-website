@@ -939,19 +939,6 @@
                                 </td>
                             </tr>
 
-            <!-- Project Submission -->
-                            <tr>
-                                <td id="leftSubnav">
-                                    <xsl:attribute name="id">
-                                    <xsl:choose>
-                                        <xsl:when test="$level3='comp_proj_sub'">leftSubnavOn</xsl:when>
-                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
-                                    </xsl:choose>
-                                    </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=multiplier_status</xsl:attribute>Project Submission</A>
-                                </td>
-                            </tr>
-
             <!-- Development Methodology -->
                             <tr>
                                 <td id="leftSubnav">
