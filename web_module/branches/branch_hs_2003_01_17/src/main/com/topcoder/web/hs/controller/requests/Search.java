@@ -116,8 +116,19 @@ public class Search extends Base {
 
   private void populateSearchFromRequest(ServletRequest _request,
                                          SearchBean _sb) {
-    _sb.setStart(getParameterInteger(_request,"start",_sb.getStart()));
-    _sb.setEnd(getParameterInteger(_request,"end",_sb.getEnd()));
+    String next=getParameter(_request,"next","");
+    if (!next.equals("")) {
+      int start=getParameterInteger(_request,"start",_sb.getStart()).intValue();
+      int end=getParameterInteger(_request,"end",_sb.getEnd()).intValue();
+      if (next.equals("true")) {
+        _sb.setStart(new Integer(start+_sb.getMaxResultsPerPage()));
+        _sb.setEnd(new Integer(end+_sb.getMaxResultsPerPage()));
+      }
+      else if (next.equals("false")) {
+        _sb.setStart(new Integer(start-_sb.getMaxResultsPerPage()));
+        _sb.setEnd(new Integer(end-_sb.getMaxResultsPerPage()));
+      }
+    }
     _sb.setHandle(getParameter(_request,"handle",_sb.getHandle()));
     _sb.setMinRating(getParameter(_request,"min_rating",_sb.getMinRating()));
     _sb.setMaxRating(getParameter(_request,"max_rating",_sb.getMaxRating()));
@@ -377,18 +388,6 @@ public class Search extends Base {
       _nfe.printStackTrace();
     }
 
-    String next=getParameter(request,"next","");
-    if (!"".equals(next)) {
-      if ("true".equals(next)) {
-        _sb.setStart(new Integer(_sb.getStart().intValue()+_sb.getMaxResultsPerPage()));
-        _sb.setEnd(new Integer(_sb.getEnd().intValue()+_sb.getMaxResultsPerPage()));
-      }
-      else if ("false".equals(next)) {
-        _sb.setStart(new Integer(_sb.getStart().intValue()-_sb.getMaxResultsPerPage()));
-        _sb.setEnd(new Integer(_sb.getEnd().intValue()-_sb.getMaxResultsPerPage()));
-      }
-    }
-    
     map.put(DataAccessConstants.COMMAND,"member_search");
     map.put(HANDLE_INPUT_CODE,handle_pattern);
     map.put(MIN_RATING_INPUT_CODE,min_rating.toString());
