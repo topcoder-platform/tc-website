@@ -101,7 +101,7 @@ public class Task implements Serializable {
     }
 
     public void setUser(User user) {
-        log.debug("Task.setUser()");
+        log.debug("Task.setUser( " + user + " )");
         if (user != null && (this.user == null || this.user.getUserId() != user.getUserId())) {
             log.debug("...userId=" + user.getUserId());
             this.userChanged = true;
