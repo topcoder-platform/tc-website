@@ -16,8 +16,8 @@
 <body class="body">
 
 <!-- Header begins -->
-<jsp:include page="../includes/top.jsp"/>
-<jsp:include page="../includes/menu.jsp" >
+<jsp:include page="/includes/top.jsp"/>
+<jsp:include page="/includes/menu.jsp" >
     <jsp:param name="isSoftwarePage" value="true"/>
 </jsp:include>
 <!-- Header ends -->
@@ -27,7 +27,7 @@
 
 <!-- Left Column begins -->
         <td width="180" class="leftColumn">
-        <jsp:include page="../includes/left.jsp" >
+        <jsp:include page="/includes/left.jsp" >
             <jsp:param name="level1" value="index"/>
         </jsp:include>
         </td>
@@ -62,7 +62,7 @@
 
 <!-- Right Column begins -->
         <td width="170">
-        <jsp:include page="../includes/right.jsp" >
+        <jsp:include page="/includes/right.jsp" >
             <jsp:param name="level1" value="index"/>
         </jsp:include>
         </td>
@@ -76,7 +76,7 @@
 </table>
 
 <!-- Footer begins -->
-<jsp:include page="../includes/foot.jsp" flush="true" />
+<jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
 </body>
