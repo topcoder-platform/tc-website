@@ -934,8 +934,9 @@ public class ComponentManagerBean
                 if (newForum >= 0) {
 
                     log.debug("New forum created, adding PM to notification.");
-log.debug("projectId="+projectId);
-                    Project project = pt.getProjectById(projectId, requestor);
+
+
+                    User pm = pt.getPM(projectId);
 
                     NotificationHome notificationHome = (NotificationHome)
                                 PortableRemoteObject.narrow(
@@ -944,19 +945,12 @@ log.debug("projectId="+projectId);
 
                     Notification notification = notificationHome.create();
 
-                    if (notification != null) {
-                        if (project == null) {
-                            log.debug("project is null");
-                        } else if (project.getProjectManager() == null) {
-                            log.debug("project.getProjectManager() is null");
-                        } else {
-
-                        notification.createNotification("forum post "+ newForum,
-                                project.getProjectManager().getId(),
-                                notification.FORUM_POST_TYPE_ID);
-                            }
+                    if (pm == null) {
+                        log.debug("The PM can't be retrieved for this project.  Notification not added.");
                     } else {
-                        log.debug("Can't get the notification bean.  The desing winner was not added.");
+                        notification.createNotification("forum post "+ newForum,
+                                pm.getId(),
+                                notification.FORUM_POST_TYPE_ID);
                     }
                 }
 
