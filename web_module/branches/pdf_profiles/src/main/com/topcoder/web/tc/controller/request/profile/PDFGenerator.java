@@ -284,7 +284,7 @@ public class PDFGenerator extends BaseProcessor {
         t.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
         t.addCell(new Phrase("Presented to:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
         
-        if(info.getCompanyLogo().getSize() != 0) {
+        if(info.getCompanyLogo() != null) {
             byte[] b = new byte[(int)info.getCompanyLogo().getSize()];
             info.getCompanyLogo().getInputStream().read(b);
             Image companyLogo = Image.getInstance(b);
