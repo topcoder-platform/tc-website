@@ -17,7 +17,7 @@
   <jsp:include page="top.jsp" />
 
   <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></TR>
+    <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></tr>
     <tr>
       <td width="170" bgcolor="#000000" valign="top">
         <jsp:include page="left.jsp" flush="true">
@@ -32,59 +32,59 @@
             <INPUT TYPE="hidden" NAME="<%=Constants.QUERY_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyQuery" property="QueryId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyQuery" property="Db"/>">
-            <tr><td class="statTextBig" colspan="2"><%=Constants.MODIFY_QUERY_NAME%></td></TR>
+            <tr><td class="statTextBig" colspan="2"><%=Constants.MODIFY_QUERY_NAME%></td></tr>
             <% if (!ModifyQuery.isNewQuery()) { %>
               <tr><td colspan="2" ALIGN="center">
                 <A href="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyQuery" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="ModifyQuery" property="QueryId"/>" class="statText">
                   [edit query input]
                 </A>
-              </TD</TR>
-              <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+              </TD</tr>
+              <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
             <% } %>
             <tr>
               <td class="statText" ALIGN="right">DB:&#160;</td>
               <td class="statText" ALIGN="left">
                   <jsp:getProperty name="ModifyQuery" property="Db"/>
               </td>
-            </TR>
-            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyQuery%>" key="<%=Constants.QUERY_NAME_PARAM%>"/></td></TR>
+            </tr>
+            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyQuery%>" key="<%=Constants.QUERY_NAME_PARAM%>"/></td></tr>
              <tr>
               <td class="statText" ALIGN="right" width="50%">Name: </td>
               <td class="statText" ALIGN="left" width="50%">
                 <input type="text" name="<%=Constants.QUERY_NAME_PARAM%>" value ="<jsp:getProperty name="ModifyQuery" property="Name" />" size="30" maxlength="100"/>
               </td>
-            </TR>
-            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+            </tr>
+            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
             <tr>
               <td class="statText" ALIGN="right">Ranking: </td>
               <td class="statText" ALIGN="left">
                 <query:booleanSelect name="<%=Constants.RANKING_PARAM%>" class="bodyText" selectedValue='<%=ModifyQuery.isRanking()?"true":"false"%>'/>
               </td>
-            </TR>
-            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyQuery%>" key="<%=Constants.COLUMN_INDEX_PARAM%>"/></td></TR>
+            </tr>
+            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyQuery%>" key="<%=Constants.COLUMN_INDEX_PARAM%>"/></td></tr>
             <tr>
               <td class="statText" ALIGN="right" width="50%">Column Index: </td>
               <td class="statText" ALIGN="left" width="50%">
                 <input type="text" name="<%=Constants.COLUMN_INDEX_PARAM%>" value ="<jsp:getProperty name="ModifyQuery" property="ColumnIndex" />" size="3" maxlength="3"/>
               </td>
-            </TR>
-            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyQuery%>" key="<%=Constants.QUERY_TEXT_PARAM%>"/></td></TR>
+            </tr>
+            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyQuery%>" key="<%=Constants.QUERY_TEXT_PARAM%>"/></td></tr>
             <tr>
               <td class="statText" ALIGN="left" colspan="2">Query Text:<BR/>
                 <TEXTAREA COLS="80" ROWS="30" WRAP="off" NAME="<%=Constants.QUERY_TEXT_PARAM%>"><jsp:getProperty name="ModifyQuery" property="Text"/></TEXTAREA>
               </td>
-            </TR>
-            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+            </tr>
+            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
             <tr>
               <td class="statText" ALIGN="center" colspan="2">
                 <A href="javascript:void document.ModQueryForm.submit()" class="statText">
                   [save]
                 </A>
               </td>
-            </TR>
+            </tr>
           <FORM>
         </table>
       </td>
@@ -92,7 +92,7 @@
       <td width="10" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="10" height="1" border="0"><BR>
       </td>
       <td width="25" bgcolor="#000000"><img src="/i/clear.gif" width="25" height="1" border="0"></td>
-    </TR>
+    </tr>
   </table>
   <jsp:include page="bottom.jsp" />
   </BODY>

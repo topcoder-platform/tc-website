@@ -21,7 +21,7 @@ isErrorPage="true"
  <td bgcolor="#CCCCCC" width="10"><img height="1" width="10" src="/i/clear.gif"></td>
  <td valign="top" bgcolor="#CCCCCC" width="100%"><img height="1" width="170" src="/i/clear.gif"><BR></td>
  <td bgcolor="#CCCCCC" width="25"><img border="0" height="1" width="25" src="/i/clear.gif"></td>
- </TR>
+ </tr>
  </table>
 </body>
 </html>

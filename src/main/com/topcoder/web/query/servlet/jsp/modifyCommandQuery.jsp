@@ -17,7 +17,7 @@
   <jsp:include page="top.jsp" />
 
   <table bgcolor="#000000" width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></TR>
+    <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></tr>
     <tr>
       <td width="170" valign="top">
         <jsp:include page="left.jsp" flush="true">
@@ -32,15 +32,15 @@
             <INPUT TYPE="hidden" NAME="<%=Constants.COMMAND_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommandQuery" property="CommandId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommandQuery" property="Db"/>">
-            <tr><td class="statTextBig" colspan="2"><%=Constants.MODIFY_COMMAND_QUERY_NAME%></td></TR>
-            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
-            <tr><td class="statTextBig" colspan="2" ALIGN="center">Command: <jsp:getProperty name="ModifyCommandQuery" property="CommandDesc"/></td></TR>
-            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+            <tr><td class="statTextBig" colspan="2"><%=Constants.MODIFY_COMMAND_QUERY_NAME%></td></tr>
+            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
+            <tr><td class="statTextBig" colspan="2" ALIGN="center">Command: <jsp:getProperty name="ModifyCommandQuery" property="CommandDesc"/></td></tr>
+            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
             <tr>
               <td class="statText" ALIGN="center" colspan="2">DB: <jsp:getProperty name="ModifyCommandQuery" property="Db"/></td>
-            </TR>
-            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyCommandQuery%>" key="<%=Constants.COMMAND_ID_PARAM%>"/></td></TR>
+            </tr>
+            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyCommandQuery%>" key="<%=Constants.COMMAND_ID_PARAM%>"/></td></tr>
             <tr>
               <td colspan="2">
                 <table width="100%" bgcolor="#000000" border="0" cellpadding="0" cellspacing="0">
@@ -49,10 +49,10 @@
                     <td class="statTextBig">Query</td>
                     <td class="statTextBig">Sort Order</td>
                     <td class="statTextBig"></td>
-                  </TR>
-                  <tr><td colspan="4"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+                  </tr>
+                  <tr><td colspan="4"><img src="/i/clear.gif" width="4" height="8"></td></tr>
                   <query:commandQueryIterator id="commandQuery" list="<%=ModifyCommandQuery.getCurrentQueryList()%>">
-                    <tr><td class="errorText" colspan="4"><query:error task="<%=ModifyCommandQuery%>" key="<%=Constants.SORT_ORDER_PARAM+commandQuery.getQueryId()%>"/></td></TR>
+                    <tr><td class="errorText" colspan="4"><query:error task="<%=ModifyCommandQuery%>" key="<%=Constants.SORT_ORDER_PARAM+commandQuery.getQueryId()%>"/></td></tr>
                     <tr>
                       <td class="statTextBig">
                         <A href="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommandQuery" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="commandQuery" property="QueryId"/>" class="statText">
@@ -68,8 +68,8 @@
                           [remove]
                         </A>
                       </td>
-                    </TR>
-                  <tr><td colspan="4"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+                    </tr>
+                  <tr><td colspan="4"><img src="/i/clear.gif" width="4" height="8"></td></tr>
                   </query:commandQueryIterator>
                   <tr>
                     <td class="statTextBig" colspan="7" ALIGN="center">
@@ -77,25 +77,25 @@
                           [save]
                         </A>
                     </td>
-                  </TR>
-                  <tr><td colspan="4"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+                  </tr>
+                  <tr><td colspan="4"><img src="/i/clear.gif" width="4" height="8"></td></tr>
                 </table>
               </td>
-            </TR>
-           <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyCommandQuery%>" key="<%=Constants.QUERY_ID_PARAM%>"/></td></TR>
+            </tr>
+           <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyCommandQuery%>" key="<%=Constants.QUERY_ID_PARAM%>"/></td></tr>
            <tr>
              <td class="statTextBig" colspan="2" ALIGN="center">
                <query:querySelect name="<%=Constants.QUERY_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandQuery.getOtherQueryList()%>" size="30" multiple="false"/>
              </td>
-           </TR>
-           <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+           </tr>
+           <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
            <tr>
              <td class="statTextBig" colspan="2" ALIGN="center">
                <A href="javascript: document.ModifyCommandQueryForm.<%=Constants.STEP_PARAM%>.value='<%=Constants.NEW_STEP%>';void document.ModifyCommandQueryForm.submit();" class="statText">
                  [add]
                </A>
              </td>
-           </TR>
+           </tr>
            <FORM>
         </table>
       </td>
@@ -103,7 +103,7 @@
       <td width="10" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="10" height="1" border="0"><BR>
       </td>
       <td width="25" bgcolor="#000000"><img src="/i/clear.gif" width="25" height="1" border="0"></td>
-    </TR>
+    </tr>
   </table>
   <jsp:include page="bottom.jsp" />
   </BODY>

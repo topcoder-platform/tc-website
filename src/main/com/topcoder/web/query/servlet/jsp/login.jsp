@@ -34,41 +34,41 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="132" ALIGN="center">
                   <tr>
                     <td class="statTextBig" valign="top" height="14">Handle:</td>
-                  </TR>
+                  </tr>
                   <tr>
                     <td height="25" valign="TOP">
                       <INPUT MAXLENGTH="15" SIZE="15" NAME="<%=Constants.HANDLE_PARAM%>" TYPE="TEXT" VALUE="<jsp:getProperty name="Login" property="HandleInput" />">
                     </td>
-                  </TR>
+                  </tr>
                   <tr>
                     <td class="statTextBig" valign="top" height="14">Password:</td>
-                  </TR>
+                  </tr>
                   <tr>
                     <td height="25" valign="TOP">
                       <INPUT MAXLENGTH="15" SIZE="15" NAME="<%=Constants.PASSWORD_PARAM%>" TYPE="Password" VALUE="">
                     </td>
-                  </TR>
+                  </tr>
                   <tr>
                     <td class="statTextBig" valign="top">
                       <A href="Javascript:void document.login.submit();" class="statTextBig">Login &gt;&gt;</A>
                     </td>
-                  </TR>
+                  </tr>
                 </table>
               </FORM>
               <P><BR></P>
     </td>
     <td valign="top" width="10"><img src="/i/clear.gif" ALT="" width="10" height="1" border="0"/></td>
-  </TR>
+  </tr>
   <tr>
     <td colspan="4" valign="top" bgcolor="#000000" width="100%"><img src="/i/clear.gif" ALT="" width="1" height="10" border="0"/></td>
-  </TR>
+  </tr>
 </table>
     </td>
       <td width="4" bgcolor="#000000"><img src="/i/clear.gif" width="4" height="1" border="0"></td>
       <td width="10" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="10" height="1" border="0"><BR>
       </td>
       <td width="25" bgcolor="#000000"><img src="/i/clear.gif" width="25" height="1" border="0"></td>
-    </TR>
+    </tr>
   </table>
   <jsp:include page="bottom.jsp" />
   </BODY>
