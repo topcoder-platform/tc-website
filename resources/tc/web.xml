@@ -93,6 +93,11 @@
         <display-name>legacyMain</display-name>
         <description>The main controller servlet</description>
         <servlet-class>com.topcoder.web.tc.controller.legacy.MainServlet</servlet-class>
+        <init-param>
+            <param-name>error_page</param-name>
+            <param-value>/errorPage.jsp</param-value>
+            <description>where to forward for errors</description>
+        </init-param>
     </servlet>
 
     <servlet>
