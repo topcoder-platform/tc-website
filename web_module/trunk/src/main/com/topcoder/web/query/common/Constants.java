@@ -33,6 +33,7 @@ public class Constants {
     public static String PASSWORD_PARAM;
     public static String DB_PARAM;
     public static String COMMAND_ID_PARAM;
+    public static String COMMAND_GROUP_ID_PARAM;
     public static String QUERY_ID_PARAM;
     public static String INPUT_ID_PARAM;
     public static String GROUP_ID_PARAM;
@@ -113,6 +114,7 @@ public class Constants {
         PASSWORD_PARAM = servletConfig.getInitParameter("password_param");
         DB_PARAM = servletConfig.getInitParameter("db_param");
         COMMAND_ID_PARAM = servletConfig.getInitParameter("command_id_param");
+        COMMAND_GROUP_ID_PARAM = servletConfig.getInitParameter("command_group_id_param");
         QUERY_ID_PARAM = servletConfig.getInitParameter("query_id_param");
         INPUT_ID_PARAM = servletConfig.getInitParameter("input_id_param");
         GROUP_ID_PARAM = servletConfig.getInitParameter("group_id_param");
