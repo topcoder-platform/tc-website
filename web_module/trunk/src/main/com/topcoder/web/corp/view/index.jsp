@@ -44,7 +44,7 @@
                 <tr valign="top">
                     <td width="33%" class="bodyText">
                         <h1 class="bodyTitle"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=index">Candidate Testing</a></h1>
-                        <p>TopCoder's Candidate Testing Application allows you to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=corp&d3=testing&d3=index"><strong>test the technical abilities</strong></a>
+                        <p>TopCoder's Candidate Testing Application allows you to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=index"><strong>test the technical abilities</strong></a>
                         of candidates during the interview process, thereby reducing the time incurred by in-house engineers.  You can choose problem sets to test candidates' problem 
                         solving skills with scenarios that mirror on-the-job issues.  Instead of only assessing an employee's skills months after the hire date, detailed statistics and all 
                         submitted code are available to you during the interview process as a way to measure and compare candidates.  This information drastically reduces the time and 
