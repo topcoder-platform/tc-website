@@ -85,11 +85,10 @@ public class GoogleRegSubmit extends FullRegSubmit {
 
     protected void setNextPage() {
         //reg closed
-/*
         setNextPage(Constants.GOOGLE_REG_CLOSED_PAGE);
         setIsNextPageInContext(true);
-*/
 
+/*
         if (isEligible((FullRegInfo)regInfo)) {
             if (hasErrors()) {
                 setNextPage(Constants.GOOGLE_REG_PAGE);
@@ -111,6 +110,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
         } else {
             throw new RuntimeException("impossible, isEligible returned false, fix the code");
         }
+*/
 
     }
 

@@ -5,10 +5,9 @@ import com.topcoder.web.privatelabel.Constants;
 public class GoogleRegConfirm extends FullRegConfirm {
     protected void setNextPage() {
         //reg closed
-/*
         setNextPage(Constants.GOOGLE_REG_CLOSED_PAGE);
         setIsNextPageInContext(true);
-*/
+/*
 
         if (hasErrors()) {
             setNextPage(Constants.GOOGLE_REG_DEMOG_PAGE);
@@ -16,6 +15,7 @@ public class GoogleRegConfirm extends FullRegConfirm {
             setNextPage(Constants.GOOGLE_REG_CONFIRM_PAGE);
         }
         setIsNextPageInContext(true);
+*/
 
     }
 }
