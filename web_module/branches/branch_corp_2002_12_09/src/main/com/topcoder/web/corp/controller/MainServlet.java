@@ -111,12 +111,12 @@ public class MainServlet extends HttpServlet {
                 log.debug("user [id="+tcUser.getUserId()+"] has not enough "+
                     "permissions to work with module "+processorClassName
                 );
-//                if (authToken.getActiveUser().isAnonymous()) {
-//                    log.debug("unauthorized user not logged in, forwarding"+
-//                               "to login page");
-//                    fetchLoginPage(request,response);
-//                    return;
-//                }
+                if (authToken.getActiveUser().isAnonymous()) {
+                    log.debug("unauthorized user not logged in, forwarding"+
+                               "to login page");
+                    fetchLoginPage(request,response);
+                    return;
+                }
                 throw new NotAuthorizedException("Not enough permissions to "+
                     "work with requested module"
                 );
