@@ -62,7 +62,7 @@
 <!-- Tab bar links-->
             <xsl:call-template name="tco03_links">
                 <xsl:with-param name="selectedContest">component</xsl:with-param>
-                <xsl:with-param name="selectedTab">competitors</xsl:with-param>
+                <xsl:with-param name="selectedTab">advancers</xsl:with-param>
             </xsl:call-template>
 
 <!-- Tab bar sub links-->
