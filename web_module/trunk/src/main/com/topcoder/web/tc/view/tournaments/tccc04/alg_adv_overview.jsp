@@ -58,7 +58,7 @@
                 <tr>
                     <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=seed">Seed</a></td>
                     <td width = "15%" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=handle_sort">Handle</a></td>
-                    <td width = "5%" align = "right" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=desc&sc=rating">Rating</a></td>
+                    <td width = "5%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=desc&sc=rating">Rating</a></td>
                     <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=round1_sort">Round 1</a></td>
                     <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=round2_sort">Round 2</a></td>
                     <td width = "10%" align = "center" class="brac_head"><a class="topLink" href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true&sd=asc&sc=round3_sort">Round 3</a></td>
@@ -72,7 +72,7 @@
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
 <td align="center" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="seed" row="<%=resultRow%>"/></td>
 <td class="<%=even?"formHandleEven":"formHandleOdd"%>" ><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
-<td class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="rating" row="<%=resultRow%>"/></td>
+<td align="center" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="rating" row="<%=resultRow%>"/></td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
 <td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round1" row="<%=resultRow%>"/></td>
 <% } else { %>
