@@ -55,11 +55,13 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
                         "Profile Name must be set");
             }
 
+            /*
             if(info.getTestSetB().length == 0) {
                 success = false;
                 errorMap.put(Constants.TEST_SET_B, 
                         "Test Set B must have at least one problem");
             }
+            */
 
             if(info.getLanguage().length == 0) {
                 success = false;
