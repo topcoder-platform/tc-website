@@ -134,9 +134,12 @@ public abstract class BaseEJB implements SessionBean {
         }
     }
 
-    protected int update(String tableName, String[] colNames, String[] colValues, String dataSource) {
+    protected int update(String tableName, String[] colNames, String[] colValues,
+                         String[] constraintNames, String[] constraintValues, String dataSource) {
         if (colNames.length!=colValues.length)
             throw new IllegalArgumentException("name and value arrays don't have the same number of elements.");
+        else if (constraintNames.length!=constraintValues.length)
+            throw new IllegalArgumentException("contraint name and value arrays don't have the same number of elements.");
         else {
             StringBuffer query = new StringBuffer(200);
             query.append("update ").append(tableName).append(" set ");
@@ -144,6 +147,12 @@ public abstract class BaseEJB implements SessionBean {
                 query.append(colNames[i]).append(" = ?");
                 if (colNames.length>1 && i!=colNames.length-1)
                     query.append(", ");
+            }
+            query.append(" where ");
+            for (int i=0; i<constraintNames.length; i++) {
+                query.append(constraintNames[i]).append(" = ?");
+                if (constraintNames.length>1 && i!=constraintNames.length-1)
+                    query.append(" and ");
             }
 
             log.debug(query);
