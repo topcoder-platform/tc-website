@@ -10,12 +10,12 @@ import com.topcoder.web.tces.common.*;
 import com.topcoder.web.tces.ejb.TCESServices.TCESServices;
 import com.topcoder.web.tces.ejb.TCESServices.TCESServicesHome;
 
+
 import javax.naming.InitialContext;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.*;
-import java.text.*;
 
 /**
  * A basic implementation of Task.
@@ -66,19 +66,31 @@ log.debug("next page -> "+nextPage);
 
     public abstract void setAttributes(String paramName, String paramValues[]);
 
-    public String dateToString(TCTimestampResult timestamp) {
-        StringTokenizer tok1 = new StringTokenizer(
-                (timestamp.toString()));
-        StringTokenizer token = new StringTokenizer(
-                (String) tok1.nextElement(), "-");
+    public String getDate(ResultSetContainer.ResultSetRow row,
+                                     String key) {
+        String defaultVal = "00/00/0000";
+        try {
+            StringTokenizer tok1 = new StringTokenizer(
+                    ((TCTimestampResult) row.getItem(key)).toString());
+            StringTokenizer token = new StringTokenizer(
+                    (String) tok1.nextElement(), "-");
 
-        String year = (String) token.nextElement();
-        String returnString = "";
-        while (token.hasMoreElements()) {
-            returnString += (String) token.nextElement() + "/";
+            String year = (String) token.nextElement();
+            String returnString = "";
+            while (token.hasMoreElements()) {
+                returnString += (String) token.nextElement() + "/";
+            }
+
+            return returnString + year;
+        } catch (Exception e) {
+            log.debug("getTCDate got excepted with key=" + key);
+            e.printStackTrace();
+
+            if (defaultVal != null && defaultVal.equals("00/00/00"))
+                return "00/00/0000";
+            else
+                return defaultVal;
         }
-
-        return returnString + year;
     }
 
 }

@@ -149,7 +149,7 @@ log.debug("setting most recent hit = "+mostRecentHit);
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Hit_Info");
         ResultSetContainer.ResultSetRow cpgnHitsRow = rsc.getRow(0);
         setTotalHits( ((Long)cpgnHitsRow.getItem("total_hits").getResultData()).toString() );
-        setMostRecentHit( dateToString((TCTimestampResult) cpgnHitsRow.getItem("most_recent")) );
+        setMostRecentHit( getDate(cpgnHitsRow,"most_recent") );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
         if (rsc.getRowCount() == 0) {
@@ -169,7 +169,7 @@ log.debug("setting most recent hit = "+mostRecentHit);
             position.put("hit_count",
                          ((Long)posListRow.getItem("hit_count").getResultData()).toString() );
             position.put("most_recent",
-                         dateToString((TCTimestampResult) posListRow.getItem("most_recent").getResultData()) );
+                          getDate( posListRow, "most_recent") );
             position.put("job_id",
                          ((Long)posListRow.getItem("job_id").getResultData()).toString() );
 
