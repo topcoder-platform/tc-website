@@ -1731,6 +1731,7 @@ public class Registration
                         currentSchool.setModified("U");
                     }
                     long schoolId = 0;
+                    log.debug(" school is " + school);
                     if (isNumber(school) && Integer.parseInt(school) != 0) {
                         log.debug("it's a known school " + school);
                         schoolId = Integer.parseInt(school);
