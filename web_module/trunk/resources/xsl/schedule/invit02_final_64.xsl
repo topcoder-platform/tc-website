@@ -58,7 +58,7 @@
         <xsl:call-template name="invit02_links"/>
   <!-- Coder of the Week Pulldown Ends -->
   <BR/><BR/>
-  <P CLASS="bodyText">The following competitors have advanced from to the next round. </P>
+  <P CLASS="statText">The following competitors have advanced from to the next round. </P>
  <TABLE WIDTH="508" CELLSPACING="0" CELLPADDING="0" BORDER="0">
     <TR>
         <TD VALIGN="top"><IMG SRC="/i/invite02_final64_1.jpg" BORDER="0"/></TD>
