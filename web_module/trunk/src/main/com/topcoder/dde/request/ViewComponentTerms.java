@@ -23,12 +23,9 @@ public class ViewComponentTerms extends BaseProcessor {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
-            NamingEnumeration ne = getInitialContext().list("local:");
-            while(ne.hasMore()) {
-                log.debug(ne.next().toString());
-            }
+            log.debug("name : " + getInitialContext().lookup(UserManagerLocalHome.EJB_REF_NAME).getClass().getName());
             UserManagerLocalHome userManagerHome = (UserManagerLocalHome)
-                    getInitialContext().lookup("dde/UserManager");
+                    getInitialContext().lookup(UserManagerLocalHome.EJB_REF_NAME);
             UserManagerLocal userManager = userManagerHome.create();
 
             getRequest().setAttribute(Constants.TERMS, userManager.getComponentTerms());
