@@ -56,13 +56,10 @@ if ( plugin ) {
 
 <!-- Center Column Begins -->
          <td class="cardCell" WIDTH="100%" align="center">
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="cards"/>
-           <jsp:param name="image1" value="white"/>
-           <jsp:param name="title" value="Card Preview"/>
-        </jsp:include>
 
          <div class="cardBody">
+
+            <div class="pageTitle"><img src="/i/card/title.gif" border=0/></div>
 
                     <p>This is a preview of what your card will look like. It will always accurately portray your algorithm, design, and development statistics. Before you can post your TopCoder Member Card to your site you will have to "unlock" it by clicking the link below.</p>
 
