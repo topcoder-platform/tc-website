@@ -79,14 +79,15 @@ public class TCLoadCoders extends TCLoad {
     private void getLastUpdateTime() throws Exception {
         Statement stmt = null;
         ResultSet rs = null;
+        StringBuffer query = null;
 
-        fSql.setLength(0);
-        fSql.append("select timestamp from update_log where log_id = ");
-        fSql.append("(select max(log_id) from update_log where log_type_id = " + CODER_LOG_TYPE + ")");
+        query = new StringBuffer(100);
+        query.append("select timestamp from update_log where log_id = ");
+        query.append("(select max(log_id) from update_log where log_type_id = " + CODER_LOG_TYPE + ")");
 
         try {
             stmt = createStatement(TARGET_DB);
-            rs = stmt.executeQuery(fSql.toString());
+            rs = stmt.executeQuery(query.toString());
             if (rs.next()) {
                 fLastLogTime = rs.getTimestamp(1);
                 log.info("Date is " + fLastLogTime.toString());
@@ -117,6 +118,7 @@ public class TCLoadCoders extends TCLoad {
         PreparedStatement psIns = null;
         PreparedStatement psUpd = null;
         PreparedStatement psSel2 = null;
+        StringBuffer query = null;
 
         ResultSet rs = null;
         ResultSet rs2 = null;
@@ -125,142 +127,142 @@ public class TCLoadCoders extends TCLoad {
 
         try {
             // Our select statement
-            fSql.setLength(0);
-            fSql.append("SELECT c.coder_id ");                  // 1
-            fSql.append("       ,c.state_code ");               // 2
-            fSql.append("       ,c.country_code ");             // 3
-            fSql.append("       ,c.first_name ");               // 4
-            fSql.append("       ,c.last_name ");                // 5
-            fSql.append("       ,c.home_phone ");               // 6
-            fSql.append("       ,c.work_phone ");               // 7
-            fSql.append("       ,c.address1 ");                 // 8
-            fSql.append("       ,c.address2 ");                 // 9
-            fSql.append("       ,c.city ");                     // 10
-            fSql.append("       ,c.zip ");                      // 11
-            fSql.append("       ,c.middle_name ");              // 12
-            fSql.append("       ,c.activation_code ");          // 13
-            fSql.append("       ,c.member_since ");             // 14
-            fSql.append("       ,c.notify ");                   // 15
-            fSql.append("       ,c.quote ");                    // 16
-            fSql.append("       ,c.employer_search ");          // 17
-            fSql.append("       ,c.relocate ");                 // 18
-            fSql.append("       ,CURRENT ");                    // 19
-            fSql.append("       ,c.editor_id ");                // 20
-            fSql.append("       ,c.notify_inquiry ");           // 21
-            fSql.append("       ,c.language_id ");              // 22
-            fSql.append("       ,c.coder_type_id ");            // 23
-            fSql.append("       ,u.handle ");                   // 24
-            fSql.append("       ,u.password ");                 // 25
-            fSql.append("       ,u.status ");                   // 26
-            fSql.append("       ,u.email ");                    // 27
-            fSql.append("       ,u.terms ");                    // 28
-            fSql.append("       ,u.last_login ");               // 29
-            fSql.append("       ,(SELECT rs.region_code ");     // 30
-            fSql.append("           FROM region_state rs ");
-            fSql.append("          WHERE c.state_code = rs.state_code ");
-            fSql.append("          AND rs.user_type_id = 3) ");
-            fSql.append("       ,c.image ");                    // 31
-            fSql.append("  FROM coder c ");
-            fSql.append("       ,user u ");
-            fSql.append(" WHERE c.coder_id = u.user_id ");
-            fSql.append("   AND c.modify_date > ?");
-            fSql.append("   AND EXISTS (SELECT * FROM group_user gu WHERE gu.user_id = u.user_id AND gu.group_id = 10)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = c.coder_id ");
-            fSql.append("           AND gu.group_id = 13)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = c.coder_id ");
-            fSql.append("           AND gu.group_id = 14)");
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT c.coder_id ");                  // 1
+            query.append("       ,c.state_code ");               // 2
+            query.append("       ,c.country_code ");             // 3
+            query.append("       ,c.first_name ");               // 4
+            query.append("       ,c.last_name ");                // 5
+            query.append("       ,c.home_phone ");               // 6
+            query.append("       ,c.work_phone ");               // 7
+            query.append("       ,c.address1 ");                 // 8
+            query.append("       ,c.address2 ");                 // 9
+            query.append("       ,c.city ");                     // 10
+            query.append("       ,c.zip ");                      // 11
+            query.append("       ,c.middle_name ");              // 12
+            query.append("       ,c.activation_code ");          // 13
+            query.append("       ,c.member_since ");             // 14
+            query.append("       ,c.notify ");                   // 15
+            query.append("       ,c.quote ");                    // 16
+            query.append("       ,c.employer_search ");          // 17
+            query.append("       ,c.relocate ");                 // 18
+            query.append("       ,CURRENT ");                    // 19
+            query.append("       ,c.editor_id ");                // 20
+            query.append("       ,c.notify_inquiry ");           // 21
+            query.append("       ,c.language_id ");              // 22
+            query.append("       ,c.coder_type_id ");            // 23
+            query.append("       ,u.handle ");                   // 24
+            query.append("       ,u.password ");                 // 25
+            query.append("       ,u.status ");                   // 26
+            query.append("       ,u.email ");                    // 27
+            query.append("       ,u.terms ");                    // 28
+            query.append("       ,u.last_login ");               // 29
+            query.append("       ,(SELECT rs.region_code ");     // 30
+            query.append("           FROM region_state rs ");
+            query.append("          WHERE c.state_code = rs.state_code ");
+            query.append("          AND rs.user_type_id = 3) ");
+            query.append("       ,c.image ");                    // 31
+            query.append("  FROM coder c ");
+            query.append("       ,user u ");
+            query.append(" WHERE c.coder_id = u.user_id ");
+            query.append("   AND c.modify_date > ?");
+            query.append("   AND EXISTS (SELECT * FROM group_user gu WHERE gu.user_id = u.user_id AND gu.group_id = 10)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = c.coder_id ");
+            query.append("           AND gu.group_id = 13)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = c.coder_id ");
+            query.append("           AND gu.group_id = 14)");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             // Our insert statement
-            fSql.setLength(0);
-            fSql.append("INSERT INTO coder ");
-            fSql.append("      (coder_id ");                   // 1
-            fSql.append("       ,state_code ");                // 2
-            fSql.append("       ,country_code ");              // 3
-            fSql.append("       ,first_name ");                // 4
-            fSql.append("       ,last_name ");                 // 5
-            fSql.append("       ,home_phone ");                // 6
-            fSql.append("       ,work_phone ");                // 7
-            fSql.append("       ,address1 ");                  // 8
-            fSql.append("       ,address2 ");                  // 9
-            fSql.append("       ,city ");                      // 10
-            fSql.append("       ,zip ");                       // 11
-            fSql.append("       ,middle_name ");               // 12
-            fSql.append("       ,activation_code ");           // 13
-            fSql.append("       ,member_since ");              // 14
-            fSql.append("       ,notify ");                    // 15
-            fSql.append("       ,quote ");                     // 16
-            fSql.append("       ,employer_search ");           // 17
-            fSql.append("       ,relocate ");                  // 18
-            fSql.append("       ,modify_date ");               // 19
-            fSql.append("       ,editor_id ");                 // 20
-            fSql.append("       ,notify_inquiry ");            // 21
-            fSql.append("       ,language_id ");               // 22
-            fSql.append("       ,coder_type_id ");             // 23
-            fSql.append("       ,handle ");                    // 24
-            fSql.append("       ,password ");                  // 25
-            fSql.append("       ,status ");                    // 26
-            fSql.append("       ,email ");                     // 27
-            fSql.append("       ,terms ");                     // 28
-            fSql.append("       ,last_login ");                // 29
-            fSql.append("       ,coder_region_code ");         // 30
-            fSql.append("       ,image) ");                    // 31
-            fSql.append("VALUES (");
-            fSql.append("?,?,?,?,?,?,?,?,?,?,");  // 10
-            fSql.append("?,?,?,?,?,?,?,?,?,?,");  // 20
-            fSql.append("?,?,?,?,?,?,?,?,?,?,");  // 30
-            fSql.append("?)");                    // 31 total values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO coder ");
+            query.append("      (coder_id ");                   // 1
+            query.append("       ,state_code ");                // 2
+            query.append("       ,country_code ");              // 3
+            query.append("       ,first_name ");                // 4
+            query.append("       ,last_name ");                 // 5
+            query.append("       ,home_phone ");                // 6
+            query.append("       ,work_phone ");                // 7
+            query.append("       ,address1 ");                  // 8
+            query.append("       ,address2 ");                  // 9
+            query.append("       ,city ");                      // 10
+            query.append("       ,zip ");                       // 11
+            query.append("       ,middle_name ");               // 12
+            query.append("       ,activation_code ");           // 13
+            query.append("       ,member_since ");              // 14
+            query.append("       ,notify ");                    // 15
+            query.append("       ,quote ");                     // 16
+            query.append("       ,employer_search ");           // 17
+            query.append("       ,relocate ");                  // 18
+            query.append("       ,modify_date ");               // 19
+            query.append("       ,editor_id ");                 // 20
+            query.append("       ,notify_inquiry ");            // 21
+            query.append("       ,language_id ");               // 22
+            query.append("       ,coder_type_id ");             // 23
+            query.append("       ,handle ");                    // 24
+            query.append("       ,password ");                  // 25
+            query.append("       ,status ");                    // 26
+            query.append("       ,email ");                     // 27
+            query.append("       ,terms ");                     // 28
+            query.append("       ,last_login ");                // 29
+            query.append("       ,coder_region_code ");         // 30
+            query.append("       ,image) ");                    // 31
+            query.append("VALUES (");
+            query.append("?,?,?,?,?,?,?,?,?,?,");  // 10
+            query.append("?,?,?,?,?,?,?,?,?,?,");  // 20
+            query.append("?,?,?,?,?,?,?,?,?,?,");  // 30
+            query.append("?)");                    // 31 total values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
             // Our update statement
-            fSql.setLength(0);
-            fSql.append("UPDATE coder ");
-            fSql.append("   SET state_code = ? ");                 // 1
-            fSql.append("       ,country_code = ? ");              // 2
-            fSql.append("       ,first_name = ? ");                // 3
-            fSql.append("       ,last_name = ? ");                 // 4
-            fSql.append("       ,home_phone = ? ");                // 5
-            fSql.append("       ,work_phone = ? ");                // 6
-            fSql.append("       ,address1 = ? ");                  // 7
-            fSql.append("       ,address2 = ? ");                  // 8
-            fSql.append("       ,city = ? ");                      // 9
-            fSql.append("       ,zip = ? ");                       // 10
-            fSql.append("       ,middle_name = ? ");               // 11
-            fSql.append("       ,activation_code = ? ");           // 12
-            fSql.append("       ,member_since = ? ");              // 13
-            fSql.append("       ,notify = ? ");                    // 14
-            fSql.append("       ,quote = ? ");                     // 15
-            fSql.append("       ,employer_search = ? ");           // 16
-            fSql.append("       ,relocate = ? ");                  // 17
-            fSql.append("       ,modify_date = ? ");               // 18
-            fSql.append("       ,editor_id = ? ");                 // 19
-            fSql.append("       ,notify_inquiry = ? ");            // 20
-            fSql.append("       ,language_id = ? ");               // 21
-            fSql.append("       ,coder_type_id = ? ");             // 22
-            fSql.append("       ,handle = ? ");                    // 23
-            fSql.append("       ,password = ? ");                  // 24
-            fSql.append("       ,status = ? ");                    // 25
-            fSql.append("       ,email = ? ");                     // 26
-            fSql.append("       ,terms = ? ");                     // 27
-            fSql.append("       ,last_login = ? ");                // 28
-            fSql.append("       ,coder_region_code = ? ");         // 29
-            fSql.append("       ,image = ? ");                     // 30
-            fSql.append("WHERE coder_id = ?");                     // 31
-            psUpd = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("UPDATE coder ");
+            query.append("   SET state_code = ? ");                 // 1
+            query.append("       ,country_code = ? ");              // 2
+            query.append("       ,first_name = ? ");                // 3
+            query.append("       ,last_name = ? ");                 // 4
+            query.append("       ,home_phone = ? ");                // 5
+            query.append("       ,work_phone = ? ");                // 6
+            query.append("       ,address1 = ? ");                  // 7
+            query.append("       ,address2 = ? ");                  // 8
+            query.append("       ,city = ? ");                      // 9
+            query.append("       ,zip = ? ");                       // 10
+            query.append("       ,middle_name = ? ");               // 11
+            query.append("       ,activation_code = ? ");           // 12
+            query.append("       ,member_since = ? ");              // 13
+            query.append("       ,notify = ? ");                    // 14
+            query.append("       ,quote = ? ");                     // 15
+            query.append("       ,employer_search = ? ");           // 16
+            query.append("       ,relocate = ? ");                  // 17
+            query.append("       ,modify_date = ? ");               // 18
+            query.append("       ,editor_id = ? ");                 // 19
+            query.append("       ,notify_inquiry = ? ");            // 20
+            query.append("       ,language_id = ? ");               // 21
+            query.append("       ,coder_type_id = ? ");             // 22
+            query.append("       ,handle = ? ");                    // 23
+            query.append("       ,password = ? ");                  // 24
+            query.append("       ,status = ? ");                    // 25
+            query.append("       ,email = ? ");                     // 26
+            query.append("       ,terms = ? ");                     // 27
+            query.append("       ,last_login = ? ");                // 28
+            query.append("       ,coder_region_code = ? ");         // 29
+            query.append("       ,image = ? ");                     // 30
+            query.append("WHERE coder_id = ?");                     // 31
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             // Our select statement to determine if a particular row is
             // present or not
-            fSql.setLength(0);
-            fSql.append("SELECT * ");
-            fSql.append("  FROM coder ");
-            fSql.append(" WHERE coder_id = ?");
-            psSel2 = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT * ");
+            query.append("  FROM coder ");
+            query.append(" WHERE coder_id = ?");
+            psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
             // The first thing we do is delete the old record prior to inserting the
             // new record. We don't care if this fails or not.
@@ -389,52 +391,53 @@ public class TCLoadCoders extends TCLoad {
         PreparedStatement psUpd = null;
         ResultSet rs = null;
         ResultSet rs2 = null;
+        StringBuffer query = null;
 
         int count = 0;
         int retVal = 0;
 
         try {
             // Our select statement
-            fSql.setLength(0);
-            fSql.append("SELECT s.skill_id ");        // 1
-            fSql.append("       ,s.skill_type_id ");  // 2
-            fSql.append("       ,s.skill_desc ");     // 3
-            fSql.append("       ,s.status ");         // 4
-            fSql.append("       ,s.skill_order ");    // 5
-            fSql.append("       ,CURRENT ");          // 6
-            fSql.append(" FROM skill s ");
-            fSql.append("WHERE modify_date > ?");
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT s.skill_id ");        // 1
+            query.append("       ,s.skill_type_id ");  // 2
+            query.append("       ,s.skill_desc ");     // 3
+            query.append("       ,s.status ");         // 4
+            query.append("       ,s.skill_order ");    // 5
+            query.append("       ,CURRENT ");          // 6
+            query.append(" FROM skill s ");
+            query.append("WHERE modify_date > ?");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             // Our insert statement
-            fSql.setLength(0);
-            fSql.append("INSERT INTO skill ");
-            fSql.append("      (skill_id ");        // 1
-            fSql.append("       ,skill_type_id ");  // 2
-            fSql.append("       ,skill_desc ");     // 3
-            fSql.append("       ,status ");         // 4
-            fSql.append("       ,skill_order ");    // 5
-            fSql.append("       ,modify_date) ");   // 6
-            fSql.append("VALUES (?,?,?,?,?,?)"); // 6 total values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO skill ");
+            query.append("      (skill_id ");        // 1
+            query.append("       ,skill_type_id ");  // 2
+            query.append("       ,skill_desc ");     // 3
+            query.append("       ,status ");         // 4
+            query.append("       ,skill_order ");    // 5
+            query.append("       ,modify_date) ");   // 6
+            query.append("VALUES (?,?,?,?,?,?)"); // 6 total values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
             // Our update statement
-            fSql.setLength(0);
-            fSql.append("UPDATE skill ");
-            fSql.append("   SET skill_type_id = ? ");   // 1
-            fSql.append("       ,skill_desc = ? ");     // 2
-            fSql.append("       ,status = ? ");         // 3
-            fSql.append("       ,skill_order = ? ");    // 4
-            fSql.append("       ,modify_date = ? ");   // 5
-            fSql.append(" WHERE skill_id = ? ");        // 6
-            psUpd = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("UPDATE skill ");
+            query.append("   SET skill_type_id = ? ");   // 1
+            query.append("       ,skill_desc = ? ");     // 2
+            query.append("       ,status = ? ");         // 3
+            query.append("       ,skill_order = ? ");    // 4
+            query.append("       ,modify_date = ? ");   // 5
+            query.append(" WHERE skill_id = ? ");        // 6
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             // Our select statement to determine if the row exists
-            fSql.setLength(0);
-            fSql.append("SELECT * ");
-            fSql.append("  FROM skill ");
-            fSql.append(" WHERE skill_id = ?");
-            psSel2 = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT * ");
+            query.append("  FROM skill ");
+            query.append(" WHERE skill_id = ?");
+            psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
             psSel.setTimestamp(1, fLastLogTime);
             rs = executeQuery(psSel, "loadSkill");
@@ -510,42 +513,43 @@ public class TCLoadCoders extends TCLoad {
         ResultSet rs2 = null;
         int count = 0;
         int retVal = 0;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT st.skill_type_id ");      // 1
-            fSql.append("       ,st.skill_type_desc ");   // 2
-            fSql.append("       ,st.skill_type_order ");  // 3
-            fSql.append("       ,st.status ");            // 4
-            fSql.append("       ,CURRENT ");              // 5
-            fSql.append(" FROM skill_type st ");
-            fSql.append("WHERE modify_date > ?");
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT st.skill_type_id ");      // 1
+            query.append("       ,st.skill_type_desc ");   // 2
+            query.append("       ,st.skill_type_order ");  // 3
+            query.append("       ,st.status ");            // 4
+            query.append("       ,CURRENT ");              // 5
+            query.append(" FROM skill_type st ");
+            query.append("WHERE modify_date > ?");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO skill_type_lu ");
-            fSql.append("      (skill_type_id ");      // 1
-            fSql.append("       ,skill_type_desc ");   // 2
-            fSql.append("       ,skill_type_order ");  // 3
-            fSql.append("       ,status ");            // 4
-            fSql.append("       ,modify_date) ");      // 5
-            fSql.append("VALUES (?,?,?,?,?)");  // 5 values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO skill_type_lu ");
+            query.append("      (skill_type_id ");      // 1
+            query.append("       ,skill_type_desc ");   // 2
+            query.append("       ,skill_type_order ");  // 3
+            query.append("       ,status ");            // 4
+            query.append("       ,modify_date) ");      // 5
+            query.append("VALUES (?,?,?,?,?)");  // 5 values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("UPDATE skill_type_lu ");
-            fSql.append("   SET skill_type_desc = ? ");    // 1
-            fSql.append("       ,skill_type_order = ? ");  // 2
-            fSql.append("       ,status = ? ");            // 3
-            fSql.append("       ,modify_date = ? ");       // 4
-            fSql.append(" WHERE skill_type_id = ?");       // 5
-            psUpd = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("UPDATE skill_type_lu ");
+            query.append("   SET skill_type_desc = ? ");    // 1
+            query.append("       ,skill_type_order = ? ");  // 2
+            query.append("       ,status = ? ");            // 3
+            query.append("       ,modify_date = ? ");       // 4
+            query.append(" WHERE skill_type_id = ?");       // 5
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("SELECT * ");
-            fSql.append("  FROM skill_type_lu ");
-            fSql.append(" WHERE skill_type_id = ?");
-            psSel2 = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT * ");
+            query.append("  FROM skill_type_lu ");
+            query.append(" WHERE skill_type_id = ?");
+            psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
             psSel.setTimestamp(1, fLastLogTime);
             rs = executeQuery(psSel, "loadSkillType");
@@ -615,50 +619,51 @@ public class TCLoadCoders extends TCLoad {
         PreparedStatement psSel = null;
         PreparedStatement psIns = null;
         PreparedStatement psDel = null;
+        StringBuffer query = null;
 
         ResultSet rs = null;
         int count = 0;
         int retVal = 0;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT cs.coder_id ");       // 1
-            fSql.append("       ,s.skill_id ");       // 2
-            fSql.append("       ,cs.ranking ");       // 3
-            fSql.append("       ,CURRENT ");          // 4
-            fSql.append("       ,s.skill_type_id ");  // 5
-            fSql.append(" FROM coder_skill cs ");
-            fSql.append("      ,skill s ");
-            fSql.append("WHERE cs.skill_id = s.skill_id ");
-            fSql.append("  AND cs.modify_date > ?");
-            fSql.append("   AND EXISTS (SELECT * FROM group_user gu WHERE gu.user_id = cs.coder_id AND gu.group_id = 10)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = cs.coder_id ");
-            fSql.append("           AND gu.group_id = 13)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = cs.coder_id ");
-            fSql.append("           AND gu.group_id = 14)");
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT cs.coder_id ");       // 1
+            query.append("       ,s.skill_id ");       // 2
+            query.append("       ,cs.ranking ");       // 3
+            query.append("       ,CURRENT ");          // 4
+            query.append("       ,s.skill_type_id ");  // 5
+            query.append(" FROM coder_skill cs ");
+            query.append("      ,skill s ");
+            query.append("WHERE cs.skill_id = s.skill_id ");
+            query.append("  AND cs.modify_date > ?");
+            query.append("   AND EXISTS (SELECT * FROM group_user gu WHERE gu.user_id = cs.coder_id AND gu.group_id = 10)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = cs.coder_id ");
+            query.append("           AND gu.group_id = 13)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = cs.coder_id ");
+            query.append("           AND gu.group_id = 14)");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO coder_skill_xref ");
-            fSql.append("      (coder_id ");         // 1
-            fSql.append("       ,skill_id ");        // 2
-            fSql.append("       ,ranking ");         // 3
-            fSql.append("       ,modify_date ");     // 4
-            fSql.append("       ,skill_type_id) ");  // 5
-            fSql.append("VALUES (?,?,?,?,?)");  // 5 values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO coder_skill_xref ");
+            query.append("      (coder_id ");         // 1
+            query.append("       ,skill_id ");        // 2
+            query.append("       ,ranking ");         // 3
+            query.append("       ,modify_date ");     // 4
+            query.append("       ,skill_type_id) ");  // 5
+            query.append("VALUES (?,?,?,?,?)");  // 5 values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("DELETE FROM coder_skill_xref ");
-            fSql.append(" WHERE coder_id = ? ");
-            fSql.append("   AND skill_id = ?");
-            psDel = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("DELETE FROM coder_skill_xref ");
+            query.append(" WHERE coder_id = ? ");
+            query.append("   AND skill_id = ?");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
 
             psSel.setTimestamp(1, fLastLogTime);
             rs = executeQuery(psSel, "loadCoderSkill");
@@ -716,61 +721,62 @@ public class TCLoadCoders extends TCLoad {
         PreparedStatement psDel = null;
         ResultSet rs = null;
         ResultSet rs2 = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT r.coder_id ");           // 1
-            fSql.append("       ,r.rating ");            // 2
-            fSql.append("       ,r.num_ratings ");       // 3
-            fSql.append("       ,CURRENT ");             // 4
-            fSql.append("       ,r.vol ");               // 5
-            fSql.append("       ,r.rating_no_vol ");     // 6
-            fSql.append("  FROM rating r ");
-            fSql.append(" WHERE r.modify_date > ? ");
-            fSql.append("   AND EXISTS (SELECT * FROM group_user gu WHERE gu.user_id = r.coder_id AND gu.group_id = 10)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = r.coder_id ");
-            fSql.append("           AND gu.group_id = 13)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = r.coder_id ");
-            fSql.append("           AND gu.group_id = 14)");
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT r.coder_id ");           // 1
+            query.append("       ,r.rating ");            // 2
+            query.append("       ,r.num_ratings ");       // 3
+            query.append("       ,CURRENT ");             // 4
+            query.append("       ,r.vol ");               // 5
+            query.append("       ,r.rating_no_vol ");     // 6
+            query.append("  FROM rating r ");
+            query.append(" WHERE r.modify_date > ? ");
+            query.append("   AND EXISTS (SELECT * FROM group_user gu WHERE gu.user_id = r.coder_id AND gu.group_id = 10)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = r.coder_id ");
+            query.append("           AND gu.group_id = 13)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = r.coder_id ");
+            query.append("           AND gu.group_id = 14)");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("SELECT first_rated_round_id ");  // 1
-            fSql.append("       ,last_rated_round_id ");  // 2
-            fSql.append("       ,lowest_rating ");        // 3
-            fSql.append("       ,highest_rating ");       // 4
-            fSql.append("       ,num_competitions ");     // 5
-            fSql.append("  FROM rating ");
-            fSql.append(" WHERE coder_id = ?");
-            psSel2 = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT first_rated_round_id ");  // 1
+            query.append("       ,last_rated_round_id ");  // 2
+            query.append("       ,lowest_rating ");        // 3
+            query.append("       ,highest_rating ");       // 4
+            query.append("       ,num_competitions ");     // 5
+            query.append("  FROM rating ");
+            query.append(" WHERE coder_id = ?");
+            psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO rating ");
-            fSql.append("      (coder_id ");               // 1
-            fSql.append("       ,rating ");                // 2
-            fSql.append("       ,num_ratings ");           // 3
-            fSql.append("       ,modify_date ");           // 4
-            fSql.append("       ,vol ");                   // 5
-            fSql.append("       ,rating_no_vol ");         // 6
-            fSql.append("       ,highest_rating ");        // 7
-            fSql.append("       ,lowest_rating ");         // 8
-            fSql.append("       ,first_rated_round_id ");  // 9
-            fSql.append("       ,last_rated_round_id ");   // 10
-            fSql.append("       ,num_competitions) ");     // 11
-            fSql.append("VALUES (");
-            fSql.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
-            fSql.append("?)");                   // 11 values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO rating ");
+            query.append("      (coder_id ");               // 1
+            query.append("       ,rating ");                // 2
+            query.append("       ,num_ratings ");           // 3
+            query.append("       ,modify_date ");           // 4
+            query.append("       ,vol ");                   // 5
+            query.append("       ,rating_no_vol ");         // 6
+            query.append("       ,highest_rating ");        // 7
+            query.append("       ,lowest_rating ");         // 8
+            query.append("       ,first_rated_round_id ");  // 9
+            query.append("       ,last_rated_round_id ");   // 10
+            query.append("       ,num_competitions) ");     // 11
+            query.append("VALUES (");
+            query.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
+            query.append("?)");                   // 11 values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("DELETE FROM rating where coder_id = ?");
-            psDel = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("DELETE FROM rating where coder_id = ?");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
 
             psSel.setTimestamp(1, fLastLogTime);
             rs = executeQuery(psSel, "loadRating");
@@ -862,29 +868,30 @@ public class TCLoadCoders extends TCLoad {
         PreparedStatement psIns = null;
         PreparedStatement psUpd = null;
         ResultSet rs = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT i.image_id ");           // 1
-            fSql.append("       ,i.file_name ");         // 2
-            fSql.append("       ,i.image_type_id ");     // 3
-            fSql.append("       ,i.path_id ");           // 4
-            fSql.append("  FROM image i ");
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT i.image_id ");           // 1
+            query.append("       ,i.file_name ");         // 2
+            query.append("       ,i.image_type_id ");     // 3
+            query.append("       ,i.path_id ");           // 4
+            query.append("  FROM image i ");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO image ");
-            fSql.append("      (image_id ");               // 1
-            fSql.append("       ,file_name ");             // 2
-            fSql.append("       ,image_type_id ");         // 3
-            fSql.append("       ,path_id) ");              // 4
-            fSql.append("VALUES (");
-            fSql.append("?,?,?,?)");  // 4 values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO image ");
+            query.append("      (image_id ");               // 1
+            query.append("       ,file_name ");             // 2
+            query.append("       ,image_type_id ");         // 3
+            query.append("       ,path_id) ");              // 4
+            query.append("VALUES (");
+            query.append("?,?,?,?)");  // 4 values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("UPDATE image SET file_name=?, image_type_id=?, path_id=? WHERE image_id = ?");
-            psUpd = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("UPDATE image SET file_name=?, image_type_id=?, path_id=? WHERE image_id = ?");
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             rs = executeQuery(psSel, "loadImage");
 
@@ -938,25 +945,26 @@ public class TCLoadCoders extends TCLoad {
         PreparedStatement psIns = null;
         PreparedStatement psUpd = null;
         ResultSet rs = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT p.path_id ");           // 1
-            fSql.append("       ,p.path ");         // 2
-            fSql.append("  FROM path p ");
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT p.path_id ");           // 1
+            query.append("       ,p.path ");         // 2
+            query.append("  FROM path p ");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO path ");
-            fSql.append("      (path_id ");               // 1
-            fSql.append("       ,path) ");              // 4
-            fSql.append("VALUES (");
-            fSql.append("?,?)");  // 2 values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO path ");
+            query.append("      (path_id ");               // 1
+            query.append("       ,path) ");              // 4
+            query.append("VALUES (");
+            query.append("?,?)");  // 2 values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("UPDATE path SET path=? WHERE path_id = ?");
-            psUpd = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("UPDATE path SET path=? WHERE path_id = ?");
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             rs = executeQuery(psSel, "loadPath");
 
@@ -1006,27 +1014,28 @@ public class TCLoadCoders extends TCLoad {
         PreparedStatement psIns = null;
         PreparedStatement psDel = null;
         ResultSet rs = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT cix.coder_id ");          // 1
-            fSql.append(" ,cix.image_id ");         // 2
-            fSql.append(" ,cix.display_flag ");     // 3
-            fSql.append("  FROM coder_image_xref cix ");
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT cix.coder_id ");          // 1
+            query.append(" ,cix.image_id ");         // 2
+            query.append(" ,cix.display_flag ");     // 3
+            query.append("  FROM coder_image_xref cix ");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO coder_image_xref ");
-            fSql.append(" (coder_id ");         // 1
-            fSql.append(" ,image_id ");         // 2
-            fSql.append(" ,display_flag) ");     // 3
-            fSql.append("VALUES (");
-            fSql.append("?,?,?)");  // 3 values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO coder_image_xref ");
+            query.append(" (coder_id ");         // 1
+            query.append(" ,image_id ");         // 2
+            query.append(" ,display_flag) ");     // 3
+            query.append("VALUES (");
+            query.append("?,?,?)");  // 3 values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append(" DELETE FROM coder_image_xref WHERE coder_id = ? AND image_id = ?");
-            psDel = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append(" DELETE FROM coder_image_xref WHERE coder_id = ? AND image_id = ?");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
 
             rs = executeQuery(psSel, "loadCoderImageXref");
 
@@ -1071,17 +1080,18 @@ public class TCLoadCoders extends TCLoad {
 
     private void setLastUpdateTime() throws Exception {
         PreparedStatement psUpd = null;
+        StringBuffer query = null;
 
         try {
             int retVal = 0;
-            fSql.setLength(0);
-            fSql.append("INSERT INTO update_log ");
-            fSql.append("      (log_id ");        // 1
-            fSql.append("       ,calendar_id ");  // 2
-            fSql.append("       ,timestamp ");   // 3
-            fSql.append("       ,log_type_id) ");   // 4
-            fSql.append("VALUES (0, ?, ?, " + CODER_LOG_TYPE + ")");
-            psUpd = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO update_log ");
+            query.append("      (log_id ");        // 1
+            query.append("       ,calendar_id ");  // 2
+            query.append("       ,timestamp ");   // 3
+            query.append("       ,log_type_id) ");   // 4
+            query.append("VALUES (0, ?, ?, " + CODER_LOG_TYPE + ")");
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             int calendar_id = lookupCalendarId(fStartTime, TARGET_DB);
             psUpd.setInt(1, calendar_id);

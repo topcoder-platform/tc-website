@@ -30,13 +30,6 @@ public abstract class TCLoad {
     protected static final int MAX_CODER_ID = 139515;
 
     /**
-     * Create one StringBuffer we use for creating all of the various
-     * SQL Strings used in a given load. Just remember to set the length
-     * to 0 before using it!
-     */
-    protected StringBuffer fSql = new StringBuffer(500);
-
-    /**
      * The reason this particular load failed. This should be a nicely
      * formatted message with plenty of information as it is printed to
      * stderr if a particular load fails
@@ -324,6 +317,7 @@ public abstract class TCLoad {
             throws SQLException {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
+        StringBuffer query = null;
 
         int year = cal.get(Calendar.YEAR);
 
@@ -336,13 +330,13 @@ public abstract class TCLoad {
         PreparedStatement psSel = null;
         ResultSet rs = null;
 
-        fSql.setLength(0);
-        fSql.append("SELECT calendar_id ");
-        fSql.append("  FROM calendar ");
-        fSql.append(" WHERE year = ? ");
-        fSql.append("   AND month_numeric = ? ");
-        fSql.append("   AND day_of_month = ? ");
-        psSel = prepareStatement(fSql.toString(), connIdx);
+        query = new StringBuffer(100);
+        query.append("SELECT calendar_id ");
+        query.append("  FROM calendar ");
+        query.append(" WHERE year = ? ");
+        query.append("   AND month_numeric = ? ");
+        query.append("   AND day_of_month = ? ");
+        psSel = prepareStatement(query.toString(), connIdx);
 
         psSel.setInt(1, year);
         psSel.setInt(2, month_of_year);

@@ -71,15 +71,16 @@ public class TCLoadRequests extends TCLoad {
     private void getLastUpdateTime() throws Exception {
         Statement stmt = null;
         ResultSet rs = null;
+        StringBuffer query = null;
 
-        fSql.setLength(0);
-        fSql.append("select timestamp from update_log where log_id = ");
-        fSql.append("(select max(log_id) from update_log ");
-        fSql.append("where log_type_id = 3)");
+        query = new StringBuffer(100);
+        query.append("select timestamp from update_log where log_id = ");
+        query.append("(select max(log_id) from update_log ");
+        query.append("where log_type_id = 3)");
 
         try {
             stmt = createStatement(TARGET_DB);
-            rs = stmt.executeQuery(fSql.toString());
+            rs = stmt.executeQuery(query.toString());
             if (rs.next()) {
                 fLastLogTime = rs.getTimestamp(1);
                 System.out.println("Last log time was  " + fLastLogTime.toString());
@@ -106,6 +107,7 @@ public class TCLoadRequests extends TCLoad {
         PreparedStatement psIns = null;
         PreparedStatement psUpd = null;
         PreparedStatement psDel = null;
+        StringBuffer query = null;
 
         ResultSet rs = null;
         int count = 0;
@@ -113,61 +115,61 @@ public class TCLoadRequests extends TCLoad {
 
         try {
             // Our select statement
-            fSql.setLength(0);
-            fSql.append("SELECT rt.request_id ");           // 1
-            fSql.append("       ,rt.request_type_id ");     // 2
-            fSql.append("       ,rt.coder_id ");            // 3
-            fSql.append("       ,rt.round_id ");            // 4
-            fSql.append("       ,rt.room_id ");             // 5
-            fSql.append("       ,rt.open_window ");         // 6
-            fSql.append("       ,rt.open_period ");         // 7
-            fSql.append("       ,rt.connection_id ");       // 8
-            fSql.append("       ,rt.server_id ");           // 9
-            fSql.append("       ,rt.timestamp ");           //10
-            fSql.append("       ,rt.close_window ");        //11
-            fSql.append("  FROM request rt ");
-            fSql.append("   WHERE timestamp > ?");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = rt.coder_id ");
-            fSql.append("           AND gu.group_id = 13)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = rt.coder_id ");
-            fSql.append("           AND gu.group_id = 14)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM room ro ");
-            fSql.append("         WHERE ro.room_id = rt.room_id ");
-            fSql.append("           AND ro.room_type_id <> 1)");
+            query = new StringBuffer(100);
+            query.append("SELECT rt.request_id ");           // 1
+            query.append("       ,rt.request_type_id ");     // 2
+            query.append("       ,rt.coder_id ");            // 3
+            query.append("       ,rt.round_id ");            // 4
+            query.append("       ,rt.room_id ");             // 5
+            query.append("       ,rt.open_window ");         // 6
+            query.append("       ,rt.open_period ");         // 7
+            query.append("       ,rt.connection_id ");       // 8
+            query.append("       ,rt.server_id ");           // 9
+            query.append("       ,rt.timestamp ");           //10
+            query.append("       ,rt.close_window ");        //11
+            query.append("  FROM request rt ");
+            query.append("   WHERE timestamp > ?");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = rt.coder_id ");
+            query.append("           AND gu.group_id = 13)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = rt.coder_id ");
+            query.append("           AND gu.group_id = 14)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM room ro ");
+            query.append("         WHERE ro.room_id = rt.room_id ");
+            query.append("           AND ro.room_type_id <> 1)");
 
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
             // Our insert statement
-            fSql.setLength(0);
-            fSql.append("INSERT INTO request ");
-            fSql.append("       (request_id ");          // 1
-            fSql.append("       ,request_type_id ");     // 2
-            fSql.append("       ,coder_id ");            // 3
-            fSql.append("       ,round_id ");            // 4
-            fSql.append("       ,room_id ");             // 5
-            fSql.append("       ,open_window ");         // 6
-            fSql.append("       ,open_period ");         // 7
-            fSql.append("       ,connection_id ");       // 8
-            fSql.append("       ,server_id ");           // 9
-            fSql.append("       ,timestamp ");           //10
-            fSql.append("       ,close_window) ");        //11
-            fSql.append("VALUES (");
-            fSql.append("?,?,?,?,?,?,?,?,?,?,");  // 10
-            fSql.append("?)");                    // 11
+            query = new StringBuffer(100);
+            query.append("INSERT INTO request ");
+            query.append("       (request_id ");          // 1
+            query.append("       ,request_type_id ");     // 2
+            query.append("       ,coder_id ");            // 3
+            query.append("       ,round_id ");            // 4
+            query.append("       ,room_id ");             // 5
+            query.append("       ,open_window ");         // 6
+            query.append("       ,open_period ");         // 7
+            query.append("       ,connection_id ");       // 8
+            query.append("       ,server_id ");           // 9
+            query.append("       ,timestamp ");           //10
+            query.append("       ,close_window) ");        //11
+            query.append("VALUES (");
+            query.append("?,?,?,?,?,?,?,?,?,?,");  // 10
+            query.append("?)");                    // 11
 
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("DELETE FROM request ");
-            fSql.append(" WHERE request_id = ? ");
-            psDel = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("DELETE FROM request ");
+            query.append(" WHERE request_id = ? ");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
 
             // On to the load
             psSel.setTimestamp(1, fLastLogTime);
@@ -225,17 +227,18 @@ public class TCLoadRequests extends TCLoad {
 
     private void setLastUpdateTime() throws Exception {
         PreparedStatement psUpd = null;
+        StringBuffer query = null;
 
         try {
             int retVal = 0;
-            fSql.setLength(0);
-            fSql.append("INSERT INTO update_log ");
-            fSql.append("      (log_id ");        // 1
-            fSql.append("       ,calendar_id ");  // 2
-            fSql.append("       ,timestamp ");    // 3
-            fSql.append("       ,log_type_id) "); // 4
-            fSql.append("VALUES (0, ?, ?, 3)");
-            psUpd = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO update_log ");
+            query.append("      (log_id ");        // 1
+            query.append("       ,calendar_id ");  // 2
+            query.append("       ,timestamp ");    // 3
+            query.append("       ,log_type_id) "); // 4
+            query.append("VALUES (0, ?, ?, 3)");
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             int calendar_id = lookupCalendarId(fStartTime, TARGET_DB);
             psUpd.setInt(1, calendar_id);
