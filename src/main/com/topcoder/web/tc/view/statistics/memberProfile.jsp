@@ -173,11 +173,7 @@ if (!rsc.isEmpty()) {
                     <TD COLSPAN="5" CLASS="statText">* Some or all of these earnings have been donated to charity.</TD>
                   </TR>                
                 <% } %>
-                <!-- <TR>
-                  <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BOR
-            DER="0"/></TD>
-                </TR>
-                <TR> -->
+                <TR>
                   <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD>
                 </TR>
         <% } else { %>
@@ -352,11 +348,11 @@ pageContext.setAttribute("resultSet", rsc3);
 <!-- Gutter ends -->
 
         <TD width="170">
-<!-- Left nav begins -->
+<!-- right begins -->
             <jsp:include page="../public_right.jsp">
                 <jsp:param name="level1" value="profile"/>
             </jsp:include>
-<!-- Left nav ends -->
+<!-- right ends -->
        </TD>
 
 <!-- Gutter begins -->
