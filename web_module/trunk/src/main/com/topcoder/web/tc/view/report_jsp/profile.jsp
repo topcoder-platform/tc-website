@@ -100,15 +100,6 @@
       <td colspan="3"><center><A HREF="mailto:<rsc:item name="email" row="<%=p%>"/>" CLASS="">Send email to <rsc:item name="handle" row="<%=p%>"/></A></center></td>
     </tr>
     <tr>
-      <td colspan="3"><center>
-        <% if (p.getStringItem("registered_for_placement").equals("1")) { %>
-             <A HREF="/tc?module=PlacementInfoDetail&uid=<rsc:item name="user_id" row="<%=p%>"/>">View Placement Information</A>
-        <% } else { %>
-            Not registered for placement.
-        <% } %>
-      </center></td>
-    </tr>
-    <tr>
       <td><br/></td>
     </tr>
     <tr>
@@ -125,6 +116,17 @@
       <td>Status</td>
       <td>&#160;&#160;&#160;</td>
       <td><rsc:item name="user_status_desc" row="<%=p%>"/></td>
+    </tr>
+    <tr>
+      <td>Placement</td>
+      <td>&#160;&#160;&#160;</td>
+      <td>
+        <% if (p.getStringItem("registered_for_placement").equals("1")) { %>
+             <A HREF="/tc?module=PlacementInfoDetail&uid=<rsc:item name="user_id" row="<%=p%>"/>">View Placement Information</A>
+        <% } else { %>
+            Not registered
+        <% } %>
+        </td>
     </tr>
     <tr><td><br/></td></tr>
     <br/><br/>
