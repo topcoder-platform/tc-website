@@ -183,6 +183,9 @@
                            <% if (projectDetail.getStringItem(0, "project_status").equals("closed")) { %>
                                Registration is closed.
                            <% } else { %>
+                               <% if (sessionInfo.isAnonymous()) { %>
+                                 Login required to register for this project.
+                               <% } %>
                                <% if (projectDetail.getIntItem(0, "status_id")==Constants.TOURNAMENT_COMPONENT ||
                                        !"true".equals(request.getAttribute("projectFull"))) { %>
                             <p class="bigRed">
