@@ -15,7 +15,7 @@
     <HTML>
       <HEAD>
         <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Tournaments</TITLE>
+        <TITLE>TopCoder | Tournaments</TITLE>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
@@ -47,9 +47,9 @@
             <!-- Center Column Begins -->  
 		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top">
 <xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">steelblue</xsl:with-param>
-  <xsl:with-param name="image">tournaments_blue</xsl:with-param>
-  <xsl:with-param name="title">&#160;</xsl:with-param>
+  <xsl:with-param name="image1">steelgray</xsl:with-param>
+  <xsl:with-param name="image">tournaments_gray</xsl:with-param>
+  <xsl:with-param name="title">2003 TopCoder Collegiate Challenge</xsl:with-param>
 </xsl:call-template>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
 	<TR>
