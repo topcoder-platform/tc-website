@@ -79,11 +79,11 @@ public class DbProfileManager implements ProfileManager {
         "DELETE FROM jiveUserPerm WHERE userID=?";
     private static final String DELETE_USER_PROPS =
         "DELETE FROM jiveUserProp WHERE userID=?";
-   
+
+    private static final boolean cacheEnabled = false;
+
     private Cache userCache = new Cache();
     private Map userIDMap = Collections.synchronizedMap(new HashMap());
-    private Cache groupCache = new Cache();
-    private Map groupIDMap = Collections.synchronizedMap(new HashMap());
     private User anonymousUser = null;
     private User specialUser = null;
     private DbForumFactory factory;
@@ -130,6 +130,12 @@ public class DbProfileManager implements ProfileManager {
      */
     public User getUser(int userID) throws UserNotFoundException {
         User user;
+
+        //If cache is not enabled, do a new lookup of object
+        if (!cacheEnabled) {
+            return new DbUser(userID);
+        }
+
         if(!userCache.containsKey(userID)) {
             user = new DbUser(userID);
             userCache.add(userID, user);
