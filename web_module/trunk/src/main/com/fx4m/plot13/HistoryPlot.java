@@ -296,7 +296,7 @@ public class HistoryPlot
         bi = new BufferedImage(w, h, BufferedImage.TYPE_3BYTE_BGR);
         g = bi.createGraphics();
         g.setFont(Font.decode("SansSerif-plain-13"));         // make sure
-        db = bi.getWritableTile(0, 0).getDataBuffer();
+                db = bi.getWritableTile(0, 0).getDataBuffer();
         RenderingHints hints = new RenderingHints(null);
         hints.put(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
@@ -335,7 +335,7 @@ public class HistoryPlot
         g.setColor(rateColor(Math.min(2999, maxd)));
         TextLayout tl = null;
         Rectangle2D tbnd = null;
-        g.setFont(Font.decode("SanSerif-plain-13"));
+        g.setFont(Font.decode("SanSerif-plain-20"));
         if (datapoints == 0) {
             tl = new TextLayout(name + " no rating",
                     g.getFont(), g.getFontRenderContext());
@@ -500,8 +500,8 @@ public class HistoryPlot
         for (y = mind; y < maxd; y += ddy) {
             int[] cl = plotColor(y + 50);
             g.setColor(new Color(cl[0] * tcfd / 64, cl[1] * tcfd / 64, cl[2] * tcfd / 64));
-            for (x = 100; x < w-100; x += 100) {
-                if (y < h)
+            for (x = 100; x < 700; x += 100) {
+                if (y < 1200)
                     g.drawString("Division-II", x, (int) ((y + 50) * yscale + yoff + 5));
                 else
                     g.drawString("Division-I", x, (int) ((y + 50) * yscale + yoff + 5));
