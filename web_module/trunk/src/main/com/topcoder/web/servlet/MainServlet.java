@@ -116,6 +116,7 @@ public final class MainServlet extends HttpServlet {
         boolean timedOut = false;
         String requestTask = null;
         String requestCommand = null;
+        boolean responseWritten = false;
         try {
             //referral
             if (request.getRequestURI().indexOf("/referral") != -1) {
@@ -264,7 +265,10 @@ public final class MainServlet extends HttpServlet {
             //************************ xsl cache refresh ************************
             else if (requestTask.equals("refresh_xsl")) {
                 htmlMaker.refresh();
-                HTMLString = "home";
+                response.setContentType("text/html");
+                o = response.getOutputStream();
+                o.write((java.net.InetAddress.getLocalHost().getHostAddress()).getBytes());
+                responseWritten = true;
             }
             //************************ statistics ************************
             else if (requestTask.equals("statistics") && requestCommand.equals("member_profile")) {
@@ -278,6 +282,7 @@ public final class MainServlet extends HttpServlet {
                 response.setContentType("image/gif");
                 o = response.getOutputStream();
                 o.write(TaskImage.process(request));
+                responseWritten = true;
             }
             //************************ search ************************
             else if (requestTask.equals("search")) {
@@ -318,7 +323,7 @@ public final class MainServlet extends HttpServlet {
             // IF ANY OF THE PROCESSORS RETURN A STRING
             // OF "HOME" INSTEAD OF A RENDERED DOCUMENT,
             // REDIRECT TO HOMEPAGE.
-            if (!requestTask.equals("forum") && !requestTask.equals("graph") && !requestTask.equals("download") && !requestTask.equals("image")) {
+            if (!responseWritten) {
                 if (HTMLString.equals("home")) {
                     response.sendRedirect(response.encodeURL("http://" + request.getServerName()));
                 } else if (HTMLString.startsWith("login~")) {
