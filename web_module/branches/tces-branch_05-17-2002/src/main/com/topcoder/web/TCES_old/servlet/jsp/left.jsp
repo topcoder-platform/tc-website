@@ -18,7 +18,6 @@
       </TD>
     </TR>
   </TABLE>
-	<%= (tces != null ? "tces.getCurrentNav().getTaskKey()=" + tces.getCurrentNav().getTaskKey() : "null tces") %>
   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top" BACKGROUND="/i/steel_gray_bg2.gif" BGCOLOR="#43515E"> 
     <TR>
       <TD COLSPAN="2" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="2"/></TD>
