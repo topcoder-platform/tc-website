@@ -1246,9 +1246,18 @@ public final class ReportServlet extends HttpServlet {
              " ,state_code "+
              " ,country_name "+
              " ,DATE(member_since) as date_registered "+
+            " , case when cr.referral_id = 10 or cr.referral_id = 50 then" +
+            " cr.other" +
+            " else" +
+            " (SELECT r.referral_desc" +
+               " FROM referral r" +
+              " WHERE c.coder_id = cr.coder_id" +
+                " AND r.referral_id = cr.referral_id)" +
+            " end" +
             " FROM user u "+
              " ,coder c "+
              " ,country co "+
+            " ,coder_referral cr" +
              " WHERE u.user_id = c.coder_id "+
              " AND c.coder_type_id = 2 "+
              " AND DATE(member_since) >= today-7 "+
@@ -1266,29 +1275,39 @@ public final class ReportServlet extends HttpServlet {
     private static final int[] STUDENT_REG_INFO_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
     private static final String[] STUDENT_REG_INFO_HEADINGS = {"Status", "Handle", "First", "Last", "Email", "Date Registered", "City", "State", "Country"};
     private static final String STUDENT_REG_INFO =
-            " SELECT status" +
-            " ,handle" +
-            " ,first_name" +
-            " ,last_name" +
-            " ,email" +
-            " ,date(member_since) as date_registered" +
-            " ,city" +
-            " ,state_code" +
-            " ,country_name" +
-            " FROM user u" +
-            " ,coder c" +
-            " ,country co" +
-            " WHERE u.user_id = c.coder_id " +
-            " AND c.coder_type_id = 1 " +
-            " AND date(member_since) >= today-7 " +
-            " AND handle not like 'guest%' " +
-            " AND co.country_code = c.country_code " +
-            " AND lower(u.email) not like '%topcoder.com'" +
-            " AND u.user_id NOT IN (" +
-            " SELECT g.user_id " +
-            " FROM group_user g " +
-            " WHERE g.group_id = 13)" +
-            " ORDER BY 6 DESC";
+    " SELECT status " +
+    "     ,handle" +
+        " ,first_name" +
+        " ,last_name" +
+        " ,email" +
+        " ,date(member_since) as date_registered" +
+        " ,city" +
+        " ,state_code" +
+        " ,country_name" +
+        " , case when cr.referral_id = 10 or cr.referral_id = 50 then" +
+        " cr.other" +
+        " else" +
+        " (SELECT r.referral_desc" +
+           " FROM referral r" +
+          " WHERE c.coder_id = cr.coder_id" +
+            " AND r.referral_id = cr.referral_id)" +
+        " end" +
+        " FROM user u" +
+        " ,coder c" +
+        " ,country co" +
+        " ,coder_referral cr" +
+        " WHERE u.user_id = c.coder_id" +
+        " and cr.coder_id = c.coder_id" +
+        " AND c.coder_type_id = 1" +
+        " AND date(member_since) >= today-7" +
+        " AND handle not like 'guest%'" +
+        " AND co.country_code = c.country_code" +
+        " AND lower(u.email) not like '%topcoder.com'" +
+        " AND u.user_id NOT IN (" +
+        " SELECT g.user_id" +
+        " FROM group_user g" +
+        " WHERE g.group_id = 13)" +
+        " ORDER BY 6 DESC";
 
     private static final Integer INVITATIONAL_INFO_ID = new Integer(18);
     private static final String INVITATIONAL_INFO_TITLE = "Invitational Registration Information";
