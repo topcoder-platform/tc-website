@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 import java.sql.*;
 import javax.naming.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 
 /**
  * This program is used to change query information stored

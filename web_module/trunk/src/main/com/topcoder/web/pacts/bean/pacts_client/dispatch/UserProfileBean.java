@@ -8,10 +8,10 @@ package com.topcoder.web.pacts.bean.pacts_client.dispatch;
 
 import com.topcoder.web.pacts.bean.*;
 import com.topcoder.web.pacts.common.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class UserProfileBean {
-        private static Category log = Category.getInstance(UserProfileBean.class.getName());
+    private static Logger log = Logger.getLogger(UserProfileBean.class);
     /**
      * contructor.  Does nothing, the class is stateless
      */

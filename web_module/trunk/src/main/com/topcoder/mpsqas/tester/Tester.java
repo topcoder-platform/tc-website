@@ -2,7 +2,7 @@ package com.topcoder.mpsqas.tester;
 
 import java.io.*;
 import com.topcoder.mpsqas.common.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
 import java.net.*;
 import java.util.*;
 import java.lang.reflect.*;
@@ -17,6 +17,7 @@ import java.lang.reflect.*;
  */
 public class Tester extends Thread
 {
+  private static Logger log = Logger.getLogger(Tester.class);
 
   /**
    * main creates the tester and starts it up by calling getTest.
@@ -47,7 +48,7 @@ public class Tester extends Thread
 
       //get the data 
       ArrayList data=(ArrayList)inputStream.readObject();
-      Log.msg("Got new test.");
+      log.debug("Got new test.");
 
       //process the test
       ArrayList testResult=test((HashMap)data.get(0),(String)data.get(1),(String)data.get(2),(String)data.get(3),(ArrayList)data.get(4),(Object[])data.get(5));
@@ -81,7 +82,7 @@ public class Tester extends Thread
     }
     catch(Exception e)
     {
-      Log.msg("Error in tester: ");
+      log.error("Error in tester: ");
       e.printStackTrace();
     }
     //commit suicide
@@ -103,8 +104,8 @@ public class Tester extends Thread
    */
   private ArrayList test(HashMap classFiles,String packageName,String className,String methodName,ArrayList paramTypes,Object[] args)
   {
-    Log.msg("Testing "+packageName+"."+className+"."+methodName+paramTypes);
-    Log.msg("  Args: "+ApplicationConstants.makePretty(args));
+    log.debug("Testing "+packageName+"."+className+"."+methodName+paramTypes);
+    log.debug("  Args: "+ApplicationConstants.makePretty(args));
 
     PrintStream oldOut=System.out;
     PrintStream oldErr=System.err;

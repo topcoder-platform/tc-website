@@ -11,11 +11,10 @@ package com.topcoder.web.pacts.common;
 
 import java.util.*;
 import com.topcoder.web.common.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
    
 public class PaymentList implements PactsConstants {
-    private static Category log = 
-	Category.getInstance(PaymentList.class.getName()); 
+    private static Logger log = Logger.getLogger(PaymentList.class);
 
     public Payment[] headerList=null;
     /**

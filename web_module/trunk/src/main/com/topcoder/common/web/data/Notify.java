@@ -2,11 +2,11 @@ package com.topcoder.common.web.data;
 
 
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
 public final class Notify 
-  implements Serializable, Base {
+  implements Serializable, TagRenderer {
 
   private int notifyId;
   private String name;

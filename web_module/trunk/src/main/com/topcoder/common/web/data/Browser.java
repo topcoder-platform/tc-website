@@ -1,10 +1,10 @@
 package com.topcoder.common.web.data;
 
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
-public final class Browser implements Serializable, Base {
+public final class Browser implements Serializable, TagRenderer {
 
   private String appCodeName;     //The coder name of the browser.
   private String appName;         //The application name of the browser.  Example: "Netscape", "Microsoft".

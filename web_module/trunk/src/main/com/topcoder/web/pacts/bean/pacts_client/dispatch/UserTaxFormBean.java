@@ -8,15 +8,12 @@
 package com.topcoder.web.pacts.bean.pacts_client.dispatch;
 
 import java.util.*;
-import org.apache.log4j.Category;
-
 import com.topcoder.web.pacts.common.*;
 import com.topcoder.web.pacts.bean.*;
-//import com.topcoder.web.stat.common.*;
+import com.topcoder.shared.util.logging.Logger;
 
-import org.apache.log4j.*;
 public class UserTaxFormBean implements PactsConstants {
-    private static Category log = Category.getInstance(UserTaxFormBean.class.getName());
+    private static Logger log = Logger.getLogger(UserTaxFormBean.class);
 
     /**
      * constructor. does nothing, statless class

@@ -5,7 +5,7 @@ import javax.naming.*;
 import javax.servlet.jsp.*;
 import javax.servlet.jsp.tagext.*;
 
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.ejb.DataCache.*;
@@ -19,8 +19,6 @@ public class Notification
     public static final String PREFIX = "notify_";
     public static final String DESC_PREFIX = "desc_";
   
-    private static final boolean VERBOSE = false;
-
     Iterator notifications;
     
     private String ccsclass;

@@ -1,7 +1,7 @@
 package com.topcoder.mpsqas.tester;
 
 import com.topcoder.mpsqas.common.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
 import java.util.ArrayList;
 import java.net.*;
 import java.io.*;
@@ -15,6 +15,7 @@ import java.io.*;
  */
 public class TesterConnection extends Thread
 {
+  private static Logger log = Logger.getLogger(TesterConnection.class);
   /**
    * The constructor stores some information about the test and sockets.
    *
@@ -55,7 +56,7 @@ public class TesterConnection extends Thread
     }
     catch(Exception e1)
     {
-      Log.msg("Error setting up test: ");
+      log.error("Error setting up test: ");
       e1.printStackTrace(); 
       doTest=false;
     }
@@ -66,20 +67,20 @@ public class TesterConnection extends Thread
       try
       {
         testObject=waiterIn.readObject();
-        Log.msg("Got test from TesterWaiter.");
+        log.debug("Got test from TesterWaiter.");
         
         testerOut.writeObject(testObject);
         testerOut.flush();
   
         testResponse=testerIn.readObject();
-        Log.msg("Got test results from Tester.");
+        log.debug("Got test results from Tester.");
   
         waiterOut.writeObject(testResponse);
         waiterOut.flush();
       }
       catch(Exception e2)
       {
-        Log.msg("Error performing test: ");
+        log.error("Error performing test: ");
         e2.printStackTrace();
       }
     } 

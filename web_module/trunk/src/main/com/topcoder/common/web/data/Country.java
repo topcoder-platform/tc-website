@@ -2,10 +2,10 @@ package com.topcoder.common.web.data;
 
 import java.util.ArrayList;
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 public final class Country 
-  implements Serializable, Cloneable, Base, QueryCriteria {
+  implements Serializable, Cloneable, TagRenderer, QueryCriteria {
 
   public static int NO  = 0;
   public static int YES = 1;

@@ -58,7 +58,7 @@ package com.coolservlets.forum.database;
 import java.sql.*;
 import com.coolservlets.forum.*;
 import com.coolservlets.util.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 /**
  * Database implementation of the TreeWalker interface. This class is relatively
  * inefficient compared to how it will eventually be implemented. However,

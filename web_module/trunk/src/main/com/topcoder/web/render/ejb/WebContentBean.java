@@ -17,7 +17,7 @@ import  javax.naming.*;
 import  javax.sql.DataSource;
 import  com.topcoder.web.render.ejb.WebContent;
 import  com.topcoder.web.render.ejb.WebContentObject;
-import  com.topcoder.common.DBMS;
+import  com.topcoder.shared.util.DBMS;
 
 public class WebContentBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class WebContentBean implements javax.ejb.SessionBean {
     String  insert = "INSERT INTO WEB_CONTENT VALUES (  " + content_id + ", " + content_group_id + ", ?, '" + content_name + "', " + status_id + ", '" + language_cd + "', '" + country_code + "', " + modify_by + ", ? )";
 
     try {
-      conn = com.topcoder.common.DBMS.getConnection();
+      conn = com.topcoder.shared.util.DBMS.getConnection();
       ps = conn.prepareStatement( insert );
       ps.setBytes( 1, DBMS.serializeBlobObject( content ) );
       ps.setDate( 2, modify_date );
@@ -65,7 +65,7 @@ public class WebContentBean implements javax.ejb.SessionBean {
     PreparedStatement  ps = null;
 
     try {
-      conn = com.topcoder.common.DBMS.getConnection();
+      conn = com.topcoder.shared.util.DBMS.getConnection();
       ps = conn.prepareStatement( delete );
       ps.executeUpdate();
     } catch( SQLException e ) {
@@ -251,7 +251,7 @@ public class WebContentBean implements javax.ejb.SessionBean {
       }
       obj = new WebContentObject();
       String  query = "SELECT * FROM WEB_CONTENT WHERE CONTENT_ID = " + content_id;
-      conn = com.topcoder.common.DBMS.getConnection();
+      conn = com.topcoder.shared.util.DBMS.getConnection();
       ps = conn.prepareStatement( query );
       rs = ps.executeQuery();
       if( !rs.next() )
@@ -396,7 +396,7 @@ public class WebContentBean implements javax.ejb.SessionBean {
       return( 0 );
     int  rc = 0;
     try {
-      conn = com.topcoder.common.DBMS.getConnection();
+      conn = com.topcoder.shared.util.DBMS.getConnection();
       ps = conn.prepareStatement( update.toString() );
       int  index = 1;
       if( content != null )
@@ -421,7 +421,7 @@ public class WebContentBean implements javax.ejb.SessionBean {
     String  query = null;
 
     try {
-      conn = com.topcoder.common.DBMS.getConnection();
+      conn = com.topcoder.shared.util.DBMS.getConnection();
       query = "SELECT CONTENT_ID FROM WEB_CONTENT WHERE CONTENT_GROUP_ID = " + content_group_id;
       ps = conn.prepareStatement( query );
       rs = ps.executeQuery();
@@ -446,7 +446,7 @@ public class WebContentBean implements javax.ejb.SessionBean {
     String  query = null;
 
     try {
-      conn = com.topcoder.common.DBMS.getConnection();
+      conn = com.topcoder.shared.util.DBMS.getConnection();
       rs = ps.executeQuery();
       while( rs.next() )
         results.add( new Integer( rs.getInt( 1 ) ) );
@@ -475,7 +475,7 @@ public class WebContentBean implements javax.ejb.SessionBean {
     if ( (recId=findInCacheByName(content_name)) != null ) return recId.toString();
 
     try {
-      conn = com.topcoder.common.DBMS.getConnection();
+      conn = com.topcoder.shared.util.DBMS.getConnection();
       if( content_name.indexOf( '%' ) >= 0 )
         query = "SELECT CONTENT_ID FROM WEB_CONTENT WHERE CONTENT_NAME LIKE '" + content_name + "'";
       else

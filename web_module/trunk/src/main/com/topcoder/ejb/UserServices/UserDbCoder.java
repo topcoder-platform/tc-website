@@ -4,19 +4,16 @@ import java.util.*;
 import java.io.*;
 import javax.transaction.*;
 import java.sql.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.common.web.error.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.ejb.AuthenticationServices.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.shared.util.logging.Logger;
 
 
 final class UserDbCoder {
-
-
-  private static boolean VERBOSE = false;
-
-
+  private static Logger log = Logger.getLogger(UserDbCoder.class);
 
 ///////////////////////////////////////////////////////////////////////////////
 //                                 INSERT
@@ -28,7 +25,7 @@ final class UserDbCoder {
   static void insertCoder ( Connection conn, CoderRegistration coder ) 
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:insertCoder() called ..." );
+    log.debug("ejb.User.UserDbCoder:insertCoder() called ..." );
     boolean demogError    = false;
     PreparedStatement ps  = null;
     //ArrayList schools     = null;
@@ -166,7 +163,7 @@ final class UserDbCoder {
         try {
           err.addTag ( RecordTag.getListXML("DEMOGS",demographicResponses) );
         } catch ( Exception ignore ) {}
-        Log.msg ( err.getXML(2) );
+        log.debug ( err.getXML(2) );
       }
       StringBuffer msg = new StringBuffer ( 300 );
       msg.append ( "ejb.User.UserDbCoder:insertCoder:" );
@@ -183,7 +180,7 @@ final class UserDbCoder {
   ///////////////////////////////////////////////////////////////
   private static void insertCoderReferral(Connection conn, CoderReferral coderReferral) throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:insertCoderReferral():called." );
+    log.debug("ejb.User.UserDbCoder:insertCoderReferral():called." );
     PreparedStatement ps = null;
     String query = "INSERT INTO coder_referral (coder_id, referral_id, reference_id, other) VALUES (?, ?, ?, ?)";
     try {
@@ -195,11 +192,11 @@ final class UserDbCoder {
       int RetVal = ps.executeUpdate();
       coderReferral.setModified("S");
     } catch (SQLException sqe) {
-      Log.msg("coder id: " + coderReferral.getCoderId());
+      log.debug("coder id: " + coderReferral.getCoderId());
       DBMS.printSqlException ( true, sqe );
       throw new TCException ( sqe.getMessage() );
     } catch ( Exception ex )  {
-      Log.msg("coder id: " + coderReferral.getCoderId());
+      log.debug("coder id: " + coderReferral.getCoderId());
       StringBuffer msg = new StringBuffer ( 500 );
       msg.append ( "ejb.User.UserDbCoder:insertCoderReferral():" );
       if ( coderReferral != null ) {
@@ -221,7 +218,7 @@ final class UserDbCoder {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////
   private static void insertCoderNotify ( Connection conn, int coderId, int notifyId ) throws TCException {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:insertCoderNotify():called." );
+    log.debug("ejb.User.UserDbCoder:insertCoderNotify():called." );
     PreparedStatement ps = null;
     String query = "INSERT INTO coder_notify (coder_id, notify_id) VALUES (?, ?)";
     try {
@@ -230,7 +227,7 @@ final class UserDbCoder {
       ps.setInt ( 2, notifyId );
       ps.executeUpdate();
     } catch (SQLException sqe) {
-      Log.msg("coder id: " + coderId);
+      log.debug("coder id: " + coderId);
       DBMS.printSqlException ( true, sqe );
       throw new TCException ( sqe.getMessage() );
     } catch ( Exception ex )  {
@@ -245,7 +242,7 @@ final class UserDbCoder {
   //////////////////////////////////////////////////////////////////////////////////////////////////////
   private static void insertCurrentSchool ( Connection conn, School currentSchool ) throws TCException {
   //////////////////////////////////////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:insertCurrentSchool():called." );
+    log.debug("ejb.User.UserDbCoder:insertCurrentSchool():called." );
     PreparedStatement ps = null;
     String query = "INSERT INTO current_school ( coder_id, school_id, school_name ) VALUES ( ?, ?, ? )";
     try {
@@ -256,11 +253,11 @@ final class UserDbCoder {
       int RetVal = ps.executeUpdate();
       currentSchool.setModified("S");
     } catch (SQLException sqe) {
-      Log.msg("coder id: " + currentSchool.getUserId());
+      log.debug("coder id: " + currentSchool.getUserId());
       DBMS.printSqlException ( true, sqe );
       throw new TCException ( sqe.getMessage() );
     } catch ( Exception ex )  {
-      Log.msg("coder id: " + currentSchool.getUserId());
+      log.debug("coder id: " + currentSchool.getUserId());
       StringBuffer msg = new StringBuffer ( 500 );
       msg.append ( "ejb.User.UserDbCoder:insertCurrentSchool():" );
       if ( currentSchool != null ) {
@@ -283,7 +280,7 @@ final class UserDbCoder {
   private static void insertRating ( Connection conn, Rating rating )  
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "ejb.User.UserDbCoder:insertRating() called ...");
+    log.debug("ejb.User.UserDbCoder:insertRating() called ...");
     PreparedStatement ps = null;
     StringBuffer query = new StringBuffer(250);
     query.append ( " INSERT"                  );
@@ -330,266 +327,11 @@ final class UserDbCoder {
   }
 
 
-/*
-  ///////////////////////////////////////////////////////////////
-  private static void insertExperience ( Connection conn, 
-    Experience experience ) throws TCException {
-  ///////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:insertExperience():called." );
-    PreparedStatement ps = null;
-    StringBuffer query = new StringBuffer(220);
-    query.append ( " INSERT"                                         );
-    query.append (   " INTO"                                         );
-    query.append (     " experience ("                               );
-    query.append (       " coder_id"                                 );
-    query.append (       " ,experience_id"                           );
-    query.append (       " ,organization_name"                       );
-    query.append (       " ,start_year"                              );
-    query.append (       " ,start_month"                             );
-    query.append (       " ,end_year"                                );
-    query.append (       " ,end_month"                               );
-    query.append (       " ,title"                                   );
-    query.append (       " ,description"                             );
-    query.append (       " ,city"                                    );
-    query.append (       " ,state_code"                              );
-    query.append (       " ,country_code"                            );
-    query.append (       " ,title_id"                                );
-    query.append (       " ,organization_id"                         );
-    query.append (       " ,experience_type_id"                      );
-    query.append (     " )"                                          );
-    query.append ( " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" );
-    try {
-      ps = conn.prepareStatement ( query.toString() );
-      ps.setInt    ( 1,  experience.getCoderId()                  );
-      experience.setExperienceId ( DBMS.getTransSeqId(conn, DBMS.EXPERIENCE_SEQ));
-      ps.setInt    ( 2,  experience.getExperienceId()             );
-      ps.setString ( 3,  experience.getCompany()                  );
-      ps.setInt    ( 4,  experience.getStartYear()                );
-      ps.setInt    ( 5,  experience.getStartMonth()               );
-      ps.setInt    ( 6,  experience.getEndYear()                  );
-      ps.setInt    ( 7,  experience.getEndMonth()                 );
-      ps.setString ( 8,  experience.getTitleDesc()                );
-      ps.setString ( 9,  experience.getDescription()              );
-      ps.setString ( 10, experience.getCity()                     );
-      ps.setString ( 11, experience.getState().getStateCode()     );
-      ps.setString ( 12, experience.getCountry().getCountryCode() );
-      ps.setInt    ( 13, experience.getTitle().getTitleId()       );
-      ps.setInt    ( 14, experience.getOrganization().getOrganizationId()       );
-      ps.setInt    ( 15, experience.getExperienceType().getExperienceTypeId()       );
-      int RetVal = ps.executeUpdate();
-      if (RetVal != 1) {
-        throw new TCException ( "ejb.User.UserDbCoder:insertExperience():failed." );
-      }
-    } catch (SQLException sqe) {
-      DBMS.printSqlException ( true, sqe );
-      throw new TCException ( sqe.getMessage() );
-    } catch (Exception ex) {
-      StringBuffer msg = new StringBuffer ( 300                  );
-      msg.append ( "ejb.User.UserDbCoder:insertExperience:" );
-      msg.append ( "coderId="                                    );
-      msg.append ( experience.getCoderId()                       );
-      msg.append ( ":company="                                   );
-      msg.append ( experience.getCompany()                       );
-      msg.append ( ":failed:\n"                                  );
-      msg.append ( ex                                            );
-      throw new TCException ( msg.toString()        );
-    } finally {
-      if (ps != null) { try { ps.close(); } catch(Exception ignore){} }
-    }
-  }
-
-
-  ///////////////////////////////////////////////////////////////
-  private static void insertCoderEducation ( Connection conn, Education education )
-    throws TCException  {
-  ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"ejb.User.UserDbCoder:insertCoderEducation() called...");
-    Education ed = null;
-    Degree degreeLevel = null;
-    State state = null;
-    Country country = null;
-    PreparedStatement ps = null;
-    StringBuffer query = new StringBuffer(210);
-    query.append( " INSERT"                       );
-    query.append(   " INTO"                       );
-    query.append(     " education ("              );
-    query.append(       " education_id"           );
-    query.append(       " ,coder_id"              );
-    query.append(       " ,degree_id"             );
-    query.append(       " ,major"                 );
-    query.append(       " ,graduation_year"       );
-    query.append(       " ,graduation_month"      );
-    query.append(       " ,school_id"             );
-    query.append(     " )"                        );
-    query.append( " VALUES (?, ?, ?, ?, ?, ?, ?)" );
-    try {
-      ps = conn.prepareStatement ( query.toString() );
-      degreeLevel = education.getDegree();
-      School school = education.getSchool();
-      education.setEducationId ( DBMS.getTransSeqId(conn, DBMS.EDUCATION_SEQ) );
-      ps.setInt     (1, education.getEducationId()    );
-      ps.setInt     (2, education.getCoderId()         );
-      ps.setInt     (3, degreeLevel.getDegreeId() );
-      ps.setString  (4, education.getMajor()           );
-      ps.setInt     (5, education.getGraduationYear()  );
-      ps.setInt     (6, education.getGraduationMonth() );
-      ps.setInt     (7, school.getSchoolId()           );
-      int RetVal = ps.executeUpdate();
-      if (RetVal != 1) {
-        throw new TCException ( "ejb.User.UserDbCoder:insertCoderEducation():failed" );
-      }
-    } catch (SQLException sqe) {
-      DBMS.printSqlException ( true, sqe );
-      throw new TCException ( sqe.getMessage() );
-    } catch (Exception ex) {
-      StringBuffer msg = new StringBuffer ( 300 );
-      msg.append ( "ejb.User.UserDbCoder:insertCoderEducation:" );
-      msg.append ( "coderId="                                   );
-      msg.append ( education.getCoderId()                       );
-      msg.append ( ":degreeNumber="                             );
-      msg.append ( education.getEducationId()                  );
-      msg.append ( ":failed:\n"                                 );
-      msg.append ( ex                                           );
-      throw new TCException ( msg.toString()       );
-    } finally {
-      if (ps != null) { try { ps.close(); } catch(Exception ignore){} }
-    }
-  }
-
-  ///////////////////////////////////////////////////////////////
-  private static boolean schoolIdExists (Connection conn, int schoolId) 
-    throws TCException {
-  ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"ejb.User:UserDbCoder:checkSchoolId() called ...");
-    boolean result       = false;
-    PreparedStatement ps = null;
-    ResultSet rs         = null;
-    String query         = null;
-    query = "SELECT COUNT(1) FROM school WHERE school_id = ?";  
-    try {
-      ps = conn.prepareStatement ( query );
-      ps.setInt ( 1, schoolId );
-      rs = ps.executeQuery();
-      if ( rs.next() ) {
-        if ( rs.getInt(1) == 1 ) result = true;
-      }
-    } catch (SQLException sqe) {
-      DBMS.printSqlException ( true, sqe );
-      throw new TCException ( sqe.getMessage() );
-    } catch (Exception ex) {
-      StringBuffer msg = new StringBuffer ( 200 );
-      msg.append ( "ejb.User.UserDbCoder:checkSchoolId:schoolId=" );
-      msg.append ( schoolId );
-      msg.append ( ":failed:\n" );
-      msg.append ( ex );
-      throw new TCException(msg.toString());
-    } finally {
-      if (rs != null) { try { rs.close(); } catch(Exception ignore){} }
-      if (ps != null) { try { ps.close(); } catch(Exception ignore){} }
-    }
-    return result;
-  }
-
-  ///////////////////////////////////////////////////////////////
-  private static void insertCoderSchool ( Connection conn, School school )
-    throws TCException  {
-  ///////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:insertCoderSchool():called." );
-    State state     = null;
-    Country country = null;
-    PreparedStatement ps      = null;
-    StringBuffer query        = new StringBuffer(210);
-    query.append( " INSERT"                       );
-    query.append(   " INTO"                       );
-    query.append(     " school ("                 );
-    query.append(       " user_id"                );
-    query.append(       " ,school_id"             );
-    query.append(       " ,name"                  );
-    query.append(       " ,city"                  );
-    query.append(       " ,state_code"            );
-    query.append(       " ,country_code"          );
-    query.append(       " ,sort_letter"           );
-    query.append(     " )"                        );
-    query.append( " VALUES (?, ?, ?, ?, ?, ?, ?)" );
-    try {
-      ps = conn.prepareStatement(query.toString());
-      state = school.getState();
-      country = school.getCountry();
-      school.setSchoolId ( DBMS.getTransSeqId(conn, DBMS.SCHOOL_SEQ) );
-      ps.setInt      ( 1,  school.getUserId()       );
-      ps.setInt      ( 2,  school.getSchoolId()     );
-      ps.setString   ( 3,  school.getName()   );
-      ps.setString   ( 4,  school.getCity()   );
-      if ( state.getStateCode().equals("") ) {
-        ps.setNull   ( 5,  java.sql.Types.VARCHAR   );
-      } else {
-        ps.setString ( 5,  state.getStateCode()     );
-      }
-      ps.setString   ( 6,  country.getCountryCode() );
-      ps.setString   ( 7,  school.getSortLetter() );
-      int RetVal = ps.executeUpdate();
-    } catch (SQLException sqe) {
-      DBMS.printSqlException ( true, sqe );
-      throw new TCException ( sqe.getMessage() );
-    } catch (Exception ex)  {
-      StringBuffer msg = new StringBuffer(300);
-      msg.append ( "ejb.User.UserDbCoder:insertCoderSchool:" );
-      msg.append ( "coderId="                                );
-      msg.append ( school.getUserId()                        );
-      msg.append ( ":schoolName="                            );
-      msg.append ( school.getName()                    );
-      msg.append ( ":failed:\n"                              );
-      msg.append ( ex                                        );
-      throw new TCException ( msg.toString()    );
-    } finally {
-      if (ps != null) { try { ps.close(); } catch(Exception ignore){} }
-    }
-  }
-
-
-  ///////////////////////////////////////////////////////////////
-  private static void insertCoderSkill ( Connection conn, CoderSkill coderSkill )
-    throws TCException  {
-  ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"ejb.User.UserDbCoder:insertCoderSkill() called...");
-    PreparedStatement ps = null;
-    Skill skill = null;
-    String query = null;
-    query = "INSERT INTO coder_skill ( coder_id, skill_id, ranking ) VALUES (?,?,?)";
-    try  {
-      skill = coderSkill.getSkill();
-      ps = conn.prepareStatement ( query );
-      ps.setInt ( 1, coderSkill.getCoderId()  );
-      ps.setInt ( 2, skill.getSkillId()       );
-      ps.setInt ( 3, coderSkill.getRanking()  );
-      int RetVal = ps.executeUpdate();
-      if (RetVal != 1)  {
-        throw new TCException ( "ejb.User.UserDbCoder:insertCoderSkill():failed." );
-      }
-    } catch (SQLException sqe) {
-      DBMS.printSqlException ( true, sqe );
-      throw new TCException ( sqe.getMessage() );
-    } catch (Exception ex)  {
-      StringBuffer msg = new StringBuffer(300);
-      msg.append ( "ejb.User.UserDbCoder:insertCoderSkill:" );
-      msg.append ( "coderId="                               );
-      msg.append ( coderSkill.getCoderId()                  );
-      msg.append ( ":skillId="                              );
-      msg.append ( coderSkill.getSkill().getSkillId()       );
-      msg.append ( ":failed:\n"                             );
-      msg.append ( ex                                       );
-      throw new TCException ( msg.toString()   );
-    } finally {
-      if (ps != null) { try { ps.close(); } catch(Exception ignore){} }
-    }
-  }
-*/
- 
   ///////////////////////////////////////////////////////////////
   private static void insertDemographicResponse ( Connection conn, DemographicResponse demographicResponse )
   ///////////////////////////////////////////////////////////////
     throws TCException {
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:insertDemographicResponse():called." );
+    log.debug("ejb.User.UserDbCoder:insertDemographicResponse():called." );
     PreparedStatement ps = null;
     /**************************************************************/
     StringBuffer query = new StringBuffer(200);
@@ -616,7 +358,7 @@ final class UserDbCoder {
       try {
         err.addTag ( demographicResponse.getXML() );
       } catch ( Exception ignore ) {}
-      Log.msg ( err.getXML(2) );
+      log.debug ( err.getXML(2) );
       ////////////////////////////////////////////////////////
       DBMS.printSqlException ( true, sqe );
       throw new TCException ( sqe.getMessage() );
@@ -654,7 +396,7 @@ final class UserDbCoder {
   static void updateCoder (Connection conn, CoderRegistration coder) 
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"ejb.User.UserDbCoder:updateCoder() called...");
+    log.debug("ejb.User.UserDbCoder:updateCoder() called...");
     PreparedStatement ps      = null;
     ResultSet rs              = null;
     try  {
@@ -758,331 +500,10 @@ final class UserDbCoder {
   }
 
 
-/*
-  ///////////////////////////////////////////////////////////////
-  private static void updateCoderEducations ( Connection conn, ArrayList educations )  
-    throws TCException  {
-  ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"ejb.User.UserDbCoder:updateCoderEducations() called ...");
-    PreparedStatement ps              = null;
-    String modifiedFlag               = "";
-    boolean coderSchFlag              = false;
-    Education education     = null;
-    Degree degreeLevel = null;
-    State state             = null;
-    Country country         = null;
-    StringBuffer query                = new StringBuffer(430);
-    try {
-      for (int i = 0; i < educations.size(); i++)  {
-        int queryLen = query.length();
-        if ( queryLen > 0 ) query.delete ( 0, queryLen );
-        education = (Education) educations.get(i);
-        degreeLevel = education.getDegree();
-        modifiedFlag = education.getModified();
-        if (modifiedFlag.equals("A"))  {
-          insertCoderEducation(conn, education);
-        } else if (modifiedFlag.equals("U")) {
-          query.append( " UPDATE"                );
-          query.append(   " education"           );
-          query.append( " SET"                   );
-          query.append(   " degree_id=?"         );
-          query.append(   " ,major=?"            );
-          query.append(   " ,graduation_year=?"  );
-          query.append(   " ,graduation_month=?" );
-          query.append(   " ,school_id=?"        );
-          query.append( " WHERE"                 );
-          query.append(   " education_id=?"      );
-          ps = conn.prepareStatement ( query.toString()          );
-          ps.setInt     ( 1, degreeLevel.getDegreeId()           );
-          ps.setString  ( 2, education.getMajor()                );
-          ps.setInt     ( 3, education.getGraduationYear()       );
-          ps.setInt     ( 4, education.getGraduationMonth()      );
-          ps.setInt     ( 5, education.getSchool().getSchoolId() );
-          ps.setInt     ( 6, education.getEducationId()          );
-          int RetVal = ps.executeUpdate();
-          if (RetVal != 1) {
-            throw new TCException("ejb.User.UserDbCoder:updateCoderEducations() failed to Update:\n");
-          }
-        } else if (modifiedFlag.equals("D"))  {
-          query.append ( "DELETE FROM education WHERE coder_id=? AND education_id=?" );
-          ps = conn.prepareStatement ( query.toString()   );
-          ps.setInt     ( 1,  education.getCoderId()      );
-          ps.setInt     ( 2,  education.getEducationId() );
-          int RetVal = ps.executeUpdate();
-          if (RetVal != 1) {
-            throw new TCException ( "ejb.User.UserDbCoder:updateCoderEducations():failed." );
-          }
-        }
-      }
-    } catch (SQLException sqe) {
-      DBMS.printSqlException ( true, sqe );
-      throw new TCException ( sqe.getMessage() );
-    } catch (Exception ex)  {
-      ex.printStackTrace();
-      StringBuffer msg = new StringBuffer(300);
-      msg.append   ( "ejb.User.UserDbCoder:updateCoderEducations:" );
-      msg.append   ( "coderId="                                    );
-      msg.append   ( education.getCoderId()                        );
-      if (education != null) {
-        msg.append ( ":degreeNumber="                              );
-        msg.append ( education.getEducationId()                   );
-      }
-      msg.append   ( ":failed:\n"                                  );
-      msg.append   ( ex                                            );
-      throw new TCException ( msg.toString()          );
-    } finally {
-      if (ps != null) { try { ps.close(); } catch(Exception ignore){} }
-    }
-  }
-
-
-  ///////////////////////////////////////////////////////////////
-  private static void updateSchools ( Connection conn, ArrayList schools )
-    throws TCException  {
-  ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"ejb.User.UserDbCoder:updateSchools() called ...");
-    PreparedStatement ps      = null;
-    String modifiedFlag       = "";
-    boolean coderSchFlag      = false;
-    School school   = null;
-    State state     = null;
-    Country country = null;
-    StringBuffer query        = new StringBuffer ( 230 );
-    try {
-      for (int i = 0; i < schools.size(); i++)  {
-        int queryLen = query.length();
-        if ( queryLen > 0 ) query.delete ( 0, queryLen );
-        school = (School) schools.get(i);
-        state = school.getState();
-        country = school.getCountry();
-        modifiedFlag = school.getModified();
-        if ( modifiedFlag.equals("A") ) {
-          insertCoderSchool(conn, school);
-        } else if ( modifiedFlag.equals("U") ) {
-          query.append( " UPDATE"            );
-          query.append(   " school"          );
-          query.append( " SET"               );
-          query.append(   " name=?"          );
-          query.append(   " ,city=?"         );
-          query.append(   " ,state_code=?"   );
-          query.append(   " ,country_code=?" );
-          query.append(   " ,sort_letter=?"  );
-          query.append( " WHERE"             );
-          query.append(   " user_id=?"       );
-          query.append(   " AND school_id=?" );
-          ps = conn.prepareStatement ( query.toString() );
-          ps.setString  ( 1,  school.getName()    );
-          ps.setString  ( 2,  school.getCity()    );
-          ps.setString  ( 3,  state.getStateCode()      );
-          ps.setString  ( 4,  country.getCountryCode()  );
-          ps.setString  ( 5,  school.getSortLetter()  );
-          ps.setInt     ( 6,  school.getUserId()        );
-          ps.setInt     ( 7,  school.getSchoolId()      );
-          int RetVal = ps.executeUpdate();
-          if (RetVal != 1) {
-            throw new TCException ( "ejb.User.UserDbCoder:updateSchools():failed." );
-          }
-        } else if ( modifiedFlag.equals("D") ) {
-          query.append ( "DELETE FROM school WHERE user_id=? AND school_id=?" );
-          ps = conn.prepareStatement ( query.toString() );
-          ps.setInt     ( 1, school.getUserId()   );
-          ps.setInt     ( 2, school.getSchoolId() );
-          int RetVal = ps.executeUpdate();
-          if (RetVal != 1) {
-            throw new TCException ( "ejb.User.UserDbCoder:updateSchools():failed." );
-          }
-        }
-      }
-    } catch (SQLException sqe) {
-      DBMS.printSqlException ( true, sqe );
-      throw new TCException ( sqe.getMessage() );
-    } catch (Exception ex)  {
-      StringBuffer msg = new StringBuffer(300);
-      msg.append   ( "ejb.User.UserDbCoder:updateSchools:" );
-      msg.append   ( "coderId="                                 );
-      if (school != null) {
-        msg.append   ( school.getUserId()                       );
-        msg.append ( ":schoolId="                               );
-        msg.append ( school.getSchoolId()                       );
-      }
-      msg.append   ( ":failed:\n"                               );
-      msg.append   ( ex                                         );
-      throw new TCException ( msg.toString()       );
-    } finally {
-      if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
-    }
-  }
-
-
-  ///////////////////////////////////////////////////////////////
-  private static void updateCoderSkills ( Connection conn, ArrayList coderSkills ) 
-    throws TCException  {
-  ///////////////////////////////////////////////////////////////
-    Log.msg (VERBOSE,"ejb.User.UserDbCoder:updateCoderSkills(ArrayList) called ...");
-    CoderSkill coderSkill = null;
-    Skill skill = null;
-    PreparedStatement ps = null;
-    String modifiedFlag = "";
-    StringBuffer query = new StringBuffer(200);
-    try {
-      for (int i = 0; i < coderSkills.size(); i++) {
-        int queryLen = query.length();
-        if ( queryLen > 0 ) query.delete ( 0, queryLen );
-        coderSkill = (CoderSkill) coderSkills.get(i);
-        skill = coderSkill.getSkill();
-        modifiedFlag = coderSkill.getModified();
-        if (modifiedFlag.compareToIgnoreCase("A") == 0)  {
-          insertCoderSkill(conn, coderSkill);
-        } else if(modifiedFlag.compareToIgnoreCase("U") == 0)  {
-          query.append( " UPDATE"                 );
-          query.append(   " coder_skill"          );
-          query.append( " SET"                    );
-          query.append(   " ranking=?"            );
-          query.append( " WHERE"                  );
-          query.append(   " coder_id=?"           );
-          query.append(   " AND skill_id=?"       );
-          ps = conn.prepareStatement ( query.toString() );
-          ps.setInt ( 1, coderSkill.getRanking()        );
-          ps.setInt ( 2, coderSkill.getCoderId()        );
-          ps.setInt ( 3, skill.getSkillId()             );
-          int RetVal = ps.executeUpdate();
-          if (RetVal != 1)  {
-            throw new TCException 
-              ("ejb.User.UserDbCoder:updateCoderSkills():update:failed:\n");
-          }
-          ps.close();
-        } else if(modifiedFlag.compareToIgnoreCase("D") == 0)  {
-          query.append ( "DELETE FROM coder_skill WHERE coder_id = ? AND skill_id = ?" );
-          ps = conn.prepareStatement ( query.toString() );
-          ps.setInt ( 1, coderSkill.getCoderId()        );
-          ps.setInt ( 2, skill.getSkillId()             );
-          int RetVal = ps.executeUpdate();
-          if (RetVal != 1)  {
-            throw new TCException 
-              ("ejb.User.UserDbCoder:updateCoderSkills():delete:failed:\n");
-          }
-          ps.close();
-        }
-      }
-    } catch (SQLException sqe) {
-      DBMS.printSqlException ( true, sqe );
-      throw new TCException ( sqe.getMessage() );
-    } catch (Exception ex) {
-      StringBuffer msg = new StringBuffer(300);
-      msg.append   ( "ejb.User.UserDbCoder:updateCoderSkills:" );
-      msg.append   ( "coderId="                                );
-      if (coderSkill != null) {
-        msg.append   ( coderSkill.getCoderId()                 );
-        msg.append   ( ":skillId="                             );
-        msg.append   ( coderSkill.getSkill().getSkillId()      );
-      }
-      msg.append   ( ":failed:\n"                              );
-      msg.append   ( ex                                        );
-      throw new TCException ( msg.toString()      );
-    } finally {
-      if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
-    }
-  }
-
-
-  ///////////////////////////////////////////////////////////////
-  private static void updateExperiences ( Connection conn, ArrayList coderExperiences )
-    throws TCException  {
-  ///////////////////////////////////////////////////////////////
-    Log.msg (VERBOSE,"ejb.User.UserDbCoder:updateExperiences(ArrayList) called ...");
-    Experience coderExperience = null;
-    Experience experience = null;
-    PreparedStatement ps = null;
-    String modifiedFlag = "";
-    StringBuffer query = new StringBuffer(300);
-    try {
-      for (int i = 0; i < coderExperiences.size(); i++) {
-        int queryLen = query.length();
-        if ( queryLen > 0 ) query.delete ( 0, queryLen );
-        experience = (Experience) coderExperiences.get(i);
-        modifiedFlag = experience.getModified();
-        if (modifiedFlag.compareToIgnoreCase("A") == 0) {
-          insertExperience(conn, experience);
-        } else if(modifiedFlag.compareToIgnoreCase("U") == 0) {
-          query.append ( " UPDATE"                );
-          query.append (   " experience"          );
-          query.append ( " SET"                   );
-          query.append (   " coder_id=?"          );
-          query.append (   " ,organization_name=?" );
-          query.append (   " ,start_year=?"       );
-          query.append (   " ,start_month=?"      );
-          query.append (   " ,end_year=?"         );
-          query.append (   " ,end_month=?"        );
-          query.append (   " ,title=?"            );
-          query.append (   " ,description=?"      );
-          query.append (   " ,city=?"             );
-          query.append (   " ,state_code=?"       );
-          query.append (   " ,country_code=?"     );
-          query.append (   " ,title_id=?"         );
-          query.append (   " ,organization_id=?"  );
-          query.append (   " ,experience_type_id=?"         );
-          query.append ( " WHERE"                 );
-          query.append (   " experience_id=?"     );
-          ps = conn.prepareStatement ( query.toString() );
-          ps.setInt    ( 1,  experience.getCoderId()                  );
-          ps.setString ( 2,  experience.getCompany()                  );
-          ps.setInt    ( 3,  experience.getStartYear()                );
-          ps.setInt    ( 4,  experience.getStartMonth()               );
-          ps.setInt    ( 5,  experience.getEndYear()                  );
-          ps.setInt    ( 6,  experience.getEndMonth()                 );
-          ps.setString ( 7,  experience.getTitleDesc()                );
-          ps.setString ( 8,  experience.getDescription()              );
-          ps.setString ( 9,  experience.getCity()                     );
-          ps.setString ( 10, experience.getState().getStateCode()     );
-          ps.setString ( 11, experience.getCountry().getCountryCode() );
-          ps.setInt    ( 12, experience.getTitle().getTitleId()       );
-          ps.setInt    ( 13, experience.getOrganization().getOrganizationId()             );
-          ps.setInt    ( 14, experience.getExperienceType().getExperienceTypeId()         );
-          ps.setInt    ( 15, experience.getExperienceId()             );
-          int RetVal = ps.executeUpdate();
-          if (RetVal != 1)  {
-            throw new TCException
-              ( "ejb.User.UserDbCoder:updateExperiences():update:failed:\n" );
-          }
-          ps.close();
-        } else if(modifiedFlag.compareToIgnoreCase("D") == 0)  {
-          query.append ( "DELETE FROM experience WHERE experience_id=?" );
-          ps = conn.prepareStatement ( query.toString() );
-          ps.setInt ( 1, experience.getExperienceId() );
-          int RetVal = ps.executeUpdate();
-          if (RetVal != 1)  {
-            throw new TCException
-              ("ejb.User.UserDbCoder:updateExperiences:delete:failed:\n");
-          }
-          ps.close();
-        }
-      }
-    } catch (SQLException sqe) {
-      DBMS.printSqlException ( true, sqe );
-      throw new TCException ( sqe.getMessage() );
-    } catch (Exception ex)  {
-      StringBuffer msg = new StringBuffer ( 300                   );
-      msg.append ( "ejb.User.UserDbCoder:updateExperiences:" );
-      msg.append ( "coderId="                                     );
-      if (experience != null) {
-        msg.append ( experience.getCoderId()                      );
-        msg.append ( ":experienceId="                             );
-        msg.append ( experience.getExperienceId()                 );
-      }
-      msg.append ( ":failed:\n"                                   );
-      msg.append ( ex                                             );
-      throw new TCException ( msg.toString()         );
-    } finally {
-      if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
-    }
-  }
-*/
-
-
   ///////////////////////////////////////////////////////////////////////////////////////////
   private static void updateCoderNotify ( Connection conn, Coder coder ) throws TCException {   
   ///////////////////////////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:updateCoderNotify():called." );
+    log.debug("ejb.User.UserDbCoder:updateCoderNotify():called." );
     PreparedStatement ps = null;
     try {
       /**************************************************************/
@@ -1123,7 +544,7 @@ final class UserDbCoder {
   private static void updateCoderReferral ( Connection conn, CoderReferral coderReferral )
   ///////////////////////////////////////////////////////////////
     throws TCException {
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:updateCoderReferral():called." );
+    log.debug("ejb.User.UserDbCoder:updateCoderReferral():called." );
     PreparedStatement ps = null;
     try {
       String modifiedFlag = coderReferral.getModified();
@@ -1141,7 +562,7 @@ final class UserDbCoder {
         ps.setInt ( 4, coderReferral.getCoderId() );
         int retVal = ps.executeUpdate();
         if ( retVal != 1 ) {
-          Log.msg ( VERBOSE, "coder: " 
+          log.error( "coder: " 
            + coderReferral.getCoderId() + "  referralId: " 
            + coderReferral.getReferral().getReferralId() + "  reference: " 
            + coderReferral.getReferenceId());
@@ -1166,7 +587,7 @@ final class UserDbCoder {
   private static void updateCurrentSchool ( Connection conn, School currentSchool )
     throws TCException {
   /////////////////////////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:updateCurrentSchool():called." );
+    log.debug("ejb.User.UserDbCoder:updateCurrentSchool():called." );
     PreparedStatement ps = null;
     ResultSet rs = null;
     try {
@@ -1208,10 +629,10 @@ final class UserDbCoder {
   private static void updateDemographicResponses(Connection conn, int coderTypeId, ArrayList demographicResponses)
   ///////////////////////////////////////////////////////////////
     throws TCException {
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:updateDemographicResponses():called." );
+    log.debug("ejb.User.UserDbCoder:updateDemographicResponses():called." );
     PreparedStatement ps = null;
     try { 
-      Log.msg ( VERBOSE, "CODER_TYPE_ID="+coderTypeId );
+      log.debug("CODER_TYPE_ID="+coderTypeId );
       HashSet qIdsForCoderType = getDemographicQuestionIds ( conn, coderTypeId );
       for (int i = 0; i < demographicResponses.size(); i++) {
         DemographicResponse demographicResponse = (DemographicResponse) demographicResponses.get(i);
@@ -1238,10 +659,7 @@ final class UserDbCoder {
           ps.setInt ( 4, demographicResponse.getDemographicAnswerId() );
           int RetVal = ps.executeUpdate();
           if (RetVal != 1)  {
-            Log.msg (
-              VERBOSE 
-              ,"ejb.User.UserDbCoder:updateDemographicResponses():update:failed" 
-            );
+            log.error("ejb.User.UserDbCoder:updateDemographicResponses():update:failed");
           }
         } else if (modifiedFlag.compareToIgnoreCase("D") == 0) {
           /**************************************************************/
@@ -1253,13 +671,10 @@ final class UserDbCoder {
           ps.setInt ( 3, demographicResponse.getCoderId());
           int retVal = ps.executeUpdate();
           if ( retVal != 1 ) {
-            Log.msg ( VERBOSE, "q="+demographicResponse.getDemographicQuestionId() );
-            Log.msg ( VERBOSE, "a="+demographicResponse.getDemographicAnswerId() );
-            Log.msg ( VERBOSE, "c="+demographicResponse.getCoderId() );
-            Log.msg ( VERBOSE, "ejb.User.UserDbCoder:updateDemographicResponses():ERROR:"+retVal+" records deleted" );
-            //throw new TCException (
-              //"ejb.User.UserDbCoder:updateDemographicResponses():ERROR:"+retVal+" records deleted"
-            //);
+            log.error("q="+demographicResponse.getDemographicQuestionId() );
+            log.error("a="+demographicResponse.getDemographicAnswerId() );
+            log.error("c="+demographicResponse.getCoderId() );
+            log.error("ejb.User.UserDbCoder:updateDemographicResponses():ERROR:"+retVal+" records deleted" );
           }
         }
       }
@@ -1280,7 +695,7 @@ final class UserDbCoder {
   private static void updateRating ( Connection conn, Rating cr )  
     throws TCException  {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"ejb.User.UserDbCoder:updateRating() called ...");
+    log.debug("ejb.User.UserDbCoder:updateRating() called ...");
     PreparedStatement ps = null;
     String modifiedFlag = "";
     StringBuffer query = new StringBuffer(230);
@@ -1352,7 +767,7 @@ final class UserDbCoder {
   static void loadCoder (Connection conn, User user) 
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"ejb.User.UserDbCoder:loadCoder():called...");
+    log.debug("ejb.User.UserDbCoder:loadCoder():called...");
     PreparedStatement ps = null;
     ResultSet rs = null;
     StringBuffer query = new StringBuffer(1000);
@@ -1489,7 +904,7 @@ final class UserDbCoder {
       DBMS.printSqlException ( true, sqe );
       throw new TCException ( sqe.getMessage() );
     } catch (Exception ex)  {
-      Log.msg ( "MIKE SAYS:"+ex.getMessage() );
+      log.debug ( "MIKE SAYS:"+ex.getMessage() );
       ex.printStackTrace();
       StringBuffer msg = new StringBuffer(300);
       msg.append ( "ejb.User.UserDbCoder:loadCoder:" );
@@ -1504,230 +919,11 @@ final class UserDbCoder {
     }
   }
 
-/*
-  ///////////////////////////////////////////////////////////////
-  private static void loadCoderEducation (Connection conn, CoderRegistration coder)
-    throws TCException  {
-  ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"ejb.User.UserDbCoder:loadCoderEducation() called...\n");
-    PreparedStatement ps = null;
-    ResultSet rs         = null;
-    int degreeLevelId    = 0;
-    String stateCode     = "";
-    String countryCode   = "";
-    StringBuffer query   = new StringBuffer(1100);
-    query.append( " SELECT"                                           );
-    query.append(   " education.education_id"                         );
-    query.append(   " ,education.degree_id"                           );
-    query.append(   " ,degree.degree_desc"                            );
-    query.append(   " ,education.major"                               );
-    query.append(   " ,education.graduation_year"                     );
-    query.append(   " ,education.graduation_month"                    );
-    query.append(   " ,education.school_id"                           );
-    query.append(   " ,school.name"                                   );
-    query.append(   " ,school.sort_letter"                            );
-    query.append(   " ,school.city"                                   );
-    query.append(   " ,school.state_code"                             );
-    query.append(   " ,state.state_name"                              );
-    query.append(   " ,state.demographic_decline"                     );
-    query.append(   " ,school.country_code"                           );
-    query.append(   " ,country.country_name"                          );
-    query.append(   " ,country.participating"                         );
-    query.append( " FROM"                                             );
-    query.append(   " education"                                      );
-    query.append(   " ,degree"                                        );
-    query.append(   " ,school"                                        );
-    query.append(   " ,country"                                       );
-    query.append(   " ,state"                                         );
-    query.append( " WHERE"                                            );
-    query.append(   " education.coder_id = ?"                         );
-    query.append(   " AND education.degree_id = degree.degree_id"     );
-    query.append(   " AND education.school_id = school.school_id"     );
-    query.append(   " AND school.country_code = country.country_code" );
-    query.append(   " AND school.state_code = state.state_code"       );
-    try  {
-      ArrayList listEd = coder.getEducations();
-      listEd.clear();
-      ps = conn.prepareStatement( query.toString() );
-      ps.setInt( 1, coder.getCoderId() );
-      rs = ps.executeQuery();
-      while ( rs.next() )  {
-        Education ed          = new Education();
-        Degree degreeLevel    = ed.getDegree();
-        School school         = ed.getSchool();
-        State schoolState     = school.getState();
-        Country schoolCountry = school.getCountry();
-        ed.setCoderId                ( coder.getCoderId() );
-        ed.setEducationId            ( rs.getInt    (1)  );
-        degreeLevel.setDegreeId      ( rs.getInt    (2)  );
-        degreeLevel.setDegreeDesc    ( rs.getString (3)  );
-        ed.setMajor                  ( rs.getString (4)  );
-        ed.setGraduationYear         ( rs.getInt    (5)  );
-        ed.setGraduationMonth        ( rs.getInt    (6)  );
-        school.setSchoolId           ( rs.getInt    (7)  );
-        school.setName               ( rs.getString (8)  );
-        school.setSortLetter         ( rs.getString (9)  );
-        school.setCity               ( rs.getString (10) );
-        schoolState.setStateCode     ( rs.getString (11) );
-        schoolState.setStateName     ( rs.getString (12) );
-        schoolState.setDemographicDecline ( rs.getInt (13) );
-        schoolCountry.setCountryCode ( rs.getString (14) );
-        schoolCountry.setCountryName ( rs.getString (15) );
-        schoolCountry.setParticipating ( rs.getInt (16) );
-        ed.setModified               ( "S"                );
-        listEd.add                   ( ed                 );
-      }
-    } catch (SQLException sqe) {
-      DBMS.printSqlException ( true, sqe );
-      throw new TCException ( sqe.getMessage() );
-    } catch (Exception ex)  {
-      StringBuffer msg = new StringBuffer(300);
-      msg.append( "ejb.User.UserDbCoder:loadCoderEducation:" );
-      msg.append( "coderId="                                 );
-      msg.append( coder.getCoderId()                         );
-      msg.append( ":failed:\n"                               );
-      msg.append( ex                                         );
-      throw new TCException( msg.toString() );
-    } finally {
-      if (rs != null) { try { rs.close(); } catch ( Exception ignore ) {} }
-      if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
-    }
-  }
-
-
-  ///////////////////////////////////////////////////////////////
-  private static void loadCoderSchool (Connection conn, CoderRegistration coder)
-    throws TCException  {
-  ///////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:loadCoderSchool():called." );
-    PreparedStatement ps = null;
-    ResultSet rs         = null;
-    StringBuffer query   = new StringBuffer(375);
-    query.append ( " SELECT"                                           );
-    query.append (   " school.school_id"                               );
-    query.append (   " ,school.name"                                   );
-    query.append (   " ,school.sort_letter"                            );
-    query.append (   " ,school.city"                                   );
-    query.append (   " ,school.state_code"                             );
-    query.append (   " ,state.state_name"                              );
-    query.append (   " ,state.demographic_decline"                     );
-    query.append (   " ,school.country_code"                           );
-    query.append (   " ,country.country_name"                          );
-    query.append (   " ,country.participating"                         );
-    query.append ( " FROM"                                             );
-    query.append (   " school"                                         );
-    query.append (   " ,country"                                       );
-    query.append (   " ,state"                                         );
-    query.append ( " WHERE"                                            );
-    query.append (   " school.user_id = ?"                             );
-    query.append (   " AND school.country_code = country.country_code" );
-    query.append (   " AND school.state_code = state.state_code"       );
-    try  {
-      ArrayList listSchools = coder.getSchools();
-      listSchools.clear();
-      ps = conn.prepareStatement(query.toString());
-      ps.setInt(1, coder.getCoderId());
-      rs = ps.executeQuery();
-      while ( rs.next() )  {
-        School school = new School();
-        school.setUserId                   ( coder.getCoderId() );
-        school.setSchoolId                 ( rs.getInt    (1)   );
-        school.setName                     ( rs.getString (2)   );
-        school.setSortLetter               ( rs.getString (3)   );
-        school.setCity                     ( rs.getString (4)   );
-        school.getState().setStateCode     ( rs.getString (5)   );
-        school.getState().setStateName     ( rs.getString (6)   );
-        school.getState().setDemographicDecline     ( rs.getInt (7)   );
-        school.getCountry().setCountryCode ( rs.getString (8)   );
-        school.getCountry().setCountryName ( rs.getString (9)   );
-        school.getCountry().setParticipating ( rs.getInt (10)   );
-        listSchools.add                    ( school             );
-      }
-      ps.clearParameters();
-    } catch (SQLException sqe) {
-      DBMS.printSqlException ( true, sqe );
-      throw new TCException ( sqe.getMessage() );
-    } catch (Exception ex)  {
-      StringBuffer msg = new StringBuffer ( 300            );
-      msg.append ( "ejb.User.UserDbCoder:loadCoderSchool:" );
-      msg.append ( "coderId="                              );
-      msg.append ( coder.getCoderId()                      );
-      msg.append ( ":failed:\n"                            );
-      msg.append ( ex                                      );
-      throw new TCException ( msg.toString()  );
-    } finally {
-      if (rs != null) { try { rs.close(); } catch ( Exception ignore ) {} }
-      if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
-    }
-  }
-
-  ///////////////////////////////////////////////////////////////
-  private static void loadCoderSkill (Connection conn, CoderRegistration coder) 
-    throws TCException {
-  ///////////////////////////////////////////////////////////////
-    Log.msg(VERBOSE,"ejb.User.UserDbCoder:loadCoderSkill() called...\n");
-    PreparedStatement ps = null;
-    ResultSet rs         = null;
-    StringBuffer query   = new StringBuffer(300);
-    query.append( " SELECT"                                  );      
-    query.append(   " c.skill_id"                            );      
-    query.append(   " ,s.skill_type_id"                      );      
-    query.append(   " ,t.skill_type_desc"                    );      
-    query.append(   " ,t.skill_type_order"                   );      
-    query.append(   " ,t.status"                             );      
-    query.append(   " ,s.skill_desc"                         );      
-    query.append(   " ,s.status"                             );      
-    query.append(   " ,s.skill_order"                        );      
-    query.append(   " ,c.ranking"                            );      
-    query.append( " FROM"                                    );      
-    query.append(   " coder_skill c"                         );      
-    query.append(   " ,skill s"                              );      
-    query.append(   " ,skill_type t"                         );      
-    query.append( " WHERE"                                   );      
-    query.append(   " c.coder_id = ?"                        );      
-    query.append(   " AND c.skill_id = s.skill_id"           );      
-    query.append(   " AND s.skill_type_id = t.skill_type_id" );
-    try  {
-      ArrayList coderSkills = coder.getSkills();
-      coderSkills.clear();
-      ps = conn.prepareStatement( query.toString() );
-      ps.setInt( 1, coder.getCoderId() );
-      ps.executeQuery();
-      rs = ps.getResultSet();
-      while ( rs.next() ) {
-        CoderSkill coderSkill = new CoderSkill();
-        Skill      skill      = coderSkill.getSkill();
-        SkillType  skillType  = skill.getSkillType();
-        coderSkill.setCoderId       ( coder.getCoderId() );
-        skill.setSkillId            ( rs.getInt    (1)   );
-        skillType.setSkillTypeId    ( rs.getInt    (2)   );
-        skillType.setSkillTypeDesc  ( rs.getString (3)   );
-        skillType.setSkillTypeOrder ( rs.getInt    (4)   );
-        skillType.setActiveInd      ( rs.getString (5)   );
-        skill.setSkillDesc          ( rs.getString (6)   );
-        skill.setActiveInd          ( rs.getString (7)   );
-        skill.setSkillOrder         ( rs.getInt    (8)   );
-        coderSkill.setRanking       ( rs.getInt    (9)   );
-        coderSkill.setModified      ( "S"                );
-        coderSkills.add             ( coderSkill         );
-      }
-    } catch (SQLException sqe) {
-      DBMS.printSqlException ( true, sqe );
-      throw new TCException ( sqe.getMessage() );
-    } catch (Exception ex) {
-      throw new TCException ( "ejb.User.UserDbCoder:loadCoderSkill:"+coder.getCoderId()+":failed."+ex );
-    } finally {
-      if (rs != null) { try { rs.close(); } catch ( Exception ignore ) {} }
-      if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
-    }
-  }
-*/
-
   ///////////////////////////////////////////////////////////////
   private static void loadDemographicResponses (Connection conn, CoderRegistration coder)
   ///////////////////////////////////////////////////////////////
     throws TCException {
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:loadDemographicResponses():called." );
+    log.debug("ejb.User.UserDbCoder:loadDemographicResponses():called." );
     PreparedStatement ps = null;
     ResultSet         rs = null;
     StringBuffer query = new StringBuffer(200);
@@ -1772,7 +968,7 @@ final class UserDbCoder {
   private static void loadCoderNotify (Connection conn, CoderRegistration coder)
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:loadCoderNotify():called." );
+    log.debug("ejb.User.UserDbCoder:loadCoderNotify():called." );
     PreparedStatement ps = null;
     ResultSet rs = null;
     ArrayList notifications = coder.getNotifications();
@@ -1814,7 +1010,7 @@ final class UserDbCoder {
   private static void loadRating (Connection conn, CoderRegistration coder) 
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:loadRating():called." );
+    log.debug("ejb.User.UserDbCoder:loadRating():called." );
     PreparedStatement ps = null;
     ResultSet rs = null;
     Rating coderRating = coder.getRating();
@@ -1857,7 +1053,7 @@ final class UserDbCoder {
   private static void loadCurrentSchool (Connection conn, CoderRegistration coder)
     throws TCException {
   ///////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:loadCurrentSchool():called." );
+    log.debug("ejb.User.UserDbCoder:loadCurrentSchool():called." );
     PreparedStatement ps = null;
     ResultSet rs = null;
     School currentSchool = coder.getCurrentSchool();
@@ -1900,11 +1096,9 @@ final class UserDbCoder {
         currentSchool.getCountry().setCountryName ( rs.getString(8) );
         currentSchool.setModified  ( "S" );
       }
-      if (VERBOSE) {
-        XMLDocument test = new XMLDocument("test");
-        test.addTag ( currentSchool.getXML() );
-        System.out.println ( test.getXML(2) );
-      }
+      XMLDocument test = new XMLDocument("test");
+      test.addTag(currentSchool.getXML());
+      log.debug(test.getXML(2));
     } catch (SQLException sqe) {
       DBMS.printSqlException ( true, sqe );
       throw new TCException ( sqe.getMessage() );
@@ -1925,7 +1119,7 @@ final class UserDbCoder {
   *********************************************************************************************
   */
   private static void loadRanking(Connection conn, CoderRegistration coder) throws TCException {
-    Log.msg(VERBOSE, "ejb:User:loadRanking called...");
+    log.debug("ejb:User:loadRanking called...");
     PreparedStatement ps = null; 
     ResultSet rs = null; 
     StringBuffer query = null;   
@@ -1965,113 +1159,12 @@ final class UserDbCoder {
       e.printStackTrace();
       throw new TCException (e.getMessage());
     } finally {
-      try { if (rs   != null) rs.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "rs   close problem");}
-      try { if (ps   != null) ps.close();  } catch (Exception ignore) {Log.msg(VERBOSE, "ps   close problem");}
+      try { if (rs   != null) rs.close();  } catch (Exception ignore) {log.error("rs   close problem");}
+      try { if (ps   != null) ps.close();  } catch (Exception ignore) {log.error("ps   close problem");}
       rs = null; 
       ps = null; 
     }
   }   
-
-/*
-  ///////////////////////////////////////////////////////////////
-  private static void loadExperience (Connection conn, CoderRegistration coder) 
-    throws TCException {
-  ///////////////////////////////////////////////////////////////
-    Log.msg ( VERBOSE, "ejb.User.UserDbCoder:loadExperience():called." );
-    PreparedStatement ps = null;
-    ResultSet         rs = null;
-    StringBuffer query = new StringBuffer(620);
-    query.append( " SELECT"                                               );
-    query.append(   " experience.experience_id"                           );
-    query.append(   " ,experience.organization_name"                      );
-    query.append(   " ,experience.start_year"                             );
-    query.append(   " ,experience.start_month"                            );
-    query.append(   " ,experience.end_year"                               );
-    query.append(   " ,experience.end_month"                              );
-    query.append(   " ,experience.title"                                  );
-    query.append(   " ,experience.description"                            );
-    query.append(   " ,experience.city"                                   );
-    query.append(   " ,experience.state_code"                             );
-    query.append(   " ,state.state_name"                                  );
-    query.append(   " ,state.demographic_decline"                         );
-    query.append(   " ,experience.country_code"                           );
-    query.append(   " ,country.country_name"                              );
-    query.append(   " ,country.participating"                             );
-    query.append(   " ,experience.title_id"                               );
-    query.append(   " ,title.title_desc"                                  );
-    query.append(   " ,title.title"                                       );
-    query.append(   " ,experience.organization_id"                        );
-    query.append(   " ,organization.organization"                         );
-    query.append(   " ,organization.organization_desc"                    );
-    query.append(   " ,experience.experience_type_id"                     );
-    query.append(   " ,experience_type_lu.experience_type_desc"           );
-    query.append( " FROM"                                                 );
-    query.append(   " experience"                                         );
-    query.append(   " ,country"                                           );
-    query.append(   " ,title"                                             );
-    query.append(   " ,organization"                                      );
-    query.append(   " ,experience_type_lu"                                );
-    query.append(   " ,state"                                             );
-    query.append( " WHERE"                                                );
-    query.append(   " experience.coder_id = ?"                            );
-    query.append(   " AND experience.country_code = country.country_code" );
-    query.append(   " AND experience.title_id = title.title_id"           );
-    query.append(   " AND experience.organization_id = organization.organization_id"             );
-    query.append(   " AND experience.experience_type_id = experience_type_lu.experience_type_id" );
-    query.append(   " AND experience.state_code = state.state_code"       );
-    try {
-      ArrayList experiences = coder.getExperiences();
-      experiences.clear();
-      ps = conn.prepareStatement( query.toString() );
-      ps.setInt( 1, coder.getCoderId() );
-      rs = ps.executeQuery();
-      while ( rs.next() ) {
-        Experience experience = new Experience();
-        State state                = experience.getState();
-        Country country            = experience.getCountry();
-        Title title                = experience.getTitle();
-        Organization organization     = experience.getOrganization();
-        ExperienceType experienceType = experience.getExperienceType();
-        experience.setCoderId       ( coder.getCoderId() );
-        experience.setExperienceId  ( rs.getInt    (1)   );
-        experience.setCompany       ( rs.getString (2)   );
-        experience.setStartYear     ( rs.getInt    (3)   );
-        experience.setStartMonth    ( rs.getInt    (4)   );
-        experience.setEndYear       ( rs.getInt    (5)   );
-        experience.setEndMonth      ( rs.getInt    (6)   );
-        experience.setTitleDesc     ( rs.getString (7)   );
-        experience.setDescription   ( rs.getString (8)   );
-        experience.setCity          ( rs.getString (9)   );
-        state.setStateCode          ( rs.getString (10)  );
-        state.setStateName          ( rs.getString (11)  );
-        state.setDemographicDecline ( rs.getInt (12)  );
-        country.setCountryCode      ( rs.getString (13)  );
-        country.setCountryName      ( rs.getString (14)  );
-        country.setParticipating    ( rs.getInt (15)  );
-        title.setTitleId            ( rs.getInt    (16)  );
-        title.setTitle              ( rs.getString (17)  );
-        title.setTitleDesc          ( rs.getString (18)  );
-        organization.setOrganizationId       ( rs.getInt    (19)  );
-        organization.setOrganization         ( rs.getString (20)  );
-        organization.setOrganizationDesc     ( rs.getString (21)  );
-        experienceType.setExperienceTypeId   ( rs.getInt    (22)  );
-        experienceType.setExperienceTypeDesc ( rs.getString (23)  );
-        experience.setModified     ( "S"                );
-        experiences.add            ( experience         );
-      }
-    } catch (SQLException sqe) {
-      DBMS.printSqlException ( true, sqe );
-      throw new TCException ( sqe.getMessage() );
-    } catch (Exception ex) {
-      ex.printStackTrace(); //XXX
-      throw new 
-        TCException("ejb.User.UserDbCoder:loadExperience:"+coder.getCoderId()+":failed:\n"+ex);
-    } finally {
-      if (rs != null) { try { rs.close(); } catch ( Exception ignore ) {} }
-      if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
-    }
-  }
-*/
 
 
   ///////////////////////////////////////////////////////////////

@@ -17,13 +17,12 @@
 
 package com.topcoder.web.pacts.common;
 
-import org.apache.log4j.*;
 import com.topcoder.web.common.*;
 import java.util.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class PaymentHeader implements PactsConstants, java.io.Serializable {
-    private static Category log =
-	Category.getInstance(PaymentHeader.class.getName());
+    private static Logger log = Logger.getLogger(PaymentHeader.class);
 
 /*  Explanation of Members
 *

@@ -7,7 +7,7 @@ package com.topcoder.web.pacts.messaging.handler;
 * Created on October 18, 2001, 8:43 PM
 */
 
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 
 /**
 *************************************************************************************

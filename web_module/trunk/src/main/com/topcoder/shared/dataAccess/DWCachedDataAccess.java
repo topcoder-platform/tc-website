@@ -18,6 +18,18 @@ import com.topcoder.shared.distCache.CacheClientFactory;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.2.3  2002/07/11 17:07:18  gpaul
+ *           isClose should be isClosed
+ *
+ *           Revision 1.1.2.2  2002/07/11 17:05:55  gpaul
+ *           check if connection is closed before attempting to do it.
+ *
+ *           Revision 1.1.2.1  2002/07/09 23:41:27  gpaul
+ *           switched to use com.topcoder.shared.util.logging.Logger
+ *
+ *           Revision 1.1  2002/07/03 00:30:22  gpaul
+ *           moving over here
+ *
  *           Revision 1.7  2002/06/27 18:25:52  gpaul
  *           adjustments for a correct ApplicationSever.properties file and DBMS.properties file
  *
@@ -55,7 +67,6 @@ public class DWCachedDataAccess implements DataAccessInt {
      */
     private static CacheClient client;
     private long expireTime;
-    private static final boolean VERBOSE = true;
     public DWCachedDataAccess()
     {
         this(86400000);                 //one day in ms
@@ -95,7 +106,7 @@ public class DWCachedDataAccess implements DataAccessInt {
               conn = DBMS.getDWConnection();
               dr = new DataRetriever(conn);
               map = dr.executeCommand(request.getProperties());
-              if (conn != null) {
+              if (conn != null && !conn.isClosed()) {
                 try {
                   conn.close();
                 } catch (Exception ce) { 

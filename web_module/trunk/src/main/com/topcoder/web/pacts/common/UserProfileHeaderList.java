@@ -12,11 +12,10 @@ package com.topcoder.web.pacts.common;
 
 import java.util.*;
 import com.topcoder.web.common.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class UserProfileHeaderList implements PactsConstants {
-    private static Category log =
-	Category.getInstance(UserProfileHeaderList.class.getName());
+    private static Logger log = Logger.getLogger(UserProfileHeaderList.class);
 
     public UserProfileHeader[] headerList=null;
 

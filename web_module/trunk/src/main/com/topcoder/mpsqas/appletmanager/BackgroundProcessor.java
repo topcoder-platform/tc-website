@@ -7,14 +7,21 @@ import java.io.*;
 import java.net.*;
 import javax.naming.*;
 import com.topcoder.tcclasses.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.*;
 
 /**
  * A thread running in the background responsible for ongoing tasks like seeing
  * which problems have been used, logging chat, etc...
  */
-public class BackgroundProcessor extends Thread
-{
+public class BackgroundProcessor extends Thread {
+  private long lastChatLog;
+  private long lastUpcomingContestsCheck;
+  private long lastPing;
+  private ArrayList upcomingContests;
+  private MainAppletProcessor mainAppletProcessor;
+  private MPSQASServicesHome mpsqasHome; //MPSQAS bean home
+  private static Logger log = Logger.getLogger(BackgroundProcessor.class);
   /**
    * Sets up the bean home and stores some information.
    *
@@ -26,12 +33,12 @@ public class BackgroundProcessor extends Thread
 
     try
     {
-      InitialContext ctx=TCContext.getMPSQASInitial();
+      InitialContext ctx=(InitialContext)TCContext.getInitial();
       mpsqasHome=(MPSQASServicesHome)ctx.lookup(ApplicationServer.MPSQAS_SERVICES);
     }
     catch(Exception e)
     {
-      Log.msg("Error getting MPSQASServices for Background processor\n");
+      log.debug("Error getting MPSQASServices for Background processor\n");
       e.printStackTrace();
     }
 
@@ -51,7 +58,7 @@ public class BackgroundProcessor extends Thread
   {
     while(!isInterrupted())
     {
-      if (VERBOSE) Log.msg ("Checking tasks.");
+      log.debug ("Checking tasks.");
       if (System.currentTimeMillis() - lastChatLog > 
           ApplicationConstants.CHAT_LOG_FREQUENCY) 
       {
@@ -87,7 +94,7 @@ public class BackgroundProcessor extends Thread
    */
   private void logChat()
   {
-    if (VERBOSE) Log.msg("Logging chat.");
+    log.debug("Logging chat.");
     try
     {
       ArrayList chat = mainAppletProcessor.clearChatHistory();
@@ -100,7 +107,7 @@ public class BackgroundProcessor extends Thread
     }
     catch(Exception e)
     {
-      Log.msg("Error logging chat:");
+      log.debug("Error logging chat:");
       e.printStackTrace();
     }
   }
@@ -113,7 +120,7 @@ public class BackgroundProcessor extends Thread
    */
   private void checkUpcomingContests()
   {
-    if (VERBOSE) Log.msg("Checking upcoming contests.");
+    log.debug("Checking upcoming contests.");
 
     try
     {
@@ -140,16 +147,9 @@ public class BackgroundProcessor extends Thread
     }
     catch(Exception e)
     {
-      Log.msg("Error analyzing upcoming contests:");
+      log.debug("Error analyzing upcoming contests:");
       e.printStackTrace(); 
     }
   }
 
-  private long lastChatLog;
-  private long lastUpcomingContestsCheck;
-  private long lastPing;
-  private ArrayList upcomingContests;
-  private MainAppletProcessor mainAppletProcessor;
-  private MPSQASServicesHome mpsqasHome; //MPSQAS bean home
-  private boolean VERBOSE = false;
 }

@@ -7,11 +7,9 @@ import javax.servlet.http.*;
 import javax.naming.*;
 
 import com.topcoder.web.email.servlet.*;
-import com.topcoder.web.stat.ejb.Statistics.*;
-import com.topcoder.web.stat.ejb.*;
-import com.topcoder.web.stat.common.*;
-import com.topcoder.server.ejb.EmailServices.*;
-import org.apache.log4j.Category;
+import com.topcoder.shared.ejb.EmailServices.*;
+import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * ScheduledJobTask.java
@@ -26,7 +24,7 @@ import org.apache.log4j.Category;
 public class ScheduledJobTask
 	implements Task, Serializable
 {
-	static Category trace = Category.getInstance(ScheduledJobTask.class);
+        private static Logger log = Logger.getLogger(ScheduledJobTask.class);
 
 	public TaskRouter perform(HttpServlet servlet,
 				HttpServletRequest request,
@@ -163,7 +161,7 @@ public class ScheduledJobTask
 
 		request.getSession().setAttribute("ScheduledJob", job);
 
-		trace.debug("Creating job: " + job);
+		log.debug("Creating job: " + job);
 
 		// forward to the first scheduled job creation form
 		return EmailConstants.SCHEDULEDJOB_CREATE_PAGE;
@@ -208,14 +206,14 @@ public class ScheduledJobTask
 		ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
 
 		if (!job.isAdded()) {
-			trace.debug("Adding scheduled job:\n" + job);
+			log.debug("Adding scheduled job:\n" + job);
 		
 			// create the job
 			createJob(job);
 
 			job.setAdded(true);
 		} else {
-			trace.debug("Already added the job");
+			log.debug("Already added the job");
 		}
 
 		// forward to scheduled job list page
@@ -246,7 +244,7 @@ public class ScheduledJobTask
 		ScheduledJobForm job = retrieveJob(jobId);
 		request.getSession().setAttribute("ScheduledJob", job);
 
-		trace.debug("Editing scheduled job\n " + job);
+		log.debug("Editing scheduled job\n " + job);
 
 		// forward to scheduled job editing page
 		return showEdit(request, response);
@@ -276,7 +274,7 @@ public class ScheduledJobTask
 		ScheduledJobForm job = retrieveJob(jobId);
 		request.setAttribute("ScheduledJob", job);
 
-		trace.debug("Viewing scheduled job\n " + job);
+		log.debug("Viewing scheduled job\n " + job);
 
 		// forward to scheduled job viewing page
 		return EmailConstants.SCHEDULEDJOB_VIEW_PAGE;
@@ -344,7 +342,7 @@ public class ScheduledJobTask
 		ArrayList errorList = job.validate();
 		if (errorList.size() > 0) {
 			// error - go back
-			trace.debug("Job form validation failed - errors: " + errorList);
+			log.debug("Job form validation failed - errors: " + errorList);
 
 			// set error list attribute
 			request.setAttribute("Error", errorList);
@@ -352,7 +350,7 @@ public class ScheduledJobTask
 			// forward back to job editing page
 			return reloadEdit(request, response);
 		} else {
-			trace.debug("Saving job:\n" + job);
+			log.debug("Saving job:\n" + job);
 
 			saveJob(job);
 
@@ -402,7 +400,7 @@ public class ScheduledJobTask
 		ArrayList errorList = job.validate();
 		if (errorList.size() > 0) {
 			// error - go back
-			trace.debug("Job form validation failed - errors: " + errorList);
+			log.debug("Job form validation failed - errors: " + errorList);
 
 			// set error list attribute
 			request.setAttribute("Error", errorList);
@@ -429,13 +427,13 @@ public class ScheduledJobTask
 	{
 		String group = request.getParameter(EmailConstants.GROUP);
 		if (group == null) {
-			trace.debug("No group specified - choosing first group");
+			log.debug("No group specified - choosing first group");
 
 			group = String.valueOf(AddressListTask.getFirstAddressListGroupId());
 		}
 		request.setAttribute(EmailConstants.GROUP, group);
 
-		trace.debug("Listing address lists for group: " + group);
+		log.debug("Listing address lists for group: " + group);
 
 		return EmailConstants.SCHEDULEDJOB_CHOOSE_LIST_ADD_PAGE;
 	}
@@ -463,7 +461,7 @@ public class ScheduledJobTask
 		ArrayList errorList = job.validate();
 		if (errorList.size() > 0) {
 			// error - go back
-			trace.debug("Job form validation failed - errors: " + errorList);
+			log.debug("Job form validation failed - errors: " + errorList);
 
 			// set error list attribute
 			request.setAttribute("Error", errorList);
@@ -496,7 +494,7 @@ public class ScheduledJobTask
 
 		job.setCommandInputMap(commandInputMap);
 
-		trace.debug("command inputs: " + commandInputMap);
+		log.debug("command inputs: " + commandInputMap);
 
 		// forward to template choosing screen
 		return chooseTemplateAdd(request, response);
@@ -525,7 +523,7 @@ public class ScheduledJobTask
 		job.setListId(listId);
 		job.setCommandId("0");
 
-		trace.debug("address list: " + job.getListId());
+		log.debug("address list: " + job.getListId());
 
 		// forward to template choosing screen
 		return chooseTemplateAdd(request, response);
@@ -546,13 +544,13 @@ public class ScheduledJobTask
 	{
 		String group = request.getParameter(EmailConstants.GROUP);
 		if (group == null) {
-			trace.debug("No group specified - choosing first group");
+			log.debug("No group specified - choosing first group");
 
 			group = String.valueOf(TemplateTask.getFirstTemplateGroupId());
 		}
 		request.setAttribute(EmailConstants.GROUP, group);
 
-		trace.debug("Listing templates for group: " + group);
+		log.debug("Listing templates for group: " + group);
 
 		// forward to template chooser page
 		return EmailConstants.SCHEDULEDJOB_CHOOSE_TEMPLATE_ADD_PAGE;
@@ -577,7 +575,7 @@ public class ScheduledJobTask
 		job.setCommandId(request.getParameter(EmailConstants.COMMAND_ID));
 		job.setListId("0");
 
-		trace.debug("command: " + job.getCommandId());
+		log.debug("command: " + job.getCommandId());
 
 
 
@@ -614,7 +612,7 @@ public class ScheduledJobTask
 		// first set the template id
 		ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
 		job.setTemplateId(request.getParameter("templateId"));
-		trace.debug("template id: " + job.getTemplateId());
+		log.debug("template id: " + job.getTemplateId());
 
 		// forward to page that asks if user wants a test
 		return EmailConstants.SCHEDULEDJOB_ASK_SEND_TEST_PAGE;
@@ -675,12 +673,12 @@ public class ScheduledJobTask
 			calendar.add(Calendar.DAY_OF_MONTH, 1);
 			testJob.setEndDate(calendar.getTime());
 
-			trace.debug("Creating test job:\n" + testJob);
+			log.debug("Creating test job:\n" + testJob);
 			// create test job
 
 			createJob(testJob);
 		} else {
-			trace.debug("Already created job.");
+			log.debug("Already created job.");
 		}
 
 
@@ -711,13 +709,13 @@ public class ScheduledJobTask
 
 		String group = request.getParameter(EmailConstants.GROUP);
 		if (group == null) {
-			trace.debug("No group specified - choosing first group");
+			log.debug("No group specified - choosing first group");
 
 			group = String.valueOf(AddressListTask.getFirstAddressListGroupId());
 		}
 		request.setAttribute(EmailConstants.GROUP, group);
 
-		trace.debug("Listing address lists for group: " + group);
+		log.debug("Listing address lists for group: " + group);
 
 		// forward to the list selection page
 		return EmailConstants.SCHEDULEDJOB_CHOOSE_LIST_EDIT_PAGE;
@@ -744,7 +742,7 @@ public class ScheduledJobTask
 		job.setListId(listId);
 		job.setCommandId("0");
 
-		trace.debug("address list: " + job.getListId());
+		log.debug("address list: " + job.getListId());
 
 		// go back to the edit page
 		return showEdit(request, response);
@@ -770,13 +768,13 @@ public class ScheduledJobTask
 
 		String group = request.getParameter(EmailConstants.GROUP);
 		if (group == null) {
-			trace.debug("No group specified - choosing first group");
+			log.debug("No group specified - choosing first group");
 
 			group = String.valueOf(TemplateTask.getFirstTemplateGroupId());
 		}
 		request.setAttribute(EmailConstants.GROUP, group);
 
-		trace.debug("Listing templates for group: " + group);
+		log.debug("Listing templates for group: " + group);
 
 		// forward to template editing page
 		return EmailConstants.SCHEDULEDJOB_CHOOSE_TEMPLATE_EDIT_PAGE;
@@ -800,7 +798,7 @@ public class ScheduledJobTask
 
 		// set the template id
 		job.setTemplateId(request.getParameter("templateId"));
-		trace.debug("template id: " + job.getTemplateId());
+		log.debug("template id: " + job.getTemplateId());
 
 		// go back to the edit page
 		return showEdit(request, response);
@@ -847,7 +845,7 @@ public class ScheduledJobTask
 		job.setCommandId(request.getParameter(EmailConstants.COMMAND_ID));
 		job.setListId("0");
 
-		trace.debug("command: " + job.getCommandId());
+		log.debug("command: " + job.getCommandId());
 
 		// retrieve command inputs for the command
 		Set commandInputSet = StatisticsUtilities.getCommandInputs(Integer.parseInt(job.getCommandId()));
@@ -882,7 +880,7 @@ public class ScheduledJobTask
 
 		job.setCommandInputMap(commandInputMap);
 
-		trace.debug("command inputs: " + commandInputMap);
+		log.debug("command inputs: " + commandInputMap);
 
 		// go back to the edit page
 		return showEdit(request, response);
@@ -918,7 +916,7 @@ public class ScheduledJobTask
 			er = EmailConstants.DEFAULT_NUM_LOG_ENTRIES_PER_SCREEN;
 		}
 
-		trace.debug("Showing log for job id: " + jobId);
+		log.debug("Showing log for job id: " + jobId);
 
 		request.setAttribute(EmailConstants.SR, String.valueOf(sr));
 		request.setAttribute(EmailConstants.ER, String.valueOf(er));
@@ -1058,7 +1056,7 @@ public class ScheduledJobTask
 			// retrieve email address
 			String emailAddress = request.getParameter("EmailAddress");
 
-			trace.debug("Searching on e-mail address: " + emailAddress);
+			log.debug("Searching on e-mail address: " + emailAddress);
 
 			inputMap.put("email", emailAddress);
 
@@ -1071,7 +1069,7 @@ public class ScheduledJobTask
 			// retrieve subject
 			String subject = request.getParameter("Subject");
 
-			trace.debug("Searching on subject: " + subject);
+			log.debug("Searching on subject: " + subject);
 
 			inputMap.put("subject", subject);
 
@@ -1086,7 +1084,7 @@ public class ScheduledJobTask
 				int startDay = Integer.parseInt(request.getParameter("startDay"));
 				GregorianCalendar calendar = new GregorianCalendar(startYear, startMonth, startDay);
 
-				trace.debug("Searching by date - start date: " + calendar.getTime());
+				log.debug("Searching by date - start date: " + calendar.getTime());
 
 				inputMap.put("sd", String.valueOf(new java.sql.Date(calendar.getTime().getTime())));
 
@@ -1095,7 +1093,7 @@ public class ScheduledJobTask
 				int endDay = Integer.parseInt(request.getParameter("endDay"));
 				calendar = new GregorianCalendar(endYear, endMonth, endDay);
 
-				trace.debug("Searching by date - end date: " + calendar.getTime());
+				log.debug("Searching by date - end date: " + calendar.getTime());
 
 				inputMap.put("ed", String.valueOf(new java.sql.Date(calendar.getTime().getTime())));
 			} catch (Exception e) {
@@ -1215,7 +1213,7 @@ public class ScheduledJobTask
 				jobIdList.add(String.valueOf(resultSetContainer.getItem(i, 0)));
 			}
 		} catch (Exception e) {
-			trace.error("Error getting recent jobs", e);
+			log.error("Error getting recent jobs", e);
 			throw new ServletException(e.toString());
 		}
 
@@ -1263,7 +1261,7 @@ public class ScheduledJobTask
 			}
 
 		} catch (Exception e) {
-			trace.error("Error creating job", e);
+			log.error("Error creating job", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -1316,7 +1314,7 @@ public class ScheduledJobTask
 				}
 			}
 		} catch (Exception e) {
-			trace.error("Error saving scheduled job", e);
+			log.error("Error saving scheduled job", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -1378,7 +1376,7 @@ public class ScheduledJobTask
 			job.setSubject(subject);
 			job.setCommandInputMap(commandInputMap);
 		} catch (Exception e) {
-			trace.error("Error creating job", e);
+			log.error("Error creating job", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -1446,7 +1444,7 @@ public class ScheduledJobTask
 				}
 			}
 		} catch (Exception e) {
-			trace.error("Error getting job details", e);
+			log.error("Error getting job details", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -1478,7 +1476,7 @@ public class ScheduledJobTask
 
 			emailJob.cancelEmailJob(jobId);
 		} catch (Exception e) {
-			trace.error("Error creating job", e);
+			log.error("Error creating job", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -1510,7 +1508,7 @@ public class ScheduledJobTask
 
 			emailJob.resumeEmailJob(jobId);
 		} catch (Exception e) {
-			trace.error("Error creating job", e);
+			log.error("Error creating job", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -1545,7 +1543,7 @@ public class ScheduledJobTask
 
 			data = emailJob.getJobDetailData(jobId, jobDetailId);
 		} catch (Exception e) {
-			trace.error("Error getting job detail data", e);
+			log.error("Error getting job detail data", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -1600,7 +1598,7 @@ public class ScheduledJobTask
 			jobSummary.setStatusId(String.valueOf(statusId));
 			jobSummary.setJobTypeId(String.valueOf(jobTypeId));
 		} catch (Exception e) {
-			trace.error("Error creating job summary", e);
+			log.error("Error creating job summary", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {
@@ -1646,7 +1644,7 @@ public class ScheduledJobTask
 			return (ResultSetContainer) resultMap.get(EmailConstants.JOB_LOG_RESULT);
 
 		} catch (Exception e) {
-			trace.error("Error getting job log information", e);
+			log.error("Error getting job log information", e);
 			throw new ServletException(e.toString());
 		}
 */
@@ -1680,7 +1678,7 @@ public class ScheduledJobTask
 				logList.add(jobLogEntry);
 			}
 		} catch (Exception e) {
-			trace.error("Error getting log", e);
+			log.error("Error getting log", e);
 			throw new ServletException(e.toString());
 		} finally {
 			if (context != null) {

@@ -1,10 +1,10 @@
 package com.topcoder.common.web.data;
 
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
-public class Job implements Serializable, Base {
+public class Job implements Serializable, TagRenderer {
 
   private int JobId;
   private String JobDesc;

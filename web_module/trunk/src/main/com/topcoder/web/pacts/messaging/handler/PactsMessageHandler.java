@@ -20,7 +20,7 @@ import com.topcoder.web.pacts.common.*;
 import com.topcoder.web.pacts.bean.*;
 import com.topcoder.web.pacts.bean.pacts_internal.dispatch.*;
 import com.topcoder.web.common.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
 ********************************************************************************
@@ -31,7 +31,7 @@ import org.apache.log4j.*;
 */
 public class PactsMessageHandler implements MessageHandler, PactsConstants {
 
-  private static Category log = Category.getInstance(PactsMessageHandler.class.getName());
+  private static Logger log = Logger.getLogger(PactsMessageHandler.class);
   private DataInterfaceBean dib = null;
   private InternalDispatchUserProfile upb = null;
 

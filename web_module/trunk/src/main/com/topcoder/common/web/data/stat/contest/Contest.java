@@ -3,11 +3,10 @@ package com.topcoder.common.web.data.stat.contest;
 import java.io.Serializable;
 import java.util.*;
 import java.sql.Date;
-import com.topcoder.common.web.data.Base;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.data.stat.problem.*;
 
-public final class Contest implements Serializable, Base {
+public final class Contest implements Serializable, TagRenderer {
 
   private int ContestId;
   private String ContestName;

@@ -9,10 +9,12 @@
   import javax.transaction.UserTransaction;
   import javax.transaction.Status;
   import com.topcoder.ejb.ContestAdminServices.*;
-  import com.topcoder.common.*;
+  import com.topcoder.shared.util.logging.Logger;
+  import com.topcoder.shared.util.*;
   import com.topcoder.common.web.data.*;
   import com.topcoder.common.web.error.*;
-  import com.topcoder.common.web.xml.*;
+  import com.topcoder.common.web.xml.HTMLRenderer;
+  import com.topcoder.shared.docGen.xml.*;
   import com.topcoder.common.web.util.*;
   import com.topcoder.common.web.data.Navigation;
   import com.topcoder.web.servlet.admin.*;
@@ -21,12 +23,11 @@
 
 
     private static final String DIR = XSL.DIR + "compilation/";
-    private static final boolean VERBOSE = false;
-
+    private static Logger log = Logger.getLogger(Compilation.class);
 
     ///////////////////////////////////////////////////////////////////////////////////
     public static String process ( HttpServletRequest request, HttpServletResponse response,
-      RenderHTML renderer, Navigation nav, XMLDocument document )
+      HTMLRenderer renderer, Navigation nav, XMLDocument document )
       throws NavigationException {
     //////////////////////////////////////////////////////////////////////////////////
     
@@ -52,7 +53,7 @@
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getRounds (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getRounds (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag compilationTag)
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
@@ -83,7 +84,7 @@
         }
 
         document.addTag(compilationTag);
-        Log.msg(VERBOSE, document.getXML(2) );
+        log.debug(document.getXML(2) );
         String xsldocURLString = DIR+"get_rounds.xsl";
         nav.setScreen(xsldocURLString);
         result = HTMLmaker.render(document, xsldocURLString, null);
@@ -98,7 +99,7 @@
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getCoders (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getCoders (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag compilationTag)
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
@@ -131,7 +132,7 @@
         }
 
         document.addTag(compilationTag);
-        Log.msg(VERBOSE, document.getXML(2) );
+        log.debug(document.getXML(2) );
         String xsldocURLString = DIR+"get_coders.xsl";
         nav.setScreen(xsldocURLString);
         result = HTMLmaker.render(document, xsldocURLString, null);
@@ -147,7 +148,7 @@
 
 
     ////////////////////////////////////////////////////////////////////////////////
-    private static String getCompilations (RenderHTML HTMLmaker, HttpServletRequest request,
+    private static String getCompilations (HTMLRenderer HTMLmaker, HttpServletRequest request,
       XMLDocument document, Navigation nav, RecordTag compilationTag)
       throws NavigationException {
     ////////////////////////////////////////////////////////////////////////////////
@@ -180,7 +181,7 @@
         }
 
         document.addTag(compilationTag);
-        Log.msg(VERBOSE, document.getXML(2) );
+        log.debug(document.getXML(2) );
         String xsldocURLString = DIR+"get_compilations.xsl";
         nav.setScreen(xsldocURLString);
         result = HTMLmaker.render(document, xsldocURLString, null);

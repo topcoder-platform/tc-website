@@ -2,15 +2,13 @@ package com.topcoder.common.web.data;
 
 import java.util.*;
 import java.io.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
 //////////////////////////////////////////////////////
-public final class Scroll implements Serializable, Base {
+public final class Scroll implements Serializable, TagRenderer {
 //////////////////////////////////////////////////////
   
-  private static final boolean VERBOSE = false;
-
   private boolean Next;
   private int     Row;
   private int     Returns;

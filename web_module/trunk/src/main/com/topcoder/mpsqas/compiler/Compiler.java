@@ -5,7 +5,7 @@ import java.util.*;
 import com.topcoder.mpsqas.common.*;
 import java.io.*;
 import java.net.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * 
@@ -15,6 +15,7 @@ import com.topcoder.common.*;
  */
 public class Compiler 
 {
+  private static Logger log = Logger.getLogger(Compiler.class);
 
   /**
    * 
@@ -77,7 +78,7 @@ public class Compiler
       }
       catch(Exception e)
       {
-        Log.msg("Unknown exception in compiler:");
+        log.error("Unknown exception in compiler:");
         e.printStackTrace();
       } 
     }
@@ -99,7 +100,7 @@ public class Compiler
     ArrayList results=new ArrayList();
     try
     {
-      Log.msg("In Compiler.compile()...");
+      log.debug("In Compiler.compile()...");
       String sourcePath=ApplicationConstants.BASE_CODE_PATH+"/"+packageName.replace('.','/')+"/";
       File sourcePathDir=new File(sourcePath);
       File sourceFile=new File(sourcePath+fileName);
@@ -140,7 +141,7 @@ public class Compiler
         compileErrorString=compileErrorString.substring(0,index)+
                            compileErrorString.substring(index+sourcePath.length());
 
-      Log.msg("Results of compile: "+compileOK+"\n"+compileErrorString);
+      log.debug("Results of compile: "+compileOK+"\n"+compileErrorString);
 
       if(!compileOK)
       {
@@ -175,7 +176,7 @@ public class Compiler
       results=new ArrayList();
       results.add(new Boolean(false));
       results.add("Server Error.  Please contact us.");
-      Log.msg("Error in compiler: ");
+      log.error("Error in compiler: ");
       e.printStackTrace();
     }
     return results;

@@ -17,7 +17,7 @@ import  javax.naming.*;
 import  javax.sql.DataSource;
 import  com.topcoder.web.render.ejb.Sector;
 import  com.topcoder.web.render.ejb.SectorObject;
-import  com.topcoder.common.DBMS;
+import  com.topcoder.shared.util.DBMS;
 
 public class SectorBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class SectorBean implements javax.ejb.SessionBean {
     String  insert = "INSERT INTO SECTOR VALUES (  " + sector_id + ", '" + sector_desc + "' )";
 
     try {
-      conn = com.topcoder.common.DBMS.getConnection();
+      conn = com.topcoder.shared.util.DBMS.getConnection();
       ps = conn.prepareStatement( insert );
       ps.executeUpdate();
     } catch( SQLException e ) {
@@ -65,7 +65,7 @@ public class SectorBean implements javax.ejb.SessionBean {
     String  insert = "INSERT INTO SECTOR VALUES ( ?, '" + sector_desc + "' )";
 
     try {
-      conn = com.topcoder.common.DBMS.getConnection();
+      conn = com.topcoder.shared.util.DBMS.getConnection();
       ps = conn.prepareStatement( insert );
       keyValue = DBMS.getSeqId( conn, DBMS.SECTOR_SEQ );
       ps.setInt( 1, keyValue );
@@ -87,7 +87,7 @@ public class SectorBean implements javax.ejb.SessionBean {
     PreparedStatement  ps = null;
 
     try {
-      conn = com.topcoder.common.DBMS.getConnection();
+      conn = com.topcoder.shared.util.DBMS.getConnection();
       ps = conn.prepareStatement( delete );
       ps.executeUpdate();
     } catch( SQLException e ) {
@@ -171,7 +171,7 @@ public class SectorBean implements javax.ejb.SessionBean {
       }
       obj = new SectorObject();
       String  query = "SELECT * FROM SECTOR WHERE SECTOR_ID = " + sector_id;
-      conn = com.topcoder.common.DBMS.getConnection();
+      conn = com.topcoder.shared.util.DBMS.getConnection();
       ps = conn.prepareStatement ( query );
       rs = ps.executeQuery();
       if ( !rs.next() ) throw new RecordNotFoundException();
@@ -227,7 +227,7 @@ public class SectorBean implements javax.ejb.SessionBean {
       return( 0 );
     int  rc = 0;
     try {
-      conn = com.topcoder.common.DBMS.getConnection();
+      conn = com.topcoder.shared.util.DBMS.getConnection();
       ps = conn.prepareStatement( update.toString() );
       int  index = 1;
       rc = ps.executeUpdate();
@@ -250,7 +250,7 @@ public class SectorBean implements javax.ejb.SessionBean {
     String  query = null;
 
     try {
-      conn = com.topcoder.common.DBMS.getConnection();
+      conn = com.topcoder.shared.util.DBMS.getConnection();
       if( sector_desc.indexOf( '%' ) >= 0 )
         query = "SELECT SECTOR_ID FROM SECTOR WHERE SECTOR_DESC LIKE '" + sector_desc + "'";
       else

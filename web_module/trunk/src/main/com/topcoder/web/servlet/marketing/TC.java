@@ -1,9 +1,10 @@
 package com.topcoder.web.servlet.marketing;
 
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.common.web.util.*;
 import java.io.*;
 import java.util.*;
@@ -13,19 +14,15 @@ import javax.servlet.http.*;
 
 public final class TC extends HttpServlet {
 
-
-  private              RenderHTML renderer         = null;
-  private static final boolean    VERBOSE          = false;
+  private static Logger log = Logger.getLogger(TC.class);
+  private              HTMLRenderer renderer         = null;
   private static final int        MAX_REPLACEMENTS = 100;
 
 
   ////////////////////////////////////////////////////////////////////////////////
   public synchronized void init ( ServletConfig config ) throws ServletException {
   ////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////
-    Log.msg(VERBOSE, "SERVLET INIT CALLED");
-    ////////////////////////////////////////////////////////
-    if (renderer == null) { renderer = new RenderHTML(); }
+    if (renderer == null) { renderer = new HTMLRenderer(); }
     super.init(config);
   }
 
@@ -121,7 +118,7 @@ public final class TC extends HttpServlet {
         html = renderer.render(document, ne.getUrl(), null);
         out.print ( html );
         out.flush();
-        Log.msg ( "com.topcoder.web.servlet.marketing.TC:NAVIGATION ERROR:\n"+ne.getMessage() );
+        log.debug ( "com.topcoder.web.servlet.marketing.TC:NAVIGATION ERROR:\n"+ne.getMessage() );
       } catch (Exception end) {
         end.printStackTrace();
         try {
@@ -143,7 +140,7 @@ public final class TC extends HttpServlet {
         html = renderer.render(document, XSL.INTERNAL_ERROR_URL, null);
         out.print(html);
         out.flush();
-        Log.msg("com.topcoder.web.servlet.marketing.TC:INTERNAL ERROR:\n"+e);
+        log.debug("com.topcoder.web.servlet.marketing.TC:INTERNAL ERROR:\n"+e);
       } catch (Exception end) {
         end.printStackTrace();
         try {

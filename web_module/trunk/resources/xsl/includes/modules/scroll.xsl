@@ -2,6 +2,10 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
   <xsl:template name="ScrollLinks">
+    <xsl:param name="ShowPrev"></xsl:param>
+    <xsl:param name="PrevLink"></xsl:param>
+    <xsl:param name="ShowNext"></xsl:param>
+    <xsl:param name="NextLink"></xsl:param>
     <xsl:choose>
       <xsl:when test="$ShowPrev='true'">
           <a><xsl:attribute name="HREF"><xsl:value-of select="$PrevLink"/></xsl:attribute>

@@ -1,13 +1,13 @@
 package com.topcoder.common.web.data;
 
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.error.*;
 
 // Version:  1.0
 // Date:  04/12/2000
 
-public final class ContestText implements Serializable, Base {
+public final class ContestText implements Serializable, TagRenderer {
   private int ContestId;
   private ContestTextType TextType;
   private String Text;
@@ -55,7 +55,7 @@ public final class ContestText implements Serializable, Base {
     return Modified;
   }
   
-  public RecordTag getXML() throws TCException {
+  public RecordTag getXML() throws Exception {
     RecordTag result = null;
     try {
       result = new RecordTag("ContestText");
@@ -64,7 +64,7 @@ public final class ContestText implements Serializable, Base {
       result.addTag( new ValueTag("Text", Text) );
       result.addTag( new ValueTag("Modified", Modified) );
     }catch (Exception e)  {
-      throw new TCException("common.web.data.ContestText getXML ERROR: " + e);
+      throw new Exception("common.web.data.ContestText getXML ERROR: " + e);
     }
     return result;
   }

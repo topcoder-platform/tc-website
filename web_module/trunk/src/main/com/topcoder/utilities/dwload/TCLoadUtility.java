@@ -12,8 +12,14 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.4.1  2002/07/09 23:41:27  gpaul
+ *           switched to use com.topcoder.shared.util.logging.Logger
+ *
+ *           Revision 1.1  2002/04/02 21:54:14  gpaul
+ *           moving the load over from 153 cvs
+ *
  *           Revision 1.1.2.2  2002/03/19 18:30:42  gpaul
- *           Log.msg instead of system.out.println
+ *           log.debug instead of system.out.println
  *
  *           Revision 1.1.2.1  2002/03/16 20:17:02  gpaul
  *           moving these over from the member dev area.  i've added  a couple fixes to exclude admins from queries.
@@ -32,10 +38,11 @@ import java.util.*;
 
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
-
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.*;
 
 public class TCLoadUtility {
+  private static Logger log = Logger.getLogger(TCLoadUtility.class);
   /**
    * This holds any error message that might occur when performing a particular
    * load. So, if a load fails, we can print something nice to the user.
@@ -255,9 +262,9 @@ public class TCLoadUtility {
 
   public static boolean doLoad(TCLoad tcload) {
     try {
-      Log.msg("Creating source database connection...");
+      log.info("Creating source database connection...");
       tcload.buildSourceDBConn();
-      Log.msg("Success!");
+      log.info("Success!");
     }
     catch(SQLException sqle) {
       sErrorMsg.setLength(0);
@@ -268,9 +275,9 @@ public class TCLoadUtility {
     }
 
     try {
-      Log.msg("Creating target database connection...");
+      log.info("Creating target database connection...");
       tcload.buildTargetDBConn();
-      Log.msg("Success!");
+      log.info("Success!");
     }
     catch(SQLException sqle2) {
       sErrorMsg.setLength(0);
@@ -357,9 +364,9 @@ public class TCLoadUtility {
   }
 
   private static void fatal_error() {
-    Log.msg("*******************************************");
-    Log.msg("FAILURE: " + sErrorMsg.toString());
-    Log.msg("*******************************************");
+    log.error("*******************************************");
+    log.error("FAILURE: " + sErrorMsg.toString());
+    log.error("*******************************************");
     System.exit(-1);
   }
 

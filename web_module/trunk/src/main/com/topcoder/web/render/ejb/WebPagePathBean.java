@@ -17,7 +17,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.render.ejb.WebPagePath;
 import	com.topcoder.web.render.ejb.WebPagePathObject;
-import	com.topcoder.common.DBMS;
+import	com.topcoder.shared.util.DBMS;
 
 public class WebPagePathBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class WebPagePathBean implements javax.ejb.SessionBean {
 		String	insert = "INSERT INTO WEB_PAGE_PATH VALUES (  " + site_hdr_id + ", " + page_id + ", " + parent_id + ", " + page_order + ", " + modify_by + ", ? )";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( insert );
 			ps.setDate( 1, modify_date );
 			ps.executeUpdate();
@@ -64,7 +64,7 @@ public class WebPagePathBean implements javax.ejb.SessionBean {
 		PreparedStatement	ps = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -201,7 +201,7 @@ public class WebPagePathBean implements javax.ejb.SessionBean {
 		InputStream	is = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
@@ -301,7 +301,7 @@ public class WebPagePathBean implements javax.ejb.SessionBean {
 			return( 0 );
 		int	rc = 0;
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
 			rc = ps.executeUpdate();
@@ -324,7 +324,7 @@ public class WebPagePathBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			query = "SELECT SITE_HDR_ID FROM WEB_PAGE_PATH WHERE PAGE_ID = " + page_id;
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();

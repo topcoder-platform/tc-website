@@ -1,6 +1,7 @@
 package com.topcoder.mpsqas.appletmanager;
 
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
 import java.sql.Timestamp;
 import java.io.*;
 import java.net.*;
@@ -20,8 +21,8 @@ import com.topcoder.tcclasses.*;
  * @author mitalub
  *
  */
-public class MainAppletProcessor extends Thread
-{
+public class MainAppletProcessor extends Thread {
+  private static Logger log = Logger.getLogger(MainAppletProcessor.class);
   /**
    * main creates the MainAppletProcessor.
    *
@@ -33,7 +34,7 @@ public class MainAppletProcessor extends Thread
   {
     if (args.length!=1)
     {
-      Log.msg("Usage: java mpsqas.appletmanager.MainAppletProcessor "
+      log.debug("Usage: java mpsqas.appletmanager.MainAppletProcessor "
                             + "<port>");
       return;
     }
@@ -54,7 +55,7 @@ public class MainAppletProcessor extends Thread
   {
     try
     {
-      InitialContext ctx=TCContext.getMPSQASInitial();
+      InitialContext ctx=(InitialContext)TCContext.getInitial();
       mpsqasHome=(MPSQASServicesHome)ctx.lookup(ApplicationServer.MPSQAS_SERVICES);
       cm=new ConnectionManager(port,this);
       cm.start();
@@ -65,7 +66,7 @@ public class MainAppletProcessor extends Thread
     }
     catch (Exception e)
     {
-      Log.msg("Count not start Connection Manager: ");
+      log.error("Count not start Connection Manager: ");
       e.printStackTrace();
     }
     start();  
@@ -114,7 +115,7 @@ public class MainAppletProcessor extends Thread
    */
   public void moveUser(int id, int roomType, int roomId)
   {
-    Log.msg("Moving User: connection="+id+"  roomType="+roomType+"  id= "+roomId);
+    log.debug("Moving User: connection="+id+"  roomType="+roomType+"  id= "+roomId);
     int index = activeUsers.getRow(0).indexOf(new Integer(id));
     if(index != -1)
     {
@@ -280,7 +281,7 @@ public class MainAppletProcessor extends Thread
     }
     catch(Exception e)
     {
-      Log.msg("Error creating port to communication with application server:");
+      log.error("Error creating port to communication with application server:");
       e.printStackTrace();
     }
 
@@ -325,11 +326,11 @@ public class MainAppletProcessor extends Thread
       }
       catch(Exception e)
       {
-        Log.msg("Error getting Broadcast information from application server: ");
+        log.error("Error getting Broadcast information from application server: ");
         e.printStackTrace();
       }
     } 
-    Log.msg("This is MainAppletServer.run(), signing off."); 
+    log.debug("This is MainAppletServer.run(), signing off."); 
   }
 
   /**
@@ -344,7 +345,7 @@ public class MainAppletProcessor extends Thread
     switch(type)
     {
       case ApplicationConstants.CORRESPONDENCE_BROADCAST_IN:
-        Log.msg("MainAppletProcessor got CORRESPONDENCE_BROADCAST_IN.");
+        log.debug("MainAppletProcessor got CORRESPONDENCE_BROADCAST_IN.");
         ArrayList newCorrespondenceResponse=new ArrayList();
         newCorrespondenceResponse.add(new Integer(MessageTypes.NEW_CORRESPONDENCE_RS));
         newCorrespondenceResponse.add(data.get(0));
@@ -354,7 +355,7 @@ public class MainAppletProcessor extends Thread
                            ((Integer)data.get(1)).intValue());
         break;
       case ApplicationConstants.ROUND_SCHEDULE_BROADCAST_IN:
-        Log.msg("MainAppletProcessor got ROUND_SCHEDULE_BROADCAST_IN.");
+        log.debug("MainAppletProcessor got ROUND_SCHEDULE_BROADCAST_IN.");
         ArrayList newRoundScheduleResponse=new ArrayList();
         newRoundScheduleResponse.add(new Integer(MessageTypes.NEW_ROUND_SCHEDULE_RS));
         newRoundScheduleResponse.add(data.get(0));
@@ -364,7 +365,7 @@ public class MainAppletProcessor extends Thread
                            ((Integer)data.get(1)).intValue());
         break;
       case ApplicationConstants.PENDING_PROPOSAL_BROADCAST_IN:
-        Log.msg("MainAppletProcessor got PENDING_PROPOSAL_BROADCAST_IN.");
+        log.debug("MainAppletProcessor got PENDING_PROPOSAL_BROADCAST_IN.");
         ArrayList newProposalResponse=new ArrayList();
         newProposalResponse.add(new Integer(MessageTypes.NEW_PENDING_PROPOSAL_RS));
         newProposalResponse.add(data.get(0));
@@ -374,7 +375,7 @@ public class MainAppletProcessor extends Thread
                            -1);
         break; 
       case ApplicationConstants.PENDING_SUBMISSION_BROADCAST_IN:
-        Log.msg("MainAppletProcessor got PENDING_SUBMISSION_BROADCAST_IN.");
+        log.debug("MainAppletProcessor got PENDING_SUBMISSION_BROADCAST_IN.");
         ArrayList newSubmissionResponse=new ArrayList();
         newSubmissionResponse.add(new Integer(MessageTypes.NEW_PENDING_SUBMISSION_RS));
         newSubmissionResponse.add(data.get(0));
@@ -384,7 +385,7 @@ public class MainAppletProcessor extends Thread
                            -1);
         break; 
       case ApplicationConstants.PROBLEM_MODIFIED_BROADCAST_IN:
-        Log.msg("MainAppletProcessor got PROBLEM_MODIFIED_BROADCAST_IN.");
+        log.debug("MainAppletProcessor got PROBLEM_MODIFIED_BROADCAST_IN.");
         ArrayList genBroadcastResponse=new ArrayList();
         genBroadcastResponse.add(new Integer(MessageTypes.PROBLEM_MODIFIED_RS));
         genBroadcastResponse.add(data.get(0));
@@ -395,7 +396,7 @@ public class MainAppletProcessor extends Thread
                            ((Integer)data.get(2)).intValue());
         break;
       case ApplicationConstants.PENDING_APPLICATION_BROADCAST_IN:
-        Log.msg("MainAppletProcessor got PENDING_APPLICATION_BROADCAST_IN.");
+        log.debug("MainAppletProcessor got PENDING_APPLICATION_BROADCAST_IN.");
         ArrayList pendingAppResponse=new ArrayList();
         pendingAppResponse.add(new Integer(MessageTypes.NEW_PENDING_APPLICATION_RS));
         pendingAppResponse.add(data.get(0));
@@ -405,7 +406,7 @@ public class MainAppletProcessor extends Thread
                             -1);
         break;
       default:
-        Log.msg("Got invalid internal broadcast type: "+type);
+        log.debug("Got invalid internal broadcast type: "+type);
     }
   }
 

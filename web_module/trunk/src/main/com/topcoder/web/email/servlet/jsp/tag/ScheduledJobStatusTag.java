@@ -10,8 +10,7 @@ import javax.servlet.http.*;
 
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
-import com.topcoder.server.ejb.EmailServices.*;
-import org.apache.log4j.Category;
+import com.topcoder.shared.ejb.EmailServices.*;
 
 /**
  * ScheduledJobStatusTag.java
@@ -26,8 +25,6 @@ import org.apache.log4j.Category;
 public class ScheduledJobStatusTag
 	extends BodyTagSupport
 {
-	static Category trace = Category.getInstance(ScheduledJobStatusTag.class);
-
 	// the job id
 	protected int jobId;
 

@@ -31,14 +31,13 @@ package com.topcoder.web.pacts.common;
 
 import java.util.*;
 import com.topcoder.web.common.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * contract header wrapper
  */   
 public class ContractHeader implements PactsConstants, java.io.Serializable {
-    private static Category log = 
-	Category.getInstance(ContractHeader.class.getName()); 
+        private static Logger log = Logger.getLogger(ContractHeader.class);
 
 	public String _statusDesc;
         public int _statusId;

@@ -17,7 +17,7 @@ import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.render.ejb.WebStatus;
 import	com.topcoder.web.render.ejb.WebStatusObject;
-import	com.topcoder.common.DBMS;
+import	com.topcoder.shared.util.DBMS;
 
 public class WebStatusBean implements javax.ejb.SessionBean {
 
@@ -44,7 +44,7 @@ public class WebStatusBean implements javax.ejb.SessionBean {
 		String	insert = "INSERT INTO WEB_STATUS VALUES (  " + status_id + ", '" + status_desc + "' )";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( insert );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -63,7 +63,7 @@ public class WebStatusBean implements javax.ejb.SessionBean {
 		PreparedStatement	ps = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( delete );
 			ps.executeUpdate();
 		} catch( SQLException e ) {
@@ -144,7 +144,7 @@ public class WebStatusBean implements javax.ejb.SessionBean {
 		InputStream	is = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
@@ -200,7 +200,7 @@ public class WebStatusBean implements javax.ejb.SessionBean {
 			return( 0 );
 		int	rc = 0;
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( update.toString() );
 			int	index = 1;
 			rc = ps.executeUpdate();
@@ -223,7 +223,7 @@ public class WebStatusBean implements javax.ejb.SessionBean {
 		String	query = "SELECT STATUS_ID FROM WEB_STATUS";
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			while( rs.next() )
@@ -246,7 +246,7 @@ public class WebStatusBean implements javax.ejb.SessionBean {
 		String	query = null;
 
 		try {
-			conn = com.topcoder.common.DBMS.getConnection();
+			conn = com.topcoder.shared.util.DBMS.getConnection();
 			if( status_desc.indexOf( '%' ) >= 0 )
 				query = "SELECT STATUS_ID FROM WEB_STATUS WHERE STATUS_DESC LIKE '" + status_desc + "'";
 			else

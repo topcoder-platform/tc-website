@@ -4,7 +4,7 @@ import java.util.*;
 import java.net.*;
 import java.io.*;
 import com.topcoder.mpsqas.common.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * TesterQueue is class which holds all pending tests.  Tests can be added to the queue through a socket.
@@ -15,6 +15,7 @@ import com.topcoder.common.*;
  */
 public class TesterQueue extends Thread
 {
+  private static Logger log = Logger.getLogger(TesterQueue.class);
   /**
    * Starts up the TesterQueue.
    */
@@ -58,24 +59,24 @@ public class TesterQueue extends Thread
     }
     catch(Exception e)
     {
-      Log.msg("Error setting up ServerSocket for GetTests.");
+      log.debug("Error setting up ServerSocket for GetTests.");
       e.printStackTrace();
       return;
     }
 
-    Log.msg("Beginning to listen for testers.");
+    log.debug("Beginning to listen for testers.");
     while(!isInterrupted())
     {
       try
       {
         socket=listener.accept();
         availableTesters.add(socket);
-        Log.msg("Adding Tester to Queue.");
+        log.debug("Adding Tester to Queue.");
         distributeTest();
       }
       catch(Exception e2)
       {
-        Log.msg("Error getting GetTest:");
+        log.debug("Error getting GetTest:");
         e2.printStackTrace();
       }
     }
@@ -95,24 +96,24 @@ public class TesterQueue extends Thread
     }
     catch(Exception e)
     {
-      Log.msg("Error initiating PutTest socket.");
+      log.debug("Error initiating PutTest socket.");
       e.printStackTrace(); 
       return;
     }
 
-    Log.msg("Beginning to listen for tests.");
+    log.debug("Beginning to listen for tests.");
     while(!isInterrupted())
     {
       try
       {
         socket=listener.accept();
-        Log.msg("Adding Pending Test to Queue.");
+        log.debug("Adding Pending Test to Queue.");
         pendingTestSockets.addElement(socket);
         distributeTest();
       }
       catch(Exception e2)
       {
-        Log.msg("Error getting PutTest:");
+        log.debug("Error getting PutTest:");
         e2.printStackTrace();
       }
     } 
@@ -127,7 +128,7 @@ public class TesterQueue extends Thread
   {
     if(availableTesters.isEmpty() || pendingTestSockets.isEmpty()) return;
 
-    Log.msg("Distributing Test.");
+    log.debug("Distributing Test.");
 
     Socket tester=(Socket)availableTesters.remove(0);
     Socket waiter=(Socket)pendingTestSockets.remove(0);

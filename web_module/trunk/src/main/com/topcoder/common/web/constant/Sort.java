@@ -14,9 +14,6 @@ public class Sort {
   public static final int             DEFAULT_CODER_RANK_SORT_KEY  = com.topcoder.common.web.data.stat.coder.Rank.RANK;
   public static final char            DEFAULT_CODER_RANK_SORT_DIR  = 'A';
 
-  public static final int             DEFAULT_JOB_AD_SORT_KEY      = com.topcoder.common.web.data.JobAd.AD_START;
-  public static final char            DEFAULT_JOB_AD_SORT_DIR      = 'D';
-
   public static final int             DEFAULT_CODER_STAT_SORT_KEY  = com.topcoder.common.web.data.stat.contest.RoomResult.USER_NAME;
   public static final char            DEFAULT_CODER_STAT_SORT_DIR  = 'D';
 

@@ -3,7 +3,7 @@ package com.topcoder.web.render.bean;
 import  java.beans.*;
 import  java.util.StringTokenizer;
 import  com.topcoder.web.render.ejb.*;
-//import  com.topcoder.common.TCContext;
+//import  com.topcoder.shared.util.TCContext;
 import  javax.ejb.CreateException;
 import  javax.naming.*;
 import  java.rmi.RemoteException;

@@ -2,13 +2,13 @@ package com.topcoder.common.web.data;
 
 
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
 public class Menu 
   implements 
     Serializable
-    ,Base
+    ,TagRenderer
     //,Comparable
     //,Cloneable
     //,Modifiable 
@@ -151,7 +151,7 @@ public class Menu
   }
 
 
-  public RecordTag getXML () throws Exception {
+  public RecordTag getXML() throws Exception {
     RecordTag result = null;
     try {
       result = new RecordTag("Menu");

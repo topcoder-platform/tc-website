@@ -1,12 +1,13 @@
 package com.topcoder.web.servlet.marketing.task;
 
 import com.topcoder.web.servlet.marketing.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.common.web.error.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.data.*;
+import com.topcoder.common.web.xml.HTMLRenderer;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -16,7 +17,7 @@ public final class Home {
 
   ////////////////////////////////////////////////////////////////////////////////
   public static String process (HttpServletRequest request, HttpServletResponse response,
-                       RenderHTML renderer, Navigation nav, XMLDocument document)
+                       HTMLRenderer renderer, Navigation nav, XMLDocument document)
     throws NavigationException {
   ////////////////////////////////////////////////////////////////////////////////
     String result = null;

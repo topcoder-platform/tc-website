@@ -2,10 +2,10 @@ package com.topcoder.common.web.data;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 public final class ContactSubject
-  implements Serializable, Base, QueryCriteria {
+  implements Serializable, TagRenderer, QueryCriteria {
 
   private int ContactSubjectId;
   private String SubjectDesc;

@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.*;
 import java.rmi.RemoteException;
 import java.sql.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * The implementation for the AuthenticationServices EJB.
@@ -16,8 +17,7 @@ public class AuthenticationServicesBean extends BaseEJB {
 /////////////////////////////////////////////////////////
 
 
-  private static final boolean VERBOSE = false;
-
+  private static Logger log = Logger.getLogger(AuthenticationServices.class);
   private static String DS = null;
   private static Integer STAFF_GROUP_ID = null;
   private static Integer STAFF_ACCESS_LEVEL = null;
@@ -35,7 +35,7 @@ public class AuthenticationServicesBean extends BaseEJB {
   ///////////////////////////////////////////////////////////////////////////////
   public boolean validHandle ( String handle ) throws RemoteException { 
   ///////////////////////////////////////////////////////////////////////////////
-    if(VERBOSE)System.out.println( "ejb.AuthenticationServices.validHandle() called...");
+    log.debug( "ejb.AuthenticationServices.validHandle() called...");
     boolean result = false;
     Connection conn = null;
     PreparedStatement ps = null;
@@ -76,7 +76,7 @@ public class AuthenticationServicesBean extends BaseEJB {
   ///////////////////////////////////////////////////////////////////////////////
   public boolean agreed ( int sectorId, int userId ) throws RemoteException {
   ///////////////////////////////////////////////////////////////////////////////
-    if(VERBOSE)System.out.println( "ejb.AuthenticationServices.agreed() called...");
+    log.debug( "ejb.AuthenticationServices.agreed() called...");
     boolean result = false;
     Connection conn = null;
     PreparedStatement ps = null;
@@ -118,7 +118,7 @@ public class AuthenticationServicesBean extends BaseEJB {
   ///////////////////////////////////////////////////////////////////////////////
   public Map getLikeUsers ( String handle ) throws RemoteException {
   ///////////////////////////////////////////////////////////////////////////////
-    if(VERBOSE)System.out.println( "ejb.AuthenticationServices.getLikeUsers() called...");
+    log.debug( "ejb.AuthenticationServices.getLikeUsers() called...");
     Map result = new HashMap();
     if ( handle != null ) {
       Connection conn = null;
@@ -171,7 +171,7 @@ public class AuthenticationServicesBean extends BaseEJB {
   public Authentication authenticate ( String handle, String password ) 
     throws RemoteException { 
   ///////////////////////////////////////////////////////////////////////////////
-    if(VERBOSE)System.out.println( "ejb.AuthenticationServices.authenticate("+handle+",*****) called...");
+    log.debug( "ejb.AuthenticationServices.authenticate("+handle+",*****) called...");
     Authentication result = new Authentication();
     Connection conn = null;
     PreparedStatement ps = null;
@@ -227,7 +227,7 @@ public class AuthenticationServicesBean extends BaseEJB {
   public Authentication getActivation ( int coderId ) 
     throws RemoteException {
   /////////////////////////////////////////////////////////////////////////
-    if(VERBOSE)System.out.println( "ejb.AuthenticationServices.getActivation() called...");
+    log.debug( "ejb.AuthenticationServices.getActivation() called...");
     Authentication result = new Authentication();
     Connection conn = null;
     PreparedStatement ps = null;
@@ -288,7 +288,7 @@ public class AuthenticationServicesBean extends BaseEJB {
   public Authentication getCredentials ( String firstName, String lastName, String email) 
     throws RemoteException {
   /////////////////////////////////////////////////////////////////////////
-    if(VERBOSE)System.out.println( "ejb.AuthenticationServices.getCredentials() called...");
+    log.debug( "ejb.AuthenticationServices.getCredentials() called...");
     Authentication result = new Authentication();
     Connection conn = null;
     PreparedStatement ps = null;
@@ -356,7 +356,7 @@ public class AuthenticationServicesBean extends BaseEJB {
   public void insertSectorAccess ( int sectorId, int userId, String authorized )
     throws RemoteException {
   ////////////////////////////////////////////////////////////
-    if(VERBOSE)System.out.println( "ejb.AuthenticationServices.insertSectorAccess() called...");
+    log.debug( "ejb.AuthenticationServices.insertSectorAccess() called...");
     java.sql.Connection conn = null;
     PreparedStatement ps     = null;
     ResultSet rs             = null;
@@ -415,7 +415,7 @@ public class AuthenticationServicesBean extends BaseEJB {
   public void insertSectorAgreement ( int sectorId, int userId )
     throws RemoteException {
   ////////////////////////////////////////////////////////////
-    if(VERBOSE)System.out.println( "ejb.AuthenticationServices.insertSectorAgreement() called...");
+    log.debug( "ejb.AuthenticationServices.insertSectorAgreement() called...");
     java.sql.Connection conn = null;
     PreparedStatement ps     = null;
     ResultSet rs             = null;
@@ -567,7 +567,6 @@ public class AuthenticationServicesBean extends BaseEJB {
       javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup(getDS());
       conn = ds.getConnection();
       ps = conn.prepareStatement ( query.toString() );
-System.out.println(result.getUserId());
       ps.setInt ( 1, result.getUserId () );
       rs = ps.executeQuery();
       if ( rs.next() ) {
@@ -598,7 +597,7 @@ System.out.println(result.getUserId());
         try {
           conn.close();
         } catch(Exception ignore){
-          System.out.println ( "loadCoder cx NOT closed..." );
+          log.error ( "loadCoder cx NOT closed..." );
         }
       }
     }

@@ -3,11 +3,11 @@ package com.topcoder.common.web.data;
 import java.util.ArrayList;
 import java.io.Serializable;
 import com.topcoder.common.web.error.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.util.*;
 
 
-public class CoderReferral implements Serializable, Base, Modifiable {
+public class CoderReferral implements Serializable, TagRenderer, Modifiable {
 
   private int coderId;
   private Referral referral;
@@ -31,7 +31,7 @@ public class CoderReferral implements Serializable, Base, Modifiable {
   }
 
 // set
-  public void setAllModifiedStable() throws TCException {
+  public void setAllModifiedStable() throws Exception {
     setModified("S");
   }
 
@@ -77,7 +77,7 @@ public class CoderReferral implements Serializable, Base, Modifiable {
     return modified;
   }
 
-  public RecordTag getXML() throws TCException {
+  public RecordTag getXML() throws Exception {
     RecordTag result = null;
     try {
       result = new RecordTag("CoderReferral");
@@ -87,7 +87,7 @@ public class CoderReferral implements Serializable, Base, Modifiable {
       result.addTag( new ValueTag("Other", other) );
       result.addTag( new ValueTag("Modified", modified) );
     } catch (Exception e) {
-      throw new TCException("com.topcoder.common.data.CoderReferral.getXML:ERROR:\n"+e);
+      throw new Exception("com.topcoder.common.data.CoderReferral.getXML:ERROR:\n"+e);
     }
     return result;
   }

@@ -1,12 +1,12 @@
 package com.topcoder.common.web.data;
 
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.error.*;
 import java.util.*;
 
 
-public final class Round implements Serializable, Base {
+public final class Round implements Serializable, TagRenderer {
 
 
   private int roundId;
@@ -180,7 +180,7 @@ public final class Round implements Serializable, Base {
     return this.link;
   }
 
-  public RecordTag getXML() throws TCException {
+  public RecordTag getXML() throws Exception {
     RecordTag result = null;
     try {
       result = new RecordTag("Round");
@@ -199,7 +199,7 @@ public final class Round implements Serializable, Base {
       result.addTag( RecordTag.getListXML("Problems", problems));
       result.addTag( RecordTag.getListXML("Rooms", rooms));
     } catch ( Exception e )  {
-      throw new TCException ( "common.web.data.Round getXML ERROR: " + e );
+      throw new Exception ( "common.web.data.Round getXML ERROR: " + e );
     }
     return result;
   }

@@ -11,13 +11,14 @@ import java.sql.Date;
 import java.text.FieldPosition;
 import java.lang.*;
 import com.topcoder.common.web.error.*;
-import com.topcoder.common.Log;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Perform class Conversion with validation and error checking.
  */
 public final class Conversion {
 
+  private static Logger log = Logger.getLogger(Conversion.class);
 
   private static final String   SPC_TAG              = "<spc>";
   private static final char     SPC                  = ' ';
@@ -327,7 +328,7 @@ public final class Conversion {
           msg.append ( endTagPos );
           msg.append ( ":html=" );
           msg.append ( html );
-          Log.msg ( msg.toString() );
+          log.debug ( msg.toString() );
           break;
         }
         //////////////////////////
@@ -372,123 +373,6 @@ public final class Conversion {
       );
     }
     return result;
-  }
-
-
-
-
-  /**
-   * Pulls the top level array list and pretty prints
-   * what is within.
-   * @author greg paul
-   */
-  public static String makePretty(Object result) 
-  {
-    StringBuffer buf = new StringBuffer(250);
-    if(result instanceof java.util.ArrayList)
-    {
-      ArrayList tmp = (ArrayList) result; 
-      for (int i = 0; i < tmp.size(); i++)
-      {
-        buf.append(makePrettier(tmp.get(i)));
-        if(i != tmp.size()-1)
-          buf.append(",\n"); 
-      }
-    } else if (result.getClass().isArray()) {
-      buf.append(makePrettier(result));
-    } else buf.append(result.toString());
-    return buf.toString();
-  }
-
-
-  private static String makePrettier(Object result) { 
-    StringBuffer buf = new StringBuffer(250);
-    if(result.getClass().isArray())
-    {
-      String type = result.getClass().getComponentType().toString();
-
-      buf.append("[");
-      try {   
-        if(type.equals("int")) {
-          int[] temp = (int[])result;
-          for(int i= 0; i<temp.length-1; i++) {
-            buf.append(temp[i] + ", ");
-          }
-          buf.append(temp[temp.length-1]);
-        }
-        else if(type.equals("double")) {
-          double[] temp = (double[])result;
-          for(int i= 0; i<temp.length-1; i++) {
-            buf.append(temp[i] + ", ");
-          }
-          buf.append(temp[temp.length-1]);
-        }
-        else if(type.equals("class java.lang.String")) {
-          String[] temp = (String[])result;
-          for(int i= 0; i<temp.length-1; i++) {
-            buf.append(temp[i] + ", ");
-          }
-          buf.append(temp[temp.length-1]);
-        }
-        else if(type.equals("float")) {
-          float[] temp = (float[])result;
-          for(int i= 0; i<temp.length-1; i++) {
-            buf.append(temp[i] + ", ");
-          }
-          buf.append(temp[temp.length-1]);
-        }
-        else if(type.equals("boolean")) {
-          boolean[] temp = (boolean[])result;
-          for(int i= 0; i<temp.length-1; i++) {
-            buf.append(temp[i] + ", ");
-          }
-          buf.append(temp[temp.length-1]);
-        }
-        else if(type.equals("long")) {
-          long[] temp = (long[])result;
-          for(int i= 0; i<temp.length-1; i++) {
-            buf.append(temp[i] + ", ");
-          }
-          buf.append(temp[temp.length-1]);
-        }
-        else if(type.equals("char")) {
-          char[] temp = (char[])result;
-          for(int i= 0; i<temp.length-1; i++) {
-            buf.append(temp[i] + ", ");
-          }
-          buf.append(temp[temp.length-1]);
-        }
-        else if(type.equals("byte")) {
-          byte[] temp = (byte[])result;
-          for(int i= 0; i<temp.length-1; i++) {
-            buf.append(temp[i] + ", ");
-          }
-          buf.append(temp[temp.length-1]);
-        }
-        else if(type.equals("short")) {
-          short[] temp = (short[])result;
-          for(int i= 0; i<temp.length-1; i++) {
-            buf.append(temp[i] + ", ");
-          }
-          buf.append(temp[temp.length-1]);
-        }
-      } catch (Exception e) {}
-      buf.append("]");
-    }
-    else if(result instanceof java.util.ArrayList)
-    {
-      ArrayList tmp = (ArrayList) result; 
-      buf.append("[");
-      for (int i = 0; i < tmp.size(); i++)
-      {
-        buf.append(makePrettier(tmp.get(i)));
-        if(i != tmp.size()-1)
-          buf.append(", "); 
-      }
-      buf.append("]");
-    } else buf.append(result.toString());
-    
-    return buf.toString();
   }
 
   /**

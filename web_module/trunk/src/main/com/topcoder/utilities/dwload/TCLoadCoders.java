@@ -15,6 +15,12 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.3.2.1  2002/07/09 23:41:27  gpaul
+ *           switched to use com.topcoder.shared.util.logging.Logger
+ *
+ *           Revision 1.3  2002/06/12 05:13:41  gpaul
+ *           exclude people in group_id 14 also
+ *
  *           Revision 1.2  2002/04/22 17:50:38  gpaul
  *           include coder_image_xref.display_flag in the move
  *
@@ -22,7 +28,7 @@ package com.topcoder.utilities.dwload;
  *           moving the load over from 153 cvs
  *
  *           Revision 1.1.2.3  2002/03/19 18:30:42  gpaul
- *           Log.msg instead of system.out.println
+ *           log.info instead of system.out.println
  *
  *           Revision 1.1.2.2  2002/03/18 19:31:46  gpaul
  *           added image schema load
@@ -49,10 +55,11 @@ package com.topcoder.utilities.dwload;
  *****************************************************************************/
 import java.sql.*;
 import java.util.*;
-
-import com.topcoder.common.*;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
 public class TCLoadCoders extends TCLoad {
+  private static Logger log = Logger.getLogger(TCLoadCoders.class);
   protected java.sql.Timestamp fStartTime = null;
   protected java.sql.Timestamp fLastLogTime = null;
   private int CODER_LOG_TYPE = 2;
@@ -97,7 +104,7 @@ public class TCLoadCoders extends TCLoad {
 
       setLastUpdateTime();
 
-      Log.msg("SUCCESS: Coders load ran successfully.");
+      log.info("SUCCESS: Coders load ran successfully.");
       return true;
     }
     catch(Exception ex) {
@@ -119,7 +126,7 @@ public class TCLoadCoders extends TCLoad {
       rs = stmt.executeQuery(fSql.toString());
       if (rs.next()) {
         fLastLogTime = rs.getTimestamp(1);
-        Log.msg("Date is " + fLastLogTime.toString());
+        log.info("Date is " + fLastLogTime.toString());
       }
       else {
         // A little misleading here as we really didn't hit a SQL
@@ -399,7 +406,7 @@ public class TCLoadCoders extends TCLoad {
         printLoadProgress(count, "coder");
       }
 
-      Log.msg("Coder records updated/inserted = " + count);
+      log.info("Coder records updated/inserted = " + count);
     }
     catch(SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -522,7 +529,7 @@ public class TCLoadCoders extends TCLoad {
         printLoadProgress(count, "skill");
       }
 
-      Log.msg("Skill records copied = " + count);
+      log.info("Skill records copied = " + count);
     }
     catch(SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -634,7 +641,7 @@ public class TCLoadCoders extends TCLoad {
         printLoadProgress(count, "skill_type");
       }
 
-      Log.msg("Skill_type records copied = " + count);
+      log.info("Skill_type records copied = " + count);
     }
     catch(SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -730,7 +737,7 @@ public class TCLoadCoders extends TCLoad {
         printLoadProgress(count, "coder_skill");
       }
 
-      Log.msg("Coder_skill records copied = " + count);
+      log.info("Coder_skill records copied = " + count);
     }
     catch(SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -884,7 +891,7 @@ public class TCLoadCoders extends TCLoad {
         printLoadProgress(count, "rating");
       }
 
-      Log.msg("Rating records copied = " + count);
+      log.info("Rating records copied = " + count);
     }
     catch(SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -965,7 +972,7 @@ public class TCLoadCoders extends TCLoad {
         printLoadProgress(count, "image");
       }
 
-      Log.msg("Image records copied = " + count);
+      log.info("Image records copied = " + count);
     }
     catch(SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -1036,7 +1043,7 @@ public class TCLoadCoders extends TCLoad {
         printLoadProgress(count, "path");
       }
 
-      Log.msg("Path records copied = " + count);
+      log.info("Path records copied = " + count);
     }
     catch(SQLException sqle) {
       DBMS.printSqlException(true, sqle);
@@ -1112,7 +1119,7 @@ public class TCLoadCoders extends TCLoad {
         printLoadProgress(count, "coder_image_xref");
       }
 
-      Log.msg("coder_image_xref records copied = " + count);
+      log.info("coder_image_xref records copied = " + count);
     }
     catch(SQLException sqle) {
       DBMS.printSqlException(true, sqle);

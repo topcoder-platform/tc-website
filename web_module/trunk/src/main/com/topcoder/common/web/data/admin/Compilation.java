@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.*;
 import java.sql.Date;
 import com.topcoder.common.web.data.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
-public final class Compilation implements Serializable, Base {
+public final class Compilation implements Serializable, TagRenderer {
 
   private int roundId;
   private int problemId;
@@ -236,7 +236,7 @@ public final class Compilation implements Serializable, Base {
       result.addTag( new ValueTag("CodingTime" , getCodingTime()) );
       result.addTag( new ValueTag("PointValue" , getPointValue()) );
     }catch (Exception e)  {
-      throw new Exception("com.topcoder.web.data.admin.Compilation getXML ERROR: " + e);
+      throw e;
     }
     return result;
   }

@@ -6,11 +6,9 @@ import java.util.*;
 import javax.naming.*;
 import com.topcoder.web.project.common.*;
 import com.topcoder.web.project.ejb.ProjectServices.*;
-import com.topcoder.common.ApplicationServer;
+import com.topcoder.shared.util.ApplicationServer;
 
 public final class ProjectBean {
-    
-    private final static boolean VERBOSE = true;
     
     protected final static String PROJECTSERVICESHOME = ApplicationServer.PROJECT_SERVICES;
     protected static ProjectServices projectServices = null;
@@ -259,51 +257,6 @@ public final class ProjectBean {
         return false;
     }
     
-/*    
-    // PROJECT TASK UPDATE METHODS
-    public String saveProjectTaskUpdate(Map params) {
-        // get values and validate them
-        ProjectTaskUpdate projectTaskUpdate = new ProjectTaskUpdate();
-        String errors = "";
-        try {
-            projectTaskUpdate.setProjectTaskUpdate(Integer.parseInt("" + params.get("ProjectTaskUpdate")));
-            projectTaskUpdate.setProjectTask(Integer.parseInt("" + params.get("ProjectTask")));
-            projectTaskUpdate.setUpdateNotes("" + params.get("UpdateNotes"));
-        } catch (NumberFormatException nfe) {
-            if (VERBOSE) nfe.printStackTrace();
-            return "Invalid values were entered: NumberFormatException (int-related)";
-        }
-        
-        if (errors.length() > 0) { return errors; }
-        
-        if (projectTaskUpdate.getProjectTaskUpdate() == 0) {
-            if (!addProjectTaskUpdate(projectTaskUpdate)) return "ProjectTaskUpdate was not added due to unknown errors.";
-        } else {
-            if (!saveProjectTaskUpdate(projectTaskUpdate)) return "ProjectTaskUpdate was not saved due to unknown errors.";
-        }
-        return "";
-    }
-    
-    public boolean saveProjectTaskUpdate(ProjectTaskUpdate projectTaskUpdate) {
-        try {
-            getProjectServices().setProjectTaskUpdate(projectTaskUpdate);
-            return true;
-        } catch (Exception e) { e.printStackTrace(); }
-        return false;
-    }
-    
-    public boolean addProjectTaskUpdate(ProjectTaskUpdate projectTaskUpdate) {
-        try {
-            getProjectServices().addProjectTaskUpdate(projectTaskUpdate);
-            return true;
-        } catch (Exception e) { e.printStackTrace(); }
-        return false;
-    }
-    
-    public boolean removeProjectTaskUpdate(int projectTaskUpdateId) {
-        return false;
-    }
-*/    
     // PROJECT USER METHODS
     public boolean saveProjectUser(ProjectUser projectUser) {
         try {

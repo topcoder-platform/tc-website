@@ -4,7 +4,8 @@ import javax.naming.*;
 import com.topcoder.mpsqas.common.*;
 import java.util.*;
 import com.topcoder.ejb.MPSQASServices.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * CommunicationProcessor is responsable for processing information
@@ -15,6 +16,7 @@ import com.topcoder.common.*;
  */
 public class CommunicationProcessor
 {
+    private static Logger log = Logger.getLogger(CommunicationProcessor.class);
   /**
    * The constructor sets up the Communication Processor and a connection
    * to the beans.
@@ -27,7 +29,7 @@ public class CommunicationProcessor
   public CommunicationProcessor(ClientConnection conn, int id, 
                                 MainAppletProcessor map)
   {
-    Log.msg("Creating CommunicationProcessor for " + id);
+    log.info("Creating CommunicationProcessor for " + id);
     clientConnection=conn;
     mainAppletProcessor=map;
     connectionId=id;
@@ -38,13 +40,13 @@ public class CommunicationProcessor
     roomRelativeIndex = -1;
     try
     {
-      InitialContext ctx=TCContext.getMPSQASInitial();
+      Context ctx=TCContext.getInitial();
       mpsqasHome=(MPSQASServicesHome)ctx.lookup(
                                      ApplicationServer.MPSQAS_SERVICES);
     }
     catch(Exception e)
     {
-      Log.msg("CommunicationProcessor couldn't get the bean.");
+      log.error("CommunicationProcessor couldn't get the bean.");
       e.printStackTrace();
     }
   }
@@ -73,11 +75,11 @@ public class CommunicationProcessor
       switch(type)
       {
         case MessageTypes.LOGIN_RQ:
-          Log.msg("Received LOGIN_RQ from "+data.get(0));
+          log.debug("Received LOGIN_RQ from "+data.get(0));
           login((String)data.get(0),(String)data.get(1));
           break;
         case MessageTypes.MOVE_RQ:
-          Log.msg("Received MOVE_RQ from "+userName);
+          log.debug("Received MOVE_RQ from "+userName);
           if(data.size() == 1)
           {
             move(((Integer)data.get(0)).intValue(), -1, true);
@@ -89,85 +91,85 @@ public class CommunicationProcessor
           }
           break;
         case MessageTypes.RELATIVE_MOVE_RQ:
-          Log.msg("Got RELATIVE_MOVE_RQ from " + userName);
+          log.debug("Got RELATIVE_MOVE_RQ from " + userName);
           moveRelative(((Integer)data.get(0)).intValue());
           break;
         case MessageTypes.PROPOSAL_RQ:
-          Log.msg("Received PROPOSAL_RQ from "+userName);
+          log.debug("Received PROPOSAL_RQ from "+userName);
           saveProposal((ProblemInformation)data.get(0));
           break;
         case MessageTypes.SUBMIT_PROBLEM_RQ:
-          Log.msg("Got SUBMIT_PROBLEM_RQ from "+userName);
+          log.debug("Got SUBMIT_PROBLEM_RQ from "+userName);
           saveProblem((ProblemInformation)data.get(0));
           break;
         case MessageTypes.SUBMIT_PROBLEM_STATEMENT_RQ:
-          Log.msg("Got SUBMIT_PROBLEM_STATEMENT_RQ from "+userName);
+          log.debug("Got SUBMIT_PROBLEM_STATEMENT_RQ from "+userName);
           saveProblemStatement((String)data.get(0));
           break;
         case MessageTypes.ADMIN_SAVE_PROBLEM_RQ:
-          Log.msg("Got ADMIN_SAVE_PROBLEM_RQ from "+userName);
+          log.debug("Got ADMIN_SAVE_PROBLEM_RQ from "+userName);
           saveAdminProblemInformation((ProblemInformation)data.get(0));
           break;
         case MessageTypes.PENDING_REPLY_RQ:
-          Log.msg("Recieved PROPOSAL_REPLY_RQ from "+userName);
+          log.debug("Recieved PROPOSAL_REPLY_RQ from "+userName);
           processPendingReply(((Boolean)data.get(0)).booleanValue(), (String)data.get(1));
           break;
         case MessageTypes.SEND_CORRESPONDENCE_RQ:
-          Log.msg("Recieved SEND_CORRESPONDENCE_RQ from "+userName);
+          log.debug("Recieved SEND_CORRESPONDENCE_RQ from "+userName);
           sendCorrespondence((Correspondence)data.get(0));
           break;
         case MessageTypes.COMPILE_RQ:
-          Log.msg("Got COMPILE_RQ from "+userName);
+          log.debug("Got COMPILE_RQ from "+userName);
           compile((ProblemInformation)data.get(0));
           break;
         case MessageTypes.TEST_RQ:
-          Log.msg("Got TEST_RQ from "+userName);
+          log.debug("Got TEST_RQ from "+userName);
           test((Object[])data.get(0),((Integer)data.get(1)).intValue());
           break;
         case MessageTypes.COMPARE_SOLUTIONS_RQ:
-          Log.msg("Got COMPARE_SOLUTIONS_RQ from "+userName);
+          log.debug("Got COMPARE_SOLUTIONS_RQ from "+userName);
           compareSolutions();
           break;
         case MessageTypes.SUBMIT_APPLICATION_RQ:
-          Log.msg("Got SUBMIT_APPLICATION_RQ from "+userName);
+          log.debug("Got SUBMIT_APPLICATION_RQ from "+userName);
           submitApplication((String)data.get(0));
           break;
         case MessageTypes.APPLICATION_REPLY_RQ:
-          Log.msg("Got APPLICATION_REPLY_RQ from "+userName);
+          log.debug("Got APPLICATION_REPLY_RQ from "+userName);
           processApplicationReply(((Boolean)data.get(0)).booleanValue(),
                            (String)data.get(1));
           break;
         case MessageTypes.SCHEDULE_PROBLEMS_RQ:
-          Log.msg("Got SCHEDULE_PROBLEMS_RQ from "+userName);
+          log.debug("Got SCHEDULE_PROBLEMS_RQ from "+userName);
           saveContestProblems((ArrayList)data.get(0));
           break;
         case MessageTypes.CONTEST_VERIFY_RQ:
-          Log.msg("Got CONTEST_VERIFY_RQ from "+userName);
+          log.debug("Got CONTEST_VERIFY_RQ from "+userName);
           verifyContest();
           break;
         case MessageTypes.SUBMIT_PAYMENT_RQ:
-          Log.msg("Got SUBMIT_PAYMENT_RQ from "+userName);
+          log.debug("Got SUBMIT_PAYMENT_RQ from "+userName);
           recordPayment((ArrayList)data.get(0));
           break;
         case MessageTypes.CHAT_RQ:
-          //Log.msg("Received CHAT_RQ from "+userName);
+          //log.debug("Received CHAT_RQ from "+userName);
           chat((String)data.get(0));
           break;
         case MessageTypes.CHAT_HISTORY_RQ:
-          Log.msg("Got CONTEST_HISTORY_RQ from "+userName);
+          log.debug("Got CONTEST_HISTORY_RQ from "+userName);
           getChatHistory();
           break;
         case MessageTypes.PING_RQ:
-          //Log.msg("Got PING_RQ from "+userName);
+          //log.debug("Got PING_RQ from "+userName);
           //don't do anything, just for keeping connection alive
           break;
         default:
-          Log.msg("Received unrecognized: "+type);
+          log.debug("Received unrecognized: "+type);
       }
     }
     catch(Exception e)
     {
-      Log.msg("Error processing input object for " + userName);
+      log.error("Error processing input object for " + userName);
       e.printStackTrace();
       ArrayList errorResponse = new ArrayList(3);
       errorResponse.add(new Integer(MessageTypes.UPDATE_STATUS_RS));
@@ -211,7 +213,7 @@ public class CommunicationProcessor
         sendToClient((ArrayList)data);
         break;
       default:
-        Log.msg("Received unrecognized processOutputObject type: "+type);
+        log.debug("Received unrecognized processOutputObject type: "+type);
     }
   }
 
@@ -241,7 +243,7 @@ public class CommunicationProcessor
       data=new ArrayList(2);
       data.add(new Boolean(false));
       data.add(ApplicationConstants.SERVER_ERROR);
-      Log.msg("Exception authenticating user:");
+      log.error("Exception authenticating user:");
       e.printStackTrace();
     }
 
@@ -410,7 +412,7 @@ public class CommunicationProcessor
                    //|id| = problem id
                    //id > 0, editable,
                    //id < 0, admin approval, not editable
-          Log.msg("Viewing problem_id = " + id);
+          log.debug("Viewing problem_id = " + id);
           if (id > 0)
           {
             currentViewProblemId = id;
@@ -522,7 +524,7 @@ public class CommunicationProcessor
             }
             break;
           default:
-            Log.msg(userName+" requested an invalid application: "
+            log.debug(userName+" requested an invalid application: "
                           + id);
             moveResponse.set(1, new Integer(MessageTypes.FOYER_ROOM));
             moveData.add("Unknown application type.  What are you doing?");
@@ -552,12 +554,12 @@ public class CommunicationProcessor
 
         //----------------------------------------------------------
         default:
-          Log.msg("Unrecognized room type: "+roomType);
+          log.debug("Unrecognized room type: "+roomType);
       }
     }
     catch(Exception e)
     {
-      Log.msg("Error getting information for roomtype" + roomType
+      log.error("Error getting information for roomtype" + roomType
                      + "for " + userName + ":");
       e.printStackTrace();
       moveResponse = new ArrayList();
@@ -971,7 +973,7 @@ public class CommunicationProcessor
     }
     else
     {
-      Log.msg(userName 
+      log.debug(userName 
              + " is not an admin, but is trying to reply to dev_app " 
              + currentViewApplicationId+"!!!!");
       response.add(new Boolean(false));
@@ -1121,7 +1123,7 @@ public class CommunicationProcessor
     }
     catch(Exception e)
     {
-      Log.msg("Error processing NEW_ROUND_SCHEDULE_RS for " + userName);
+      log.error("Error processing NEW_ROUND_SCHEDULE_RS for " + userName);
       e.printStackTrace();
     }
   }
@@ -1177,7 +1179,7 @@ public class CommunicationProcessor
       }
       catch(Exception e)
       {
-        Log.msg("Could not get MPSQASServicesBean: Trying again...");
+        log.error("Could not get MPSQASServicesBean: Trying again...");
         e.printStackTrace();
         try
         {

@@ -2,13 +2,13 @@ package com.topcoder.common.web.data;
 
 import java.io.Serializable;
 import com.topcoder.ejb.AuthenticationServices.*;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.error.*;
 import java.util.*;
 import java.sql.Date;
 
 
-public final class ContestAdmin implements Serializable, Base {
+public final class ContestAdmin implements Serializable, TagRenderer {
 
   private int ContestId;
   private String ContestName;
@@ -501,7 +501,7 @@ public final class ContestAdmin implements Serializable, Base {
   }
 
   
-  public RecordTag getXML() throws TCException {
+  public RecordTag getXML() throws Exception {
     RecordTag result = null;
     try {
       result = new RecordTag("Contest");
@@ -565,7 +565,7 @@ public final class ContestAdmin implements Serializable, Base {
         result.addTag( round.getXML() );
       }
     }catch (Exception e)  {
-      throw new TCException("common.web.data.Contest getXML ERROR: " + e);
+      throw new Exception("common.web.data.Contest getXML ERROR: " + e);
     }
     return result;
   }

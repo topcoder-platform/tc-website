@@ -3,13 +3,15 @@ package com.topcoder.utilities;
 import java.io.*;
 import java.util.*;
 import java.sql.*;
-import com.topcoder.common.*;
+import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
 import java.text.DateFormat;
 import java.text.*;
-import com.topcoder.server.util.TCResourceBundle;
+import com.topcoder.shared.util.TCResourceBundle;
 
 public class Shortest {
 
+  private static Logger log = Logger.getLogger(Shortest.class);
 
   public static void main(String args[]) throws SQLException, Exception {
       int round_id=0;
@@ -29,7 +31,7 @@ public class Shortest {
 
   private void printReport(int round_id, int division_id) {
     CommentStripper cs = new CommentStripper();
-    Log.msg("In printReport");
+    log.debug("In printReport");
     java.sql.Connection conn = null;
     PreparedStatement ps = null;
     PreparedStatement ps1 = null;

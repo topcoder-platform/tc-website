@@ -1,12 +1,12 @@
 package com.topcoder.common.web.data;
 
 import java.io.Serializable;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
 //////////////////////////////////////////////////////////////////////////
 public final class Experience
-  implements Serializable, Cloneable, Base, Modifiable {
+  implements Serializable, Cloneable, TagRenderer, Modifiable {
 //////////////////////////////////////////////////////////////////////////
 
   private int CoderId;

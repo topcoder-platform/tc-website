@@ -2,10 +2,10 @@ package com.topcoder.common.web.data;
 
 import java.io.Serializable;
 import java.sql.Date;
-import com.topcoder.common.web.xml.*;
+import com.topcoder.shared.docGen.xml.*;
 
 
-public class ContactMail implements Serializable, Base {
+public class ContactMail implements Serializable, TagRenderer {
 
   private int MailId;
   private ContactSubject ContactSubject;

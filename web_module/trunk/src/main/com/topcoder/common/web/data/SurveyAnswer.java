@@ -3,8 +3,8 @@ package com.topcoder.common.web.data;
 import java.io.Serializable;
 import java.util.*;
 
-import com.topcoder.common.web.xml.*;
-public final class SurveyAnswer implements Serializable, Base {
+import com.topcoder.shared.docGen.xml.*;
+public final class SurveyAnswer implements Serializable, TagRenderer {
 
   private int AnswerId;
   private int QuestionId;

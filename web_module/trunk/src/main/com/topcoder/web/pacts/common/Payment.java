@@ -19,12 +19,10 @@ package com.topcoder.web.pacts.common;
 
 import java.util.*;
 import com.topcoder.web.common.*;
-import org.apache.log4j.*;
+import com.topcoder.shared.util.logging.Logger;
 
 public class Payment implements PactsConstants, java.io.Serializable {
-       private static Category log =
-	   	Category.getInstance(Payment.class.getName());
-
+    private static Logger log = Logger.getLogger(Payment.class);
 
     public long _id;
     public int _typeId;

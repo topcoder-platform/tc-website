@@ -14,7 +14,7 @@ package com.topcoder.utilities.dwload;
 import java.sql.*;
 import java.util.*;
 
-import com.topcoder.common.DBMS;
+import com.topcoder.shared.util.DBMS;
 
 public class TCLoadEmpty extends TCLoad {
   protected java.sql.Timestamp fStartTime = null;
