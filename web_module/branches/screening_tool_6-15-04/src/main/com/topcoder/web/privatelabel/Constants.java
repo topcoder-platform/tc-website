@@ -145,6 +145,7 @@ public class Constants {
     public static int NON_TECHNICAL_ANSWER;
     public static int MAX_VERIZON_REGISTRATIONS;
 
+    public static String VALID_PASS_CHAR_LIST;
 
     private Constants() {
     }

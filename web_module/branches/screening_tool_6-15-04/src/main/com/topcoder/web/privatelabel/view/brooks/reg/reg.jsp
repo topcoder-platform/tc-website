@@ -67,19 +67,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">Password</td>
-                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.PASSWORD%>"  passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/> (<%=Constants.MIN_PASSWORD_LENGTH%> to <%=Constants.MAX_PASSWORD_LENGTH%> characters)</td>
-                        </tr>
-                        <tr>
-                            <td class="brErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><%=err%><br/></tc-webtag:errorIterator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion">Confirm Password</td>
-                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>"  passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/></td>
-                        </tr>
-                        <tr>
                             <td class="brErrorText" colspan="2">
                                 <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>

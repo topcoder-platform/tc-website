@@ -67,12 +67,31 @@ public class Demog extends FullRegDemog {
         info.setHandle(handle);
         setDefault(Constants.HANDLE, info.getHandle());
         
-        /*if (!StringUtils.containsOnly(info.getHandle(), Constants.HANDLE_ALPHABET, false)) {
-            addError(Constants.HANDLE,
-                    "Please limit the characters in your handle to letter, numbers and common punctuation symbols.");
-        }*/
+        //generate password
+        removeError(Constants.PASSWORD);
+        removeError(Constants.PASSWORD_CONFIRM);
+        
+        info.setPassword(generatePassword());
+        info.setPasswordConfirm(info.getPassword());
+        
+        log.info("CHOSEN PASSWORD IS " + info.getPassword());
         
         //we're not bothering with an email confirmation field, so don't require it 
         removeError(Constants.EMAIL_CONFIRM);
+    }
+    
+    private String generatePassword() {
+        StringBuffer newPass = new StringBuffer();
+        for (int i = 0; i < Constants.MAX_PASSWORD_LENGTH; ++i) {
+            newPass.append( 
+                    Constants.VALID_PASS_CHAR_LIST.charAt(
+                            rand(Constants.VALID_PASS_CHAR_LIST.length()))); 
+        }
+
+        return newPass.toString();
+    }
+    
+    private int rand(int max) {
+        return (int) Math.floor(Math.random() * max);
     }
 }

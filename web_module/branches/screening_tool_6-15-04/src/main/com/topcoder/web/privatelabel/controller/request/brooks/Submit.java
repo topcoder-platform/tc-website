@@ -96,7 +96,6 @@ public class Submit extends FullRegSubmit {
             }
         }
         
-        //still todo: Session, Session Segments
         return ret;
     }
     
@@ -127,8 +126,11 @@ public class Submit extends FullRegSubmit {
             long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
 
             candidate.createCompanyCandidate(companyId, newUser.getId());
+            
+            //still todo: Session, Session Segments
+            // 96 hour session from current hour
 
-            if (((FullRegInfo)info).getCoderType()==Constants.STUDENT) {
+            /*if (((FullRegInfo)info).getCoderType()==Constants.STUDENT) {
                 StringBuffer buf = new StringBuffer(1000);
                 User user = (User) createEJB(getInitialContext(), User.class);
                 String code = user.getActivationCode(newUser.getId(), db);
@@ -170,7 +172,7 @@ public class Submit extends FullRegSubmit {
                 mail.setFromAddress("service@topcoder.com");
                 log.info("sent registration email to " + info.getEmail());
                 EmailEngine.send(mail);
-            }
+            }*/
         } catch (Exception e) {
             throw new TCWebException(e);
         }
