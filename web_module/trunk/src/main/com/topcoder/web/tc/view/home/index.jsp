@@ -135,20 +135,21 @@
 		<td class=homeRightCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 
-<%-- TCO homepage
+<%-- TCO homepage --%>
 			<tr><td class=homeBigPromo><img src="/i/home/promos/tco04_onsite.gif" border=0 usemap="#tco04_onsite" />
 	            <map name="tco04_onsite">
 	            <area shape="rect" alt="Advancers" coords="1,1,269,175" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about" />
 	            <area shape="rect" alt="Advancers" coords="40,180,100,205" href="/tc?module=SimpleStats&c=tco04_alg_adv_overview&trans=true&d1=tournaments&d2=tco04&d3=alg_adv_overview" />
 	            <area shape="rect" alt="Photos" coords="110,180,165,205" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos" />
-	            <area shape="rect" alt="Videos" coords="180,180,230,205" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=videos" />
+	            <area shape="rect" alt="Videos" coords="180,180,230,205" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=movies" />
 	            <area shape="rect" alt="Videos" coords="50,205,220,230" href="/tc?module=Static&d1=tournaments&d2=tco04&d3=spec_showdown" />
 	            </map>                        
 			</td></tr>
---%>
-<%-- Regular homepage--%>
+
+<%-- Regular homepage
 			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/home/promos/tco04Finals.gif" border=0 /></A></td></tr>
 			<tr><td class=homeSmallPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=spec_showdown"><img src="/i/home/promos/tco04SS_sm.gif" border=0 /></A></td></tr>
+--%>
 
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
