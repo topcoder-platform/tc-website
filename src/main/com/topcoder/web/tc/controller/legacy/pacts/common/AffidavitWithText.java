@@ -11,14 +11,44 @@ public class AffidavitWithText {
     public Affidavit affidavit;
     public String affidavitText;
     public Payment payment;
-    public boolean canAffirmOnline;
+    private boolean hasTaxForm=false;
+    private boolean hasNotarizedAffidavit=false;
+    private boolean hasAllDemographicAnswers=false;
     public long daysLeft;  // the number of days left that it can be affirmed online
 
     public AffidavitWithText() {
         affidavit = new Affidavit();
         affidavitText = new String("");
         payment = new Payment();
-        canAffirmOnline = false;  //err on the safe side
         daysLeft = 0;
     }
+
+    public boolean canAffirmOnline() {
+        return hasTaxForm && hasNotarizedAffidavit && hasAllDemographicAnswers && daysLeft>0;
+    }
+
+    public boolean hasTaxForm() {
+        return hasTaxForm;
+    }
+
+    public void setHasTaxForm(boolean hasTaxForm) {
+        this.hasTaxForm = hasTaxForm;
+    }
+
+    public boolean hasNotarizedAffidavit() {
+        return hasNotarizedAffidavit;
+    }
+
+    public void setHasNotarizedAffidavit(boolean hasNotarizedAffidavit) {
+        this.hasNotarizedAffidavit = hasNotarizedAffidavit;
+    }
+
+    public boolean hasAllDemographicAnswers() {
+        return hasAllDemographicAnswers;
+    }
+
+    public void setHasAllDemographicAnswers(boolean hasAllDemographicAnswers) {
+        this.hasAllDemographicAnswers = hasAllDemographicAnswers;
+    }
+
 }

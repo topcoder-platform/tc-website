@@ -189,9 +189,8 @@ public class AffidavitBean implements PactsConstants {
         }
 
         try {
-            a.canAffirmOnline = dbean.canAffirmAffidavit(
-                    a.affidavit._header._user._id,
-                    a.affidavit._header._typeID);
+            a.setHasAllDemographicAnswers(dbean.hasAllDemographicAnswers(a.affidavit._header._user._id));
+
             if (!a.affidavit._header._affirmed) {
                 // replace the xml tags with proper values
                 a.affidavitText = parseAffidavitXml(a.affidavitText, a.affidavit,
@@ -204,12 +203,8 @@ public class AffidavitBean implements PactsConstants {
             log.error("We got excepted trying to see if affidavit could be" +
                     "Affirmed online");
             e.printStackTrace();
-            a.canAffirmOnline = false;
         }
 
-        if (a.affidavit._daysLeftToAffirm <= 0) {
-            a.canAffirmOnline = false;
-        }
         return a;
     }
 
@@ -265,6 +260,9 @@ public class AffidavitBean implements PactsConstants {
             a.addTag(new ValueTag("work_phone", profile._workPhone));
             a.addTag(new ValueTag("handle", profile._header._handle));
             a.addTag(new ValueTag("coder_type_desc", profile._coderTypeDesc));
+            a.addTag(new ValueTag("has_notarized_affidavit",
+                    new DataInterfaceBean().hasNotarizedAffidavit(
+                            affidavit._header._user._id, affidavit._header._typeID)));
 
             // now the demographic data
             for (int idx = 0; idx < demog.questions.length; idx++) {
@@ -273,7 +271,8 @@ public class AffidavitBean implements PactsConstants {
                 dm.addTag(new ValueTag("demographic_answer", demog.answers[idx]));
                 a.addTag(dm);
             }
-            a.addTag(new ValueTag("current_school", demog._schoolName));
+            if (demog._schoolName.trim().length()>0)
+                a.addTag(new ValueTag("current_school", demog._schoolName));
             tc.addTag(a);
 
             log.debug(tc.getXML());

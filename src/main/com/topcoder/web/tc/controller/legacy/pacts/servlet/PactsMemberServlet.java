@@ -702,6 +702,8 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
                 return;
             }
 
+
+            //todo i don't think this is relevant anymore
             //first replace the aged
             int aIdx = a.affidavitText.indexOf("FILL IN AGED");
             int bIdx = aIdx + (new String("FILL IN AGED")).length();
@@ -713,13 +715,6 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             bIdx = aIdx + (new String("FILL IN BELOW")).length();
             a.affidavitText = a.affidavitText.substring(0, aIdx) +
                     " " + family + " " + a.affidavitText.substring(bIdx);
-        }
-
-        // make sure this can be affirmed online.  this is a paranoid
-        // check an should never trigger
-        if (!a.canAffirmOnline) {
-            log.error("tried to affirm (somehow) when cannot affirm onlme");
-            return;
         }
 
         // if we got here everything is good, we should affirm the affidavit
