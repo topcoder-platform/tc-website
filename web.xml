@@ -29,8 +29,6 @@
     </servlet>
     <servlet>
         <servlet-name>tcs</servlet-name>
-        <display-name>tcs</display-name>
-        <description>The main controller servlet</description>
         <servlet-class>com.topcoder.dde.servlet.TCSServlet</servlet-class>
 
         <!-- begin parameters required by BaseServlet -->
@@ -54,7 +52,7 @@
 
         <init-param>
             <param-name>login_servlet</param-name>
-            <param-value>/index.jsp</param-value>
+            <param-value>/login.jsp</param-value>
             <description>the servlet path to use when we need to direct the user to login</description>
         </init-param>
         <init-param>
