@@ -179,7 +179,8 @@
 	By&#160;ZorbaTHut,<I>TopCoder Member</I><BR/>
 	<A HREF="/?t=statistics&amp;c=srm83_room1" CLASS="bodyGeneric">Room One Review</A> | 
 	<A HREF="/?t=statistics&amp;c=srm83_rookie" CLASS="bodyGeneric">Rookie Review</A> | 
-	<A HREF="/?t=statistics&amp;c=srm83_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A><BR/></TD>
+	<A HREF="/?t=statistics&amp;c=srm83_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A><BR/>
+	<A HREF="/?t=statistics&amp;c=srm83_prob" CLASS="bodyGeneric">:: comment from doeth</A></TD>
      <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>   
   </TR>
   <TR><TD VALIGN="top" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  
