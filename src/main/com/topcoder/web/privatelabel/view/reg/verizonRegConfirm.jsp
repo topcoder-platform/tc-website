@@ -61,6 +61,12 @@
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
 
             <tr>
+                <td colspan="2" align="center">
+                    <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.FULL_REG_MAIN%>">edit<a/>
+                </td>
+            </tr>
+
+            <tr>
                 <td align="right">
                     Handle
                 </td>
@@ -196,8 +202,16 @@
             </tr>
 
             <tr>
-                <td colspan="2" align="center">
+                <td align="center">
                     Demographics
+                </td>
+                <td align="center">
+                    <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.FULL_REG_DEMOG%>">edit<a/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+
                 </td>
             </tr>
 
