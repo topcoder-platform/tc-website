@@ -38,7 +38,7 @@
                        <p>
                         SRM 158 had a well balanced set, with almost no confusion issues.  Division 1
                         saw <strong>ZorbaTHut</strong> easily taking first place, with the highest score on the level 3,
-                        and a good 50 points ahead of <strong>schveiguy</strong>, without the help of challenges.  Newbie
+                        and a good 50 points ahead of <strong>Yarin</strong>, without the help of challenges.  Newbie
                         coder <strong>gevak</strong> edged out <strong>DimaGer</strong> by 20 points to win division 2, and got a nice
                         1815 debut rating.  <strong>gevak</strong> also got the high score for his level 3 solution.  Also of note, <strong>raquib</strong> 
                         pulled off 6 successful challenges in room 9, and <strong>radeye</strong> got 4 successful challenges in room 4, all with the same test case.
