@@ -30,28 +30,20 @@
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
-			<jsp:param name="selectedTab" value="overview"/>
+			<jsp:param name="selectedTab" value="registration"/>
 			</jsp:include>
 			</div>
 
 			<br/><br/>
 
-			<span class=bigTitle>Tough problems. Intense competition. No pressure.</span>
+			<span class=bigTitle>Registration</span>
 			<span valign=top>
 			<jsp:include page="right_reg.jsp" />
 			</span>
 
 			<br/><br/>
-			<table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
-            <tr>
-                <td colspan="2" class="errorText" align="center">Error Text</td>
-            </tr>
-            <tr>
-                <td align="right" width="5 0%" nowrap>Handle</td>
-                <td align="left" width="50%">john doe</td>
-            </tr>
-            </table>
-
+         Registration for the Google Code Jam 2004 is officially closed.
+			<br/><br/>
 			<br/><br/>
 			<br/><br/>
 			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
