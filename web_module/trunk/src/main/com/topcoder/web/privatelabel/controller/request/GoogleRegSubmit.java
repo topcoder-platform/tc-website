@@ -47,6 +47,9 @@ public class GoogleRegSubmit extends FullRegSubmit {
             Country co = new Country();
             co.setCountryCode(regInfo.getCountryCode());
             c.setHomeCountry(co);
+            c.setModified("U");
+
+            u.getUserTypeDetails().put("Coder", c);
 
             u.setModified("U");
 
