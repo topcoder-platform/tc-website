@@ -41,7 +41,7 @@
 </jsp:include>
 
 <!-- Tab bar sublinks-->
-<jsp:include page="tco03Sublinks.jsp" >
+<jsp:include page="../tco03Sublinks.jsp" >
    <jsp:param name="selectedList" value=""/>
    <jsp:param name="selectedTab" value=""/>
 </jsp:include>
@@ -64,36 +64,8 @@
             
             <h2>Component Final Round</h2>
 
-            <p>by Matt Murphy, <em>TopCoder Staff</em><br />
-            Friday, December 5, 2003</p>
-
-            <p>Text <strong>handle</strong> text, text, text.</p>
-
-            <p>Text <strong>handle</strong> text, text, text.</p>
-
-            <div align="center">
-            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-            </table>
-            </div>	
+            <p>by <A href="/stat?c=member_profile&amp;cr=296145">srowen</A>, <em>TopCoder Member</em><br />
+            Friday, December 5, 2003</p> 
 
             <p>Text <strong>handle</strong> text, text, text.</p>
 
