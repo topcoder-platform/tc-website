@@ -12,7 +12,7 @@
 
   <tag>
     <name>write</name>
-    <tagclass>com.topcoder.web.stat.servlet.jsp.tag.Formatter</tagclass>
+    <tagclass>com.topcoder.web.tc.controller.legacy.stat.servlet.jsp.tag.Formatter</tagclass>
     <bodycontent>empty</bodycontent>
     <attribute>
       <name>bundle</name>

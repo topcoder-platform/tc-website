@@ -11,7 +11,7 @@
   <servlet-name>resume</servlet-name>
   <display-name>resume</display-name>
   <description>The job posting servlet</description>
-  <servlet-class>com.topcoder.web.resume.servlet.Controller</servlet-class>
+  <servlet-class>com.topcoder.web.tc.controller.legacy.resume.servlet.Controller</servlet-class>
 
   <init-param>
     <param-name>jsp_root</param-name>
