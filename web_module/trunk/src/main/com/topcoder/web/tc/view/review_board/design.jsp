@@ -79,11 +79,10 @@
                   <td>
                     <rsc:iterator list="<%=memberList%>" id="resultRow">
                         <a href="/stat?c=member_profile&amp;cr=<rsc:item row="<%=resultRow%>" name="user_id"/>"><img src="<rsc:item row="<%=resultRow%>" name="image_path"/>" alt="<rsc:item row="<%=resultRow%>" name="handle"/>" width="126" height="140" border="0"  class="myStatsPhoto"/></a>
-                    </rsc:iterator>
-                    <br/>
                     <p>
                       <a class="bodyText" href="/stat?c=member_profile&amp;cr=<rsc:item row="<%=resultRow%>" name="user_id"/>"><strong><rsc:item row="<%=resultRow%>" name="handle"/></strong></a>
                     </p>
+                    </rsc:iterator>
                   </td>
                 </tr>
             </table>
