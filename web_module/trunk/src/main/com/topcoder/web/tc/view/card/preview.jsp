@@ -54,18 +54,15 @@ if ( plugin ) {
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-         <td class="cardCell" WIDTH="100%">
+         <td class="cardCell" WIDTH="100%" align="center">
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="cards"/>  
            <jsp:param name="image1" value="white"/>  
            <jsp:param name="title" value="Preview"/>  
         </jsp:include>
 
-        <table width="540" cellpadding="0" cellspacing="0" border="0" class="bodyText" align="center">
-            <tr>
-                <td class="bodyText">
+         <div class="cardBody">
 
-                    <p><br/></p>
                     <p>This is a preview of what your card will look like. It will always accurately portray your algorithm, design, and development statistics. Before you can post your TopCoder Member Card to your site you will have to "unlock" it by clicking the link below.</p>
 
 <div align="center">
@@ -99,6 +96,8 @@ document.write(' allowScriptAccess="sameDomain" ');
 document.write(' type="application/x-shockwave-flash" ');
 document.write(' pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
 document.write(' </object> ');
+document.write(' <p align="center"><a href="/tc?module=Static&d1=card&d2=instructions"><img src="/i/card/unlock.gif" border="0"/></a></p> ');
+
 }
 // -->
 </SCRIPT>
@@ -108,15 +107,13 @@ document.write(' </object> ');
 if (!MM_FlashCanPlay){
 document.write('<A href="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"> ');
 document.write('<img src="/i/card/noFlash.gif" width="400" height="400" border="0"></A> ');
+document.write(' <p align="center"><a href="/tc?module=Static&d1=card&d2=instructions"><img src="/i/card/unlock2.gif" border="0"/></a></p> ');
 }
 // -->
 </SCRIPT>
 </div>
 
-                    <p align="center"><a href="/tc?module=Static&d1=card&d2=instructions"><img src="/i/card/unlock.gif" border="0"/></a></p>
-                </td>
-            </tr>
-        </table>
+         </div>
 
         <p><br/></p>
          </td>
