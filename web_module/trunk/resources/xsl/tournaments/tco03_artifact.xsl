@@ -47,6 +47,8 @@
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td align="left" width="100%">
+                        
+                        
                         <table border="0" cellpadding="0" cellspacing="0">
                             <tr> <td valign="top"><img src="/i/sponsor/artifact/artifact_banner.gif" width="510" height="66" /></td>
                             </tr>
@@ -59,9 +61,9 @@
              <tr valign="top">
                     <td align="left" width="100%" class="bodyText">
 
-                        <p class="promoText"> Need quick answers to your Programming Questions? </p>
+                        <p class="promoText">Need quick answers to your Programming Questions? </p>
                         
-                        <p class="promoText"> Tired of wasting time looking for code? </p>
+                        <p class="promoText">Tired of wasting time looking for code? </p>
                         
                         <p class="promoText">At Artifact, we've created software products and an on-line developer network to help developers better manage their resources. </p>
                         
@@ -82,7 +84,11 @@
            	
            	<p class="promoText">To visit Artifact's Netork click here. </p>
                         
-                        <p><br /></p>
+                   </td>
+                </tr>
+            </table>
+            
+             <p><br /></p>
 
                     </td>
                 </tr>
