@@ -25,13 +25,13 @@ public class SkillInput extends BaseTag {
 
     private String cssclass;
     private Skill skill;
-    
+
     /** Creates a new instance of SkillInput */
     public SkillInput() {
         super();
         cssclass = null;
     }
-    
+
      public void setClass(String cssclass) {
         this.cssclass = cssclass;
     }
@@ -44,8 +44,8 @@ public class SkillInput extends BaseTag {
             throws JspException {
         if (skill != null) {
             StringBuffer output = new StringBuffer(1000);
-            setName(Constants.SKILL_PREFIX+skill.getID());  
-            
+            setName(Constants.SKILL_PREFIX+skill.getID());
+
             output.append(buildRadios());
 
             try {
@@ -54,7 +54,7 @@ public class SkillInput extends BaseTag {
                 throw new JspException(e.getMessage());
             }
         }
-        return SKIP_BODY; 
+        return SKIP_BODY;
     }
 
 
@@ -67,7 +67,7 @@ public class SkillInput extends BaseTag {
                 checkVal = String.valueOf(n);
             }
         } catch(Exception e) {}
-        
+
         for(int i = 0; i <= 5; i++) {
             s.append("<td valign=top align=center ");
             if (cssclass != null) {
@@ -76,8 +76,8 @@ public class SkillInput extends BaseTag {
                 s.append("\"");
             }
             s.append(">\n");
-            
-            s.append("<input type=\"radio\" name=\""); 
+
+            s.append("<input type=\"radio\" name=\"");
             s.append(name);
             s.append("\" value=\"");
             s.append(i);
@@ -85,10 +85,16 @@ public class SkillInput extends BaseTag {
             if(checkVal.equals(String.valueOf(i))) {
                 s.append("checked ");
             }
-            
+
             s.append("/>");
             s.append("</td>\n");
         }
         return s.toString();
+    }
+
+    protected void init() {
+        this.cssclass=null;
+        this.skill=null;
+
     }
 }
