@@ -10,7 +10,7 @@
     <xsl:import href="../includes/modules/srm_dates.xsl"/>
     <xsl:template name="global_left">
 
-<!-- Home page -->
+<!-- Home page begins -->
     <xsl:choose>
         <xsl:when test="/TC/Task='public_home'">
             <table width="170" bgcolor="#000000" cellspacing="0" cellpadding="0" border="0">
@@ -32,7 +32,7 @@
             <xsl:call-template name="calendar"/>
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="intro"/>
-            <xsl:call-template name="countries"/>
+            <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
       
         <xsl:when test="/TC/Task='home'">
@@ -55,32 +55,31 @@
             <xsl:call-template name="calendar"/>
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="intro"/>
-            <xsl:call-template name="countries"/>
+            <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
+<!-- Home page ends -->
       
-<!-- Schedule pages -->
+<!-- Schedule begins -->
         <xsl:when test="/TC/Task='schedule'">
-            <table width="170" bgcolor="#000000" cellspacing="0" cellpadding="0" border="0">
+            <table width="170" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="label_row"/>
-                <tr>
-                    <td valign="top" bgcolor="#333333"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-                    <td valign="middle" height="18" class="statTextBig" bgcolor="#333333"><img alt="" width="10" height="10" src="/i/arrow_white_down.gif" border="0"/>&#160; Schedule:</td>
-                    <td valign="top" bgcolor="#333333"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-                </tr>
+                
+                <tr><td id="leftNavOn" colspan="3"><A class="left"><img alt="" width="10" height="10" src="/i/arrow_white_down.gif" border="0"/>Schedule:</A></td></tr>
                 
                 <xsl:call-template name="div_line_row"/>
                 
                 <tr>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
-                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-                        <xsl:when test="/TC/Command='index'">graybv_lite_bg</xsl:when>
-                        <xsl:when test="/TC/Task='schedule'">graybv_lite_bg</xsl:when>
-                        <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>Monthly View</a>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                            <xsl:when test="/TC/Command='index'">leftSubnavOn</xsl:when>
+                            <xsl:when test="/TC/Task='schedule'">leftSubnavOn</xsl:when>
+                            <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>Monthly View</A>
                     </td>
                 </tr>
-
-                <xsl:call-template name="div_line_row"/>
 
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
@@ -97,7 +96,9 @@
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
+<!-- Schedule ends -->
 
+<!-- Statistics begins -->
         <xsl:when test="/TC/Task='statistics'">
             <table width="170" bgcolor="#000000" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="label_row"/>
@@ -284,8 +285,9 @@
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
+<!-- Schedule begins -->
 
-<!-- Features -->
+<!-- Features begins -->
         <xsl:when test="/TC/Task='features'">
             <table width="170" bgcolor="#000000" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="label_row"/>
@@ -337,6 +339,7 @@
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
+<!-- Features ends -->
 
 <!-- Development Begins -->
         <xsl:when test="/TC/Task='development'">
@@ -509,6 +512,7 @@
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
+<!-- Developement -->
 
 <!-- Tournaments begins -->
         <xsl:when test="/TC/Task='tournaments'">
@@ -979,6 +983,7 @@
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
 
+<!-- Press Room begins -->
         <xsl:when test="/TC/Task='news_events'">
             <table width="170" bgcolor="#000000" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="label_row"/>
@@ -992,22 +997,10 @@
                 <xsl:call-template name="corp_label_row"/>
                 <xsl:call-template name="about_row"/>
                 
-                <tr>
-                    <td valign="top" bgcolor="#333333"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333"><img alt="" width="10" height="10" src="/i/arrow_white_down.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute>Press Room</a></td>
-                    <td valign="top" bgcolor="#333333"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-                </tr>
-                
-                <xsl:call-template name="div_line_row"/>
-
-                <tr>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
-                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
-                        <xsl:when test="/TC/Command='articles'">graybv_lite_bg</xsl:when>
-                        <xsl:when test="starts-with(/TC/Command,'article')">graybv_lite_bg</xsl:when>
-                        <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=articles</xsl:attribute>Articles</a>
-                    </td>
+                <tr valign="middle">
+                    <td bgcolor="#333333"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
+                    <td height="18" class="statTextBig" bgcolor="#333333"><img alt="" width="10" height="10" src="/i/arrow_white_down.gif" border="0"/>&#160;Press Room</td>
+                    <td bgcolor="#333333"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
                 </tr>
 
                 <xsl:call-template name="div_line_row"/>
@@ -1021,15 +1014,29 @@
                         &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute>Press Releases</a>
                     </td>
                 </tr>
+                <xsl:call-template name="div_line_row"/>
+
+                <tr>
+                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
+                        <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
+                        <xsl:when test="/TC/Command='articles'">graybv_lite_bg</xsl:when>
+                        <xsl:when test="starts-with(/TC/Command,'article')">graybv_lite_bg</xsl:when>
+                        <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
+                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=articles</xsl:attribute>Articles</a>
+                    </td>
+                </tr>
                         
                 <xsl:call-template name="div_line_row"/>
+                
                 <xsl:call-template name="contacts_row"/>
           </table>
 
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
+<!-- Press Room ends -->
 
+<!-- Contact Us begins -->
         <xsl:when test="/TC/Task='contacts'">
             <table width="170" bgcolor="#000000" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="label_row"/>
@@ -1044,10 +1051,10 @@
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
 
-                <tr>
-                    <td valign="top" bgcolor="#333333"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>Contacts</a></td>
-                    <td valign="top" bgcolor="#333333"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
+                <tr valign="middle">
+                    <td background="/i/graybv_lite_bg.gif" bgcolor="#333333"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
+                    <td height="18" class="statTextBig" background="/i/graybv_lite_bg.gif" bgcolor="#333333"><img alt="" width="10" height="10" src="/i/arrow_white_down.gif" border="0"/>&#160;Contact Us</td>
+                    <td background="/i/graybv_lite_bg.gif" bgcolor="#333333"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
                 </tr>
                 
                 <xsl:call-template name="div_line_row"/>
@@ -1057,7 +1064,7 @@
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
-<!-- about us and press nav ends -->
+<!-- TopCoder Info ends -->
 
         <xsl:when test="/TC/Command='terms'">
             <table width="170" bgcolor="#000000" cellspacing="0" cellpadding="0" border="0">
@@ -1218,7 +1225,7 @@
             <xsl:call-template name="calendar"/>
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="intro"/>
-            <xsl:call-template name="countries"/>
+            <xsl:call-template name="left_nav_btm_row"/>
         </xsl:otherwise>
     </xsl:choose>
 </xsl:template>
@@ -1244,119 +1251,72 @@
 </xsl:template>
 
 <xsl:template name="label_row">
-                <tr>
-                    <td valign="top" bgcolor="#222222"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-                    <td valign="middle" height="18" class="statTextBig" bgcolor="#222222">What's Inside:</td>
-                    <td valign="top" bgcolor="#222222"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-                </tr>
-                
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNavTitle" colspan="3">What's Inside:</td></tr>
 </xsl:template>
 
 <xsl:template name="read_row">
-                <tr>
-                    <td valign="top" bgcolor="#000000"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-                    <td valign="middle" height="18" class="statTextBig" bgcolor="#000000">Please READ:</td>
-                    <td valign="top" bgcolor="#000000"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-                </tr>
-                
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNavTitle" colspan="3">Please Read:</td></tr>
 </xsl:template>
 
 <xsl:template name="sched_row">
-                <tr><td valign="top" class="statText">&#160;</td><td valign="middle" height="18" class="statText"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>Schedule</a></td><td valign="top" class="statText">&#160;</td></tr>
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNav" colspan="3"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/><a class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=index</xsl:attribute>Schedule</a></td></tr>
 </xsl:template>
 
 <xsl:template name="stats_row">
-                <tr><td valign="top" class="statText">&#160;</td><td valign="middle" height="18" class="statText"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute>Statistics</a></td><td valign="top" class="statText">&#160;</td></tr>
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNav" colspan="3"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/><a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute>Statistics</a></td></tr>
 </xsl:template>
 
 <xsl:template name="feat_row">
-                <tr><td valign="top" class="statText">&#160;</td><td valign="middle" height="18" class="statText"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=index</xsl:attribute>Features</a></td><td valign="top" class="statText">&#160;</td></tr>
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNav" colspan="3"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/><a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=index</xsl:attribute>Features</a></td></tr>
 </xsl:template>
 
 <xsl:template name="dev_row">
-                <tr><td valign="top" class="statText">&#160;</td><td valign="middle" height="18" class="statText"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>Development</a></td><td valign="top" class="statText">&#160;</td></tr>
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNav" colspan="3"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/><a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>Development</a></td></tr>
 </xsl:template>
 
 <xsl:template name="tourney_row">
-                <tr><td valign="top" class="statText">&#160;</td><td valign="middle" height="18" class="statText"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute>Tournaments</a></td><td valign="top" class="statText">&#160;</td></tr>
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNav" colspan="3"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/><a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute>Tournaments</a></td></tr>
 </xsl:template>
 
 <xsl:template name="rtables_row">
-                <tr><td valign="top" class="statText">&#160;</td><td valign="middle" height="18" class="statText"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/index.jsp</xsl:attribute>Round Tables</a></td><td valign="top" class="statText">&#160;</td></tr>
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNav" colspan="3"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/><a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/index.jsp</xsl:attribute>Round Tables</a></td></tr>
 </xsl:template>
 
 <xsl:template name="rules_row">
-                <tr><td valign="top" class="statText">&#160;</td><td valign="middle" height="18" class="statText"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=index</xsl:attribute>Support/FAQs</a></td><td valign="top" class="statText">&#160;</td></tr>
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNav" colspan="3"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/><a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=index</xsl:attribute>Support/FAQs</a></td></tr>
 </xsl:template>
 
 <xsl:template name="reg_row">
-                <tr><td valign="top" class="statText">&#160;</td><td valign="middle" height="18" class="statText"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register</a></td><td valign="top" class="statText">&#160;</td></tr>
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNav" colspan="3"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/><a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register</a></td></tr>
 </xsl:template>
 
 <xsl:template name="new_mbr_row">
-                <tr><td valign="top" class="statText">&#160;</td><td valign="middle" height="18" class="statText"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=new_mbr&amp;c=index</xsl:attribute>New Member Tour</a></td><td valign="top" class="statText">&#160;</td></tr>
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNav" colspan="3"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/><a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=new_mbr&amp;c=index</xsl:attribute>New Member Tour</a></td></tr>
 </xsl:template>
 
 <xsl:template name="terms_row">
-                <tr><td valign="top" class="statText" bgcolor="#333333">&#160;</td><td valign="middle" height="18" class="statText" bgcolor="#333333">&#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=terms</xsl:attribute>Terms, Revisions</a></td><td valign="top" class="statText" bgcolor="#333333">&#160;</td></tr>
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftSubnav" colspan="3"><a class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=terms</xsl:attribute>Terms, Revisions</a></td></tr>
 </xsl:template>
 
 <xsl:template name="privacy_row">
-                <tr><td valign="top" class="statText" bgcolor="#333333">&#160;</td><td valign="middle" height="18" class="statText" bgcolor="#333333">&#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=privacy</xsl:attribute>Privacy Policy</a></td><td valign="top" class="statText" bgcolor="#333333">&#160;</td></tr>
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftSubnav" colspan="3"><a class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=privacy</xsl:attribute>Privacy Policy</a></td></tr>
 </xsl:template>
 
-<!-- about us and press nav -->
+<!-- TopCoder Info -->
 <xsl:template name="corp_label_row">
-                <tr>
-                    <td valign="top" bgcolor="#222222"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-                    <td valign="middle" height="18" class="statTextBig" bgcolor="#222222">TopCoder Info:</td>
-                    <td valign="top" bgcolor="#222222"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-                </tr>
-    
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNavTitle" colspan="3">TopCoder Info:</td></tr>
 </xsl:template>
 
 <xsl:template name="about_row">
-                <tr>
-                    <td valign="top" bgcolor="#000000"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-                    <td valign="middle" height="18" class="statTextBig" bgcolor="#000000"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>About Us</a></td>
-                    <td valign="top" bgcolor="#000000"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-                </tr>
-                
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNav" colspan="3"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/><a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>About Us</a></td></tr>
 </xsl:template>
 
 <xsl:template name="press_row">
-                <tr>
-                    <td valign="top" bgcolor="#000000"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-                    <td valign="middle" height="18" class="statTextBig" bgcolor="#000000"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute>Press Room</a></td>
-                    <td valign="top" bgcolor="#000000"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-                </tr>
-                
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNav" colspan="3"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/><a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute>Press Room</a></td></tr>
 </xsl:template>
 
 <xsl:template name="contacts_row">
-                <tr>
-                    <td valign="top" bgcolor="#000000"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
-                    <td valign="middle" height="18" class="statTextBig" bgcolor="#000000"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/>&#160;<a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>Contacts</a></td>
-                    <td valign="top" bgcolor="#000000"><img alt="" width="8" height="1" src="/i/clear.gif" border="0"/></td>
-                </tr>
-                
-                <tr><td valign="top" colspan="3" bgcolor="#333333"><img alt="" width="1" height="1" src="/i/clear.gif" border="0"/></td></tr>
+                <tr><td id="leftNav" colspan="3"><img alt="" width="10" height="10" src="/i/arrow_white.gif" border="0"/><a class="statTextBig"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>Contacts</a></td></tr>
 </xsl:template>
 
 <!-- Nav ends -->
