@@ -17,6 +17,7 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.ProcessorResource;
+import com.topcoder.web.corp.request.Login;
 import com.topcoder.web.corp.Util;
 
 import javax.naming.InitialContext;
@@ -24,6 +25,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Enumeration;
+import java.net.URLEncoder;
 
 
 /**
@@ -101,12 +103,17 @@ public class Controller extends HttpServlet {
                 WebAuthentication authToken;
                 authToken = new BasicAuthentication(persistor, request, response); 
                 task.setAuthToken(authToken);
+
                 TCSubject tcUser = Util.retrieveTCSubject(
                     authToken.getActiveUser() 
                 );
                 Authorization authorize = new TCESAuthorization(tcUser);
                 Resource taskResource = new ProcessorResource(task);
                 if (!authorize.hasPermission(taskResource)) {
+                    if (authToken.getActiveUser().isAnonymous()) {
+                        throw new TCESAuthenticationException(
+                            "Anonymous user does not have permision");
+                    }
                     throw new NotAuthorizedException(
                         "User not Authorized for access to resource: "
                             + taskName);
@@ -130,7 +137,7 @@ public class Controller extends HttpServlet {
                         new Exception("missing " + TCESConstants.TASK_PARAM + " parameter in request"));
             }
         } catch (TCESAuthenticationException authex) {
-            log.error("User authenticated error in TCES resource.\n" + authex.getMessage());
+            log.error("User authenticated error in TCES resource." + authex.getMessage());
             forwardToLoginPage(request, response, authex);
             return;
         } catch (NotAuthorizedException ae) {
@@ -147,16 +154,16 @@ public class Controller extends HttpServlet {
         }
     }
 
-//
-//    private void forwardToLoginPage(HttpServletRequest request, HttpServletResponse response,
-//                                    Throwable exception) throws ServletException, IOException {
-//        getServletContext().getRequestDispatcher(response.encodeURL(TCESConstants.AUTH_FAILED_PAGE)).forward(request, response);
-//    }
-
-
     private void forwardToLoginPage(HttpServletRequest request, HttpServletResponse response,
                                     Throwable exception) throws ServletException, IOException {
-        response.sendRedirect("/corp/?module=Login");
+        String originatingPage = request.getRequestURI();
+        if( request.getQueryString() != null ) {
+            originatingPage += "?"+request.getQueryString();
+        }
+        String destParam = Login.KEY_DESTINATION_PAGE;
+        String loginPageDest = TCESConstants.LOGIN_PAGE + "&" + destParam 
+                               + "=" + URLEncoder.encode(originatingPage);
+        response.sendRedirect(loginPageDest);
     }
 
     private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,
