@@ -81,7 +81,7 @@
                                             <a href="#eligibility">Eligibility</a> |
                                             <a href="#timeline">Timeline</a> |
                                             <a target="_new" href="/i/development/downloads/GiftCardApplicationSpec_v10.pdf">Requirement Specification</a> |
-                                            <a target="#Inquire">Inquire</a>
+                                            <a target="_inquire">Inquire</a>
                                         </p>
 
                                         <!-- Overview -->
@@ -105,7 +105,7 @@
                                             <li>Use-Case Diagram.</li>
                                             <li>Sequence Diagrams.</li>
                                             <li>Application Design Specification.</li>
-                                            <li>Database Schema</li>
+                                            <li>Database Schema.</li>
                                             <li>Mock-Ups of all site pages.</li>
                                             <li>Sample code for credit card authorization interface.</li>
                                             <li>File format and rules for creation of sales audit extract.</li>
@@ -339,7 +339,7 @@
 
                                         <p>
                                             <strong>
-                                               <a name="Inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card%20Site%20Development">Inquire for the Site Development Development Tasks of the Online Gift Card Sales Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
+                                               <a target="_inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card%20Site%20Development">Inquire for the Site Development Development Tasks of the Online Gift Card Sales Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
                                         <p>
