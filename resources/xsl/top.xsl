@@ -59,11 +59,11 @@
     <xsl:when test="/TC/LoggedIn='true'">
             <table width="99%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">            
                 <tr valign="middle"><form name="selectform">
-                    <td width="99%">
+                    <td width="99%" align="right">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
                         <xsl:when test="number(/TC/Rating)&lt;1200">top_div2_badge</xsl:when>
                         <xsl:otherwise>top_div1_badge</xsl:otherwise></xsl:choose>.jpg</xsl:attribute>                   
-                          <img src="/i/clear.gif" width="1" height="75" border="0"/>
+                          <A href="/?t=tces&amp;c=tcs_project_mgr&amp;a=secure"><img src="/i/promos/hiring_pm_promo_head.gif" width="123" height="52" border="0" alt="Hiring Project Managers" hspace="10" /></A>
                     </td>
                     
                     <td align="right">
@@ -89,7 +89,10 @@
             
     <xsl:otherwise>
             <table width="99%" border="0" cellpadding="0" cellspacing="0">            
-                <tr><td><img src="/i/clear.gif" width="1" height="75" border="0"/></td></tr>           
+                <tr>
+                    <td align="right" width="99%"><A href="/?t=tces&amp;c=tcs_project_mgr&amp;a=secure"><img src="/i/promos/hiring_pm_promo_head.gif" width="123" height="52" border="0" alt="Hiring Project Managers" hspace="10" /></A></td>
+                    <td width="1"><img src="/i/clear.gif" width="1" height="75" border="0"/></td>
+                </tr>           
             </table>                    
     </xsl:otherwise>
 </xsl:choose>                
