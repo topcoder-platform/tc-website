@@ -252,29 +252,26 @@ public class ShowDeliverableTag extends BaseTag {
                 }
             }
 
+            // If the project is in final fixes, it finds out whether this project has already been in final review in order
+            // to show the "final review" button
             if (phase.getId() == Phase.ID_FINAL_FIXES) {
-//                log(Level.INFO, "Final Fixes" ); // qq
-
                 try {
                     DocumentManagerLocal documentManager = EJBHelper.getDocumentManager();
+                    com.topcoder.apps.review.document.FinalReview finalReview = null;
 
-//                    log(Level.INFO, "doc manager" ); // qq
+                    // Create a project to hold the projectId that will be used by getFinalReview
+                    Project project = new Project(projectId,0,0,0,null,null,null,null,null,null,roles,null,null,null,null,false,
+                                                    0,0,0,0,0,false);
 
-                        com.topcoder.apps.review.document.FinalReview finalReview = null;
-                        Project project = new Project(projectId,0,0,0,null,null,null,null,null,null,roles,null,null,null,null,false,
-                        0,0,0,0,0,false);
 
-                        finalReview = documentManager.getFinalReview(project, false, new TCSubject(155846));
+                    finalReview = documentManager.getFinalReview(project, false, new TCSubject(155846));
 
-                        if (finalReview.getId() >= 0) isFinalFixAvailable = true;
-                        //log(Level.INFO, "finalReview.getId()="+finalReview.getId() ); // qq
+                    // if the final review has a positive id, it's because it was retrieved from the db
+                    if (finalReview.getId() >= 0) isFinalFixAvailable = true;
 
                 } catch (Exception e) {
-//log(Level.INFO, "Exception" ); // qq
-
+                    // If a problem occurs when getting the documentManager, isFinalFixAvailable will remain false
                 }
-
-
             }
 
 

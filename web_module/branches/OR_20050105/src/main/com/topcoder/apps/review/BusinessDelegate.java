@@ -722,7 +722,7 @@ public final class BusinessDelegate {
 
                         if (isFinalReviewAvailable) {
                             deliverables.add (messages.getMessage("prompt.finalReview"));
-                            deliverables.add ("/finalReview.do?action=edit");
+                            deliverables.add ("/finalReview.do?action=view");
                         }
                     }
                     return (String[]) deliverables.toArray(new String[0]);
@@ -743,16 +743,19 @@ public final class BusinessDelegate {
                     deliverables.add(messages.getMessage("prompt.aggregationWorksheet"));
                     deliverables.add("/aggregation.do?action=admin");
                     deliverables.add(messages.getMessage("prompt.finalFix"));
+
+                    if (isFinalReviewAvailable) {
+                        deliverables.add (messages.getMessage("prompt.finalReview"));
+                        deliverables.add ("/finalReview.do?action=view");
+                    }
+
                     deliverables.add("/projectDetail.do?action=" + Constants.PHASE_FINAL_FIX);
                     deliverables.add(messages.getMessage("deliverable.terminateProject"));
                     deliverables.add("/editProject.do?action=terminate");
                     deliverables.add(messages.getMessage("deliverable.editProject"));
                     deliverables.add("/editProject.do?action=edit");
 
-                    if (isFinalReviewAvailable) {
-                        deliverables.add (messages.getMessage("prompt.finalReview"));
-                        deliverables.add ("/finalReview.do?action=edit");
-                    }
+
 
                     return (String[]) deliverables.toArray(new String[0]);
                 }
@@ -774,7 +777,7 @@ public final class BusinessDelegate {
 
                 if (isFinalReviewAvailable) {
                     deliverables.add (messages.getMessage("prompt.finalReview"));
-                    deliverables.add ("/finalReview.do?action=edit");
+                    deliverables.add ("/finalReview.do?action=view");
                 }
 
                 return (String[]) deliverables.toArray(new String[0]);
