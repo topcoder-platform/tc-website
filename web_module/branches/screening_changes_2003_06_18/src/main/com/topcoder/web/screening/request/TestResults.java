@@ -50,8 +50,8 @@ public class TestResults extends BaseProcessor {
         ResultSetContainer result = (ResultSetContainer)map.get("sessionInfo");
         TestResultsInfo tinfo = new TestResultsInfo();
         ProfileInfo pinfo = new ProfileInfo();
+        pinfo.setIsNew(false);
         if (result.isEmpty()) {
-            pinfo.setIsNew(false);
             pinfo.setTestSetA(new Long(Constants.NO_TEST_SET_A));
         }
         if (pinfo.hasTestSetA()) {
