@@ -435,7 +435,7 @@ public final class TaskDevelopment {
                         long version = Long.parseLong(request.getParameter("version"));
                         long phase = Long.parseLong(request.getParameter("phase"));
 
-                        if (isSuspended(nav.getSessionInfo().getUserId())) {
+                        if (!isSuspended(nav.getSessionInfo().getUserId())) {
                             if (!isProjectLockedOut(componentId, version, phase) ||
                                     isTournamentComponent(componentId, version, phase)) {
 
