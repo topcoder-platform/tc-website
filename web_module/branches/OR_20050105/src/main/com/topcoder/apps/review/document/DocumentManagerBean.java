@@ -2873,6 +2873,8 @@ public class DocumentManagerBean implements SessionBean {
                     long reviewVersionId = rs.getLong(3);
                     boolean isApproved = rs.getBoolean (4);
                     String comments = rs.getString (5);
+info("GetFinalReview1: isApproved="+isApproved);
+
                     finalReview = new FinalReview(finalReviewId, null, aggWorksheet, isCompleted, requestor.getUserId(),
                             reviewVersionId, isApproved, comments);
                 } else {
@@ -2914,6 +2916,7 @@ public class DocumentManagerBean implements SessionBean {
                     long fixItemVid = rs.getLong(7);
                     isApproved = rs.getBoolean (8);
                     comments = rs.getString (9);
+info("GetFinalReview2: isApproved="+finalReview.isApproved);
 
                     FinalFixStatusManager finalFixStatusManager = (FinalFixStatusManager) Common.getFromCache(
                             "FinalFixStatusManager");
@@ -3388,7 +3391,7 @@ public class DocumentManagerBean implements SessionBean {
                 ps.setLong(4, requestorId);
                 ps.setBoolean(5, finalReview.isApproved());
                 ps.setString (6, finalReview.getComments());
-
+info("SaveFinalReview: isApproved="+finalReview.isApproved());
                 int nr = ps.executeUpdate();
                 if (nr != 1) {
                     // TODO Fix error messages

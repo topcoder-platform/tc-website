@@ -103,7 +103,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      * Return whether this final review is approved
      * </p>
      *
-     * @return "true" if the final review is approved, "false" in not approved, or null if unknown
+     * @return true if the final review is approved
      */
     public boolean getApproved() {
         if (finalReview == null) {
