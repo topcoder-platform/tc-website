@@ -48,6 +48,7 @@ public class Authentication implements Serializable {
     public static void attemptLogin(String handle, String password, InitialContext ctx,
                                     HttpSession session, String requestedURL) throws AuthenticationException {
         try {
+            log.debug("handle: " + handle + " pass: " + password);
             Authentication auth;
 
             if ( (auth=(Authentication)session.getAttribute(AUTHENTICATION_KEY))==null) {
@@ -63,21 +64,19 @@ public class Authentication implements Serializable {
             ResultSetContainer rsc = qa.getLoginInfo(handle);
 
             if (rsc.isEmpty()) {
+                log.debug("bad handle");
                 auth.setErrorMessage("Incorrect handle.  Please retry.");
                 throw new AuthenticationException("Incorrect handle.  Please retry.");
             } else {
-                if (rsc.isEmpty()) {
-                    auth.setErrorMessage("Incorrect login.  Please retry.");
-                    throw new AuthenticationException("Incorrect login.  Please retry.");
+                String actualPassword = rsc.getItem(0, "password").toString();
+                if (!actualPassword.trim().equals(password.trim())) {
+                    log.debug("bad password");
+                    auth.setErrorMessage("Incorrect password.  Please retry.");
+                    throw new AuthenticationException("Incorrect password.  Please retry.");
                 } else {
-                    String actualPassword = rsc.getItem(0, "password").toString();
-                    if (!actualPassword.trim().equals(password.trim())) {
-                        auth.setErrorMessage("Incorrect password.  Please retry.");
-                        throw new AuthenticationException("Incorrect password.  Please retry.");
-                    } else {
-                        // record in this session that we have authenticated a user.
-                        auth.setUserId(((Long)rsc.getItem(0, "user_id").getResultData()).intValue());
-                    }
+                    log.debug("successfull login");
+                    // record in this session that we have authenticated a user.
+                    auth.setUserId(((Long)rsc.getItem(0, "user_id").getResultData()).intValue());
                 }
             }
 

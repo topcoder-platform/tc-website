@@ -12,7 +12,7 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
   </HEAD>
-  <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0" onLoad="self.focus();document.login.handle.focus()">
+  <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0" onLoad="self.focus();document.login.<%=Constants.HANDLE_PARAM%>.focus()">
   <jsp:include page="top.jsp" />
 
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
@@ -47,7 +47,7 @@
                   </TR>
                   <TR>
                     <TD HEIGHT="25" VALIGN="TOP">
-                      <INPUT MAXLENGTH="25" SIZE="20" NAME="<%Constants.PASSWORD_PARAM%>" TYPE="Password" VALUE="">
+                      <INPUT MAXLENGTH="25" SIZE="20" NAME="<%=Constants.PASSWORD_PARAM%>" TYPE="Password" VALUE="">
                     </TD>
                   </TR>
                   <TR>
