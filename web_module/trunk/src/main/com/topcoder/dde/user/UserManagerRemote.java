@@ -49,10 +49,9 @@ public interface UserManagerRemote extends javax.ejb.EJBObject {
     void sendPasswordEmail(String username)
         throws RemoteException, DDEException, NoSuchUserException, EJBException;
 
-/*
     void registerInquiry(long userId, long componentId, long rating, long tcUserId, String Comments, boolean agreeToTerms, long phase, long version, long projectId)
         throws RemoteException, DDEException, NoSuchUserException, EJBException;
-*/
+
     long getRatingForInquiry(long userId, long version, long componentId)
         throws RemoteException, DDEException, NoSuchUserException, EJBException;
 

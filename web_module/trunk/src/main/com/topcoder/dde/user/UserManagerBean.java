@@ -948,16 +948,16 @@ logger.debug("got ds");
         }
     }
 
-/*
+
     public void registerInquiry(long userId, long componentId, long rating, long tcUserId,
                                 String comments, boolean agreeToTerms, long phase, long version, long projectId)
         throws RemoteException, DDEException, NoSuchUserException,
                 EJBException {
         try{
-//            Context context = new InitialContext();
-//            LocalDDEComponentInquiryHome componentInquiryHome = (LocalDDEComponentInquiryHome) context.lookup(LocalDDEComponentInquiryHome.EJB_REF_NAME);
+            Context context = new InitialContext();
+            LocalDDEComponentInquiryHome componentInquiryHome = (LocalDDEComponentInquiryHome) context.lookup(LocalDDEComponentInquiryHome.EJB_REF_NAME);
             logger.debug("AgreeToTerms: " + agreeToTerms);
-//            LocalDDEComponentInquiry componentInquiry = componentInquiryHome.create(componentId, userId, rating, comments, agreeToTerms, phase, tcUserId, version, projectId);
+            componentInquiryHome.create(componentId, userId, rating, comments, agreeToTerms, phase, tcUserId, version, projectId);
 
 
             Context homeBindings = new InitialContext();
@@ -984,7 +984,7 @@ logger.debug("got ds");
         }
 
     }
-*/
+
 
     public long getRatingForInquiry(long userId, long version, long componentId)
         throws RemoteException, DDEException, NoSuchUserException,

@@ -23,14 +23,14 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.PathResource;
 
 import com.topcoder.dde.catalog.*;
+import com.topcoder.dde.user.UserManagerRemoteHome;
+import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.tc.controller.request.development.Base;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.SoftwareComponent;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
-import com.topcoder.apps.review.projecttracker.ProjectTracker;
 
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpServletRequest;
@@ -332,7 +332,7 @@ public final class TaskDevelopment {
                                                 xsldocURLString = XSL_DIR + "reg_full_rated.xsl";
                                             } else {
 
-                                                register(nav.getSessionInfo().getUserId(), componentId, projectId);
+                                                register(nav.getSessionInfo().getUserId(), componentId, projectId, rating, comment, agreedToTerms, phase, version);
                                                 String activeForumId = String.valueOf(getActiveForumId(componentId));
                                                 devTag.addTag(new ValueTag("forumId", activeForumId));
 
@@ -765,7 +765,7 @@ public final class TaskDevelopment {
     }
 
 
-    static void register(long userId, long componentId, long projectId) throws Exception {
+    static void register(long userId, long componentId, long projectId, int rating, String comment, boolean agreedToTerms, int phase, int version) throws Exception {
         Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
 
         //get principal manager
@@ -774,15 +774,12 @@ public final class TaskDevelopment {
         PrincipalMgrRemote principalMgr = principalManagerHome.create();
 
         log.debug("creating user");
+        Object objUserManager = ctx.lookup("dde/UserManager");
+        UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
+        UserManagerRemote USER_MANAGER = userManagerHome.create();
         UserPrincipal up = principalMgr.getUser(userId);
 
-        ProjectTrackerHome ptHome = (ProjectTrackerHome) PortableRemoteObject.narrow(
-                ctx.lookup(ProjectTrackerHome.EJB_REF_NAME),
-                ProjectTrackerHome.class);
-        ProjectTracker pt = ptHome.create();
-
-        pt.userInquiry(userId, projectId);
-
+        USER_MANAGER.registerInquiry(userId, componentId, rating, userId, comment, agreedToTerms, phase, version, projectId);
 
         //add the user to the appropriate role to view the forum
         Collection roles = principalMgr.getRoles(null);
