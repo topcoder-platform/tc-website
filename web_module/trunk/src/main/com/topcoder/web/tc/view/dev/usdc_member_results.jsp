@@ -58,6 +58,12 @@
 <a href="/tc?module=USDCContestDetails&type=3&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">Contest Details - <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></a>
 <%
     }
+    else
+    {
+%>
+<a href="/tc?module=USDCContestDetails&type=4&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">Contest Details - <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></a>
+<%
+    }
 %>
 </p>
 
