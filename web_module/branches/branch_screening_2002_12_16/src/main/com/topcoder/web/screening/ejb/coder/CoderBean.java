@@ -39,10 +39,10 @@ public class CoderBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("INSERT INTO coder (coder_id, " +
-                    "member_since, create_date, modify_date, status)"
-                    + " values(?,?,?,?,?) ");
+            StringBuffer query = new StringBuffer(180);
+            query.append("INSERT INTO coder (coder_id, ");
+            query.append("member_since, create_date, modify_date, status)");
+            query.append(" VALUES(?,?,?,?,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -84,10 +84,10 @@ public class CoderBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(120);
 
-            query.append("UPDATE coder set member_since = ? where " +
-                "coder_id = ?");
+            query.append("UPDATE coder set member_since = ? ");
+            query.append("where coder_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -130,10 +130,8 @@ public class CoderBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("UPDATE coder set status = ? where " +
-                "coder_id = ?");
+            StringBuffer query = new StringBuffer(60);
+            query.append("UPDATE coder set status = ? where coder_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -142,7 +140,6 @@ public class CoderBean extends BaseEJB {
 
             pstmt.setInt(1, coderStatusId);
             pstmt.setLong(2, coderId);
-
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
@@ -169,24 +166,23 @@ public class CoderBean extends BaseEJB {
         log.debug("getMemberSince called. coderId: " + coderId);
 
         Context ctx = null;
-        Statement stmt = null;
+        PreparedStatement pstmt = null;
         Connection conn = null;
         DataSource ds = null;
         ResultSet rs = null;
         Date memberSince = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("SELECT member_since from coder " +
-                     "where coder_id = " + coderId);
+            StringBuffer query = new StringBuffer(60);
+            query.append("SELECT member_since FROM coder WHERE coder_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
-            stmt = conn.createStatement();
+            pstmt = conn.prepareStatement(query.toString());
 
-            rs = stmt.executeQuery(query.toString());
+            pstmt.setLong(1,coderId);
+            rs = pstmt.executeQuery();
             if ( rs.next() ) {
                 memberSince = rs.getDate(1);
             }
@@ -203,7 +199,7 @@ public class CoderBean extends BaseEJB {
             throw new EJBException("Exception in getMemberSince coderId: " + coderId);
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getMemberSince");}}
-            if (stmt != null) {try {stmt.close();} catch (Exception ignore) {log.error("FAILED to close Statement in getMemberSince");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getMemberSince");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getMemberSince");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getMemberSince");}}
         }
@@ -221,24 +217,23 @@ public class CoderBean extends BaseEJB {
         log.debug("getCoderStatusId called. coderId: " + coderId);
 
         Context ctx = null;
-        Statement stmt = null;
+        PreparedStatement pstmt = null;
         Connection conn = null;
         DataSource ds = null;
         ResultSet rs = null;
         int coderStatusId = -1;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("SELECT status from coder " +
-                     "where coder_id = " + coderId);
+            StringBuffer query = new StringBuffer(60);
+            query.append("SELECT status FROM coder WHERE coder_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
-            stmt = conn.createStatement();
+            pstmt = conn.prepareStatement(query.toString());
 
-            rs = stmt.executeQuery(query.toString());
+            pstmt.setLong(1,coderId);
+            rs = pstmt.executeQuery();
             if ( rs.next() ) {
                 coderStatusId = rs.getInt(1);
             }
@@ -255,7 +250,7 @@ public class CoderBean extends BaseEJB {
             throw new EJBException("Exception in getCoderStatusId coderId: " + coderId);
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getCoderStatusId");}}
-            if (stmt != null) {try {stmt.close();} catch (Exception ignore) {log.error("FAILED to close Statement in getCoderStatusId");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getCoderStatusId");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getCoderStatusId");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getCoderStatusId");}}
         }
@@ -273,25 +268,27 @@ public class CoderBean extends BaseEJB {
         log.debug("getCoderStatusDesc called. coderId: " + coderId);
 
         Context ctx = null;
-        Statement stmt = null;
+        PreparedStatement pstmt = null;
         Connection conn = null;
         DataSource ds = null;
         ResultSet rs = null;
         String coderStatusDesc = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(240);
 
-            query.append("SELECT coder_status_desc from coder a, coder_status_lu b " +
-                     "where a.coder_id = " + coderId +
-                    " and a.status = b.coder_status_id");
+            query.append("SELECT coder_status_desc FROM coder a, ");
+            query.append("coder_status_lu b ");
+            query.append("WHERE a.coder_id = ? ");
+            query.append(" AND a.status = b.coder_status_id");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
-            stmt = conn.createStatement();
+            pstmt = conn.prepareStatement(query.toString());
 
-            rs = stmt.executeQuery(query.toString());
+            pstmt.setLong(1,coderId);
+            rs = pstmt.executeQuery();
             if ( rs.next() ) {
                 coderStatusDesc = rs.getString(1);
             }
@@ -308,7 +305,7 @@ public class CoderBean extends BaseEJB {
             throw new EJBException("Exception in getCoderStatusDesc coderId: " + coderId);
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getCoderStatusDesc");}}
-            if (stmt != null) {try {stmt.close();} catch (Exception ignore) {log.error("FAILED to close Statement in getCoderStatusDesc");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getCoderStatusDesc");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getCoderStatusDesc");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getCoderStatusDesc");}}
         }
