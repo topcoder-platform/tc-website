@@ -22,8 +22,7 @@ abstract public class Activate extends RegistrationBase {
         Arrays.sort(ACTIVE_STATI);
     }
 
-    protected void businessProcessing() throws TCWebException {
-        super.businessProcessing();
+    protected void registrationProcessing() throws TCWebException {
 
         String code = StringUtils.checkNull(getRequest().getParameter(ACTIVATION_CODE));
         long userId = StringUtils.getCoderId(code);
