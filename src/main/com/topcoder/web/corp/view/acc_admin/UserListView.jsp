@@ -8,6 +8,7 @@
          buffer="64kb"
          %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%
         ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");
 %>
@@ -93,7 +94,13 @@
                         <tc-webtag:item row="<%=resultRow%>" name="first_name"/></TD>
                     <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
              <tc-webtag:item row="<%=resultRow%>" name="last_name"/></TD>
-                    <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>"> <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>
+                    <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
+                      <% if (sessionInfo.getUserId()==resultRow.getLongItem("user_id")) { %>
+                        <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
+                      <% } else { %>
+                        <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
+                      <% } %>
+                    </TD>
                 </tr>
         </tc-webtag:iterator>
 
