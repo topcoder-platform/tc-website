@@ -54,43 +54,62 @@
 
 <!-- Middle Column begins -->
         <td width="99%" align=center valign=top>
-        <img src="/images/clear.gif" alt="" width="450" height="10" border="0" />
-<object
-classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
-width="800"
-height="450"
-id="appSuite"
-align="top"
-<param name="allowScriptAccess" value="sameDomain" />
-<param name="movie" value="/images/flash/appSuiteDetails.swf?appSuiteXML=appSuiteDetails.xml"/>
-<param name="menu" value="false" />
-<param name="align" value="t" />
-<param name="salign" value="t" />
-<param name="menu" value="false" />
-<param name="bgcolor" value="#FFFFFF" />
-<embed
-src="/images/flash/appSuiteDetails.swf?appSuiteXML=appSuiteDetails.xml"
-menu="false"
-quality="high"
-bgcolor="#FFFFFF"
-width="800"
-height="450"
-name="appSuite"
-align="top"
-allowScriptAccess="sameDomain"
-type="application/x-shockwave-flash"
-pluginspage="http://www.macromedia.com/go/getflashplayer" />
-</object>
-
-			<p><font size="3"><strong><a href="http://www.topcoder.com/?t=contacts&c=index">Contact us</a> today so we can get started developing your next application.</strong></font></p>
-            <p><br></p>
-        </td>
+			<div class="appSuiteBody">
+			<img src="/images/appSuitePromo.gif" border=0/><br/>
+			<p>
+			Imagine being able to meet all your web business needs in one place. Imagine a toolbox with every tool you could need to build that web business. TopCoder Software Application Suites were built from the ground up with this approach in mind.
+			</p>
+			<br/>
+			<hr noshade="noshade" size="1" width="100%">
+			<table cellspacing=0 cellpadding=0 border=0 width="100%">
+				<tr>
+					<td class=bodyText valign=middle align=left width="100%">
+					<p>
+					<b>
+					<A href="/applications/appSuite.jsp">Communication</A><br/>
+					&#160;&#160;&#160;Description of Communication app suite<br/>
+					<A href="/applications/appSuite.jsp">Data Management</A><br/>
+					&#160;&#160;&#160;Description of Data Management app suite<br/>
+					<A href="/applications/appSuite.jsp">E-commerce</A><br/>
+					&#160;&#160;&#160;Description of E-commerce app suite<br/>
+					<A href="/applications/appSuite.jsp">Financial</A><br/>
+					&#160;&#160;&#160;Description of Financial app suite<br/>
+					<A href="/applications/appSuite.jsp">Imaging</A><br/>
+					&#160;&#160;&#160;Description of Imaging app suite<br/>
+					<A href="/applications/appSuite.jsp">Work Flow</A><br/>
+					&#160;&#160;&#160;Description of Work Flow app suite
+					</b>
+					</p>
+					<td>
+					<td class=bodyText valign=middle align=right>
+					<div align=right width="100%">
+					<img src="/images/appSuiteQues.gif" border=0/>
+					</div>
+					</td>
+				</tr>
+			</table>
+			<hr noshade="noshade" size="1" width="100%">
+			<br/>
+			<p align=center><strong><a href="http://www.topcoder.com/?t=contacts&c=index">Contact us</a> today so we can get started developing your next application.</strong></p>
+        	</div>
+		</td>
 <!-- Middle Column ends -->
 
 <!-- Gutter 2 begins -->
         <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
 <!-- Gutter 2 ends -->
+
+<!-- Right Column begins -->
+        <td width="170">
+        <jsp:include page="/includes/right.jsp" >
+            <jsp:param name="level1" value="index"/>
+        </jsp:include>
+        </td>
+<!--Right Column ends -->
+
+<!-- Gutter 3 begins -->
+        <td width="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td>
+<!-- Gutter 3 ends -->
 
     </tr>
 </table>
