@@ -870,6 +870,7 @@ public class ComponentManagerBean
                 && info.getPhase() == ComponentVersionInfo.SPECIFICATION) ||
                 (versionBean.getPhaseId() == ComponentVersionInfo.SPECIFICATION
                     && info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
+            log.debug("Phase Change.");
             long projectTypeId;
             if (info.getPhase() == ComponentVersionInfo.SPECIFICATION) {
                 // TODO Change to reference
@@ -896,6 +897,7 @@ public class ComponentManagerBean
                         levelId);
 
                 if (newForum >= 0) {
+                    log.debug("New forum created, adding PM to notification.")
                     Project project = pt.getProjectById(projectId, requestor);
 
                     NotificationHome notificationHome = (NotificationHome)
@@ -927,15 +929,17 @@ public class ComponentManagerBean
                 throw new CatalogException(e.getMessage());
             }
         }
-
+log.debug("qq before if");
         if ((versionBean.getPhaseId() != ComponentVersionInfo.DEVELOPMENT) &&
             (info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
+            log.debug("Project went to development. Winner of desing will be added to notification")
             try {
                 ProjectTracker pt = projectTrackerHome.create();
 
                 Project project = pt.getProjectById(
                     pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DEVELOPMENT), requestor);
 
+                log.debug("WinnerId=" + project.getWinner().getId())
                 notification.createNotification("forum post " + project.getForumId(),
                         project.getWinner().getId(),
                         notification.FORUM_POST_TYPE_ID);
@@ -2253,25 +2257,6 @@ public class ComponentManagerBean
         }
     }
 
-    /**
-     * qq
-     */
-/*     public Project getProject(TCSubject requestor) throws CatalogException {
-        try {
-            ProjectTracker pt = projectTrackerHome.create();
-
-            return pt.getProjectById(pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(),ProjectType.ID_DESIGN),
-                                     requestor);
-
-        } catch(RemoteException e) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(e.toString());
-        } catch (CreateException e) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(e.toString());
-        }
-     }
-*/
     /**
      * Determines whether or not the project of the given type for this component version has yielded a
      * publicly readable aggregation worksheet

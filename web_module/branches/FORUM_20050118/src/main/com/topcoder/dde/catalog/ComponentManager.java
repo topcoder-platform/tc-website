@@ -745,9 +745,6 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      */
     public long getProjectId(long projectType) throws RemoteException, CatalogException;
 
-    // qq
-    //public Project getProject(TCSubject requestor) throws RemoteException, CatalogException;
-
     /**
      * Determines whether or not the project of the given type for this component version has yielded a
      * publicly readable aggregation worksheet
