@@ -15,12 +15,15 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.*;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.http.*;
@@ -513,7 +516,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             if (!doAuthenticate(request, response)) return;
 
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
-            if (request.getParameter(MODULE) != null)  {
+            if (request.getParameter(MODULE) != null) {
                 process(request, response);
                 return;
             }
@@ -1077,41 +1080,41 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     // Pulls up the Add Affidavit Page
     private void doAddAffidavit(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-            log.debug("doAddAffidavit<br>");
+        log.debug("doAddAffidavit<br>");
 
-            // Give the JSP the User object
-            InternalDispatchUserProfileHeader bean =
-                    new InternalDispatchUserProfileHeader(request, response);
-            UserProfileHeader results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
-
-
-            // Give the JSP the list of Affidavit Types
-            DataInterfaceBean dib = new DataInterfaceBean();
-            Map map = dib.getAffidavitTypes();
-            request.setAttribute(AFFIDAVIT_TYPE_LIST, map.get(AFFIDAVIT_TYPE_LIST));
+        // Give the JSP the User object
+        InternalDispatchUserProfileHeader bean =
+                new InternalDispatchUserProfileHeader(request, response);
+        UserProfileHeader results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
 
-            // Give the JSP the list of Payment Types
-            map = dib.getPaymentTypes();
-            request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));
+        // Give the JSP the list of Affidavit Types
+        DataInterfaceBean dib = new DataInterfaceBean();
+        Map map = dib.getAffidavitTypes();
+        request.setAttribute(AFFIDAVIT_TYPE_LIST, map.get(AFFIDAVIT_TYPE_LIST));
 
 
-            // Give the JSP the list of Affidavit Statuss
-            map = dib.getStatusCodes(PactsConstants.AFFIDAVIT_OBJ);
-            request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
+        // Give the JSP the list of Payment Types
+        map = dib.getPaymentTypes();
+        request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));
 
 
-            // Give the JSP the list of Payment Statuss
-            map = dib.getStatusCodes(PactsConstants.PAYMENT_OBJ);
-            request.setAttribute(STATUS_CODE_LIST + "2", map.get(STATUS_CODE_LIST));
+        // Give the JSP the list of Affidavit Statuss
+        map = dib.getStatusCodes(PactsConstants.AFFIDAVIT_OBJ);
+        request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
 
 
-            // Give the JSP the list of Rounds
-            map = dib.getRounds();
-            request.setAttribute(ROUND_LIST, map.get(ROUND_LIST));
+        // Give the JSP the list of Payment Statuss
+        map = dib.getStatusCodes(PactsConstants.PAYMENT_OBJ);
+        request.setAttribute(STATUS_CODE_LIST + "2", map.get(STATUS_CODE_LIST));
 
-            forward(INTERNAL_ADD_AFFIDAVIT_JSP, request, response);
+
+        // Give the JSP the list of Rounds
+        map = dib.getRounds();
+        request.setAttribute(ROUND_LIST, map.get(ROUND_LIST));
+
+        forward(INTERNAL_ADD_AFFIDAVIT_JSP, request, response);
 
     }
 
@@ -1176,26 +1179,26 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     // Pulls up the Add Contract page.
     private void doAddContract(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-            log.debug("doAddContract<br>");
+        log.debug("doAddContract<br>");
 
-            // Give the JSP the User Object
-            InternalDispatchUserProfileHeader bean =
-                    new InternalDispatchUserProfileHeader(request, response);
-            UserProfileHeader results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
-
-
-            // Give the JSP the list of Contract Types
-            DataInterfaceBean dib = new DataInterfaceBean();
-            Map map = dib.getContractTypes();
-            request.setAttribute(CONTRACT_TYPE_LIST, map.get(CONTRACT_TYPE_LIST));
+        // Give the JSP the User Object
+        InternalDispatchUserProfileHeader bean =
+                new InternalDispatchUserProfileHeader(request, response);
+        UserProfileHeader results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
 
-            // Give the JSP the list of Contract Statuss
-            map = dib.getStatusCodes(PactsConstants.CONTRACT_OBJ);
-            request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
+        // Give the JSP the list of Contract Types
+        DataInterfaceBean dib = new DataInterfaceBean();
+        Map map = dib.getContractTypes();
+        request.setAttribute(CONTRACT_TYPE_LIST, map.get(CONTRACT_TYPE_LIST));
 
-            forward(INTERNAL_ADD_CONTRACT_JSP, request, response);
+
+        // Give the JSP the list of Contract Statuss
+        map = dib.getStatusCodes(PactsConstants.CONTRACT_OBJ);
+        request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
+
+        forward(INTERNAL_ADD_CONTRACT_JSP, request, response);
 
     }
 
@@ -1203,26 +1206,26 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     // Trys to add the Contract and, if successful, pulls up the View Contract page
     // otherwise returns the user to the Add Contract page
     private void doAddContractPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doAddContractPost<br>");
+        log.debug("doAddContractPost<br>");
 
-            Contract c = new Contract(
-                    request.getParameter("name"),
-                    Long.parseLong(request.getParameter("user_id")),
-                    TCData.dateForm(request.getParameter("start_date")),
-                    TCData.dateForm(request.getParameter("end_date")),
-                    request.getParameter("contract_desc"),
-                    Integer.parseInt(request.getParameter("status_id")),
-                    Integer.parseInt(request.getParameter("contract_type_id")));
+        Contract c = new Contract(
+                request.getParameter("name"),
+                Long.parseLong(request.getParameter("user_id")),
+                TCData.dateForm(request.getParameter("start_date")),
+                TCData.dateForm(request.getParameter("end_date")),
+                request.getParameter("contract_desc"),
+                Integer.parseInt(request.getParameter("status_id")),
+                Integer.parseInt(request.getParameter("contract_type_id")));
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            long contract_id = dib.addContract(c, request.getParameter("text"));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        long contract_id = dib.addContract(c, request.getParameter("text"));
 
-            InternalDispatchContract bean =
-                    new InternalDispatchContract(request, response);
-            Contract results = bean.get(contract_id);
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        InternalDispatchContract bean =
+                new InternalDispatchContract(request, response);
+        Contract results = bean.get(contract_id);
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            forward(INTERNAL_CONTRACT_JSP, request, response);
+        forward(INTERNAL_CONTRACT_JSP, request, response);
 
     }
 
@@ -1231,27 +1234,27 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "addPayment.jsp"
     */
     private void doAddPayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doAddPayment<br>");
+        log.debug("doAddPayment<br>");
 
-            if (request.getParameter(CONTRACT_ID) != null) {
-                InternalDispatchContract bean =
-                        new InternalDispatchContract(request, response);
-                ContractHeader results = bean.get()._header;
-                request.setAttribute(PACTS_INTERNAL_RESULT, results);
-            } else {
-                InternalDispatchUserProfileHeader bean =
-                        new InternalDispatchUserProfileHeader(request, response);
-                UserProfileHeader results = bean.get();
-                request.setAttribute(PACTS_INTERNAL_RESULT, results);
-            }
+        if (request.getParameter(CONTRACT_ID) != null) {
+            InternalDispatchContract bean =
+                    new InternalDispatchContract(request, response);
+            ContractHeader results = bean.get()._header;
+            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        } else {
+            InternalDispatchUserProfileHeader bean =
+                    new InternalDispatchUserProfileHeader(request, response);
+            UserProfileHeader results = bean.get();
+            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        }
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            Map map = dib.getPaymentTypes();
-            request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));
-            map = dib.getStatusCodes(PactsConstants.PAYMENT_OBJ);
-            request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        Map map = dib.getPaymentTypes();
+        request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));
+        map = dib.getStatusCodes(PactsConstants.PAYMENT_OBJ);
+        request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
 
-            forward(INTERNAL_ADD_PAYMENT_JSP, request, response);
+        forward(INTERNAL_ADD_PAYMENT_JSP, request, response);
 
     }
 
@@ -1262,46 +1265,46 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSPs: "viewPayment.jsp" "viewContract.jsp"
     */
     private void doAddPaymentPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doAddPaymentPost<br>");
+        log.debug("doAddPaymentPost<br>");
 
-            String net = request.getParameter("net_amount");
-            if (net == null || net.equals("")) net = "0";
+        String net = request.getParameter("net_amount");
+        if (net == null || net.equals("")) net = "0";
 
-            Payment p = new Payment(
-                    Long.parseLong(request.getParameter("user_id")),
-                    request.getParameter("payment_desc"),
-                    Integer.parseInt(request.getParameter("payment_type_id")),
-                    Double.parseDouble(net),
-                    Double.parseDouble(request.getParameter("gross_amount")),
-                    Integer.parseInt(request.getParameter("status_id")));
+        Payment p = new Payment(
+                Long.parseLong(request.getParameter("user_id")),
+                request.getParameter("payment_desc"),
+                Integer.parseInt(request.getParameter("payment_type_id")),
+                Double.parseDouble(net),
+                Double.parseDouble(request.getParameter("gross_amount")),
+                Integer.parseInt(request.getParameter("status_id")));
 
-            p._dueDate = TCData.dateForm(request.getParameter("date_due"));
+        p._dueDate = TCData.dateForm(request.getParameter("date_due"));
 
-            DataInterfaceBean dib = new DataInterfaceBean();
+        DataInterfaceBean dib = new DataInterfaceBean();
 
-            if (request.getParameter(CONTRACT_ID) != null) {
-                long contract_id = Long.parseLong(request.getParameter(CONTRACT_ID));
-                dib.addContractPayment(contract_id, p);
-                InternalDispatchContract bean =
-                        new InternalDispatchContract(request, response);
-                Contract results = bean.get(contract_id);
-                request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        if (request.getParameter(CONTRACT_ID) != null) {
+            long contract_id = Long.parseLong(request.getParameter(CONTRACT_ID));
+            dib.addContractPayment(contract_id, p);
+            InternalDispatchContract bean =
+                    new InternalDispatchContract(request, response);
+            Contract results = bean.get(contract_id);
+            request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-                InternalDispatchNoteList nlb =
-                        new InternalDispatchNoteList(request, response);
-                Map search = new HashMap();
-                search.put(CONTRACT_ID, request.getParameter(CONTRACT_ID));
-                request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
+            InternalDispatchNoteList nlb =
+                    new InternalDispatchNoteList(request, response);
+            Map search = new HashMap();
+            search.put(CONTRACT_ID, request.getParameter(CONTRACT_ID));
+            request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
-                forward(INTERNAL_CONTRACT_JSP, request, response);
-            } else {
-                long payment_id = dib.addPayment(p);
-                InternalDispatchPayment bean =
-                        new InternalDispatchPayment(request, response);
-                Payment results = bean.get(payment_id);
-                request.setAttribute(PACTS_INTERNAL_RESULT, results);
-                forward(INTERNAL_PAYMENT_JSP, request, response);
-            }
+            forward(INTERNAL_CONTRACT_JSP, request, response);
+        } else {
+            long payment_id = dib.addPayment(p);
+            InternalDispatchPayment bean =
+                    new InternalDispatchPayment(request, response);
+            Payment results = bean.get(payment_id);
+            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+            forward(INTERNAL_PAYMENT_JSP, request, response);
+        }
 
     }
 
@@ -1310,13 +1313,13 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwardidng JSP: "addTaxForm.jsp"
     */
     private void doAddTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doAddTaxForm<br>");
+        log.debug("doAddTaxForm<br>");
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            Map map = dib.getStatusCodes(PactsConstants.TAX_FORM_OBJ);
-            request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        Map map = dib.getStatusCodes(PactsConstants.TAX_FORM_OBJ);
+        request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
 
-            forward(INTERNAL_ADD_TAX_FORM_JSP, request, response);
+        forward(INTERNAL_ADD_TAX_FORM_JSP, request, response);
 
     }
 
@@ -1327,25 +1330,25 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "viewTaxForm.jsp"
     */
     private void doAddTaxFormPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doAddTaxFormPost<br>");
+        log.debug("doAddTaxFormPost<br>");
 
-            TaxForm t = new TaxForm(
-                    request.getParameter("name"),
-                    request.getParameter("tax_form_desc"),
-                    Float.parseFloat(request.getParameter("default_withholding_percentage")),
-                    Double.parseDouble(request.getParameter("default_withholding_amount")),
-                    Integer.parseInt(request.getParameter("status_id")),
-                    makeBoolean(request.getParameter("default_use_percentage"))
-            );
+        TaxForm t = new TaxForm(
+                request.getParameter("name"),
+                request.getParameter("tax_form_desc"),
+                Float.parseFloat(request.getParameter("default_withholding_percentage")),
+                Double.parseDouble(request.getParameter("default_withholding_amount")),
+                Integer.parseInt(request.getParameter("status_id")),
+                makeBoolean(request.getParameter("default_use_percentage"))
+        );
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            long tax_form_id = dib.addTaxForm(t, request.getParameter("text"));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        long tax_form_id = dib.addTaxForm(t, request.getParameter("text"));
 
-            InternalDispatchTaxForm bean =
-                    new InternalDispatchTaxForm(request, response);
-            TaxForm results = bean.get(tax_form_id);
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
-            forward(INTERNAL_TAX_FORM_JSP, request, response);
+        InternalDispatchTaxForm bean =
+                new InternalDispatchTaxForm(request, response);
+        TaxForm results = bean.get(tax_form_id);
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        forward(INTERNAL_TAX_FORM_JSP, request, response);
 
     }
 
@@ -1354,26 +1357,26 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "addUserTaxForm.jsp"
     */
     private void doAddUserTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doAddUserTaxForm<br>");
+        log.debug("doAddUserTaxForm<br>");
 
-            InternalDispatchTaxFormList bean =
-                    new InternalDispatchTaxFormList(request, response);
+        InternalDispatchTaxFormList bean =
+                new InternalDispatchTaxFormList(request, response);
 
-            TaxFormHeader[] results = bean.get();
+        TaxFormHeader[] results = bean.get();
 
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.USER_TAX_FORM_OBJ).get(STATUS_CODE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.USER_TAX_FORM_OBJ).get(STATUS_CODE_LIST));
 
-            InternalDispatchUserProfileHeader uphb =
-                    new InternalDispatchUserProfileHeader(request, response);
+        InternalDispatchUserProfileHeader uphb =
+                new InternalDispatchUserProfileHeader(request, response);
 
-            request.setAttribute("user", uphb.get());
+        request.setAttribute("user", uphb.get());
 
-            forward(INTERNAL_ADD_USER_TAX_FORM_JSP, request, response);
+        forward(INTERNAL_ADD_USER_TAX_FORM_JSP, request, response);
 
-   }
+    }
 
 
     /*
@@ -1382,23 +1385,23 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "viewUserTaxForm.jsp"
     */
     private void doAddUserTaxFormPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doAddUserTaxFormPost<br>");
+        log.debug("doAddUserTaxFormPost<br>");
 
-            TaxForm t = new TaxForm(
-                    Long.parseLong(request.getParameter("user_id")),
-                    Long.parseLong(request.getParameter("tax_form_id")),
-                    TCData.dateForm(request.getParameter("date_filed")),
-                    Integer.parseInt(request.getParameter("status_id")));
+        TaxForm t = new TaxForm(
+                Long.parseLong(request.getParameter("user_id")),
+                Long.parseLong(request.getParameter("tax_form_id")),
+                TCData.dateForm(request.getParameter("date_filed")),
+                Integer.parseInt(request.getParameter("status_id")));
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            dib.addUserTaxForm(t);
+        DataInterfaceBean dib = new DataInterfaceBean();
+        dib.addUserTaxForm(t);
 
-            InternalDispatchUserTaxForm bean =
-                    new InternalDispatchUserTaxForm(request, response);
-            TaxForm results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        InternalDispatchUserTaxForm bean =
+                new InternalDispatchUserTaxForm(request, response);
+        TaxForm results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
+        forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
 
     }
 
@@ -1409,19 +1412,19 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forawrding JSP: "viewAffidavit.jsp"
     */
     private void doAffidavit(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doAffidavit<br>");
+        log.debug("doAffidavit<br>");
 
-            InternalDispatchAffidavit bean =
-                    new InternalDispatchAffidavit(request, response);
-            Affidavit results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        InternalDispatchAffidavit bean =
+                new InternalDispatchAffidavit(request, response);
+        Affidavit results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            InternalDispatchNoteList nlb =
-                    new InternalDispatchNoteList(request, response);
-            NoteHeader[] notes = nlb.get();
-            request.setAttribute(NOTE_HEADER_LIST, notes);
+        InternalDispatchNoteList nlb =
+                new InternalDispatchNoteList(request, response);
+        NoteHeader[] notes = nlb.get();
+        request.setAttribute(NOTE_HEADER_LIST, notes);
 
-            forward(INTERNAL_AFFIDAVIT_JSP, request, response);
+        forward(INTERNAL_AFFIDAVIT_JSP, request, response);
 
     }
 
@@ -1432,26 +1435,26 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "affidavitList.jsp"
     */
     private void doAffidavitList(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doAffidavitList<br>");
-            InternalDispatchAffidavitList bean =
-                    new InternalDispatchAffidavitList(request, response);
-            AffidavitHeader[] results = bean.get();
-            if (results.length != 1) {
-                request.setAttribute(PACTS_INTERNAL_RESULT, results);
-                forward(INTERNAL_AFFIDAVIT_LIST_JSP, request, response);
-            } else {
-                InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
-                Map search = new HashMap();
-                search.put(AFFIDAVIT_ID, "" + results[0]._id);
-                NoteHeader[] notes = nlb.get(search);
-                request.setAttribute(NOTE_HEADER_LIST, notes);
+        log.debug("doAffidavitList<br>");
+        InternalDispatchAffidavitList bean =
+                new InternalDispatchAffidavitList(request, response);
+        AffidavitHeader[] results = bean.get();
+        if (results.length != 1) {
+            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+            forward(INTERNAL_AFFIDAVIT_LIST_JSP, request, response);
+        } else {
+            InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
+            Map search = new HashMap();
+            search.put(AFFIDAVIT_ID, "" + results[0]._id);
+            NoteHeader[] notes = nlb.get(search);
+            request.setAttribute(NOTE_HEADER_LIST, notes);
 
-                InternalDispatchAffidavit ab = new InternalDispatchAffidavit(request, response);
-                Affidavit affidavit = ab.get(results[0]._id);
-                request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
+            InternalDispatchAffidavit ab = new InternalDispatchAffidavit(request, response);
+            Affidavit affidavit = ab.get(results[0]._id);
+            request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
 
-                forward(INTERNAL_AFFIDAVIT_JSP, request, response);
-            }
+            forward(INTERNAL_AFFIDAVIT_JSP, request, response);
+        }
 
     }
 
@@ -1494,47 +1497,36 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     }
 */
 
+/*
     private String safeParam2(String param) {
         String rv = new String(param);
         rv = replaceInternal(rv, "&", "%26");
         return rv;
     }
+*/
 
     /*
     This method authenticates the session and forwards
     the user to a login page if there is an error.
     */
     private boolean doAuthenticate(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            HttpSession session = request.getSession(true);
-            Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
-            if (nav != null) {
-                UserProfileHeader client = new UserProfileHeader(nav);
-                if (!client.isTCStaff()) {
-                    String query = request.getQueryString();
 
-                    response.sendRedirect("http://" + request.getServerName() +
-                            "/tc?&module=Login&c=login&message=" +
-                            "You must log in as a TC Staff Member to view this portion of the site.&message=" + INTERNAL_SERVLET_URL +
-                            ((query == null) ? "" : ("?" + safeParam2(query))));
-                    return false;
-                } else
-                    return true;
-            } else {
-                String query = request.getQueryString();
-
-                response.sendRedirect("http://" + request.getServerName() +
-                        "/tc?&module=Login&message=" +
-                        "You must log in as a TC Staff Member to view this portion of the site.&nextpage=" + INTERNAL_SERVLET_URL +
-                        ((query == null) ? "" : ("?" + safeParam2(query))));
-                return false;
-            }
+        WebAuthentication auth = createAuthentication(HttpObjectFactory.createRequest(request),
+                HttpObjectFactory.createResponse(response));
+        ClassResource resource = new ClassResource(this.getClass());
+        if (hasPermission(auth, resource)) {
+            return true;
+        } else {
+            handleException(request, response, new PermissionException(auth.getActiveUser(), resource));
+            return false;
+        }
     }
 
     private void doLogout(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doLogout<br>");
-            HttpSession session = request.getSession(true);
-            session.setAttribute(NAV_OBJECT_ATTR, null);
-            forward(LOGIN_URL, request, response);
+        log.debug("doLogout<br>");
+        HttpSession session = request.getSession(true);
+        session.setAttribute(NAV_OBJECT_ATTR, null);
+        forward(LOGIN_URL, request, response);
     }
 
     /*
@@ -1543,19 +1535,19 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "viewContract.jsp"
     */
     private void doContract(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doContract<br>");
+        log.debug("doContract<br>");
 
-            InternalDispatchContract bean =
-                    new InternalDispatchContract(request, response);
-            Contract results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        InternalDispatchContract bean =
+                new InternalDispatchContract(request, response);
+        Contract results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            InternalDispatchNoteList nlb =
-                    new InternalDispatchNoteList(request, response);
-            NoteHeader[] notes = nlb.get();
-            request.setAttribute(NOTE_HEADER_LIST, notes);
+        InternalDispatchNoteList nlb =
+                new InternalDispatchNoteList(request, response);
+        NoteHeader[] notes = nlb.get();
+        request.setAttribute(NOTE_HEADER_LIST, notes);
 
-            forward(INTERNAL_CONTRACT_JSP, request, response);
+        forward(INTERNAL_CONTRACT_JSP, request, response);
 
     }
 
@@ -1566,29 +1558,29 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "contractList.jsp"
     */
     private void doContractList(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doContractList<br>");
+        log.debug("doContractList<br>");
 
-            InternalDispatchContractList bean =
-                    new InternalDispatchContractList(request, response);
-            ContractHeader[] results = bean.get();
+        InternalDispatchContractList bean =
+                new InternalDispatchContractList(request, response);
+        ContractHeader[] results = bean.get();
 
-            if (results.length != 1) {
-                request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        if (results.length != 1) {
+            request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-                forward(INTERNAL_CONTRACT_LIST_JSP, request, response);
-            } else {
-                InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
-                Map search = new HashMap();
-                search.put(CONTRACT_ID, "" + results[0]._id);
-                NoteHeader[] notes = nlb.get(search);
-                request.setAttribute(NOTE_HEADER_LIST, notes);
+            forward(INTERNAL_CONTRACT_LIST_JSP, request, response);
+        } else {
+            InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
+            Map search = new HashMap();
+            search.put(CONTRACT_ID, "" + results[0]._id);
+            NoteHeader[] notes = nlb.get(search);
+            request.setAttribute(NOTE_HEADER_LIST, notes);
 
-                InternalDispatchContract cb = new InternalDispatchContract(request, response);
-                Contract contract = cb.get(results[0]._id);
-                request.setAttribute(PACTS_INTERNAL_RESULT, contract);
+            InternalDispatchContract cb = new InternalDispatchContract(request, response);
+            Contract contract = cb.get(results[0]._id);
+            request.setAttribute(PACTS_INTERNAL_RESULT, contract);
 
-                forward(INTERNAL_CONTRACT_JSP, request, response);
-            }
+            forward(INTERNAL_CONTRACT_JSP, request, response);
+        }
 
     }
 
@@ -1599,20 +1591,20 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "viewPayment.jsp"
     */
     private void doPayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doPayment<br>");
+        log.debug("doPayment<br>");
 
-            InternalDispatchPayment bean =
-                    new InternalDispatchPayment(request, response);
-            Payment results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        InternalDispatchPayment bean =
+                new InternalDispatchPayment(request, response);
+        Payment results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            InternalDispatchNoteList nlb =
-                    new InternalDispatchNoteList(request, response);
-            Map search = new HashMap();
-            search.put(PAYMENT_ID, request.getParameter(PAYMENT_ID));
-            request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
+        InternalDispatchNoteList nlb =
+                new InternalDispatchNoteList(request, response);
+        Map search = new HashMap();
+        search.put(PAYMENT_ID, request.getParameter(PAYMENT_ID));
+        request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
-            forward(INTERNAL_PAYMENT_JSP, request, response);
+        forward(INTERNAL_PAYMENT_JSP, request, response);
 
     }
 
@@ -1623,20 +1615,20 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "viewPaymentAuditTrail.jsp"
     */
     private void doPaymentAuditTrail(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doPaymentAuditTrail<br>");
+        log.debug("doPaymentAuditTrail<br>");
 
-            InternalDispatchPaymentAuditTrail bean =
-                    new InternalDispatchPaymentAuditTrail(request, response);
-            Payment[] results = bean.get();
+        InternalDispatchPaymentAuditTrail bean =
+                new InternalDispatchPaymentAuditTrail(request, response);
+        Payment[] results = bean.get();
 
-            InternalDispatchNoteList nlb =
-                    new InternalDispatchNoteList(request, response);
-            Map search = new HashMap();
-            search.put(PAYMENT_ID, request.getParameter(PAYMENT_ID));
-            request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
+        InternalDispatchNoteList nlb =
+                new InternalDispatchNoteList(request, response);
+        Map search = new HashMap();
+        search.put(PAYMENT_ID, request.getParameter(PAYMENT_ID));
+        request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
-            forward(INTERNAL_PAYMENT_AUDIT_TRAIL_JSP, request, response);
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        forward(INTERNAL_PAYMENT_AUDIT_TRAIL_JSP, request, response);
 
     }
 
@@ -1647,32 +1639,32 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "paymentList.jsp"
     */
     private void doPaymentList(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doPaymentList<br>");
-            String query = request.getQueryString();
-            query = INTERNAL_SERVLET_URL + "?" + query;
-            request.setAttribute("query", query);
+        log.debug("doPaymentList<br>");
+        String query = request.getQueryString();
+        query = INTERNAL_SERVLET_URL + "?" + query;
+        request.setAttribute("query", query);
 
 
-            InternalDispatchPaymentList bean =
-                    new InternalDispatchPaymentList(request, response);
-            PaymentHeader[] results = bean.get();
-            if (results.length != 1) {
-                DataInterfaceBean dib = new DataInterfaceBean();
+        InternalDispatchPaymentList bean =
+                new InternalDispatchPaymentList(request, response);
+        PaymentHeader[] results = bean.get();
+        if (results.length != 1) {
+            DataInterfaceBean dib = new DataInterfaceBean();
 
-                request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
-                request.setAttribute(PACTS_INTERNAL_RESULT, results);
-                forward(INTERNAL_PAYMENT_LIST_JSP, request, response);
-            } else {
-                InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
-                Map search = new HashMap();
-                search.put(PAYMENT_ID, "" + results[0]._id);
-                request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
+            request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
+            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+            forward(INTERNAL_PAYMENT_LIST_JSP, request, response);
+        } else {
+            InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
+            Map search = new HashMap();
+            search.put(PAYMENT_ID, "" + results[0]._id);
+            request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
-                InternalDispatchPayment pb = new InternalDispatchPayment(request, response);
-                request.setAttribute(PACTS_INTERNAL_RESULT, pb.get(results[0]._id));
+            InternalDispatchPayment pb = new InternalDispatchPayment(request, response);
+            request.setAttribute(PACTS_INTERNAL_RESULT, pb.get(results[0]._id));
 
-                forward(INTERNAL_PAYMENT_JSP, request, response);
-            }
+            forward(INTERNAL_PAYMENT_JSP, request, response);
+        }
     }
 
 
@@ -1680,9 +1672,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "search.jsp"
     */
     private void doSearch(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doSearch<br>");
+        log.debug("doSearch<br>");
 
-            forward(INTERNAL_SEARCH_JSP, request, response);
+        forward(INTERNAL_SEARCH_JSP, request, response);
     }
 
 
@@ -1690,9 +1682,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "search.jsp"
     */
     private void doSearchUsers(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doSearchUsers<br>");
+        log.debug("doSearchUsers<br>");
 
-            forward(INTERNAL_SEARCH_USERS_JSP, request, response);
+        forward(INTERNAL_SEARCH_USERS_JSP, request, response);
     }
 
 
@@ -1700,76 +1692,76 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "search.jsp"
     */
     private void doSearchPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doSearch<br>");
+        log.debug("doSearch<br>");
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
-            request.setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
+        request.setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
 
-            forward(INTERNAL_SEARCH_PAYMENTS_JSP, request, response);
+        forward(INTERNAL_SEARCH_PAYMENTS_JSP, request, response);
     }
 
     /*
     Forwarding JSP: "search.jsp"
     */
     private void doSearchAffidavits(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doSearch<br>");
+        log.debug("doSearch<br>");
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(AFFIDAVIT_OBJ).get(STATUS_CODE_LIST));
-            request.setAttribute(AFFIDAVIT_TYPE_LIST, dib.getAffidavitTypes().get(AFFIDAVIT_TYPE_LIST));
-            request.setAttribute(ROUND_LIST, dib.getRounds().get(ROUND_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(AFFIDAVIT_OBJ).get(STATUS_CODE_LIST));
+        request.setAttribute(AFFIDAVIT_TYPE_LIST, dib.getAffidavitTypes().get(AFFIDAVIT_TYPE_LIST));
+        request.setAttribute(ROUND_LIST, dib.getRounds().get(ROUND_LIST));
 
-            forward(INTERNAL_SEARCH_AFFIDAVITS_JSP, request, response);
+        forward(INTERNAL_SEARCH_AFFIDAVITS_JSP, request, response);
     }
 
     /*
     Forwarding JSP: "search.jsp"
     */
     private void doSearchContracts(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doSearch<br>");
+        log.debug("doSearch<br>");
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(CONTRACT_OBJ).get(STATUS_CODE_LIST));
-            request.setAttribute(CONTRACT_TYPE_LIST, dib.getContractTypes().get(CONTRACT_TYPE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(CONTRACT_OBJ).get(STATUS_CODE_LIST));
+        request.setAttribute(CONTRACT_TYPE_LIST, dib.getContractTypes().get(CONTRACT_TYPE_LIST));
 
-            forward(INTERNAL_SEARCH_CONTRACTS_JSP, request, response);
+        forward(INTERNAL_SEARCH_CONTRACTS_JSP, request, response);
     }
 
     /*
     Forwarding JSP: "search.jsp"
     */
     private void doSearchTaxForms(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doSearch<br>");
+        log.debug("doSearch<br>");
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(TAX_FORM_OBJ).get(STATUS_CODE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(TAX_FORM_OBJ).get(STATUS_CODE_LIST));
 
-            forward(INTERNAL_SEARCH_TAX_FORMS_JSP, request, response);
+        forward(INTERNAL_SEARCH_TAX_FORMS_JSP, request, response);
     }
 
     /*
     Forwarding JSP: "search.jsp"
     */
     private void doSearchUserTaxForms(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doSearch<br>");
+        log.debug("doSearch<br>");
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(USER_TAX_FORM_OBJ).get(STATUS_CODE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(USER_TAX_FORM_OBJ).get(STATUS_CODE_LIST));
 
-            forward(INTERNAL_SEARCH_USER_TAX_FORMS_JSP, request, response);
+        forward(INTERNAL_SEARCH_USER_TAX_FORMS_JSP, request, response);
     }
 
     /*
     Forwarding JSP: "search.jsp"
     */
     private void doSearchNotes(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doSearch<br>");
+        log.debug("doSearch<br>");
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(NOTE_TYPE_LIST, dib.getNoteTypes().get(NOTE_TYPE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(NOTE_TYPE_LIST, dib.getNoteTypes().get(NOTE_TYPE_LIST));
 
-            forward(INTERNAL_SEARCH_NOTES_JSP, request, response);
+        forward(INTERNAL_SEARCH_NOTES_JSP, request, response);
     }
 
     /*
@@ -1778,13 +1770,13 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "viewTaxForm.jsp"
     */
     private void doTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doTaxForm<br>");
+        log.debug("doTaxForm<br>");
 
-            InternalDispatchTaxForm bean =
-                    new InternalDispatchTaxForm(request, response);
-            TaxForm results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
-            forward(INTERNAL_TAX_FORM_JSP, request, response);
+        InternalDispatchTaxForm bean =
+                new InternalDispatchTaxForm(request, response);
+        TaxForm results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        forward(INTERNAL_TAX_FORM_JSP, request, response);
 
     }
 
@@ -1794,19 +1786,19 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "taxFormList.jsp"
     */
     private void doTaxFormList(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doTaxFormList<br>");
+        log.debug("doTaxFormList<br>");
 
-            InternalDispatchTaxFormList bean =
-                    new InternalDispatchTaxFormList(request, response);
-            TaxFormHeader[] results = bean.get();
-            if (results.length != 1) {
-                request.setAttribute(PACTS_INTERNAL_RESULT, results);
-                forward(INTERNAL_TAX_FORM_LIST_JSP, request, response);
-            } else {
-                InternalDispatchTaxForm tfb = new InternalDispatchTaxForm(request, response);
-                request.setAttribute(PACTS_INTERNAL_RESULT, tfb.get(results[0]._id));
-                forward(INTERNAL_TAX_FORM_JSP, request, response);
-            }
+        InternalDispatchTaxFormList bean =
+                new InternalDispatchTaxFormList(request, response);
+        TaxFormHeader[] results = bean.get();
+        if (results.length != 1) {
+            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+            forward(INTERNAL_TAX_FORM_LIST_JSP, request, response);
+        } else {
+            InternalDispatchTaxForm tfb = new InternalDispatchTaxForm(request, response);
+            request.setAttribute(PACTS_INTERNAL_RESULT, tfb.get(results[0]._id));
+            forward(INTERNAL_TAX_FORM_JSP, request, response);
+        }
 
     }
 
@@ -1816,19 +1808,19 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "viewUserTaxForm.jsp"
     */
     private void doUserTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUserTaxForm<br>");
+        log.debug("doUserTaxForm<br>");
 
-            InternalDispatchUserTaxForm bean =
-                    new InternalDispatchUserTaxForm(request, response);
-            TaxForm results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        InternalDispatchUserTaxForm bean =
+                new InternalDispatchUserTaxForm(request, response);
+        TaxForm results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            InternalDispatchNoteList nlb =
-                    new InternalDispatchNoteList(request, response);
-            NoteHeader[] notes = nlb.get(results._header._user._id);
-            request.setAttribute(NOTE_HEADER_LIST, notes);
+        InternalDispatchNoteList nlb =
+                new InternalDispatchNoteList(request, response);
+        NoteHeader[] notes = nlb.get(results._header._user._id);
+        request.setAttribute(NOTE_HEADER_LIST, notes);
 
-            forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
+        forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
 
     }
 
@@ -1839,27 +1831,27 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "userTaxFormList.jsp"
     */
     private void doUserTaxFormList(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUserTaxFormList<br>");
+        log.debug("doUserTaxFormList<br>");
 
-            InternalDispatchUserTaxFormList bean =
-                    new InternalDispatchUserTaxFormList(request, response);
-            TaxFormHeader[] results = bean.get();
-            if (results.length != 1) {
-                request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        InternalDispatchUserTaxFormList bean =
+                new InternalDispatchUserTaxFormList(request, response);
+        TaxFormHeader[] results = bean.get();
+        if (results.length != 1) {
+            request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-                forward(INTERNAL_USER_TAX_FORM_LIST_JSP, request, response);
-            } else {
-                InternalDispatchUserTaxForm utfb = new InternalDispatchUserTaxForm(request, response);
-                request.setAttribute(PACTS_INTERNAL_RESULT, utfb.get(results[0]._id, results[0]._user._id));
+            forward(INTERNAL_USER_TAX_FORM_LIST_JSP, request, response);
+        } else {
+            InternalDispatchUserTaxForm utfb = new InternalDispatchUserTaxForm(request, response);
+            request.setAttribute(PACTS_INTERNAL_RESULT, utfb.get(results[0]._id, results[0]._user._id));
 
-                InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
-                Map search = new HashMap();
-                search.put(TAX_FORM_ID, "" + results[0]._id);
-                search.put(TAX_FORM_USER_ID, "" + results[0]._user._id);
-                request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
+            InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
+            Map search = new HashMap();
+            search.put(TAX_FORM_ID, "" + results[0]._id);
+            search.put(TAX_FORM_USER_ID, "" + results[0]._user._id);
+            request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
-                forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
-            }
+            forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
+        }
 
     }
 
@@ -1868,19 +1860,19 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 	Forwarding JSP: "updateAffidavit.jsp"
 	*/
     private void doUpdateAffidavit(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUpdateAffidavit<br>");
+        log.debug("doUpdateAffidavit<br>");
 
-            InternalDispatchAffidavit bean =
-                    new InternalDispatchAffidavit(request, response);
-            Affidavit results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        InternalDispatchAffidavit bean =
+                new InternalDispatchAffidavit(request, response);
+        Affidavit results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.AFFIDAVIT_OBJ).get(STATUS_CODE_LIST));
-            request.setAttribute(ROUND_LIST, dib.getRounds().get(ROUND_LIST));
-            request.setAttribute(AFFIDAVIT_TYPE_LIST, dib.getAffidavitTypes().get(AFFIDAVIT_TYPE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.AFFIDAVIT_OBJ).get(STATUS_CODE_LIST));
+        request.setAttribute(ROUND_LIST, dib.getRounds().get(ROUND_LIST));
+        request.setAttribute(AFFIDAVIT_TYPE_LIST, dib.getAffidavitTypes().get(AFFIDAVIT_TYPE_LIST));
 
-            forward(INTERNAL_UPDATE_AFFIDAVIT_JSP, request, response);
+        forward(INTERNAL_UPDATE_AFFIDAVIT_JSP, request, response);
 
     }
 
@@ -1889,35 +1881,35 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 	Forwarding JSP: "viewAffidavit.jsp"
 	*/
     private void doUpdateAffidavitPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUpdateAffidavitPost<br>");
+        log.debug("doUpdateAffidavitPost<br>");
 
-            InternalDispatchAffidavit bean =
-                    new InternalDispatchAffidavit(request, response);
-            Affidavit affidavit = bean.get();
+        InternalDispatchAffidavit bean =
+                new InternalDispatchAffidavit(request, response);
+        Affidavit affidavit = bean.get();
 
-            long round_id = Long.parseLong(request.getParameter("round_id"));
+        long round_id = Long.parseLong(request.getParameter("round_id"));
 
-            affidavit._roundID = round_id < 0 ? null : new Long(round_id);
-            affidavit._header._statusID = Integer.parseInt(request.getParameter("affidavit_status_id"));
-            //affidavit._description = request.getParameter("affidavit_desc");
-            affidavit._header._description = request.getParameter("affidavit_desc");
-            affidavit._header._typeID = Integer.parseInt(request.getParameter("affidavit_type_id"));
-            affidavit._header._notarized = makeBoolean(request.getParameter(IS_NOTARIZED));
+        affidavit._roundID = round_id < 0 ? null : new Long(round_id);
+        affidavit._header._statusID = Integer.parseInt(request.getParameter("affidavit_status_id"));
+        //affidavit._description = request.getParameter("affidavit_desc");
+        affidavit._header._description = request.getParameter("affidavit_desc");
+        affidavit._header._typeID = Integer.parseInt(request.getParameter("affidavit_type_id"));
+        affidavit._header._notarized = makeBoolean(request.getParameter(IS_NOTARIZED));
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            dib.updateAffidavit(affidavit);
+        DataInterfaceBean dib = new DataInterfaceBean();
+        dib.updateAffidavit(affidavit);
 
-            affidavit = bean.get();
+        affidavit = bean.get();
 
-            request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
+        request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
 
-            InternalDispatchNoteList notes =
-                    new InternalDispatchNoteList(request, response);
-            Map search = new HashMap();
-            search.put(AFFIDAVIT_ID, request.getParameter(AFFIDAVIT_ID));
-            request.setAttribute(NOTE_HEADER_LIST, notes.get(search));
+        InternalDispatchNoteList notes =
+                new InternalDispatchNoteList(request, response);
+        Map search = new HashMap();
+        search.put(AFFIDAVIT_ID, request.getParameter(AFFIDAVIT_ID));
+        request.setAttribute(NOTE_HEADER_LIST, notes.get(search));
 
-            forward(INTERNAL_AFFIDAVIT_JSP, request, response);
+        forward(INTERNAL_AFFIDAVIT_JSP, request, response);
 
     }
 
@@ -1926,22 +1918,22 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 	Forwarding JSP: "updateContract.jsp"
 	*/
     private void doUpdateContract(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUpdateContract<br>");
+        log.debug("doUpdateContract<br>");
 
-            InternalDispatchContract bean =
-                    new InternalDispatchContract(request, response);
-            Contract results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        InternalDispatchContract bean =
+                new InternalDispatchContract(request, response);
+        Contract results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            InternalDispatchText tb =
-                    new InternalDispatchText(request, response);
-            request.setAttribute("text", tb.get(results._header._id, CONTRACT_OBJ));
+        InternalDispatchText tb =
+                new InternalDispatchText(request, response);
+        request.setAttribute("text", tb.get(results._header._id, CONTRACT_OBJ));
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(CONTRACT_TYPE_LIST, dib.getContractTypes().get(CONTRACT_TYPE_LIST));
-            request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.CONTRACT_OBJ).get(STATUS_CODE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(CONTRACT_TYPE_LIST, dib.getContractTypes().get(CONTRACT_TYPE_LIST));
+        request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.CONTRACT_OBJ).get(STATUS_CODE_LIST));
 
-            forward(INTERNAL_UPDATE_CONTRACT_JSP, request, response);
+        forward(INTERNAL_UPDATE_CONTRACT_JSP, request, response);
 
     }
 
@@ -1950,34 +1942,34 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 	Forwarding JSP: "viewContract.jsp"
 	*/
     private void doUpdateContractPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUpdateContractPost<br>");
+        log.debug("doUpdateContractPost<br>");
 
-            InternalDispatchContract bean =
-                    new InternalDispatchContract(request, response);
-            Contract contract = bean.get();
+        InternalDispatchContract bean =
+                new InternalDispatchContract(request, response);
+        Contract contract = bean.get();
 
-            contract._header._name = request.getParameter("name");
-            contract._startDate = TCData.dateForm(request.getParameter("start_date"));
-            contract._endDate = TCData.dateForm(request.getParameter("end_date"));
-            contract._description = request.getParameter("contract_desc");
-            contract._header._statusId = Integer.parseInt(request.getParameter("status_id"));
-            contract._header._typeID = Integer.parseInt(request.getParameter("contract_type_id"));
+        contract._header._name = request.getParameter("name");
+        contract._startDate = TCData.dateForm(request.getParameter("start_date"));
+        contract._endDate = TCData.dateForm(request.getParameter("end_date"));
+        contract._description = request.getParameter("contract_desc");
+        contract._header._statusId = Integer.parseInt(request.getParameter("status_id"));
+        contract._header._typeID = Integer.parseInt(request.getParameter("contract_type_id"));
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            dib.updateContract(contract);
-            dib.updateText(contract._header._id, CONTRACT_OBJ, request.getParameter("text"));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        dib.updateContract(contract);
+        dib.updateText(contract._header._id, CONTRACT_OBJ, request.getParameter("text"));
 
-            contract = bean.get();
+        contract = bean.get();
 
-            request.setAttribute(PACTS_INTERNAL_RESULT, contract);
+        request.setAttribute(PACTS_INTERNAL_RESULT, contract);
 
-            InternalDispatchNoteList nlb =
-                    new InternalDispatchNoteList(request, response);
-            Map search = new HashMap();
-            search.put(CONTRACT_ID, request.getParameter(CONTRACT_ID));
-            request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
+        InternalDispatchNoteList nlb =
+                new InternalDispatchNoteList(request, response);
+        Map search = new HashMap();
+        search.put(CONTRACT_ID, request.getParameter(CONTRACT_ID));
+        request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
-            forward(INTERNAL_CONTRACT_JSP, request, response);
+        forward(INTERNAL_CONTRACT_JSP, request, response);
     }
 
 
@@ -1985,19 +1977,19 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 	Forwarding JSP: "updatePayment.jsp"
 	*/
     private void doUpdatePayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUpdatePayment<br>");
+        log.debug("doUpdatePayment<br>");
 
-            InternalDispatchPayment bean =
-                    new InternalDispatchPayment(request, response);
-            Payment results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        InternalDispatchPayment bean =
+                new InternalDispatchPayment(request, response);
+        Payment results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(MODIFICATION_RATIONALE_LIST, dib.getModificationRationales().get(MODIFICATION_RATIONALE_LIST));
-            request.setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
-            request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.PAYMENT_OBJ).get(STATUS_CODE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(MODIFICATION_RATIONALE_LIST, dib.getModificationRationales().get(MODIFICATION_RATIONALE_LIST));
+        request.setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
+        request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.PAYMENT_OBJ).get(STATUS_CODE_LIST));
 
-            forward(INTERNAL_UPDATE_PAYMENT_JSP, request, response);
+        forward(INTERNAL_UPDATE_PAYMENT_JSP, request, response);
 
     }
 
@@ -2006,42 +1998,42 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 	Forwarding JSP: "viewPaymentAuditTrail.jsp"
 	*/
     private void doUpdatePaymentPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUpdatePaymentPost<br>");
+        log.debug("doUpdatePaymentPost<br>");
 
-            InternalDispatchPayment pb =
-                    new InternalDispatchPayment(request, response);
-            Payment payment = pb.get();
+        InternalDispatchPayment pb =
+                new InternalDispatchPayment(request, response);
+        Payment payment = pb.get();
 
-            String net = request.getParameter("net_amount");
-            if (net == null || net.equals("")) net = "0";
+        String net = request.getParameter("net_amount");
+        if (net == null || net.equals("")) net = "0";
 
-            payment._header._description = request.getParameter("payment_desc");
-            payment._header._typeID = Integer.parseInt(request.getParameter("payment_type_id"));
-            payment._grossAmount = Double.parseDouble(request.getParameter("gross_amount"));
-            // dpecora 05/03 - fix
-            // payment._netAmount = Double.parseDouble(request.getParameter(net));
-            payment._netAmount = Double.parseDouble(net);
-            payment._statusId = Integer.parseInt(request.getParameter("status_id"));
-            payment._printDate = TCData.dateForm(request.getParameter("date_printed"));
-            payment._payDate = TCData.dateForm(request.getParameter("date_paid"));
-            payment._dueDate = TCData.dateForm(request.getParameter("date_due"));
-            payment._rationaleId = Integer.parseInt(request.getParameter("modification_rationale_id"));
+        payment._header._description = request.getParameter("payment_desc");
+        payment._header._typeID = Integer.parseInt(request.getParameter("payment_type_id"));
+        payment._grossAmount = Double.parseDouble(request.getParameter("gross_amount"));
+        // dpecora 05/03 - fix
+        // payment._netAmount = Double.parseDouble(request.getParameter(net));
+        payment._netAmount = Double.parseDouble(net);
+        payment._statusId = Integer.parseInt(request.getParameter("status_id"));
+        payment._printDate = TCData.dateForm(request.getParameter("date_printed"));
+        payment._payDate = TCData.dateForm(request.getParameter("date_paid"));
+        payment._dueDate = TCData.dateForm(request.getParameter("date_due"));
+        payment._rationaleId = Integer.parseInt(request.getParameter("modification_rationale_id"));
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            dib.updatePayment(payment);
+        DataInterfaceBean dib = new DataInterfaceBean();
+        dib.updatePayment(payment);
 
-            InternalDispatchNoteList nlb =
-                    new InternalDispatchNoteList(request, response);
-            Map search = new HashMap();
-            search.put(PAYMENT_ID, request.getParameter(PAYMENT_ID));
-            request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
+        InternalDispatchNoteList nlb =
+                new InternalDispatchNoteList(request, response);
+        Map search = new HashMap();
+        search.put(PAYMENT_ID, request.getParameter(PAYMENT_ID));
+        request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
-            InternalDispatchPaymentAuditTrail bean =
-                    new InternalDispatchPaymentAuditTrail(request, response);
-            Payment[] results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        InternalDispatchPaymentAuditTrail bean =
+                new InternalDispatchPaymentAuditTrail(request, response);
+        Payment[] results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            forward(INTERNAL_PAYMENT_AUDIT_TRAIL_JSP, request, response);
+        forward(INTERNAL_PAYMENT_AUDIT_TRAIL_JSP, request, response);
 
     }
 
@@ -2050,21 +2042,21 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 	Forwarding JSP: "updateTaxForm.jsp"
 	*/
     private void doUpdateTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUpdateTaxForm<br>");
+        log.debug("doUpdateTaxForm<br>");
 
-            InternalDispatchTaxForm bean =
-                    new InternalDispatchTaxForm(request, response);
-            TaxForm results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        InternalDispatchTaxForm bean =
+                new InternalDispatchTaxForm(request, response);
+        TaxForm results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            InternalDispatchText tb =
-                    new InternalDispatchText(request, response);
-            request.setAttribute("text", tb.get(results._header._id, TAX_FORM_OBJ));
+        InternalDispatchText tb =
+                new InternalDispatchText(request, response);
+        request.setAttribute("text", tb.get(results._header._id, TAX_FORM_OBJ));
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.TAX_FORM_OBJ).get(STATUS_CODE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.TAX_FORM_OBJ).get(STATUS_CODE_LIST));
 
-            forward(INTERNAL_UPDATE_TAX_FORM_JSP, request, response);
+        forward(INTERNAL_UPDATE_TAX_FORM_JSP, request, response);
 
     }
 
@@ -2073,28 +2065,28 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 	Forwarding JSP: "viewTaxForm.jsp"
 	*/
     private void doUpdateTaxFormPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUpdateTaxFormPost<br>");
+        log.debug("doUpdateTaxFormPost<br>");
 
-            InternalDispatchTaxForm bean =
-                    new InternalDispatchTaxForm(request, response);
-            TaxForm taxForm = bean.get();
+        InternalDispatchTaxForm bean =
+                new InternalDispatchTaxForm(request, response);
+        TaxForm taxForm = bean.get();
 
-            taxForm._header._name = request.getParameter("name");
-            taxForm._description = request.getParameter("tax_form_desc");
-            taxForm._defaultWithholdingPercentage = Float.parseFloat(request.getParameter("default_withholding_percentage"));
-            taxForm._defaultWithholdingAmount = Double.parseDouble(request.getParameter("default_withholding_amount"));
-            taxForm._genericFormStatusID = Integer.parseInt(request.getParameter("status_id"));
-            taxForm._defaultUsePercentage = makeBoolean(request.getParameter("default_use_percentage"));
+        taxForm._header._name = request.getParameter("name");
+        taxForm._description = request.getParameter("tax_form_desc");
+        taxForm._defaultWithholdingPercentage = Float.parseFloat(request.getParameter("default_withholding_percentage"));
+        taxForm._defaultWithholdingAmount = Double.parseDouble(request.getParameter("default_withholding_amount"));
+        taxForm._genericFormStatusID = Integer.parseInt(request.getParameter("status_id"));
+        taxForm._defaultUsePercentage = makeBoolean(request.getParameter("default_use_percentage"));
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            dib.updateTaxForm(taxForm);
-            dib.updateText(taxForm._header._id, TAX_FORM_OBJ, request.getParameter("text"));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        dib.updateTaxForm(taxForm);
+        dib.updateText(taxForm._header._id, TAX_FORM_OBJ, request.getParameter("text"));
 
-            taxForm = bean.get();
+        taxForm = bean.get();
 
-            request.setAttribute(PACTS_INTERNAL_RESULT, taxForm);
+        request.setAttribute(PACTS_INTERNAL_RESULT, taxForm);
 
-            forward(INTERNAL_TAX_FORM_JSP, request, response);
+        forward(INTERNAL_TAX_FORM_JSP, request, response);
 
     }
 
@@ -2103,17 +2095,17 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 	Forwarding JSP: "updateUserTaxForm.jsp"
 	*/
     private void doUpdateUserTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUpdateUserTaxForm<br>");
+        log.debug("doUpdateUserTaxForm<br>");
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.USER_TAX_FORM_OBJ).get(STATUS_CODE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.USER_TAX_FORM_OBJ).get(STATUS_CODE_LIST));
 
-            InternalDispatchUserTaxForm bean =
-                    new InternalDispatchUserTaxForm(request, response);
-            TaxForm results = bean.get();
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        InternalDispatchUserTaxForm bean =
+                new InternalDispatchUserTaxForm(request, response);
+        TaxForm results = bean.get();
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            forward(INTERNAL_UPDATE_USER_TAX_FORM_JSP, request, response);
+        forward(INTERNAL_UPDATE_USER_TAX_FORM_JSP, request, response);
     }
 
 
@@ -2121,33 +2113,33 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 	Forwarding JSP: "viewUserTaxForm.jsp"
 	*/
     private void doUpdateUserTaxFormPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUpdateUserTaxFormPost<br>");
+        log.debug("doUpdateUserTaxFormPost<br>");
 
-            InternalDispatchUserTaxForm bean =
-                    new InternalDispatchUserTaxForm(request, response);
-            TaxForm userTaxForm = bean.get();
+        InternalDispatchUserTaxForm bean =
+                new InternalDispatchUserTaxForm(request, response);
+        TaxForm userTaxForm = bean.get();
 
-            userTaxForm._withholdingPercentage = Float.parseFloat(request.getParameter("withholding_percentage"));
-            userTaxForm._withholdingAmount = Double.parseDouble(request.getParameter("withholding_amount"));
-            userTaxForm._header._statusID = Integer.parseInt(request.getParameter("status_id"));
-            userTaxForm._header._dateFiled = TCData.dateForm(request.getParameter("date_filed"));
-            userTaxForm._usePercentage = makeBoolean(request.getParameter("use_percentage"));
+        userTaxForm._withholdingPercentage = Float.parseFloat(request.getParameter("withholding_percentage"));
+        userTaxForm._withholdingAmount = Double.parseDouble(request.getParameter("withholding_amount"));
+        userTaxForm._header._statusID = Integer.parseInt(request.getParameter("status_id"));
+        userTaxForm._header._dateFiled = TCData.dateForm(request.getParameter("date_filed"));
+        userTaxForm._usePercentage = makeBoolean(request.getParameter("use_percentage"));
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            dib.updateUserTaxForm(userTaxForm);
+        DataInterfaceBean dib = new DataInterfaceBean();
+        dib.updateUserTaxForm(userTaxForm);
 
-            userTaxForm = bean.get();
+        userTaxForm = bean.get();
 
-            request.setAttribute(PACTS_INTERNAL_RESULT, userTaxForm);
+        request.setAttribute(PACTS_INTERNAL_RESULT, userTaxForm);
 
-            InternalDispatchNoteList notes =
-                    new InternalDispatchNoteList(request, response);
-            Map search = new HashMap();
-            search.put(TAX_FORM_ID, request.getParameter(TAX_FORM_ID));
-            search.put(TAX_FORM_USER_ID, request.getParameter(USER_ID));
-            request.setAttribute(NOTE_HEADER_LIST, notes.get(search));
+        InternalDispatchNoteList notes =
+                new InternalDispatchNoteList(request, response);
+        Map search = new HashMap();
+        search.put(TAX_FORM_ID, request.getParameter(TAX_FORM_ID));
+        search.put(TAX_FORM_USER_ID, request.getParameter(USER_ID));
+        request.setAttribute(NOTE_HEADER_LIST, notes.get(search));
 
-            forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
+        forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
 
     }
 
@@ -2156,12 +2148,12 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "addNote.jsp"
     */
     private void doAddNote(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doAddNote<br>");
+        log.debug("doAddNote<br>");
 
-            DataInterfaceBean dib = new DataInterfaceBean();
-            request.setAttribute(NOTE_TYPE_LIST, dib.getNoteTypes().get(NOTE_TYPE_LIST));
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(NOTE_TYPE_LIST, dib.getNoteTypes().get(NOTE_TYPE_LIST));
 
-            forward(INTERNAL_ADD_NOTE_JSP, request, response);
+        forward(INTERNAL_ADD_NOTE_JSP, request, response);
     }
 
 
@@ -2171,33 +2163,33 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "viewNote.jsp"
     */
     private void doAddNotePost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doAddNotePost<br>");
+        log.debug("doAddNotePost<br>");
 
-            HttpSession session = request.getSession(true);
-            Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
+        HttpSession session = request.getSession(true);
+        Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
 
-            long user_id = nav.getUserId();
+        long user_id = nav.getUserId();
 
-            Note n = new Note(
-                    request.getParameter("text"),
-                    Integer.parseInt(request.getParameter("note_type_id")),
-                    user_id,
-                    Long.parseLong(request.getParameter("user_id")));
+        Note n = new Note(
+                request.getParameter("text"),
+                Integer.parseInt(request.getParameter("note_type_id")),
+                user_id,
+                Long.parseLong(request.getParameter("user_id")));
 
-            DataInterfaceBean dib = new DataInterfaceBean();
+        DataInterfaceBean dib = new DataInterfaceBean();
 
-            long note_id = dib.addObjectNote(
-                    Long.parseLong(request.getParameter("object_id")),
-                    Integer.parseInt(request.getParameter("object_type")),
-                    Long.parseLong(request.getParameter("tax_form_user_id")),
-                    n);
+        long note_id = dib.addObjectNote(
+                Long.parseLong(request.getParameter("object_id")),
+                Integer.parseInt(request.getParameter("object_type")),
+                Long.parseLong(request.getParameter("tax_form_user_id")),
+                n);
 
-            InternalDispatchNote bean = new InternalDispatchNote(request, response);
-            n = bean.get(note_id);
+        InternalDispatchNote bean = new InternalDispatchNote(request, response);
+        n = bean.get(note_id);
 
-            request.setAttribute(PACTS_INTERNAL_RESULT, n);
+        request.setAttribute(PACTS_INTERNAL_RESULT, n);
 
-            forward(INTERNAL_NOTE_JSP, request, response);
+        forward(INTERNAL_NOTE_JSP, request, response);
 
     }
 
@@ -2207,16 +2199,16 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "comboList.jsp"
     */
     private void doComboList(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doComboList<br>");
+        log.debug("doComboList<br>");
 
-            InternalDispatchPactsEntryList bean =
-                    new InternalDispatchPactsEntryList(request, response);
+        InternalDispatchPactsEntryList bean =
+                new InternalDispatchPactsEntryList(request, response);
 
-            PactsEntry[] results = bean.get();
+        PactsEntry[] results = bean.get();
 
-            request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
-            forward(INTERNAL_COMBO_LIST_JSP, request, response);
+        forward(INTERNAL_COMBO_LIST_JSP, request, response);
     }
 
     /*
@@ -2225,14 +2217,14 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "viewNote.jsp"
     */
     private void doNote(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doNote<br>");
+        log.debug("doNote<br>");
 
-            InternalDispatchNote bean = new InternalDispatchNote(request, response);
-            Note n = bean.get();
+        InternalDispatchNote bean = new InternalDispatchNote(request, response);
+        Note n = bean.get();
 
-            request.setAttribute(PACTS_INTERNAL_RESULT, n);
+        request.setAttribute(PACTS_INTERNAL_RESULT, n);
 
-            forward(INTERNAL_NOTE_JSP, request, response);
+        forward(INTERNAL_NOTE_JSP, request, response);
 
     }
 
@@ -2243,21 +2235,21 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "noteList.jsp"
     */
     private void doNoteList(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doNoteList<br>");
+        log.debug("doNoteList<br>");
 
-            InternalDispatchNoteList bean = new InternalDispatchNoteList(request, response);
-            NoteHeader[] n = bean.get();
+        InternalDispatchNoteList bean = new InternalDispatchNoteList(request, response);
+        NoteHeader[] n = bean.get();
 
-            if (n.length != 1) {
-                request.setAttribute(PACTS_INTERNAL_RESULT, n);
+        if (n.length != 1) {
+            request.setAttribute(PACTS_INTERNAL_RESULT, n);
 
-                forward(INTERNAL_NOTE_LIST_JSP, request, response);
-            } else {
-                InternalDispatchNote nb = new InternalDispatchNote(request, response);
+            forward(INTERNAL_NOTE_LIST_JSP, request, response);
+        } else {
+            InternalDispatchNote nb = new InternalDispatchNote(request, response);
 
-                request.setAttribute(PACTS_INTERNAL_RESULT, nb.get(n[0]._id));
-                forward(INTERNAL_NOTE_JSP, request, response);
-            }
+            request.setAttribute(PACTS_INTERNAL_RESULT, nb.get(n[0]._id));
+            forward(INTERNAL_NOTE_JSP, request, response);
+        }
     }
 
     /*
@@ -2266,14 +2258,14 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "viewText.jsp"
     */
     private void doText(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doText<br>");
+        log.debug("doText<br>");
 
-            InternalDispatchText bean = new InternalDispatchText(request, response);
-            String text = bean.get();
+        InternalDispatchText bean = new InternalDispatchText(request, response);
+        String text = bean.get();
 
-            request.setAttribute(PACTS_INTERNAL_RESULT, text);
+        request.setAttribute(PACTS_INTERNAL_RESULT, text);
 
-            forward(INTERNAL_TEXT_JSP, request, response);
+        forward(INTERNAL_TEXT_JSP, request, response);
 
     }
 
@@ -2284,20 +2276,20 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "viewUser.jsp"
     */
     private void doUser(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUser<br>");
+        log.debug("doUser<br>");
 
-            InternalDispatchUserProfile bean = new InternalDispatchUserProfile(request, response);
-            UserProfile u = bean.get();
+        InternalDispatchUserProfile bean = new InternalDispatchUserProfile(request, response);
+        UserProfile u = bean.get();
 
-            InternalDispatchNoteList nlb =
-                    new InternalDispatchNoteList(request, response);
-            Map search = new HashMap();
-            search.put(USER_ID, request.getParameter(USER_ID));
-            request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
+        InternalDispatchNoteList nlb =
+                new InternalDispatchNoteList(request, response);
+        Map search = new HashMap();
+        search.put(USER_ID, request.getParameter(USER_ID));
+        request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
-            request.setAttribute(PACTS_INTERNAL_RESULT, u);
+        request.setAttribute(PACTS_INTERNAL_RESULT, u);
 
-            forward(INTERNAL_USER_JSP, request, response);
+        forward(INTERNAL_USER_JSP, request, response);
     }
 
 
@@ -2307,35 +2299,35 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "userList.jsp"
     */
     private void doUserList(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doUserList<br>");
+        log.debug("doUserList<br>");
 
-            InternalDispatchUserProfileList bean = new InternalDispatchUserProfileList(request, response);
-            UserProfileHeader[] u = bean.get();
+        InternalDispatchUserProfileList bean = new InternalDispatchUserProfileList(request, response);
+        UserProfileHeader[] u = bean.get();
 
-            if (u.length != 1) {
-                request.setAttribute(PACTS_INTERNAL_RESULT, u);
+        if (u.length != 1) {
+            request.setAttribute(PACTS_INTERNAL_RESULT, u);
 
-                forward(INTERNAL_USER_LIST_JSP, request, response);
-            } else {
-                InternalDispatchUserProfile upb = new InternalDispatchUserProfile(request, response);
-                request.setAttribute(PACTS_INTERNAL_RESULT, upb.get(u[0]._id));
+            forward(INTERNAL_USER_LIST_JSP, request, response);
+        } else {
+            InternalDispatchUserProfile upb = new InternalDispatchUserProfile(request, response);
+            request.setAttribute(PACTS_INTERNAL_RESULT, upb.get(u[0]._id));
 
-                InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
-                Map search = new HashMap();
-                search.put(USER_ID, "" + u[0]._id);
-                request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
+            InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
+            Map search = new HashMap();
+            search.put(USER_ID, "" + u[0]._id);
+            request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
-                forward(INTERNAL_USER_JSP, request, response);
-            }
+            forward(INTERNAL_USER_JSP, request, response);
+        }
     }
 
     /*
     Forwarding JSP: "addNoteLink.jsp"
     */
     private void doAddNoteLink(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doAddNoteLink<br>");
+        log.debug("doAddNoteLink<br>");
 
-            forward(INTERNAL_ADD_NOTE_LINK_JSP, request, response);
+        forward(INTERNAL_ADD_NOTE_LINK_JSP, request, response);
     }
 
 
@@ -2343,29 +2335,29 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     Forwarding JSP: "viewNote.jsp"
     */
     private void doAddNoteLinkPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            log.debug("doAddNoteLink<br>");
+        log.debug("doAddNoteLink<br>");
 
-            DataInterfaceBean dib = new DataInterfaceBean();
+        DataInterfaceBean dib = new DataInterfaceBean();
 
-            String tfuID = request.getParameter(TAX_FORM_USER_ID);
-            long user_id;
-            if (tfuID != null)
-                user_id = Long.parseLong(tfuID);
-            else
-                user_id = 0;
+        String tfuID = request.getParameter(TAX_FORM_USER_ID);
+        long user_id;
+        if (tfuID != null)
+            user_id = Long.parseLong(tfuID);
+        else
+            user_id = 0;
 
-            dib.addObjectNoteLink(
-                    Long.parseLong(request.getParameter(OBJECT_ID)),
-                    Integer.parseInt(request.getParameter(OBJECT_TYPE)),
-                    user_id,
-                    Long.parseLong(request.getParameter(NOTE_ID)));
+        dib.addObjectNoteLink(
+                Long.parseLong(request.getParameter(OBJECT_ID)),
+                Integer.parseInt(request.getParameter(OBJECT_TYPE)),
+                user_id,
+                Long.parseLong(request.getParameter(NOTE_ID)));
 
-            InternalDispatchNote bean =
-                    new InternalDispatchNote(request, response);
+        InternalDispatchNote bean =
+                new InternalDispatchNote(request, response);
 
-            request.setAttribute(PACTS_INTERNAL_RESULT, bean.get());
+        request.setAttribute(PACTS_INTERNAL_RESULT, bean.get());
 
-            forward(INTERNAL_NOTE_JSP, request, response);
+        forward(INTERNAL_NOTE_JSP, request, response);
     }
 
     private void doPayPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -2389,63 +2381,63 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 throw new NavigationException("Payments have been marked as Paid");
 
         } catch (NumberFormatException e) {
-                throw new NavigationException("One or more of the Payment IDs specified is invalid.");
+            throw new NavigationException("One or more of the Payment IDs specified is invalid.");
         }
     }
 
     private void doPrintPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            HttpSession session = request.getSession(true);
+        HttpSession session = request.getSession(true);
 
-            DataInterfaceBean dib = new DataInterfaceBean();
+        DataInterfaceBean dib = new DataInterfaceBean();
 
-            String files[] = dib.printPayments();
+        String files[] = dib.printPayments();
 
-            log.debug("saved " + files.length + " files in the session");
+        log.debug("saved " + files.length + " files in the session");
 
-            session.setAttribute(PACTS_QUICKBOOKS_FILES, files);
+        session.setAttribute(PACTS_QUICKBOOKS_FILES, files);
 
-            String message = "</font><html><head><title>PACTS</title></head><body><h1>PACTS</h1><h2>Files</h2>\n";
+        String message = "</font><html><head><title>PACTS</title></head><body><h1>PACTS</h1><h2>Files</h2>\n";
 
-            String filename, ext, date;
-            Date d;
-            boolean includes_date;
+        String filename, ext, date;
+        Date d;
+        boolean includes_date;
 
-            if (files.length == 0) message = "Error: No Files!";
+        if (files.length == 0) message = "Error: No Files!";
 
-            for (int fileNum = 0; fileNum < files.length; fileNum++) {
-                if (FILES.length <= fileNum)
-                    filename = DEFAULT_FILE;
-                else
-                    filename = FILES[fileNum];
+        for (int fileNum = 0; fileNum < files.length; fileNum++) {
+            if (FILES.length <= fileNum)
+                filename = DEFAULT_FILE;
+            else
+                filename = FILES[fileNum];
 
-                if (EXTS.length <= fileNum)
-                    ext = DEFAULT_EXT;
-                else
-                    ext = EXTS[fileNum];
+            if (EXTS.length <= fileNum)
+                ext = DEFAULT_EXT;
+            else
+                ext = EXTS[fileNum];
 
-                if (INCLUDES_DATE.length <= fileNum)
-                    includes_date = DEFAULT_INCLUDES_DATE;
-                else
-                    includes_date = INCLUDES_DATE[fileNum];
+            if (INCLUDES_DATE.length <= fileNum)
+                includes_date = DEFAULT_INCLUDES_DATE;
+            else
+                includes_date = INCLUDES_DATE[fileNum];
 
-                if (includes_date) {
-                    d = new Date(System.currentTimeMillis());
-                    date = d.toString();
-                    date = replaceInternal(date, ":", ".");
-                    filename += FILE_TOKEN + date;
-                }
-                filename += "." + ext;
-
-                message += "<a href=\"" + INTERNAL_SERVLET_URL + "?" + TASK_STRING;
-                message += "=" + PAYMENT_TASK + "&" + CMD_STRING + "=" + FILE_CMD;
-                message += "&file_num=" + fileNum + "\">" + filename + "</a><br>\n";
-
-
+            if (includes_date) {
+                d = new Date(System.currentTimeMillis());
+                date = d.toString();
+                date = replaceInternal(date, ":", ".");
+                filename += FILE_TOKEN + date;
             }
+            filename += "." + ext;
 
-            message += "</body></html><font>";
+            message += "<a href=\"" + INTERNAL_SERVLET_URL + "?" + TASK_STRING;
+            message += "=" + PAYMENT_TASK + "&" + CMD_STRING + "=" + FILE_CMD;
+            message += "&file_num=" + fileNum + "\">" + filename + "</a><br>\n";
 
-            throw new NavigationException(message);
+
+        }
+
+        message += "</body></html><font>";
+
+        throw new NavigationException(message);
 
     }
 
@@ -2472,10 +2464,11 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             request.setAttribute("message", "Payments Being Updated in the Background");
             if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION)
                 forward(request.getParameter("query"), request, response);
-            else throw new NavigationException("Payments Being Updatd in the Background");
+            else
+                throw new NavigationException("Payments Being Updatd in the Background");
 
         } catch (NumberFormatException e) {
-                throw new NavigationException("One or more of the Payment IDs specified is invalid.");
+            throw new NavigationException("One or more of the Payment IDs specified is invalid.");
         }
     }
 
@@ -2496,63 +2489,64 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             request.setAttribute("message", "Payments have been reviewed");
             if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION && request.getParameter("individual_payment") == null)
                 forward(request.getParameter("query"), request, response);
-            else throw new NavigationException("Payments have been reviewed");
+            else
+                throw new NavigationException("Payments have been reviewed");
 
         } catch (NumberFormatException e) {
-                throw new NavigationException("One or more of the Payment IDs specified is invalid.");
+            throw new NavigationException("One or more of the Payment IDs specified is invalid.");
         }
     }
 
     private void doFile(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-            int fileNum = Integer.parseInt(request.getParameter("file_num"));
-            HttpSession session = request.getSession(true);
-            String[] files = (String[]) session.getAttribute(PACTS_QUICKBOOKS_FILES);
-            if (files == null || files.length <= fileNum) {
-                throw new NavigationException("File not found");
-            }
-            String mime_type, filename, ext, date;
-            Date d;
-            boolean includes_date;
+        int fileNum = Integer.parseInt(request.getParameter("file_num"));
+        HttpSession session = request.getSession(true);
+        String[] files = (String[]) session.getAttribute(PACTS_QUICKBOOKS_FILES);
+        if (files == null || files.length <= fileNum) {
+            throw new NavigationException("File not found");
+        }
+        String mime_type, filename, ext, date;
+        Date d;
+        boolean includes_date;
 
-            if (FILES.length <= fileNum)
-                filename = DEFAULT_FILE;
-            else
-                filename = FILES[fileNum];
+        if (FILES.length <= fileNum)
+            filename = DEFAULT_FILE;
+        else
+            filename = FILES[fileNum];
 
-            if (EXTS.length <= fileNum)
-                ext = DEFAULT_EXT;
-            else
-                ext = EXTS[fileNum];
+        if (EXTS.length <= fileNum)
+            ext = DEFAULT_EXT;
+        else
+            ext = EXTS[fileNum];
 
-            if (MIME_TYPES.length <= fileNum)
-                mime_type = DEFAULT_MIME_TYPE;
-            else
-                mime_type = MIME_TYPES[fileNum];
+        if (MIME_TYPES.length <= fileNum)
+            mime_type = DEFAULT_MIME_TYPE;
+        else
+            mime_type = MIME_TYPES[fileNum];
 
-            if (INCLUDES_DATE.length <= fileNum)
-                includes_date = DEFAULT_INCLUDES_DATE;
-            else
-                includes_date = INCLUDES_DATE[fileNum];
+        if (INCLUDES_DATE.length <= fileNum)
+            includes_date = DEFAULT_INCLUDES_DATE;
+        else
+            includes_date = INCLUDES_DATE[fileNum];
 
-            if (includes_date) {
-                d = new Date(System.currentTimeMillis());
-                date = d.toString();
-                date = replaceInternal(date, ":", ".");
-                filename += FILE_TOKEN + date;
-            }
-            filename += "." + ext;
+        if (includes_date) {
+            d = new Date(System.currentTimeMillis());
+            date = d.toString();
+            date = replaceInternal(date, ":", ".");
+            filename += FILE_TOKEN + date;
+        }
+        filename += "." + ext;
 
-            response.setContentType(mime_type);
-            response.setHeader("Content-disposition",
-                    "attachment; filename=\"" +
-                    filename + "\"");
+        response.setContentType(mime_type);
+        response.setHeader("Content-disposition",
+                "attachment; filename=\"" +
+                filename + "\"");
 
-            log.debug("filename is " + filename);
+        log.debug("filename is " + filename);
 
-            PrintWriter out = response.getWriter();
-            out.print(files[fileNum]);
-            return;
+        PrintWriter out = response.getWriter();
+        out.print(files[fileNum]);
+        return;
 
     }
 
