@@ -31,11 +31,11 @@ public class TextInputTag extends BaseTag {
                 ret.append("onKeyPress=\"").append(onKeyPress).append("\" ");
             }
 
-            log.debug("value is " + value);
+            log.debug(name + " value is " + value);
             if (value == null) {
                 value = getDefaultValue()==null?null:getDefaultValue().toString();
             }
-            log.debug("valu is now " + value);
+            log.debug(name + " value is now " + value);
             if (value != null) {
                 ret.append("value=\"").append(value).append("\" ");
             }
@@ -60,6 +60,7 @@ public class TextInputTag extends BaseTag {
      * @param value The value to set
      */
     public void setValue(String value) {
+        log.debug("setting value to " + value);
         this.value = value;
     }
 
