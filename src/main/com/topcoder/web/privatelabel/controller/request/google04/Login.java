@@ -122,6 +122,7 @@ public class Login extends FullLogin {
 
         long userId = getAuthentication().getActiveUser().getId();
 
+        log.error("RYAN HERE");
         if (hasCompanyAccount) {
             log.error("HERE");
             info = getCommonInfo(userId, db);
