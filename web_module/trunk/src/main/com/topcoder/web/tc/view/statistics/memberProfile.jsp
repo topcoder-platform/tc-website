@@ -24,7 +24,7 @@
 
 </HEAD>
 
-<body onLoad="timer(1);">
+<body>
 
 <jsp:include page="../top.jsp" />
 
