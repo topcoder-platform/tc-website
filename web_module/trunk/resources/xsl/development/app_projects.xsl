@@ -79,7 +79,7 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Content_Syndication">Content Syndication</a>
                                     </td>
-                                    <td class="projectCells" align="right">$1290 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,290 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$375 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">closed</td>
                                 </tr>
@@ -95,7 +95,7 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Universal_Registration_Design">Universal Registation Design</a>
                                     </td>
-                                    <td class="projectCells" align="right">$2900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$2,900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">closed</td>
                                 </tr>
@@ -111,7 +111,7 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Palm_Common_Connectivity_Design ">Palm Common Connectivity Application</a>
                                     </td>
-                                    <td class="projectCells" align="right">$1200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">closed</td>
                                 </tr>
