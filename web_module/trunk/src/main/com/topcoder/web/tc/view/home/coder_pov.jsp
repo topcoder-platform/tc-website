@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
+                        <img src="/i/m/zoidal_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=112939"><strong>zoidal</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,19 +19,14 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm200_prob">SRM 200 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Monday, June 21, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm201_prob">SRM 201 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Tuesday, June 29, 2004</p>
 
                         <p>
 <p>
-The turnout for SRM 200 was high as competitors all hoped to get lucky and win some 
-TopCoder Gear.  Of the 78 members who competed is SRM 1, jonmac was the only one 
-(that I noticed) who was on hand for the 200<sup>th</sup> SRM.  Thanks to all the TC 
-staff and all the members for making TopCoder such a fun place to learn and compete 
-for the past 3 years.  I know that I, for one, have learned a lot from my experiences at 
-TopCoder.
+Congratulations to tomek for being the only one to successfully solve all three problems in Division 1. Also of note is a newcomer, shuniu, scoring the highest in Division 2. The match tonight was relatively smooth - a few issues with input verification surfaced late in the game, but were solved with minimal impact to the contest.
 
-                        <a href="/?t=statistics&amp;c=srm200_prob" class="bodyText"><strong>full&#160;story</strong></a>
+                        <a href="/?t=statistics&amp;c=srm201_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>

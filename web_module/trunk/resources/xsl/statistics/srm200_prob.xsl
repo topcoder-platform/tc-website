@@ -76,7 +76,7 @@ function openWin(url, name, w, h) {
                          </tr>
 
                          <tr valign="middle">
-                             <td class="bodyText">Wednesday, June 16, 2004</td>
+                             <td class="bodyText">Monday, June 21, 2004</td>
                              <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
                          </tr>
                      </table>
