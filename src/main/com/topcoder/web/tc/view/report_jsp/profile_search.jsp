@@ -26,6 +26,10 @@
     ResultSetContainer states = (ResultSetContainer)m.get("state_list");
     ResultSetContainer countries = (ResultSetContainer)m.get("country_list");
     ResultSetContainer languages = (ResultSetContainer)m.get("languages");
+    ResultSetContainer demographic_questions = (ResultSetContainer)m.get("demographic_questions");
+    ResultSetContainer demographic_answers = (ResultSetContainer)m.get("demographic_answers");
+    ResultSetContainer.ResultSetRow answer;
+    int idx = 0;
 %>
   <FORM ACTION="/tc?module=ProfileSearch" METHOD="POST">
     <table cellpadding="0" cellspacing="0" border="0">
@@ -54,7 +58,7 @@
         </rsc:iterator>
         </select>
       </td></tr>
-      <tr><td>Country of Origin<select name="countryoforigin" multiple size=5>
+      <tr><td>Country of Origin: <select name="countryoforigin" multiple size=5>
         <option value="840">United States</option>
         <rsc:iterator list="<%=countries%>" id="resultRow">
           <% 
@@ -77,6 +81,31 @@
       <tr><td>Max days since last rating: <input type="textbox" size="5" name="maxdayssincerating"></td></tr>
       <tr><td>Min events: <input type="textbox" size="5" name="minevents"></td></tr>
       <tr><td>Days since registration: <input type="textbox" size="5" name="mindays"> to <input type="textbox" size="5" name="maxdays"></td></tr>
+      <tr><td><hr/><center><h2>Demographics</h2></center></td></tr>
+      <rsc:iterator list="<%=demographic_questions%>" id="resultRow">
+        <tr><td>
+        <rsc:item name="demographic_question_text" row="<%=resultRow%>"/>:
+        <? if(resultRow.getStringItem("selectable").equals('N')) { ?>
+          <input type="textfield" size="20" name="<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>"/>
+        <? } else if(resultRow.getStringItem("selectable").equals('Y')) { ?>
+          <select name="<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>"/>
+        <? } else if(resultRow.getStringItem("selectable").equals('M')) { ?>
+          <select size="5" multiple name="<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>"/>
+        <? } 
+        while(idx < demographic_answers.getRowCount()){
+            answer = demographic_answers.getRow(idx);
+            if(answer.getIntItem("demographic_question_id") == resultRow.getIntItem("demographic_question_id")){
+              ?>
+                <option value="<rsc:item name="demographic_answer_id" row="<%=answer%>">"><rsc:item name="demographic_answer_text" row="<%=answer%>"></option>
+              <?
+              idx++;
+            }else{
+                break;
+            }
+        }
+        ?>
+        </td></tr>
+      </rsc:iterator>
     </table>
   </FORM>
   </body>
