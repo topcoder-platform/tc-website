@@ -134,10 +134,11 @@ public final class JavaDocServlet extends HttpServlet {
             //take off the #page link for the request
             if(path != null && path.indexOf("#") != -1) {
                 requestPath = path.substring(0, path.indexOf("#"));
+            } 
+            //get rid of '.' and '/' starting the path
+            while(requestPath.startsWith(".") || requestPath.startsWith("/")) {
+                requestPath = requestPath.substring(1);
             }
- 
- 
-
 
             String file = null;
 
