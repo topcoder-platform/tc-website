@@ -21,6 +21,7 @@ public class TestCache {
 
         try {
             int max = 1000;
+            /*
             log.debug("add " + max + " items to the cache, cache for 50 hours");
             for (int i=0; i<max; i++) {
                 cc.set("mykey"+i, s, 1000*60*60*50);
@@ -33,7 +34,7 @@ public class TestCache {
                     log.debug("get key " + i);
                     cc.get("mynewkey"+i);
                 }
-            }
+            } */
             log.debug("add " + 10*max + " 200k items to the cache, and get every 5th, cache for 50 hours");
             for (int i=0; i<10*max; i++) {
                 cc.set("anothernewkey"+i, big.toString(), 1000*60*60*50);
