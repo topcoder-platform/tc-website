@@ -46,7 +46,7 @@ public class ReviewProjectDetail extends Base {
                                     detail.getIntItem(0, "phase_id"),
                                     detail.getIntItem(0, "level_id"),
                                     detail.getLongItem(0, "project_id"),
-                                    detail.getIntItem(0, "review_resp_id")));
+                                    row.getIntItem("review_resp_id")));
                         } else {
                             //this one has been assigned
                             reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
@@ -57,7 +57,7 @@ public class ReviewProjectDetail extends Base {
                                     row.getStringItem("handle"),
                                     row.getIntItem("primary") == 1,
                                     detail.getLongItem(0, "project_id"),
-                                    detail.getIntItem(0, "review_resp_id")));
+                                    row.getIntItem("review_resp_id")));
                         }
                     }
 
