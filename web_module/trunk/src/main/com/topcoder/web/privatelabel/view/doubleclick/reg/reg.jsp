@@ -31,7 +31,7 @@
     </jsp:include>
 <% } %>
 
-<table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
+<table width="750" align="center" valign="top" cellpadding="0" cellspacing="0"> 
 	<tr>
 		<td class="dc_headerPic">
 	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
