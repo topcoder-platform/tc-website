@@ -63,9 +63,11 @@ if ( plugin ) {
             <jsp:param name="title" value="Preview"/>  
         </jsp:include>
 
-                    <p>This is a preview of what your card will look like. It will always accurately portray your algorithm, design, and development statistics. Before you can post your TopCoder Member Card to your site you will have to "unlock" it by clicking the button below.  If there is no button below your card, then it is already unlocked.
+                    <p>This is a preview of what your card will look like. It will always accurately portray your algorithm, design, and development statistics. Before you can post your TopCoder Member Card to your site you will have to "unlock" it by clicking the button below.
                     <br/><br/>
-                    If you have already unlocked your card but would like to see the instructions again, click <A href="/card?module=Instructions">here</A>.
+                    If there is no button below your card, then it is already unlocked.
+                    <br/><br/>
+                    If you have already unlocked your card but would like to see the <A href="/card?module=Instructions">instructions</A> again, click <A href="/card?module=Instructions">here</A>.
                     </p>
                     
                     <br/>
