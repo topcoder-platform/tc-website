@@ -102,7 +102,7 @@ The following section describes the tasks required by the Architect.
                                     <BR/>
 <ul>
   <b>Architect</b><br/>
-  The architect will get paid a total of $600.00 at the completion of the project.*
+  The architect will get paid a total of $600.00 at the completion of the project.*<br/>
 *Completion of the project is defined as follows: 
    <ul>
      <li>All tasks assigned by the project manager have been completed. </li>
