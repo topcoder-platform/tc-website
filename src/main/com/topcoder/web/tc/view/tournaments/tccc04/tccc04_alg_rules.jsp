@@ -162,16 +162,6 @@
          not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized 
          intervention or technical failures of any sort.</p>
 
-            <p><span class="bodySubtitle">Other</span><br />
-            The tournament is void in whole or in part where prohibited by law.</p>
-
-            <p>A list of tournament winners by coder handles will be available on the web site at http://www.topcoder.com/, and will be
-            displayed for at least 3 months after the end of the tournament.</p>
-
-            <p>Any appeals as to the outcome of a round of competition must be submitted via email to <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> by no later than 11:00 AM Eastern Time on the date following the round for which the appeal is being addressed.</p>
-
-            <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
-
          <h2>Competition Structure</h2>
          
             <p><span class="bodySubtitle">Online Elimination Rounds</span><br/>
@@ -272,7 +262,17 @@
                 </tr>
             </table>
 
-         <p><br/></p>
+            <p><span class="bodySubtitle">Other</span><br />
+            The tournament is void in whole or in part where prohibited by law.</p>
+
+            <p>A list of tournament winners by coder handles will be available on the web site at http://www.topcoder.com/, and will be
+            displayed for at least 3 months after the end of the tournament.</p>
+
+            <p>Any appeals as to the outcome of a round of competition must be submitted via email to <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> by no later than 11:00 AM Eastern Time on the date following the round for which the appeal is being addressed.</p>
+
+            <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+
+        <p><br/></p>
          </td>
 <!-- Center Column Ends -->
 
