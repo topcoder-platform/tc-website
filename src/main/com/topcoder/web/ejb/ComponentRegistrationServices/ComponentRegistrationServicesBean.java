@@ -90,14 +90,14 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             query.append("and p.project_id in (select project_id from project where comp_vers_id = (select comp_vers_id from project where project_id = ? and cur_version = 1))  ");
             query.append("and not exists (select p2 project_id from project p2  ");
             query.append("where p2.comp_vers_id = (select comp_vers_id from project where project_id = ?  and cur_version = 1) and p2.cur_version = 1  ");
-            query.append("and p2.project_stat_id in (6,7) and p2.project_type_id = (select project_type_id from project where project_id = ? and cur_version = 1) ) ");
-            query.append("and (not exists (select p2.project_id from project p2 ");
-            query.append("where p2.comp_vers_id = (select comp_vers_id from project where project_id = ?  and cur_version = 1) and p2.cur_version = 1  ");
-            query.append("and p2.project_stat_id = 5 ) or ");
-            query.append("( exists (select p2.project_id from project p2  ");
-            query.append("where p2.comp_vers_id = (select comp_vers_id from project where project_id = ?  and cur_version = 1) and p2.cur_version = 1  ");
-            query.append("and p2.project_stat_id = 5 ) ");
-            query.append("and exists (select r_user_role_v_id from r_user_role where project_id = rur.project_id and r_role_id = 2 and cur_version = 1 and login_id = rur.login_id) )) ");
+            query.append("and p2.project_stat_id in (5,6,7) and p2.project_type_id = (select project_type_id from project where project_id = ? and cur_version = 1) ) ");
+            //query.append("and (not exists (select p2.project_id from project p2 ");
+            //query.append("where p2.comp_vers_id = (select comp_vers_id from project where project_id = ?  and cur_version = 1) and p2.cur_version = 1  ");
+            //query.append("and p2.project_stat_id = 5 ) or ");
+            //query.append("( exists (select p2.project_id from project p2  ");
+            //query.append("where p2.comp_vers_id = (select comp_vers_id from project where project_id = ?  and cur_version = 1) and p2.cur_version = 1  ");
+            //query.append("and p2.project_stat_id = 5 ) ");
+            //query.append("and exists (select r_user_role_v_id from r_user_role where project_id = rur.project_id and r_role_id = 2 and cur_version = 1 and login_id = rur.login_id) )) ");
 
 
             ps = conn.prepareStatement(query.toString());
@@ -105,8 +105,8 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             ps.setLong(2, projectId);
             ps.setLong(3, projectId);
             ps.setLong(4, projectId);
-            ps.setLong(5, projectId);
-            ps.setLong(6, projectId);
+            //ps.setLong(5, projectId);
+            //ps.setLong(6, projectId);
 
             rs = ps.executeQuery();
             hasReviewed = rs.next();
