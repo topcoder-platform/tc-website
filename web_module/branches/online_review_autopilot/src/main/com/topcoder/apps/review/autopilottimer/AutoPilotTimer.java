@@ -101,6 +101,8 @@ public class AutoPilotTimer
                             form.fromProject(p);
                             form.setCurrentPhase("Screening");
                             
+                            form.setReason("auto pilot advancing to screening");
+                            
                             ProjectData data = form.toActionData(orpd);
                             ResultData result = new BusinessDelegate().projectAdmin(data); 
                             if(!(result instanceof SuccessResult)) {
