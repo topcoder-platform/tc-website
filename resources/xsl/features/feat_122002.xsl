@@ -70,7 +70,7 @@ minutes of hard work thrown out, but most of them accept that accidents do happe
 </P>
 
 <P>
-When there's a $150,000 tournament, though, people tend to be less accepting.
+When there's a similiar problem at a $150,000 tournament, though, people tend to be less accepting.
 </P>
 
 <P>
@@ -180,7 +180,7 @@ This assumption would not last, however, as the administrators soon called the f
 </P>
 
 <P>
-"At the end of the challenge phase, the admins took the four finalists into a room in the back, which was confusing," said <B>Lars</B>, one of the sixteen semi-finalists.  "Someone mentioned that in a previous tournament they had told the competitors the results before announcing them to the audience, so some of us thought perhaps that's what was happening. After a few minutes, word began to circulate that the administrators had told <B>John Dethridge</B> during the contest that the sample input was wrong, and it was apparent that things were going to be delayed."
+"At the end of the challenge phase, the admins took the four finalists into a room in the back, which was confusing," said <B>lbackstrom</B>, one of the sixteen semi-finalists.  "Someone mentioned that in a previous tournament they had told the competitors the results before announcing them to the audience, so some of us thought perhaps that's what was happening. After a few minutes, word began to circulate that the administrators had told <B>John Dethridge</B> during the contest that the sample input was wrong, and it was apparent that things were going to be delayed."
 </P>
 
 <P>
@@ -272,7 +272,7 @@ Coders had a variety of additional suggestions for reducing the chance of proble
 </P>
 
 <P>
-"I think multiple working solutions should be required," said <B>schveiguy</B>. "Then both smart and random-generated test cases based on the constraints should be tested against all solutions.  Currently, the test cases are not random, the writer must provide them."
+"I think multiple working solutions should be required," said <B>schveiguy</B>. "Then both smart and random-generated test cases based on the constraints should be tested against all solutions.  Currently, the test cases are not random; the writer must provide them."
 </P>
 
 <P>
