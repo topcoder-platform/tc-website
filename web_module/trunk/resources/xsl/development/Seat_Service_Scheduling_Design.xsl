@@ -102,7 +102,6 @@
                                                         module.  The Persistence layer handles all database transactions for both scheduling
                                                         and inventory management.
                                                     </p>
-                                                        <br/>
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
