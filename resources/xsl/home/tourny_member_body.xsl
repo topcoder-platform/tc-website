@@ -409,7 +409,7 @@
                          
 <!-- Editorials -->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
-  <!-- <TR><TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
+<TR><TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
       <TD VALIGN="top" COLSPAN="2"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
       <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
       <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -419,29 +419,29 @@
   </TR>    
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
     <TD VALIGN="top" WIDTH="40%" ALIGN="left" CLASS="bodyText">    
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
-    <B>SRM 87</B></FONT><BR/>
-	By&#160;ZorbaTHut,<I>[TC] Member</I><BR/>
-	<A HREF="/?t=statistics&amp;c=srm87_room1" CLASS="bodyGeneric">Room One Review</A><BR/>
-	<A HREF="/?t=statistics&amp;c=srm87_rookie" CLASS="bodyGeneric">Rookie Review</A><BR/>
-	<A HREF="/?t=statistics&amp;c=srm87_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A></TD>
+    <B>SRM 89</B></FONT><BR/>
+	By&#160;Logan,<I>[TC] Member</I><BR/>
+	<A HREF="/?t=statistics&amp;c=srm89_room1" CLASS="bodyGeneric">Room One Review</A><BR/>
+	<A HREF="/?t=statistics&amp;c=srm89_rookie" CLASS="bodyGeneric">Rookie Review</A><BR/>
+	<A HREF="/?t=statistics&amp;c=srm89_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A></TD>
      <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
      <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
      <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
     <TD VALIGN="top" WIDTH="60%" ALIGN="left" CLASS="bodyText">
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
-    <B>SRM 87</B></FONT><BR/>
+    <B>SRM 89</B></FONT><BR/>
 	By&#160;slowjoe,<I>[TC] Member</I><BR/>
-SRM 87 had 623 registrants, and this resulted in 41 rooms in Division-II, of 
-which 5 rooms were in the non-rated competition...<A HREF="/?t=statistics&amp;c=srm87_lessons" CLASS="bodyGeneric">full story</A>
+SRM89 was a Saturday afternoon contest, starting at 1pm.  The unusually early start time saw a 
+couple of people griping in the lobby....<A HREF="/?t=statistics&amp;c=srm89_lessons" CLASS="bodyGeneric">full story</A>
 	</TD>
      <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>	  
   </TR>
   <TR><TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  
-  --><TR>  
+  <TR>  
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" COLSPAN="7" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
