@@ -55,6 +55,8 @@ public class PDFGenerator extends BaseProcessor {
     
     private PlacementConfig getConfig() throws Exception {
         int uid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("uid")));
+        
+        log.debug("UID="+ uid);
 
         PlacementConfig config = new PlacementConfig();
 
