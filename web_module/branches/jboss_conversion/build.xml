@@ -71,6 +71,11 @@
          <pathelement location="${jars.dir}/fileconvert.jar"/>
          <pathelement location="${jars.dir}/httpunit.jar"/>
          <pathelement location="${jars.dir}/itext-1.1.jar"/>
+
+         <!-- these are just so we can deploy the tcs ejbs on our side.  we can wack when we don't anymore-->
+         <pathelement location="${jars.dir}/tcs/render.jar"/>
+         <pathelement location="${jars.dir}/tcs/forum.jar"/>
+
      </path>
 
      <target name="init">
