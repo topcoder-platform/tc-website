@@ -301,6 +301,7 @@ public class ProfileSearch extends Base {
         String[] value = {"current-r.last_rated_event <= \'","current-c.member_since >= \'","current-c.member_since <= \'","r.num_ratings >= ","r.rating >= ","r.rating <= "};
         for(int i = 0; i<bounds.length; i++){
             String b = request.getParameter(bounds[i]);
+            if(b==null||b.length() == 0)continue;
             query.append("    AND ");
             query.append(value[i]);
             query.append(b);
