@@ -818,6 +818,37 @@
         <delete dir="${public_html}/corp/META-INF"/>
     </target>
 
+     <target name="war-techassess" depends="compile">
+         <war warfile="${war.dir}/techassess.war" webxml="${resources}/techassess/web.xml">
+             <classes dir="${classes}">
+                 <include name="com/topcoder/web/codinginterface/techassess/**"/>
+                 <include name="com/topcoder/web/common/**"/>
+                 <include name="com/topcoder/shared/**"/>
+             </classes>
+<!--
+             <webinf dir="${resources}/taglib">
+                 <include name="tc-webtags.tld"/>
+                 <include name="screening.tld"/>
+                 <include name="tces-taglib.tld"/>
+                 <include name="tc-taglib.tld"/>
+                 <include name="rsc-taglib.tld"/>
+                 <include name="privatelabel.tld"/>
+             </webinf>
+-->
+
+<!--
+             <fileset dir="${java}/com/topcoder/web/jsp">
+                 <include name="errorPage.jsp"/>
+                 <include name="date_time.jsp"/>
+                 <include name="script.jsp"/>
+                 <include name="menu.jsp"/>
+                 <include name="corpMenu.jsp"/>
+             </fileset>
+-->
+
+         </war>
+     </target>
+
     <target name="deploy-corp" depends="war-corp">
         <antcall target="package-EJB-DataCacheBean"/>
         <antcall target="package-EJB-ResumeServicesBean"/>
@@ -836,6 +867,7 @@
         <!-- Since Screening Tool 1.1 -->
         <antcall target="package-EJB-PreferenceLevelBean"/>
     </target>
+
 
     <target name="build-ejb-unit" depends="compile">
         <property name="deploy-desc-path" value="${unit-class-path}"/>
