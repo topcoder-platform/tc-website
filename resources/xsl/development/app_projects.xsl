@@ -15,7 +15,7 @@
 
     <xsl:call-template name="Preload" />      
 
- <title>TopCoder | Development</title>
+ <title>Open Application Projects for TopCoder Software Development</title>
 
     <xsl:call-template name="CSS" />      
 
@@ -40,7 +40,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="5" alt="" border="0" /></td>
+        <td width="1"><img src="/i/clear.gif" width="15" height="5" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
@@ -51,119 +51,82 @@
             <xsl:with-param name="title">&#160;Application Development</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <img src="/i/clear.gif" alt="" width="240" height="10" border="0" />
+                
+            <p>There are also <A href="/index?t=development&amp;c=comp_projects">Component Projects</A> available.</p>
+
+            <table border="0" cellspacing="0" cellpadding="5" width="100%" class="formFrame">
                 <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td height="10"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="bodyText" colspan="4"><font size="3"><strong>Open Application Design Projects</strong></font></td>
+                </tr>
+
+                <tr valign="middle">
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" nowrap="nowrap">Project</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Winning Designer</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Second Place</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Inquire By</td>
+                </tr>
+               
+                <!--tr valign="top">
+                    <td align="center" colspan="4" class="formTextOdd">No New Projects Available</td>
+                </tr-->
+
+                <tr valign="top">
+                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
+                    <td class="formTextOdd" align="center">$1,860</td>
+                    <td class="formTextOdd" align="center">$690</td>
+                    <td class="formTextOdd" align="center">closed</td>
                 </tr>
             </table>
-                
-            <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr valign="top">
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                    <td class="bodyText" colspan="6">There are also <a href="/index?t=development&amp;c=comp_projects">Component Projects</a> available.<br /><br /></td>
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                </tr>
+            
+            <br/>
 
+            <table border="0" cellspacing="0" cellpadding="5" width="100%" class="formFrame">
                 <tr valign="top">
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                    <td class="bodyText" colspan="6"><h1 class="devSubhead">Open Application Design Projects</h1></td>
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
+                    <td class="bodyText" colspan="4"><font size="3"><strong>Open Application Development Projects</strong></font></td>
                 </tr>
 
                 <tr valign="middle">
-                    <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                    <td width="1" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td width="47%" background="/i/steel_bluebv_bg.gif" class="bodyText" nowrap="nowrap">Project</td>
-                    <td width="19%" background="/i/steel_bluebv_bg.gif" class="bodyText" align="center" nowrap="nowrap">Winning Designer</td>
-                    <td width="19%" background="/i/steel_bluebv_bg.gif" class="bodyText" align="center" nowrap="nowrap">Second Place</td>
-                    <td width="15%" background="/i/steel_bluebv_bg.gif" class="bodyText" align="center" nowrap="nowrap">Inquire By</td>
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                </tr>
-               
-                <!--tr valign="top">
-                    <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                    <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td align="center" colspan="5" class="bodyText">No New Projects Available</td>
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                </tr-->
-                <tr valign="top">
-                    <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                    <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td class="bodyText"><a href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
-                    <td class="bodyText" align="center">$1,860</td>
-                    <td class="bodyText" align="center">$690</td>
-                    <td class="bodyText" align="center">closed</td>
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                </tr>
-        <tr><td colspan="5"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                    <td class="bodyText" colspan="6"><h1 class="devSubhead">Open Application Development Projects</h1></td>
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                </tr>
-
-                <tr valign="middle">
-                    <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                    <td width="1" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td width="32%" background="/i/steel_bluebv_bg.gif" class="bodyText" nowrap="nowrap">Project</td>
-                    <td width="19%" background="/i/steel_bluebv_bg.gif" class="bodyText" align="center" nowrap="nowrap">Winning Developer</td>
-                    <td width="19%" background="/i/steel_bluebv_bg.gif" class="bodyText" align="center" nowrap="nowrap">Second Place</td>
-                    <td width="15%" background="/i/steel_bluebv_bg.gif" class="bodyText" align="center" nowrap="nowrap">Inquire By</td>
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" nowrap="nowrap">Project</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Winning Developer</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Second Place</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Inquire By</td>
                 </tr>
 
                 <tr valign="top">
-                    <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                    <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td align="center" colspan="4" class="bodyText">No New Projects Available</td>
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
+                    <td colspan="4" class="formTextOdd">No New Projects Available</td>
                 </tr>
-               
 
                 <!--tr valign="top">
-                    <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                    <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
                     <td class="bodyText"><a href="?&amp;t=development&amp;c=online_review_dev-fe">Online Review Front End</a></td>
                     <td class="bodyText" align="center">$1,600</td>
                     <td class="bodyText" align="center">$600</td>
                     <td class="bodyText" align="center">5.27.2003</td>
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
 
                 <tr valign="top">
-                    <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                    <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
                     <td class="bodyText"><a href="?&amp;t=development&amp;c=online_review_dev-bl">Online Review Business Logic</a></td>
                     <td class="bodyText" align="center">$2,400</td>
                     <td class="bodyText" align="center">$900</td>
                     <td class="bodyText" align="center">5.27.2003</td>
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
 
                 <tr valign="top">
-                    <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                    <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
                     <td class="bodyText"><a href="?&amp;t=development&amp;c=online_review_dev-pl">Online Review Persistence Layer</a></td>
                     <td class="bodyText" align="center">$2,400</td>
                     <td class="bodyText" align="center">$900</td>
                     <td class="bodyText" align="center">5.27.2003</td>
-                    <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr-->
+
             </table>
+            
+            <p><br/></p>
                 
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr valign="top">
-                    <td height="10"><img src="/i/clear.gif" alt="" width="10" height="20" border="0" /></td>
-                </tr>
-            </table>
         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0" /></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="5" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
