@@ -101,8 +101,20 @@ public class ComponentBracketData extends Base {
                 }
                 addElement(hd, "photo", img, emptyAtts);
                 addElement(hd, "AlgRating", profileRsc.getStringItem(0, "rating"), emptyAtts);
-                addElement(hd, "DesRating", df.format(profileRsc.getStringItem(0, "design_rating")), emptyAtts);
-                addElement(hd, "DevRating", df.format(profileRsc.getStringItem(0, "development_rating")), emptyAtts);
+                String desRating;
+                if(profileRsc.getItem(0, "design_rating").getResultData() == null) {
+                    desRating = "Not Rated";
+                } else {
+                    desRating = df.format(Double.parseDouble(profileRsc.getStringItem(0, "design_rating")));
+                }
+                addElement(hd, "DesRating", desRating, emptyAtts);
+                String devRating;
+                if(profileRsc.getItem(0, "development_rating").getResultData() == null) {
+                    devRating = "Not Rated";
+                } else {
+                    devRating = df.format(Double.parseDouble(profileRsc.getStringItem(0, "development_rating")));
+                }
+                addElement(hd, "DevRating", devRating, emptyAtts);
                 addElement(hd, "memberSince", sdf.format(profileRsc.getItem(0, "member_since").getResultData()), emptyAtts);
                 
                 hd.endElement("", "", "competitor");
