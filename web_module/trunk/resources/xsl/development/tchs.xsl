@@ -107,21 +107,23 @@ The following section describes the required tasks.
 	    <LI> Implement a new authentication scheme using a TopCoder Software security component.</LI>
       </UL>
    <LI> Statistics</LI>
-      <UL>
-	    <LI> Implement a new authentication scheme using a TopCoder Software security component.</LI>     	 
+      <UL>    	 
 	    <LI> All of the topcoder.com statistics functionality will be ported over to the new TopCoder High School website.</LI>
 	    <LI> Statistics will be enhanced to provide high school information. </LI>
       </UL>
    <LI> Registration</LI>
       <UL>
-	     <LI> Implement a new registration path for coaches.</LI> 
-	     <LI> Registration will be based on an approved High School list</LI>
-      </UL>	   	 
-	 <LI> Implement a new registration path for students.</LI>
-       <UL>
-	     <LI> Student's registration will be based on a coach's registration.</LI>
-       </UL>
-<!--	<LI> JSP Conversion</LI>
+	     <LI> Implement a new registration path for coaches.</LI>
+	        <UL>
+	          <LI> Registration will be based on an approved High School list</LI>
+            </UL>
+	     <LI> Implement a new registration path for students.</LI>      
+	        <UL>
+	          <LI> Student's registration will be based on a coach's registration.</LI>
+            </UL>      
+      </UL>
+<!--	</UL>
+<LI> JSP Conversion</LI>
    <UL>
 	 <LI> All of the new TopCoder High School website will be rendered by JSP</LI>
 	 <LI> Existing static XSL topcoder.com pages will be converted to JSP and implemented on the High School Website.  Pages to convert are</LI>
