@@ -26,6 +26,12 @@ import javax.servlet.http.HttpServletRequest;
 public interface RequestProcessor {
 	
 	/**
+	 * Used as prefix to form the request parameter names by concatenation with
+	 * parameter number.
+	 */
+	public static final String PARAM_NAME_PREFIX = "d_";
+	
+	/**
 	 * This method just stores request given for later processing.
 	 * 
 	 * @param req request issued by user  
