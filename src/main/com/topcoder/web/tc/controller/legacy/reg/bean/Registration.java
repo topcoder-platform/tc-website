@@ -71,7 +71,6 @@ public class Registration
     public static final String EMAIL = "email";
     public static final String CONFIRM_EMAIL = "confirmEmail";
     //public static final String NOTIFY = "notify";
-    public static final String EDITOR = "editor";
     public static final String LANGUAGE = "language";
     public static final String QUOTE = "quote";
     public static final String CODER_TYPE = "coderType";
@@ -166,7 +165,6 @@ public class Registration
     protected String confirmEmail;
     //protected String notify;
     //protected boolean notifyChecked;
-    protected String editor;
     protected String language;
     protected String coderType;
 //    protected String sunConfirm;
@@ -215,7 +213,6 @@ public class Registration
             confirmEmail = "";
             //notify = "";
             //notifyChecked = false;
-            editor = "";
             language = "";
             coderType = "";
 //            sunConfirm = "";
@@ -298,7 +295,6 @@ public class Registration
         confirmEmail = email;
         //notify = (checkNull(coder.getNotify()).equals("Y")?CHECKBOX_YES:"");
         //notifyChecked = false;
-        editor = Integer.toString(coder.getEditor().getEditorId());
         language = Integer.toString(coder.getLanguage().getLanguageId());
         coderType = Integer.toString(coder.getCoderType().getCoderTypeId());
 //        sunConfirm = checkNull(getSunConfirmation(coder.getCoderConfirmations()));
@@ -431,8 +427,6 @@ public class Registration
             else if (!this.confirmEmail.equals(this.email)) addError(CONFIRM_EMAIL, "Your re-typed email does not match your email.");
             //this.notify = (notifyChecked?CHECKBOX_YES:"");
             //notifyChecked = false;
-
-            if (!isNumber(this.editor)) addError(EDITOR, "Please choose a default editor.");
 
             if (!isNumber(this.language)) addError(LANGUAGE, "Please choose a default programming language.");
 
@@ -666,8 +660,6 @@ public class Registration
             else if (name.equalsIgnoreCase(CONFIRM_EMAIL))
                 setConfirmEmail(value);
             //else if (name.equalsIgnoreCase(NOTIFY)) setNotify(value);
-            else if (name.equalsIgnoreCase(EDITOR))
-                setEditor(value);
             else if (name.equalsIgnoreCase(LANGUAGE))
                 setLanguage(value);
             else if (name.equalsIgnoreCase(CODER_TYPE))
@@ -776,10 +768,6 @@ public class Registration
     //notifyChecked = true;
     //this.notify = checkNull(value);
     //}
-
-    public void setEditor(String value) {
-        this.editor = checkNull(value);
-    }
 
     public void setLanguage(String value) {
         this.language = checkNull(value);
@@ -1061,14 +1049,6 @@ public class Registration
     //{
     //return getError(NOTIFY);
     //}
-
-    public String getEditor() {
-        return this.editor;
-    }
-
-    public String getEditorError() {
-        return getError(EDITOR);
-    }
 
     public String getLanguage() {
         return this.language;
@@ -1564,7 +1544,7 @@ public class Registration
 
 
         Editor editor = new Editor();
-        editor.setEditorId(Integer.parseInt(this.editor));
+        editor.setEditorId(0); //standard editor
         coder.setEditor(editor);
         Language language = new Language();
         language.setLanguageId(Integer.parseInt(this.language));
