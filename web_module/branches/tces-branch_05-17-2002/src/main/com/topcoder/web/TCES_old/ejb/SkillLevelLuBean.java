@@ -132,7 +132,7 @@ public class SkillLevelLuBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.skill_level_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.skill_level_id = null;

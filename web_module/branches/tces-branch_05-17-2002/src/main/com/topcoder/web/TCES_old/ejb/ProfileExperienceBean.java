@@ -302,7 +302,7 @@ public class ProfileExperienceBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.experience_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.experience_id = null;

@@ -156,7 +156,7 @@ public class StateBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.state_code = rs.getString( 1 );
 			if( rs.wasNull() )
 				obj.state_code = null;

@@ -156,7 +156,7 @@ public class CountryBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.country_code = rs.getString( 1 );
 			if( rs.wasNull() )
 				obj.country_code = null;

@@ -156,7 +156,7 @@ public class ConcentrationBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.concentration_id = new Long( rs.getLong( 1 ) );
 			if( rs.wasNull() )
 				obj.concentration_id = null;

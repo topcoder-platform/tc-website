@@ -156,7 +156,7 @@ public class GpaBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.gpa_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.gpa_id = null;

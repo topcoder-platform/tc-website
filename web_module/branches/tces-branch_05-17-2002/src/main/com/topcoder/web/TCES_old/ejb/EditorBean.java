@@ -133,7 +133,7 @@ public class EditorBean implements javax.ejb.SessionBean {
 			ps = conn.prepareStatement( query );
 			rs = ps.executeQuery();
 			if( !rs.next() )
-				throw new NoRecordFoundException();
+				throw new com.topcoder.web.TCES.common.NoRecordFoundException();
 			obj.editor_id = new Integer( rs.getInt( 1 ) );
 			if( rs.wasNull() )
 				obj.editor_id = null;
