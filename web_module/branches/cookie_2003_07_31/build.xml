@@ -679,16 +679,9 @@
     </target>
 
 
-    <target name="deploy-tc" depends="compile">
-        <antcall target="build_ejbs"/>
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="ProblemRatingServices"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/ProblemRatingServices"/>
-        </antcall>
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Survey"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/survey"/>
-        </antcall>
+
+
+    <target name="war-tc" depends="compile">
         <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
             <fileset dir="${java}/com/topcoder/web/tc/view">
                 <include name="**/*.jsp"/>
@@ -723,6 +716,20 @@
         </war>
         <unwar src="${war.dir}/tc.war" dest="${public_html}/tc/" overwrite="yes"/>
         <delete dir="${public_html}/tc/META-INF"/>
+    </target>
+
+
+    <target name="deploy-tc" depends="compile">
+        <antcall target="build_ejbs"/>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ProblemRatingServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/ProblemRatingServices"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Survey"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/survey"/>
+        </antcall>
+        <antcall target="war-tc"/>
     </target>
 
 
