@@ -2,51 +2,43 @@ package com.topcoder.shared.dataAccess;
 
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.naming.Context;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.util.Map;
 
 /**
  * This bean processes a {@link com.topcoder.shared.dataAccess.RequestInt} and returns the data from either the cache if it's available
- * or the transactional database if what we're looking for is not in the cache.  If we got it from the
- * db, it is added to the cache.
+ * or the data warehouse if what we're looking for is not in the cache.  If we got it from the
+ * warehouse, it is added to the cache.
  *
- * @author Greg Paul
+ * @author  Lars Backstrom
  * @version $Revision$
  * @see     RequestInt
  */
-public class OLTPCachedDataAccess implements DataAccessInt {
-    private static Logger log = Logger.getLogger(OLTPCachedDataAccess.class);
-    /**
-     * This method passes a query command request and a connection
-     * to the data retriever and receives and passes on the results.
-     *
-     * @param   request A <tt>RequestInt</tt> request object containing a number
-     * of input property values.
-     * @return  A map of the query results, where the keys are strings
-     * of query names and the values are <tt>ResultSetContainer</tt> objects.
-     * @throws  Exception if there was an error encountered while retrieving
-     * the data from the EJB.
-     */
+public class CachedDataAccess implements DataAccessInt {
+    private static Logger log = Logger.getLogger(CachedDataAccess.class);
     private static CacheClient client;
     private long expireTime;
+    private DataSource dataSource;
+    private static final int DEFAULT_EXPIRE_TIME = 1000 * 60 * 60 * 24 * 7;
 
     /**
-     * Default constructor, set the timeout to 1 week if the object is not cached
+     * Constructor that sets the timeout for the object should it need to be
+     * cached, to 1 week.
      */
-    public OLTPCachedDataAccess() {
-        this(1000 * 60 * 60 * 24 * 7);                 //one week in ms
+    public CachedDataAccess() {
+        this(DEFAULT_EXPIRE_TIME);  
     }
 
     /**
-     * Constructor that sets the timeout to the given value if the object is not cached
+     * Construtor that takes the timeout for the object should it need to
+     * be cached.  The object will be removed from the cache atfter
+     * <code>expireTime</code> milliseconds.
      * @param expireTime
      */
-    public OLTPCachedDataAccess(long expireTime) {
+    public CachedDataAccess(long expireTime) {
         super();
         try {
             if (client == null)
@@ -59,10 +51,35 @@ public class OLTPCachedDataAccess implements DataAccessInt {
     }
 
     /**
-     * Returns the data after executing the request
-     * @param request
-     * @return the data
-     * @throws Exception
+     * Construtor that takes a data source to be used.
+     * @param dataSource
+     */
+    public CachedDataAccess(DataSource dataSource) {
+        this(DEFAULT_EXPIRE_TIME);
+        this.dataSource = dataSource;
+    }
+       
+    /**
+     * Construtor that takes the timeout for the object should it need to
+     * be cached, and a data source.
+     * @param expireTime
+     * @param dataSource
+     */
+    public CachedDataAccess(long expireTime, DataSource dataSource) {
+        this(expireTime);
+        this.dataSource = dataSource;
+    }
+       
+    /**
+     * This method passes a query command request and a connection
+     * to the data retriever and receives and passes on the results.
+     *
+     * @param   request A <tt>RequestInt</tt> request object containing a number
+     * of input property values.
+     * @return  A map of the query results, where the keys are strings
+     * of query names and the values are <tt>ResultSetContainer</tt> objects.
+     * @throws  Exception if there was an error encountered while retrieving
+     * the data from the EJB.
      */
     public Map getData(RequestInt request) throws Exception {
         try {
@@ -77,11 +94,9 @@ public class OLTPCachedDataAccess implements DataAccessInt {
                 System.out.println("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
                 cached = false;
             }
-            /* it was not in the cache */
+            /* if it was not found in the cache */
             if (map == null) {
-                Context ctx = TCContext.getInitial();
-                DataSource ds = (DataSource) ctx.lookup("OLTP");
-                conn = ds.getConnection();
+                conn = dataSource.getConnection();
                 dr = new DataRetriever(conn);
                 map = dr.executeCommand(request.getProperties());
                 if (conn != null && !conn.isClosed()) {
@@ -120,6 +135,20 @@ public class OLTPCachedDataAccess implements DataAccessInt {
      */
     public long getExpireTime() {
         return expireTime;
+    }
+    
+    /**
+     * @param dataSource
+     */
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+    /**
+     * @return this object's data source
+     */
+    public DataSource getDataSource() {
+        return dataSource;
     }
 }
 

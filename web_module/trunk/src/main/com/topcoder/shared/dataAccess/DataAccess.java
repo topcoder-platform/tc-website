@@ -1,9 +1,7 @@
 package com.topcoder.shared.dataAccess;
 
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.naming.Context;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.util.Map;
@@ -15,8 +13,23 @@ import java.util.Map;
  * @version $Revision$
  * @see     RequestInt
  */
-public class DWDataAccess implements DataAccessInt {
-    private static Logger log = Logger.getLogger(DWDataAccess.class);
+public class DataAccess implements DataAccessInt {
+    private static Logger log = Logger.getLogger(DataAccess.class);
+    private DataSource dataSource;
+
+    /**
+     * Default Constructor
+     */
+    public DataAccess() {
+    }
+
+    /**
+     * Construtor that takes a data source to be used.
+     * @param dataSource
+     */
+    public DataAccess(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     /**
      * This method passes a query command request and a connection
@@ -31,9 +44,7 @@ public class DWDataAccess implements DataAccessInt {
      */
     public Map getData(RequestInt request) throws Exception {
         try {
-            Context ctx = TCContext.getInitial();
-            DataSource ds = (DataSource) ctx.lookup("DW");
-            Connection conn = ds.getConnection();
+            Connection conn = dataSource.getConnection();
             DataRetriever dr = new DataRetriever(conn);
             Map map = dr.executeCommand(request.getProperties());
             if (conn != null && !conn.isClosed()) {
@@ -47,6 +58,19 @@ public class DWDataAccess implements DataAccessInt {
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
+    }
+    /**
+     * @param dataSource
+     */
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+    /**
+     * @return this object's data source
+     */
+    public DataSource getDataSource() {
+        return dataSource;
     }
 }
 
