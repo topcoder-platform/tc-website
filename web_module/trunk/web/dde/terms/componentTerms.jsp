@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.dde.util.Constants"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>Application Development, .NET&#8482; and Java&#8482; Software Components at TopCoder Software</title>
@@ -39,6 +39,8 @@
                 <tr>
                     <td align="left" colspan="3">
                         <textarea name="terms" rows="20" cols="80" readonly ><%=request.getAttribute(Constants.TERMS)%></textarea>
+                        <br />
+                        <a href="<%=sessionInfo.getServletPath()%>?module=ComponentTermsAgree">I agree</a> to these terms.
                     </td>
                 </tr>
 
