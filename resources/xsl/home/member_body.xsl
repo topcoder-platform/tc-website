@@ -496,109 +496,50 @@
 <!-- TCS Promo Begins -->
             <a href="?t=development&amp;c=index"><img src="/i/header_software_development.gif" alt="Software Development" width="244" height="20" border="0" /></a><br />
             <a href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_promo.gif" alt="Component Design Contest 2: $6000 total prizes" border="0" width="244" height="113" /></a><br />
-<!-- Comment out until contest is under way
-            <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
-            <a href="/?t=development&amp;c=bonus_contest_0303"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></a><br />
+<!-- Bonus Contest-->
 
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
+
+            <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
+            <a href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></a><br />
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#001935">
                 <tr valign="middle">
-                    <td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0" /></td>
-                    <td width="39%" class="statText" background="/i/steel_bluebv_bg.gif">Handle</td>
+                	<td background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+                    <td width="40%" class="statText" background="/i/steel_bluebv_bg.gif">Handle</td>
                     <td width="20%" class="statText" align="center" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Submissions</td>
                     <td width="39%" class="statText" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Avg. Score</td>
-                    <td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0" /></td>
                 </tr>
+               
+                <tr valign="top">
+                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
+                    <td class="statText" align="center">1</td>
+                    <td class="statText" align="right">87.31</td>
+                </tr>
+                
 
                 <tr valign="top">
-                    <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
-                    <td class="statText" align="center">5</td>
-                    <td class="statText" align="right">93.09</td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
-                    <td class="statText" align="center">5</td>
-                    <td class="statText" align="right">89.91</td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154754">Ken Vogel</a></td>
-                    <td class="statText" align="center">4</td>
-                    <td class="statText" align="right">88.04</td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=294570">Saxophonist</a></td>
+                    <td class="statText" align="center">1</td>
+                    <td class="statText" align="right">74.78</td>
                 </tr>
 
 
                 <tr valign="top">
-                    <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150498">ThinMan</a></td>
-                    <td class="statText" align="center">5</td>
-                    <td class="statText" align="right">87.90</td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261822">bodrius</a></td>
-                    <td class="statText" align="center">4</td>
-                    <td class="statText" align="right">87.77</td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-                </tr>
-
-                <tr valign="top">
-                    <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="6" border="0" /></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
-                    <td class="statText"></td>
-                    <td class="statText"></td>
-                    <td class="statText" align="right"><a class="statText" href="/?t=development&amp;c=bonus_contest_0303">View all</a></td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" width="10" height="10" border="0" /></td>
-                    <td width="25%"><img src="/i/clear.gif" width="1" height="10" border="0" /></td>
-                    <td width="30%"><img src="/i/clear.gif" width="1" height="10" border="0" /></td>
-                    <td width="25%"><img src="/i/clear.gif" width="1" height="10" border="0" /></td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="10" border="0" /></td>
+                    <td width="25%" colspan="4"><img src="/i/clear.gif" width="1" height="3" border="0" /></td>
                 </tr>
             </table>
 
            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#333333">
                 <tr><td height="20" class="moduleTitle"><a href="?t=development&amp;c=comp_projects"><img src="/i/tcs_contest_promo_bottom.gif" alt="Win $2000" width="244" height="22" border="0" /></a></td></tr>
             </table>
- Bonus Contest Ends
+ <!-- Bonus Contest Ends-->
+
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr><td><img src="/i/clear.gif" alt="" width="1" height="6" border="0" /></td></tr>
-            </table>  -->
+                <tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
+            </table> 
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
                 <tr valign="top"><td height="17" class="moduleTitle" bgcolor="#093158"><img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="244" height="20" border="0" /></td></tr>

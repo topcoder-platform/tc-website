@@ -50,16 +50,7 @@
                 <tr valign="top">
                     <td class="statText">
                         <div align="center"><img src="/i/development/header_des_bonus_contest2.gif" alt="TopCoder Software Component Design Bonus Contest 2" width="554" height="107" border="0" /></div>
-                        
-                        <font size="3"><strong><ul>
-                            <li>You must submit at least five designs that pass our screening process to qualify.</li>
-                            <li>Winning design submissions for each component project still qualify for regular payment and royalties.</li>
-                            <li>First place will receive $3,000.</li>
-                            <li>Second place will receive $2,000.</li>
-                            <li>Third place will receive $1,000.</li>
-                        </ul>
-                        
-                        <p>Get started today... There are plenty of <a class="statText" href="index?t=development&amp;c=comp_projects"><font size="3">available projects</font></a> for you to choose from.</p></strong></font>
+                       
                     
                     </td>
                 </tr>
@@ -119,7 +110,7 @@
                 </tr>
             </table> -->
 
-<!-- Comment out until members become qualified
+
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr>
                     <td align="center">
@@ -141,28 +132,46 @@
                 
                 <tr valign="top">
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=279551">scamp</a></td>
+                    <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
                     <td class="statText" align="center">1</td>
-                    <td class="statText" align="center">96.86</td>
+                    <td class="statText" align="center">87.31</td>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr valign="top">
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
-                    <td class="statText" align="center">2</td>
-                    <td class="statText" align="center">96.57</td>
+                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=294570">Saxophonist</a></td>
+                    <td class="statText" align="center">1</td>
+                    <td class="statText" align="center">74.48</td>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+                
+                <tr>
+                    <td colspan="5"><img src="/i/clear.gif" alt="" width="10" height="20" border="0" /></td>
                 </tr>
                 
                         </table>
                     </td>
                 </tr>
-            </table> -->
+            </table>
+            
+            
 
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="top">
                     <td class="statText">
+                    
+                        <hr width="100%" noshade="noshade" color="#666666" />
+                        
+                        <strong><ul>
+                            <li>You must submit at least five designs that pass our screening process to qualify.</li>
+                            <li>Winning design submissions for each component project still qualify for regular payment and royalties.</li>
+                            <li>First place will receive $3,000.</li>
+                            <li>Second place will receive $2,000.</li>
+                            <li>Third place will receive $1,000.</li>
+                        </ul>
+                        
+                        <p>Get started today... There are plenty of <a class="statText" href="index?t=development&amp;c=comp_projects">available projects</a> for you to choose from.</p></strong>
                         
                         <hr width="100%" noshade="noshade" color="#666666" />
                         
