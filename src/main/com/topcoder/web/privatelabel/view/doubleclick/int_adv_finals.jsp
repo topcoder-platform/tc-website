@@ -25,7 +25,7 @@
 		<td class="dc_bodyText">
          <p class="pageTitle">Advancers</p>
          
-         <p>Main Competition Round</p>
+         <p>Finals</p>
 
                       <table class="formFrame" cellpadding=5 cellspacing=2 width="400">
                         <tr>
@@ -34,7 +34,7 @@
                            <td class="sidebarTitle" width="25%">Score</td>
                         </tr>
 
-                        <tr><td class="sidebarText">Champion</td><td class="sidebarText">eliotdclk</td><td class="sidebarText">541.70</td></tr>
+                        <tr><td class="dc_champ">Champion</td><td class="dc_champ">eliotdclk</td><td class="dc_champ">541.70</td></tr>
                         <tr><td class="sidebarText">2nd</td><td class="sidebarText">toder</td><td class="sidebarText">518.48</td></tr>
                         <tr><td class="sidebarText">3rd</td><td class="sidebarText">lapse</td><td class="sidebarText">451.11</td></tr>
                         <tr><td class="sidebarText">4th</td><td class="sidebarText">goldclicker</td><td class="sidebarText">215.76</td></tr>
