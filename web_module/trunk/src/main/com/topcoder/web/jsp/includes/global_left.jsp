@@ -70,7 +70,7 @@
                 <tr><td id="<%=level2.equals("components")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=comp_projects" class="<%=level2.equals("components")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" alt="" border="0"/>Components</a></td></tr>
                 <% if (level2.equals("components")) { %>
                     <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=comp_projects">Open Projects</A></td></tr>
-<%--                    <tr><td id="<%=level3.equals("reviews")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=ViewReviewProjects">Review Opportunities</A></td></tr>--%>
+                    <tr><td id="<%=level3.equals("reviews")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=ViewReviewProjects">Review Opportunities</A></td></tr>
                     <tr><td id="<%=level3.equals("winners")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=components">This Week's Project Winners</A></td></tr>
                     <tr><td id="<%=level3.equals("submit")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit & Review</A></td></tr>
                     <tr><td id="<%=level3.equals("status")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=comp_archive">Project Status</A></td></tr>

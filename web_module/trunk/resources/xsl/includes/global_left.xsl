@@ -901,7 +901,7 @@
                             </tr>
 
             <!-- Review Opportunities -->
-<!--                            <tr>
+                            <tr>
                                 <td id="leftSubnav">
                                     <xsl:attribute name="id">
                                     <xsl:choose>
@@ -912,7 +912,6 @@
                                     <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ViewReviewProjects</xsl:attribute>Review Opportunities</A>
                                 </td>
                             </tr>
--->
               <!-- Project Winners -->
                             <tr>
                                 <td id="leftSubnav">
