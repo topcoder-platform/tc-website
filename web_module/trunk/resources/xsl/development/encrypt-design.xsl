@@ -56,23 +56,32 @@
 					<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 					<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 						
+<!-- Title -->
 						<h1 class="devSubhead"><strong>Encryption: Design</strong></h1>
                                     
 						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Encryption Component Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
                                     
+<!-- Overview -->
 						<p><strong>Overview</strong><br />
 						The Encryption component is designed to provide developers with a straightforward interface by which to encrypt and decrypt data. The component also provides a pluggable design that enables developers to add additional encryption and encoding algorithms and techniques that are not currently supported by the component.</p>
 
+<!-- Project Type -->
 						<p><strong>Project Type</strong><br />
 						Component Design Project: Provide a complete design for the Encryption component.<br/>
 						Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> for further details regarding this project type.</p>
 
+<!-- Technologies -->
 						<p><strong>Technologies</strong></p>
 
 						<ul>
 							<li>Java 1.4</li>
 						</ul>
 
+<!-- Documentation -->
+						<p><strong>Documentation</strong><br />
+						All <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2810520">documentation</a> for this project is available on the TopCoder Software web site.</ul>
+
+<!-- Payment -->
 						<p><strong>Payment</strong><br />
 						TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
 						First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br/>
@@ -87,6 +96,7 @@
 						First Deliverable - $252.00<br/>
 						Project Completion - $84.00</p>
 
+<!-- Definition of Completion -->
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
 
 						<ul>
@@ -95,6 +105,7 @@
 							<li>Final payment is conditional on acceptance of the fully functional component by the QA Review Board.</li>
 						</ul>
 
+<!-- Eligibility Requirements -->
 						<p><strong>Eligibility</strong><br />
 						You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
 
@@ -105,6 +116,7 @@
 							<li>A Non US Citizen working in their country of residence.</li>
 						</ol>
 
+<!-- Time Line -->
 						<p><strong>Time Line</strong><br/>
 						All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.<br />
 						Component Posting: 11.26.2002<br/>
@@ -112,6 +124,7 @@
 						Final Submission Due Date: 12.23.2002<br/>
 						Estimated Development End Date: 1.27.2003</p>
 
+<!-- Register at TCS -->
 						<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 						
 						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Encryption Component Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>

@@ -9,187 +9,200 @@
   <xsl:import href="../includes/dev/public_dev_right.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
-    <HTML>
-      <HEAD>
+    <html>
+      <head>
         <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Development</TITLE>
+        <title>TopCoder :: Development</title>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
-        <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-        <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-      </HEAD>
-      <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+        <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+        <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+      </head>
+      <body bgcolor="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
         <xsl:call-template name="Top"/>
 
 <!-- Body Begins -->
-<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
-  <TR>
+<table width="100%" height="69%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+  <tr>
     <!-- Left Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+    <td width="170" bgcolor="#CCCCCC" valign="top">
 <!-- Left Column Include Begins -->  
     <!-- Global Seconday Nav Begins -->        
         <xsl:call-template name="global_left"/>
   <!-- Global Seconday Nav Ends -->      
 <!-- Left Column Include Ends -->              
-      </TD>
+      </td>
   <!-- Left Column Ends -->
   <!-- Gutter Begins -->
-    <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"/></TD>
+    <td width="4" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="4" height="8" border="0"/></td>
     <!-- Gutter Ends -->
 
 <!-- Body Area -->
   <!-- Center Column Begins -->  
-    <TD CLASS="bodyText" WIDTH="100%" bgcolor="#CCCCCC" valign="top">
+    <td class="bodyText" width="100%" bgcolor="#CCCCCC" valign="top">
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">steelblue</xsl:with-param>
   <xsl:with-param name="image">development</xsl:with-param>
   <xsl:with-param name="title">&#160;Overview</xsl:with-param>
 </xsl:call-template>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-  <TR>
-    <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-                                    <B>Email Engine Enhancement Component Development</B>
-                                    <BR/>
+<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+  <tr>
+    <td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
+    <td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+<!-- Title -->
+                                    <b>Email Engine Enhancement Component Development</b>
+                                    <br/>
 
-                                    <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Email Engine Enhancement Development" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
-                                    <BR/>
-<P>
-<B>Overview</B>
-</P>
+                                    <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Email Engine Enhancement Development" class="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <br/>
+<!-- Overview -->
+<p>
+<b>Overview</b>
+</p>
 
-<P>
+<p>
 The Email Engine component provides basic and advanced email functionality through Java API's.  As with any email software, the component supports one or more primary (TO), carbon copy (CC) and blind carbon copy (BCC) recipients, a subject line and file attachment capabilities.
 As its name suggests, the Email Engine is used to send email messages.  This is not a GUI-based component such as Outlook Express or Yahoo Mail that manages user email accounts.  Rather, the Email Engine is a set of Java API's that enables a developer to send emails directly from application code.
-<BR/>
+<br/>
 The existing Email Engine implementation needs to be enhanced to include the ability to attach files to email messages.
-<BR/>
-For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600056&amp;cat=11" CLASS="statText">Email Engine Enhancement Component</A> at <A HREF="http://www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
-</P>
+<br/>
+For more details, check out the <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600056&amp;cat=11" class="statText">Email Engine Enhancement Component</a> at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.
+</p>
 
-<P>
-<B>Project Type</B>
-</P>
-<P>
+<!-- Project Type -->
+<p>
+<b>Project Type</b>
+</p>
+<p>
 Component Development Project: Provide a development solution for the Email Engine Enhancement component.<br/>
-Please review the <a href="http://www.topcoder.com/?&amp;t=development&amp;c=index" CLASS="statText">TopCoder Software Component Development Methodology</a> for further details regarding this project type.
+Please review the <a href="http://www.topcoder.com/?&amp;t=development&amp;c=index" class="statText">TopCoder Software Component Development Methodology</a> for further details regarding this project type.
 
-</P>
+</p>
 
-<B>Technologies</B>
+<!-- Technologies -->
+<b>Technologies</b>
 
-<UL>
-	<LI>Java 1.4</LI>
-</UL>
+<ul>
+	<li>Java 1.4</li>
+</ul>
 
 
-<P>
-<B>Payment</B>
-</P>
-<P>
+<!-- Documentation -->
+						<p><strong>Documentation</strong><br />
+						All <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600056">documentation</a> for this project is available on the TopCoder Software web site.</ul>
+
+<!-- Payment -->
+<p>
+<b>Payment</b>
+</p>
+<p>
 TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
 First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br/>
 Second Milestone: Is marked by the completion of the development project*.
-</P>
+</p>
 
-<P>
+<p>
 Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the QA Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.  
-</P>
+</p>
 
 
-<P>
-<B>Designer</B>
-</P>
-<P>
-Royalty Percentage - 25%<BR/>
-Total Payment - $120.00<BR/>
-First Deliverable - $90.00<BR/>
-Project Completion - $30.00<BR/>
-</P>
+<p>
+<b>Designer</b>
+</p>
+<p>
+Royalty Percentage - 25%<br/>
+Total Payment - $120.00<br/>
+First Deliverable - $90.00<br/>
+Project Completion - $30.00<br/>
+</p>
 
-<P>
-<SUP>*</SUP>Completion of the project is defined as follows: 
-</P>
+<!-- Definition of Completion -->
+<p>
+<sup>*</sup>Completion of the project is defined as follows: 
+</p>
 
-<UL>
-	<LI>The Initial Submission has been delivered by the Initial Submission Due Date.</LI>
-	<LI>The Submission has been selected by the board as the winning submission.</LI>
-	<LI>Final payment is conditional on acceptance of the fully functional component by the Development Review Board.</LI>
-</UL>
+<ul>
+	<li>The Initial Submission has been delivered by the Initial Submission Due Date.</li>
+	<li>The Submission has been selected by the board as the winning submission.</li>
+	<li>Final payment is conditional on acceptance of the fully functional component by the Development Review Board.</li>
+</ul>
 
-<P>
-<B>Eligibility</B>
-</P>
-<P>
+<!-- Eligibility Requirements -->
+<p>
+<b>Eligibility</b>
+</p>
+<p>
 You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:
-</P>
+</p>
 
-<OL>
-	<LI>A US Citizen </LI>
-	<LI>A Lawful Permanent Resident of the US (i.e., a Green Card holder) </LI>
-	<LI>Currently lawfully residing in the US with valid employment authorization to act as an independent contractor.</LI>
-	<LI>A Non US Citizen working in their country of residence.</LI>
-</OL>
+<ol>
+	<li>A US Citizen </li>
+	<li>A Lawful Permanent Resident of the US (i.e., a Green Card holder) </li>
+	<li>Currently lawfully residing in the US with valid employment authorization to act as an independent contractor.</li>
+	<li>A Non US Citizen working in their country of residence.</li>
+</ol>
 
-<P>
-<B>Time Line</B>
-<BR/>All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given untill the Final Submission Due Date to modify their submission.
-<BR/>
-</P>
-<P>
-Component Posting: 11/15/2002<BR/>
-Initial Submission Due Date: 11/29/2002<BR/>
-Final Submission Due Date: 12/13/2002<BR/>
+<!-- Time Line -->
+<p>
+<b>Time Line</b>
+<br/>All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given untill the Final Submission Due Date to modify their submission.
+<br/>
+</p>
+<p>
+Component Posting: 11/15/2002<br/>
+Initial Submission Due Date: 11/29/2002<br/>
+Final Submission Due Date: 12/13/2002<br/>
 
+<!-- Register at TCS -->
 After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.
-</P>
+</p>
 
 
-            <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Email Engine Enhancement Development" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
-          <P><BR/></P>
-    </TD>
-    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-  <TR>
-    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-  </TR>     
-  <TR>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR>  
-  <TR>
-    <TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-</TABLE>
-    </TD>
+            <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Email Engine Enhancement Development" class="statText"><b>Click here to inquire &gt;&gt;</b></a>
+          <p><br/></p>
+    </td>
+    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+  </tr>
+  <tr>
+    <td colspan="4" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td>
+  </tr>     
+  <tr>
+    <td valign="top" background="" bgcolor="#CCCCCC" width="11" align="right"><img src="/i/clear.gif" alt="" width="11" height="8" border="0"/></td>
+    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0"/></td>
+    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
+    <td valign="top" background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
+  </tr>  
+  <tr>
+    <td valign="top" background="" width="11" align="right" bgcolor="#CCCCCC"><img src="/i/clear.gif" alt="" width="11" height="8" border="0"/></td>
+    <td valign="top" background="" bgcolor="#CCCCCC" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0"/></td>
+    <td valign="top" background="" bgcolor="#CCCCCC" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
+    <td valign="top" background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
+  </tr>
+</table>
+    </td>
   <!-- Center Column Ends -->
 <!-- Body Area Ends -->
 
   <!-- Gutter -->
-    <TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
+    <td width="4" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
+    <td width="170" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
 <!-- Right Column Include Begins -->        
         <xsl:call-template name="public_dev_right"/>        
 <!-- Right Column Include Ends -->        
-        </TD>
+        </td>
   <!-- Right Column Ends -->
   <!-- Gutter -->
-    <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
+    <td width="25" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="25" height="1" border="0"/></td>
     <!-- Gutter Ends -->
-  </TR>
-</TABLE>
+  </tr>
+</table>
 <!-- Body Ends -->
         <xsl:call-template name="Foot"/>
-      </BODY>
-    </HTML>
+      </body>
+    </html>
   </xsl:template>
 </xsl:stylesheet>
 
