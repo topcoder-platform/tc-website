@@ -62,8 +62,10 @@
 <!-- Right Column Begins -->
          <td width="180">
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
+<%--
                <tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
                <tr><td><jsp:include page="message.jsp" /></td></tr>
+--%>
                <tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
                <tr><td><img src="/i/top_10_lists_top.gif" alt="Competition Leaders" width="180" height="11" border="0"></td></tr>
                <tr><td><img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="180" height="20" border="0" /></td></tr>
