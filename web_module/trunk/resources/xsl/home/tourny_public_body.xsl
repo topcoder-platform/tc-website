@@ -527,6 +527,42 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
 <xsl:call-template name="top_10_coders"/>
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+  <TR>
+    <TD ALIGN="left" class="statText"><IMG SRC="/i/clear.gif" WIDTH="20" HEIGHT="4" BORDER="0"/></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD ALIGN="left" class="statText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="4" BORDER="0"/></TD>
+  </TR>
+  <TR>
+    <TD ALIGN="center" CLASS="statTextBig" COLSPAN="4">More Leaders</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD ALIGN="left" class="statText">Coders</TD>
+    <TD ALIGN="right"><A HREF="/stat?c=coder_ratings" CLASS="statText">view all</A></TD>
+    <TD></TD>
+  </TR>
+  <TR>
+    <TD></TD>
+    <TD ALIGN="left" class="statText">Schools</TD>
+    <TD ALIGN="right"><A HREF="/stat?c=school_avg_rating" CLASS="statText">view all</A></TD>
+    <TD></TD>
+  </TR>
+  <TR>
+    <TD></TD>
+    <TD ALIGN="left" class="statText">States</TD>
+    <TD ALIGN="right"><A HREF="/stat?c=state_avg_rating" CLASS="statText">view all</A></TD>
+    <TD></TD>
+  </TR>
+  <TR>
+    <TD></TD>
+    <TD ALIGN="left" class="statText">Countries</TD>
+    <TD ALIGN="right"><A HREF="/stat?c=country_avg_rating" CLASS="statText">view all</A>
+    <TD></TD>
+   </TD>
+  </TR>
+</TABLE>
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
   <TR><TD COLSPAN="3" BGCOLOR="#001935"><IMG SRC="/i/label_quick_stats_home.gif" ALT="Quick Stats" WIDTH="166" HEIGHT="17" BORDER="0"/></TD></TR>
   <TR><TD BGCOLOR="#FFFFFF" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>                
   <TR>

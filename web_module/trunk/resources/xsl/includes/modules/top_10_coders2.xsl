@@ -99,12 +99,6 @@
               <TR> 
                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
               </TR>                       
-              <TR> 
-                <TD CLASS="statText" COLSPAN="3" HEIGHT="12" ALIGN="right"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE="3"/><A HREF="/stat?c=coder_ratings" CLASS="statText">all ranked coders</A>&#160;&#160;</TD>
-              </TR>                      
-              <TR> 
-                <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
-              </TR>              
           </TABLE>          
         </TD>
     </TR>
