@@ -12,7 +12,7 @@
 <table border="0" cellspacing="10" cellpadding="0" width="100%">
     <tr valign="top">
         <td align="center"> 
-        	<h2>Intel<sup>&#174;</sup> Centrino&#153; Mobile Technology-based Tablet PC Quick Specs</h2>
+        	<h2><img src="/i/tournament/tco04/intel_tablet.jpg" width="267" height="206" border="0" align="right">Intel<sup>&#174;</sup> Centrino&#153; Mobile Technology-based Tablet PC Quick Specs</h2>
         </td>
     </tr>
     
