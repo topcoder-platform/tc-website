@@ -63,7 +63,7 @@
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						The Generic Parser component supplies a pluggable implementation of various parsing algorithms to convert data from one format to another.  Each parser transforms diverse files into one standardized format.  The component supports configurable parsing rules.  Supported parsers include delimiter and fixed width parsers.
+						The Generic Parser component supplies a pluggable implementation of various parsing algorithms to convert data between file formats.  Each algorithm is specific for one file format.  The component supports configurable parsing rules.  Default parsers handle files with character delimiters as well as fixed width formats.
 						</p>
 
 <!-- Project Type -->
