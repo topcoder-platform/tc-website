@@ -13,6 +13,7 @@ import javax.naming.NamingException;
 
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.util.logging.Logger;
 
 /**

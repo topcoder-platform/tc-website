@@ -5,6 +5,7 @@ import java.util.HashMap;
 import javax.servlet.ServletRequest;
 
 import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.tag.BaseTag;
 
 /**
@@ -15,6 +16,10 @@ import com.topcoder.web.common.tag.BaseTag;
  * management. Probably instantiation of TCSubject based on user ig will be
  * performed here as well. Feel free to ask implement some helper methods not
  * mentioned above.
+ * 
+ * If requested by caller, HttpSession is searched for any persistant objects
+ * (for now it is SessionPersistor objects) which in turn store various security
+ * stuff as user authenticity token, etc.
  * 
  * @author djFD molc@mail.ru, modified by swif0ne
  * @version 1.02
@@ -120,5 +125,17 @@ public abstract class BaseProcessor implements RequestProcessor {
             formErrors = new HashMap();
         }
         formErrors.put(fieldKey, new Object());
+    }
+    
+    /**
+     * For request being proccessed returns user's authenticity token. Anonymous
+     * users (Guests) are authentic always forever by definition however
+     * there is not the way to get them logged in neither via cookies nor via
+     * login page.
+     * 
+     * @return WebAuthentication
+     */
+    protected WebAuthentication getAuthenticityToken() {
+    	return null;
     }
 }

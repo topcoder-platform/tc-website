@@ -1,7 +1,14 @@
 package com.topcoder.shared.security;
 
 /**
- * Thrown if security resource is accessed without proper authentication.
+ * Well, it is not very clear what is AuthenticationException... Is it
+ * Exception occured in the authentification process? Possible
+ * SecurityException is more suitable here. It would include Authentification
+ * exceptions as well as Authorization exceptions and, possible some others.
+ * 
+ * Original skeleton statement says: "Thrown if security resource is accessed
+ * without proper authentication." From the context conceptually follow that
+ * it rather authorization exception.
  * 
  * 
  * @author Greg Paul

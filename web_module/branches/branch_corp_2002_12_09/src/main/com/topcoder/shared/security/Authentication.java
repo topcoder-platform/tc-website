@@ -10,6 +10,7 @@ package com.topcoder.shared.security;
  * @version 1.02
  */
 public interface Authentication {
+	
     /**
      * 
      * @param u

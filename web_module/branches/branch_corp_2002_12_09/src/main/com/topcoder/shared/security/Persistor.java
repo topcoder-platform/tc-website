@@ -12,22 +12,25 @@ package com.topcoder.shared.security;
 public interface Persistor {
     
     /**
-     * 
-     * @param key
-     * @return Object
+     * Returns object matching the key given.
+     *  
+     * @param key for requested object
+     * @return Object matching given key or null if there are not any matches.
      */
     Object getObject(String key);
     
     /**
+     * Stores object to be accessed later via key specified.
      * 
-     * @param key
-     * @param value
+     * @param value to be stored
+     * @param key associated with value
      */
     void setObject(String key, Object value);
     
     /**
+     * Removes value associated with given key from persistor permanently.
      * 
-     * @param key
+     * @param key of stored value to be removed 
      */
     void removeObject(String key);
 }

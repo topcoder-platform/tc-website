@@ -1,7 +1,11 @@
 package com.topcoder.shared.security;
 
 /**
- * interface for User objects
+ * Interface for User objects. As for me, storing passwords in plain text is not
+ * very good idea, taking into account that some users will perform online money
+ * transactions. So it would be better to replace getPassword() method with
+ * something like boolean isValidPassword(String password). Sipmlest approach is
+ * to store some hashes from passwords (MD5, etc.)
  * 
  * @author Greg Paul
  * @author djFD molc@mail.ru
@@ -10,20 +14,21 @@ package com.topcoder.shared.security;
 public interface User {
     
     /**
+     * Returns ID of the user.
      * 
-     * @return long
+     * @return long user ID
      */
     long getId();
     
     /**
-     * 
-     * @return String
+     * Returns username (ie login or handle) of the user. 
+     * @return String login name  of the user
      */
     String getUserName();
     
     /**
-     * 
-     * @return String
+     * Returns password of the user (!)violates sequrity(!). 
+     * @return String password of the user.
      */
     String getPassword();
 }

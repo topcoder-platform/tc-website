@@ -1,4 +1,4 @@
-package com.topcoder.web.common;
+package com.topcoder.shared.dataAccess;
 
 /**
  * Just tagging interface for now. Concrete implementation of it may be useful
