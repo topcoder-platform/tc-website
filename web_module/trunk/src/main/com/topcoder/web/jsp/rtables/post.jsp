@@ -28,9 +28,9 @@
     if (n==null) {
       session = request.getSession(true);
       response.sendRedirect(timeoutURL);
+      System.out.println("still executing this damn thing");
       return;
     }
-    System.out.println("still executing this damn thing");
     try {
       n = (Navigation) session.getAttribute("navigation"); 
     } catch( Exception e ) {
@@ -588,7 +588,7 @@ DER="0"><BR>
 
 <% }%>
 
- 
+
 
      </tr>
 
@@ -620,7 +620,7 @@ DER="0"><BR>
 
   reply.subject.focus();
 
-  function doValidate() { 
+  function doValidate() {
 
     if(doCheckSubject() && doCheckBody())
 
@@ -630,7 +630,7 @@ DER="0"><BR>
 
   function doCheckSubject() {
 
-    if(reply.subject.value=="") { 
+    if(reply.subject.value=="") {
 
       alert("Please enter a subject before posting.");
 
@@ -660,7 +660,7 @@ DER="0"><BR>
 
     }
 
-  } 
+  }
 
   function doReply(){
 
@@ -678,7 +678,7 @@ DER="0"><BR>
 
    <table width="100%" cellspacing="0" cellpadding="0" border="0">
 
-<%   
+<%
 
    if (isReply) {
 
