@@ -297,11 +297,11 @@ function goTo(selection)
   }  
   else if (sel == "may_02")
   {
-    window.location = "/index?t=schedule&c=index";
+    window.location = "/index?t=schedule&c=may_02";
   }  
   else if (sel == "june_02")
   {
-    window.location = "/index?t=schedule&c=june_02";
+    window.location = "/index?t=schedule&c=index";
   }  
   else if (sel == "july_02")
   {
