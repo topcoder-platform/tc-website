@@ -75,7 +75,7 @@ registered attendee* of OracleWorld to compete.
 * There is no cost to attend the OracleWorld exhibit hall. <A HREF="http://www.oracle.com/go/?&amp;Src=1393108&amp;Act=95" CLASS="statTextBig" TARGET="_blank">Click here to register</A>.
 </P>
 <BR/>
-<P><B>Code Survivor Official Rules</B> (needs link)</P>
+<P><B><A HREF="http://www.oracle.com/oracleworld/sanfrancisco/conference/index.html?otn.html" CLASS="statText" TARGET="_blank">Code Survivor Official Rules</A></B></P>
 <UL>
 	<LI><A HREF="#2" CLASS="statText">Round Schedule</A></LI>
 	<LI><A HREF="#3" CLASS="statText">Practice Opportunities</A></LI>
