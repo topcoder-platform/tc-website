@@ -33,6 +33,12 @@
               <TR> 
                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
               </TR>              
+              <TR> 
+                <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/>
+                  <IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE="3"/>
+                  <A HREF="/stat?&c=school_avg_rating" CLASS="statText">all ranked schools</A>&#160;&#160; 
+                </TD>
+              </TR>              
           </TABLE>
           
                   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" BACKGROUND="/i/steel_darkblue_bg.gif" BGCOLOR="#001935">
