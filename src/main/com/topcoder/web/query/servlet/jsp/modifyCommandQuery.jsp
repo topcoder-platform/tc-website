@@ -80,7 +80,7 @@
             </TR>
            <TR>
              <TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">
-               <query:querySelect name="<%=Constants.QUERY_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandQueryForm.getOtherQueryList()%>" size="10" multiple="false"/>
+               <query:querySelect name="<%=Constants.QUERY_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandQueryTask.getOtherQueryList()%>" size="10" multiple="false"/>
              </TD>
            </TR>
            <TR>
