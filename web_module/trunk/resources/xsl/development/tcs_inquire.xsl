@@ -104,13 +104,23 @@
                   <td/>
                   <td class="bodyText">
 
-                     <a class="statTextBig" href="Javascript:document.frmSend.submit()">
+<!--
+                     <A CLASS="statTextBig" HREF="Javascript:if(document.frmSend.terms){document.frmSend.submit();}else{alert('You must agree to the terms to apply for this project.');}">
+-->
+                     <A CLASS="statTextBig" HREF="Javascript:submitForm();">
                        <b>Click here to submit &gt;&gt;</b>
-                     </a>
+                     </A>
                   </td>
                 </tr>
               </table>
-
+              
+              <SCRIPT type="text/javascript"><![CDATA[
+                function submitForm() {
+                  if (document.frmSend.terms.checked) {document.frmSend.submit();}
+                  else {alert("You must agree to the terms to apply for this project.");}
+                  return;
+                }
+              ]]></SCRIPT>
             </FORM>
 
     </TD>
