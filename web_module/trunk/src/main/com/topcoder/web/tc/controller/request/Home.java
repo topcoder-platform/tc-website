@@ -3,41 +3,105 @@ package com.topcoder.web.tc.controller.request;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.DBMS;
 
 public class Home extends Base {
 
     protected void businessProcessing() throws TCWebException {
         if (getUser().isAnonymous()) {
+            loadPublicData();
             setNextPage(Constants.PUBLIC_HOME_PAGE);
         } else {
+            loadPublicData();
+            loadMemberData();
             setNextPage(Constants.MEMBER_HOME_PAGE);
         }
         setIsNextPageInContext(true);
     }
 
+    protected void loadPublicData() throws TCWebException {
+        try {
+            CachedDataAccess countDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            countDai.setExpireTime(15*60*1000);
+            Request countReq = new Request();
+            countReq.setContentHandle("member_count");
+            getRequest().setAttribute("member_count", countDai.getData(countReq).get("member_count"));
 
-    // member count for both, cached for 15 minutes ( 15*60*1000 )
-    //  SELECT COUNT(*)
-    //  FROM coder c, rating cr
-    //  WHERE c.status = 'A'
-    //  AND c.coder_id = cr.coder_id
+            CachedDataAccess nextRoundDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            nextRoundDai.setExpireTime(30*60*1000);
+            Request nextRoundReq = new Request();
+            nextRoundReq.setContentHandle("next_round");
+            getRequest().setAttribute("next_round", nextRoundDai.getData(countReq).get("next_round"));
+
+            CachedDataAccess dwDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+            Request dataRequest = new Request();
+            dataRequest.setContentHandle("public_home_data");
+            dataRequest.setProperty("sr", "1");
+            dataRequest.setProperty("er", "10");   // just get the top 10
+            getRequest().setAttribute("Top_Ranked_Div_1",
+                    dwDai.getData(dataRequest).get("Top_Ranked_Div_1"));
+            getRequest().setAttribute("School_Avg_Rating",
+                    dwDai.getData(dataRequest).get("School_Avg_Rating"));
+            getRequest().setAttribute("Country_Avg_Rating",
+                    dwDai.getData(dataRequest).get("Country_Avg_Rating"));
+            getRequest().setAttribute("recent_srm_survey_question",
+                    dwDai.getData(dataRequest).get("recent_srm_survey_question"));
 
 
-    // round info cached for 30 minutes
-    // just get next round
-    // SELECT r.round_id
-    // ,r.contest_id
-    // ,r.name
-    // ,r.status
-    // ,r.ran_ratings
-    // ,r.paid_money
-    // ,r.registration_limit
-    // ,r.notes
-    // ,r.link
-    // FROM round r
-    // WHERE r.status IN ('A','F')
-    // AND r.round_type_id = 1
-    // ORDER BY r.round_id
+
+/*
+    dataRequest = new Request();
+    dataRequest.setContentHandle("school_avg_rating");
+    dataRequest.setProperty("sr", "1");
+    dataRequest.setProperty("er", "10");   // just get the top 10
+    resultMap = dai.getData(dataRequest);
+    rsc = (ResultSetContainer) resultMap.get("School_Avg_Rating");
+    homeTag.addTag(rsc.getTag("TopRankedSchools", "School"));
+
+    dataRequest = new Request();
+    dataRequest.setContentHandle("project_totals");
+    resultMap = tcsDai.getData(dataRequest);
+    rsc = (ResultSetContainer) resultMap.get("total_component_prices");
+    homeTag.addTag(rsc.getTag("Project", "Total"));
+
+    dataRequest = new Request();
+    dataRequest.setContentHandle("country_avg_rating");
+    dataRequest.setProperty("sr", "1");
+    dataRequest.setProperty("er", "10");   // just get the top 10
+    resultMap = dai.getData(dataRequest);
+    rsc = (ResultSetContainer) resultMap.get("Country_Avg_Rating");
+    homeTag.addTag(rsc.getTag("TopRankedCountries", "Country"));
+
+    dataRequest = new Request();
+    dataRequest.setContentHandle("top_rating_gainer_loser");
+    resultMap = dai.getData(dataRequest);
+    rsc = (ResultSetContainer) resultMap.get("Top_Rating_Gainers_And_Losers");
+    homeTag.addTag(rsc.getTag("GainersAndLosers", "Coder"));
+
+    dataRequest = new Request();
+    dataRequest.setContentHandle("recent_srm_survey_question");
+    resultMap = cTransDai.getData(dataRequest);
+    rsc = (ResultSetContainer) resultMap.get("recent_srm_survey_question");
+    homeTag.addTag(rsc.getTag("SurveyInfo", "QuestionInfo"));
+
+*/
+
+
+
+
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+
+    protected void loadMemberData() {
+
+    }
 
 
     //**********************************************
@@ -91,55 +155,5 @@ public class Home extends Base {
 //                    homeTag.addTag(getTourneyInfo(transDai, nav.getUserId()));
 
                 }*/
-
-    //**********************************************
-    //* public stuff
-    //**********************************************
-/*
-
-    dataRequest = new Request();
-    dataRequest.setContentHandle("top_ranked_div_1");
-    dataRequest.setProperty("sr", "1");
-    dataRequest.setProperty("er", "10");   // just get the top 10
-    resultMap = dai.getData(dataRequest);
-    rsc = (ResultSetContainer) resultMap.get("Top_Ranked_Div_1");
-    homeTag.addTag(rsc.getTag("TopDiv1RankedCoders", "Coder"));
-
-    dataRequest = new Request();
-    dataRequest.setContentHandle("school_avg_rating");
-    dataRequest.setProperty("sr", "1");
-    dataRequest.setProperty("er", "10");   // just get the top 10
-    resultMap = dai.getData(dataRequest);
-    rsc = (ResultSetContainer) resultMap.get("School_Avg_Rating");
-    homeTag.addTag(rsc.getTag("TopRankedSchools", "School"));
-
-    dataRequest = new Request();
-    dataRequest.setContentHandle("project_totals");
-    resultMap = tcsDai.getData(dataRequest);
-    rsc = (ResultSetContainer) resultMap.get("total_component_prices");
-    homeTag.addTag(rsc.getTag("Project", "Total"));
-
-    dataRequest = new Request();
-    dataRequest.setContentHandle("country_avg_rating");
-    dataRequest.setProperty("sr", "1");
-    dataRequest.setProperty("er", "10");   // just get the top 10
-    resultMap = dai.getData(dataRequest);
-    rsc = (ResultSetContainer) resultMap.get("Country_Avg_Rating");
-    homeTag.addTag(rsc.getTag("TopRankedCountries", "Country"));
-
-    dataRequest = new Request();
-    dataRequest.setContentHandle("top_rating_gainer_loser");
-    resultMap = dai.getData(dataRequest);
-    rsc = (ResultSetContainer) resultMap.get("Top_Rating_Gainers_And_Losers");
-    homeTag.addTag(rsc.getTag("GainersAndLosers", "Coder"));
-
-    dataRequest = new Request();
-    dataRequest.setContentHandle("recent_srm_survey_question");
-    resultMap = cTransDai.getData(dataRequest);
-    rsc = (ResultSetContainer) resultMap.get("recent_srm_survey_question");
-    homeTag.addTag(rsc.getTag("SurveyInfo", "QuestionInfo"));
-
-*/
-
 
 }
