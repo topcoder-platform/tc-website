@@ -53,6 +53,7 @@ public class Constants {
     public static String LOGIN_TASK;
     public static String DB_SELECTION_TASK;
     public static String COMMAND_LIST_TASK;
+    public static String QUERY_LIST_TASK;
     public static String COMMAND_DETAIL_TASK;
     public static String QUERY_DETAIL_TASK;
     public static String MODIFY_GROUP_TASK;
@@ -65,6 +66,7 @@ public class Constants {
     public static String LOGIN_NAME;
     public static String DB_SELECTION_NAME;
     public static String COMMAND_LIST_NAME;
+    public static String QUERY_LIST_NAME;
     public static String COMMAND_DETAIL_NAME;
     public static String QUERY_DETAIL_NAME;
     public static String MODIFY_GROUP_NAME;
@@ -131,6 +133,7 @@ public class Constants {
         LOGIN_TASK = servletConfig.getInitParameter("login_task");
         DB_SELECTION_TASK = servletConfig.getInitParameter("db_selection_task");
         COMMAND_LIST_TASK = servletConfig.getInitParameter("command_list_task");
+        QUERY_LIST_TASK = servletConfig.getInitParameter("query_list_task");
         COMMAND_DETAIL_TASK = servletConfig.getInitParameter("command_detail_task");
         QUERY_DETAIL_TASK = servletConfig.getInitParameter("query_detail_task");
         MODIFY_GROUP_TASK = servletConfig.getInitParameter("modify_group_task");
@@ -143,6 +146,7 @@ public class Constants {
         LOGIN_NAME = servletConfig.getInitParameter("login_name");
         DB_SELECTION_NAME = servletConfig.getInitParameter("db_selection_name");
         COMMAND_LIST_NAME = servletConfig.getInitParameter("command_list_name");
+        QUERY_LIST_NAME = servletConfig.getInitParameter("query_list_name");
         COMMAND_DETAIL_NAME = servletConfig.getInitParameter("command_detail_name");
         QUERY_DETAIL_NAME = servletConfig.getInitParameter("query_detail_name");
         MODIFY_GROUP_NAME = servletConfig.getInitParameter("modify_group_name");

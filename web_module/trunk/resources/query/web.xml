@@ -279,6 +279,12 @@
         </init-param>
 
         <init-param>
+            <param-name>query_list_task</param-name>
+            <param-value>QueryList</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
             <param-name>command_detail_task</param-name>
             <param-value>CommandDetail</param-value>
             <description></description>
@@ -342,6 +348,12 @@
         <init-param>
             <param-name>command_list_name</param-name>
             <param-value>Command List</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_list_name</param-name>
+            <param-value>Query List</param-value>
             <description></description>
         </init-param>
 
