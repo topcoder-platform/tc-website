@@ -9,6 +9,8 @@ import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.security.User;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Iterator;
 import java.io.PrintWriter;
 import java.io.IOException;
 
@@ -64,16 +66,27 @@ public abstract class Base extends BaseProcessor {
 
     protected void loadSessionErrorsIntoRequest(String messageId) {
         HashMap m = (HashMap)getRequest().getSession().getAttribute(ERRORS_KEY+messageId);
+        Map.Entry me = null;
         log.debug("loading session errors into request " + m);
-        if (m!=null) errors = m;
+        if (m!=null) {
+            for (Iterator it = m.entrySet().iterator();it.hasNext();) {
+                me = (Map.Entry)it.next();
+                addError((String)me.getKey(), me.getValue());
+            }
+        }
         clearSessionErrors(messageId);
     }
 
     protected void loadSessionDefaultsIntoRequest(String messageId) {
         HashMap m = (HashMap)getRequest().getSession().getAttribute(DEFAULTS_KEY+messageId);
+        Map.Entry me = null;
         log.debug("loading session defaults into request " + m);
-        if (m!=null) defaults = m;
-        clearSessionDefaults(messageId);
+        if (m!=null) {
+            for (Iterator it = m.entrySet().iterator();it.hasNext();) {
+                me = (Map.Entry)it.next();
+                setDefault((String)me.getKey(), me.getValue());
+            }
+        }
     }
 
 
