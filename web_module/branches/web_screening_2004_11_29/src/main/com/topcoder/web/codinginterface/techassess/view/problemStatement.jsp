@@ -13,7 +13,7 @@
 <tc-webtag:useBean id="prob" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.problem.Problem" toScope="page" property="problem"/>
 <tc-webtag:useBean id="lang" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.language.Language" toScope="page" property="language"/>
 
-<tc-webtag:problemStatement problem="prob" language="<%=lang%>"/>
+<tc-webtag:problemStatement problem="prob" language="lang"/>
 
 </body>
 </html>
