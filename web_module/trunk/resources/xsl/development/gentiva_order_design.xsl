@@ -294,6 +294,7 @@
 
                                                     <p>
                                                         <strong> Registration </strong>
+                                                        <br/>
                                                         Click here to <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Gift%20Card"> register </a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
