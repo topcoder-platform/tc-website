@@ -53,23 +53,23 @@
 		<br/><br/>
 		The received points for a problem submission will appear in different colors, depending upon the language that was used to compile the submission.  The color-coding is as follows:
 		<br/>
-		Java - Green<br/>
-		C++ - White<br/>
-		C# - Blue<br/>
-		VB - Light Blue
+		<i>Java</i> - Green<br/>
+		<i>C++</i> - White<br/>
+		<i>C#</i> - Blue<br/>
+		<i>VB</i> - Light Blue
 		<br/><br/>
 		In addition to point values, the information about a specific problem for a competitor may contain a text status, rather than a point value.  The different statuses are as follows:
 		<br/>
-		Unopened - The problem has not yet been opened by that competitor<br/>
-		Opened - The problem has been opened, but no compilations have taken place<br/>
-		Compiled - At least one compilation attempt has occurred on this problem<br/>
-		Challenge Succeeded - There has been a successful challenge applied against this submission<br/>
-		Failed System Test - This submission has failed during the system-testing phase<br/>
-		Passed System Test - This submission has withstood all phases of competition and the received points will be factored into the final score for that competitor
+		<i>Unopened</i> - The problem has not yet been opened by that competitor<br/>
+		<i>Opened</i> - The problem has been opened, but no compilations have taken place<br/>
+		<i>Compiled</i> - At least one compilation attempt has occurred on this problem<br/>
+		<i>Challenge Succeeded</i> - There has been a successful challenge applied against this submission<br/>
+		<i>Failed System Test</i> - This submission has failed during the system-testing phase<br/>
+		<i>Passed System Test</i> - This submission has withstood all phases of competition and the received points will be factored into the final score for that competitor
 		<br/><br/>
 		Clicking on any of the column heading will sort the room summary list by the selected column.  
 		<br/><br/>
-		At any time, you may right-click on any of the handles in the list and you will have to functions available to you.  Info will display the Coder Info Window, which contains some basic information about that member.  History will display a chronological list of events that have taken place for that competitor during the given event.  The events listed are submissions, challenges, and individual system test results.  In the event that any of the system tests failed, the value following the colon is the (incorrect) value that the given submission returned for the given arguments.
+		At any time, you may right-click on any of the handles in the list and you will have to functions available to you.  <b>Info</b> will display the Coder Info Window, which contains some basic information about that member.  History will display a chronological list of events that have taken place for that competitor during the given event.  The events listed are submissions, challenges, and individual system test results.  In the event that any of the system tests failed, the value following the colon is the (incorrect) value that the given submission returned for the given arguments.
 		<br/><br/>
 		During a rated event, no competitor or spectator may view the submission of any other competitors during the coding phase of the competition.  However, at the start of the challenge phase, the source code of the submissions become available to all users by double clicking on the individual submission for a given competitor in the Room Summary Window.  Even spectators may view the individual submissions at the start of the challenge phase.
 		<br/><br/>
@@ -80,12 +80,12 @@
 		<p><span class="bodySubtitle">2 Challenging</span><br/>
 		During the challenge phase of a rated event, each competitor has the opportunity to view the source code of each of the other competitors' submissions (within your room).  The room summary window provides each competitor access to those submissions.  During the challenge phase, any registered competitor who views the source code of a same-room competitor will also see a "Challenge" button in the lower, left-hand corner of the source code window.  Clicking the "Challenge" button will open the <A href="/tc?module=Static&d1=help&d2=problemArguments">Arguments Window</A> and allow you to proceed with your challenge of that submission. 
 		<br/><br/>
-		The TopCoder Arena has code-beautification functionality built in for those that wish to use it.  In the Room Summary Window, setting Pretty to On in the upper-right corner will cause subsequent source code view to incorporate basic code formatting rules.  For some languages and some submissions, the Pretty option will have no effect.   
+		The TopCoder Arena has code-beautification functionality built in for those that wish to use it.  In the Room Summary Window, setting <b>Pretty</b> to <b>On</b> in the upper-right corner will cause subsequent source code view to incorporate basic code formatting rules.  For some languages and some submissions, the <b>Pretty</b> option will have no effect.   
 		</p>
 		
 		<a name="divisionsummary"></a>
 		<p><span class="bodySubtitle">3 Division Summary</span><br/>
-		The Division Summary Window is very similar to the Room Summary Window, except that it contains information for all competitors within a division, rather than just a single room.  Since the division summary is not specific to a single room, it must be accessed from the Active Contests menu.  To launch the Division Summary Window, select "Active Contests", the appropriate event, "Division Summary".
+		The Division Summary Window is very similar to the Room Summary Window, except that it contains information for <i>all</i> competitors within a division, rather than just a single room.  Since the division summary is not specific to a single room, it must be accessed from the Active Contests menu.  To launch the Division Summary Window, select "Active Contests", the appropriate event, "Division Summary".
 		<br/><br/>
 		Most of the functionality in the Room Summary Window exists in the Division Summary.  You may switch divisions using the "Select a Division" drop-down list at the top of the window.
 		</p>
