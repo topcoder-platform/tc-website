@@ -78,30 +78,7 @@
                     <td colspan="<%=theProject.getTimeline().length+1%>" class="forumTextEven"><strong><bean:message key="prompt.timeline" /></strong></td>
                 </tr>
 
-                <tr valign="top">
-                    <td class="forumTitleCenter"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
-                    <td class="forumTitleCenter">
-                        Start
-                    </td>
-                    <td class="forumTitleCenter">
-                        End
-                    </td>
-                    <td class="forumTitleCenter"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
-                    <td class="forumTitleCenter">
-                        Start
-                    </td>
-                    <td class="forumTitleCenter">
-                        End
-                    </td>
-                    <td class="forumTitleCenter"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
-                    <td class="forumTitleCenter">
-                        Start
-                    </td>
-                    <td class="forumTitleCenter">
-                        End
-                    </td>
-                </tr>
-
+                
                 <tr valign=top>
 <logic:iterate id="phaseInstance" indexId="pIdx" name="projectForm" property="timeline">
 <%if(pIdx.intValue() % 3 == 0) {%>
@@ -117,8 +94,9 @@
                                     End
                                 </td>
                             </tr>
-                            <tr valign="top">
+                            
 <%}%>
+                <tr valign="top">
                     <td class="forumTitleCenter">
                         <bean:define id="phaseName" name="phaseInstance" property="phase.name" />
                         <html:radio property="currentPhase" value="<%=phaseName.toString()%>" /><br/><bean:write name="phaseName" /></td>
@@ -126,9 +104,9 @@
                         <html:text property='<%="phaseStart["+pIdx+"]"%>' size="20" /></td>
                     <td class="forumTextCenterOdd">
                         <html:text property='<%="phaseEnd["+pIdx+"]"%>' size="20" /></td>
-
+                </tr>
 <%if(pIdx.intValue() % 3 == 2) {%>
-                            </tr>
+
                         </table>
                     </td>
 <%}%>
