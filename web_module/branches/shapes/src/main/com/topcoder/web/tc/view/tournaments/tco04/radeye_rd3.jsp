@@ -87,7 +87,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=144400">tomek</a></td>
+<tr><td class="rHandleo"><tc:ratingImage link='<%=sLink + 144400%>' bg='W' cid='<%=144400%>' /></td>
 <td class="r1o">3524</td>
 <td class="r1o">334</td>
 <td class="r1o">$11,569.74</td>
