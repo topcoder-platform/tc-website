@@ -223,7 +223,11 @@ if ( MM_FlashCanPlay ) {
                          <tr>
                             <td class="screeningCellOdd" align=right>Resume:</td>
                             <td class="screeningCellOdd">
-                                |<%=request.getAttribute("resume")%>|
+                            <%if(((String)request.getAttribute("resume")).equals("")) { %>
+                                None
+                            <% } else { %>
+                                <a href="?module=DownloadResume&uid=<%=request.getAttribute(Constants.USER_ID)%>">View (<%=request.getAttribute("resume")%>)</a>
+                            <% } %>
                             </td>
                         </tr>
                     </table>
