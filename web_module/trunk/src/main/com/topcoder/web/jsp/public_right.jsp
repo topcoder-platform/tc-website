@@ -76,6 +76,10 @@ function find(n) {
 
             <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
          
+            <a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=yahoo"><img src="/i/tournament/tccc05/yahoo_right.gif" alt="yahoo" border="0" /></a><br />
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
             <a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=motorola"><img src="/i/tournament/tccc05/motorola_right.gif" alt="Motorola" border="0" /></a><br />
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
@@ -152,7 +156,7 @@ function find(n) {
 
          <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
          
-         <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=joblisting"><img src="/i/tournament/tco04/yahoo_jobs.gif" alt="Yahoo Job Opportunities" width="170" height="80" border="0" /></a><br />
+            <a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=yahoo"><img src="/i/tournament/tccc05/yahoo_right.gif" alt="yahoo" border="0" /></a><br />
          
          <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
