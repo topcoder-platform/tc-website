@@ -9,44 +9,22 @@
                 <tr>
                     <td width="85" class="bodyText"  valign="top">
                         <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
-                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
+                        <img src="/i/m/timmac_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=10407399"><strong>timmac</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
                     </td>
 
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td> 
 
-                    <td  width="50%" class="bodyText"  valign="top">
-                        <p><a href="/index?t=features&c=feat_100404b" class="bodyText"><font size="4"><strong>The Importance of Algorithms</strong></font></a><br />
-                        Monday, October 4, 2004</p>
+                    <td  width="100%" class="bodyText"  valign="top">
+                        <p><a href="/index?t=features&c=feat_110204" class="bodyText"><font size="4"><strong>Encryption Algorithms</strong></font></a><br />
+                        Tuesday, November 2, 2004</p>
 
                         <p>
-						This article will introduce some basic ideas related to the analysis of algorithms.
+						Encryption is one of those fancy terms that sometimes gets thrown around in computer science, and the sound of the word might have a subtle reminder of the CIA or some other covert operation.  In fact, encryption has a lot to do with information security.
 
-                        <a href="/index?t=features&c=feat_100404b" class="bodyText"><strong>full&#160;story</strong></a></p>
-                    </td>
-
-					<td bgcolor=#666666><img src="/i/clear.gif" width=1 height=1 border=0/></td>
-
-                    <td width="85" class="bodyText"  valign="top">
-                        <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
-                        <img src="/i/m/AryanI_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=10135324"><strong>AryanI</strong></a><br/>
-                        <span class="smallText"><em>TopCoder Member</em></span><br/>
-                        <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
-                    </td>
-
-                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td> 
-
-                    <td  width="50%" class="bodyText"  valign="top">
-                        <p><a href="/index?t=features&c=feat_100404" class="bodyText"><font size="4"><strong>Peer 2 Fear</strong></font></a><br />
-                        Monday, October 4, 2004</p>
-
-                        <p>
-						Solutions for developers for designing secure P2P applications.
-
-                        <a href="/index?t=features&c=feat_100404" class="bodyText"><strong>full&#160;story</strong></a></p>
+                        <a href="/index?t=features&c=feat_110204" class="bodyText"><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
             </table>
