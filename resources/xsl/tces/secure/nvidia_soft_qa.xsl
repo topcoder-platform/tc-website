@@ -69,7 +69,7 @@ Minimum GPA:  3.0
 <BR/><br/>
 Expert trouble-shooting ability, where a problem can be isolated down to the root cause software or hardware component.  Ability to maintain multiple systems in lab environment, keeping them continually in operation, updated with current software, and problem free.  Experience at Power-User level with the Windows Family of Operating Systems including Windows XP, Windows Me, Windows 2000, Windows 98 SE, and Windows NT4, including how they interact with Applications and Hardware.  Understanding of QA theory, bug tracking to resolution, and software development support desired.  The ability to research and comprehend technically complex specifications concerning the development of PC architecture and sub-systems is required.  Knowledgeable of current industry standards such as DirectX, OpenGL, EDID &amp; DDC, DVD, ACPI, and PC Design Guides is a plus.</P>
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=194&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=197&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           
