@@ -123,6 +123,10 @@ public class Registration
 
     public static final int[] REFERRAL_ID = { DECLINE_TO_ANSWER, CAMPUS_JOB_FAIR_REFERRAL, OTHER_REFERRAL, NONMEMBER_REFERRAL, NEWS_ARTICLE_REFERRAL, NEWSLETTER_REFERRAL, MEMBER_REFERRAL, ANOTHER_WEBSITE_REFERRAL, FACULTY_EMAIL_REFERRAL, TOPCODER_EMAIL_REFERRAL, JAVA_USER_GROUP_REFERRAL, SEARCH_ENGINE_REFERRAL };
 
+    private static final String DEMOGRAPHIC_QUESTION_EMPLOYER = "15";
+    private static final String DEMOGRAPHIC_QUESTION_EMPLOYED = "21";
+    private static final String DEMOGRAPHIC_ANSWER_EMPLOYED_YES = "141";
+
     protected String firstName;
     protected String lastName;
     protected String address1;
@@ -441,7 +445,9 @@ public class Registration
                 }
             }
            
-
+            boolean employed = false;
+            boolean employerBlank = false;
+            String employerQuestionText = "";
             for (Iterator iterator = demographics.keySet().iterator(); iterator.hasNext();)
             {
                 String strQuestionId = (String) iterator.next();
@@ -449,6 +455,10 @@ public class Registration
                 for ( int i = 0; i < answerList.size(); i++ )
                 {
                     String strAnswerId = (String) answerList.get(i);
+                    if ( strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYED) && strAnswerId.equals(DEMOGRAPHIC_ANSWER_EMPLOYED_YES) )
+                    {
+                        employed = true;
+                    }
                     if ( strAnswerId.equals("") ) 
                     {
                         ArrayList assignments = getDemographicAssignments ( Integer.parseInt(this.coderType) );
@@ -462,20 +472,21 @@ public class Registration
                                 {
                                     addError ( DEMO_PREFIX+strQuestionId, "Please select: "+question.getDemographicQuestionText() );
                                 }
+                                else if ( strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYER) )
+                                {
+                                    employerBlank = true;
+                                    employerQuestionText = question.getDemographicQuestionText();
+                                }
                                 break;
                             }
                         } 
                     }
                 }
             }
- 
-            //if (this.organizationOther.equals(getOrganizationOtherPrompt())) setOrganizationOther("");
-            //if (!isNumber(this.organization)) addError(ORGANIZATION,"Please tell us what club or organization you are involved with.");
-            //if (this.organization.equals(Integer.toString(OTHER_ORGANIZATION)))
-            //{
-                //if (isEmpty(this.organizationOther)) addError(ORGANIZATION_OTHER,"Please enter the name of the organization.");
-            //}
-                
+            if ( employed && employerBlank && coderType.equals(CODER_TYPE_PROFESSIONAL) )
+            {
+                addError ( DEMO_PREFIX+DEMOGRAPHIC_QUESTION_EMPLOYER, "Please select: "+employerQuestionText );
+            }
         }
         else if (isStep(STEP_3))
         {
