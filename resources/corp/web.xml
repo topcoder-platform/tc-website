@@ -489,21 +489,27 @@
         </init-param>
 
         <init-param>
+            <param-name>jsp_root</param-name>
+            <param-value>/testing/</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
             <param-name>error_page</param-name>
-            <param-value>/screening/errorPage.jsp</param-value>
+            <param-value>errorPage.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>perm_error_page</param-name>
-            <param-value>/screening/permErrorPage.jsp</param-value>
+            <param-value>permErrorPage.jsp</param-value>
             <description></description>
         </init-param>
 
 
         <init-param>
             <param-name>login_page</param-name>
-            <param-value>/screening/login.jsp</param-value>
+            <param-value>login.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -527,7 +533,7 @@
 
         <init-param>
             <param-name>default_page</param-name>
-            <param-value>/screening/home.jsp</param-value>
+            <param-value>home.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -751,25 +757,25 @@
 
         <init-param>
             <param-name>candidate_setup_page</param-name>
-            <param-value>/screening/candidate/candidateSetup.jsp</param-value>
+            <param-value>candidate/candidateSetup.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>candidate_list_page</param-name>
-            <param-value>/screening/candidate/candidateList.jsp</param-value>
+            <param-value>candidate/candidateList.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>note_list_page</param-name>
-            <param-value>/screening/candidate/noteList.jsp</param-value>
+            <param-value>candidate/noteList.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>note_create_page</param-name>
-            <param-value>/screening/candidate/noteCreate.jsp</param-value>
+            <param-value>candidate/noteCreate.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -884,19 +890,19 @@
 
         <init-param>
             <param-name>profile_setup_page</param-name>
-            <param-value>/screening/profile/profileSetup.jsp</param-value>
+            <param-value>profile/profileSetup.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>profile_confirm_page</param-name>
-            <param-value>/screening/profile/profileConfirm.jsp</param-value>
+            <param-value>profile/profileConfirm.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>profile_list_page</param-name>
-            <param-value>/screening/profile/profileList.jsp</param-value>
+            <param-value>profile/profileList.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -939,13 +945,13 @@
         <!-- Problem constants -->
         <init-param>
             <param-name>problem_list_page</param-name>
-            <param-value>/screening/problem/problemList.jsp</param-value>
+            <param-value>problem/problemList.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>problem_detail_page</param-name>
-            <param-value>/screening/problem/problemDetail.jsp</param-value>
+            <param-value>problem/problemDetail.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -1018,19 +1024,19 @@
         <!-- Results constants -->
         <init-param>
             <param-name>problem_result_page</param-name>
-            <param-value>/screening/results/problemResults.jsp</param-value>
+            <param-value>results/problemResults.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>tc_problem_result_page</param-name>
-            <param-value>/screening/results/tcProblemResult.jsp</param-value>
+            <param-value>results/tcProblemResult.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>test_results_page</param-name>
-            <param-value>/screening/results/testResults.jsp</param-value>
+            <param-value>results/testResults.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -1049,13 +1055,13 @@
 
         <init-param>
             <param-name>preview_email_page</param-name>
-            <param-value>/screening/session/previewEmail.jsp</param-value>
+            <param-value>session/previewEmail.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>session_setup_page</param-name>
-            <param-value>/screening/session/sessionSetup.jsp</param-value>
+            <param-value>session/sessionSetup.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -1085,7 +1091,7 @@
 
         <init-param>
             <param-name>session_confirm_page</param-name>
-            <param-value>/screening/session/sessionConfirm.jsp</param-value>
+            <param-value>session/sessionConfirm.jsp</param-value>
             <description></description>
         </init-param>
 
