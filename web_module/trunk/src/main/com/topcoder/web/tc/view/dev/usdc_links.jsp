@@ -2,6 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
     String selectedTab = request.getParameter("selectedTab")==null?"":request.getParameter("selectedTab");
+    String selectedTab2 = request.getParameter("selectedTab2")==null?"":request.getParameter("selectedTab2");
 %>
 
 <!--USDC Header-->
@@ -59,27 +60,21 @@
                  <td class="statTextBig" width="88"><A href="/tc?module=USDCResults" class="statTextBig"><img src="/i/development/usdc/tab_results_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
             <% } %>
             
-<%--
-<!-- Design tab -->
-            <% if (selectedTab.equals("design")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=dev&d2=usdc_overview" class="statTextBig"><img src="/i/development/usdc/tab_design_on.gif" alt="Design" width="88" height="22" border="0" /></A></td>
-            <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=dev&d2=usdc_overview" class="statTextBig"><img src="/i/development/usdc/tab_design_off.gif" alt="Design" width="88" height="22" border="0" /></A></td>
-            <% } %>
-
-<!-- Development tab -->
-            <% if (selectedTab.equals("development")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=dev&d2=usdc_overview" class="statTextBig"><img src="/i/development/usdc/tab_development_on.gif" alt="Development" width="88" height="22" border="0" /></A></td>
-            <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=dev&d2=usdc_overview" class="statTextBig"><img src="/i/development/usdc/tab_development_off.gif" alt="Development" width="88" height="22" border="0" /></A></td>
-            <% } %>
---%>
-
       <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
    </tr>
 </table>
-
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="003399">
-    <tr><td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<table width="100%" border="0" cellspacing="0" cellpadding="2" class="usdcSubNav">
+    <tr>
+        <td class="usdcSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+            <% if (selectedTab.equals("results")) {%>
+                 <td class="<%=selectedTab2.equals("design")?"usdcSubNav_on":"usdcSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=usdc&d3=usdc_alg_description" class="topLink">Design</a></td>
+                 <td class="<%=selectedTab2.equals("development")?"usdcSubNav_on":"usdcSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=usdc&d3=usdc_alg_description" class="topLink">Development</a></td>
+            <% } else { %>
+                <td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
+            <% } %>
+        <td class="usdcSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+    </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
+    <tr><td bgcolor="#666666" width="100%" height="3" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
 </table>
