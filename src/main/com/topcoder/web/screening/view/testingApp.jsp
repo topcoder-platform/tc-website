@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
  <%@ page errorPage="/errorPage.jsp" %>
 
-<html id="testApplet">
+<html>
 
 <head>
 
@@ -14,7 +14,7 @@
 <body id="testApplet" onLoad="focus()">
 
 <div align="center">
-<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td rowspan="2"><img border="0" height="54" width="10" src="/i/testHeadTopLeft.gif" alt=""></td>
         <td id="testHead"><img alt="0" border="0" height="36" width="114" src="/images/clear.gif"></td>
@@ -30,7 +30,13 @@
     </tr>
 </table>
 
-<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" id="testBody">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td><img border="0" alt="" height="15" width="10" src="/images/clear.gif"></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" id="testBody">
     <tr>
         <td><img src="/i/testBodyTopLeft.gif" alt="" width="10" height="10" alt="0" border="0"></td>
         <td background="/i/testBodyTop.gif" width="100%"><img src="/i/clear.gif" alt="" width="10" height="10" alt="0" border="0"></td>
@@ -57,7 +63,9 @@
                         <a href="Javascript:getReq()">Get more information</a>
                     </td>
                 </tr>
-            </table>
+
+                <tr>
+                    <td class="bodyText">
 
         <%
             String host = request.getParameter("host");
@@ -105,7 +113,10 @@
             <NOEMBED>
             </NOEMBED>
             </OBJECT><br>
-            <strong>You may minimize this browser window, but do not close it.</strong>Doing so will close the applet.
+                        <strong>You may minimize this browser window, but do not close it.</strong>Doing so will close the applet.
+                    </td>
+                </tr>
+            </table>
         </td>
         <td  background="/i/testBodyRight.gif" width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"></td>
     </tr>
