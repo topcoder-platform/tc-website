@@ -82,6 +82,10 @@
                         </ul>
 
 <%-- Documentation --%>
+<% if (projectDetail.getIntItem(0, "root_category_id") == 5801778 || projectDetail.getIntItem(0, "root_category_id") == 5801779) {%>
+                        <p><strong>Documentation</strong><br />
+                        Documentaion / Specification available in component forums.
+<% } else { %>
                         <p><strong>Documentation</strong><br />
                         All <a target="_new" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>">documentation</a>
                         for this project is available on the TopCoder Software web site.</p>
@@ -89,7 +93,7 @@
                         <p><strong>Requirement Specification</strong><br />
                            View the <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this component project
                             </p>
-
+<% } %>
 <%-- Payment --%>
             <table cellspacing="0" class="formFrame" align="center" width="530">
                 <tr>
