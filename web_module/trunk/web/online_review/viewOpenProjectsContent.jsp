@@ -46,7 +46,7 @@
                 <tr valign="top">
                     <td class="<%=rowClass%>">
                         <table border="0" cellpadding="0" cellspacing="0">
-                            <tr valign="top">
+                            <tr valign="middle">
                                 <td class="forumText"><img src="<%=icon%>" alt="" width="25" height="17" border="0"></td>
                                 <td class="forumText"><img src="images/clear.gif" alt="" width="5" height="5" border="0"/></td>
                                 <td class="forumText">
