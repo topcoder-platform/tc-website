@@ -40,10 +40,10 @@ public class DemographicInput extends BaseTag {
                     output.append(buildText());
                     break;
                 case DemographicQuestion.MULTIPLE_SELECT:
-                    output.append("multiselect");
+                    output.append(buildSelect(true));
                     break;
                 case DemographicQuestion.SINGLE_SELECT:
-                    output.append(buildSelect());
+                    output.append(buildSelect(false));
                     break;
                 default: break;
             }
