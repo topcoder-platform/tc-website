@@ -94,7 +94,6 @@
                      <% } else {  %>
                         </td>
                         </tr>
-                        <hr width="100%" size="1" noshade="noshade" />
                         <% i=0; %>
                      <% } %>
                     </rsc:iterator>
