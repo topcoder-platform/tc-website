@@ -42,7 +42,7 @@ public class Static extends BaseProcessor {
         if( request.getQueryString() != null ) {
             originatingPage += "?"+request.getQueryString();
         }
-        log.debug("\n\n*******Static request = "originatingPage);
+        log.debug("\n\n*******Static request = "+originatingPage);
 
         nextPage = requestProcessor();
         log.debug("Static processor nextPage = "+nextPage);
