@@ -336,7 +336,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=GeneChip%20Data%20Interface%20Front%20End%20Dev">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
+                                                        Closed
                                                     </p>
                                                 </td>
                                             </tr>
