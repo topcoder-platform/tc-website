@@ -22,35 +22,44 @@
         <xsl:call-template name="Top"/>
 <!-- Body Begins -->
 <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
-	<TR>
+    <TR>
     <!-- Left Column Begins -->
-		<TD WIDTH="180" VALIGN="top">
-<!-- Left Column Include Begins -->	
-    <!-- Global Seconday Nav Begins -->	
+        <TD WIDTH="180" VALIGN="top">
+<!-- Left Column Include Begins -->    
+    <!-- Global Seconday Nav Begins -->    
         <xsl:call-template name="global_left"/>
-	<!-- Global Seconday Nav Ends -->			
-<!-- Left Column Include Ends -->					
-	  	</TD>
-	<!-- Left Column Ends -->
-	<!-- Gutter Begins -->
-		<TD WIDTH="4" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
+    <!-- Global Seconday Nav Ends -->            
+<!-- Left Column Include Ends -->                    
+          </TD>
+    <!-- Left Column Ends -->
+    <!-- Gutter Begins -->
+        <TD WIDTH="4" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
     <!-- Gutter Ends -->
 
 <!-- Body Area -->
-	<!-- Center Column Begins -->	
-		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
+    <!-- Center Column Begins -->    
+        <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
   <xsl:with-param name="image">schedule</xsl:with-param>
-  <xsl:with-param name="title">Monthly View - January 2003</xsl:with-param>
-</xsl:call-template>			
-			<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-				<TR>
-					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-    <!-- Calendar Pulldown Begins -->	
-        <xsl:call-template name="calendar_view_pulldown"/>
-	<!-- Calendar Pulldown Ends -->	   
+  <xsl:with-param name="title"></xsl:with-param>
+</xsl:call-template>            
+            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+                <TR>
+                    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+                    <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
+
+                        <table width="100%" cellspacing="0" cellpadding="3" border="0" bgcolor="#999999">
+                            <tr valign="middle"><form name="selectform">
+                                <td class="statTextLarge" width="99%"><font size="3">&#160;January 2003</font></td>
+                                <td align="right" width="1%">
+<!-- Calendar Pulldown Begins -->    
+                        <xsl:call-template name="calendar_view_pulldown"/>
+<!-- Calendar Pulldown Ends -->      
+                                </td></form>
+                            </tr> 
+                        </table>
+
       <TABLE BACKGROUND="/i/steel_gray_bg.gif" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
         <TR> 
           <TD VALIGN="top" COLSPAN="2"> 
@@ -115,42 +124,42 @@
       </TABLE>
 
 <P><BR/></P>
-					</TD>
-					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
-	<!-- Center Column Ends -->
+                    </TD>
+                    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+                </TR>
+                <TR>
+                    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+                </TR>       
+                <TR>
+                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+                    <TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+                </TR>    
+                <TR>
+                    <TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
+                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
+                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+                    <TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+                </TR>
+            </TABLE>
+        </TD>
+    <!-- Center Column Ends -->
 <!-- Body Area Ends -->
 
-	<!-- Gutter -->
-		<TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+    <!-- Gutter -->
+        <TD WIDTH="10" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
-	<!-- Right Column Begins -->
-		<TD WIDTH="10" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/><BR/>
+    <!-- Right Column Begins -->
+        <TD WIDTH="10" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/><BR/>
 <!-- Right Column Include Begins -->        
 <!-- Right Column Include Ends -->        
         </TD>
-	<!-- Right Column Ends -->
-	<!-- Gutter -->
-		<TD WIDTH="25" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
+    <!-- Right Column Ends -->
+    <!-- Gutter -->
+        <TD WIDTH="25" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
-	</TR>
+    </TR>
 </TABLE>
 <!-- Body Ends -->
         <xsl:call-template name="Foot"/>

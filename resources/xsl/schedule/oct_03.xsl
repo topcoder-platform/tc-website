@@ -51,16 +51,23 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">schedule</xsl:with-param>
-                <xsl:with-param name="title">October 2003</xsl:with-param>
+                <xsl:with-param name="title"></xsl:with-param>
             </xsl:call-template>			
             
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText" width="100%">
 
+                        <table width="100%" cellspacing="0" cellpadding="3" border="0" bgcolor="#999999">
+                            <tr valign="middle"><form name="selectform">
+                                <td class="statTextLarge" width="99%"><font size="3">&#160;October 2003</font></td>
+                                <td align="right" width="1%">
 <!-- Calendar Pulldown Begins -->	
                         <xsl:call-template name="calendar_view_pulldown"/>
-<!-- Calendar Pulldown Ends -->	   
+<!-- Calendar Pulldown Ends -->	  
+                                </td></form>
+                            </tr> 
+                        </table>
 
                         <table width="100%" cellspacing="1" cellpadding="3" id="calendarFrame">
                             <tr> 
@@ -82,15 +89,15 @@
                                     <strong>Match 166</strong><br />
                                     Register: 7:00&#160;PM<br />
                                     Compete: 10:00&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4635&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarTCO03">
                                     <span id="calendarTCO03Date">2</span><br />
-                                    <strong>2003 TCO: Development / Design</strong><br />
+                                    <strong>2003 TCO: Design / Development</strong><br />
                                     Online Round #1<br />
                                     Winners announced<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendar">3</td>
@@ -102,35 +109,35 @@
                                 <td id="calendar">6</td>
                                 <td id="calendarTCO03">
                                     <span id="calendarTCO03Date">7</span><br />
-                                    <strong>2003 TCO</strong><br />
-                                    Qualification Round #1<br />
+                                    <strong>2003 TCO: Coding</strong><br />
+                                    Qual. Round #1<br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <strong>2003 TCO: Development</strong><br />
                                     Online Round #2<br />
                                     Projects posted: 12:00&#160;AM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendar">8</td>
                                 <td id="calendarTCO03">
                                     <span id="calendarTCO03Date">9</span><br />
-                                    <strong>2003 TCO</strong><br />
-                                    Qualification Round #2<br />
+                                    <strong>2003 TCO: Coding</strong><br />
+                                    Qual. Round #2<br />
                                     Register: 7:00&#160;PM<br />
                                     Compete: 10:00&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <strong>2003 TCO: Design</strong><br />
                                     Online Round #2<br />
                                     Projects posted: 12:00&#160;AM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendar">10</td>
@@ -152,7 +159,7 @@
                                     Online Round #1<br />
                                     Login by: 9:20&#160;PM<br />
                                     Compete: 9:30&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
                                 <td id="calendar">16</td>
@@ -162,7 +169,7 @@
                                     <strong>Match 167</strong><br />
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4640&amp;t=schedule&amp;c=srm">Details</A></td>
                             </tr>
@@ -173,8 +180,8 @@
                                     <span id="calendarTCO03Date">20</span><br />
                                     <strong>2003 TCO: Development</strong><br />
                                     Online Round #2<br />
-                                    Submissions deadline: 11:59&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Deadline: 11:59&#160;PM<br />
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendarSRM">
@@ -182,23 +189,23 @@
                                     <strong>Match 168</strong><br />
                                     Register: 5:00&#160;PM<br />
                                     Compete: 8:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tces&amp;c=index">Nvidia</A><br />
+                                    Sponsor: <A href="/?t=tces&amp;c=index#nvidia">Nvidia</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4645&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarTCO03">
                                     <span id="calendarTCO03Date">22</span><br />
-                                    <strong>2003 TCO</strong><br />
+                                    <strong>2003 TCO: Coding</strong><br />
                                     Online Round #2<br />
                                     Login by: 9:20&#160;PM<br />
                                     Compete: 9:30&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <strong>2003 TCO: Design</strong><br />
                                     Online Round #2<br />
-                                    Submissions deadline: 11:59&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Deadline: 11:59&#160;PM<br />
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendar">23</td>
@@ -214,16 +221,16 @@
                                     <strong>Match 169</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_revelation">Revelation Software</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4650&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarTCO03">
                                     <span id="calendarTCO03Date">29</span><br />
-                                    <strong>2003 TCO</strong><br />
+                                    <strong>2003 TCO: Coding</strong><br />
                                     Online Round #3<br />
                                     Login by: 9:20&#160;PM<br />
                                     Compete: 9:30&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
                                 <td id="calendar">30</td>

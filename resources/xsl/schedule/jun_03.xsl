@@ -51,16 +51,23 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">schedule</xsl:with-param>
-                <xsl:with-param name="title">June 2003</xsl:with-param>
+                <xsl:with-param name="title"></xsl:with-param>
             </xsl:call-template>			
             
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText" width="100%">
 
+                        <table width="100%" cellspacing="0" cellpadding="3" border="0" bgcolor="#999999">
+                            <tr valign="middle"><form name="selectform">
+                                <td class="statTextLarge" width="99%"><font size="3">&#160;June 2003</font></td>
+                                <td align="right" width="1%">
 <!-- Calendar Pulldown Begins -->	
                         <xsl:call-template name="calendar_view_pulldown"/>
-<!-- Calendar Pulldown Ends -->	   
+<!-- Calendar Pulldown Ends -->	  
+                                </td></form>
+                            </tr> 
+                        </table>
 
                         <table width="100%" cellspacing="1" cellpadding="3" id="calendarFrame">
                             <tr> 

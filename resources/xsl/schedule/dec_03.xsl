@@ -51,16 +51,23 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">schedule</xsl:with-param>
-                <xsl:with-param name="title">December 2003</xsl:with-param>
+                <xsl:with-param name="title"></xsl:with-param>
             </xsl:call-template>			
             
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText" width="100%">
 
+                        <table width="100%" cellspacing="0" cellpadding="3" border="0" bgcolor="#999999">
+                            <tr valign="middle"><form name="selectform">
+                                <td class="statTextLarge" width="99%"><font size="3">&#160;December 2003</font></td>
+                                <td align="right" width="1%">
 <!-- Calendar Pulldown Begins -->	
                         <xsl:call-template name="calendar_view_pulldown"/>
-<!-- Calendar Pulldown Ends -->	   
+<!-- Calendar Pulldown Ends -->	  
+                                </td></form>
+                            </tr> 
+                        </table>
 
                         <table width="100%" cellspacing="1" cellpadding="3" id="calendarFrame">
                             <tr> 
@@ -85,21 +92,21 @@
                                 <td id="calendar">3</td>
                                 <td id="calendarTCO03">
                                     <span id="calendarTCO03Date">4</span><br />
-                                    <strong>2003 TCO</strong><br />
+                                    <strong>2003 TCO: Coding</strong><br />
                                     Semifinal Rounds<br />
                                     Round 1: 10:00&#160;AM<br />
                                     Round 2: 1:00&#160;PM<br />
                                     Round 3: 4:00&#160;PM<br />
                                     Round 4: 7:00&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
                                 <td id="calendarTCO03">
                                     <span id="calendarTCO03Date">5</span><br />
-                                    <strong>2003 TCO</strong><br />
-                                    Championship Round<br />
+                                    <strong>2003 TCO: Coding</strong><br />
+                                    Championship<br />
                                     Compete: 1:00&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
                                 <td id="calendar">6</td>
@@ -117,7 +124,7 @@
                                     <strong>Match 174</strong><br />
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4675&amp;t=schedule&amp;c=srm">Details</A></td>
                             </tr>
@@ -131,7 +138,7 @@
                                     <strong>Match 175</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4680&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendar">18</td>
@@ -146,7 +153,7 @@
                                     <strong>Match 176</strong><br />
                                     Register: 7:00&#160;PM<br />
                                     Compete: 10:00&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4685&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendar">23</td>
@@ -164,7 +171,7 @@
                                     <strong>Match 177</strong><br />
                                     Register: 5:00&#160;PM<br />
                                     Compete: 8:00&#160;PM<br />
-                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4690&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendar">31</td>
