@@ -58,7 +58,7 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
- <DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/intern_soft_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>   
+ <DIV ALIGN="CENTER"><a href="/?&amp;t=tces&amp;c=nvidia"><IMG SRC="/i/es/nvidia/intern_soft_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></a></DIV>
 
 
 

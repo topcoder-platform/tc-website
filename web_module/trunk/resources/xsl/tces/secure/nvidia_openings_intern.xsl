@@ -58,7 +58,7 @@
                         <xsl:call-template name="nvidia_links"/>
 <!-- Nvidia Ends -->
 
-<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/><BR/>       
+<a href="/?&amp;t=tces&amp;c=nvidia"><IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/></a><BR/>       
 <P>
 <B>Intern/Co-op Positions</B><BR/> 
 NVIDIA's Intern &amp; Co-op Program is a year-round program offering work
