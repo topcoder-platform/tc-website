@@ -105,13 +105,6 @@ public class QueryRunner implements DataRetrieverInt {
 
         try {
 
-            int startRank =inputs.containsKey(DataAccessConstants.START_RANK)?
-                    Integer.parseInt((String)inputs.get(DataAccessConstants.START_RANK)):1;
-            int endRank =inputs.containsKey(DataAccessConstants.END_RANK)?
-                    Integer.parseInt((String)inputs.get(DataAccessConstants.END_RANK)):Integer.MAX_VALUE;
-
-            log.debug("start: " + startRank + " end: " + endRank);
-
             resultMap = new HashMap();
             queryMap = (Map) inputs.get(DataAccessConstants.QUERY_KEY);
             queryIterator = queryMap.entrySet().iterator();
@@ -119,6 +112,12 @@ public class QueryRunner implements DataRetrieverInt {
                 me = (Map.Entry) queryIterator.next();
                 queryText = (String) me.getValue();
                 queryName = (String) me.getKey();
+                int startRank =inputs.containsKey(queryName+DataAccessConstants.START_RANK)?
+                        Integer.parseInt((String)inputs.get(queryName+DataAccessConstants.START_RANK)):1;
+                int endRank =inputs.containsKey(queryName+DataAccessConstants.END_RANK)?
+                        Integer.parseInt((String)inputs.get(queryName+DataAccessConstants.END_RANK)):Integer.MAX_VALUE;
+                log.debug("start: " + startRank + " end: " + endRank);
+
                 ps = conn.prepareStatement(queryText);
                 rs = ps.executeQuery();
                 rsc = new ResultSetContainer(rs, startRank, endRank, false);
