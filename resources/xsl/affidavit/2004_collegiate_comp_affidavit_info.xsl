@@ -98,7 +98,7 @@
                                 <p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
-                                        We do not have a notarized affidavit from you on file. View a <a href="/?&amp;t=affidavit&amp;c=2004_collegiate_affidavit">
+                                        We do not have a notarized affidavit from you on file. View a <a href="/?&amp;t=affidavit&amp;c=2004_collegiate_comp_affidavit">
                                         printable version</a> of your affidavit.  This affidavit must be notarized and returned to us at the address below.
                                     </xsl:when>
                                     <xsl:otherwise>
