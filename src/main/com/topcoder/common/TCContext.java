@@ -4,6 +4,7 @@ import java.util.*;
 import javax.naming.*;
 import java.io.*;
 import org.apache.log4j.*;
+import com.topcoder.common.web.XProperties;
 
 
 public class TCContext {

@@ -1,4 +1,4 @@
-  package admin.task.coder; 
+  package com.topcoder.web.servlet.admin.task.coder;
 
   import java.io.*;
   import java.util.*;
@@ -24,7 +24,7 @@
 
     private static final boolean VERBOSE = false;
 
-    private static final String DIR = admin.XSL.DIR+"systemtestcasereport/";
+    private static final String DIR = com.topcoder.web.servlet.admin.XSL.DIR+"systemtestcasereport/";
     private static final String SYSTEMTESTCASEREPORT_MENU_PAGE = DIR+"systemtestcasereport_menu.xsl";
     private static final String PROBLEMLIST_MENU_PAGE = DIR+"systemtestcasereport_problemmenu.xsl";
     private static final String CODERLIST_MENU_PAGE = DIR+"systemtestcasereport_codermenu.xsl";
@@ -70,7 +70,7 @@
         } 
       } catch (Exception e) {
         e.printStackTrace();
-        throw new NavigationException("SystemTestResult: process method: ERROR:\n "+e, admin.XSL.NAVIGATION_ERROR_URL);
+        throw new NavigationException("SystemTestResult: process method: ERROR:\n "+e, com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
 
       }
       return result;
@@ -133,7 +133,7 @@
           e.printStackTrace();
           Log.msg("SystemTestResult: getSystemTestCaseReportList error retrieving systemtestcasereport  list .");
           Log.msg("MSG: " + e);
-          throw new NavigationException("Exception:", admin.XSL.NAVIGATION_ERROR_URL);
+          throw new NavigationException("Exception:", com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
         }
         finally {
           try {
@@ -155,7 +155,7 @@
         throw ne;
       } catch (Exception e) {
         throw new NavigationException("SystemTestCaseReport: remove systemtestcase  : ERROR:\n "+e,
-        admin.XSL.NAVIGATION_ERROR_URL);
+        com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
 
       }
       return result;
@@ -201,7 +201,7 @@
         } catch (Exception e) {
           Log.msg("SystemTestResult: getCoder error retrieving coder list.");
           Log.msg("MSG: " + e);
-          throw new NavigationException("DB ERROR", admin.XSL.NAVIGATION_ERROR_URL);
+          throw new NavigationException("DB ERROR", com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
         }
         finally {
           try {
@@ -211,7 +211,7 @@
         }
 
         if (coderList == null) 
-          throw new NavigationException("CODER LIST IS NULL", admin.XSL.NAVIGATION_ERROR_URL);
+          throw new NavigationException("CODER LIST IS NULL", com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
         
         for (int i = 0; i < coderList.size(); i++) {
           contestTag.addTag(((com.topcoder.common.web.data.SystemTestCaseReport)coderList.get(i)).getXML());
@@ -226,7 +226,7 @@
         throw ne;
       } catch (Exception e) {
         throw new NavigationException("SystemTestCaseReport:  getCoderList  : ERROR:\n "+e,
-        admin.XSL.NAVIGATION_ERROR_URL);
+        com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
 
       }
       return result;
@@ -272,7 +272,7 @@
         } catch (Exception e) {
           Log.msg("SystemTestResult: getProblemList error retrieving problem list.");
           Log.msg("MSG: " + e);
-          throw new NavigationException("DB ERROR", admin.XSL.NAVIGATION_ERROR_URL);
+          throw new NavigationException("DB ERROR", com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
         }
         finally {
           try {
@@ -294,7 +294,7 @@
         throw ne;
       } catch (Exception e) {
         throw new NavigationException("SystemTestCaseReport:  getProblemList  : ERROR:\n "+e,
-        admin.XSL.NAVIGATION_ERROR_URL);
+        com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
 
       }
       return result;
@@ -321,7 +321,7 @@
         } catch (Exception e) {
           Log.msg("SystemTestResult: removeSystemTestResult error removing challenge .");
           Log.msg("MSG: " + e);
-          throw new NavigationException("DB ERROR", admin.XSL.NAVIGATION_ERROR_URL);
+          throw new NavigationException("DB ERROR", com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
         }
         finally {
           try {
@@ -332,7 +332,7 @@
 
       } catch (Exception e) {
       throw new NavigationException("SystemTestResult: removeSystemTestResult  : ERROR:\n "+e,
-        admin.XSL.NAVIGATION_ERROR_URL);
+        com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
 
       }
     }
@@ -359,7 +359,7 @@
       } catch (Exception e) {
           Log.msg("SystemTestResult: getRoundMenuScreen error retrieving contest list .");
           Log.msg("MSG: " + e);
-          throw new NavigationException("DB ERROR", admin.XSL.NAVIGATION_ERROR_URL);
+          throw new NavigationException("DB ERROR", com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
       }
       finally {
         try {
@@ -383,7 +383,7 @@
             } catch (Exception e) {
                   e.printStackTrace();
                   throw new NavigationException("SystemTestResult: getRoundMenuScreen : ERROR:\n "+e,
-                    admin.XSL.NAVIGATION_ERROR_URL);
+                    com.topcoder.web.servlet.admin.XSL.NAVIGATION_ERROR_URL);
         
             }
             return result;

@@ -1,4 +1,4 @@
-package marketing;
+package com.topcoder.web.servlet.marketing;
 
 import com.topcoder.common.web.constant.TCServlet;
 

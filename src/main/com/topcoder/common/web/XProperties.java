@@ -1,4 +1,4 @@
-package com.topcoder.common;
+package com.topcoder.common.web;
 
 import java.util.Properties;
 /**

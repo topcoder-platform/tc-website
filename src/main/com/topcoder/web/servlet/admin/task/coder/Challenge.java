@@ -1,4 +1,4 @@
-  package admin.task.coder;
+  package com.topcoder.web.servlet.admin.task.coder;
 
   import java.io.*;
   import java.util.*;
@@ -10,13 +10,13 @@
   import javax.transaction.Status;
 
   import com.topcoder.ejb.ContestAdminServices.*;
-  import admin.*;
   import com.topcoder.common.*;
   import com.topcoder.common.web.util.*; 
   import com.topcoder.common.web.xml.*; 
   import com.topcoder.common.web.data.*;
   import com.topcoder.common.web.error.*;
   import com.topcoder.common.TCContext;
+  import com.topcoder.web.servlet.admin.*;
   import org.apache.log4j.*;
   
 

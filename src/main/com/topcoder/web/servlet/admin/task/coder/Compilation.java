@@ -1,4 +1,4 @@
-  package admin.task.coder;
+  package com.topcoder.web.servlet.admin.task.coder;
 
   import java.io.*;
   import java.util.*;
@@ -8,7 +8,6 @@
   import javax.naming.*;
   import javax.transaction.UserTransaction;
   import javax.transaction.Status;
-  import admin.*;
   import com.topcoder.ejb.ContestAdminServices.*;
   import com.topcoder.common.*;
   import com.topcoder.common.web.data.*;
@@ -16,11 +15,12 @@
   import com.topcoder.common.web.xml.*;
   import com.topcoder.common.web.util.*;
   import com.topcoder.common.web.data.Navigation;
+  import com.topcoder.web.servlet.admin.*;
 
   public final class Compilation  {
 
 
-    private static final String DIR = XSL.DIR + "compilation/"; 
+    private static final String DIR = XSL.DIR + "compilation/";
     private static final boolean VERBOSE = false;
 
 

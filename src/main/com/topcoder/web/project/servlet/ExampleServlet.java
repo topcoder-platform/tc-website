@@ -1,4 +1,4 @@
-package com.topcoder.web.servlet;
+package com.topcoder.web.project.servlet;
 
 import java.io.*;
 import java.net.*;
