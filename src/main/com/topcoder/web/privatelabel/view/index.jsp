@@ -26,7 +26,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td> 
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
@@ -41,6 +41,7 @@
 
 <!-- Upcoming Tournaments begins -->
 
+<%--
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="header">Upcoming Private Label Events</td></tr>
             </table>
@@ -62,7 +63,7 @@
                 </tr>
             </table>
 
-
+--%>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
 <!-- Past Tournaments begins -->
