@@ -149,19 +149,14 @@
 
   Query query = null;
 
-  if( doSearch && queryText!=null) {
+  if( doSearch && queryText!=null&&forumID > 0) {
 
 
       ForumFactory forumFactory = ForumFactory.getInstance(authToken);
 
-      if (forumID > 0) {
-          Forum forum = forumFactory.getForum(forumID);
-          query = forum.createQuery();
-          query.setQueryString(queryText);
-      } else {
-          //hack for seaching all forums
-          query = new DbQuery((DbForumFactory)forumFactory);
-      }
+      Forum forum = forumFactory.getForum(forumID);
+      query = forum.createQuery();
+      query.setQueryString(queryText);
       searchResults = query.execute();
 
   }
