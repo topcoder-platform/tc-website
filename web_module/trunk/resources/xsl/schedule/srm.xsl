@@ -68,16 +68,16 @@
                                 <a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm','Citrix','1','1','660','489')"><IMG SRC="/i/srm91_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
                               </xsl:when>
                               <xsl:when test="RoundId='4180'">
-                                <a href="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm92"><IMG SRC="/i/srm92_motorolla.gif" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
+                                <a href="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm92"><IMG SRC="/i/srm92_motorola.gif" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
                               </xsl:when>
                               <xsl:when test="RoundId='4185'">
                                 <a href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm','Citrix','1','1','660','489')"><IMG SRC="/i/srm93_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
                               </xsl:when>
                               <xsl:when test="RoundId='4200'">
-                                <a href="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm96"><IMG SRC="/i/srm96_motorolla.gif" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
+                                <a href="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm96"><IMG SRC="/i/srm96_motorola.gif" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
                               </xsl:when>
                               <xsl:when test="RoundId='4220'">
-                                <a href="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm100"><IMG SRC="/i/srm100_motorolla.gif" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
+                                <a href="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm100"><IMG SRC="/i/srm100_motorola.gif" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
                               </xsl:when>
                               <xsl:otherwise>
                                 <IMG SRC="/i/srm_banner.jpg" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
