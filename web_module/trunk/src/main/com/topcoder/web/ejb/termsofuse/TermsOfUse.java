@@ -22,5 +22,3 @@ public interface TermsOfUse extends EJBObject {
             throws EJBException, RemoteException;
 
 }
-
-;
