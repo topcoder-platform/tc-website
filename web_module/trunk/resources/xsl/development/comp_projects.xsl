@@ -72,46 +72,74 @@
 				<tr valign="top">
 					<td class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=object_pool">Object Pool:&#160;Design</a><br/>
-						Submit by: 12.18.2002</p>   
+						Project: <a class="statText" href="/index?t=development&amp;c=file_distributor-design">File Distributor: Design</a><br />
+						Submit by: 12.27.2002</p>   
 
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=spell_check">Spell Check:&#160;Design</a><br/>
-						Submit by: 12.18.2002</p>   
+						Project: <a class="statText" href="/index?t=development&amp;c=generic_mapping-design">Generic Mapping: Design</a><br />
+						Submit by: 12.27.2002</p>   
 
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=java_compiler">Java Compiler:&#160;Design</a><br/>
-						Submit by: 12.18.2002</p>   
+						Project: <a class="statText" href="/index?t=development&amp;c=global_dist_calc-design">Global Distance Calculator: Design</a><br />
+						Submit by: 12.27.2002</p>   
 
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=exec_wrapper">Executable Wrapper:&#160;Design</a><br/>
-						Submit by: 12.18.2002</p>   
+						Project: <a class="statText" href="/index?t=development&amp;c=job_scheduling-design">Job Scheduling: Design</a><br />
+						Submit by: 12.27.2002</p>   
 
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=service_mgr">Service Manager:&#160;Design</a><br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=xml_parser-design">Lightweight XML Parser: Design</a><br />
+						Submit by: 12.27.2002</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=random_string-design">Random String Generator: Design</a><br />
+						Submit by: 12.27.2002</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=socket_server_mgr-design">Socket Server Manager: Design</a><br />
+						Submit by: 12.27.2002</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=url_loader-design">URL Loader: Design</a><br />
+						Submit by: 12.27.2002</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=currency">Currency: Design</a><br />
 						Submit by: 12.18.2002</p>   
 					</td>
 
 					<td class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=currency">Currency:&#160;Design</a><br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=exec_wrapper">Executable Wrapper: Design</a><br />
 						Submit by: 12.18.2002</p>   
 
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=serial_num">Serial Number Generator:&#160;Design</a><br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=http_tunnel-design">HTTP Tunneling: Design</a><br />
 						Submit by: 12.18.2002</p>   
 
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=db_abstract-design">Database Abstraction:&#160;Design</a><br/>
-						Submit by: 12.11.2002</p>   
+						Project: <a class="statText" href="/index?t=development&amp;c=java_compiler">Java Compiler: Design</a><br />
+						Submit by: 12.18.2002</p>   
 
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=http_tunnel-design">HTTP Tunneling:&#160;Design</a><br/>
-						Submit by: 12.11.2002</p>   
+						Project: <a class="statText" href="/index?t=development&amp;c=object_pool">Object Pool: Design</a><br />
+						Submit by: 12.18.2002</p>   
 
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=object_selector-design">Object Selector:&#160;Design</a><br/>
-						Submit by: 12.11.2002</p>   
+						Project: <a class="statText" href="/index?t=development&amp;c=object_selector-design">Object Selector: Design</a><br />
+						Submit by: 12.18.2002</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=serial_num">Serial Number Generator: Design</a><br />
+						Submit by: 12.18.2002</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=service_mgr">Service Manager: Design</a><br />
+						Submit by: 12.18.2002</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=spell_check">Spell Check: Design</a><br />
+						Submit by: 12.18.2002</p>   
 					</td>
 				</tr>
 				
@@ -119,24 +147,28 @@
 
 				<tr><td class="statText" colspan="2"><a name="development"><h1 class="devSubhead">Open Component Development Projects</h1></a></td></tr>
 				
-				<tr valign="top">
+<!--				<tr valign="top">
 					<td class="statText">
 						<p>There are no Open Component Development postings.</p></td>
-				</tr>
+				</tr>  -->
 							
-<!--				<tr valign="top">
+				<tr valign="top">
 					<td class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=timer_dev">Timer:&#160;Development</a><br/>
-						Submit by: 12.05.2002</p>   
+						Project: <a class="statText" href="/index?t=development&amp;c=ip_filter-dev">IP Filter: Development</a><br />
+						Submit by: 12.27.2002</p>   
+
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=object_formatter-dev">Object Formatter: Development</a><br />
+						Submit by: 12.27.2002</p>   
 					</td>
 
 					<td class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=utg_dev">Unit Test Generator:&#160;Development</a><br/>
-						Submit by: 12.05.2002</p>   
+						Project: <a class="statText" href="/index?t=development&amp;c=resourcebundle-dev">ResourceBundle: Development</a><br />
+						Submit by: 12.27.2002</p>   
 					</td>
-				</tr>  -->
+				</tr>
 			</table>
 				
 			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
