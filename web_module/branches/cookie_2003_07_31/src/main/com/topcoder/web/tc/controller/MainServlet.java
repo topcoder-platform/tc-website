@@ -36,7 +36,7 @@ public class MainServlet extends BaseServlet {
         if (nav == null) {
             ret = new CoderSessionInfo(request, auth, groups);
             nav = new Navigation(request, ret);
-            request.setAttribute("navigation", nav);
+            request.getSession(true).setAttribute("navigation", nav);
         } else {
             ret = nav.getSessionInfo();
         }
