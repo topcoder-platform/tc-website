@@ -41,20 +41,22 @@ public class Reg extends FullReg {
         
     }
     
-    protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
-        super.checkRegInfo(info);
+    protected SimpleRegInfo makeRegInfo() throws Exception {
+        SimpleRegInfo ret = super.makeRegInfo();
         
-        ((FullRegInfo) info).setCoderType(1);
+        ((FullRegInfo) ret).setCoderType(1);
         
         //need to load demographic questions here because of 1 page approach
         try {
-            List l = getQuestionList(((FullRegInfo) info).getCoderType());
+            List l = getQuestionList(((FullRegInfo) ret).getCoderType());
             Collections.sort(l);
             getRequest().setAttribute("questionList", l);
-            log.error("RYAN:" + l.size());
+            log.debug("RYAN:" + l.size());
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+        
+        return ret;
     }
 
 }
