@@ -827,7 +827,8 @@ public class TCLoadRank extends TCLoad {
         try {
 
             query = new StringBuffer(100);
-            query.append( " SELECT distinct s.school_id");
+            query.append(" SELECT c.coder_id");
+            query.append(       " ,r.rating");
             query.append( " FROM coder c");
             query.append( " , rating r");
             if (activeOnly)
@@ -842,6 +843,7 @@ public class TCLoadRank extends TCLoad {
             query.append( " AND cs.school_id = ?");
             if (activeOnly)
                 query.append( " AND a.coder_id = c.coder_id");
+            query.append( " ORDER BY r.rating DESC");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setLong(1, schoolId);
 
