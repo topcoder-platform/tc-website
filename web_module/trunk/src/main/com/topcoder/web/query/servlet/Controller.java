@@ -5,7 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.AuthenticationException;
-import com.topcoder.web.query.bean.Authentication;
+import com.topcoder.web.query.common.Authentication;
 import com.topcoder.web.query.bean.Task;
 //import com.topcoder.ejb.AuthenticationServices.Authentication;
 

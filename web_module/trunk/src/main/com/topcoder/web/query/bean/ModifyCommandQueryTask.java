@@ -1,10 +1,7 @@
 package com.topcoder.web.query.bean;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.query.common.QueryBean;
-import com.topcoder.web.query.common.CommandQueryBean;
-import com.topcoder.web.query.common.AuthenticationException;
-import com.topcoder.web.query.common.Constants;
+import com.topcoder.web.query.common.*;
 import com.topcoder.web.query.ejb.QueryServices.CommandQueryHome;
 import com.topcoder.web.query.ejb.QueryServices.CommandQuery;
 import com.topcoder.web.query.ejb.QueryServices.QueryHome;
