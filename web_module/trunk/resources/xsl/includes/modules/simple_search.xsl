@@ -9,11 +9,9 @@
                 <tr valign="middle"><form name="simpleSearchForm" method="get">
                     <td class="data" width="2"><img src="/i/clear.gif" width="2" height="1" border="0"/></td>
                     <td class="statTextBig">
-                        <xsl:attribute name="action">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>
-                        <input type="hidden" name="t" value="search"/>
-                        <input type="hidden" name="c" value="simple_search"/>
-
-                        <input type="text" name="SearchHandle" value="Handle:" size="12" maxlength="15" onFocus="javascript: if (document.simpleSearchForm.SearchHandle.value=='Handle:') document.simpleSearchForm.SearchHandle.value = '';" onBlur="javascript: if (document.simpleSearchForm.SearchHandle.value == '') document.simpleSearchForm.SearchHandle.value = 'Handle:';" />
+                        <xsl:attribute name="action">http://<xsl:value-of select="/TC/Host"/>/tc</xsl:attribute>
+                        <input type="hidden" name="module" value="SimpleSearch" />
+                        <input type="text" name="hn" value="Handle:" size="12" maxlength="15" onFocus="javascript: if (document.simpleSearchForm.hn.value=='Handle:') document.simpleSearchForm.hn.value = '';" onBlur="javascript: if (document.simpleSearchForm.hn.value == '') document.simpleSearchForm.hn.value = 'Handle:';" />
                     </td>
                     <td class="statTextBig"><A href="javascript:void document.simpleSearchForm.submit();"><img src="/i/button_go_member_search.gif" alt="Go" width="24" height="18" vspace="3" border="0" /></A></td>
                     <td width="99%"><img src="/i/clear.gif" alt="" width="5" height="5" border="0" /></td>
