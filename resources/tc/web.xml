@@ -78,6 +78,12 @@
             <description></description>
         </init-param>
         <init-param>
+            <param-name>problem_rating_questions</param-name>
+            <param-value>/problem_rating/questions.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+        <init-param>
             <param-name>crpf_report</param-name>
             <param-value>/crpf/report.jsp</param-value>
             <description></description>
