@@ -25,3 +25,4 @@
 					
 					
 			%>		
+<table><tr><td class=sectionTitle><%= rsc.getItem(0,"contest_name") %> on <%= rsc.getItem(0,"contest_date") %></td></tr></table>			

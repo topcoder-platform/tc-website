@@ -23,13 +23,6 @@ javax.servlet.jsp.JspWriter,
 %>
 <jsp:include page="css.jsp" />
 <jsp:include page="../script.jsp" />
-<html>
-<head>
-	<title>Untitled</title>
-</head>
-
-<body>
-
 <%
 String newrd;
 if (request.getParameter("rd")==null)
@@ -422,6 +415,3 @@ else
 </tr>
 </table>
 
-
-</body>
-</html>

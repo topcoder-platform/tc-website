@@ -27,57 +27,55 @@
     <title>TopCoder SRM Reports</title>
   </head>
   <body>
-  <table>
+<table>
   <tr valign="top">
-  <td width="10%"><jsp:include page="srm_nav.jsp" /></td><td colspan="3"></td>
+    <td width="10%"><jsp:include page="srm_nav.jsp" /></td>
+    <td>
+	  <table>
+        <tr>
+		  <td colspan="3"><jsp:include page="srm_info.jsp" /></td>
+		</tr>
+        <tr>
+          <td colspan=2><jsp:include page="srm_chooser.jsp" ><jsp:param name="link" value="srm_demo_general"/></jsp:include></td>
+        </tr>
+        <tr valign="top">
+		  <td>&nbsp;</td>
+          <td><jsp:include page="srm_demo_part_by_country.jsp" /></td>
+          <td rowspan="8">&nbsp;</td>
+          <td rowspan="8"><jsp:include page="srm_demo_total_part.jsp" /></td>
+        </tr>
+	    <tr valign="top">
+          <td>&nbsp;</td>
+          <td><jsp:include page="srm_demo_logged_in.jsp" /></td>
+	    </tr>
+	 	<tr valign="top">
+          <td>&nbsp;</td>
+          <td><jsp:include page="srm_demo_time_online.jsp" /></td>
+	    </tr>
+	    <tr valign="top">
+          <td>&nbsp;</td>
+          <td><jsp:include page="srm_demo_last_match.jsp" /></td>
+	    </tr>
+		<tr valign="top">
+          <td>&nbsp;</td>
+          <td>New Participation Aging (days between registration and this match for new participants)</td>
+	    </tr>
+		<tr valign="top">
+          <td>&nbsp;</td>
+          <td><jsp:include page="srm_demo_new_part_aging_stud.jsp" /></td>
+	    </tr>
+		<tr valign="top">
+          <td>&nbsp;</td>
+          <td><jsp:include page="srm_demo_new_part_aging_pro.jsp" /></td>
+	    </tr>
+	   	<tr valign="top">
+          <td>&nbsp;</td>
+          <td><jsp:include page="srm_demo_new_part_aging_all.jsp" /></td>
+	    </tr>
+      </table>
+    </td>
   </tr>
-  <tr>
-  <td>&nbsp;</td><td colspan="3"><jsp:include page="srm_chooser.jsp" ><jsp:param name="link" value="srm_demo_general"/></jsp:include></td>
-  </tr>
-  
-  <tr valign="top">
-    <tr valign="top">
-      <td>&nbsp;</td>
-      <td><jsp:include page="srm_demo_part_by_country.jsp" /></td>
-      <td rowspan="8">&nbsp;</td>
-      <td rowspan="8"><jsp:include page="srm_demo_total_part.jsp" /></td>
-    </tr>
-	
-    <tr valign="top">
-      <td>&nbsp;</td>
-      <td><jsp:include page="srm_demo_logged_in.jsp" /></td>
-	</tr>
-	
-	<tr valign="top">
-      <td>&nbsp;</td>
-      <td><jsp:include page="srm_demo_time_online.jsp" /></td>
-	</tr>
-	
-	<tr valign="top">
-      <td>&nbsp;</td>
-      <td><jsp:include page="srm_demo_last_match.jsp" /></td>
-	</tr>
-		<tr valign="top">
-      <td>&nbsp;</td>
-      <td>New Participation Aging (days between registration and this match for new participants)</td>
-	</tr>
-		<tr valign="top">
-      <td>&nbsp;</td>
-      <td><jsp:include page="srm_demo_new_part_aging_stud.jsp" /></td>
-	</tr>
-	</tr>
-		<tr valign="top">
-      <td>&nbsp;</td>
-      <td><jsp:include page="srm_demo_new_part_aging_pro.jsp" /></td>
-	</tr>
-	</tr>
-		<tr valign="top">
-      <td>&nbsp;</td>
-      <td><jsp:include page="srm_demo_new_part_aging_all.jsp" /></td>
-	</tr>
-  </tr>
-  </table>
-
+</table>
  
 
 
