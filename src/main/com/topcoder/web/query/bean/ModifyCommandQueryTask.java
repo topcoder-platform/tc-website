@@ -90,12 +90,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
             }
         } else if (step!=null && step.equals(Constants.NEW_STEP)) {
             checkQueryIds(getCurrentQueryList(), q);
-            if (isQueryAssociated(getCommandId(), getQueryId(), cq)) {
-                super.addError(Constants.QUERY_ID_PARAM, "Query already associated with command");
-            }
-            if (!super.hasErrors()) {
-                cq.createCommandQuery(getCommandId(), getQueryId());
-            }
+            cq.createCommandQuery(getCommandId(), getQueryId());
         } else if (step!=null && step.equals(Constants.REMOVE_STEP)) {
             checkQueryIds(getCurrentQueryList(), q);
             cq.removeCommandQuery(getCommandId(), getQueryId());
