@@ -611,29 +611,39 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
  Summary/Best/Worst Ends -->
 
 
-<!-- Coder Point of View Begins
-            <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
-                <tr><td valign="top" colspan="3"><img src="/i/label_coders_pov.gif" alt="Coder's Point of View" width="154" height="30" border="0" /></td></tr>
+<!-- Coder Point of View Begins-->
 
+             <table width="100%" border="0" cellspacing="0" cellpadding="3">                     
+                <tr valign="middle">
+                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Coders Point of View</font></td>
+                    <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>View All</strong></a></td>
+                </tr>
+            </table>
+            
+             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="top">
                     <td width="55" class="bodyText">
-                        <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5"/><br />
-                        By&#160;<strong>Yarin</strong><br/>
+                        <img src="/i/m/lbackstrom_mug.jpg" alt="" width="55" height="61" border="0" vspace="5"/><br />
+                        By&#160;<strong>lbackstrom</strong><br/>
                         <span class="smallText"><em>TopCoder Member</em></span></td>
                     <td width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td width="99%" class="bodyText">
-                        <p><strong>Single Round Match 140</strong><br />
-                        <a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm140_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a></p>
+                        <p><font size="4"><strong>Single Round Match 141</strong></font><br />
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm141_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
 
-                        <p>Another difficult Division-I hard problem made the competition miserable for everyone in Division-I. After the system 
-                        testing phase, none of the 11 submissions were still standing. The other two problems had high acceptance rates, and 
-                        very few successful challenges were delivered on those two. <b>radeye</b> became the top scorer in Divison-I thanks to two 
-                        fast submissions and two successful challenges. Division-II had a well balanced problem set where several people got 
-                        all three problems, and <b>fx4m</b> was the one to get them all fastest.</p>
+                        <p>SnapDragon brought his A game to this match, beating everyone by over 200 points. 
+						Most people were able to get the first two problems, but dynamic programming is 
+						always a little tricky, and after solving the first two problems, few people had 
+						time to finish the third. sjelkjd also showed why he made it to the CC finals, 
+						taking second overall, helped largely by his 4 successful challenges. Over in 
+						Division 2, first timer dary also won by over 200 points, with three fast 
+						submissions, and a challenge.
+						<a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm141_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
+                <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
             </table>
- End of Point of View -->
+ <!-- End of Point of View -->
 
 <!-- Java Web Start Include -->
             <xsl:call-template name="arena"/>
