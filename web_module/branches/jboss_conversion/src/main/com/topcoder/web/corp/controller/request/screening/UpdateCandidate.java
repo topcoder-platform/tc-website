@@ -30,6 +30,7 @@ import com.topcoder.web.ejb.user.UserHome;
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpSession;
 import javax.transaction.TransactionManager;
+import javax.transaction.Status;
 import java.util.Map;
 
 /**
@@ -155,7 +156,8 @@ public class UpdateCandidate extends BaseScreeningProcessor {
 
                     updateSessionCandidate(userId);
                 } catch (Exception e) {
-                    tm.rollback();
+                    if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE)
+                        tm.rollback();
                     throw e;
                 }
                 tm.commit();

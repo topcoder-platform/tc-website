@@ -141,7 +141,7 @@ public class UpdateProfile extends BaseProfileProcessor {
 
                     updateSessionProfile(sessionProfileId);
                 } catch (Exception e) {
-                    if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                    if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE)
                         tm.rollback();
                     throw e;
                 }
