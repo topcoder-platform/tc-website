@@ -6,21 +6,20 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/modules/tco03_suplinks.xsl"/>
   <xsl:import href="../includes/modules/tco03_links.xsl"/>
-  <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>  
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
 <html>
 <head>
 
-<xsl:call-template name="Preload"/>      
+<xsl:call-template name="Preload"/>
 
 <title>2003 TopCoder Open - Computer Programming Tournament - Overview</title>
 
-<xsl:call-template name="CSS"/>      
+<xsl:call-template name="CSS"/>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -52,7 +51,7 @@
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
         <td class="bodyText">
             <div align="center">
                 <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
@@ -92,10 +91,10 @@
             <xsl:call-template name="tco03_sublinks">
                 <xsl:with-param name="selectedTab"></xsl:with-param>
             </xsl:call-template>
-    
+
             <blockquote>
             <h2>Overview of the Coding Tournament</h2>
-            
+
             <ul>
                 <li><strong>Dates: </strong><br />
                     October 7th through December 5th, 2003</li>
@@ -113,7 +112,7 @@
             </blockquote>
 
             <p><br/></p>
-            
+
         </td>
 <!-- Center Column Ends -->
 

@@ -6,21 +6,20 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/modules/tco03_suplinks.xsl"/>
   <xsl:import href="../includes/modules/tco03_links.xsl"/>
-  <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>  
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
 <html>
 <head>
 
-<xsl:call-template name="Preload"/>      
+<xsl:call-template name="Preload"/>
 
 <title>2003 TopCoder Open - Computer Programming Tournament - Schedule</title>
 
-<xsl:call-template name="CSS"/>      
+<xsl:call-template name="CSS"/>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -52,7 +51,7 @@
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
         <td class="bodyText">
             <div align="center">
                 <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
@@ -91,15 +90,15 @@
             <xsl:call-template name="tco03_sublinks">
                 <xsl:with-param name="selectedTab"></xsl:with-param>
             </xsl:call-template>
-    
+
             <blockquote>
             <h2>Schedule</h2>
-            
+
 <!-- Qualification Rounds begins -->
            <p><span class="bodySubtitle">Online Elimination Rounds</span></p>
-            <p>All eligible TopCoder members may compete in Online Round 1 of the Component Tournament. For design, the top eight scorers from Round 1 
-            will advance.  The top eight scorers from Round 1 along with the winners of the previous quarterly component design contests 
-            will compete in Online Round 2.  For development, the top ten scorers from Round 1 will compete in Online Round 2.  
+            <p>All eligible TopCoder members may compete in Online Round 1 of the Component Tournament. For design, the top eight scorers from Round 1
+            will advance.  The top eight scorers from Round 1 along with the winners of the previous quarterly component design contests
+            will compete in Online Round 2.  For development, the top ten scorers from Round 1 will compete in Online Round 2.
             The top two scorers from Round 2 will compete in the Championship Round at Mohegan Sun on December 5th.</p>
 
             <a name="sched"></a>
@@ -145,7 +144,7 @@
                      <td class="sidebarText">
                         10.02.03
                         </td>
-                   </tr>            
+                   </tr>
                 <tr valign="top">
                     <td class="sidebarText" colspan="3"><strong>Online Round 2</strong></td>
                  </tr>
@@ -181,7 +180,7 @@
                      <td class="sidebarText">
                         11.06.03
                         </td>
-                   </tr>            
+                   </tr>
                 <tr valign="top">
                     <td class="sidebarText" colspan="3"><strong>Onsite Championship Round 3</strong></td>
                  </tr>
@@ -217,7 +216,7 @@
                      <td class="sidebarText">
                         11.25.03 6:00pm
                         </td>
-                   </tr>            
+                   </tr>
                   <tr>
                      <td class="sidebarText">
                         Scorecards posted*
@@ -228,7 +227,7 @@
                      <td class="sidebarText">
                         11.25.03 8:00am
                         </td>
-                   </tr>            
+                   </tr>
                   <tr>
                      <td class="sidebarText">
                         Final fixes*
@@ -239,7 +238,7 @@
                      <td class="sidebarText">
                         12.05.03 8:00am - 12:00pm
                         </td>
-                   </tr>            
+                   </tr>
                   <tr>
                      <td class="sidebarText">
                         Final reviews*
@@ -250,7 +249,7 @@
                      <td class="sidebarText">
                         12.05.03 12.15pm - 3:30pm
                         </td>
-                   </tr>            
+                   </tr>
                   <tr>
                      <td class="sidebarText">
                         Winners announced*
@@ -263,14 +262,14 @@
                         </td>
                    </tr>
                 <tr><td colspan="3" class="sidebarText">*These times are subject to change</td></tr>
-                   
+
 
 
             </table><br />
             </blockquote>
 
             <p><br/></p>
-            
+
         </td>
 <!-- Center Column Ends -->
 
